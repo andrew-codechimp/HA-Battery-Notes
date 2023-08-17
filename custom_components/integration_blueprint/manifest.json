@@ -1,0 +1,12 @@
+{
+  "domain": "integration_blueprint",
+  "name": "Integration blueprint",
+  "codeowners": [
+    "@ludeeus"
+  ],
+  "config_flow": true,
+  "documentation": "https://github.com/ludeeus/integration_blueprint",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/ludeeus/integration_blueprint/issues",
+  "version": "0.0.0"
+}
