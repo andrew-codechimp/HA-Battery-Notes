@@ -4,7 +4,7 @@ from __future__ import annotations
 import voluptuous as vol
 from homeassistant import config_entries
 from homeassistant.const import CONF_PASSWORD, CONF_USERNAME
-from homeassistant.helpers import selector
+from homeassistant.helpers import selector, device_registry
 from homeassistant.helpers.aiohttp_client import async_create_clientsession
 
 from .api import (
@@ -28,25 +28,28 @@ class BatteryTypesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
         """Handle a flow initialized by the user."""
         _errors = {}
         if user_input is not None:
-            try:
-                await self._test_credentials(
-                    username=user_input[CONF_USERNAME],
-                    password=user_input[CONF_PASSWORD],
-                )
-            except BatteryTypesApiClientAuthenticationError as exception:
-                LOGGER.warning(exception)
-                _errors["base"] = "auth"
-            except BatteryTypesApiClientCommunicationError as exception:
-                LOGGER.error(exception)
-                _errors["base"] = "connection"
-            except BatteryTypesApiClientError as exception:
-                LOGGER.exception(exception)
-                _errors["base"] = "unknown"
-            else:
-                return self.async_create_entry(
-                    title=user_input[CONF_USERNAME],
-                    data=user_input,
-                )
+            # registry = await self.hass.helpers.device_registry.async_get_registry()
+            # device = registry.async_get_device({(DOMAIN, entry.data.get("mac"))}, set())
+
+            # try:
+            #     await self._test_credentials(
+            #         username=user_input[CONF_USERNAME],
+            #         password=user_input[CONF_PASSWORD],
+            #     )
+            # except BatteryTypesApiClientAuthenticationError as exception:
+            #     LOGGER.warning(exception)
+            #     _errors["base"] = "auth"
+            # except BatteryTypesApiClientCommunicationError as exception:
+            #     LOGGER.error(exception)
+            #     _errors["base"] = "connection"
+            # except BatteryTypesApiClientError as exception:
+            #     LOGGER.exception(exception)
+            #     _errors["base"] = "unknown"
+            # else:
+            return self.async_create_entry(
+                title=user_input[CONF_DEVICE],
+                data=user_input,
+            )
 
         return self.async_show_form(
             step_id="user",

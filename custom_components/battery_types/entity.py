@@ -4,14 +4,12 @@ from __future__ import annotations
 from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
-from .const import ATTRIBUTION, DOMAIN, NAME, VERSION
+from .const import DOMAIN, NAME, VERSION
 from .coordinator import BatteryTypesDataUpdateCoordinator
 
 
 class BatteryTypesEntity(CoordinatorEntity):
     """BatteryTypesEntity class."""
-
-    _attr_attribution = ATTRIBUTION
 
     def __init__(self, coordinator: BatteryTypesDataUpdateCoordinator) -> None:
         """Initialize."""
