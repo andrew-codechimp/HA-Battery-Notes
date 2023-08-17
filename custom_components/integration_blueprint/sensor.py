@@ -5,7 +5,7 @@ from homeassistant.components.sensor import SensorEntity, SensorEntityDescriptio
 
 from .const import DOMAIN
 from .coordinator import BlueprintDataUpdateCoordinator
-from .entity import IntegrationBlueprintEntity
+from .entity import BatteryTypesEntity
 
 ENTITY_DESCRIPTIONS = (
     SensorEntityDescription(
@@ -20,7 +20,7 @@ async def async_setup_entry(hass, entry, async_add_devices):
     """Set up the sensor platform."""
     coordinator = hass.data[DOMAIN][entry.entry_id]
     async_add_devices(
-        IntegrationBlueprintSensor(
+        BatteryTypesSensor(
             coordinator=coordinator,
             entity_description=entity_description,
         )
@@ -28,7 +28,7 @@ async def async_setup_entry(hass, entry, async_add_devices):
     )
 
 
-class IntegrationBlueprintSensor(IntegrationBlueprintEntity, SensorEntity):
+class BatteryTypesSensor(BatteryTypesEntity, SensorEntity):
     """battery_types Sensor class."""
 
     def __init__(

@@ -32,4 +32,4 @@ jobs:
       - name: "Upload the ZIP file to the release"
         uses: softprops/action-gh-release@v0.1.15
         with:
-          files: ${{ github.workspace }}/custom_components/battery_types/integration_blueprint.zip
+          files: ${{ github.workspace }}/custom_components/battery_types/battery_types.zip

@@ -1,5 +1,5 @@
 {
-    "name": "Integration blueprint",
+    "name": "Battery Types",
     "filename": "battery-types.zip",
     "hide_default_branch": true,
     "homeassistant": "2023.3.0",

@@ -1,6 +1,6 @@
 {
   "domain": "battery_types",
-  "name": "Integration blueprint",
+  "name": "Battery Types",
   "codeowners": [
     "@andrew-codechimp"
   ],
