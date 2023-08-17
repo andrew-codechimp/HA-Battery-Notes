@@ -1,12 +1,12 @@
 {
-  "domain": "integration_blueprint",
+  "domain": "battery_types",
   "name": "Integration blueprint",
   "codeowners": [
-    "@ludeeus"
+    "@andrew-codechimp"
   ],
   "config_flow": true,
-  "documentation": "https://github.com/ludeeus/integration_blueprint",
+  "documentation": "https://github.com/andrew-codechimp/ha-battery-types",
   "iot_class": "cloud_polling",
-  "issue_tracker": "https://github.com/ludeeus/integration_blueprint/issues",
+  "issue_tracker": "https://github.com/andrew-codechimp/ha-battery-types/issues",
   "version": "0.0.0"
 }
