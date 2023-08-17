@@ -4,7 +4,7 @@ from __future__ import annotations
 from homeassistant.components.switch import SwitchEntity, SwitchEntityDescription
 
 from .const import DOMAIN
-from .coordinator import BlueprintDataUpdateCoordinator
+from .coordinator import BatteryTypesDataUpdateCoordinator
 from .entity import BatteryTypesEntity
 
 ENTITY_DESCRIPTIONS = (
@@ -33,7 +33,7 @@ class BatteryTypesSwitch(BatteryTypesEntity, SwitchEntity):
 
     def __init__(
         self,
-        coordinator: BlueprintDataUpdateCoordinator,
+        coordinator: BatteryTypesDataUpdateCoordinator,
         entity_description: SwitchEntityDescription,
     ) -> None:
         """Initialize the switch class."""

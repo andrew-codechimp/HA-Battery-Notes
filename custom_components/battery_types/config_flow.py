@@ -13,7 +13,7 @@ from .api import (
     BatteryTypesApiClientCommunicationError,
     BatteryTypesApiClientError,
 )
-from .const import DOMAIN, LOGGER
+from .const import DOMAIN, LOGGER, CONF_DEVICE, CONF_BATTERY_TYPE
 
 
 class BatteryTypesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
@@ -53,16 +53,16 @@ class BatteryTypesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             data_schema=vol.Schema(
                 {
                     vol.Required(
-                        CONF_USERNAME,
-                        default=(user_input or {}).get(CONF_USERNAME),
+                        CONF_DEVICE, default=(user_input or {}).get(CONF_DEVICE)
+                    ): selector.DeviceSelector(
+                        # selector.DeviceSelectorConfig(model="otgw-nodo")
+                    ),
+                    vol.Required(
+                        CONF_BATTERY_TYPE,
+                        default=(user_input or {}).get(CONF_BATTERY_TYPE),
                     ): selector.TextSelector(
                         selector.TextSelectorConfig(
                             type=selector.TextSelectorType.TEXT
-                        ),
-                    ),
-                    vol.Required(CONF_PASSWORD): selector.TextSelector(
-                        selector.TextSelectorConfig(
-                            type=selector.TextSelectorType.PASSWORD
                         ),
                     ),
                 }
