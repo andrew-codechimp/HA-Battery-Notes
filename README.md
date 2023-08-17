@@ -10,7 +10,7 @@
 
 _Integration to add battery types to a device._
 
-**UNDER EARLY DEVELOPMENT**  
+## UNDER EARLY DEVELOPMENT ##  
 Do not use until there is a release.
 
 **This integration will set up the following platforms.**
