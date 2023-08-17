@@ -6,14 +6,13 @@
 
 [![hacs][hacsbadge]][hacs]
 ![Project Maintenance][maintenance-shield]
-[![BuyMeCoffee][buymecoffeebadge]][buymecoffee]
 
-[![Discord][discord-shield]][discord]
 [![Community Forum][forum-shield]][forum]
 
 _Integration to add battery types to a device._
 
-UNDER EARLY DEVELOPMENT
+**UNDER EARLY DEVELOPMENT**  
+Do not use until there is a release.
 
 **This integration will set up the following platforms.**
 
