@@ -1,45 +1,37 @@
-"""Custom integration to integrate integration_BatteryTypes with Home Assistant.
+"""Custom integration to integrate BatteryTypes with Home Assistant.
 
 For more details about this integration, please refer to
 https://github.com/andrew-codechimp/ha-battery-types
 """
 from __future__ import annotations
 
+import logging
+import voluptuous as vol
+
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import CONF_PASSWORD, CONF_USERNAME, Platform
+from homeassistant.const import Platform
 from homeassistant.core import HomeAssistant
-from homeassistant.helpers.aiohttp_client import async_get_clientsession
 
-from .api import BatteryTypesApiClient
-from .const import DOMAIN
-from .coordinator import BatteryTypesDataUpdateCoordinator
+from .const import (
+    DOMAIN,
+    CONF_BATTERY_TYPE,
+    CONF_SENSORS,
+)
 
-PLATFORMS: list[Platform] = [
-    Platform.SENSOR,
-    Platform.BINARY_SENSOR,
-    Platform.SWITCH,
-]
+PLATFORMS = [Platform.SENSOR]
 
 
-# https://developers.home-assistant.io/docs/config_entries_index/#setting-up-an-entry
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
-    """Set up this integration using UI."""
-    hass.data.setdefault(DOMAIN, {})
-    hass.data[DOMAIN][entry.entry_id] = coordinator = BatteryTypesDataUpdateCoordinator(
-        hass=hass,
-        client=BatteryTypesApiClient(
-            username=entry.data[CONF_USERNAME],
-            password=entry.data[CONF_PASSWORD],
-            session=async_get_clientsession(hass),
-        ),
-    )
-    # https://developers.home-assistant.io/docs/integration_fetching_data#coordinated-single-api-poll-for-data-for-all-entities
-    await coordinator.async_config_entry_first_refresh()
-
+    """Set up this integration from a config entry."""
     await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
-    entry.async_on_unload(entry.add_update_listener(async_reload_entry))
+    entry.async_on_unload(entry.add_update_listener(async_update_entry))
 
     return True
+
+
+async def async_update_entry(hass: HomeAssistant, entry: ConfigEntry) -> None:
+    """Update a given config entry."""
+    await hass.config_entries.async_reload(entry.entry_id)
 
 
 async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:

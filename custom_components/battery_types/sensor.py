@@ -1,10 +1,11 @@
 """Sensor platform for battery_types."""
 from __future__ import annotations
 
+import logging
+
 from homeassistant.components.sensor import SensorEntity, SensorEntityDescription
 
 from .const import DOMAIN
-from .coordinator import BatteryTypesDataUpdateCoordinator
 from .entity import BatteryTypesEntity
 
 ENTITY_DESCRIPTIONS = (
@@ -14,6 +15,8 @@ ENTITY_DESCRIPTIONS = (
         icon="mdi:format-quote-close",
     ),
 )
+
+_LOGGER = logging.getLogger(__name__)
 
 
 async def async_setup_entry(hass, entry, async_add_devices):

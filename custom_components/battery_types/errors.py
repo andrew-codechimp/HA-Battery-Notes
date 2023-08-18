@@ -1,0 +1,32 @@
+"""Errors for battery types component."""
+
+from __future__ import annotations
+
+from homeassistant.exceptions import HomeAssistantError
+
+
+class BatteryTypesSetupError(HomeAssistantError):
+    """Raised when an error occured during  sensor setup."""
+
+
+class SensorConfigurationError(BatteryTypesSetupError):
+    """Raised when sensor configuration is invalid."""
+
+
+class SensorAlreadyConfiguredError(SensorConfigurationError):
+    """Raised when battery types has already been configured before for the entity."""
+
+    def __init__(
+        self,
+        source_entity_id: str,
+        existing_entities: list,
+    ) -> None:
+        self.existing_entities = existing_entities
+        super().__init__(
+            f"{source_entity_id}: This entity has already configured a battery type. "
+            "When you want to configure it twice make sure to give it a unique_id",
+        )
+
+    def get_existing_entities(self) -> list:
+        """Get existing entities"""
+        return self.existing_entities

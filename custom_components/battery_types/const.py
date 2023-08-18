@@ -17,3 +17,4 @@ MANUFACTURER = "@Andrew-CodeChimp"
 
 CONF_DEVICE = "device"
 CONF_BATTERY_TYPE = "battery_type"
+CONF_SENSORS = "sensors"
