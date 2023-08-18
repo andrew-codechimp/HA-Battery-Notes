@@ -4,8 +4,12 @@
             "user": {
                 "description": "If you need help with the configuration have a look here: https://github.com/andrew-codechimp/ha-battery-types",
                 "data": {
-                    "device": "Device",
+                    "device_id": "Device",
+                    "name": "Name",
                     "battery_type": "Battery Type"
+                },
+                "data_description": {
+                    "name": "Leaving blank will take the name from the source device"
                 }
             }
         },
@@ -18,7 +22,11 @@
             "init": {
                 "description": "If you need help with the configuration have a look here: https://github.com/andrew-codechimp/ha-battery-types",
                 "data": {
+                    "name": "Name",
                     "battery_type": "Battery Type"
+                },
+                "data_description": {
+                    "name": "Leaving blank will take the name from the source device"
                 }
             }
         },

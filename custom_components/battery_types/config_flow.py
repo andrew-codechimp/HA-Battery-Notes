@@ -14,7 +14,7 @@ from homeassistant.helpers import selector
 import homeassistant.helpers.device_registry as dr
 import homeassistant.helpers.entity_registry as er
 
-from .const import DOMAIN, LOGGER, CONF_DEVICE_ID, CONF_BATTERY_TYPE
+from .const import DOMAIN, LOGGER, CONF_DEVICE_ID, CONF_NAME, CONF_BATTERY_TYPE
 
 
 class BatteryTypesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
@@ -36,14 +36,17 @@ class BatteryTypesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
         _errors = {}
         if user_input is not None:
             device_registry = dr.async_get(self.hass)
-            # device = device_registry.async_get_device({(DOMAIN, entry.data.get("mac"))}, set())
-            # device_registry = dr.async_get(hass)
             device_entry = (
                 device_registry.async_get(user_input[CONF_DEVICE_ID])
             )
 
+            if CONF_NAME in user_input:
+                title = user_input.get(CONF_NAME)
+            else:
+                title = device_entry.name
+
             return self.async_create_entry(
-                title=device_entry.name,
+                title=title,
                 data=user_input,
             )
 
@@ -52,9 +55,17 @@ class BatteryTypesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             data_schema=vol.Schema(
                 {
                     vol.Required(
-                        CONF_DEVICE_ID, default=(user_input or {}).get(CONF_DEVICE_ID)
+                        CONF_DEVICE_ID,
+                        default=(user_input or {}).get(CONF_DEVICE_ID)
                     ): selector.DeviceSelector(
                         # selector.DeviceSelectorConfig(model="otgw-nodo")
+                    ),
+                    vol.Optional(
+                        CONF_NAME
+                    ): selector.TextSelector(
+                        selector.TextSelectorConfig(
+                            type=selector.TextSelectorType.TEXT
+                        ),
                     ),
                     vol.Required(
                         CONF_BATTERY_TYPE,
@@ -77,6 +88,7 @@ class OptionsFlowHandler(OptionsFlow):
         self.config_entry = config_entry
         self.current_config: dict = dict(config_entry.data)
         self.source_device_id: str = self.current_config.get(CONF_DEVICE_ID)  # type: ignore
+        self.name: str = self.current_config.get(CONF_NAME)
         self.battery_type: str = self.current_config.get(CONF_BATTERY_TYPE)
 
     async def async_step_init(
@@ -105,10 +117,20 @@ class OptionsFlowHandler(OptionsFlow):
         schema: vol.Schema,
     ) -> dict:
         """Save options, and return errors when validation fails."""
-        self._process_user_input(user_input, schema)
+        device_registry = dr.async_get(self.hass)
+        device_entry = (
+            device_registry.async_get(self.config_entry.data.get(CONF_DEVICE_ID))
+        )
 
+        if CONF_NAME in user_input:
+            title = user_input.get(CONF_NAME)
+        else:
+            title = device_entry.name
+
+        self._process_user_input(user_input, schema)
         self.hass.config_entries.async_update_entry(
             self.config_entry,
+            title=title,
             data=self.current_config,
         )
         return {}
@@ -134,6 +156,13 @@ class OptionsFlowHandler(OptionsFlow):
         """Build the options schema."""
         data_schema=vol.Schema(
                 {
+                    vol.Optional(
+                        CONF_NAME
+                    ): selector.TextSelector(
+                        selector.TextSelectorConfig(
+                            type=selector.TextSelectorType.TEXT
+                        ),
+                    ),
                     vol.Required(
                         CONF_BATTERY_TYPE
                     ): selector.TextSelector(
