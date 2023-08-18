@@ -28,5 +28,5 @@ class SensorAlreadyConfiguredError(SensorConfigurationError):
         )
 
     def get_existing_entities(self) -> list:
-        """Get existing entities"""
+        """Get existing entities."""
         return self.existing_entities
