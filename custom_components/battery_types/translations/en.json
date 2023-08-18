@@ -4,14 +4,12 @@
             "user": {
                 "description": "If you need help with the configuration have a look here: https://github.com/andrew-codechimp/ha-battery-types",
                 "data": {
-                    "username": "Username",
-                    "password": "Password"
+                    "device": "Device",
+                    "battery_type": "Battery Type"
                 }
             }
         },
         "error": {
-            "auth": "Username/Password is wrong.",
-            "connection": "Unable to connect to the server.",
             "unknown": "Unknown error occurred."
         }
     }
