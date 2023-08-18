@@ -15,6 +15,6 @@ VERSION = manifest_data.get("version")
 ISSUEURL = manifest_data.get("issue_tracker")
 MANUFACTURER = "@Andrew-CodeChimp"
 
-CONF_DEVICE = "device"
+CONF_DEVICE_ID = "device_id"
 CONF_BATTERY_TYPE = "battery_type"
 CONF_SENSORS = "sensors"

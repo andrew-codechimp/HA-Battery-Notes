@@ -12,7 +12,7 @@ ENTITY_DESCRIPTIONS = (
     SensorEntityDescription(
         key="battery_types",
         name="Integration Sensor",
-        icon="mdi:format-quote-close",
+        icon="mdi:battery-unknown",
     ),
 )
 
