@@ -142,6 +142,7 @@ class OptionsFlowHandler(OptionsFlow):
     ) -> None:
         """
         Process the provided user input against the schema.
+
         Update the current_config dictionary with the new options. We use that to save the data to config entry later on.
         """
         for key in schema.schema:
