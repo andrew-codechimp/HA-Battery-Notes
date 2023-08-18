@@ -10,7 +10,9 @@ from homeassistant import config_entries
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.data_entry_flow import FlowResult
 from homeassistant.config_entries import ConfigEntry, OptionsFlow
-from homeassistant.helpers import selector, device_registry
+from homeassistant.helpers import selector
+import homeassistant.helpers.device_registry as dr
+import homeassistant.helpers.entity_registry as er
 
 from .const import DOMAIN, LOGGER, CONF_DEVICE_ID, CONF_BATTERY_TYPE
 
@@ -33,11 +35,15 @@ class BatteryTypesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
         """Handle a flow initialized by the user."""
         _errors = {}
         if user_input is not None:
-            # registry = await self.hass.helpers.device_registry.async_get_registry()
-            # device = registry.async_get_device({(DOMAIN, entry.data.get("mac"))}, set())
+            device_registry = dr.async_get(self.hass)
+            # device = device_registry.async_get_device({(DOMAIN, entry.data.get("mac"))}, set())
+            # device_registry = dr.async_get(hass)
+            device_entry = (
+                device_registry.async_get(user_input[CONF_DEVICE_ID])
+            )
 
             return self.async_create_entry(
-                title=user_input[CONF_DEVICE_ID],
+                title=device_entry.name,
                 data=user_input,
             )
 
@@ -128,11 +134,6 @@ class OptionsFlowHandler(OptionsFlow):
         """Build the options schema."""
         data_schema=vol.Schema(
                 {
-                    vol.Required(
-                        CONF_DEVICE_ID
-                    ): selector.DeviceSelector(
-                        # selector.DeviceSelectorConfig(model="otgw-nodo")
-                    ),
                     vol.Required(
                         CONF_BATTERY_TYPE
                     ): selector.TextSelector(

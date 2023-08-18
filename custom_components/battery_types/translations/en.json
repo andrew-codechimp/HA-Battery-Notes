@@ -12,5 +12,18 @@
         "error": {
             "unknown": "Unknown error occurred."
         }
+    },
+    "options": {
+        "step": {
+            "init": {
+                "description": "If you need help with the configuration have a look here: https://github.com/andrew-codechimp/ha-battery-types",
+                "data": {
+                    "battery_type": "Battery Type"
+                }
+            }
+        },
+        "error": {
+            "unknown": "Unknown error occurred."
+        }
     }
 }
