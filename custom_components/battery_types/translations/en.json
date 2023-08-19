@@ -22,6 +22,7 @@
             "init": {
                 "description": "If you need help with the configuration have a look here: https://github.com/andrew-codechimp/ha-battery-types",
                 "data": {
+                    "device_id": "Device",
                     "name": "Name",
                     "battery_type": "Battery Type"
                 },
