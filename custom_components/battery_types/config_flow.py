@@ -14,7 +14,9 @@ from homeassistant.helpers import selector
 import homeassistant.helpers.device_registry as dr
 import homeassistant.helpers.entity_registry as er
 
-from .const import DOMAIN, LOGGER, CONF_DEVICE_ID, CONF_NAME, CONF_BATTERY_TYPE
+from homeassistant.const import CONF_NAME
+
+from .const import DOMAIN, LOGGER, CONF_DEVICE_ID, CONF_BATTERY_TYPE
 
 
 class BatteryTypesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):

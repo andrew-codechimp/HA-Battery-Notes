@@ -12,6 +12,8 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import Platform
 from homeassistant.core import HomeAssistant
 
+from homeassistant.const import CONF_NAME
+
 from .const import (
     DOMAIN,
     CONF_BATTERY_TYPE,
@@ -45,3 +47,20 @@ async def async_reload_entry(hass: HomeAssistant, entry: ConfigEntry) -> None:
     """Reload config entry."""
     await async_unload_entry(hass, entry)
     await async_setup_entry(hass, entry)
+
+# async def async_remove_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> None:
+#     """Called after a config entry is removed."""
+#     updated_entries: list[ConfigEntry] = []
+
+#     sensor_type = config_entry.data.get(CONF_SENSOR_TYPE)
+#     if sensor_type == SensorType.VIRTUAL_POWER:
+#         updated_entries = await remove_power_sensor_from_associated_groups(
+#             hass,
+#             config_entry,
+#         )
+#     if sensor_type == SensorType.GROUP:
+#         updated_entries = await remove_group_from_power_sensor_entry(hass, config_entry)
+
+#     for entry in updated_entries:
+#         if entry.state == ConfigEntryState.LOADED:
+#             await hass.config_entries.async_reload(entry.entry_id)
