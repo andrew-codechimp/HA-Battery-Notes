@@ -1,4 +1,4 @@
-"""Constants for battery_types."""
+"""Constants for battery_notes."""
 import json
 from logging import Logger, getLogger
 from pathlib import Path

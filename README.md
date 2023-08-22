@@ -1,4 +1,4 @@
-# Home Assistant Battery Types
+# Home Assistant Battery Notes
 
 [![GitHub Release][releases-shield]][releases]
 [![GitHub Activity][commits-shield]][commits]
@@ -25,7 +25,7 @@ Platform | Description
 
 1. Make sure the [HACS](https://github.com/custom-components/hacs) component is installed and working.
 1. Add the project repository `https://github.com/andrew-codechimp/HA-Battery-Types` as a custom repository to HACS, see: https://hacs.xyz/docs/faq/custom_repositories
-1. Search for `Battery Types` in HACS and install it under the "Integrations" category.
+1. Search for `Battery Notes` in HACS and install it under the "Integrations" category.
 1. Restart Home Assistant
 1. In the HA UI go to "Configuration" -> "Integrations" click "+" and search for "Mastodon Profile Stats"
 
@@ -35,11 +35,11 @@ Platform | Description
 <summary>Show detailed instructions</summary>
 1. Using the tool of choice open the directory (folder) for your HA configuration (where you find `configuration.yaml`).
 1. If you do not have a `custom_components` directory (folder) there, you need to create it.
-1. In the `custom_components` directory (folder) create a new folder called `battery_types`.
-1. Download _all_ the files from the `custom_components/battery_types/` directory (folder) in this repository.
+1. In the `custom_components` directory (folder) create a new folder called `battery_notes`.
+1. Download _all_ the files from the `custom_components/battery_notes/` directory (folder) in this repository.
 1. Place the files you downloaded in the new directory (folder) you created.
 1. Restart Home Assistant
-1. In the HA UI go to "Configuration" -> "Integrations" click "+" and search for "Battery Types"
+1. In the HA UI go to "Configuration" -> "Integrations" click "+" and search for "Battery Notes"
 </details>
 
 ## Configuration is done in the UI
@@ -56,9 +56,9 @@ This integration has been heavily inspired by and a lot of code cribbed from the
 
 ***
 
-[battery_types]: https://github.com/andrew-codechimp/ha-battery-types
-[commits-shield]: https://img.shields.io/github/commit-activity/y/andrew-codechimp/battery-types.svg?style=for-the-badge
-[commits]: https://github.com/andrew-codechimp/ha-battery-types/commits/main
+[battery_notes]: https://github.com/andrew-codechimp/ha-battery-notes
+[commits-shield]: https://img.shields.io/github/commit-activity/y/andrew-codechimp/battery-notes.svg?style=for-the-badge
+[commits]: https://github.com/andrew-codechimp/ha-battery-notes/commits/main
 [hacs]: https://github.com/hacs/integration
 [hacsbadge]: https://img.shields.io/badge/HACS-Custom-orange.svg?style=for-the-badge
 [discord]: https://discord.gg/Qa5fW2R
@@ -66,6 +66,6 @@ This integration has been heavily inspired by and a lot of code cribbed from the
 [exampleimg]: example.png
 [forum-shield]: https://img.shields.io/badge/community-forum-brightgreen.svg?style=for-the-badge
 [forum]: https://community.home-assistant.io/
-[license-shield]: https://img.shields.io/github/license/andrew-codechimp/battery-types.svg?style=for-the-badge
-[releases-shield]: https://img.shields.io/github/release/andrew-codechimp/battery-types.svg?style=for-the-badge
-[releases]: https://github.com/andrew-codechimp/ha-battery-types/releases
+[license-shield]: https://img.shields.io/github/license/andrew-codechimp/battery-notes.svg?style=for-the-badge
+[releases-shield]: https://img.shields.io/github/release/andrew-codechimp/battery-notes.svg?style=for-the-badge
+[releases]: https://github.com/andrew-codechimp/ha-battery-notes/releases

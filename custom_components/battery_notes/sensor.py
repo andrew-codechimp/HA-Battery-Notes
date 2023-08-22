@@ -1,4 +1,4 @@
-"""Sensor platform for battery_types."""
+"""Sensor platform for battery_notes."""
 from __future__ import annotations
 
 import logging
@@ -31,7 +31,7 @@ from .errors import SensorConfigurationError, SensorAlreadyConfiguredError
 
 ENTITY_DESCRIPTIONS = (
     SensorEntityDescription(
-        key="battery_types",
+        key="battery_notes",
         name="Battery type",
         icon="mdi:battery-unknown",
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -386,7 +386,7 @@ async def create_energy_sensor(
     )
 
 class BatteryTypesSensor(BatteryTypesEntity, SensorEntity):
-    """battery_types Sensor class."""
+    """battery_notes Sensor class."""
 
     def __init__(
         self,

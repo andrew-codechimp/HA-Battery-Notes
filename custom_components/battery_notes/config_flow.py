@@ -1,4 +1,4 @@
-"""Adds config flow for BatteryTypes."""
+"""Adds config flow for BatteryNotes."""
 from __future__ import annotations
 
 import copy
@@ -20,7 +20,7 @@ from .const import DOMAIN, LOGGER, CONF_DEVICE_ID, CONF_BATTERY_TYPE
 
 
 class BatteryTypesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
-    """Config flow for BatteryTypes."""
+    """Config flow for BatteryNotes."""
 
     VERSION = 1
 
@@ -83,7 +83,7 @@ class BatteryTypesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
         )
 
 class OptionsFlowHandler(OptionsFlow):
-    """Handle an option flow for BatteryTypes."""
+    """Handle an option flow for BatteryNotes."""
 
     def __init__(self, config_entry: ConfigEntry) -> None:
         """Initialize options flow."""

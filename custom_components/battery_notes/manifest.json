@@ -1,0 +1,13 @@
+{
+  "domain": "battery_notes",
+  "name": "Battery Notes",
+  "codeowners": [
+    "@andrew-codechimp"
+  ],
+  "config_flow": true,
+  "documentation": "https://github.com/andrew-codechimp/ha-battery-notes",
+  "integration_type": "device",
+  "iot_class": "calculated",
+  "issue_tracker": "https://github.com/andrew-codechimp/ha-battery-notes/issues",
+  "version": "0.0.0"
+}

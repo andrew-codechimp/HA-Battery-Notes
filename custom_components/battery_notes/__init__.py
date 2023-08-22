@@ -1,7 +1,7 @@
-"""Custom integration to integrate BatteryTypes with Home Assistant.
+"""Custom integration to integrate BatteryNotes with Home Assistant.
 
 For more details about this integration, please refer to
-https://github.com/andrew-codechimp/ha-battery-types
+https://github.com/andrew-codechimp/ha-battery-notes
 """
 from __future__ import annotations
 

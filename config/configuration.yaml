@@ -5,4 +5,4 @@ default_config:
 logger:
   default: info
   logs:
-    custom_components.battery_types: debug
+    custom_components.battery_notes: debug

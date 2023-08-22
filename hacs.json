@@ -1,6 +1,6 @@
 {
-    "name": "Battery Types",
-    "filename": "battery-types.zip",
+    "name": "Battery Notes",
+    "filename": "battery-notes.zip",
     "hide_default_branch": true,
     "homeassistant": "2023.3.0",
     "render_readme": true,
