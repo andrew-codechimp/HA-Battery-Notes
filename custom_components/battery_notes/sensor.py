@@ -26,7 +26,7 @@ from homeassistant.const import (
     CONF_UNIQUE_ID,
 )
 from .const import DOMAIN, LOGGER, CONF_DEVICE_ID, CONF_BATTERY_TYPE
-from .entity import BatteryTypesEntity
+from .entity import BatteryNotesEntity
 from .errors import SensorConfigurationError, SensorAlreadyConfiguredError
 
 ENTITY_DESCRIPTIONS = (
@@ -385,12 +385,12 @@ async def create_energy_sensor(
         sensor_config=sensor_config,
     )
 
-class BatteryTypesSensor(BatteryTypesEntity, SensorEntity):
+class BatteryNotesSensor(BatteryNotesEntity, SensorEntity):
     """battery_notes Sensor class."""
 
     def __init__(
         self,
-        coordinator: BatteryTypesDataUpdateCoordinator,
+        coordinator: BatteryNotesDataUpdateCoordinator,
         entity_description: SensorEntityDescription,
     ) -> None:
         """Initialize the sensor class."""

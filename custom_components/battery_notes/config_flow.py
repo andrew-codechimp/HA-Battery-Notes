@@ -19,7 +19,7 @@ from homeassistant.const import CONF_NAME
 from .const import DOMAIN, LOGGER, CONF_DEVICE_ID, CONF_BATTERY_TYPE
 
 
-class BatteryTypesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
+class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
     """Config flow for BatteryNotes."""
 
     VERSION = 1

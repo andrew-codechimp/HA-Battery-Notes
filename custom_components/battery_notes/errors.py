@@ -5,11 +5,11 @@ from __future__ import annotations
 from homeassistant.exceptions import HomeAssistantError
 
 
-class BatteryTypesSetupError(HomeAssistantError):
+class BatteryNotesSetupError(HomeAssistantError):
     """Raised when an error occured during  sensor setup."""
 
 
-class SensorConfigurationError(BatteryTypesSetupError):
+class SensorConfigurationError(BatteryNotesSetupError):
     """Raised when sensor configuration is invalid."""
 
 
