@@ -24,7 +24,7 @@ Platform | Description
 ### HACS
 
 1. Make sure the [HACS](https://github.com/custom-components/hacs) component is installed and working.
-1. Add the project repository `https://github.com/andrew-codechimp/HA-Battery-Types` as a custom repository to HACS, see: https://hacs.xyz/docs/faq/custom_repositories
+1. Add the project repository `https://github.com/andrew-codechimp/HA-Battery-Notes` as a custom repository to HACS, see: https://hacs.xyz/docs/faq/custom_repositories
 1. Search for `Battery Notes` in HACS and install it under the "Integrations" category.
 1. Restart Home Assistant
 1. In the HA UI go to "Configuration" -> "Integrations" click "+" and search for "Mastodon Profile Stats"
