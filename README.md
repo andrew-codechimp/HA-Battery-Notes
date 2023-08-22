@@ -8,7 +8,7 @@
 
 [![Community Forum][forum-shield]][forum]
 
-_Integration to add battery types to a device._
+_Integration to add battery notes to a device._
 
 ## UNDER EARLY DEVELOPMENT ##  
 Do not use until there is a release.
