@@ -33,11 +33,6 @@ def async_add_to_device(
 
     device_id = entry.data.get(CONF_DEVICE_ID)
 
-    if device_id:
-        print("device_id: " + device_id)
-    else:
-        print("No device_id")
-
     # if (
     #     not (battery_note := entity_registry.async_get(entity_id))
     #     or not (device_id := battery_note.device_id)
@@ -102,10 +97,6 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     )
 
     device_id = async_add_to_device(hass, entry, entity_id)
-    if device_id:
-        print("device_id: " + device_id)
-    else:
-        print("No device_id")
 
     await hass.config_entries.async_forward_entry_setups(
         entry, (Platform.SENSOR,)

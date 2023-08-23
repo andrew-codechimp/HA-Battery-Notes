@@ -26,6 +26,7 @@ async def async_setup_entry(
     #     registry, config_entry.entry_id
     # )
 
+    device_id = config_entry.data.get(CONF_DEVICE_ID)
     battery_type = config_entry.data.get(CONF_BATTERY_TYPE)
 
     async_add_entities(
@@ -36,6 +37,7 @@ async def async_setup_entry(
                 SENSOR_DOMAIN,
                 config_entry.entry_id,
                 config_entry.entry_id,
+                device_id,
             )
         ]
     )
@@ -47,4 +49,4 @@ class BatteryType(BaseEntity, SensorEntity):
     @property
     def native_value(self) -> str:
         """Return the native value of the sensor."""
-        return "A Battery" #self.coordinator.data.get(self.entity_description.key, None)
+        return "A Battery"
