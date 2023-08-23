@@ -12,10 +12,6 @@ from homeassistant.helpers.typing import ConfigType
 
 from custom_components.powercalc.common import SourceEntity
 from .const import (
-    CONF_ENERGY_SENSOR_FRIENDLY_NAMING,
-    CONF_ENERGY_SENSOR_NAMING,
-    CONF_POWER_SENSOR_FRIENDLY_NAMING,
-    CONF_POWER_SENSOR_NAMING,
     DOMAIN,
 )
 

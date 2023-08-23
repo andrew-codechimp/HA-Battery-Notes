@@ -1,16 +1,22 @@
 """Sensor platform for battery_notes."""
 from __future__ import annotations
 
+import copy
 import logging
+import uuid
+from dataclasses import dataclass, field
+from typing import NamedTuple, Any
+
 import homeassistant.helpers.config_validation as cv
 import homeassistant.helpers.device_registry as dr
 import homeassistant.helpers.entity_registry as er
 import voluptuous as vol
 
-from homeassistant.core import Event, HomeAssistant, callback
+from homeassistant.core import Event, HomeAssistant, callback, split_entity_id
 from homeassistant.components.sensor import DOMAIN as SENSOR_DOMAIN
 from homeassistant.components.sensor import PLATFORM_SCHEMA, SensorEntity, SensorEntityDescription
-from homeassistant.helpers.entity import EntityCategory
+from homeassistant.helpers.typing import ConfigType
+from homeassistant.helpers.entity import EntityCategory, Entity
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.entity_registry import (
     EVENT_ENTITY_REGISTRY_UPDATED,
@@ -25,9 +31,17 @@ from homeassistant.const import (
     CONF_NAME,
     CONF_UNIQUE_ID,
 )
-from .const import DOMAIN, LOGGER, CONF_DEVICE_ID, CONF_BATTERY_TYPE
-from .entity import BatteryNotesEntity
-from .errors import SensorConfigurationError, SensorAlreadyConfiguredError
+from .const import (
+    DOMAIN,
+    DOMAIN_CONFIG,
+    LOGGER,
+    CONF_DEVICE_ID,
+    CONF_BATTERY_TYPE,
+    DUMMY_ENTITY_ID,
+    DATA_CONFIGURED_ENTITIES,
+)
+from .errors import SensorConfigurationError, SensorAlreadyConfiguredError, BatteryNotesSetupError
+from .abstract import BaseEntity
 
 ENTITY_DESCRIPTIONS = (
     SensorEntityDescription(
@@ -59,21 +73,25 @@ async def async_setup_entry(
     entry.data.get(CONF_DEVICE_ID)
     entry.data.get(CONF_BATTERY_TYPE)
 
+    sensor_config = convert_config_entry_to_sensor_config(entry)
+
     await _async_setup_entities(
         hass,
+        sensor_config,
         async_add_entities,
         config_entry=entry,
     )
 
 async def _async_setup_entities(
     hass: HomeAssistant,
+    config: dict[str, Any],
     async_add_entities: AddEntitiesCallback,
     config_entry: ConfigEntry | None = None
     ) -> None:
     """Main routine to setup sensors from provided configuration."""
 
     try:
-        entities = await create_sensors(hass, config_entry)
+        entities = await create_sensors(hass, config, config_entry)
     except SensorConfigurationError as err:
         _LOGGER.error(err)
         return
@@ -99,22 +117,23 @@ async def _async_setup_entities(
 
 async def create_sensors(
     hass: HomeAssistant,
+    config: ConfigType,
     config_entry: ConfigEntry | None = None,
 ) -> EntitiesBucket:
     """Main routine to create all sensors for a given entity."""
 
     global_config = hass.data[DOMAIN][DOMAIN_CONFIG]
 
-    # Set up a power sensor for one single appliance. Either by manual configuration or discovery
-    if CONF_ENTITIES not in config and CONF_INCLUDE not in config:
-        merged_sensor_config = get_merged_sensor_configuration(global_config, config)
-        return await create_individual_sensors(
-            hass,
-            merged_sensor_config,
-            context,
-            config_entry,
-            discovery_info,
-        )
+    # # Set up a power sensor for one single appliance. Either by manual configuration or discovery
+    # if CONF_ENTITIES not in config and CONF_INCLUDE not in config:
+    #     merged_sensor_config = get_merged_sensor_configuration(global_config, config)
+    #     return await create_individual_sensors(
+    #         hass,
+    #         merged_sensor_config,
+    #         context,
+    #         config_entry,
+    #         discovery_info,
+    #     )
 
     # Setup power sensors for multiple appliances in one config entry
     sensor_configs = {}
@@ -191,7 +210,7 @@ async def create_individual_sensors(
     sensor_config: dict,
     config_entry: ConfigEntry | None = None,
 ) -> EntitiesBucket:
-    """Create entities (power, energy, utility_meters) which track the appliance."""
+    """Create entities associated with the device."""
 
     source_entity = await create_source_entity(sensor_config[CONF_ENTITY_ID], hass)
 
@@ -224,7 +243,7 @@ async def create_individual_sensors(
         )
 
         entities_to_add.append(power_sensor)
-    except PowercalcSetupError:
+    except BatteryNotesSetupError:
         return EntitiesBucket()
 
     # Create energy sensor which integrates the power sensor
@@ -272,6 +291,69 @@ async def create_individual_sensors(
 
     return EntitiesBucket(new=entities_to_add, existing=[])
 
+async def create_source_entity(entity_id: str, hass: HomeAssistant) -> SourceEntity:
+    """Create object containing all information about the source entity."""
+
+    source_entity_domain, source_object_id = split_entity_id(entity_id)
+    if entity_id == DUMMY_ENTITY_ID:
+        return SourceEntity(
+            object_id=source_object_id,
+            entity_id=DUMMY_ENTITY_ID,
+            domain=source_entity_domain,
+        )
+
+    entity_registry = er.async_get(hass)
+    entity_entry = entity_registry.async_get(entity_id)
+
+    device_registry = dr.async_get(hass)
+    device_entry = (
+        device_registry.async_get(entity_entry.device_id)
+        if entity_entry and entity_entry.device_id
+        else None
+    )
+
+    unique_id = None
+    if entity_entry:
+        source_entity_domain = entity_entry.domain
+        unique_id = entity_entry.unique_id
+
+    entity_state = hass.states.get(entity_id)
+
+    return SourceEntity(
+        source_object_id,
+        entity_id,
+        source_entity_domain,
+        unique_id,
+        get_wrapped_entity_name(
+            hass,
+            entity_id,
+            source_object_id,
+            entity_entry,
+            device_entry,
+        ),
+        entity_entry,
+        device_entry,
+    )
+
+def get_wrapped_entity_name(
+    hass: HomeAssistant,
+    entity_id: str,
+    object_id: str,
+    entity_entry: er.RegistryEntry | None,
+    device_entry: dr.DeviceEntry | None,
+) -> str:
+    """Construct entity name based on the wrapped entity"""
+    if entity_entry:
+        if entity_entry.name is None and entity_entry.has_entity_name and device_entry:
+            return device_entry.name_by_user or device_entry.name or object_id
+
+        return entity_entry.name or entity_entry.original_name or object_id
+
+    entity_state = hass.states.get(entity_id)
+    if entity_state:
+        return str(entity_state.name)
+
+    return object_id
 
 async def attach_entities_to_source_device(
     config_entry: ConfigEntry | None,
@@ -385,19 +467,116 @@ async def create_energy_sensor(
         sensor_config=sensor_config,
     )
 
-class BatteryNotesSensor(BatteryNotesEntity, SensorEntity):
-    """battery_notes Sensor class."""
+def convert_config_entry_to_sensor_config(config_entry: ConfigEntry) -> ConfigType:
+    """Convert the config entry structure to the sensor config which we use to create the entities."""
+    sensor_config = dict(config_entry.data.copy())
+    # sensor_type = sensor_config.get(CONF_SENSOR_TYPE)
 
-    def __init__(
-        self,
-        coordinator: BatteryNotesDataUpdateCoordinator,
-        entity_description: SensorEntityDescription,
-    ) -> None:
-        """Initialize the sensor class."""
-        super().__init__(coordinator)
-        self.entity_description = entity_description
+    # if sensor_type == SensorType.GROUP:
+    #     sensor_config[CONF_CREATE_GROUP] = sensor_config.get(CONF_NAME)
 
-    @property
-    def native_value(self) -> str:
-        """Return the native value of the sensor."""
-        return self.coordinator.data.get("body")
+    # if sensor_type == SensorType.REAL_POWER:
+    #     sensor_config[CONF_POWER_SENSOR_ID] = sensor_config.get(CONF_ENTITY_ID)
+    #     sensor_config[CONF_FORCE_ENERGY_SENSOR_CREATION] = True
+
+    # if CONF_DAILY_FIXED_ENERGY in sensor_config:
+    #     daily_fixed_config: dict[str, Any] = copy.copy(sensor_config.get(CONF_DAILY_FIXED_ENERGY))  # type: ignore
+    #     if CONF_VALUE_TEMPLATE in daily_fixed_config:
+    #         daily_fixed_config[CONF_VALUE] = Template(
+    #             daily_fixed_config[CONF_VALUE_TEMPLATE],
+    #         )
+    #         del daily_fixed_config[CONF_VALUE_TEMPLATE]
+    #     if CONF_ON_TIME in daily_fixed_config:
+    #         on_time = daily_fixed_config[CONF_ON_TIME]
+    #         daily_fixed_config[CONF_ON_TIME] = timedelta(
+    #             hours=on_time["hours"],
+    #             minutes=on_time["minutes"],
+    #             seconds=on_time["seconds"],
+    #         )
+    #     else:
+    #         daily_fixed_config[CONF_ON_TIME] = timedelta(days=1)
+    #     sensor_config[CONF_DAILY_FIXED_ENERGY] = daily_fixed_config
+
+    # if CONF_FIXED in sensor_config:
+    #     fixed_config: dict[str, Any] = copy.copy(sensor_config.get(CONF_FIXED))  # type: ignore
+    #     if CONF_POWER_TEMPLATE in fixed_config:
+    #         fixed_config[CONF_POWER] = Template(fixed_config[CONF_POWER_TEMPLATE])
+    #         del fixed_config[CONF_POWER_TEMPLATE]
+    #     if CONF_STATES_POWER in fixed_config:
+    #         new_states_power = {}
+    #         for key, value in fixed_config[CONF_STATES_POWER].items():
+    #             if isinstance(value, str) and "{{" in value:
+    #                 value = Template(value)
+    #             new_states_power[key] = value
+    #         fixed_config[CONF_STATES_POWER] = new_states_power
+    #     sensor_config[CONF_FIXED] = fixed_config
+
+    # if CONF_LINEAR in sensor_config:
+    #     linear_config: dict[str, Any] = copy.copy(sensor_config.get(CONF_LINEAR))  # type: ignore
+    #     if CONF_CALIBRATE in linear_config:
+    #         calibrate_dict: dict[str, float] = linear_config.get(CONF_CALIBRATE)  # type: ignore
+    #         new_calibrate_list: list[str] = []
+    #         for item in calibrate_dict.items():
+    #             new_calibrate_list.append(f"{item[0]} -> {item[1]}")
+    #         linear_config[CONF_CALIBRATE] = new_calibrate_list
+
+    #     sensor_config[CONF_LINEAR] = linear_config
+
+    # if CONF_CALCULATION_ENABLED_CONDITION in sensor_config:
+    #     sensor_config[CONF_CALCULATION_ENABLED_CONDITION] = Template(
+    #         sensor_config[CONF_CALCULATION_ENABLED_CONDITION],
+    #     )
+
+    return sensor_config
+
+async def check_entity_not_already_configured(
+    sensor_config: dict,
+    source_entity: SourceEntity,
+    hass: HomeAssistant,
+    used_unique_ids: list[str],
+) -> None:
+    if source_entity.entity_id == DUMMY_ENTITY_ID:
+        return
+
+    configured_entities: dict[str, list[SensorEntity]] = hass.data[DOMAIN][
+        DATA_CONFIGURED_ENTITIES
+    ]
+
+    existing_entities = configured_entities.get(source_entity.entity_id) or []
+
+    unique_id = sensor_config.get(CONF_UNIQUE_ID) or source_entity.unique_id
+    if unique_id in used_unique_ids:
+        raise SensorAlreadyConfiguredError(source_entity.entity_id, existing_entities)
+
+    entity_id = source_entity.entity_id
+    if unique_id is None and entity_id in configured_entities:
+        raise SensorAlreadyConfiguredError(source_entity.entity_id, existing_entities)
+
+class SourceEntity(NamedTuple):
+    """Entity our entity is attached to."""
+    object_id: str
+    entity_id: str
+    domain: str
+    unique_id: str | None = None
+    name: str | None = None
+    entity_entry: er.RegistryEntry | None = None
+    device_entry: dr.DeviceEntry | None = None
+
+@dataclass
+class EntitiesBucket:
+    """A list of entities."""
+    new: list[Entity] = field(default_factory=list)
+    existing: list[Entity] = field(default_factory=list)
+
+    def extend_items(self, bucket: EntitiesBucket) -> None:
+        """Append current entity bucket with new one"""
+        self.new.extend(bucket.new)
+        self.existing.extend(bucket.existing)
+
+    def all(self) -> list[Entity]:  # noqa: A003
+        """Return all entities both new and existing"""
+        return self.new + self.existing
+
+    def has_entities(self) -> bool:
+        """Check whether the entity bucket is not empty"""
+        return bool(self.new) or bool(self.existing)
