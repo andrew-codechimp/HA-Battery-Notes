@@ -56,6 +56,7 @@ class BaseEntity(Entity):
         self._attr_unique_id = unique_id
         self._battery_note_entity_id = entity_id
         self._attr_icon = "mdi:battery-unknown"
+        self._attr_should_poll = False
 
         self._is_new_entity = (
             entity_registry.async_get_entity_id(domain, DOMAIN, unique_id) is None
@@ -71,6 +72,13 @@ class BaseEntity(Entity):
             return
 
         self._attr_available = True
+
+    @callback
+    def handle_event_callback(self, event):
+        """Handle incoming event for device type."""
+
+        # Propagate changes through ha
+        self.async_schedule_update_ha_state()
 
     async def async_added_to_hass(self) -> None:
         """Register callbacks and copy the wrapped entity's custom name if set."""
@@ -131,6 +139,7 @@ class BaseEntity(Entity):
         copy_custom_name(wrapped_switch)
         copy_expose_settings()
 
+
     # @callback
     # def async_state_changed_listener(self, event: Event | None = None) -> None:
     #     """Handle child updates."""
@@ -147,3 +156,8 @@ class BaseEntity(Entity):
     # def async_update(self, event_time: datetime | None = None) -> None:
     #     """Update the entity."""
     #     self.async_schedule_update_ha_state(True)
+
+    @callback
+    def async_update_callback(self, reason):
+        """Update the device's state."""
+        self.async_schedule_update_ha_state()
