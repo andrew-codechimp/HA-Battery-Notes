@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 from typing import Any
+from datetime import datetime, timedelta
 
 from homeassistant.components.homeassistant import exposed_entities
 from homeassistant.const import (
@@ -130,3 +131,19 @@ class BaseEntity(Entity):
         copy_custom_name(wrapped_switch)
         copy_expose_settings()
 
+    # @callback
+    # def async_state_changed_listener(self, event: Event | None = None) -> None:
+    #     """Handle child updates."""
+    #     super().async_state_changed_listener(event)
+    #     if (
+    #         not self.available
+    #         or (state := self.hass.states.get(self._battery_note_entity_id)) is None
+    #     ):
+    #         return
+
+    #     self._attr_is_on = state.state == STATE_ON
+
+    # @callback
+    # def async_update(self, event_time: datetime | None = None) -> None:
+    #     """Update the entity."""
+    #     self.async_schedule_update_ha_state(True)

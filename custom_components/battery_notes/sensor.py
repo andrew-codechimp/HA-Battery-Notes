@@ -42,7 +42,6 @@ async def async_setup_entry(
         ]
     )
 
-
 class BatteryType(BaseEntity, SensorEntity):
     """Represents a battery type sensor."""
 
