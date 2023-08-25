@@ -78,7 +78,8 @@ class BaseEntity(Entity):
         """Handle incoming event for device type."""
 
         # Propagate changes through ha
-        self.async_schedule_update_ha_state()
+        self.async_schedule_update_ha_state(True)
+
 
     async def async_added_to_hass(self) -> None:
         """Register callbacks and copy the wrapped entity's custom name if set."""
@@ -86,8 +87,10 @@ class BaseEntity(Entity):
         @callback
         def _async_state_changed_listener(event: Event | None = None) -> None:
             """Handle child updates."""
+            print("Here at state change")
             self.async_state_changed_listener(event)
             self.async_write_ha_state()
+            self.async_schedule_update_ha_state(True)
 
         self.async_on_remove(
             async_track_state_change_event(
