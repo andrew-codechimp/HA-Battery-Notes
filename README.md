@@ -50,10 +50,6 @@ Platform | Description
 
 If you want to contribute to this please read the [Contribution guidelines](CONTRIBUTING.md)
 
-## Acknowledgements
-
-This integration has been heavily inspired by and a lot of code cribbed from the awesome [PowerCalc](https://github.com/bramstroker/homeassistant-powercalc).
-
 ***
 
 [battery_notes]: https://github.com/andrew-codechimp/ha-battery-notes

@@ -16,7 +16,6 @@ ISSUEURL = manifest_data.get("issue_tracker")
 MANUFACTURER = "@Andrew-CodeChimp"
 
 DOMAIN_CONFIG = "config"
-DUMMY_ENTITY_ID = "sensor.dummy"
 
 CONF_DEVICE_ID = "device_id"
 CONF_BATTERY_TYPE = "battery_type"
