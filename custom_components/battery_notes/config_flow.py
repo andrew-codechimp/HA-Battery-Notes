@@ -159,11 +159,6 @@ class OptionsFlowHandler(OptionsFlow):
         """Build the options schema."""
         data_schema=vol.Schema(
                 {
-                    vol.Required(
-                        CONF_DEVICE_ID
-                    ): selector.DeviceSelector(
-                        # selector.DeviceSelectorConfig(model="otgw-nodo")
-                    ),
                     vol.Optional(
                         CONF_NAME
                     ): selector.TextSelector(

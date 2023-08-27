@@ -23,46 +23,6 @@ _LOGGER = logging.getLogger(__name__)
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Set up a config entry."""
-    # registry = er.async_get(hass)
-    # device_registry = dr.async_get(hass)
-
-    # entity_id = entry.entry_id
-
-    # async def async_registry_updated(event: Event) -> None:
-    #     """Handle entity registry update."""
-    #     data = event.data
-    #     if data["action"] == "remove":
-    #         await hass.config_entries.async_remove(entry.entry_id)
-
-    #     if data["action"] != "update":
-    #         return
-
-    #     if "entity_id" in data["changes"]:
-    #         # Entity_id changed, reload the config entry
-    #         await hass.config_entries.async_reload(entry.entry_id)
-
-    #     if device_id and "device_id" in data["changes"]:
-    #         # If the tracked switch is no longer in the device, remove our config entry
-    #         # from the device
-    #         if (
-    #             not (entity_entry := registry.async_get(data[CONF_ENTITY_ID]))
-    #             or not device_registry.async_get(device_id)
-    #             or entity_entry.device_id == device_id
-    #         ):
-    #             # No need to do any cleanup
-    #             return
-
-    #         device_registry.async_update_device(
-    #             device_id, remove_config_entry_id=entry.entry_id
-    #         )
-
-    # entry.async_on_unload(
-    #     async_track_entity_registry_updated_event(
-    #         hass, entity_id, async_registry_updated
-    #     )
-    # )
-
-    # device_id = async_add_to_device(hass, entry)
 
     await hass.config_entries.async_forward_entry_setups(
         entry, (Platform.SENSOR,)

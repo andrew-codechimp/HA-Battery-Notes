@@ -102,9 +102,11 @@ async def async_setup_entry(
             # Entity_id changed, reload the config entry
             await hass.config_entries.async_reload(config_entry.entry_id)
 
+        print(data["changes"])
         if device_id and "device_id" in data["changes"]:
-            # If the tracked switch is no longer in the device, remove our config entry
+            # If the tracked battery note is no longer in the device, remove our config entry
             # from the device
+            print("DeviceID Updated: " + device_id)
             if (
                 not (entity_entry := entity_registry.async_get(data[CONF_ENTITY_ID]))
                 or not device_registry.async_get(device_id)
