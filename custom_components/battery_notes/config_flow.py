@@ -48,7 +48,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                 title = device_entry.name
 
             return self.async_create_entry(
-                title=title  + " Battery Type",
+                title=title,
                 data=user_input,
             )
 
@@ -132,7 +132,7 @@ class OptionsFlowHandler(OptionsFlow):
         self._process_user_input(user_input, schema)
         self.hass.config_entries.async_update_entry(
             self.config_entry,
-            title=title + " Battery Type",
+            title=title,
             data=self.current_config,
         )
         return {}

@@ -173,7 +173,7 @@ class BatteryTypeSensor(SensorEntity):
         device_registry = dr.async_get(hass)
 
         self._attr_unique_id = unique_id
-        self._attr_name = name
+        self._attr_name = name + " Battery Type"
         self._device_id = device_id
 
         self._device_id = device_id
