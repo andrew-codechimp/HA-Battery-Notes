@@ -23,6 +23,7 @@ from homeassistant.helpers.entity import DeviceInfo, Entity, EntityCategory
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.event import (
     async_track_state_change_event,
+    async_track_entity_registry_updated_event,
 )
 
 from homeassistant.helpers.reload import async_setup_reload_service
@@ -63,18 +64,71 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
     }
 )
 
+@callback
+def async_add_to_device(
+    hass: HomeAssistant, entry: ConfigEntry
+) -> str | None:
+    """Add our config entry to the device."""
+    device_registry = dr.async_get(hass)
+
+    device_id = entry.data.get(CONF_DEVICE_ID)
+    print("DeviceID: " + device_id)
+    device_registry.async_update_device(device_id, add_config_entry_id=entry.entry_id)
+
+    return device_id
+
 async def async_setup_entry(
     hass: HomeAssistant,
     config_entry: ConfigEntry,
     async_add_entities: AddEntitiesCallback,
 ) -> None:
     """Initialize Battery Type config entry."""
+    entity_registry = er.async_get(hass)
+    device_registry = dr.async_get(hass)
+
     device_id = config_entry.data.get(CONF_DEVICE_ID)
     battery_type = config_entry.data.get(CONF_BATTERY_TYPE)
+
+    async def async_registry_updated(event: Event) -> None:
+        """Handle entity registry update."""
+        data = event.data
+        if data["action"] == "remove":
+            await hass.config_entries.async_remove(config_entry.entry_id)
+
+        if data["action"] != "update":
+            return
+
+        if "entity_id" in data["changes"]:
+            # Entity_id changed, reload the config entry
+            await hass.config_entries.async_reload(config_entry.entry_id)
+
+        if device_id and "device_id" in data["changes"]:
+            # If the tracked switch is no longer in the device, remove our config entry
+            # from the device
+            if (
+                not (entity_entry := entity_registry.async_get(data[CONF_ENTITY_ID]))
+                or not device_registry.async_get(device_id)
+                or entity_entry.device_id == device_id
+            ):
+                # No need to do any cleanup
+                return
+
+            device_registry.async_update_device(
+                device_id, remove_config_entry_id=config_entry.entry_id
+            )
+
+    config_entry.async_on_unload(
+        async_track_entity_registry_updated_event(
+            hass, config_entry.entry_id, async_registry_updated
+        )
+    )
+
+    device_id = async_add_to_device(hass, config_entry)
 
     async_add_entities(
         [
             BatteryTypeSensor(
+                hass,
                 config_entry.title,
                 config_entry.entry_id,
                 device_id=device_id,
@@ -98,7 +152,7 @@ async def async_setup_platform(
     await async_setup_reload_service(hass, DOMAIN, PLATFORMS)
 
     async_add_entities(
-        [BatteryTypeSensor(name, unique_id, device_id, battery_type)]
+        [BatteryTypeSensor(hass, name, unique_id, device_id, battery_type)]
     )
 
 class BatteryTypeSensor(SensorEntity):
@@ -108,15 +162,28 @@ class BatteryTypeSensor(SensorEntity):
 
     def __init__(
         self,
+        hass: HomeAssistant,
         name: str,
         unique_id: str,
         device_id: str,
         battery_type: str,
     ) -> None:
+        device_registry = dr.async_get(hass)
+
         self._attr_unique_id = unique_id
         self._attr_name = name
         self._device_id = device_id
+
+        self._device_id = device_id
+        if device_id and (device := device_registry.async_get(device_id)):
+            self._attr_device_info = DeviceInfo(
+                connections=device.connections,
+                identifiers=device.identifiers,
+            )
+        self._attr_entity_category = EntityCategory.DIAGNOSTIC
+        # self._attr_has_entity_name = has_entity_name
         self._battery_type = battery_type
+
 
     async def async_added_to_hass(self) -> None:
         """Handle added to Hass."""
