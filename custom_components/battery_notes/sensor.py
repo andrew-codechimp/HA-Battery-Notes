@@ -91,7 +91,7 @@ class BatteryType(BaseEntity, SensorEntity):
             print("Here " + self.native_value)
             self.async_state_changed_listener(event)
             self.async_write_ha_state()
-            self.async_schedule_update_ha_state()
+            self.async_schedule_update_ha_state(True)
 
         self.async_on_remove(
             async_track_state_change_event(
