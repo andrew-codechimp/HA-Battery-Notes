@@ -37,10 +37,17 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
         """Handle a flow initialized by the user."""
         _errors = {}
         if user_input is not None:
+            device_id = user_input[CONF_DEVICE_ID]
+
             device_registry = dr.async_get(self.hass)
             device_entry = (
-                device_registry.async_get(user_input[CONF_DEVICE_ID])
+                device_registry.async_get(device_id)
             )
+
+            unique_id = f"bn_{device_id}"
+
+            await self.async_set_unique_id(unique_id)
+            self._abort_if_unique_id_configured()
 
             if CONF_NAME in user_input:
                 title = user_input.get(CONF_NAME)

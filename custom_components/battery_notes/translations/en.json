@@ -13,6 +13,9 @@
                 }
             }
         },
+        "abort": {
+            "already_configured": "Device is already configured"
+        },
         "error": {
             "unknown": "Unknown error occurred."
         }
@@ -22,7 +25,6 @@
             "init": {
                 "description": "If you need help with the configuration have a look here: https://github.com/andrew-codechimp/ha-battery-notes",
                 "data": {
-                    "device_id": "Device",
                     "name": "Name",
                     "battery_type": "Battery Type"
                 },

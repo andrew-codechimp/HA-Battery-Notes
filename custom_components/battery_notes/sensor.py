@@ -16,11 +16,9 @@ from homeassistant.components.sensor import (
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_ENTITY_ID
 from homeassistant.core import HomeAssistant, callback, Event
-from homeassistant.helpers import entity_registry as er
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers import config_validation as cv, device_registry as dr, entity_registry as er
 from homeassistant.helpers.entity import DeviceInfo, Entity, EntityCategory
-from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.event import (
     async_track_state_change_event,
     async_track_entity_registry_updated_event,
@@ -72,7 +70,6 @@ def async_add_to_device(
     device_registry = dr.async_get(hass)
 
     device_id = entry.data.get(CONF_DEVICE_ID)
-    print("DeviceID: " + device_id)
     device_registry.async_update_device(device_id, add_config_entry_id=entry.entry_id)
 
     return device_id
@@ -102,11 +99,9 @@ async def async_setup_entry(
             # Entity_id changed, reload the config entry
             await hass.config_entries.async_reload(config_entry.entry_id)
 
-        print(data["changes"])
         if device_id and "device_id" in data["changes"]:
             # If the tracked battery note is no longer in the device, remove our config entry
             # from the device
-            print("DeviceID Updated: " + device_id)
             if (
                 not (entity_entry := entity_registry.async_get(data[CONF_ENTITY_ID]))
                 or not device_registry.async_get(device_id)
