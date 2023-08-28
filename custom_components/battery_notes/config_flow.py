@@ -146,10 +146,7 @@ class OptionsFlowHandler(OptionsFlow):
         user_input: dict[str, Any],
         schema: vol.Schema,
     ) -> None:
-        """
-        Process the provided user input against the schema.
-        Update the current_config dictionary with the new options. We use that to save the data to config entry later on.
-        """
+        """Process the provided user input against the schema."""
         for key in schema.schema:
             if isinstance(key, vol.Marker):
                 key = key.schema
