@@ -141,6 +141,7 @@ async def async_setup_platform(
 
 class BatteryTypeSensor(SensorEntity):
     """Represents a battery type sensor."""
+
     _attr_icon = ICON
     _attr_should_poll = False
 
@@ -152,6 +153,7 @@ class BatteryTypeSensor(SensorEntity):
         device_id: str,
         battery_type: str,
     ) -> None:
+        """Create a battery type sensor."""
         device_registry = dr.async_get(hass)
 
         self._attr_unique_id = unique_id
@@ -165,7 +167,6 @@ class BatteryTypeSensor(SensorEntity):
                 identifiers=device.identifiers,
             )
         self._attr_entity_category = EntityCategory.DIAGNOSTIC
-        # self._attr_has_entity_name = has_entity_name
         self._battery_type = battery_type
 
 
