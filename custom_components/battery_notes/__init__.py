@@ -5,21 +5,11 @@ https://github.com/andrew-codechimp/ha-battery-notes
 """
 from __future__ import annotations
 
-import logging
-
-import voluptuous as vol
-
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import CONF_ENTITY_ID, Platform
-from homeassistant.core import Event, HomeAssistant, callback
-from homeassistant.helpers import device_registry as dr, entity_registry as er
-from homeassistant.helpers.event import async_track_entity_registry_updated_event
-
-from .const import CONF_DEVICE_ID
+from homeassistant.const import Platform
+from homeassistant.core import HomeAssistant, callback
 
 PLATFORMS = [Platform.SENSOR]
-
-_LOGGER = logging.getLogger(__name__)
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Set up a config entry."""

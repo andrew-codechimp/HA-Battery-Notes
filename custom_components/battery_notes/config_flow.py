@@ -2,22 +2,19 @@
 from __future__ import annotations
 
 import copy
-import logging
 from typing import Any
 
 import voluptuous as vol
 from homeassistant import config_entries
-from homeassistant.core import HomeAssistant, callback
+from homeassistant.core import callback
 from homeassistant.data_entry_flow import FlowResult
 from homeassistant.config_entries import ConfigEntry, OptionsFlow
 from homeassistant.helpers import selector
 import homeassistant.helpers.device_registry as dr
-import homeassistant.helpers.entity_registry as er
 
 from homeassistant.const import CONF_NAME
 
-from .const import DOMAIN, LOGGER, CONF_DEVICE_ID, CONF_BATTERY_TYPE
-
+from .const import DOMAIN, CONF_DEVICE_ID, CONF_BATTERY_TYPE
 
 class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
     """Config flow for BatteryNotes."""

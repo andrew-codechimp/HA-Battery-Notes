@@ -1,24 +1,22 @@
 """Sensor platform for battery_notes."""
 from __future__ import annotations
 
-from typing import Any
-from datetime import datetime, timedelta
-import logging
 import voluptuous as vol
 
 from homeassistant.components.sensor import (
-    DOMAIN as SENSOR_DOMAIN,
     PLATFORM_SCHEMA,
     SensorEntity,
-    SensorStateClass,
-    SensorEntityDescription,
 )
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_ENTITY_ID
 from homeassistant.core import HomeAssistant, callback, Event
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
-from homeassistant.helpers import config_validation as cv, device_registry as dr, entity_registry as er
-from homeassistant.helpers.entity import DeviceInfo, Entity, EntityCategory
+from homeassistant.helpers import (
+    config_validation as cv,
+    device_registry as dr,
+    entity_registry as er,
+)
+from homeassistant.helpers.entity import DeviceInfo, EntityCategory
 from homeassistant.helpers.event import (
     async_track_state_change_event,
     async_track_entity_registry_updated_event,
@@ -27,19 +25,11 @@ from homeassistant.helpers.event import (
 from homeassistant.helpers.reload import async_setup_reload_service
 from homeassistant.helpers.typing import (
     ConfigType,
-    DiscoveryInfoType,
-    EventType,
-    StateType,
 )
 
-from homeassistant.components.homeassistant import exposed_entities
 from homeassistant.const import (
     CONF_NAME,
-    CONF_TYPE,
     CONF_UNIQUE_ID,
-    STATE_UNAVAILABLE,
-    STATE_UNKNOWN,
-    ATTR_ENTITY_ID,
 )
 
 from . import PLATFORMS
@@ -49,8 +39,6 @@ from .const import (
     CONF_BATTERY_TYPE,
     CONF_DEVICE_ID,
 )
-
-_LOGGER = logging.getLogger(__name__)
 
 ICON = "mdi:battery-unknown"
 
@@ -138,7 +126,6 @@ async def async_setup_platform(
     hass: HomeAssistant,
     config: ConfigType,
     async_add_entities: AddEntitiesCallback,
-    discovery_info: DiscoveryInfoType | None = None,
 ) -> None:
     """Set up the battery type sensor."""
     name: str | None = config.get(CONF_NAME)
@@ -209,7 +196,7 @@ class BatteryTypeSensor(SensorEntity):
         return self._battery_type
 
     @callback
-    def _async_battery_type_state_changed_listener(self, event: Event | None = None) -> None:
+    def _async_battery_type_state_changed_listener(self) -> None:
         """Handle the sensor state changes."""
         self.async_write_ha_state()
         self.async_schedule_update_ha_state(True)
