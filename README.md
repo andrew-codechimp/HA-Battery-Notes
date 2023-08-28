@@ -10,9 +10,6 @@
 
 _Integration to add battery notes to a device._
 
-## UNDER EARLY DEVELOPMENT ##  
-Do not use until there is a release.
-
 **This integration will set up the following platforms.**
 
 Platform | Description
