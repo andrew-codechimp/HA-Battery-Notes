@@ -49,9 +49,9 @@ If you want to contribute to this please read the [Contribution guidelines](CONT
 
 ***
 
-[battery_notes]: https://github.com/andrew-codechimp/ha-battery-notes
-[commits-shield]: https://img.shields.io/github/commit-activity/y/andrew-codechimp/battery-notes.svg?style=for-the-badge
-[commits]: https://github.com/andrew-codechimp/ha-battery-notes/commits/main
+[battery_notes]: https://github.com/andrew-codechimp/HA-Battery-Notes
+[commits-shield]: https://img.shields.io/github/commit-activity/y/andrew-codechimp/HA-Battery-Notes.svg?style=for-the-badge
+[commits]: https://github.com/andrew-codechimp/HA-Battery-Notes/commits/main
 [hacs]: https://github.com/hacs/integration
 [hacsbadge]: https://img.shields.io/badge/HACS-Custom-orange.svg?style=for-the-badge
 [discord]: https://discord.gg/Qa5fW2R
@@ -59,6 +59,6 @@ If you want to contribute to this please read the [Contribution guidelines](CONT
 [exampleimg]: example.png
 [forum-shield]: https://img.shields.io/badge/community-forum-brightgreen.svg?style=for-the-badge
 [forum]: https://community.home-assistant.io/
-[license-shield]: https://img.shields.io/github/license/andrew-codechimp/battery-notes.svg?style=for-the-badge
-[releases-shield]: https://img.shields.io/github/release/andrew-codechimp/battery-notes.svg?style=for-the-badge
-[releases]: https://github.com/andrew-codechimp/ha-battery-notes/releases
+[license-shield]: https://img.shields.io/github/license/andrew-codechimp/HA-Battery-Notes.svg?style=for-the-badge
+[releases-shield]: https://img.shields.io/github/release/andrew-codechimp/HA-Battery-Notes.svg?style=for-the-badge
+[releases]: https://github.com/andrew-codechimp/HA-Battery-Notes/releases
