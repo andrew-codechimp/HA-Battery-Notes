@@ -49,7 +49,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             if CONF_NAME in user_input:
                 title = user_input.get(CONF_NAME)
             else:
-                title = device_entry.name
+                title = device_entry.name_by_user or device_entry.name
 
             return self.async_create_entry(
                 title=title,
@@ -131,7 +131,7 @@ class OptionsFlowHandler(OptionsFlow):
         if CONF_NAME in user_input:
             title = user_input.get(CONF_NAME)
         else:
-            title = device_entry.name
+            title = device_entry.name_by_user or device_entry.name
 
         self._process_user_input(user_input, schema)
         self.hass.config_entries.async_update_entry(
