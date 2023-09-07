@@ -10,6 +10,8 @@
 
 _Integration to add battery notes to a device._
 
+![Battery Notes](https://github.com/andrew-codechimp/HA-Battery-Notes/blob/main/images/screenshot-device.png "Battery Notes")
+
 **This integration will set up the following platforms.**
 
 Platform | Description
@@ -24,7 +26,7 @@ Platform | Description
 1. Add the project repository `https://github.com/andrew-codechimp/HA-Battery-Notes` as a custom repository to HACS, see: https://hacs.xyz/docs/faq/custom_repositories
 1. Search for `Battery Notes` in HACS and install it under the "Integrations" category.
 1. Restart Home Assistant
-1. In the HA UI go to "Configuration" -> "Integrations" click "+" and search for "Mastodon Profile Stats"
+1. In the HA UI go to "Configuration" -> "Integrations" click "+" and search for "Battery Notes"
 
 ### Manual Installation
 
@@ -40,6 +42,9 @@ Platform | Description
 </details>
 
 ## Configuration is done in the UI
+
+On the "Configuration" -> "Integrations" -> "Battery Notes" screen add a new device, pick your device with a battery and add the battery type.  
+The battery type will then be displayed as a diagnotic sensor on the device.  
 
 <!---->
 
