@@ -1,12 +1,8 @@
-"""Sensor platform for battery_notes."""
+"""Button platform for battery_notes."""
 from __future__ import annotations
 
 import voluptuous as vol
 
-from homeassistant.components.sensor import (
-    PLATFORM_SCHEMA,
-    SensorEntity,
-)
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_ENTITY_ID
 from homeassistant.core import HomeAssistant, callback, Event
@@ -15,6 +11,12 @@ from homeassistant.helpers import (
     config_validation as cv,
     device_registry as dr,
     entity_registry as er,
+)
+from homeassistant.components.button import (
+    PLATFORM_SCHEMA,
+    ButtonDeviceClass,
+    ButtonEntity,
+    ButtonEntityDescription,
 )
 from homeassistant.helpers.entity import DeviceInfo, EntityCategory
 from homeassistant.helpers.event import (
@@ -32,20 +34,19 @@ from homeassistant.const import (
     CONF_UNIQUE_ID,
 )
 
+
+from . import PLATFORMS
+
 from .const import (
     DOMAIN,
-    PLATFORMS,
     CONF_BATTERY_TYPE,
     CONF_DEVICE_ID,
 )
 
-ICON = "mdi:battery-unknown"
-
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
     {
         vol.Optional(CONF_NAME): cv.string,
-        vol.Required(CONF_DEVICE_ID): cv.string,
-        vol.Required(CONF_BATTERY_TYPE): cv.string,
+        vol.Required(CONF_DEVICE_ID): cv.string
     }
 )
 
@@ -111,7 +112,7 @@ async def async_setup_entry(
 
     async_add_entities(
         [
-            BatteryTypeSensor(
+            BatteryChangedButton(
                 hass,
                 config_entry.title,
                 config_entry.entry_id,
@@ -126,7 +127,7 @@ async def async_setup_platform(
     config: ConfigType,
     async_add_entities: AddEntitiesCallback,
 ) -> None:
-    """Set up the battery type sensor."""
+    """Set up the battery type button."""
     name: str | None = config.get(CONF_NAME)
     unique_id = config.get(CONF_UNIQUE_ID)
     device_id: str = config[CONF_DEVICE_ID]
@@ -135,13 +136,12 @@ async def async_setup_platform(
     await async_setup_reload_service(hass, DOMAIN, PLATFORMS)
 
     async_add_entities(
-        [BatteryTypeSensor(hass, name, unique_id, device_id, battery_type)]
+        [BatteryChangedButton(hass, name, unique_id, device_id, battery_type)]
     )
 
-class BatteryTypeSensor(SensorEntity):
-    """Represents a battery type sensor."""
+class BatteryChangedButton(ButtonEntity):
+    """Represents a battery changed button."""
 
-    _attr_icon = ICON
     _attr_should_poll = False
 
     def __init__(
@@ -152,11 +152,13 @@ class BatteryTypeSensor(SensorEntity):
         device_id: str,
         battery_type: str,
     ) -> None:
-        """Create a battery type sensor."""
+        """Create a battery changed button."""
         device_registry = dr.async_get(hass)
 
         self._attr_unique_id = unique_id
-        self._attr_name = name + " Battery type"
+        self._attr_name = name + " Change battery"
+        self._attr_translation_key = "change_battery"
+        self._attr_has_entity_name = True
         self._device_id = device_id
 
         self._device_id = device_id
@@ -171,15 +173,6 @@ class BatteryTypeSensor(SensorEntity):
 
     async def async_added_to_hass(self) -> None:
         """Handle added to Hass."""
-        self.async_on_remove(
-            async_track_state_change_event(
-                self.hass, [self._attr_unique_id], self._async_battery_type_state_changed_listener
-            )
-        )
-
-        # Call once on adding
-        self._async_battery_type_state_changed_listener()
-
         # Update entity options
         registry = er.async_get(self.hass)
         if registry.async_get(self.entity_id) is not None:
@@ -189,14 +182,6 @@ class BatteryTypeSensor(SensorEntity):
                 {"entity_id": self._attr_unique_id},
             )
 
-    @property
-    def native_value(self) -> str:
-        """Return the native value of the sensor."""
-        # return self.battery_type
-        return self._battery_type
-
-    @callback
-    def _async_battery_type_state_changed_listener(self) -> None:
-        """Handle the sensor state changes."""
-        self.async_write_ha_state()
-        self.async_schedule_update_ha_state(True)
+    async def async_press(self) -> None:
+        """Press the button."""
+        await self.entity_description.press_fn(self.hass)
