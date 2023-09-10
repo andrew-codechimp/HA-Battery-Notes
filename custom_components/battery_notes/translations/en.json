@@ -6,7 +6,7 @@
                 "data": {
                     "device_id": "Device",
                     "name": "Name",
-                    "battery_type": "Battery Type"
+                    "battery_type": "Battery type"
                 },
                 "data_description": {
                     "name": "Leaving blank will take the name from the source device"
@@ -26,7 +26,7 @@
                 "description": "If you need help with the configuration have a look here: https://github.com/andrew-codechimp/ha-battery-notes",
                 "data": {
                     "name": "Name",
-                    "battery_type": "Battery Type"
+                    "battery_type": "Battery type"
                 },
                 "data_description": {
                     "name": "Leaving blank will take the name from the source device"
