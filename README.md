@@ -63,7 +63,7 @@ If you want to contribute to this please read the [Contribution guidelines](CONT
 [discord-shield]: https://img.shields.io/discord/330944238910963714.svg?style=for-the-badge
 [exampleimg]: example.png
 [forum-shield]: https://img.shields.io/badge/community-forum-brightgreen.svg?style=for-the-badge
-[forum]: https://community.home-assistant.io/
+[forum]: https://community.home-assistant.io/t/custom-component-battery-notes/613821
 [license-shield]: https://img.shields.io/github/license/andrew-codechimp/HA-Battery-Notes.svg?style=for-the-badge
 [releases-shield]: https://img.shields.io/github/release/andrew-codechimp/HA-Battery-Notes.svg?style=for-the-badge
 [releases]: https://github.com/andrew-codechimp/HA-Battery-Notes/releases
