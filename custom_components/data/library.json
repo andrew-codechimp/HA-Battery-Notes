@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "devices": [
+    {
+      "manufacturer": "Philips",
+      "model": "Hue motion sensor (9290012607)",
+      "battery_type": "AAA",
+      "battery_quantity": "2"
+    },
+    {
+      "manufacturer": "Xiaomi",
+      "model": "Aqara human body movement and illuminance sensor (RTCGQ11LM)",
+      "battery_type": "CR2450",
+      "battery_quantity": "1"
+    },
+    {
+      "manufacturer": "Xiaomi",
+      "model": "Aqara P1 human body movement and illuminance sensor (RTCGQ14LM)",
+      "battery_type": "CR2450",
+      "battery_quantity": "2"
+    }
+  ]
+}
