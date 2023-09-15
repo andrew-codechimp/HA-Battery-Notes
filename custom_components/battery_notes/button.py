@@ -43,6 +43,8 @@ from .const import (
     CONF_DEVICE_ID,
 )
 
+ICON = "mdi:update"
+
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
     {
         vol.Optional(CONF_NAME): cv.string,
@@ -143,6 +145,7 @@ class BatteryChangedButton(ButtonEntity):
     """Represents a battery changed button."""
 
     _attr_should_poll = False
+    _attr_icon = ICON
 
     def __init__(
         self,
@@ -156,9 +159,9 @@ class BatteryChangedButton(ButtonEntity):
         device_registry = dr.async_get(hass)
 
         self._attr_unique_id = unique_id
-        self._attr_name = name + " Change battery"
-        self._attr_translation_key = "change_battery"
-        self._attr_has_entity_name = True
+        self._attr_name = name + " Battery changed"
+        # self._attr_translation_key = "battery_changed"
+        # self._attr_has_entity_name = False
         self._device_id = device_id
 
         self._device_id = device_id
