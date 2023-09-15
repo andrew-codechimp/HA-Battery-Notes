@@ -36,7 +36,6 @@ from homeassistant.const import (
     CONF_UNIQUE_ID,
 )
 
-
 from . import PLATFORMS
 
 from .const import (
@@ -48,8 +47,6 @@ from .const import (
 from .entity import (
     BatteryNotesEntityDescription,
 )
-
-ICON = "mdi:battery-sync"
 
 @dataclass
 class BatteryNotesButtonEntityDescription(
