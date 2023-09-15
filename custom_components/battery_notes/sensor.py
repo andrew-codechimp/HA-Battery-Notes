@@ -1,11 +1,16 @@
 """Sensor platform for battery_notes."""
 from __future__ import annotations
 
+from dataclasses import dataclass
+from typing import Any, TypeVar
+
 import voluptuous as vol
 
 from homeassistant.components.sensor import (
     PLATFORM_SCHEMA,
+    SensorDeviceClass,
     SensorEntity,
+    SensorEntityDescription,
 )
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_ENTITY_ID
@@ -39,7 +44,36 @@ from .const import (
     CONF_DEVICE_ID,
 )
 
-ICON = "mdi:battery-unknown"
+from .entity import (
+    BatteryNotesEntityDescription,
+)
+
+
+@dataclass
+class BatteryNotesSensorEntityDescription(
+    SensorEntityDescription, BatteryNotesEntityDescription
+):
+    """Describes Battery Notes sensor entity."""
+    unique_id_suffix: str
+
+ENTITY_DESCRIPTIONS: tuple[BatteryNotesSensorEntityDescription, ...] = (
+    BatteryNotesSensorEntityDescription(
+        unique_id_suffix="",
+        key="battery_type",
+        name="Battery type",
+        icon="mdi:battery-unknown",
+        # entity_registry_enabled_default=False,
+        entity_category=EntityCategory.DIAGNOSTIC,
+    ),
+   BatteryNotesSensorEntityDescription(
+        unique_id_suffix="_battery_last_changed",
+        key="battery_last_changed",
+        name="Battery last changed",
+        icon="mdi:battery-clock",
+        # entity_registry_enabled_default=False,
+        entity_category=EntityCategory.DIAGNOSTIC,
+    ),
+)
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
     {
@@ -110,15 +144,7 @@ async def async_setup_entry(
     device_id = async_add_to_device(hass, config_entry)
 
     async_add_entities(
-        [
-            BatteryTypeSensor(
-                hass,
-                config_entry.title,
-                config_entry.entry_id,
-                device_id=device_id,
-                battery_type=battery_type,
-            )
-        ]
+        BatteryNotesSensor(hass, description, device_id, config_entry.title, f"{config_entry.entry_id}{description.unique_id_suffix}", battery_type) for description in ENTITY_DESCRIPTIONS
     )
 
 async def async_setup_platform(
@@ -128,46 +154,45 @@ async def async_setup_platform(
 ) -> None:
     """Set up the battery type sensor."""
     name: str | None = config.get(CONF_NAME)
-    unique_id = config.get(CONF_UNIQUE_ID)
+    # unique_id = f"{config.get(CONF_UNIQUE_ID)}_button"
     device_id: str = config[CONF_DEVICE_ID]
     battery_type: str = config[CONF_BATTERY_TYPE]
 
     await async_setup_reload_service(hass, DOMAIN, PLATFORMS)
 
     async_add_entities(
-        [BatteryTypeSensor(hass, name, unique_id, device_id, battery_type)]
+        BatteryNotesSensor(hass, description, device_id, name, f"{config.get(CONF_UNIQUE_ID)}{description.unique_id_suffix}", battery_type) for description in ENTITY_DESCRIPTIONS
     )
 
-class BatteryTypeSensor(SensorEntity):
-    """Represents a battery type sensor."""
+class BatteryNotesSensor(SensorEntity):
+    """Represents a battery note sensor."""
 
-    _attr_icon = ICON
-    _attr_should_poll = False
+    entity_description: BatteryNotesSensorEntityDescription
 
     def __init__(
         self,
-        hass: HomeAssistant,
+        hass,
+        description: BatteryNotesSensorEntityDescription,
+        device_id: str,
         name: str,
         unique_id: str,
-        device_id: str,
-        battery_type: str,
+        battery_type: str | None = None,
     ) -> None:
-        """Create a battery type sensor."""
+        """Initialize the sensor."""
         device_registry = dr.async_get(hass)
 
-        self._attr_unique_id = unique_id
-        self._attr_name = name + " Battery type"
-        self._device_id = device_id
+        self.entity_description = description
 
+        self._attr_name = f"{name} {description.name}"
+        self._attr_unique_id = unique_id
         self._device_id = device_id
+        self._battery_type = battery_type
+
         if device_id and (device := device_registry.async_get(device_id)):
             self._attr_device_info = DeviceInfo(
                 connections=device.connections,
                 identifiers=device.identifiers,
             )
-        self._attr_entity_category = EntityCategory.DIAGNOSTIC
-        self._battery_type = battery_type
-
 
     async def async_added_to_hass(self) -> None:
         """Handle added to Hass."""
@@ -192,11 +217,14 @@ class BatteryTypeSensor(SensorEntity):
     @property
     def native_value(self) -> str:
         """Return the native value of the sensor."""
-        # return self.battery_type
-        return self._battery_type
+
+        if self.entity_description.key == "battery_type":
+            return self._battery_type
+        return None
 
     @callback
     def _async_battery_type_state_changed_listener(self) -> None:
         """Handle the sensor state changes."""
         self.async_write_ha_state()
         self.async_schedule_update_ha_state(True)
+

@@ -1,6 +1,8 @@
 """Button platform for battery_notes."""
 from __future__ import annotations
 
+from dataclasses import dataclass
+
 import voluptuous as vol
 
 from homeassistant.config_entries import ConfigEntry
@@ -43,7 +45,29 @@ from .const import (
     CONF_DEVICE_ID,
 )
 
-ICON = "mdi:update"
+from .entity import (
+    BatteryNotesEntityDescription,
+)
+
+ICON = "mdi:battery-sync"
+
+@dataclass
+class BatteryNotesButtonEntityDescription(
+    ButtonEntityDescription, BatteryNotesEntityDescription
+):
+    """Describes Battery Notes button entity."""
+    unique_id_suffix: str
+
+ENTITY_DESCRIPTIONS: tuple[BatteryNotesButtonEntityDescription, ...] = (
+    BatteryNotesButtonEntityDescription(
+        unique_id_suffix="_battery_changed_button",
+        key="battery_changed",
+        name="Battery changed",
+        icon="mdi:battery-sync",
+        # entity_registry_enabled_default=False,
+        entity_category=EntityCategory.DIAGNOSTIC,
+    ),
+)
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
     {
@@ -113,15 +137,7 @@ async def async_setup_entry(
     device_id = async_add_to_device(hass, config_entry)
 
     async_add_entities(
-        [
-            BatteryChangedButton(
-                hass,
-                config_entry.title,
-                config_entry.entry_id,
-                device_id=device_id,
-                battery_type=battery_type,
-            )
-        ]
+        BatteryNotesButton(hass, description, config_entry.title, f"{config_entry.entry_id}{description.unique_id_suffix}", device_id) for description in ENTITY_DESCRIPTIONS
     )
 
 async def async_setup_platform(
@@ -131,35 +147,36 @@ async def async_setup_platform(
 ) -> None:
     """Set up the battery type button."""
     name: str | None = config.get(CONF_NAME)
-    unique_id = config.get(CONF_UNIQUE_ID)
     device_id: str = config[CONF_DEVICE_ID]
-    battery_type: str = config[CONF_BATTERY_TYPE]
 
     await async_setup_reload_service(hass, DOMAIN, PLATFORMS)
 
     async_add_entities(
-        [BatteryChangedButton(hass, name, unique_id, device_id, battery_type)]
+        BatteryNotesButton(hass, description, name, f"{config.get(CONF_UNIQUE_ID)}{description.unique_id_suffix}", device_id) for description in ENTITY_DESCRIPTIONS
     )
 
-class BatteryChangedButton(ButtonEntity):
+class BatteryNotesButton(ButtonEntity):
     """Represents a battery changed button."""
 
     _attr_should_poll = False
-    _attr_icon = ICON
+
+    entity_description: BatteryNotesButtonEntityDescription
 
     def __init__(
         self,
         hass: HomeAssistant,
+        description: BatteryNotesButtonEntityDescription,
         name: str,
         unique_id: str,
         device_id: str,
-        battery_type: str,
     ) -> None:
         """Create a battery changed button."""
         device_registry = dr.async_get(hass)
 
+        self.entity_description = description
+
+        self._attr_name = f"{name} {description.name}"
         self._attr_unique_id = unique_id
-        self._attr_name = name + " Battery changed"
         # self._attr_translation_key = "battery_changed"
         # self._attr_has_entity_name = False
         self._device_id = device_id
@@ -171,7 +188,6 @@ class BatteryChangedButton(ButtonEntity):
                 identifiers=device.identifiers,
             )
         self._attr_entity_category = EntityCategory.DIAGNOSTIC
-        self._battery_type = battery_type
 
 
     async def async_added_to_hass(self) -> None:
