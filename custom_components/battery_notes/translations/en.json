@@ -36,5 +36,20 @@
         "error": {
             "unknown": "Unknown error occurred."
         }
+    },
+    "entity": {
+        "button": {
+            "battery_changed": {
+                "name": "Battery changed"
+            }
+        },
+        "sensor": {
+            "battery_type": {
+                "name": "Battery type"
+            },
+            "battery_last_changed": {
+                "name": "Battery last changed"
+            }
+        }
     }
 }

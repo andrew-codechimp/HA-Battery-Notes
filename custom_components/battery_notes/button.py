@@ -75,7 +75,8 @@ ENTITY_DESCRIPTIONS: tuple[BatteryNotesButtonEntityDescription, ...] = (
     BatteryNotesButtonEntityDescription(
         unique_id_suffix="_battery_changed_button",
         key="battery_changed",
-        name="Battery changed",
+        # name="Battery changed",
+        translation_key="battery_changed",
         icon="mdi:battery-sync",
         # entity_registry_enabled_default=False,
         entity_category=EntityCategory.CONFIG,
@@ -190,7 +191,7 @@ class BatteryNotesButton(ButtonEntity):
         self.entity_description = description
 
         # self._attr_name = f"{name} {description.name}"
-        self._attr_name = description.name
+        # self._attr_name = description.name
         self._attr_unique_id = unique_id
         # self._attr_translation_key = "battery_changed"
         self._attr_has_entity_name = True

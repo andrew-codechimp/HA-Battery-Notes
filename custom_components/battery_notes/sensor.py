@@ -61,7 +61,8 @@ ENTITY_DESCRIPTIONS: tuple[BatteryNotesSensorEntityDescription, ...] = (
     BatteryNotesSensorEntityDescription(
         unique_id_suffix="", # battery_type has uniqueId set to entityId in V1, never add a suffix and keep it as the default entity
         key="battery_type",
-        name="Battery type",
+        # name="Battery type",
+        translation_key="battery_type",
         icon="mdi:battery-unknown",
         # entity_registry_enabled_default=False,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -69,7 +70,8 @@ ENTITY_DESCRIPTIONS: tuple[BatteryNotesSensorEntityDescription, ...] = (
    BatteryNotesSensorEntityDescription(
         unique_id_suffix="_battery_last_changed",
         key="battery_last_changed",
-        name="Battery last changed",
+        # name="Battery last changed",
+        translation_key="battery_last_changed",
         icon="mdi:battery-clock",
         # entity_registry_enabled_default=False,
         entity_category=EntityCategory.DIAGNOSTIC,
@@ -185,7 +187,7 @@ class BatteryNotesSensor(SensorEntity):
         self.entity_description = description
 
         # self._attr_name = f"{name} {description.name}"
-        self._attr_name = description.name
+        # self._attr_name = description.name
         self._attr_has_entity_name = True
         self._attr_unique_id = unique_id
         self._device_id = device_id
