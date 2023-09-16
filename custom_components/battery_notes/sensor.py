@@ -51,14 +51,15 @@ from .entity import (
 
 @dataclass
 class BatteryNotesSensorEntityDescription(
-    SensorEntityDescription, BatteryNotesEntityDescription
+    BatteryNotesEntityDescription,
+    SensorEntityDescription,
 ):
     """Describes Battery Notes sensor entity."""
     unique_id_suffix: str
 
 ENTITY_DESCRIPTIONS: tuple[BatteryNotesSensorEntityDescription, ...] = (
     BatteryNotesSensorEntityDescription(
-        unique_id_suffix="",
+        unique_id_suffix="", # battery_type has uniqueId set to entityId in V1, never add a suffix and keep it as the default entity
         key="battery_type",
         name="Battery type",
         icon="mdi:battery-unknown",
@@ -183,7 +184,9 @@ class BatteryNotesSensor(SensorEntity):
 
         self.entity_description = description
 
-        self._attr_name = f"{name} {description.name}"
+        # self._attr_name = f"{name} {description.name}"
+        self._attr_name = description.name
+        self._attr_has_entity_name = True
         self._attr_unique_id = unique_id
         self._device_id = device_id
         self._battery_type = battery_type

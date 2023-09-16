@@ -1,9 +1,13 @@
 """Button platform for battery_notes."""
 from __future__ import annotations
 
+from typing import Any
 from dataclasses import dataclass
+from datetime import datetime, time, timedelta
 
 import voluptuous as vol
+
+import homeassistant.util.dt as dt_util
 
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_ENTITY_ID
@@ -36,6 +40,8 @@ from homeassistant.const import (
     CONF_UNIQUE_ID,
 )
 
+from collections.abc import Awaitable, Callable
+
 from . import PLATFORMS
 
 from .const import (
@@ -48,9 +54,19 @@ from .entity import (
     BatteryNotesEntityDescription,
 )
 
+
+@dataclass
+class BatteryNotesButtonEntityDescriptionMixin:
+    """Mixin values for Home Assistant related buttons."""
+
+    press_fn: Callable[[HomeAssistant], Awaitable[Any]]
+
+
 @dataclass
 class BatteryNotesButtonEntityDescription(
-    ButtonEntityDescription, BatteryNotesEntityDescription
+    BatteryNotesEntityDescription,
+    ButtonEntityDescription,
+    BatteryNotesButtonEntityDescriptionMixin,
 ):
     """Describes Battery Notes button entity."""
     unique_id_suffix: str
@@ -62,7 +78,8 @@ ENTITY_DESCRIPTIONS: tuple[BatteryNotesButtonEntityDescription, ...] = (
         name="Battery changed",
         icon="mdi:battery-sync",
         # entity_registry_enabled_default=False,
-        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_category=EntityCategory.CONFIG,
+        press_fn=lambda coordinator: coordinator.async_set_battery_last_changed(),
     ),
 )
 
@@ -172,10 +189,11 @@ class BatteryNotesButton(ButtonEntity):
 
         self.entity_description = description
 
-        self._attr_name = f"{name} {description.name}"
+        # self._attr_name = f"{name} {description.name}"
+        self._attr_name = description.name
         self._attr_unique_id = unique_id
         # self._attr_translation_key = "battery_changed"
-        # self._attr_has_entity_name = False
+        self._attr_has_entity_name = True
         self._device_id = device_id
 
         self._device_id = device_id
@@ -184,8 +202,6 @@ class BatteryNotesButton(ButtonEntity):
                 connections=device.connections,
                 identifiers=device.identifiers,
             )
-        self._attr_entity_category = EntityCategory.DIAGNOSTIC
-
 
     async def async_added_to_hass(self) -> None:
         """Handle added to Hass."""
@@ -200,4 +216,6 @@ class BatteryNotesButton(ButtonEntity):
 
     async def async_press(self) -> None:
         """Press the button."""
+        # dt_util.now().timestamp()
+        # self.async_write_ha_state()
         await self.entity_description.press_fn(self.hass)
