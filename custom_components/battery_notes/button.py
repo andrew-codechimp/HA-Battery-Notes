@@ -77,7 +77,7 @@ ENTITY_DESCRIPTIONS: tuple[BatteryNotesButtonEntityDescription, ...] = (
         key="battery_changed",
         translation_key="battery_changed",
         icon="mdi:battery-sync",
-        entity_category=EntityCategory.CONFIG,
+        entity_category=EntityCategory.DIAGNOSTIC,
         press_fn=lambda coordinator: coordinator.async_set_battery_last_changed(),
     ),
 )
@@ -150,7 +150,12 @@ async def async_setup_entry(
     device_id = async_add_to_device(hass, config_entry)
 
     async_add_entities(
-        BatteryNotesButton(hass, description, f"{config_entry.entry_id}{description.unique_id_suffix}", device_id) for description in ENTITY_DESCRIPTIONS
+        BatteryNotesButton(
+            hass,
+            description,
+            f"{config_entry.entry_id}{description.unique_id_suffix}",
+            device_id
+            ) for description in ENTITY_DESCRIPTIONS
     )
 
 async def async_setup_platform(
@@ -164,7 +169,12 @@ async def async_setup_platform(
     await async_setup_reload_service(hass, DOMAIN, PLATFORMS)
 
     async_add_entities(
-        BatteryNotesButton(hass, description, f"{config.get(CONF_UNIQUE_ID)}{description.unique_id_suffix}", device_id) for description in ENTITY_DESCRIPTIONS
+        BatteryNotesButton(
+            hass,
+            description,
+            f"{config.get(CONF_UNIQUE_ID)}{description.unique_id_suffix}",
+            device_id
+            ) for description in ENTITY_DESCRIPTIONS
     )
 
 class BatteryNotesButton(ButtonEntity):

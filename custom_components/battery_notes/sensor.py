@@ -63,14 +63,14 @@ ENTITY_DESCRIPTIONS: tuple[BatteryNotesSensorEntityDescription, ...] = (
         key="battery_type",
         translation_key="battery_type",
         icon="mdi:battery-unknown",
-        entity_category=EntityCategory.CONFIG,
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
    BatteryNotesSensorEntityDescription(
         unique_id_suffix="_battery_last_changed",
         key="battery_last_changed",
         translation_key="battery_last_changed",
         icon="mdi:battery-clock",
-        entity_category=EntityCategory.CONFIG,
+        entity_category=EntityCategory.DIAGNOSTIC,
     ),
 )
 
@@ -143,7 +143,13 @@ async def async_setup_entry(
     device_id = async_add_to_device(hass, config_entry)
 
     async_add_entities(
-        BatteryNotesSensor(hass, description, device_id, f"{config_entry.entry_id}{description.unique_id_suffix}", battery_type) for description in ENTITY_DESCRIPTIONS
+        BatteryNotesSensor(
+            hass,
+            description,
+            device_id,
+            f"{config_entry.entry_id}{description.unique_id_suffix}",
+            battery_type
+            ) for description in ENTITY_DESCRIPTIONS
     )
 
 async def async_setup_platform(
@@ -160,7 +166,13 @@ async def async_setup_platform(
     await async_setup_reload_service(hass, DOMAIN, PLATFORMS)
 
     async_add_entities(
-        BatteryNotesSensor(hass, description, device_id, f"{config.get(CONF_UNIQUE_ID)}{description.unique_id_suffix}", battery_type) for description in ENTITY_DESCRIPTIONS
+        BatteryNotesSensor(
+            hass,
+            description,
+            device_id,
+            f"{config.get(CONF_UNIQUE_ID)}{description.unique_id_suffix}",
+            battery_type
+            ) for description in ENTITY_DESCRIPTIONS
     )
 
 class BatteryNotesSensor(SensorEntity):
