@@ -59,22 +59,18 @@ class BatteryNotesSensorEntityDescription(
 
 ENTITY_DESCRIPTIONS: tuple[BatteryNotesSensorEntityDescription, ...] = (
     BatteryNotesSensorEntityDescription(
-        unique_id_suffix="", # battery_type has uniqueId set to entityId in V1, never add a suffix and keep it as the default entity
+        unique_id_suffix="", # battery_type has uniqueId set to entityId in V1, never add a suffix
         key="battery_type",
-        # name="Battery type",
         translation_key="battery_type",
         icon="mdi:battery-unknown",
-        # entity_registry_enabled_default=False,
-        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_category=EntityCategory.CONFIG,
     ),
    BatteryNotesSensorEntityDescription(
         unique_id_suffix="_battery_last_changed",
         key="battery_last_changed",
-        # name="Battery last changed",
         translation_key="battery_last_changed",
         icon="mdi:battery-clock",
-        # entity_registry_enabled_default=False,
-        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_category=EntityCategory.CONFIG,
     ),
 )
 
@@ -147,7 +143,7 @@ async def async_setup_entry(
     device_id = async_add_to_device(hass, config_entry)
 
     async_add_entities(
-        BatteryNotesSensor(hass, description, device_id, config_entry.title, f"{config_entry.entry_id}{description.unique_id_suffix}", battery_type) for description in ENTITY_DESCRIPTIONS
+        BatteryNotesSensor(hass, description, device_id, f"{config_entry.entry_id}{description.unique_id_suffix}", battery_type) for description in ENTITY_DESCRIPTIONS
     )
 
 async def async_setup_platform(
@@ -164,7 +160,7 @@ async def async_setup_platform(
     await async_setup_reload_service(hass, DOMAIN, PLATFORMS)
 
     async_add_entities(
-        BatteryNotesSensor(hass, description, device_id, name, f"{config.get(CONF_UNIQUE_ID)}{description.unique_id_suffix}", battery_type) for description in ENTITY_DESCRIPTIONS
+        BatteryNotesSensor(hass, description, device_id, f"{config.get(CONF_UNIQUE_ID)}{description.unique_id_suffix}", battery_type) for description in ENTITY_DESCRIPTIONS
     )
 
 class BatteryNotesSensor(SensorEntity):
@@ -177,7 +173,6 @@ class BatteryNotesSensor(SensorEntity):
         hass,
         description: BatteryNotesSensorEntityDescription,
         device_id: str,
-        name: str,
         unique_id: str,
         battery_type: str | None = None,
     ) -> None:
@@ -185,9 +180,6 @@ class BatteryNotesSensor(SensorEntity):
         device_registry = dr.async_get(hass)
 
         self.entity_description = description
-
-        # self._attr_name = f"{name} {description.name}"
-        # self._attr_name = description.name
         self._attr_has_entity_name = True
         self._attr_unique_id = unique_id
         self._device_id = device_id

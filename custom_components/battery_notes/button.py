@@ -75,10 +75,8 @@ ENTITY_DESCRIPTIONS: tuple[BatteryNotesButtonEntityDescription, ...] = (
     BatteryNotesButtonEntityDescription(
         unique_id_suffix="_battery_changed_button",
         key="battery_changed",
-        # name="Battery changed",
         translation_key="battery_changed",
         icon="mdi:battery-sync",
-        # entity_registry_enabled_default=False,
         entity_category=EntityCategory.CONFIG,
         press_fn=lambda coordinator: coordinator.async_set_battery_last_changed(),
     ),
@@ -152,7 +150,7 @@ async def async_setup_entry(
     device_id = async_add_to_device(hass, config_entry)
 
     async_add_entities(
-        BatteryNotesButton(hass, description, config_entry.title, f"{config_entry.entry_id}{description.unique_id_suffix}", device_id) for description in ENTITY_DESCRIPTIONS
+        BatteryNotesButton(hass, description, f"{config_entry.entry_id}{description.unique_id_suffix}", device_id) for description in ENTITY_DESCRIPTIONS
     )
 
 async def async_setup_platform(
@@ -161,13 +159,12 @@ async def async_setup_platform(
     async_add_entities: AddEntitiesCallback,
 ) -> None:
     """Set up the battery type button."""
-    name: str | None = config.get(CONF_NAME)
     device_id: str = config[CONF_DEVICE_ID]
 
     await async_setup_reload_service(hass, DOMAIN, PLATFORMS)
 
     async_add_entities(
-        BatteryNotesButton(hass, description, name, f"{config.get(CONF_UNIQUE_ID)}{description.unique_id_suffix}", device_id) for description in ENTITY_DESCRIPTIONS
+        BatteryNotesButton(hass, description, f"{config.get(CONF_UNIQUE_ID)}{description.unique_id_suffix}", device_id) for description in ENTITY_DESCRIPTIONS
     )
 
 class BatteryNotesButton(ButtonEntity):
@@ -181,7 +178,6 @@ class BatteryNotesButton(ButtonEntity):
         self,
         hass: HomeAssistant,
         description: BatteryNotesButtonEntityDescription,
-        name: str,
         unique_id: str,
         device_id: str,
     ) -> None:
@@ -189,11 +185,7 @@ class BatteryNotesButton(ButtonEntity):
         device_registry = dr.async_get(hass)
 
         self.entity_description = description
-
-        # self._attr_name = f"{name} {description.name}"
-        # self._attr_name = description.name
         self._attr_unique_id = unique_id
-        # self._attr_translation_key = "battery_changed"
         self._attr_has_entity_name = True
         self._device_id = device_id
 
