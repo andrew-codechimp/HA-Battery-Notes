@@ -11,6 +11,7 @@ from homeassistant.components.sensor import (
     SensorDeviceClass,
     SensorEntity,
     SensorEntityDescription,
+    RestoreSensor,
 )
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_ENTITY_ID
@@ -71,6 +72,7 @@ ENTITY_DESCRIPTIONS: tuple[BatteryNotesSensorEntityDescription, ...] = (
         translation_key="battery_last_changed",
         icon="mdi:battery-clock",
         entity_category=EntityCategory.DIAGNOSTIC,
+        device_class=SensorDeviceClass.DATE
     ),
 )
 
@@ -157,9 +159,7 @@ async def async_setup_platform(
     config: ConfigType,
     async_add_entities: AddEntitiesCallback,
 ) -> None:
-    """Set up the battery type sensor."""
-    name: str | None = config.get(CONF_NAME)
-    # unique_id = f"{config.get(CONF_UNIQUE_ID)}_button"
+    """Set up the battery note sensor."""
     device_id: str = config[CONF_DEVICE_ID]
     battery_type: str = config[CONF_BATTERY_TYPE]
 
@@ -175,7 +175,7 @@ async def async_setup_platform(
             ) for description in ENTITY_DESCRIPTIONS
     )
 
-class BatteryNotesSensor(SensorEntity):
+class BatteryNotesSensor(RestoreSensor, SensorEntity):
     """Represents a battery note sensor."""
 
     entity_description: BatteryNotesSensorEntityDescription
@@ -205,14 +205,20 @@ class BatteryNotesSensor(SensorEntity):
 
     async def async_added_to_hass(self) -> None:
         """Handle added to Hass."""
+        await super().async_added_to_hass()
+        state = await self.async_get_last_sensor_data()
+        if state:
+            self._attr_native_value = state.native_value
+
         self.async_on_remove(
             async_track_state_change_event(
-                self.hass, [self._attr_unique_id], self._async_battery_type_state_changed_listener
+                self.hass, [self._attr_unique_id], self._async_battery_note_state_changed_listener
+                #TODO also add CONF_UNIQUE_ID + "_battery_changed_button listener"
             )
         )
 
         # Call once on adding
-        self._async_battery_type_state_changed_listener()
+        self._async_battery_note_state_changed_listener()
 
         # Update entity options
         registry = er.async_get(self.hass)
@@ -224,16 +230,17 @@ class BatteryNotesSensor(SensorEntity):
             )
 
     @property
-    def native_value(self) -> str:
+    def native_value(self) -> Any:
         """Return the native value of the sensor."""
 
         if self.entity_description.key == "battery_type":
             return self._battery_type
-        return None
+        return self._attr_native_value
 
     @callback
-    def _async_battery_type_state_changed_listener(self) -> None:
+    def _async_battery_note_state_changed_listener(self) -> None:
         """Handle the sensor state changes."""
+
         self.async_write_ha_state()
         self.async_schedule_update_ha_state(True)
 

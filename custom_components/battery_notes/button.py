@@ -219,6 +219,7 @@ class BatteryNotesButton(ButtonEntity):
 
     async def async_press(self) -> None:
         """Press the button."""
-        # dt_util.now().timestamp()
+        # https://community.home-assistant.io/t/how-to-update-entity-without-runtimeerror-cannot-be-called-from-within-the-event-loop/395907/3?u=codechimp
+        # self.hass.states.set("sensor.pi_hole_battery_last_changed", dt_util.now().timestamp())
         # self.async_write_ha_state()
         await self.entity_description.press_fn(self.hass)
