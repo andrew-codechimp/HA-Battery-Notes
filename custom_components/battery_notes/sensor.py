@@ -2,9 +2,12 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Any, TypeVar
+from typing import Any, TypeVar, cast
+from datetime import datetime, time, timedelta
 
 import voluptuous as vol
+
+import homeassistant.util.dt as dt_util
 
 from homeassistant.components.sensor import (
     PLATFORM_SCHEMA,
@@ -17,6 +20,7 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_ENTITY_ID
 from homeassistant.core import HomeAssistant, callback, Event
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
+from homeassistant.components.sensor.helpers import async_parse_date_datetime
 from homeassistant.helpers import (
     config_validation as cv,
     device_registry as dr,
@@ -58,23 +62,40 @@ class BatteryNotesSensorEntityDescription(
     """Describes Battery Notes sensor entity."""
     unique_id_suffix: str
 
-ENTITY_DESCRIPTIONS: tuple[BatteryNotesSensorEntityDescription, ...] = (
-    BatteryNotesSensorEntityDescription(
+batteryNotesTypeSensorEntityDescription = BatteryNotesSensorEntityDescription(
         unique_id_suffix="", # battery_type has uniqueId set to entityId in V1, never add a suffix
         key="battery_type",
         translation_key="battery_type",
         icon="mdi:battery-unknown",
         entity_category=EntityCategory.DIAGNOSTIC,
-    ),
-   BatteryNotesSensorEntityDescription(
+    )
+
+batteryNotesLastChangedSensorEntityDescription = BatteryNotesSensorEntityDescription(
         unique_id_suffix="_battery_last_changed",
         key="battery_last_changed",
         translation_key="battery_last_changed",
         icon="mdi:battery-clock",
         entity_category=EntityCategory.DIAGNOSTIC,
-        device_class=SensorDeviceClass.DATE
-    ),
-)
+        device_class=SensorDeviceClass.TIMESTAMP
+    )
+
+# ENTITY_DESCRIPTIONS: tuple[BatteryNotesSensorEntityDescription, ...] = (
+#     BatteryNotesSensorEntityDescription(
+#         unique_id_suffix="", # battery_type has uniqueId set to entityId in V1, never add a suffix
+#         key="battery_type",
+#         translation_key="battery_type",
+#         icon="mdi:battery-unknown",
+#         entity_category=EntityCategory.DIAGNOSTIC,
+#     ),
+#    BatteryNotesSensorEntityDescription(
+#         unique_id_suffix="_battery_last_changed",
+#         key="battery_last_changed",
+#         translation_key="battery_last_changed",
+#         icon="mdi:battery-clock",
+#         entity_category=EntityCategory.DIAGNOSTIC,
+#         device_class=SensorDeviceClass.DATE
+#     ),
+# )
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
     {
@@ -144,15 +165,23 @@ async def async_setup_entry(
 
     device_id = async_add_to_device(hass, config_entry)
 
-    async_add_entities(
-        BatteryNotesSensor(
-            hass,
-            description,
-            device_id,
-            f"{config_entry.entry_id}{description.unique_id_suffix}",
-            battery_type
-            ) for description in ENTITY_DESCRIPTIONS
-    )
+    entities = [
+        BatteryNotesTypeSensor(hass, batteryNotesTypeSensorEntityDescription, device_id, f"{config_entry.entry_id}{batteryNotesTypeSensorEntityDescription.unique_id_suffix}", battery_type),
+        BatteryNotesLastChangedSensor(hass, batteryNotesLastChangedSensorEntityDescription, device_id, f"{config_entry.entry_id}{batteryNotesLastChangedSensorEntityDescription.unique_id_suffix}", dt_util.utcnow()),
+    ]
+
+    # async_add_entities(
+    #     BatteryNotesSensor(
+    #         hass,
+    #         description,
+    #         device_id,
+    #         f"{config_entry.entry_id}{description.unique_id_suffix}",
+    #         battery_type
+    #         ) for description in ENTITY_DESCRIPTIONS
+    # )
+
+    async_add_entities(entities)
+
 
 async def async_setup_platform(
     hass: HomeAssistant,
@@ -165,15 +194,15 @@ async def async_setup_platform(
 
     await async_setup_reload_service(hass, DOMAIN, PLATFORMS)
 
-    async_add_entities(
-        BatteryNotesSensor(
-            hass,
-            description,
-            device_id,
-            f"{config.get(CONF_UNIQUE_ID)}{description.unique_id_suffix}",
-            battery_type
-            ) for description in ENTITY_DESCRIPTIONS
-    )
+    # async_add_entities(
+    #     BatteryNotesTypeSensor(
+    #         hass,
+    #         description,
+    #         device_id,
+    #         f"{config.get(CONF_UNIQUE_ID)}{description.unique_id_suffix}",
+    #         battery_type
+    #         ) for description in ENTITY_DESCRIPTIONS
+    # )
 
 class BatteryNotesSensor(RestoreSensor, SensorEntity):
     """Represents a battery note sensor."""
@@ -186,7 +215,6 @@ class BatteryNotesSensor(RestoreSensor, SensorEntity):
         description: BatteryNotesSensorEntityDescription,
         device_id: str,
         unique_id: str,
-        battery_type: str | None = None,
     ) -> None:
         """Initialize the sensor."""
         device_registry = dr.async_get(hass)
@@ -195,7 +223,6 @@ class BatteryNotesSensor(RestoreSensor, SensorEntity):
         self._attr_has_entity_name = True
         self._attr_unique_id = unique_id
         self._device_id = device_id
-        self._battery_type = battery_type
 
         if device_id and (device := device_registry.async_get(device_id)):
             self._attr_device_info = DeviceInfo(
@@ -229,14 +256,6 @@ class BatteryNotesSensor(RestoreSensor, SensorEntity):
                 {"entity_id": self._attr_unique_id},
             )
 
-    @property
-    def native_value(self) -> Any:
-        """Return the native value of the sensor."""
-
-        if self.entity_description.key == "battery_type":
-            return self._battery_type
-        return self._attr_native_value
-
     @callback
     def _async_battery_note_state_changed_listener(self) -> None:
         """Handle the sensor state changes."""
@@ -244,3 +263,54 @@ class BatteryNotesSensor(RestoreSensor, SensorEntity):
         self.async_write_ha_state()
         self.async_schedule_update_ha_state(True)
 
+
+class BatteryNotesTypeSensor(BatteryNotesSensor):
+    """Represents a battery note sensor."""
+
+    entity_description: BatteryNotesSensorEntityDescription
+
+    def __init__(
+        self,
+        hass,
+        description: BatteryNotesSensorEntityDescription,
+        device_id: str,
+        unique_id: str,
+        battery_type: str | None = None,
+    ) -> None:
+        """Initialize the sensor."""
+        super().__init__(hass, description, device_id, unique_id)
+
+        self._battery_type = battery_type
+
+    @property
+    def native_value(self) -> str:
+        """Return the native value of the sensor."""
+
+        return self._battery_type
+
+class BatteryNotesLastChangedSensor(BatteryNotesSensor):
+    """Represents a battery note sensor."""
+
+    entity_description: BatteryNotesSensorEntityDescription
+
+    def __init__(
+        self,
+        hass,
+        description: BatteryNotesSensorEntityDescription,
+        device_id: str,
+        unique_id: str,
+        last_changed: datetime | None = None,
+    ) -> None:
+        """Initialize the sensor."""
+        super().__init__(hass, description, device_id, unique_id)
+
+        self._last_changed = last_changed
+
+    @property
+    def native_value(self) -> datetime | str | None:
+        """Return the native value of the sensor."""
+
+        if self._last_changed is not None:
+            return self._last_changed
+
+        return "None"
