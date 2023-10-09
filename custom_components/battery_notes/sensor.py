@@ -3,7 +3,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from typing import Any, TypeVar, cast
-from datetime import datetime, time, timedelta
+from datetime import datetime, time, timedelta, timezone
 
 import voluptuous as vol
 
@@ -323,5 +323,7 @@ class BatteryNotesLastChangedSensor(BatteryNotesSensor):
 
         if self._last_changed is not None:
             return self._last_changed
+
+        # return datetime.fromtimestamp(self._last_changed, tz=timezone.utc)
 
         return None
