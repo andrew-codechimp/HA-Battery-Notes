@@ -217,9 +217,16 @@ class BatteryNotesButton(ButtonEntity):
                 {"entity_id": self._attr_unique_id},
             )
 
+    def update_battery_last_changed(self):
+        """Handle sensor state changes."""
+        last_changed_entity_id = "sensor." + self.entity_id.split('.')[1].replace("_battery_changed", "_battery_last_changed")
+        self.hass.states.set(last_changed_entity_id, dt_util.utcnow())
+        self.async_write_ha_state()
+
     async def async_press(self) -> None:
         """Press the button."""
         # https://community.home-assistant.io/t/how-to-update-entity-without-runtimeerror-cannot-be-called-from-within-the-event-loop/395907/3?u=codechimp
-        # self.hass.states.set("sensor.pi_hole_battery_last_changed", dt_util.now().timestamp())
-        # self.async_write_ha_state()
-        await self.entity_description.press_fn(self.hass)
+
+        # self.update_battery_last_changed()
+        await self.hass.async_add_executor_job(self.update_battery_last_changed)
+        # await self.entity_description.press_fn(self.hass)

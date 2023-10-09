@@ -76,7 +76,7 @@ batteryNotesLastChangedSensorEntityDescription = BatteryNotesSensorEntityDescrip
         translation_key="battery_last_changed",
         icon="mdi:battery-clock",
         entity_category=EntityCategory.DIAGNOSTIC,
-        device_class=SensorDeviceClass.TIMESTAMP
+        device_class=SensorDeviceClass.TIMESTAMP,
     )
 
 # ENTITY_DESCRIPTIONS: tuple[BatteryNotesSensorEntityDescription, ...] = (
@@ -166,8 +166,20 @@ async def async_setup_entry(
     device_id = async_add_to_device(hass, config_entry)
 
     entities = [
-        BatteryNotesTypeSensor(hass, batteryNotesTypeSensorEntityDescription, device_id, f"{config_entry.entry_id}{batteryNotesTypeSensorEntityDescription.unique_id_suffix}", battery_type),
-        BatteryNotesLastChangedSensor(hass, batteryNotesLastChangedSensorEntityDescription, device_id, f"{config_entry.entry_id}{batteryNotesLastChangedSensorEntityDescription.unique_id_suffix}", dt_util.utcnow()),
+        BatteryNotesTypeSensor(
+                hass,
+                batteryNotesTypeSensorEntityDescription,
+                device_id,
+                f"{config_entry.entry_id}{batteryNotesTypeSensorEntityDescription.unique_id_suffix}",
+                battery_type
+        ),
+        BatteryNotesLastChangedSensor(
+            hass,
+            batteryNotesLastChangedSensorEntityDescription,
+            device_id,
+            f"{config_entry.entry_id}{batteryNotesLastChangedSensorEntityDescription.unique_id_suffix}",
+            dt_util.utcnow()
+        ),
     ]
 
     # async_add_entities(
@@ -303,14 +315,13 @@ class BatteryNotesLastChangedSensor(BatteryNotesSensor):
     ) -> None:
         """Initialize the sensor."""
         super().__init__(hass, description, device_id, unique_id)
-
         self._last_changed = last_changed
 
     @property
-    def native_value(self) -> datetime | str | None:
+    def native_value(self) -> datetime | None:
         """Return the native value of the sensor."""
 
         if self._last_changed is not None:
             return self._last_changed
 
-        return "None"
+        return None
