@@ -6,6 +6,7 @@ from typing import Any, TypeVar, cast
 from datetime import datetime, time, timedelta, timezone
 
 import voluptuous as vol
+import pytz
 
 import homeassistant.util.dt as dt_util
 
@@ -104,6 +105,10 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
         vol.Required(CONF_BATTERY_TYPE): cv.string,
     }
 )
+
+def utc_from_timestamp(timestamp: float) -> datetime:
+    """Return a UTC time from a timestamp."""
+    return pytz.utc.localize(datetime.utcfromtimestamp(timestamp))
 
 @callback
 def async_add_to_device(
@@ -315,11 +320,14 @@ class BatteryNotesLastChangedSensor(BatteryNotesSensor):
     ) -> None:
         """Initialize the sensor."""
         super().__init__(hass, description, device_id, unique_id)
+        self._attr_device_class = description.device_class
         self._last_changed = last_changed
 
     @property
-    def native_value(self) -> datetime | None:
+    def native_value(self) -> str | datetime | None:
         """Return the native value of the sensor."""
+
+        print(self._last_changed)
 
         if self._last_changed is not None:
             return self._last_changed
