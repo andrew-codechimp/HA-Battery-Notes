@@ -72,7 +72,7 @@ typeSensorEntityDescription = BatteryNotesSensorEntityDescription(
         entity_category=EntityCategory.DIAGNOSTIC,
     )
 
-batteryNotesLastChangedSensorEntityDescription = BatteryNotesSensorEntityDescription(
+lastChangedSensorEntityDescription = BatteryNotesSensorEntityDescription(
         unique_id_suffix="_battery_last_changed",
         key="battery_last_changed",
         translation_key="battery_last_changed",
@@ -174,16 +174,16 @@ async def async_setup_entry(
     entities = [
         BatteryNotesTypeSensor(
                 hass,
-                batteryNotesTypeSensorEntityDescription,
+                typeSensorEntityDescription,
                 device_id,
-                f"{config_entry.entry_id}{batteryNotesTypeSensorEntityDescription.unique_id_suffix}",
+                f"{config_entry.entry_id}{typeSensorEntityDescription.unique_id_suffix}",
                 battery_type
         ),
         BatteryNotesLastChangedSensor(
             hass,
-            batteryNotesLastChangedSensorEntityDescription,
+            lastChangedSensorEntityDescription,
             device_id,
-            f"{config_entry.entry_id}{batteryNotesLastChangedSensorEntityDescription.unique_id_suffix}",
+            f"{config_entry.entry_id}{lastChangedSensorEntityDescription.unique_id_suffix}",
             dt_util.utcnow()
         ),
     ]
@@ -205,20 +205,8 @@ async def async_setup_platform(
     hass: HomeAssistant,
 ) -> None:
     """Set up the battery note sensor."""
-    device_id: str = config[CONF_DEVICE_ID]
-    battery_type: str = config[CONF_BATTERY_TYPE]
 
     await async_setup_reload_service(hass, DOMAIN, PLATFORMS)
-
-    # async_add_entities(
-    #     BatteryNotesTypeSensor(
-    #         hass,
-    #         description,
-    #         device_id,
-    #         f"{config.get(CONF_UNIQUE_ID)}{description.unique_id_suffix}",
-    #         battery_type
-    #         ) for description in ENTITY_DESCRIPTIONS
-    # )
 
 class BatteryNotesSensor(RestoreSensor, SensorEntity):
     """Represents a battery note sensor."""
