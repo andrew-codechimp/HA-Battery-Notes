@@ -1,6 +1,8 @@
 """Sensor platform for battery_notes."""
 from __future__ import annotations
 
+import datetime as py_datetime
+
 from dataclasses import dataclass
 from typing import Any, TypeVar, cast
 from datetime import datetime, time, timedelta, timezone
@@ -53,6 +55,9 @@ from .const import (
 from .entity import (
     BatteryNotesEntityDescription,
 )
+
+FMT_DATE = "%Y-%m-%d"
+DEFAULT_TIME = py_datetime.time(0, 0, 0)
 
 
 @dataclass
@@ -224,6 +229,7 @@ async def async_setup_platform(
 class BatteryNotesSensor(RestoreSensor, SensorEntity):
     """Represents a battery note sensor."""
 
+    _attr_should_poll = False
     entity_description: BatteryNotesSensorEntityDescription
 
     def __init__(
@@ -323,8 +329,32 @@ class BatteryNotesLastChangedSensor(BatteryNotesSensor):
         self._attr_device_class = description.device_class
         self._last_changed = last_changed
 
+    async def async_added_to_hass(self):
+        """Run when entity about to be added."""
+        await super().async_added_to_hass()
+
+        # Priority 1: Initial value
+        if self.state is not None:
+            return
+
+        default_value = py_datetime.datetime.today().strftime(f"{FMT_DATE} 00:00:00")
+
+        # Priority 2: Old state
+        if (old_state := await self.async_get_last_state()) is None:
+            self._last_changed = dt_util.parse_datetime(default_value)
+            return
+
+        if (date := dt_util.parse_date(old_state.state)) is None:
+            current_datetime = dt_util.parse_datetime(default_value)
+        else:
+            current_datetime = py_datetime.datetime.combine(date, DEFAULT_TIME)
+
+        self._last_changed = current_datetime.replace(
+            tzinfo=dt_util.DEFAULT_TIME_ZONE
+        )
+
     @property
-    def native_value(self) -> str | datetime | None:
+    def native_value(self) -> str | None:
         """Return the native value of the sensor."""
 
         print(self._last_changed)
