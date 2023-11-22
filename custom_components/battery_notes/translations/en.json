@@ -36,5 +36,12 @@
         "error": {
             "unknown": "Unknown error occurred."
         }
+    },
+    "entity": {
+        "sensor": {
+            "battery_type": {
+                "name": "Battery type"
+            }
+        }
     }
 }
