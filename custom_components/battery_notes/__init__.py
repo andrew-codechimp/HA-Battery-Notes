@@ -6,10 +6,9 @@ https://github.com/andrew-codechimp/ha-battery-notes
 from __future__ import annotations
 
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import Platform
 from homeassistant.core import HomeAssistant, callback
 
-from .const import DOMAIN, LOGGER, PLATFORMS
+from .const import PLATFORMS
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Set up a config entry."""

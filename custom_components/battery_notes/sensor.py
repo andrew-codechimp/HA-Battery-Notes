@@ -49,6 +49,7 @@ class BatteryNotesSensorEntityDescription(
     SensorEntityDescription,
 ):
     """Describes Battery Notes sensor entity."""
+
     unique_id_suffix: str
 
 typeSensorEntityDescription = BatteryNotesSensorEntityDescription(
