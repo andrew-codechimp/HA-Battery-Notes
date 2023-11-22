@@ -36,13 +36,9 @@ from homeassistant.helpers.event import (
 )
 
 from homeassistant.helpers.reload import async_setup_reload_service
-from homeassistant.helpers.typing import (
-    ConfigType,
-)
 
 from homeassistant.const import (
     CONF_NAME,
-    CONF_UNIQUE_ID,
 )
 
 from .const import (
@@ -68,7 +64,7 @@ class BatteryNotesSensorEntityDescription(
     """Describes Battery Notes sensor entity."""
     unique_id_suffix: str
 
-batteryNotesTypeSensorEntityDescription = BatteryNotesSensorEntityDescription(
+typeSensorEntityDescription = BatteryNotesSensorEntityDescription(
         unique_id_suffix="", # battery_type has uniqueId set to entityId in V1, never add a suffix
         key="battery_type",
         translation_key="battery_type",
@@ -207,8 +203,6 @@ async def async_setup_entry(
 
 async def async_setup_platform(
     hass: HomeAssistant,
-    config: ConfigType,
-    async_add_entities: AddEntitiesCallback,
 ) -> None:
     """Set up the battery note sensor."""
     device_id: str = config[CONF_DEVICE_ID]
