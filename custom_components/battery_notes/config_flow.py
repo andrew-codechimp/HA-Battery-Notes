@@ -35,18 +35,6 @@ DEVICE_SCHEMA = vol.Schema(
                 }
 )
 
-# BATTERY_SCHEMA = vol.Schema(
-#                 {
-#                     vol.Required(
-#                         CONF_BATTERY_TYPE
-#                     ): selector.TextSelector(
-#                         selector.TextSelectorConfig(
-#                             type=selector.TextSelectorType.TEXT
-#                         ),
-#                     ),
-#                 }
-# )
-
 class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
     """Config flow for BatteryNotes."""
 
@@ -76,7 +64,10 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                 device_registry.async_get(device_id)
             )
 
-            device_battery_details = await get_device_battery_details(device_entry.manufacturer, device_entry.model)
+            device_battery_details = await get_device_battery_details(
+                device_entry.manufacturer,
+                device_entry.model
+            )
 
             if device_battery_details:
                 try:
@@ -85,7 +76,9 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                     battery_quantity = 0
 
                 if battery_quantity > 1:
-                    batteries = device_battery_details.battery_quantity + "x " + device_battery_details.battery_type
+                    batteries = device_battery_details.battery_quantity + \
+                    "x " + \
+                    device_battery_details.battery_type
                 else:
                     batteries = device_battery_details.battery_type
 
@@ -101,49 +94,49 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
         )
 
     async def async_step_battery(self, user_input: Optional[Dict[str, Any]] = None):
-            """Second step in config flow to add the battery type."""
-            errors: Dict[str, str] = {}
-            if user_input is not None:
+        """Second step in config flow to add the battery type."""
+        errors: Dict[str, str] = {}
+        if user_input is not None:
 
-                self.data[CONF_BATTERY_TYPE] = user_input[CONF_BATTERY_TYPE]
+            self.data[CONF_BATTERY_TYPE] = user_input[CONF_BATTERY_TYPE]
 
-                device_id = self.data[CONF_DEVICE_ID]
-                unique_id = f"bn_{device_id}"
+            device_id = self.data[CONF_DEVICE_ID]
+            unique_id = f"bn_{device_id}"
 
-                device_registry = dr.async_get(self.hass)
-                device_entry = (
-                    device_registry.async_get(device_id)
-                )
-
-                await self.async_set_unique_id(unique_id)
-                self._abort_if_unique_id_configured()
-
-                if CONF_NAME in self.data:
-                    title = self.data.get(CONF_NAME)
-                else:
-                    title = device_entry.name_by_user or device_entry.name
-
-                return self.async_create_entry(
-                    title=title,
-                    data=self.data,
-                )
-
-            return self.async_show_form(
-                step_id="battery",
-                data_schema=vol.Schema(
-                {
-                    vol.Required(
-                        CONF_BATTERY_TYPE,
-                        default=self.data.get(CONF_BATTERY_TYPE),
-                    ): selector.TextSelector(
-                        selector.TextSelectorConfig(
-                            type=selector.TextSelectorType.TEXT
-                        ),
-                    ),
-                }
-            ),
-                errors=errors
+            device_registry = dr.async_get(self.hass)
+            device_entry = (
+                device_registry.async_get(device_id)
             )
+
+            await self.async_set_unique_id(unique_id)
+            self._abort_if_unique_id_configured()
+
+            if CONF_NAME in self.data:
+                title = self.data.get(CONF_NAME)
+            else:
+                title = device_entry.name_by_user or device_entry.name
+
+            return self.async_create_entry(
+                title=title,
+                data=self.data,
+            )
+
+        return self.async_show_form(
+            step_id="battery",
+            data_schema=vol.Schema(
+            {
+                vol.Required(
+                    CONF_BATTERY_TYPE,
+                    default=self.data.get(CONF_BATTERY_TYPE),
+                ): selector.TextSelector(
+                    selector.TextSelectorConfig(
+                        type=selector.TextSelectorType.TEXT
+                    ),
+                ),
+            }
+        ),
+            errors=errors
+        )
 
 class OptionsFlowHandler(OptionsFlow):
     """Handle an option flow for BatteryNotes."""
