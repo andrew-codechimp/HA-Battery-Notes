@@ -23,7 +23,7 @@ async def get_device_battery_details(
 
             devices = json_data["devices"]
             for device in devices:
-                if device["manufacturer"] == manufacturer & device["model"] == model:
+                if device["manufacturer"] == manufacturer and device["model"] == model:
                     device_battery_details = DeviceBatteryDetails(
                         manufacturer=device["manufacturer"],
                         model=device["model"],
