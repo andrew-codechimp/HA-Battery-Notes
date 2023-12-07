@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import copy
-from typing import Any
+from typing import Any, Dict, Optional
 
 import voluptuous as vol
 from homeassistant import config_entries
@@ -14,12 +14,45 @@ import homeassistant.helpers.device_registry as dr
 
 from homeassistant.const import CONF_NAME
 
+from custom_components.battery_notes.library import get_device_battery_details
+
 from .const import DOMAIN, CONF_DEVICE_ID, CONF_BATTERY_TYPE
+
+DEVICE_SCHEMA = vol.Schema(
+                {
+                    vol.Required(
+                        CONF_DEVICE_ID
+                    ): selector.DeviceSelector(
+                        # selector.DeviceSelectorConfig(model="otgw-nodo")
+                    ),
+                    vol.Optional(
+                        CONF_NAME
+                    ): selector.TextSelector(
+                        selector.TextSelectorConfig(
+                            type=selector.TextSelectorType.TEXT
+                        ),
+                    ),
+                }
+)
+
+# BATTERY_SCHEMA = vol.Schema(
+#                 {
+#                     vol.Required(
+#                         CONF_BATTERY_TYPE
+#                     ): selector.TextSelector(
+#                         selector.TextSelectorConfig(
+#                             type=selector.TextSelectorType.TEXT
+#                         ),
+#                     ),
+#                 }
+# )
 
 class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
     """Config flow for BatteryNotes."""
 
     VERSION = 1
+
+    data: dict
 
     @staticmethod
     @callback
@@ -34,6 +67,8 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
         """Handle a flow initialized by the user."""
         _errors = {}
         if user_input is not None:
+            self.data = user_input
+
             device_id = user_input[CONF_DEVICE_ID]
 
             device_registry = dr.async_get(self.hass)
@@ -41,41 +76,65 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                 device_registry.async_get(device_id)
             )
 
-            unique_id = f"bn_{device_id}"
+            device_battery_details = await get_device_battery_details(device_entry.manufacturer, device_entry.model)
 
-            await self.async_set_unique_id(unique_id)
-            self._abort_if_unique_id_configured()
+            if device_battery_details:
+                try:
+                    battery_quantity = int(device_battery_details.battery_quantity)
+                except ValueError:
+                    battery_quantity = 0
 
-            if CONF_NAME in user_input:
-                title = user_input.get(CONF_NAME)
-            else:
-                title = device_entry.name_by_user or device_entry.name
+                if battery_quantity > 1:
+                    batteries = device_battery_details.battery_quantity + "x " + device_battery_details.battery_type
+                else:
+                    batteries = device_battery_details.battery_type
 
-            return self.async_create_entry(
-                title=title,
-                data=user_input,
-            )
+                self.data[CONF_BATTERY_TYPE] = batteries
+
+            return await self.async_step_battery()
 
         return self.async_show_form(
             step_id="user",
-            data_schema=vol.Schema(
+            data_schema=DEVICE_SCHEMA,
+            errors=_errors,
+            last_step=False,
+        )
+
+    async def async_step_battery(self, user_input: Optional[Dict[str, Any]] = None):
+            """Second step in config flow to add the battery type."""
+            errors: Dict[str, str] = {}
+            if user_input is not None:
+
+                self.data[CONF_BATTERY_TYPE] = user_input[CONF_BATTERY_TYPE]
+
+                device_id = self.data[CONF_DEVICE_ID]
+                unique_id = f"bn_{device_id}"
+
+                device_registry = dr.async_get(self.hass)
+                device_entry = (
+                    device_registry.async_get(device_id)
+                )
+
+                await self.async_set_unique_id(unique_id)
+                self._abort_if_unique_id_configured()
+
+                if CONF_NAME in self.data:
+                    title = self.data.get(CONF_NAME)
+                else:
+                    title = device_entry.name_by_user or device_entry.name
+
+                return self.async_create_entry(
+                    title=title,
+                    data=self.data,
+                )
+
+            return self.async_show_form(
+                step_id="battery",
+                data_schema=vol.Schema(
                 {
                     vol.Required(
-                        CONF_DEVICE_ID,
-                        default=(user_input or {}).get(CONF_DEVICE_ID)
-                    ): selector.DeviceSelector(
-                        # selector.DeviceSelectorConfig(model="otgw-nodo")
-                    ),
-                    vol.Optional(
-                        CONF_NAME
-                    ): selector.TextSelector(
-                        selector.TextSelectorConfig(
-                            type=selector.TextSelectorType.TEXT
-                        ),
-                    ),
-                    vol.Required(
                         CONF_BATTERY_TYPE,
-                        default=(user_input or {}).get(CONF_BATTERY_TYPE),
+                        default=self.data.get(CONF_BATTERY_TYPE),
                     ): selector.TextSelector(
                         selector.TextSelectorConfig(
                             type=selector.TextSelectorType.TEXT
@@ -83,8 +142,8 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                     ),
                 }
             ),
-            errors=_errors,
-        )
+                errors=errors
+            )
 
 class OptionsFlowHandler(OptionsFlow):
     """Handle an option flow for BatteryNotes."""
