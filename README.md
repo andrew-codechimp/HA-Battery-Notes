@@ -49,7 +49,7 @@ The battery type will then be displayed as a diagnotic sensor on the device.
 
 ## Contributing to the Battery Library
 
-The battery library is a JSON document here custom_components/battery_notes/data/library.json  
+The battery library is a JSON document at ```custom_components/battery_notes/data/library.json```  
 To contribute, fork the repository, add your device details to the JSON document and submit a pull request.  
 Please keep the real devices in alphabetical order by manufacturer/model, you can copy/paste the BLANK device at the top of the file as a template.  
 The manufacturer and model should be exactly what is displayed on the Device screen within Home Assistant.  For the example image below your JSON entry will look like this  
