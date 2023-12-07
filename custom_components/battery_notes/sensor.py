@@ -79,7 +79,7 @@ lastChangedSensorEntityDescription = BatteryNotesSensorEntityDescription(
         translation_key="battery_last_changed",
         icon="mdi:battery-clock",
         entity_category=EntityCategory.DIAGNOSTIC,
-        device_class=SensorDeviceClass.TIMESTAMP,
+        device_class=SensorDeviceClass.DATE,
     )
 
 # ENTITY_DESCRIPTIONS: tuple[BatteryNotesSensorEntityDescription, ...] = (
@@ -316,9 +316,17 @@ class BatteryNotesLastChangedSensor(BatteryNotesSensor):
         """Run when entity about to be added."""
         await super().async_added_to_hass()
 
+        state = await self.async_get_last_sensor_data()
+        if state:
+            self._attr_native_value = state.native_value
+
+        print("Here")
+
         # Priority 1: Initial value
         if self.state is not None:
             return
+
+        print("Here2")
 
         default_value = py_datetime.datetime.today().strftime(f"{FMT_DATE} 00:00:00")
 
@@ -340,11 +348,11 @@ class BatteryNotesLastChangedSensor(BatteryNotesSensor):
     def native_value(self) -> str | None:
         """Return the native value of the sensor."""
 
-        print(self._last_changed)
+        print(self._attr_native_value)
 
-        if self._last_changed is not None:
-            return self._last_changed
+        # if self._last_changed is not None:
+        return self._attr_native_value
 
         # return datetime.fromtimestamp(self._last_changed, tz=timezone.utc)
 
-        return None
+        # return None

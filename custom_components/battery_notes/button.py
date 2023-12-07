@@ -3,7 +3,7 @@ from __future__ import annotations
 
 from typing import Any
 from dataclasses import dataclass
-from datetime import datetime, time, timedelta
+from datetime import datetime, time, timedelta, date
 
 import voluptuous as vol
 
@@ -220,7 +220,8 @@ class BatteryNotesButton(ButtonEntity):
     def update_battery_last_changed(self):
         """Handle sensor state changes."""
         last_changed_entity_id = "sensor." + self.entity_id.split('.')[1].replace("_battery_changed", "_battery_last_changed")
-        self.hass.states.set(last_changed_entity_id, dt_util.utcnow())
+        # self.hass.states.set(last_changed_entity_id, dt_util.utcnow())
+        self.hass.states.set(last_changed_entity_id, date.today())
         self.async_write_ha_state()
 
     async def async_press(self) -> None:
