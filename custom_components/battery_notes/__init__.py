@@ -6,17 +6,14 @@ https://github.com/andrew-codechimp/ha-battery-notes
 from __future__ import annotations
 
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import Platform
 from homeassistant.core import HomeAssistant, callback
 
-PLATFORMS = [Platform.SENSOR]
+from .const import PLATFORMS
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Set up a config entry."""
 
-    await hass.config_entries.async_forward_entry_setups(
-        entry, (Platform.SENSOR,)
-    )
+    await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
 
     entry.async_on_unload(entry.add_update_listener(async_update_options))
 

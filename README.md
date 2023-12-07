@@ -22,11 +22,12 @@ Platform | Description
 
 ### HACS
 
-1. Make sure the [HACS](https://github.com/custom-components/hacs) component is installed and working.
-1. Add the project repository `https://github.com/andrew-codechimp/HA-Battery-Notes` as a custom repository to HACS, see: https://hacs.xyz/docs/faq/custom_repositories
-1. Search for `Battery Notes` in HACS and install it under the "Integrations" category.
-1. Restart Home Assistant
-1. In the HA UI go to "Configuration" -> "Integrations" click "+" and search for "Battery Notes"
+[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=andrew-codechimp&repository=HA-Battery-Notes&category=Integration)
+
+Or  
+Search for `Battery Notes` in HACS and install it under the "Integrations" category.  
+Restart Home Assistant  
+In the HA UI go to "Configuration" -> "Integrations" click "+" and search for "Battery Notes"  
 
 ### Manual Installation
 
@@ -58,7 +59,7 @@ If you want to contribute to this please read the [Contribution guidelines](CONT
 [commits-shield]: https://img.shields.io/github/commit-activity/y/andrew-codechimp/HA-Battery-Notes.svg?style=for-the-badge
 [commits]: https://github.com/andrew-codechimp/HA-Battery-Notes/commits/main
 [hacs]: https://github.com/hacs/integration
-[hacsbadge]: https://img.shields.io/badge/HACS-Custom-orange.svg?style=for-the-badge
+[hacsbadge]: https://img.shields.io/badge/HACS-Default-41BDF5.svg?style=for-the-badge
 [discord]: https://discord.gg/Qa5fW2R
 [discord-shield]: https://img.shields.io/discord/330944238910963714.svg?style=for-the-badge
 [exampleimg]: example.png

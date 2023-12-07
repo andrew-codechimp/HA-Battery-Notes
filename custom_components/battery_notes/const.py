@@ -2,6 +2,9 @@
 import json
 from logging import Logger, getLogger
 from pathlib import Path
+from typing import Final
+
+from homeassistant.const import Platform
 
 LOGGER: Logger = getLogger(__package__)
 
@@ -22,3 +25,7 @@ CONF_BATTERY_TYPE = "battery_type"
 CONF_SENSORS = "sensors"
 
 DATA_CONFIGURED_ENTITIES = "configured_entities"
+
+PLATFORMS: Final = [
+    Platform.SENSOR,
+]
