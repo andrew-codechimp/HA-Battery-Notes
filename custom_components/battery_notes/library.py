@@ -49,3 +49,10 @@ class DeviceBatteryDetails(NamedTuple):
     model: str
     battery_type: str
     battery_quantity: int
+
+
+class ModelInfo(NamedTuple):
+    """Describes a device."""
+
+    manufacturer: str
+    model: str

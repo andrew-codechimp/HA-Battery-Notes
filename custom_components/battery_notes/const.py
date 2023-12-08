@@ -23,8 +23,13 @@ DOMAIN_CONFIG = "config"
 CONF_DEVICE_ID = "device_id"
 CONF_BATTERY_TYPE = "battery_type"
 CONF_SENSORS = "sensors"
+CONF_ENABLE_AUTODISCOVERY = "enable_autodiscovery"
+CONF_MODEL = "model"
+CONF_MANUFACTURER = "manufacturer"
 
 DATA_CONFIGURED_ENTITIES = "configured_entities"
+DATA_DISCOVERED_ENTITIES = "discovered_entities"
+DATA_DOMAIN_ENTITIES = "domain_entities"
 
 PLATFORMS: Final = [
     Platform.SENSOR,
