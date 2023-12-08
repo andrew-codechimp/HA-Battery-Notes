@@ -14,7 +14,7 @@ import homeassistant.helpers.device_registry as dr
 
 from homeassistant.const import CONF_NAME
 
-from custom_components.battery_notes.library import get_device_battery_details
+from .library import get_device_battery_details
 
 from .const import DOMAIN, CONF_DEVICE_ID, CONF_BATTERY_TYPE
 
