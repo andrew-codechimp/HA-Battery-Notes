@@ -79,9 +79,9 @@ async def get_model_information(
 
 
 class DiscoveryManager:
-    """This class is responsible for scanning the HA instance for entities and their manufacturer / model info
-    It checks if any of these devices is supported in the powercalc library
-    When entities are found it will dispatch a discovery flow, so the user can add them to their HA instance.
+    """This class is responsible for scanning the HA instance for devices and their manufacturer / model info
+    It checks if any of these devices is supported in the batterynotes library
+    When devices are found it will dispatch a discovery flow, so the user can add them to their HA instance.
     """
 
     def __init__(self, hass: HomeAssistant, ha_config: ConfigType) -> None:
@@ -91,9 +91,12 @@ class DiscoveryManager:
 
     async def start_discovery(self) -> None:
         """Start the discovery procedure."""
-        _LOGGER.debug("Start auto discovering entities")
-        entity_registry = er.async_get(self.hass)
-        for entity_entry in list(entity_registry.entities.values()):
+        _LOGGER.debug("Start auto discovering devices")
+        device_registry = dr.async_get(self.hass)
+        for device_entry in list(device_registry.devices.values()):
+            if not self.should_process_device(device_entry):
+                continue
+
             if not self.should_process_entity(entity_entry):
                 continue
 
@@ -116,6 +119,21 @@ class DiscoveryManager:
             self._init_entity_discovery(source_entity, device_battery_details, {})
 
         _LOGGER.debug("Done auto discovering entities")
+
+    def should_process_device(self, device_entry: dr.DeviceEntry) -> bool:
+        """Do some validations on the registry entry to see if it qualifies for discovery."""
+        if device_entry.disabled:
+            return False
+
+        has_user_config = self._is_user_configured(entity_entry.entity_id)
+        if has_user_config:
+            _LOGGER.debug(
+                "%s: Device is already configured, skipping auto configuration",
+                device_entry.id,
+            )
+            return False
+
+        return True
 
     def should_process_entity(self, entity_entry: er.RegistryEntry) -> bool:
         """Do some validations on the registry entry to see if it qualifies for discovery."""
