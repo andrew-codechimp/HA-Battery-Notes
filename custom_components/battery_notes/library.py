@@ -10,6 +10,7 @@ BUILT_IN_DATA_DIRECTORY = os.path.join(os.path.dirname(__file__), "../data")
 
 _LOGGER = logging.getLogger(__name__)
 
+
 async def get_device_battery_details(
     manufacturer: str,
     model: str,
@@ -29,11 +30,13 @@ async def get_device_battery_details(
                         model=device["model"],
                         battery_type=device["battery_type"],
                         battery_quantity=device["battery_quantity"],
-                        )
+                    )
                     return device_battery_details
 
     except FileNotFoundError:
-        _LOGGER.error("library.json file not found in directory %s", BUILT_IN_DATA_DIRECTORY)
+        _LOGGER.error(
+            "library.json file not found in directory %s", BUILT_IN_DATA_DIRECTORY
+        )
         return None
 
     return None

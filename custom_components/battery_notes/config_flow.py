@@ -19,21 +19,16 @@ from custom_components.battery_notes.library import get_device_battery_details
 from .const import DOMAIN, CONF_DEVICE_ID, CONF_BATTERY_TYPE
 
 DEVICE_SCHEMA = vol.Schema(
-                {
-                    vol.Required(
-                        CONF_DEVICE_ID
-                    ): selector.DeviceSelector(
-                        # selector.DeviceSelectorConfig(model="otgw-nodo")
-                    ),
-                    vol.Optional(
-                        CONF_NAME
-                    ): selector.TextSelector(
-                        selector.TextSelectorConfig(
-                            type=selector.TextSelectorType.TEXT
-                        ),
-                    ),
-                }
+    {
+        vol.Required(CONF_DEVICE_ID): selector.DeviceSelector(
+            # selector.DeviceSelectorConfig(model="otgw-nodo")
+        ),
+        vol.Optional(CONF_NAME): selector.TextSelector(
+            selector.TextSelectorConfig(type=selector.TextSelectorType.TEXT),
+        ),
+    }
 )
+
 
 class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
     """Config flow for BatteryNotes."""
@@ -60,13 +55,10 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             device_id = user_input[CONF_DEVICE_ID]
 
             device_registry = dr.async_get(self.hass)
-            device_entry = (
-                device_registry.async_get(device_id)
-            )
+            device_entry = device_registry.async_get(device_id)
 
             device_battery_details = await get_device_battery_details(
-                device_entry.manufacturer,
-                device_entry.model
+                device_entry.manufacturer, device_entry.model
             )
 
             if device_battery_details:
@@ -76,9 +68,11 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                     battery_quantity = 0
 
                 if battery_quantity > 1:
-                    batteries = device_battery_details.battery_quantity + \
-                    "x " + \
-                    device_battery_details.battery_type
+                    batteries = (
+                        str(device_battery_details.battery_quantity)
+                        + "x "
+                        + device_battery_details.battery_type
+                    )
                 else:
                     batteries = device_battery_details.battery_type
 
@@ -97,16 +91,13 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
         """Second step in config flow to add the battery type."""
         errors: Dict[str, str] = {}
         if user_input is not None:
-
             self.data[CONF_BATTERY_TYPE] = user_input[CONF_BATTERY_TYPE]
 
             device_id = self.data[CONF_DEVICE_ID]
             unique_id = f"bn_{device_id}"
 
             device_registry = dr.async_get(self.hass)
-            device_entry = (
-                device_registry.async_get(device_id)
-            )
+            device_entry = device_registry.async_get(device_id)
 
             await self.async_set_unique_id(unique_id)
             self._abort_if_unique_id_configured()
@@ -124,19 +115,20 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
         return self.async_show_form(
             step_id="battery",
             data_schema=vol.Schema(
-            {
-                vol.Required(
-                    CONF_BATTERY_TYPE,
-                    default=self.data.get(CONF_BATTERY_TYPE),
-                ): selector.TextSelector(
-                    selector.TextSelectorConfig(
-                        type=selector.TextSelectorType.TEXT
+                {
+                    vol.Required(
+                        CONF_BATTERY_TYPE,
+                        default=self.data.get(CONF_BATTERY_TYPE),
+                    ): selector.TextSelector(
+                        selector.TextSelectorConfig(
+                            type=selector.TextSelectorType.TEXT
+                        ),
                     ),
-                ),
-            }
-        ),
-            errors=errors
+                }
+            ),
+            errors=errors,
         )
+
 
 class OptionsFlowHandler(OptionsFlow):
     """Handle an option flow for BatteryNotes."""
@@ -176,8 +168,8 @@ class OptionsFlowHandler(OptionsFlow):
     ) -> dict:
         """Save options, and return errors when validation fails."""
         device_registry = dr.async_get(self.hass)
-        device_entry = (
-            device_registry.async_get(self.config_entry.data.get(CONF_DEVICE_ID))
+        device_entry = device_registry.async_get(
+            self.config_entry.data.get(CONF_DEVICE_ID)
         )
 
         if CONF_NAME in user_input:
@@ -209,29 +201,22 @@ class OptionsFlowHandler(OptionsFlow):
 
     def build_options_schema(self) -> vol.Schema:
         """Build the options schema."""
-        data_schema=vol.Schema(
-                {
-                    vol.Optional(
-                        CONF_NAME
-                    ): selector.TextSelector(
-                        selector.TextSelectorConfig(
-                            type=selector.TextSelectorType.TEXT
-                        ),
-                    ),
-                    vol.Required(
-                        CONF_BATTERY_TYPE
-                    ): selector.TextSelector(
-                        selector.TextSelectorConfig(
-                            type=selector.TextSelectorType.TEXT
-                        ),
-                    ),
-                }
-            )
+        data_schema = vol.Schema(
+            {
+                vol.Optional(CONF_NAME): selector.TextSelector(
+                    selector.TextSelectorConfig(type=selector.TextSelectorType.TEXT),
+                ),
+                vol.Required(CONF_BATTERY_TYPE): selector.TextSelector(
+                    selector.TextSelectorConfig(type=selector.TextSelectorType.TEXT),
+                ),
+            }
+        )
 
         return _fill_schema_defaults(
             data_schema,
             self.current_config,
         )
+
 
 def _fill_schema_defaults(
     data_schema: vol.Schema,

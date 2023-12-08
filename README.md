@@ -53,14 +53,16 @@ The battery library is a JSON document at ```custom_components/battery_notes/dat
 To contribute, fork the repository, add your device details to the JSON document and submit a pull request.  
 Please keep the real devices in alphabetical order by manufacturer/model, you can copy/paste the BLANK device at the top of the file as a template.  
 The manufacturer and model should be exactly what is displayed on the Device screen within Home Assistant.  For the example image below your JSON entry will look like this  
+
 ```
 {
     "manufacturer": "Philips",
     "model": "Hue motion sensor (9290012607)",
     "battery_type": "AAA",
-    "battery_quantity": "2"
+    "battery_quantity": 2
 },
 ```  
+Note that the battery quantity is a numeric (no quotes).  
 The make & model names may be different between integrations such as Zigbee2MQTT and ZHA, if you see a similar device please duplicate the entry rather than changing it.  
 
 ![Device Details](https://github.com/andrew-codechimp/HA-Battery-Notes/blob/main/images/screenshot-device-info.png "Device Details")
