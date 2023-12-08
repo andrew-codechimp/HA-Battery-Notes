@@ -29,24 +29,23 @@ _LOGGER = logging.getLogger(__name__)
 
 
 async def autodiscover_model(
-    hass: HomeAssistant,
-    entity_entry: er.RegistryEntry | None,
+    device_entry: dr.DeviceEntry | None,
 ) -> ModelInfo | None:
     """Try to auto discover manufacturer and model from the known device information."""
-    if not entity_entry or not entity_entry.device_id:
+    if not device_entry:
         return None
 
-    model_info = await get_model_information(hass, entity_entry)
+    model_info = await get_model_information(device_entry)
     if not model_info:
         _LOGGER.debug(
             "%s: Cannot autodiscover model, manufacturer or model unknown from device registry",
-            entity_entry.entity_id,
+            device_entry.id,
         )
         return None
 
     _LOGGER.debug(
         "%s: Auto discovered model (manufacturer=%s, model=%s)",
-        entity_entry.entity_id,
+        device_entry.id,
         model_info.manufacturer,
         model_info.model,
     )
@@ -54,20 +53,9 @@ async def autodiscover_model(
 
 
 async def get_model_information(
-    hass: HomeAssistant,
-    entity_entry: er.RegistryEntry,
+    device_entry: dr.DeviceEntry,
 ) -> DeviceBatteryDetails | None:
     """See if we have enough information in device registry to automatically setup the battery type."""
-    if entity_entry.device_id is None:
-        return None
-    device_registry = dr.async_get(hass)
-    device_entry = device_registry.async_get(entity_entry.device_id)
-    if (
-        device_entry is None
-        or device_entry.manufacturer is None
-        or device_entry.model is None
-    ):
-        return None
 
     manufacturer = str(device_entry.manufacturer)
     model = str(device_entry.model)
@@ -100,7 +88,7 @@ class DiscoveryManager:
             if not self.should_process_entity(entity_entry):
                 continue
 
-            model_info = await autodiscover_model(self.hass, entity_entry)
+            model_info = await autodiscover_model(device_entry)
             if not model_info or not model_info.manufacturer or not model_info.model:
                 continue
 
