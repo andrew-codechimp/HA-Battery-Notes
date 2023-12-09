@@ -22,7 +22,7 @@ from .const import (
     CONF_SENSORS,
     DOMAIN,
 )
-from .library import ModelInfo, DeviceBatteryDetails, get_device_battery_details
+from .library import ModelInfo, DeviceBatteryDetails, Library
 from .errors import ModelNotSupportedError
 
 _LOGGER = logging.getLogger(__name__)
@@ -81,6 +81,9 @@ class DiscoveryManager:
         """Start the discovery procedure."""
         _LOGGER.debug("Start auto discovering devices")
         device_registry = dr.async_get(self.hass)
+
+        library = Library()
+
         for device_entry in list(device_registry.devices.values()):
             if not self.should_process_device(device_entry):
                 continue
@@ -97,7 +100,7 @@ class DiscoveryManager:
                 self.hass,
             )
 
-            device_battery_details = get_device_battery_details(
+            device_battery_details = library.get_device_battery_details(
                 model_info.manufacturer, model_info.model
             )
 

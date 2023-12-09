@@ -14,7 +14,7 @@ import homeassistant.helpers.device_registry as dr
 
 from homeassistant.const import CONF_NAME
 
-from .library import get_device_battery_details
+from .library import Library
 
 from .const import DOMAIN, CONF_DEVICE_ID, CONF_BATTERY_TYPE
 
@@ -57,7 +57,9 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             device_registry = dr.async_get(self.hass)
             device_entry = device_registry.async_get(device_id)
 
-            device_battery_details = await get_device_battery_details(
+            library = Library()
+
+            device_battery_details = await library.get_device_battery_details(
                 device_entry.manufacturer, device_entry.model
             )
 
