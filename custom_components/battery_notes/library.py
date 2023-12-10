@@ -8,8 +8,6 @@ from typing import NamedTuple
 
 from homeassistant.core import HomeAssistant
 
-from homeassistant.helpers.typing import ConfigType
-
 from .const import (
     DOMAIN,
     DOMAIN_CONFIG,
