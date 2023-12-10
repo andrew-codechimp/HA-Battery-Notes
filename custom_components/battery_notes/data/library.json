@@ -80,78 +80,78 @@
             "battery_type": "CR2032"
         },
         {
-            "manufacturer": "W340001X",
-            "model": "SwitchBot",
+            "manufacturer": "SwitchBot",
+            "model": "W340001X",
             "battery_type": "AAA",
             "battery_quantity": 2
         },
         {
-            "manufacturer": "Soil sensor (TS0601_soil)",
-            "model": "TuYa",
+            "model": "Soil sensor (TS0601_soil)",
+            "manufacturer": "TuYa",
             "battery_type": "AA",
             "battery_quantity": 2
         },
         {
-            "manufacturer": "Aqara water leak sensor (SJCGQ11LM)",
-            "model": "Xiaomi",
+            "model": "Aqara water leak sensor (SJCGQ11LM)",
+            "manufacturer": "Xiaomi",
             "battery_type": "CR2032"
         },
         {
-            "manufacturer": "MiJia wireless switch (WXKG01LM)",
-            "model": "Xiaomi",
+            "model": "MiJia wireless switch (WXKG01LM)",
+            "manufacturer": "Xiaomi",
             "battery_type": "CR2032"
         },
         {
-            "manufacturer": "Aqara wireless switch (WXKG11LM)",
-            "model": "Xiaomi",
+            "model": "Aqara wireless switch (WXKG11LM)",
+            "manufacturer": "Xiaomi",
             "battery_type": "CR2032"
         },
         {
-            "manufacturer": "4 in 1 multi sensor (ZB003-X)",
-            "model": "Fantem",
+            "model": "4 in 1 multi sensor (ZB003-X)",
+            "manufacturer": "Fantem",
             "battery_type": "CR123A",
             "battery_quantity": 2
         },
         {
-            "manufacturer": "[Flower sensor](http://modkam.ru/?p=1700) (DIYRuZ_Flower)",
-            "model": "DIYRuZ",
+            "model": "[Flower sensor](http://modkam.ru/?p=1700) (DIYRuZ_Flower)",
+            "manufacturer": "DIYRuZ",
             "battery_type": "AAA",
             "battery_quantity": 2
         },
         {
-            "manufacturer": "Motion sensor (SNZB-03)",
-            "model": "SONOFF",
+            "model": "Motion sensor (SNZB-03)",
+            "manufacturer": "SONOFF",
             "battery_type": "CR2450"
         },
         {
-            "manufacturer": "Aqara TVOC air quality monitor (VOCKQJK11LM)",
-            "model": "Xiaomi",
+            "model": "Aqara TVOC air quality monitor (VOCKQJK11LM)",
+            "manufacturer": "Xiaomi",
             "battery_type": "CR2450",
             "battery_quantity": 2
         },
         {
-            "manufacturer": "Smart carbon monoxide sensor (HS1CA-E)",
-            "model": "HEIMAN",
+            "model": "Smart carbon monoxide sensor (HS1CA-E)",
+            "manufacturer": "HEIMAN",
             "battery_type": "CR123A"
         },
         {
-            "manufacturer": "Aqara D1 single key wireless wall switch (WXKG06LM)",
-            "model": "Xiaomi",
+            "model": "Aqara D1 single key wireless wall switch (WXKG06LM)",
+            "manufacturer": "Xiaomi",
             "battery_type": "CR2032 "
         },
         {
-            "manufacturer": "Aqara D1 double key wireless wall switch (WXKG07LM)",
-            "model": "Xiaomi",
+            "model": "Aqara D1 double key wireless wall switch (WXKG07LM)",
+            "manufacturer": "Xiaomi",
             "battery_type": "CR2032 "
         },
         {
-            "manufacturer": "HHCCJCY01",
-            "model": "Xiaomi",
+            "model": "HHCCJCY01",
+            "manufacturer": "Xiaomi",
             "battery_type": "CR2032 "
         },
         {
-            "manufacturer": "LYWSD03MMC",
-            "model": "Xiaomi",
+            "model": "LYWSD03MMC",
+            "manufacturer": "Xiaomi",
             "battery_type": "CR2032 "
         }
     ]
