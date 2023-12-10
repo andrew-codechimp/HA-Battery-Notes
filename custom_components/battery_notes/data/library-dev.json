@@ -2,7 +2,7 @@
     "version": 1,
     "devices": [
         {
-            "manufacturer": "Met.no",
+            "manufacturer": "Met.NO",
             "model": "Forecast",
             "battery_type": "TEST VALUE"
         },

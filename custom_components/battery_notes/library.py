@@ -49,7 +49,10 @@ class Library:  # pylint: disable=too-few-public-methods
         """Create a battery details object from the JSON devices data."""
 
         for device in self._devices:
-            if device["manufacturer"] == manufacturer and device["model"] == model:
+            if (
+                device["manufacturer"].casefold() == manufacturer.casefold()
+                and device["model"].casefold() == model.casefold()
+            ):
                 device_battery_details = DeviceBatteryDetails(
                     manufacturer=device["manufacturer"],
                     model=device["model"],
