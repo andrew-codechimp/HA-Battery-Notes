@@ -17,7 +17,14 @@
             "model": "4 in 1 multi sensor (ZB003-X)",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },        
+        },      
+        {
+
+            "manufacturer": "GiEX",
+            "model": "Water irrigation valve (QT06_2)",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },      
         {
             "manufacturer": "HEIMAN",
             "model": "Smart carbon monoxide sensor (HS1CA-E)",
@@ -69,13 +76,43 @@
             "manufacturer": "Sonoff",
             "model": "Temperature and humidity sensor (SNZB-02)",
             "battery_type": "CR2430"
-        },        
+        },     
+        {
+            "manufacturer": "Sure Petcare",
+            "model": "Pet flap",
+            "battery_type": "C",
+            "battery_quantity": 4
+        },     
+        {
+            "manufacturer": "SwitchBot",
+            "model": "W340001X",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },      
+        {
+            "manufacturer": "Tado",
+            "model": "RU01",
+            "battery_type": "AAA",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "Tado",
+            "model": "VA02",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },      
         {
             "manufacturer": "TT Lock",
             "model": "SN511-180MS_PV53",
             "battery_type": "AA",
             "battery_quantity": 4
-        },        
+        },     
+        {
+            "manufacturer": "TuYa",
+            "model": "Soil sensor (TS0601_soil)",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
         {
             "manufacturer": "TuYa",
             "model": "Temperature & humidity sensor (WSD500A)",
@@ -114,18 +151,6 @@
             "battery_type": "CR2032"
         },
         {
-            "manufacturer": "SwitchBot",
-            "model": "W340001X",
-            "battery_type": "AAA",
-            "battery_quantity": 2
-        },
-        {
-            "model": "Soil sensor (TS0601_soil)",
-            "manufacturer": "TuYa",
-            "battery_type": "AA",
-            "battery_quantity": 2
-        },
-        {
             "manufacturer": "Xiaomi",
             "model": "Aqara D1 double key wireless wall switch (WXKG07LM)",
             "battery_type": "CR2032"
@@ -153,9 +178,14 @@
         },
         {
             "manufacturer": "Xiaomi",
-            "model": "HHCCJCY01",
+            "model": "Aqara wireless switch (with gyroscope) (WXKG12LM)",
             "battery_type": "CR2032"
         },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "HHCCJCY01",
+            "battery_type": "CR2032"
+        },      
         {
             "manufacturer": "Xiaomi",
             "model": "LYWSD03MMC",
