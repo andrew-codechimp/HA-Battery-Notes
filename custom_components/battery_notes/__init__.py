@@ -27,10 +27,7 @@ from .const import (
     DOMAIN_CONFIG,
     PLATFORMS,
     CONF_ENABLE_AUTODISCOVERY,
-    CONF_SENSORS,
-    DATA_CONFIGURED_ENTITIES,
-    DATA_DISCOVERED_ENTITIES,
-    DATA_DOMAIN_ENTITIES,
+    CONF_LIBRARY,
 )
 
 MIN_HA_VERSION = "2023.7"
@@ -56,9 +53,6 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
 
     hass.data[DOMAIN] = {
         DOMAIN_CONFIG: domain_config,
-        DATA_CONFIGURED_ENTITIES: {},
-        DATA_DOMAIN_ENTITIES: {},
-        DATA_DISCOVERED_ENTITIES: {},
     }
 
     if domain_config.get(CONF_ENABLE_AUTODISCOVERY):

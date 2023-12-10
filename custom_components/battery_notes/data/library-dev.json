@@ -1,0 +1,83 @@
+{
+    "version": 1,
+    "devices": [
+        {
+            "manufacturer": "Met.no",
+            "model": "Forecast",
+            "battery_type": "TEST VALUE"
+        },
+        {
+            "manufacturer": "Develco",
+            "model": "Smoke detector with siren (SMSZB-120)",
+            "battery_type": "CR123"
+        },
+        {
+            "manufacturer": "OSRAM",
+            "model": "Smart+ switch mini (AC0251100NJ/AC0251600NJ/AC0251700NJ)",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Philips",
+            "model": "Hue smart button (8718699693985)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Philips",
+            "model": "Hue dimmer switch (324131092621)",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Philips",
+            "model": "Hue dimmer switch (929002398602)",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Philips",
+            "model": "Hue motion outdoor sensor (9290030674)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Philips",
+            "model": "Hue motion sensor (9290012607)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Sonoff",
+            "model": "Temperature and humidity sensor (SNZB-02)",
+            "battery_type": "CR2430"
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Wireless switch with 4 buttons (TS0044)",
+            "battery_type": "CR2430"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "Aqara door & window contact sensor (MCCGQ11LM)",
+            "battery_type": "CR1632"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "Aqara human body movement and illuminance sensor (RTCGQ11LM)",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "Aqara P1 human body movement and illuminance sensor (RTCGQ14LM)",
+            "battery_type": "CR2450",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "Aqara temperature, humidity and pressure sensor (WSDCGQ11LM)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "Aqara vibration sensor (DJT11LM)",
+            "battery_type": "CR2032"
+        }
+    ]
+}

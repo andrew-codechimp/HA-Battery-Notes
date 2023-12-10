@@ -23,6 +23,7 @@ DOMAIN_CONFIG = "config"
 CONF_BATTERY_TYPE = "battery_type"
 CONF_SENSORS = "sensors"
 CONF_ENABLE_AUTODISCOVERY = "enable_autodiscovery"
+CONF_LIBRARY = "library"
 CONF_MODEL = "model"
 CONF_MANUFACTURER = "manufacturer"
 
