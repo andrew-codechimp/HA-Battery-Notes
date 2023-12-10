@@ -78,6 +78,16 @@
             "manufacturer": "Xiaomi",
             "model": "Aqara vibration sensor (DJT11LM)",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "Aqara water leak sensor (SJCGQ11LM)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "Aqara wireless switch (with gyroscope) (WXKG12LM)",
+            "battery_type": "CR2032"
         }
     ]
 }
