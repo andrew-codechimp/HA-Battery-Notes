@@ -7,6 +7,23 @@
             "battery_type": "CR123"
         },
         {
+            "manufacturer": "DIYRuZ",
+            "model": "[Flower sensor](http://modkam.ru/?p=1700) (DIYRuZ_Flower)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },        
+        {
+            "manufacturer": "Fantem",
+            "model": "4 in 1 multi sensor (ZB003-X)",
+            "battery_type": "CR123A",
+            "battery_quantity": 2
+        },        
+        {
+            "manufacturer": "HEIMAN",
+            "model": "Smart carbon monoxide sensor (HS1CA-E)",
+            "battery_type": "CR123A"
+        },        
+        {
             "manufacturer": "OSRAM",
             "model": "Smart+ switch mini (AC0251100NJ/AC0251600NJ/AC0251700NJ)",
             "battery_type": "CR2450"
@@ -44,12 +61,29 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "SONOFF",
+            "model": "Motion sensor (SNZB-03)",
+            "battery_type": "CR2450"
+        },        
+        {
             "manufacturer": "Sonoff",
             "model": "Temperature and humidity sensor (SNZB-02)",
             "battery_type": "CR2430"
+        },        
+        {
+            "manufacturer": "TT Lock",
+            "model": "SN511-180MS_PV53",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },        
+        {
+            "manufacturer": "TuYa",
+            "model": "Temperature & humidity sensor (WSD500A)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         },
         {
-            "manufacturer": "Tuya",
+            "manufacturer": "TuYa",
             "model": "Wireless switch with 4 buttons (TS0044)",
             "battery_type": "CR2430"
         },
@@ -92,78 +126,45 @@
             "battery_quantity": 2
         },
         {
-            "model": "Aqara water leak sensor (SJCGQ11LM)",
             "manufacturer": "Xiaomi",
+            "model": "Aqara D1 double key wireless wall switch (WXKG07LM)",
             "battery_type": "CR2032"
-        },
+        },         
         {
-            "model": "MiJia wireless switch (WXKG01LM)",
             "manufacturer": "Xiaomi",
+            "model": "Aqara D1 single key wireless wall switch (WXKG06LM)",
             "battery_type": "CR2032"
-        },
+        },       
         {
+            "manufacturer": "Xiaomi",
             "model": "Aqara wireless switch (WXKG11LM)",
-            "manufacturer": "Xiaomi",
             "battery_type": "CR2032"
         },
         {
-            "model": "4 in 1 multi sensor (ZB003-X)",
-            "manufacturer": "Fantem",
-            "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "model": "[Flower sensor](http://modkam.ru/?p=1700) (DIYRuZ_Flower)",
-            "manufacturer": "DIYRuZ",
-            "battery_type": "AAA",
-            "battery_quantity": 2
-        },
-        {
-            "model": "Motion sensor (SNZB-03)",
-            "manufacturer": "SONOFF",
-            "battery_type": "CR2450"
-        },
-        {
-            "model": "Aqara TVOC air quality monitor (VOCKQJK11LM)",
             "manufacturer": "Xiaomi",
+            "model": "Aqara TVOC air quality monitor (VOCKQJK11LM)",
             "battery_type": "CR2450",
             "battery_quantity": 2
-        },
+        },        
         {
-            "model": "Smart carbon monoxide sensor (HS1CA-E)",
-            "manufacturer": "HEIMAN",
-            "battery_type": "CR123A"
-        },
-        {
-            "model": "Aqara D1 single key wireless wall switch (WXKG06LM)",
             "manufacturer": "Xiaomi",
-            "battery_type": "CR2032 "
+            "model": "Aqara water leak sensor (SJCGQ11LM)",
+            "battery_type": "CR2032"
         },
         {
-            "model": "Aqara D1 double key wireless wall switch (WXKG07LM)",
             "manufacturer": "Xiaomi",
-            "battery_type": "CR2032 "
-        },
-        {
             "model": "HHCCJCY01",
-            "manufacturer": "Xiaomi",
-            "battery_type": "CR2032 "
+            "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Xiaomi",
             "model": "LYWSD03MMC",
-            "manufacturer": "Xiaomi",
-            "battery_type": "CR2032 "
-        },
+            "battery_type": "CR2032"
+        },        
         {
-            "model": "SN511-180MS_PV53",
-            "manufacturer": "TT Lock",
-            "battery_type": "AA",
-            "battery_quantity": 4
-        },{
-            "model": "Temperature & humidity sensor (WSD500A)",
-            "manufacturer": "TuYa",
-            "battery_type": "AAA",
-            "battery_quantity": 2
+            "manufacturer": "Xiaomi",
+            "model": "MiJia wireless switch (WXKG01LM)",
+            "battery_type": "CR2032"
         }
     ]
 }
