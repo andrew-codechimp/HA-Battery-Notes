@@ -143,6 +143,16 @@
             "manufacturer": "Aqara D1 double key wireless wall switch (WXKG07LM)",
             "model": "Xiaomi",
             "battery_type": "CR2032 "
+        },
+        {
+            "manufacturer": "HHCCJCY01",
+            "model": "Xiaomi",
+            "battery_type": "CR2032 "
+        },
+        {
+            "manufacturer": "LYWSD03MMC",
+            "model": "Xiaomi",
+            "battery_type": "CR2032 "
         }
     ]
 }
