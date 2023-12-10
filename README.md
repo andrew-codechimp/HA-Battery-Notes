@@ -66,6 +66,7 @@ For the example image below your JSON entry will look like this
 ```  
 
 Note that the ```battery_quantity``` is numeric (no quotes) and optional, if a device only has one battery it should be omitted.  
+When specifying battery types please use the Most Common naming for general batteries and the IEC naming for battery cells according to [Wikipedia](https://en.wikipedia.org/wiki/List_of_battery_sizes)  
 
 ![Device Details](https://github.com/andrew-codechimp/HA-Battery-Notes/blob/main/images/screenshot-device-info.png "Device Details")
 <!---->
