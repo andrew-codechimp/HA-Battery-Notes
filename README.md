@@ -47,11 +47,36 @@ In the HA UI go to "Configuration" -> "Integrations" click "+" and search for "B
 On the "Configuration" -> "Integrations" -> "Battery Notes" screen add a new device, pick your device with a battery and add the battery type.  
 The battery type will then be displayed as a diagnotic sensor on the device.  
 
+## Contributing to the Battery Library (COMING SOON!)
+
+The battery library is a JSON document at ```custom_components/battery_notes/data/library.json```  
+To contribute, fork the repository, add your device details to the JSON document and submit a pull request.  
+Please keep devices in alphabetical order by manufacturer/model.  
+The manufacturer and model should be exactly what is displayed on the Device screen within Home Assistant.  The make & model names may be different between integrations such as Zigbee2MQTT and ZHA, if you see a similar device please duplicate the entry rather than changing it.   
+
+For the example image below your JSON entry will look like this  
+
+```
+{
+    "manufacturer": "Philips",
+    "model": "Hue motion sensor (9290012607)",
+    "battery_type": "AAA",
+    "battery_quantity": 2
+},
+```  
+
+Note that the ```battery_quantity``` is numeric (no quotes) and optional, if a device only has one battery it should be omitted.  
+
+![Device Details](https://github.com/andrew-codechimp/HA-Battery-Notes/blob/main/images/screenshot-device-info.png "Device Details")
 <!---->
 
 ## Contributions are welcome!
 
 If you want to contribute to this please read the [Contribution guidelines](CONTRIBUTING.md)
+
+## Acknowledgements
+
+A lot of the inspiration for this integration came from the excellent [PowerCalc by bramstroker](https://github.com/bramstroker/homeassistant-powercalc), without adapting code from PowerCalc I'd never have worked out how to add additional sensors to a device.
 
 ***
 
