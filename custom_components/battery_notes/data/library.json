@@ -153,6 +153,17 @@
             "model": "LYWSD03MMC",
             "manufacturer": "Xiaomi",
             "battery_type": "CR2032 "
+        },
+        {
+            "model": "SN511-180MS_PV53",
+            "manufacturer": "TT Lock",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },{
+            "model": "Temperature & humidity sensor (WSD500A)",
+            "manufacturer": "TuYa",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
