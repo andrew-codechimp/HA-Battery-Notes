@@ -50,10 +50,10 @@ async def get_model_information(
 ) -> DeviceBatteryDetails | None:
     """See if we have enough information in device registry to automatically setup the battery type."""
 
-    manufacturer = str(device_entry.manufacturer)
-    model = str(device_entry.model)
+    manufacturer = device_entry.manufacturer
+    model = device_entry.model
 
-    if len(manufacturer) == 0 or len(model) == 0:
+    if not manufacturer or not model:
         return None
 
     return ModelInfo(manufacturer, model)
@@ -75,7 +75,7 @@ class DiscoveryManager:
         _LOGGER.debug("Start auto discovering devices")
         device_registry = dr.async_get(self.hass)
 
-        library = Library()
+        library = Library(self.hass)
 
         for device_entry in list(device_registry.devices.values()):
             if not self.should_process_device(device_entry):

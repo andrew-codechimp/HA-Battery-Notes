@@ -47,6 +47,15 @@ In the HA UI go to "Configuration" -> "Integrations" click "+" and search for "B
 On the "Configuration" -> "Integrations" -> "Battery Notes" screen add a new device, pick your device with a battery and add the battery type.  
 The battery type will then be displayed as a diagnotic sensor on the device.  
 
+## Automatic discovery
+
+By default Battery Notes will automatically discover devices that it has in its library and create a notification to add a battery note.
+If you wish to disable this functionality then add the following to your ```configuration.yaml```  
+```
+battery_notes:
+  enable_autodiscovery: false
+```
+
 ## Contributing to the Battery Library
 
 The battery library is a JSON document at ```custom_components/battery_notes/data/library.json```  

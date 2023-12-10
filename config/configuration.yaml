@@ -9,3 +9,4 @@ logger:
 
 battery_notes:
   enable_autodiscovery: true
+  library: "library-dev.json"

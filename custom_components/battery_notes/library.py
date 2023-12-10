@@ -6,6 +6,16 @@ import logging
 import os
 from typing import NamedTuple
 
+from homeassistant.core import HomeAssistant
+
+from homeassistant.helpers.typing import ConfigType
+
+from .const import (
+    DOMAIN,
+    DOMAIN_CONFIG,
+    CONF_LIBRARY,
+)
+
 BUILT_IN_DATA_DIRECTORY = os.path.join(os.path.dirname(__file__), "data")
 
 _LOGGER = logging.getLogger(__name__)
@@ -14,8 +24,13 @@ _LOGGER = logging.getLogger(__name__)
 class Library:  # pylint: disable=too-few-public-methods
     """Hold all known battery types."""
 
-    def __init__(self) -> None:
-        json_path = os.path.join(BUILT_IN_DATA_DIRECTORY, "library-dev.json")
+    def __init__(self, hass: HomeAssistant) -> None:
+        json_path = os.path.join(
+            BUILT_IN_DATA_DIRECTORY,
+            hass.data[DOMAIN][DOMAIN_CONFIG].get(CONF_LIBRARY, "library.json"),
+        )
+
+        _LOGGER.debug("Using library file at %s", json_path)
 
         try:
             with open(json_path, encoding="utf-8") as file:
@@ -37,17 +52,11 @@ class Library:  # pylint: disable=too-few-public-methods
 
         for device in self._devices:
             if device["manufacturer"] == manufacturer and device["model"] == model:
-                battery_quantity = 1
-                try:
-                    battery_quantity = device["battery_quantity"]
-                except KeyError:
-                    pass
-
                 device_battery_details = DeviceBatteryDetails(
                     manufacturer=device["manufacturer"],
                     model=device["model"],
                     battery_type=device["battery_type"],
-                    battery_quantity=battery_quantity,
+                    battery_quantity=device.get("battery_quantity", 1),
                 )
                 return device_battery_details
 

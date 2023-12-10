@@ -78,7 +78,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             device_registry = dr.async_get(self.hass)
             device_entry = device_registry.async_get(device_id)
 
-            library = Library()
+            library = Library(self.hass)
 
             device_battery_details = await library.get_device_battery_details(
                 device_entry.manufacturer, device_entry.model
