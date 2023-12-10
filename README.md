@@ -78,8 +78,7 @@ If you want to contribute to this please read the [Contribution guidelines](CONT
 
 A lot of the inspiration for this integration came from the excellent [PowerCalc by bramstroker](https://github.com/bramstroker/homeassistant-powercalc), without adapting code from PowerCalc I'd never have worked out how to add additional sensors to a device.
 
-***
-
+<!---->
 [battery_notes]: https://github.com/andrew-codechimp/HA-Battery-Notes
 [commits-shield]: https://img.shields.io/github/commit-activity/y/andrew-codechimp/HA-Battery-Notes.svg?style=for-the-badge
 [commits]: https://github.com/andrew-codechimp/HA-Battery-Notes/commits/main
