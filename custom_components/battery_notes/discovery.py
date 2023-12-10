@@ -130,8 +130,8 @@ class DiscoveryManager:
             discovery_data[
                 CONF_BATTERY_TYPE
             ] = device_battery_details.battery_type_and_quantity
-            discovery_data[CONF_MANUFACTURER] = device_battery_details.manufacturer
-            discovery_data[CONF_MODEL] = device_battery_details.model
+        discovery_data[CONF_MANUFACTURER] = device_battery_details.manufacturer
+        discovery_data[CONF_MODEL] = device_battery_details.model
 
         discovery_flow.async_create_flow(
             self.hass,
