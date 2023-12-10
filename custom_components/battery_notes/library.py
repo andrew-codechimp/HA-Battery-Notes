@@ -11,7 +11,7 @@ BUILT_IN_DATA_DIRECTORY = os.path.join(os.path.dirname(__file__), "../data")
 _LOGGER = logging.getLogger(__name__)
 
 
-class Library:
+class Library:  # pylint: disable=too-few-public-methods
     """Hold all known battery types."""
 
     def __init__(self) -> None:
@@ -55,6 +55,21 @@ class DeviceBatteryDetails(NamedTuple):
     model: str
     battery_type: str
     battery_quantity: int
+
+    @property
+    def battery_type_and_quantity(self):
+        """Return battery type with quantity prefix."""
+        try:
+            quantity = int(self.battery_quantity)
+        except ValueError:
+            quantity = 0
+
+        if quantity > 1:
+            batteries = str(quantity) + "x " + self.battery_type
+        else:
+            batteries = self.battery_type
+
+        return batteries
 
 
 class ModelInfo(NamedTuple):

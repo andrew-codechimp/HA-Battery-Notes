@@ -2,6 +2,8 @@
 from __future__ import annotations
 
 import copy
+import logging
+
 from typing import Any, Dict, Optional
 
 import voluptuous as vol
@@ -10,13 +12,23 @@ from homeassistant.core import callback
 from homeassistant.data_entry_flow import FlowResult
 from homeassistant.config_entries import ConfigEntry, OptionsFlow
 from homeassistant.helpers import selector
+from homeassistant.helpers.typing import DiscoveryInfoType
+
 import homeassistant.helpers.device_registry as dr
 
-from homeassistant.const import CONF_NAME
+from homeassistant.const import (
+    CONF_NAME,
+    CONF_DEVICE_ID,
+)
 
 from .library import Library
 
-from .const import DOMAIN, CONF_DEVICE_ID, CONF_BATTERY_TYPE
+from .const import (
+    DOMAIN,
+    CONF_BATTERY_TYPE,
+)
+
+_LOGGER = logging.getLogger(__name__)
 
 DEVICE_SCHEMA = vol.Schema(
     {
@@ -43,6 +55,15 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
         """Get the options flow for this handler."""
         return OptionsFlowHandler(config_entry)
 
+    async def async_step_integration_discovery(
+        self,
+        discovery_info: DiscoveryInfoType,
+    ) -> FlowResult:
+        """Handle integration discovery."""
+        _LOGGER.debug("Starting discovery flow: %s", discovery_info)
+
+        return await self.async_step_user(discovery_info)
+
     async def async_step_user(
         self,
         user_input: dict | None = None,
@@ -64,21 +85,9 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             )
 
             if device_battery_details:
-                try:
-                    battery_quantity = int(device_battery_details.battery_quantity)
-                except ValueError:
-                    battery_quantity = 0
-
-                if battery_quantity > 1:
-                    batteries = (
-                        str(device_battery_details.battery_quantity)
-                        + "x "
-                        + device_battery_details.battery_type
-                    )
-                else:
-                    batteries = device_battery_details.battery_type
-
-                self.data[CONF_BATTERY_TYPE] = batteries
+                self.data[
+                    CONF_BATTERY_TYPE
+                ] = device_battery_details.battery_type_and_quantity
 
             return await self.async_step_battery()
 

@@ -65,6 +65,8 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         discovery_manager = DiscoveryManager(hass, config)
         await discovery_manager.start_discovery()
 
+    return True
+
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Set up a config entry."""
