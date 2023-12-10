@@ -45,7 +45,7 @@ In the HA UI go to "Configuration" -> "Integrations" click "+" and search for "B
 ## Configuration is done in the UI
 
 On the "Configuration" -> "Integrations" -> "Battery Notes" screen add a new device, pick your device with a battery and add the battery type.  
-The battery type will then be displayed as a diagnotic sensor on the device.  
+The battery type will then be displayed as a diagnostic sensor on the device.  
 
 ## Contributing to the Battery Library (COMING SOON!)
 
@@ -66,6 +66,7 @@ For the example image below your JSON entry will look like this
 ```  
 
 Note that the ```battery_quantity``` is numeric (no quotes) and optional, if a device only has one battery it should be omitted.  
+When specifying battery types please use the Most Common naming for general batteries and the IEC naming for battery cells according to [Wikipedia](https://en.wikipedia.org/wiki/List_of_battery_sizes)  
 
 ![Device Details](https://github.com/andrew-codechimp/HA-Battery-Notes/blob/main/images/screenshot-device-info.png "Device Details")
 <!---->
