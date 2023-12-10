@@ -45,7 +45,7 @@ In the HA UI go to "Configuration" -> "Integrations" click "+" and search for "B
 ## Configuration is done in the UI
 
 On the "Configuration" -> "Integrations" -> "Battery Notes" screen add a new device, pick your device with a battery and add the battery type.  
-The battery type will then be displayed as a diagnotic sensor on the device.  
+The battery type will then be displayed as a diagnostic sensor on the device.  
 
 ## Contributing to the Battery Library (COMING SOON!)
 
