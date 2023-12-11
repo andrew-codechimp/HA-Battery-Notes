@@ -145,6 +145,12 @@
             "battery_type": "CR2430"
         },
         {
+            "manufacturer": "VictorPest.com",
+            "model": "Rat Trap",
+            "battery_type": "C",
+            "battery_quantity": 4
+        },
+        {
             "manufacturer": "Xiaomi",
             "model": "Aqara door & window contact sensor (MCCGQ11LM)",
             "battery_type": "CR1632"
