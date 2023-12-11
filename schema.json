@@ -1,5 +1,5 @@
 {
-    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$schema": "http://json-schema.org/draft-07/schema",
     "$id": "https://github.com/andrew-codechimp/HA-Battery-Notes.schema.json",
     "title": "Battery Notes Library",
     "description": "Library of battery types for devices",
