@@ -13,6 +13,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "eWeLink",
+            "model": "DS01",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "Fantem",
             "model": "4 in 1 multi sensor (ZB003-X)",
             "battery_type": "CR123A",
