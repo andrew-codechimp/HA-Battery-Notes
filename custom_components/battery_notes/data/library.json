@@ -73,6 +73,11 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "Sonoff",
+            "model": "Contact sensor (SNZB-04)",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "SONOFF",
             "model": "Motion sensor (SNZB-03)",
             "battery_type": "CR2450"
