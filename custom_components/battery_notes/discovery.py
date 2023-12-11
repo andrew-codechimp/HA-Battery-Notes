@@ -11,6 +11,7 @@ from homeassistant.helpers import discovery_flow
 from homeassistant.helpers.typing import ConfigType
 
 from .const import (
+    CONF_DEVICE_NAME,
     CONF_MANUFACTURER,
     CONF_MODEL,
     CONF_BATTERY_TYPE,
@@ -92,7 +93,7 @@ class DiscoveryManager:
             if not device_battery_details:
                 continue
 
-            self._init_entity_discovery(device_entry.id, device_battery_details)
+            self._init_entity_discovery(device_entry, device_battery_details)
 
         _LOGGER.debug("Done auto discovering entities")
 
@@ -106,24 +107,24 @@ class DiscoveryManager:
     @callback
     def _init_entity_discovery(
         self,
-        device_id: str,
+        device_entry: dr.DeviceEntry,
         device_battery_details: DeviceBatteryDetails | None,
     ) -> None:
         """Dispatch the discovery flow for a given entity."""
         existing_entries = [
             entry
             for entry in self.hass.config_entries.async_entries(DOMAIN)
-            if entry.unique_id == f"bn_{device_id}"
+            if entry.unique_id == f"bn_{device_entry.id}"
         ]
         if existing_entries:
             _LOGGER.debug(
                 "%s: Already setup with discovery, skipping new discovery",
-                f"bn_{device_id}",
+                f"bn_{device_entry.id}",
             )
             return
 
         discovery_data: dict[str, Any] = {
-            CONF_DEVICE_ID: device_id,
+            CONF_DEVICE_ID: device_entry.id,
         }
 
         if device_battery_details:
@@ -132,6 +133,9 @@ class DiscoveryManager:
             ] = device_battery_details.battery_type_and_quantity
         discovery_data[CONF_MANUFACTURER] = device_battery_details.manufacturer
         discovery_data[CONF_MODEL] = device_battery_details.model
+        discovery_data[CONF_DEVICE_NAME] = get_wrapped_device_name(
+            device_entry.id, device_entry
+        )
 
         discovery_flow.async_create_flow(
             self.hass,
@@ -139,3 +143,14 @@ class DiscoveryManager:
             context={"source": SOURCE_INTEGRATION_DISCOVERY},
             data=discovery_data,
         )
+
+
+def get_wrapped_device_name(
+    device_id: str,
+    device_entry: dr.DeviceEntry | None,
+) -> str:
+    """Construct device name based on the wrapped device"""
+    if device_entry:
+        return device_entry.name_by_user or device_entry.name or device_id
+
+    return device_id

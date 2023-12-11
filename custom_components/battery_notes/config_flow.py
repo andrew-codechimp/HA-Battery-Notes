@@ -26,6 +26,9 @@ from .library import Library
 from .const import (
     DOMAIN,
     CONF_BATTERY_TYPE,
+    CONF_DEVICE_NAME,
+    CONF_MANUFACTURER,
+    CONF_MODEL,
 )
 
 _LOGGER = logging.getLogger(__name__)
@@ -61,6 +64,12 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
     ) -> FlowResult:
         """Handle integration discovery."""
         _LOGGER.debug("Starting discovery flow: %s", discovery_info)
+
+        self.context["title_placeholders"] = {
+            "name": discovery_info[CONF_DEVICE_NAME],
+            "manufacturer": discovery_info[CONF_MANUFACTURER],
+            "model": discovery_info[CONF_MODEL],
+        }
 
         return await self.async_step_user(discovery_info)
 

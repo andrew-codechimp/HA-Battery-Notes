@@ -26,6 +26,7 @@ CONF_ENABLE_AUTODISCOVERY = "enable_autodiscovery"
 CONF_LIBRARY = "library"
 CONF_MODEL = "model"
 CONF_MANUFACTURER = "manufacturer"
+CONF_DEVICE_NAME = "device_name"
 
 DATA_CONFIGURED_ENTITIES = "configured_entities"
 DATA_DISCOVERED_ENTITIES = "discovered_entities"
