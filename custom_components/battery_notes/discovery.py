@@ -1,3 +1,4 @@
+"""Discovery of devices with a battery definition."""
 from __future__ import annotations
 
 import logging
@@ -49,7 +50,8 @@ async def autodiscover_model(
 async def get_model_information(
     device_entry: dr.DeviceEntry,
 ) -> DeviceBatteryDetails | None:
-    """See if we have enough information in device registry to automatically setup the battery type."""
+    """See if we have enough information in device registry to
+    automatically setup the battery type."""
 
     manufacturer = device_entry.manufacturer
     model = device_entry.model
@@ -61,9 +63,11 @@ async def get_model_information(
 
 
 class DiscoveryManager:
-    """This class is responsible for scanning the HA instance for devices and their manufacturer / model info
+    """This class is responsible for scanning the HA instance for devices and their
+    manufacturer / model info
     It checks if any of these devices is supported in the batterynotes library
-    When devices are found it will dispatch a discovery flow, so the user can add them to their HA instance.
+    When devices are found it will dispatch a discovery flow,
+    so the user can add them to their HA instance.
     """
 
     def __init__(self, hass: HomeAssistant, ha_config: ConfigType) -> None:
