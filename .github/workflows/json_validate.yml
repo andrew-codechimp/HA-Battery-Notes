@@ -1,6 +1,14 @@
 name: Validate JSONs
 
-on: [push, pull_request]
+on:
+  push:
+    paths:
+    - 'custom_components/battery_notes/data/**'
+    - '.github/workflows/**'
+  pull_request:
+    paths:
+    - 'custom_components/battery_notes/data/**'
+    - '.github/workflows/**'
 
 jobs:
   verify-json-validation:
