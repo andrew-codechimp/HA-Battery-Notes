@@ -1,0 +1,41 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://github.com/andrew-codechimp/HA-Battery-Notes.schema.json",
+    "title": "Battery Notes Library",
+    "description": "Library of battery types for devices",
+    "type": "object",
+    "properties": {
+        "version": {
+            "description": "Version of the library schema",
+            "type": "integer"
+        },
+        "devices": {
+            "type": "array",
+            "properties": {
+                "manufacturer": {
+                    "type": "string"
+                },
+                "model": {
+                    "type": "string"
+                },
+                "battery_type": {
+                    "type": "string"
+                },
+                "battery_quantity": {
+                    "type": "integer"
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "manufacturer",
+                "model",
+                "battery_type"
+            ]
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "version",
+        "devices"
+    ]
+}
