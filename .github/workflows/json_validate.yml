@@ -9,7 +9,7 @@ jobs:
       - uses: actions/checkout@v1
       - name: Validate JSON
         uses: ScratchAddons/validate-json-action@master
-        env:
+        with:
           schema: ./schema.json
           jsons: |
             custom_components/battery_notes/data/library.json
