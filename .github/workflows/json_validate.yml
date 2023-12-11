@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Validate JSON
-        uses: nhalstead/validate-json-action@0.1.3
-        with:
-          schema: ./schema.json
-          jsons: custom_components/battery_notes/data/library.json
+        uses: docker://orrosenblatt/validate-json-action:latest
+        env:
+          INPUT_SCHEMA: ./schema.json
+          INPUT_JSONS: custom_components/battery_notes/data/library.json
