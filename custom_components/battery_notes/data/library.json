@@ -41,6 +41,11 @@
             "battery_quantity": 4
         },
         {
+            "manufacturer": "LUMI",
+            "model": "lumi.weather",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "OSRAM",
             "model": "Smart+ switch mini (AC0251100NJ/AC0251600NJ/AC0251700NJ)",
             "battery_type": "CR2450"
