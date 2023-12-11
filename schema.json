@@ -11,26 +11,29 @@
         },
         "devices": {
             "type": "array",
-            "properties": {
-                "manufacturer": {
-                    "type": "string"
-                },
-                "model": {
-                    "type": "string"
-                },
-                "battery_type": {
-                    "type": "string"
-                },
-                "battery_quantity": {
-                    "type": "integer"
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                    "manufacturer",
+                    "model",
+                    "battery_type"
+                ],
+                "properties": {
+                    "manufacturer": {
+                        "type": "string"
+                    },
+                    "model": {
+                        "type": "string"
+                    },
+                    "battery_type": {
+                        "type": "string"
+                    },
+                    "battery_quantity": {
+                        "type": "integer"
+                    }
                 }
-            },
-            "additionalProperties": false,
-            "required": [
-                "manufacturer",
-                "model",
-                "battery_type"
-            ]
+            }
         }
     },
     "additionalProperties": false,
