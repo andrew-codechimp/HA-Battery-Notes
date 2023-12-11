@@ -3,7 +3,8 @@
     "devices": [
         {
             "manufacturer": "Develco",
-            "model": "Smoke detector with siren (SMSZB-120)"
+            "model": "Smoke detector with siren (SMSZB-120)",
+            "battery_type": "CR123"
         },
         {
             "manufacturer": "DIYRuZ",
