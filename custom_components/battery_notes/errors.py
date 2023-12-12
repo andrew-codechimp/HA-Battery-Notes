@@ -36,10 +36,12 @@ class BatteryNotesConfigurationError(BatteryNotesSetupError):
     """Raised when device is not setup correctly."""
 
     def __init__(self, message: str, config_flow_trans_key: str | None = None) -> None:
+        """Init."""
         super().__init__(message)
         self._config_flow_trans_key = config_flow_trans_key
 
     def get_config_flow_translate_key(self) -> str | None:
+        """Get translate key."""
         return self._config_flow_trans_key
 
 
