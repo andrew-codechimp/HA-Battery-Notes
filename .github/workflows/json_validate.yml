@@ -14,7 +14,7 @@ jobs:
   verify-json-validation:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v4
       - name: Validate JSON
         uses: ScratchAddons/validate-json-action@master
         with:
