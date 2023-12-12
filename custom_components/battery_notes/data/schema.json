@@ -7,8 +7,7 @@
     "properties": {
         "$schema": {
             "description": "Schema reference",
-            "type": "string",
-            "format": "./schema.json"
+            "type": "string"
         },
         "version": {
             "description": "Version of the library schema",
