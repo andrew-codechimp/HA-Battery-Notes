@@ -5,6 +5,10 @@
     "description": "Library of battery types for devices",
     "type": "object",
     "properties": {
+        "$schema": {
+            "description": "Schema reference",
+            "type": "string"
+        },
         "version": {
             "description": "Version of the library schema",
             "type": "integer"
@@ -21,16 +25,21 @@
                 ],
                 "properties": {
                     "manufacturer": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The manufacturer of the device as it appears in Home Assistant."
                     },
                     "model": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The model of the device as it appears in Home Assistant."
                     },
                     "battery_type": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The type of battery for the device. Should be the most common naming for general batteries, and the IEC naming for battery cells according to Wikipedia."
                     },
                     "battery_quantity": {
-                        "type": "integer"
+                        "type": "integer",
+                        "exclusiveMinimum": 1,
+                        "description": "The number of batteries required by the device. If a device only has one battery this property should be omitted."
                     }
                 }
             }
@@ -38,6 +47,7 @@
     },
     "additionalProperties": false,
     "required": [
+        "$schema",
         "version",
         "devices"
     ]

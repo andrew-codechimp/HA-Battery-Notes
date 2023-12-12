@@ -1,4 +1,5 @@
 {
+    "$schema": "schema.json",
     "version": 1,
     "devices": [
         {

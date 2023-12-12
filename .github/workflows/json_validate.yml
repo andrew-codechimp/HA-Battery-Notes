@@ -1,6 +1,7 @@
 name: Validate JSONs
 
 on:
+  workflow_dispatch:
   push:
     paths:
     - 'custom_components/battery_notes/data/**'
@@ -18,6 +19,6 @@ jobs:
       - name: Validate JSON
         uses: ScratchAddons/validate-json-action@master
         with:
-          schema: ./schema.json
+          schema: custom_components/battery_notes/data/schema.json
           jsons: |
             custom_components/battery_notes/data/library.json
