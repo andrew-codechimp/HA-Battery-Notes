@@ -1,6 +1,7 @@
 name: Validate JSONs
 
 on:
+  workflow_dispatch:
   push:
     paths:
     - 'custom_components/battery_notes/data/**'
