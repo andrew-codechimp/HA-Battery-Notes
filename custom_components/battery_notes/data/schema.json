@@ -43,7 +43,6 @@
     },
     "additionalProperties": false,
     "required": [
-        "$schema",
         "version",
         "devices"
     ]
