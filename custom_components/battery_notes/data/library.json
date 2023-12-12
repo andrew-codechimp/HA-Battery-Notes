@@ -41,6 +41,32 @@
             "battery_quantity": 4
         },
         {
+            "manufacturer": "IKEA",
+            "model": "STYRBAR remote control (E2001/E2002)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "IKEA",
+            "model": "TRADFRI remote control (E1524/E1810)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "IKEA",
+            "model": "TRADFRI motion sensor (E1525/E1745)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "IKEA",
+            "model": "TRADFRI open/close remote (E1766)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "IKEA",
+            "model": "TRADFRI shortcut button (E1812)",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "LUMI",
             "model": "lumi.weather",
             "battery_type": "CR2032"
