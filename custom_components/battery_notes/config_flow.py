@@ -4,7 +4,7 @@ from __future__ import annotations
 import copy
 import logging
 
-from typing import Any, Dict, Optional
+from typing import Any
 
 import voluptuous as vol
 from homeassistant import config_entries
@@ -107,9 +107,9 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             last_step=False,
         )
 
-    async def async_step_battery(self, user_input: Optional[Dict[str, Any]] = None):
+    async def async_step_battery(self, user_input: dict[str, Any] | None = None):
         """Second step in config flow to add the battery type."""
-        errors: Dict[str, str] = {}
+        errors: dict[str, str] = {}
         if user_input is not None:
             self.data[CONF_BATTERY_TYPE] = user_input[CONF_BATTERY_TYPE]
 

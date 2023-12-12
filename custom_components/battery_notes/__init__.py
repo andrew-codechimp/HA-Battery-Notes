@@ -11,13 +11,7 @@ from awesomeversion.awesomeversion import AwesomeVersion
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.const import __version__ as HA_VERSION  # noqa: N812
-from homeassistant.const import (
-    CONF_DOMAIN,
-    CONF_ENTITIES,
-    CONF_SCAN_INTERVAL,
-    EVENT_HOMEASSISTANT_STARTED,
-    Platform,
-)
+
 from homeassistant.helpers.typing import ConfigType
 
 from .discovery import DiscoveryManager

@@ -25,6 +25,7 @@ class Library:  # pylint: disable=too-few-public-methods
     _devices = None
 
     def __init__(self, hass: HomeAssistant) -> None:
+        """Init."""
         json_path = os.path.join(
             BUILT_IN_DATA_DIRECTORY,
             hass.data[DOMAIN][DOMAIN_CONFIG].get(CONF_LIBRARY, "library.json"),
@@ -52,7 +53,7 @@ class Library:  # pylint: disable=too-few-public-methods
     ) -> DeviceBatteryDetails | None:
         """Create a battery details object from the JSON devices data."""
 
-        if not self._devices is None:
+        if self._devices is not None:
             for device in self._devices:
                 if (
                     device["manufacturer"].casefold() == manufacturer.casefold()
@@ -69,8 +70,8 @@ class Library:  # pylint: disable=too-few-public-methods
         return None
 
     def loaded(self) -> bool:
-        """Library loaded successfully"""
-        return not self._devices is None
+        """Library loaded successfully."""
+        return self._devices is not None
 
 
 class DeviceBatteryDetails(NamedTuple):

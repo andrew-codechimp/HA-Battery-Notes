@@ -50,8 +50,7 @@ async def autodiscover_model(
 async def get_model_information(
     device_entry: dr.DeviceEntry,
 ) -> DeviceBatteryDetails | None:
-    """See if we have enough information in device registry to
-    automatically setup the battery type."""
+    """See if we have enough information to automatically setup the battery type."""
 
     manufacturer = device_entry.manufacturer
     model = device_entry.model
@@ -63,7 +62,9 @@ async def get_model_information(
 
 
 class DiscoveryManager:
-    """This class is responsible for scanning the HA instance for devices and their
+    """Device Discovery.
+
+    This class is responsible for scanning the HA instance for devices and their
     manufacturer / model info
     It checks if any of these devices is supported in the batterynotes library
     When devices are found it will dispatch a discovery flow,
@@ -71,6 +72,7 @@ class DiscoveryManager:
     """
 
     def __init__(self, hass: HomeAssistant, ha_config: ConfigType) -> None:
+        """Init."""
         self.hass = hass
         self.ha_config = ha_config
         self.manually_configured_entities: list[str] | None = None
@@ -158,7 +160,7 @@ def get_wrapped_device_name(
     device_id: str,
     device_entry: dr.DeviceEntry | None,
 ) -> str:
-    """Construct device name based on the wrapped device"""
+    """Construct device name based on the wrapped device."""
     if device_entry:
         return device_entry.name_by_user or device_entry.name or device_id
 
