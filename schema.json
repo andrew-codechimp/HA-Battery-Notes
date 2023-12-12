@@ -21,21 +21,16 @@
                 ],
                 "properties": {
                     "manufacturer": {
-                        "type": "string",
-                        "description": "The manufacturer of the device as it appears in Home Assistant."
+                        "type": "string"
                     },
                     "model": {
-                        "type": "string",
-                        "description": "The model of the device as it appears in Home Assistant."
+                        "type": "string"
                     },
                     "battery_type": {
-                        "type": "string",
-                        "description": "The type of battery for the device. Should be the most common naming for general batteries, and the IEC naming for battery cells according to Wikipedia."
+                        "type": "string"
                     },
                     "battery_quantity": {
-                        "type": "integer",
-                        "exclusiveMinimum": 1,
-                        "description": "The number of batteries required by the device. If a device only has one battery this property should be omitted."
+                        "type": "integer"
                     }
                 }
             }
