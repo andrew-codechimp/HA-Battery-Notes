@@ -8,7 +8,7 @@
         "$schema": {
             "description": "Schema reference",
             "type": "string",
-            "format": "schema.json"
+            "format": "./schema.json"
         },
         "version": {
             "description": "Version of the library schema",
