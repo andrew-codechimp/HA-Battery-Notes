@@ -41,6 +41,12 @@
             "battery_quantity": 4
         },
         {
+            "manufacturer": "INKBIRD",
+            "model": "IBS-TH",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "LUMI",
             "model": "lumi.weather",
             "battery_type": "CR2032"
