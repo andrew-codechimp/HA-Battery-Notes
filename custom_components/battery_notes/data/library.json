@@ -245,6 +245,11 @@
         },
         {
             "manufacturer": "Xiaomi",
+            "model": "Mi/Aqara smart home cube (MFKZQ01LM)",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Xiaomi",
             "model": "MiJia wireless switch (WXKG01LM)",
             "battery_type": "CR2032"
         },
