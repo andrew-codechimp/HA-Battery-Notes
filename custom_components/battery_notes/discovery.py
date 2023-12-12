@@ -33,13 +33,13 @@ async def autodiscover_model(
     model_info = await get_model_information(device_entry)
     if not model_info:
         _LOGGER.debug(
-            "%s: Cannot autodiscover model, manufacturer or model unknown from device registry",
+            "%s: Cannot autodiscover device, manufacturer or model unknown from device registry",
             device_entry.id,
         )
         return None
 
     _LOGGER.debug(
-        "%s: Auto discovered model (manufacturer=%s, model=%s)",
+        "%s: Auto discovered device (manufacturer=%s, model=%s)",
         device_entry.id,
         model_info.manufacturer,
         model_info.model,
@@ -82,24 +82,29 @@ class DiscoveryManager:
 
         library = Library(self.hass)
 
-        for device_entry in list(device_registry.devices.values()):
-            if not self.should_process_device(device_entry):
-                continue
+        if library.loaded():
+            for device_entry in list(device_registry.devices.values()):
+                if not self.should_process_device(device_entry):
+                    continue
 
-            model_info = await autodiscover_model(device_entry)
-            if not model_info or not model_info.manufacturer or not model_info.model:
-                continue
+                model_info = await autodiscover_model(device_entry)
+                if (
+                    not model_info
+                    or not model_info.manufacturer
+                    or not model_info.model
+                ):
+                    continue
 
-            device_battery_details = await library.get_device_battery_details(
-                model_info.manufacturer, model_info.model
-            )
+                device_battery_details = await library.get_device_battery_details(
+                    model_info.manufacturer, model_info.model
+                )
 
-            if not device_battery_details:
-                continue
+                if not device_battery_details:
+                    continue
 
-            self._init_entity_discovery(device_entry, device_battery_details)
+                self._init_entity_discovery(device_entry, device_battery_details)
 
-        _LOGGER.debug("Done auto discovering entities")
+        _LOGGER.debug("Done auto discovering devices")
 
     def should_process_device(self, device_entry: dr.DeviceEntry) -> bool:
         """Do some validations on the registry entry to see if it qualifies for discovery."""

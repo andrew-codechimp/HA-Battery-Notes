@@ -22,6 +22,8 @@ _LOGGER = logging.getLogger(__name__)
 class Library:  # pylint: disable=too-few-public-methods
     """Hold all known battery types."""
 
+    _devices = None
+
     def __init__(self, hass: HomeAssistant) -> None:
         json_path = os.path.join(
             BUILT_IN_DATA_DIRECTORY,
@@ -38,7 +40,9 @@ class Library:  # pylint: disable=too-few-public-methods
 
         except FileNotFoundError:
             _LOGGER.error(
-                "library.json file not found in directory %s", BUILT_IN_DATA_DIRECTORY
+                "%s file not found in directory %s",
+                hass.data[DOMAIN][DOMAIN_CONFIG].get(CONF_LIBRARY, "library.json"),
+                BUILT_IN_DATA_DIRECTORY,
             )
 
     async def get_device_battery_details(
@@ -48,20 +52,25 @@ class Library:  # pylint: disable=too-few-public-methods
     ) -> DeviceBatteryDetails | None:
         """Create a battery details object from the JSON devices data."""
 
-        for device in self._devices:
-            if (
-                device["manufacturer"].casefold() == manufacturer.casefold()
-                and device["model"].casefold() == model.casefold()
-            ):
-                device_battery_details = DeviceBatteryDetails(
-                    manufacturer=device["manufacturer"],
-                    model=device["model"],
-                    battery_type=device["battery_type"],
-                    battery_quantity=device.get("battery_quantity", 1),
-                )
-                return device_battery_details
+        if not self._devices is None:
+            for device in self._devices:
+                if (
+                    device["manufacturer"].casefold() == manufacturer.casefold()
+                    and device["model"].casefold() == model.casefold()
+                ):
+                    device_battery_details = DeviceBatteryDetails(
+                        manufacturer=device["manufacturer"],
+                        model=device["model"],
+                        battery_type=device["battery_type"],
+                        battery_quantity=device.get("battery_quantity", 1),
+                    )
+                    return device_battery_details
 
         return None
+
+    def loaded(self) -> bool:
+        """Library loaded successfully"""
+        return not self._devices is None
 
 
 class DeviceBatteryDetails(NamedTuple):
