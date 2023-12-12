@@ -27,7 +27,6 @@ from .const import (
     DOMAIN_CONFIG,
     PLATFORMS,
     CONF_ENABLE_AUTODISCOVERY,
-    CONF_LIBRARY,
 )
 
 MIN_HA_VERSION = "2023.7"

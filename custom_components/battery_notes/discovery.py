@@ -122,7 +122,7 @@ class DiscoveryManager:
         ]
         if existing_entries:
             _LOGGER.debug(
-                "%s: Already setup with discovery, skipping new discovery",
+                "%s: Already setup, skipping new discovery",
                 f"bn_{device_entry.id}",
             )
             return
