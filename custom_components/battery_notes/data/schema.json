@@ -5,10 +5,6 @@
     "description": "Library of battery types for devices",
     "type": "object",
     "properties": {
-        "$schema": {
-            "description": "Schema reference",
-            "type": "string"
-        },
         "version": {
             "description": "Version of the library schema",
             "type": "integer"
