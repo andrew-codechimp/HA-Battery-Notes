@@ -6,3 +6,7 @@ logger:
   default: info
   logs:
     custom_components.battery_notes: debug
+
+battery_notes:
+  enable_autodiscovery: true
+  library: "library-dev.json"
