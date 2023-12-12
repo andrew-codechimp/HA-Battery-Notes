@@ -4,9 +4,13 @@ on:
   push:
     branches:
       - "main"
+    paths-ignore:
+      - 'custom_components/battery_notes/data/**'
   pull_request:
     branches:
       - "main"
+    paths-ignore:
+      - 'custom_components/battery_notes/data/**'
 
 jobs:
   ruff:
