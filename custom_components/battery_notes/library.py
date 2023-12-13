@@ -56,8 +56,10 @@ class Library:  # pylint: disable=too-few-public-methods
         if self._devices is not None:
             for device in self._devices:
                 if (
-                    device["manufacturer"].casefold() == manufacturer.casefold()
-                    and device["model"].casefold() == model.casefold()
+                    str(device["manufacturer"] or "").casefold()
+                    == str(manufacturer or "").casefold()
+                    and str(device["model"] or "").casefold()
+                    == str(model or "").casefold()
                 ):
                     device_battery_details = DeviceBatteryDetails(
                         manufacturer=device["manufacturer"],
