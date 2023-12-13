@@ -2,6 +2,8 @@
 from __future__ import annotations
 
 import copy
+import logging
+
 from typing import Any
 
 import voluptuous as vol
@@ -10,22 +12,66 @@ from homeassistant.core import callback
 from homeassistant.data_entry_flow import FlowResult
 from homeassistant.config_entries import ConfigEntry, OptionsFlow
 from homeassistant.helpers import selector
+from homeassistant.helpers.typing import DiscoveryInfoType
+
 import homeassistant.helpers.device_registry as dr
 
-from homeassistant.const import CONF_NAME
+from homeassistant.const import (
+    CONF_NAME,
+    CONF_DEVICE_ID,
+)
 
-from .const import DOMAIN, CONF_DEVICE_ID, CONF_BATTERY_TYPE
+from .library import Library
+
+from .const import (
+    DOMAIN,
+    CONF_BATTERY_TYPE,
+    CONF_DEVICE_NAME,
+    CONF_MANUFACTURER,
+    CONF_MODEL,
+)
+
+_LOGGER = logging.getLogger(__name__)
+
+DEVICE_SCHEMA = vol.Schema(
+    {
+        vol.Required(CONF_DEVICE_ID): selector.DeviceSelector(
+            # selector.DeviceSelectorConfig(model="otgw-nodo")
+        ),
+        vol.Optional(CONF_NAME): selector.TextSelector(
+            selector.TextSelectorConfig(type=selector.TextSelectorType.TEXT),
+        ),
+    }
+)
+
 
 class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
     """Config flow for BatteryNotes."""
 
     VERSION = 1
 
+    data: dict
+
     @staticmethod
     @callback
     def async_get_options_flow(config_entry: ConfigEntry) -> OptionsFlow:
         """Get the options flow for this handler."""
         return OptionsFlowHandler(config_entry)
+
+    async def async_step_integration_discovery(
+        self,
+        discovery_info: DiscoveryInfoType,
+    ) -> FlowResult:
+        """Handle integration discovery."""
+        _LOGGER.debug("Starting discovery flow: %s", discovery_info)
+
+        self.context["title_placeholders"] = {
+            "name": discovery_info[CONF_DEVICE_NAME],
+            "manufacturer": discovery_info[CONF_MANUFACTURER],
+            "model": discovery_info[CONF_MODEL],
+        }
+
+        return await self.async_step_user(discovery_info)
 
     async def async_step_user(
         self,
@@ -34,48 +80,72 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
         """Handle a flow initialized by the user."""
         _errors = {}
         if user_input is not None:
+            self.data = user_input
+
             device_id = user_input[CONF_DEVICE_ID]
 
             device_registry = dr.async_get(self.hass)
-            device_entry = (
-                device_registry.async_get(device_id)
+            device_entry = device_registry.async_get(device_id)
+
+            _LOGGER.debug(
+                "Looking up device %s %s", device_entry.manufacturer, device_entry.model
             )
 
+            library = Library.factory(self.hass)
+
+            device_battery_details = await library.get_device_battery_details(
+                device_entry.manufacturer, device_entry.model
+            )
+
+            if device_battery_details:
+                _LOGGER.debug(
+                    "Found device %s %s", device_entry.manufacturer, device_entry.model
+                )
+                self.data[
+                    CONF_BATTERY_TYPE
+                ] = device_battery_details.battery_type_and_quantity
+
+            return await self.async_step_battery()
+
+        return self.async_show_form(
+            step_id="user",
+            data_schema=DEVICE_SCHEMA,
+            errors=_errors,
+            last_step=False,
+        )
+
+    async def async_step_battery(self, user_input: dict[str, Any] | None = None):
+        """Second step in config flow to add the battery type."""
+        errors: dict[str, str] = {}
+        if user_input is not None:
+            self.data[CONF_BATTERY_TYPE] = user_input[CONF_BATTERY_TYPE]
+
+            device_id = self.data[CONF_DEVICE_ID]
             unique_id = f"bn_{device_id}"
+
+            device_registry = dr.async_get(self.hass)
+            device_entry = device_registry.async_get(device_id)
 
             await self.async_set_unique_id(unique_id)
             self._abort_if_unique_id_configured()
 
-            if CONF_NAME in user_input:
-                title = user_input.get(CONF_NAME)
+            if CONF_NAME in self.data:
+                title = self.data.get(CONF_NAME)
             else:
                 title = device_entry.name_by_user or device_entry.name
 
             return self.async_create_entry(
                 title=title,
-                data=user_input,
+                data=self.data,
             )
 
         return self.async_show_form(
-            step_id="user",
+            step_id="battery",
             data_schema=vol.Schema(
                 {
                     vol.Required(
-                        CONF_DEVICE_ID,
-                        default=(user_input or {}).get(CONF_DEVICE_ID)
-                    ): selector.DeviceSelector(
-                        # selector.DeviceSelectorConfig(model="otgw-nodo")
-                    ),
-                    vol.Optional(
-                        CONF_NAME
-                    ): selector.TextSelector(
-                        selector.TextSelectorConfig(
-                            type=selector.TextSelectorType.TEXT
-                        ),
-                    ),
-                    vol.Required(
                         CONF_BATTERY_TYPE,
-                        default=(user_input or {}).get(CONF_BATTERY_TYPE),
+                        default=self.data.get(CONF_BATTERY_TYPE),
                     ): selector.TextSelector(
                         selector.TextSelectorConfig(
                             type=selector.TextSelectorType.TEXT
@@ -83,8 +153,9 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                     ),
                 }
             ),
-            errors=_errors,
+            errors=errors,
         )
+
 
 class OptionsFlowHandler(OptionsFlow):
     """Handle an option flow for BatteryNotes."""
@@ -124,8 +195,8 @@ class OptionsFlowHandler(OptionsFlow):
     ) -> dict:
         """Save options, and return errors when validation fails."""
         device_registry = dr.async_get(self.hass)
-        device_entry = (
-            device_registry.async_get(self.config_entry.data.get(CONF_DEVICE_ID))
+        device_entry = device_registry.async_get(
+            self.config_entry.data.get(CONF_DEVICE_ID)
         )
 
         if CONF_NAME in user_input:
@@ -157,29 +228,22 @@ class OptionsFlowHandler(OptionsFlow):
 
     def build_options_schema(self) -> vol.Schema:
         """Build the options schema."""
-        data_schema=vol.Schema(
-                {
-                    vol.Optional(
-                        CONF_NAME
-                    ): selector.TextSelector(
-                        selector.TextSelectorConfig(
-                            type=selector.TextSelectorType.TEXT
-                        ),
-                    ),
-                    vol.Required(
-                        CONF_BATTERY_TYPE
-                    ): selector.TextSelector(
-                        selector.TextSelectorConfig(
-                            type=selector.TextSelectorType.TEXT
-                        ),
-                    ),
-                }
-            )
+        data_schema = vol.Schema(
+            {
+                vol.Optional(CONF_NAME): selector.TextSelector(
+                    selector.TextSelectorConfig(type=selector.TextSelectorType.TEXT),
+                ),
+                vol.Required(CONF_BATTERY_TYPE): selector.TextSelector(
+                    selector.TextSelectorConfig(type=selector.TextSelectorType.TEXT),
+                ),
+            }
+        )
 
         return _fill_schema_defaults(
             data_schema,
             self.current_config,
         )
+
 
 def _fill_schema_defaults(
     data_schema: vol.Schema,

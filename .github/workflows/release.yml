@@ -15,7 +15,7 @@ jobs:
       contents: write
     steps:
       - name: "Checkout the repository"
-        uses: "actions/checkout@v4.1.1"
+        uses: "actions/checkout@v4"
 
       - name: "Adjust version number"
         shell: "bash"

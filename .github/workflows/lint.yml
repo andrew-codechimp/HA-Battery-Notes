@@ -4,9 +4,13 @@ on:
   push:
     branches:
       - "main"
+    paths-ignore:
+      - 'custom_components/battery_notes/data/**'
   pull_request:
     branches:
       - "main"
+    paths-ignore:
+      - 'custom_components/battery_notes/data/**'
 
 jobs:
   ruff:
@@ -14,12 +18,12 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
         - name: "Checkout the repository"
-          uses: "actions/checkout@v4.1.1"
+          uses: "actions/checkout@v4"
 
         - name: "Set up Python"
-          uses: actions/setup-python@v4.7.1
+          uses: actions/setup-python@v5.0.0
           with:
-            python-version: "3.10"
+            python-version: "3.11"
             cache: "pip"
 
         - name: "Install requirements"

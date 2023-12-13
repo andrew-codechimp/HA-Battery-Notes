@@ -7,9 +7,13 @@ on:
   push:
     branches:
       - "main"
+    paths-ignore:
+      - 'custom_components/battery_notes/data/**'
   pull_request:
     branches:
       - "main"
+    paths-ignore:
+      - 'custom_components/battery_notes/data/**'
 
 jobs:
   hassfest: # https://developers.home-assistant.io/blog/2020/04/16/hassfest
@@ -17,7 +21,7 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
         - name: "Checkout the repository"
-          uses: "actions/checkout@v4.1.1"
+          uses: "actions/checkout@v4"
 
         - name: "Run hassfest validation"
           uses: "home-assistant/actions/hassfest@master"
@@ -27,7 +31,7 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
         - name: "Checkout the repository"
-          uses: "actions/checkout@v4.1.1"
+          uses: "actions/checkout@v4"
 
         - name: "Run HACS validation"
           uses: "hacs/action@main"
