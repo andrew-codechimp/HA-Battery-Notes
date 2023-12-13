@@ -75,13 +75,13 @@ typeSensorEntityDescription = BatteryNotesSensorEntityDescription(
 )
 
 lastChangedSensorEntityDescription = BatteryNotesSensorEntityDescription(
-        unique_id_suffix="_battery_last_changed",
-        key="battery_last_changed",
-        translation_key="battery_last_changed",
-        icon="mdi:battery-clock",
-        entity_category=EntityCategory.DIAGNOSTIC,
-        device_class=SensorDeviceClass.DATE,
-    )
+    unique_id_suffix="_battery_last_changed",
+    key="battery_last_changed",
+    translation_key="battery_last_changed",
+    icon="mdi:battery-clock",
+    entity_category=EntityCategory.DIAGNOSTIC,
+    device_class=SensorDeviceClass.DATE,
+)
 
 # ENTITY_DESCRIPTIONS: tuple[BatteryNotesSensorEntityDescription, ...] = (
 #     BatteryNotesSensorEntityDescription(
@@ -109,9 +109,11 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
     }
 )
 
+
 def utc_from_timestamp(timestamp: float) -> datetime:
     """Return a UTC time from a timestamp."""
     return pytz.utc.localize(datetime.utcfromtimestamp(timestamp))
+
 
 @callback
 def async_add_to_device(hass: HomeAssistant, entry: ConfigEntry) -> str | None:
@@ -185,19 +187,9 @@ async def async_setup_entry(
             lastChangedSensorEntityDescription,
             device_id,
             f"{config_entry.entry_id}{lastChangedSensorEntityDescription.unique_id_suffix}",
-            dt_util.utcnow()
+            dt_util.utcnow(),
         ),
     ]
-
-    # async_add_entities(
-    #     BatteryNotesSensor(
-    #         hass,
-    #         description,
-    #         device_id,
-    #         f"{config_entry.entry_id}{description.unique_id_suffix}",
-    #         battery_type
-    #         ) for description in ENTITY_DESCRIPTIONS
-    # )
 
     async_add_entities(entities)
 
@@ -246,8 +238,10 @@ class BatteryNotesSensor(RestoreSensor, SensorEntity):
 
         self.async_on_remove(
             async_track_state_change_event(
-                self.hass, [self._attr_unique_id], self._async_battery_note_state_changed_listener
-                #TODO also add CONF_UNIQUE_ID + "_battery_changed_button listener"
+                self.hass,
+                [self._attr_unique_id],
+                self._async_battery_note_state_changed_listener
+                # TODO also add CONF_UNIQUE_ID + "_battery_changed_button listener"
             )
         )
 
@@ -295,6 +289,7 @@ class BatteryNotesTypeSensor(BatteryNotesSensor):
 
         return self._battery_type
 
+
 class BatteryNotesLastChangedSensor(BatteryNotesSensor):
     """Represents a battery note sensor."""
 
@@ -341,9 +336,7 @@ class BatteryNotesLastChangedSensor(BatteryNotesSensor):
         else:
             current_datetime = py_datetime.datetime.combine(date, DEFAULT_TIME)
 
-        self._last_changed = current_datetime.replace(
-            tzinfo=dt_util.DEFAULT_TIME_ZONE
-        )
+        self._last_changed = current_datetime.replace(tzinfo=dt_util.DEFAULT_TIME_ZONE)
 
     @property
     def native_value(self) -> str | None:
