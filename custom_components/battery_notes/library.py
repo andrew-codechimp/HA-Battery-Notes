@@ -27,10 +27,17 @@ class Library:  # pylint: disable=too-few-public-methods
 
     def __init__(self, hass: HomeAssistant) -> None:
         """Init."""
-        json_path = os.path.join(
-            BUILT_IN_DATA_DIRECTORY,
-            hass.data[DOMAIN][DOMAIN_CONFIG].get(CONF_LIBRARY, "library.json"),
-        )
+
+        if DOMAIN_CONFIG not in hass.data[DOMAIN]:
+            json_path = os.path.join(
+                BUILT_IN_DATA_DIRECTORY,
+                "library.json",
+            )
+        else:
+            json_path = os.path.join(
+                BUILT_IN_DATA_DIRECTORY,
+                hass.data[DOMAIN][DOMAIN_CONFIG].get(CONF_LIBRARY, "library.json"),
+            )
 
         _LOGGER.debug("Using library file at %s", json_path)
 
