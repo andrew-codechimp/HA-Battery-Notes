@@ -51,6 +51,8 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     if domain_config.get(CONF_ENABLE_AUTODISCOVERY):
         discovery_manager = DiscoveryManager(hass, config)
         await discovery_manager.start_discovery()
+    else:
+        _LOGGER.debug("Auto discovery disabled")
 
     return True
 

@@ -30,20 +30,30 @@ Platform | Description
 Or  
 Search for `Battery Notes` in HACS and install it under the "Integrations" category.  
 Restart Home Assistant  
+Add the following entry to your ```configuration.yaml```  
+```
+battery_notes:
+  enable_autodiscovery: true
+```
+Restart Home Assistant a final time
 In the HA UI go to "Configuration" -> "Integrations" click "+" and search for "Battery Notes"  
 
 ### Manual Installation
 
-<details>
-<summary>Show detailed instructions</summary>
-1. Using the tool of choice open the directory (folder) for your HA configuration (where you find `configuration.yaml`).
-1. If you do not have a `custom_components` directory (folder) there, you need to create it.
-1. In the `custom_components` directory (folder) create a new folder called `battery_notes`.
-1. Download _all_ the files from the `custom_components/battery_notes/` directory (folder) in this repository.
-1. Place the files you downloaded in the new directory (folder) you created.
-1. Restart Home Assistant
-1. In the HA UI go to "Configuration" -> "Integrations" click "+" and search for "Battery Notes"
-</details>
+Using the tool of choice open the directory (folder) for your HA configuration (where you find `configuration.yaml`).  
+If you do not have a `custom_components` directory (folder) there, you need to create it.  
+In the `custom_components` directory (folder) create a new folder called `battery_notes`.  
+Download _all_ the files from the `custom_components/battery_notes/` directory (folder) in this repository.  
+Place the files you downloaded in the new directory (folder) you created.  
+Restart Home Assistant  
+Add the following entry to your ```configuration.yaml```  
+```
+battery_notes:
+  enable_autodiscovery: true
+```
+Restart Home Assistant a final time  
+In the HA UI go to "Configuration" -> "Integrations" click "+" and search for "Battery Notes"  
+
 
 ## Configuration is done in the UI
 
@@ -52,8 +62,8 @@ The battery type will then be displayed as a diagnostic sensor on the device.
 
 ## Automatic discovery
 
-By default Battery Notes will automatically discover devices that it has in its library and create a notification to add a battery note.
-If you wish to disable this functionality then add the following to your ```configuration.yaml```  
+Battery Notes will automatically discover devices (as long as you have followed the installation instructions above) that it has in its library and create a notification to add a battery note.
+If you wish to disable this functionality then change your ```configuration.yaml``` to set enable_autodiscovery to false
 ```
 battery_notes:
   enable_autodiscovery: false

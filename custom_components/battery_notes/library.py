@@ -10,6 +10,7 @@ from homeassistant.core import HomeAssistant
 
 from .const import (
     DOMAIN,
+    DATA_LIBRARY,
     DOMAIN_CONFIG,
     CONF_LIBRARY,
 )
@@ -41,10 +42,23 @@ class Library:  # pylint: disable=too-few-public-methods
 
         except FileNotFoundError:
             _LOGGER.error(
-                "%s file not found in directory %s",
-                hass.data[DOMAIN][DOMAIN_CONFIG].get(CONF_LIBRARY, "library.json"),
+                "library.json file not found in directory %s",
                 BUILT_IN_DATA_DIRECTORY,
             )
+
+    @staticmethod
+    def factory(hass: HomeAssistant) -> Library:
+        """Return the library or create."""
+
+        if DOMAIN not in hass.data:
+            hass.data[DOMAIN] = {}
+
+        if DATA_LIBRARY in hass.data[DOMAIN]:
+            return hass.data[DOMAIN][DATA_LIBRARY]  # type: ignore
+
+        library = Library(hass)
+        hass.data[DOMAIN][DATA_LIBRARY] = library
+        return library
 
     async def get_device_battery_details(
         self,

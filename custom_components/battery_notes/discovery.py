@@ -75,14 +75,13 @@ class DiscoveryManager:
         """Init."""
         self.hass = hass
         self.ha_config = ha_config
-        self.manually_configured_entities: list[str] | None = None
 
     async def start_discovery(self) -> None:
         """Start the discovery procedure."""
         _LOGGER.debug("Start auto discovering devices")
         device_registry = dr.async_get(self.hass)
 
-        library = Library(self.hass)
+        library = Library.factory(self.hass)
 
         if library.loaded():
             for device_entry in list(device_registry.devices.values()):
@@ -105,6 +104,8 @@ class DiscoveryManager:
                     continue
 
                 self._init_entity_discovery(device_entry, device_battery_details)
+        else:
+            _LOGGER.error("Library not loaded")
 
         _LOGGER.debug("Done auto discovering devices")
 

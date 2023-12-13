@@ -31,6 +31,7 @@ CONF_DEVICE_NAME = "device_name"
 DATA_CONFIGURED_ENTITIES = "configured_entities"
 DATA_DISCOVERED_ENTITIES = "discovered_entities"
 DATA_DOMAIN_ENTITIES = "domain_entities"
+DATA_LIBRARY = "library"
 
 PLATFORMS: Final = [
     Platform.SENSOR,
