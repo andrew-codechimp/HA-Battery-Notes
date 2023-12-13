@@ -29,7 +29,11 @@ Platform | Description
 
 Or  
 Search for `Battery Notes` in HACS and install it under the "Integrations" category.  
+
+
 Restart Home Assistant  
+
+**Important**  
 Add the following entry to your ```configuration.yaml```  
 ```
 battery_notes:
