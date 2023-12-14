@@ -10,9 +10,6 @@
 
 _Integration to add battery notes to a device, with automatic discovery via a growing battery library for devices_
 
-**Discovery and the Battery Library are currently in beta**  
-If you wish to try this version please go into HACS, select Battery Notes and in the top right menu choose Redownload, switch on Show Beta Versions and select the latest version (starts with 1.1)
-
 ![Battery Notes](https://github.com/andrew-codechimp/HA-Battery-Notes/blob/main/images/screenshot-device.png "Battery Notes")
 
 **This integration will set up the following platforms.**
@@ -33,13 +30,12 @@ Search for `Battery Notes` in HACS and install it under the "Integrations" categ
 
 Restart Home Assistant  
 
-**Important ONLY ADD THIS IF USING BETA 1.1.1**  
+**Important**  
 Add the following entry to your ```configuration.yaml```  
 ```
 battery_notes:
-  enable_autodiscovery: true
 ```
-Restart Home Assistant a final time
+Restart Home Assistant a final time  
 In the HA UI go to "Configuration" -> "Integrations" click "+" and search for "Battery Notes"  
 
 ### Manual Installation
@@ -53,7 +49,6 @@ Restart Home Assistant
 Add the following entry to your ```configuration.yaml```  
 ```
 battery_notes:
-  enable_autodiscovery: true
 ```
 Restart Home Assistant a final time  
 In the HA UI go to "Configuration" -> "Integrations" click "+" and search for "Battery Notes"  
