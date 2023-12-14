@@ -38,7 +38,7 @@ Add the following entry to your ```configuration.yaml```
 ```
 battery_notes:
 ```
-Restart Home Assistant a final time
+Restart Home Assistant a final time  
 In the HA UI go to "Configuration" -> "Integrations" click "+" and search for "Battery Notes"  
 
 ### Manual Installation
