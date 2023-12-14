@@ -33,7 +33,7 @@ Search for `Battery Notes` in HACS and install it under the "Integrations" categ
 
 Restart Home Assistant  
 
-**Important ONLY ADD THIS IF USING BETA 1.1.1**  
+**Important ONLY ADD THIS IF USING BETA 1.1.2**  
 Add the following entry to your ```configuration.yaml```  
 ```
 battery_notes:
