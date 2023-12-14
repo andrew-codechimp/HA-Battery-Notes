@@ -150,6 +150,12 @@
         },
         {
             "manufacturer": "Tado",
+            "model": "VA01",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tado",
             "model": "VA02",
             "battery_type": "AA",
             "battery_quantity": 2
