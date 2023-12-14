@@ -7,6 +7,9 @@ from __future__ import annotations
 
 import logging
 
+import homeassistant.helpers.config_validation as cv
+import voluptuous as vol
+
 from awesomeversion.awesomeversion import AwesomeVersion
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant, callback
@@ -21,11 +24,26 @@ from .const import (
     DOMAIN_CONFIG,
     PLATFORMS,
     CONF_ENABLE_AUTODISCOVERY,
+    CONF_LIBRARY,
 )
 
 MIN_HA_VERSION = "2023.7"
 
 _LOGGER = logging.getLogger(__name__)
+
+CONFIG_SCHEMA = vol.Schema(
+    {
+        DOMAIN: vol.All(
+            vol.Schema(
+                {
+                    vol.Optional(CONF_ENABLE_AUTODISCOVERY, default=True): cv.boolean,
+                    vol.Optional(CONF_LIBRARY, default="library.json"): cv.string,
+                },
+            ),
+        ),
+    },
+    extra=vol.ALLOW_EXTRA,
+)
 
 
 async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
