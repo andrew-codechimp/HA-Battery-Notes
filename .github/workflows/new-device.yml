@@ -81,4 +81,4 @@ jobs:
           commit-message: "Update device: ${{ steps.update-json.outputs.mm }}"
           title: "DEVICE: ${{ steps.update-json.outputs.mm }}"
           body: "This pull request adds or updates the device information for ${{ steps.update-json.outputs.mm }}\nIt closes issue #${{ github.event.issue.number }}"
-          branch: "update-device-${{ steps.update-json.outputs.mm }}"
+          # branch: "update-device-${{ steps.update-json.outputs.mm }}"
