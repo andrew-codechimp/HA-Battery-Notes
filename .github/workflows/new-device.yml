@@ -2,7 +2,7 @@ name: New Device
 
 on:
   issues:
-    types: [opened]
+    types: [opened, edited]
 
 jobs:
   create-device-pull-request:
