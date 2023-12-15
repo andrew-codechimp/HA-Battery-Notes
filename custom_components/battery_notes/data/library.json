@@ -24,6 +24,11 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "eWeLink",
+            "model": "MS01",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "Fantem",
             "model": "4 in 1 multi sensor (ZB003-X)",
             "battery_type": "CR123A",
@@ -70,6 +75,12 @@
         },
         {
             "manufacturer": "IKEA",
+            "model": "TRADFRI motion sensor",
+            "battery_type": "CR2032",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "IKEA",
             "model": "TRADFRI motion sensor (E1525/E1745)",
             "battery_type": "CR2032",
             "battery_quantity": 2
@@ -89,6 +100,16 @@
             "model": "Silvercrest radiator valve with thermostat (368308_2010)",
             "battery_type": "AA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "LUMI",
+            "model": "lumi.remote.b1acn01",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "LUMI",
+            "model": "lumi.sensor_motion.aq2",
+            "battery_type": "CR2450"
         },
         {
             "manufacturer": "LUMI",
