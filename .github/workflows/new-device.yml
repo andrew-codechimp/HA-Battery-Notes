@@ -17,6 +17,7 @@ jobs:
         uses: issue-ops/parser@v0
         with:
           body: ${{ github.event.issue.body }}
+          issue-form-template: new-device.yml
 
       - name: Install jq
         run: sudo apt install jq
@@ -27,12 +28,11 @@ jobs:
           python-version: '3.12'
 
       - name: Update JSON file
-        id: update-json
         uses: jannekem/run-python-script-action@v1
         with:
           script: |
             print(${{ steps.device-data.outputs.json }})
-#
+
 #      - name: Create pull request
 #        uses: peter-evans/create-pull-request@v5
 #        with:
