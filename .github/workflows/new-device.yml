@@ -32,6 +32,7 @@ jobs:
         uses: jannekem/run-python-script-action@v1
         with:
           script: |
+            import re
             import json
 
             # Load the existing JSON library file
