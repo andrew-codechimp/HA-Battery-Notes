@@ -77,50 +77,52 @@ jobs:
       - name: Install jq
         run: sudo apt-get install jq
 
+      - name: Set up python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
       - name: Update JSON file
-        env:
-          MANUFACTURER: ${{needs.collect-info.outputs.manufacturer}}
-          MODEL: ${{needs.collect-info.outputs.model}}
-          BATTERY_TYPE: ${{needs.collect-info.outputs.battery_type}}
-          BATTERY_QUANTITY: ${{needs.collect-info.outputs.battery_quantity}}
-        run: |
-          JSON_FILE="custom_components/battery_notes/data/library.json"
-          SCHEMA_URL="../../../schema.json"
-          VERSION=1
-          
-          # Read current JSON content into a variable
-          JSON_CONTENT=$(jq '.' "$JSON_FILE")
-          
-          # Create a JSON object with collected information
-          NEW_ENTRY=$(jq -n \
-                      --arg manufacturer "$MANUFACTURER" \
-                      --arg model "$MODEL" \
-                      --arg battery_type "$BATTERY_TYPE" \
-                      --arg battery_quantity "$BATTERY_QUANTITY" \
-                      '{
-                        manufacturer: $manufacturer,
-                        model: $model,
-                        battery_type: $battery_type,
-                        battery_quantity: $battery_quantity
-                      }')
-          
-          # Remove null fields (e.g., if battery_quantity is not provided, it should not be in the new entry)
-          NEW_ENTRY_CLEAN=$(echo "$NEW_ENTRY" | jq 'del(.battery_quantity | select(. == 1))')
-          
-          # Add the new entry to the devices array in the JSON content
-          UPDATED_DEVICES=$(echo "$JSON_CONTENT" | jq --argjson newEntry "$NEW_ENTRY_CLEAN" '.devices += [$newEntry]')
-          
-          # Create updated JSON content with $schema and version
-          UPDATED_CONTENT=$(jq -n \
-                            --arg schema "$SCHEMA_URL" \
-                            --argjson version "$VERSION" \
-                            --argjson updatedDevices "$UPDATED_DEVICES" \
-                            '{
-                              "$schema": $schema,
-                              "version": $version,
-                              "devices": $updatedDevices.devices
-                            }')
-          echo "$UPDATED_CONTENT" > "$JSON_FILE"
+        uses: jannekem/run-python-script-action@v1
+        with:
+          script: |
+            import json
+
+            # Set the file paths and version
+            JSON_FILE = "custom_components/battery_notes/data/library.json"
+            SCHEMA_URL = "../../../schema.json"
+            VERSION = 1
+
+            # Read the current JSON content
+            with open(JSON_FILE) as file:
+              json_content = json.load(file)
+
+            print(${{needs.collect-info.outputs.manufacturer}})
+            # Create a dictionary with collected information
+            new_entry = {
+              "manufacturer": ${{needs.collect-info.outputs.manufacturer}},
+              "model": ${{needs.collect-info.outputs.model}},
+              "battery_type": ${{needs.collect-info.outputs.battery_type}},
+              "battery_quantity": ${{needs.collect-info.outputs.battery_quantity}}
+            }
+
+            # Remove null fields
+            new_entry_clean = {k: v for k, v in new_entry.items() if v is not None}
+
+            # Add the new entry to the devices array
+            json_content["devices"].append(new_entry_clean)
+
+            # Create updated JSON content with $schema and version
+            updated_content = {
+              "$schema": SCHEMA_URL,
+              "version": VERSION,
+              "devices": json_content["devices"]
+            }
+
+            # Write the updated content back to the JSON file
+            with open(JSON_FILE, "w") as file:
+              json.dump(updated_content, file)
+
       - name: Pick random branch name
         uses: boonya/gh-action-name-generator@v1
         id: random-name-generator
@@ -128,6 +130,7 @@ jobs:
           separator: '-'
           length: '3'
           style: lowerCase
+
       - name: Create pull request
         uses: peter-evans/create-pull-request@v5
         with:
@@ -135,4 +138,3 @@ jobs:
           commit-message: "Automatically-generated from user-submitted device request"
           branch: ${{ steps.random-name-generator.outputs.name }}"
           delete-branch: true
-          
