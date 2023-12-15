@@ -32,7 +32,6 @@ jobs:
         uses: jannekem/run-python-script-action@v1
         with:
           script: |
-            import os
             import json
 
             # Load the existing JSON library file
@@ -58,12 +57,9 @@ jobs:
               devices.append(new_device)
 
             # Save manufacturer and model string for use in naming the pull request
-            def set_action_outputs(output_pairs) :
-                if "GITHUB_OUTPUT" in os.environ :
-                    with open(os.environ["GITHUB_OUTPUT"], "a") as f:
-                        for key, value in output_pairs.items():
-                            print(f"{key}={value}", file=f)
-            set_action_outputs(new_device)
+            print(f"'mm={device["manufacturer"]} - {device["model"]}' >> '$GITHUB_OUTPUT'")
+            # print(f"'manufacturer={device["manufacturer"]}' >> '$GITHUB_OUTPUT'")
+            # print(f"'model={device["model"]}' >> '$GITHUB_OUTPUT'")
             
             with open("custom_components/battery_notes/data/library.json", "w") as f:
               f.write(json.dumps(devices_json, indent=2))
