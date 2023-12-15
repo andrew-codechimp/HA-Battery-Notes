@@ -62,6 +62,8 @@ The battery type will then be displayed as a diagnostic sensor on the device.
 ## Automatic discovery
 
 Battery Notes will automatically discover devices (as long as you have followed the installation instructions above) that it has in its library and create a notification to add a battery note.
+![Discovery](https://github.com/andrew-codechimp/HA-Battery-Notes/blob/main/images/screenshot-discovery.png "Device Discovery")
+
 If you wish to disable this functionality then change your ```configuration.yaml``` to set enable_autodiscovery to false
 ```
 battery_notes:
