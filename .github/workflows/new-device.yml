@@ -60,7 +60,7 @@ jobs:
             devices.sort(key=lambda x: (x["manufacturer"], x["model"]))
 
             # Save manufacturer and model string for use in naming the pull request
-            set_output("mm", '_'.join(re.findall(r'\w+',f"{device['manufacturer']}{device['model']})).lower()")
+            set_output("mm", '_'.join(re.findall(r'\w+',f"{new_device['manufacturer']}{new_device['model']})).lower()")
 
             with open("custom_components/battery_notes/data/library.json", "w") as f:
               f.write(json.dumps(devices_json, indent=2))
