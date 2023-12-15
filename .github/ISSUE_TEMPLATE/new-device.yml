@@ -16,7 +16,7 @@ body:
   - type: input
     id: manufacturer
     attributes:
-      label: ">>Device Manufacturer<<"
+      label: Manufacturer
       description: The manufacturer should be exactly what is displayed on the Devices screen within Home Assistant.
       placeholder: ex. eWeLink
     validations:
@@ -25,7 +25,7 @@ body:
   - type: input
     id: model
     attributes:
-      label: ">>Device Model<<"
+      label: Model
       description: The model should be exactly what is displayed on the Devices screen within Home Assistant.
       placeholder: ex. DS01
     validations:
@@ -34,7 +34,7 @@ body:
   - type: input
     id: battery-type
     attributes:
-      label: ">>Device Battery Type<<"
+      label: Battery Type
       description: When specifying battery types please use the Most Common naming for general batteries and the IEC naming for battery cells according to [Wikipedia](https://en.wikipedia.org/wiki/List_of_battery_sizes).
       placeholder: ex. CR2032
     validations:
@@ -43,7 +43,7 @@ body:
   - type: input
     id: battery-quantity
     attributes:
-      label: ">>Device Battery Quantity<<"
+      label: Battery Quantity
       description: The battery_quantity attribute is numeric (no letters or special characters).
       placeholder: ex. 1
     validations:
