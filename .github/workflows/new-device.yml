@@ -2,7 +2,7 @@ name: New Device
 
 on:
   issues:
-    types: [opened, edited]
+    types: [opened]
 
 jobs:
   create-device-pull-request:
@@ -57,9 +57,7 @@ jobs:
               devices.append(new_device)
 
             # Save manufacturer and model string for use in naming the pull request
-            print(f"'mm={device["manufacturer"]} - {device["model"]}' >> '$GITHUB_OUTPUT'")
-            # print(f"'manufacturer={device["manufacturer"]}' >> '$GITHUB_OUTPUT'")
-            # print(f"'model={device["model"]}' >> '$GITHUB_OUTPUT'")
+            set_output("mm", "device['manufacturer']} - {device['model']")
             
             with open("custom_components/battery_notes/data/library.json", "w") as f:
               f.write(json.dumps(devices_json, indent=2))
