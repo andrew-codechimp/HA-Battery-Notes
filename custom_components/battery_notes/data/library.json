@@ -55,13 +55,19 @@
         },
         {
             "manufacturer": "IKEA",
+            "model": "TRADFRI ON/OFF switch (E1743)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "IKEA",
             "model": "TRADFRI remote control (E1524/E1810)",
             "battery_type": "CR2032"
         },
         {
             "manufacturer": "IKEA",
             "model": "TRADFRI motion sensor (E1525/E1745)",
-            "battery_type": "CR2032"
+            "battery_type": "CR2032",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "IKEA",
@@ -116,6 +122,18 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "Saswell",
+            "model": "Thermostatic radiator valve (SEA801-Zigbee/SEA802-Zigbee)",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Siterwell",
+            "model": "Radiator valve with thermostat (GS361A-H04)",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Sonoff",
             "model": "Contact sensor (SNZB-04)",
             "battery_type": "CR2032"
@@ -128,6 +146,11 @@
         {
             "manufacturer": "Sonoff",
             "model": "Temperature and humidity sensor (SNZB-02)",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Sonoff",
+            "model": "SNZB-02D",
             "battery_type": "CR2430"
         },
         {
@@ -270,6 +293,11 @@
         {
             "manufacturer": "Xiaomi",
             "model": "MiJia wireless switch (WXKG01LM)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "_TZ3000_4fjiwweb",
+            "model": "TS004F",
             "battery_type": "CR2032"
         },
         {
