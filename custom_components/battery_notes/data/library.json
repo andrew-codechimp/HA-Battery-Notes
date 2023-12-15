@@ -66,7 +66,7 @@
         {
             "manufacturer": "IKEA",
             "model": "TRADFRI motion sensor (E1525/E1745)",
-            "battery_type": "CR2032"
+            "battery_type": "CR2032",
             "battery_quantity": 2
         },
         {
