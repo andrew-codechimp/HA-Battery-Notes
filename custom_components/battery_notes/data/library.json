@@ -149,6 +149,11 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "Sonoff",
+            "model": "SNZB-02D",
+            "battery_type": "CR2430"
+        },
+        {
             "manufacturer": "Sure Petcare",
             "model": "Pet flap",
             "battery_type": "C",
@@ -288,6 +293,11 @@
         {
             "manufacturer": "Xiaomi",
             "model": "MiJia wireless switch (WXKG01LM)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "_TZ3000_4fjiwweb",
+            "model": "TS004F",
             "battery_type": "CR2032"
         },
         {
