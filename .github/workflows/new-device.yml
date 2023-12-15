@@ -14,10 +14,13 @@ jobs:
 
       - name: Parse device info from issue body
         id: device-info
-        uses: onmax/issue-form-parser@v1.4
+        uses: peter-murray/issue-forms-body-parser@v4
         with:
-          issue_number: ${{ github.event.issue.number }}
-      
+          issue_id: ${{ github.event.issue.number }}
+          separator: '###'
+          label_marker_start: '>>'
+          label_marker_end: '<<'
+
       - name: Install jq
         run: sudo apt install jq
 
@@ -31,7 +34,7 @@ jobs:
         uses: jannekem/run-python-script-action@v1
         with:
           script: |
-            print(${{ steps.parse.outputs.payload }})
+            print(${{ steps.device-data.outputs.payload }})
 #
 #      - name: Create pull request
 #        uses: peter-evans/create-pull-request@v5
