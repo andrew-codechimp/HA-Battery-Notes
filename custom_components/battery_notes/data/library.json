@@ -3,6 +3,11 @@
     "version": 1,
     "devices": [
         {
+            "manufacturer": "Aldi",
+            "model": "MEGOS switch and dimming light remote control (141L100RC)",
+            "battery_type": "CR2450"
+        },        
+        {
             "manufacturer": "Develco",
             "model": "Smoke detector with siren (SMSZB-120)",
             "battery_type": "CR123"
@@ -78,6 +83,12 @@
             "manufacturer": "IKEA",
             "model": "TRADFRI shortcut button (E1812)",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Lidl",
+            "model": "Silvercrest radiator valve with thermostat (368308_2010)",
+            "battery_type": "AA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "LUMI",
