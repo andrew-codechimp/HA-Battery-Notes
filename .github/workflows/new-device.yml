@@ -60,8 +60,10 @@ jobs:
             # Sort the devices by manufacturer and model
             devices.sort(key=lambda x: (x["manufacturer"], x["model"]))
 
-            # Save manufacturer and model string for use in naming the pull request
-            set_output("mm", '_'.join(re.findall(r'\w+',f"{new_device['manufacturer']}{new_device['model']}).lower()")))
+            # Save manufacturer and model for later use
+            set_output("mm", "_".join(re.findall(r"\w+",f"{new_device['manufacturer']}{new_device['model']})".lower())))
+            set_output("manufacturer", "_".join(re.findall(r"\w+",f"{new_device['manufacturer']})")))
+            set_output("model", "_".join(re.findall(r"\w+",f"{new_device['model']})")))
 
             with open("custom_components/battery_notes/data/library.json", "w") as f:
               f.write(json.dumps(devices_json, indent=2))
@@ -79,7 +81,7 @@ jobs:
       - name: Create pull request
         uses: peter-evans/create-pull-request@v5
         with:
-          commit-message: "Update device: ${{ steps.update-json.outputs.mm }}"
-          title: "DEVICE: ${{ steps.update-json.outputs.mm }}"
-          body: "This pull request adds or updates the device information for ${{ steps.update-json.outputs.mm }}\nIt closes issue #${{ github.event.issue.number }}"
+          commit-message: "Update device: ${{ steps.update-json.outputs.model }} by ${{ steps.update-json.outputs.manufacturer }}"
+          title: "DEVICE: ${{ steps.update-json.outputs.manufacturer }} - ${{ steps.update-json.outputs.model }}"
+          body: "This pull request adds or updates the device information for ${{ steps.update-json.outputs.model }} by ${{ steps.update-json.outputs.manufacturer }}\nIt closes issue #${{ github.event.issue.number }}"
           branch: "device-${{ steps.update-json.outputs.mm }}"
