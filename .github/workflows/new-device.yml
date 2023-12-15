@@ -5,77 +5,21 @@ on:
     types: [opened, edited]
 
 jobs:
-  collect-info:
-    runs-on: ubuntu-latest
+  create-device-pull-request:
     if: ${{ contains(github.event.issue.title , '[Device]')}}
-    outputs:
-      manufacturer: ${{ steps.inputs.outputs.device_manufacturer }}
-      model: ${{ steps.inputs.outputs.device_model }}
-      battery_type: ${{ steps.inputs.outputs.device_battery_type }}
-      battery_quantity: ${{ steps.inputs.outputs.device_battery_quantity }}
-    steps:
-      - name: Get inputs
-        id: inputs
-        shell: bash
-        run: |
-          add_output(){
-            local k=$1
-            local v=$2
-            echo "$k=$v" >> $GITHUB_OUTPUT
-          }
-          process_key(){
-            local process_key=$1
-            # Trim leading and trailing whitespace
-            process_key="$(echo -e "${process_key}" | sed -e "s/^[[:space:]]*//" -e s/[[:space:]]*$//)"
-
-            # Substitute spaces with underscores
-            process_key="${process_key// /_}"
-
-            # Convert to lowercase
-            process_key="${process_key,,}"
-          }
-          process_checkbox_line(){
-            local checkbox_line=$1
-            option="$(echo "$checkbox_line" | sed "s/- \[[^]]*\] //")"
-
-            key="$(process_key "$option")"
-            value="$(echo "$checkbox_line" | grep -qE -- "- \[X\] && echo 'true' || echo 'false'")"
-
-            add_output "$key" "$value"
-
-            escaped_lookfor="$(echo "$checkbox_line" | sed "s/[][()\.^$?*+{}|]/\\&/g")"
-            nextcheckbox="$(echo "{{ github.event.issue.body }}" | awk "/$escaped_lookfor$/{getline; print}")"
-
-            if [[ "$nextcheckbox" == "- ["* && -n "$nextcheckbox" && "$nextcheckbox" != "$checkbox_line" ]]; then
-                process_checkbox_line "$nextcheckbox"
-            fi
-          }
-          echo "${{ github.event.issue.body }}" | awk "/^###/ {print}" | while read line; do
-            echo "🔍 Processing line: $line"
-            value=$(echo "${{ github.event.issue.body }}" | awk "/^$line$/{getline; getline; print}")
-
-            if [[ "$value" == "- ["* ]]; then
-              # Processing a checkbox
-              echo "☑️ Detected a checkbox!"
-              process_checkbox_line "$value"
-            else
-              # Remove "###" from the beginning of the string
-              key=${line##"###"}
-
-              key="$(process_key "$key")"
-              add_output "$key" "$value"
-            fi
-          done
-
-  update-json:
-    needs: collect-info
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Parse device info from issue body
+        id: device-info
+        uses: onmax/issue-form-parser@v1.4
+        with:
+          issue_number: ${{ github.event.issue.number }}
+      
       - name: Install jq
-        run: sudo apt-get install jq
+        run: sudo apt install jq
 
       - name: Set up python 3.12
         uses: actions/setup-python@v5
@@ -83,58 +27,16 @@ jobs:
           python-version: '3.12'
 
       - name: Update JSON file
+        id: update-json
         uses: jannekem/run-python-script-action@v1
         with:
           script: |
-            import json
-
-            # Set the file paths and version
-            JSON_FILE = "custom_components/battery_notes/data/library.json"
-            SCHEMA_URL = "../../../schema.json"
-            VERSION = 1
-
-            # Read the current JSON content
-            with open(JSON_FILE) as file:
-              json_content = json.load(file)
-
-            print(${{needs.collect-info.outputs.manufacturer}})
-            # Create a dictionary with collected information
-            new_entry = {
-              "manufacturer": ${{needs.collect-info.outputs.manufacturer}},
-              "model": ${{needs.collect-info.outputs.model}},
-              "battery_type": ${{needs.collect-info.outputs.battery_type}},
-              "battery_quantity": ${{needs.collect-info.outputs.battery_quantity}}
-            }
-
-            # Remove null fields
-            new_entry_clean = {k: v for k, v in new_entry.items() if v is not None}
-
-            # Add the new entry to the devices array
-            json_content["devices"].append(new_entry_clean)
-
-            # Create updated JSON content with $schema and version
-            updated_content = {
-              "$schema": SCHEMA_URL,
-              "version": VERSION,
-              "devices": json_content["devices"]
-            }
-
-            # Write the updated content back to the JSON file
-            with open(JSON_FILE, "w") as file:
-              json.dump(updated_content, file)
-
-      - name: Pick random branch name
-        uses: boonya/gh-action-name-generator@v1
-        id: random-name-generator
-        with:
-          separator: '-'
-          length: '3'
-          style: lowerCase
-
-      - name: Create pull request
-        uses: peter-evans/create-pull-request@v5
-        with:
-          title: "Add ${{ needs.collect-info.outputs.manufacturer }} ${{ needs.collect-info.outputs.model }}"
-          commit-message: "Automatically-generated from user-submitted device request"
-          branch: ${{ steps.random-name-generator.outputs.name }}"
-          delete-branch: true
+            print(${{ steps.parse.outputs.payload }})
+#
+#      - name: Create pull request
+#        uses: peter-evans/create-pull-request@v5
+#        with:
+#          title: "Add ${{ needs.collect-info.outputs.manufacturer }} ${{ needs.collect-info.outputs.model }}"
+#          commit-message: "Automatically-generated from user-submitted device request"
+#          branch: ${{ steps.random-name-generator.outputs.name }}"
+#          delete-branch: true
