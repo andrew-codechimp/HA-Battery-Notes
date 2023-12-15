@@ -43,7 +43,7 @@ jobs:
             new_device = ${{ steps.device-data.outputs.json }}
             if int(new_device["battery_quantity"]) == 1:
               del new_device["battery_quantity"]
-            
+
             # Check for duplicates and replace old entry with new one
             duplicate_found = False
             for i, device in enumerate(devices):
@@ -51,7 +51,7 @@ jobs:
                 devices[i] = new_device
                 duplicate_found = True
                 break
-            
+
             # If no duplicate found, add the new device to the JSON library file
             if not duplicate_found:
               devices.append(new_device)
@@ -60,8 +60,8 @@ jobs:
             devices.sort(key=lambda x: (x["manufacturer"], x["model"]))
 
             # Save manufacturer and model string for use in naming the pull request
-            set_output("mm", f"{device['manufacturer']} - {device['model']}")
-            
+            set_output("mm", '_'.join(re.findall(r'\w+',f"{device['manufacturer']}{device['model']})).lower()")
+
             with open("custom_components/battery_notes/data/library.json", "w") as f:
               f.write(json.dumps(devices_json, indent=2))
 
@@ -81,4 +81,4 @@ jobs:
           commit-message: "Update device: ${{ steps.update-json.outputs.mm }}"
           title: "DEVICE: ${{ steps.update-json.outputs.mm }}"
           body: "This pull request adds or updates the device information for ${{ steps.update-json.outputs.mm }}\nIt closes issue #${{ github.event.issue.number }}"
-          # branch: "update-device-${{ steps.update-json.outputs.mm }}"
+          branch: "device-${{ steps.update-json.outputs.mm }}"
