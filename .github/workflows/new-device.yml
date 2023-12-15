@@ -56,8 +56,8 @@ jobs:
             if not duplicate_found:
               devices.append(new_device)
 
-            print(f"manufacturer={device["manufacturer"]}" >> $GITHUB_OUTPUT)
-            print(f"model={device["model"]}" >> $GITHUB_OUTPUT)
+            print(f"manufacturer={device["manufacturer"]}" >> $GITHUB_OUTPUT")
+            print(f"model={device["model"]}" >> $GITHUB_OUTPUT")
             
             with open("custom_components/battery_notes/data/library.json", "w") as f:
               f.write(json.dumps(devices_json, indent=2))
@@ -67,5 +67,5 @@ jobs:
         with:
           commit-message: "Update device: ${{ steps.update-json.outputs.manufacturer }} - ${{ steps.update-json.outputs.json.model }}"
           title: "DEVICE: ${{ steps.update-json.outputs.json.manufacturer }} - ${{ steps.update-json.outputs.json.model }}"
-          body: "This pull request adds or updates the device information for ${{ steps.update-json.outputs.json.manufacturer }} - ${{ steps.update-json.outputs.json.model }}"
+          body: "This pull request adds or updates the device information for ${{ steps.update-json.outputs.json.manufacturer }} - ${{ steps.update-json.outputs.json.model }}\nIt closes issue #${{ github.event.issue.number }}"
           branch: update-device-${{ steps.update-json.outputs.json.manufacturer }}-${{ steps.update-json.outputs.json.model }}"
