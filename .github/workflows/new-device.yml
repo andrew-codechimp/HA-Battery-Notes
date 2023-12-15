@@ -56,16 +56,28 @@ jobs:
             if not duplicate_found:
               devices.append(new_device)
 
-            print(f"'manufacturer={device["manufacturer"]}'' >> $GITHUB_OUTPUT")
-            print(f"'model={device["model"]}'' >> $GITHUB_OUTPUT")
+            # Save manufacturer and model string for use in naming the pull request
+            print(f"'mm={device["manufacturer"]} - {device["model"]}'' >> $GITHUB_OUTPUT")
+            # print(f"'manufacturer={device["manufacturer"]}'' >> $GITHUB_OUTPUT")
+            # print(f"'model={device["model"]}'' >> $GITHUB_OUTPUT")
             
             with open("custom_components/battery_notes/data/library.json", "w") as f:
               f.write(json.dumps(devices_json, indent=2))
 
+      - name: Rename Issue
+        run: |
+          curl --request PATCH \
+            --url https://api.github.com/repos/${{github.event.repository.name}}/issues/${{github.event.issue.number}} \
+            --header 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+            --header 'Content-Type: application/json' \
+            --data '{
+              "title": "Device: ${{ steps.update-json.outputs.mm }}"
+            }'
+
       - name: Create pull request
         uses: peter-evans/create-pull-request@v5
         with:
-          commit-message: "Update device: ${{ steps.update-json.outputs.manufacturer }} - ${{ steps.update-json.outputs.json.model }}"
-          title: "DEVICE: ${{ steps.update-json.outputs.json.manufacturer }} - ${{ steps.update-json.outputs.json.model }}"
-          body: "This pull request adds or updates the device information for ${{ steps.update-json.outputs.json.manufacturer }} - ${{ steps.update-json.outputs.json.model }}\nIt closes issue #${{ github.event.issue.number }}"
-          branch: update-device-${{ steps.update-json.outputs.json.manufacturer }}-${{ steps.update-json.outputs.json.model }}"
+          commit-message: "Update device: ${{ steps.update-json.outputs.mm }}"
+          title: "DEVICE: ${{ steps.update-json.outputs.mm }}"
+          body: "This pull request adds or updates the device information for ${{ steps.update-json.outputs.mm }}\nIt closes issue #${{ github.event.issue.number }}"
+          branch: update-device-${{ steps.update-json.outputs.mm }}"
