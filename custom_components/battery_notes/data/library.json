@@ -280,8 +280,7 @@
         {
             "manufacturer": "_TZ3000_4fjiwweb",
             "model": "TS004F",
-            "battery_type": "CR2032",
-            "battery_quantity": 1
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "_TZ3000_fllyghyj",
