@@ -17,13 +17,11 @@
             "manufacturer": "eWeLink",
             "model": "DS01",
             "battery_type": "CR2032"
-            "battery_quantity": 1
         },
         {
             "manufacturer": "eWeLink",
             "model": "MS01",
             "battery_type": "CR2450"
-            "battery_quantity": 1
         },
         {
             "manufacturer": "Fantem",
@@ -95,14 +93,12 @@
         {
             "manufacturer": "LUMI",
             "model": "lumi.remote.b1acn01",
-            "battery_type": "CR2032",
-            "battery_quantity": 1            
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "LUMI",
             "model": "lumi.sensor_motion.aq2",
-            "battery_type": "CR2450",
-            "battery_quantity": 1            
+            "battery_type": "CR2450"
         },
         {
             "manufacturer": "LUMI",
