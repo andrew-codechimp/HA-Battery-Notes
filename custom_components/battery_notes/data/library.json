@@ -198,6 +198,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "switchbot",
+            "model": "woHand",
+            "battery_type": "CR2",
+            "battery_quantity": 1
+        },
+        {
             "manufacturer": "Tado",
             "model": "RU01",
             "battery_type": "AAA",
