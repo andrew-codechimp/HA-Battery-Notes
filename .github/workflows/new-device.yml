@@ -56,8 +56,9 @@ jobs:
             if not duplicate_found:
               devices.append(new_device)
 
-            print(f"manufacturer={device["manufacturer"]} >> $GITHUB_OUTPUT")
-            print(f"model={device["model"]} >> $GITHUB_OUTPUT")
+            # Save manufacturer and model info as outputs
+            print(f"::set-output name=manufacturer::{new_device['manufacturer']}")
+            print(f"::set-output name=model::{new_device['model']}")
             
             with open("custom_components/battery_notes/data/library.json", "w") as f:
               f.write(json.dumps(devices_json, indent=2))
