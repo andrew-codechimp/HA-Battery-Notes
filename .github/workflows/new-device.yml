@@ -57,3 +57,10 @@ jobs:
             
             with open("custom_components/battery_notes/data/library.json", "w") as f:
               f.write(json.dumps(devices_json, indent=2))
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          commit-message: "Update device: ${{ steps.device-data.outputs.json.manufacturer }} - ${{ steps.device-data.outputs.json.model }}"
+          title: "DEVICE: ${{ steps.device-data.outputs.json.manufacturer }} - ${{ steps.device-data.outputs.json.model }}"
+          body: "This pull request adds or updates the device information for ${{ steps.device-data.outputs.json.manufacturer }} - ${{ steps.device-data.outputs.json.model }}"
+          branch: update-device-${{ steps.device-data.outputs.json.manufacturer }}-${{ steps.device-data.outputs.json.model }}"
