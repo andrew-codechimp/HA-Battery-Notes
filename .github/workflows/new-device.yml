@@ -31,7 +31,12 @@ jobs:
         uses: jannekem/run-python-script-action@v1
         with:
           script: |
-            print(${{ steps.device-data.outputs.json }})
+            import json
+            new_device = ${{ steps.device-data.outputs.json }}
+            print(new_device["battery_quantity"])
+            if int(new_device["battery_quantity"]) == 1:
+              del new_device["battery_quantity"]
+            print(new_device)
 
 #      - name: Create pull request
 #        uses: peter-evans/create-pull-request@v5
