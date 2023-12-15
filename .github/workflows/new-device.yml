@@ -1,0 +1,87 @@
+name: New Device
+
+on:
+  issues:
+    types: [opened, edited]
+
+jobs:
+  create-device-pull-request:
+    if: ${{ contains(github.event.issue.title , '[Device]')}}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Parse device data
+        id: device-data
+        uses: issue-ops/parser@v0
+        with:
+          body: ${{ github.event.issue.body }}
+          issue-form-template: new-device.yml
+
+      - name: Install jq
+        run: sudo apt install jq
+
+      - name: Set up python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Update JSON file
+        id: update-json
+        uses: jannekem/run-python-script-action@v1
+        with:
+          script: |
+            import re
+            import json
+
+            # Load the existing JSON library file
+            with open("custom_components/battery_notes/data/library.json",'r') as f:
+              devices_json = json.loads(f.read())
+              devices = devices_json.get('devices')
+
+            # Remove the "battery_quantity" key from the device dictionary if it's 1
+            new_device = ${{ steps.device-data.outputs.json }}
+            if int(new_device["battery_quantity"]) == 1:
+              del new_device["battery_quantity"]
+
+            # Check for duplicates and replace old entry with new one
+            duplicate_found = False
+            for i, device in enumerate(devices):
+              if device["manufacturer"] == new_device["manufacturer"] and device["model"] == new_device["model"]:
+                devices[i] = new_device
+                duplicate_found = True
+                break
+
+            # If no duplicate found, add the new device to the JSON library file
+            if not duplicate_found:
+              devices.append(new_device)
+
+            # Sort the devices by manufacturer and model
+            devices.sort(key=lambda k: (k['manufacturer'], k['model']))
+
+            # Save manufacturer and model for later use
+            set_output("mm", "_".join(re.findall(r"\w+",f"{new_device['manufacturer']}{new_device['model']})".lower())))
+            set_output("manufacturer", "_".join(re.findall(r"\w+",f"{new_device['manufacturer']})")))
+            set_output("model", "_".join(re.findall(r"\w+",f"{new_device['model']})")))
+
+            with open("custom_components/battery_notes/data/library.json", "w") as f:
+              f.write(json.dumps(devices_json, indent=2))
+
+      - name: Rename Issue
+        run: |
+          curl --request PATCH \
+            --url https://api.github.com/repos/${{github.repository}}/issues/${{github.event.issue.number}} \
+            --header 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+            --header 'Content-Type: application/json' \
+            --data '{
+              "title": "Device: ${{ steps.update-json.outputs.mm }}"
+            }'
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          commit-message: "Update device: ${{ steps.update-json.outputs.model }} by ${{ steps.update-json.outputs.manufacturer }}"
+          title: "DEVICE: ${{ steps.update-json.outputs.manufacturer }} - ${{ steps.update-json.outputs.model }}"
+          body: "This pull request adds or updates the device information for ${{ steps.update-json.outputs.model }} by ${{ steps.update-json.outputs.manufacturer }}\nIt closes issue #${{ github.event.issue.number }}"
+          branch: "device-${{ steps.update-json.outputs.mm }}"
