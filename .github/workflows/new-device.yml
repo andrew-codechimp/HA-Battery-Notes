@@ -56,6 +56,9 @@ jobs:
             if not duplicate_found:
               devices.append(new_device)
 
+            # Sort the devices by manufacturer and model
+            devices.sort(key=lambda x: (x["manufacturer"], x["model"]))
+
             # Save manufacturer and model string for use in naming the pull request
             set_output("mm", f"{device['manufacturer']} - {device['model']}")
             
