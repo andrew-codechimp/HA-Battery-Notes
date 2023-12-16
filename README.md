@@ -77,7 +77,7 @@ To add a device definition to the battery library so that it will be automatical
 
 ### Submit Definition via GitHub Issues Form
 
-To add a new device via GitHub Issues, fill out [this form (BETA)](https://github.com/andrew-codechimp/HA-Battery-Notes/issues/new?template=new_device_request.yml).
+To add a new device via GitHub Issues, fill out [this form (BETA)](https://github.com/andrew-codechimp/HA-Battery-Notes/issues/new?template=new_device_request.yml&title=[Device]%3A+).
 Upon submission of the issue, GitHub will attempt to make the required code changes automatically.
 
 ### Submit Definition via Pull Request
