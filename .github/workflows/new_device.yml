@@ -17,7 +17,7 @@ jobs:
         uses: issue-ops/parser@v0
         with:
           body: ${{ github.event.issue.body }}
-          issue-form-template: new-device.yml
+          issue-form-template: new_device_request.yml
 
       - name: Install jq
         run: sudo apt install jq
@@ -42,8 +42,12 @@ jobs:
 
             # Remove the "battery_quantity" key from the device dictionary if it's 1
             new_device = ${{ steps.device-data.outputs.json }}
-            if int(new_device["battery_quantity"]) == 1:
-              del new_device["battery_quantity"]
+            # Convert battery_quantity field to a numeric
+            numeric_quantity = int(new_device["battery_quantity"]) 
+            del new_device["battery_quantity"]
+            # Add  numeric "battery_quantity" key if it's more than 1
+            if numeric_quantity > 1:
+              new_device["battery_quantity"] = numeric_quantity
 
             # Check for duplicates and replace old entry with new one
             duplicate_found = False
@@ -66,7 +70,7 @@ jobs:
             set_output("model", "_".join(re.findall(r"\w+",f"{new_device['model']})")))
 
             with open("custom_components/battery_notes/data/library.json", "w") as f:
-              f.write(json.dumps(devices_json, indent=2))
+              f.write(json.dumps(devices_json, indent=4))
 
       - name: Rename Issue
         run: |
