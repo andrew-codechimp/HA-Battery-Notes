@@ -1,33 +1,41 @@
-name: "Lint"
+name: Lint
 
 on:
   push:
     branches:
       - "main"
-    paths-ignore:
-      - 'custom_components/battery_notes/data/**'
+    paths:
+      - '**.py' # Run if pushed commits include a change to a Python (.py) file.
+      - '.github/workflows/*.yml' # Run if pushed commits include a change to a github actions workflow file.
+      - 'requirements.txt' # Run if pushed commits include a change to the Python requirements.txt file.
   pull_request:
     branches:
       - "main"
-    paths-ignore:
-      - 'custom_components/battery_notes/data/**'
+    paths:
+      - '**.py' # Run if pushed commits include a change to a Python (.py) file.
+      - '.github/workflows/*.yml' # Run if pushed commits include a change to a github actions workflow file.
+      - 'requirements.txt' # Run if pushed commits include a change to the Python requirements.txt file.
+  workflow_dispatch:
 
 jobs:
-  ruff:
-    name: "Ruff"
+  build:
     runs-on: "ubuntu-latest"
+    strategy:
+      matrix:
+        python-version: ["3.11"]
     steps:
-        - name: "Checkout the repository"
-          uses: "actions/checkout@v4"
+    - name: Checkout repo
+      uses: actions/checkout@v4
 
-        - name: "Set up Python"
-          uses: actions/setup-python@v5.0.0
-          with:
-            python-version: "3.11"
-            cache: "pip"
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ matrix.python-version }}
 
-        - name: "Install requirements"
-          run: python3 -m pip install -r requirements.txt
+    - name: Install dependencies from requirements.txt
+      run: |
+        if [ -f requirements.txt ]; then pip3 install -r requirements.txt; fi
 
-        - name: "Run"
-          run: python3 -m ruff check .
+    - name: Analyse the code with ruff
+      run: |
+        python3 -m ruff check .
