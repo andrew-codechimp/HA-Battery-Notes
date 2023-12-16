@@ -3,6 +3,12 @@
     "version": 1,
     "devices": [
         {
+            "manufacturer": "Airthings AS",
+            "model": "Wave Plus",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Aldi",
             "model": "MEGOS switch and dimming light remote control (141L100RC)",
             "battery_type": "CR2450"
@@ -13,6 +19,12 @@
             "battery_type": "AA",
             "battery_quantity": 2
         },        
+        {
+            "manufacturer": "Allegion",
+            "model": "BE469ZP",
+            "battery_type": "AAA",
+            "battery_quantity": 4
+        },
         {
             "manufacturer": "Develco",
             "model": "Smoke detector with siren (SMSZB-120)",
@@ -45,6 +57,16 @@
             "model": "Water irrigation valve (QT06_2)",
             "battery_type": "AA",
             "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Google",
+            "model": "KR1",
+            "battery_type": "CR2"
+        },        {
+            "manufacturer": "Google",
+            "model": "Topaz-2.7",
+            "battery_type": "AA",
+            "battery_quantity": 3
         },
         {
             "manufacturer": "HEIMAN",
@@ -102,6 +124,12 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Kwikset",
+            "model": "HALO-01",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },   
+        {
             "manufacturer": "Lidl",
             "model": "Silvercrest radiator valve with thermostat (368308_2010)",
             "battery_type": "AA",
@@ -122,6 +150,11 @@
             "model": "lumi.weather",
             "battery_type": "CR2032"
         },
+        {
+            "manufacturer": "ORVIBO",
+            "model": "e70f96b3773a4c9283c6862dbafb6a99",
+            "battery_type": "CR2032"
+        },        
         {
             "manufacturer": "OSRAM",
             "model": "Smart+ switch mini (AC0251100NJ/AC0251600NJ/AC0251700NJ)",
@@ -160,6 +193,12 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "rtl_433",
+            "model": "Acurite-Tower",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Saswell",
             "model": "Thermostatic radiator valve (SEA801-Zigbee/SEA802-Zigbee)",
             "battery_type": "AA",
@@ -170,6 +209,11 @@
             "model": "Radiator valve with thermostat (GS361A-H04)",
             "battery_type": "AA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "SmartThings",
+            "model": "Multipurpose sensor (2018 model) (IM6001-MPP01)",
+            "battery_type": "CR2450"
         },
         {
             "manufacturer": "Sonoff",
@@ -209,6 +253,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "switchbot",
+            "model": "woHand",
+            "battery_type": "CR2"
+        },
+        {
             "manufacturer": "Tado",
             "model": "RU01",
             "battery_type": "AAA",
@@ -217,6 +266,12 @@
         {
             "manufacturer": "Tado",
             "model": "RU02",
+            "battery_type": "AAA",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "Tado",
+            "model": "SU02",
             "battery_type": "AAA",
             "battery_quantity": 3
         },
@@ -353,6 +408,21 @@
             "model": "Aqara Opple switch 3 bands (WXCJKG13LM)",
             "battery_type": "CR2032"
         },           
+        {
+            "manufacturer": "Zooz",
+            "model": "ZSE40 700",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Zooz",
+            "model": "ZSE41",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Zooz",
+            "model": "ZSE42",
+            "battery_type": "CR2032"
+        },
         {
             "manufacturer": "_TZ3000_4fjiwweb",
             "model": "TS004F",
