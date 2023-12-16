@@ -53,6 +53,16 @@
             "battery_quantity": 4
         },
         {
+            "manufacturer": "Google",
+            "model": "KR1",
+            "battery_type": "CR2"
+        },        {
+            "manufacturer": "Google",
+            "model": "Topaz-2.7",
+            "battery_type": "AA",
+            "battery_quantity": 3
+        },
+        {
             "manufacturer": "HEIMAN",
             "model": "Smart carbon monoxide sensor (HS1CA-E)",
             "battery_type": "CR123A"
@@ -107,6 +117,12 @@
             "model": "TRADFRI shortcut button (E1812)",
             "battery_type": "CR2032"
         },
+        {
+            "manufacturer": "Kwikset",
+            "model": "HALO-01",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },   
         {
             "manufacturer": "Lidl",
             "model": "Silvercrest radiator valve with thermostat (368308_2010)",
@@ -169,6 +185,12 @@
             "manufacturer": "Philips",
             "model": "Hue wall switch module (929003017102)",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "rtl_433",
+            "model": "Acurite-Tower",
+            "battery_type": "AA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "Saswell",
