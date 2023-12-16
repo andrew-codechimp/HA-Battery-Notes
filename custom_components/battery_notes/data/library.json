@@ -47,6 +47,81 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "eQ-3",
+            "model": "HmIP-WRC6",
+            "battery_type": "AAA",
+            "battery_quantity": 2            
+        },
+        {
+            "manufacturer": "eQ-3",
+            "model": "HmIP-SMI55",
+            "battery_type": "AAA",
+            "battery_quantity": 2            
+        },
+        {
+            "manufacturer": "eQ-3",
+            "model": "HmIP-SMI",
+            "battery_type": "AA",
+            "battery_quantity": 2            
+        },
+        {
+            "manufacturer": "eQ-3",
+            "model": "HmIP-SMO",
+            "battery_type": "AA",
+            "battery_quantity": 2            
+        },
+        {
+            "manufacturer": "eQ-3",
+            "model": "HmIP-SCI",
+            "battery_type": "AAA",
+            "battery_quantity": 2            
+        },        
+        {
+            "manufacturer": "eQ-3",
+            "model": "HMIP-SWDO",
+            "battery_type": "AAA"        
+        },            
+        {
+            "manufacturer": "eQ-3",
+            "model": "HMIP-SWDO-I",
+            "battery_type": "AAA"           
+        },          
+        {
+            "manufacturer": "eQ-3",
+            "model": "HmIP-SRH",
+            "battery_type": "AAA"         
+        },          
+        {
+            "manufacturer": "eQ-3",
+            "model": "HmIP-SWDM",
+            "battery_type": "AAA",
+            "battery_quantity": 2            
+        },      
+        {
+            "manufacturer": "eQ-3",
+            "model": "HMIP-eTRV",
+            "battery_type": "AA",
+            "battery_quantity": 2            
+        },        
+        {
+            "manufacturer": "eQ-3",
+            "model": "HMIP-eTRV-E",
+            "battery_type": "AA",
+            "battery_quantity": 2            
+        },                
+        {
+            "manufacturer": "eQ-3",
+            "model": "HMIP-eTRV-B",
+            "battery_type": "AA",
+            "battery_quantity": 2            
+        },                
+        {
+            "manufacturer": "eQ-3",
+            "model": "HMIP-eTRV-2",
+            "battery_type": "AA",
+            "battery_quantity": 2            
+        },        
+        {
             "manufacturer": "Fantem",
             "model": "4 in 1 multi sensor (ZB003-X)",
             "battery_type": "CR123A",
