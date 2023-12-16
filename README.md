@@ -72,13 +72,13 @@ battery_notes:
 
 ## Contributing to the Battery Library
 
-The battery library is a JSON document at ```custom_components/battery_notes/data/library.json```  
 You can either raise an issue using a form or submit a pull request.  
 
 [Raise new issue for a device to be added (BETA)](https://github.com/andrew-codechimp/HA-Battery-Notes/issues/new?assignees=&labels=new-device&projects=&template=new_device_request.yml&title=%5BDevice%5D%3A+)
 
 To contribute, via a pull request.  
-Fork the repository, add your device details to the JSON document and submit a pull request.  
+Fork the repository, add your device details to the JSON document ```custom_components/battery_notes/data/library.json```  
+and submit a pull request.  
 Please keep devices in alphabetical order by manufacturer/model.  
 The manufacturer and model should be exactly what is displayed on the Device screen within Home Assistant.  The make & model names may be different between integrations such as Zigbee2MQTT and ZHA, if you see a similar device please duplicate the entry rather than changing it.   
 
