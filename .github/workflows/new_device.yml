@@ -6,7 +6,7 @@ on:
 
 jobs:
   create-device-pull-request:
-    if: ${{ contains(github.event.label.name , 'new-device')}}
+    if: ${{ github.event.label.name == 'new-device' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
