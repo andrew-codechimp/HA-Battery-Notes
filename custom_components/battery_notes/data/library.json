@@ -252,6 +252,12 @@
         },
         {
             "manufacturer": "Philips",
+            "model": "Hue motion outdoor sensor (9290019758)",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },        
+        {
+            "manufacturer": "Philips",
             "model": "Hue motion outdoor sensor (9290030674)",
             "battery_type": "AAA",
             "battery_quantity": 2
