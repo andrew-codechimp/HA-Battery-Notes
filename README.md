@@ -73,7 +73,12 @@ battery_notes:
 ## Contributing to the Battery Library
 
 The battery library is a JSON document at ```custom_components/battery_notes/data/library.json```  
-To contribute, fork the repository, add your device details to the JSON document and submit a pull request.  
+You can either raise an issue using a form or submit a pull request.  
+
+[Raise new issue for a device to be added (BETA)](https://github.com/andrew-codechimp/HA-Battery-Notes/issues/new?assignees=&labels=new-device&projects=&template=new_device_request.yml&title=%5BDevice%5D%3A+)
+
+To contribute, via a pull request.  
+Fork the repository, add your device details to the JSON document and submit a pull request.  
 Please keep devices in alphabetical order by manufacturer/model.  
 The manufacturer and model should be exactly what is displayed on the Device screen within Home Assistant.  The make & model names may be different between integrations such as Zigbee2MQTT and ZHA, if you see a similar device please duplicate the entry rather than changing it.   
 
@@ -101,6 +106,10 @@ If you want to contribute to this please read the [Contribution guidelines](CONT
 ## Acknowledgements
 
 A lot of the inspiration for this integration came from the excellent [PowerCalc by bramstroker](https://github.com/bramstroker/homeassistant-powercalc), without adapting code from PowerCalc I'd never have worked out how to add additional sensors to a device.
+
+Huge thanks to @bmos for creating the issue form & automations for adding new devices.  
+
+Thanks to everyone who has submitted devices to the library.  
 
 <!---->
 [battery_notes]: https://github.com/andrew-codechimp/HA-Battery-Notes
