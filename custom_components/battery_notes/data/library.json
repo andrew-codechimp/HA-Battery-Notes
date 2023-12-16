@@ -79,20 +79,17 @@
         {
             "manufacturer": "eQ-3",
             "model": "HMIP-SWDO",
-            "battery_type": "AAA",
-            "battery_quantity": 1            
+            "battery_type": "AAA"        
         },            
         {
             "manufacturer": "eQ-3",
             "model": "HMIP-SWDO-I",
-            "battery_type": "AAA",
-            "battery_quantity": 1            
+            "battery_type": "AAA"           
         },          
         {
             "manufacturer": "eQ-3",
             "model": "HmIP-SRH",
-            "battery_type": "AAA",
-            "battery_quantity": 1            
+            "battery_type": "AAA"         
         },          
         {
             "manufacturer": "eQ-3",
