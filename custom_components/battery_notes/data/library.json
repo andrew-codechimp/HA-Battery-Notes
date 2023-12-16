@@ -8,6 +8,12 @@
             "battery_type": "CR2450"
         },        
         {
+            "manufacturer": "Bosch",
+            "model": "Radiator thermostat II (BTH-RA)",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },        
+        {
             "manufacturer": "Develco",
             "model": "Smoke detector with siren (SMSZB-120)",
             "battery_type": "CR123"
@@ -181,9 +187,9 @@
             "battery_type": "CR2450"
         },
         {
-            "manufacturer": "Sonoff",
-            "model": "SNZB-02D",
-            "battery_type": "CR2430"
+            "manufacturer": "SONOFF",
+            "model": "Temperature and humidity sensor with screen (SNZB-02D)",
+            "battery_type": "CR2450"
         },
         {
             "manufacturer": "Sure Petcare",
@@ -239,6 +245,11 @@
             "battery_type": "AAA",
             "battery_quantity": 2
         },
+        {
+            "manufacturer": "TuYa",
+            "model": "Smart knob (ERS-10TZBVK-AA)",
+            "battery_type": "CR2032"
+        },        
         {
             "manufacturer": "TuYa",
             "model": "Wireless switch with 4 buttons (TS0044)",
@@ -327,6 +338,16 @@
             "model": "MiJia wireless switch (WXKG01LM)",
             "battery_type": "CR2032"
         },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "Aqara Opple switch 2 bands (WXCJKG12LM)",
+            "battery_type": "CR2032"
+        },        
+        {
+            "manufacturer": "Xiaomi",
+            "model": "Aqara Opple switch 3 bands (WXCJKG13LM)",
+            "battery_type": "CR2032"
+        },           
         {
             "manufacturer": "_TZ3000_4fjiwweb",
             "model": "TS004F",
