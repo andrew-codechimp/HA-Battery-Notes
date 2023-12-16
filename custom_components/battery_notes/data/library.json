@@ -200,8 +200,7 @@
         {
             "manufacturer": "switchbot",
             "model": "woHand",
-            "battery_type": "CR2",
-            "battery_quantity": 1
+            "battery_type": "CR2"
         },
         {
             "manufacturer": "Tado",
