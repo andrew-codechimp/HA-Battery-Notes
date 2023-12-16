@@ -3,10 +3,22 @@
     "version": 1,
     "devices": [
         {
+            "manufacturer": "Airthings AS",
+            "model": "Wave Plus",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Aldi",
             "model": "MEGOS switch and dimming light remote control (141L100RC)",
             "battery_type": "CR2450"
         },        
+        {
+            "manufacturer": "Allegion",
+            "model": "BE469ZP",
+            "battery_type": "AAA",
+            "battery_quantity": 4
+        },
         {
             "manufacturer": "Develco",
             "model": "Smoke detector with siren (SMSZB-120)",
@@ -169,6 +181,11 @@
             "model": "Radiator valve with thermostat (GS361A-H04)",
             "battery_type": "AA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "SmartThings",
+            "model": "Multipurpose sensor (2018 model) (IM6001-MPP01)",
+            "battery_type": "CR2450"
         },
         {
             "manufacturer": "Sonoff",
@@ -341,6 +358,21 @@
         {
             "manufacturer": "Xiaomi",
             "model": "MiJia wireless switch (WXKG01LM)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Zooz",
+            "model": "ZSE40 700",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Zooz",
+            "model": "ZSE41",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Zooz",
+            "model": "ZSE42",
             "battery_type": "CR2032"
         },
         {
