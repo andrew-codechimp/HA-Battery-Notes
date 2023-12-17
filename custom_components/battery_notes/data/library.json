@@ -160,7 +160,8 @@
             "manufacturer": "Google",
             "model": "KR1",
             "battery_type": "CR2"
-            },        {
+            },        
+            {
                 "manufacturer": "Google",
                 "model": "Topaz-2.7",
                 "battery_type": "AA",
@@ -176,6 +177,12 @@
                 "model": "Heating thermostat remote control (SLT3C)",
                 "battery_type": "AA",
                 "battery_quantity": 4
+            },
+            {
+                "manufacturer": "Hunter Douglas",
+                "model": "Duette",
+                "battery_type": "AA",
+                "battery_quantity": 12
             },
             {
                 "manufacturer": "INKBIRD",
