@@ -43,6 +43,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Eve Systems",
+            "model": "Eve Door 20EBN9901",
+            "battery_type": "ER14250"
+        },
+        {
             "manufacturer": "eWeLink",
             "model": "DS01",
             "battery_type": "CR2032"
@@ -155,7 +160,8 @@
             "manufacturer": "Google",
             "model": "KR1",
             "battery_type": "CR2"
-            },        {
+            },        
+            {
                 "manufacturer": "Google",
                 "model": "Topaz-2.7",
                 "battery_type": "AA",
@@ -171,6 +177,12 @@
                 "model": "Heating thermostat remote control (SLT3C)",
                 "battery_type": "AA",
                 "battery_quantity": 4
+            },
+            {
+                "manufacturer": "Hunter Douglas",
+                "model": "Duette",
+                "battery_type": "AA",
+                "battery_quantity": 12
             },
             {
                 "manufacturer": "INKBIRD",
@@ -360,10 +372,31 @@
                 "battery_quantity": 2
             },
             {
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue motion sensor (SML001)",
+                "battery_type": "AAA",
+                "battery_quantity": 2
+            },
+            {
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue dimmer switch (RWL020)",
+                "battery_type": "CR2450"
+            },
+            {
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue wall switch module (RDM001)",
+                "battery_type": "CR2450"
+            },
+            {
                 "manufacturer": "Siterwell",
                 "model": "Radiator valve with thermostat (GS361A-H04)",
                 "battery_type": "AA",
                 "battery_quantity": 2
+            },
+            {
+                "manufacturer": "SMaBiT (Bitron Video)",
+                "model": "Compact magnetic contact sensor (AV2010/21A)",
+                "battery_type": "CR2"
             },
             {
                 "manufacturer": "SmartThings",
@@ -394,6 +427,12 @@
                 "manufacturer": "SONOFF",
                 "model": "Temperature and humidity sensor with screen (SNZB-02D)",
                 "battery_type": "CR2450"
+            },
+            {
+                "manufacturer": "Sure Petcare",
+                "model": "Cat flap",
+                "battery_type": "AA",
+                "battery_quantity": 4
             },
             {
                 "manufacturer": "Sure Petcare",
