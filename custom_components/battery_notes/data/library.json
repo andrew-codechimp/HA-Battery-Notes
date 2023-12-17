@@ -155,428 +155,476 @@
             "manufacturer": "Google",
             "model": "KR1",
             "battery_type": "CR2"
-        },        {
-            "manufacturer": "Google",
-            "model": "Topaz-2.7",
-            "battery_type": "AA",
-            "battery_quantity": 3
-        },
-        {
-            "manufacturer": "HEIMAN",
-            "model": "Smart carbon monoxide sensor (HS1CA-E)",
-            "battery_type": "CR123A"
-        },
-        {
-            "manufacturer": "Hive",
-            "model": "Heating thermostat remote control (SLT3C)",
-            "battery_type": "AA",
-            "battery_quantity": 4
-        },
-        {
-            "manufacturer": "INKBIRD",
-            "model": "IBS-TH",
-            "battery_type": "AAA",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "IKEA",
-            "model": "STYRBAR remote control (E2001/E2002)",
-            "battery_type": "AAA",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "IKEA",
-            "model": "TRADFRI ON/OFF switch (E1743)",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "IKEA",
-            "model": "TRADFRI remote control (E1524/E1810)",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "IKEA",
-            "model": "TRADFRI motion sensor",
-            "battery_type": "CR2032",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "IKEA",
-            "model": "TRADFRI motion sensor (E1525/E1745)",
-            "battery_type": "CR2032",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "IKEA",
-            "model": "TRADFRI open/close remote (E1766)",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "IKEA",
-            "model": "TRADFRI shortcut button (E1812)",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "IKEA of Sweden",
-            "model": "SYMFONISK Sound Controller",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "IKEA of Sweden",
-            "model": "RODRET Dimmer",
-            "battery_type": "AAA"
-        },
-        {
-            "manufacturer": "IKEA of Sweden",
-            "model": "TRADFRI ON/OFF switch",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Kwikset",
-            "model": "HALO-01",
-            "battery_type": "AA",
-            "battery_quantity": 4
-        },   
-        {
-            "manufacturer": "Lidl",
-            "model": "Silvercrest radiator valve with thermostat (368308_2010)",
-            "battery_type": "AA",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "LUMI",
-            "model": "lumi.remote.b1acn01",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "LUMI",
-            "model": "lumi.sensor_motion.aq2",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "LUMI",
-            "model": "lumi.weather",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "LUMI",
-            "model": "lumi.sensor_cube.aqgl01",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "LUMI",
-            "model": "lumi.sen_ill.mgl01",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "LUMI",
-            "model": "lumi.remote.b686opcn01",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "LUMI",
-            "model": "lumi.sensor_h1",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "LUMI",
-            "model": "lumi.sensor_magnet.aq2",
-            "battery_type": "CR1632"
-        },
-        {
-            "manufacturer": "LUMI",
-            "model": "lumi.sensor_wleak.aq1",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "ORVIBO",
-            "model": "e70f96b3773a4c9283c6862dbafb6a99",
-            "battery_type": "CR2032"
-        },        
-        {
-            "manufacturer": "OSRAM",
-            "model": "Smart+ switch mini (AC0251100NJ/AC0251600NJ/AC0251700NJ)",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Philips",
-            "model": "Hue smart button (8718699693985)",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Philips",
-            "model": "Hue dimmer switch (324131092621)",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Philips",
-            "model": "Hue dimmer switch (929002398602)",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Philips",
-            "model": "Hue motion outdoor sensor (9290019758)",
-            "battery_type": "AA",
-            "battery_quantity": 2
-        },        
-        {
-            "manufacturer": "Philips",
-            "model": "Hue motion outdoor sensor (9290030674)",
-            "battery_type": "AA",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Philips",
-            "model": "Hue motion sensor (9290012607)",
-            "battery_type": "AAA",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Philips",
-            "model": "Hue wall switch module (929003017102)",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "rtl_433",
-            "model": "Acurite-Tower",
-            "battery_type": "AA",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Saswell",
-            "model": "Thermostatic radiator valve (SEA801-Zigbee/SEA802-Zigbee)",
-            "battery_type": "AA",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Siterwell",
-            "model": "Radiator valve with thermostat (GS361A-H04)",
-            "battery_type": "AA",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "SmartThings",
-            "model": "Multipurpose sensor (2018 model) (IM6001-MPP01)",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Sonoff",
-            "model": "Contact sensor (SNZB-04)",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "SONOFF",
-            "model": "Motion sensor (SNZB-03)",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Sonoff",
-            "model": "SNZB-02",
-            "battery_type": "CR2450"
-        },        
-        {
-            "manufacturer": "Sonoff",
-            "model": "Temperature and humidity sensor (SNZB-02)",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "SONOFF",
-            "model": "Temperature and humidity sensor with screen (SNZB-02D)",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Sure Petcare",
-            "model": "Pet flap",
-            "battery_type": "C",
-            "battery_quantity": 4
-        },
-        {
-            "manufacturer": "SwitchBot",
-            "model": "W340001X",
-            "battery_type": "AAA",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "switchbot",
-            "model": "woHand",
-            "battery_type": "CR2"
-        },
-        {
-            "manufacturer": "Tado",
-            "model": "RU01",
-            "battery_type": "AAA",
-            "battery_quantity": 3
-        },
-        {
-            "manufacturer": "Tado",
-            "model": "RU02",
-            "battery_type": "AAA",
-            "battery_quantity": 3
-        },
-        {
-            "manufacturer": "Tado",
-            "model": "SU02",
-            "battery_type": "AAA",
-            "battery_quantity": 3
-        },
-        {
-            "manufacturer": "Tado",
-            "model": "VA01",
-            "battery_type": "AA",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Tado",
-            "model": "VA02",
-            "battery_type": "AA",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "TT Lock",
-            "model": "SN511-180MS_PV53",
-            "battery_type": "AA",
-            "battery_quantity": 4
-        },
-        {
-            "manufacturer": "TuYa",
-            "model": "Soil sensor (TS0601_soil)",
-            "battery_type": "AA",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "TuYa",
-            "model": "Temperature & humidity sensor (WSD500A)",
-            "battery_type": "AAA",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "TuYa",
-            "model": "Smart knob (ERS-10TZBVK-AA)",
-            "battery_type": "CR2032"
-        },        
-        {
-            "manufacturer": "TuYa",
-            "model": "Wireless switch with 4 buttons (TS0044)",
-            "battery_type": "CR2430"
-        },
-        {
-            "manufacturer": "VictorPest.com",
-            "model": "Rat Trap",
-            "battery_type": "C",
-            "battery_quantity": 4
-        },
-        {
-            "manufacturer": "Xiaomi",
-            "model": "Aqara door & window contact sensor (MCCGQ11LM)",
-            "battery_type": "CR1632"
-        },
-        {
-            "manufacturer": "Xiaomi",
-            "model": "Aqara human body movement and illuminance sensor (RTCGQ11LM)",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Xiaomi",
-            "model": "Aqara P1 human body movement and illuminance sensor (RTCGQ14LM)",
-            "battery_type": "CR2450",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Xiaomi",
-            "model": "Aqara temperature, humidity and pressure sensor (WSDCGQ11LM)",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Xiaomi",
-            "model": "Aqara vibration sensor (DJT11LM)",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Xiaomi",
-            "model": "Aqara D1 double key wireless wall switch (WXKG07LM)",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Xiaomi",
-            "model": "Aqara D1 single key wireless wall switch (WXKG06LM)",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Xiaomi",
-            "model": "Aqara wireless switch (WXKG11LM)",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Xiaomi",
-            "model": "Aqara TVOC air quality monitor (VOCKQJK11LM)",
-            "battery_type": "CR2450",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Xiaomi",
-            "model": "Aqara water leak sensor (SJCGQ11LM)",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Xiaomi",
-            "model": "Aqara wireless switch (with gyroscope) (WXKG12LM)",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Xiaomi",
-            "model": "HHCCJCY01",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Xiaomi",
-            "model": "LYWSD03MMC",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Xiaomi",
-            "model": "Mi/Aqara smart home cube (MFKZQ01LM)",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Xiaomi",
-            "model": "MiJia wireless switch (WXKG01LM)",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Xiaomi",
-            "model": "Aqara Opple switch 2 bands (WXCJKG12LM)",
-            "battery_type": "CR2032"
-        },        
-        {
-            "manufacturer": "Xiaomi",
-            "model": "Aqara Opple switch 3 bands (WXCJKG13LM)",
-            "battery_type": "CR2032"
-        },           
-        {
-            "manufacturer": "Zooz",
-            "model": "ZSE40 700",
-            "battery_type": "CR123A"
-        },
-        {
-            "manufacturer": "Zooz",
-            "model": "ZSE41",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Zooz",
-            "model": "ZSE42",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "_TZ3000_4fjiwweb",
-            "model": "TS004F",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "_TZ3000_fllyghyj",
-            "model": "TS0201",
-            "battery_type": "AAA",
-            "battery_quantity": 2
-        }
-    ]
-}
+            },        {
+                "manufacturer": "Google",
+                "model": "Topaz-2.7",
+                "battery_type": "AA",
+                "battery_quantity": 3
+            },
+            {
+                "manufacturer": "HEIMAN",
+                "model": "Smart carbon monoxide sensor (HS1CA-E)",
+                "battery_type": "CR123A"
+            },
+            {
+                "manufacturer": "Hive",
+                "model": "Heating thermostat remote control (SLT3C)",
+                "battery_type": "AA",
+                "battery_quantity": 4
+            },
+            {
+                "manufacturer": "INKBIRD",
+                "model": "IBS-TH",
+                "battery_type": "AAA",
+                "battery_quantity": 2
+            },
+            {
+                "manufacturer": "IKEA",
+                "model": "STYRBAR remote control (E2001/E2002)",
+                "battery_type": "AAA",
+                "battery_quantity": 2
+            },
+            {
+                "manufacturer": "IKEA",
+                "model": "TRADFRI ON/OFF switch (E1743)",
+                "battery_type": "CR2032"
+            },
+            {
+                "manufacturer": "IKEA",
+                "model": "TRADFRI remote control (E1524/E1810)",
+                "battery_type": "CR2032"
+            },
+            {
+                "manufacturer": "IKEA",
+                "model": "TRADFRI motion sensor",
+                "battery_type": "CR2032",
+                "battery_quantity": 2
+            },
+            {
+                "manufacturer": "IKEA",
+                "model": "TRADFRI motion sensor (E1525/E1745)",
+                "battery_type": "CR2032",
+                "battery_quantity": 2
+            },
+            {
+                "manufacturer": "IKEA",
+                "model": "TRADFRI open/close remote (E1766)",
+                "battery_type": "CR2032"
+            },
+            {
+                "manufacturer": "IKEA",
+                "model": "TRADFRI shortcut button (E1812)",
+                "battery_type": "CR2032"
+            },
+            {
+                "manufacturer": "IKEA of Sweden",
+                "model": "SYMFONISK Sound Controller",
+                "battery_type": "CR2032"
+            },
+            {
+                "manufacturer": "IKEA of Sweden",
+                "model": "RODRET Dimmer",
+                "battery_type": "AAA"
+            },
+            {
+                "manufacturer": "IKEA of Sweden",
+                "model": "TRADFRI ON/OFF switch",
+                "battery_type": "CR2032"
+            },
+            {
+                "manufacturer": "Kwikset",
+                "model": "HALO-01",
+                "battery_type": "AA",
+                "battery_quantity": 4
+            },   
+            {
+                "manufacturer": "Lidl",
+                "model": "HG06335/HG07310",
+                "battery_type": "CR123A"
+            },
+            {
+                "manufacturer": "Lidl",
+                "model": "HG06336",
+                "battery_type": "AAA",
+                "battery_quantity": 2
+            },       
+            {
+                "manufacturer": "Lidl",
+                "model": "Silvercrest radiator valve with thermostat (368308_2010)",
+                "battery_type": "AA",
+                "battery_quantity": 2
+            },
+            {
+                "manufacturer": "LUMI",
+                "model": "lumi.remote.b1acn01",
+                "battery_type": "CR2032"
+            },
+            {
+                "manufacturer": "LUMI",
+                "model": "lumi.sensor_motion.aq2",
+                "battery_type": "CR2450"
+            },
+            {
+                "manufacturer": "LUMI",
+                "model": "lumi.weather",
+                "battery_type": "CR2032"
+            },
+            {
+                "manufacturer": "LUMI",
+                "model": "lumi.sensor_cube.aqgl01",
+                "battery_type": "CR2450"
+            },
+            {
+                "manufacturer": "LUMI",
+                "model": "lumi.sen_ill.mgl01",
+                "battery_type": "CR2450"
+            },
+            {
+                "manufacturer": "LUMI",
+                "model": "lumi.remote.b686opcn01",
+                "battery_type": "CR2032"
+            },
+            {
+                "manufacturer": "LUMI",
+                "model": "lumi.sensor_h1",
+                "battery_type": "CR2032"
+            },
+            {
+                "manufacturer": "LUMI",
+                "model": "lumi.sensor_magnet.aq2",
+                "battery_type": "CR1632"
+            },
+            {
+                "manufacturer": "LUMI",
+                "model": "lumi.sensor_wleak.aq1",
+                "battery_type": "CR2032"
+            },
+            {
+                "manufacturer": "ORVIBO",
+                "model": "e70f96b3773a4c9283c6862dbafb6a99",
+                "battery_type": "CR2032"
+            },        
+            {
+                "manufacturer": "OSRAM",
+                "model": "Smart+ switch mini (AC0251100NJ/AC0251600NJ/AC0251700NJ)",
+                "battery_type": "CR2450"
+            },
+            {
+                "manufacturer": "Philips",
+                "model": "Hue smart button (8718699693985)",
+                "battery_type": "CR2032"
+            },
+            {
+                "manufacturer": "Philips",
+                "model": "Hue dimmer switch (324131092621)",
+                "battery_type": "CR2450"
+            },
+            {
+                "manufacturer": "Philips",
+                "model": "Hue dimmer switch (929002398602)",
+                "battery_type": "CR2450"
+            },
+            {
+                "manufacturer": "Philips",
+                "model": "Hue motion outdoor sensor (9290019758)",
+                "battery_type": "AA",
+                "battery_quantity": 2
+            },        
+            {
+                "manufacturer": "Philips",
+                "model": "Hue motion outdoor sensor (9290030674)",
+                "battery_type": "AA",
+                "battery_quantity": 2
+            },
+            {
+                "manufacturer": "Philips",
+                "model": "Hue motion sensor (9290012607)",
+                "battery_type": "AAA",
+                "battery_quantity": 2
+            },
+            {
+                "manufacturer": "Philips",
+                "model": "Hue wall switch module (929003017102)",
+                "battery_type": "CR2450"
+            },
+            {
+                "manufacturer": "rtl_433",
+                "model": "Acurite-Tower",
+                "battery_type": "AA",
+                "battery_quantity": 2
+            },
+            {
+                "manufacturer": "Saswell",
+                "model": "Thermostatic radiator valve (SEA801-Zigbee/SEA802-Zigbee)",
+                "battery_type": "AA",
+                "battery_quantity": 2
+            },
+            {
+                "manufacturer": "Siterwell",
+                "model": "Radiator valve with thermostat (GS361A-H04)",
+                "battery_type": "AA",
+                "battery_quantity": 2
+            },
+            {
+                "manufacturer": "SmartThings",
+                "model": "Multipurpose sensor (2018 model) (IM6001-MPP01)",
+                "battery_type": "CR2450"
+            },
+            {
+                "manufacturer": "Sonoff",
+                "model": "Contact sensor (SNZB-04)",
+                "battery_type": "CR2032"
+            },
+            {
+                "manufacturer": "SONOFF",
+                "model": "Motion sensor (SNZB-03)",
+                "battery_type": "CR2450"
+            },
+            {
+                "manufacturer": "Sonoff",
+                "model": "SNZB-02",
+                "battery_type": "CR2450"
+            },        
+            {
+                "manufacturer": "Sonoff",
+                "model": "Temperature and humidity sensor (SNZB-02)",
+                "battery_type": "CR2450"
+            },
+            {
+                "manufacturer": "SONOFF",
+                "model": "Temperature and humidity sensor with screen (SNZB-02D)",
+                "battery_type": "CR2450"
+            },
+            {
+                "manufacturer": "Sure Petcare",
+                "model": "Pet flap",
+                "battery_type": "C",
+                "battery_quantity": 4
+            },
+            {
+                "manufacturer": "SwitchBot",
+                "model": "W340001X",
+                "battery_type": "AAA",
+                "battery_quantity": 2
+            },
+            {
+                "manufacturer": "switchbot",
+                "model": "woHand",
+                "battery_type": "CR2"
+            },
+            {
+                "manufacturer": "Tado",
+                "model": "RU01",
+                "battery_type": "AAA",
+                "battery_quantity": 3
+            },
+            {
+                "manufacturer": "Tado",
+                "model": "RU02",
+                "battery_type": "AAA",
+                "battery_quantity": 3
+            },
+            {
+                "manufacturer": "Tado",
+                "model": "SU02",
+                "battery_type": "AAA",
+                "battery_quantity": 3
+            },
+            {
+                "manufacturer": "Tado",
+                "model": "VA01",
+                "battery_type": "AA",
+                "battery_quantity": 2
+            },
+            {
+                "manufacturer": "Tado",
+                "model": "VA02",
+                "battery_type": "AA",
+                "battery_quantity": 2
+            },
+            {
+                "manufacturer": "TT Lock",
+                "model": "SN511-180MS_PV53",
+                "battery_type": "AA",
+                "battery_quantity": 4
+            },
+            {
+                "manufacturer": "TuYa",
+                "model": "IH012-RT01",
+                "battery_type": "CR2450"
+            },        
+            {
+                "manufacturer": "TuYa",
+                "model": "Soil sensor (TS0601_soil)",
+                "battery_type": "AA",
+                "battery_quantity": 2
+            },
+            {
+                "manufacturer": "TuYa",
+                "model": "Temperature & humidity sensor (WSD500A)",
+                "battery_type": "AAA",
+                "battery_quantity": 2
+            },
+            {
+                "manufacturer": "TuYa",
+                "model": "TS0203",
+                "battery_type": "CR2032"
+            },    
+            {
+                "manufacturer": "TuYa",
+                "model": "TS0601_smoke_1",
+                "battery_type": "AAA",
+                "battery_quantity": 2
+            },    
+            {
+                "manufacturer": "TuYa",
+                "model": "Smart knob (ERS-10TZBVK-AA)",
+                "battery_type": "CR2032"
+            },        
+            {
+                "manufacturer": "TuYa",
+                "model": "Wireless switch with 4 buttons (TS0044)",
+                "battery_type": "CR2430"
+            },
+            {
+                "manufacturer": "VictorPest.com",
+                "model": "Rat Trap",
+                "battery_type": "C",
+                "battery_quantity": 4
+            },
+            {
+                "manufacturer": "Xiaomi",
+                "model": "Aqara door & window contact sensor (MCCGQ11LM)",
+                "battery_type": "CR1632"
+            },
+            {
+                "manufacturer": "Xiaomi",
+                "model": "Aqara human body movement and illuminance sensor (RTCGQ11LM)",
+                "battery_type": "CR2450"
+            },
+            {
+                "manufacturer": "Xiaomi",
+                "model": "Aqara P1 human body movement and illuminance sensor (RTCGQ14LM)",
+                "battery_type": "CR2450",
+                "battery_quantity": 2
+            },
+            {
+                "manufacturer": "Xiaomi",
+                "model": "Aqara temperature, humidity and pressure sensor (WSDCGQ11LM)",
+                "battery_type": "CR2032"
+            },
+            {
+                "manufacturer": "Xiaomi",
+                "model": "Aqara vibration sensor (DJT11LM)",
+                "battery_type": "CR2032"
+            },
+            {
+                "manufacturer": "Xiaomi",
+                "model": "Aqara D1 double key wireless wall switch (WXKG07LM)",
+                "battery_type": "CR2032"
+            },
+            {
+                "manufacturer": "Xiaomi",
+                "model": "Aqara D1 single key wireless wall switch (WXKG06LM)",
+                "battery_type": "CR2032"
+            },
+            {
+                "manufacturer": "Xiaomi",
+                "model": "Aqara Opple switch 2 bands (WXCJKG12LM)",
+                "battery_type": "CR2032"
+            },        
+            {
+                "manufacturer": "Xiaomi",
+                "model": "Aqara Opple switch 3 bands (WXCJKG13LM)",
+                "battery_type": "CR2032"
+            },               
+            {
+                "manufacturer": "Xiaomi",
+                "model": "Aqara TVOC air quality monitor (VOCKQJK11LM)",
+                "battery_type": "CR2450",
+                "battery_quantity": 2
+            },
+            {
+                "manufacturer": "Xiaomi",
+                "model": "Aqara water leak sensor (SJCGQ11LM)",
+                "battery_type": "CR2032"
+            },
+            {
+                "manufacturer": "Xiaomi",
+                "model": "Aqara wireless switch (with gyroscope) (WXKG12LM)",
+                "battery_type": "CR2032"
+            },
+            {
+                "manufacturer": "Xiaomi",
+                "model": "Aqara wireless switch (WXKG11LM)",
+                "battery_type": "CR2032"
+            },
+            {
+                "manufacturer": "Xiaomi",
+                "model": "GZCGQ01LM",
+                "battery_type": "CR2450"
+            },
+            {
+                "manufacturer": "Xiaomi",
+                "model": "HHCCJCY01",
+                "battery_type": "CR2032"
+            },
+            {
+                "manufacturer": "Xiaomi",
+                "model": "LYWSD03MMC",
+                "battery_type": "CR2032"
+            },
+            {
+                "manufacturer": "Xiaomi",
+                "model": "MCCGQ01LM",
+                "battery_type": "CR1632"
+            },
+            {
+                "manufacturer": "Xiaomi",
+                "model": "Mi/Aqara smart home cube (MFKZQ01LM)",
+                "battery_type": "CR2450"
+            },
+            {
+                "manufacturer": "Xiaomi",
+                "model": "MiJia wireless switch (WXKG01LM)",
+                "battery_type": "CR2032"
+            },
+            {
+                "manufacturer": "Xiaomi",
+                "model": "RTCGQ01LM",
+                "battery_type": "CR2450"
+            },        
+            {
+                "manufacturer": "Xiaomi",
+                "model": "WSDCGQ01LM",
+                "battery_type": "CR2032"
+            },                    
+            {
+                "manufacturer": "Zooz",
+                "model": "ZSE40 700",
+                "battery_type": "CR123A"
+            },
+            {
+                "manufacturer": "Zooz",
+                "model": "ZSE41",
+                "battery_type": "CR2032"
+            },
+            {
+                "manufacturer": "Zooz",
+                "model": "ZSE42",
+                "battery_type": "CR2032"
+            },
+            {
+                "manufacturer": "_TZ3000_4fjiwweb",
+                "model": "TS004F",
+                "battery_type": "CR2032"
+            },
+            {
+                "manufacturer": "_TZ3000_fllyghyj",
+                "model": "TS0201",
+                "battery_type": "AAA",
+                "battery_quantity": 2
+            }
+        ]
+    }
+    
