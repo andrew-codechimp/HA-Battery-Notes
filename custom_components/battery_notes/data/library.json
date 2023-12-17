@@ -372,6 +372,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Ruuvi",
+            "model": "Ruuvitag",
+            "battery_type": "CR2477T"
+        },
+        {
             "manufacturer": "Saswell",
             "model": "Thermostatic radiator valve (SEA801-Zigbee/SEA802-Zigbee)",
             "battery_type": "AA",
