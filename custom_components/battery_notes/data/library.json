@@ -43,6 +43,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Eve Systems",
+            "model": "Eve Door 20EBN9901",
+            "battery_type": "ER14250"
+        },
+        {
             "manufacturer": "eWeLink",
             "model": "DS01",
             "battery_type": "CR2032"
