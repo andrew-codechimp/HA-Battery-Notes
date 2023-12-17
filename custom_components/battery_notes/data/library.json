@@ -343,6 +343,11 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Meross",
+            "model": "ms100",
+            "battery_type": "CR2477"
+        },
+        {
             "manufacturer": "Moes",
             "model": "Thermostatic radiator valve (BRT-100-TRV)",
             "battery_type": "AA",
