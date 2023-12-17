@@ -219,14 +219,12 @@
         {
             "manufacturer": "IKEA of Sweden",
             "model": "SYMFONISK Sound Controller",
-            "battery_type": "CR2032",
-            "battery_quantity": 1
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "IKEA of Sweden",
             "model": "RODRET Dimmer",
-            "battery_type": "AAA",
-            "battery_quantity": 1
+            "battery_type": "AAA"
         },
         {
             "manufacturer": "IKEA of Sweden",
