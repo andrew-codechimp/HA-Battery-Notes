@@ -15,9 +15,9 @@ jobs:
   verify-json-validation:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v1
       - name: Validate JSON
-        uses: ScratchAddons/validate-json-action@master
+        uses: docker://orrosenblatt/validate-json-action:latest
         env:
           INPUT_SCHEMA: ./schema.json
           INPUT_JSONS: custom_components/battery_notes/data/library.json

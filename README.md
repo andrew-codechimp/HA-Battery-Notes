@@ -113,7 +113,7 @@ If you want to contribute to this please read the [Contribution guidelines](CONT
 
 A lot of the inspiration for this integration came from the excellent [PowerCalc by bramstroker](https://github.com/bramstroker/homeassistant-powercalc), without adapting code from PowerCalc I'd never have worked out how to add additional sensors to a device.
 
-Huge thanks to @bmos for creating the issue form & automations for adding new devices.
+<!-- Huge thanks to @bmos for creating the issue form & automations for adding new devices. COMING SOON -->
 
 Thanks to everyone who has submitted devices to the library.
 
