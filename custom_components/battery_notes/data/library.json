@@ -26,6 +26,11 @@
             "battery_quantity": 4
         },
         {
+            "manufacturer": "Custom devices (DiY)",
+            "model": "Xiaomi temperature & humidity sensor with custom firmware (LYWSD03MMC)",
+            "battery_type": "CR2032"
+        },        
+        {
             "manufacturer": "Develco",
             "model": "Smoke detector with siren (SMSZB-120)",
             "battery_type": "CR123"
@@ -203,6 +208,11 @@
         },
         {
             "manufacturer": "IKEA",
+            "model": "SYMFONISK sound controller (E1744)",
+            "battery_type": "CR2032"
+        },        
+        {
+            "manufacturer": "IKEA",
             "model": "TRADFRI ON/OFF switch (E1743)",
             "battery_type": "CR2032"
         },
@@ -272,6 +282,22 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Linkind",
+            "model": "Door/window Sensor (ZS110050078)",
+            "battery_type": "CR2032"
+        },        
+        {
+            "manufacturer": "Linkind",
+            "model": "PIR motion sensor, wireless motion detector (ZS1100400-IN-V1A02)",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Linkind",
+            "model": "Security keypad battery (ZS130000078)",
+            "battery_type": "CR123A",
+            "battery_quantity": 2
+        },        
+        {
             "manufacturer": "LUMI",
             "model": "lumi.remote.b1acn01",
             "battery_type": "CR2032"
@@ -316,6 +342,12 @@
             "model": "lumi.sensor_wleak.aq1",
             "battery_type": "CR2032"
         },
+        {
+            "manufacturer": "Moes",
+            "model": "Thermostatic radiator valve (BRT-100-TRV)",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },        
         {
             "manufacturer": "ORVIBO",
             "model": "e70f96b3773a4c9283c6862dbafb6a99",
@@ -511,7 +543,18 @@
         },
         {
             "manufacturer": "TuYa",
+            "model": "Door sensor (TS0203)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },        
+        {
+            "manufacturer": "TuYa",
             "model": "IH012-RT01",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "TuYa",
+            "model": "Luminance motion sensor (ZG-204ZL)",
             "battery_type": "CR2450"
         },        
         {
@@ -541,12 +584,29 @@
             "manufacturer": "TuYa",
             "model": "Smart knob (ERS-10TZBVK-AA)",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "TuYa",
+            "model": "Smoke sensor (TS0601_smoke_1)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "TuYa",
+            "model": "Water leak detector (TS0207_water_leak_detector)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         },        
         {
             "manufacturer": "TuYa",
             "model": "Wireless switch with 4 buttons (TS0044)",
             "battery_type": "CR2430"
         },
+        {
+            "manufacturer": "TuYa",
+            "model": "Zigbee water leak sensor (TS0207_water_leak_detector_2)",
+            "battery_type": "CR2032"
+        },        
         {
             "manufacturer": "VictorPest.com",
             "model": "Rat Trap",
@@ -558,6 +618,11 @@
             "model": "Aqara door & window contact sensor (MCCGQ11LM)",
             "battery_type": "CR1632"
         },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "Aqara E1 door & window contact sensor (MCCGQ14LM)",
+            "battery_type": "CR1632"
+        },        
         {
             "manufacturer": "Xiaomi",
             "model": "Aqara human body movement and illuminance sensor (RTCGQ11LM)",
@@ -645,6 +710,12 @@
             "model": "Mi/Aqara smart home cube (MFKZQ01LM)",
             "battery_type": "CR2450"
         },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "MiJia Honeywell smoke detector (JTYJ-GD-01LM/BW)",
+            "battery_type": "CR123A",
+            "battery_quantity": 2
+        },        
         {
             "manufacturer": "Xiaomi",
             "model": "MiJia wireless switch (WXKG01LM)",
