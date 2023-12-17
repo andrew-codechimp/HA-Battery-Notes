@@ -33,7 +33,7 @@
         {
             "manufacturer": "Develco Products A/S",
             "model": "AQSZB-110",
-            "battery_type": "AAA",
+            "battery_type": "AA",
             "battery_quantity": 2
         },
         {
@@ -60,8 +60,7 @@
         {
             "manufacturer": "eWeLink",
             "model": "TH01",
-            "battery_type": "AA",
-            "battery_quantity": 2
+            "battery_type": "CR2450"
         },
         {
             "manufacturer": "eQ-3",
