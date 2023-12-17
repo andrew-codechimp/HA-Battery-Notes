@@ -12,13 +12,13 @@
             "manufacturer": "Aldi",
             "model": "MEGOS switch and dimming light remote control (141L100RC)",
             "battery_type": "CR2450"
-        },        
+        },
         {
             "manufacturer": "Bosch",
             "model": "Radiator thermostat II (BTH-RA)",
             "battery_type": "AA",
             "battery_quantity": 2
-        },        
+        },
         {
             "manufacturer": "Allegion",
             "model": "BE469ZP",
@@ -68,77 +68,77 @@
             "manufacturer": "eQ-3",
             "model": "HmIP-WRC6",
             "battery_type": "AAA",
-            "battery_quantity": 2            
+            "battery_quantity": 2
         },
         {
             "manufacturer": "eQ-3",
             "model": "HmIP-SMI55",
             "battery_type": "AAA",
-            "battery_quantity": 2            
+            "battery_quantity": 2
         },
         {
             "manufacturer": "eQ-3",
             "model": "HmIP-SMI",
             "battery_type": "AA",
-            "battery_quantity": 2            
+            "battery_quantity": 2
         },
         {
             "manufacturer": "eQ-3",
             "model": "HmIP-SMO",
             "battery_type": "AA",
-            "battery_quantity": 2            
+            "battery_quantity": 2
         },
         {
             "manufacturer": "eQ-3",
             "model": "HmIP-SCI",
             "battery_type": "AAA",
-            "battery_quantity": 2            
-        },        
+            "battery_quantity": 2
+        },
         {
             "manufacturer": "eQ-3",
             "model": "HMIP-SWDO",
-            "battery_type": "AAA"        
-        },            
+            "battery_type": "AAA"
+        },
         {
             "manufacturer": "eQ-3",
             "model": "HMIP-SWDO-I",
-            "battery_type": "AAA"           
-        },          
+            "battery_type": "AAA"
+        },
         {
             "manufacturer": "eQ-3",
             "model": "HmIP-SRH",
-            "battery_type": "AAA"         
-        },          
+            "battery_type": "AAA"
+        },
         {
             "manufacturer": "eQ-3",
             "model": "HmIP-SWDM",
             "battery_type": "AAA",
-            "battery_quantity": 2            
-        },      
+            "battery_quantity": 2
+        },
         {
             "manufacturer": "eQ-3",
             "model": "HMIP-eTRV",
             "battery_type": "AA",
-            "battery_quantity": 2            
-        },        
+            "battery_quantity": 2
+        },
         {
             "manufacturer": "eQ-3",
             "model": "HMIP-eTRV-E",
             "battery_type": "AA",
-            "battery_quantity": 2            
-        },                
+            "battery_quantity": 2
+        },
         {
             "manufacturer": "eQ-3",
             "model": "HMIP-eTRV-B",
             "battery_type": "AA",
-            "battery_quantity": 2            
-        },                
+            "battery_quantity": 2
+        },
         {
             "manufacturer": "eQ-3",
             "model": "HMIP-eTRV-2",
             "battery_type": "AA",
-            "battery_quantity": 2            
-        },        
+            "battery_quantity": 2
+        },
         {
             "manufacturer": "Fantem",
             "model": "4 in 1 multi sensor (ZB003-X)",
@@ -155,7 +155,8 @@
             "manufacturer": "Google",
             "model": "KR1",
             "battery_type": "CR2"
-        },        {
+        },
+        {
             "manufacturer": "Google",
             "model": "Topaz-2.7",
             "battery_type": "AA",
@@ -236,7 +237,7 @@
             "model": "HALO-01",
             "battery_type": "AA",
             "battery_quantity": 4
-        },   
+        },
         {
             "manufacturer": "Lidl",
             "model": "Silvercrest radiator valve with thermostat (368308_2010)",
@@ -292,7 +293,7 @@
             "manufacturer": "ORVIBO",
             "model": "e70f96b3773a4c9283c6862dbafb6a99",
             "battery_type": "CR2032"
-        },        
+        },
         {
             "manufacturer": "OSRAM",
             "model": "Smart+ switch mini (AC0251100NJ/AC0251600NJ/AC0251700NJ)",
@@ -318,7 +319,7 @@
             "model": "Hue motion outdoor sensor (9290019758)",
             "battery_type": "AA",
             "battery_quantity": 2
-        },        
+        },
         {
             "manufacturer": "Philips",
             "model": "Hue motion outdoor sensor (9290030674)",
@@ -373,7 +374,7 @@
             "manufacturer": "Sonoff",
             "model": "SNZB-02",
             "battery_type": "CR2450"
-        },        
+        },
         {
             "manufacturer": "Sonoff",
             "model": "Temperature and humidity sensor (SNZB-02)",
@@ -453,7 +454,7 @@
             "manufacturer": "TuYa",
             "model": "Smart knob (ERS-10TZBVK-AA)",
             "battery_type": "CR2032"
-        },        
+        },
         {
             "manufacturer": "TuYa",
             "model": "Wireless switch with 4 buttons (TS0044)",
@@ -546,12 +547,12 @@
             "manufacturer": "Xiaomi",
             "model": "Aqara Opple switch 2 bands (WXCJKG12LM)",
             "battery_type": "CR2032"
-        },        
+        },
         {
             "manufacturer": "Xiaomi",
             "model": "Aqara Opple switch 3 bands (WXCJKG13LM)",
             "battery_type": "CR2032"
-        },           
+        },
         {
             "manufacturer": "Zooz",
             "model": "ZSE40 700",
@@ -577,6 +578,11 @@
             "model": "TS0201",
             "battery_type": "AAA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "TuYa",
+            "model": "TS0203",
+            "battery_type": "CR2032"
         }
     ]
 }
