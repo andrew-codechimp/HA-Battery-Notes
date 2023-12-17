@@ -408,6 +408,12 @@
                 "battery_quantity": 2
             },
             {
+                "manufacturer": "SwitchBot",
+                "model": "W1101500",
+                "battery_type": "AAA",
+                "battery_quantity": 2
+            },
+            {
                 "manufacturer": "switchbot",
                 "model": "woHand",
                 "battery_type": "CR2"
