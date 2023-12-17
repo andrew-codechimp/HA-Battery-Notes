@@ -663,7 +663,78 @@
             "model": "TS0201",
             "battery_type": "AAA",
             "battery_quantity": 2
-        }
+        },
+        {
+            "manufacturer": "TuYa",
+            "model": "Door sensor (TS0203)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Moes",
+            "model": "Thermostatic radiator valve (BRT-100-TRV)",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Linkind",
+            "model": "Door/window Sensor (ZS110050078)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "Aqara E1 door & window contact sensor (MCCGQ14LM)",
+            "battery_type": "CR1632"
+        },
+        {
+            "manufacturer": "Linkind",
+            "model": "Security keypad battery (ZS130000078)",
+            "battery_type": "CR123A",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Custom devices (DiY)",
+            "model": "Xiaomi temperature & humidity sensor with custom firmware (LYWSD03MMC)",
+            "battery_type": "CR2032"
+         },
+        {
+            "manufacturer": "Linkind",
+            "model": "PIR motion sensor, wireless motion detector (ZS1100400-IN-V1A02)",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "TuYa",
+            "model": "Luminance motion sensor (ZG-204ZL)",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "TuYa",
+            "model": "Water leak detector (TS0207_water_leak_detector)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "TuYa",
+            "model": "Zigbee water leak sensor (TS0207_water_leak_detector_2)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "MiJia Honeywell smoke detector (JTYJ-GD-01LM/BW)",
+            "battery_type": "CR123A",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "TuYa",
+            "model": "Smoke sensor (TS0601_smoke_1)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "IKEA",
+            "model": "SYMFONISK sound controller (E1744)",
+            "battery_type": "CR2032"
+         }
     ]
 }
 
