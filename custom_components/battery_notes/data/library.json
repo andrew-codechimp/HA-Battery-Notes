@@ -31,6 +31,12 @@
             "battery_type": "CR123"
         },
         {
+            "manufacturer": "Develco Products A/S",
+            "model": "AQSZB-110",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "DIYRuZ",
             "model": "[Flower sensor](http://modkam.ru/?p=1700) (DIYRuZ_Flower)",
             "battery_type": "AAA",
@@ -45,6 +51,18 @@
             "manufacturer": "eWeLink",
             "model": "MS01",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "eWeLink",
+            "model": "TH01",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "eQ-3",
+            "model": "HmIP-WTH-2",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "eQ-3",
@@ -199,6 +217,23 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "IKEA of Sweden",
+            "model": "SYMFONISK Sound Controller",
+            "battery_type": "CR2032",
+            "battery_quantity": 1
+        },
+        {
+            "manufacturer": "IKEA of Sweden",
+            "model": "RODRET Dimmer",
+            "battery_type": "AAA",
+            "battery_quantity": 1
+        },
+        {
+            "manufacturer": "IKEA of Sweden",
+            "model": "TRADFRI ON/OFF switch",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "Kwikset",
             "model": "HALO-01",
             "battery_type": "AA",
@@ -223,6 +258,36 @@
         {
             "manufacturer": "LUMI",
             "model": "lumi.weather",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "LUMI",
+            "model": "lumi.sensor_cube.aqgl01",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "LUMI",
+            "model": "lumi.sen_ill.mgl01",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "LUMI",
+            "model": "lumi.remote.b686opcn01",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "LUMI",
+            "model": "lumi.sensor_h1",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "LUMI",
+            "model": "lumi.sensor_magnet.aq2",
+            "battery_type": "CR1632"
+        },
+        {
+            "manufacturer": "LUMI",
+            "model": "lumi.sensor_wleak.aq1",
             "battery_type": "CR2032"
         },
         {
