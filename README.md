@@ -8,7 +8,9 @@
 
 [![Community Forum][forum-shield]][forum]
 
-_Integration to add battery notes to a device, with automatic discovery via a growing battery library for devices_
+Integration to add battery notes to a device, with automatic discovery via a growing battery library for devices
+
+*Please :star: this repo if you find it useful*
 
 ![Battery Notes](https://github.com/andrew-codechimp/HA-Battery-Notes/blob/main/images/screenshot-device.png "Battery Notes")
 
