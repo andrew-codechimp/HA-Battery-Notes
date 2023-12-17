@@ -151,6 +151,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "frient",
+            "model": "MOSZB-140",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "GiEX",
             "model": "Water irrigation valve (QT06_2)",
             "battery_type": "AA",
@@ -442,10 +448,22 @@
         },
         {
             "manufacturer": "SwitchBot",
-            "model": "W340001X",
+            "model": "W1101500",
             "battery_type": "AAA",
             "battery_quantity": 2
         },
+        {
+            "manufacturer": "SwitchBot",
+            "model": "W1201500",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },      
+        {
+            "manufacturer": "SwitchBot",
+            "model": "W340001X",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },      
         {
             "manufacturer": "switchbot",
             "model": "woHand",
@@ -666,4 +684,3 @@
         }
     ]
 }
-
