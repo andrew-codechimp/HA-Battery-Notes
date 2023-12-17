@@ -360,6 +360,22 @@
                 "battery_quantity": 2
             },
             {
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue motion sensor (SML001)",
+                "battery_type": "AAA",
+                "battery_quantity": 2
+            },
+            {
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue dimmer switch (RWL020)",
+                "battery_type": "CR2450"
+            },
+            {
+                "manufacturer": "Signify Netherlands B.V.",
+                "model": "Hue wall switch module (RDM001)",
+                "battery_type": "CR2450"
+            },
+            {
                 "manufacturer": "Siterwell",
                 "model": "Radiator valve with thermostat (GS361A-H04)",
                 "battery_type": "AA",
