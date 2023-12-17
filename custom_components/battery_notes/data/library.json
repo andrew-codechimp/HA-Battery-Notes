@@ -397,6 +397,12 @@
             },
             {
                 "manufacturer": "Sure Petcare",
+                "model": "Cat flap",
+                "battery_type": "AA",
+                "battery_quantity": 4
+            },
+            {
+                "manufacturer": "Sure Petcare",
                 "model": "Pet flap",
                 "battery_type": "C",
                 "battery_quantity": 4
