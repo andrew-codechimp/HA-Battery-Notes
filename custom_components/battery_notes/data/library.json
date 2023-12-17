@@ -394,6 +394,11 @@
                 "battery_quantity": 2
             },
             {
+                "manufacturer": "SMaBiT (Bitron Video)",
+                "model": "Compact magnetic contact sensor (AV2010/21A)",
+                "battery_type": "CR2"
+            },
+            {
                 "manufacturer": "SmartThings",
                 "model": "Multipurpose sensor (2018 model) (IM6001-MPP01)",
                 "battery_type": "CR2450"
