@@ -907,6 +907,11 @@
             "model": "TS0201",
             "battery_type": "AAA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Oral-B",
+            "model": "Genius X",
+            "battery_type": "Rechargeable"
         }
     ]
 }
