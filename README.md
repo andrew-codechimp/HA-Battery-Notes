@@ -92,6 +92,8 @@ Fork the repository, add your device details to the JSON document `custom_compon
 * Please keep devices in alphabetical order by manufacturer/model.
 * The `battery_quantity` data is numeric (no quotes) and optional. If a device only requires a single battery, it should be omitted.
 * The `battery_type` data should follow the most common naming for general batteries (ex. AAA, D) and the IEC naming for battery cells according to [Wikipedia](https://en.wikipedia.org/wiki/List_of_battery_sizes) (ex. CR2032, 18650)
+* If a device has a bespoke rechargeable battery you can use `"battery_type": "Rechargeable"`
+* For devices like smoke alarms where the battery is not replaceable you can use `"battery_type": "Irreplaceable"`
 
 For the example image below, your JSON entry will look like this:
 
