@@ -370,7 +370,7 @@
         {
             "manufacturer": "LUMI",
             "model": "lumi.sensor_motion.aq2",
-            "battery_type": "CR2450",
+            "battery_type": "CR2450"
         },        
         {
             "manufacturer": "LUMI",
