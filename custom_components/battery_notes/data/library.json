@@ -421,6 +421,12 @@
         },
         {
             "manufacturer": "Signify Netherlands B.V.",
+            "model": "Hue outdoor motion sensor (SML002)",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Signify Netherlands B.V.",
             "model": "Hue dimmer switch (RWL020)",
             "battery_type": "CR2450"
         },
