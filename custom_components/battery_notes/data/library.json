@@ -393,6 +393,12 @@
         },
         {
             "manufacturer": "Philips",
+            "model": "Hue motion sensor (9290030675)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Philips",
             "model": "Hue wall switch module (929003017102)",
             "battery_type": "CR2450"
         },
