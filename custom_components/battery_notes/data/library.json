@@ -155,6 +155,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Fibargroup",
+            "model": "FGSD002",
+            "battery_type": "CR123A"
+        },        
+        {
             "manufacturer": "frient",
             "model": "MOSZB-140",
             "battery_type": "AA",
