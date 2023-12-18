@@ -584,6 +584,11 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "SONOFF",
+            "model": "Wireless button (SNZB-01)",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "Sure Petcare",
             "model": "Cat flap",
             "battery_type": "AA",
