@@ -319,6 +319,11 @@
         },        
         {
             "manufacturer": "LUMI",
+            "model": "lumi.curtain.acn002",
+            "battery_type": "Rechargeable"
+        },        
+        {
+            "manufacturer": "LUMI",
             "model": "lumi.remote.b1acn01",
             "battery_type": "CR2032"
         },
@@ -339,6 +344,11 @@
         },
         {
             "manufacturer": "LUMI",
+            "model": "lumi.sensor_switch.aq3",
+            "battery_type": "CR2032"
+        },        
+        {
+            "manufacturer": "LUMI",
             "model": "lumi.sen_ill.mgl01",
             "battery_type": "CR2450"
         },
@@ -356,12 +366,27 @@
             "manufacturer": "LUMI",
             "model": "lumi.sensor_magnet.aq2",
             "battery_type": "CR1632"
-        },
+        },        
+        {
+            "manufacturer": "LUMI",
+            "model": "lumi.sensor_motion.aq2",
+            "battery_type": "CR2450"
+        },        
         {
             "manufacturer": "LUMI",
             "model": "lumi.sensor_wleak.aq1",
             "battery_type": "CR2032"
         },
+        {
+            "manufacturer": "LUMI",
+            "model": "lumi.vibration.aq1",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "LUMI",
+            "model": "lumi.weather",
+            "battery_type": "CR2032"
+        },  
         {
             "manufacturer": "Meross",
             "model": "ms100",
@@ -378,6 +403,7 @@
             "model": "IO Series 6/7",
             "battery_type": "Rechargeable"
         },
+        {
             "manufacturer": "Oras",
             "model": "Electra Washbasin Faucet",
             "battery_type": "2CR5"
@@ -436,6 +462,11 @@
             "model": "Hue wall switch module (929003017102)",
             "battery_type": "CR2450"
         },
+        {
+            "manufacturer": "Philips",
+            "model": "RWL021",
+            "battery_type": "CR2450"
+        },        
         {
             "manufacturer": "Ring",
             "model": "Doorbell 2",
@@ -774,6 +805,11 @@
         },
         {
             "manufacturer": "Xiaomi",
+            "model": "LYWSDCGQ",
+            "battery_type": "AAA"
+        },        
+        {
+            "manufacturer": "Xiaomi",
             "model": "MCCGQ01LM",
             "battery_type": "CR1632"
         },
@@ -807,7 +843,13 @@
             "manufacturer": "Xiaomi",
             "model": "WSDCGQ01LM",
             "battery_type": "CR2032"
-        },                    
+        },    
+        {
+            "manufacturer": "Xiaomi",
+            "model": "XMTZC02HM/XMTZC05HM/NUN4049CN",
+            "battery_type": "AAA",
+            "battery_quantity": 4
+        },        
         {
             "manufacturer": "Zooz",
             "model": "ZSE40 700",
