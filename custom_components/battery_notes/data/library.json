@@ -183,6 +183,16 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "HEIMAN",
+            "model": "Smoke detector (HS1SA)",
+            "battery_type": "Irreplaceable"
+        },
+        {
+            "manufacturer": "HEIMAN",
+            "model": "Smoke detector (HS3SA/HS1SA)",
+            "battery_type": "Irreplaceable"
+        },
+        {
             "manufacturer": "Hive",
             "model": "Heating thermostat remote control (SLT3C)",
             "battery_type": "AA",
@@ -359,6 +369,10 @@
             "battery_quantity": 2
         },        
         {
+            "manufacturer": "Oral-B",
+            "model": "IO Series 6/7",
+            "battery_type": "Rechargeable"
+        },
             "manufacturer": "Oras",
             "model": "Electra Washbasin Faucet",
             "battery_type": "2CR5"
@@ -416,6 +430,11 @@
             "manufacturer": "Philips",
             "model": "Hue wall switch module (929003017102)",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Ring",
+            "model": "Doorbell 2",
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "rtl_433",
