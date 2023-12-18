@@ -639,6 +639,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Third Reality",
+            "model": "Smart switch Gen3 (3RSS009Z)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "TT Lock",
             "model": "SN511-180MS_PV53",
             "battery_type": "AA",
