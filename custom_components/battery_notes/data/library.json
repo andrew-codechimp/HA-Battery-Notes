@@ -155,6 +155,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Fibargroup",
+            "model": "FGSD002",
+            "battery_type": "CR123A"
+        },        
+        {
             "manufacturer": "frient",
             "model": "MOSZB-140",
             "battery_type": "AA",
@@ -181,6 +186,16 @@
             "manufacturer": "HEIMAN",
             "model": "Smart carbon monoxide sensor (HS1CA-E)",
             "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "HEIMAN",
+            "model": "Smoke detector (HS1SA)",
+            "battery_type": "Irreplaceable"
+        },
+        {
+            "manufacturer": "HEIMAN",
+            "model": "Smoke detector (HS3SA/HS1SA)",
+            "battery_type": "Irreplaceable"
         },
         {
             "manufacturer": "Hive",
@@ -256,6 +271,11 @@
         {
             "manufacturer": "IKEA of Sweden",
             "model": "TRADFRI ON/OFF switch",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "iNode",
+            "model": "iNode Energy Meter",
             "battery_type": "CR2032"
         },
         {
@@ -362,17 +382,30 @@
             "model": "lumi.vibration.aq1",
             "battery_type": "CR2032"
         },
-
         {
             "manufacturer": "LUMI",
             "model": "lumi.weather",
             "battery_type": "CR2032"
         },  
         {
+            "manufacturer": "Meross",
+            "model": "ms100",
+            "battery_type": "CR2477"
+        },
+        {
             "manufacturer": "Moes",
             "model": "Thermostatic radiator valve (BRT-100-TRV)",
             "battery_type": "AA",
             "battery_quantity": 2
+        },        
+        {
+            "manufacturer": "Oral-B",
+            "model": "IO Series 6/7",
+            "battery_type": "Rechargeable"
+        },
+            "manufacturer": "Oras",
+            "model": "Electra Washbasin Faucet",
+            "battery_type": "2CR5"
         },        
         {
             "manufacturer": "ORVIBO",
@@ -419,6 +452,12 @@
         },
         {
             "manufacturer": "Philips",
+            "model": "Hue motion sensor (9290030675)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Philips",
             "model": "Hue wall switch module (929003017102)",
             "battery_type": "CR2450"
         },
@@ -427,6 +466,11 @@
             "model": "RWL021",
             "battery_type": "CR2450"
         },        
+        {
+            "manufacturer": "Ring",
+            "model": "Doorbell 2",
+            "battery_type": "Rechargeable"
+        },
         {
             "manufacturer": "rtl_433",
             "model": "Acurite-Tower",
@@ -443,6 +487,22 @@
             "model": "Thermostatic radiator valve (SEA801-Zigbee/SEA802-Zigbee)",
             "battery_type": "AA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Shelly",
+            "model": "Shelly Door/Window 2",
+            "battery_type": "CR123A",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Shelly",
+            "model": "Shelly Flood",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Shelly",
+            "model": "Shelly H&T",
+            "battery_type": "CR123A"
         },
         {
             "manufacturer": "Signify Netherlands B.V.",
@@ -602,6 +662,12 @@
         },
         {
             "manufacturer": "TuYa",
+            "model": "Temperature & humidity sensor with display (TS0201)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "TuYa",
             "model": "TS0203",
             "battery_type": "CR2032"
         },    
@@ -697,6 +763,11 @@
         },               
         {
             "manufacturer": "Xiaomi",
+            "model": "Aqara T1 light intensity sensor (GZCGQ11LM)",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Xiaomi",
             "model": "Aqara TVOC air quality monitor (VOCKQJK11LM)",
             "battery_type": "CR2450",
             "battery_quantity": 2
@@ -740,6 +811,11 @@
             "manufacturer": "Xiaomi",
             "model": "MCCGQ01LM",
             "battery_type": "CR1632"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "XMWSDJ04MMC",
+            "battery_type": "CR2450"
         },
         {
             "manufacturer": "Xiaomi",
