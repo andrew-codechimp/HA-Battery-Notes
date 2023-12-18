@@ -279,6 +279,11 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "iRobot",
+            "model": "i715640",
+            "battery_type": "Rechargeable"
+        },      
+        {
             "manufacturer": "Kwikset",
             "model": "HALO-01",
             "battery_type": "AA",
@@ -509,6 +514,12 @@
             "manufacturer": "Signify Netherlands B.V.",
             "model": "Hue motion sensor (SML001)",
             "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Signify Netherlands B.V.",
+            "model": "Hue outdoor motion sensor (SML002)",
+            "battery_type": "AA",
             "battery_quantity": 2
         },
         {
