@@ -259,6 +259,11 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "iRobot",
+            "model": "i715640",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Kwikset",
             "model": "HALO-01",
             "battery_type": "AA",
