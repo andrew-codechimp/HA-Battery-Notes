@@ -48,6 +48,16 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "ecobee Inc.",
+            "model": "EBRSE4",
+            "battery_type": "CR2032",
+        },
+        {
+            "manufacturer": "ecobee Inc.",
+            "model": "EBERS41",
+            "battery_type": "CR2477",
+        },
+        {
             "manufacturer": "Eve Systems",
             "model": "Eve Door 20EBN9901",
             "battery_type": "ER14250"
