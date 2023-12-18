@@ -756,6 +756,65 @@
             "model": "TS0201",
             "battery_type": "AAA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Philips",
+            "model": "RWL021",
+            "battery_type": "CR2450",
+            "battery_quantity": 1
+        },
+        {
+            "manufacturer": "LUMI",
+            "model": "lumi.sensor_motion.aq2",
+            "battery_type": "CR2450",
+            "battery_quantity": 1
+        },
+        {
+            "manufacturer": "LUMI",
+            "model": "lumi.vibration.aq1",
+            "battery_type": "CR2032",
+            "battery_quantity": 1
+        },
+        {
+            "manufacturer": "LUMI",
+            "model": "lumi.sensor_wleak.aq1",
+            "battery_type": "CR2032",
+            "battery_quantity": 1
+        },
+        {
+            "manufacturer": "LUMI",
+            "model": "lumi.weather",
+            "battery_type": "CR2032",
+            "battery_quantity": 1
+        },
+        {
+            "manufacturer": "LUMI",
+            "model": "lumi.sensor_magnet.aq2",
+            "battery_type": "CR1632",
+            "battery_quantity": 1
+        },
+        {
+            "manufacturer": "LUMI",
+            "model": "lumi.sensor_switch.aq3",
+            "battery_type": "CR2032",
+            "battery_quantity": 1
+        },
+        {
+            "manufacturer": "LUMI",
+            "model": "lumi.curtain.acn002",
+            "battery_type": "USB-C"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "LYWSDCGQ",
+            "battery_type": "AAA",
+            "battery_quantity": 1
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "XMTZC02HM/XMTZC05HM/NUN4049CN",
+            "battery_type": "AAA",
+            "battery_quantity": 4
         }
     ]
 }
