@@ -38,6 +38,7 @@ from homeassistant.helpers.typing import (
 from homeassistant.const import (
     CONF_NAME,
     CONF_UNIQUE_ID,
+    CONF_DEVICE_ID,
 )
 
 from collections.abc import Awaitable, Callable
@@ -47,7 +48,6 @@ from . import PLATFORMS
 from .const import (
     DOMAIN,
     CONF_BATTERY_TYPE,
-    CONF_DEVICE_ID,
 )
 
 from .entity import (
@@ -69,7 +69,9 @@ class BatteryNotesButtonEntityDescription(
     BatteryNotesButtonEntityDescriptionMixin,
 ):
     """Describes Battery Notes button entity."""
+
     unique_id_suffix: str
+
 
 ENTITY_DESCRIPTIONS: tuple[BatteryNotesButtonEntityDescription, ...] = (
     BatteryNotesButtonEntityDescription(
@@ -83,16 +85,12 @@ ENTITY_DESCRIPTIONS: tuple[BatteryNotesButtonEntityDescription, ...] = (
 )
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
-    {
-        vol.Optional(CONF_NAME): cv.string,
-        vol.Required(CONF_DEVICE_ID): cv.string
-    }
+    {vol.Optional(CONF_NAME): cv.string, vol.Required(CONF_DEVICE_ID): cv.string}
 )
 
+
 @callback
-def async_add_to_device(
-    hass: HomeAssistant, entry: ConfigEntry
-) -> str | None:
+def async_add_to_device(hass: HomeAssistant, entry: ConfigEntry) -> str | None:
     """Add our config entry to the device."""
     device_registry = dr.async_get(hass)
 
@@ -100,6 +98,7 @@ def async_add_to_device(
     device_registry.async_update_device(device_id, add_config_entry_id=entry.entry_id)
 
     return device_id
+
 
 async def async_setup_entry(
     hass: HomeAssistant,
@@ -154,9 +153,11 @@ async def async_setup_entry(
             hass,
             description,
             f"{config_entry.entry_id}{description.unique_id_suffix}",
-            device_id
-            ) for description in ENTITY_DESCRIPTIONS
+            device_id,
+        )
+        for description in ENTITY_DESCRIPTIONS
     )
+
 
 async def async_setup_platform(
     hass: HomeAssistant,
@@ -173,9 +174,11 @@ async def async_setup_platform(
             hass,
             description,
             f"{config.get(CONF_UNIQUE_ID)}{description.unique_id_suffix}",
-            device_id
-            ) for description in ENTITY_DESCRIPTIONS
+            device_id,
+        )
+        for description in ENTITY_DESCRIPTIONS
     )
+
 
 class BatteryNotesButton(ButtonEntity):
     """Represents a battery changed button."""
@@ -219,7 +222,9 @@ class BatteryNotesButton(ButtonEntity):
 
     def update_battery_last_changed(self):
         """Handle sensor state changes."""
-        last_changed_entity_id = "sensor." + self.entity_id.split('.')[1].replace("_battery_changed", "_battery_last_changed")
+        last_changed_entity_id = "sensor." + self.entity_id.split(".")[1].replace(
+            "_battery_changed", "_battery_last_changed"
+        )
         # self.hass.states.set(last_changed_entity_id, dt_util.utcnow())
         self.hass.states.set(last_changed_entity_id, date.today())
         self.async_write_ha_state()
