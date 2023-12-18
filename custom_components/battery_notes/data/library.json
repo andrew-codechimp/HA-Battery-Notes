@@ -50,12 +50,12 @@
         {
             "manufacturer": "ecobee Inc.",
             "model": "EBRSE4",
-            "battery_type": "CR2032",
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "ecobee Inc.",
             "model": "EBERS41",
-            "battery_type": "CR2477",
+            "battery_type": "CR2477"
         },
         {
             "manufacturer": "Eve Systems",
