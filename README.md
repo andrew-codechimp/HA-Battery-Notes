@@ -8,7 +8,9 @@
 
 [![Community Forum][forum-shield]][forum]
 
-_Integration to add battery notes to a device, with automatic discovery via a growing battery library for devices_
+Integration to add battery notes to a device, with automatic discovery via a growing battery library for devices
+
+*Please :star: this repo if you find it useful*
 
 ![Battery Notes](https://github.com/andrew-codechimp/HA-Battery-Notes/blob/main/images/screenshot-device.png "Battery Notes")
 
@@ -24,47 +26,48 @@ Platform | Description
 
 [![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=andrew-codechimp&repository=HA-Battery-Notes&category=Integration)
 
-Or  
-Search for `Battery Notes` in HACS and install it under the "Integrations" category.  
+Or
+Search for `Battery Notes` in HACS and install it under the "Integrations" category.
 
 
-Restart Home Assistant  
+Restart Home Assistant
 
-**Important**  
-Add the following entry to your ```configuration.yaml```  
+**Important**
+
+Add the following entry to your `configuration.yaml`
 ```
 battery_notes:
 ```
-Restart Home Assistant a final time  
-In the HA UI go to "Configuration" -> "Integrations" click "+" and search for "Battery Notes"  
+Restart Home Assistant a final time
+In the HA UI go to "Configuration" -> "Integrations" click "+" and search for "Battery Notes"
 
 ### Manual Installation
 
-Using the tool of choice open the directory (folder) for your HA configuration (where you find `configuration.yaml`).  
-If you do not have a `custom_components` directory (folder) there, you need to create it.  
-In the `custom_components` directory (folder) create a new folder called `battery_notes`.  
-Download _all_ the files from the `custom_components/battery_notes/` directory (folder) in this repository.  
-Place the files you downloaded in the new directory (folder) you created.  
-Restart Home Assistant  
-Add the following entry to your ```configuration.yaml```  
+Using the tool of choice open the directory (folder) for your HA configuration (where you find `configuration.yaml`).
+If you do not have a `custom_components` directory (folder) there, you need to create it.
+In the `custom_components` directory (folder) create a new folder called `battery_notes`.
+Download _all_ the files from the `custom_components/battery_notes/` directory (folder) in this repository.
+Place the files you downloaded in the new directory (folder) you created.
+Restart Home Assistant
+Add the following entry to your `configuration.yaml`
 ```
 battery_notes:
 ```
-Restart Home Assistant a final time  
-In the HA UI go to "Configuration" -> "Integrations" click "+" and search for "Battery Notes"  
+Restart Home Assistant a final time
+In the HA UI go to "Configuration" -> "Integrations" click "+" and search for "Battery Notes"
 
 
 ## Configuration is done in the UI
 
-On the "Configuration" -> "Integrations" -> "Battery Notes" screen add a new device, pick your device with a battery and add the battery type.  
-The battery type will then be displayed as a diagnostic sensor on the device.  
+On the "Configuration" -> "Integrations" -> "Battery Notes" screen add a new device, pick your device with a battery and add the battery type.
+The battery type will then be displayed as a diagnostic sensor on the device.
 
 ## Automatic discovery
 
 Battery Notes will automatically discover devices (as long as you have followed the installation instructions above) that it has in its library and create a notification to add a battery note.
 ![Discovery](https://github.com/andrew-codechimp/HA-Battery-Notes/blob/main/images/screenshot-discovery.png "Device Discovery")
 
-If you wish to disable this functionality then change your ```configuration.yaml``` to set enable_autodiscovery to false
+If you wish to disable this functionality then change your `configuration.yaml` to set enable_autodiscovery to false
 ```
 battery_notes:
   enable_autodiscovery: false
@@ -72,12 +75,27 @@ battery_notes:
 
 ## Contributing to the Battery Library
 
-The battery library is a JSON document at ```custom_components/battery_notes/data/library.json```  
-To contribute, fork the repository, add your device details to the JSON document and submit a pull request.  
-Please keep devices in alphabetical order by manufacturer/model.  
-The manufacturer and model should be exactly what is displayed on the Device screen within Home Assistant.  The make & model names may be different between integrations such as Zigbee2MQTT and ZHA, if you see a similar device please duplicate the entry rather than changing it.   
+<!-- To add a device definition to the battery library so that it will be automatically configured there are two options:
 
-For the example image below your JSON entry will look like this  
+### Submit Definition via GitHub Issues Form
+
+To add a new device via GitHub Issues, fill out [this form (BETA)](https://github.com/andrew-codechimp/HA-Battery-Notes/issues/new?template=new_device_request.yml&title=[Device]%3A+).
+Upon submission of the issue, GitHub will attempt to make the required code changes automatically.
+
+### Submit Definition via Pull Request
+
+If you have issues with the form, or if you feel more comfortable editing JSON data, you can directly add definitions to [the library.json file](custom_components/battery_notes/data/library.json). -->
+Fork the repository, add your device details to the JSON document `custom_components/battery_notes/data/library.json`, and then submit a pull request.
+
+* The manufacturer and model should be exactly what is displayed on the Device screen within Home Assistant.
+* The make & model names may be different between integrations such as Zigbee2MQTT and ZHA, if you see a similar device please duplicate the entry rather than changing it.
+* Please keep devices in alphabetical order by manufacturer/model.
+* The `battery_quantity` data is numeric (no quotes) and optional. If a device only requires a single battery, it should be omitted.
+* The `battery_type` data should follow the most common naming for general batteries (ex. AAA, D) and the IEC naming for battery cells according to [Wikipedia](https://en.wikipedia.org/wiki/List_of_battery_sizes) (ex. CR2032, 18650)
+* If a device has a bespoke rechargeable battery you can use `"battery_type": "Rechargeable"`
+* For devices like smoke alarms where the battery is not replaceable you can use `"battery_type": "Irreplaceable"`
+
+For the example image below, your JSON entry will look like this:
 
 ```
 {
@@ -86,21 +104,22 @@ For the example image below your JSON entry will look like this
     "battery_type": "AAA",
     "battery_quantity": 2
 },
-```  
-
-Note that the ```battery_quantity``` is numeric (no quotes) and optional, if a device only has one battery it should be omitted.  
-When specifying battery types please use the Most Common naming for general batteries and the IEC naming for battery cells according to [Wikipedia](https://en.wikipedia.org/wiki/List_of_battery_sizes)  
+```
 
 ![Device Details](https://github.com/andrew-codechimp/HA-Battery-Notes/blob/main/images/screenshot-device-info.png "Device Details")
 <!---->
 
 ## Contributions are welcome!
 
-If you want to contribute to this please read the [Contribution guidelines](CONTRIBUTING.md)
+If you want to contribute to this please read the [Contribution guidelines](CONTRIBUTING.md).
 
 ## Acknowledgements
 
 A lot of the inspiration for this integration came from the excellent [PowerCalc by bramstroker](https://github.com/bramstroker/homeassistant-powercalc), without adapting code from PowerCalc I'd never have worked out how to add additional sensors to a device.
+
+<!-- Huge thanks to @bmos for creating the issue form & automations for adding new devices. COMING SOON -->
+
+Thanks to everyone who has submitted devices to the library.
 
 <!---->
 [battery_notes]: https://github.com/andrew-codechimp/HA-Battery-Notes
