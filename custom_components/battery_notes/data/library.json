@@ -919,6 +919,12 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "_TZ3210_up3pngle",
+            "model": "TS0205",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "_TZ3000_fllyghyj",
             "model": "TS0201",
             "battery_type": "AAA",
