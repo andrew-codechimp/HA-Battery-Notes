@@ -912,6 +912,11 @@
         },
         {
             "manufacturer": "Xiaomi",
+            "model": "MiJia door & window contact sensor (MCCGQ01LM)",
+            "battery_type": "CR1632"
+        },
+        {
+            "manufacturer": "Xiaomi",
             "model": "RTCGQ01LM",
             "battery_type": "CR2450"
         },        
