@@ -662,11 +662,22 @@
             "battery_type": "AAA",
             "battery_quantity": 2
         },      
+        }
+            "manufacturer": "switchbot",
+            "model": "WoCurtain",
+            "battery_type": "Rechargeable"
+        },
         {
             "manufacturer": "switchbot",
             "model": "woHand",
             "battery_type": "CR2"
         },
+        {
+            "manufacturer": "switchbot",
+            "model": "WoIOSensorTH",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        }.
         {
             "manufacturer": "Tado",
             "model": "RU01",
@@ -700,6 +711,24 @@
         {
             "manufacturer": "Third Reality",
             "model": "Smart switch Gen3 (3RSS009Z)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Third Reality, Inc",
+            "model": "3RDS17BZ",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Third Reality, Inc",
+            "model": "3RSS009Z",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Third Reality, Inc",
+            "model": "3RWS18BZ",
             "battery_type": "AAA",
             "battery_quantity": 2
         },
@@ -960,24 +989,6 @@
         {
             "manufacturer": "_TZ3000_fllyghyj",
             "model": "TS0201",
-            "battery_type": "AAA",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Third Reality, Inc",
-            "model": "3RDS17BZ",
-            "battery_type": "AAA",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Third Reality, Inc",
-            "model": "3RSS009Z",
-            "battery_type": "AAA",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Third Reality, Inc",
-            "model": "3RWS18BZ",
             "battery_type": "AAA",
             "battery_quantity": 2
         }
