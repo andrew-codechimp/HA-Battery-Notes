@@ -193,6 +193,12 @@
             "battery_quantity": 3
         },
         {
+            "manufacturer": "HANK Electronics Ltd.",
+            "model": "HKZW-DWS01",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },        
+        {
             "manufacturer": "HEIMAN",
             "model": "Smart carbon monoxide sensor (HS1CA-E)",
             "battery_type": "CR123A"
