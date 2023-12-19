@@ -907,6 +907,12 @@
             "model": "TS0201",
             "battery_type": "AAA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "HANK Electronics Ltd.",
+            "model": "HKZW-DWS01",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
