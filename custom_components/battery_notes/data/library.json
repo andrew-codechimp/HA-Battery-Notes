@@ -962,6 +962,24 @@
             "model": "TS0201",
             "battery_type": "AAA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Third Reality, Inc",
+            "model": "3RDS17BZ",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Third Reality, Inc",
+            "model": "3RSS009Z",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Third Reality, Inc",
+            "model": "3RWS18BZ",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
