@@ -432,6 +432,18 @@
             "battery_quantity": 2
         },   
         {
+            "manufacturer": "Netatmo",
+            "model": "Smart Thermostat",
+            "battery_type": "AAA",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "Netatmo",
+            "model": "Smart Outdoor Module",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Oral-B",
             "model": "Genius X",
             "battery_type": "Rechargeable"
@@ -711,14 +723,34 @@
         },
         {
             "manufacturer": "TuYa",
+            "model": "Button scene switch (SH-SC07)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "TuYa",
             "model": "Door sensor (TS0203)",
             "battery_type": "AAA",
             "battery_quantity": 2
         },        
         {
             "manufacturer": "TuYa",
+            "model": "Door sensor (TS0203)",
+            "battery_type": "CR2032"
+        },
+    	{
+            "manufacturer": "TuYa",
+            "model": "Door sensor (ZD08)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "TuYa",
             "model": "IH012-RT01",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "TuYa",
+            "model": "Luminance door sensor (ZG-102ZL)",
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "TuYa",
@@ -733,9 +765,19 @@
         },
         {
             "manufacturer": "TuYa",
+            "model": "Temperature & humidity sensor (IH-K009)",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "TuYa",
             "model": "Temperature & humidity sensor (WSD500A)",
             "battery_type": "AAA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "TuYa",
+            "model": "Temperature and humidity sensor (ZTH05)",
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "TuYa",
