@@ -412,6 +412,11 @@
             "model": "Thermostatic radiator valve (BRT-100-TRV)",
             "battery_type": "AA",
             "battery_quantity": 2
+        },   
+        {
+            "manufacturer": "Oral-B",
+            "model": "Genius X",
+            "battery_type": "Rechargeable"
         },        
         {
             "manufacturer": "Oral-B",
@@ -907,11 +912,6 @@
             "model": "TS0201",
             "battery_type": "AAA",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Oral-B",
-            "model": "Genius X",
-            "battery_type": "Rechargeable"
         }
     ]
 }
