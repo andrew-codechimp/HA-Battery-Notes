@@ -22,8 +22,6 @@ from .discovery import DiscoveryManager
 from .library_coordinator import BatteryNotesLibraryUpdateCoordinator
 from .library_updater import (
     LibraryUpdaterClient,
-    LibraryUpdaterClientError,
-    LibraryUpdaterClientCommunicationError,
 )
 
 from .const import (
