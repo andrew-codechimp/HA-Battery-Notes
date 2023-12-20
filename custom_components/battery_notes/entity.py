@@ -5,6 +5,7 @@ from dataclasses import dataclass
 
 from homeassistant.helpers.entity import EntityDescription
 
+
 @dataclass
 class BatteryNotesRequiredKeysMixin:
     """Mixin for required keys."""

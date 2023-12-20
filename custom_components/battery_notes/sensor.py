@@ -163,6 +163,7 @@ class BatteryNotesSensor(RestoreSensor, SensorEntity):
         unique_id: str,
     ) -> None:
         """Initialize the sensor."""
+
         device_registry = dr.async_get(hass)
 
         self.entity_description = description
