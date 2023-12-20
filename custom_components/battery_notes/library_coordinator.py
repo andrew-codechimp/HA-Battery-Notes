@@ -97,7 +97,10 @@ class BatteryNotesLibraryUpdateCoordinator(DataUpdateCoordinator):
 def validate_json(content: str) -> bool:
     """Check if content is valid json."""
     try:
-        json.loads(content)
+        library = json.loads(content)
+
+        if library["version"] > 1:
+            return False
     except ValueError:
         return False
     return True
