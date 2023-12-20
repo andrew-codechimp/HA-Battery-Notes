@@ -1,0 +1,54 @@
+{
+    "config": {
+        "step": {
+            "user": {
+                "description": "Ak potrebujete pomoc s konfiguráciou, pozrite sa sem: https://github.com/andrew-codechimp/ha-battery-notes",
+                "data": {
+                    "device_id": "Zariadenie",
+                    "name": "Názov"
+                },
+                "data_description": {
+                    "name": "Ak ponecháte prázdne, názov sa prevezme zo zdrojového zariadenia"
+                }
+            },
+            "battery": {
+                "data": {
+                    "battery_type": "Typ batérie"
+                },
+                "data_description": {
+                    "battery_type": "Voliteľne pridajte množstvo batérie, ak je viac ako 1 napr. 2x AAA"
+                }
+            }
+        },
+        "abort": {
+            "already_configured": "Zariadenie je už nakonfigurované"
+        },
+        "error": {
+            "unknown": "Vyskytla sa neznáma chyba."
+        }
+    },
+    "options": {
+        "step": {
+            "init": {
+                "description": "Ak potrebujete pomoc s konfiguráciou, pozrite sa sem: https://github.com/andrew-codechimp/ha-battery-notes",
+                "data": {
+                    "name": "Názov",
+                    "battery_type": "Typ batérie"
+                },
+                "data_description": {
+                    "name": "Ak ponecháte prázdne, názov sa prevezme zo zdrojového zariadenia"
+                }
+            }
+        },
+        "error": {
+            "unknown": "Vyskytla sa neznáma chyba."
+        }
+    },
+    "entity": {
+        "sensor": {
+            "battery_type": {
+                "name": "Typ batérie"
+            }
+        }
+    }
+}
