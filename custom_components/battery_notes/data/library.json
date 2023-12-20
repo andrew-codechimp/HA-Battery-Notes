@@ -1014,6 +1014,18 @@
             "battery_quantity": 4
         },
         {
+            "manufacturer": "YoLink",
+            "model": "MotionSensor",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "YoLink",
+            "model": "DoorSensor",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Zooz",
             "model": "ZSE40 700",
             "battery_type": "CR123A"

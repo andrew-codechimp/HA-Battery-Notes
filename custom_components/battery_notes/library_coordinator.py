@@ -43,7 +43,7 @@ class BatteryNotesLibraryUpdateCoordinator(DataUpdateCoordinator):
             hass=hass,
             logger=LOGGER,
             name=DOMAIN,
-            update_interval=timedelta(minutes=1),
+            update_interval=timedelta(hours=24),
         )
 
     async def _async_update_data(self):
@@ -85,7 +85,7 @@ class BatteryNotesLibraryUpdateCoordinator(DataUpdateCoordinator):
 
                 time_difference_in_hours = time_since_last_update / timedelta(hours=1)
 
-                if time_difference_in_hours < 24:
+                if time_difference_in_hours < 23:
                     _LOGGER.debug("Skipping library updates")
                     return False
             return True
