@@ -448,6 +448,24 @@
         },
         {
             "manufacturer": "Netatmo",
+            "model": "Additional Indoor Module",
+            "battery_type": "AAA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Netatmo",
+            "model": "Netatmo Valve",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Netatmo",
+            "model": "Outdoor Module",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Netatmo",
             "model": "Smart Thermostat",
             "battery_type": "AAA",
             "battery_quantity": 3
@@ -531,6 +549,11 @@
             "manufacturer": "Philips",
             "model": "RWL021",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Philips",
+            "model": "RWL022",
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "Ring",
