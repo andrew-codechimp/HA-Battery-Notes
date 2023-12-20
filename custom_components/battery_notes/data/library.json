@@ -794,6 +794,11 @@
         },
         {
             "manufacturer": "Xiaomi",
+            "model": "Aqara double key wireless wall switch (2016 model) (WXKG02LM_rev1)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Xiaomi",
             "model": "Aqara E1 door & window contact sensor (MCCGQ14LM)",
             "battery_type": "CR1632"
         },        
@@ -807,6 +812,16 @@
             "model": "Aqara P1 human body movement and illuminance sensor (RTCGQ14LM)",
             "battery_type": "CR2450",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "Aqara single key wireless wall switch (2016 model) (WXKG03LM_rev1)",
+            "battery": "CR2032"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "Aqara single key wireless wall switch (2018 model) (WXKG03LM_rev2)",
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "Xiaomi",
@@ -904,7 +919,16 @@
             "model": "MiJia Honeywell smoke detector (JTYJ-GD-01LM/BW)",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },        
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "MiJia human body movement sensor (RTCGQ01LM)",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "MiJia light intensity sensor (GZCGQ01LM)",
+            "battery_type": "CR2450"
         {
             "manufacturer": "Xiaomi",
             "model": "MiJia wireless switch (WXKG01LM)",
