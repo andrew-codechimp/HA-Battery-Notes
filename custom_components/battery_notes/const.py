@@ -34,6 +34,7 @@ DATA_DISCOVERED_ENTITIES = "discovered_entities"
 DATA_DOMAIN_ENTITIES = "domain_entities"
 DATA_LIBRARY = "library"
 DATA_UPDATE_COORDINATOR = "update_coordinator"
+DATA_LIBRARY_LAST_UPDATE = "library_last_update"
 
 PLATFORMS: Final = [
     Platform.SENSOR,

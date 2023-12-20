@@ -87,7 +87,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
 
             coordinator = self.hass.data[DOMAIN][DATA_UPDATE_COORDINATOR]
 
-            await coordinator.async_config_entry_first_refresh()
+            await coordinator.async_refresh()
 
             device_registry = dr.async_get(self.hass)
             device_entry = device_registry.async_get(device_id)

@@ -74,12 +74,6 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         DOMAIN_CONFIG: domain_config,
     }
 
-    if domain_config.get(CONF_ENABLE_AUTODISCOVERY):
-        discovery_manager = DiscoveryManager(hass, config)
-        await discovery_manager.start_discovery()
-    else:
-        _LOGGER.debug("Auto discovery disabled")
-
     coordinator = BatteryNotesLibraryUpdateCoordinator(
         hass=hass,
         client=LibraryUpdaterClient(session=async_get_clientsession(hass)),
@@ -87,7 +81,13 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
 
     hass.data[DOMAIN][DATA_UPDATE_COORDINATOR] = coordinator
 
-    await coordinator.async_config_entry_first_refresh()
+    await coordinator.async_refresh()
+
+    if domain_config.get(CONF_ENABLE_AUTODISCOVERY):
+        discovery_manager = DiscoveryManager(hass, config)
+        await discovery_manager.start_discovery()
+    else:
+        _LOGGER.debug("Auto discovery disabled")
 
     return True
 

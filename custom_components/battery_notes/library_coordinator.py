@@ -1,12 +1,13 @@
 """DataUpdateCoordinator for battery notes library."""
 from __future__ import annotations
 
-from datetime import timedelta
+from datetime import datetime, timedelta
 import logging
 import json
 import os
 
 from homeassistant.core import HomeAssistant
+from homeassistant.exceptions import ConfigEntryNotReady
 from homeassistant.helpers.update_coordinator import (
     DataUpdateCoordinator,
     UpdateFailed,
@@ -17,7 +18,11 @@ from .library_updater import (
     LibraryUpdaterClientError,
 )
 
-from .const import DOMAIN, LOGGER
+from .const import (
+    DOMAIN,
+    LOGGER,
+    DATA_LIBRARY_LAST_UPDATE,
+)
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -38,17 +43,21 @@ class BatteryNotesLibraryUpdateCoordinator(DataUpdateCoordinator):
             hass=hass,
             logger=LOGGER,
             name=DOMAIN,
-            update_interval=timedelta(hours=1),
+            update_interval=timedelta(minutes=1),
         )
 
     async def _async_update_data(self):
         """Update data via library."""
+
+        if await self.time_to_update_library() is False:
+            return
+
         try:
             _LOGGER.debug("Getting library updates")
 
             content = await self.client.async_get_data()
 
-            if await self.validate_json(content):
+            if validate_json(content):
                 json_path = os.path.join(
                     BUILT_IN_DATA_DIRECTORY,
                     "library.json",
@@ -57,6 +66,8 @@ class BatteryNotesLibraryUpdateCoordinator(DataUpdateCoordinator):
                 f = open(json_path, mode="w", encoding="utf-8")
                 f.write(content)
 
+                self.hass.data[DOMAIN][DATA_LIBRARY_LAST_UPDATE] = datetime.now()
+
                 _LOGGER.debug("Updated library")
             else:
                 _LOGGER.error("Library file is invalid, not updated")
@@ -64,10 +75,29 @@ class BatteryNotesLibraryUpdateCoordinator(DataUpdateCoordinator):
         except LibraryUpdaterClientError as exception:
             raise UpdateFailed(exception) from exception
 
-    async def validate_json(self, content: str) -> bool:
-        """Check if content is valid json."""
+    async def time_to_update_library(self) -> bool:
+        """Check when last updated and if OK to do a new library update."""
         try:
-            json.loads(content)
-        except ValueError:
-            return False
-        return True
+            if DATA_LIBRARY_LAST_UPDATE in self.hass.data[DOMAIN]:
+                time_since_last_update = (
+                    datetime.now() - self.hass.data[DOMAIN][DATA_LIBRARY_LAST_UPDATE]
+                )
+
+                time_difference_in_hours = time_since_last_update / timedelta(hours=1)
+
+                if time_difference_in_hours < 24:
+                    _LOGGER.debug("Skipping library updates")
+                    return False
+            return True
+        except ConfigEntryNotReady:
+            # Ignore as we are initial load
+            return True
+
+
+def validate_json(content: str) -> bool:
+    """Check if content is valid json."""
+    try:
+        json.loads(content)
+    except ValueError:
+        return False
+    return True
