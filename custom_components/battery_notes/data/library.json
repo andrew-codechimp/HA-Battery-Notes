@@ -24,6 +24,18 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "August Home Inc.",
+            "model": "AK-R1",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },            
+        {
+            "manufacturer": "August Home Inc.",
+            "model": "AUG-SL05-M01-S01",
+            "battery_type": "CR123A",
+            "battery_quantity": 2
+        },    
+        {
             "manufacturer": "Bosch",
             "model": "Radiator thermostat II (BTH-RA)",
             "battery_type": "AA",
