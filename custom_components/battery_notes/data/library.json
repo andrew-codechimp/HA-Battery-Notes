@@ -1038,6 +1038,19 @@
             "model": "TS0201",
             "battery_type": "AAA",
             "battery_quantity": 2
+        },
+        {   
+            "manufacturer": "YoLink",
+            "model": "MotionSensor",
+            "battery_type": "AAA",
+            "battery_quantity": 2  
+        },
+        {   
+            "manufacturer": "YoLink",
+            "model": "DoorSensor",
+            "battery_type": "AAA",
+            "battery_quantity": 2  
         }
+        
     ]
 }
