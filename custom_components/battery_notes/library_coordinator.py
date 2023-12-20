@@ -99,6 +99,9 @@ def validate_json(content: str) -> bool:
     try:
         library = json.loads(content)
 
+        if "version" not in library:
+            return False
+
         if library["version"] > 1:
             return False
     except ValueError:
