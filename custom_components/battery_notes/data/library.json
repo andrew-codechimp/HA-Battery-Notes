@@ -3,6 +3,11 @@
     "version": 1,
     "devices": [
         {
+            "manufacturer": "Aeotec Ltd.",
+            "model": "ZWA003",
+            "battery_type": "LIR2450"
+        },
+        {
             "manufacturer": "Airthings AS",
             "model": "Wave Plus",
             "battery_type": "AAA",
@@ -68,6 +73,11 @@
             "manufacturer": "ecobee Inc.",
             "model": "EBERS41",
             "battery_type": "CR2477"
+        },
+        {
+            "manufacturer": "Ecolink",
+            "model": "DWZWAVE25",
+            "battery_type": "CR123A"
         },
         {
             "manufacturer": "Eve Systems",
@@ -595,6 +605,16 @@
         {
             "manufacturer": "SMaBiT (Bitron Video)",
             "model": "Compact magnetic contact sensor (AV2010/21A)",
+            "battery_type": "CR2"
+        },
+        {
+            "manufacturer": "SmartThings",
+            "model": "Button (IM6001-BTP01)",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "SmartThings",
+            "model": "Motion sensor (2018 model) (IM6001-MTP01)",
             "battery_type": "CR2"
         },
         {
