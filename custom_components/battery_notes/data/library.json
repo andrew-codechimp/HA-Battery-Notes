@@ -725,13 +725,7 @@
             "manufacturer": "TuYa",
             "model": "Button scene switch (SH-SC07)",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "TuYa",
-            "model": "Door sensor (TS0203)",
-            "battery_type": "AAA",
-            "battery_quantity": 2
-        },        
+        },       
         {
             "manufacturer": "TuYa",
             "model": "Door sensor (TS0203)",
