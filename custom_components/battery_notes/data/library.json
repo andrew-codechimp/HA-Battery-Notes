@@ -436,6 +436,24 @@
         },
         {
             "manufacturer": "Netatmo",
+            "model": "Additional Indoor Module",
+            "battery_type": "AAA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Netatmo",
+            "model": "Netatmo Valve",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Netatmo",
+            "model": "Outdoor Module",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Netatmo",
             "model": "Smart Thermostat",
             "battery_type": "AAA",
             "battery_quantity": 3
