@@ -3,6 +3,11 @@
     "version": 1,
     "devices": [
         {
+            "manufacturer": "Aeotec Ltd.",
+            "model": "ZWA003",
+            "battery_type": "LIR2450"
+        },
+        {
             "manufacturer": "Airthings AS",
             "model": "Wave Plus",
             "battery_type": "AAA",
@@ -46,6 +51,21 @@
             "model": "[Flower sensor](http://modkam.ru/?p=1700) (DIYRuZ_Flower)",
             "battery_type": "AAA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "ecobee Inc.",
+            "model": "EBRSE4",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "ecobee Inc.",
+            "model": "EBERS41",
+            "battery_type": "CR2477"
+        },
+        {
+            "manufacturer": "Ecolink",
+            "model": "DWZWAVE25",
+            "battery_type": "CR123A"
         },
         {
             "manufacturer": "Eve Systems",
@@ -410,6 +430,23 @@
             "battery_quantity": 2
         },                
         {
+            "manufacturer": "Netatmo",
+            "model": "Smart Thermostat",
+            "battery_type": "AAA",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "Netatmo",
+            "model": "Smart Outdoor Module",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Oral-B",
+            "model": "Genius X",
+            "battery_type": "Rechargeable"
+        },        
+        {
             "manufacturer": "Oral-B",
             "model": "IO Series 6/7",
             "battery_type": "Rechargeable"
@@ -551,6 +588,16 @@
         },
         {
             "manufacturer": "SmartThings",
+            "model": "Button (IM6001-BTP01)",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "SmartThings",
+            "model": "Motion sensor (2018 model) (IM6001-MTP01)",
+            "battery_type": "CR2"
+        },
+        {
+            "manufacturer": "SmartThings",
             "model": "Multipurpose sensor (2018 model) (IM6001-MPP01)",
             "battery_type": "CR2450"
         },
@@ -611,8 +658,19 @@
         },      
         {
             "manufacturer": "switchbot",
+            "model": "WoCurtain",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "switchbot",
             "model": "woHand",
             "battery_type": "CR2"
+        },
+        {
+            "manufacturer": "switchbot",
+            "model": "WoIOSensorTH",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "Tado",
@@ -645,6 +703,30 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Third Reality",
+            "model": "Smart switch Gen3 (3RSS009Z)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Third Reality, Inc",
+            "model": "3RDS17BZ",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Third Reality, Inc",
+            "model": "3RSS009Z",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Third Reality, Inc",
+            "model": "3RWS18BZ",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "TT Lock",
             "model": "SN511-180MS_PV53",
             "battery_type": "AA",
@@ -652,14 +734,28 @@
         },
         {
             "manufacturer": "TuYa",
+            "model": "Button scene switch (SH-SC07)",
+            "battery_type": "CR2032"
+        },       
+        {
+            "manufacturer": "TuYa",
             "model": "Door sensor (TS0203)",
-            "battery_type": "AAA",
-            "battery_quantity": 2
-        },        
+            "battery_type": "CR2032"
+        },
+    	{
+            "manufacturer": "TuYa",
+            "model": "Door sensor (ZD08)",
+            "battery_type": "CR2032"
+        },
         {
             "manufacturer": "TuYa",
             "model": "IH012-RT01",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "TuYa",
+            "model": "Luminance door sensor (ZG-102ZL)",
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "TuYa",
@@ -674,9 +770,19 @@
         },
         {
             "manufacturer": "TuYa",
+            "model": "Temperature & humidity sensor (IH-K009)",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "TuYa",
             "model": "Temperature & humidity sensor (WSD500A)",
             "battery_type": "AAA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "TuYa",
+            "model": "Temperature and humidity sensor (ZTH05)",
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "TuYa",
@@ -850,6 +956,11 @@
             "manufacturer": "Xiaomi",
             "model": "MiJia wireless switch (WXKG01LM)",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "MiJia door & window contact sensor (MCCGQ01LM)",
+            "battery_type": "CR1632"
         },
         {
             "manufacturer": "Xiaomi",
