@@ -19,6 +19,11 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "Aqara",
+            "model": "Aqara Door and Window Sensor P2"
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "Bosch",
             "model": "Radiator thermostat II (BTH-RA)",
             "battery_type": "AA",
