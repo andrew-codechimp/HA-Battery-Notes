@@ -284,6 +284,17 @@ class BatteryNotesTypeSensor(BatteryNotesSensor):
         self._battery_type = battery_type
 
     @property
+    def device_state_attributes(self):
+        """Return the state attributes of the sensor."""
+        return self.hass.custom_attributes
+
+    def update(self):
+        attributes = {}
+        attributes["mac"] = "some data"
+        attributes["sn"] = "some other data"
+        self.hass.custom_attributes = attributes
+
+    @property
     def native_value(self) -> str:
         """Return the native value of the sensor."""
 
@@ -316,13 +327,9 @@ class BatteryNotesLastChangedSensor(BatteryNotesSensor):
         if state:
             self._attr_native_value = state.native_value
 
-        print("Here")
-
         # Priority 1: Initial value
         if self.state is not None:
             return
-
-        print("Here2")
 
         default_value = py_datetime.datetime.today().strftime(f"{FMT_DATE} 00:00:00")
 
@@ -341,8 +348,6 @@ class BatteryNotesLastChangedSensor(BatteryNotesSensor):
     @property
     def native_value(self) -> str | None:
         """Return the native value of the sensor."""
-
-        print(self._attr_native_value)
 
         # if self._last_changed is not None:
         return self._attr_native_value

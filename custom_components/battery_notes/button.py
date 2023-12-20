@@ -54,6 +54,9 @@ from .entity import (
     BatteryNotesEntityDescription,
 )
 
+from .last_changed_store import LastChangedStore
+from .library import ModelInfo, DeviceBatteryDetails, Library
+
 
 @dataclass
 class BatteryNotesButtonEntityDescriptionMixin:
@@ -220,7 +223,7 @@ class BatteryNotesButton(ButtonEntity):
                 {"entity_id": self._attr_unique_id},
             )
 
-    def update_battery_last_changed(self):
+    async def update_battery_last_changed(self):
         """Handle sensor state changes."""
         last_changed_entity_id = "sensor." + self.entity_id.split(".")[1].replace(
             "_battery_changed", "_battery_last_changed"
@@ -236,3 +239,6 @@ class BatteryNotesButton(ButtonEntity):
         # self.update_battery_last_changed()
         await self.hass.async_add_executor_job(self.update_battery_last_changed)
         # await self.entity_description.press_fn(self.hass)
+
+        last_changed_store = LastChangedStore.factory(self.hass)
+        await last_changed_store.set_device_battery_last_changed("123", datetime.now())

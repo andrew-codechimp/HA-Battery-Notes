@@ -27,11 +27,13 @@ CONF_LIBRARY = "library"
 CONF_MODEL = "model"
 CONF_MANUFACTURER = "manufacturer"
 CONF_DEVICE_NAME = "device_name"
+CONF_LAST_CHANGED_STORE = "battery_notes_last_changed.json"
 
 DATA_CONFIGURED_ENTITIES = "configured_entities"
 DATA_DISCOVERED_ENTITIES = "discovered_entities"
 DATA_DOMAIN_ENTITIES = "domain_entities"
 DATA_LIBRARY = "library"
+DATA_LAST_CHANGED = "last_changed"
 
 PLATFORMS: Final = [
     Platform.BUTTON,
