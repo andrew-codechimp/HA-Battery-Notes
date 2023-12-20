@@ -662,7 +662,7 @@
             "battery_type": "AAA",
             "battery_quantity": 2
         },      
-        }
+        {
             "manufacturer": "switchbot",
             "model": "WoCurtain",
             "battery_type": "Rechargeable"
