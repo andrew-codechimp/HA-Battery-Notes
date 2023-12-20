@@ -19,12 +19,6 @@
             "battery_type": "CR2450"
         },        
         {
-            "manufacturer": "August Home Inc.",
-            "model": "ASL6_05/101300/SI",
-            "battery_type": "AA",
-            "battery_quantity": 4
-        },
-        {
             "manufacturer": "Bosch",
             "model": "Radiator thermostat II (BTH-RA)",
             "battery_type": "AA",
@@ -41,12 +35,6 @@
             "model": "Xiaomi temperature & humidity sensor with custom firmware (LYWSD03MMC)",
             "battery_type": "CR2032"
         },        
-        {
-            "manufacturer": "Danfoss",
-            "model": "eTRV0100",
-            "battery_type": "AA",
-            "battery_quantity": 2
-        },
         {
             "manufacturer": "Develco",
             "model": "Smoke detector with siren (SMSZB-120)",
@@ -214,12 +202,6 @@
             "battery_type": "AA",
             "battery_quantity": 3
         },
-        {
-            "manufacturer": "HANK Electronics Ltd.",
-            "model": "HKZW-DWS01",
-            "battery_type": "AAA",
-            "battery_quantity": 2
-        },        
         {
             "manufacturer": "HEIMAN",
             "model": "Smart carbon monoxide sensor (HS1CA-E)",
@@ -442,6 +424,12 @@
             "battery_quantity": 2
         },   
         {
+            "manufacturer": "Neo",
+            "model": "Temperature & humidity sensor and alarm (NAS-AB02B0)",
+            "battery_type": "CR123A",
+            "battery_quantity": 2
+        },                
+        {
             "manufacturer": "Netatmo",
             "model": "Smart Thermostat",
             "battery_type": "AAA",
@@ -544,21 +532,6 @@
             "battery_type": "CR2477T"
         },
         {
-            "manufacturer": "Samjin",
-            "model": "motion",
-            "battery_type": "CR2"
-        },
-        {
-            "manufacturer": "Samjin",
-            "model": "multi",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Samjin",
-            "model": "water",
-            "battery_type": "CR2"
-        },
-        {
             "manufacturer": "Saswell",
             "model": "Thermostatic radiator valve (SEA801-Zigbee/SEA802-Zigbee)",
             "battery_type": "AA",
@@ -590,12 +563,6 @@
             "manufacturer": "Signify Netherlands B.V.",
             "model": "Hue outdoor motion sensor (SML002)",
             "battery_type": "AA",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Signify Netherlands B.V.",
-            "model": "SML003",
-            "battery_type": "AAA",
             "battery_quantity": 2
         },
         {
@@ -657,11 +624,6 @@
         {
             "manufacturer": "SONOFF",
             "model": "Temperature and humidity sensor with screen (SNZB-02D)",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "SONOFF",
-            "model": "Wireless button (SNZB-01)",
             "battery_type": "CR2450"
         },
         {
@@ -1012,6 +974,12 @@
         },    
         {
             "manufacturer": "Xiaomi",
+            "model": "MiJia temperature & humidity sensor (WSDCGQ01LM)",
+            "battery_type": "CR2032"
+        },    
+
+        {
+            "manufacturer": "Xiaomi",
             "model": "XMTZC02HM/XMTZC05HM/NUN4049CN",
             "battery_type": "AAA",
             "battery_quantity": 4
@@ -1035,17 +1003,6 @@
             "manufacturer": "_TZ3000_4fjiwweb",
             "model": "TS004F",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "_TZ3000_k4ej3ww2",
-            "model": "TS0207",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "_TZ3210_up3pngle",
-            "model": "TS0205",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         },
         {
             "manufacturer": "_TZ3000_fllyghyj",
