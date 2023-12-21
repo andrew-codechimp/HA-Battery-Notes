@@ -14,10 +14,15 @@ from awesomeversion.awesomeversion import AwesomeVersion
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.const import __version__ as HA_VERSION  # noqa: N812
+from homeassistant.helpers.aiohttp_client import async_get_clientsession
 
 from homeassistant.helpers.typing import ConfigType
 
 from .discovery import DiscoveryManager
+from .library_coordinator import BatteryNotesLibraryUpdateCoordinator
+from .library_updater import (
+    LibraryUpdaterClient,
+)
 
 from .const import (
     DOMAIN,
@@ -25,6 +30,7 @@ from .const import (
     PLATFORMS,
     CONF_ENABLE_AUTODISCOVERY,
     CONF_LIBRARY,
+    DATA_UPDATE_COORDINATOR,
 )
 
 MIN_HA_VERSION = "2023.7"
@@ -65,6 +71,15 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     hass.data[DOMAIN] = {
         DOMAIN_CONFIG: domain_config,
     }
+
+    coordinator = BatteryNotesLibraryUpdateCoordinator(
+        hass=hass,
+        client=LibraryUpdaterClient(session=async_get_clientsession(hass)),
+    )
+
+    hass.data[DOMAIN][DATA_UPDATE_COORDINATOR] = coordinator
+
+    await coordinator.async_refresh()
 
     if domain_config.get(CONF_ENABLE_AUTODISCOVERY):
         discovery_manager = DiscoveryManager(hass, config)

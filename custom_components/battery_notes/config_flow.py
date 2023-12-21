@@ -29,6 +29,7 @@ from .const import (
     CONF_DEVICE_NAME,
     CONF_MANUFACTURER,
     CONF_MODEL,
+    DATA_UPDATE_COORDINATOR,
 )
 
 _LOGGER = logging.getLogger(__name__)
@@ -83,6 +84,10 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             self.data = user_input
 
             device_id = user_input[CONF_DEVICE_ID]
+
+            coordinator = self.hass.data[DOMAIN][DATA_UPDATE_COORDINATOR]
+
+            await coordinator.async_refresh()
 
             device_registry = dr.async_get(self.hass)
             device_entry = device_registry.async_get(device_id)

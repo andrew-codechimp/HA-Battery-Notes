@@ -27,11 +27,14 @@ CONF_LIBRARY = "library"
 CONF_MODEL = "model"
 CONF_MANUFACTURER = "manufacturer"
 CONF_DEVICE_NAME = "device_name"
+CONF_LIBRARY_URL = "https://raw.githubusercontent.com/andrew-codechimp/HA-Battery-Notes/main/custom_components/battery_notes/data/library.json"  # pylint: disable=line-too-long
 
 DATA_CONFIGURED_ENTITIES = "configured_entities"
 DATA_DISCOVERED_ENTITIES = "discovered_entities"
 DATA_DOMAIN_ENTITIES = "domain_entities"
 DATA_LIBRARY = "library"
+DATA_UPDATE_COORDINATOR = "update_coordinator"
+DATA_LIBRARY_LAST_UPDATE = "library_last_update"
 
 PLATFORMS: Final = [
     Platform.SENSOR,

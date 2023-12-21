@@ -2,6 +2,7 @@
 
 from homeassistant.config_entries import ConfigEntry
 
+
 async def async_get_config_entry_diagnostics(
     entry: ConfigEntry,
 ) -> dict:
