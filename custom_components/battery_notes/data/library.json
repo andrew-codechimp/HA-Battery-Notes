@@ -371,16 +371,6 @@
         },
         {
             "manufacturer": "LUMI",
-            "model": "lumi.sensor_motion.aq2",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "LUMI",
-            "model": "lumi.weather",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "LUMI",
             "model": "lumi.sensor_cube.aqgl01",
             "battery_type": "CR2450"
         },
