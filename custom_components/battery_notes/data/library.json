@@ -24,6 +24,18 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "August Home Inc.",
+            "model": "AK-R1",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },            
+        {
+            "manufacturer": "August Home Inc.",
+            "model": "AUG-SL05-M01-S01",
+            "battery_type": "CR123A",
+            "battery_quantity": 2
+        },    
+        {
             "manufacturer": "Bosch",
             "model": "Radiator thermostat II (BTH-RA)",
             "battery_type": "AA",
@@ -436,6 +448,24 @@
         },
         {
             "manufacturer": "Netatmo",
+            "model": "Additional Indoor Module",
+            "battery_type": "AAA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Netatmo",
+            "model": "Netatmo Valve",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Netatmo",
+            "model": "Outdoor Module",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Netatmo",
             "model": "Smart Thermostat",
             "battery_type": "AAA",
             "battery_quantity": 3
@@ -444,6 +474,17 @@
             "manufacturer": "Netatmo",
             "model": "Smart Outdoor Module",
             "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "OpenEpaperLink",
+            "model": "ST‐GR16000 1.54\"",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "OpenEpaperLink",
+            "model": "ST‐GR29000 2.9\"",
+            "battery_type": "CR2450",
             "battery_quantity": 2
         },
         {
@@ -519,6 +560,11 @@
             "manufacturer": "Philips",
             "model": "RWL021",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Philips",
+            "model": "RWL022",
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "Ring",
