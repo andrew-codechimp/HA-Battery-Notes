@@ -56,7 +56,11 @@ DEVICE_SCHEMA = vol.Schema(
                     selector.EntityFilterSelectorConfig(
                         domain=Platform.SENSOR,
                         device_class=SensorDeviceClass.BATTERY,
-                    )
+                    ),
+                    selector.EntityFilterSelectorConfig(
+                        domain=Platform.BINARY_SENSOR,
+                        device_class=SensorDeviceClass.BATTERY,
+                    ),
                 ]
             )
         ),
