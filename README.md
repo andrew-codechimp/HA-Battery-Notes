@@ -62,6 +62,21 @@ In the HA UI go to "Configuration" -> "Integrations" click "+" and search for "B
 On the "Configuration" -> "Integrations" -> "Battery Notes" screen add a new device, pick your device with a battery and add the battery type.
 The battery type will then be displayed as a diagnostic sensor on the device.
 
+## FAQ's
+
+* When is the library updated?  
+It updates when Home Assistant is restarted and approximately every 24 hours after that.  
+It will pull the latest that have been merged into the main branch, if you have recently submmited a pull request for a new device it will not appear until I have manually reviewed and merged it.
+
+* How do I remove a battery note on a device?  
+Go into the Settings -> Integrations -> Battery Notes, use the menu on the right of a device and select Delete, this will only delete the battery note, not the whole device.
+
+* Why does the device icon change?  
+Unfortunately where there are multiple integrations associated with a device Home Assistant seems to choose an icon at random, I have no control over this.
+
+* Can I edit a battery note?  
+Go into Settings -> Integrations -> Battery Notes and click Configure on the device you want to edit.
+
 ## Automatic discovery
 
 Battery Notes will automatically discover devices (as long as you have followed the installation instructions above) that it has in its library and create a notification to add a battery note.
