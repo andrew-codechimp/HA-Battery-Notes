@@ -562,11 +562,6 @@
             "battery_type": "CR2450"
         },
         {
-            "manufacturer": "Philips",
-            "model": "RWL022",
-            "battery_type": "CR2032"
-        },
-        {
             "manufacturer": "Ring",
             "model": "Doorbell 2",
             "battery_type": "Rechargeable"
@@ -625,6 +620,11 @@
             "manufacturer": "Signify Netherlands B.V.",
             "model": "Hue wall switch module (RDM001)",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Signify Netherlands B.V.",
+            "model": "RWL022",
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "Siterwell",
