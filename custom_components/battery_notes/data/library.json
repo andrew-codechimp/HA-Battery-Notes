@@ -227,12 +227,12 @@
         {
             "manufacturer": "HEIMAN",
             "model": "Smoke detector (HS1SA)",
-            "battery_type": "Irreplaceable"
+            "battery_type": "CR123A"
         },
         {
             "manufacturer": "HEIMAN",
             "model": "Smoke detector (HS3SA/HS1SA)",
-            "battery_type": "Irreplaceable"
+            "battery_type": "CR123A"
         },
         {
             "manufacturer": "Hive",
