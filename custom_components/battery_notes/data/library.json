@@ -557,6 +557,11 @@
             "battery_type": "CR2450"
         },
         {
+             "manufacturer": "Philips",
+             "model": "RWL022",
+             "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "Philips",
             "model": "RWL021",
             "battery_type": "CR2450"
