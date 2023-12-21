@@ -14,6 +14,8 @@ Integration to add battery notes to a device, with automatic discovery via a gro
 
 ![Battery Notes](https://github.com/andrew-codechimp/HA-Battery-Notes/blob/main/images/screenshot-device.png "Battery Notes")
 
+![Discovery](https://github.com/andrew-codechimp/HA-Battery-Notes/blob/main/images/screenshot-discovery.png "Device Discovery")
+
 **This integration will set up the following platforms.**
 
 Platform | Description
@@ -78,18 +80,14 @@ Unfortunately where there are multiple integrations associated with a device Hom
 Go into Settings -> Integrations -> Battery Notes and click Configure on the device you want to edit.
 
 * Why am I only able to see some of my devices when adding manually?  
-By default Battery Notes filters the device list to only devices with a battery, if you want to add a battery note to a random device then you can disable this filtering by adding the following configuration to your `configuration.yaml`
+By default Battery Notes filters the device list to only devices with a battery, if you want to add a battery note to a random device then you can disable this filtering by adding the following configuration to your `configuration.yaml` and restart Home Assistant to see all devices.
 ```
 battery_notes:
   show_all_devices: true
 ```
 
-## Automatic discovery
-
-Battery Notes will automatically discover devices (as long as you have followed the installation instructions above) that it has in its library and create a notification to add a battery note.
-![Discovery](https://github.com/andrew-codechimp/HA-Battery-Notes/blob/main/images/screenshot-discovery.png "Device Discovery")
-
-If you wish to disable this functionality then change your `configuration.yaml` to set enable_autodiscovery to false
+* I only want to add notes to a few devices, can I disable auto discovery?  
+If you want to disable this functionality you can add the following to your `configuration.yaml`, after a restart of Home Assistant you will not see discovered battery notes.
 ```
 battery_notes:
   enable_autodiscovery: false
