@@ -66,7 +66,7 @@ The battery type will then be displayed as a diagnostic sensor on the device.
 
 * When is the library updated?  
 It updates when Home Assistant is restarted and approximately every 24 hours after that.  
-It will pull the latest that have been merged into the main branch, if you have recently submmited a pull request for a new device it will not appear until I have manually reviewed and merged it.
+It will pull the latest devices that have been merged into the main branch, if you have recently submitted a pull request for a new device it will not appear until it has been manually reviewed and merged.
 
 * How do I remove a battery note on a device?  
 Go into the Settings -> Integrations -> Battery Notes, use the menu on the right of a device and select Delete, this will only delete the battery note, not the whole device.
