@@ -447,6 +447,17 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "OpenEpaperLink",
+            "model": "ST‐GR16000 1.54\"",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "OpenEpaperLink",
+            "model": "ST‐GR29000 2.9\"",
+            "battery_type": "CR2450",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Oral-B",
             "model": "Genius X",
             "battery_type": "Rechargeable"
