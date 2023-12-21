@@ -77,6 +77,13 @@ Unfortunately where there are multiple integrations associated with a device Hom
 * Can I edit a battery note?  
 Go into Settings -> Integrations -> Battery Notes and click Configure on the device you want to edit.
 
+* Why am I only able to see some of my devices when adding manually?  
+By default Battery Notes filters the device list to only devices with a battery, if you want to add a battery note to a random device then you can disable this filtering by adding the following configuration to your `configuration.yaml`
+```
+battery_notes:
+  show_all_devices: true
+```
+
 ## Automatic discovery
 
 Battery Notes will automatically discover devices (as long as you have followed the installation instructions above) that it has in its library and create a notification to add a battery note.
