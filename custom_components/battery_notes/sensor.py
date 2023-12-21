@@ -34,6 +34,9 @@ from homeassistant.helpers.event import (
     async_track_state_change_event,
     async_track_entity_registry_updated_event,
 )
+from homeassistant.helpers.update_coordinator import (
+    CoordinatorEntity,
+)
 
 from homeassistant.helpers.reload import async_setup_reload_service
 
@@ -46,7 +49,10 @@ from .const import (
     DOMAIN,
     PLATFORMS,
     CONF_BATTERY_TYPE,
+    DATA_UPDATE_COORDINATOR,
 )
+
+from .library_coordinator import BatteryNotesLibraryUpdateCoordinator
 
 from .entity import (
     BatteryNotesEntityDescription,
@@ -174,9 +180,12 @@ async def async_setup_entry(
 
     device_id = async_add_to_device(hass, config_entry)
 
+    coordinator = hass.data[DOMAIN][DATA_UPDATE_COORDINATOR]
+
     entities = [
         BatteryNotesTypeSensor(
             hass,
+            coordinator,
             typeSensorEntityDescription,
             device_id,
             f"{config_entry.entry_id}{typeSensorEntityDescription.unique_id_suffix}",
@@ -202,7 +211,7 @@ async def async_setup_platform(
     await async_setup_reload_service(hass, DOMAIN, PLATFORMS)
 
 
-class BatteryNotesSensor(RestoreSensor, SensorEntity):
+class BatteryNotesSensor(RestoreSensor, SensorEntity, CoordinatorEntity):
     """Represents a battery note sensor."""
 
     _attr_should_poll = False
@@ -211,11 +220,14 @@ class BatteryNotesSensor(RestoreSensor, SensorEntity):
     def __init__(
         self,
         hass,
+        coordinator: BatteryNotesLibraryUpdateCoordinator,
         description: BatteryNotesSensorEntityDescription,
         device_id: str,
         unique_id: str,
     ) -> None:
         """Initialize the sensor."""
+        super().__init__(coordinator)
+
         device_registry = dr.async_get(hass)
 
         self.entity_description = description
@@ -273,13 +285,14 @@ class BatteryNotesTypeSensor(BatteryNotesSensor):
     def __init__(
         self,
         hass,
+        coordinator: BatteryNotesLibraryUpdateCoordinator,
         description: BatteryNotesSensorEntityDescription,
         device_id: str,
         unique_id: str,
         battery_type: str | None = None,
     ) -> None:
         """Initialize the sensor."""
-        super().__init__(hass, description, device_id, unique_id)
+        super().__init__(hass, coordinator, description, device_id, unique_id)
 
         self._battery_type = battery_type
 
