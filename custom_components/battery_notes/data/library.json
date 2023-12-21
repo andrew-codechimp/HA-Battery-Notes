@@ -566,6 +566,11 @@
             "model": "Doorbell 2",
             "battery_type": "Rechargeable"
         },
+	{
+            "manufacturer": "Roborock",
+            "model": "roborock.vacuum.a15",
+            "battery_type": "Rechargeable"
+        },
         {
             "manufacturer": "rtl_433",
             "model": "Acurite-Tower",
