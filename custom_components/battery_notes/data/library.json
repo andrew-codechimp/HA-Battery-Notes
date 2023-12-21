@@ -964,6 +964,12 @@
         },
         {
             "manufacturer": "Xiaomi",
+            "model": "Aqara Smart Radiator Thermostat E1 (SRTS-A01)",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Xiaomi",
             "model": "Aqara T1 light intensity sensor (GZCGQ11LM)",
             "battery_type": "CR2450"
         },
@@ -1053,6 +1059,12 @@
             "manufacturer": "Xiaomi",
             "model": "RTCGQ01LM",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "SRTS-A01",
+            "battery_type": "AA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "Xiaomi",
