@@ -70,6 +70,18 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Drayton Wiser",
+            "model": "iTRV",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Drayton Wiser",
+            "model": "RoomStat",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },	    
+        {
             "manufacturer": "ecobee Inc.",
             "model": "EBRSE4",
             "battery_type": "CR2032"
