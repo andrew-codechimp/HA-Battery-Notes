@@ -85,6 +85,11 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "Ecolink",
+            "model": "TILT-ZWAVE2.5-ECO",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "Eve Systems",
             "model": "Eve Door 20EBN9901",
             "battery_type": "ER14250"
