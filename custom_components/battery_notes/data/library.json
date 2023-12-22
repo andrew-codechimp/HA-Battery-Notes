@@ -328,6 +328,17 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "IKEA of Sweden",
+            "model": "TRADFRI motion sensor",
+            "battery_type": "CR2032",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "IKEA of Sweden",
+            "model": "TRADFRI SHORTCUT Button",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "iNode",
             "model": "iNode Energy Meter",
             "battery_type": "CR2032"
@@ -336,6 +347,11 @@
             "manufacturer": "iRobot",
             "model": "i715640",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Konke",
+            "model": "3AFE28010402000D",
+            "battery_type": "CR2450"
         },
         {
             "manufacturer": "Kwikset",
@@ -458,18 +474,6 @@
             "model": "Additional Indoor Module",
             "battery_type": "AAA",
             "battery_quantity": 4
-        },
-        {
-            "manufacturer": "Netatmo",
-            "model": "Smart Indoor Module",
-            "battery_type": "AAA",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Netatmo",
-            "model": "Smart Outdoor Module",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         },
         {
             "manufacturer": "Netatmo",
@@ -1138,6 +1142,17 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "_TZE200_c88teujp",
+            "model": "TS0601",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "_TZ3000_wkai4ga5",
+            "model": "TS0044",
+            "battery_type": "CR2430"
         },
         {
             "manufacturer": "_TZ3000_4fjiwweb",
