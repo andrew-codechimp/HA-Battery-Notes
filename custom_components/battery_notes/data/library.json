@@ -70,6 +70,18 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Drayton Wiser",
+            "model": "iTRV",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Drayton Wiser",
+            "model": "RoomStat",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },	    
+        {
             "manufacturer": "ecobee Inc.",
             "model": "EBRSE4",
             "battery_type": "CR2032"
@@ -82,6 +94,11 @@
         {
             "manufacturer": "Ecolink",
             "model": "DWZWAVE25",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Ecolink",
+            "model": "TILT-ZWAVE2.5-ECO",
             "battery_type": "CR123A"
         },
         {
@@ -227,12 +244,12 @@
         {
             "manufacturer": "HEIMAN",
             "model": "Smoke detector (HS1SA)",
-            "battery_type": "Irreplaceable"
+            "battery_type": "CR123A"
         },
         {
             "manufacturer": "HEIMAN",
             "model": "Smoke detector (HS3SA/HS1SA)",
-            "battery_type": "Irreplaceable"
+            "battery_type": "CR123A"
         },
         {
             "manufacturer": "Hive",
@@ -311,6 +328,17 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "IKEA of Sweden",
+            "model": "TRADFRI motion sensor",
+            "battery_type": "CR2032",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "IKEA of Sweden",
+            "model": "TRADFRI SHORTCUT Button",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "iNode",
             "model": "iNode Energy Meter",
             "battery_type": "CR2032"
@@ -319,6 +347,11 @@
             "manufacturer": "iRobot",
             "model": "i715640",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Konke",
+            "model": "3AFE28010402000D",
+            "battery_type": "CR2450"
         },
         {
             "manufacturer": "Kwikset",
@@ -367,16 +400,6 @@
         {
             "manufacturer": "LUMI",
             "model": "lumi.remote.b1acn01",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "LUMI",
-            "model": "lumi.sensor_motion.aq2",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "LUMI",
-            "model": "lumi.weather",
             "battery_type": "CR2032"
         },
         {
@@ -471,6 +494,12 @@
             "battery_quantity": 3
         },
         {
+             "manufacturer": "Netatmo",
+             "model": "Smart Indoor Module",
+             "battery_type": "AAA",
+             "battery_quantity": 2
+        },      
+        {
             "manufacturer": "Netatmo",
             "model": "Smart Outdoor Module",
             "battery_type": "AAA",
@@ -560,15 +589,20 @@
             "manufacturer": "Philips",
             "model": "RWL021",
             "battery_type": "CR2450"
-        },
+        },	    
         {
-            "manufacturer": "Philips",
-            "model": "RWL022",
-            "battery_type": "CR2032"
+             "manufacturer": "Philips",
+             "model": "RWL022",
+             "battery_type": "CR2032"
         },
         {
             "manufacturer": "Ring",
             "model": "Doorbell 2",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Roborock",
+            "model": "roborock.vacuum.a15",
             "battery_type": "Rechargeable"
         },
         {
@@ -627,6 +661,11 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "Signify Netherlands B.V.",
+            "model": "RWL022",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "Siterwell",
             "model": "Radiator valve with thermostat (GS361A-H04)",
             "battery_type": "AA",
@@ -676,6 +715,18 @@
             "manufacturer": "SONOFF",
             "model": "Temperature and humidity sensor with screen (SNZB-02D)",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "SONOFF",
+            "model": "TRVZB",
+            "battery_type": "AA",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "SONOFF",
+            "model": "Zigbee thermostatic radiator valve (TRVZB)",
+            "battery_type": "AA",
+            "battery_quantity": 3
         },
         {
             "manufacturer": "Sure Petcare",
@@ -953,6 +1004,12 @@
         },
         {
             "manufacturer": "Xiaomi",
+            "model": "Aqara Smart Radiator Thermostat E1 (SRTS-A01)",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Xiaomi",
             "model": "Aqara T1 light intensity sensor (GZCGQ11LM)",
             "battery_type": "CR2450"
         },
@@ -1045,6 +1102,12 @@
         },
         {
             "manufacturer": "Xiaomi",
+            "model": "SRTS-A01",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Xiaomi",
             "model": "WSDCGQ01LM",
             "battery_type": "CR2032"
         },
@@ -1085,6 +1148,17 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "_TZE200_c88teujp",
+            "model": "TS0601",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "_TZ3000_wkai4ga5",
+            "model": "TS0044",
+            "battery_type": "CR2430"
         },
         {
             "manufacturer": "_TZ3000_4fjiwweb",

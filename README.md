@@ -3,10 +3,11 @@
 [![GitHub Release][releases-shield]][releases]
 [![GitHub Activity][commits-shield]][commits]
 [![License][license-shield]](LICENSE)
-
 [![hacs][hacsbadge]][hacs]
-
 [![Community Forum][forum-shield]][forum]
+
+[![BuyMeACoffee](https://img.shields.io/badge/-buy_me_a%C2%A0coffee-gray?logo=buy-me-a-coffee&style=for-the-badge)](https://www.buymeacoffee.com/codechimp)
+
 
 Integration to add battery notes to a device, with automatic discovery via a growing battery library for devices
 
@@ -41,23 +42,24 @@ Add the following entry to your `configuration.yaml`
 battery_notes:
 ```
 Restart Home Assistant a final time
-In the HA UI go to "Configuration" -> "Integrations" click "+" and search for "Battery Notes"
+In the HA UI go to Settings -> Integrations click "+" and search for "Battery Notes"
 
 ### Manual Installation
+<details>
+<summary>More Details</summary>
 
-Using the tool of choice open the directory (folder) for your HA configuration (where you find `configuration.yaml`).
-If you do not have a `custom_components` directory (folder) there, you need to create it.
-In the `custom_components` directory (folder) create a new folder called `battery_notes`.
-Download _all_ the files from the `custom_components/battery_notes/` directory (folder) in this repository.
-Place the files you downloaded in the new directory (folder) you created.
-Restart Home Assistant
-Add the following entry to your `configuration.yaml`
+* Using your tool of choice open the folder for your HA configuration (where you find `configuration.yaml`).
+* If you do not have a `custom_components` folder there, you need to create it.
+* In the `custom_components` folder create a new folder called `battery_notes`.
+* Download _all_ the files from the `custom_components/battery_notes/` folder in this repository.
+* Place the files you downloaded in the new folder you created.
+* Add the following entry to your `configuration.yaml`  
 ```
 battery_notes:
 ```
-Restart Home Assistant a final time
-In the HA UI go to "Configuration" -> "Integrations" click "+" and search for "Battery Notes"
-
+* Restart Home Assistant
+* In the HA UI go to Settings -> Integrations click "+" and search for "Battery Notes"
+</details>
 
 ## Configuration is done in the UI
 
@@ -65,6 +67,12 @@ On the "Configuration" -> "Integrations" -> "Battery Notes" screen add a new dev
 The battery type will then be displayed as a diagnostic sensor on the device.
 
 ## FAQ's
+
+* Does a device have to be in the library?  
+No, you can always add a device manually by going to Settings -> Integrations -> Battery Notes screen add a new device where you can enter the battery details manually.
+
+* Why is my device not being discovered?  
+It could be missing from the library or does not exactly match the name that your integration has.  ZHA and Z2M for example have different manufacturers/models for the same device, you can still add it manually or contribute to the library.
 
 * When is the library updated?  
 It updates when Home Assistant is restarted and approximately every 24 hours after that.  
@@ -85,6 +93,11 @@ By default Battery Notes filters the device list to only devices with a battery,
 battery_notes:
   show_all_devices: true
 ```
+* How can I show my support?  
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png)](https://www.buymeacoffee.com/codechimp)
+
+
+## Automatic discovery
 
 * I only want to add notes to a few devices, can I disable auto discovery?  
 If you want to disable this functionality you can add the following to your `configuration.yaml`, after a restart of Home Assistant you will not see discovered battery notes.
