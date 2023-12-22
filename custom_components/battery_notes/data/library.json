@@ -561,7 +561,7 @@
             "model": "Doorbell 2",
             "battery_type": "Rechargeable"
         },
-	{
+        {
             "manufacturer": "Roborock",
             "model": "roborock.vacuum.a15",
             "battery_type": "Rechargeable"
@@ -676,6 +676,18 @@
             "manufacturer": "SONOFF",
             "model": "Temperature and humidity sensor with screen (SNZB-02D)",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "SONOFF",
+            "model": "TRVZB",
+            "battery_type": "AA",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "SONOFF",
+            "model": "Zigbee thermostatic radiator valve (TRVZB)",
+            "battery_type": "AA",
+            "battery_quantity": 3
         },
         {
             "manufacturer": "Sure Petcare",
@@ -953,6 +965,12 @@
         },
         {
             "manufacturer": "Xiaomi",
+            "model": "Aqara Smart Radiator Thermostat E1 (SRTS-A01)",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Xiaomi",
             "model": "Aqara T1 light intensity sensor (GZCGQ11LM)",
             "battery_type": "CR2450"
         },
@@ -1042,6 +1060,12 @@
             "manufacturer": "Xiaomi",
             "model": "RTCGQ01LM",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "SRTS-A01",
+            "battery_type": "AA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "Xiaomi",
