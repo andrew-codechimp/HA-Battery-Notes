@@ -93,11 +93,6 @@ By default Battery Notes filters the device list to only devices with a battery,
 battery_notes:
   show_all_devices: true
 ```
-* How can I show my support?  
-[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png)](https://www.buymeacoffee.com/codechimp)
-
-
-## Automatic discovery
 
 * I only want to add notes to a few devices, can I disable auto discovery?  
 If you want to disable this functionality you can add the following to your `configuration.yaml`, after a restart of Home Assistant you will not see discovered battery notes.
@@ -105,6 +100,11 @@ If you want to disable this functionality you can add the following to your `con
 battery_notes:
   enable_autodiscovery: false
 ```
+
+* How can I show my support?  
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png)](https://www.buymeacoffee.com/codechimp)
+
+
 
 ## Contributing to the Battery Library
 
