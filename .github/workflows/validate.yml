@@ -9,11 +9,13 @@ on:
       - "main"
     paths-ignore:
       - 'custom_components/battery_notes/data/**'
+      - 'README.md'
   pull_request:
     branches:
       - "main"
     paths-ignore:
       - 'custom_components/battery_notes/data/**'
+      - 'README.md'
 
 jobs:
   hassfest: # https://developers.home-assistant.io/blog/2020/04/16/hassfest
