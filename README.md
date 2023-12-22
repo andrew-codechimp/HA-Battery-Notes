@@ -3,10 +3,11 @@
 [![GitHub Release][releases-shield]][releases]
 [![GitHub Activity][commits-shield]][commits]
 [![License][license-shield]](LICENSE)
-
 [![hacs][hacsbadge]][hacs]
-
 [![Community Forum][forum-shield]][forum]
+
+[![BuyMeACoffee](https://img.shields.io/badge/-buy_me_a%C2%A0coffee-gray?logo=buy-me-a-coffee&style=for-the-badge)](https://www.buymeacoffee.com/codechimp)
+
 
 Integration to add battery notes to a device, with automatic discovery via a growing battery library for devices
 
@@ -39,7 +40,7 @@ Add the following entry to your `configuration.yaml`
 battery_notes:
 ```
 Restart Home Assistant a final time
-In the HA UI go to "Configuration" -> "Integrations" click "+" and search for "Battery Notes"
+In the HA UI go to Settings -> Integrations click "+" and search for "Battery Notes"
 
 ### Manual Installation
 
@@ -54,7 +55,7 @@ Add the following entry to your `configuration.yaml`
 battery_notes:
 ```
 Restart Home Assistant a final time
-In the HA UI go to "Configuration" -> "Integrations" click "+" and search for "Battery Notes"
+In the HA UI go to Settings -> Integrations click "+" and search for "Battery Notes"
 
 
 ## Configuration is done in the UI
@@ -63,6 +64,12 @@ On the "Configuration" -> "Integrations" -> "Battery Notes" screen add a new dev
 The battery type will then be displayed as a diagnostic sensor on the device.
 
 ## FAQ's
+
+* Does a device have to be in the library?  
+No, you can always add a device manually by going to Settings -> Integrations -> Battery Notes screen add a new device where you can enter the battery details manually.
+
+* Why is my device not being discovered?  
+It could be missing from the library or does not exactly match the name that your integration has.  ZHA and Z2M for example have different manufacturers/models for the same device, you can still add it manually or contribute to the library.
 
 * When is the library updated?  
 It updates when Home Assistant is restarted and approximately every 24 hours after that.  
@@ -76,6 +83,10 @@ Unfortunately where there are multiple integrations associated with a device Hom
 
 * Can I edit a battery note?  
 Go into Settings -> Integrations -> Battery Notes and click Configure on the device you want to edit.
+
+* How can I show my support?  
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png)](https://www.buymeacoffee.com/codechimp)
+
 
 ## Automatic discovery
 
