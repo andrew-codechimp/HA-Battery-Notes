@@ -461,6 +461,18 @@
         },
         {
             "manufacturer": "Netatmo",
+            "model": "Smart Indoor Module",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Netatmo",
+            "model": "Smart Outdoor Module",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Netatmo",
             "model": "Netatmo Valve",
             "battery_type": "AA",
             "battery_quantity": 2
