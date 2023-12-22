@@ -56,7 +56,7 @@ CONFIG_SCHEMA = vol.Schema(
     extra=vol.ALLOW_EXTRA,
 )
 
-ATTR_SERVICE_DEVICE_ID = "device_id"
+ATTR_SERVICE_ENTITY_ID = "entity_id"
 ATTR_SERVICE_DATE_CHANGED = "date_changed"
 
 async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
@@ -126,10 +126,10 @@ def register_services(hass):
 
     async def handle_battery_changed(call):
         """Handle the service call."""
-        device_id = call.data.get(ATTR_SERVICE_DEVICE_ID, "")
+        entity_id = call.data.get(ATTR_SERVICE_ENTITY_ID, "")
         date_changed = call.data.get(ATTR_SERVICE_DATE_CHANGED, date.today())
 
         # coordinator.store.async_update_user(user[const.ATTR_USER_ID], {const.ATTR_ENABLED: enable})
-        _LOGGER.debug("Device {} battery changed on {}".format(device_id,str(date_changed)))
+        _LOGGER.debug("Entity {} battery changed on {}".format(entity_id,str(date_changed)))
 
     async_register_admin_service(hass, DOMAIN, SERVICE_BATTERY_CHANGED, handle_battery_changed, schema=SERVICE_BATTERY_CHANGED_SCHEMA)
