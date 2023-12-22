@@ -1,15 +1,17 @@
-"""Last Changed data store for battery_notes."""
+"""Data store for battery_notes."""
 from __future__ import annotations
 
 import json
 import logging
 import os
+import attr
 from typing import NamedTuple
 from datetime import datetime, time, timedelta, timezone
 from dataclasses import dataclass
 
 from homeassistant.core import HomeAssistant
 from homeassistant.config import get_default_config_dir
+from homeassistant.helpers.storage import Store
 
 from .const import (
     DOMAIN,
@@ -20,8 +22,14 @@ from .const import (
 
 _LOGGER = logging.getLogger(__name__)
 
+DATA_REGISTRY = f"{DOMAIN}_storage"
+STORAGE_KEY = f"{DOMAIN}.storage"
+STORAGE_VERSION_MAJOR = 1
+STORAGE_VERSION_MINOR = 0
+SAVE_DELAY = 10
 
-class LastChangedStore:
+
+class MigratableStore(Store):
     """Hold last changed data."""
 
     @dataclass
@@ -37,6 +45,7 @@ class LastChangedStore:
 
         self._json_path = os.path.join(
             hass.config.config_dir,
+            ".storage",
             CONF_LAST_CHANGED_STORE,
         )
 
