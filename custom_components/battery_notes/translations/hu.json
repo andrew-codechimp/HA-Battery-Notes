@@ -1,0 +1,54 @@
+{
+    "config": {
+        "step": {
+            "user": {
+                "description": "Ha segítségre van szükséged a konfigurációhoz: https://github.com/andrew-codechimp/ha-battery-notes",
+                "data": {
+                    "device_id": "Eszköz",
+                    "name": "Név"
+                },
+                "data_description": {
+                    "name": "Üresen hagyva a forrás eszköz neve lesz használva"
+                }
+            },
+            "battery": {
+                "data": {
+                    "battery_type": "Elem típus"
+                },
+                "data_description": {
+                    "battery_type": "Opcionálisan add meg a mennyiséget, ha több, mint 1, pl. 2x AAA"
+                }
+            }
+        },
+        "abort": {
+            "already_configured": "Eszköz már konfigurálva van"
+        },
+        "error": {
+            "unknown": "Ismeretlen hiba lépett fel."
+        }
+    },
+    "options": {
+        "step": {
+            "init": {
+                "description": "Ha segítségre van szükséged a konfigurációhoz: https://github.com/andrew-codechimp/ha-battery-notes",
+                "data": {
+                    "name": "Név",
+                    "battery_type": "Elem típus"
+                },
+                "data_description": {
+                    "name": "Üresen hagyva a forrás eszköz neve lesz használva"
+                }
+            }
+        },
+        "error": {
+            "unknown": "Ismeretlen hiba lépett fel."
+        }
+    },
+    "entity": {
+        "sensor": {
+            "battery_type": {
+                "name": "Elem típus"
+            }
+        }
+    }
+}
