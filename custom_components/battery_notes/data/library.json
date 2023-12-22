@@ -669,6 +669,16 @@
         },
         {
             "manufacturer": "Signify Netherlands B.V.",
+            "model": "Hue dimmer switch (RWL022)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Signify Netherlands B.V.",
+            "model": "Hue tap dial switch (RDM002)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Signify Netherlands B.V.",
             "model": "Hue wall switch module (RDM001)",
             "battery_type": "CR2450"
         },
