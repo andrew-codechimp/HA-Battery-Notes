@@ -16,7 +16,7 @@
                     "battery_type": "Batterieart"
                 },
                 "data_description": {
-                    "battery_type": "Geben Sie optional die Anzahl der Batterien an, wenn es mehr als eine Batterie ist, z. B. 2x AAA"
+                    "battery_type": "Geben Sie optional die Anzahl der Batterien an wenn es mehr als eine Batterie ist, z. B. 2x AAA"
                 }
             }
         },
