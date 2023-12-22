@@ -85,6 +85,7 @@ Unfortunately where there are multiple integrations associated with a device Hom
 Go into Settings -> Integrations -> Battery Notes and click Configure on the device you want to edit.
 
 * How can I show my support?  
+If you can add a device to the library that really helps grow the usefulness of this integration or you can  
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png)](https://www.buymeacoffee.com/codechimp)
 
 
