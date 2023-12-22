@@ -2,7 +2,7 @@
     "config": {
         "step": {
             "user": {
-                "description": "Hilfe zur Konfiguration finden Sie hier: https://github.com/andrew-codechimp/ha-battery-notes",
+                "description": "Hilfe zur Konfiguration finden Sie unter: https://github.com/andrew-codechimp/ha-battery-notes",
                 "data": {
                     "device_id": "Gerät",
                     "name": "Name"
@@ -30,7 +30,7 @@
     "options": {
         "step": {
             "init": {
-                "description": "Hilfe zur Konfiguration finden Sie hier: https://github.com/andrew-codechimp/ha-battery-notes",
+                "description": "Hilfe zur Konfiguration finden Sie unter: https://github.com/andrew-codechimp/ha-battery-notes",
                 "data": {
                     "name": "Name",
                     "battery_type": "Batterieart"
