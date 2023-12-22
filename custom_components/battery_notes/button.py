@@ -54,7 +54,6 @@ from .entity import (
     BatteryNotesEntityDescription,
 )
 
-from .last_changed_store import LastChangedStore
 from .library import ModelInfo, DeviceBatteryDetails, Library
 
 
@@ -240,5 +239,5 @@ class BatteryNotesButton(ButtonEntity):
         await self.hass.async_add_executor_job(self.update_battery_last_changed)
         # await self.entity_description.press_fn(self.hass)
 
-        last_changed_store = LastChangedStore.factory(self.hass)
-        await last_changed_store.set_device_battery_last_changed("123", datetime.now())
+        # last_changed_store = LastChangedStore.factory(self.hass)
+        # await last_changed_store.set_device_battery_last_changed("123", datetime.now())

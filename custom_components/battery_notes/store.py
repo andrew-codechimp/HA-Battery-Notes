@@ -1,23 +1,19 @@
 """Data store for battery_notes."""
 from __future__ import annotations
 
-import json
 import logging
-import os
 import attr
-from typing import NamedTuple
+from collections import OrderedDict
+from typing import MutableMapping, cast
 from datetime import datetime, time, timedelta, timezone
 from dataclasses import dataclass
 
-from homeassistant.core import HomeAssistant
-from homeassistant.config import get_default_config_dir
+from homeassistant.core import (callback, HomeAssistant)
+from homeassistant.loader import bind_hass
 from homeassistant.helpers.storage import Store
 
 from .const import (
     DOMAIN,
-    DATA_LAST_CHANGED,
-    DOMAIN_CONFIG,
-    CONF_LAST_CHANGED_STORE,
 )
 
 _LOGGER = logging.getLogger(__name__)
@@ -28,87 +24,127 @@ STORAGE_VERSION_MAJOR = 1
 STORAGE_VERSION_MINOR = 0
 SAVE_DELAY = 10
 
+@attr.s(slots=True, frozen=True)
+class DeviceEntry:
+    """Last Changed storage Entry."""
+
+    device_id = attr.ib(type=str, default=None)
+    last_changed = attr.ib(type=datetime, default=None)
 
 class MigratableStore(Store):
-    """Hold last changed data."""
+    """Holds battery notes data."""
 
-    @dataclass
-    class DataStore:
-        devices = {}
+    async def _async_migrate_func(self, old_major_version: int, old_minor_version: int, data: dict):
 
-    _data_store = DataStore()
+        # if old_major_version == 1:
+            # Do nothing for now
 
-    _json_path: str = None
+        return data
+
+
+class BatteryNotesStorage:
+    """Class to hold battery notes data."""
 
     def __init__(self, hass: HomeAssistant) -> None:
-        """Init."""
+        """Initialize the storage."""
+        self.hass = hass
+        self.devices: MutableMapping[str, DeviceEntry] = {}
+        self._store = MigratableStore(hass, STORAGE_VERSION_MAJOR, STORAGE_KEY, minor_version=STORAGE_VERSION_MINOR)
 
-        self._json_path = os.path.join(
-            hass.config.config_dir,
-            ".storage",
-            CONF_LAST_CHANGED_STORE,
-        )
+    async def async_load(self) -> None:
+        """Load the registry of schedule entries."""
+        data = await self._store.async_load()
+        devices: "OrderedDict[str, DeviceEntry]" = OrderedDict()
 
-        _LOGGER.debug("Using last changed store at %s", self._json_path)
+        if data is not None:
+            if "devices" in data:
+                for device in data["devices"]:
+                    devices[device["device_id"]] = DeviceEntry(**device)
 
-        if os.path.exists(self._json_path):
-            with open(self._json_path, encoding="utf-8") as myfile:
-                json_data = json.load(myfile)
-                self._data_store = json_data
-                myfile.close()
+        self.devices = devices
 
-            _LOGGER.debug("Loaded last changed store at %s", self._json_path)
+    @callback
+    def async_schedule_save(self) -> None:
+        """Schedule saving the registry."""
+        self._store.async_delay_save(self._data_to_save, SAVE_DELAY)
 
-    @staticmethod
-    def factory(hass: HomeAssistant) -> LastChangedStore:
-        """Return the library or create."""
+    async def async_save(self) -> None:
+        """Save the registry."""
+        await self._store.async_save(self._data_to_save())
 
-        if DOMAIN not in hass.data:
-            hass.data[DOMAIN] = {}
+    @callback
+    def _data_to_save(self) -> dict:
+        """Return data for the registry to store in a file."""
+        store_data = {}
 
-        if DATA_LAST_CHANGED in hass.data[DOMAIN]:
-            return hass.data[DOMAIN][DATA_LAST_CHANGED]  # type: ignore
+        store_data["devices"] = [
+            attr.asdict(entry) for entry in self.sensors.values()
+        ]
 
-        last_changed_store = LastChangedStore(hass)
-        hass.data[DOMAIN][DATA_LAST_CHANGED] = last_changed_store
-        return last_changed_store
+        return store_data
 
-    async def get_device_battery_last_changed(self, device_id: str) -> datetime | None:
-        """Return last changed date time."""
+    async def async_delete(self):
+        """Delete data."""
+        _LOGGER.warning("Removing battery notes data!")
+        await self._store.async_remove()
+        self.devices = {}
+        await self.async_factory_default()
 
-        if self._data_store.devices is not None:
-            return self._data_store.devices[device_id]
 
-        return None
+    @callback
+    def async_get_device(self, device_id) -> DeviceEntry:
+        """Get an existing DeviceEntry by id."""
+        res = self.devices.get(device_id)
+        return attr.asdict(res) if res else None
 
-    async def set_device_battery_last_changed(
-        self, device_id: str, last_changed: datetime | None
-    ) -> None:
-        """Add or update the dictionary item."""
+    @callback
+    def async_get_device(self):
+        """Get an existing DeviceEntry by id."""
+        res = {}
+        for (key, val) in self.devices.items():
+            res[key] = attr.asdict(val)
+        return res
 
-        if self._data_store:
-            self._data_store.devices[device_id] = last_changed
-        else:
-            self._data_store.devices = {device_id: last_changed}
+    @callback
+    def async_create_device(self, device_id: str, data: dict) -> DeviceEntry:
+        """Create a new DeviceEntry."""
+        if device_id in self.devices:
+            return False
+        new_device = DeviceEntry(**data, device_id=device_id)
+        self.devices[device_id] = new_device
+        self.async_schedule_save()
+        return new_device
 
-        print(self._data_store.devices)
+    @callback
+    def async_delete_device(self, device_id: str) -> None:
+        """Delete DeviceEntry."""
+        if device_id in self.devices:
+            del self.devices[device_id]
+            self.async_schedule_save()
+            return True
+        return False
 
-        if self._data_store:
-            json_str = json.dumps(
-                self._data_store, ensure_ascii=False, indent=4, default=str
-            )
+    @callback
+    def async_update_device(self, device_id: str, changes: dict) -> DeviceEntry:
+        """Update existing DeviceEntry."""
+        old = self.devices[device_id]
+        new = self.devices[device_id] = attr.evolve(old, **changes)
+        self.async_schedule_save()
+        return new
 
-            print(json_str)
-        else:
-            print("No devices")
 
-        with open(self._json_path, "w", encoding="utf-8") as myfile:
-            myfile.write(json_str)
-            # json.dump(json_str,
-            #           myfile,
-            #           ensure_ascii=False,
-            #           indent=4,
-            #           default=str)
-            myfile.close()
+@bind_hass
+async def async_get_registry(hass: HomeAssistant) -> BatteryNotesStorage:
+    """Return battery notes storage instance."""
+    task = hass.data.get(DATA_REGISTRY)
 
-        return None
+    if task is None:
+
+        async def _load_reg() -> BatteryNotesStorage:
+            registry = BatteryNotesStorage(hass)
+            await registry.async_load()
+            return registry
+
+        task = hass.data[DATA_REGISTRY] = hass.async_create_task(_load_reg())
+
+    return cast(BatteryNotesStorage, await task)

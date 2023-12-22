@@ -89,24 +89,6 @@ lastChangedSensorEntityDescription = BatteryNotesSensorEntityDescription(
     device_class=SensorDeviceClass.DATE,
 )
 
-# ENTITY_DESCRIPTIONS: tuple[BatteryNotesSensorEntityDescription, ...] = (
-#     BatteryNotesSensorEntityDescription(
-#         unique_id_suffix="", # battery_type has uniqueId set to entityId in V1, never add a suffix
-#         key="battery_type",
-#         translation_key="battery_type",
-#         icon="mdi:battery-unknown",
-#         entity_category=EntityCategory.DIAGNOSTIC,
-#     ),
-#    BatteryNotesSensorEntityDescription(
-#         unique_id_suffix="_battery_last_changed",
-#         key="battery_last_changed",
-#         translation_key="battery_last_changed",
-#         icon="mdi:battery-clock",
-#         entity_category=EntityCategory.DIAGNOSTIC,
-#         device_class=SensorDeviceClass.DATE
-#     ),
-# )
-
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
     {
         vol.Optional(CONF_NAME): cv.string,
@@ -193,6 +175,7 @@ async def async_setup_entry(
         ),
         BatteryNotesLastChangedSensor(
             hass,
+            coordinator,
             lastChangedSensorEntityDescription,
             device_id,
             f"{config_entry.entry_id}{lastChangedSensorEntityDescription.unique_id_suffix}",
@@ -252,8 +235,7 @@ class BatteryNotesSensor(RestoreSensor, SensorEntity, CoordinatorEntity):
             async_track_state_change_event(
                 self.hass,
                 [self._attr_unique_id],
-                self._async_battery_note_state_changed_listener
-                # TODO also add CONF_UNIQUE_ID + "_battery_changed_button listener"
+                self._async_battery_note_state_changed_listener,
             )
         )
 
@@ -297,22 +279,16 @@ class BatteryNotesTypeSensor(BatteryNotesSensor):
         self._battery_type = battery_type
 
     @property
-    def device_state_attributes(self):
-        """Return the state attributes of the sensor."""
-        return self.hass.custom_attributes
-
-    def update(self):
-        attributes = {}
-        attributes["mac"] = "some data"
-        attributes["sn"] = "some other data"
-        self.hass.custom_attributes = attributes
-
-    @property
     def native_value(self) -> str:
         """Return the native value of the sensor."""
 
         return self._battery_type
 
+    @callback
+    def _async_battery_type_state_changed_listener(self) -> None:
+        """Handle the sensor state changes."""
+        self.async_write_ha_state()
+        self.async_schedule_update_ha_state(True)
 
 class BatteryNotesLastChangedSensor(BatteryNotesSensor):
     """Represents a battery note sensor."""
@@ -322,13 +298,14 @@ class BatteryNotesLastChangedSensor(BatteryNotesSensor):
     def __init__(
         self,
         hass,
+        coordinator: BatteryNotesLibraryUpdateCoordinator,
         description: BatteryNotesSensorEntityDescription,
         device_id: str,
         unique_id: str,
         last_changed: datetime | None = None,
     ) -> None:
         """Initialize the sensor."""
-        super().__init__(hass, description, device_id, unique_id)
+        super().__init__(hass, coordinator, description, device_id, unique_id)
         self._attr_device_class = description.device_class
         self._last_changed = last_changed
 

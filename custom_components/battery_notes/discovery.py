@@ -20,7 +20,6 @@ from .const import (
     DOMAIN,
 )
 from .library import ModelInfo, DeviceBatteryDetails, Library
-from .last_changed_store import LastChangedStore
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -82,12 +81,6 @@ class DiscoveryManager:
         """Start the discovery procedure."""
         _LOGGER.debug("Start auto discovering devices")
         device_registry = dr.async_get(self.hass)
-
-        # TODO: Just a test
-        last_changed_store = LastChangedStore.factory(self.hass)
-        ret = await last_changed_store.set_device_battery_last_changed(
-            device_id="123", last_changed=datetime.now()
-        )
 
         library = Library.factory(self.hass)
 
