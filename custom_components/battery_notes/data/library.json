@@ -319,6 +319,12 @@
         },
         {
             "manufacturer": "IKEA of Sweden",
+            "model": "Remote Control N2",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "IKEA of Sweden",
             "model": "RODRET Dimmer",
             "battery_type": "AAA"
         },
@@ -390,6 +396,12 @@
             "manufacturer": "Linkind",
             "model": "Security keypad battery (ZS130000078)",
             "battery_type": "CR123A",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "LUMI",
+            "model": "lumi.airrtc.agl001",
+            "battery_type": "AA",
             "battery_quantity": 2
         },
         {
@@ -1051,6 +1063,11 @@
         },
         {
             "manufacturer": "Xiaomi",
+            "model": "LYWSD03MMC/MJWSD05MMC_PVVX",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Xiaomi",
             "model": "LYWSDCGQ",
             "battery_type": "AAA"
         },
@@ -1148,6 +1165,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "_TZE200_b6wax7g0",
+            "model": "TS0601",
+            "battery_type": "AA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "_TZE200_c88teujp",
