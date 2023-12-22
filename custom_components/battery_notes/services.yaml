@@ -1,0 +1,17 @@
+
+battery_changed:
+  name: Battery Changed
+  description: "Set the battery last changed date on a device."
+  fields:
+    device_id:
+      name: Device
+      description: Device that has had it's battery changed.
+      required: true
+      selector:
+        device:
+    date_changed:
+      name: Date Changed
+      description: Date battery changed.
+      required: false
+      selector:
+        date:

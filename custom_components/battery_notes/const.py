@@ -3,8 +3,13 @@ import json
 from logging import Logger, getLogger
 from pathlib import Path
 from typing import Final
+import voluptuous as vol
 
-from homeassistant.const import Platform
+from homeassistant.const import (
+    Platform
+)
+
+from homeassistant.helpers import config_validation as cv
 
 LOGGER: Logger = getLogger(__package__)
 
@@ -35,6 +40,18 @@ DATA_DOMAIN_ENTITIES = "domain_entities"
 DATA_LIBRARY = "library"
 DATA_UPDATE_COORDINATOR = "update_coordinator"
 DATA_LIBRARY_LAST_UPDATE = "library_last_update"
+
+SERVICE_BATTERY_CHANGED = "battery_changed"
+
+ATTR_DEVICE_ID = "device_id"
+ATTR_DATE_CHANGED = "date_changed"
+
+SERVICE_BATTERY_CHANGED_SCHEMA = vol.Schema(
+    {
+        vol.Required(ATTR_DEVICE_ID): cv.string,
+        vol.Optional(ATTR_DATE_CHANGED): cv.date,
+    }
+)
 
 PLATFORMS: Final = [
     Platform.BUTTON,

@@ -6,6 +6,7 @@ https://github.com/andrew-codechimp/ha-battery-notes
 from __future__ import annotations
 
 import logging
+from datetime import date
 
 import homeassistant.helpers.config_validation as cv
 import voluptuous as vol
@@ -15,8 +16,10 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.const import __version__ as HA_VERSION  # noqa: N812
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
-
 from homeassistant.helpers.typing import ConfigType
+from homeassistant.helpers.service import (
+    async_register_admin_service,
+)
 
 from .discovery import DiscoveryManager
 from .library_coordinator import BatteryNotesLibraryUpdateCoordinator
@@ -31,6 +34,8 @@ from .const import (
     CONF_ENABLE_AUTODISCOVERY,
     CONF_LIBRARY,
     DATA_UPDATE_COORDINATOR,
+    SERVICE_BATTERY_CHANGED,
+    SERVICE_BATTERY_CHANGED_SCHEMA,
 )
 
 MIN_HA_VERSION = "2023.7"
@@ -51,6 +56,8 @@ CONFIG_SCHEMA = vol.Schema(
     extra=vol.ALLOW_EXTRA,
 )
 
+ATTR_SERVICE_DEVICE_ID = "device_id"
+ATTR_SERVICE_DATE_CHANGED = "date_changed"
 
 async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     """Integration setup."""
@@ -97,6 +104,9 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
 
     entry.async_on_unload(entry.add_update_listener(async_update_options))
 
+    # Register custom services
+    register_services(hass)
+
     return True
 
 
@@ -110,7 +120,16 @@ async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Unload a config entry."""
     return await hass.config_entries.async_unload_platforms(entry, PLATFORMS)
 
+@callback
+def register_services(hass):
+    """Register services used by battery notes component."""
 
-async def config_entry_update_listener(hass: HomeAssistant, entry: ConfigEntry) -> None:
-    """Update listener, called when the config entry options are changed."""
-    await hass.config_entries.async_reload(entry.entry_id)
+    async def handle_battery_changed(call):
+        """Handle the service call."""
+        device_id = call.data.get(ATTR_SERVICE_DEVICE_ID, "")
+        date_changed = call.data.get(ATTR_SERVICE_DATE_CHANGED, date.today())
+
+        # coordinator.store.async_update_user(user[const.ATTR_USER_ID], {const.ATTR_ENABLED: enable})
+        _LOGGER.debug("Device {} battery changed on {}".format(device_id,str(date_changed)))
+
+    async_register_admin_service(hass, DOMAIN, SERVICE_BATTERY_CHANGED, handle_battery_changed, schema=SERVICE_BATTERY_CHANGED_SCHEMA)
