@@ -145,10 +145,10 @@ def register_services(hass):
 
         coordinator = hass.data[DOMAIN][DATA_COORDINATOR]
         device_entry = {
-            "last_changed" : date_changed
+            "battery_last_changed" : date_changed
             }
 
-        coordinator.store.async_create_device(device_id = device_id, data = device_entry)
+        coordinator.async_update_device_config(device_id = device_id, data = device_entry)
 
         # coordinator.store.async_update_user(user[const.ATTR_USER_ID], {const.ATTR_ENABLED: enable})
         _LOGGER.debug("Device {} battery changed on {}".format(device_id,str(date_changed)))

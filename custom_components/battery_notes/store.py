@@ -29,7 +29,7 @@ class DeviceEntry:
     """Battery Notes storage Entry."""
 
     device_id = attr.ib(type=str, default=None)
-    last_changed = attr.ib(type=date, default=None)
+    battery_last_changed = attr.ib(type=date, default=None)
 
 class MigratableStore(Store):
     """Holds battery notes data."""
@@ -97,13 +97,13 @@ class BatteryNotesStorage:
         res = self.devices.get(device_id)
         return attr.asdict(res) if res else None
 
-    @callback
-    def async_get_device(self):
-        """Get an existing DeviceEntry by id."""
-        res = {}
-        for (key, val) in self.devices.items():
-            res[key] = attr.asdict(val)
-        return res
+    # @callback
+    # def async_get_device(self):
+    #     """Get an existing DeviceEntry by id."""
+    #     res = {}
+    #     for (key, val) in self.devices.items():
+    #         res[key] = attr.asdict(val)
+    #     return res
 
     @callback
     def async_create_device(self, device_id: str, data: dict) -> DeviceEntry:
