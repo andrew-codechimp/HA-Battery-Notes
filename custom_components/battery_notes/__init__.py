@@ -132,4 +132,4 @@ def register_services(hass):
         # coordinator.store.async_update_user(user[const.ATTR_USER_ID], {const.ATTR_ENABLED: enable})
         _LOGGER.debug("Entity {} battery changed on {}".format(entity_id,str(date_changed)))
 
-    async_register_admin_service(hass, DOMAIN, SERVICE_BATTERY_CHANGED, handle_battery_changed, schema=SERVICE_BATTERY_CHANGED_SCHEMA)
+    hass.services.async_register(DOMAIN, SERVICE_BATTERY_CHANGED, handle_battery_changed, schema=SERVICE_BATTERY_CHANGED_SCHEMA)
