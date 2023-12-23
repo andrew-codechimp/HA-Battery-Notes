@@ -1,7 +1,7 @@
 
 set_battery_changed:
   name: Set battery changed
-  description: "Set the battery last changed date on a device."
+  description: "Set the battery last changed date."
   fields:
     entity_id:
       name: Entity

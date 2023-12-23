@@ -5,7 +5,7 @@ import logging
 import attr
 from collections import OrderedDict
 from typing import MutableMapping, cast
-from datetime import datetime, time, timedelta, timezone
+from datetime import date
 from dataclasses import dataclass
 
 from homeassistant.core import (callback, HomeAssistant)
@@ -25,11 +25,11 @@ STORAGE_VERSION_MINOR = 0
 SAVE_DELAY = 10
 
 @attr.s(slots=True, frozen=True)
-class DeviceEntry:
+class LastChangedEntry:
     """Last Changed storage Entry."""
 
-    device_id = attr.ib(type=str, default=None)
-    last_changed = attr.ib(type=datetime, default=None)
+    entity_id = attr.ib(type=str, default=None)
+    last_changed = attr.ib(type=date, default=None)
 
 class MigratableStore(Store):
     """Holds battery notes data."""
@@ -48,20 +48,20 @@ class BatteryNotesStorage:
     def __init__(self, hass: HomeAssistant) -> None:
         """Initialize the storage."""
         self.hass = hass
-        self.devices: MutableMapping[str, DeviceEntry] = {}
+        self.last_changed_entities: MutableMapping[str, LastChangedEntry] = {}
         self._store = MigratableStore(hass, STORAGE_VERSION_MAJOR, STORAGE_KEY, minor_version=STORAGE_VERSION_MINOR)
 
     async def async_load(self) -> None:
         """Load the registry of schedule entries."""
         data = await self._store.async_load()
-        devices: "OrderedDict[str, DeviceEntry]" = OrderedDict()
+        last_changed_entities: "OrderedDict[str, LastChangedEntry]" = OrderedDict()
 
         if data is not None:
-            if "devices" in data:
-                for device in data["devices"]:
-                    devices[device["device_id"]] = DeviceEntry(**device)
+            if "last_changed_entities" in data:
+                for entity in data["last_changed_entities"]:
+                    last_changed_entities[entity["entity_id"]] = LastChangedEntry(**entity)
 
-        self.devices = devices
+        self.last_changed_entities = last_changed_entities
 
     @callback
     def async_schedule_save(self) -> None:
@@ -87,48 +87,48 @@ class BatteryNotesStorage:
         """Delete data."""
         _LOGGER.warning("Removing battery notes data!")
         await self._store.async_remove()
-        self.devices = {}
+        self.last_changed_entities = {}
         await self.async_factory_default()
 
 
     @callback
-    def async_get_device(self, device_id) -> DeviceEntry:
+    def async_get_last_changed(self, entity_id) -> LastChangedEntry:
         """Get an existing DeviceEntry by id."""
-        res = self.devices.get(device_id)
+        res = self.last_changed_entities.get(entity_id)
         return attr.asdict(res) if res else None
 
     @callback
-    def async_get_device(self):
-        """Get an existing DeviceEntry by id."""
+    def async_get_last_changed(self):
+        """Get an existing LastChangedEntry by id."""
         res = {}
-        for (key, val) in self.devices.items():
+        for (key, val) in self.last_changed_entities.items():
             res[key] = attr.asdict(val)
         return res
 
     @callback
-    def async_create_device(self, device_id: str, data: dict) -> DeviceEntry:
-        """Create a new DeviceEntry."""
-        if device_id in self.devices:
+    def async_create_last_changed(self, entity_id: str, data: dict) -> LastChangedEntry:
+        """Create a new LastChangedEntry."""
+        if entity_id in self.last_changed_entities:
             return False
-        new_device = DeviceEntry(**data, device_id=device_id)
-        self.devices[device_id] = new_device
+        new_device = LastChangedEntry(**data, entity_id=entity_id)
+        self.last_changed_entities[entity_id] = new_device
         self.async_schedule_save()
         return new_device
 
     @callback
-    def async_delete_device(self, device_id: str) -> None:
+    def async_delete_last_changed(self, entity_id: str) -> None:
         """Delete DeviceEntry."""
-        if device_id in self.devices:
-            del self.devices[device_id]
+        if entity_id in self.last_changed_entities:
+            del self.last_changed_entities[entity_id]
             self.async_schedule_save()
             return True
         return False
 
     @callback
-    def async_update_device(self, device_id: str, changes: dict) -> DeviceEntry:
+    def async_update_last_changed(self, entity_id: str, changes: dict) -> LastChangedEntry:
         """Update existing DeviceEntry."""
-        old = self.devices[device_id]
-        new = self.devices[device_id] = attr.evolve(old, **changes)
+        old = self.last_changed_entities[entity_id]
+        new = self.last_changed_entities[entity_id] = attr.evolve(old, **changes)
         self.async_schedule_save()
         return new
 

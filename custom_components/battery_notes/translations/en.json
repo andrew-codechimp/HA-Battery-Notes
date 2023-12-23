@@ -58,5 +58,17 @@
                 "name": "Battery last changed"
             }
         }
+    },
+    "services": {
+        "set_battery_changed": {
+            "description": "Set the battery last changed date.",
+            "fields": {
+                "entity_id": {
+                    "description": "Entity that has had it's battery changed.",
+                    "name": "Entity"
+                }
+            },
+            "name": "Set battery changed"
+        }
     }
 }
