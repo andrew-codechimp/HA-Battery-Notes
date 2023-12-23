@@ -503,8 +503,13 @@
         },
         {
             "manufacturer": "Mopeka IOT",
-            "model": "M1017",
+            "model": "M1015",
             "battery_type": "AAA-Lithium"
+        },
+        {
+            "manufacturer": "Mopeka IOT",
+            "model": "M1017",
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "Neo",
