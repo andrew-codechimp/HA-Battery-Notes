@@ -22,6 +22,7 @@ NAME = manifest_data.get("name")
 VERSION = manifest_data.get("version")
 ISSUEURL = manifest_data.get("issue_tracker")
 MANUFACTURER = "@Andrew-CodeChimp"
+LAST_CHANGED = "battery_last_changed"
 
 DOMAIN_CONFIG = "config"
 

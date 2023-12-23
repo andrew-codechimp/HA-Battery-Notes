@@ -1,14 +1,11 @@
 """Sensor platform for battery_notes."""
 from __future__ import annotations
 
-import datetime as py_datetime
-
+from datetime import date
 from dataclasses import dataclass
-from typing import Any, TypeVar, cast
-from datetime import datetime, time, timedelta, timezone
-
+from typing import Any, TypeVar
 import voluptuous as vol
-import pytz
+import logging
 
 import homeassistant.util.dt as dt_util
 
@@ -50,17 +47,18 @@ from .const import (
     PLATFORMS,
     CONF_BATTERY_TYPE,
     DATA_UPDATE_COORDINATOR,
+    DATA_COORDINATOR,
+    LAST_CHANGED,
 )
 
 from .library_coordinator import BatteryNotesLibraryUpdateCoordinator
+from .coordinator import BatteryNotesCoordinator
 
 from .entity import (
     BatteryNotesEntityDescription,
 )
 
-FMT_DATE = "%Y-%m-%d"
-DEFAULT_TIME = py_datetime.time(0, 0, 0)
-
+_LOGGER = logging.getLogger(__name__)
 
 @dataclass
 class BatteryNotesSensorEntityDescription(
@@ -96,12 +94,6 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
         vol.Required(CONF_BATTERY_TYPE): cv.string,
     }
 )
-
-
-def utc_from_timestamp(timestamp: float) -> datetime:
-    """Return a UTC time from a timestamp."""
-    return pytz.utc.localize(datetime.utcfromtimestamp(timestamp))
-
 
 @callback
 def async_add_to_device(hass: HomeAssistant, entry: ConfigEntry) -> str | None:
@@ -162,12 +154,13 @@ async def async_setup_entry(
 
     device_id = async_add_to_device(hass, config_entry)
 
-    coordinator = hass.data[DOMAIN][DATA_UPDATE_COORDINATOR]
+    library_coordinator = hass.data[DOMAIN][DATA_UPDATE_COORDINATOR]
+    coordinator = hass.data[DOMAIN][DATA_COORDINATOR]
 
     entities = [
         BatteryNotesTypeSensor(
             hass,
-            coordinator,
+            library_coordinator,
             typeSensorEntityDescription,
             device_id,
             f"{config_entry.entry_id}{typeSensorEntityDescription.unique_id_suffix}",
@@ -179,11 +172,12 @@ async def async_setup_entry(
             lastChangedSensorEntityDescription,
             device_id,
             f"{config_entry.entry_id}{lastChangedSensorEntityDescription.unique_id_suffix}",
-            dt_util.utcnow(),
         ),
     ]
 
     async_add_entities(entities)
+
+    await coordinator.async_config_entry_first_refresh()
 
 
 async def async_setup_platform(
@@ -290,58 +284,85 @@ class BatteryNotesTypeSensor(BatteryNotesSensor):
         self.async_write_ha_state()
         self.async_schedule_update_ha_state(True)
 
-class BatteryNotesLastChangedSensor(BatteryNotesSensor):
+class BatteryNotesLastChangedSensor(SensorEntity, CoordinatorEntity):
     """Represents a battery note sensor."""
 
+    _attr_should_poll = False
     entity_description: BatteryNotesSensorEntityDescription
 
     def __init__(
         self,
         hass,
-        coordinator: BatteryNotesLibraryUpdateCoordinator,
+        coordinator: BatteryNotesCoordinator,
         description: BatteryNotesSensorEntityDescription,
         device_id: str,
         unique_id: str,
-        last_changed: datetime | None = None,
     ) -> None:
         """Initialize the sensor."""
-        super().__init__(hass, coordinator, description, device_id, unique_id)
+        super().__init__(coordinator)
         self._attr_device_class = description.device_class
-        self._last_changed = last_changed
+        self._attr_has_entity_name = True
+        self._attr_unique_id = unique_id
+        self._device_id = device_id
+        self.entity_description = description
+        self._native_value = None
 
-    async def async_added_to_hass(self):
-        """Run when entity about to be added."""
-        await super().async_added_to_hass()
+        self._set_native_value(log_on_error=False)
 
-        state = await self.async_get_last_sensor_data()
-        if state:
-            self._attr_native_value = state.native_value
+        device_registry = dr.async_get(hass)
 
-        # Priority 1: Initial value
-        if self.state is not None:
-            return
+        if device_id and (device := device_registry.async_get(device_id)):
+            self._attr_device_info = DeviceInfo(
+                connections=device.connections,
+                identifiers=device.identifiers,
+            )
 
-        default_value = py_datetime.datetime.today().strftime(f"{FMT_DATE} 00:00:00")
+    def _set_native_value(self, log_on_error = True):
+        try:
+            device_entry = self.coordinator.store.async_get_device(self._device_id)
+            last_changed_date = date.fromisoformat(device_entry[LAST_CHANGED])
+            self._native_value = last_changed_date
+            return True
+        except:
+            if log_on_error:
+                _LOGGER.exception("Could not set native_value")
+        return False
 
-        # Priority 2: Old state
-        if (old_state := await self.async_get_last_state()) is None:
-            self._last_changed = dt_util.parse_datetime(default_value)
-            return
+    # async def async_added_to_hass(self) -> None:
+    #     """Handle added to Hass."""
+    #     await super().async_added_to_hass()
 
-        if (date := dt_util.parse_date(old_state.state)) is None:
-            current_datetime = dt_util.parse_datetime(default_value)
-        else:
-            current_datetime = py_datetime.datetime.combine(date, DEFAULT_TIME)
+    #     self.async_on_remove(
+    #         async_track_state_change_event(
+    #             self.hass,
+    #             [self._attr_unique_id],
+    #             self._async_battery_note_state_changed_listener,
+    #         )
+    #     )
 
-        self._last_changed = current_datetime.replace(tzinfo=dt_util.DEFAULT_TIME_ZONE)
+    #     # Update entity options
+    #     registry = er.async_get(self.hass)
+    #     if registry.async_get(self.entity_id) is not None:
+    #         registry.async_update_entity_options(
+    #             self.entity_id,
+    #             DOMAIN,
+    #             {"entity_id": self._attr_unique_id},
+    #         )
+
+    # @callback
+    # def _handle_coordinator_update(self) -> None:
+    #     """Handle updated data from the coordinator."""
+
+    #     device_entry = self.coordinator.store.async_get_device(self._device_id)
+
+    #     last_changed_date = date.fromisoformat(device_entry[LAST_CHANGED])
+
+    #     self._attr_native_value  = last_changed_date
+
+    #     self.async_write_ha_state()
 
     @property
-    def native_value(self) -> str | None:
+    def native_value(self) -> date | None:
         """Return the native value of the sensor."""
+        return self._native_value
 
-        # if self._last_changed is not None:
-        return self._attr_native_value
-
-        # return datetime.fromtimestamp(self._last_changed, tz=timezone.utc)
-
-        # return None
