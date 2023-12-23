@@ -12,7 +12,7 @@
             "model": "ZWA005",
             "battery_type": "CR123A"
         },
-         {
+        {
             "manufacturer": "Aeotec Ltd.",
             "model": "ZWA039",
             "battery_type": "CR2477"
@@ -38,13 +38,13 @@
             "model": "AK-R1",
             "battery_type": "AAA",
             "battery_quantity": 2
-        },            
+        },
         {
             "manufacturer": "August Home Inc.",
             "model": "AUG-SL05-M01-S01",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },    
+        },
         {
             "manufacturer": "Bosch",
             "model": "Radiator thermostat II (BTH-RA)",
@@ -90,7 +90,7 @@
             "model": "RoomStat",
             "battery_type": "AA",
             "battery_quantity": 2
-        },	    
+        },
         {
             "manufacturer": "ecobee Inc.",
             "model": "EBRSE4",
@@ -250,7 +250,7 @@
             "manufacturer": "Govee",
             "model": "H5101/H5102/H5177",
             "battery_type": "AAA"
-        }, 
+        },
         {
             "manufacturer": "HEIMAN",
             "model": "Smart carbon monoxide sensor (HS1CA-E)",
@@ -283,6 +283,11 @@
             "model": "IBS-TH",
             "battery_type": "AAA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "IKEA",
+            "model": "FYRTUR roller blind (E1757)",
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "IKEA",
@@ -500,7 +505,7 @@
             "manufacturer": "Mopeka IOT",
             "model": "M1017",
             "battery_type": "AAA-Lithium"
-        }, 
+        },
         {
             "manufacturer": "Neo",
             "model": "Temperature & humidity sensor and alarm (NAS-AB02B0)",
@@ -532,11 +537,11 @@
             "battery_quantity": 3
         },
         {
-             "manufacturer": "Netatmo",
-             "model": "Smart Indoor Module",
-             "battery_type": "AAA",
-             "battery_quantity": 2
-        },      
+            "manufacturer": "Netatmo",
+            "model": "Smart Indoor Module",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
         {
             "manufacturer": "Netatmo",
             "model": "Smart Outdoor Module",
@@ -627,15 +632,32 @@
             "manufacturer": "Philips",
             "model": "RWL021",
             "battery_type": "CR2450"
-        },	    
+        },
         {
-             "manufacturer": "Philips",
-             "model": "RWL022",
-             "battery_type": "CR2032"
+            "manufacturer": "Philips",
+            "model": "RWL022",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Ring",
+            "model": "Contact Sensor",
+            "battery_type": "CR2032",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "Ring",
             "model": "Doorbell 2",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Ring",
+            "model": "Motion Sensor",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Ring",
+            "model": "Security Keypad",
             "battery_type": "Rechargeable"
         },
         {
