@@ -3,25 +3,15 @@ from __future__ import annotations
 
 from datetime import datetime, timedelta
 import logging
-import json
-import os
 
 from homeassistant.core import HomeAssistant
 from homeassistant.exceptions import ConfigEntryNotReady
 from homeassistant.helpers.update_coordinator import (
     DataUpdateCoordinator,
-    UpdateFailed,
-)
-
-from .library_updater import (
-    LibraryUpdaterClient,
-    LibraryUpdaterClientError,
 )
 
 from .const import (
     DOMAIN,
-    LOGGER,
-    DATA_LIBRARY_LAST_UPDATE,
     ATTR_REMOVE,
 )
 
