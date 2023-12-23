@@ -61,11 +61,15 @@
     },
     "services": {
         "set_battery_changed": {
-            "description": "Set the battery last changed date.",
+            "description": "Set the battery last changed date time.",
             "fields": {
                 "device_id": {
                     "description": "Device that has had it's battery changed.",
                     "name": "Device"
+                },
+                "datetime_changed": {
+                    "description": "Date & time the battery wash changed",
+                    "name": "Date & time changed"
                 }
             },
             "name": "Set battery changed"

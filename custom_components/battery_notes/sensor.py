@@ -1,9 +1,10 @@
 """Sensor platform for battery_notes."""
 from __future__ import annotations
 
-from datetime import date
+from datetime import date, datetime
 from dataclasses import dataclass
 from typing import Any, TypeVar
+from dateutil import parser
 import voluptuous as vol
 import logging
 
@@ -84,7 +85,7 @@ lastChangedSensorEntityDescription = BatteryNotesSensorEntityDescription(
     translation_key="battery_last_changed",
     icon="mdi:battery-clock",
     entity_category=EntityCategory.DIAGNOSTIC,
-    device_class=SensorDeviceClass.DATE,
+    device_class=SensorDeviceClass.TIMESTAMP,
 )
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
@@ -320,9 +321,12 @@ class BatteryNotesLastChangedSensor(SensorEntity, CoordinatorEntity):
     def _set_native_value(self, log_on_error = True):
         try:
             device_entry = self.coordinator.store.async_get_device(self._device_id)
-            last_changed_date = date.fromisoformat(device_entry[LAST_CHANGED])
-            self._native_value = last_changed_date
-            return True
+
+            if LAST_CHANGED in device_entry:
+                last_changed_date = datetime.fromisoformat(device_entry[LAST_CHANGED] + "+00:00")
+                self._native_value = last_changed_date
+
+                return True
         except:
             if log_on_error:
                 _LOGGER.exception("Could not set native_value")
@@ -354,15 +358,14 @@ class BatteryNotesLastChangedSensor(SensorEntity, CoordinatorEntity):
     #     """Handle updated data from the coordinator."""
 
     #     device_entry = self.coordinator.store.async_get_device(self._device_id)
-
-    #     last_changed_date = date.fromisoformat(device_entry[LAST_CHANGED])
-
-    #     self._attr_native_value  = last_changed_date
-
-    #     self.async_write_ha_state()
+    #     if device_entry:
+    #         if LAST_CHANGED in device_entry:
+    #             last_changed_date = datetime.fromisoformat(device_entry[LAST_CHANGED] + "+00:00")
+    #             self._attr_native_value  = last_changed_date
+    #             self.async_write_ha_state()
 
     @property
-    def native_value(self) -> date | None:
+    def native_value(self) -> datetime | None:
         """Return the native value of the sensor."""
         return self._native_value
 

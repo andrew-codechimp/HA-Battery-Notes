@@ -47,13 +47,13 @@ DATA_STORE = "store"
 SERVICE_BATTERY_CHANGED = "set_battery_changed"
 
 ATTR_DEVICE_ID = "device_id"
-ATTR_DATE_CHANGED = "date_changed"
+ATTR_DATE_TIME_CHANGED = "datetime_changed"
 ATTR_REMOVE = "remove"
 
 SERVICE_BATTERY_CHANGED_SCHEMA = vol.Schema(
     {
         vol.Required(ATTR_DEVICE_ID): cv.string,
-        vol.Optional(ATTR_DATE_CHANGED): cv.date,
+        vol.Optional(ATTR_DATE_TIME_CHANGED): cv.datetime,
     }
 )
 

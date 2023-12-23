@@ -5,7 +5,7 @@ import logging
 import attr
 from collections import OrderedDict
 from typing import MutableMapping, cast
-from datetime import date
+from datetime import date, datetime
 from dataclasses import dataclass
 
 from homeassistant.core import (callback, HomeAssistant)
@@ -29,7 +29,7 @@ class DeviceEntry:
     """Battery Notes storage Entry."""
 
     device_id = attr.ib(type=str, default=None)
-    battery_last_changed = attr.ib(type=date, default=None)
+    battery_last_changed = attr.ib(type=datetime, default=None)
 
 class MigratableStore(Store):
     """Holds battery notes data."""

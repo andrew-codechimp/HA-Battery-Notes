@@ -6,7 +6,8 @@ https://github.com/andrew-codechimp/ha-battery-notes
 from __future__ import annotations
 
 import logging
-from datetime import date
+from datetime import datetime, time
+from dateutil import parser
 from typing import cast
 
 import homeassistant.helpers.config_validation as cv
@@ -66,7 +67,7 @@ CONFIG_SCHEMA = vol.Schema(
 )
 
 ATTR_SERVICE_DEVICE_ID = "device_id"
-ATTR_SERVICE_DATE_CHANGED = "date_changed"
+ATTR_SERVICE_DATETIME_CHANGED = "datetime_changed"
 
 async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     """Integration setup."""
@@ -141,7 +142,8 @@ def register_services(hass):
     async def handle_battery_changed(call):
         """Handle the service call."""
         device_id = call.data.get(ATTR_SERVICE_DEVICE_ID, "")
-        date_changed = call.data.get(ATTR_SERVICE_DATE_CHANGED, date.today())
+
+        date_changed = call.data.get(ATTR_SERVICE_DATETIME_CHANGED, datetime.utcnow())
 
         coordinator = hass.data[DOMAIN][DATA_COORDINATOR]
         device_entry = {

@@ -11,9 +11,9 @@ set_battery_changed:
         device:
           filter:
             - integration: battery_notes
-    date_changed:
-      name: Date Changed
-      description: Date battery changed.
+    datetime_changed:
+      name: Date & time changed
+      description: Date & time battery changed.
       required: false
       selector:
-        date:
+        datetime:
