@@ -8,6 +8,16 @@
             "battery_type": "LIR2450"
         },
         {
+            "manufacturer": "Aeotec Ltd.",
+            "model": "ZWA005",
+            "battery_type": "CR123A"
+        },
+         {
+            "manufacturer": "Aeotec Ltd.",
+            "model": "ZWA039",
+            "battery_type": "CR2477"
+        },
+        {
             "manufacturer": "Airthings AS",
             "model": "Wave Plus",
             "battery_type": "AAA",
@@ -236,6 +246,11 @@
             "battery_type": "AA",
             "battery_quantity": 3
         },
+        {
+            "manufacturer": "Govee",
+            "model": "H5101/H5102/H5177",
+            "battery_type": "AAA"
+        }, 
         {
             "manufacturer": "HEIMAN",
             "model": "Smart carbon monoxide sensor (HS1CA-E)",
@@ -475,6 +490,11 @@
             "battery_type": "AA",
             "battery_quantity": 2
         },
+        {
+            "manufacturer": "Mopeka IOT",
+            "model": "M1017",
+            "battery_type": "AAA-Lithium"
+        }, 
         {
             "manufacturer": "Neo",
             "model": "Temperature & humidity sensor and alarm (NAS-AB02B0)",
@@ -857,6 +877,11 @@
             "battery_quantity": 4
         },
         {
+            "manufacturer": "TUO Accessories LLC",
+            "model": "TUO Smart Button",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "TuYa",
             "model": "Button scene switch (SH-SC07)",
             "battery_type": "CR2032"
@@ -1158,6 +1183,12 @@
         {
             "manufacturer": "YoLink",
             "model": "DoorSensor",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Zooz",
+            "model": "ZEN34",
             "battery_type": "AAA",
             "battery_quantity": 2
         },
