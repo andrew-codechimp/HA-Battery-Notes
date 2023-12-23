@@ -382,11 +382,6 @@
         },
         {
             "manufacturer": "Lidl",
-            "model": "HG06335/HG07310",
-            "battery_type": "CR123A"
-        },
-        {
-            "manufacturer": "Lidl",
             "model": "HG06336",
             "battery_type": "AAA",
             "battery_quantity": 2
