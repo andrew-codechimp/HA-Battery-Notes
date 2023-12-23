@@ -1,0 +1,57 @@
+"""DataUpdateCoordinator for battery notes."""
+from __future__ import annotations
+
+from datetime import datetime, timedelta
+import logging
+import json
+import os
+
+from homeassistant.core import HomeAssistant
+from homeassistant.exceptions import ConfigEntryNotReady
+from homeassistant.helpers.update_coordinator import (
+    DataUpdateCoordinator,
+    UpdateFailed,
+)
+
+from .library_updater import (
+    LibraryUpdaterClient,
+    LibraryUpdaterClientError,
+)
+
+from .const import (
+    DOMAIN,
+    LOGGER,
+    DATA_LIBRARY_LAST_UPDATE,
+    ATTR_REMOVE,
+)
+
+_LOGGER = logging.getLogger(__name__)
+
+
+class BatteryNotesCoordinator(DataUpdateCoordinator):
+    """Define an object to hold Battery Notes device."""
+
+    def __init__(self, hass, store):
+        """Initialize."""
+        self.hass = hass
+        self.store = store
+
+        super().__init__(hass, _LOGGER, name=DOMAIN)
+
+    async def _async_update_data(self):
+        """Update data."""
+
+        _LOGGER.debug("Update coordinator")
+
+    def async_update_device_config(self, device_id: str, data: dict):
+        if ATTR_REMOVE in data:
+            self.store.async_delete_device(device_id)
+        elif self.store.async_get_device(device_id):
+            self.store.async_update_device(device_id, data)
+        else:
+            self.store.async_create_device(device_id, data)
+
+    async def async_delete_config(self):
+        """wipe battery notes storage"""
+        await self.store.async_delete()
+

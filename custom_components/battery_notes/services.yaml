@@ -3,16 +3,14 @@ set_battery_changed:
   name: Set battery changed
   description: "Set the battery last changed date."
   fields:
-    entity_id:
-      name: Entity
-      description: Entity that has had it's battery changed.
+    device_id:
+      name: Device
+      description: Device that has had it's battery changed.
       required: true
       selector:
-        entity:
+        device:
           filter:
             - integration: battery_notes
-              domain: sensor
-              device_class: date
     date_changed:
       name: Date Changed
       description: Date battery changed.

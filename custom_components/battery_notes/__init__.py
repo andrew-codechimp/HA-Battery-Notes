@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import logging
 from datetime import date
+from typing import cast
 
 import homeassistant.helpers.config_validation as cv
 import voluptuous as vol
@@ -26,6 +27,12 @@ from .library_coordinator import BatteryNotesLibraryUpdateCoordinator
 from .library_updater import (
     LibraryUpdaterClient,
 )
+from .coordinator import BatteryNotesCoordinator
+from .store import (
+    BatteryNotesStorage,
+    DeviceEntry,
+    async_get_registry,
+)
 
 from .const import (
     DOMAIN,
@@ -36,6 +43,8 @@ from .const import (
     DATA_UPDATE_COORDINATOR,
     SERVICE_BATTERY_CHANGED,
     SERVICE_BATTERY_CHANGED_SCHEMA,
+    DATA_STORE,
+    DATA_COORDINATOR,
 )
 
 MIN_HA_VERSION = "2023.7"
@@ -56,7 +65,7 @@ CONFIG_SCHEMA = vol.Schema(
     extra=vol.ALLOW_EXTRA,
 )
 
-ATTR_SERVICE_ENTITY_ID = "entity_id"
+ATTR_SERVICE_DEVICE_ID = "device_id"
 ATTR_SERVICE_DATE_CHANGED = "date_changed"
 
 async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
@@ -79,12 +88,17 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         DOMAIN_CONFIG: domain_config,
     }
 
-    coordinator = BatteryNotesLibraryUpdateCoordinator(
+    store = await async_get_registry(hass)
+
+    coordinator = BatteryNotesCoordinator(hass, store)
+    hass.data[DOMAIN][DATA_COORDINATOR] = coordinator
+
+    library_coordinator = BatteryNotesLibraryUpdateCoordinator(
         hass=hass,
         client=LibraryUpdaterClient(session=async_get_clientsession(hass)),
     )
 
-    hass.data[DOMAIN][DATA_UPDATE_COORDINATOR] = coordinator
+    hass.data[DOMAIN][DATA_UPDATE_COORDINATOR] = library_coordinator
 
     await coordinator.async_refresh()
 
@@ -126,10 +140,17 @@ def register_services(hass):
 
     async def handle_battery_changed(call):
         """Handle the service call."""
-        entity_id = call.data.get(ATTR_SERVICE_ENTITY_ID, "")
+        device_id = call.data.get(ATTR_SERVICE_DEVICE_ID, "")
         date_changed = call.data.get(ATTR_SERVICE_DATE_CHANGED, date.today())
 
+        coordinator = hass.data[DOMAIN][DATA_COORDINATOR]
+        device_entry = {
+            "last_changed" : date_changed
+            }
+
+        coordinator.store.async_create_device(device_id = device_id, data = device_entry)
+
         # coordinator.store.async_update_user(user[const.ATTR_USER_ID], {const.ATTR_ENABLED: enable})
-        _LOGGER.debug("Entity {} battery changed on {}".format(entity_id,str(date_changed)))
+        _LOGGER.debug("Device {} battery changed on {}".format(device_id,str(date_changed)))
 
     hass.services.async_register(DOMAIN, SERVICE_BATTERY_CHANGED, handle_battery_changed, schema=SERVICE_BATTERY_CHANGED_SCHEMA)

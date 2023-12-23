@@ -78,7 +78,7 @@ class BatteryNotesStorage:
         store_data = {}
 
         store_data["devices"] = [
-            attr.asdict(entry) for entry in self.sensors.values()
+            attr.asdict(entry) for entry in self.devices.values()
         ]
 
         return store_data

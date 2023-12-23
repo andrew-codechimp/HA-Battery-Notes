@@ -40,15 +40,18 @@ DATA_DOMAIN_ENTITIES = "domain_entities"
 DATA_LIBRARY = "library"
 DATA_UPDATE_COORDINATOR = "update_coordinator"
 DATA_LIBRARY_LAST_UPDATE = "library_last_update"
+DATA_COORDINATOR = "coordinator"
+DATA_STORE = "store"
 
 SERVICE_BATTERY_CHANGED = "set_battery_changed"
 
-ATTR_ENTITY_ID = "entity_id"
+ATTR_DEVICE_ID = "device_id"
 ATTR_DATE_CHANGED = "date_changed"
+ATTR_REMOVE = "remove"
 
 SERVICE_BATTERY_CHANGED_SCHEMA = vol.Schema(
     {
-        vol.Required(ATTR_ENTITY_ID): cv.entity_id,
+        vol.Required(ATTR_DEVICE_ID): cv.string,
         vol.Optional(ATTR_DATE_CHANGED): cv.date,
     }
 )
