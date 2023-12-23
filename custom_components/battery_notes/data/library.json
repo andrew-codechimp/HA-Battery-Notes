@@ -381,6 +381,12 @@
             "battery_quantity": 4
         },
         {
+            "manufacturer": "Kwikset",
+            "model": "SMARTCODE_DEADBOLT_10T",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
             "manufacturer": "Lidl",
             "model": "HG06336",
             "battery_type": "AAA",
@@ -981,6 +987,12 @@
             "manufacturer": "VictorPest.com",
             "model": "Rat Trap",
             "battery_type": "C",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Yale",
+            "model": "YRD220/240 TSDB",
+            "battery_type": "AA",
             "battery_quantity": 4
         },
         {
