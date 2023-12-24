@@ -68,7 +68,7 @@
                     "name": "Device"
                 },
                 "datetime_changed": {
-                    "description": "Date & time the battery wash changed",
+                    "description": "Date & time battery changed, defaults to now.",
                     "name": "Date & time changed"
                 }
             },

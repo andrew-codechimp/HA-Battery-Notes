@@ -22,6 +22,7 @@ from homeassistant.helpers.typing import ConfigType
 from homeassistant.helpers.service import (
     async_register_admin_service,
 )
+from homeassistant.helpers import device_registry as dr
 
 from .discovery import DiscoveryManager
 from .library_coordinator import BatteryNotesLibraryUpdateCoordinator
@@ -31,7 +32,6 @@ from .library_updater import (
 from .coordinator import BatteryNotesCoordinator
 from .store import (
     BatteryNotesStorage,
-    DeviceEntry,
     async_get_registry,
 )
 
@@ -46,6 +46,7 @@ from .const import (
     SERVICE_BATTERY_CHANGED_SCHEMA,
     DATA_STORE,
     DATA_COORDINATOR,
+    ATTR_REMOVE,
 )
 
 MIN_HA_VERSION = "2023.7"
@@ -124,6 +125,25 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
 
     return True
 
+async def async_remove_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> None:
+    print(config_entry)
+
+# async def async_remove_config_entry_device(
+#     hass: HomeAssistant, config_entry: ConfigEntry, device_entry: dr.DeviceEntry
+# ) -> bool:
+#     """Remove a config entry from a device."""
+
+#     print("Here")
+#     print(device_entry)
+
+#     coordinator = hass.data[DOMAIN][DATA_COORDINATOR]
+#     data = {
+#         ATTR_REMOVE : True
+#         }
+
+#     coordinator.async_update_device_config(device_id = device_entry.id, data = data)
+
+#     return True
 
 @callback
 async def async_update_options(hass: HomeAssistant, entry: ConfigEntry) -> None:
