@@ -317,7 +317,6 @@ class BatteryNotesLastChangedSensor(SensorEntity, CoordinatorEntity):
             )
 
     def _set_native_value(self, log_on_error=True):
-        # try:
         device_entry = self.coordinator.store.async_get_device(self._device_id)
         if device_entry:
             if LAST_CHANGED in device_entry:
@@ -327,9 +326,6 @@ class BatteryNotesLastChangedSensor(SensorEntity, CoordinatorEntity):
                 self._native_value = last_changed_date
 
                 return True
-        # except:
-        #     if log_on_error:
-        #         _LOGGER.exception("Could not set native_value")
         return False
 
     # async def async_added_to_hass(self) -> None:
