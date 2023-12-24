@@ -152,6 +152,9 @@ def register_services(hass):
 
         coordinator.async_update_device_config(device_id = device_id, data = device_entry)
 
+        await coordinator._async_update_data()
+        await coordinator.async_request_refresh()
+
         # coordinator.store.async_update_user(user[const.ATTR_USER_ID], {const.ATTR_ENABLED: enable})
         _LOGGER.debug("Device {} battery changed on {}".format(device_id,str(date_changed)))
 

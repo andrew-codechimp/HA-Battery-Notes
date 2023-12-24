@@ -246,3 +246,5 @@ class BatteryNotesButton(ButtonEntity):
 
         coordinator = self.hass.data[DOMAIN][DATA_COORDINATOR]
         coordinator.async_update_device_config(device_id = device_id, data = device_entry)
+        await coordinator._async_update_data()
+        await coordinator.async_request_refresh()

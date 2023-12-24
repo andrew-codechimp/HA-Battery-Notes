@@ -319,17 +319,17 @@ class BatteryNotesLastChangedSensor(SensorEntity, CoordinatorEntity):
             )
 
     def _set_native_value(self, log_on_error = True):
-        try:
-            device_entry = self.coordinator.store.async_get_device(self._device_id)
-
+        # try:
+        device_entry = self.coordinator.store.async_get_device(self._device_id)
+        if device_entry:
             if LAST_CHANGED in device_entry:
-                last_changed_date = datetime.fromisoformat(device_entry[LAST_CHANGED] + "+00:00")
+                last_changed_date = datetime.fromisoformat(str(device_entry[LAST_CHANGED]) + "+00:00")
                 self._native_value = last_changed_date
 
                 return True
-        except:
-            if log_on_error:
-                _LOGGER.exception("Could not set native_value")
+        # except:
+        #     if log_on_error:
+        #         _LOGGER.exception("Could not set native_value")
         return False
 
     # async def async_added_to_hass(self) -> None:
@@ -353,16 +353,17 @@ class BatteryNotesLastChangedSensor(SensorEntity, CoordinatorEntity):
     #             {"entity_id": self._attr_unique_id},
     #         )
 
-    # @callback
-    # def _handle_coordinator_update(self) -> None:
-    #     """Handle updated data from the coordinator."""
+    @callback
+    def _handle_coordinator_update(self) -> None:
+        """Handle updated data from the coordinator."""
 
-    #     device_entry = self.coordinator.store.async_get_device(self._device_id)
-    #     if device_entry:
-    #         if LAST_CHANGED in device_entry:
-    #             last_changed_date = datetime.fromisoformat(device_entry[LAST_CHANGED] + "+00:00")
-    #             self._attr_native_value  = last_changed_date
-    #             self.async_write_ha_state()
+        device_entry = self.coordinator.store.async_get_device(self._device_id)
+        if device_entry:
+            if LAST_CHANGED in device_entry:
+                last_changed_date = datetime.fromisoformat(str(device_entry[LAST_CHANGED]) + "+00:00")
+                self._native_value = last_changed_date
+
+                self.async_write_ha_state()
 
     @property
     def native_value(self) -> datetime | None:
