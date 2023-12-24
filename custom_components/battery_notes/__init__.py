@@ -23,6 +23,8 @@ from homeassistant.helpers.service import (
     async_register_admin_service,
 )
 from homeassistant.helpers import device_registry as dr
+from homeassistant.helpers import entity_registry as er
+
 
 from .discovery import DiscoveryManager
 from .library_coordinator import BatteryNotesLibraryUpdateCoordinator
@@ -126,24 +128,20 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     return True
 
 async def async_remove_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> None:
-    print(config_entry)
 
-# async def async_remove_config_entry_device(
-#     hass: HomeAssistant, config_entry: ConfigEntry, device_entry: dr.DeviceEntry
-# ) -> bool:
-#     """Remove a config entry from a device."""
+    if "device_id" not in config_entry.data:
+        return
 
-#     print("Here")
-#     print(device_entry)
+    device_id = config_entry.data["device_id"]
 
-#     coordinator = hass.data[DOMAIN][DATA_COORDINATOR]
-#     data = {
-#         ATTR_REMOVE : True
-#         }
+    coordinator = hass.data[DOMAIN][DATA_COORDINATOR]
+    data = {
+        ATTR_REMOVE : True
+        }
 
-#     coordinator.async_update_device_config(device_id = device_entry.id, data = data)
+    coordinator.async_update_device_config(device_id = device_id, data = data)
 
-#     return True
+    _LOGGER.debug("Removed Device {}".format(device_id))
 
 @callback
 async def async_update_options(hass: HomeAssistant, entry: ConfigEntry) -> None:
