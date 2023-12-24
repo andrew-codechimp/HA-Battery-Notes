@@ -1,11 +1,8 @@
 """DataUpdateCoordinator for battery notes."""
 from __future__ import annotations
 
-from datetime import datetime, timedelta
 import logging
 
-from homeassistant.core import HomeAssistant
-from homeassistant.exceptions import ConfigEntryNotReady
 from homeassistant.helpers.update_coordinator import (
     DataUpdateCoordinator,
 )
@@ -34,6 +31,8 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
         _LOGGER.debug("Update coordinator")
 
     def async_update_device_config(self, device_id: str, data: dict):
+        """Conditional create, update or remove device from store."""
+
         if ATTR_REMOVE in data:
             self.store.async_delete_device(device_id)
         elif self.store.async_get_device(device_id):
@@ -42,6 +41,6 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
             self.store.async_create_device(device_id, data)
 
     async def async_delete_config(self):
-        """wipe battery notes storage"""
-        await self.store.async_delete()
+        """Wipe battery notes storage."""
 
+        await self.store.async_delete()

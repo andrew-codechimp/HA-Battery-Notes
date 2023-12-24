@@ -6,9 +6,7 @@ https://github.com/andrew-codechimp/ha-battery-notes
 from __future__ import annotations
 
 import logging
-from datetime import datetime, time
-from dateutil import parser
-from typing import cast
+from datetime import datetime
 
 import homeassistant.helpers.config_validation as cv
 import voluptuous as vol
@@ -19,12 +17,7 @@ from homeassistant.core import HomeAssistant, callback
 from homeassistant.const import __version__ as HA_VERSION  # noqa: N812
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.typing import ConfigType
-from homeassistant.helpers.service import (
-    async_register_admin_service,
-)
 from homeassistant.helpers import device_registry as dr
-from homeassistant.helpers import entity_registry as er
-
 
 from .discovery import DiscoveryManager
 from .library_coordinator import BatteryNotesLibraryUpdateCoordinator
@@ -33,7 +26,6 @@ from .library_updater import (
 )
 from .coordinator import BatteryNotesCoordinator
 from .store import (
-    BatteryNotesStorage,
     async_get_registry,
 )
 
@@ -46,7 +38,6 @@ from .const import (
     DATA_UPDATE_COORDINATOR,
     SERVICE_BATTERY_CHANGED,
     SERVICE_BATTERY_CHANGED_SCHEMA,
-    DATA_STORE,
     DATA_COORDINATOR,
     ATTR_REMOVE,
 )
@@ -71,6 +62,7 @@ CONFIG_SCHEMA = vol.Schema(
 
 ATTR_SERVICE_DEVICE_ID = "device_id"
 ATTR_SERVICE_DATETIME_CHANGED = "datetime_changed"
+
 
 async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     """Integration setup."""
@@ -127,7 +119,9 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
 
     return True
 
+
 async def async_remove_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> None:
+    """Device removed, tidy up store."""
 
     if "device_id" not in config_entry.data:
         return
@@ -135,13 +129,12 @@ async def async_remove_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> 
     device_id = config_entry.data["device_id"]
 
     coordinator = hass.data[DOMAIN][DATA_COORDINATOR]
-    data = {
-        ATTR_REMOVE : True
-        }
+    data = {ATTR_REMOVE: True}
 
-    coordinator.async_update_device_config(device_id = device_id, data = data)
+    coordinator.async_update_device_config(device_id=device_id, data=data)
 
-    _LOGGER.debug("Removed Device {}".format(device_id))
+    _LOGGER.debug("Removed Device %s", device_id)
+
 
 @callback
 async def async_update_options(hass: HomeAssistant, entry: ConfigEntry) -> None:
@@ -152,6 +145,7 @@ async def async_update_options(hass: HomeAssistant, entry: ConfigEntry) -> None:
 async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Unload a config entry."""
     return await hass.config_entries.async_unload_platforms(entry, PLATFORMS)
+
 
 @callback
 def register_services(hass):
@@ -169,21 +163,29 @@ def register_services(hass):
 
         for entry_id in device_entry.config_entries:
             if (
-                (entry := hass.config_entries.async_get_entry(entry_id))
-                and entry.domain == DOMAIN
-            ):
-                date_changed = call.data.get(ATTR_SERVICE_DATETIME_CHANGED, datetime.utcnow())
+                entry := hass.config_entries.async_get_entry(entry_id)
+            ) and entry.domain == DOMAIN:
+                date_changed = call.data.get(
+                    ATTR_SERVICE_DATETIME_CHANGED, datetime.utcnow()
+                )
 
                 coordinator = hass.data[DOMAIN][DATA_COORDINATOR]
-                device_entry = {
-                    "battery_last_changed" : date_changed
-                    }
+                device_entry = {"battery_last_changed": date_changed}
 
-                coordinator.async_update_device_config(device_id = device_id, data = device_entry)
+                coordinator.async_update_device_config(
+                    device_id=device_id, data=device_entry
+                )
 
                 await coordinator._async_update_data()
                 await coordinator.async_request_refresh()
 
-                _LOGGER.debug("Device {} battery changed on {}".format(device_id,str(date_changed)))
+                _LOGGER.debug(
+                    "Device %s battery changed on %s", device_id, str(date_changed)
+                )
 
-    hass.services.async_register(DOMAIN, SERVICE_BATTERY_CHANGED, handle_battery_changed, schema=SERVICE_BATTERY_CHANGED_SCHEMA)
+    hass.services.async_register(
+        DOMAIN,
+        SERVICE_BATTERY_CHANGED,
+        handle_battery_changed,
+        schema=SERVICE_BATTERY_CHANGED_SCHEMA,
+    )

@@ -1,13 +1,10 @@
 """Button platform for battery_notes."""
 from __future__ import annotations
 
-from typing import Any
 from dataclasses import dataclass
-from datetime import datetime, time, timedelta, date
+from datetime import datetime
 
 import voluptuous as vol
-
-import homeassistant.util.dt as dt_util
 
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_ENTITY_ID
@@ -20,13 +17,11 @@ from homeassistant.helpers import (
 )
 from homeassistant.components.button import (
     PLATFORM_SCHEMA,
-    ButtonDeviceClass,
     ButtonEntity,
     ButtonEntityDescription,
 )
 from homeassistant.helpers.entity import DeviceInfo, EntityCategory
 from homeassistant.helpers.event import (
-    async_track_state_change_event,
     async_track_entity_registry_updated_event,
 )
 
@@ -41,13 +36,10 @@ from homeassistant.const import (
     CONF_DEVICE_ID,
 )
 
-from collections.abc import Awaitable, Callable
-
 from . import PLATFORMS
 
 from .const import (
     DOMAIN,
-    CONF_BATTERY_TYPE,
     DATA_COORDINATOR,
 )
 
@@ -55,7 +47,6 @@ from .entity import (
     BatteryNotesEntityDescription,
 )
 
-from .library import ModelInfo, DeviceBatteryDetails, Library
 
 @dataclass
 class BatteryNotesButtonEntityDescription(
@@ -103,7 +94,6 @@ async def async_setup_entry(
     device_registry = dr.async_get(hass)
 
     device_id = config_entry.data.get(CONF_DEVICE_ID)
-    battery_type = config_entry.data.get(CONF_BATTERY_TYPE)
 
     async def async_registry_updated(event: Event) -> None:
         """Handle entity registry update."""
@@ -240,11 +230,9 @@ class BatteryNotesButton(ButtonEntity):
 
         device_id = self._device_id
 
-        device_entry = {
-            "battery_last_changed" : datetime.utcnow()
-            }
+        device_entry = {"battery_last_changed": datetime.utcnow()}
 
         coordinator = self.hass.data[DOMAIN][DATA_COORDINATOR]
-        coordinator.async_update_device_config(device_id = device_id, data = device_entry)
+        coordinator.async_update_device_config(device_id=device_id, data=device_entry)
         await coordinator._async_update_data()
         await coordinator.async_request_refresh()

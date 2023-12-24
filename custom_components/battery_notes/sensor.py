@@ -1,14 +1,10 @@
 """Sensor platform for battery_notes."""
 from __future__ import annotations
 
-from datetime import date, datetime
+from datetime import datetime
 from dataclasses import dataclass
-from typing import Any, TypeVar
-from dateutil import parser
 import voluptuous as vol
 import logging
-
-import homeassistant.util.dt as dt_util
 
 from homeassistant.components.sensor import (
     PLATFORM_SCHEMA,
@@ -21,7 +17,6 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_ENTITY_ID
 from homeassistant.core import HomeAssistant, callback, Event
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
-from homeassistant.components.sensor.helpers import async_parse_date_datetime
 from homeassistant.helpers import (
     config_validation as cv,
     device_registry as dr,
@@ -61,6 +56,7 @@ from .entity import (
 
 _LOGGER = logging.getLogger(__name__)
 
+
 @dataclass
 class BatteryNotesSensorEntityDescription(
     BatteryNotesEntityDescription,
@@ -95,6 +91,7 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
         vol.Required(CONF_BATTERY_TYPE): cv.string,
     }
 )
+
 
 @callback
 def async_add_to_device(hass: HomeAssistant, entry: ConfigEntry) -> str | None:
@@ -285,6 +282,7 @@ class BatteryNotesTypeSensor(BatteryNotesSensor):
         self.async_write_ha_state()
         self.async_schedule_update_ha_state(True)
 
+
 class BatteryNotesLastChangedSensor(SensorEntity, CoordinatorEntity):
     """Represents a battery note sensor."""
 
@@ -318,12 +316,14 @@ class BatteryNotesLastChangedSensor(SensorEntity, CoordinatorEntity):
                 identifiers=device.identifiers,
             )
 
-    def _set_native_value(self, log_on_error = True):
+    def _set_native_value(self, log_on_error=True):
         # try:
         device_entry = self.coordinator.store.async_get_device(self._device_id)
         if device_entry:
             if LAST_CHANGED in device_entry:
-                last_changed_date = datetime.fromisoformat(str(device_entry[LAST_CHANGED]) + "+00:00")
+                last_changed_date = datetime.fromisoformat(
+                    str(device_entry[LAST_CHANGED]) + "+00:00"
+                )
                 self._native_value = last_changed_date
 
                 return True
@@ -360,7 +360,9 @@ class BatteryNotesLastChangedSensor(SensorEntity, CoordinatorEntity):
         device_entry = self.coordinator.store.async_get_device(self._device_id)
         if device_entry:
             if LAST_CHANGED in device_entry:
-                last_changed_date = datetime.fromisoformat(str(device_entry[LAST_CHANGED]) + "+00:00")
+                last_changed_date = datetime.fromisoformat(
+                    str(device_entry[LAST_CHANGED]) + "+00:00"
+                )
                 self._native_value = last_changed_date
 
                 self.async_write_ha_state()
@@ -369,4 +371,3 @@ class BatteryNotesLastChangedSensor(SensorEntity, CoordinatorEntity):
     def native_value(self) -> datetime | None:
         """Return the native value of the sensor."""
         return self._native_value
-
