@@ -161,19 +161,29 @@ def register_services(hass):
         """Handle the service call."""
         device_id = call.data.get(ATTR_SERVICE_DEVICE_ID, "")
 
-        date_changed = call.data.get(ATTR_SERVICE_DATETIME_CHANGED, datetime.utcnow())
+        device_registry = dr.async_get(hass)
 
-        coordinator = hass.data[DOMAIN][DATA_COORDINATOR]
-        device_entry = {
-            "battery_last_changed" : date_changed
-            }
+        device_entry = device_registry.async_get(device_id)
+        if not device_entry:
+            return
 
-        coordinator.async_update_device_config(device_id = device_id, data = device_entry)
+        for entry_id in device_entry.config_entries:
+            if (
+                (entry := hass.config_entries.async_get_entry(entry_id))
+                and entry.domain == DOMAIN
+            ):
+                date_changed = call.data.get(ATTR_SERVICE_DATETIME_CHANGED, datetime.utcnow())
 
-        await coordinator._async_update_data()
-        await coordinator.async_request_refresh()
+                coordinator = hass.data[DOMAIN][DATA_COORDINATOR]
+                device_entry = {
+                    "battery_last_changed" : date_changed
+                    }
 
-        # coordinator.store.async_update_user(user[const.ATTR_USER_ID], {const.ATTR_ENABLED: enable})
-        _LOGGER.debug("Device {} battery changed on {}".format(device_id,str(date_changed)))
+                coordinator.async_update_device_config(device_id = device_id, data = device_entry)
+
+                await coordinator._async_update_data()
+                await coordinator.async_request_refresh()
+
+                _LOGGER.debug("Device {} battery changed on {}".format(device_id,str(date_changed)))
 
     hass.services.async_register(DOMAIN, SERVICE_BATTERY_CHANGED, handle_battery_changed, schema=SERVICE_BATTERY_CHANGED_SCHEMA)
