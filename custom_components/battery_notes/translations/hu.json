@@ -61,7 +61,7 @@
     },
     "services": {
         "set_battery_replaced": {
-            "description": "Set the battery last replaced date time.",
+            "description": "Set the battery last replaced to now.",
             "fields": {
                 "device_id": {
                     "description": "Device that has had it's battery replaced.",
