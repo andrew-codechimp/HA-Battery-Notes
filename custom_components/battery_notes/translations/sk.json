@@ -45,10 +45,30 @@
         }
     },
     "entity": {
+        "button": {
+            "battery_replaced": {
+                "name": "Battery replaced"
+            }
+        },
         "sensor": {
             "battery_type": {
                 "name": "Typ batérie"
+            },
+            "battery_last_replaced": {
+                "name": "Battery last replaced"
             }
+        }
+    },
+    "services": {
+        "set_battery_replaced": {
+            "description": "Set the battery last replaced to now.",
+            "fields": {
+                "device_id": {
+                    "description": "Device that has had it's battery replaced.",
+                    "name": "Device"
+                }
+            },
+            "name": "Set battery replaced"
         }
     }
 }
