@@ -255,6 +255,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "frient A/S",
+            "model": "HESZB-120",
+            "battery_type": "CR123A",
+        },
+        {
             "manufacturer": "GiEX",
             "model": "Water irrigation valve (QT06_2)",
             "battery_type": "AA",
