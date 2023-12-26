@@ -3,6 +3,17 @@
     "version": 1,
     "devices": [
         {
+            "manufacturer": "AEON Labs",
+            "model": "ZW100",
+            "battery_type": "CR123A",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "AEON Labs",
+            "model": "ZW112",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Aeotec Ltd.",
             "model": "ZWA003",
             "battery_type": "LIR2450"
@@ -56,6 +67,12 @@
             "model": "BE469ZP",
             "battery_type": "AAA",
             "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Danfoss",
+            "model": "010101",
+            "battery_type": "AA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "Custom devices (DiY)",
@@ -238,6 +255,12 @@
             "battery_quantity": 4
         },
         {
+            "manufacturer": "Eurotronics",
+            "model": "Spirit",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Fantem",
             "model": "4 in 1 multi sensor (ZB003-X)",
             "battery_type": "CR123A",
@@ -245,8 +268,23 @@
         },
         {
             "manufacturer": "Fibargroup",
+            "model": "FGMS001",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Fibargroup",
             "model": "FGSD002",
             "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Fibargroup",
+            "model": "FGDW002",
+            "battery_type": "ER14250"
+        },
+        {
+            "manufacturer": "Fibargroup",
+            "model": "FGK101",
+            "battery_type": "ER14250"
         },
         {
             "manufacturer": "frient",
@@ -567,6 +605,12 @@
         },
         {
             "manufacturer": "Netatmo",
+            "model": "Smart Anemometer",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Netatmo",
             "model": "Smart Thermostat",
             "battery_type": "AAA",
             "battery_quantity": 3
@@ -580,6 +624,12 @@
         {
             "manufacturer": "Netatmo",
             "model": "Smart Outdoor Module",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Netatmo",
+            "model": "Smart Rain Gauge",
             "battery_type": "AAA",
             "battery_quantity": 2
         },
@@ -736,6 +786,18 @@
         {
             "manufacturer": "Signify Netherlands B.V.",
             "model": "Hue motion sensor (SML001)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Signify Netherlands B.V.",
+            "model": "Hue motion sensor (SML003)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Signify Netherlands B.V.",
+            "model": "SML003",
             "battery_type": "AAA",
             "battery_quantity": 2
         },
