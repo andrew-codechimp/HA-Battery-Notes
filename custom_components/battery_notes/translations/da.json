@@ -45,10 +45,34 @@
         }
     },
     "entity": {
+        "button": {
+            "battery_changed": {
+                "name": "Battery changed"
+            }
+        },
         "sensor": {
             "battery_type": {
                 "name": "Batteri type"
+            },
+            "battery_last_changed": {
+                "name": "Battery last changed"
             }
+        }
+    },
+    "services": {
+        "set_battery_changed": {
+            "description": "Set the battery last changed date time.",
+            "fields": {
+                "device_id": {
+                    "description": "Device that has had it's battery changed.",
+                    "name": "Device"
+                },
+                "datetime_changed": {
+                    "description": "Date & time battery changed, defaults to now.",
+                    "name": "Date & time changed"
+                }
+            },
+            "name": "Set battery changed"
         }
     }
 }
