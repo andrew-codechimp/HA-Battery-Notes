@@ -47,7 +47,7 @@
     "entity": {
         "button": {
             "battery_replaced": {
-                "name": "Battery replaced"
+                "name": "Elem cserélve"
             }
         },
         "sensor": {
@@ -55,20 +55,20 @@
                 "name": "Elem típus"
             },
             "battery_last_replaced": {
-                "name": "Battery last replaced"
+                "name": "Utolsó elemcsere"
             }
         }
     },
     "services": {
         "set_battery_replaced": {
-            "description": "Set the battery last replaced to now.",
+            "description": "Utolsó elemcsere időpont beállítása mostra.",
             "fields": {
                 "device_id": {
-                    "description": "Device that has had it's battery replaced.",
-                    "name": "Device"
+                    "description": "Az eszköz eleme cserélve lett.",
+                    "name": "Eszköz"
                 }
             },
-            "name": "Set battery replaced"
+            "name": "Elemcsere beállítása"
         }
     }
 }
