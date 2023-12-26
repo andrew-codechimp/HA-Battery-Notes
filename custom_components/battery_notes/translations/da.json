@@ -1,0 +1,54 @@
+{
+    "config": {
+        "step": {
+            "user": {
+                "description": "Hvis du har brug for hjælp til konfigurationen, så kig her: https://github.com/andrew-codechimp/ha-battery-notes",
+                "data": {
+                    "device_id": "Enhed",
+                    "name": "Navn"
+                },
+                "data_description": {
+                    "name": "Hvis du lader det være tomt, hentes navnet fra kildeenheden"
+                }
+            },
+            "battery": {
+                "data": {
+                    "battery_type": "Batteri type"
+                },
+                "data_description": {
+                    "battery_type": "Tilføj eventuelt batterimængden, hvis mere end 1 f.eks. 2x AAA"
+                }
+            }
+        },
+        "abort": {
+            "already_configured": "Enheden er allerede konfigureret"
+        },
+        "error": {
+            "unknown": "Der opstod en ukendt fejl."
+        }
+    },
+    "options": {
+        "step": {
+            "init": {
+                "description": "Hvis du har brug for hjælp til konfigurationen, så kig her: https://github.com/andrew-codechimp/ha-battery-notes",
+                "data": {
+                    "name": "Navn",
+                    "battery_type": "Batteri type"
+                },
+                "data_description": {
+                    "name": "Hvis du lader det være tomt, hentes navnet fra kildeenheden"
+                }
+            }
+        },
+        "error": {
+            "unknown": "Der opstod en ukendt fejl."
+        }
+    },
+    "entity": {
+        "sensor": {
+            "battery_type": {
+                "name": "Batteri type"
+            }
+        }
+    }
+}
