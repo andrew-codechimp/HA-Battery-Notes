@@ -917,7 +917,7 @@
         {
             "manufacturer": "TuYa",
             "model": "Button scene switch (SH-SC07)",
-            "battery_type": "CR2032"
+            "battery_type": "CR2450"
         },
         {
             "manufacturer": "TuYa",
@@ -1282,6 +1282,12 @@
         {
             "manufacturer": "_TZ3000_lf56vpxj",
             "model": "TS0202",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "_TZ3000_yxqnffam",
+            "model": "TS0203",
             "battery_type": "AAA",
             "battery_quantity": 2
         }
