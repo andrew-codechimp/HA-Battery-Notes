@@ -87,6 +87,13 @@ Unfortunately where there are multiple integrations associated with a device Hom
 * Can I edit a battery note?  
 Go into Settings -> Integrations -> Battery Notes and click Configure on the device you want to edit.
 
+* Why am I only able to see some of my devices when adding manually?  
+By default Battery Notes filters the device list to only devices with a battery, if you want to add a battery note to a random device then you can disable this filtering by adding the following configuration to your `configuration.yaml` and restart Home Assistant to see all devices.
+```
+battery_notes:
+  show_all_devices: true
+```
+
 * I only want to add notes to a few devices, can I disable auto discovery?  
 If you want to disable this functionality you can add the following to your `configuration.yaml`, after a restart of Home Assistant you will not see discovered battery notes.
 ```
@@ -96,6 +103,7 @@ battery_notes:
 
 * How can I show my support?  
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png)](https://www.buymeacoffee.com/codechimp)
+
 
 
 ## Contributing to the Battery Library
