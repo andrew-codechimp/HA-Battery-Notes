@@ -11,6 +11,7 @@
 
 Integration to add battery notes to a device, with automatic discovery via a growing battery library for devices.  
 Track both the battery type and also when the battery was replaced.  
+Battery replacement currently only in beta 1.3.x
 
 *Please :star: this repo if you find it useful*
 
