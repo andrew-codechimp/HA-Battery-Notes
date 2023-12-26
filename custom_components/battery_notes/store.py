@@ -4,9 +4,9 @@ from __future__ import annotations
 import logging
 import attr
 from collections import OrderedDict
-from typing import MutableMapping, cast
-from datetime import date, datetime
-from dataclasses import dataclass
+from collections.abc import MutableMapping
+from typing import cast
+from datetime import datetime
 
 from homeassistant.core import (callback, HomeAssistant)
 from homeassistant.loader import bind_hass
@@ -54,7 +54,7 @@ class BatteryNotesStorage:
     async def async_load(self) -> None:
         """Load the registry of schedule entries."""
         data = await self._store.async_load()
-        devices: "OrderedDict[str, DeviceEntry]" = OrderedDict()
+        devices: OrderedDict[str, DeviceEntry] = OrderedDict()
 
         if data is not None:
             if "devices" in data:
