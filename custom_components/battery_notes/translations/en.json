@@ -66,10 +66,6 @@
                 "device_id": {
                     "description": "Device that has had it's battery changed.",
                     "name": "Device"
-                },
-                "datetime_changed": {
-                    "description": "Date & time battery changed, defaults to now.",
-                    "name": "Date & time changed"
                 }
             },
             "name": "Set battery changed"

@@ -61,8 +61,6 @@ CONFIG_SCHEMA = vol.Schema(
 )
 
 ATTR_SERVICE_DEVICE_ID = "device_id"
-ATTR_SERVICE_DATETIME_CHANGED = "datetime_changed"
-
 
 async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     """Integration setup."""
@@ -165,9 +163,7 @@ def register_services(hass):
             if (
                 entry := hass.config_entries.async_get_entry(entry_id)
             ) and entry.domain == DOMAIN:
-                date_changed = call.data.get(
-                    ATTR_SERVICE_DATETIME_CHANGED, datetime.utcnow()
-                )
+                date_changed = datetime.utcnow()
 
                 coordinator = hass.data[DOMAIN][DATA_COORDINATOR]
                 device_entry = {"battery_last_changed": date_changed}
