@@ -25,6 +25,11 @@
         },
         {
             "manufacturer": "Aeotec Ltd.",
+            "model": "ZWA008",
+            "battery_type": "ER14250"
+        },
+        {
+            "manufacturer": "Aeotec Ltd.",
             "model": "ZWA039",
             "battery_type": "CR2477"
         },
