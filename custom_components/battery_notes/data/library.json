@@ -163,6 +163,12 @@
         },
         {
             "manufacturer": "eQ-3",
+            "model": "HmIP-SLO",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "eQ-3",
             "model": "HmIP-SCI",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -175,7 +181,14 @@
         {
             "manufacturer": "eQ-3",
             "model": "HMIP-SWDO-I",
-            "battery_type": "AAA"
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "eQ-3",
+            "model": "HMIP-SWDO-PL",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "eQ-3",
@@ -208,9 +221,21 @@
         },
         {
             "manufacturer": "eQ-3",
+            "model": "HMIP-eTRV-C",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "eQ-3",
             "model": "HMIP-eTRV-2",
             "battery_type": "AA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "eQ-3",
+            "model": "HM-ES-TX-WM",
+            "battery_type": "AA",
+            "battery_quantity": 4
         },
         {
             "manufacturer": "Fantem",
