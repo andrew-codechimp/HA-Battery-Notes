@@ -22,9 +22,9 @@ Integration to add battery notes to a device, with automatic discovery via a gro
 Platform | Name | Description
 -- | -- | --
 `sensor` | Battery Type | Show battery type.
-`sensor` | Battery last changed | Date & Time the battery was last changed.
-`button` | Battery changed | Update Battery last changed to now.
-`service` | Set battery changed | Update Battery last changed to now or an optional datetime.
+`sensor` | Battery last replaced | Date & Time the battery was last replaced.
+`button` | Battery replaced | Update Battery last replaced to now.
+`service` | Set battery replaced | Update Battery last replaced to now.
 
 ## Installation
 

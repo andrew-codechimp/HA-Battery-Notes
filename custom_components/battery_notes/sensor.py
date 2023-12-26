@@ -44,7 +44,7 @@ from .const import (
     CONF_BATTERY_TYPE,
     DATA_UPDATE_COORDINATOR,
     DATA_COORDINATOR,
-    LAST_CHANGED,
+    LAST_REPLACED,
 )
 
 from .library_coordinator import BatteryNotesLibraryUpdateCoordinator
@@ -75,10 +75,10 @@ typeSensorEntityDescription = BatteryNotesSensorEntityDescription(
     entity_category=EntityCategory.DIAGNOSTIC,
 )
 
-lastChangedSensorEntityDescription = BatteryNotesSensorEntityDescription(
-    unique_id_suffix="_battery_last_changed",
-    key="battery_last_changed",
-    translation_key="battery_last_changed",
+lastReplacedSensorEntityDescription = BatteryNotesSensorEntityDescription(
+    unique_id_suffix="_battery_last_replaced",
+    key="battery_last_replaced",
+    translation_key="battery_last_replaced",
     icon="mdi:battery-clock",
     entity_category=EntityCategory.DIAGNOSTIC,
     device_class=SensorDeviceClass.TIMESTAMP,
@@ -126,7 +126,7 @@ async def async_setup_entry(
             return
 
         if "entity_id" in data["changes"]:
-            # Entity_id changed, reload the config entry
+            # Entity_id replaced, reload the config entry
             await hass.config_entries.async_reload(config_entry.entry_id)
 
         if device_id and "device_id" in data["changes"]:
@@ -164,12 +164,12 @@ async def async_setup_entry(
             f"{config_entry.entry_id}{typeSensorEntityDescription.unique_id_suffix}",
             battery_type,
         ),
-        BatteryNotesLastChangedSensor(
+        BatteryNotesLastReplacedSensor(
             hass,
             coordinator,
-            lastChangedSensorEntityDescription,
+            lastReplacedSensorEntityDescription,
             device_id,
-            f"{config_entry.entry_id}{lastChangedSensorEntityDescription.unique_id_suffix}",
+            f"{config_entry.entry_id}{lastReplacedSensorEntityDescription.unique_id_suffix}",
         ),
     ]
 
@@ -227,12 +227,12 @@ class BatteryNotesSensor(RestoreSensor, SensorEntity, CoordinatorEntity):
             async_track_state_change_event(
                 self.hass,
                 [self._attr_unique_id],
-                self._async_battery_note_state_changed_listener,
+                self._async_battery_note_state_replaced_listener,
             )
         )
 
         # Call once on adding
-        self._async_battery_note_state_changed_listener()
+        self._async_battery_note_state_replaced_listener()
 
         # Update entity options
         registry = er.async_get(self.hass)
@@ -244,7 +244,7 @@ class BatteryNotesSensor(RestoreSensor, SensorEntity, CoordinatorEntity):
             )
 
     @callback
-    def _async_battery_note_state_changed_listener(self) -> None:
+    def _async_battery_note_state_replaced_listener(self) -> None:
         """Handle the sensor state changes."""
 
         self.async_write_ha_state()
@@ -277,13 +277,13 @@ class BatteryNotesTypeSensor(BatteryNotesSensor):
         return self._battery_type
 
     @callback
-    def _async_battery_type_state_changed_listener(self) -> None:
+    def _async_battery_type_state_replaced_listener(self) -> None:
         """Handle the sensor state changes."""
         self.async_write_ha_state()
         self.async_schedule_update_ha_state(True)
 
 
-class BatteryNotesLastChangedSensor(SensorEntity, CoordinatorEntity):
+class BatteryNotesLastReplacedSensor(SensorEntity, CoordinatorEntity):
     """Represents a battery note sensor."""
 
     _attr_should_poll = False
@@ -319,11 +319,11 @@ class BatteryNotesLastChangedSensor(SensorEntity, CoordinatorEntity):
     def _set_native_value(self, log_on_error=True):
         device_entry = self.coordinator.store.async_get_device(self._device_id)
         if device_entry:
-            if LAST_CHANGED in device_entry:
-                last_changed_date = datetime.fromisoformat(
-                    str(device_entry[LAST_CHANGED]) + "+00:00"
+            if LAST_REPLACED in device_entry:
+                last_replaced_date = datetime.fromisoformat(
+                    str(device_entry[LAST_REPLACED]) + "+00:00"
                 )
-                self._native_value = last_changed_date
+                self._native_value = last_replaced_date
 
                 return True
         return False
@@ -336,7 +336,7 @@ class BatteryNotesLastChangedSensor(SensorEntity, CoordinatorEntity):
     #         async_track_state_change_event(
     #             self.hass,
     #             [self._attr_unique_id],
-    #             self._async_battery_note_state_changed_listener,
+    #             self._async_battery_note_state_replaced_listener,
     #         )
     #     )
 
@@ -355,11 +355,11 @@ class BatteryNotesLastChangedSensor(SensorEntity, CoordinatorEntity):
 
         device_entry = self.coordinator.store.async_get_device(self._device_id)
         if device_entry:
-            if LAST_CHANGED in device_entry:
-                last_changed_date = datetime.fromisoformat(
-                    str(device_entry[LAST_CHANGED]) + "+00:00"
+            if LAST_REPLACED in device_entry:
+                last_replaced_date = datetime.fromisoformat(
+                    str(device_entry[LAST_REPLACED]) + "+00:00"
                 )
-                self._native_value = last_changed_date
+                self._native_value = last_replaced_date
 
                 self.async_write_ha_state()
 

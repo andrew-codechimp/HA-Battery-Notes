@@ -20,7 +20,7 @@ NAME = manifest_data.get("name")
 VERSION = manifest_data.get("version")
 ISSUEURL = manifest_data.get("issue_tracker")
 MANUFACTURER = "@Andrew-CodeChimp"
-LAST_CHANGED = "battery_last_changed"
+LAST_REPLACED = "battery_last_replaced"
 
 DOMAIN_CONFIG = "config"
 
@@ -42,16 +42,15 @@ DATA_LIBRARY_LAST_UPDATE = "library_last_update"
 DATA_COORDINATOR = "coordinator"
 DATA_STORE = "store"
 
-SERVICE_BATTERY_CHANGED = "set_battery_changed"
+SERVICE_BATTERY_REPLACED = "set_battery_replaced"
 
 ATTR_DEVICE_ID = "device_id"
-ATTR_DATE_TIME_CHANGED = "datetime_changed"
+ATTR_DATE_TIME_REPLACED = "datetime_replaced"
 ATTR_REMOVE = "remove"
 
-SERVICE_BATTERY_CHANGED_SCHEMA = vol.Schema(
+SERVICE_BATTERY_REPLACED_SCHEMA = vol.Schema(
     {
         vol.Required(ATTR_DEVICE_ID): cv.string,
-        vol.Optional(ATTR_DATE_TIME_CHANGED): cv.datetime,
     }
 )
 

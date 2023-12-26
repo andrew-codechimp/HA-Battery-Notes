@@ -29,7 +29,7 @@ class DeviceEntry:
     """Battery Notes storage Entry."""
 
     device_id = attr.ib(type=str, default=None)
-    battery_last_changed = attr.ib(type=datetime, default=None)
+    battery_last_replaced = attr.ib(type=datetime, default=None)
 
 class MigratableStore(Store):
     """Holds battery notes data."""

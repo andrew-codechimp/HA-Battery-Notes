@@ -60,9 +60,9 @@ class BatteryNotesButtonEntityDescription(
 
 ENTITY_DESCRIPTIONS: tuple[BatteryNotesButtonEntityDescription, ...] = (
     BatteryNotesButtonEntityDescription(
-        unique_id_suffix="_battery_changed_button",
-        key="battery_changed",
-        translation_key="battery_changed",
+        unique_id_suffix="_battery_replaced_button",
+        key="battery_replaced",
+        translation_key="battery_replaced",
         icon="mdi:battery-sync",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
@@ -164,7 +164,7 @@ async def async_setup_platform(
 
 
 class BatteryNotesButton(ButtonEntity):
-    """Represents a battery changed button."""
+    """Represents a battery replaced button."""
 
     _attr_should_poll = False
 
@@ -177,7 +177,7 @@ class BatteryNotesButton(ButtonEntity):
         unique_id: str,
         device_id: str,
     ) -> None:
-        """Create a battery changed button."""
+        """Create a battery replaced button."""
         device_registry = dr.async_get(hass)
 
         self.entity_description = description
@@ -203,13 +203,13 @@ class BatteryNotesButton(ButtonEntity):
                 {"entity_id": self._attr_unique_id},
             )
 
-    async def update_battery_last_changed(self):
+    async def update_battery_last_replaced(self):
         """Handle sensor state changes."""
 
         # device_id = self._device_id
 
         # device_entry = {
-        #     "battery_last_changed" : datetime.utcnow()
+        #     "battery_last_replaced" : datetime.utcnow()
         #     }
 
         # coordinator = self.hass.data[DOMAIN][DATA_COORDINATOR]
@@ -219,18 +219,9 @@ class BatteryNotesButton(ButtonEntity):
 
     async def async_press(self) -> None:
         """Press the button."""
-        # https://community.home-assistant.io/t/how-to-update-entity-without-runtimeerror-cannot-be-called-from-within-the-event-loop/395907/3?u=codechimp
-
-        # self.update_battery_last_changed()
-        # await self.hass.async_add_executor_job(self.update_battery_last_changed)
-        # await self.entity_description.press_fn(self.hass)
-
-        # last_changed_store = LastChangedStore.factory(self.hass)
-        # await last_changed_store.set_device_battery_last_changed("123", datetime.now())
-
         device_id = self._device_id
 
-        device_entry = {"battery_last_changed": datetime.utcnow()}
+        device_entry = {"battery_last_replaced": datetime.utcnow()}
 
         coordinator = self.hass.data[DOMAIN][DATA_COORDINATOR]
         coordinator.async_update_device_config(device_id=device_id, data=device_entry)

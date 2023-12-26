@@ -1,11 +1,11 @@
 
-set_battery_changed:
-  name: Set battery changed
-  description: "Set the battery last changed date."
+set_battery_replaced:
+  name: Set battery replaced
+  description: "Set the battery last replaced date."
   fields:
     device_id:
       name: Device
-      description: Device that has had it's battery changed.
+      description: Device that has had it's battery replaced.
       required: true
       selector:
         device:
