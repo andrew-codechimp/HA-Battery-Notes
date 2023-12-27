@@ -277,6 +277,11 @@
             "battery_quantity": 4
         },
         {
+            "manufacturer": "by frient A/S",
+            "model": "SMSZB-120",
+            "battery_type": "CR123"
+        },
+        {
             "manufacturer": "Eurotronics",
             "model": "Spirit",
             "battery_type": "AA",
