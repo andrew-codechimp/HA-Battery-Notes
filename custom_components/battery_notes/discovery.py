@@ -103,6 +103,9 @@ class DiscoveryManager:
                 if not device_battery_details:
                     continue
 
+                if device_battery_details.is_manual:
+                    continue
+
                 self._init_entity_discovery(device_entry, device_battery_details)
         else:
             _LOGGER.error("Library not loaded")
@@ -149,13 +152,12 @@ class DiscoveryManager:
             device_entry.id, device_entry
         )
 
-        if not device_battery_details.is_manual:
-            discovery_flow.async_create_flow(
-                self.hass,
-                DOMAIN,
-                context={"source": SOURCE_INTEGRATION_DISCOVERY},
-                data=discovery_data,
-            )
+        discovery_flow.async_create_flow(
+            self.hass,
+            DOMAIN,
+            context={"source": SOURCE_INTEGRATION_DISCOVERY},
+            data=discovery_data,
+        )
 
 
 def get_wrapped_device_name(
