@@ -866,6 +866,12 @@
         },
         {
             "manufacturer": "Signify Netherlands B.V.",
+            "model": "SML001",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Signify Netherlands B.V.",
             "model": "Hue motion sensor (SML003)",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -879,6 +885,12 @@
         {
             "manufacturer": "Signify Netherlands B.V.",
             "model": "Hue outdoor motion sensor (SML002)",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Signify Netherlands B.V.",
+            "model": "SML002",
             "battery_type": "AA",
             "battery_quantity": 2
         },
@@ -905,6 +917,11 @@
         {
             "manufacturer": "Signify Netherlands B.V.",
             "model": "Hue wall switch module (RDM001)",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Signify Netherlands B.V.",
+            "model": "RDM001",
             "battery_type": "CR2450"
         },
         {
