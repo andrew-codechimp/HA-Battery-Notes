@@ -272,6 +272,11 @@
             "battery_quantity": 4
         },
         {
+            "manufacturer": "eQ-3",
+            "model": "HM-Sec-SCo",
+            "battery_type": "AAA"
+        },
+        {
             "manufacturer": "Eurotronics",
             "model": "Spirit",
             "battery_type": "AA",
