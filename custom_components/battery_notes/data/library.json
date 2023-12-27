@@ -477,6 +477,17 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Lidl",
+            "model": "Silvercrest smart motion sensor (HG06335/HG07310)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Lidl",
+            "model": "Silvercrest smart motion sensor (HG06335/HG07310)",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "Linkind",
             "model": "Door/window Sensor (ZS110050078)",
             "battery_type": "CR2032"
@@ -1054,6 +1065,11 @@
         },
         {
             "manufacturer": "TuYa",
+            "model": "Motion sensor (IH012-RT01)",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "TuYa",
             "model": "Soil sensor (TS0601_soil)",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -1066,6 +1082,12 @@
         {
             "manufacturer": "TuYa",
             "model": "Temperature & humidity sensor (WSD500A)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "TuYa",
+            "model": "Temperature and humidity sensor (TH02Z)",
             "battery_type": "AAA",
             "battery_quantity": 2
         },
