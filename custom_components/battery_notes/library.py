@@ -106,6 +106,12 @@ class DeviceBatteryDetails(NamedTuple):
     battery_quantity: int
 
     @property
+    def is_manual(self):
+        if self.battery_type.casefold() == "manual".casefold():
+            return True
+        return False
+
+    @property
     def battery_type_and_quantity(self):
         """Return battery type with quantity prefix."""
         try:

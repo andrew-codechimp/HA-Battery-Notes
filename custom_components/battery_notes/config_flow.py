@@ -129,12 +129,13 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             )
 
             if device_battery_details:
-                _LOGGER.debug(
-                    "Found device %s %s", device_entry.manufacturer, device_entry.model
-                )
-                self.data[
-                    CONF_BATTERY_TYPE
-                ] = device_battery_details.battery_type_and_quantity
+                if not device_battery_details.is_manual:
+                    _LOGGER.debug(
+                        "Found device %s %s", device_entry.manufacturer, device_entry.model
+                    )
+                    self.data[
+                        CONF_BATTERY_TYPE
+                    ] = device_battery_details.battery_type_and_quantity
 
             return await self.async_step_battery()
 

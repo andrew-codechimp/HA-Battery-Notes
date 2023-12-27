@@ -149,12 +149,13 @@ class DiscoveryManager:
             device_entry.id, device_entry
         )
 
-        discovery_flow.async_create_flow(
-            self.hass,
-            DOMAIN,
-            context={"source": SOURCE_INTEGRATION_DISCOVERY},
-            data=discovery_data,
-        )
+        if not device_battery_details.is_manual:
+            discovery_flow.async_create_flow(
+                self.hass,
+                DOMAIN,
+                context={"source": SOURCE_INTEGRATION_DISCOVERY},
+                data=discovery_data,
+            )
 
 
 def get_wrapped_device_name(
