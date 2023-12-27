@@ -103,6 +103,9 @@ class DiscoveryManager:
                 if not device_battery_details:
                     continue
 
+                if device_battery_details.is_manual:
+                    continue
+
                 self._init_entity_discovery(device_entry, device_battery_details)
         else:
             _LOGGER.error("Library not loaded")
