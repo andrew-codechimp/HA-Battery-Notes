@@ -160,6 +160,11 @@
             "model": "MS01",
             "battery_type": "CR2450"
         },
+    	{
+      	    "manufacturer": "eWeLink",
+            "model": "SNZB-02P",
+            "battery_type": "CR2477"
+    	},
         {
             "manufacturer": "eWeLink",
             "model": "TH01",
@@ -270,6 +275,11 @@
             "model": "HM-ES-TX-WM",
             "battery_type": "AA",
             "battery_quantity": 4
+        },
+        {
+            "manufacturer": "frient A/S",
+            "model": "SMSZB-120",
+            "battery_type": "CR123"
         },
         {
             "manufacturer": "Eurotronics",
@@ -856,6 +866,12 @@
         },
         {
             "manufacturer": "Signify Netherlands B.V.",
+            "model": "SML001",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Signify Netherlands B.V.",
             "model": "Hue motion sensor (SML003)",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -869,6 +885,12 @@
         {
             "manufacturer": "Signify Netherlands B.V.",
             "model": "Hue outdoor motion sensor (SML002)",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Signify Netherlands B.V.",
+            "model": "SML002",
             "battery_type": "AA",
             "battery_quantity": 2
         },
@@ -895,6 +917,11 @@
         {
             "manufacturer": "Signify Netherlands B.V.",
             "model": "Hue wall switch module (RDM001)",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Signify Netherlands B.V.",
+            "model": "RDM001",
             "battery_type": "CR2450"
         },
         {
