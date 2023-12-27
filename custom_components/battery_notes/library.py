@@ -107,6 +107,7 @@ class DeviceBatteryDetails(NamedTuple):
 
     @property
     def is_manual(self):
+        """Return whether the device should be discovered or battery type suggested."""
         if self.battery_type.casefold() == "manual".casefold():
             return True
         return False
