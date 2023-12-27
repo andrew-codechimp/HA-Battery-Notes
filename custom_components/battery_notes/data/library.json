@@ -160,6 +160,11 @@
             "model": "MS01",
             "battery_type": "CR2450"
         },
+    	{
+      	    "manufacturer": "eWeLink",
+            "model": "SNZB-02P",
+            "battery_type": "CR2477"
+    	},
         {
             "manufacturer": "eWeLink",
             "model": "TH01",
