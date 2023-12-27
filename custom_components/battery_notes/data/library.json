@@ -62,6 +62,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "August Home Inc.",
+            "model": "ASL6_05/101300/SI",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
             "manufacturer": "Bosch",
             "model": "Radiator thermostat II (BTH-RA)",
             "battery_type": "AA",
@@ -83,6 +89,12 @@
             "manufacturer": "Custom devices (DiY)",
             "model": "Xiaomi temperature & humidity sensor with custom firmware (LYWSD03MMC)",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Danfoss",
+            "model": "eTRV0100",
+            "battery_type": "AA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "Develco",
@@ -324,6 +336,12 @@
             "battery_type": "AAA"
         },
         {
+            "manufacturer": "HANK Electronics Ltd.",
+            "model": "HKZW-DWS01",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "HEIMAN",
             "model": "Smart carbon monoxide sensor (HS1CA-E)",
             "battery_type": "CR123A"
@@ -468,6 +486,11 @@
             "model": "SMARTCODE_DEADBOLT_10T",
             "battery_type": "AA",
             "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Lidl",
+            "model": "HG06335/HG07310",
+            "battery_type": "MANUAL"
         },
         {
             "manufacturer": "Lidl",
@@ -789,6 +812,21 @@
             "battery_type": "CR2477T"
         },
         {
+            "manufacturer": "Samjin",
+            "model": "motion",
+            "battery_type": "CR2"
+        },
+        {
+            "manufacturer": "Samjin",
+            "model": "multi",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Samjin",
+            "model": "water",
+            "battery_type": "CR2"
+        },
+        {
             "manufacturer": "Saswell",
             "model": "Thermostatic radiator valve (SEA801-Zigbee/SEA802-Zigbee)",
             "battery_type": "AA",
@@ -865,6 +903,12 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Signify Netherlands B.V.",
+            "model": "SML003",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Siterwell",
             "model": "Radiator valve with thermostat (GS361A-H04)",
             "battery_type": "AA",
@@ -920,6 +964,11 @@
             "model": "TRVZB",
             "battery_type": "AA",
             "battery_quantity": 3
+        },
+        {
+            "manufacturer": "SONOFF",
+            "model": "Wireless button (SNZB-01)",
+            "battery_type": "CR2450"
         },
         {
             "manufacturer": "SONOFF",
@@ -1423,6 +1472,17 @@
         {
             "manufacturer": "_TZ3000_yxqnffam",
             "model": "TS0203",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "_TZ3000_k4ej3ww2",
+            "model": "TS0207",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "_TZ3210_up3pngle",
+            "model": "TS0205",
             "battery_type": "AAA",
             "battery_quantity": 2
         }
