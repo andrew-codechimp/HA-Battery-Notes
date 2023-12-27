@@ -314,11 +314,6 @@
             "battery_type": "CR2"
         },
         {
-            "manufacturer": "Google",
-            "model": "Topaz-2.7",
-            "battery_type": "MANUAL"
-        },
-        {
             "manufacturer": "Govee",
             "model": "H5101/H5102/H5177",
             "battery_type": "AAA"
