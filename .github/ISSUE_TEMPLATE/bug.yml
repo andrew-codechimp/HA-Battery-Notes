@@ -18,6 +18,8 @@ body:
     options:
       - label: I have added `battery_notes:` to my configuration.yaml and restarted. 
         required: true
+      - label: I have read the [FAQ's](https://github.com/andrew-codechimp/HA-Battery-Notes#faqs). 
+        required: true
       - label: I have enabled debug logging for my installation.
         required: true
       - label: I have filled out the issue template to the best of my ability.
