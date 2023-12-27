@@ -111,8 +111,9 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             device_id = user_input[CONF_DEVICE_ID]
 
             if DOMAIN in self.hass.data:
-                coordinator = self.hass.data[DOMAIN][DATA_UPDATE_COORDINATOR]
-                await coordinator.async_refresh()
+                if DATA_UPDATE_COORDINATOR in self.hass.data[DOMAIN]:
+                    coordinator = self.hass.data[DOMAIN][DATA_UPDATE_COORDINATOR]
+                    await coordinator.async_refresh()
 
             device_registry = dr.async_get(self.hass)
             device_entry = device_registry.async_get(device_id)
@@ -140,9 +141,10 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
         schema = DEVICE_SCHEMA
         # If show_all_devices = is specified and true, don't filter
         if DOMAIN in self.hass.data:
-            domain_config = self.hass.data[DOMAIN][DOMAIN_CONFIG]
-            if domain_config.get(CONF_SHOW_ALL_DEVICES, False):
-                schema = DEVICE_SCHEMA_ALL
+            if DOMAIN_CONFIG in self.hass.data[DOMAIN]:
+                domain_config = self.hass.data[DOMAIN][DOMAIN_CONFIG]
+                if domain_config.get(CONF_SHOW_ALL_DEVICES, False):
+                    schema = DEVICE_SCHEMA_ALL
 
         return self.async_show_form(
             step_id="user",
