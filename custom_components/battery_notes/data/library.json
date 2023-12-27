@@ -314,12 +314,6 @@
             "battery_type": "CR2"
         },
         {
-            "manufacturer": "Google",
-            "model": "Topaz-2.7",
-            "battery_type": "AA",
-            "battery_quantity": 3
-        },
-        {
             "manufacturer": "Govee",
             "model": "H5101/H5102/H5177",
             "battery_type": "AAA"
@@ -455,6 +449,12 @@
         {
             "manufacturer": "Kwikset",
             "model": "HALO-01",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Kwikset",
+            "model": "Kevo",
             "battery_type": "AA",
             "battery_quantity": 4
         },
@@ -663,6 +663,12 @@
             "manufacturer": "Oras",
             "model": "Electra Washbasin Faucet",
             "battery_type": "2CR5"
+        },
+        {
+            "manufacturer": "Orbit BHyve",
+            "model": "HT25-0000",
+            "battery_type": "AA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "ORVIBO",
