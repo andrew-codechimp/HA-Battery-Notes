@@ -646,6 +646,11 @@
             "model": "lumi.sensor_h1",
             "battery_type": "CR2032"
         },
+	{
+            "manufacturer": "LUMI",
+            "model": "lumi.sensor_magnet",
+            "battery_type": "CR1632"
+        },
         {
             "manufacturer": "LUMI",
             "model": "lumi.sensor_magnet.aq2",
