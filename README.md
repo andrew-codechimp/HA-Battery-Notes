@@ -105,11 +105,9 @@ battery_notes:
 * How can I show my support?  
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png)](https://www.buymeacoffee.com/codechimp)
 
-
-
 ## Contributing to the Battery Library
 
-<!-- To add a device definition to the battery library so that it will be automatically configured there are two options:
+To add a device definition to the battery library so that it will be automatically configured there are two options:
 
 ### Submit Definition via GitHub Issues Form
 
@@ -118,7 +116,7 @@ Upon submission of the issue, GitHub will attempt to make the required code chan
 
 ### Submit Definition via Pull Request
 
-If you have issues with the form, or if you feel more comfortable editing JSON data, you can directly add definitions to [the library.json file](custom_components/battery_notes/data/library.json). -->
+If you have issues with the form, or if you feel more comfortable editing JSON data, you can directly add definitions to [the library.json file](custom_components/battery_notes/data/library.json).
 Fork the repository, add your device details to the JSON document `custom_components/battery_notes/data/library.json`, and then submit a pull request.
 
 * The manufacturer and model should be exactly what is displayed on the Device screen within Home Assistant.
@@ -152,7 +150,7 @@ If you want to contribute to this please read the [Contribution guidelines](CONT
 
 A lot of the inspiration for this integration came from the excellent [PowerCalc by bramstroker](https://github.com/bramstroker/homeassistant-powercalc), without adapting code from PowerCalc I'd never have worked out how to add additional sensors to a device.
 
-<!-- Huge thanks to @bmos for creating the issue form & automations for adding new devices. COMING SOON -->
+Huge thanks to @bmos for creating the issue form & automations for adding new devices.
 
 Thanks to everyone who has submitted devices to the library.
 
