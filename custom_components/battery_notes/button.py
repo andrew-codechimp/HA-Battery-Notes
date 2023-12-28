@@ -7,7 +7,7 @@ from datetime import datetime
 import voluptuous as vol
 
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import CONF_ENTITY_ID
+from homeassistant.const import CONF_ENTITY_ID, Platform
 from homeassistant.core import HomeAssistant, callback, Event
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers import (
@@ -26,13 +26,12 @@ from homeassistant.helpers.event import (
 )
 
 from homeassistant.helpers.reload import async_setup_reload_service
-from homeassistant.helpers.typing import (
-    ConfigType,
+from homeassistant.helpers.entity_registry import (
+    RegistryEntryDisabler
 )
 
 from homeassistant.const import (
     CONF_NAME,
-    CONF_UNIQUE_ID,
     CONF_DEVICE_ID,
 )
 
@@ -134,6 +133,7 @@ async def async_setup_entry(
 
     device_id = async_add_to_device(hass, config_entry)
 
+    enable_replaced = True
     if DOMAIN_CONFIG in hass.data[DOMAIN]:
         domain_config = hass.data[DOMAIN][DOMAIN_CONFIG]
         enable_replaced = domain_config.get(CONF_ENABLE_REPLACED, True)
@@ -187,37 +187,31 @@ class BatteryNotesButton(ButtonEntity):
         self._attr_has_entity_name = True
         self._device_id = device_id
 
-        self._device_id = device_id
         if device_id and (device := device_registry.async_get(device_id)):
             self._attr_device_info = DeviceInfo(
                 connections=device.connections,
                 identifiers=device.identifiers,
             )
 
+        # Find the entity_id and reset it's disabled state
+        entity_registry = er.async_get(hass)
+        entity_id = entity_registry.async_get_entity_id(Platform.BUTTON, DOMAIN, self._attr_unique_id)
+        if entity_id:
+            entity_registry.async_update_entity(
+                entity_id,
+                disabled_by = None if self.entity_description.entity_registry_enabled_default else RegistryEntryDisabler.INTEGRATION,
+            )
+
     async def async_added_to_hass(self) -> None:
         """Handle added to Hass."""
-        # Update entity options
         registry = er.async_get(self.hass)
         if registry.async_get(self.entity_id) is not None:
+
             registry.async_update_entity_options(
                 self.entity_id,
                 DOMAIN,
                 {"entity_id": self._attr_unique_id},
             )
-
-    async def update_battery_last_replaced(self):
-        """Handle sensor state changes."""
-
-        # device_id = self._device_id
-
-        # device_entry = {
-        #     "battery_last_replaced" : datetime.utcnow()
-        #     }
-
-        # coordinator = self.hass.data[DOMAIN][DATA_COORDINATOR]
-        # coordinator.async_update_device_config(device_id = device_id, data = device_entry)
-
-        self.async_write_ha_state()
 
     async def async_press(self) -> None:
         """Press the button."""
@@ -229,3 +223,4 @@ class BatteryNotesButton(ButtonEntity):
         coordinator.async_update_device_config(device_id=device_id, data=device_entry)
         await coordinator._async_update_data()
         await coordinator.async_request_refresh()
+

@@ -103,7 +103,7 @@ battery_notes:
 ```
 
 * I don't want to track battery replacement, can I disable this?  
-Yes, you can add the following to your `configuration.yaml`, after a restart of Home Assistant *new* devices added to battery notes will have the battery replaced sensor and button disabled.  Any devices you have previously added to Battery Notes you will have to disable these sensors manually.
+Yes, you can add the following to your `configuration.yaml`, after a restart of Home Assistant *new* devices added to battery notes will have the battery replaced sensor and button disabled.  
 ```
 battery_notes:
   enable_replaced: False

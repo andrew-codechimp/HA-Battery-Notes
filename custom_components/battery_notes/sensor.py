@@ -14,9 +14,12 @@ from homeassistant.components.sensor import (
     RestoreSensor,
 )
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import CONF_ENTITY_ID
+from homeassistant.const import CONF_ENTITY_ID, Platform
 from homeassistant.core import HomeAssistant, callback, Event
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
+from homeassistant.helpers.entity_registry import (
+    RegistryEntryDisabler
+)
 from homeassistant.helpers import (
     config_validation as cv,
     device_registry as dr,
@@ -30,7 +33,6 @@ from homeassistant.helpers.event import (
 from homeassistant.helpers.update_coordinator import (
     CoordinatorEntity,
 )
-
 from homeassistant.helpers.reload import async_setup_reload_service
 
 from homeassistant.const import (
@@ -67,15 +69,6 @@ class BatteryNotesSensorEntityDescription(
     """Describes Battery Notes sensor entity."""
 
     unique_id_suffix: str
-
-
-typeSensorEntityDescription = BatteryNotesSensorEntityDescription(
-    unique_id_suffix="",  # battery_type has uniqueId set to entityId in V1, never add a suffix
-    key="battery_type",
-    translation_key="battery_type",
-    icon="mdi:battery-unknown",
-    entity_category=EntityCategory.DIAGNOSTIC,
-)
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
     {
@@ -148,9 +141,18 @@ async def async_setup_entry(
     library_coordinator = hass.data[DOMAIN][DATA_UPDATE_COORDINATOR]
     coordinator = hass.data[DOMAIN][DATA_COORDINATOR]
 
+    enable_replaced = True
     if DOMAIN_CONFIG in hass.data[DOMAIN]:
         domain_config = hass.data[DOMAIN][DOMAIN_CONFIG]
         enable_replaced = domain_config.get(CONF_ENABLE_REPLACED, True)
+
+    typeSensorEntityDescription = BatteryNotesSensorEntityDescription(
+        unique_id_suffix="",  # battery_type has uniqueId set to entityId in V1, never add a suffix
+        key="battery_type",
+        translation_key="battery_type",
+        icon="mdi:battery-unknown",
+        entity_category=EntityCategory.DIAGNOSTIC,
+    )
 
     lastReplacedSensorEntityDescription = BatteryNotesSensorEntityDescription(
         unique_id_suffix="_battery_last_replaced",
@@ -247,7 +249,9 @@ class BatteryNotesSensor(RestoreSensor, SensorEntity, CoordinatorEntity):
             registry.async_update_entity_options(
                 self.entity_id,
                 DOMAIN,
-                {"entity_id": self._attr_unique_id},
+                {
+                    "entity_id": self._attr_unique_id,
+                },
             )
 
     @callback
@@ -323,6 +327,15 @@ class BatteryNotesLastReplacedSensor(SensorEntity, CoordinatorEntity):
                 identifiers=device.identifiers,
             )
 
+        # Find the entity_id and reset it's disabled state
+        entity_registry = er.async_get(hass)
+        entity_id = entity_registry.async_get_entity_id(Platform.SENSOR, DOMAIN, self._attr_unique_id)
+        if entity_id:
+            entity_registry.async_update_entity(
+                entity_id,
+                disabled_by = None if self.entity_description.entity_registry_enabled_default else RegistryEntryDisabler.INTEGRATION,
+            )
+
     def _set_native_value(self, log_on_error=True):
         device_entry = self.coordinator.store.async_get_device(self._device_id)
         if device_entry:
@@ -334,27 +347,6 @@ class BatteryNotesLastReplacedSensor(SensorEntity, CoordinatorEntity):
 
                 return True
         return False
-
-    # async def async_added_to_hass(self) -> None:
-    #     """Handle added to Hass."""
-    #     await super().async_added_to_hass()
-
-    #     self.async_on_remove(
-    #         async_track_state_change_event(
-    #             self.hass,
-    #             [self._attr_unique_id],
-    #             self._async_battery_note_state_replaced_listener,
-    #         )
-    #     )
-
-    #     # Update entity options
-    #     registry = er.async_get(self.hass)
-    #     if registry.async_get(self.entity_id) is not None:
-    #         registry.async_update_entity_options(
-    #             self.entity_id,
-    #             DOMAIN,
-    #             {"entity_id": self._attr_unique_id},
-    #         )
 
     @callback
     def _handle_coordinator_update(self) -> None:
