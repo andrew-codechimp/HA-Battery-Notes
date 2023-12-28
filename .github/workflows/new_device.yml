@@ -61,9 +61,6 @@ jobs:
             if not duplicate_found:
               devices.append(new_device)
 
-            # Sort the devices by manufacturer and model
-            # devices.sort(key=lambda k: (k['manufacturer'], k['model']))
-
             # Save manufacturer and model for later use
             set_output("mm", "_".join(re.findall(r"\w+",f"{new_device['manufacturer']}{new_device['model']})".lower())))
             set_output("manufacturer", "_".join(re.findall(r"\w+",f"{new_device['manufacturer']})")))
@@ -79,13 +76,13 @@ jobs:
             --header 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
             --header 'Content-Type: application/json' \
             --data '{
-              "title": "Device: ${{ steps.update-json.outputs.mm }}"
+              "title": "Device: ${{ steps.update-json.outputs.manufacturer }} - ${{ steps.update-json.outputs.model }}"
             }'
 
       - name: Create pull request
         uses: peter-evans/create-pull-request@v5
         with:
           commit-message: "Update device: ${{ steps.update-json.outputs.model }} by ${{ steps.update-json.outputs.manufacturer }}"
-          title: "DEVICE: ${{ steps.update-json.outputs.manufacturer }} - ${{ steps.update-json.outputs.model }}"
+          title: "Device: ${{ steps.update-json.outputs.manufacturer }} - ${{ steps.update-json.outputs.model }}"
           body: "This pull request adds or updates the device information for ${{ steps.update-json.outputs.model }} by ${{ steps.update-json.outputs.manufacturer }}\nIt closes issue #${{ github.event.issue.number }}"
           branch: "device-${{ steps.update-json.outputs.mm }}"
