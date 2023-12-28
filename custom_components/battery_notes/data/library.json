@@ -86,6 +86,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "CentraLite",
+            "model": "3210-L",
+            "battery_type": "CR2"
+        },
+        {
             "manufacturer": "Custom devices (DiY)",
             "model": "Xiaomi temperature & humidity sensor with custom firmware (LYWSD03MMC)",
             "battery_type": "CR2032"
@@ -443,6 +448,11 @@
             "battery_quantity": 12
         },
         {
+            "manufacturer": "iMagic by GreatStar",
+            "model": "1116-S",
+            "battery_type": "CR2"
+        },
+        {
             "manufacturer": "INKBIRD",
             "model": "IBS-TH",
             "battery_type": "AAA",
@@ -701,6 +711,12 @@
             "manufacturer": "Mopeka IOT",
             "model": "M1017",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "NYCE",
+            "model": "3043",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "Neo",
