@@ -45,6 +45,8 @@ from .const import (
     DATA_UPDATE_COORDINATOR,
     DATA_COORDINATOR,
     LAST_REPLACED,
+    DOMAIN_CONFIG,
+    CONF_ENABLE_REPLACED,
 )
 
 from .library_coordinator import BatteryNotesLibraryUpdateCoordinator
@@ -73,15 +75,6 @@ typeSensorEntityDescription = BatteryNotesSensorEntityDescription(
     translation_key="battery_type",
     icon="mdi:battery-unknown",
     entity_category=EntityCategory.DIAGNOSTIC,
-)
-
-lastReplacedSensorEntityDescription = BatteryNotesSensorEntityDescription(
-    unique_id_suffix="_battery_last_replaced",
-    key="battery_last_replaced",
-    translation_key="battery_last_replaced",
-    icon="mdi:battery-clock",
-    entity_category=EntityCategory.DIAGNOSTIC,
-    device_class=SensorDeviceClass.TIMESTAMP,
 )
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
@@ -154,6 +147,20 @@ async def async_setup_entry(
 
     library_coordinator = hass.data[DOMAIN][DATA_UPDATE_COORDINATOR]
     coordinator = hass.data[DOMAIN][DATA_COORDINATOR]
+
+    if DOMAIN_CONFIG in hass.data[DOMAIN]:
+        domain_config = hass.data[DOMAIN][DOMAIN_CONFIG]
+        enable_replaced = domain_config.get(CONF_ENABLE_REPLACED, True)
+
+    lastReplacedSensorEntityDescription = BatteryNotesSensorEntityDescription(
+        unique_id_suffix="_battery_last_replaced",
+        key="battery_last_replaced",
+        translation_key="battery_last_replaced",
+        icon="mdi:battery-clock",
+        entity_category=EntityCategory.DIAGNOSTIC,
+        device_class=SensorDeviceClass.TIMESTAMP,
+        entity_registry_enabled_default = enable_replaced,
+    )
 
     entities = [
         BatteryNotesTypeSensor(
