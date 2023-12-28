@@ -277,9 +277,9 @@
             "battery_quantity": 4
         },
         {
-            "manufacturer": "frient A/S",
-            "model": "SMSZB-120",
-            "battery_type": "CR123"
+            "manufacturer": "eQ-3",
+            "model": "HM-Sec-SCo",
+            "battery_type": "AAA"
         },
         {
             "manufacturer": "Eurotronics",
@@ -324,6 +324,11 @@
             "model": "HESZB-120",
             "battery_type": "CR123A"
         },
+        {
+            "manufacturer": "frient A/S",
+            "model": "SMSZB-120",
+            "battery_type": "CR123"
+        },      
         {
             "manufacturer": "GiEX",
             "model": "Water irrigation valve (QT06_2)",
