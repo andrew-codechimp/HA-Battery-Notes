@@ -531,6 +531,11 @@
         },
         {
             "manufacturer": "IKEA",
+            "model": "TRADFRI open/close remote (E1766)",
+            "battery_type": "CR2032"
+        },	    
+        {
+            "manufacturer": "IKEA",
             "model": "TRADFRI shortcut button (E1812)",
             "battery_type": "CR2032"
         },
