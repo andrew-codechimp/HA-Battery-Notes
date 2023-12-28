@@ -1430,6 +1430,62 @@
             "battery_quantity": 4
         },
         {
+            "manufacturer": "Xiaomi",
+            "model": "ble LYWSD03MMC",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "ble MCCGQ02HL",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "ble MJYD02YL-A",
+            "battery_type": "AAA",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "ble RTCGQ02LM",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "ble XMPIR02SXS",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "ble XMWSDJ04MMC",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "zigbee RTCGQ11LM (lumi.sensor_motion.aq2)",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "Aqara E1 wireless mini switch (WXKG20LM)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "Aqara wireless remote switch E1 (single rocker) (WXKG16LM)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "Aqara E1 double key wireless switch (WXKG17LM)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "Aqara E1 human body movement and illuminance sensor (RTCGQ15LM)",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "YoLink",
             "model": "MotionSensor",
             "battery_type": "AAA",
