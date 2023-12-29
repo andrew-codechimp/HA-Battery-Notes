@@ -7,7 +7,7 @@ from datetime import datetime
 import voluptuous as vol
 
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import CONF_ENTITY_ID, Platform
+from homeassistant.const import CONF_ENTITY_ID
 from homeassistant.core import HomeAssistant, callback, Event
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers import (
@@ -26,9 +26,6 @@ from homeassistant.helpers.event import (
 )
 
 from homeassistant.helpers.reload import async_setup_reload_service
-from homeassistant.helpers.entity_registry import (
-    RegistryEntryDisabler
-)
 
 from homeassistant.const import (
     CONF_NAME,
@@ -191,15 +188,6 @@ class BatteryNotesButton(ButtonEntity):
             self._attr_device_info = DeviceInfo(
                 connections=device.connections,
                 identifiers=device.identifiers,
-            )
-
-        # Find the entity_id and reset it's disabled state
-        entity_registry = er.async_get(hass)
-        entity_id = entity_registry.async_get_entity_id(Platform.BUTTON, DOMAIN, self._attr_unique_id)
-        if entity_id:
-            entity_registry.async_update_entity(
-                entity_id,
-                disabled_by = None if self.entity_description.entity_registry_enabled_default else RegistryEntryDisabler.INTEGRATION,
             )
 
     async def async_added_to_hass(self) -> None:

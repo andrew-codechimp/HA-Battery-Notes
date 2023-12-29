@@ -14,12 +14,9 @@ from homeassistant.components.sensor import (
     RestoreSensor,
 )
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import CONF_ENTITY_ID, Platform
+from homeassistant.const import CONF_ENTITY_ID
 from homeassistant.core import HomeAssistant, callback, Event
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
-from homeassistant.helpers.entity_registry import (
-    RegistryEntryDisabler
-)
 from homeassistant.helpers import (
     config_validation as cv,
     device_registry as dr,
@@ -325,15 +322,6 @@ class BatteryNotesLastReplacedSensor(SensorEntity, CoordinatorEntity):
             self._attr_device_info = DeviceInfo(
                 connections=device.connections,
                 identifiers=device.identifiers,
-            )
-
-        # Find the entity_id and reset it's disabled state
-        entity_registry = er.async_get(hass)
-        entity_id = entity_registry.async_get_entity_id(Platform.SENSOR, DOMAIN, self._attr_unique_id)
-        if entity_id:
-            entity_registry.async_update_entity(
-                entity_id,
-                disabled_by = None if self.entity_description.entity_registry_enabled_default else RegistryEntryDisabler.INTEGRATION,
             )
 
     def _set_native_value(self, log_on_error=True):
