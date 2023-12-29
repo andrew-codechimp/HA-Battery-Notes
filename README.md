@@ -119,7 +119,7 @@ Upon submission of the issue, GitHub will attempt to make the required code chan
 ### Submit Definition via Pull Request
 
 If you have issues with the form, or if you feel more comfortable editing JSON data, you can directly add definitions to [the library.json file](custom_components/battery_notes/data/library.json). -->
-Fork the repository, add your device details to the JSON document `custom_components/battery_notes/data/library.json`, and then submit a pull request.
+Fork the repository, add your device details to the JSON document `custom_components/battery_notes/data/library.json`, and then submit a pull request. Do not enable GitHub Actions (disabled by default) as this will mess with the pull request and are unnecessary for a library submission.
 
 * The manufacturer and model should be exactly what is displayed on the Device screen within Home Assistant.
 * The make & model names may be different between integrations such as Zigbee2MQTT and ZHA, if you see a similar device please duplicate the entry rather than changing it.
