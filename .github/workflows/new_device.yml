@@ -92,3 +92,8 @@ jobs:
           title: "Device: ${{ steps.update-json.outputs.manufacturer }} - ${{ steps.update-json.outputs.model }}"
           body: "This pull request adds or updates the device information for ${{ steps.update-json.outputs.model }} by ${{ steps.update-json.outputs.manufacturer }}\nIt closes issue #${{ github.event.issue.number }}"
           branch: "device-${{ steps.update-json.outputs.mm }}"
+
+      - name: Close Issue
+        run: gh issue close --comment "Thanks for the contribution. We're auto-closing this issue. If it's a new device, a pull request will be created that will be reviewed and merged." ${{github.event.issue.number}}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
