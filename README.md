@@ -92,14 +92,21 @@ Go into Settings -> Integrations -> Battery Notes and click Configure on the dev
 By default Battery Notes filters the device list to only devices with a battery, if you want to add a battery note to a random device then you can disable this filtering by adding the following configuration to your `configuration.yaml` and restart Home Assistant to see all devices.
 ```
 battery_notes:
-  show_all_devices: true
+  show_all_devices: True
 ```
 
 * I only want to add notes to a few devices, can I disable auto discovery?  
 If you want to disable this functionality you can add the following to your `configuration.yaml`, after a restart of Home Assistant you will not see discovered battery notes.
 ```
 battery_notes:
-  enable_autodiscovery: false
+  enable_autodiscovery: False
+```
+
+* I don't want to track battery replacement, can I disable this?  
+Yes, you can add the following to your `configuration.yaml`, after a restart of Home Assistant *new* devices added to battery notes will have the battery replaced sensor and button disabled.  Any devices you have previously added to Battery Notes you will have to disable/enable these sensors manually, which also means you can just enable specific sensors of important ones you want to track.
+```
+battery_notes:
+  enable_replaced: False
 ```
 
 * How can I show my support?  
