@@ -135,7 +135,7 @@ Fork the repository, add your device details to the JSON document `custom_compon
 * The `battery_type` data should follow the most common naming for general batteries (ex. AAA, D) and the IEC naming for battery cells according to [Wikipedia](https://en.wikipedia.org/wiki/List_of_battery_sizes) (ex. CR2032, 18650)
 * If a device has a bespoke rechargeable battery you can use `"battery_type": "Rechargeable"`
 * For devices like smoke alarms where the battery is not replaceable you can use `"battery_type": "Irreplaceable"`
-* If a device shouldn't be discovered because there are multiple revisions with the same model number but different battery types or it's optionally mains powered, it can be added to the library with a `"battery_type": "MANUAL"` to note it is a device that shouldn't have a battery definition added to the library to save removal/re-add because people don't realise there are variants.
+* If a device shouldn't be discovered because there are multiple revisions with the same model number but different battery types, it can be added to the library with a `"battery_type": "MANUAL"` to note it is a device that shouldn't have a battery definition added to the library to save removal/re-add because people don't realise there are variants.
 
 For the example image below, your JSON entry will look like this:
 
