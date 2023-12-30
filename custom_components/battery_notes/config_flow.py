@@ -91,6 +91,10 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
         """Handle integration discovery."""
         _LOGGER.debug("Starting discovery flow: %s", discovery_info)
 
+        unique_id = f"bn_{discovery_info[CONF_DEVICE_ID]}"
+        await self.async_set_unique_id(unique_id)
+        self._abort_if_unique_id_configured()
+
         self.context["title_placeholders"] = {
             "name": discovery_info[CONF_DEVICE_NAME],
             "manufacturer": discovery_info[CONF_MANUFACTURER],

@@ -12,7 +12,7 @@ from .const import (
     DOMAIN,
     DATA_LIBRARY,
     DOMAIN_CONFIG,
-    CONF_LIBRARY,
+    CONF_USER_LIBRARY,
 )
 
 BUILT_IN_DATA_DIRECTORY = os.path.join(os.path.dirname(__file__), "data")
@@ -23,29 +23,47 @@ _LOGGER = logging.getLogger(__name__)
 class Library:  # pylint: disable=too-few-public-methods
     """Hold all known battery types."""
 
-    _devices = None
+    _devices = []
 
     def __init__(self, hass: HomeAssistant) -> None:
         """Init."""
 
-        if DOMAIN_CONFIG not in hass.data[DOMAIN]:
-            json_path = os.path.join(
-                BUILT_IN_DATA_DIRECTORY,
-                "library.json",
-            )
-        else:
-            json_path = os.path.join(
-                BUILT_IN_DATA_DIRECTORY,
-                hass.data[DOMAIN][DOMAIN_CONFIG].get(CONF_LIBRARY, "library.json"),
-            )
+        # User Library
+        if DOMAIN_CONFIG in hass.data[DOMAIN]:
+            if CONF_USER_LIBRARY in hass.data[DOMAIN][DOMAIN_CONFIG]:
+                user_library_filename = hass.data[DOMAIN][DOMAIN_CONFIG].get(CONF_USER_LIBRARY)
+                if  user_library_filename != "":
+                    json_user_path = os.path.join(
+                        BUILT_IN_DATA_DIRECTORY,
+                        user_library_filename,
+                    )
+                    _LOGGER.debug("Using user library file at %s", json_user_path)
 
-        _LOGGER.debug("Using library file at %s", json_path)
+                    try:
+                        with open(json_user_path, encoding="utf-8") as user_file:
+                            user_json_data = json.load(user_file)
+                            self._devices = user_json_data["devices"]
+                            user_file.close()
+
+                    except FileNotFoundError:
+                        _LOGGER.error(
+                            "User library file not found at %s",
+                            json_user_path,
+                        )
+
+        # Default Library
+        json_default_path = os.path.join(
+            BUILT_IN_DATA_DIRECTORY,
+            "library.json",)
+
+        _LOGGER.debug("Using library file at %s", json_default_path)
 
         try:
-            with open(json_path, encoding="utf-8") as myfile:
-                json_data = json.load(myfile)
-                self._devices = json_data["devices"]
-                myfile.close()
+            with open(json_default_path, encoding="utf-8") as default_file:
+                default_json_data = json.load(default_file)
+                for i in default_json_data["devices"]:
+                    self._devices.append(i)
+                default_file.close()
 
         except FileNotFoundError:
             _LOGGER.error(
