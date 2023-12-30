@@ -74,21 +74,42 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "BRK Brands, Inc.",
+            "model": "ZCOMBO",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Allegion",
             "model": "BE469ZP",
             "battery_type": "AAA",
             "battery_quantity": 4
         },
         {
-            "manufacturer": "Danfoss",
-            "model": "010101",
-            "battery_type": "AA",
-            "battery_quantity": 2
+            "manufacturer": "CentraLite",
+            "model": "3210-L",
+            "battery_type": "CR2"
+        },
+        {
+            "manufacturer": "CentraLite",
+            "model": "3320-L",
+            "battery_type": "CR2"
+        },
+        {
+            "manufacturer": "CentraLite",
+            "model": "3326-L",
+            "battery_type": "CR2"
         },
         {
             "manufacturer": "Custom devices (DiY)",
             "model": "Xiaomi temperature & humidity sensor with custom firmware (LYWSD03MMC)",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Danfoss",
+            "model": "010101",
+            "battery_type": "AA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "Danfoss",
@@ -149,6 +170,12 @@
             "manufacturer": "Eve Systems",
             "model": "Eve Door 20EBN9901",
             "battery_type": "ER14250"
+        },
+        {
+            "manufacturer": "Everspring",
+            "model": "ST812",
+            "battery_type": "AA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "eWeLink",
@@ -373,6 +400,12 @@
             "battery_type": "ER14250"
         },
         {
+            "manufacturer": "First Alert (BRK Brands Inc)",
+            "model": "ZCOMBO",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "frient",
             "model": "MOSZB-140",
             "battery_type": "AA",
@@ -410,6 +443,11 @@
             "battery_type": "AAA"
         },
         {
+            "manufacturer": "HAB Home Intelligence LLC",
+            "model": "iblinds V3",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "HANK Electronics Ltd.",
             "model": "HKZW-DWS01",
             "battery_type": "AAA",
@@ -441,6 +479,11 @@
             "model": "Duette",
             "battery_type": "AA",
             "battery_quantity": 12
+        },
+        {
+            "manufacturer": "iMagic by GreatStar",
+            "model": "1116-S",
+            "battery_type": "CR2"
         },
         {
             "manufacturer": "INKBIRD",
@@ -490,10 +533,20 @@
             "manufacturer": "IKEA",
             "model": "TRADFRI open/close remote (E1766)",
             "battery_type": "CR2032"
-        },
+        },	    
         {
             "manufacturer": "IKEA",
             "model": "TRADFRI shortcut button (E1812)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "IKEA of Sweden",
+            "model": "PRAKTLYSING cellular blind",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "IKEA of Sweden",
+            "model": "SYMFONISK Sound Controller",
             "battery_type": "CR2032"
         },
         {
@@ -529,6 +582,11 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "IKEA of Sweden",
+            "model": "TREDANSEN block-out cellul blind",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "iNode",
             "model": "iNode Energy Meter",
             "battery_type": "CR2032"
@@ -558,6 +616,18 @@
         {
             "manufacturer": "Kwikset",
             "model": "SMARTCODE_DEADBOLT_10T",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Kwikset",
+            "model": "910",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Kwikset",
+            "model": "912",
             "battery_type": "AA",
             "battery_quantity": 4
         },
@@ -646,6 +716,11 @@
             "model": "lumi.sensor_h1",
             "battery_type": "CR2032"
         },
+	{
+            "manufacturer": "LUMI",
+            "model": "lumi.sensor_magnet",
+            "battery_type": "CR1632"
+        },
         {
             "manufacturer": "LUMI",
             "model": "lumi.sensor_magnet.aq2",
@@ -696,6 +771,12 @@
             "manufacturer": "Mopeka IOT",
             "model": "M1017",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "NYCE",
+            "model": "3043",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "Neo",
