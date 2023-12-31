@@ -186,8 +186,8 @@ async def async_setup_platform(
     await async_setup_reload_service(hass, DOMAIN, PLATFORMS)
 
 
-class BatteryNotesSensor(RestoreSensor, SensorEntity):
-    """Represents a battery note sensor."""
+class BatteryNotesTypeSensor(RestoreSensor, SensorEntity):
+    """Represents a battery note type sensor."""
 
     _attr_should_poll = False
     entity_description: BatteryNotesSensorEntityDescription
@@ -198,6 +198,7 @@ class BatteryNotesSensor(RestoreSensor, SensorEntity):
         description: BatteryNotesSensorEntityDescription,
         device_id: str,
         unique_id: str,
+        battery_type: str | None = None,
     ) -> None:
         """Initialize the sensor."""
         super().__init__()
@@ -215,23 +216,14 @@ class BatteryNotesSensor(RestoreSensor, SensorEntity):
                 identifiers=device.identifiers,
             )
 
+        self._battery_type = battery_type
+
     async def async_added_to_hass(self) -> None:
         """Handle added to Hass."""
         await super().async_added_to_hass()
         state = await self.async_get_last_sensor_data()
         if state:
             self._attr_native_value = state.native_value
-
-        self.async_on_remove(
-            async_track_state_change_event(
-                self.hass,
-                [self._attr_unique_id],
-                self._async_battery_note_state_replaced_listener,
-            )
-        )
-
-        # Call once on adding
-        self._async_battery_note_state_replaced_listener()
 
         # Update entity options
         registry = er.async_get(self.hass)
@@ -244,44 +236,11 @@ class BatteryNotesSensor(RestoreSensor, SensorEntity):
                 },
             )
 
-    @callback
-    def _async_battery_note_state_replaced_listener(self) -> None:
-        """Handle the sensor state changes."""
-
-        self.async_write_ha_state()
-        self.async_schedule_update_ha_state(True)
-
-
-class BatteryNotesTypeSensor(BatteryNotesSensor):
-    """Represents a battery note sensor."""
-
-    entity_description: BatteryNotesSensorEntityDescription
-
-    def __init__(
-        self,
-        hass,
-        description: BatteryNotesSensorEntityDescription,
-        device_id: str,
-        unique_id: str,
-        battery_type: str | None = None,
-    ) -> None:
-        """Initialize the sensor."""
-        super().__init__(hass, description, device_id, unique_id)
-
-        self._battery_type = battery_type
-
     @property
     def native_value(self) -> str:
         """Return the native value of the sensor."""
 
         return self._battery_type
-
-    @callback
-    def _async_battery_type_state_replaced_listener(self) -> None:
-        """Handle the sensor state changes."""
-        self.async_write_ha_state()
-        self.async_schedule_update_ha_state(True)
-
 
 class BatteryNotesLastReplacedSensor(SensorEntity, CoordinatorEntity):
     """Represents a battery note sensor."""
