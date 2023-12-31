@@ -41,21 +41,17 @@ from .const import (
     DOMAIN,
     PLATFORMS,
     CONF_BATTERY_TYPE,
-    DATA_UPDATE_COORDINATOR,
     DATA_COORDINATOR,
     LAST_REPLACED,
     DOMAIN_CONFIG,
     CONF_ENABLE_REPLACED,
 )
 
-from .library_coordinator import BatteryNotesLibraryUpdateCoordinator
 from .coordinator import BatteryNotesCoordinator
 
 from .entity import (
     BatteryNotesEntityDescription,
 )
-
-_LOGGER = logging.getLogger(__name__)
 
 
 @dataclass
@@ -135,7 +131,6 @@ async def async_setup_entry(
 
     device_id = async_add_to_device(hass, config_entry)
 
-    library_coordinator = hass.data[DOMAIN][DATA_UPDATE_COORDINATOR]
     coordinator: BatteryNotesCoordinator = hass.data[DOMAIN][DATA_COORDINATOR]
 
     enable_replaced = True
@@ -164,7 +159,6 @@ async def async_setup_entry(
     entities = [
         BatteryNotesTypeSensor(
             hass,
-            library_coordinator,
             typeSensorEntityDescription,
             device_id,
             f"{config_entry.entry_id}{typeSensorEntityDescription.unique_id_suffix}",
@@ -192,7 +186,7 @@ async def async_setup_platform(
     await async_setup_reload_service(hass, DOMAIN, PLATFORMS)
 
 
-class BatteryNotesSensor(RestoreSensor, SensorEntity, CoordinatorEntity):
+class BatteryNotesSensor(RestoreSensor, SensorEntity):
     """Represents a battery note sensor."""
 
     _attr_should_poll = False
@@ -201,13 +195,12 @@ class BatteryNotesSensor(RestoreSensor, SensorEntity, CoordinatorEntity):
     def __init__(
         self,
         hass,
-        coordinator: BatteryNotesLibraryUpdateCoordinator,
         description: BatteryNotesSensorEntityDescription,
         device_id: str,
         unique_id: str,
     ) -> None:
         """Initialize the sensor."""
-        super().__init__(coordinator)
+        super().__init__()
 
         device_registry = dr.async_get(hass)
 
@@ -267,14 +260,13 @@ class BatteryNotesTypeSensor(BatteryNotesSensor):
     def __init__(
         self,
         hass,
-        coordinator: BatteryNotesLibraryUpdateCoordinator,
         description: BatteryNotesSensorEntityDescription,
         device_id: str,
         unique_id: str,
         battery_type: str | None = None,
     ) -> None:
         """Initialize the sensor."""
-        super().__init__(hass, coordinator, description, device_id, unique_id)
+        super().__init__(hass, description, device_id, unique_id)
 
         self._battery_type = battery_type
 

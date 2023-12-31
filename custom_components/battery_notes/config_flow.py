@@ -23,6 +23,7 @@ from homeassistant.const import (
 )
 
 from .library import Library
+from .library_updater import LibraryUpdater
 
 from .const import (
     DOMAIN,
@@ -30,7 +31,7 @@ from .const import (
     CONF_DEVICE_NAME,
     CONF_MANUFACTURER,
     CONF_MODEL,
-    DATA_UPDATE_COORDINATOR,
+    DATA_LIBRARY_UPDATER,
     DOMAIN_CONFIG,
     CONF_SHOW_ALL_DEVICES,
 )
@@ -115,9 +116,9 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             device_id = user_input[CONF_DEVICE_ID]
 
             if DOMAIN in self.hass.data:
-                if DATA_UPDATE_COORDINATOR in self.hass.data[DOMAIN]:
-                    coordinator = self.hass.data[DOMAIN][DATA_UPDATE_COORDINATOR]
-                    await coordinator.async_refresh()
+                if DATA_LIBRARY_UPDATER in self.hass.data[DOMAIN]:
+                    library_updater: LibraryUpdater  = self.hass.data[DOMAIN][DATA_LIBRARY_UPDATER]
+                    await library_updater.get_library_updates()
 
             device_registry = dr.async_get(self.hass)
             device_entry = device_registry.async_get(device_id)
