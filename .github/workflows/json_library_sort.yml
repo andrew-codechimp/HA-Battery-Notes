@@ -1,11 +1,12 @@
-name: Sort JSON Library
+name: JSON Library Sorter and Doc Gen
 
 on:
   workflow_dispatch:
   push:
     paths:
       - 'custom_components/battery_notes/data/library.json'
-      - '.github/workflows/json_library_sort.yml'
+      - '.github/workflows/json_library_sort_doc.yml'
+      - '.github/workflows/scripts/library_doc/**'
 
 jobs:
   sort-library-json:
@@ -36,8 +37,17 @@ jobs:
             
             # Sort the devices by manufacturer and model
             devices.sort(key=lambda k: (k["manufacturer"].lower(), k["model"].lower()))
-
+            
             with open("custom_components/battery_notes/data/library.json", "w", encoding="UTF-8") as f:
                 f.write(json.dumps(devices_json, indent=4))
 
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - name: Install library doc generator dependencies
+        run: |
+          python -m pip install -r ${{ github.workspace }}/.github/scripts/library_doc/requirements.txt
+
+      - name: Generate library doc
+        run: |
+          python3 ${{ github.workspace }}/.github/scripts/library_doc/generate_file.py
+
+      - name: Commit any changes
+        uses: stefanzweifel/git-auto-commit-action@v5
