@@ -109,6 +109,11 @@
         },
         {
             "manufacturer": "Aeotec Ltd.",
+            "model": "ZWA009",
+            "battery_type": "CR2477"
+        },
+        {
+            "manufacturer": "Aeotec Ltd.",
             "model": "ZWA039",
             "battery_type": "CR2477"
         },
@@ -1780,11 +1785,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Aeotec Ltd.",
-            "model": "ZWA009",
-            "battery_type": "CR2477"
         }
     ]
 }
