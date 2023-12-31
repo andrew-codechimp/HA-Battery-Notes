@@ -42,7 +42,7 @@ Add the following entry to your `configuration.yaml`
 ```
 battery_notes:
 ```
-Restart Home Assistant
+Restart Home Assistant  
 In the HA UI go to Settings -> Integrations click "+" and search for "Battery Notes"
 
 ### Manual Installation
