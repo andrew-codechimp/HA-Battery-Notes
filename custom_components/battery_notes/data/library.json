@@ -833,6 +833,18 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Nuki",
+            "model": "Nuki Opener",
+            "battery_type": "AAA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Nuki",
+            "model": "Nuki Smart Lock",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
             "manufacturer": "OpenEpaperLink",
             "model": "ST‐GR16000 1.54\"",
             "battery_type": "CR2450"

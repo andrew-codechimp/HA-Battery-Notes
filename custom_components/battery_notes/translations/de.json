@@ -2,13 +2,13 @@
     "config": {
         "step": {
             "user": {
-                "description": "Hilfe zur Konfiguration finden Sie unter: https://github.com/andrew-codechimp/ha-battery-notes",
+                "description": "Hilfe zur Konfiguration findest du unter: https://github.com/andrew-codechimp/ha-battery-notes",
                 "data": {
                     "device_id": "Gerät",
                     "name": "Name"
                 },
                 "data_description": {
-                    "name": "Wenn Sie nichts eingeben wird der Name vom Quellgerät übernommen"
+                    "name": "Wenn du nichts eingibst, wird der Name vom Quellgerät übernommen"
                 }
             },
             "battery": {
@@ -16,7 +16,7 @@
                     "battery_type": "Batterieart"
                 },
                 "data_description": {
-                    "battery_type": "Geben Sie optional die Anzahl der Batterien an wenn es mehr als eine Batterie ist, z. B. 2x AAA"
+                    "battery_type": "Optional: Anzahl der Batterien eingeben, wenn es mehr als eine Batterie ist, z. B. 2x AAA"
                 }
             }
         },
@@ -30,13 +30,13 @@
     "options": {
         "step": {
             "init": {
-                "description": "Hilfe zur Konfiguration finden Sie unter: https://github.com/andrew-codechimp/ha-battery-notes",
+                "description": "Hilfe zur Konfiguration findest du unter: https://github.com/andrew-codechimp/ha-battery-notes",
                 "data": {
                     "name": "Name",
                     "battery_type": "Batterieart"
                 },
                 "data_description": {
-                    "name": "Wenn Sie nichts eingeben wird der Name vom Quellgerät übernommen"
+                    "name": "Wenn du nichts eingibst, wird der Name vom Quellgerät übernommen"
                 }
             }
         },
@@ -61,14 +61,14 @@
     },
     "services": {
         "set_battery_replaced": {
-            "description": "Setzt Batterie zuletzt ersetzt auf den jetzigen Zeitpunkt.",
+            "description": "ktualisiert den Zeitpunkt des letzten Batteriewechsels auf den jetzigen Zeitpunkt.",
             "fields": {
                 "device_id": {
                     "description": "Gerät, bei dem die Batterie ersetzt wurde.",
                     "name": "Gerät"
                 }
             },
-            "name": "Setzt Batterie zuletzt ersetzt"
+            "name": "ktualisiert den Zeitpunkt des letzten Batteriewechsels"
         }
     }
 }
