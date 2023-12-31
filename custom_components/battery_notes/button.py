@@ -26,13 +26,9 @@ from homeassistant.helpers.event import (
 )
 
 from homeassistant.helpers.reload import async_setup_reload_service
-from homeassistant.helpers.typing import (
-    ConfigType,
-)
 
 from homeassistant.const import (
     CONF_NAME,
-    CONF_UNIQUE_ID,
     CONF_DEVICE_ID,
 )
 
@@ -40,7 +36,9 @@ from . import PLATFORMS
 
 from .const import (
     DOMAIN,
+    DOMAIN_CONFIG,
     DATA_COORDINATOR,
+    CONF_ENABLE_REPLACED,
 )
 
 from .entity import (
@@ -65,6 +63,7 @@ ENTITY_DESCRIPTIONS: tuple[BatteryNotesButtonEntityDescription, ...] = (
         translation_key="battery_replaced",
         icon="mdi:battery-sync",
         entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default = False,
     ),
 )
 
@@ -131,37 +130,37 @@ async def async_setup_entry(
 
     device_id = async_add_to_device(hass, config_entry)
 
+    enable_replaced = True
+    if DOMAIN_CONFIG in hass.data[DOMAIN]:
+        domain_config = hass.data[DOMAIN][DOMAIN_CONFIG]
+        enable_replaced = domain_config.get(CONF_ENABLE_REPLACED, True)
+
+    description = BatteryNotesButtonEntityDescription(
+        unique_id_suffix="_battery_replaced_button",
+        key="battery_replaced",
+        translation_key="battery_replaced",
+        icon="mdi:battery-sync",
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default = enable_replaced,
+    )
+
     async_add_entities(
-        BatteryNotesButton(
+        [
+            BatteryNotesButton(
             hass,
             description,
             f"{config_entry.entry_id}{description.unique_id_suffix}",
             device_id,
-        )
-        for description in ENTITY_DESCRIPTIONS
+            )
+        ]
     )
-
 
 async def async_setup_platform(
     hass: HomeAssistant,
-    config: ConfigType,
-    async_add_entities: AddEntitiesCallback,
 ) -> None:
-    """Set up the battery type button."""
-    device_id: str = config[CONF_DEVICE_ID]
+    """Set up the battery note sensor."""
 
     await async_setup_reload_service(hass, DOMAIN, PLATFORMS)
-
-    async_add_entities(
-        BatteryNotesButton(
-            hass,
-            description,
-            f"{config.get(CONF_UNIQUE_ID)}{description.unique_id_suffix}",
-            device_id,
-        )
-        for description in ENTITY_DESCRIPTIONS
-    )
-
 
 class BatteryNotesButton(ButtonEntity):
     """Represents a battery replaced button."""
@@ -185,7 +184,6 @@ class BatteryNotesButton(ButtonEntity):
         self._attr_has_entity_name = True
         self._device_id = device_id
 
-        self._device_id = device_id
         if device_id and (device := device_registry.async_get(device_id)):
             self._attr_device_info = DeviceInfo(
                 connections=device.connections,
@@ -194,28 +192,14 @@ class BatteryNotesButton(ButtonEntity):
 
     async def async_added_to_hass(self) -> None:
         """Handle added to Hass."""
-        # Update entity options
         registry = er.async_get(self.hass)
         if registry.async_get(self.entity_id) is not None:
+
             registry.async_update_entity_options(
                 self.entity_id,
                 DOMAIN,
                 {"entity_id": self._attr_unique_id},
             )
-
-    async def update_battery_last_replaced(self):
-        """Handle sensor state changes."""
-
-        # device_id = self._device_id
-
-        # device_entry = {
-        #     "battery_last_replaced" : datetime.utcnow()
-        #     }
-
-        # coordinator = self.hass.data[DOMAIN][DATA_COORDINATOR]
-        # coordinator.async_update_device_config(device_id = device_id, data = device_entry)
-
-        self.async_write_ha_state()
 
     async def async_press(self) -> None:
         """Press the button."""
@@ -227,3 +211,4 @@ class BatteryNotesButton(ButtonEntity):
         coordinator.async_update_device_config(device_id=device_id, data=device_entry)
         await coordinator._async_update_data()
         await coordinator.async_request_refresh()
+

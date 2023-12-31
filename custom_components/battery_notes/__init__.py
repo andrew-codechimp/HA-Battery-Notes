@@ -34,9 +34,10 @@ from .const import (
     DOMAIN_CONFIG,
     PLATFORMS,
     CONF_ENABLE_AUTODISCOVERY,
-    CONF_LIBRARY,
+    CONF_USER_LIBRARY,
     DATA_UPDATE_COORDINATOR,
     CONF_SHOW_ALL_DEVICES,
+    CONF_ENABLE_REPLACED,
     SERVICE_BATTERY_REPLACED,
     SERVICE_BATTERY_REPLACED_SCHEMA,
     DATA_COORDINATOR,
@@ -53,8 +54,9 @@ CONFIG_SCHEMA = vol.Schema(
             vol.Schema(
                 {
                     vol.Optional(CONF_ENABLE_AUTODISCOVERY, default=True): cv.boolean,
-                    vol.Optional(CONF_LIBRARY, default="library.json"): cv.string,
+                    vol.Optional(CONF_USER_LIBRARY, default=""): cv.string,
                     vol.Optional(CONF_SHOW_ALL_DEVICES, default=False): cv.boolean,
+                    vol.Optional(CONF_ENABLE_REPLACED, default=True): cv.boolean,
                 },
             ),
         ),
@@ -79,6 +81,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     domain_config: ConfigType = config.get(DOMAIN) or {
         CONF_ENABLE_AUTODISCOVERY: True,
         CONF_SHOW_ALL_DEVICES: False,
+        CONF_ENABLE_REPLACED: True,
     }
 
     hass.data[DOMAIN] = {
