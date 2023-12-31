@@ -110,7 +110,6 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
 
     return True
 
-
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Set up a config entry."""
 
@@ -132,7 +131,7 @@ async def async_remove_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> 
 
     device_id = config_entry.data["device_id"]
 
-    coordinator = hass.data[DOMAIN][DATA_COORDINATOR]
+    coordinator: BatteryNotesCoordinator = hass.data[DOMAIN][DATA_COORDINATOR]
     data = {ATTR_REMOVE: True}
 
     coordinator.async_update_device_config(device_id=device_id, data=data)
@@ -171,7 +170,7 @@ def register_services(hass):
             ) and entry.domain == DOMAIN:
                 date_replaced = datetime.utcnow()
 
-                coordinator = hass.data[DOMAIN][DATA_COORDINATOR]
+                coordinator: BatteryNotesCoordinator = hass.data[DOMAIN][DATA_COORDINATOR]
                 device_entry = {"battery_last_replaced": date_replaced}
 
                 coordinator.async_update_device_config(

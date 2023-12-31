@@ -147,7 +147,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
         # If show_all_devices = is specified and true, don't filter
         if DOMAIN in self.hass.data:
             if DOMAIN_CONFIG in self.hass.data[DOMAIN]:
-                domain_config = self.hass.data[DOMAIN][DOMAIN_CONFIG]
+                domain_config: dict = self.hass.data[DOMAIN][DOMAIN_CONFIG]
                 if domain_config.get(CONF_SHOW_ALL_DEVICES, False):
                     schema = DEVICE_SCHEMA_ALL
 

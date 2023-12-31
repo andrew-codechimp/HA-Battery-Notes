@@ -41,6 +41,8 @@ from .const import (
     CONF_ENABLE_REPLACED,
 )
 
+from .coordinator import BatteryNotesCoordinator
+
 from .entity import (
     BatteryNotesEntityDescription,
 )
@@ -132,7 +134,7 @@ async def async_setup_entry(
 
     enable_replaced = True
     if DOMAIN_CONFIG in hass.data[DOMAIN]:
-        domain_config = hass.data[DOMAIN][DOMAIN_CONFIG]
+        domain_config: dict = hass.data[DOMAIN][DOMAIN_CONFIG]
         enable_replaced = domain_config.get(CONF_ENABLE_REPLACED, True)
 
     description = BatteryNotesButtonEntityDescription(
@@ -207,7 +209,7 @@ class BatteryNotesButton(ButtonEntity):
 
         device_entry = {"battery_last_replaced": datetime.utcnow()}
 
-        coordinator = self.hass.data[DOMAIN][DATA_COORDINATOR]
+        coordinator: BatteryNotesCoordinator = self.hass.data[DOMAIN][DATA_COORDINATOR]
         coordinator.async_update_device_config(device_id=device_id, data=device_entry)
         await coordinator._async_update_data()
         await coordinator.async_request_refresh()

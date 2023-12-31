@@ -136,11 +136,11 @@ async def async_setup_entry(
     device_id = async_add_to_device(hass, config_entry)
 
     library_coordinator = hass.data[DOMAIN][DATA_UPDATE_COORDINATOR]
-    coordinator = hass.data[DOMAIN][DATA_COORDINATOR]
+    coordinator: BatteryNotesCoordinator = hass.data[DOMAIN][DATA_COORDINATOR]
 
     enable_replaced = True
     if DOMAIN_CONFIG in hass.data[DOMAIN]:
-        domain_config = hass.data[DOMAIN][DOMAIN_CONFIG]
+        domain_config: dict = hass.data[DOMAIN][DOMAIN_CONFIG]
         enable_replaced = domain_config.get(CONF_ENABLE_REPLACED, True)
 
     typeSensorEntityDescription = BatteryNotesSensorEntityDescription(
