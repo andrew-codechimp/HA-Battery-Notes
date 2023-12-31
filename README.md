@@ -9,7 +9,7 @@
 [![BuyMeACoffee](https://img.shields.io/badge/-buy_me_a%C2%A0coffee-gray?logo=buy-me-a-coffee&style=for-the-badge)](https://www.buymeacoffee.com/codechimp)
 
 
-Integration to add battery notes to a device, with automatic discovery via a growing battery library for devices.  
+Integration to add battery notes to a device, with automatic discovery via a growing [battery library](library.md) for devices.  
 Track both the battery type and also when the battery was replaced.  
 
 *Please :star: this repo if you find it useful*
@@ -73,7 +73,7 @@ The battery type will then be displayed as a diagnostic sensor on the device.
 No, you can always add a device manually by going to Settings -> Integrations -> Battery Notes screen add a new device where you can enter the battery details manually.
 
 * Why is my device not being discovered?  
-It could be missing from the library or does not exactly match the name that your integration has.  ZHA and Z2M for example have different manufacturers/models for the same device, you can still add it manually or contribute to the library.
+It could be missing from the [library](library.md) or does not exactly match the name that your integration has.  ZHA and Z2M for example have different manufacturers/models for the same device, you can still add it manually or contribute to the library.
 
 * When is the library updated?  
 It updates when Home Assistant is restarted and approximately every 24 hours after that.  
@@ -112,11 +112,9 @@ battery_notes:
 * How can I show my support?  
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png)](https://www.buymeacoffee.com/codechimp)
 
-
-
 ## Contributing to the Battery Library
 
-<!-- To add a device definition to the battery library so that it will be automatically configured there are two options:
+To add a device definition to the battery library so that it will be automatically configured there are two options:
 
 ### Submit Definition via GitHub Issues Form
 
@@ -125,12 +123,12 @@ Upon submission of the issue, GitHub will attempt to make the required code chan
 
 ### Submit Definition via Pull Request
 
-If you have issues with the form, or if you feel more comfortable editing JSON data, you can directly add definitions to [the library.json file](custom_components/battery_notes/data/library.json). -->
-Fork the repository, add your device details to the JSON document `custom_components/battery_notes/data/library.json`, and then submit a pull request. Do not enable GitHub Actions (disabled by default) as this will mess with the pull request and are unnecessary for a library submission.
+If you have issues with the form, or if you feel more comfortable editing JSON data, you can directly add definitions to [the library.json file](custom_components/battery_notes/data/library.json).
+Fork the repository, add your device details to the JSON document `custom_components/battery_notes/data/library.json`, and then submit a pull request.
+Do not enable GitHub Actions (disabled by default) on your fork as this will mess with the pull request and they are unnecessary for a library submission.
 
 * The manufacturer and model should be exactly what is displayed on the Device screen within Home Assistant.
 * The make & model names may be different between integrations such as Zigbee2MQTT and ZHA, if you see a similar device please duplicate the entry rather than changing it.
-* Please keep devices in alphabetical order by manufacturer/model.
 * The `battery_quantity` data is numeric (no quotes) and optional. If a device only requires a single battery, it should be omitted.
 * The `battery_type` data should follow the most common naming for general batteries (ex. AAA, D) and the IEC naming for battery cells (ex. CR2032, 18650) according to [Wikipedia](https://en.wikipedia.org/wiki/List_of_battery_sizes)
 * If a device has a bespoke rechargeable battery you can use `"battery_type": "Rechargeable"`
@@ -159,7 +157,7 @@ If you want to contribute to this please read the [Contribution guidelines](CONT
 
 A lot of the inspiration for this integration came from the excellent [PowerCalc by bramstroker](https://github.com/bramstroker/homeassistant-powercalc), without adapting code from PowerCalc I'd never have worked out how to add additional sensors to a device.
 
-<!-- Huge thanks to @bmos for creating the issue form & automations for adding new devices. COMING SOON -->
+Huge thanks to @bmos for creating the issue form & automations for adding new devices.
 
 Thanks to everyone who has submitted devices to the library.
 
