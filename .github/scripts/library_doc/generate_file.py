@@ -1,0 +1,55 @@
+"""Battery library document generator."""
+
+from __future__ import annotations
+
+import json
+
+from pytablewriter import MarkdownTableWriter
+
+
+def generate_device_list():
+    """Generate static file containing the device library."""
+
+    # Load the existing JSON library file
+    with open("custom_components/battery_notes/data/library.json",
+              encoding="UTF-8") as f:
+        devices_json = json.loads(f.read())
+        devices = devices_json.get("devices")
+
+    toc_links: list[str] = []
+    tables_output: str = ""
+    rows = []
+
+    num_devices = len(devices)
+
+    writer = MarkdownTableWriter()
+    headers = [
+        "Manufacturer",
+        "Model",
+        "Battery Type",
+    ]
+
+    writer.header_list = headers
+
+    for device in devices:
+        if device.get("battery_quantity", 1) > 1:
+            battery_type_qty = f"{device['battery_quantity']}x {device['battery_type']}"
+        else:
+            battery_type_qty = device["battery_type"]
+        row = [
+            device['manufacturer'],
+            device['model'],
+            battery_type_qty,
+        ]
+        rows.append(row)
+
+    writer.value_matrix = rows
+    tables_output += f"## {num_devices} Devices in library\n\n"
+    tables_output += "This file is auto generated, do not modify\n\n"
+    tables_output += writer.dumps()
+
+    with open("library.md", "w", encoding="UTF-8") as md_file:
+        md_file.write("".join(toc_links) + tables_output)
+        md_file.close()
+
+generate_device_list()
