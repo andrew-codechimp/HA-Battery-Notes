@@ -9,7 +9,7 @@ on:
       - '.github/workflows/scripts/library_doc/**'
 
 jobs:
-  sort-library-json:
+  librarian:
     runs-on: ubuntu-latest
     permissions:
       contents: write
