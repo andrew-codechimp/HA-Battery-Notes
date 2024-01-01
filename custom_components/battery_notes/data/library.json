@@ -1362,6 +1362,12 @@
         },
         {
             "manufacturer": "Third Reality, Inc",
+            "model": "3RTHS24BZ",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Third Reality, Inc",
             "model": "3RWS18BZ",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -1791,12 +1797,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Third Reality, Inc",
-            "model": "3RTHS24BZ",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
