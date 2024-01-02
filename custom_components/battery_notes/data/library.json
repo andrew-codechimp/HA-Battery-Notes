@@ -219,6 +219,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Danfoss",
+            "model": "LC-13",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Develco",
             "model": "Smoke detector with siren (SMSZB-120)",
             "battery_type": "CR123"
@@ -1841,12 +1847,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Danfoss",
-            "model": "LC-13",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
