@@ -1831,6 +1831,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "IKEA",
+            "model": "E2102",
+            "battery_type": "Rechargeable"
         }
     ]
 }
