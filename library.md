@@ -1,4 +1,4 @@
-## 339 Devices in library
+## 340 Devices in library
 
 This file is auto generated, do not modify
 
@@ -111,6 +111,7 @@ This file is auto generated, do not modify
 |HEIMAN                      |Smoke detector (HS3SA/HS1SA)                                          |CR123A      |
 |Hive                        |Heating thermostat remote control (SLT3C)                             |4x AA       |
 |Hunter Douglas              |Duette                                                                |12x AA      |
+|ID Lock AS                  |ID-150                                                                |8x AA       |
 |IKEA                        |E2102                                                                 |Rechargeable|
 |IKEA                        |FYRTUR roller blind (E1757)                                           |Rechargeable|
 |IKEA                        |STYRBAR remote control (E2001/E2002)                                  |2x AAA      |

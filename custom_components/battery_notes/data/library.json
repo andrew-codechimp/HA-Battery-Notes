@@ -598,6 +598,12 @@
             "battery_quantity": 12
         },
         {
+            "manufacturer": "ID Lock AS",
+            "model": "ID-150",
+            "battery_type": "AA",
+            "battery_quantity": 8
+        },
+        {
             "manufacturer": "IKEA",
             "model": "E2102",
             "battery_type": "Rechargeable"
@@ -1847,12 +1853,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "ID Lock AS",
-            "model": "ID-150",
-            "battery_type": "AA",
-            "battery_quantity": 8
         }
     ]
 }
