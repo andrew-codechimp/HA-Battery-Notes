@@ -258,6 +258,11 @@
         },
         {
             "manufacturer": "Ecolink",
+            "model": "FF-ZWAVE5-ECO",
+            "battery_type": "CR123"
+        },
+        {
+            "manufacturer": "Ecolink",
             "model": "TILT-ZWAVE2.5-ECO",
             "battery_type": "CR123A"
         },
@@ -1836,11 +1841,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Ecolink",
-            "model": "FF-ZWAVE5-ECO",
-            "battery_type": "CR123"
         }
     ]
 }
