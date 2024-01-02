@@ -1859,6 +1859,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Danalock",
+            "model": "V3-BTZBE",
+            "battery_type": "CR123A",
+            "battery_quantity": 4
         }
     ]
 }
