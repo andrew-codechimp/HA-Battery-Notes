@@ -63,8 +63,7 @@ class Library:  # pylint: disable=too-few-public-methods
         try:
             with open(json_default_path, encoding="utf-8") as default_file:
                 default_json_data = json.load(default_file)
-                for i in default_json_data["devices"]:
-                    self._devices.append(i)
+                self._devices.extend(default_json_data["devices"])
                 default_file.close()
 
         except FileNotFoundError:
