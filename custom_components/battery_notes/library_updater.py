@@ -4,14 +4,13 @@ from __future__ import annotations
 import logging
 import asyncio
 import socket
-import aiohttp
-import async_timeout
-from datetime import datetime, timedelta
-import logging
 import json
 import os
+from datetime import datetime, timedelta
 
-from homeassistant.core import HomeAssistant
+import aiohttp
+import async_timeout
+
 from homeassistant.exceptions import ConfigEntryNotReady
 
 from homeassistant.core import callback
@@ -35,7 +34,7 @@ class LibraryUpdaterClientError(Exception):
 class LibraryUpdaterClientCommunicationError(LibraryUpdaterClientError):
     """Exception to indicate a communication error."""
 
-class LibraryUpdater():
+class LibraryUpdater:
     """Library updater."""
 
     def __init__(self, hass):
@@ -44,17 +43,24 @@ class LibraryUpdater():
         self._client = LibraryUpdaterClient(session=async_get_clientsession(hass))
 
         # Fire the library check every 24 hours from now
-        async_track_utc_time_change(hass, self.timer_update, hour = datetime.now().hour, minute = 1, second=1)
+        async_track_utc_time_change(
+            hass,
+            self.timer_update,
+            hour = datetime.now().hour,
+            minute = 1,
+            second=1)
 
     @callback
-    async def timer_update(self):
+    async def timer_update(self, time):
         """Need to update the library."""
         if await self.time_to_update_library() is False:
             return
 
-        self.get_library_updates()
+        await self.get_library_updates(time)
 
-    async def get_library_updates(self):
+    @callback
+    async def get_library_updates(self, time): # pylint: disable=unused-argument
+        """Make a call to GitHub to get the latest library.json."""
         try:
             _LOGGER.debug("Getting library updates")
 

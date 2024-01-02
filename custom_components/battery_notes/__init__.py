@@ -17,6 +17,7 @@ from homeassistant.core import HomeAssistant, callback
 from homeassistant.const import __version__ as HA_VERSION  # noqa: N812
 from homeassistant.helpers.typing import ConfigType
 from homeassistant.helpers import device_registry as dr
+from homeassistant.util import dt as dt_util
 
 from .discovery import DiscoveryManager
 from .library_updater import (
@@ -93,7 +94,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
 
     library_updater = LibraryUpdater(hass)
 
-    library_updater.get_library_updates()
+    await library_updater.get_library_updates(dt_util.utcnow())
 
     hass.data[DOMAIN][DATA_LIBRARY_UPDATER] = library_updater
 
@@ -174,7 +175,7 @@ def register_services(hass):
                     device_id=device_id, data=device_entry
                 )
 
-                await coordinator._async_update_data()
+                # await coordinator._async_update_data()
                 await coordinator.async_request_refresh()
 
                 _LOGGER.debug(
