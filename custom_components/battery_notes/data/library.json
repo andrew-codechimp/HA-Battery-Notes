@@ -588,6 +588,11 @@
         },
         {
             "manufacturer": "IKEA",
+            "model": "E2102",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "IKEA",
             "model": "FYRTUR roller blind (E1757)",
             "battery_type": "Rechargeable"
         },
@@ -1831,11 +1836,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "IKEA",
-            "model": "E2102",
-            "battery_type": "Rechargeable"
         }
     ]
 }
