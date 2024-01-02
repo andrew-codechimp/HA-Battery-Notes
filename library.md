@@ -1,4 +1,4 @@
-## 327 Devices in library
+## 330 Devices in library
 
 This file is auto generated, do not modify
 
@@ -23,6 +23,7 @@ This file is auto generated, do not modify
 |Aeotec Ltd.                 |ZWA003                                                                |LIR2450     |
 |Aeotec Ltd.                 |ZWA005                                                                |CR123A      |
 |Aeotec Ltd.                 |ZWA008                                                                |ER14250     |
+|Aeotec Ltd.                 |ZWA009                                                                |CR2477      |
 |Aeotec Ltd.                 |ZWA039                                                                |CR2477      |
 |Airthings AS                |Wave Plus                                                             |2x AAA      |
 |Aldi                        |MEGOS switch and dimming light remote control (141L100RC)             |CR2450      |
@@ -248,7 +249,9 @@ This file is auto generated, do not modify
 |Tado                        |VA02                                                                  |2x AA       |
 |Third Reality               |Smart switch Gen3 (3RSS009Z)                                          |2x AAA      |
 |Third Reality, Inc          |3RDS17BZ                                                              |2x AAA      |
+|Third Reality, Inc          |3RSB22BZ                                                              |2x AAA      |
 |Third Reality, Inc          |3RSS009Z                                                              |2x AAA      |
+|Third Reality, Inc          |3RTHS24BZ                                                             |2x AAA      |
 |Third Reality, Inc          |3RWS18BZ                                                              |2x AAA      |
 |TT Lock                     |SN511-180MS_PV53                                                      |4x AA       |
 |TUO Accessories LLC         |TUO Smart Button                                                      |CR2032      |

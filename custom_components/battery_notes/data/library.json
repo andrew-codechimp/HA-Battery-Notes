@@ -109,6 +109,11 @@
         },
         {
             "manufacturer": "Aeotec Ltd.",
+            "model": "ZWA009",
+            "battery_type": "CR2477"
+        },
+        {
+            "manufacturer": "Aeotec Ltd.",
             "model": "ZWA039",
             "battery_type": "CR2477"
         },
@@ -1345,7 +1350,19 @@
         },
         {
             "manufacturer": "Third Reality, Inc",
+            "model": "3RSB22BZ",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Third Reality, Inc",
             "model": "3RSS009Z",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Third Reality, Inc",
+            "model": "3RTHS24BZ",
             "battery_type": "AAA",
             "battery_quantity": 2
         },
