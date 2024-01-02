@@ -118,11 +118,12 @@ To add a device definition to the battery library so that it will be automatical
 
 ### Submit Definition via GitHub Issues Form
 
-To add a new device via GitHub Issues, fill out [this form (BETA)](https://github.com/andrew-codechimp/HA-Battery-Notes/issues/new?template=new_device_request.yml&title=[Device]%3A+).
+To add a new device via GitHub Issues, fill out [this form](https://github.com/andrew-codechimp/HA-Battery-Notes/issues/new?template=new_device_request.yml&title=[Device]%3A+).
 Upon submission of the issue, GitHub will attempt to make the required code changes automatically.
 
 ### Submit Definition via Pull Request
-
+<details>
+<summary>More Details</summary>
 If you have issues with the form, or if you feel more comfortable editing JSON data, you can directly add definitions to [the library.json file](custom_components/battery_notes/data/library.json).
 Fork the repository, add your device details to the JSON document `custom_components/battery_notes/data/library.json`, and then submit a pull request.
 Do not enable GitHub Actions (disabled by default) on your fork as this will mess with the pull request and they are unnecessary for a library submission.
@@ -148,6 +149,7 @@ For the example image below, your JSON entry will look like this:
 
 ![Device Details](https://github.com/andrew-codechimp/HA-Battery-Notes/blob/main/images/screenshot-device-info.png "Device Details")
 <!---->
+</details>
 
 ## Contributions are welcome!
 
