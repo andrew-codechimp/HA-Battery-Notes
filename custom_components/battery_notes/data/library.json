@@ -1503,6 +1503,11 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "TUYATEC-xrvzm3yI",
+            "model": "RH3001",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "VictorPest.com",
             "model": "Rat Trap",
             "battery_type": "C",
@@ -1808,11 +1813,6 @@
         {
             "manufacturer": "Zooz",
             "model": "ZSE42",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "TUYATEC-xrvzm3yI",
-            "model": "RH3001",
             "battery_type": "CR2032"
         }
     ]
