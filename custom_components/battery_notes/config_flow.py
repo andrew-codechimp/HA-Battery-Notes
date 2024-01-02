@@ -16,6 +16,7 @@ from homeassistant.helpers.typing import DiscoveryInfoType
 from homeassistant.const import Platform
 from homeassistant.components.sensor import SensorDeviceClass
 import homeassistant.helpers.device_registry as dr
+from homeassistant.util import dt as dt_util
 
 from homeassistant.const import (
     CONF_NAME,
@@ -120,7 +121,8 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                 and DATA_LIBRARY_UPDATER in self.hass.data[DOMAIN]
             ):
                 library_updater: LibraryUpdater  = self.hass.data[DOMAIN][DATA_LIBRARY_UPDATER]
-                await library_updater.get_library_updates()
+                await library_updater.get_library_updates(dt_util.utcnow())
+
 
             device_registry = dr.async_get(self.hass)
             device_entry = device_registry.async_get(device_id)

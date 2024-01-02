@@ -175,7 +175,6 @@ def register_services(hass):
                     device_id=device_id, data=device_entry
                 )
 
-                # await coordinator._async_update_data()
                 await coordinator.async_request_refresh()
 
                 _LOGGER.debug(
