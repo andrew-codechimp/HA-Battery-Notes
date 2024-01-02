@@ -168,7 +168,7 @@ This file is auto generated, do not modify
 |Netatmo                     |Netatmo Valve                                                         |2x AA       |
 |Netatmo                     |Outdoor Module                                                        |2x AAA      |
 |Netatmo                     |Smart Anemometer                                                      |4x AA       |
-|Netatmo                     |Smart Indoor Module                                                   |2x AAA      |
+|Netatmo                     |Smart Indoor Module                                                   |4x AAA      |
 |Netatmo                     |Smart Outdoor Module                                                  |2x AAA      |
 |Netatmo                     |Smart Rain Gauge                                                      |2x AAA      |
 |Netatmo                     |Smart Thermostat                                                      |3x AAA      |
