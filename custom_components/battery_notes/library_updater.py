@@ -72,8 +72,9 @@ class LibraryUpdater:
                     "library.json",
                 )
 
-                f = open(json_path, mode="w", encoding="utf-8")
-                f.write(content)
+                with open(json_path, "w", encoding="utf-8") as file:
+                    file.write(content)
+                    file.close()
 
                 self.hass.data[DOMAIN][DATA_LIBRARY_LAST_UPDATE] = datetime.now()
 
