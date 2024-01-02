@@ -1,4 +1,4 @@
-## 331 Devices in library
+## 332 Devices in library
 
 This file is auto generated, do not modify
 
@@ -99,6 +99,7 @@ This file is auto generated, do not modify
 |GiEX                        |Water irrigation valve (QT06_2)                                       |4x AA       |
 |Google                      |KR1                                                                   |CR2         |
 |Google                      |Topaz-2.7                                                             |MANUAL      |
+|Govee                       |H5072/H5075                                                           |2x AAA      |
 |Govee                       |H5101/H5102/H5177                                                     |AAA         |
 |HAB Home Intelligence LLC   |iblinds V3                                                            |Rechargeable|
 |HANK Electronics Ltd.       |HKZW-DWS01                                                            |2x AAA      |
