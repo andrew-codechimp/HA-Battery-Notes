@@ -58,17 +58,6 @@ class BatteryNotesButtonEntityDescription(
     unique_id_suffix: str
 
 
-ENTITY_DESCRIPTIONS: tuple[BatteryNotesButtonEntityDescription, ...] = (
-    BatteryNotesButtonEntityDescription(
-        unique_id_suffix="_battery_replaced_button",
-        key="battery_replaced",
-        translation_key="battery_replaced",
-        icon="mdi:battery-sync",
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default = False,
-    ),
-)
-
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
     {vol.Optional(CONF_NAME): cv.string, vol.Required(CONF_DEVICE_ID): cv.string}
 )
@@ -143,19 +132,20 @@ async def async_setup_entry(
         translation_key="battery_replaced",
         icon="mdi:battery-sync",
         entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default = enable_replaced,
+        entity_registry_enabled_default=enable_replaced,
     )
 
     async_add_entities(
         [
             BatteryNotesButton(
-            hass,
-            description,
-            f"{config_entry.entry_id}{description.unique_id_suffix}",
-            device_id,
+                hass,
+                description,
+                f"{config_entry.entry_id}{description.unique_id_suffix}",
+                device_id,
             )
         ]
     )
+
 
 async def async_setup_platform(
     hass: HomeAssistant,
@@ -163,6 +153,7 @@ async def async_setup_platform(
     """Set up the battery note sensor."""
 
     await async_setup_reload_service(hass, DOMAIN, PLATFORMS)
+
 
 class BatteryNotesButton(ButtonEntity):
     """Represents a battery replaced button."""
@@ -196,7 +187,6 @@ class BatteryNotesButton(ButtonEntity):
         """Handle added to Hass."""
         registry = er.async_get(self.hass)
         if registry.async_get(self.entity_id) is not None:
-
             registry.async_update_entity_options(
                 self.entity_id,
                 DOMAIN,
@@ -211,6 +201,4 @@ class BatteryNotesButton(ButtonEntity):
 
         coordinator: BatteryNotesCoordinator = self.hass.data[DOMAIN][DATA_COORDINATOR]
         coordinator.async_update_device_config(device_id=device_id, data=device_entry)
-        await coordinator._async_update_data()
         await coordinator.async_request_refresh()
-

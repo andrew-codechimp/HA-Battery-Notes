@@ -4,7 +4,6 @@ from __future__ import annotations
 from datetime import datetime
 from dataclasses import dataclass
 import voluptuous as vol
-import logging
 
 from homeassistant.components.sensor import (
     PLATFORM_SCHEMA,
@@ -24,7 +23,6 @@ from homeassistant.helpers import (
 )
 from homeassistant.helpers.entity import DeviceInfo, EntityCategory
 from homeassistant.helpers.event import (
-    async_track_state_change_event,
     async_track_entity_registry_updated_event,
 )
 from homeassistant.helpers.update_coordinator import (
@@ -62,6 +60,7 @@ class BatteryNotesSensorEntityDescription(
     """Describes Battery Notes sensor entity."""
 
     unique_id_suffix: str
+
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
     {
@@ -138,7 +137,7 @@ async def async_setup_entry(
         domain_config: dict = hass.data[DOMAIN][DOMAIN_CONFIG]
         enable_replaced = domain_config.get(CONF_ENABLE_REPLACED, True)
 
-    typeSensorEntityDescription = BatteryNotesSensorEntityDescription(
+    type_sensor_entity_description = BatteryNotesSensorEntityDescription(
         unique_id_suffix="",  # battery_type has uniqueId set to entityId in V1, never add a suffix
         key="battery_type",
         translation_key="battery_type",
@@ -146,30 +145,30 @@ async def async_setup_entry(
         entity_category=EntityCategory.DIAGNOSTIC,
     )
 
-    lastReplacedSensorEntityDescription = BatteryNotesSensorEntityDescription(
+    last_replaced_sensor_entity_description = BatteryNotesSensorEntityDescription(
         unique_id_suffix="_battery_last_replaced",
         key="battery_last_replaced",
         translation_key="battery_last_replaced",
         icon="mdi:battery-clock",
         entity_category=EntityCategory.DIAGNOSTIC,
         device_class=SensorDeviceClass.TIMESTAMP,
-        entity_registry_enabled_default = enable_replaced,
+        entity_registry_enabled_default=enable_replaced,
     )
 
     entities = [
         BatteryNotesTypeSensor(
             hass,
-            typeSensorEntityDescription,
+            type_sensor_entity_description,
             device_id,
-            f"{config_entry.entry_id}{typeSensorEntityDescription.unique_id_suffix}",
+            f"{config_entry.entry_id}{type_sensor_entity_description.unique_id_suffix}",
             battery_type,
         ),
         BatteryNotesLastReplacedSensor(
             hass,
             coordinator,
-            lastReplacedSensorEntityDescription,
+            last_replaced_sensor_entity_description,
             device_id,
-            f"{config_entry.entry_id}{lastReplacedSensorEntityDescription.unique_id_suffix}",
+            f"{config_entry.entry_id}{last_replaced_sensor_entity_description.unique_id_suffix}",
         ),
     ]
 
@@ -242,6 +241,7 @@ class BatteryNotesTypeSensor(RestoreSensor, SensorEntity):
 
         return self._battery_type
 
+
 class BatteryNotesLastReplacedSensor(SensorEntity, CoordinatorEntity):
     """Represents a battery note sensor."""
 
@@ -275,7 +275,7 @@ class BatteryNotesLastReplacedSensor(SensorEntity, CoordinatorEntity):
                 identifiers=device.identifiers,
             )
 
-    def _set_native_value(self, log_on_error=True):
+    def _set_native_value(self, log_on_error=True):  # pylint: disable=unused-argument
         device_entry = self.coordinator.store.async_get_device(self._device_id)
         if device_entry:
             if LAST_REPLACED in device_entry:
