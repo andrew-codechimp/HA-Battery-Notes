@@ -1,4 +1,4 @@
-## 340 Devices in library
+## 341 Devices in library
 
 This file is auto generated, do not modify
 
@@ -122,6 +122,7 @@ This file is auto generated, do not modify
 |IKEA                        |TRADFRI open/close remote (E1766)                                     |CR2032      |
 |IKEA                        |TRADFRI remote control (E1524/E1810)                                  |CR2032      |
 |IKEA                        |TRADFRI shortcut button (E1812)                                       |CR2032      |
+|IKEA                        |VALLHORN wireless motion sensor (E2134)                               |2x AAA      |
 |IKEA of Sweden              |PRAKTLYSING cellular blind                                            |Rechargeable|
 |IKEA of Sweden              |Remote Control N2                                                     |2x AAA      |
 |IKEA of Sweden              |RODRET Dimmer                                                         |AAA         |

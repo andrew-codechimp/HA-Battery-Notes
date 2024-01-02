@@ -657,6 +657,12 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "IKEA",
+            "model": "VALLHORN wireless motion sensor (E2134)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "IKEA of Sweden",
             "model": "PRAKTLYSING cellular blind",
             "battery_type": "Rechargeable"
@@ -1853,12 +1859,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "IKEA",
-            "model": "VALLHORN wireless motion sensor (E2134)",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
