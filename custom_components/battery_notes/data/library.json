@@ -1820,6 +1820,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "_TZ3000_abci1hiu",
+            "model": "TS0044",
+            "battery_type": "A23"
         }
     ]
 }
