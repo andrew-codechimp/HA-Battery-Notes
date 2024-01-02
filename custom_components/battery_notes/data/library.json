@@ -1350,6 +1350,12 @@
         },
         {
             "manufacturer": "Third Reality, Inc",
+            "model": "3RMS16BZ",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Third Reality, Inc",
             "model": "3RSB22BZ",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -1797,12 +1803,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Third Reality, Inc",
-            "model": "3RMS16BZ",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }

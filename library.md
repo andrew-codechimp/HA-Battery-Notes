@@ -1,4 +1,4 @@
-## 330 Devices in library
+## 331 Devices in library
 
 This file is auto generated, do not modify
 
@@ -249,6 +249,7 @@ This file is auto generated, do not modify
 |Tado                        |VA02                                                                  |2x AA       |
 |Third Reality               |Smart switch Gen3 (3RSS009Z)                                          |2x AAA      |
 |Third Reality, Inc          |3RDS17BZ                                                              |2x AAA      |
+|Third Reality, Inc          |3RMS16BZ                                                              |2x AAA      |
 |Third Reality, Inc          |3RSB22BZ                                                              |2x AAA      |
 |Third Reality, Inc          |3RSS009Z                                                              |2x AAA      |
 |Third Reality, Inc          |3RTHS24BZ                                                             |2x AAA      |
