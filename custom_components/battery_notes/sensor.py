@@ -215,6 +215,8 @@ class BatteryNotesTypeSensor(RestoreSensor, SensorEntity):
                 identifiers=device.identifiers,
             )
 
+            self.entity_id = f"sensor.{device.name}_{description.key}"
+
         self._battery_type = battery_type
 
     async def async_added_to_hass(self) -> None:
@@ -274,6 +276,8 @@ class BatteryNotesLastReplacedSensor(SensorEntity, CoordinatorEntity):
                 connections=device.connections,
                 identifiers=device.identifiers,
             )
+
+            self.entity_id = f"sensor.{device.name}_{description.key}"
 
     def _set_native_value(self, log_on_error=True):  # pylint: disable=unused-argument
         device_entry = self.coordinator.store.async_get_device(self._device_id)

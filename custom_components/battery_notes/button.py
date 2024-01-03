@@ -183,6 +183,8 @@ class BatteryNotesButton(ButtonEntity):
                 identifiers=device.identifiers,
             )
 
+            self.entity_id = f"button.{device.name}_{description.key}"
+
     async def async_added_to_hass(self) -> None:
         """Handle added to Hass."""
         registry = er.async_get(self.hass)
