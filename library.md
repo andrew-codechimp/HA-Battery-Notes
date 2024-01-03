@@ -1,4 +1,4 @@
-## 343 Devices in library
+## 344 Devices in library
 
 This file is auto generated, do not modify
 
@@ -127,6 +127,7 @@ This file is auto generated, do not modify
 |IKEA of Sweden              |PRAKTLYSING cellular blind                                            |Rechargeable|
 |IKEA of Sweden              |Remote Control N2                                                     |2x AAA      |
 |IKEA of Sweden              |RODRET Dimmer                                                         |AAA         |
+|IKEA of Sweden              |SOMRIG shortcut button                                                |AAA         |
 |IKEA of Sweden              |SYMFONISK Sound Controller                                            |CR2032      |
 |IKEA of Sweden              |SYMFONISK Sound Controller                                            |CR2032      |
 |IKEA of Sweden              |TRADFRI motion sensor                                                 |2x CR2032   |
