@@ -1865,6 +1865,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "IKEA of Sweden",
+            "model": "SOMRIG shortcut button",
+            "battery_type": "AAA"
         }
     ]
 }
