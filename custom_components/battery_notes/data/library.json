@@ -1887,6 +1887,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Sengled",
+            "model": "E1D-G73",
+            "battery_type": "CR1632"
         }
     ]
 }
