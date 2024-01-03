@@ -1162,6 +1162,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Sengled",
+            "model": "E1D-G73",
+            "battery_type": "CR1632"
+        },
+        {
             "manufacturer": "Shelly",
             "model": "Shelly Door/Window 2",
             "battery_type": "CR123A",
@@ -1887,11 +1892,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Sengled",
-            "model": "E1D-G73",
-            "battery_type": "CR1632"
         }
     ]
 }

@@ -1,4 +1,4 @@
-## 346 Devices in library
+## 347 Devices in library
 
 This file is auto generated, do not modify
 
@@ -215,6 +215,7 @@ This file is auto generated, do not modify
 |Samjin                      |multi                                                                 |CR2450      |
 |Samjin                      |water                                                                 |CR2         |
 |Saswell                     |Thermostatic radiator valve (SEA801-Zigbee/SEA802-Zigbee)             |2x AA       |
+|Sengled                     |E1D-G73                                                               |CR1632      |
 |Shelly                      |Shelly Door/Window 2                                                  |2x CR123A   |
 |Shelly                      |Shelly Flood                                                          |CR123A      |
 |Shelly                      |Shelly H&T                                                            |CR123A      |
