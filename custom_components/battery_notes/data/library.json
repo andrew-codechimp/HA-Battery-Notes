@@ -828,6 +828,12 @@
         },
         {
             "manufacturer": "LUMI",
+            "model": "lumi.motion.ac02",
+            "battery_type": "CR2450",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "LUMI",
             "model": "lumi.remote.b1acn01",
             "battery_type": "CR2032"
         },
@@ -1865,12 +1871,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "LUMI",
-            "model": "lumi.motion.ac02",
-            "battery_type": "CR2450",
-            "battery_quantity": 2
         }
     ]
 }
