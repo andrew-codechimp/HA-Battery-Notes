@@ -577,6 +577,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Heatit",
+            "model": "Z-PH WALL CONTROLLER",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "HEIMAN",
             "model": "Smart carbon monoxide sensor (HS1CA-E)",
             "battery_type": "CR123A"
@@ -1876,11 +1881,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Heatit",
-            "model": "Z-PH WALL CONTROLLER",
-            "battery_type": "CR2450"
         }
     ]
 }

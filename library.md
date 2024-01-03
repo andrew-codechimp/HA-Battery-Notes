@@ -1,4 +1,4 @@
-## 344 Devices in library
+## 345 Devices in library
 
 This file is auto generated, do not modify
 
@@ -107,6 +107,7 @@ This file is auto generated, do not modify
 |Govee                       |H5101/H5102/H5177                                                     |AAA         |
 |HAB Home Intelligence LLC   |iblinds V3                                                            |Rechargeable|
 |HANK Electronics Ltd.       |HKZW-DWS01                                                            |2x AAA      |
+|Heatit                      |Z-PH WALL CONTROLLER                                                  |CR2450      |
 |HEIMAN                      |Smart carbon monoxide sensor (HS1CA-E)                                |CR123A      |
 |HEIMAN                      |Smoke detector (HS1SA)                                                |CR123A      |
 |HEIMAN                      |Smoke detector (HS3SA/HS1SA)                                          |CR123A      |
