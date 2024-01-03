@@ -56,10 +56,12 @@ class BatteryNotesStorage:
         data = await self._store.async_load()
         devices: OrderedDict[str, DeviceEntry] = OrderedDict()
 
-        if data is not None:
-            if "devices" in data:
-                for device in data["devices"]:
-                    devices[device["device_id"]] = DeviceEntry(**device)
+        if (
+            data is not None
+            and "devices" in data
+        ):
+            for device in data["devices"]:
+                devices[device["device_id"]] = DeviceEntry(**device)
 
         self.devices = devices
 

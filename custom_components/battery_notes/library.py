@@ -29,27 +29,29 @@ class Library:  # pylint: disable=too-few-public-methods
         """Init."""
 
         # User Library
-        if DOMAIN_CONFIG in hass.data[DOMAIN]:
-            if CONF_USER_LIBRARY in hass.data[DOMAIN][DOMAIN_CONFIG]:
-                user_library_filename = hass.data[DOMAIN][DOMAIN_CONFIG].get(CONF_USER_LIBRARY)
-                if  user_library_filename != "":
-                    json_user_path = os.path.join(
-                        BUILT_IN_DATA_DIRECTORY,
-                        user_library_filename,
+        if (
+            DOMAIN_CONFIG in hass.data[DOMAIN]
+            and CONF_USER_LIBRARY in hass.data[DOMAIN][DOMAIN_CONFIG]
+            ):
+            user_library_filename = hass.data[DOMAIN][DOMAIN_CONFIG].get(CONF_USER_LIBRARY)
+            if  user_library_filename != "":
+                json_user_path = os.path.join(
+                    BUILT_IN_DATA_DIRECTORY,
+                    user_library_filename,
+                )
+                _LOGGER.debug("Using user library file at %s", json_user_path)
+
+                try:
+                    with open(json_user_path, encoding="utf-8") as user_file:
+                        user_json_data = json.load(user_file)
+                        self._devices = user_json_data["devices"]
+                        user_file.close()
+
+                except FileNotFoundError:
+                    _LOGGER.error(
+                        "User library file not found at %s",
+                        json_user_path,
                     )
-                    _LOGGER.debug("Using user library file at %s", json_user_path)
-
-                    try:
-                        with open(json_user_path, encoding="utf-8") as user_file:
-                            user_json_data = json.load(user_file)
-                            self._devices = user_json_data["devices"]
-                            user_file.close()
-
-                    except FileNotFoundError:
-                        _LOGGER.error(
-                            "User library file not found at %s",
-                            json_user_path,
-                        )
 
         # Default Library
         json_default_path = os.path.join(
@@ -61,8 +63,7 @@ class Library:  # pylint: disable=too-few-public-methods
         try:
             with open(json_default_path, encoding="utf-8") as default_file:
                 default_json_data = json.load(default_file)
-                for i in default_json_data["devices"]:
-                    self._devices.append(i)
+                self._devices.extend(default_json_data["devices"])
                 default_file.close()
 
         except FileNotFoundError:
