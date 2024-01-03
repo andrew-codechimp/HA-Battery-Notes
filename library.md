@@ -1,4 +1,4 @@
-## 345 Devices in library
+## 346 Devices in library
 
 This file is auto generated, do not modify
 
@@ -32,6 +32,7 @@ This file is auto generated, do not modify
 |Allegion                    |BE469ZP                                                               |4x AAA      |
 |Aqara                       |Aqara Door and Window Sensor P2                                       |CR123A      |
 |August Home Inc.            |AK-R1                                                                 |2x AAA      |
+|August Home Inc.            |ASL6_05/101200/SI                                                     |4x AA       |
 |August Home Inc.            |ASL6_05/101300/SI                                                     |4x AA       |
 |August Home Inc.            |AUG-SL05-M01-S01                                                      |2x CR123A   |
 |Bosch                       |ISW-ZPR1-WP13                                                         |4x AA       |
