@@ -3,11 +3,6 @@
     "version": 1,
     "devices": [
         {
-            "manufacturer": "_TZ3000_bzxlofth",
-            "model": "TS0203",
-            "battery_type": "CR2032"
-        },
-        {
             "manufacturer": "_TZ3000_4fjiwweb",
             "model": "TS004F",
             "battery_type": "CR2032"
@@ -21,6 +16,11 @@
             "manufacturer": "_TZ3000_abci1hiu",
             "model": "TS0044",
             "battery_type": "A23"
+        },
+        {
+            "manufacturer": "_TZ3000_bzxlofth",
+            "model": "TS0203",
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "_TZ3000_dowj6gyi",
