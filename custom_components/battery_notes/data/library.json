@@ -3,6 +3,11 @@
     "version": 1,
     "devices": [
         {
+            "manufacturer": "_TZ3000_bzxlofth",
+            "model": "TS0203",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "_TZ3000_4fjiwweb",
             "model": "TS004F",
             "battery_type": "CR2032"
