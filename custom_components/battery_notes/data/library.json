@@ -1914,6 +1914,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "WyzeLabs",
+            "model": "WVOD1",
+            "battery_type": "Rechargable"
         }
     ]
 }
