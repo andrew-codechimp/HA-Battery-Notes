@@ -707,6 +707,11 @@
         },
         {
             "manufacturer": "IKEA",
+            "model": "TRADFRI wireless dimmer (ICTC-G-1)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "IKEA",
             "model": "VALLHORN wireless motion sensor (E2134)",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -2018,11 +2023,6 @@
         {
             "manufacturer": "Zooz",
             "model": "ZSE42",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "IKEA",
-            "model": "TRADFRI wireless dimmer (ICTC-G-1)",
             "battery_type": "CR2032"
         }
     ]
