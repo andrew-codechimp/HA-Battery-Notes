@@ -1971,6 +1971,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Shelly",
+            "model": "Shelly Plus Smoke",
+            "battery_type": "CR123A"
         }
     ]
 }
