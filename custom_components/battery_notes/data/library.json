@@ -713,6 +713,11 @@
         },
         {
             "manufacturer": "IKEA of Sweden",
+            "model": "FYRTUR block-out roller blind",
+            "battery_type": "BRAUNIT Battery pack"
+        },
+        {
+            "manufacturer": "IKEA of Sweden",
             "model": "PRAKTLYSING cellular blind",
             "battery_type": "Rechargeable"
         },
@@ -1999,11 +2004,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "IKEA of Sweden",
-            "model": "FYRTUR block-out roller blind",
-            "battery_type": "BRAUNIT Battery pack"
         }
     ]
 }
