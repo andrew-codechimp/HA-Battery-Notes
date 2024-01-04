@@ -1993,6 +1993,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "IKEA of Sweden",
+            "model": "FYRTUR block-out roller blind",
+            "battery_type": "BRAUNIT Battery pack"
         }
     ]
 }
