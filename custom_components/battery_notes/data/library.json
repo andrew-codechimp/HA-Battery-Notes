@@ -956,6 +956,11 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Namron",
+            "model": "Zigbee 4 channel switch K8 (black) (4512721)",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "Neo",
             "model": "Temperature & humidity sensor and alarm (NAS-AB02B0)",
             "battery_type": "CR123A",
@@ -1956,11 +1961,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Namron",
-            "model": "Zigbee 4 channel switch K8 (black) (4512721)",
-            "battery_type": "CR2450"
         }
     ]
 }
