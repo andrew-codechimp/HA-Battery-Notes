@@ -2019,6 +2019,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "IKEA",
+            "model": "TRADFRI wireless dimmer (ICTC-G-1)",
+            "battery_type": "CR2032"
         }
     ]
 }
