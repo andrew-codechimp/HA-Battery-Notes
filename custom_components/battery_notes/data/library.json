@@ -1183,6 +1183,12 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "Shenzhen Kaadas Intelligent Technology Co., Ltd.",
+            "model": "DB1",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
             "manufacturer": "Signify Netherlands B.V.",
             "model": "Hue dimmer switch (RWL020)",
             "battery_type": "CR2450"
@@ -1903,12 +1909,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Shenzhen Kaadas Intelligent Technology Co., Ltd.",
-            "model": "DB1",
-            "battery_type": "AA",
-            "battery_quantity": 4
         }
     ]
 }
