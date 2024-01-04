@@ -1924,6 +1924,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "American Power Conversion",
+            "model": "Back-UPS XS 1500M",
+            "battery_type": "Rechargable"
         }
     ]
 }
