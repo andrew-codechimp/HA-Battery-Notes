@@ -1625,6 +1625,11 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "WyzeLabs",
+            "model": "YD.LO1",
+            "battery_type": "Rechargable"
+        },
+        {
             "manufacturer": "Xiaomi",
             "model": "Aqara D1 double key wireless wall switch (WXKG07LM)",
             "battery_type": "CR2032"
@@ -1909,11 +1914,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "WyzeLabs",
-            "model": "YD.LO1",
-            "battery_type": "Rechargable"
         }
     ]
 }
