@@ -1059,6 +1059,11 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "Philio Technology Corp",
+            "model": "PST02A",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "Philips",
             "model": "Hue dimmer switch (324131092621)",
             "battery_type": "CR2450"
@@ -1940,11 +1945,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Philio Technology Corp",
-            "model": "PST02A",
-            "battery_type": "CR123A"
         }
     ]
 }
