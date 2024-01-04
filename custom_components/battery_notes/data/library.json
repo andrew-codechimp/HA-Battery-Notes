@@ -1919,6 +1919,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "switchbot",
+            "model": "WoBlindTilt",
+            "battery_type": "Rechargable"
         }
     ]
 }
