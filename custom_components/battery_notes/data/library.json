@@ -2030,6 +2030,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "Temperature & humidity sensor (LYWSD03MMC)",
+            "battery_type": "CR2032"
         }
     ]
 }
