@@ -1,4 +1,4 @@
-## 351 Devices in library
+## 352 Devices in library
 
 This file is auto generated, do not modify
 
@@ -299,6 +299,7 @@ This file is auto generated, do not modify
 |Vision Security                                 |ZP3111-5                                                              |2x AAA      |
 |Vision Security                                 |ZS5101                                                                |CR123A      |
 |Visonic                                         |MCT-340 E                                                             |CR2032      |
+|WyzeLabs                                        |WVOD1                                                                 |Rechargable |
 |WyzeLabs                                        |YD.LO1                                                                |Rechargable |
 |Xiaomi                                          |Aqara D1 double key wireless wall switch (WXKG07LM)                   |CR2032      |
 |Xiaomi                                          |Aqara D1 single key wireless wall switch (WXKG06LM)                   |CR2032      |
