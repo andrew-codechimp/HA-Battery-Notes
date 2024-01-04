@@ -1224,6 +1224,11 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "Shelly",
+            "model": "Shelly Plus Smoke",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "Shenzhen Kaadas Intelligent Technology Co., Ltd.",
             "model": "DB1",
             "battery_type": "AA",
@@ -1977,11 +1982,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Shelly",
-            "model": "Shelly Plus Smoke",
-            "battery_type": "CR123A"
         }
     ]
 }
