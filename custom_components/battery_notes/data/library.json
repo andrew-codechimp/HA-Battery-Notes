@@ -1950,6 +1950,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "August",
+            "model": "TEST200228",
+            "battery_type": "AA",
+            "battery_quantity": 4
         }
     ]
 }
