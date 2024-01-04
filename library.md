@@ -1,4 +1,4 @@
-## 369 Devices in library
+## 370 Devices in library
 
 This file is auto generated, do not modify
 
@@ -176,6 +176,7 @@ This file is auto generated, do not modify
 |LUMI                                            |lumi.sensor_magnet.aq2                                                |CR1632              |
 |LUMI                                            |lumi.sensor_motion                                                    |CR2450              |
 |LUMI                                            |lumi.sensor_motion.aq2                                                |CR2450              |
+|LUMI                                            |lumi.sensor_switch                                                    |CR2032              |
 |LUMI                                            |lumi.sensor_switch.aq3                                                |CR2032              |
 |LUMI                                            |lumi.sensor_wleak.aq1                                                 |CR2032              |
 |LUMI                                            |lumi.vibration.aq1                                                    |CR2032              |
