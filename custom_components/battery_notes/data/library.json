@@ -1940,6 +1940,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Philio Technology Corp",
+            "model": "PST02A",
+            "battery_type": "CR123A"
         }
     ]
 }
