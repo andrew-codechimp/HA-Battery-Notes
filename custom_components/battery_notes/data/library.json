@@ -642,6 +642,11 @@
         },
         {
             "manufacturer": "IKEA",
+            "model": "RODRET wireless dimmer/power switch (E2201)",
+            "battery_type": "AAA"
+        },
+        {
+            "manufacturer": "IKEA",
             "model": "STYRBAR remote control (E2001/E2002)",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -1945,11 +1950,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "IKEA",
-            "model": "RODRET wireless dimmer/power switch (E2201)",
-            "battery_type": "AAA"
         }
     ]
 }
