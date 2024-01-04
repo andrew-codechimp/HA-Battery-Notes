@@ -235,6 +235,12 @@
         },
         {
             "manufacturer": "Danalock",
+            "model": "BT/ZB smartlock (V3-BTZB/V3-BTZBE)",
+            "battery_type": "CR123A",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Danalock",
             "model": "V3-BTZBE",
             "battery_type": "CR123A",
             "battery_quantity": 4
@@ -1987,12 +1993,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Danalock",
-            "model": "BT/ZB smartlock (V3-BTZB/V3-BTZBE)",
-            "battery_type": "CR123A",
-            "battery_quantity": 4
         }
     ]
 }
