@@ -1,4 +1,4 @@
-## 370 Devices in library
+## 371 Devices in library
 
 This file is auto generated, do not modify
 
@@ -240,6 +240,7 @@ This file is auto generated, do not modify
 |Signify Netherlands B.V.                        |Hue motion sensor (SML001)                                            |2x AAA              |
 |Signify Netherlands B.V.                        |Hue motion sensor (SML003)                                            |2x AAA              |
 |Signify Netherlands B.V.                        |Hue outdoor motion sensor (SML002)                                    |2x AA               |
+|Signify Netherlands B.V.                        |Hue Smart button (ROM001)                                             |CR2032              |
 |Signify Netherlands B.V.                        |Hue tap dial switch (RDM002)                                          |CR2032              |
 |Signify Netherlands B.V.                        |Hue wall switch module (RDM001)                                       |CR2450              |
 |Signify Netherlands B.V.                        |RDM001                                                                |CR2450              |

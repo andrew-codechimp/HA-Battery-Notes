@@ -1295,6 +1295,11 @@
         },
         {
             "manufacturer": "Signify Netherlands B.V.",
+            "model": "Hue Smart button (ROM001)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Signify Netherlands B.V.",
             "model": "Hue tap dial switch (RDM002)",
             "battery_type": "CR2032"
         },
@@ -2013,11 +2018,6 @@
         {
             "manufacturer": "Zooz",
             "model": "ZSE42",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Signify Netherlands B.V.",
-            "model": "Hue Smart button (ROM001)",
             "battery_type": "CR2032"
         }
     ]
