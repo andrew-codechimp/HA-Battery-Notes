@@ -760,6 +760,11 @@
         },
         {
             "manufacturer": "IKEA of Sweden",
+            "model": "TRADFRI open/close remote",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "IKEA of Sweden",
             "model": "TRADFRI remote control",
             "battery_type": "CR2032"
         },
@@ -2003,11 +2008,6 @@
         {
             "manufacturer": "Zooz",
             "model": "ZSE42",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "IKEA of Sweden",
-            "model": "TRADFRI open/close remote",
             "battery_type": "CR2032"
         }
     ]
