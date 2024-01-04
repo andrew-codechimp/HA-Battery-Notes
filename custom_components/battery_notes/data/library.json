@@ -1993,6 +1993,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "switchbot",
+            "model": "WoLock",
+            "battery_type": "CR123A",
+            "battery_quantity": 2
         }
     ]
 }
