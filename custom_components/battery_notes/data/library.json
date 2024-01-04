@@ -1559,6 +1559,11 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "tuya",
+            "model": "TS0601",
+            "battery_type": "CR2"
+        },
+        {
             "manufacturer": "TuYa",
             "model": "TS0601_smoke_1",
             "battery_type": "AAA",
@@ -1892,11 +1897,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "tuya",
-            "model": "TS0601",
-            "battery_type": "CR2"
         }
     ]
 }
