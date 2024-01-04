@@ -2024,6 +2024,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Neo",
+            "model": "NAS-PD07",
+            "battery_type": "CR123A",
+            "battery_quantity": 2
         }
     ]
 }
