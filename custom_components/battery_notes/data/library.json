@@ -1695,8 +1695,7 @@
         {
             "manufacturer": "TuYa",
             "model": "Water leak detector (TS0207_water_leak_detector)",
-            "battery_type": "AAA",
-            "battery_quantity": 2
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "TuYa",
