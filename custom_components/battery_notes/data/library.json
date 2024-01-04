@@ -744,6 +744,11 @@
         },
         {
             "manufacturer": "IKEA of Sweden",
+            "model": "TRADFRI remote control",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "IKEA of Sweden",
             "model": "TRADFRI SHORTCUT Button",
             "battery_type": "CR2032"
         },
@@ -1960,11 +1965,6 @@
         {
             "manufacturer": "Zooz",
             "model": "ZSE42",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "IKEA of Sweden",
-            "model": "TRADFRI remote control",
             "battery_type": "CR2032"
         }
     ]

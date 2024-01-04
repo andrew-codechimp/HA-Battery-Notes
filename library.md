@@ -1,4 +1,4 @@
-## 360 Devices in library
+## 361 Devices in library
 
 This file is auto generated, do not modify
 
@@ -138,6 +138,7 @@ This file is auto generated, do not modify
 |IKEA of Sweden                                  |SYMFONISK Sound Controller                                            |CR2032      |
 |IKEA of Sweden                                  |TRADFRI motion sensor                                                 |2x CR2032   |
 |IKEA of Sweden                                  |TRADFRI ON/OFF switch                                                 |CR2032      |
+|IKEA of Sweden                                  |TRADFRI remote control                                                |CR2032      |
 |IKEA of Sweden                                  |TRADFRI SHORTCUT Button                                               |CR2032      |
 |IKEA of Sweden                                  |TREDANSEN block-out cellul blind                                      |Rechargeable|
 |iMagic by GreatStar                             |1116-S                                                                |CR2         |
