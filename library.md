@@ -1,4 +1,4 @@
-## 348 Devices in library
+## 349 Devices in library
 
 This file is auto generated, do not modify
 
@@ -287,6 +287,7 @@ This file is auto generated, do not modify
 |TuYa                        |Temperature and humidity sensor (ZTH05)                               |CR2032      |
 |TuYa                        |TS0201_1                                                              |2x AA       |
 |TuYa                        |TS0203                                                                |CR2032      |
+|tuya                        |TS0210                                                                |2x AAA      |
 |tuya                        |TS0601                                                                |CR2         |
 |TuYa                        |TS0601_smoke_1                                                        |2x AAA      |
 |TuYa                        |Water leak detector (TS0207_water_leak_detector)                      |2x AAA      |

@@ -1560,6 +1560,12 @@
         },
         {
             "manufacturer": "tuya",
+            "model": "TS0210",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "tuya",
             "model": "TS0601",
             "battery_type": "CR2"
         },
@@ -1897,12 +1903,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "tuya",
-            "model": "TS0210",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
