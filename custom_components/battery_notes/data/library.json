@@ -1945,6 +1945,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "IKEA",
+            "model": "RODRET wireless dimmer/power switch (E2201)",
+            "battery_type": "AAA"
         }
     ]
 }
