@@ -1,4 +1,4 @@
-## 372 Devices in library
+## 373 Devices in library
 
 This file is auto generated, do not modify
 
@@ -187,6 +187,7 @@ This file is auto generated, do not modify
 |Mopeka IOT                                      |M1015                                                                 |AAA-Lithium         |
 |Mopeka IOT                                      |M1017                                                                 |CR2032              |
 |Namron                                          |Zigbee 4 channel switch K8 (black) (4512721)                          |CR2450              |
+|Neo                                             |NAS-PD07                                                              |2x CR123A           |
 |Neo                                             |Temperature & humidity sensor and alarm (NAS-AB02B0)                  |2x CR123A           |
 |Netatmo                                         |Additional Indoor Module                                              |4x AAA              |
 |Netatmo                                         |Netatmo Valve                                                         |2x AA               |

@@ -1003,6 +1003,12 @@
         },
         {
             "manufacturer": "Neo",
+            "model": "NAS-PD07",
+            "battery_type": "CR123A",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Neo",
             "model": "Temperature & humidity sensor and alarm (NAS-AB02B0)",
             "battery_type": "CR123A",
             "battery_quantity": 2
@@ -2024,12 +2030,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Neo",
-            "model": "NAS-PD07",
-            "battery_type": "CR123A",
-            "battery_quantity": 2
         }
     ]
 }
