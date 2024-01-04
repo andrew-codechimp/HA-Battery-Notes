@@ -1400,6 +1400,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "switchbot",
+            "model": "WoPresence",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Tado",
             "model": "RU01",
             "battery_type": "AAA",
@@ -1934,12 +1940,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "switchbot",
-            "model": "WoPresence",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
