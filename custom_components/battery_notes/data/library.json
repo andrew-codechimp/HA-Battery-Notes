@@ -2009,6 +2009,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "LUMI",
+            "model": "lumi.sensor_switch",
+            "battery_type": "CR2032"
         }
     ]
 }
