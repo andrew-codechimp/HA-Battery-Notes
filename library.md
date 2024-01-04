@@ -1,4 +1,4 @@
-## 366 Devices in library
+## 367 Devices in library
 
 This file is auto generated, do not modify
 
@@ -269,6 +269,7 @@ This file is auto generated, do not modify
 |switchbot                                       |WoCurtain                                                             |Rechargeable|
 |switchbot                                       |woHand                                                                |CR2         |
 |switchbot                                       |WoIOSensorTH                                                          |2x AAA      |
+|switchbot                                       |WoLock                                                                |2x CR123A   |
 |switchbot                                       |WoPresence                                                            |2x AAA      |
 |Tado                                            |RU01                                                                  |3x AAA      |
 |Tado                                            |RU02                                                                  |3x AAA      |
