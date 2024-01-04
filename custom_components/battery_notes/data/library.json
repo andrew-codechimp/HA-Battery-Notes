@@ -1387,6 +1387,12 @@
         },
         {
             "manufacturer": "Sure Petcare",
+            "model": "Felaqua",
+            "battery_type": "C",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Sure Petcare",
             "model": "Pet flap",
             "battery_type": "C",
             "battery_quantity": 4
@@ -1971,12 +1977,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Sure Petcare",
-            "model": "Felaqua",
-            "battery_type": "C",
-            "battery_quantity": 4
         }
     ]
 }

@@ -1,4 +1,4 @@
-## 362 Devices in library
+## 363 Devices in library
 
 This file is auto generated, do not modify
 
@@ -257,6 +257,7 @@ This file is auto generated, do not modify
 |SONOFF                                          |Wireless button (SNZB-01)                                             |CR2450      |
 |SONOFF                                          |Zigbee thermostatic radiator valve (TRVZB)                            |3x AA       |
 |Sure Petcare                                    |Cat flap                                                              |4x AA       |
+|Sure Petcare                                    |Felaqua                                                               |4x C        |
 |Sure Petcare                                    |Pet flap                                                              |4x C        |
 |SwitchBot                                       |W1101500                                                              |2x AAA      |
 |SwitchBot                                       |W1201500                                                              |2x AAA      |
