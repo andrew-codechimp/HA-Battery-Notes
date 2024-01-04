@@ -779,6 +779,11 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Iris",
+            "model": "3326-L",
+            "battery_type": "CR2"
+        },
+        {
             "manufacturer": "iRobot",
             "model": "i715640",
             "battery_type": "Rechargeable"
@@ -1982,11 +1987,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Iris",
-            "model": "3326-L",
-            "battery_type": "CR2"
         }
     ]
 }
