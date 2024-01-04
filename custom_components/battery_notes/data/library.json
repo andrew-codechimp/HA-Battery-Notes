@@ -2030,6 +2030,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "TuYa",
+            "model": "Smoke sensor (TS0205)",
+            "battery_type": "CR123"
         }
     ]
 }
