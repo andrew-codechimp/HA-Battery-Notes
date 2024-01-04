@@ -1370,6 +1370,11 @@
         },
         {
             "manufacturer": "switchbot",
+            "model": "WoBlindTilt",
+            "battery_type": "Rechargable"
+        },
+        {
+            "manufacturer": "switchbot",
             "model": "WoCurtain",
             "battery_type": "Rechargeable"
         },
@@ -1919,11 +1924,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "switchbot",
-            "model": "WoBlindTilt",
-            "battery_type": "Rechargable"
         }
     ]
 }

@@ -1,4 +1,4 @@
-## 352 Devices in library
+## 353 Devices in library
 
 This file is auto generated, do not modify
 
@@ -253,6 +253,7 @@ This file is auto generated, do not modify
 |SwitchBot                                       |W1101500                                                              |2x AAA      |
 |SwitchBot                                       |W1201500                                                              |2x AAA      |
 |SwitchBot                                       |W340001X                                                              |2x AAA      |
+|switchbot                                       |WoBlindTilt                                                           |Rechargable |
 |switchbot                                       |WoCurtain                                                             |Rechargeable|
 |switchbot                                       |woHand                                                                |CR2         |
 |switchbot                                       |WoIOSensorTH                                                          |2x AAA      |
