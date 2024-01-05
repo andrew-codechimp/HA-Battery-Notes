@@ -1,4 +1,4 @@
-## 392 Devices in library
+## 393 Devices in library
 
 This file is auto generated, do not modify
 
@@ -391,6 +391,7 @@ This file is auto generated, do not modify
 |Xiaomi                                          |zigbee RTCGQ11LM (lumi.sensor_motion.aq2)                             |CR2450              |
 |Yale                                            |YRD220/240 TSDB                                                       |4x AA               |
 |YoLink                                          |DoorSensor                                                            |2x AAA              |
+|YoLink                                          |LeakSensor                                                            |2x AAA              |
 |YoLink                                          |MotionSensor                                                          |2x AAA              |
 |Zooz                                            |ZEN34                                                                 |2x CR2032           |
 |Zooz                                            |ZSE40 700                                                             |CR123A              |

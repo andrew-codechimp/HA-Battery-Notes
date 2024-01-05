@@ -2109,6 +2109,12 @@
         },
         {
             "manufacturer": "YoLink",
+            "model": "LeakSensor",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "YoLink",
             "model": "MotionSensor",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -2133,12 +2139,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "YoLink",
-            "model": "LeakSensor",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
