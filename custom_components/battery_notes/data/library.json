@@ -907,6 +907,12 @@
         },
         {
             "manufacturer": "LUMI",
+            "model": "lumi.airmonitor.acn01",
+            "battery_type": "CR2450",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "LUMI",
             "model": "lumi.airrtc.agl001",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -2122,12 +2128,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "LUMI",
-            "model": "lumi.airmonitor.acn01",
-            "battery_type": "CR2450",
-            "battery_quantity": 2
         }
     ]
 }

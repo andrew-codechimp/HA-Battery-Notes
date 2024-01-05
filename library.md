@@ -1,4 +1,4 @@
-## 390 Devices in library
+## 391 Devices in library
 
 This file is auto generated, do not modify
 
@@ -168,6 +168,7 @@ This file is auto generated, do not modify
 |Linkind                                         |Door/window Sensor (ZS110050078)                                      |CR2032              |
 |Linkind                                         |PIR motion sensor, wireless motion detector (ZS1100400-IN-V1A02)      |CR2450              |
 |Linkind                                         |Security keypad battery (ZS130000078)                                 |2x CR123A           |
+|LUMI                                            |lumi.airmonitor.acn01                                                 |2x CR2450           |
 |LUMI                                            |lumi.airrtc.agl001                                                    |2x AA               |
 |LUMI                                            |lumi.curtain.acn002                                                   |Rechargeable        |
 |LUMI                                            |lumi.motion.ac02                                                      |2x CR2450           |
