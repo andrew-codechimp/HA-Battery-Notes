@@ -2258,6 +2258,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "rtl_433",
+            "model": "Vauno-EN8822C",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
