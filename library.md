@@ -1,4 +1,4 @@
-## 410 Devices in library
+## 413 Devices in library
 
 This file is auto generated, do not modify
 
@@ -13,6 +13,7 @@ This file is auto generated, do not modify
 |_TZ3000_fllyghyj                                |TS0201                                                                |2x AAA              |
 |_TZ3000_k4ej3ww2                                |TS0207                                                                |CR2032              |
 |_TZ3000_lf56vpxj                                |TS0202                                                                |2x AAA              |
+|_TZ3000_mh9px7cq                                |TS0044                                                                |A23                 |
 |_TZ3000_wkai4ga5                                |TS0044                                                                |CR2430              |
 |_TZ3000_xr3htd96                                |TS0201                                                                |2x AAA              |
 |_TZ3000_yxqnffam                                |TS0203                                                                |2x AAA              |
@@ -102,6 +103,7 @@ This file is auto generated, do not modify
 |eWeLink                                         |MS01                                                                  |CR2450              |
 |eWeLink                                         |SNZB-02P                                                              |CR2477              |
 |eWeLink                                         |TH01                                                                  |CR2450              |
+|eWeLink                                         |WB01                                                                  |CR2450              |
 |Fantem                                          |4 in 1 multi sensor (ZB003-X)                                         |2x CR123A           |
 |Fibargroup                                      |FGDW002                                                               |ER14250             |
 |Fibargroup                                      |FGFS101                                                               |CR123A              |
@@ -383,6 +385,7 @@ This file is auto generated, do not modify
 |Xiaomi                                          |ble RTCGQ02LM                                                         |CR2450              |
 |Xiaomi                                          |ble XMPIR02SXS                                                        |CR2450              |
 |Xiaomi                                          |ble XMWSDJ04MMC                                                       |CR2450              |
+|Xiaomi                                          |BTHome sensor                                                         |CR2032              |
 |Xiaomi                                          |GZCGQ01LM                                                             |CR2450              |
 |Xiaomi                                          |HHCCJCY01                                                             |CR2032              |
 |Xiaomi                                          |LYWSD03MMC                                                            |CR2032              |
