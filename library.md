@@ -1,4 +1,4 @@
-## 380 Devices in library
+## 381 Devices in library
 
 This file is auto generated, do not modify
 
@@ -299,6 +299,7 @@ This file is auto generated, do not modify
 |TuYa                                            |Door sensor (TS0203)                                                  |CR2032              |
 |TuYa                                            |Door sensor (ZD08)                                                    |CR2032              |
 |TuYa                                            |IH012-RT01                                                            |CR2450              |
+|Tuya                                            |kscbebaf3s1eogvt                                                      |2x AAA              |
 |TuYa                                            |LCZ030                                                                |2x AA               |
 |TuYa                                            |Luminance door sensor (ZG-102ZL)                                      |CR2032              |
 |TuYa                                            |Luminance motion sensor (ZG-204ZL)                                    |CR2450              |
