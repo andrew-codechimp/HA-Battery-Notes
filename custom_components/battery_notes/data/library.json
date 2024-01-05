@@ -2174,6 +2174,11 @@
             "manufacturer": "Fibargroup",
             "model": "FGFS101",
             "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "TuYa",
+            "model": "Wireless switch with 2 buttons (TS0042)",
+            "battery_type": "CR2032"
         }
     ]
 }
