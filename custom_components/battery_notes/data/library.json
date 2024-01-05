@@ -1408,6 +1408,11 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "SOMFY",
+            "model": "Sonesse 28 WF Li-Ion Roller",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Sonoff",
             "model": "Contact sensor (SNZB-04)",
             "battery_type": "CR2032"
@@ -2117,11 +2122,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "SOMFY",
-            "model": "Sonesse 28 WF Li-Ion Roller",
-            "battery_type": "Rechargeable"
         }
     ]
 }
