@@ -1,4 +1,4 @@
-## 403 Devices in library
+## 405 Devices in library
 
 This file is auto generated, do not modify
 
@@ -103,6 +103,7 @@ This file is auto generated, do not modify
 |eWeLink                                         |TH01                                                                  |CR2450              |
 |Fantem                                          |4 in 1 multi sensor (ZB003-X)                                         |2x CR123A           |
 |Fibargroup                                      |FGDW002                                                               |ER14250             |
+|Fibargroup                                      |FGFS101                                                               |CR123A              |
 |Fibargroup                                      |FGFS101                                                               |CR123A              |
 |Fibargroup                                      |FGK101                                                                |ER14250             |
 |Fibargroup                                      |FGMS001                                                               |CR123A              |
@@ -337,6 +338,7 @@ This file is auto generated, do not modify
 |TuYa                                            |TS0601_smoke_1                                                        |2x AAA              |
 |TuYa                                            |Water leak detector (TS0207_water_leak_detector)                      |CR2032              |
 |TuYa                                            |Wireless switch with 1 button (TS0041)                                |CR2032              |
+|TuYa                                            |Wireless switch with 2 buttons (TS0042)                               |CR2032              |
 |TuYa                                            |Wireless switch with 4 buttons (TS0044)                               |CR2430              |
 |TuYa                                            |Zigbee water leak sensor (TS0207_water_leak_detector_2)               |CR2032              |
 |Tuya                                            |zqeaw7pi                                                              |2x AAA              |

@@ -565,6 +565,11 @@
         },
         {
             "manufacturer": "Fibargroup",
+            "model": "FGFS101",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Fibargroup",
             "model": "FGK101",
             "battery_type": "ER14250"
         },
@@ -1831,6 +1836,11 @@
         },
         {
             "manufacturer": "TuYa",
+            "model": "Wireless switch with 2 buttons (TS0042)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "TuYa",
             "model": "Wireless switch with 4 buttons (TS0044)",
             "battery_type": "CR2430"
         },
@@ -2195,16 +2205,6 @@
         {
             "manufacturer": "Zooz",
             "model": "ZSE42",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Fibargroup",
-            "model": "FGFS101",
-            "battery_type": "CR123A"
-        },
-        {
-            "manufacturer": "TuYa",
-            "model": "Wireless switch with 2 buttons (TS0042)",
             "battery_type": "CR2032"
         }
     ]
