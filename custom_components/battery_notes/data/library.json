@@ -3,6 +3,12 @@
     "version": 1,
     "devices": [
         {
+            "manufacturer": "_TYZB01_7qf81wty",
+            "model": "TS1001",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "_TZ3000_4fjiwweb",
             "model": "TS004F",
             "battery_type": "CR2032"
@@ -548,6 +554,11 @@
         },
         {
             "manufacturer": "Fibargroup",
+            "model": "FGFS101",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Fibargroup",
             "model": "FGK101",
             "battery_type": "ER14250"
         },
@@ -907,6 +918,12 @@
         },
         {
             "manufacturer": "LUMI",
+            "model": "lumi.airmonitor.acn01",
+            "battery_type": "CR2450",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "LUMI",
             "model": "lumi.airrtc.agl001",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -1085,6 +1102,11 @@
             "battery_quantity": 3
         },
         {
+            "manufacturer": "Nortek Security & Control LLC",
+            "model": "WADWAZ-1",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "Nuki",
             "model": "Nuki Opener",
             "battery_type": "AAA",
@@ -1202,6 +1224,12 @@
             "manufacturer": "Philips",
             "model": "RWL022",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Poly-control",
+            "model": "Danalock V3-BTZE",
+            "battery_type": "CR123A",
+            "battery_quantity": 4
         },
         {
             "manufacturer": "Ring",
@@ -1388,6 +1416,11 @@
             "battery_type": "CR2"
         },
         {
+            "manufacturer": "Smartthing",
+            "model": "STS-WTR-250",
+            "battery_type": "CR2"
+        },
+        {
             "manufacturer": "SmartThings",
             "model": "Button (IM6001-BTP01)",
             "battery_type": "CR2450"
@@ -1406,6 +1439,11 @@
             "manufacturer": "SmartThings",
             "model": "Multipurpose sensor (2018 model) (IM6001-MPP01)",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "SOMFY",
+            "model": "Sonesse 28 WF Li-Ion Roller",
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "Sonoff",
@@ -2098,7 +2136,31 @@
         },
         {
             "manufacturer": "YoLink",
+            "model": "LeakSensor",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "YoLink",
             "model": "MotionSensor",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "YoLink",
+            "model": "SmartRemoter",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "YoLink",
+            "model": "THSensor",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "YoLink",
+            "model": "VibrationSensor",
             "battery_type": "AAA",
             "battery_quantity": 2
         },

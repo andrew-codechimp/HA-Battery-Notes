@@ -1,9 +1,10 @@
-## 390 Devices in library
+## 400 Devices in library
 
 This file is auto generated, do not modify
 
 |                  Manufacturer                  |                                Model                                 |    Battery Type    |
 |------------------------------------------------|----------------------------------------------------------------------|--------------------|
+|_TYZB01_7qf81wty                                |TS1001                                                                |2x AAA              |
 |_TZ3000_4fjiwweb                                |TS004F                                                                |CR2032              |
 |_TZ3000_6ygjfyll                                |TS0202                                                                |CR2450              |
 |_TZ3000_abci1hiu                                |TS0044                                                                |A23                 |
@@ -101,6 +102,7 @@ This file is auto generated, do not modify
 |eWeLink                                         |TH01                                                                  |CR2450              |
 |Fantem                                          |4 in 1 multi sensor (ZB003-X)                                         |2x CR123A           |
 |Fibargroup                                      |FGDW002                                                               |ER14250             |
+|Fibargroup                                      |FGFS101                                                               |CR123A              |
 |Fibargroup                                      |FGK101                                                                |ER14250             |
 |Fibargroup                                      |FGMS001                                                               |CR123A              |
 |Fibargroup                                      |FGSD002                                                               |CR123A              |
@@ -168,6 +170,7 @@ This file is auto generated, do not modify
 |Linkind                                         |Door/window Sensor (ZS110050078)                                      |CR2032              |
 |Linkind                                         |PIR motion sensor, wireless motion detector (ZS1100400-IN-V1A02)      |CR2450              |
 |Linkind                                         |Security keypad battery (ZS130000078)                                 |2x CR123A           |
+|LUMI                                            |lumi.airmonitor.acn01                                                 |2x CR2450           |
 |LUMI                                            |lumi.airrtc.agl001                                                    |2x AA               |
 |LUMI                                            |lumi.curtain.acn002                                                   |Rechargeable        |
 |LUMI                                            |lumi.motion.ac02                                                      |2x CR2450           |
@@ -201,6 +204,7 @@ This file is auto generated, do not modify
 |Netatmo                                         |Smart Outdoor Module                                                  |2x AAA              |
 |Netatmo                                         |Smart Rain Gauge                                                      |2x AAA              |
 |Netatmo                                         |Smart Thermostat                                                      |3x AAA              |
+|Nortek Security & Control LLC                   |WADWAZ-1                                                              |CR123A              |
 |Nuki                                            |Nuki Opener                                                           |4x AAA              |
 |Nuki                                            |Nuki Smart Lock                                                       |4x AA               |
 |NYCE                                            |3043                                                                  |2x AAA              |
@@ -223,6 +227,7 @@ This file is auto generated, do not modify
 |Philips                                         |Hue wall switch module (929003017102)                                 |CR2450              |
 |Philips                                         |RWL021                                                                |CR2450              |
 |Philips                                         |RWL022                                                                |CR2032              |
+|Poly-control                                    |Danalock V3-BTZE                                                      |4x CR123A           |
 |Ring                                            |Contact Sensor                                                        |2x CR2032           |
 |Ring                                            |Doorbell 2                                                            |Rechargeable        |
 |Ring                                            |Motion Sensor                                                         |2x AA               |
@@ -257,10 +262,12 @@ This file is auto generated, do not modify
 |Signify Netherlands B.V.                        |SML003                                                                |2x AAA              |
 |Siterwell                                       |Radiator valve with thermostat (GS361A-H04)                           |2x AA               |
 |SMaBiT (Bitron Video)                           |Compact magnetic contact sensor (AV2010/21A)                          |CR2                 |
+|Smartthing                                      |STS-WTR-250                                                           |CR2                 |
 |SmartThings                                     |Button (IM6001-BTP01)                                                 |CR2450              |
 |SmartThings                                     |moisturev4                                                            |CR2                 |
 |SmartThings                                     |Motion sensor (2018 model) (IM6001-MTP01)                             |CR2                 |
 |SmartThings                                     |Multipurpose sensor (2018 model) (IM6001-MPP01)                       |CR2450              |
+|SOMFY                                           |Sonesse 28 WF Li-Ion Roller                                           |Rechargeable        |
 |Sonoff                                          |Contact sensor (SNZB-04)                                              |CR2032              |
 |SONOFF                                          |Motion sensor (SNZB-03)                                               |CR2450              |
 |Sonoff                                          |SNZB-02                                                               |CR2450              |
@@ -389,7 +396,11 @@ This file is auto generated, do not modify
 |Xiaomi                                          |zigbee RTCGQ11LM (lumi.sensor_motion.aq2)                             |CR2450              |
 |Yale                                            |YRD220/240 TSDB                                                       |4x AA               |
 |YoLink                                          |DoorSensor                                                            |2x AAA              |
+|YoLink                                          |LeakSensor                                                            |2x AAA              |
 |YoLink                                          |MotionSensor                                                          |2x AAA              |
+|YoLink                                          |SmartRemoter                                                          |2x AAA              |
+|YoLink                                          |THSensor                                                              |2x AAA              |
+|YoLink                                          |VibrationSensor                                                       |2x AAA              |
 |Zooz                                            |ZEN34                                                                 |2x CR2032           |
 |Zooz                                            |ZSE40 700                                                             |CR123A              |
 |Zooz                                            |ZSE41                                                                 |CR2032              |
