@@ -1,4 +1,4 @@
-## 400 Devices in library
+## 401 Devices in library
 
 This file is auto generated, do not modify
 
@@ -275,6 +275,7 @@ This file is auto generated, do not modify
 |SONOFF                                          |Temperature and humidity sensor with screen (SNZB-02D)                |CR2450              |
 |SONOFF                                          |TRVZB                                                                 |3x AA               |
 |SONOFF                                          |Wireless button (SNZB-01)                                             |CR2450              |
+|SONOFF                                          |ZBCurtain                                                             |Rechargeable        |
 |SONOFF                                          |Zigbee thermostatic radiator valve (TRVZB)                            |3x AA               |
 |Sure Petcare                                    |Cat flap                                                              |4x AA               |
 |Sure Petcare                                    |Felaqua                                                               |4x C                |

@@ -1483,6 +1483,11 @@
         },
         {
             "manufacturer": "SONOFF",
+            "model": "ZBCurtain",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "SONOFF",
             "model": "Zigbee thermostatic radiator valve (TRVZB)",
             "battery_type": "AA",
             "battery_quantity": 3
