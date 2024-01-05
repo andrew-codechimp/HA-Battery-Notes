@@ -1,4 +1,4 @@
-## 375 Devices in library
+## 376 Devices in library
 
 This file is auto generated, do not modify
 
@@ -124,6 +124,7 @@ This file is auto generated, do not modify
 |ID Lock AS                                      |ID-150                                                                |8x AA               |
 |IKEA                                            |E2102                                                                 |Rechargeable        |
 |IKEA                                            |FYRTUR roller blind (E1757)                                           |Rechargeable        |
+|IKEA                                            |PARASOLL door/window Sensor (E2013)                                   |AAA                 |
 |IKEA                                            |RODRET wireless dimmer/power switch (E2201)                           |AAA                 |
 |IKEA                                            |STYRBAR remote control (E2001/E2002)                                  |2x AAA              |
 |IKEA                                            |SYMFONISK sound controller (E1744)                                    |CR2032              |
