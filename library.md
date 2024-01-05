@@ -1,4 +1,4 @@
-## 394 Devices in library
+## 395 Devices in library
 
 This file is auto generated, do not modify
 
@@ -394,6 +394,7 @@ This file is auto generated, do not modify
 |YoLink                                          |LeakSensor                                                            |2x AAA              |
 |YoLink                                          |MotionSensor                                                          |2x AAA              |
 |YoLink                                          |SmartRemoter                                                          |2x AAA              |
+|YoLink                                          |THSensor                                                              |2x AAA              |
 |Zooz                                            |ZEN34                                                                 |2x CR2032           |
 |Zooz                                            |ZSE40 700                                                             |CR123A              |
 |Zooz                                            |ZSE41                                                                 |CR2032              |

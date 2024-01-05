@@ -2126,6 +2126,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "YoLink",
+            "model": "THSensor",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Zooz",
             "model": "ZEN34",
             "battery_type": "CR2032",
@@ -2145,12 +2151,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "YoLink",
-            "model": "THSensor",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
