@@ -1339,6 +1339,11 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "Shenzhen Heiman Technology Co., Ltd.",
+            "model": "Smoke Detector (HS1SA-Z)",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "Shenzhen Kaadas Intelligent Technology Co., Ltd.",
             "model": "DB1",
             "battery_type": "AA",
@@ -2216,11 +2221,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Shenzhen Heiman Technology Co., Ltd.",
-            "model": "Smoke Detector (HS1SA-Z)",
-            "battery_type": "CR123A"
         }
     ]
 }

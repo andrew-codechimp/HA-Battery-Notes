@@ -1,4 +1,4 @@
-## 407 Devices in library
+## 408 Devices in library
 
 This file is auto generated, do not modify
 
@@ -248,6 +248,7 @@ This file is auto generated, do not modify
 |Shelly                                          |Shelly Flood                                                          |CR123A              |
 |Shelly                                          |Shelly H&T                                                            |CR123A              |
 |Shelly                                          |Shelly Plus Smoke                                                     |CR123A              |
+|Shenzhen Heiman Technology Co., Ltd.            |Smoke Detector (HS1SA-Z)                                              |CR123A              |
 |Shenzhen Kaadas Intelligent Technology Co., Ltd.|DB1                                                                   |4x AA               |
 |Signify Netherlands B.V.                        |Hue dimmer switch (RWL020)                                            |CR2450              |
 |Signify Netherlands B.V.                        |Hue dimmer switch (RWL021)                                            |CR2450              |
