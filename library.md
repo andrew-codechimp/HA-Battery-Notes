@@ -1,4 +1,4 @@
-## 381 Devices in library
+## 382 Devices in library
 
 This file is auto generated, do not modify
 
@@ -322,6 +322,7 @@ This file is auto generated, do not modify
 |TuYa                                            |Wireless switch with 1 button (TS0041)                                |CR2032              |
 |TuYa                                            |Wireless switch with 4 buttons (TS0044)                               |CR2430              |
 |TuYa                                            |Zigbee water leak sensor (TS0207_water_leak_detector_2)               |CR2032              |
+|Tuya                                            |zqeaw7pi                                                              |2x AAA              |
 |TUYATEC-xrvzm3yI                                |RH3001                                                                |CR2032              |
 |VictorPest.com                                  |Rat Trap                                                              |4x C                |
 |Vision Security                                 |ZP3111-5                                                              |2x AAA              |
