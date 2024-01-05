@@ -1,4 +1,4 @@
-## 414 Devices in library
+## 415 Devices in library
 
 This file is auto generated, do not modify
 
@@ -240,6 +240,7 @@ This file is auto generated, do not modify
 |Ring                                            |Motion Sensor                                                         |2x AA               |
 |Ring                                            |Security Keypad                                                       |Rechargeable        |
 |Roborock                                        |roborock.vacuum.a15                                                   |Rechargeable        |
+|rtl_433                                         |Acurite-986                                                           |2x AA               |
 |rtl_433                                         |Acurite-Tower                                                         |2x AA               |
 |Ruuvi                                           |Ruuvitag                                                              |CR2477T             |
 |Samjin                                          |motion                                                                |CR2                 |

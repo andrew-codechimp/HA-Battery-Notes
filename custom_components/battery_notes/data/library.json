@@ -1298,6 +1298,12 @@
         },
         {
             "manufacturer": "rtl_433",
+            "model": "Acurite-986",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "rtl_433",
             "model": "Acurite-Tower",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -2252,12 +2258,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "rtl_433",
-            "model": "Acurite-986",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
