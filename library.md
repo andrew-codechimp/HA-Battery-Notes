@@ -1,4 +1,4 @@
-## 382 Devices in library
+## 383 Devices in library
 
 This file is auto generated, do not modify
 
@@ -295,6 +295,7 @@ This file is auto generated, do not modify
 |Third Reality, Inc                              |3RWS18BZ                                                              |2x AAA              |
 |TT Lock                                         |SN511-180MS_PV53                                                      |4x AA               |
 |TUO Accessories LLC                             |TUO Smart Button                                                      |CR2032              |
+|Tuya                                            |_TZ3000_ftwuvum5                                                      |CR2032              |
 |TuYa                                            |Button scene switch (SH-SC07)                                         |CR2450              |
 |TuYa                                            |Door sensor (TS0203)                                                  |CR2032              |
 |TuYa                                            |Door sensor (ZD08)                                                    |CR2032              |
