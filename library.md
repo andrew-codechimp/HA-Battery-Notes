@@ -1,4 +1,4 @@
-## 416 Devices in library
+## 417 Devices in library
 
 This file is auto generated, do not modify
 
@@ -33,6 +33,7 @@ This file is auto generated, do not modify
 |Aldi                                            |MEGOS switch and dimming light remote control (141L100RC)             |CR2450              |
 |Allegion                                        |BE469                                                                 |4x AA               |
 |Allegion                                        |BE469ZP                                                               |4x AAA              |
+|American Power Conversion                       |Back-UPS ES 600M1                                                     |Rechargable         |
 |American Power Conversion                       |Back-UPS XS 1500M                                                     |Rechargable         |
 |Aqara                                           |Aqara Door and Window Sensor P2                                       |CR123A              |
 |August                                          |TEST200228                                                            |4x AA               |
