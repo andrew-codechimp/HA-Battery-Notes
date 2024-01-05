@@ -1,4 +1,4 @@
-## 398 Devices in library
+## 403 Devices in library
 
 This file is auto generated, do not modify
 
@@ -52,6 +52,7 @@ This file is auto generated, do not modify
 |Danfoss                                         |010101                                                                |2x AA               |
 |Danfoss                                         |eTRV0100                                                              |2x AA               |
 |Danfoss                                         |LC-13                                                                 |2x AA               |
+|Danfoss                                         |TRV001                                                                |2x AA               |
 |Develco                                         |Smoke detector with siren (SMSZB-120)                                 |CR123               |
 |Develco Products A/S                            |AQSZB-110                                                             |2x AA               |
 |Drayton Wiser                                   |iTRV                                                                  |2x AA               |
@@ -102,6 +103,7 @@ This file is auto generated, do not modify
 |eWeLink                                         |TH01                                                                  |CR2450              |
 |Fantem                                          |4 in 1 multi sensor (ZB003-X)                                         |2x CR123A           |
 |Fibargroup                                      |FGDW002                                                               |ER14250             |
+|Fibargroup                                      |FGFS101                                                               |CR123A              |
 |Fibargroup                                      |FGK101                                                                |ER14250             |
 |Fibargroup                                      |FGMS001                                                               |CR123A              |
 |Fibargroup                                      |FGSD002                                                               |CR123A              |
@@ -152,6 +154,7 @@ This file is auto generated, do not modify
 |IKEA of Sweden                                  |TREDANSEN block-out cellul blind                                      |Rechargeable        |
 |iMagic by GreatStar                             |1116-S                                                                |CR2                 |
 |INKBIRD                                         |IBS-TH                                                                |2x AAA              |
+|INKBIRD                                         |IBS-TH2/P01B                                                          |2x AAA              |
 |iNode                                           |iNode Energy Meter                                                    |CR2032              |
 |Iris                                            |3326-L                                                                |CR2                 |
 |iRobot                                          |i715640                                                               |Rechargeable        |
@@ -203,6 +206,7 @@ This file is auto generated, do not modify
 |Netatmo                                         |Smart Outdoor Module                                                  |2x AAA              |
 |Netatmo                                         |Smart Rain Gauge                                                      |2x AAA              |
 |Netatmo                                         |Smart Thermostat                                                      |3x AAA              |
+|Nortek Security & Control LLC                   |WADWAZ-1                                                              |CR123A              |
 |Nuki                                            |Nuki Opener                                                           |4x AAA              |
 |Nuki                                            |Nuki Smart Lock                                                       |4x AA               |
 |NYCE                                            |3043                                                                  |2x AAA              |
@@ -273,6 +277,7 @@ This file is auto generated, do not modify
 |SONOFF                                          |Temperature and humidity sensor with screen (SNZB-02D)                |CR2450              |
 |SONOFF                                          |TRVZB                                                                 |3x AA               |
 |SONOFF                                          |Wireless button (SNZB-01)                                             |CR2450              |
+|SONOFF                                          |ZBCurtain                                                             |Rechargeable        |
 |SONOFF                                          |Zigbee thermostatic radiator valve (TRVZB)                            |3x AA               |
 |Sure Petcare                                    |Cat flap                                                              |4x AA               |
 |Sure Petcare                                    |Felaqua                                                               |4x C                |
