@@ -2030,6 +2030,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "YoLink",
+            "model": "SmartRemoter",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
