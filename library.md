@@ -1,4 +1,4 @@
-## 387 Devices in library
+## 388 Devices in library
 
 This file is auto generated, do not modify
 
@@ -299,6 +299,7 @@ This file is auto generated, do not modify
 |Tuya                                            |_TZ3000_dfgbtub0                                                      |CR2032              |
 |Tuya                                            |_TZ3000_ftwuvum5                                                      |CR2032              |
 |Tuya                                            |_TZ3000_itb0omhv                                                      |CR2032              |
+|Tuya                                            |_TZ3000_oxslv1c9                                                      |2x AAA              |
 |Tuya                                            |_TZ3000_upgcbody                                                      |2x AAA              |
 |TuYa                                            |Button scene switch (SH-SC07)                                         |CR2450              |
 |TuYa                                            |Door sensor (TS0203)                                                  |CR2032              |

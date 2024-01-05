@@ -1624,6 +1624,12 @@
         },
         {
             "manufacturer": "Tuya",
+            "model": "_TZ3000_oxslv1c9",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tuya",
             "model": "_TZ3000_upgcbody",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -2106,12 +2112,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "_TZ3000_oxslv1c9",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
