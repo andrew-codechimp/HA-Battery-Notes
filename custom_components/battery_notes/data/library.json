@@ -554,6 +554,11 @@
         },
         {
             "manufacturer": "Fibargroup",
+            "model": "FGFS101",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Fibargroup",
             "model": "FGK101",
             "battery_type": "ER14250"
         },
@@ -2169,11 +2174,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Fibargroup",
-            "model": "FGFS101",
-            "battery_type": "CR123A"
         }
     ]
 }

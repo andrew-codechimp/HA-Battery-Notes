@@ -1,4 +1,4 @@
-## 398 Devices in library
+## 399 Devices in library
 
 This file is auto generated, do not modify
 
@@ -102,6 +102,7 @@ This file is auto generated, do not modify
 |eWeLink                                         |TH01                                                                  |CR2450              |
 |Fantem                                          |4 in 1 multi sensor (ZB003-X)                                         |2x CR123A           |
 |Fibargroup                                      |FGDW002                                                               |ER14250             |
+|Fibargroup                                      |FGFS101                                                               |CR123A              |
 |Fibargroup                                      |FGK101                                                                |ER14250             |
 |Fibargroup                                      |FGMS001                                                               |CR123A              |
 |Fibargroup                                      |FGSD002                                                               |CR123A              |
