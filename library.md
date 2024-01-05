@@ -273,7 +273,7 @@ This file is auto generated, do not modify
 |SmartThings                                     |moisturev4                                                            |CR2                 |
 |SmartThings                                     |Motion sensor (2018 model) (IM6001-MTP01)                             |CR2                 |
 |SmartThings                                     |Multipurpose sensor (2018 model) (IM6001-MPP01)                       |CR2450              |
-|SOMFY                                           |Sonesse 28 WF Li-Ion Roller                                           |Rechargeable        |
+|SOMFY                                           |Sonesse 28 WF Li-Ion Roller                                           |MANUAL              |
 |Sonoff                                          |Contact sensor (SNZB-04)                                              |CR2032              |
 |SONOFF                                          |Motion sensor (SNZB-03)                                               |CR2450              |
 |Sonoff                                          |SNZB-02                                                               |CR2450              |
