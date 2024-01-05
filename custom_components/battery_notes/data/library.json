@@ -2216,6 +2216,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Shenzhen Heiman Technology Co., Ltd.",
+            "model": "Smoke Detector (HS1SA-Z)",
+            "battery_type": "CR123A"
         }
     ]
 }
