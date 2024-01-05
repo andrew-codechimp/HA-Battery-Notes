@@ -2073,6 +2073,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "zqeaw7pi",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
