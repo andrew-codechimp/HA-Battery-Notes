@@ -1394,6 +1394,11 @@
             "battery_type": "CR2"
         },
         {
+            "manufacturer": "Smartthing",
+            "model": "STS-WTR-250",
+            "battery_type": "CR2"
+        },
+        {
             "manufacturer": "SmartThings",
             "model": "Button (IM6001-BTP01)",
             "battery_type": "CR2450"
@@ -2128,11 +2133,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Smartthing",
-            "model": "STS-WTR-250",
-            "battery_type": "CR2"
         }
     ]
 }
