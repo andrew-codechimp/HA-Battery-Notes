@@ -1,4 +1,4 @@
-## 376 Devices in library
+## 377 Devices in library
 
 This file is auto generated, do not modify
 
@@ -187,6 +187,7 @@ This file is auto generated, do not modify
 |LUMI                                            |lumi.weather                                                          |CR2032              |
 |Meross                                          |ms100                                                                 |CR2477              |
 |Moes                                            |Thermostatic radiator valve (BRT-100-TRV)                             |2x AA               |
+|Moes                                            |Universal smart IR remote control (UFO-R11)                           |2x AAA              |
 |Mopeka IOT                                      |M1015                                                                 |AAA-Lithium         |
 |Mopeka IOT                                      |M1017                                                                 |CR2032              |
 |Namron                                          |Zigbee 4 channel switch K8 (black) (4512721)                          |CR2450              |

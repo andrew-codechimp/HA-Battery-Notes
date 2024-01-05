@@ -1004,6 +1004,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Moes",
+            "model": "Universal smart IR remote control (UFO-R11)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Mopeka IOT",
             "model": "M1015",
             "battery_type": "AAA-Lithium"
@@ -2047,12 +2053,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Moes",
-            "model": "Universal smart IR remote control (UFO-R11)",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
