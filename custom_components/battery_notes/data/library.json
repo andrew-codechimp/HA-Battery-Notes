@@ -1723,6 +1723,11 @@
         },
         {
             "manufacturer": "TuYa",
+            "model": "Wireless switch with 1 button (TS0041)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "TuYa",
             "model": "Wireless switch with 4 buttons (TS0044)",
             "battery_type": "CR2430"
         },
@@ -2052,11 +2057,6 @@
         {
             "manufacturer": "Zooz",
             "model": "ZSE42",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "TuYa",
-            "model": "Wireless switch with 1 button (TS0041)",
             "battery_type": "CR2032"
         }
     ]
