@@ -3,6 +3,12 @@
     "version": 1,
     "devices": [
         {
+            "manufacturer": "_TYZB01_7qf81wty",
+            "model": "TS1001",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "_TZ3000_4fjiwweb",
             "model": "TS004F",
             "battery_type": "CR2032"
@@ -2163,12 +2169,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "_TYZB01_7qf81wty",
-            "model": "TS1001",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
