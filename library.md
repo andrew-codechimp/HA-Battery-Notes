@@ -1,4 +1,4 @@
-## 373 Devices in library
+## 374 Devices in library
 
 This file is auto generated, do not modify
 
@@ -90,6 +90,7 @@ This file is auto generated, do not modify
 |eQ-3                                            |HmIP-WRC6                                                             |2x AAA              |
 |eQ-3                                            |HmIP-WRCD                                                             |2x AAA              |
 |eQ-3                                            |HmIP-WTH-2                                                            |2x AAA              |
+|eQ-3                                            |MAX! Radiator Thermostat                                              |2x AA               |
 |Eurotronics                                     |Spirit                                                                |2x AA               |
 |Eve Systems                                     |Eve Door 20EBN9901                                                    |ER14250             |
 |Everspring                                      |ST812                                                                 |2x AA               |

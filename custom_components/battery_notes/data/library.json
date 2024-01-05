@@ -487,6 +487,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "eQ-3",
+            "model": "MAX! Radiator Thermostat",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Eurotronics",
             "model": "Spirit",
             "battery_type": "AA",
@@ -2030,12 +2036,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "eQ-3",
-            "model": "MAX! Radiator Thermostat",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
