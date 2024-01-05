@@ -1649,6 +1649,11 @@
         },
         {
             "manufacturer": "TuYa",
+            "model": "Smoke sensor (TS0205)",
+            "battery_type": "CR123"
+        },
+        {
+            "manufacturer": "TuYa",
             "model": "Smoke sensor (TS0601_smoke_1)",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -2062,11 +2067,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "TuYa",
-            "model": "Smoke sensor (TS0205)",
-            "battery_type": "CR123"
         }
     ]
 }
