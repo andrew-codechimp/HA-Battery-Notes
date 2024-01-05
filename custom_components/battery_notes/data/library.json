@@ -230,6 +230,12 @@
             "battery_type": "CR2"
         },
         {
+            "manufacturer": "Computime",
+            "model": "SLT3",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
             "manufacturer": "CPS",
             "model": "CP1500AVRLCDa",
             "battery_type": "Rechargable"
@@ -2226,12 +2232,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Computime",
-            "model": "SLT3",
-            "battery_type": "AA",
-            "battery_quantity": 4
         }
     ]
 }

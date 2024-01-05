@@ -1,4 +1,4 @@
-## 409 Devices in library
+## 410 Devices in library
 
 This file is auto generated, do not modify
 
@@ -45,6 +45,7 @@ This file is auto generated, do not modify
 |CentraLite                                      |3315-S                                                                |CR2                 |
 |CentraLite                                      |3320-L                                                                |CR2                 |
 |CentraLite                                      |3326-L                                                                |CR2                 |
+|Computime                                       |SLT3                                                                  |4x AA               |
 |CPS                                             |CP1500AVRLCDa                                                         |Rechargable         |
 |Custom devices (DiY)                            |Xiaomi temperature & humidity sensor with custom firmware (LYWSD03MMC)|CR2032              |
 |Danalock                                        |BT/ZB smartlock (V3-BTZB/V3-BTZBE)                                    |4x CR123A           |
