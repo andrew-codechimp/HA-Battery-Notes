@@ -2042,6 +2042,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "IKEA",
+            "model": "PARASOLL door/window Sensor (E2013)",
+            "battery_type": "AAA"
         }
     ]
 }
