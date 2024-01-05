@@ -316,7 +316,7 @@ This file is auto generated, do not modify
 |tuya                                            |TS0210                                                                |2x AAA              |
 |tuya                                            |TS0601                                                                |CR2                 |
 |TuYa                                            |TS0601_smoke_1                                                        |2x AAA              |
-|TuYa                                            |Water leak detector (TS0207_water_leak_detector)                      |2x AAA              |
+|TuYa                                            |Water leak detector (TS0207_water_leak_detector)                      |CR2032              |
 |TuYa                                            |Wireless switch with 1 button (TS0041)                                |CR2032              |
 |TuYa                                            |Wireless switch with 4 buttons (TS0044)                               |CR2430              |
 |TuYa                                            |Zigbee water leak sensor (TS0207_water_leak_detector_2)               |CR2032              |
