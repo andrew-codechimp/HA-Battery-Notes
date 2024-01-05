@@ -2117,6 +2117,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "SONOFF",
+            "model": "ZBCurtain",
+            "battery_type": "Irreplaceable"
         }
     ]
 }
