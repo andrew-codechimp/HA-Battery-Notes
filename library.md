@@ -1,4 +1,4 @@
-## 415 Devices in library
+## 416 Devices in library
 
 This file is auto generated, do not modify
 
@@ -242,6 +242,7 @@ This file is auto generated, do not modify
 |Roborock                                        |roborock.vacuum.a15                                                   |Rechargeable        |
 |rtl_433                                         |Acurite-986                                                           |2x AA               |
 |rtl_433                                         |Acurite-Tower                                                         |2x AA               |
+|rtl_433                                         |Vauno-EN8822C                                                         |2x AAA              |
 |Ruuvi                                           |Ruuvitag                                                              |CR2477T             |
 |Samjin                                          |motion                                                                |CR2                 |
 |Samjin                                          |multi                                                                 |CR2450              |
