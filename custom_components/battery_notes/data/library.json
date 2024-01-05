@@ -2036,6 +2036,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "eQ-3",
+            "model": "MAX! Window Sensor",
+            "battery_type": "AA",
+            "battery_quantity": 2
         }
     ]
 }
