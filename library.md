@@ -1,4 +1,4 @@
-## 413 Devices in library
+## 414 Devices in library
 
 This file is auto generated, do not modify
 
@@ -402,6 +402,7 @@ This file is auto generated, do not modify
 |Xiaomi                                          |RTCGQ01LM                                                             |CR2450              |
 |Xiaomi                                          |SRTS-A01                                                              |2x AA               |
 |Xiaomi                                          |Temperature & humidity sensor (LYWSD03MMC)                            |CR2032              |
+|Xiaomi                                          |Temperature/Humidity sensor                                           |CR2032              |
 |Xiaomi                                          |WSDCGQ01LM                                                            |CR2032              |
 |Xiaomi                                          |XMTZC02HM/XMTZC05HM/NUN4049CN                                         |4x AAA              |
 |Xiaomi                                          |XMWSDJ04MMC                                                           |CR2450              |
