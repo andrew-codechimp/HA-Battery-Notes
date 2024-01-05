@@ -1,4 +1,4 @@
-## 388 Devices in library
+## 389 Devices in library
 
 This file is auto generated, do not modify
 
@@ -297,6 +297,7 @@ This file is auto generated, do not modify
 |TUO Accessories LLC                             |TUO Smart Button                                                      |CR2032              |
 |Tuya                                            |_TZ3000_au1rjicn                                                      |2x AAA              |
 |Tuya                                            |_TZ3000_dfgbtub0                                                      |CR2032              |
+|Tuya                                            |_TZ3000_ee8nrt2l                                                      |CR2032              |
 |Tuya                                            |_TZ3000_ftwuvum5                                                      |CR2032              |
 |Tuya                                            |_TZ3000_itb0omhv                                                      |CR2032              |
 |Tuya                                            |_TZ3000_oxslv1c9                                                      |2x AAA              |
