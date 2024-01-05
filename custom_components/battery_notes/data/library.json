@@ -1607,6 +1607,11 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Tuya",
+            "model": "_TZ3000_itb0omhv",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "TuYa",
             "model": "Button scene switch (SH-SC07)",
             "battery_type": "CR2450"
@@ -2083,11 +2088,6 @@
         {
             "manufacturer": "Zooz",
             "model": "ZSE42",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "_TZ3000_itb0omhv",
             "battery_type": "CR2032"
         }
     ]
