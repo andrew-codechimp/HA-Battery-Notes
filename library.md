@@ -1,4 +1,4 @@
-## 402 Devices in library
+## 403 Devices in library
 
 This file is auto generated, do not modify
 
@@ -154,6 +154,7 @@ This file is auto generated, do not modify
 |IKEA of Sweden                                  |TREDANSEN block-out cellul blind                                      |Rechargeable        |
 |iMagic by GreatStar                             |1116-S                                                                |CR2                 |
 |INKBIRD                                         |IBS-TH                                                                |2x AAA              |
+|INKBIRD                                         |IBS-TH2/P01B                                                          |2x AAA              |
 |iNode                                           |iNode Energy Meter                                                    |CR2032              |
 |Iris                                            |3326-L                                                                |CR2                 |
 |iRobot                                          |i715640                                                               |Rechargeable        |

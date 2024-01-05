@@ -829,6 +829,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "INKBIRD",
+            "model": "IBS-TH2/P01B",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "iNode",
             "model": "iNode Energy Meter",
             "battery_type": "CR2032"
@@ -2190,12 +2196,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "INKBIRD",
-            "model": "IBS-TH2/P01B",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
