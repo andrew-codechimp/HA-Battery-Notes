@@ -1758,6 +1758,11 @@
         },
         {
             "manufacturer": "TuYa",
+            "model": "Photoelectric smoke detector (PA-44Z)",
+            "battery_type": "PP3"
+        },
+        {
+            "manufacturer": "TuYa",
             "model": "Smart knob (ERS-10TZBVK-AA)",
             "battery_type": "CR2032"
         },
@@ -2221,11 +2226,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "TuYa",
-            "model": "Photoelectric smoke detector (PA-44Z)",
-            "battery_type": "PP3"
         }
     ]
 }
