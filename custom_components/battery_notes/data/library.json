@@ -51,6 +51,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "_TZ3000_mh9px7cq",
+            "model": "TS0044",
+            "battery_type": "A23"
+        },
+        {
             "manufacturer": "_TZ3000_wkai4ga5",
             "model": "TS0044",
             "battery_type": "CR2430"
@@ -551,6 +556,11 @@
         {
             "manufacturer": "eWeLink",
             "model": "TH01",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "eWeLink",
+            "model": "WB01",
             "battery_type": "CR2450"
         },
         {
@@ -2066,6 +2076,11 @@
             "manufacturer": "Xiaomi",
             "model": "ble XMWSDJ04MMC",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "BTHome sensor",
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "Xiaomi",
