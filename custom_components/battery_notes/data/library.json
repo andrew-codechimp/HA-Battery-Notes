@@ -1210,6 +1210,12 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Poly-control",
+            "model": "Danalock V3-BTZE",
+            "battery_type": "CR123A",
+            "battery_quantity": 4
+        },
+        {
             "manufacturer": "Ring",
             "model": "Contact Sensor",
             "battery_type": "CR2032",
@@ -2151,12 +2157,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Poly-control",
-            "model": "Danalock V3-BTZE",
-            "battery_type": "CR123A",
-            "battery_quantity": 4
         }
     ]
 }
