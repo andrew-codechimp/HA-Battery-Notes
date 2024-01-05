@@ -30,9 +30,13 @@ from homeassistant.helpers.update_coordinator import (
 )
 from homeassistant.helpers.reload import async_setup_reload_service
 
+from homeassistant.components.sensor import DOMAIN as SENSOR_DOMAIN
+from homeassistant.components.binary_sensor import DOMAIN as BINARY_SENSOR_DOMAIN
+
 from homeassistant.const import (
     CONF_NAME,
     CONF_DEVICE_ID,
+    DEVICE_CLASS_BATTERY,
 )
 
 from .const import (
@@ -278,6 +282,43 @@ class BatteryNotesLastReplacedSensor(SensorEntity, CoordinatorEntity):
             )
 
             self.entity_id = f"sensor.{device.name}_{description.key}"
+
+    async def async_added_to_hass(self) -> None:
+        """Handle added to Hass."""
+        await super().async_added_to_hass()
+
+        entity_registry = er.async_get(self.hass)
+
+        domain_device_classes = {
+                ("input_number", DEVICE_CLASS_BATTERY),
+                (BINARY_SENSOR_DOMAIN, DEVICE_CLASS_BATTERY),
+                (SENSOR_DOMAIN, DEVICE_CLASS_BATTERY),
+            }
+
+        lookup: dict[str, dict[tuple[str, str | None], str]] = {}
+        for entity in entity_registry.entities.values():
+            # if not entity.device_id:
+            #     continue
+            device_class = entity.device_class or entity.original_device_class
+            domain_device_class = (entity.domain, device_class)
+            if domain_device_class not in domain_device_classes:
+                continue
+            if entity.entity_id not in lookup:
+                lookup[entity.entity_id] = {domain_device_class: entity.entity_id}
+            else:
+                lookup[entity.entity_id][domain_device_class] = entity.entity_id
+        print(lookup)
+
+        # device_lookup = entity_registry.async_get_device_class_lookup(
+        #     {
+        #         ("input_number", DEVICE_CLASS_BATTERY),
+        #         (BINARY_SENSOR_DOMAIN, DEVICE_CLASS_BATTERY),
+        #         (SENSOR_DOMAIN, DEVICE_CLASS_BATTERY),
+        #         (SENSOR_DOMAIN, "timestamp"),
+        #     }
+        # )
+        #
+        # print(device_lookup)
 
     def _set_native_value(self, log_on_error=True):  # pylint: disable=unused-argument
         device_entry = self.coordinator.store.async_get_device(self._device_id)
