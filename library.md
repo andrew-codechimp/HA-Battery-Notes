@@ -1,4 +1,4 @@
-## 399 Devices in library
+## 400 Devices in library
 
 This file is auto generated, do not modify
 
@@ -204,6 +204,7 @@ This file is auto generated, do not modify
 |Netatmo                                         |Smart Outdoor Module                                                  |2x AAA              |
 |Netatmo                                         |Smart Rain Gauge                                                      |2x AAA              |
 |Netatmo                                         |Smart Thermostat                                                      |3x AAA              |
+|Nortek Security & Control LLC                   |WADWAZ-1                                                              |CR123A              |
 |Nuki                                            |Nuki Opener                                                           |4x AAA              |
 |Nuki                                            |Nuki Smart Lock                                                       |4x AA               |
 |NYCE                                            |3043                                                                  |2x AAA              |
