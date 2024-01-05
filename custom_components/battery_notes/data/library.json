@@ -1476,7 +1476,7 @@
         {
             "manufacturer": "SOMFY",
             "model": "Sonesse 28 WF Li-Ion Roller",
-            "battery_type": "Rechargeable"
+            "battery_type": "MANUAL"
         },
         {
             "manufacturer": "Sonoff",
