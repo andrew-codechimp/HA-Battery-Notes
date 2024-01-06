@@ -73,6 +73,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "_TZ3210_j4pdtz9v",
+            "model": "TS0001",
+            "battery_type": "CR2"
+        },
+        {
             "manufacturer": "_TZ3210_up3pngle",
             "model": "TS0205",
             "battery_type": "AAA",
@@ -2274,11 +2279,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "_TZ3210_j4pdtz9v",
-            "model": "TS0001",
-            "battery_type": "CR2"
         }
     ]
 }
