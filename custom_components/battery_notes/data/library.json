@@ -2284,6 +2284,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Fibargroup",
+            "model": "FGCD001",
+            "battery_type": "CR123A"
         }
     ]
 }
