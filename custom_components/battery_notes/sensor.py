@@ -350,7 +350,7 @@ class BatteryNotesLastReplacedSensor(SensorEntity, CoordinatorEntity):
 
         # For those that are related to this sensor's device, start listening for state changes
         if self._device_id in device_lookup:
-            if tuple(SENSOR_DOMAIN, "timestamp") in device_lookup[self._device_id]:
+            if (SENSOR_DOMAIN, "timestamp") in device_lookup[self._device_id]:
                 entity_id = device_lookup[self._device_id].get((SENSOR_DOMAIN, "timestamp"))
             else:
                 entity_id = device_lookup[self._device_id].get((BINARY_SENSOR_DOMAIN, "timestamp"))
