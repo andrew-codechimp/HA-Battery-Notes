@@ -1486,11 +1486,6 @@
             "battery_type": "CR2"
         },
         {
-            "manufacturer": "Smartthings",
-            "model": "Water leak sensor (2016 model) (STS-WTR-250)",
-            "battery_type": "CR2"
-        },
-        {
             "manufacturer": "SmartThings",
             "model": "Button (IM6001-BTP01)",
             "battery_type": "CR2450"
@@ -1509,6 +1504,11 @@
             "manufacturer": "SmartThings",
             "model": "Multipurpose sensor (2018 model) (IM6001-MPP01)",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Smartthings",
+            "model": "Water leak sensor (2016 model) (STS-WTR-250)",
+            "battery_type": "CR2"
         },
         {
             "manufacturer": "SOMFY",

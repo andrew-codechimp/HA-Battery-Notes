@@ -275,11 +275,11 @@ This file is auto generated, do not modify
 |Signify Netherlands B.V.                        |SML003                                                                |2x AAA              |
 |Siterwell                                       |Radiator valve with thermostat (GS361A-H04)                           |2x AA               |
 |SMaBiT (Bitron Video)                           |Compact magnetic contact sensor (AV2010/21A)                          |CR2                 |
-|Smartthing                                      |STS-WTR-250                                                           |CR2                 |
 |SmartThings                                     |Button (IM6001-BTP01)                                                 |CR2450              |
 |SmartThings                                     |moisturev4                                                            |CR2                 |
 |SmartThings                                     |Motion sensor (2018 model) (IM6001-MTP01)                             |CR2                 |
 |SmartThings                                     |Multipurpose sensor (2018 model) (IM6001-MPP01)                       |CR2450              |
+|Smartthings                                     |Water leak sensor (2016 model) (STS-WTR-250)                          |CR2                 |
 |SOMFY                                           |Sonesse 28 WF Li-Ion Roller                                           |MANUAL              |
 |Sonoff                                          |Contact sensor (SNZB-04)                                              |CR2032              |
 |SONOFF                                          |Motion sensor (SNZB-03)                                               |CR2450              |
