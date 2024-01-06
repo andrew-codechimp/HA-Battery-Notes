@@ -1178,6 +1178,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Nyce",
+            "model": "Door/window sensor (NCZ-3011-HA)",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "OpenEpaperLink",
             "model": "ST\u2010GR16000 1.54\"",
             "battery_type": "CR2450"
@@ -2278,11 +2283,6 @@
         {
             "manufacturer": "Zooz",
             "model": "ZSE42",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Nyce",
-            "model": "Door/window sensor (NCZ-3011-HA)",
             "battery_type": "CR2032"
         }
     ]

@@ -1,4 +1,4 @@
-## 419 Devices in library
+## 420 Devices in library
 
 This file is auto generated, do not modify
 
@@ -218,6 +218,7 @@ This file is auto generated, do not modify
 |Nuki                                            |Nuki Opener                                                           |4x AAA              |
 |Nuki                                            |Nuki Smart Lock                                                       |4x AA               |
 |NYCE                                            |3043                                                                  |2x AAA              |
+|Nyce                                            |Door/window sensor (NCZ-3011-HA)                                      |CR2032              |
 |OpenEpaperLink                                  |ST‐GR16000 1.54                                                       |CR2450              |
 |OpenEpaperLink                                  |ST‐GR29000 2.9                                                        |2x CR2450           |
 |Oral-B                                          |Genius X                                                              |Rechargeable        |
