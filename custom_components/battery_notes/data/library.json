@@ -172,6 +172,11 @@
             "battery_type": "Rechargable"
         },
         {
+            "manufacturer": "APC",
+            "model": "Back-UPS XS 1500M",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Aqara",
             "model": "Aqara Door and Window Sensor P2",
             "battery_type": "CR123A"
@@ -2269,11 +2274,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "APC",
-            "model": "Back-UPS XS 1500M",
-            "battery_type": "Rechargeable"
         }
     ]
 }

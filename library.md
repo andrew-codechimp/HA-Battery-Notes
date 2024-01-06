@@ -1,4 +1,4 @@
-## 417 Devices in library
+## 418 Devices in library
 
 This file is auto generated, do not modify
 
@@ -35,6 +35,7 @@ This file is auto generated, do not modify
 |Allegion                                        |BE469ZP                                                               |4x AAA              |
 |American Power Conversion                       |Back-UPS ES 600M1                                                     |Rechargable         |
 |American Power Conversion                       |Back-UPS XS 1500M                                                     |Rechargable         |
+|APC                                             |Back-UPS XS 1500M                                                     |Rechargeable        |
 |Aqara                                           |Aqara Door and Window Sensor P2                                       |CR123A              |
 |August                                          |TEST200228                                                            |4x AA               |
 |August Home Inc.                                |AK-R1                                                                 |2x AAA              |
