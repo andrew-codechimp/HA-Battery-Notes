@@ -30,6 +30,7 @@ from homeassistant.helpers.update_coordinator import (
     CoordinatorEntity,
 )
 from homeassistant.helpers.reload import async_setup_reload_service
+from homeassistant.helpers.event import async_track_state_change_event
 
 from homeassistant.components.sensor import DOMAIN as SENSOR_DOMAIN
 from homeassistant.components.binary_sensor import DOMAIN as BINARY_SENSOR_DOMAIN
@@ -318,36 +319,49 @@ class BatteryNotesLastReplacedSensor(SensorEntity, CoordinatorEntity):
 
         entity_registry = er.async_get(self.hass)
 
-        domain_device_classes = {
-                ("input_number", DEVICE_CLASS_BATTERY),
-                (BINARY_SENSOR_DOMAIN, DEVICE_CLASS_BATTERY),
-                (SENSOR_DOMAIN, DEVICE_CLASS_BATTERY),
-            }
-
-        lookup: dict[str, dict[tuple[str, str | None], str]] = {}
-        for entity in entity_registry.entities.values():
-            # if not entity.device_id:
-            #     continue
-            device_class = entity.device_class or entity.original_device_class
-            domain_device_class = (entity.domain, device_class)
-            if domain_device_class not in domain_device_classes:
-                continue
-            if entity.entity_id not in lookup:
-                lookup[entity.entity_id] = {domain_device_class: entity.entity_id}
-            else:
-                lookup[entity.entity_id][domain_device_class] = entity.entity_id
-        print(lookup)
-
-        # device_lookup = entity_registry.async_get_device_class_lookup(
-        #     {
+        # domain_device_classes = {
         #         ("input_number", DEVICE_CLASS_BATTERY),
         #         (BINARY_SENSOR_DOMAIN, DEVICE_CLASS_BATTERY),
         #         (SENSOR_DOMAIN, DEVICE_CLASS_BATTERY),
-        #         (SENSOR_DOMAIN, "timestamp"),
         #     }
-        # )
         #
-        # print(device_lookup)
+        # lookup: dict[str, dict[tuple[str, str | None], str]] = {}
+        # for entity in entity_registry.entities.values():
+        #     # if not entity.device_id:
+        #     #     continue
+        #     device_class = entity.device_class or entity.original_device_class
+        #     domain_device_class = (entity.domain, device_class)
+        #     if domain_device_class not in domain_device_classes:
+        #         continue
+        #     if entity.entity_id not in lookup:
+        #         lookup[entity.entity_id] = {domain_device_class: entity.entity_id}
+        #     else:
+        #         lookup[entity.entity_id][domain_device_class] = entity.entity_id
+        # print(lookup)
+
+        # Get all entities that have a device and have specific domain/class
+        device_lookup = entity_registry.async_get_device_class_lookup(
+            {
+                (BINARY_SENSOR_DOMAIN, DEVICE_CLASS_BATTERY),
+                (SENSOR_DOMAIN, DEVICE_CLASS_BATTERY),
+                (SENSOR_DOMAIN, "timestamp"),
+            }
+        )
+
+        # For those that are related to this sensor's device, start listening for state changes
+        if self._device_id in device_lookup:
+            if tuple(SENSOR_DOMAIN, "timestamp") in device_lookup[self._device_id]:
+                entity_id = device_lookup[self._device_id].get((SENSOR_DOMAIN, "timestamp"))
+            else:
+                entity_id = device_lookup[self._device_id].get((BINARY_SENSOR_DOMAIN, "timestamp"))
+
+            print(entity_id)
+
+            # self.async_on_remove(
+            #     async_track_state_change_event(
+            #             self.hass, entity_id, self._async_state_listener
+            #     )
+            # )
 
     def _set_native_value(self, log_on_error=True):  # pylint: disable=unused-argument
         device_entry = self.coordinator.store.async_get_device(self._device_id)
@@ -360,6 +374,17 @@ class BatteryNotesLastReplacedSensor(SensorEntity, CoordinatorEntity):
 
                 return True
         return False
+
+    @callback
+    def _async_state_listener(self, event: Event) -> None:
+        """ Listen for sensor state changes. """
+        updated = False
+
+        # event.data
+        # updated = True
+
+        if updated:
+            self.async_write_ha_state()
 
     @callback
     def _handle_coordinator_update(self) -> None:
