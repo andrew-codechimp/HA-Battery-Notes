@@ -7,5 +7,21 @@
             "command": "scripts/develop",
             "problemMatcher": []
         }
+    ],
+    "configurations": [
+        {
+            // Example of attaching to local debug server
+            "name": "Python: Attach Local",
+            "type": "python",
+            "request": "attach",
+            "port": 5678,
+            "host": "localhost",
+            "pathMappings": [
+                {
+                    "localRoot": "${workspaceFolder}",
+                    "remoteRoot": "."
+                }
+            ],
+        }
     ]
 }
