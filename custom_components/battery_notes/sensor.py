@@ -251,7 +251,7 @@ class BatteryNotesTypeSensor(RestoreSensor, SensorEntity):
         """Return the state attributes of the battery type."""
 
         matches: re.Match = re.search(
-            "^(\d+)(?=x)(?:x\s)(\w+$)|([\s\S]+)", self._battery_type
+            r"^(\d+)(?=x)(?:x\s)(\w+$)|([\s\S]+)", self._battery_type
         )
         if matches:
             _qty = matches.group(1) if matches.group(1) is not None else "1"
