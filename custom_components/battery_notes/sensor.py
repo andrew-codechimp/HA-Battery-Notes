@@ -4,6 +4,7 @@ from __future__ import annotations
 from datetime import datetime
 from dataclasses import dataclass
 import voluptuous as vol
+import re
 
 from homeassistant.components.sensor import (
     PLATFORM_SCHEMA,
@@ -43,6 +44,8 @@ from .const import (
     LAST_REPLACED,
     DOMAIN_CONFIG,
     CONF_ENABLE_REPLACED,
+    ATTR_BATTERY_QUANTITY,
+    ATTR_BATTERY_TYPE,
 )
 
 from .coordinator import BatteryNotesCoordinator
@@ -242,6 +245,32 @@ class BatteryNotesTypeSensor(RestoreSensor, SensorEntity):
         """Return the native value of the sensor."""
 
         return self._battery_type
+
+    @property
+    def extra_state_attributes(self) -> dict[str, str] | None:
+        """Return the state attributes of the battery type."""
+
+        matches: re.Match = re.search(
+            "^(\d+)(?=x)(?:x\s)(\w+$)|([\s\S]+)", self._battery_type
+        )
+        if matches:
+            _qty = matches.group(1) if matches.group(1) is not None else "1"
+            _type = (
+                matches.group(2) if matches.group(2) is not None else matches.group(3)
+            )
+        else:
+            _qty = 1
+            _type = self._battery_type
+
+        attrs = {
+            ATTR_BATTERY_QUANTITY: _qty,
+            ATTR_BATTERY_TYPE: _type,
+        }
+
+        super_attrs = super().extra_state_attributes
+        if super_attrs:
+            attrs.update(super_attrs)
+        return attrs
 
 
 class BatteryNotesLastReplacedSensor(SensorEntity, CoordinatorEntity):
