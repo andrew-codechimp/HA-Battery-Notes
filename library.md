@@ -1,4 +1,4 @@
-## 410 Devices in library
+## 421 Devices in library
 
 This file is auto generated, do not modify
 
@@ -13,9 +13,11 @@ This file is auto generated, do not modify
 |_TZ3000_fllyghyj                                |TS0201                                                                |2x AAA              |
 |_TZ3000_k4ej3ww2                                |TS0207                                                                |CR2032              |
 |_TZ3000_lf56vpxj                                |TS0202                                                                |2x AAA              |
+|_TZ3000_mh9px7cq                                |TS0044                                                                |A23                 |
 |_TZ3000_wkai4ga5                                |TS0044                                                                |CR2430              |
 |_TZ3000_xr3htd96                                |TS0201                                                                |2x AAA              |
 |_TZ3000_yxqnffam                                |TS0203                                                                |2x AAA              |
+|_TZ3210_j4pdtz9v                                |TS0001                                                                |CR2                 |
 |_TZ3210_up3pngle                                |TS0205                                                                |2x AAA              |
 |_TZE200_b6wax7g0                                |TS0601                                                                |2x AA               |
 |_TZE200_c88teujp                                |TS0601                                                                |2x AA               |
@@ -32,7 +34,9 @@ This file is auto generated, do not modify
 |Aldi                                            |MEGOS switch and dimming light remote control (141L100RC)             |CR2450              |
 |Allegion                                        |BE469                                                                 |4x AA               |
 |Allegion                                        |BE469ZP                                                               |4x AAA              |
+|American Power Conversion                       |Back-UPS ES 600M1                                                     |Rechargable         |
 |American Power Conversion                       |Back-UPS XS 1500M                                                     |Rechargable         |
+|APC                                             |Back-UPS XS 1500M                                                     |Rechargeable        |
 |Aqara                                           |Aqara Door and Window Sensor P2                                       |CR123A              |
 |August                                          |TEST200228                                                            |4x AA               |
 |August Home Inc.                                |AK-R1                                                                 |2x AAA              |
@@ -102,7 +106,9 @@ This file is auto generated, do not modify
 |eWeLink                                         |MS01                                                                  |CR2450              |
 |eWeLink                                         |SNZB-02P                                                              |CR2477              |
 |eWeLink                                         |TH01                                                                  |CR2450              |
+|eWeLink                                         |WB01                                                                  |CR2450              |
 |Fantem                                          |4 in 1 multi sensor (ZB003-X)                                         |2x CR123A           |
+|Fibargroup                                      |FGCD001                                                               |CR123A              |
 |Fibargroup                                      |FGDW002                                                               |ER14250             |
 |Fibargroup                                      |FGFS101                                                               |CR123A              |
 |Fibargroup                                      |FGFS101                                                               |CR123A              |
@@ -213,6 +219,7 @@ This file is auto generated, do not modify
 |Nuki                                            |Nuki Opener                                                           |4x AAA              |
 |Nuki                                            |Nuki Smart Lock                                                       |4x AA               |
 |NYCE                                            |3043                                                                  |2x AAA              |
+|Nyce                                            |Door/window sensor (NCZ-3011-HA)                                      |CR2032              |
 |OpenEpaperLink                                  |ST‐GR16000 1.54                                                       |CR2450              |
 |OpenEpaperLink                                  |ST‐GR29000 2.9                                                        |2x CR2450           |
 |Oral-B                                          |Genius X                                                              |Rechargeable        |
@@ -238,7 +245,9 @@ This file is auto generated, do not modify
 |Ring                                            |Motion Sensor                                                         |2x AA               |
 |Ring                                            |Security Keypad                                                       |Rechargeable        |
 |Roborock                                        |roborock.vacuum.a15                                                   |Rechargeable        |
+|rtl_433                                         |Acurite-986                                                           |2x AA               |
 |rtl_433                                         |Acurite-Tower                                                         |2x AA               |
+|rtl_433                                         |Vauno-EN8822C                                                         |2x AAA              |
 |Ruuvi                                           |Ruuvitag                                                              |CR2477T             |
 |Samjin                                          |motion                                                                |CR2                 |
 |Samjin                                          |multi                                                                 |CR2450              |
@@ -268,12 +277,12 @@ This file is auto generated, do not modify
 |Signify Netherlands B.V.                        |SML003                                                                |2x AAA              |
 |Siterwell                                       |Radiator valve with thermostat (GS361A-H04)                           |2x AA               |
 |SMaBiT (Bitron Video)                           |Compact magnetic contact sensor (AV2010/21A)                          |CR2                 |
-|Smartthing                                      |STS-WTR-250                                                           |CR2                 |
 |SmartThings                                     |Button (IM6001-BTP01)                                                 |CR2450              |
 |SmartThings                                     |moisturev4                                                            |CR2                 |
 |SmartThings                                     |Motion sensor (2018 model) (IM6001-MTP01)                             |CR2                 |
 |SmartThings                                     |Multipurpose sensor (2018 model) (IM6001-MPP01)                       |CR2450              |
-|SOMFY                                           |Sonesse 28 WF Li-Ion Roller                                           |Rechargeable        |
+|Smartthings                                     |Water leak sensor (2016 model) (STS-WTR-250)                          |CR2                 |
+|SOMFY                                           |Sonesse 28 WF Li-Ion Roller                                           |MANUAL              |
 |Sonoff                                          |Contact sensor (SNZB-04)                                              |CR2032              |
 |SONOFF                                          |Motion sensor (SNZB-03)                                               |CR2450              |
 |Sonoff                                          |SNZB-02                                                               |CR2450              |
@@ -383,6 +392,7 @@ This file is auto generated, do not modify
 |Xiaomi                                          |ble RTCGQ02LM                                                         |CR2450              |
 |Xiaomi                                          |ble XMPIR02SXS                                                        |CR2450              |
 |Xiaomi                                          |ble XMWSDJ04MMC                                                       |CR2450              |
+|Xiaomi                                          |BTHome sensor                                                         |CR2032              |
 |Xiaomi                                          |GZCGQ01LM                                                             |CR2450              |
 |Xiaomi                                          |HHCCJCY01                                                             |CR2032              |
 |Xiaomi                                          |LYWSD03MMC                                                            |CR2032              |
@@ -399,6 +409,7 @@ This file is auto generated, do not modify
 |Xiaomi                                          |RTCGQ01LM                                                             |CR2450              |
 |Xiaomi                                          |SRTS-A01                                                              |2x AA               |
 |Xiaomi                                          |Temperature & humidity sensor (LYWSD03MMC)                            |CR2032              |
+|Xiaomi                                          |Temperature/Humidity sensor                                           |CR2032              |
 |Xiaomi                                          |WSDCGQ01LM                                                            |CR2032              |
 |Xiaomi                                          |XMTZC02HM/XMTZC05HM/NUN4049CN                                         |4x AAA              |
 |Xiaomi                                          |XMWSDJ04MMC                                                           |CR2450              |

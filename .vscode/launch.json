@@ -1,0 +1,34 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Home Assistant",
+            "type": "python",
+            "request": "launch",
+            "module": "homeassistant",
+            "justMyCode": false,
+            "args": [
+                "--debug",
+                "-c",
+                "config"
+            ]
+        },
+        {
+            // Example of attaching to my production server
+            "name": "Python: Attach Remote",
+            "type": "python",
+            "request": "attach",
+            "port": 5678,
+            "host": "localhost",
+            "pathMappings": [
+                {
+                    "localRoot": "${workspaceFolder}",
+                    "remoteRoot": "/usr/src/homeassistant"
+                }
+            ],
+        }
+    ]
+}

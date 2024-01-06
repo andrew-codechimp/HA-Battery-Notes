@@ -51,6 +51,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "_TZ3000_mh9px7cq",
+            "model": "TS0044",
+            "battery_type": "A23"
+        },
+        {
             "manufacturer": "_TZ3000_wkai4ga5",
             "model": "TS0044",
             "battery_type": "CR2430"
@@ -66,6 +71,11 @@
             "model": "TS0203",
             "battery_type": "AAA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "_TZ3210_j4pdtz9v",
+            "model": "TS0001",
+            "battery_type": "CR2"
         },
         {
             "manufacturer": "_TZ3210_up3pngle",
@@ -158,8 +168,18 @@
         },
         {
             "manufacturer": "American Power Conversion",
+            "model": "Back-UPS ES 600M1",
+            "battery_type": "Rechargable"
+        },
+        {
+            "manufacturer": "American Power Conversion",
             "model": "Back-UPS XS 1500M",
             "battery_type": "Rechargable"
+        },
+        {
+            "manufacturer": "APC",
+            "model": "Back-UPS XS 1500M",
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "Aqara",
@@ -554,10 +574,20 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "eWeLink",
+            "model": "WB01",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "Fantem",
             "model": "4 in 1 multi sensor (ZB003-X)",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Fibargroup",
+            "model": "FGCD001",
+            "battery_type": "CR123A"
         },
         {
             "manufacturer": "Fibargroup",
@@ -1153,6 +1183,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Nyce",
+            "model": "Door/window sensor (NCZ-3011-HA)",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "OpenEpaperLink",
             "model": "ST\u2010GR16000 1.54\"",
             "battery_type": "CR2450"
@@ -1288,8 +1323,20 @@
         },
         {
             "manufacturer": "rtl_433",
+            "model": "Acurite-986",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "rtl_433",
             "model": "Acurite-Tower",
             "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "rtl_433",
+            "model": "Vauno-EN8822C",
+            "battery_type": "AAA",
             "battery_quantity": 2
         },
         {
@@ -1449,11 +1496,6 @@
             "battery_type": "CR2"
         },
         {
-            "manufacturer": "Smartthing",
-            "model": "STS-WTR-250",
-            "battery_type": "CR2"
-        },
-        {
             "manufacturer": "SmartThings",
             "model": "Button (IM6001-BTP01)",
             "battery_type": "CR2450"
@@ -1474,9 +1516,14 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "Smartthings",
+            "model": "Water leak sensor (2016 model) (STS-WTR-250)",
+            "battery_type": "CR2"
+        },
+        {
             "manufacturer": "SOMFY",
             "model": "Sonesse 28 WF Li-Ion Roller",
-            "battery_type": "Rechargeable"
+            "battery_type": "MANUAL"
         },
         {
             "manufacturer": "Sonoff",
@@ -2069,6 +2116,11 @@
         },
         {
             "manufacturer": "Xiaomi",
+            "model": "BTHome sensor",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Xiaomi",
             "model": "GZCGQ01LM",
             "battery_type": "CR2450"
         },
@@ -2147,6 +2199,11 @@
         {
             "manufacturer": "Xiaomi",
             "model": "Temperature & humidity sensor (LYWSD03MMC)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "Temperature/Humidity sensor",
             "battery_type": "CR2032"
         },
         {
