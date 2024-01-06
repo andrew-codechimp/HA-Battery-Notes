@@ -355,13 +355,14 @@ class BatteryNotesLastReplacedSensor(SensorEntity, CoordinatorEntity):
             else:
                 entity_id = device_lookup[self._device_id].get((BINARY_SENSOR_DOMAIN, "timestamp"))
 
-            print(entity_id)
+            if entity_id:
+                print(entity_id)
 
-            # self.async_on_remove(
-            #     async_track_state_change_event(
-            #             self.hass, entity_id, self._async_state_listener
-            #     )
-            # )
+                # self.async_on_remove(
+                #     async_track_state_change_event(
+                #             self.hass, entity_id, self._async_state_listener
+                #     )
+                # )
 
     def _set_native_value(self, log_on_error=True):  # pylint: disable=unused-argument
         device_entry = self.coordinator.store.async_get_device(self._device_id)
