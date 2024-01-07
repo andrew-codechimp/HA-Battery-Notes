@@ -2318,6 +2318,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Frient",
+            "model": "EMIZB-141",
+            "battery_type": "AA",
+            "battery_quantity": 2
         }
     ]
 }
