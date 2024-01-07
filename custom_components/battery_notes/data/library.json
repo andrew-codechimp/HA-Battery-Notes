@@ -886,6 +886,11 @@
             "battery_type": "CR2"
         },
         {
+            "manufacturer": "Iris",
+            "model": "Contact and temperature sensor (IL06_1)",
+            "battery_type": "CR2"
+        },
+        {
             "manufacturer": "iRobot",
             "model": "i715640",
             "battery_type": "Rechargeable"
@@ -2289,11 +2294,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Iris",
-            "model": "Contact and temperature sensor (IL06_1)",
-            "battery_type": "CR2"
         }
     ]
 }

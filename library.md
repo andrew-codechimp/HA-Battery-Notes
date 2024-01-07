@@ -1,4 +1,4 @@
-## 421 Devices in library
+## 422 Devices in library
 
 This file is auto generated, do not modify
 
@@ -165,6 +165,7 @@ This file is auto generated, do not modify
 |INKBIRD                                         |IBS-TH2/P01B                                                          |2x AAA              |
 |iNode                                           |iNode Energy Meter                                                    |CR2032              |
 |Iris                                            |3326-L                                                                |CR2                 |
+|Iris                                            |Contact and temperature sensor (IL06_1)                               |CR2                 |
 |iRobot                                          |i715640                                                               |Rechargeable        |
 |Konke                                           |3AFE28010402000D                                                      |CR2450              |
 |Kwikset                                         |910                                                                   |4x AA               |
