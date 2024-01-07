@@ -5,6 +5,7 @@ from datetime import datetime
 from dataclasses import dataclass
 import voluptuous as vol
 import re
+from contextlib import suppress
 
 from homeassistant.components.sensor import (
     PLATFORM_SCHEMA,
@@ -13,6 +14,8 @@ from homeassistant.components.sensor import (
     SensorEntityDescription,
     RestoreSensor,
 )
+from homeassistant.components import state_changes_during_period
+from homeassistant.components.recorder import get_instance, history
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_ENTITY_ID
 from homeassistant.core import HomeAssistant, callback, Event
@@ -39,6 +42,8 @@ from homeassistant.const import (
     CONF_NAME,
     CONF_DEVICE_ID,
     DEVICE_CLASS_BATTERY,
+    STATE_UNAVAILABLE,
+    STATE_UNKNOWN,
 )
 
 from .const import (
@@ -283,6 +288,7 @@ class BatteryNotesLastReplacedSensor(SensorEntity, CoordinatorEntity):
 
     _attr_should_poll = False
     entity_description: BatteryNotesSensorEntityDescription
+    _battery_entity_id = None
 
     def __init__(
         self,
@@ -355,18 +361,36 @@ class BatteryNotesLastReplacedSensor(SensorEntity, CoordinatorEntity):
         # For those that are related to this sensor's device, start listening for state changes
         if self._device_id in device_lookup:
             if (SENSOR_DOMAIN, "timestamp") in device_lookup[self._device_id]:
-                entity_id = device_lookup[self._device_id].get((SENSOR_DOMAIN, "timestamp"))
+                self._battery_entity_id = device_lookup[self._device_id].get((SENSOR_DOMAIN, "timestamp"))
             else:
-                entity_id = device_lookup[self._device_id].get((BINARY_SENSOR_DOMAIN, "timestamp"))
+                self._battery_entity_id = device_lookup[self._device_id].get((BINARY_SENSOR_DOMAIN, "timestamp"))
 
-            if entity_id:
-                print(entity_id)
+            if self._battery_entity_id:
+                print(self._battery_entity_id)
 
-                # self.async_on_remove(
-                #     async_track_state_change_event(
-                #             self.hass, entity_id, self._async_state_listener
-                #     )
-                # )
+                self.async_on_remove(
+                    async_track_state_change_event(
+                            self.hass, self._battery_entity_id, self._async_state_listener
+                    )
+                )
+
+    async def _async_state_listener(self, event: Event):
+
+        state = event.data.get("new_state")
+        if state is None or state.state in (STATE_UNKNOWN, "", STATE_UNAVAILABLE):
+            return
+
+        history_list = history.state_changes_during_period(
+            self.hass,
+            datetime.datetime.now() - datetime.timedelta(hours=1),
+            entity_id=self._battery_entity_id,
+            no_attributes=True,
+        )
+        for state in history_list.get(self._battery_entity_id, []):
+            # filter out all None, NaN and "unknown" states
+            # only keep real values
+            with suppress(ValueError):
+                print(int(state.state))
 
     def _set_native_value(self, log_on_error=True):  # pylint: disable=unused-argument
         device_entry = self.coordinator.store.async_get_device(self._device_id)
