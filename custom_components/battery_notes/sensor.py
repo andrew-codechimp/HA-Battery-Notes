@@ -317,6 +317,10 @@ class BatteryNotesLastReplacedSensor(SensorEntity, CoordinatorEntity):
         """Handle added to Hass."""
         await super().async_added_to_hass()
 
+        if (entry := self.registry_entry) and entry.disabled_by is None:
+            self._async_listen_to_battery()
+
+    async def _async_listen_to_battery(self) -> None:
         entity_registry = er.async_get(self.hass)
 
         # domain_device_classes = {
