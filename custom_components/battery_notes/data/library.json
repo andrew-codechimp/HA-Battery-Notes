@@ -217,6 +217,18 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "August Home Inc.",
+            "model": "AUG-SL03-C02-G03",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "August Home Inc.",
+            "model": "AUG-SL04-M01-G04",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
             "manufacturer": "Bosch",
             "model": "ISW-ZPR1-WP13",
             "battery_type": "AA",
