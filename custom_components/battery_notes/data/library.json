@@ -1306,6 +1306,12 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Philips Hue",
+            "model": "SML001",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Poly-control",
             "model": "Danalock V3-BTZE",
             "battery_type": "CR123A",
@@ -2306,12 +2312,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Philips Hue",
-            "model": "SML001",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }

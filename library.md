@@ -1,4 +1,4 @@
-## 424 Devices in library
+## 425 Devices in library
 
 This file is auto generated, do not modify
 
@@ -242,6 +242,7 @@ This file is auto generated, do not modify
 |Philips                                         |Hue wall switch module (929003017102)                                 |CR2450              |
 |Philips                                         |RWL021                                                                |CR2450              |
 |Philips                                         |RWL022                                                                |CR2032              |
+|Philips Hue                                     |SML001                                                                |2x AAA              |
 |Poly-control                                    |Danalock V3-BTZE                                                      |4x CR123A           |
 |Ring                                            |Contact Sensor                                                        |2x CR2032           |
 |Ring                                            |Doorbell 2                                                            |Rechargeable        |
