@@ -1,4 +1,4 @@
-## 426 Devices in library
+## 427 Devices in library
 
 This file is auto generated, do not modify
 
@@ -118,6 +118,7 @@ This file is auto generated, do not modify
 |Fibargroup                                      |FGMS001                                                               |CR123A              |
 |Fibargroup                                      |FGSD002                                                               |CR123A              |
 |First Alert (BRK Brands Inc)                    |ZCOMBO                                                                |2x AA               |
+|Frient                                          |EMIZB-141                                                             |2x AA               |
 |frient                                          |MOSZB-140                                                             |2x AA               |
 |frient A/S                                      |HESZB-120                                                             |CR123A              |
 |frient A/S                                      |SMSZB-120                                                             |CR123               |
