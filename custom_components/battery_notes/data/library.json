@@ -212,12 +212,6 @@
         },
         {
             "manufacturer": "August Home Inc.",
-            "model": "AUG-SL05-M01-S01",
-            "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "August Home Inc.",
             "model": "AUG-SL03-C02-G03",
             "battery_type": "AA",
             "battery_quantity": 4
@@ -227,6 +221,12 @@
             "model": "AUG-SL04-M01-G04",
             "battery_type": "AA",
             "battery_quantity": 4
+        },
+        {
+            "manufacturer": "August Home Inc.",
+            "model": "AUG-SL05-M01-S01",
+            "battery_type": "CR123A",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "Bosch",
