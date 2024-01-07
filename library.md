@@ -1,4 +1,4 @@
-## 427 Devices in library
+## 428 Devices in library
 
 This file is auto generated, do not modify
 
@@ -120,6 +120,7 @@ This file is auto generated, do not modify
 |First Alert (BRK Brands Inc)                    |ZCOMBO                                                                |2x AA               |
 |Frient                                          |EMIZB-141                                                             |2x AA               |
 |frient                                          |MOSZB-140                                                             |2x AA               |
+|Frient                                          |ZHEMI101                                                              |3x AA               |
 |frient A/S                                      |HESZB-120                                                             |CR123A              |
 |frient A/S                                      |SMSZB-120                                                             |CR123               |
 |GiEX                                            |Water irrigation valve (QT06_2)                                       |4x AA               |
