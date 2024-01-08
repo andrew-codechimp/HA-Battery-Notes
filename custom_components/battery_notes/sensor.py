@@ -370,11 +370,11 @@ class BatteryNotesLastReplacedSensor(SensorEntity, CoordinatorEntity):
 
                 self.async_on_remove(
                     async_track_state_change_event(
-                            self.hass, self._battery_entity_id, self._async_state_listener
+                            self.hass, self._battery_entity_id, self._async_battery_state_listener
                     )
                 )
 
-    async def _async_state_listener(self, event: Event):
+    async def _async_battery_state_listener(self, event: Event):
 
         state = event.data.get("new_state")
         if state is None or state.state in (STATE_UNKNOWN, "", STATE_UNAVAILABLE):
@@ -405,7 +405,7 @@ class BatteryNotesLastReplacedSensor(SensorEntity, CoordinatorEntity):
         return False
 
     @callback
-    def _async_state_listener(self, event: Event) -> None:
+    def _async_battery_state_listener(self, event: Event) -> None:
         """ Listen for sensor state changes. """
         updated = False
 
