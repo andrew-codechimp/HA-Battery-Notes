@@ -6,9 +6,7 @@ https://github.com/andrew-codechimp/ha-battery-notes
 from __future__ import annotations
 
 import logging
-from datetime import (datetime, timezone)
-import pytz
-
+from datetime import datetime
 
 import homeassistant.helpers.config_validation as cv
 import voluptuous as vol
