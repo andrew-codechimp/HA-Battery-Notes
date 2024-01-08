@@ -1,4 +1,4 @@
-## 421 Devices in library
+## 432 Devices in library
 
 This file is auto generated, do not modify
 
@@ -42,6 +42,8 @@ This file is auto generated, do not modify
 |August Home Inc.                                |AK-R1                                                                 |2x AAA              |
 |August Home Inc.                                |ASL6_05/101200/SI                                                     |4x AA               |
 |August Home Inc.                                |ASL6_05/101300/SI                                                     |4x AA               |
+|August Home Inc.                                |AUG-SL03-C02-G03                                                      |4x AA               |
+|August Home Inc.                                |AUG-SL04-M01-G04                                                      |4x AA               |
 |August Home Inc.                                |AUG-SL05-M01-S01                                                      |2x CR123A           |
 |Bosch                                           |ISW-ZPR1-WP13                                                         |4x AA               |
 |Bosch                                           |Radiator thermostat II (BTH-RA)                                       |2x AA               |
@@ -68,6 +70,7 @@ This file is auto generated, do not modify
 |Ecolink                                         |FF-ZWAVE5-ECO                                                         |CR123               |
 |Ecolink                                         |TILT-ZWAVE2.5-ECO                                                     |CR123A              |
 |Ecolink                                         |TILTZWAVE1                                                            |CR123A              |
+|Elexa Consumer Products Inc.                    |DMWS1                                                                 |CR2                 |
 |eQ-3                                            |HM-CC-RT-DN                                                           |2x AA               |
 |eQ-3                                            |HM-Dis-EP-WM55                                                        |2x AAA              |
 |eQ-3                                            |HM-ES-TX-WM                                                           |4x AA               |
@@ -116,12 +119,15 @@ This file is auto generated, do not modify
 |Fibargroup                                      |FGMS001                                                               |CR123A              |
 |Fibargroup                                      |FGSD002                                                               |CR123A              |
 |First Alert (BRK Brands Inc)                    |ZCOMBO                                                                |2x AA               |
+|Frient                                          |EMIZB-141                                                             |2x AA               |
 |frient                                          |MOSZB-140                                                             |2x AA               |
+|Frient                                          |ZHEMI101                                                              |3x AA               |
 |frient A/S                                      |HESZB-120                                                             |CR123A              |
 |frient A/S                                      |SMSZB-120                                                             |CR123               |
 |GiEX                                            |Water irrigation valve (QT06_2)                                       |4x AA               |
 |Google                                          |KR1                                                                   |CR2                 |
 |Google                                          |Topaz-2.7                                                             |MANUAL              |
+|Govee                                           |H5054                                                                 |2x AAA              |
 |Govee                                           |H5072/H5075                                                           |2x AAA              |
 |Govee                                           |H5101/H5102/H5177                                                     |AAA                 |
 |HAB Home Intelligence LLC                       |iblinds V3                                                            |Rechargeable        |
@@ -165,6 +171,7 @@ This file is auto generated, do not modify
 |INKBIRD                                         |IBS-TH2/P01B                                                          |2x AAA              |
 |iNode                                           |iNode Energy Meter                                                    |CR2032              |
 |Iris                                            |3326-L                                                                |CR2                 |
+|Iris                                            |Contact and temperature sensor (IL06_1)                               |CR2                 |
 |iRobot                                          |i715640                                                               |Rechargeable        |
 |Konke                                           |3AFE28010402000D                                                      |CR2450              |
 |Kwikset                                         |910                                                                   |4x AA               |
@@ -239,6 +246,8 @@ This file is auto generated, do not modify
 |Philips                                         |Hue wall switch module (929003017102)                                 |CR2450              |
 |Philips                                         |RWL021                                                                |CR2450              |
 |Philips                                         |RWL022                                                                |CR2032              |
+|Philips                                         |SML001                                                                |2x AAA              |
+|Philips Hue                                     |SML001                                                                |2x AAA              |
 |Poly-control                                    |Danalock V3-BTZE                                                      |4x CR123A           |
 |Ring                                            |Contact Sensor                                                        |2x CR2032           |
 |Ring                                            |Doorbell 2                                                            |Rechargeable        |
@@ -260,6 +269,8 @@ This file is auto generated, do not modify
 |Shelly                                          |Shelly Plus Smoke                                                     |CR123A              |
 |Shenzhen Heiman Technology Co., Ltd.            |Smoke Detector (HS1SA-Z)                                              |CR123A              |
 |Shenzhen Kaadas Intelligent Technology Co., Ltd.|DB1                                                                   |4x AA               |
+|Shenzhen Neo Electronics Co., Ltd.              |NAS-DS01Z                                                             |CR2                 |
+|Shenzhen Neo Electronics Co., Ltd.              |NAS-WS01Z                                                             |CR2                 |
 |Signify Netherlands B.V.                        |Hue dimmer switch (RWL020)                                            |CR2450              |
 |Signify Netherlands B.V.                        |Hue dimmer switch (RWL021)                                            |CR2450              |
 |Signify Netherlands B.V.                        |Hue dimmer switch (RWL022)                                            |CR2032              |

@@ -212,6 +212,18 @@
         },
         {
             "manufacturer": "August Home Inc.",
+            "model": "AUG-SL03-C02-G03",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "August Home Inc.",
+            "model": "AUG-SL04-M01-G04",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "August Home Inc.",
             "model": "AUG-SL05-M01-S01",
             "battery_type": "CR123A",
             "battery_quantity": 2
@@ -353,6 +365,11 @@
             "manufacturer": "Ecolink",
             "model": "TILTZWAVE1",
             "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Elexa Consumer Products Inc.",
+            "model": "DMWS1",
+            "battery_type": "CR2"
         },
         {
             "manufacturer": "eQ-3",
@@ -626,10 +643,22 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Frient",
+            "model": "EMIZB-141",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "frient",
             "model": "MOSZB-140",
             "battery_type": "AA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Frient",
+            "model": "ZHEMI101",
+            "battery_type": "AA",
+            "battery_quantity": 3
         },
         {
             "manufacturer": "frient A/S",
@@ -656,6 +685,12 @@
             "manufacturer": "Google",
             "model": "Topaz-2.7",
             "battery_type": "MANUAL"
+        },
+        {
+            "manufacturer": "Govee",
+            "model": "H5054",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "Govee",
@@ -883,6 +918,11 @@
         {
             "manufacturer": "Iris",
             "model": "3326-L",
+            "battery_type": "CR2"
+        },
+        {
+            "manufacturer": "Iris",
+            "model": "Contact and temperature sensor (IL06_1)",
             "battery_type": "CR2"
         },
         {
@@ -1289,6 +1329,18 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Philips",
+            "model": "SML001",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Philips Hue",
+            "model": "SML001",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Poly-control",
             "model": "Danalock V3-BTZE",
             "battery_type": "CR123A",
@@ -1401,6 +1453,16 @@
             "model": "DB1",
             "battery_type": "AA",
             "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Shenzhen Neo Electronics Co., Ltd.",
+            "model": "NAS-DS01Z",
+            "battery_type": "CR2"
+        },
+        {
+            "manufacturer": "Shenzhen Neo Electronics Co., Ltd.",
+            "model": "NAS-WS01Z",
+            "battery_type": "CR2"
         },
         {
             "manufacturer": "Signify Netherlands B.V.",

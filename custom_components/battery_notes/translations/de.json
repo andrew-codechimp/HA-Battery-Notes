@@ -61,11 +61,15 @@
     },
     "services": {
         "set_battery_replaced": {
-            "description": "ktualisiert den Zeitpunkt des letzten Batteriewechsels auf den jetzigen Zeitpunkt.",
+            "description": "Stellen Sie die zuletzt ausgetauschte Batterie ein.",
             "fields": {
                 "device_id": {
                     "description": "Gerät, bei dem die Batterie ersetzt wurde.",
                     "name": "Gerät"
+                },
+                "datetime_replaced": {
+                    "description": "Datum ersetzt.",
+                    "name": "Datum"
                 }
             },
             "name": "ktualisiert den Zeitpunkt des letzten Batteriewechsels"

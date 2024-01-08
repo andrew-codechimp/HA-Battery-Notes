@@ -41,6 +41,8 @@ from .const import (
     SERVICE_BATTERY_REPLACED_SCHEMA,
     DATA_COORDINATOR,
     ATTR_REMOVE,
+    ATTR_DEVICE_ID,
+    ATTR_DATE_TIME_REPLACED
 )
 
 MIN_HA_VERSION = "2023.7"
@@ -62,8 +64,6 @@ CONFIG_SCHEMA = vol.Schema(
     },
     extra=vol.ALLOW_EXTRA,
 )
-
-ATTR_SERVICE_DEVICE_ID = "device_id"
 
 async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     """Integration setup."""
@@ -154,7 +154,13 @@ def register_services(hass):
 
     async def handle_battery_replaced(call):
         """Handle the service call."""
-        device_id = call.data.get(ATTR_SERVICE_DEVICE_ID, "")
+        device_id = call.data.get(ATTR_DEVICE_ID, "")
+        datetime_replaced_entry = call.data.get(ATTR_DATE_TIME_REPLACED)
+
+        if datetime_replaced_entry:
+            datetime_replaced = dt_util.as_utc(datetime_replaced_entry).replace(tzinfo=None)
+        else:
+            datetime_replaced = datetime.utcnow()
 
         device_registry = dr.async_get(hass)
 
@@ -166,10 +172,9 @@ def register_services(hass):
             if (
                 entry := hass.config_entries.async_get_entry(entry_id)
             ) and entry.domain == DOMAIN:
-                date_replaced = datetime.utcnow()
 
                 coordinator: BatteryNotesCoordinator = hass.data[DOMAIN][DATA_COORDINATOR]
-                device_entry = {"battery_last_replaced": date_replaced}
+                device_entry = {"battery_last_replaced": datetime_replaced}
 
                 coordinator.async_update_device_config(
                     device_id=device_id, data=device_entry
@@ -178,7 +183,7 @@ def register_services(hass):
                 await coordinator.async_request_refresh()
 
                 _LOGGER.debug(
-                    "Device %s battery replaced on %s", device_id, str(date_replaced)
+                    "Device %s battery replaced on %s", device_id, str(datetime_replaced)
                 )
 
     hass.services.async_register(

@@ -56,6 +56,7 @@ ATTR_BATTERY_TYPE = "battery_type"
 SERVICE_BATTERY_REPLACED_SCHEMA = vol.Schema(
     {
         vol.Required(ATTR_DEVICE_ID): cv.string,
+        vol.Optional(ATTR_DATE_TIME_REPLACED): cv.datetime
     }
 )
 
