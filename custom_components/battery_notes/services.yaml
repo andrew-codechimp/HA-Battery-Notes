@@ -1,7 +1,7 @@
 
 set_battery_replaced:
   name: Set battery replaced
-  description: "Set the battery last replaced to now."
+  description: "Set the battery last replaced."
   fields:
     device_id:
       name: Device
@@ -11,3 +11,9 @@ set_battery_replaced:
         device:
           filter:
             - integration: battery_notes
+    datetime_replaced:
+      name: Date
+      description: Date replaced.
+      required: false
+      selector:
+        datetime:

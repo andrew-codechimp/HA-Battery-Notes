@@ -61,11 +61,15 @@
     },
     "services": {
         "set_battery_replaced": {
-            "description": "Utolsó elemcsere időpont beállítása mostra.",
+            "description": "Állítsa be az utoljára cserélt akkumulátort.",
             "fields": {
                 "device_id": {
                     "description": "Az eszköz eleme cserélve lett.",
                     "name": "Eszköz"
+                },
+                "datetime_replaced": {
+                    "description": "Csere dátuma.",
+                    "name": "Dátum"
                 }
             },
             "name": "Elemcsere beállítása"

@@ -61,11 +61,15 @@
     },
     "services": {
         "set_battery_replaced": {
-            "description": "Nastavte poslednú vymenenú batériu na teraz.",
+            "description": "Nastavte batériu ako poslednú vymenenú.",
             "fields": {
                 "device_id": {
                     "description": "Zariadenie, v ktorom bola vymenená batéria.",
                     "name": "Zariadenie"
+                },
+                "datetime_replaced": {
+                    "description": "Dátum nahradený.",
+                    "name": "Dátum"
                 }
             },
             "name": "Sada vymenená batéria"
