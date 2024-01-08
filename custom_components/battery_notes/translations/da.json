@@ -61,11 +61,15 @@
     },
     "services": {
         "set_battery_replaced": {
-            "description": "Indstil det sidst udskiftede batteri til nu.",
+            "description": "Indstil det sidst udskiftede batteri.",
             "fields": {
                 "device_id": {
                     "description": "Enhed, der har fået skiftet batteri.",
                     "name": "Enhed"
+                },
+                "datetime_replaced": {
+                    "description": "Dato udskiftet.",
+                    "name": "Dato"
                 }
             },
             "name": "Sæt batteri udskiftet"
