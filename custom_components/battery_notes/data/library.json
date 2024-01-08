@@ -367,6 +367,11 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "Elexa Consumer Products Inc.",
+            "model": "DMWS1",
+            "battery_type": "CR2"
+        },
+        {
             "manufacturer": "eQ-3",
             "model": "HM-CC-RT-DN",
             "battery_type": "AA",
@@ -2336,11 +2341,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Elexa Consumer Products Inc.",
-            "model": "DMWS1",
-            "battery_type": "CR2"
         }
     ]
 }
