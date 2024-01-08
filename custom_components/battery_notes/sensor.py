@@ -374,7 +374,9 @@ class BatteryNotesLastReplacedSensor(SensorEntity, CoordinatorEntity):
                     )
                 )
 
-    async def _async_battery_state_listener(self, event: Event):
+    @callback
+    def _async_battery_state_listener(self, event: Event):
+        updated = False
 
         state = event.data.get("new_state")
         if state is None or state.state in (STATE_UNKNOWN, "", STATE_UNAVAILABLE):
@@ -392,6 +394,9 @@ class BatteryNotesLastReplacedSensor(SensorEntity, CoordinatorEntity):
             with suppress(ValueError):
                 print(int(state.state))
 
+        if updated:
+            self.async_write_ha_state()
+
     def _set_native_value(self, log_on_error=True):  # pylint: disable=unused-argument
         device_entry = self.coordinator.store.async_get_device(self._device_id)
         if device_entry:
@@ -403,17 +408,6 @@ class BatteryNotesLastReplacedSensor(SensorEntity, CoordinatorEntity):
 
                 return True
         return False
-
-    @callback
-    def _async_battery_state_listener(self, event: Event) -> None:
-        """ Listen for sensor state changes. """
-        updated = False
-
-        # event.data
-        # updated = True
-
-        if updated:
-            self.async_write_ha_state()
 
     @callback
     def _handle_coordinator_update(self) -> None:
