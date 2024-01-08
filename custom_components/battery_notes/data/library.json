@@ -1460,6 +1460,11 @@
             "battery_type": "CR2"
         },
         {
+            "manufacturer": "Shenzhen Neo Electronics Co., Ltd.",
+            "model": "NAS-WS01Z",
+            "battery_type": "CR2"
+        },
+        {
             "manufacturer": "Signify Netherlands B.V.",
             "model": "Hue dimmer switch (RWL020)",
             "battery_type": "CR2450"
@@ -2346,11 +2351,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Shenzhen Neo Electronics Co., Ltd.",
-            "model": "NAS-WS01Z",
-            "battery_type": "CR2"
         }
     ]
 }

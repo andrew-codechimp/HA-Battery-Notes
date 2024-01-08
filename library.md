@@ -1,4 +1,4 @@
-## 431 Devices in library
+## 432 Devices in library
 
 This file is auto generated, do not modify
 
@@ -270,6 +270,7 @@ This file is auto generated, do not modify
 |Shenzhen Heiman Technology Co., Ltd.            |Smoke Detector (HS1SA-Z)                                              |CR123A              |
 |Shenzhen Kaadas Intelligent Technology Co., Ltd.|DB1                                                                   |4x AA               |
 |Shenzhen Neo Electronics Co., Ltd.              |NAS-DS01Z                                                             |CR2                 |
+|Shenzhen Neo Electronics Co., Ltd.              |NAS-WS01Z                                                             |CR2                 |
 |Signify Netherlands B.V.                        |Hue dimmer switch (RWL020)                                            |CR2450              |
 |Signify Netherlands B.V.                        |Hue dimmer switch (RWL021)                                            |CR2450              |
 |Signify Netherlands B.V.                        |Hue dimmer switch (RWL022)                                            |CR2032              |
