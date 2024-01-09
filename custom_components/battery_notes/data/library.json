@@ -2351,6 +2351,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "SONOFF",
+            "model": "Temperature and humidity sensor (SNZB-02P)",
+            "battery_type": "CR2477"
         }
     ]
 }
