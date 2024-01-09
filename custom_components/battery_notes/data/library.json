@@ -1630,6 +1630,11 @@
         },
         {
             "manufacturer": "SONOFF",
+            "model": "Wireless button (SNZB-01P)",
+            "battery_type": "CR2477"
+        },
+        {
+            "manufacturer": "SONOFF",
             "model": "ZBCurtain",
             "battery_type": "Rechargeable"
         },
@@ -2356,11 +2361,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "SONOFF",
-            "model": "Wireless button (SNZB-01P)",
-            "battery_type": "CR2477"
         }
     ]
 }
