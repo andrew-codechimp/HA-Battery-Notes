@@ -1,4 +1,4 @@
-## 432 Devices in library
+## 433 Devices in library
 
 This file is auto generated, do not modify
 
@@ -298,6 +298,7 @@ This file is auto generated, do not modify
 |SONOFF                                          |Motion sensor (SNZB-03)                                               |CR2450              |
 |Sonoff                                          |SNZB-02                                                               |CR2450              |
 |Sonoff                                          |Temperature and humidity sensor (SNZB-02)                             |CR2450              |
+|SONOFF                                          |Temperature and humidity sensor (SNZB-02P)                            |CR2477              |
 |SONOFF                                          |Temperature and humidity sensor with screen (SNZB-02D)                |CR2450              |
 |SONOFF                                          |TRVZB                                                                 |3x AA               |
 |SONOFF                                          |Wireless button (SNZB-01)                                             |CR2450              |
