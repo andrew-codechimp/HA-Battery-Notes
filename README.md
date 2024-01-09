@@ -5,7 +5,6 @@
 [![Downloads][download-latest-shield]](Downloads)
 [![License][license-shield]](LICENSE)
 [![hacs][hacsbadge]][hacs]
-[![GitHub Discussions][discussions-shield]](discussions)
 [![Community Forum][forum-shield]][forum]
 
 [![BuyMeACoffee](https://img.shields.io/badge/-buy_me_a%C2%A0coffee-gray?logo=buy-me-a-coffee&style=for-the-badge)](https://www.buymeacoffee.com/codechimp)
@@ -175,7 +174,6 @@ Thanks to everyone who has submitted devices to the library.
 [discord-shield]: https://img.shields.io/discord/330944238910963714.svg?style=for-the-badge
 [exampleimg]: example.png
 [forum-shield]: https://img.shields.io/badge/community-forum-brightgreen.svg?style=for-the-badge
-[discussions-shield]: https://img.shields.io/github/discussions/andrew-codechimp/ha-battery-notes?style=for-the-badge
 [forum]: https://community.home-assistant.io/t/custom-component-battery-notes/613821
 [license-shield]: https://img.shields.io/github/license/andrew-codechimp/HA-Battery-Notes.svg?style=for-the-badge
 [releases-shield]: https://img.shields.io/github/release/andrew-codechimp/HA-Battery-Notes.svg?style=for-the-badge
