@@ -13,10 +13,8 @@
             },
             "battery": {
                 "data": {
-                    "battery_type": "Batteri type"
-                },
-                "data_description": {
-                    "battery_type": "Tilføj eventuelt batterimængden, hvis mere end 1 f.eks. 2x AAA"
+                    "battery_type": "Batteri type",
+                    "battery_quantity": "Antal batterier"
                 }
             }
         },
@@ -33,7 +31,8 @@
                 "description": "Hvis du har brug for hjælp til konfigurationen, så kig her: https://github.com/andrew-codechimp/ha-battery-notes",
                 "data": {
                     "name": "Navn",
-                    "battery_type": "Batteri type"
+                    "battery_type": "Batteri type",
+                    "battery_quantity": "Antal batterier"
                 },
                 "data_description": {
                     "name": "Hvis du lader det være tomt, hentes navnet fra kildeenheden"

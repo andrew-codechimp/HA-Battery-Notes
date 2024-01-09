@@ -40,6 +40,7 @@ from .const import (
     DOMAIN,
     PLATFORMS,
     CONF_BATTERY_TYPE,
+    CONF_BATTERY_QUANTITY,
     DATA_COORDINATOR,
     LAST_REPLACED,
     DOMAIN_CONFIG,
@@ -70,6 +71,7 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
         vol.Optional(CONF_NAME): cv.string,
         vol.Required(CONF_DEVICE_ID): cv.string,
         vol.Required(CONF_BATTERY_TYPE): cv.string,
+        vol.Required(CONF_BATTERY_QUANTITY): cv.positive_int,
     }
 )
 
@@ -96,6 +98,10 @@ async def async_setup_entry(
 
     device_id = config_entry.data.get(CONF_DEVICE_ID)
     battery_type = config_entry.data.get(CONF_BATTERY_TYPE)
+    try:
+        battery_quantity = int(config_entry.data.get(CONF_BATTERY_QUANTITY))
+    except ValueError:
+        battery_quantity = 1
 
     async def async_registry_updated(event: Event) -> None:
         """Handle entity registry update."""
@@ -165,6 +171,7 @@ async def async_setup_entry(
             device_id,
             f"{config_entry.entry_id}{type_sensor_entity_description.unique_id_suffix}",
             battery_type,
+            battery_quantity,
         ),
         BatteryNotesLastReplacedSensor(
             hass,
@@ -201,6 +208,7 @@ class BatteryNotesTypeSensor(RestoreSensor, SensorEntity):
         device_id: str,
         unique_id: str,
         battery_type: str | None = None,
+        battery_quantity: str | None = None,
     ) -> None:
         """Initialize the sensor."""
         super().__init__()
@@ -221,6 +229,7 @@ class BatteryNotesTypeSensor(RestoreSensor, SensorEntity):
             self.entity_id = f"sensor.{device.name}_{description.key}"
 
         self._battery_type = battery_type
+        self._battery_quantity = battery_quantity
 
     async def async_added_to_hass(self) -> None:
         """Handle added to Hass."""
@@ -244,27 +253,18 @@ class BatteryNotesTypeSensor(RestoreSensor, SensorEntity):
     def native_value(self) -> str:
         """Return the native value of the sensor."""
 
+        if self._battery_quantity:
+            if int(self._battery_quantity) > 1:
+                return str(self._battery_quantity) + "x " + self._battery_type
         return self._battery_type
 
     @property
     def extra_state_attributes(self) -> dict[str, str] | None:
         """Return the state attributes of the battery type."""
 
-        matches: re.Match = re.search(
-            r"^(\d+)(?=x)(?:x\s)(\w+$)|([\s\S]+)", self._battery_type
-        )
-        if matches:
-            _qty = matches.group(1) if matches.group(1) is not None else "1"
-            _type = (
-                matches.group(2) if matches.group(2) is not None else matches.group(3)
-            )
-        else:
-            _qty = 1
-            _type = self._battery_type
-
         attrs = {
-            ATTR_BATTERY_QUANTITY: _qty,
-            ATTR_BATTERY_TYPE: _type,
+            ATTR_BATTERY_QUANTITY: self._battery_quantity,
+            ATTR_BATTERY_TYPE: self._battery_type,
         }
 
         super_attrs = super().extra_state_attributes
