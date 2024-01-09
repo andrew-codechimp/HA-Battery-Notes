@@ -5,7 +5,6 @@
 [![Downloads][download-latest-shield]](Downloads)
 [![License][license-shield]](LICENSE)
 [![hacs][hacsbadge]][hacs]
-[![Community Forum][forum-shield]][forum]
 
 [![BuyMeACoffee](https://img.shields.io/badge/-buy_me_a%C2%A0coffee-gray?logo=buy-me-a-coffee&style=for-the-badge)](https://www.buymeacoffee.com/codechimp)
 
