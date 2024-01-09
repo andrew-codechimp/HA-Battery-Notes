@@ -253,9 +253,8 @@ class BatteryNotesTypeSensor(RestoreSensor, SensorEntity):
     def native_value(self) -> str:
         """Return the native value of the sensor."""
 
-        if self._battery_quantity:
-            if int(self._battery_quantity) > 1:
-                return str(self._battery_quantity) + "x " + self._battery_type
+        if self._battery_quantity and int(self._battery_quantity) > 1:
+            return str(self._battery_quantity) + "x " + self._battery_type
         return self._battery_type
 
     @property
