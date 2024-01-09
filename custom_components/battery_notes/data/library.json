@@ -2356,6 +2356,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "SONOFF",
+            "model": "Wireless button (SNZB-01P)",
+            "battery_type": "CR2477"
         }
     ]
 }
