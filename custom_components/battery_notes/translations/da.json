@@ -51,7 +51,15 @@
         },
         "sensor": {
             "battery_type": {
-                "name": "Batteri type"
+                "name": "Batteri type",
+                "state_attributes": {
+                    "battery_type": {
+                        "name": "Batteri type"
+                    },
+                    "battery_quantity": {
+                        "name": "Antal batterier"
+                    }
+                }
             },
             "battery_last_replaced": {
                 "name": "Batteri sidst skiftet"

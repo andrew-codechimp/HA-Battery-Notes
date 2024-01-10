@@ -51,7 +51,15 @@
         },
         "sensor": {
             "battery_type": {
-                "name": "Typ batérie"
+                "name": "Typ batérie",
+                "state_attributes": {
+                    "battery_type": {
+                        "name": "Typ batérie"
+                    },
+                    "battery_quantity": {
+                        "name": "Množstvo batérie"
+                    }
+                }
             },
             "battery_last_replaced": {
                 "name": "Batéria naposledy vymenená"

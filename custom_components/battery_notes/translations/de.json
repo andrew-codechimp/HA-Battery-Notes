@@ -51,7 +51,15 @@
         },
         "sensor": {
             "battery_type": {
-                "name": "Batterieart"
+                "name": "Batterieart",
+                "state_attributes": {
+                    "battery_type": {
+                        "name": "Batterieart"
+                    },
+                    "battery_quantity": {
+                        "name": "Batteriemenge"
+                    }
+                }
             },
             "battery_last_replaced": {
                 "name": "Batterie zuletzt ersetzt"
