@@ -258,6 +258,16 @@
         },
         {
             "manufacturer": "CentraLite",
+            "model": "3321-S",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "CentraLite",
+            "model": "3323-G",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "CentraLite",
             "model": "3326-L",
             "battery_type": "CR2"
         },

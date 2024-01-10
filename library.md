@@ -1,4 +1,4 @@
-## 434 Devices in library
+## 436 Devices in library
 
 This file is auto generated, do not modify
 
@@ -50,6 +50,8 @@ This file is auto generated, do not modify
 |BRK Brands, Inc.                                |ZCOMBO                                                                |2x AA               |
 |CentraLite                                      |3315-S                                                                |CR2                 |
 |CentraLite                                      |3320-L                                                                |CR2                 |
+|CentraLite                                      |3321-S                                                                |CR2450              |
+|CentraLite                                      |3323-G                                                                |CR2450              |
 |CentraLite                                      |3326-L                                                                |CR2                 |
 |Computime                                       |SLT3                                                                  |4x AA               |
 |CPS                                             |CP1500AVRLCDa                                                         |Rechargable         |
