@@ -2366,6 +2366,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "CentraLite",
+            "model": "3323-G",
+            "battery_type": "CR2450"
         }
     ]
 }
