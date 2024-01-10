@@ -35,5 +35,4 @@ For the example image below, your JSON entry will look like this:
 },
 ```
 
-![Device Details](https://github.com/andrew-codechimp/HA-Battery-Notes/blob/main/images/screenshot-device-info.png "Device Details")
-<!---->
+![device details](./assets/screenshot-device-info.png)

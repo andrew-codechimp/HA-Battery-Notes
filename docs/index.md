@@ -5,13 +5,17 @@ Track both the battery type and also when the battery was replaced.
 
 ## Features
 
-Below are the main features of the integration
+The integration will add additional diagnostic entities to your device.
+
+![device example](./assets/screenshot-device.png)
 
 * [Entities](./entities.md)
 * [Services](./services.md)
 
 ## How to use Battery Notes
 Once you have [installed the integration](https://github.com/andrew-codechimp/HA-Battery-Notes#installation), you will hopefully have some devices discovered and you can follow the Notification to confirm their details and add them, if you don't have devices discovered you can add them manually.
+
+![device discovery](./assets/screenshot-discovery.png)
 
 ## To add a battery note manually
 * Go to Settings/Integrations and click Add Integration.
