@@ -22,10 +22,10 @@ Track both the battery type and also when the battery was replaced.
 
 Platform | Name | Description
 -- | -- | --
-`sensor` | Battery Type | Show battery type.
+`sensor` | Battery Type | Show battery type with attributes for separation of type & quantity.
 `sensor` | Battery last replaced | Date & Time the battery was last replaced.
 `button` | Battery replaced | Update Battery last replaced to now.
-`service` | Set battery replaced | Update Battery last replaced.
+`service` | Set battery replaced | Update Battery last replaced, optionally set a date other than now.
 
 ## Installation
 
