@@ -49,11 +49,8 @@ In the HA UI go to Settings -> Integrations click "+" and search for "Battery No
 <details>
 <summary>More Details</summary>
 
-* Using your tool of choice open the folder for your HA configuration (where you find `configuration.yaml`).
-* If you do not have a `custom_components` folder there, you need to create it.
-* In the `custom_components` folder create a new folder called `battery_notes`.
-* Download _all_ the files from the `custom_components/battery_notes/` folder in this repository.
-* Place the files you downloaded in the new folder you created.
+* You should take the latest [published release](https://github.com/andrew-codechimp/ha-battery-notes/releases).  
+* To install, place the contents of `custom_components` into the `<config directory>/custom_components` folder of your Home Assistant installation.  
 * Add the following entry to your `configuration.yaml`  
 ```
 battery_notes:
