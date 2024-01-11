@@ -2036,6 +2036,12 @@
         },
         {
             "manufacturer": "TuYa",
+            "model": "TS0601_thermostat",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "TuYa",
             "model": "Water leak detector (TS0207_water_leak_detector)",
             "battery_type": "CR2032"
         },
@@ -2447,12 +2453,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "TuYa",
-            "model": "TS0601_thermostat",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
