@@ -2392,6 +2392,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "LDS",
+            "model": "ZBT-CCTSwitch-D0001",
+            "battery_type": "CR2450"
         }
     ]
 }
