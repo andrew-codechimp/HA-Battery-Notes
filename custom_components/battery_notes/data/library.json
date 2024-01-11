@@ -2076,6 +2076,12 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Ultraloq",
+            "model": "U-BOLT-PRO-ZWAVE",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
             "manufacturer": "VictorPest.com",
             "model": "Rat Trap",
             "battery_type": "C",
@@ -2441,12 +2447,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Ultraloq",
-            "model": "U-BOLT-PRO-ZWAVE",
-            "battery_type": "AA",
-            "battery_quantity": 4
         }
     ]
 }

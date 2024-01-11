@@ -1,4 +1,4 @@
-## 449 Devices in library
+## 450 Devices in library
 
 This file is auto generated, do not modify
 
@@ -383,6 +383,7 @@ This file is auto generated, do not modify
 |TuYa                                            |Zigbee water leak sensor (TS0207_water_leak_detector_2)               |CR2032              |
 |Tuya                                            |zqeaw7pi                                                              |2x AAA              |
 |TUYATEC-xrvzm3yI                                |RH3001                                                                |CR2032              |
+|Ultraloq                                        |U-BOLT-PRO-ZWAVE                                                      |4x AA               |
 |VictorPest.com                                  |Rat Trap                                                              |4x C                |
 |Vision Security                                 |ZD2105                                                                |CR2                 |
 |Vision Security                                 |ZG8101                                                                |CR123               |
