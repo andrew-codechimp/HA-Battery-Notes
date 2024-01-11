@@ -23,6 +23,10 @@ Once you have [installed the integration](https://github.com/andrew-codechimp/HA
 * Choose your device from the drop down and click next.
 * Enter the battery type and quantity and click submit.
 
+!!! info
+
+    The library is updated automatically with new devices approximately every 24 hours from starting Home Assistant, if you have added a device to the library using [this form](https://github.com/andrew-codechimp/HA-Battery-Notes/issues/new?template=new_device_request.yml&title=[Device]%3A+) then this will take about a day to be discovered once it's approved and added.
+
 ## Community Contributions
 
 A collection of community contributions can be found on the [community contributions](./community.md) page.
