@@ -1,4 +1,4 @@
-## 447 Devices in library
+## 448 Devices in library
 
 This file is auto generated, do not modify
 
@@ -74,6 +74,7 @@ This file is auto generated, do not modify
 |Ecolink                                         |FF-ZWAVE5-ECO                                                         |CR123               |
 |Ecolink                                         |TILT-ZWAVE2.5-ECO                                                     |CR123A              |
 |Ecolink                                         |TILTZWAVE1                                                            |CR123A              |
+|Elexa Consumer Products Inc.                    |DMS01                                                                 |2x CR123A           |
 |Elexa Consumer Products Inc.                    |DMWS1                                                                 |CR2                 |
 |eQ-3                                            |HM-CC-RT-DN                                                           |2x AA               |
 |eQ-3                                            |HM-Dis-EP-WM55                                                        |2x AAA              |
