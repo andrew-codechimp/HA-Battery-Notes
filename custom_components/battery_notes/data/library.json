@@ -2429,6 +2429,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Eurotronic",
+            "model": "SPZB0001",
+            "battery_type": "AA",
+            "battery_quantity": 2
         }
     ]
 }
