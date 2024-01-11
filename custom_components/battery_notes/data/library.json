@@ -156,6 +156,12 @@
         },
         {
             "manufacturer": "Allegion",
+            "model": "BE468ZP",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Allegion",
             "model": "BE469",
             "battery_type": "AA",
             "battery_quantity": 4
@@ -2413,12 +2419,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Allegion",
-            "model": "BE468ZP",
-            "battery_type": "AA",
-            "battery_quantity": 4
         }
     ]
 }
