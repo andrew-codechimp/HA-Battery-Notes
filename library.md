@@ -1,4 +1,4 @@
-## 440 Devices in library
+## 441 Devices in library
 
 This file is auto generated, do not modify
 
@@ -181,6 +181,7 @@ This file is auto generated, do not modify
 |Kwikset                                         |HALO-01                                                               |4x AA               |
 |Kwikset                                         |Kevo                                                                  |4x AA               |
 |Kwikset                                         |SMARTCODE_DEADBOLT_10T                                                |4x AA               |
+|LDS                                             |ZBT-CCTSwitch-D0001                                                   |CR2450              |
 |Lidl                                            |HG06335/HG07310                                                       |MANUAL              |
 |Lidl                                            |HG06336                                                               |2x AAA              |
 |Lidl                                            |Silvercrest radiator valve with thermostat (368308_2010)              |2x AA               |

@@ -976,6 +976,11 @@
             "battery_quantity": 4
         },
         {
+            "manufacturer": "LDS",
+            "model": "ZBT-CCTSwitch-D0001",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "Lidl",
             "model": "HG06335/HG07310",
             "battery_type": "MANUAL"
@@ -2392,11 +2397,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "LDS",
-            "model": "ZBT-CCTSwitch-D0001",
-            "battery_type": "CR2450"
         }
     ]
 }
