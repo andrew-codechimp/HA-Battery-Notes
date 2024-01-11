@@ -8,7 +8,7 @@ body:
       value: |
         The battery library is a JSON document at [custom_components/battery_notes/data/library.json](https://github.com/andrew-codechimp/HA-Battery-Notes/blob/main/custom_components/battery_notes/data/library.json)
         To contribute, submit your device details via this form and the relevant code changes will be proposed on your behalf.
-        Note: The manufacturer and model should be exactly what is displayed on the Device screen within Home Assistant.
+        Note: The title above is not used and can be just a friendly description of the device. Manufacturer and model should be exactly what is displayed on the Device screen within Home Assistant.
         To see your devices, click here:
 
         [![Open your Home Assistant instance and show your devices.](https://my.home-assistant.io/badges/devices.svg)](https://my.home-assistant.io/redirect/devices/)
