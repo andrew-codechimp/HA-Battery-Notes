@@ -1817,6 +1817,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "TS004F",
+            "model": "_TZ3000_qja6nq5z",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "TT Lock",
             "model": "SN511-180MS_PV53",
             "battery_type": "AA",
@@ -2401,11 +2406,6 @@
         {
             "manufacturer": "Zooz",
             "model": "ZSE42",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "TS004F",
-            "model": "_TZ3000_qja6nq5z",
             "battery_type": "CR2032"
         }
     ]
