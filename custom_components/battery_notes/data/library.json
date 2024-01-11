@@ -1180,6 +1180,11 @@
         },
         {
             "manufacturer": "Neo",
+            "model": "NAS-AB06B2",
+            "battery_type": "18650"
+        },
+        {
+            "manufacturer": "Neo",
             "model": "NAS-PD07",
             "battery_type": "CR123A",
             "battery_quantity": 2
@@ -2453,11 +2458,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Neo",
-            "model": "NAS-AB06B2",
-            "battery_type": "18650"
         }
     ]
 }
