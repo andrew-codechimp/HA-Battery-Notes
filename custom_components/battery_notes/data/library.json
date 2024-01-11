@@ -1030,6 +1030,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "LK",
+            "model": "A001082",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "LUMI",
             "model": "lumi.airmonitor.acn01",
             "battery_type": "CR2450",
@@ -2407,12 +2413,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "LK",
-            "model": "A001082",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
