@@ -2429,6 +2429,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Elexa Consumer Products Inc.",
+            "model": "DMS01",
+            "battery_type": "CR123A",
+            "battery_quantity": 2
         }
     ]
 }
