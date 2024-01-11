@@ -1557,6 +1557,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Signify Netherlands B.V.",
+            "model": "SML004",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Siterwell",
             "model": "Radiator valve with thermostat (GS361A-H04)",
             "battery_type": "AA",
@@ -2376,12 +2382,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Signify Netherlands B.V.",
-            "model": "SML004",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
