@@ -1,4 +1,4 @@
-## 437 Devices in library
+## 438 Devices in library
 
 This file is auto generated, do not modify
 
@@ -288,6 +288,7 @@ This file is auto generated, do not modify
 |Signify Netherlands B.V.                        |SML002                                                                |2x AA               |
 |Signify Netherlands B.V.                        |SML003                                                                |2x AAA              |
 |Signify Netherlands B.V.                        |SML003                                                                |2x AAA              |
+|Signify Netherlands B.V.                        |SML004                                                                |2x AA               |
 |Siterwell                                       |Radiator valve with thermostat (GS361A-H04)                           |2x AA               |
 |SMaBiT (Bitron Video)                           |Compact magnetic contact sensor (AV2010/21A)                          |CR2                 |
 |SmartThings                                     |Button (IM6001-BTP01)                                                 |CR2450              |
