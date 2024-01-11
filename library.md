@@ -1,4 +1,4 @@
-## 446 Devices in library
+## 447 Devices in library
 
 This file is auto generated, do not modify
 
@@ -382,6 +382,7 @@ This file is auto generated, do not modify
 |Tuya                                            |zqeaw7pi                                                              |2x AAA              |
 |TUYATEC-xrvzm3yI                                |RH3001                                                                |CR2032              |
 |VictorPest.com                                  |Rat Trap                                                              |4x C                |
+|Vision Security                                 |ZD2105                                                                |CR2                 |
 |Vision Security                                 |ZG8101                                                                |CR123               |
 |Vision Security                                 |ZP3111-5                                                              |2x AAA              |
 |Vision Security                                 |ZS5101                                                                |CR123A              |
