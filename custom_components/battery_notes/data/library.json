@@ -1205,6 +1205,12 @@
             "battery_quantity": 3
         },
         {
+            "manufacturer": "Netatmo",
+            "model": "Smart Valve",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Nortek Security & Control LLC",
             "model": "WADWAZ-1",
             "battery_type": "CR123A"
@@ -2381,12 +2387,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Netatmo",
-            "model": "Smart Valve",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
