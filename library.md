@@ -1,4 +1,4 @@
-## 444 Devices in library
+## 445 Devices in library
 
 This file is auto generated, do not modify
 
@@ -32,6 +32,7 @@ This file is auto generated, do not modify
 |Aeotec Ltd.                                     |ZWA039                                                                |CR2477              |
 |Airthings AS                                    |Wave Plus                                                             |2x AAA              |
 |Aldi                                            |MEGOS switch and dimming light remote control (141L100RC)             |CR2450              |
+|Allegion                                        |BE468ZP                                                               |4x AA               |
 |Allegion                                        |BE469                                                                 |4x AA               |
 |Allegion                                        |BE469ZP                                                               |4x AAA              |
 |American Power Conversion                       |Back-UPS ES 600M1                                                     |Rechargable         |
