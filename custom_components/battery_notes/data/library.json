@@ -272,6 +272,11 @@
             "battery_type": "CR2"
         },
         {
+            "manufacturer": "CentraLite",
+            "model": "3450-L",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "Computime",
             "model": "SLT3",
             "battery_type": "AA",
@@ -2397,11 +2402,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "CentraLite",
-            "model": "3450-L",
-            "battery_type": "CR2450"
         }
     ]
 }

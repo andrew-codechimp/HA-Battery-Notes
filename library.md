@@ -1,4 +1,4 @@
-## 441 Devices in library
+## 442 Devices in library
 
 This file is auto generated, do not modify
 
@@ -53,6 +53,7 @@ This file is auto generated, do not modify
 |CentraLite                                      |3321-S                                                                |CR2450              |
 |CentraLite                                      |3323-G                                                                |CR2450              |
 |CentraLite                                      |3326-L                                                                |CR2                 |
+|CentraLite                                      |3450-L                                                                |CR2450              |
 |Computime                                       |SLT3                                                                  |4x AA               |
 |CPS                                             |CP1500AVRLCDa                                                         |Rechargable         |
 |Custom devices (DiY)                            |Xiaomi temperature & humidity sensor with custom firmware (LYWSD03MMC)|CR2032              |
