@@ -109,6 +109,18 @@
         },
         {
             "manufacturer": "AEON Labs",
+            "model": "DSB29",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "AEON Labs",
+            "model": "DSB45",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "AEON Labs",
             "model": "ZW100",
             "battery_type": "CR123A",
             "battery_quantity": 2
@@ -119,9 +131,29 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "AEON Labs",
+            "model": "ZW122",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "AEON Labs",
+            "model": "ZW129",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "AEON Labs",
+            "model": "ZW130",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Aeotec Ltd.",
             "model": "ZWA003",
             "battery_type": "LIR2450"
+        },
+        {
+            "manufacturer": "Aeotec Ltd.",
+            "model": "ZWA004",
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "Aeotec Ltd.",
@@ -137,6 +169,16 @@
             "manufacturer": "Aeotec Ltd.",
             "model": "ZWA009",
             "battery_type": "CR2477"
+        },
+        {
+            "manufacturer": "Aeotec Ltd.",
+            "model": "ZWA012",
+            "battery_type": "LS14250"
+        },
+        {
+            "manufacturer": "Aeotec Ltd.",
+            "model": "ZWA019",
+            "battery_type": "LS14250"
         },
         {
             "manufacturer": "Aeotec Ltd.",
@@ -344,6 +386,26 @@
             "model": "AQSZB-110",
             "battery_type": "AA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Devolo",
+            "model": "MT02647",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Devolo",
+            "model": "MT02648",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Devolo",
+            "model": "MT2652",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Devolo",
+            "model": "MT2756",
+            "battery_type": "CR123A"
         },
         {
             "manufacturer": "Drayton Wiser",
@@ -670,6 +732,11 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "Fibargroup",
+            "model": "FGSS001",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "First Alert (BRK Brands Inc)",
             "model": "ZCOMBO",
             "battery_type": "AA",
@@ -784,6 +851,16 @@
             "model": "ID-150",
             "battery_type": "AA",
             "battery_quantity": 8
+        },
+        {
+            "manufacturer": "ID-RF",
+            "model": "CWS-3101",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "ID-RF",
+            "model": "Soft Remote",
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "IKEA",
@@ -1260,6 +1337,12 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "NorthQ",
+            "model": "NQ-9121",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Nuki",
             "model": "Nuki Opener",
             "battery_type": "AAA",
@@ -1268,6 +1351,12 @@
         {
             "manufacturer": "Nuki",
             "model": "Nuki Smart Lock",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Nuki Home Solutions GmbH",
+            "model": "Nuki smart lock 1.0/2.0",
             "battery_type": "AA",
             "battery_quantity": 4
         },
@@ -1402,6 +1491,28 @@
             "battery_quantity": 4
         },
         {
+            "manufacturer": "Popp",
+            "model": "Smart thermostat (701721)",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Popp & Co",
+            "model": "004407",
+            "battery_type": "LR14250"
+        },
+        {
+            "manufacturer": "Popp & Co",
+            "model": "POPE700168",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Qingping",
+            "model": "CGG1",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "Ring",
             "model": "Contact Sensor",
             "battery_type": "CR2032",
@@ -1442,9 +1553,42 @@
         },
         {
             "manufacturer": "rtl_433",
+            "model": "Fineoffset-WH51",
+            "battery_type": "AA"
+        },
+        {
+            "manufacturer": "rtl_433",
+            "model": "Hideki-Rain",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "rtl_433",
+            "model": "Hideki-TS04",
+            "battery_type": "AA"
+        },
+        {
+            "manufacturer": "rtl_433",
+            "model": "Hideki-Wind",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "rtl_433",
+            "model": "Oregon-THGR122N",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "rtl_433",
             "model": "Vauno-EN8822C",
             "battery_type": "AAA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "rtl_433",
+            "model": "WT450-TH",
+            "battery_type": "AA"
         },
         {
             "manufacturer": "Ruuvi",
@@ -1500,6 +1644,11 @@
         },
         {
             "manufacturer": "Shenzhen Heiman Technology Co., Ltd.",
+            "model": "HS1HT-Z",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Shenzhen Heiman Technology Co., Ltd.",
             "model": "Smoke Detector (HS1SA-Z)",
             "battery_type": "CR123A"
         },
@@ -1513,6 +1662,11 @@
             "manufacturer": "Shenzhen Neo Electronics Co., Ltd.",
             "model": "NAS-DS01Z",
             "battery_type": "CR2"
+        },
+        {
+            "manufacturer": "Shenzhen Neo Electronics Co., Ltd.",
+            "model": "NAS-PD01Z",
+            "battery_type": "CR123A"
         },
         {
             "manufacturer": "Shenzhen Neo Electronics Co., Ltd.",
@@ -2100,8 +2254,19 @@
         },
         {
             "manufacturer": "Vision Security",
+            "model": "ZD2102-5",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Vision Security",
             "model": "ZD2105",
             "battery_type": "CR2"
+        },
+        {
+            "manufacturer": "Vision Security",
+            "model": "ZD2201",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "Vision Security",
@@ -2300,6 +2465,11 @@
         },
         {
             "manufacturer": "Xiaomi",
+            "model": "LYWSD02",
+            "battery_type": "CR2430"
+        },
+        {
+            "manufacturer": "Xiaomi",
             "model": "LYWSD03MMC",
             "battery_type": "CR2032"
         },
@@ -2437,6 +2607,11 @@
             "model": "VibrationSensor",
             "battery_type": "AAA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Zipato",
+            "model": "HS1SA",
+            "battery_type": "CR123A"
         },
         {
             "manufacturer": "Zooz",
