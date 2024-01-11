@@ -1,4 +1,4 @@
-## 450 Devices in library
+## 451 Devices in library
 
 This file is auto generated, do not modify
 
@@ -375,6 +375,7 @@ This file is auto generated, do not modify
 |tuya                                            |TS0210                                                                |2x AAA              |
 |tuya                                            |TS0601                                                                |CR2                 |
 |TuYa                                            |TS0601_smoke_1                                                        |2x AAA              |
+|TuYa                                            |TS0601_thermostat                                                     |2x AA               |
 |TuYa                                            |Water leak detector (TS0207_water_leak_detector)                      |CR2032              |
 |TuYa                                            |Wireless switch with 1 button (TS0041)                                |CR2032              |
 |TuYa                                            |Wireless switch with 2 buttons (TS0042)                               |CR2032              |
