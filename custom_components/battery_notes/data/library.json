@@ -1557,12 +1557,6 @@
         },
         {
             "manufacturer": "Signify Netherlands B.V.",
-            "model": "SML003",
-            "battery_type": "AAA",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Signify Netherlands B.V.",
             "model": "SML004",
             "battery_type": "AA",
             "battery_quantity": 2
