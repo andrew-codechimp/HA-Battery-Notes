@@ -2413,6 +2413,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Vision Security",
+            "model": "ZG8101",
+            "battery_type": "CR123"
         }
     ]
 }
