@@ -1,4 +1,4 @@
-## 439 Devices in library
+## 440 Devices in library
 
 This file is auto generated, do not modify
 
@@ -352,6 +352,7 @@ This file is auto generated, do not modify
 |TuYa                                            |Luminance motion sensor (ZG-204ZL)                                    |CR2450              |
 |TuYa                                            |Motion sensor (IH012-RT01)                                            |CR2450              |
 |TuYa                                            |Photoelectric smoke detector (PA-44Z)                                 |PP3                 |
+|TuYa                                            |Smart button (IH-K663)                                                |CR2032              |
 |TuYa                                            |Smart knob (ERS-10TZBVK-AA)                                           |CR2032              |
 |TuYa                                            |Smoke sensor (TS0205)                                                 |CR123               |
 |TuYa                                            |Smoke sensor (TS0601_smoke_1)                                         |2x AAA              |
