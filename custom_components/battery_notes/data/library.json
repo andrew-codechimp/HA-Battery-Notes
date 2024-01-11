@@ -2071,6 +2071,11 @@
         },
         {
             "manufacturer": "Vision Security",
+            "model": "ZG8101",
+            "battery_type": "CR123"
+        },
+        {
+            "manufacturer": "Vision Security",
             "model": "ZP3111-5",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -2419,11 +2424,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Vision Security",
-            "model": "ZG8101",
-            "battery_type": "CR123"
         }
     ]
 }
