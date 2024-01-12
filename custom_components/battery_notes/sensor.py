@@ -13,7 +13,7 @@ from homeassistant.components.sensor import (
     SensorEntityDescription,
     RestoreSensor,
 )
-from homeassistant.components import state_changes_during_period
+# from homeassistant.components import state_changes_during_period
 from homeassistant.components.recorder import get_instance, history
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_ENTITY_ID
@@ -203,8 +203,94 @@ async def async_setup_platform(
 
     await async_setup_reload_service(hass, DOMAIN, PLATFORMS)
 
+class BatteryNotesSensor(SensorEntity):
+    """Base battery note sensor."""
 
-class BatteryNotesTypeSensor(RestoreSensor, SensorEntity):
+    async def async_added_to_hass(self) -> None:
+        """Handle added to Hass."""
+        await super().async_added_to_hass()
+
+        if (entry := self.registry_entry) and entry.disabled_by is None:
+            await self._async_listen_to_battery()
+
+    async def _async_listen_to_battery(self) -> None:
+        entity_registry = er.async_get(self.hass)
+
+        # domain_device_classes = {
+        #         ("input_number", DEVICE_CLASS_BATTERY),
+        #         (BINARY_SENSOR_DOMAIN, DEVICE_CLASS_BATTERY),
+        #         (SENSOR_DOMAIN, DEVICE_CLASS_BATTERY),
+        #     }
+        #
+        # lookup: dict[str, dict[tuple[str, str | None], str]] = {}
+        # for entity in entity_registry.entities.values():
+        #     # if not entity.device_id:
+        #     #     continue
+        #     device_class = entity.device_class or entity.original_device_class
+        #     domain_device_class = (entity.domain, device_class)
+        #     if domain_device_class not in domain_device_classes:
+        #         continue
+        #     if entity.entity_id not in lookup:
+        #         lookup[entity.entity_id] = {domain_device_class: entity.entity_id}
+        #     else:
+        #         lookup[entity.entity_id][domain_device_class] = entity.entity_id
+        # print(lookup)
+
+        # Get all entities that have a device and have specific domain/class
+        device_lookup = entity_registry.async_get_device_class_lookup(
+            {
+                (BINARY_SENSOR_DOMAIN, DEVICE_CLASS_BATTERY),
+                (SENSOR_DOMAIN, DEVICE_CLASS_BATTERY),
+                (SENSOR_DOMAIN, "timestamp"),
+            }
+        )
+
+        # For those that are related to this sensor's device, start listening for state changes
+        if self._device_id in device_lookup:
+            if (SENSOR_DOMAIN, DEVICE_CLASS_BATTERY) in device_lookup[self._device_id]:
+                self._battery_entity_id = device_lookup[self._device_id].get((SENSOR_DOMAIN, DEVICE_CLASS_BATTERY))
+            elif (SENSOR_DOMAIN, "timestamp") in device_lookup[self._device_id]:
+                # Just for testing
+                self._battery_entity_id = device_lookup[self._device_id].get((SENSOR_DOMAIN, "timestamp"))
+            else:
+                self._battery_entity_id = device_lookup[self._device_id].get((BINARY_SENSOR_DOMAIN, DEVICE_CLASS_BATTERY))
+
+            if self._battery_entity_id:
+                print(self._battery_entity_id)
+
+                self.async_on_remove(
+                    async_track_state_change_event(
+                            self.hass, self._battery_entity_id, self._async_battery_state_listener
+                    )
+                )
+
+    @callback
+    def _async_battery_state_listener(self, event: Event):
+        updated = False
+
+        state = event.data.get("new_state")
+        if state is None or state.state in (STATE_UNKNOWN, "", STATE_UNAVAILABLE):
+            return
+
+        print(state)
+
+        # history_list = history.state_changes_during_period(
+        #     self.hass,
+        #     datetime.datetime.now() - datetime.timedelta(hours=1),
+        #     entity_id=self._battery_entity_id,
+        #     no_attributes=True,
+        # )
+        # for state in history_list.get(self._battery_entity_id, []):
+        #     # filter out all None, NaN and "unknown" states
+        #     # only keep real values
+        #     with suppress(ValueError):
+        #         print(int(state.state))
+
+        if updated:
+            self.async_write_ha_state()
+
+
+class BatteryNotesTypeSensor(RestoreSensor, BatteryNotesSensor):
     """Represents a battery note type sensor."""
 
     _attr_should_poll = False
@@ -281,7 +367,7 @@ class BatteryNotesTypeSensor(RestoreSensor, SensorEntity):
         return attrs
 
 
-class BatteryNotesLastReplacedSensor(SensorEntity, CoordinatorEntity):
+class BatteryNotesLastReplacedSensor(BatteryNotesSensor, CoordinatorEntity):
     """Represents a battery note sensor."""
 
     _attr_should_poll = False
@@ -320,80 +406,6 @@ class BatteryNotesLastReplacedSensor(SensorEntity, CoordinatorEntity):
     async def async_added_to_hass(self) -> None:
         """Handle added to Hass."""
         await super().async_added_to_hass()
-
-        if (entry := self.registry_entry) and entry.disabled_by is None:
-            self._async_listen_to_battery()
-
-    async def _async_listen_to_battery(self) -> None:
-        entity_registry = er.async_get(self.hass)
-
-        # domain_device_classes = {
-        #         ("input_number", DEVICE_CLASS_BATTERY),
-        #         (BINARY_SENSOR_DOMAIN, DEVICE_CLASS_BATTERY),
-        #         (SENSOR_DOMAIN, DEVICE_CLASS_BATTERY),
-        #     }
-        #
-        # lookup: dict[str, dict[tuple[str, str | None], str]] = {}
-        # for entity in entity_registry.entities.values():
-        #     # if not entity.device_id:
-        #     #     continue
-        #     device_class = entity.device_class or entity.original_device_class
-        #     domain_device_class = (entity.domain, device_class)
-        #     if domain_device_class not in domain_device_classes:
-        #         continue
-        #     if entity.entity_id not in lookup:
-        #         lookup[entity.entity_id] = {domain_device_class: entity.entity_id}
-        #     else:
-        #         lookup[entity.entity_id][domain_device_class] = entity.entity_id
-        # print(lookup)
-
-        # Get all entities that have a device and have specific domain/class
-        device_lookup = entity_registry.async_get_device_class_lookup(
-            {
-                (BINARY_SENSOR_DOMAIN, DEVICE_CLASS_BATTERY),
-                (SENSOR_DOMAIN, DEVICE_CLASS_BATTERY),
-                (SENSOR_DOMAIN, "timestamp"),
-            }
-        )
-
-        # For those that are related to this sensor's device, start listening for state changes
-        if self._device_id in device_lookup:
-            if (SENSOR_DOMAIN, "timestamp") in device_lookup[self._device_id]:
-                self._battery_entity_id = device_lookup[self._device_id].get((SENSOR_DOMAIN, "timestamp"))
-            else:
-                self._battery_entity_id = device_lookup[self._device_id].get((BINARY_SENSOR_DOMAIN, "timestamp"))
-
-            if self._battery_entity_id:
-                print(self._battery_entity_id)
-
-                self.async_on_remove(
-                    async_track_state_change_event(
-                            self.hass, self._battery_entity_id, self._async_battery_state_listener
-                    )
-                )
-
-    @callback
-    def _async_battery_state_listener(self, event: Event):
-        updated = False
-
-        state = event.data.get("new_state")
-        if state is None or state.state in (STATE_UNKNOWN, "", STATE_UNAVAILABLE):
-            return
-
-        history_list = history.state_changes_during_period(
-            self.hass,
-            datetime.datetime.now() - datetime.timedelta(hours=1),
-            entity_id=self._battery_entity_id,
-            no_attributes=True,
-        )
-        for state in history_list.get(self._battery_entity_id, []):
-            # filter out all None, NaN and "unknown" states
-            # only keep real values
-            with suppress(ValueError):
-                print(int(state.state))
-
-        if updated:
-            self.async_write_ha_state()
 
     def _set_native_value(self, log_on_error=True):  # pylint: disable=unused-argument
         device_entry = self.coordinator.store.async_get_device(self._device_id)
