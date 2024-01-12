@@ -17,10 +17,14 @@ from homeassistant.core import callback
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.event import async_track_utc_time_change
 
+from .discovery import DiscoveryManager
+
 from .const import (
     CONF_LIBRARY_URL,
     DOMAIN,
     DATA_LIBRARY_LAST_UPDATE,
+    DOMAIN_CONFIG,
+    CONF_ENABLE_AUTODISCOVERY,
 )
 
 _LOGGER = logging.getLogger(__name__)
@@ -57,6 +61,17 @@ class LibraryUpdater:
             return
 
         await self.get_library_updates(time)
+
+        if DOMAIN_CONFIG not in self.hass.data[DOMAIN]:
+            return
+
+        domain_config: dict = self.hass.data[DOMAIN][DOMAIN_CONFIG]
+
+        if domain_config.get(CONF_ENABLE_AUTODISCOVERY):
+            discovery_manager = DiscoveryManager(self.hass, self.hass.config)
+            await discovery_manager.start_discovery()
+        else:
+            _LOGGER.debug("Auto discovery disabled")
 
     @callback
     async def get_library_updates(self, time): # pylint: disable=unused-argument
