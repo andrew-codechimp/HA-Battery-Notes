@@ -2633,6 +2633,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "SmartThings",
+            "model": "Water sensor (3315-S)",
+            "battery_type": "CR2"
         }
     ]
 }
