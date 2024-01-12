@@ -2762,6 +2762,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "ThermoBeacon",
+            "model": "27",
+            "battery_type": "CR2477"
         }
     ]
 }
