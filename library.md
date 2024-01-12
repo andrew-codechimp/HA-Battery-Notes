@@ -1,4 +1,4 @@
-## 511 Devices in library
+## 512 Devices in library
 
 This file is auto generated, do not modify
 
@@ -286,6 +286,7 @@ This file is auto generated, do not modify
 |Philips                                         |RWL021                                                                |CR2450              |
 |Philips                                         |RWL022                                                                |CR2032              |
 |Philips                                         |SML001                                                                |2x AAA              |
+|Philips                                         |SML002                                                                |2x AA               |
 |Philips Hue                                     |SML001                                                                |2x AAA              |
 |Poly-control                                    |Danalock V3-BTZE                                                      |4x CR123A           |
 |Popp                                            |Smart thermostat (701721)                                             |2x AA               |
