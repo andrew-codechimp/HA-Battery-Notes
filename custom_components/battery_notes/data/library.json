@@ -336,6 +336,11 @@
             "battery_type": "Rechargable"
         },
         {
+            "manufacturer": "CPS",
+            "model": "CP1500PFCLCDa",
+            "battery_type": "RB1290X2"
+        },
+        {
             "manufacturer": "Custom devices (DiY)",
             "model": "Xiaomi temperature & humidity sensor with custom firmware (LYWSD03MMC)",
             "battery_type": "CR2032"
@@ -2638,11 +2643,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "CPS",
-            "model": "CP1500PFCLCDa",
-            "battery_type": "RB1290X2"
         }
     ]
 }

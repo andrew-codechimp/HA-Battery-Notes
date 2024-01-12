@@ -1,4 +1,4 @@
-## 486 Devices in library
+## 487 Devices in library
 
 This file is auto generated, do not modify
 
@@ -65,6 +65,7 @@ This file is auto generated, do not modify
 |CentraLite                                      |3450-L                                                                |CR2450              |
 |Computime                                       |SLT3                                                                  |4x AA               |
 |CPS                                             |CP1500AVRLCDa                                                         |Rechargable         |
+|CPS                                             |CP1500PFCLCDa                                                         |RB1290X2            |
 |Custom devices (DiY)                            |Xiaomi temperature & humidity sensor with custom firmware (LYWSD03MMC)|CR2032              |
 |Danalock                                        |BT/ZB smartlock (V3-BTZB/V3-BTZBE)                                    |4x CR123A           |
 |Danalock                                        |V3-BTZBE                                                              |4x CR123A           |
