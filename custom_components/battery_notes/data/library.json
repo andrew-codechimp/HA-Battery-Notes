@@ -235,6 +235,56 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "Aqara",
+            "model": "zigbee DJT11LM (lumi.vibration.aq1)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "zigbee MCCGQ11LM (lumi.sensor_magnet.aq2)",
+            "battery_type": "CR1632"
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "zigbee RTCGQ11LM (lumi.sensor_motion.aq2)",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "zigbee WSDCGQ11LM (lumi.weather)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "zigbee WXCJKG11LM (lumi.remote.b286opcn01)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "zigbee WXCJKG12LM (lumi.remote.b486opcn01)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "zigbee WXKG02LM (lumi.sensor_86sw2)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "zigbee WXKG11LM (lumi.remote.b1acn01)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "zigbee WXKG12LM (lumi.sensor_switch.aq3)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "zigbee WXKG17LM (lumi.remote.acn004)",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "August",
             "model": "TEST200228",
             "battery_type": "AA",
@@ -844,6 +894,12 @@
             "model": "Heating thermostat remote control (SLT3C)",
             "battery_type": "AA",
             "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Honeywell",
+            "model": "zigbee JTYJ-GD-01LM/BW (lumi.sensor_smoke)",
+            "battery_type": "CR123A",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "Hunter Douglas",
@@ -2429,6 +2485,29 @@
         },
         {
             "manufacturer": "Xiaomi",
+            "model": "ble CGD1",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "ble CGH1",
+            "battery_type": "CR1632"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "ble CGPR1",
+            "battery_type": "CR2450",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "ble LYWSD02MMC",
+            "battery_type": "CR2032",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Xiaomi",
             "model": "ble LYWSD03MMC",
             "battery_type": "CR2032"
         },
@@ -2447,6 +2526,11 @@
             "manufacturer": "Xiaomi",
             "model": "ble RTCGQ02LM",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "ble SJWS01LM",
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "Xiaomi",
@@ -2573,14 +2657,49 @@
         },
         {
             "manufacturer": "Xiaomi",
+            "model": "zigbee GZCGQ01LM (lumi.sen_ill.mgl01)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "zigbee MCCGQ01LM (lumi.sensor_magnet)",
+            "battery_type": "CR1632"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "zigbee RTCGQ01LM (lumi.sensor_motion)",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Xiaomi",
             "model": "zigbee RTCGQ11LM (lumi.sensor_motion.aq2)",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "zigbee WSDCGQ01LM (lumi.sensor_ht)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "zigbee WXKG01LM (lumi.sensor_switch)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "zigbee WXKG01LM (lumi.sensor_switch)",
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "Yale",
             "model": "YRD220/240 TSDB",
             "battery_type": "AA",
             "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Yeelight",
+            "model": "ble YLAI003",
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "YoLink",

@@ -1,4 +1,4 @@
-## 487 Devices in library
+## 510 Devices in library
 
 This file is auto generated, do not modify
 
@@ -47,6 +47,16 @@ This file is auto generated, do not modify
 |American Power Conversion                       |Back-UPS XS 1500M                                                     |Rechargable         |
 |APC                                             |Back-UPS XS 1500M                                                     |Rechargeable        |
 |Aqara                                           |Aqara Door and Window Sensor P2                                       |CR123A              |
+|Aqara                                           |zigbee DJT11LM (lumi.vibration.aq1)                                   |CR2032              |
+|Aqara                                           |zigbee MCCGQ11LM (lumi.sensor_magnet.aq2)                             |CR1632              |
+|Aqara                                           |zigbee RTCGQ11LM (lumi.sensor_motion.aq2)                             |CR2450              |
+|Aqara                                           |zigbee WSDCGQ11LM (lumi.weather)                                      |CR2032              |
+|Aqara                                           |zigbee WXCJKG11LM (lumi.remote.b286opcn01)                            |CR2032              |
+|Aqara                                           |zigbee WXCJKG12LM (lumi.remote.b486opcn01)                            |CR2032              |
+|Aqara                                           |zigbee WXKG02LM (lumi.sensor_86sw2)                                   |CR2032              |
+|Aqara                                           |zigbee WXKG11LM (lumi.remote.b1acn01)                                 |CR2032              |
+|Aqara                                           |zigbee WXKG12LM (lumi.sensor_switch.aq3)                              |CR2032              |
+|Aqara                                           |zigbee WXKG17LM (lumi.remote.acn004)                                  |CR2032              |
 |August                                          |TEST200228                                                            |4x AA               |
 |August Home Inc.                                |AK-R1                                                                 |2x AAA              |
 |August Home Inc.                                |ASL6_05/101200/SI                                                     |4x AA               |
@@ -157,6 +167,7 @@ This file is auto generated, do not modify
 |HEIMAN                                          |Smoke detector (HS1SA)                                                |CR123A              |
 |HEIMAN                                          |Smoke detector (HS3SA/HS1SA)                                          |CR123A              |
 |Hive                                            |Heating thermostat remote control (SLT3C)                             |4x AA               |
+|Honeywell                                       |zigbee JTYJ-GD-01LM/BW (lumi.sensor_smoke)                            |2x CR123A           |
 |Hunter Douglas                                  |Duette                                                                |12x AA              |
 |ID Lock AS                                      |ID-150                                                                |8x AA               |
 |ID-RF                                           |CWS-3101                                                              |CR2032              |
@@ -450,10 +461,15 @@ This file is auto generated, do not modify
 |Xiaomi                                          |Aqara wireless remote switch E1 (single rocker) (WXKG16LM)            |CR2032              |
 |Xiaomi                                          |Aqara wireless switch (with gyroscope) (WXKG12LM)                     |CR2032              |
 |Xiaomi                                          |Aqara wireless switch (WXKG11LM)                                      |CR2032              |
+|Xiaomi                                          |ble CGD1                                                              |2x AAA              |
+|Xiaomi                                          |ble CGH1                                                              |CR1632              |
+|Xiaomi                                          |ble CGPR1                                                             |2x CR2450           |
+|Xiaomi                                          |ble LYWSD02MMC                                                        |2x CR2032           |
 |Xiaomi                                          |ble LYWSD03MMC                                                        |CR2032              |
 |Xiaomi                                          |ble MCCGQ02HL                                                         |CR2032              |
 |Xiaomi                                          |ble MJYD02YL-A                                                        |3x AAA              |
 |Xiaomi                                          |ble RTCGQ02LM                                                         |CR2450              |
+|Xiaomi                                          |ble SJWS01LM                                                          |CR2032              |
 |Xiaomi                                          |ble XMPIR02SXS                                                        |CR2450              |
 |Xiaomi                                          |ble XMWSDJ04MMC                                                       |CR2450              |
 |Xiaomi                                          |BTHome sensor                                                         |CR2032              |
@@ -478,8 +494,15 @@ This file is auto generated, do not modify
 |Xiaomi                                          |WSDCGQ01LM                                                            |CR2032              |
 |Xiaomi                                          |XMTZC02HM/XMTZC05HM/NUN4049CN                                         |4x AAA              |
 |Xiaomi                                          |XMWSDJ04MMC                                                           |CR2450              |
+|Xiaomi                                          |zigbee GZCGQ01LM (lumi.sen_ill.mgl01)                                 |CR2032              |
+|Xiaomi                                          |zigbee MCCGQ01LM (lumi.sensor_magnet)                                 |CR1632              |
+|Xiaomi                                          |zigbee RTCGQ01LM (lumi.sensor_motion)                                 |CR2450              |
 |Xiaomi                                          |zigbee RTCGQ11LM (lumi.sensor_motion.aq2)                             |CR2450              |
+|Xiaomi                                          |zigbee WSDCGQ01LM (lumi.sensor_ht)                                    |CR2032              |
+|Xiaomi                                          |zigbee WXKG01LM (lumi.sensor_switch)                                  |CR2032              |
+|Xiaomi                                          |zigbee WXKG01LM (lumi.sensor_switch)                                  |CR2032              |
 |Yale                                            |YRD220/240 TSDB                                                       |4x AA               |
+|Yeelight                                        |ble YLAI003                                                           |CR2032              |
 |YoLink                                          |DoorSensor                                                            |2x AAA              |
 |YoLink                                          |LeakSensor                                                            |2x AAA              |
 |YoLink                                          |MotionSensor                                                          |2x AAA              |
