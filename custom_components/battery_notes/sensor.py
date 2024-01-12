@@ -6,12 +6,14 @@ from dataclasses import dataclass
 import voluptuous as vol
 from contextlib import suppress
 
+from homeassistant.components.homeassistant import exposed_entities
 from homeassistant.components.sensor import (
     PLATFORM_SCHEMA,
     SensorDeviceClass,
     SensorEntity,
     SensorEntityDescription,
     RestoreSensor,
+    Entity,
 )
 # from homeassistant.components import state_changes_during_period
 from homeassistant.components.recorder import get_instance, history
@@ -26,6 +28,8 @@ from homeassistant.helpers import (
 )
 from homeassistant.helpers.entity import DeviceInfo, EntityCategory
 from homeassistant.helpers.event import (
+    EventStateChangedData,
+    async_track_state_change_event,
     async_track_entity_registry_updated_event,
 )
 from homeassistant.helpers.update_coordinator import (
@@ -33,9 +37,11 @@ from homeassistant.helpers.update_coordinator import (
 )
 from homeassistant.helpers.reload import async_setup_reload_service
 from homeassistant.helpers.event import async_track_state_change_event
+from homeassistant.helpers.typing import EventType
 
 from homeassistant.components.sensor import DOMAIN as SENSOR_DOMAIN
 from homeassistant.components.binary_sensor import DOMAIN as BINARY_SENSOR_DOMAIN
+
 
 from homeassistant.const import (
     CONF_NAME,
@@ -43,6 +49,7 @@ from homeassistant.const import (
     DEVICE_CLASS_BATTERY,
     STATE_UNAVAILABLE,
     STATE_UNKNOWN,
+    PERCENTAGE,
 )
 
 from .const import (
@@ -218,7 +225,7 @@ async def async_setup_platform(
 
     await async_setup_reload_service(hass, DOMAIN, PLATFORMS)
 
-class BatteryNotesBatteryPlusSensor(RestoreSensor, SensorEntity):
+class BatteryNotesBatteryPlusSensor(SensorEntity):
     """Represents a super battery type sensor."""
 
     _attr_should_poll = False
@@ -252,6 +259,7 @@ class BatteryNotesBatteryPlusSensor(RestoreSensor, SensorEntity):
 
             self.entity_id = f"sensor.{device.name}_{description.key}"
 
+        # Find the battery for the device
         wrapped_battery = None
 
         for entity in entity_registry.entities.values():
@@ -284,69 +292,32 @@ class BatteryNotesBatteryPlusSensor(RestoreSensor, SensorEntity):
         self._attr_has_entity_name = has_entity_name
         self._attr_name = name
         self._attr_unique_id = unique_id
-        # self._switch_entity_id = battery_entity_id
+        self._battery_entity_id = wrapped_battery.entity_id if wrapped_battery else None
 
-        # self._is_new_entity = (
-        #     entity_registry.async_get_entity_id(domain, DOMAIN, unique_id) is None
-        # )
+        self._attr_device_class = SensorDeviceClass.BATTERY
+        self._attr_state_class = SensorDeviceClass.BATTERY
+        self._attr_native_unit_of_measurement = PERCENTAGE
 
-    async def async_added_to_hass(self) -> None:
-        """Handle added to Hass."""
-        await super().async_added_to_hass()
 
-        # if (entry := self.registry_entry) and entry.disabled_by is None:
-        #     await self._async_listen_to_battery()
-
-    async def _async_listen_to_battery(self) -> None:
-        entity_registry = er.async_get(self.hass)
-
-        lookup: dict[str, dict[tuple[str, str | None], str]] = {}
-        for entity in self.entities.values():
-            if not entity.device_id:
-                continue
-            device_class = entity.device_class or entity.original_device_class
-            domain_device_class = (entity.domain, device_class)
-            if domain_device_class not in domain_device_classes:
-                continue
-            if entity.device_id not in lookup:
-                lookup[entity.device_id] = {domain_device_class: entity.entity_id}
-            else:
-                lookup[entity.device_id][domain_device_class] = entity.entity_id
-        return lookup
-
-        # Get all entities that have a device and have specific domain/class
-        device_lookup = entity_registry.async_get_device_class_lookup(
-            {
-                (BINARY_SENSOR_DOMAIN, DEVICE_CLASS_BATTERY),
-                (SENSOR_DOMAIN, DEVICE_CLASS_BATTERY),
-            }
+        self._is_new_entity = (
+            entity_registry.async_get_entity_id(DOMAIN, DOMAIN, unique_id) is None
         )
 
-        # For those that are related to this sensor's device, start listening for state changes
-        if self._device_id in device_lookup:
-            if (SENSOR_DOMAIN, DEVICE_CLASS_BATTERY) in device_lookup[self._device_id]:
-                self._battery_entity_id = device_lookup[self._device_id].get((SENSOR_DOMAIN, DEVICE_CLASS_BATTERY))
-            else:
-                self._battery_entity_id = device_lookup[self._device_id].get((BINARY_SENSOR_DOMAIN, DEVICE_CLASS_BATTERY))
-
-            if self._battery_entity_id:
-                print(self._battery_entity_id)
-
-                self.async_on_remove(
-                    async_track_state_change_event(
-                            self.hass, self._battery_entity_id, self._async_battery_state_listener
-                    )
-                )
-
     @callback
-    def _async_battery_state_listener(self, event: Event):
-        updated = False
-
-        state = event.data.get("new_state")
-        if state is None or state.state in (STATE_UNKNOWN, "", STATE_UNAVAILABLE):
+    def async_state_changed_listener(
+        self, event: EventType[EventStateChangedData] | None = None
+    ) -> None:
+        """Handle child updates."""
+        if (
+            state := self.hass.states.get(self._battery_entity_id)
+        ) is None or state.state == STATE_UNAVAILABLE:
+            self._attr_available = False
             return
 
         print(state)
+
+        self._attr_available = True
+
 
         # history_list = history.state_changes_during_period(
         #     self.hass,
@@ -360,8 +331,67 @@ class BatteryNotesBatteryPlusSensor(RestoreSensor, SensorEntity):
         #     with suppress(ValueError):
         #         print(int(state.state))
 
-        if updated:
+    async def async_added_to_hass(self) -> None:
+        """Handle added to Hass."""
+
+        @callback
+        def _async_state_changed_listener(
+            event: EventType[EventStateChangedData] | None = None,
+        ) -> None:
+            """Handle child updates."""
+            self.async_state_changed_listener(event)
             self.async_write_ha_state()
+
+        self.async_on_remove(
+            async_track_state_change_event(
+                self.hass, [self._battery_entity_id], _async_state_changed_listener
+            )
+        )
+
+        # Call once on adding
+        _async_state_changed_listener()
+
+        # Update entity options
+        registry = er.async_get(self.hass)
+        if registry.async_get(self.entity_id) is not None:
+            registry.async_update_entity_options(
+                self.entity_id,
+                DOMAIN,
+                {"entity_id": self._battery_entity_id},
+            )
+
+        if not self._is_new_entity or not (
+            wrapped_battery := registry.async_get(self._battery_entity_id)
+        ):
+            return
+
+        def copy_custom_name(wrapped_battery: er.RegistryEntry) -> None:
+            """Copy the name set by user from the wrapped entity."""
+            if wrapped_battery.name is None:
+                return
+            registry.async_update_entity(self.entity_id, name=wrapped_battery.name)
+
+        def copy_expose_settings() -> None:
+            """Copy assistant expose settings from the wrapped entity.
+
+            Also unexpose the wrapped entity if exposed.
+            """
+            expose_settings = exposed_entities.async_get_entity_settings(
+                self.hass, self._battery_entity_id
+            )
+            for assistant, settings in expose_settings.items():
+                if (should_expose := settings.get("should_expose")) is None:
+                    continue
+                exposed_entities.async_expose_entity(
+                    self.hass, assistant, self.entity_id, should_expose
+                )
+                exposed_entities.async_expose_entity(
+                    self.hass, assistant, self._battery_entity_id, False
+                )
+
+        copy_custom_name(wrapped_battery)
+        copy_expose_settings()
+
 
 
 class BatteryNotesTypeSensor(RestoreSensor, SensorEntity):
