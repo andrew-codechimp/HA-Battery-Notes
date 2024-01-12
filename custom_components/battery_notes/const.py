@@ -25,6 +25,7 @@ LAST_REPLACED = "battery_last_replaced"
 DOMAIN_CONFIG = "config"
 
 CONF_BATTERY_TYPE = "battery_type"
+CONF_BATTERY_QUANTITY = "battery_quantity"
 CONF_SENSORS = "sensors"
 CONF_ENABLE_AUTODISCOVERY = "enable_autodiscovery"
 CONF_USER_LIBRARY = "user_library"

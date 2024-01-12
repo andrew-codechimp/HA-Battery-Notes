@@ -13,10 +13,8 @@
             },
             "battery": {
                 "data": {
-                    "battery_type": "Elem típus"
-                },
-                "data_description": {
-                    "battery_type": "Opcionálisan add meg a mennyiséget, ha több, mint 1, pl. 2x AAA"
+                    "battery_type": "Elem típus",
+                    "battery_quantity": "Az akkumulátor mennyisége"
                 }
             }
         },
@@ -33,7 +31,8 @@
                 "description": "Ha segítségre van szükséged a konfigurációhoz: https://github.com/andrew-codechimp/ha-battery-notes",
                 "data": {
                     "name": "Név",
-                    "battery_type": "Elem típus"
+                    "battery_type": "Elem típus",
+                    "battery_quantity": "Az akkumulátor mennyisége"
                 },
                 "data_description": {
                     "name": "Üresen hagyva a forrás eszköz neve lesz használva"
@@ -52,7 +51,15 @@
         },
         "sensor": {
             "battery_type": {
-                "name": "Elem típus"
+                "name": "Elem típus",
+                "state_attributes": {
+                    "battery_type": {
+                        "name": "Elem típus"
+                    },
+                    "battery_quantity": {
+                        "name": "Az akkumulátor mennyisége"
+                    }
+                }
             },
             "battery_last_replaced": {
                 "name": "Utolsó elemcsere"
