@@ -2024,6 +2024,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "ThermoBeacon",
+            "model": "27",
+            "battery_type": "CR2477"
+        },
+        {
             "manufacturer": "Third Reality",
             "model": "Smart switch Gen3 (3RSS009Z)",
             "battery_type": "AAA",
@@ -2762,11 +2767,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "ThermoBeacon",
-            "model": "27",
-            "battery_type": "CR2477"
         }
     ]
 }
