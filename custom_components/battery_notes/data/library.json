@@ -1797,6 +1797,11 @@
             "battery_type": "CR2"
         },
         {
+            "manufacturer": "SmartThings",
+            "model": "Water sensor (3315-S)",
+            "battery_type": "CR2"
+        },
+        {
             "manufacturer": "SOMFY",
             "model": "Sonesse 28 WF Li-Ion Roller",
             "battery_type": "MANUAL"
@@ -2633,11 +2638,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "SmartThings",
-            "model": "Water sensor (3315-S)",
-            "battery_type": "CR2"
         }
     ]
 }

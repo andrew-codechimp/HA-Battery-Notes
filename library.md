@@ -1,4 +1,4 @@
-## 485 Devices in library
+## 486 Devices in library
 
 This file is auto generated, do not modify
 
@@ -333,6 +333,7 @@ This file is auto generated, do not modify
 |SmartThings                                     |Motion sensor (2018 model) (IM6001-MTP01)                             |CR2                 |
 |SmartThings                                     |Multipurpose sensor (2018 model) (IM6001-MPP01)                       |CR2450              |
 |Smartthings                                     |Water leak sensor (2016 model) (STS-WTR-250)                          |CR2                 |
+|SmartThings                                     |Water sensor (3315-S)                                                 |CR2                 |
 |SOMFY                                           |Sonesse 28 WF Li-Ion Roller                                           |MANUAL              |
 |Sonoff                                          |Contact sensor (SNZB-04)                                              |CR2032              |
 |SONOFF                                          |Motion sensor (SNZB-03)                                               |CR2450              |
