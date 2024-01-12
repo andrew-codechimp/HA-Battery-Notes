@@ -2643,6 +2643,28 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Fairphone",
+            "model": "FP5",
+            "battery_type": "Rechargable"
+        },
+        {
+            "manufacturer": "Apple",
+            "model": "iPad5,1",
+            "battery_type": "Rechargable"
+        },
+        {
+            "manufacturer": "Popp",
+            "model": "Smart thermostat (701721)",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Woox",
+            "model": "Smart smoke alarm (R7049)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
