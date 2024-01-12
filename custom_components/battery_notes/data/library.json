@@ -1540,6 +1540,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Philips",
+            "model": "SML002",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Philips Hue",
             "model": "SML001",
             "battery_type": "AAA",
@@ -2767,12 +2773,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Philips",
-            "model": "SML002",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
