@@ -29,6 +29,7 @@ from .library_updater import LibraryUpdater
 from .const import (
     DOMAIN,
     CONF_BATTERY_TYPE,
+    CONF_BATTERY_QUANTITY,
     CONF_DEVICE_NAME,
     CONF_MANUFACTURER,
     CONF_MODEL,
@@ -38,6 +39,8 @@ from .const import (
 )
 
 _LOGGER = logging.getLogger(__name__)
+
+CONFIG_VERSION = 2
 
 DEVICE_SCHEMA_ALL = vol.Schema(
     {
@@ -76,7 +79,7 @@ DEVICE_SCHEMA = vol.Schema(
 class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
     """Config flow for BatteryNotes."""
 
-    VERSION = 1
+    VERSION = CONFIG_VERSION
 
     data: dict
 
@@ -133,6 +136,9 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
 
             library = Library.factory(self.hass)
 
+            # Set defaults if not found in library
+            self.data[CONF_BATTERY_QUANTITY] = 1
+
             device_battery_details = await library.get_device_battery_details(
                 device_entry.manufacturer, device_entry.model
             )
@@ -146,7 +152,11 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                 )
                 self.data[
                     CONF_BATTERY_TYPE
-                ] = device_battery_details.battery_type_and_quantity
+                ] = device_battery_details.battery_type
+
+                self.data[
+                    CONF_BATTERY_QUANTITY
+                ] = device_battery_details.battery_quantity
 
             return await self.async_step_battery()
 
@@ -172,6 +182,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
         errors: dict[str, str] = {}
         if user_input is not None:
             self.data[CONF_BATTERY_TYPE] = user_input[CONF_BATTERY_TYPE]
+            self.data[CONF_BATTERY_QUANTITY] = int(user_input[CONF_BATTERY_QUANTITY])
 
             device_id = self.data[CONF_DEVICE_ID]
             unique_id = f"bn_{device_id}"
@@ -204,6 +215,16 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                             type=selector.TextSelectorType.TEXT
                         ),
                     ),
+                    vol.Required(
+                        CONF_BATTERY_QUANTITY,
+                        default=int(self.data.get(CONF_BATTERY_QUANTITY))
+                    ): selector.NumberSelector(
+                        selector.NumberSelectorConfig(
+                            min=1,
+                            max=100,
+                            mode=selector.NumberSelectorMode.BOX
+                        ),
+                    ),
                 }
             ),
             errors=errors,
@@ -220,6 +241,7 @@ class OptionsFlowHandler(OptionsFlow):
         self.source_device_id: str = self.current_config.get(CONF_DEVICE_ID)  # type: ignore
         self.name: str = self.current_config.get(CONF_NAME)
         self.battery_type: str = self.current_config.get(CONF_BATTERY_TYPE)
+        self.battery_quantity: int = self.current_config.get(CONF_BATTERY_QUANTITY)
 
     async def async_step_init(
         self,
@@ -231,6 +253,7 @@ class OptionsFlowHandler(OptionsFlow):
 
         schema = self.build_options_schema()
         if user_input is not None:
+            user_input[CONF_BATTERY_QUANTITY] = int(user_input[CONF_BATTERY_QUANTITY])
             errors = await self.save_options(user_input, schema)
             if not errors:
                 return self.async_create_entry(title="", data={})
@@ -288,6 +311,13 @@ class OptionsFlowHandler(OptionsFlow):
                 ),
                 vol.Required(CONF_BATTERY_TYPE): selector.TextSelector(
                     selector.TextSelectorConfig(type=selector.TextSelectorType.TEXT),
+                ),
+                vol.Required(CONF_BATTERY_QUANTITY): selector.NumberSelector(
+                    selector.NumberSelectorConfig(
+                        min=1,
+                        max=100,
+                        mode=selector.NumberSelectorMode.BOX
+                    ),
                 ),
             }
         )

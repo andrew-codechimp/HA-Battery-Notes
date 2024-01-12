@@ -5,7 +5,6 @@
 [![Downloads][download-latest-shield]](Downloads)
 [![License][license-shield]](LICENSE)
 [![hacs][hacsbadge]][hacs]
-[![Community Forum][forum-shield]][forum]
 
 [![BuyMeACoffee](https://img.shields.io/badge/-buy_me_a%C2%A0coffee-gray?logo=buy-me-a-coffee&style=for-the-badge)](https://www.buymeacoffee.com/codechimp)
 
@@ -23,10 +22,10 @@ Track both the battery type and also when the battery was replaced.
 
 Platform | Name | Description
 -- | -- | --
-`sensor` | Battery Type | Show battery type.
+`sensor` | Battery Type | Show battery type with attributes for separation of type & quantity.
 `sensor` | Battery last replaced | Date & Time the battery was last replaced.
 `button` | Battery replaced | Update Battery last replaced to now.
-`service` | Set battery replaced | Update Battery last replaced.
+`service` | Set battery replaced | Update Battery last replaced, optionally set a date other than now.
 
 ## Installation
 
