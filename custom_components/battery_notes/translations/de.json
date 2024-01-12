@@ -13,10 +13,8 @@
             },
             "battery": {
                 "data": {
-                    "battery_type": "Batterieart"
-                },
-                "data_description": {
-                    "battery_type": "Optional: Anzahl der Batterien eingeben, wenn es mehr als eine Batterie ist, z. B. 2x AAA"
+                    "battery_type": "Batterieart",
+                    "battery_quantity": "Batteriemenge"
                 }
             }
         },
@@ -33,7 +31,8 @@
                 "description": "Hilfe zur Konfiguration findest du unter: https://github.com/andrew-codechimp/ha-battery-notes",
                 "data": {
                     "name": "Name",
-                    "battery_type": "Batterieart"
+                    "battery_type": "Batterieart",
+                    "battery_quantity": "Batteriemenge"
                 },
                 "data_description": {
                     "name": "Wenn du nichts eingibst, wird der Name vom Quellgerät übernommen"
@@ -52,7 +51,15 @@
         },
         "sensor": {
             "battery_type": {
-                "name": "Batterieart"
+                "name": "Batterieart",
+                "state_attributes": {
+                    "battery_type": {
+                        "name": "Batterieart"
+                    },
+                    "battery_quantity": {
+                        "name": "Batteriemenge"
+                    }
+                }
             },
             "battery_last_replaced": {
                 "name": "Batterie zuletzt ersetzt"

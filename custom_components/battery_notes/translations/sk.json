@@ -13,10 +13,8 @@
             },
             "battery": {
                 "data": {
-                    "battery_type": "Typ batérie"
-                },
-                "data_description": {
-                    "battery_type": "Voliteľne pridajte množstvo batérie, ak je viac ako 1 napr. 2x AAA"
+                    "battery_type": "Typ batérie",
+                    "battery_quantity": "Množstvo batérie"
                 }
             }
         },
@@ -33,7 +31,8 @@
                 "description": "Ak potrebujete pomoc s konfiguráciou, pozrite sa sem: https://github.com/andrew-codechimp/ha-battery-notes",
                 "data": {
                     "name": "Názov",
-                    "battery_type": "Typ batérie"
+                    "battery_type": "Typ batérie",
+                    "battery_quantity": "Množstvo batérie"
                 },
                 "data_description": {
                     "name": "Ak ponecháte prázdne, názov sa prevezme zo zdrojového zariadenia"
@@ -52,7 +51,15 @@
         },
         "sensor": {
             "battery_type": {
-                "name": "Typ batérie"
+                "name": "Typ batérie",
+                "state_attributes": {
+                    "battery_type": {
+                        "name": "Typ batérie"
+                    },
+                    "battery_quantity": {
+                        "name": "Množstvo batérie"
+                    }
+                }
             },
             "battery_last_replaced": {
                 "name": "Batéria naposledy vymenená"

@@ -10,6 +10,7 @@ from datetime import datetime
 
 import homeassistant.helpers.config_validation as cv
 import voluptuous as vol
+import re
 
 from awesomeversion.awesomeversion import AwesomeVersion
 from homeassistant.config_entries import ConfigEntry
@@ -18,6 +19,8 @@ from homeassistant.const import __version__ as HA_VERSION  # noqa: N812
 from homeassistant.helpers.typing import ConfigType
 from homeassistant.helpers import device_registry as dr
 from homeassistant.util import dt as dt_util
+
+from .config_flow import CONFIG_VERSION
 
 from .discovery import DiscoveryManager
 from .library_updater import (
@@ -42,7 +45,9 @@ from .const import (
     DATA_COORDINATOR,
     ATTR_REMOVE,
     ATTR_DEVICE_ID,
-    ATTR_DATE_TIME_REPLACED
+    ATTR_DATE_TIME_REPLACED,
+    CONF_BATTERY_TYPE,
+    CONF_BATTERY_QUANTITY,
 )
 
 MIN_HA_VERSION = "2023.7"
@@ -136,6 +141,44 @@ async def async_remove_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> 
 
     _LOGGER.debug("Removed Device %s", device_id)
 
+
+async def async_migrate_entry(hass, config_entry: ConfigEntry):
+    """Migrate old config."""
+    new_version = CONFIG_VERSION
+
+    if config_entry.version == 1:
+        # Version 1 had a single config for qty & type, split them
+        _LOGGER.debug("Migrating config entry from version %s", config_entry.version)
+
+        matches: re.Match = re.search(
+            r"^(\d+)(?=x)(?:x\s)(\w+$)|([\s\S]+)", config_entry.data[CONF_BATTERY_TYPE]
+        )
+        if matches:
+            _qty = matches.group(1) if matches.group(1) is not None else "1"
+            _type = (
+                matches.group(2) if matches.group(2) is not None else matches.group(3)
+            )
+        else:
+            _qty = 1
+            _type = config_entry.data[CONF_BATTERY_TYPE]
+
+        new_data = {**config_entry.data}
+        new_data[CONF_BATTERY_TYPE] = _type
+        new_data[CONF_BATTERY_QUANTITY] = _qty
+
+        config_entry.version = new_version
+
+        hass.config_entries.async_update_entry(
+            config_entry, title=config_entry.title, data=new_data
+        )
+
+        _LOGGER.info(
+            "Entry %s successfully migrated to version %s.",
+            config_entry.entry_id,
+            new_version,
+        )
+
+    return True
 
 @callback
 async def async_update_options(hass: HomeAssistant, entry: ConfigEntry) -> None:

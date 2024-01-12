@@ -13,10 +13,8 @@
             },
             "battery": {
                 "data": {
-                    "battery_type": "Typ baterii"
-                },
-                "data_description": {
-                    "battery_type": "Ocjonalnie, wprowadź też ilość baterii jeśli jest więcej niż 1 szt., np. 2x AAA"
+                    "battery_type": "Typ baterii",
+                    "battery_quantity": "Liczba baterii"
                 }
             }
         },
@@ -33,7 +31,8 @@
                 "description": "Jeśli potrzebujesz pomocy w konfiguracji, zajrzyj tutaj: https://github.com/andrew-codechimp/ha-battery-notes",
                 "data": {
                     "name": "Nazwa",
-                    "battery_type": "Typ baterii"
+                    "battery_type": "Typ baterii",
+                    "battery_quantity": "Liczba baterii"
                 },
                 "data_description": {
                     "name": "Pozostawienie pustego pola spowoduje pobranie nazwy z urządzenia źródłowego"
@@ -52,7 +51,15 @@
         },
         "sensor": {
             "battery_type": {
-                "name": "Typ baterii"
+                "name": "Typ baterii",
+                "state_attributes": {
+                    "battery_type": {
+                        "name": "Typ baterii"
+                    },
+                    "battery_quantity": {
+                        "name": "Liczba baterii"
+                    }
+                }
             },
             "battery_last_replaced": {
                 "name": "Ostatnia wymiana baterii"
