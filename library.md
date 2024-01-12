@@ -1,4 +1,4 @@
-## 510 Devices in library
+## 511 Devices in library
 
 This file is auto generated, do not modify
 
@@ -375,6 +375,7 @@ This file is auto generated, do not modify
 |Tado                                            |SU02                                                                  |3x AAA              |
 |Tado                                            |VA01                                                                  |2x AA               |
 |Tado                                            |VA02                                                                  |2x AA               |
+|ThermoBeacon                                    |27                                                                    |CR2477              |
 |Third Reality                                   |Smart switch Gen3 (3RSS009Z)                                          |2x AAA              |
 |Third Reality, Inc                              |3RDS17BZ                                                              |2x AAA              |
 |Third Reality, Inc                              |3RMS16BZ                                                              |2x AAA              |
