@@ -155,6 +155,14 @@ async def async_setup_entry(
         domain_config: dict = hass.data[DOMAIN][DOMAIN_CONFIG]
         enable_replaced = domain_config.get(CONF_ENABLE_REPLACED, True)
 
+    plus_battery_sensor_entity_description = BatteryNotesSensorEntityDescription(
+        unique_id_suffix="_battery_plus",
+        key="battery_plus",
+        translation_key="battery_plus",
+        icon="mdi:battery",
+        device_class=SensorDeviceClass.BATTERY,
+    )
+
     type_sensor_entity_description = BatteryNotesSensorEntityDescription(
         unique_id_suffix="",  # battery_type has uniqueId set to entityId in V1, never add a suffix
         key="battery_type",
@@ -174,6 +182,13 @@ async def async_setup_entry(
     )
 
     entities = [
+        BatteryNotesBatteryPlusSensor(
+            hass,
+            config_entry,
+            plus_battery_sensor_entity_description,
+            device_id,
+            f"{config_entry.entry_id}{plus_battery_sensor_entity_description.unique_id_suffix}",
+        ),
         BatteryNotesTypeSensor(
             hass,
             type_sensor_entity_description,
@@ -203,45 +218,107 @@ async def async_setup_platform(
 
     await async_setup_reload_service(hass, DOMAIN, PLATFORMS)
 
-class BatteryNotesSensor(SensorEntity):
-    """Base battery note sensor."""
+class BatteryNotesBatteryPlusSensor(RestoreSensor, SensorEntity):
+    """Represents a super battery type sensor."""
+
+    _attr_should_poll = False
+    _is_new_entity: bool
+
+    def __init__(
+        self,
+        hass: HomeAssistant,
+        config_entry: ConfigEntry,
+        description: BatteryNotesSensorEntityDescription,
+        device_id: str,
+        unique_id: str,
+    ) -> None:
+        """Initialize the sensor."""
+        super().__init__()
+
+        entity_registry = er.async_get(hass)
+        device_registry = dr.async_get(hass)
+
+        self.config_entry = config_entry
+        self.entity_description = description
+        self._attr_has_entity_name = True
+        self._attr_unique_id = unique_id
+        self._device_id = device_id
+
+        if device_id and (device := device_registry.async_get(device_id)):
+            self._attr_device_info = DeviceInfo(
+                connections=device.connections,
+                identifiers=device.identifiers,
+            )
+
+            self.entity_id = f"sensor.{device.name}_{description.key}"
+
+        wrapped_battery = None
+
+        for entity in entity_registry.entities.values():
+            if not entity.device_id or entity.device_id != device_id:
+                continue
+            if not entity.domain or not entity.domain in {BINARY_SENSOR_DOMAIN, SENSOR_DOMAIN}:
+                continue
+            if not entity.platform or entity.platform == DOMAIN:
+                continue
+            device_class = entity.device_class or entity.original_device_class
+            if not device_class == DEVICE_CLASS_BATTERY:
+                continue
+
+            wrapped_battery = entity_registry.async_get(entity.entity_id)
+
+        entity_category = wrapped_battery.entity_category if wrapped_battery else None
+        has_entity_name = wrapped_battery.has_entity_name if wrapped_battery else False
+
+        name: str | None = config_entry.title
+        if wrapped_battery:
+            name = wrapped_battery.original_name
+
+        self._device_id = device_id
+        if device_id and (device := device_registry.async_get(device_id)):
+            self._attr_device_info = DeviceInfo(
+                connections=device.connections,
+                identifiers=device.identifiers,
+            )
+        self._attr_entity_category = entity_category
+        self._attr_has_entity_name = has_entity_name
+        self._attr_name = name
+        self._attr_unique_id = unique_id
+        # self._switch_entity_id = battery_entity_id
+
+        # self._is_new_entity = (
+        #     entity_registry.async_get_entity_id(domain, DOMAIN, unique_id) is None
+        # )
 
     async def async_added_to_hass(self) -> None:
         """Handle added to Hass."""
         await super().async_added_to_hass()
 
-        if (entry := self.registry_entry) and entry.disabled_by is None:
-            await self._async_listen_to_battery()
+        # if (entry := self.registry_entry) and entry.disabled_by is None:
+        #     await self._async_listen_to_battery()
 
     async def _async_listen_to_battery(self) -> None:
         entity_registry = er.async_get(self.hass)
 
-        # domain_device_classes = {
-        #         ("input_number", DEVICE_CLASS_BATTERY),
-        #         (BINARY_SENSOR_DOMAIN, DEVICE_CLASS_BATTERY),
-        #         (SENSOR_DOMAIN, DEVICE_CLASS_BATTERY),
-        #     }
-        #
-        # lookup: dict[str, dict[tuple[str, str | None], str]] = {}
-        # for entity in entity_registry.entities.values():
-        #     # if not entity.device_id:
-        #     #     continue
-        #     device_class = entity.device_class or entity.original_device_class
-        #     domain_device_class = (entity.domain, device_class)
-        #     if domain_device_class not in domain_device_classes:
-        #         continue
-        #     if entity.entity_id not in lookup:
-        #         lookup[entity.entity_id] = {domain_device_class: entity.entity_id}
-        #     else:
-        #         lookup[entity.entity_id][domain_device_class] = entity.entity_id
-        # print(lookup)
+        lookup: dict[str, dict[tuple[str, str | None], str]] = {}
+        for entity in self.entities.values():
+            if not entity.device_id:
+                continue
+            device_class = entity.device_class or entity.original_device_class
+            domain_device_class = (entity.domain, device_class)
+            if domain_device_class not in domain_device_classes:
+                continue
+            if entity.device_id not in lookup:
+                lookup[entity.device_id] = {domain_device_class: entity.entity_id}
+            else:
+                lookup[entity.device_id][domain_device_class] = entity.entity_id
+        return lookup
 
         # Get all entities that have a device and have specific domain/class
         device_lookup = entity_registry.async_get_device_class_lookup(
             {
                 (BINARY_SENSOR_DOMAIN, DEVICE_CLASS_BATTERY),
                 (SENSOR_DOMAIN, DEVICE_CLASS_BATTERY),
-                (SENSOR_DOMAIN, "timestamp"),
             }
         )
 
@@ -249,9 +326,6 @@ class BatteryNotesSensor(SensorEntity):
         if self._device_id in device_lookup:
             if (SENSOR_DOMAIN, DEVICE_CLASS_BATTERY) in device_lookup[self._device_id]:
                 self._battery_entity_id = device_lookup[self._device_id].get((SENSOR_DOMAIN, DEVICE_CLASS_BATTERY))
-            elif (SENSOR_DOMAIN, "timestamp") in device_lookup[self._device_id]:
-                # Just for testing
-                self._battery_entity_id = device_lookup[self._device_id].get((SENSOR_DOMAIN, "timestamp"))
             else:
                 self._battery_entity_id = device_lookup[self._device_id].get((BINARY_SENSOR_DOMAIN, DEVICE_CLASS_BATTERY))
 
@@ -290,7 +364,7 @@ class BatteryNotesSensor(SensorEntity):
             self.async_write_ha_state()
 
 
-class BatteryNotesTypeSensor(RestoreSensor, BatteryNotesSensor):
+class BatteryNotesTypeSensor(RestoreSensor, SensorEntity):
     """Represents a battery note type sensor."""
 
     _attr_should_poll = False
@@ -367,7 +441,7 @@ class BatteryNotesTypeSensor(RestoreSensor, BatteryNotesSensor):
         return attrs
 
 
-class BatteryNotesLastReplacedSensor(BatteryNotesSensor, CoordinatorEntity):
+class BatteryNotesLastReplacedSensor(SensorEntity, CoordinatorEntity):
     """Represents a battery note sensor."""
 
     _attr_should_poll = False

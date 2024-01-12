@@ -2,6 +2,9 @@
     "name": "andrew-codechimp/battery-notes",
     "image": "mcr.microsoft.com/vscode/devcontainers/python:0-3.11-bullseye",
     "postCreateCommand": "scripts/setup",
+    "runArgs": [
+        "--network=host"
+    ],
     "forwardPorts": [
         8123
     ],
