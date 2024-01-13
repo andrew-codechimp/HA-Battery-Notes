@@ -162,11 +162,10 @@ async def async_setup_entry(
         domain_config: dict = hass.data[DOMAIN][DOMAIN_CONFIG]
         enable_replaced = domain_config.get(CONF_ENABLE_REPLACED, True)
 
-    plus_battery_sensor_entity_description = BatteryNotesSensorEntityDescription(
-        unique_id_suffix="_battery_plus",
-        key="battery_plus",
-        translation_key="battery_plus",
-        icon="mdi:battery",
+    noted_battery_sensor_entity_description = BatteryNotesSensorEntityDescription(
+        unique_id_suffix="_battery_noted",
+        key="battery_noted",
+        translation_key="battery_noted",
         device_class=SensorDeviceClass.BATTERY,
     )
 
@@ -189,12 +188,14 @@ async def async_setup_entry(
     )
 
     entities = [
-        BatteryNotesBatteryPlusSensor(
+        BatteryNotesBatteryNotedSensor(
             hass,
             config_entry,
-            plus_battery_sensor_entity_description,
+            noted_battery_sensor_entity_description,
             device_id,
-            f"{config_entry.entry_id}{plus_battery_sensor_entity_description.unique_id_suffix}",
+            f"{config_entry.entry_id}{noted_battery_sensor_entity_description.unique_id_suffix}",
+            battery_type,
+            battery_quantity,
         ),
         BatteryNotesTypeSensor(
             hass,
@@ -225,12 +226,13 @@ async def async_setup_platform(
 
     await async_setup_reload_service(hass, DOMAIN, PLATFORMS)
 
-class BatteryNotesBatteryPlusSensor(SensorEntity):
-    """Represents a super battery type sensor."""
+class BatteryNotesBatteryNotedSensor(SensorEntity):
+    """Represents a noted battery type sensor."""
 
     _attr_should_poll = False
     _is_new_entity: bool
     _value: None
+    _wrapped_attributes: None
 
     def __init__(
         self,
@@ -239,6 +241,8 @@ class BatteryNotesBatteryPlusSensor(SensorEntity):
         description: BatteryNotesSensorEntityDescription,
         device_id: str,
         unique_id: str,
+        battery_type: str | None = None,
+        battery_quantity: str | None = None,
     ) -> None:
         """Initialize the sensor."""
         super().__init__()
@@ -251,6 +255,8 @@ class BatteryNotesBatteryPlusSensor(SensorEntity):
         self._attr_has_entity_name = True
         self._attr_unique_id = unique_id
         self._device_id = device_id
+        self._battery_type = battery_type
+        self._battery_quantity = battery_quantity
 
         if device_id and (device := device_registry.async_get(device_id)):
             self._attr_device_info = DeviceInfo(
@@ -320,6 +326,7 @@ class BatteryNotesBatteryPlusSensor(SensorEntity):
         print(state)
 
         self._value = state.state
+        self._wrapped_attributes = state.attributes
 
         self._attr_available = True
 
@@ -405,6 +412,22 @@ class BatteryNotesBatteryPlusSensor(SensorEntity):
     def native_value(self) -> int | None:
         """ Return the state of the sensor. """
         return self._value
+
+    @property
+    def extra_state_attributes(self) -> dict[str, str] | None:
+        """Return the state attributes of the battery type."""
+
+        attrs = {
+            ATTR_BATTERY_QUANTITY: self._battery_quantity,
+            ATTR_BATTERY_TYPE: self._battery_type,
+        }
+
+        super_attrs = super().extra_state_attributes
+        if super_attrs:
+            attrs.update(super_attrs)
+        if self._wrapped_attributes:
+            attrs.update(self._wrapped_attributes)
+        return attrs
 
 class BatteryNotesTypeSensor(RestoreSensor, SensorEntity):
     """Represents a battery note type sensor."""
