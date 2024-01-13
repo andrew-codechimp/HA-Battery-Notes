@@ -2773,6 +2773,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Homematic",
+            "model": "HM-RC-4-3",
+            "battery_type": "AAA"
         }
     ]
 }
