@@ -1354,6 +1354,11 @@
         },
         {
             "manufacturer": "Moes",
+            "model": "Smoke sensor (ZSS-HM-SSD01)",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Moes",
             "model": "Thermostatic radiator valve (BRT-100-TRV)",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -2878,11 +2883,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Moes",
-            "model": "Smoke sensor (ZSS-HM-SSD01)",
-            "battery_type": "CR123A"
         }
     ]
 }
