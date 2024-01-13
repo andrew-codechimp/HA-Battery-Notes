@@ -1900,6 +1900,11 @@
         },
         {
             "manufacturer": "SmartThings",
+            "model": "Multi Sensor (2015 model) (3321-S)",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "SmartThings",
             "model": "Multipurpose sensor (2018 model) (IM6001-MPP01)",
             "battery_type": "CR2450"
         },
@@ -2824,11 +2829,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "SmartThings",
-            "model": "Multi Sensor (2015 model) (3321-S)",
-            "battery_type": "CR2450"
         }
     ]
 }
