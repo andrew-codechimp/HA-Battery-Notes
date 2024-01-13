@@ -1,4 +1,4 @@
-## 529 Devices in library
+## 530 Devices in library
 
 This file is auto generated, do not modify
 
@@ -533,3 +533,4 @@ This file is auto generated, do not modify
 |Zooz                                            |ZSE40 700                                                             |CR123A              |
 |Zooz                                            |ZSE41                                                                 |CR2032              |
 |Zooz                                            |ZSE42                                                                 |CR2032              |
+|Zooz                                            |ZSE43                                                                 |CR2032              |
