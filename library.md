@@ -44,8 +44,8 @@ This file is auto generated, do not modify
 |Allegion                                        |BE468ZP                                                               |4x AA               |
 |Allegion                                        |BE469                                                                 |4x AA               |
 |Allegion                                        |BE469ZP                                                               |4x AAA              |
-|American Power Conversion                       |Back-UPS ES 600M1                                                     |Rechargable         |
-|American Power Conversion                       |Back-UPS XS 1500M                                                     |Rechargable         |
+|American Power Conversion                       |Back-UPS ES 600M1                                                     |Rechargeable        |
+|American Power Conversion                       |Back-UPS XS 1500M                                                     |Rechargeable        |
 |APC                                             |Back-UPS XS 1500M                                                     |Rechargeable        |
 |Aqara                                           |Aqara Door and Window Sensor P2                                       |CR123A              |
 |Aqara                                           |zigbee DJT11LM (lumi.vibration.aq1)                                   |CR2032              |
@@ -77,7 +77,7 @@ This file is auto generated, do not modify
 |CentraLite                                      |3326-L                                                                |CR2                 |
 |CentraLite                                      |3450-L                                                                |CR2450              |
 |Computime                                       |SLT3                                                                  |4x AA               |
-|CPS                                             |CP1500AVRLCDa                                                         |Rechargable         |
+|CPS                                             |CP1500AVRLCDa                                                         |Rechargeable        |
 |CPS                                             |CP1500PFCLCDa                                                         |RB1290X2            |
 |Custom devices (DiY)                            |Xiaomi temperature & humidity sensor with custom firmware (LYWSD03MMC)|CR2032              |
 |Danalock                                        |BT/ZB smartlock (V3-BTZB/V3-BTZBE)                                    |4x CR123A           |
@@ -379,7 +379,7 @@ This file is auto generated, do not modify
 |SwitchBot                                       |W1101500                                                              |2x AAA              |
 |SwitchBot                                       |W1201500                                                              |2x AAA              |
 |SwitchBot                                       |W340001X                                                              |2x AAA              |
-|switchbot                                       |WoBlindTilt                                                           |Rechargable         |
+|switchbot                                       |WoBlindTilt                                                           |Rechargeable        |
 |switchbot                                       |WoCurtain                                                             |Rechargeable        |
 |switchbot                                       |woHand                                                                |CR2                 |
 |switchbot                                       |WoIOSensorTH                                                          |2x AAA              |
@@ -455,8 +455,8 @@ This file is auto generated, do not modify
 |Vision Security                                 |ZP3111-5                                                              |2x AAA              |
 |Vision Security                                 |ZS5101                                                                |CR123A              |
 |Visonic                                         |MCT-340 E                                                             |CR2032              |
-|WyzeLabs                                        |WVOD1                                                                 |Rechargable         |
-|WyzeLabs                                        |YD.LO1                                                                |Rechargable         |
+|WyzeLabs                                        |WVOD1                                                                 |Rechargeable        |
+|WyzeLabs                                        |YD.LO1                                                                |Rechargeable        |
 |Xiaomi                                          |Aqara D1 double key wireless wall switch (WXKG07LM)                   |CR2032              |
 |Xiaomi                                          |Aqara D1 single key wireless wall switch (WXKG06LM)                   |CR2032              |
 |Xiaomi                                          |Aqara door & window contact sensor (MCCGQ11LM)                        |CR1632              |
