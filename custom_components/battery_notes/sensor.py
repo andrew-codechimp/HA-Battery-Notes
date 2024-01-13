@@ -230,6 +230,7 @@ class BatteryNotesBatteryPlusSensor(SensorEntity):
 
     _attr_should_poll = False
     _is_new_entity: bool
+    _value: None
 
     def __init__(
         self,
@@ -308,6 +309,8 @@ class BatteryNotesBatteryPlusSensor(SensorEntity):
         self, event: EventType[EventStateChangedData] | None = None
     ) -> None:
         """Handle child updates."""
+        updated = False
+
         if (
             state := self.hass.states.get(self._battery_entity_id)
         ) is None or state.state == STATE_UNAVAILABLE:
@@ -316,7 +319,11 @@ class BatteryNotesBatteryPlusSensor(SensorEntity):
 
         print(state)
 
+        self._value = state.state
+
         self._attr_available = True
+
+        updated = True
 
 
         # history_list = history.state_changes_during_period(
@@ -331,6 +338,9 @@ class BatteryNotesBatteryPlusSensor(SensorEntity):
         #     with suppress(ValueError):
         #         print(int(state.state))
 
+        if updated:
+            self.async_write_ha_state()
+
     async def async_added_to_hass(self) -> None:
         """Handle added to Hass."""
 
@@ -340,7 +350,6 @@ class BatteryNotesBatteryPlusSensor(SensorEntity):
         ) -> None:
             """Handle child updates."""
             self.async_state_changed_listener(event)
-            self.async_write_ha_state()
 
         self.async_on_remove(
             async_track_state_change_event(
@@ -392,7 +401,10 @@ class BatteryNotesBatteryPlusSensor(SensorEntity):
         copy_custom_name(wrapped_battery)
         copy_expose_settings()
 
-
+    @property
+    def native_value(self) -> int | None:
+        """ Return the state of the sensor. """
+        return self._value
 
 class BatteryNotesTypeSensor(RestoreSensor, SensorEntity):
     """Represents a battery note type sensor."""
