@@ -1,4 +1,4 @@
-## 525 Devices in library
+## 526 Devices in library
 
 This file is auto generated, do not modify
 
@@ -488,6 +488,7 @@ This file is auto generated, do not modify
 |Xiaomi                                          |ble XMPIR02SXS                                                        |CR2450              |
 |Xiaomi                                          |ble XMWSDJ04MMC                                                       |CR2450              |
 |Xiaomi                                          |BTHome sensor                                                         |CR2032              |
+|Xiaomi                                          |DJT11LM                                                               |CR2032              |
 |Xiaomi                                          |GZCGQ01LM                                                             |CR2450              |
 |Xiaomi                                          |HHCCJCY01                                                             |CR2032              |
 |Xiaomi                                          |LYWSD02                                                               |CR2430              |

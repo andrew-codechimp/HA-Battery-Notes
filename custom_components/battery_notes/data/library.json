@@ -2633,6 +2633,11 @@
         },
         {
             "manufacturer": "Xiaomi",
+            "model": "DJT11LM",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Xiaomi",
             "model": "GZCGQ01LM",
             "battery_type": "CR2450"
         },
