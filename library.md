@@ -1,4 +1,4 @@
-## 512 Devices in library
+## 513 Devices in library
 
 This file is auto generated, do not modify
 
@@ -167,6 +167,7 @@ This file is auto generated, do not modify
 |HEIMAN                                          |Smoke detector (HS1SA)                                                |CR123A              |
 |HEIMAN                                          |Smoke detector (HS3SA/HS1SA)                                          |CR123A              |
 |Hive                                            |Heating thermostat remote control (SLT3C)                             |4x AA               |
+|Homematic                                       |HM-Sec-SCo                                                            |AAA                 |
 |Honeywell                                       |zigbee JTYJ-GD-01LM/BW (lumi.sensor_smoke)                            |2x CR123A           |
 |Hunter Douglas                                  |Duette                                                                |12x AA              |
 |ID Lock AS                                      |ID-150                                                                |8x AA               |
