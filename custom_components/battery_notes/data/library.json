@@ -2773,6 +2773,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "AVATTO",
+            "model": "ME167",
+            "battery_type": "AA",
+            "battery_quantity": 2
         }
     ]
 }
