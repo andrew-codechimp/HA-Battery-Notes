@@ -39,11 +39,11 @@ This file is auto generated, do not modify
 |Aeotec Ltd.                                     |ZWA019                                                                |LS14250             |
 |Aeotec Ltd.                                     |ZWA039                                                                |CR2477              |
 |Airthings                                       |View Radon                                                            |6x AA               |
-|Airthings AS                                    |Wave Plus                                                             |2x AA               |
+|Airthings AS                                    |Wave Plus                                                             |2x AAA              |
 |Aldi                                            |MEGOS switch and dimming light remote control (141L100RC)             |CR2450              |
 |Allegion                                        |BE468ZP                                                               |4x AA               |
 |Allegion                                        |BE469                                                                 |4x AA               |
-|Allegion                                        |BE469ZP                                                               |4x AA               |
+|Allegion                                        |BE469ZP                                                               |4x AAA              |
 |American Power Conversion                       |Back-UPS ES 600M1                                                     |Rechargable         |
 |American Power Conversion                       |Back-UPS XS 1500M                                                     |Rechargable         |
 |APC                                             |Back-UPS XS 1500M                                                     |Rechargeable        |
