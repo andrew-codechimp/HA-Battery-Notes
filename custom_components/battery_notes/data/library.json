@@ -2829,6 +2829,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Honeywell",
+            "model": "TH6320ZW",
+            "battery_type": "AA",
+            "battery_quantity": 3
         }
     ]
 }
