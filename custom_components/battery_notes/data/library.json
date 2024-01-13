@@ -2402,6 +2402,12 @@
             "battery_quantity": 4
         },
         {
+            "manufacturer": "Universal Electronics Inc",
+            "model": "URC4470BC0-X-R",
+            "battery_type": "CR123A",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "VictorPest.com",
             "model": "Rat Trap",
             "battery_type": "C",
@@ -2856,12 +2862,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Universal Electronics Inc",
-            "model": "URC4470BC0-X-R",
-            "battery_type": "CR123A",
-            "battery_quantity": 2
         }
     ]
 }
