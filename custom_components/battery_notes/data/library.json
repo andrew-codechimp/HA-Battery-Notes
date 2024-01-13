@@ -351,6 +351,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "BRK Brands, Inc.",
+            "model": "ZSMOKE",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "CentraLite",
             "model": "3315-S",
             "battery_type": "CR2"
@@ -2818,12 +2824,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "BRK Brands, Inc.",
-            "model": "ZSMOKE",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
