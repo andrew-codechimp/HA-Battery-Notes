@@ -2795,6 +2795,11 @@
             "model": "ME167",
             "battery_type": "AA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "DJT11LM",
+            "battery_type": "CR2032"
         }
     ]
 }
