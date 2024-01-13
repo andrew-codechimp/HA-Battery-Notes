@@ -1,4 +1,4 @@
-## 531 Devices in library
+## 532 Devices in library
 
 This file is auto generated, do not modify
 
@@ -252,6 +252,7 @@ This file is auto generated, do not modify
 |LUMI                                            |lumi.vibration.aq1                                                    |CR2032              |
 |LUMI                                            |lumi.weather                                                          |CR2032              |
 |Meross                                          |ms100                                                                 |CR2477              |
+|Moes                                            |Smoke sensor (ZSS-HM-SSD01)                                           |CR123A              |
 |Moes                                            |Thermostatic radiator valve (BRT-100-TRV)                             |2x AA               |
 |Moes                                            |Universal smart IR remote control (UFO-R11)                           |2x AAA              |
 |Mopeka IOT                                      |M1015                                                                 |AAA-Lithium         |
