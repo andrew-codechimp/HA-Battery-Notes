@@ -2835,6 +2835,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "TuYa",
+            "model": "TS0042",
+            "battery_type": "CR2032"
         }
     ]
 }
