@@ -230,6 +230,11 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "Apple",
+            "model": "iPad5,1",
+            "battery_type": "Rechargable"
+        },
+        {
             "manufacturer": "Aqara",
             "model": "Aqara Door and Window Sensor P2",
             "battery_type": "CR123A"
@@ -694,6 +699,11 @@
             "manufacturer": "eWeLink",
             "model": "WB01",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Fairphone",
+            "model": "FP5",
+            "battery_type": "Rechargable"
         },
         {
             "manufacturer": "Fantem",
@@ -1332,6 +1342,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Netatmo",
+            "model": "Netatmo Smart Thermostat",
+            "battery_type": "AAA",
+            "battery_quantity": 3
+        },
+        {
             "manufacturer": "Nortek Security & Control LLC",
             "model": "WADWAZ-1",
             "battery_type": "CR123A"
@@ -1375,6 +1391,12 @@
             "manufacturer": "Nyce",
             "model": "Door/window sensor (NCZ-3011-HA)",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Popp",
+            "model": "Smart thermostat (701721)",
+            "battery_type": "AA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "OpenEpaperLink",
@@ -2300,6 +2322,12 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Woox",
+            "model": "Smart smoke alarm (R7049)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "WyzeLabs",
             "model": "WVOD1",
             "battery_type": "Rechargable"
@@ -2307,6 +2335,11 @@
         {
             "manufacturer": "WyzeLabs",
             "model": "YD.LO1",
+            "battery_type": "Rechargable"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "Aqara curtain driver E1 (ZNCLBL01LM)",
             "battery_type": "Rechargable"
         },
         {
@@ -2500,6 +2533,12 @@
         },
         {
             "manufacturer": "Xiaomi",
+            "model": "MHO-C303",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Xiaomi",
             "model": "Mi/Aqara smart home cube (MFKZQ01LM)",
             "battery_type": "CR2450"
         },
@@ -2643,45 +2682,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Fairphone",
-            "model": "FP5",
-            "battery_type": "Rechargable"
-        },
-        {
-            "manufacturer": "Apple",
-            "model": "iPad5,1",
-            "battery_type": "Rechargable"
-        },
-        {
-            "manufacturer": "Xiaomi",
-            "model": "Aqara curtain driver E1 (ZNCLBL01LM)",
-            "battery_type": "Rechargable"
-        },
-        {
-            "manufacturer": "Popp",
-            "model": "Smart thermostat (701721)",
-            "battery_type": "AA",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Woox",
-            "model": "Smart smoke alarm (R7049)",
-            "battery_type": "AAA",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Netatmo",
-            "model": "Netatmo Smart Thermostat",
-            "battery_type": "AAA",
-            "battery_quantity": 3
-        },
-        {
-            "manufacturer": "Xiaomi",
-            "model": "MHO-C303",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
