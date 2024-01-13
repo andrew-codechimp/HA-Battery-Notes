@@ -1,4 +1,4 @@
-## 515 Devices in library
+## 525 Devices in library
 
 This file is auto generated, do not modify
 
@@ -64,9 +64,11 @@ This file is auto generated, do not modify
 |August Home Inc.                                |AUG-SL03-C02-G03                                                      |4x AA               |
 |August Home Inc.                                |AUG-SL04-M01-G04                                                      |4x AA               |
 |August Home Inc.                                |AUG-SL05-M01-S01                                                      |2x CR123A           |
+|AVATTO                                          |ME167                                                                 |2x AA               |
 |Bosch                                           |ISW-ZPR1-WP13                                                         |4x AA               |
 |Bosch                                           |Radiator thermostat II (BTH-RA)                                       |2x AA               |
 |BRK Brands, Inc.                                |ZCOMBO                                                                |2x AA               |
+|BRK Brands, Inc.                                |ZSMOKE                                                                |2x AA               |
 |CentraLite                                      |3315-S                                                                |CR2                 |
 |CentraLite                                      |3320-L                                                                |CR2                 |
 |CentraLite                                      |3321-S                                                                |CR2450              |
@@ -170,6 +172,7 @@ This file is auto generated, do not modify
 |Homematic                                       |HM-RC-4-3                                                             |AAA                 |
 |Homematic                                       |HM-Sec-SCo                                                            |AAA                 |
 |Homematic                                       |HmIP-DSD-PCB                                                          |2x AAA              |
+|Honeywell                                       |TH6320ZW                                                              |3x AA               |
 |Honeywell                                       |zigbee JTYJ-GD-01LM/BW (lumi.sensor_smoke)                            |2x CR123A           |
 |Hunter Douglas                                  |Duette                                                                |12x AA              |
 |ID Lock AS                                      |ID-150                                                                |8x AA               |
@@ -188,6 +191,7 @@ This file is auto generated, do not modify
 |IKEA                                            |TRADFRI remote control (E1524/E1810)                                  |CR2032              |
 |IKEA                                            |TRADFRI shortcut button (E1812)                                       |CR2032              |
 |IKEA                                            |TRADFRI wireless dimmer (ICTC-G-1)                                    |CR2032              |
+|Ikea                                            |TREDANSEN cellular blind (E2103)                                      |Rechargeable        |
 |IKEA                                            |VALLHORN wireless motion sensor (E2134)                               |2x AAA              |
 |IKEA of Sweden                                  |FYRTUR block-out roller blind                                         |BRAUNIT Battery pack|
 |IKEA of Sweden                                  |PRAKTLYSING cellular blind                                            |Rechargeable        |
@@ -202,6 +206,7 @@ This file is auto generated, do not modify
 |IKEA of Sweden                                  |TRADFRI remote control                                                |CR2032              |
 |IKEA of Sweden                                  |TRADFRI SHORTCUT Button                                               |CR2032              |
 |IKEA of Sweden                                  |TREDANSEN block-out cellul blind                                      |Rechargeable        |
+|IKEA of Sweden                                  |VALLHORN Wireless Motion Sensor                                       |2x AAA              |
 |iMagic by GreatStar                             |1116-S                                                                |CR2                 |
 |INKBIRD                                         |IBS-TH                                                                |2x AAA              |
 |INKBIRD                                         |IBS-TH2/P01B                                                          |2x AAA              |
@@ -214,6 +219,7 @@ This file is auto generated, do not modify
 |Kwikset                                         |912                                                                   |4x AA               |
 |Kwikset                                         |HALO-01                                                               |4x AA               |
 |Kwikset                                         |Kevo                                                                  |4x AA               |
+|Kwikset                                         |SmartCode traditional electronic deadbolt (99140-031)                 |4x AA               |
 |Kwikset                                         |SMARTCODE_DEADBOLT_10T                                                |4x AA               |
 |LDS                                             |ZBT-CCTSwitch-D0001                                                   |CR2450              |
 |Lidl                                            |HG06335/HG07310                                                       |MANUAL              |
@@ -224,6 +230,7 @@ This file is auto generated, do not modify
 |Linkind                                         |Door/window Sensor (ZS110050078)                                      |CR2032              |
 |Linkind                                         |PIR motion sensor, wireless motion detector (ZS1100400-IN-V1A02)      |CR2450              |
 |Linkind                                         |Security keypad battery (ZS130000078)                                 |2x CR123A           |
+|Linkind                                         |Water leak sensor (LS21001)                                           |2x AAA              |
 |LK                                              |A001082                                                               |2x AAA              |
 |LUMI                                            |lumi.airmonitor.acn01                                                 |2x CR2450           |
 |LUMI                                            |lumi.airrtc.agl001                                                    |2x AA               |
@@ -347,6 +354,7 @@ This file is auto generated, do not modify
 |SmartThings                                     |Button (IM6001-BTP01)                                                 |CR2450              |
 |SmartThings                                     |moisturev4                                                            |CR2                 |
 |SmartThings                                     |Motion sensor (2018 model) (IM6001-MTP01)                             |CR2                 |
+|SmartThings                                     |Multi Sensor (2015 model) (3321-S)                                    |CR2450              |
 |SmartThings                                     |Multipurpose sensor (2018 model) (IM6001-MPP01)                       |CR2450              |
 |Smartthings                                     |Water leak sensor (2016 model) (STS-WTR-250)                          |CR2                 |
 |SmartThings                                     |Water sensor (3315-S)                                                 |CR2                 |
@@ -418,10 +426,12 @@ This file is auto generated, do not modify
 |TuYa                                            |Temperature and humidity sensor (TH02Z)                               |2x AAA              |
 |TuYa                                            |Temperature and humidity sensor (ZG-227Z)                             |CR2450              |
 |TuYa                                            |Temperature and humidity sensor (ZTH05)                               |CR2032              |
+|TuYa                                            |TS0042                                                                |CR2032              |
 |TuYa                                            |TS0201_1                                                              |2x AA               |
 |TuYa                                            |TS0203                                                                |CR2032              |
 |tuya                                            |TS0210                                                                |2x AAA              |
 |tuya                                            |TS0601                                                                |CR2                 |
+|TuYa                                            |TS0601                                                                |2x AAA              |
 |TuYa                                            |TS0601_smoke_1                                                        |2x AAA              |
 |TuYa                                            |TS0601_thermostat                                                     |2x AA               |
 |TuYa                                            |Water leak detector (TS0207_water_leak_detector)                      |CR2032              |

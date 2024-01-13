@@ -327,6 +327,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "AVATTO",
+            "model": "ME167",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Bosch",
             "model": "ISW-ZPR1-WP13",
             "battery_type": "AA",
@@ -341,6 +347,12 @@
         {
             "manufacturer": "BRK Brands, Inc.",
             "model": "ZCOMBO",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "BRK Brands, Inc.",
+            "model": "ZSMOKE",
             "battery_type": "AA",
             "battery_quantity": 2
         },
@@ -913,6 +925,12 @@
         },
         {
             "manufacturer": "Honeywell",
+            "model": "TH6320ZW",
+            "battery_type": "AA",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "Honeywell",
             "model": "zigbee JTYJ-GD-01LM/BW (lumi.sensor_smoke)",
             "battery_type": "CR123A",
             "battery_quantity": 2
@@ -1008,6 +1026,11 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Ikea",
+            "model": "TREDANSEN cellular blind (E2103)",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "IKEA",
             "model": "VALLHORN wireless motion sensor (E2134)",
             "battery_type": "AAA",
@@ -1081,6 +1104,12 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "IKEA of Sweden",
+            "model": "VALLHORN Wireless Motion Sensor",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "iMagic by GreatStar",
             "model": "1116-S",
             "battery_type": "CR2"
@@ -1148,6 +1177,12 @@
         },
         {
             "manufacturer": "Kwikset",
+            "model": "SmartCode traditional electronic deadbolt (99140-031)",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Kwikset",
             "model": "SMARTCODE_DEADBOLT_10T",
             "battery_type": "AA",
             "battery_quantity": 4
@@ -1199,6 +1234,12 @@
             "manufacturer": "Linkind",
             "model": "Security keypad battery (ZS130000078)",
             "battery_type": "CR123A",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Linkind",
+            "model": "Water leak sensor (LS21001)",
+            "battery_type": "AAA",
             "battery_quantity": 2
         },
         {
@@ -1871,6 +1912,11 @@
         },
         {
             "manufacturer": "SmartThings",
+            "model": "Multi Sensor (2015 model) (3321-S)",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "SmartThings",
             "model": "Multipurpose sensor (2018 model) (IM6001-MPP01)",
             "battery_type": "CR2450"
         },
@@ -2260,6 +2306,11 @@
         },
         {
             "manufacturer": "TuYa",
+            "model": "TS0042",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "TuYa",
             "model": "TS0201_1",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -2279,6 +2330,12 @@
             "manufacturer": "tuya",
             "model": "TS0601",
             "battery_type": "CR2"
+        },
+        {
+            "manufacturer": "TuYa",
+            "model": "TS0601",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "TuYa",
@@ -2789,12 +2846,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "AVATTO",
-            "model": "ME167",
-            "battery_type": "AA",
-            "battery_quantity": 2
         },
         {
             "manufacturer": "Xiaomi",
