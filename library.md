@@ -1,4 +1,4 @@
-## 520 Devices in library
+## 521 Devices in library
 
 This file is auto generated, do not modify
 
@@ -68,6 +68,7 @@ This file is auto generated, do not modify
 |Bosch                                           |ISW-ZPR1-WP13                                                         |4x AA               |
 |Bosch                                           |Radiator thermostat II (BTH-RA)                                       |2x AA               |
 |BRK Brands, Inc.                                |ZCOMBO                                                                |2x AA               |
+|BRK Brands, Inc.                                |ZSMOKE                                                                |2x AA               |
 |CentraLite                                      |3315-S                                                                |CR2                 |
 |CentraLite                                      |3320-L                                                                |CR2                 |
 |CentraLite                                      |3321-S                                                                |CR2450              |
