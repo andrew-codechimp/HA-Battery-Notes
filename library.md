@@ -1,4 +1,4 @@
-## 528 Devices in library
+## 529 Devices in library
 
 This file is auto generated, do not modify
 
@@ -38,6 +38,7 @@ This file is auto generated, do not modify
 |Aeotec Ltd.                                     |ZWA012                                                                |LS14250             |
 |Aeotec Ltd.                                     |ZWA019                                                                |LS14250             |
 |Aeotec Ltd.                                     |ZWA039                                                                |CR2477              |
+|Airthings                                       |View Radon                                                            |6x AA               |
 |Airthings AS                                    |Wave Plus                                                             |2x AAA              |
 |Aldi                                            |MEGOS switch and dimming light remote control (141L100RC)             |CR2450              |
 |Allegion                                        |BE468ZP                                                               |4x AA               |
