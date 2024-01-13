@@ -1,4 +1,4 @@
-## 522 Devices in library
+## 523 Devices in library
 
 This file is auto generated, do not modify
 
@@ -172,6 +172,7 @@ This file is auto generated, do not modify
 |Homematic                                       |HM-RC-4-3                                                             |AAA                 |
 |Homematic                                       |HM-Sec-SCo                                                            |AAA                 |
 |Homematic                                       |HmIP-DSD-PCB                                                          |2x AAA              |
+|Honeywell                                       |TH6320ZW                                                              |3x AA               |
 |Honeywell                                       |zigbee JTYJ-GD-01LM/BW (lumi.sensor_smoke)                            |2x CR123A           |
 |Hunter Douglas                                  |Duette                                                                |12x AA              |
 |ID Lock AS                                      |ID-150                                                                |8x AA               |
