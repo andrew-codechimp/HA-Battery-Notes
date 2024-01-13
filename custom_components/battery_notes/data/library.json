@@ -896,6 +896,11 @@
             "battery_quantity": 4
         },
         {
+            "manufacturer": "Homematic",
+            "model": "HM-Sec-SCo",
+            "battery_type": "AAA"
+        },
+        {
             "manufacturer": "Honeywell",
             "model": "zigbee JTYJ-GD-01LM/BW (lumi.sensor_smoke)",
             "battery_type": "CR123A",
@@ -2773,11 +2778,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Homematic",
-            "model": "HM-Sec-SCo",
-            "battery_type": "AAA"
         }
     ]
 }
