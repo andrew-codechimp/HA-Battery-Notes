@@ -2862,6 +2862,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Airthings",
+            "model": "View Radon",
+            "battery_type": "AA",
+            "battery_quantity": 6
         }
     ]
 }
