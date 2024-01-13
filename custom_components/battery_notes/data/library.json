@@ -2801,6 +2801,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Ikea",
+            "model": "TREDANSEN cellular blind (E2103)",
+            "battery_type": "Rechargeable"
         }
     ]
 }
