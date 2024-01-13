@@ -1219,6 +1219,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Linkind",
+            "model": "Water leak sensor (LS21001)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "LK",
             "model": "A001082",
             "battery_type": "AAA",
@@ -2812,12 +2818,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Linkind",
-            "model": "Water leak sensor (LS21001)",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
