@@ -1746,6 +1746,11 @@
             "battery_type": "CR1632"
         },
         {
+            "manufacturer": "Sercomm Corp.",
+            "model": "XHS2-SE",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "Shelly",
             "model": "Shelly Door/Window 2",
             "battery_type": "CR123A",
@@ -2851,11 +2856,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Sercomm Corp.",
-            "model": "XHS2-SE",
-            "battery_type": "CR2450"
         }
     ]
 }
