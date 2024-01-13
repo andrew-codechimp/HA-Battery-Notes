@@ -1,4 +1,4 @@
-## 516 Devices in library
+## 517 Devices in library
 
 This file is auto generated, do not modify
 
@@ -423,6 +423,7 @@ This file is auto generated, do not modify
 |TuYa                                            |TS0203                                                                |CR2032              |
 |tuya                                            |TS0210                                                                |2x AAA              |
 |tuya                                            |TS0601                                                                |CR2                 |
+|TuYa                                            |TS0601                                                                |2x AAA              |
 |TuYa                                            |TS0601_smoke_1                                                        |2x AAA              |
 |TuYa                                            |TS0601_thermostat                                                     |2x AA               |
 |TuYa                                            |Water leak detector (TS0207_water_leak_detector)                      |CR2032              |
