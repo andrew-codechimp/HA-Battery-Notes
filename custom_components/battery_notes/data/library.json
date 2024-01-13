@@ -2300,6 +2300,11 @@
         },
         {
             "manufacturer": "TuYa",
+            "model": "TS0042",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "TuYa",
             "model": "TS0201_1",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -2834,11 +2839,6 @@
         {
             "manufacturer": "Zooz",
             "model": "ZSE42",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "TuYa",
-            "model": "TS0042",
             "battery_type": "CR2032"
         }
     ]
