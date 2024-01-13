@@ -1159,6 +1159,12 @@
         },
         {
             "manufacturer": "Kwikset",
+            "model": "SmartCode traditional electronic deadbolt (99140-031)",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Kwikset",
             "model": "SMARTCODE_DEADBOLT_10T",
             "battery_type": "AA",
             "battery_quantity": 4
@@ -2806,12 +2812,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Kwikset",
-            "model": "SmartCode traditional electronic deadbolt (99140-031)",
-            "battery_type": "AA",
-            "battery_quantity": 4
         }
     ]
 }
