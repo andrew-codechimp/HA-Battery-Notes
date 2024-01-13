@@ -1014,6 +1014,11 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Ikea",
+            "model": "TREDANSEN cellular blind (E2103)",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "IKEA",
             "model": "VALLHORN wireless motion sensor (E2134)",
             "battery_type": "AAA",
@@ -2801,11 +2806,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Ikea",
-            "model": "TREDANSEN cellular blind (E2103)",
-            "battery_type": "Rechargeable"
         }
     ]
 }
