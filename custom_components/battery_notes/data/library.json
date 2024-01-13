@@ -1104,6 +1104,12 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "IKEA of Sweden",
+            "model": "VALLHORN Wireless Motion Sensor",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "iMagic by GreatStar",
             "model": "1116-S",
             "battery_type": "CR2"
@@ -2840,12 +2846,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE42",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "IKEA of Sweden",
-            "model": "VALLHORN Wireless Motion Sensor",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
