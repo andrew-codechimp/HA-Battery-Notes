@@ -223,12 +223,12 @@
         {
             "manufacturer": "American Power Conversion",
             "model": "Back-UPS ES 600M1",
-            "battery_type": "Rechargable"
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "American Power Conversion",
             "model": "Back-UPS XS 1500M",
-            "battery_type": "Rechargable"
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "APC",
@@ -401,7 +401,7 @@
         {
             "manufacturer": "CPS",
             "model": "CP1500AVRLCDa",
-            "battery_type": "Rechargable"
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "CPS",
@@ -2047,7 +2047,7 @@
         {
             "manufacturer": "switchbot",
             "model": "WoBlindTilt",
-            "battery_type": "Rechargable"
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "switchbot",
@@ -2464,12 +2464,12 @@
         {
             "manufacturer": "WyzeLabs",
             "model": "WVOD1",
-            "battery_type": "Rechargable"
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "WyzeLabs",
             "model": "YD.LO1",
-            "battery_type": "Rechargable"
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "Xiaomi",
