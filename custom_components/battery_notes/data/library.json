@@ -199,7 +199,7 @@
         {
             "manufacturer": "Airthings AS",
             "model": "Wave Plus",
-            "battery_type": "AAA",
+            "battery_type": "AA",
             "battery_quantity": 2
         },
         {
@@ -222,7 +222,7 @@
         {
             "manufacturer": "Allegion",
             "model": "BE469ZP",
-            "battery_type": "AAA",
+            "battery_type": "AA",
             "battery_quantity": 4
         },
         {
