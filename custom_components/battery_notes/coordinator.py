@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import logging
+from datetime import datetime
 
 from homeassistant.helpers.update_coordinator import (
     DataUpdateCoordinator,
@@ -10,6 +11,7 @@ from homeassistant.helpers.update_coordinator import (
 from .const import (
     DOMAIN,
     ATTR_REMOVE,
+    LAST_REPLACED,
 )
 
 _LOGGER = logging.getLogger(__name__)
@@ -18,12 +20,27 @@ _LOGGER = logging.getLogger(__name__)
 class BatteryNotesCoordinator(DataUpdateCoordinator):
     """Define an object to hold Battery Notes device."""
 
+    device_id: str
+    battery_type: str
+    battery_quantity: int
+
     def __init__(self, hass, store):
         """Initialize."""
         self.hass = hass
         self.store = store
 
         super().__init__(hass, _LOGGER, name=DOMAIN)
+
+    @property
+    def last_replaced(self) -> datetime:
+        device_entry = self.store.async_get_device(self.device_id)
+        if device_entry:
+            if LAST_REPLACED in device_entry:
+                last_replaced_date = datetime.fromisoformat(
+                    str(device_entry[LAST_REPLACED]) + "+00:00"
+                )
+                return last_replaced_date
+        return None
 
     async def _async_update_data(self):
         """Update data."""

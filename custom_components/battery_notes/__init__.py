@@ -22,6 +22,7 @@ from homeassistant.util import dt as dt_util
 
 from .config_flow import CONFIG_VERSION
 
+from .device import BatteryNotesDevice
 from .discovery import DiscoveryManager
 from .library_updater import (
     LibraryUpdater,
@@ -42,6 +43,7 @@ from .const import (
     CONF_ENABLE_REPLACED,
     SERVICE_BATTERY_REPLACED,
     SERVICE_BATTERY_REPLACED_SCHEMA,
+    DATA_STORE,
     DATA_COORDINATOR,
     ATTR_REMOVE,
     ATTR_DEVICE_ID,
@@ -93,17 +95,13 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     }
 
     store = await async_get_registry(hass)
-
-    coordinator = BatteryNotesCoordinator(hass, store)
-    hass.data[DOMAIN][DATA_COORDINATOR] = coordinator
+    hass.data[DOMAIN][DATA_STORE] = store
 
     library_updater = LibraryUpdater(hass)
 
     await library_updater.get_library_updates(dt_util.utcnow())
 
     hass.data[DOMAIN][DATA_LIBRARY_UPDATER] = library_updater
-
-    await coordinator.async_refresh()
 
     if domain_config.get(CONF_ENABLE_AUTODISCOVERY):
         discovery_manager = DiscoveryManager(hass, config)
@@ -115,6 +113,8 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Set up a config entry."""
+
+    device = BatteryNotesDevice(hass, entry)
 
     await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
 
