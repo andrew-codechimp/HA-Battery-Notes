@@ -45,11 +45,11 @@ from .const import (
     CONF_ENABLE_REPLACED,
     SERVICE_BATTERY_REPLACED,
     SERVICE_BATTERY_REPLACED_SCHEMA,
+    SERVICE_DATA_DATE_TIME_REPLACED,
     DATA_STORE,
     DATA_COORDINATOR,
     ATTR_REMOVE,
     ATTR_DEVICE_ID,
-    ATTR_DATE_TIME_REPLACED,
     CONF_BATTERY_TYPE,
     CONF_BATTERY_QUANTITY,
 )
@@ -217,7 +217,7 @@ def register_services(hass):
     async def handle_battery_replaced(call):
         """Handle the service call."""
         device_id = call.data.get(ATTR_DEVICE_ID, "")
-        datetime_replaced_entry = call.data.get(ATTR_DATE_TIME_REPLACED)
+        datetime_replaced_entry = call.data.get(SERVICE_DATA_DATE_TIME_REPLACED)
 
         if datetime_replaced_entry:
             datetime_replaced = dt_util.as_utc(datetime_replaced_entry).replace(tzinfo=None)

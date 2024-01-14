@@ -65,7 +65,7 @@ from .const import (
     CONF_ENABLE_REPLACED,
     ATTR_BATTERY_QUANTITY,
     ATTR_BATTERY_TYPE,
-    ATTR_DATE_TIME_REPLACED,
+    ATTR_BATTERY_LAST_REPLACED,
 )
 
 from .coordinator import BatteryNotesCoordinator
@@ -417,7 +417,7 @@ class BatteryNotesBatteryNotedSensor(SensorEntity):
         attrs = {
             ATTR_BATTERY_QUANTITY: self.coordinator.battery_quantity,
             ATTR_BATTERY_TYPE: self.coordinator.battery_type,
-            ATTR_DATE_TIME_REPLACED: self.coordinator.last_replaced,
+            ATTR_BATTERY_LAST_REPLACED: self.coordinator.last_replaced,
         }
 
         super_attrs = super().extra_state_attributes
