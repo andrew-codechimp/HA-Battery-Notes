@@ -153,13 +153,6 @@ async def async_setup_entry(
 
     coordinator = hass.data[DOMAIN][DATA].devices[config_entry.entry_id].coordinator
 
-    coordinator.device_id = config_entry.data.get(CONF_DEVICE_ID)
-    coordinator.battery_type = config_entry.data.get(CONF_BATTERY_TYPE)
-    try:
-        coordinator.battery_quantity = int(config_entry.data.get(CONF_BATTERY_QUANTITY))
-    except ValueError:
-        coordinator.battery_quantity = 1
-
     await coordinator.async_refresh()
 
     enable_replaced = True
@@ -405,6 +398,12 @@ class BatteryNotesBatteryNotedSensor(SensorEntity):
 
         copy_custom_name(wrapped_battery)
         copy_expose_settings()
+
+    # @callback
+    # def _handle_coordinator_update(self) -> None:
+    #     """Handle updated data from the coordinator."""
+
+    #     self.async_schedule_update_ha_state(force_refresh =True)
 
     @property
     def native_value(self) -> int | None:

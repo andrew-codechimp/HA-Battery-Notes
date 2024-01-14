@@ -8,6 +8,7 @@ from homeassistant.config_entries import SOURCE_REAUTH, ConfigEntry
 from homeassistant.const import (
     CONF_NAME,
     Platform,
+    CONF_DEVICE_ID,
 )
 from homeassistant.core import CALLBACK_TYPE, HomeAssistant
 from homeassistant.exceptions import ConfigEntryNotReady
@@ -18,6 +19,8 @@ from .const import (
     DOMAIN,
     DATA,
     DATA_STORE,
+    CONF_BATTERY_TYPE,
+    CONF_BATTERY_QUANTITY,
 )
 
 from .store import BatteryNotesStorage
@@ -69,6 +72,13 @@ class BatteryNotesDevice:
 
         self.store = self.hass.data[DOMAIN][DATA_STORE]
         self.coordinator = BatteryNotesCoordinator(self.hass, self.store)
+
+        self.coordinator.device_id = config.data.get(CONF_DEVICE_ID)
+        self.coordinator.battery_type = config.data.get(CONF_BATTERY_TYPE)
+        try:
+            self.coordinator.battery_quantity = int(config.data.get(CONF_BATTERY_QUANTITY))
+        except ValueError:
+            self.coordinator.battery_quantity = 1
 
         self.hass.data[DOMAIN][DATA].devices[config.entry_id] = self
         self.reset_jobs.append(config.add_update_listener(self.async_update))
