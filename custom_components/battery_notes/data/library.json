@@ -2928,6 +2928,11 @@
             "model": "Alarm control panel",
             "battery_type": "AA",
             "battery_quantity": 4
+        },
+        {
+            "manufacturer": "eWeLink",
+            "model": "SNZB-01P",
+            "battery_type": "CR2477"
         }
     ]
 }
