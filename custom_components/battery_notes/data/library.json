@@ -1923,6 +1923,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Simplisafe",
+            "model": "Alarm control panel",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
             "manufacturer": "Siterwell",
             "model": "Radiator valve with thermostat (GS361A-H04)",
             "battery_type": "AA",
@@ -2922,12 +2928,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Simplisafe",
-            "model": "Alarm control panel",
-            "battery_type": "AA",
-            "battery_quantity": 4
         }
     ]
 }
