@@ -1939,6 +1939,11 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "SimpliSafe",
+            "model": "Motion",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "Simplisafe",
             "model": "Smoke",
             "battery_type": "CR123A"
@@ -2943,11 +2948,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "SimpliSafe",
-            "model": "Motion",
-            "battery_type": "CR123A"
         }
     ]
 }

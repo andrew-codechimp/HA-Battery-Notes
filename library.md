@@ -1,4 +1,4 @@
-## 543 Devices in library
+## 544 Devices in library
 
 This file is auto generated, do not modify
 
@@ -359,6 +359,7 @@ This file is auto generated, do not modify
 |Simplisafe                                      |Alarm control panel                                                   |4x AA               |
 |Simplisafe                                      |Entry                                                                 |CR2032              |
 |Simplisafe                                      |Leak                                                                  |CR2032              |
+|SimpliSafe                                      |Motion                                                                |CR123A              |
 |Simplisafe                                      |Smoke                                                                 |CR123A              |
 |Siterwell                                       |Radiator valve with thermostat (GS361A-H04)                           |2x AA               |
 |SMaBiT (Bitron Video)                           |Compact magnetic contact sensor (AV2010/21A)                          |CR2                 |
