@@ -722,6 +722,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "eQ-3",
+            "model": "MAX! Eco Switch",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Eurotronic",
             "model": "SPZB0001",
             "battery_type": "AA",
