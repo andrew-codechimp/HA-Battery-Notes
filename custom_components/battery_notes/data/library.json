@@ -705,6 +705,12 @@
         },
         {
             "manufacturer": "eQ-3",
+            "model": "MAX! Eco Switch",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "eQ-3",
             "model": "MAX! Radiator Thermostat",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -718,12 +724,6 @@
         {
             "manufacturer": "eQ-3",
             "model": "MAX! Window Sensor",
-            "battery_type": "AAA",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "eQ-3",
-            "model": "MAX! Eco Switch",
             "battery_type": "AAA",
             "battery_quantity": 2
         },
