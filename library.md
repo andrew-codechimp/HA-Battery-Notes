@@ -1,4 +1,4 @@
-## 534 Devices in library
+## 535 Devices in library
 
 This file is auto generated, do not modify
 
@@ -131,6 +131,7 @@ This file is auto generated, do not modify
 |eQ-3                                            |HmIP-WRC6                                                             |2x AAA              |
 |eQ-3                                            |HmIP-WRCD                                                             |2x AAA              |
 |eQ-3                                            |HmIP-WTH-2                                                            |2x AAA              |
+|eQ-3                                            |MAX! Eco Switch                                                       |2x AAA              |
 |eQ-3                                            |MAX! Radiator Thermostat                                              |2x AA               |
 |eQ-3                                            |MAX! Wall Thermostat                                                  |2x AAA              |
 |eQ-3                                            |MAX! Window Sensor                                                    |2x AAA              |
