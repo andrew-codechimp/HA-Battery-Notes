@@ -2943,6 +2943,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "SimpliSafe",
+            "model": "Motion",
+            "battery_type": "CR123A"
         }
     ]
 }
