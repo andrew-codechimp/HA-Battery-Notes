@@ -2907,6 +2907,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Aeotec Ltd.",
+            "model": "ZW187",
+            "battery_type": "CR2"
         }
     ]
 }
