@@ -1,4 +1,4 @@
-## 539 Devices in library
+## 547 Devices in library
 
 This file is auto generated, do not modify
 
@@ -356,6 +356,13 @@ This file is auto generated, do not modify
 |Signify Netherlands B.V.                        |SML002                                                                |2x AA               |
 |Signify Netherlands B.V.                        |SML003                                                                |2x AAA              |
 |Signify Netherlands B.V.                        |SML004                                                                |2x AA               |
+|Simplisafe                                      |Alarm control panel                                                   |4x AA               |
+|Simplisafe                                      |Entry                                                                 |CR2032              |
+|SimpliSafe                                      |Keypad                                                                |4x AA               |
+|Simplisafe                                      |Leak                                                                  |CR2032              |
+|SimpliSafe                                      |Motion                                                                |CR123A              |
+|SimpliSafe                                      |Siren                                                                 |4x AA               |
+|Simplisafe                                      |Smoke                                                                 |CR123A              |
 |Siterwell                                       |Radiator valve with thermostat (GS361A-H04)                           |2x AA               |
 |SMaBiT (Bitron Video)                           |Compact magnetic contact sensor (AV2010/21A)                          |CR2                 |
 |SmartThings                                     |Button (IM6001-BTP01)                                                 |CR2450              |
@@ -369,6 +376,7 @@ This file is auto generated, do not modify
 |Sonoff                                          |Contact sensor (SNZB-04)                                              |CR2032              |
 |SONOFF                                          |Motion sensor (SNZB-03)                                               |CR2450              |
 |Sonoff                                          |SNZB-02                                                               |CR2450              |
+|SONOFF                                          |SNZB-02D                                                              |CR2450              |
 |Sonoff                                          |Temperature and humidity sensor (SNZB-02)                             |CR2450              |
 |SONOFF                                          |Temperature and humidity sensor (SNZB-02P)                            |CR2477              |
 |SONOFF                                          |Temperature and humidity sensor with screen (SNZB-02D)                |CR2450              |

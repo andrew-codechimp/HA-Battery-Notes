@@ -1923,6 +1923,44 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Simplisafe",
+            "model": "Alarm control panel",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Simplisafe",
+            "model": "Entry",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "SimpliSafe",
+            "model": "Keypad",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Simplisafe",
+            "model": "Leak",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "SimpliSafe",
+            "model": "Motion",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "SimpliSafe",
+            "model": "Siren",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Simplisafe",
+            "model": "Smoke",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "Siterwell",
             "model": "Radiator valve with thermostat (GS361A-H04)",
             "battery_type": "AA",
@@ -1986,6 +2024,11 @@
         {
             "manufacturer": "Sonoff",
             "model": "SNZB-02",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "SONOFF",
+            "model": "SNZB-02D",
             "battery_type": "CR2450"
         },
         {
@@ -2922,12 +2965,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Simplisafe",
-            "model": "Alarm control panel",
-            "battery_type": "AA",
-            "battery_quantity": 4
         },
         {
             "manufacturer": "eWeLink",
