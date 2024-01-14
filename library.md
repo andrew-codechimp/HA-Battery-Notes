@@ -1,4 +1,4 @@
-## 537 Devices in library
+## 538 Devices in library
 
 This file is auto generated, do not modify
 
@@ -308,6 +308,7 @@ This file is auto generated, do not modify
 |Popp & Co                                       |004407                                                                |LR14250             |
 |Popp & Co                                       |POPE700168                                                            |2x AAA              |
 |Qingping                                        |CGG1                                                                  |CR2032              |
+|Ring                                            |4AK1SZ                                                                |Rechargeable        |
 |Ring                                            |Contact Sensor                                                        |2x CR2032           |
 |Ring                                            |Doorbell 2                                                            |Rechargeable        |
 |Ring                                            |Motion Sensor                                                         |2x AA               |
