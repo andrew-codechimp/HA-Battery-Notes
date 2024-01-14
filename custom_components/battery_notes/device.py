@@ -17,9 +17,13 @@ from homeassistant.core import CALLBACK_TYPE, HomeAssistant
 from homeassistant.exceptions import ConfigEntryNotReady
 from homeassistant.helpers import device_registry as dr
 
-from .const import DEFAULT_PORT, DOMAIN, DOMAINS_AND_TYPES, DATA_DEVICES
-from .updater import get_update_manager
+from .const import (
+    DOMAIN,
+    DATA_DEVICES,
+    DATA_STORE,
+)
 
+from .store import BatteryNotesStorage
 from .coordinator import BatteryNotesCoordinator
 
 _LOGGER = logging.getLogger(__name__)
@@ -33,7 +37,8 @@ def get_domains(device_type: str) -> set[Platform]:
 class BatteryNotesDevice:
     """Manages a Battery Note device."""
 
-    coordinator: BatteryNotesCoordinator
+    store: BatteryNotesStorage = None
+    coordinator: BatteryNotesCoordinator = None
 
     def __init__(self, hass: HomeAssistant, config: ConfigEntry) -> None:
         """Initialize the device."""
@@ -49,18 +54,6 @@ class BatteryNotesDevice:
     def unique_id(self) -> str | None:
         """Return the unique id of the device."""
         return self.config.unique_id
-
-    @property
-    def mac_address(self) -> str:
-        """Return the mac address of the device."""
-        return self.config.data[CONF_MAC]
-
-    @property
-    def available(self) -> bool | None:
-        """Return True if the device is available."""
-        if self.update_manager is None:
-            return False
-        return self.update_manager.available
 
     @staticmethod
     async def async_update(hass: HomeAssistant, entry: ConfigEntry) -> None:
@@ -81,40 +74,9 @@ class BatteryNotesDevice:
         """Set up the device and related entities."""
         config = self.config
 
-        api = blk.gendevice(
-            config.data[CONF_TYPE],
-            (config.data[CONF_HOST], DEFAULT_PORT),
-            bytes.fromhex(config.data[CONF_MAC]),
-            name=config.title,
-        )
-        api.timeout = config.data[CONF_TIMEOUT]
-        self.api = api
+        self.store = self.hass.data[DOMAIN][DATA_STORE]
+        self.coordinator = BatteryNotesCoordinator(self.hass, self.store)
 
-        try:
-            self.fw_version = await self.hass.async_add_executor_job(
-                self._get_firmware_version
-            )
-
-        except AuthenticationError:
-            await self._async_handle_auth_error()
-            return False
-
-        except (NetworkTimeoutError, OSError) as err:
-            raise ConfigEntryNotReady from err
-
-        except BroadlinkException as err:
-            _LOGGER.error(
-                "Failed to authenticate to the device at %s: %s", api.host[0], err
-            )
-            return False
-
-        self.authorized = True
-
-        update_manager = get_update_manager(self)
-        coordinator = update_manager.coordinator
-        await coordinator.async_config_entry_first_refresh()
-
-        self.update_manager = update_manager
         self.hass.data[DOMAIN][DATA_DEVICES].devices[config.entry_id] = self
         self.reset_jobs.append(config.add_update_listener(self.async_update))
 
