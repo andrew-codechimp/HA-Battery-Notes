@@ -1,4 +1,4 @@
-## 535 Devices in library
+## 536 Devices in library
 
 This file is auto generated, do not modify
 
@@ -490,6 +490,7 @@ This file is auto generated, do not modify
 |Xiaomi                                          |ble MCCGQ02HL                                                         |CR2032              |
 |Xiaomi                                          |ble MJYD02YL                                                          |3x AA               |
 |Xiaomi                                          |ble MJYD02YL-A                                                        |3x AAA              |
+|Xiaomi                                          |ble MUE4094RT                                                         |3x AA               |
 |Xiaomi                                          |ble RTCGQ02LM                                                         |CR2450              |
 |Xiaomi                                          |ble SJWS01LM                                                          |CR2032              |
 |Xiaomi                                          |ble XMPIR02SXS                                                        |CR2450              |
