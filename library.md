@@ -1,4 +1,4 @@
-## 548 Devices in library
+## 549 Devices in library
 
 This file is auto generated, do not modify
 
@@ -189,6 +189,7 @@ This file is auto generated, do not modify
 |IKEA                                            |RODRET wireless dimmer/power switch (E2201)                           |AAA                 |
 |IKEA                                            |STYRBAR remote control (E2001/E2002)                                  |2x AAA              |
 |IKEA                                            |SYMFONISK sound controller (E1744)                                    |CR2032              |
+|IKEA                                            |SYMFONISK sound remote gen2 (E2123)                                   |2x AAA              |
 |IKEA                                            |TRADFRI motion sensor                                                 |2x CR2032           |
 |IKEA                                            |TRADFRI motion sensor (E1525/E1745)                                   |2x CR2032           |
 |IKEA                                            |TRADFRI ON/OFF switch (E1743)                                         |CR2032              |
