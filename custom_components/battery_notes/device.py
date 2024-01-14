@@ -17,7 +17,7 @@ from homeassistant.core import CALLBACK_TYPE, HomeAssistant
 from homeassistant.exceptions import ConfigEntryNotReady
 from homeassistant.helpers import device_registry as dr
 
-from .const import DEFAULT_PORT, DOMAIN, DOMAINS_AND_TYPES
+from .const import DEFAULT_PORT, DOMAIN, DOMAINS_AND_TYPES, DATA_DEVICES
 from .updater import get_update_manager
 
 from .coordinator import BatteryNotesCoordinator
@@ -115,7 +115,7 @@ class BatteryNotesDevice:
         await coordinator.async_config_entry_first_refresh()
 
         self.update_manager = update_manager
-        self.hass.data[DOMAIN].devices[config.entry_id] = self
+        self.hass.data[DOMAIN][DATA_DEVICES].devices[config.entry_id] = self
         self.reset_jobs.append(config.add_update_listener(self.async_update))
 
         # Forward entry setup to related domains.

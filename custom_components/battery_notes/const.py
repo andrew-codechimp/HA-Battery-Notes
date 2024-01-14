@@ -44,6 +44,7 @@ DATA_LIBRARY_UPDATER = "library_updater"
 DATA_LIBRARY_LAST_UPDATE = "library_last_update"
 DATA_COORDINATOR = "coordinator"
 DATA_STORE = "store"
+DATA_DEVICES = "devices"
 
 SERVICE_BATTERY_REPLACED = "set_battery_replaced"
 

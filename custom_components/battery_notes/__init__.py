@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import logging
 from datetime import datetime
+from dataclasses import dataclass, field
 
 import homeassistant.helpers.config_validation as cv
 import voluptuous as vol
@@ -38,6 +39,7 @@ from .const import (
     PLATFORMS,
     CONF_ENABLE_AUTODISCOVERY,
     CONF_USER_LIBRARY,
+    DATA_DEVICES,
     DATA_LIBRARY_UPDATER,
     CONF_SHOW_ALL_DEVICES,
     CONF_ENABLE_REPLACED,
@@ -71,6 +73,13 @@ CONFIG_SCHEMA = vol.Schema(
     },
     extra=vol.ALLOW_EXTRA,
 )
+
+@dataclass
+class BatteryNotesData:
+    """Class for sharing data within the BatteryNotes integration."""
+
+    devices: dict[str, BatteryNotesDevice] = field(default_factory=dict)
+    platforms: dict = field(default_factory=dict)
 
 async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     """Integration setup."""
@@ -111,20 +120,28 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
 
     return True
 
-async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
+async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> bool:
     """Set up a config entry."""
 
-    device = BatteryNotesDevice(hass, entry)
+    device = BatteryNotesDevice(hass, config_entry)
 
-    await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
+    await hass.config_entries.async_forward_entry_setups(config_entry, PLATFORMS)
 
-    entry.async_on_unload(entry.add_update_listener(async_update_options))
+    config_entry.async_on_unload(config_entry.add_update_listener(async_update_options))
 
     # Register custom services
     register_services(hass)
 
     return True
 
+async def async_unload_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> bool:
+    """Unload a config entry."""
+    data: BatteryNotesData = hass.data[DOMAIN][DATA_DEVICES]
+
+    device = data.devices.pop(config_entry.entry_id)
+    result = await device.async_unload()
+
+    return result
 
 async def async_remove_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> None:
     """Device removed, tidy up store."""
