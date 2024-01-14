@@ -1,4 +1,4 @@
-## 536 Devices in library
+## 537 Devices in library
 
 This file is auto generated, do not modify
 
@@ -30,6 +30,7 @@ This file is auto generated, do not modify
 |AEON Labs                                       |ZW122                                                                 |CR123A              |
 |AEON Labs                                       |ZW129                                                                 |Rechargeable        |
 |AEON Labs                                       |ZW130                                                                 |Rechargeable        |
+|Aeotec Ltd.                                     |ZW187                                                                 |CR2                 |
 |Aeotec Ltd.                                     |ZWA003                                                                |LIR2450             |
 |Aeotec Ltd.                                     |ZWA004                                                                |Rechargeable        |
 |Aeotec Ltd.                                     |ZWA005                                                                |CR123A              |
