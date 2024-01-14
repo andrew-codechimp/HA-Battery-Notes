@@ -1934,6 +1934,12 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "SimpliSafe",
+            "model": "Keypad",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
             "manufacturer": "Simplisafe",
             "model": "Leak",
             "battery_type": "CR2032"
@@ -2948,12 +2954,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "SimpliSafe",
-            "model": "Keypad",
-            "battery_type": "AA",
-            "battery_quantity": 4
         }
     ]
 }
