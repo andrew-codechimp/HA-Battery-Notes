@@ -136,7 +136,7 @@ This file is auto generated, do not modify
 |eQ-3                                            |MAX! Radiator Thermostat                                              |2x AA               |
 |eQ-3                                            |MAX! Wall Thermostat                                                  |2x AAA              |
 |eQ-3                                            |MAX! Window Sensor                                                    |2x AAA              |
-|Eurotronic                                      |SPZB0001                                                              |2x AA               |
+|Eurotronic                                      |Spirit Zigbee wireless heater thermostat (SPZB0001)                   |2x AA               |
 |Eurotronics                                     |Spirit                                                                |2x AA               |
 |Eve Systems                                     |Eve Door 20EBN9901                                                    |ER14250             |
 |Everspring                                      |ST812                                                                 |2x AA               |
@@ -432,6 +432,7 @@ This file is auto generated, do not modify
 |TuYa                                            |Luminance motion sensor (ZG-204ZL)                                    |CR2450              |
 |TuYa                                            |Motion sensor (IH012-RT01)                                            |CR2450              |
 |TuYa                                            |Photoelectric smoke detector (PA-44Z)                                 |PP3                 |
+|TuYa                                            |Radiator valve with thermostat (TS0601_thermostat)                    |2x AA               |
 |TuYa                                            |Smart button (IH-K663)                                                |CR2032              |
 |TuYa                                            |Smart knob (ERS-10TZBVK-AA)                                           |CR2032              |
 |TuYa                                            |Smoke sensor (TS0205)                                                 |CR123               |
@@ -450,7 +451,6 @@ This file is auto generated, do not modify
 |tuya                                            |TS0601                                                                |CR2                 |
 |TuYa                                            |TS0601                                                                |2x AAA              |
 |TuYa                                            |TS0601_smoke_1                                                        |2x AAA              |
-|TuYa                                            |TS0601_thermostat                                                     |2x AA               |
 |TuYa                                            |Water leak detector (TS0207_water_leak_detector)                      |CR2032              |
 |TuYa                                            |Wireless switch with 1 button (TS0041)                                |CR2032              |
 |TuYa                                            |Wireless switch with 2 buttons (TS0042)                               |CR2032              |
