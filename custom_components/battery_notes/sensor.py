@@ -57,6 +57,7 @@ from .const import (
     PLATFORMS,
     CONF_BATTERY_TYPE,
     CONF_BATTERY_QUANTITY,
+    DATA,
     DATA_COORDINATOR,
     DATA_STORE,
     LAST_REPLACED,
@@ -150,9 +151,8 @@ async def async_setup_entry(
 
     device_id = async_add_to_device(hass, config_entry)
 
-    store = hass.data[DOMAIN][DATA_STORE]
+    coordinator = hass.data[DOMAIN][DATA].devices[config_entry.entry_id].coordinator
 
-    coordinator = BatteryNotesCoordinator(hass, store)
     coordinator.device_id = config_entry.data.get(CONF_DEVICE_ID)
     coordinator.battery_type = config_entry.data.get(CONF_BATTERY_TYPE)
     try:
@@ -285,7 +285,7 @@ class BatteryNotesBatteryNotedSensor(SensorEntity):
 
         name: str | None = config_entry.title
         if wrapped_battery:
-            name = wrapped_battery.original_name
+            name = wrapped_battery.original_name + "+"
 
         self._device_id = coordinator.device_id
         if coordinator.device_id and (device := device_registry.async_get(coordinator.device_id)):
@@ -441,7 +441,7 @@ class BatteryNotesTypeSensor(RestoreSensor, SensorEntity):
         coordinator: BatteryNotesCoordinator,
         description: BatteryNotesSensorEntityDescription,
         unique_id: str,
-    ) -> None:
+    ) -> None: # pylint: disable=unused-argument
         """Initialize the sensor."""
         super().__init__()
 
@@ -519,7 +519,7 @@ class BatteryNotesLastReplacedSensor(SensorEntity, CoordinatorEntity):
         coordinator: BatteryNotesCoordinator,
         description: BatteryNotesSensorEntityDescription,
         unique_id: str,
-    ) -> None:
+    ) -> None: # pylint: disable=unused-argument
         """Initialize the sensor."""
         super().__init__(coordinator)
         self._attr_device_class = description.device_class

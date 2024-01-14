@@ -37,6 +37,7 @@ from . import PLATFORMS
 from .const import (
     DOMAIN,
     DOMAIN_CONFIG,
+    DATA,
     DATA_COORDINATOR,
     DATA_STORE,
     CONF_ENABLE_REPLACED,
@@ -114,9 +115,7 @@ async def async_setup_entry(
                 device_id, remove_config_entry_id=config_entry.entry_id
             )
 
-    store = hass.data[DOMAIN][DATA_STORE]
-
-    coordinator = BatteryNotesCoordinator(hass, store)
+    coordinator = hass.data[DOMAIN][DATA].devices[config_entry.entry_id].coordinator
 
     config_entry.async_on_unload(
         async_track_entity_registry_updated_event(

@@ -39,7 +39,7 @@ from .const import (
     PLATFORMS,
     CONF_ENABLE_AUTODISCOVERY,
     CONF_USER_LIBRARY,
-    DATA_DEVICES,
+    DATA,
     DATA_LIBRARY_UPDATER,
     CONF_SHOW_ALL_DEVICES,
     CONF_ENABLE_REPLACED,
@@ -106,6 +106,8 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     store = await async_get_registry(hass)
     hass.data[DOMAIN][DATA_STORE] = store
 
+    hass.data[DOMAIN][DATA] = BatteryNotesData()
+
     library_updater = LibraryUpdater(hass)
 
     await library_updater.get_library_updates(dt_util.utcnow())
@@ -118,25 +120,25 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     else:
         _LOGGER.debug("Auto discovery disabled")
 
-    return True
-
-async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> bool:
-    """Set up a config entry."""
-
-    device = BatteryNotesDevice(hass, config_entry)
-
-    await hass.config_entries.async_forward_entry_setups(config_entry, PLATFORMS)
-
-    config_entry.async_on_unload(config_entry.add_update_listener(async_update_options))
-
     # Register custom services
     register_services(hass)
 
     return True
 
+async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> bool:
+    """Set up a config entry."""
+
+    # data: BatteryNotesData = hass.data[DOMAIN][DATA_DEVICES]
+    device: BatteryNotesDevice = BatteryNotesDevice(hass, config_entry)
+
+    if not await device.async_setup():
+        return False
+
+    return True
+
 async def async_unload_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> bool:
     """Unload a config entry."""
-    data: BatteryNotesData = hass.data[DOMAIN][DATA_DEVICES]
+    data: BatteryNotesData = hass.data[DOMAIN][DATA]
 
     device = data.devices.pop(config_entry.entry_id)
     result = await device.async_unload()
