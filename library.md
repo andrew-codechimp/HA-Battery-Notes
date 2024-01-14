@@ -1,4 +1,4 @@
-## 544 Devices in library
+## 545 Devices in library
 
 This file is auto generated, do not modify
 
@@ -358,6 +358,7 @@ This file is auto generated, do not modify
 |Signify Netherlands B.V.                        |SML004                                                                |2x AA               |
 |Simplisafe                                      |Alarm control panel                                                   |4x AA               |
 |Simplisafe                                      |Entry                                                                 |CR2032              |
+|SimpliSafe                                      |Keypad                                                                |4x AA               |
 |Simplisafe                                      |Leak                                                                  |CR2032              |
 |SimpliSafe                                      |Motion                                                                |CR123A              |
 |Simplisafe                                      |Smoke                                                                 |CR123A              |
