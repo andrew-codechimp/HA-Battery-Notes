@@ -1,4 +1,4 @@
-## 547 Devices in library
+## 548 Devices in library
 
 This file is auto generated, do not modify
 
@@ -142,6 +142,7 @@ This file is auto generated, do not modify
 |Everspring                                      |ST812                                                                 |2x AA               |
 |eWeLink                                         |DS01                                                                  |CR2032              |
 |eWeLink                                         |MS01                                                                  |CR2450              |
+|eWeLink                                         |SNZB-01P                                                              |CR2477              |
 |eWeLink                                         |SNZB-02P                                                              |CR2477              |
 |eWeLink                                         |TH01                                                                  |CR2450              |
 |eWeLink                                         |WB01                                                                  |CR2450              |
