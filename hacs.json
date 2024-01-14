@@ -4,5 +4,6 @@
     "hide_default_branch": true,
     "homeassistant": "2023.8.0",
     "render_readme": true,
-    "zip_release": true
+    "zip_release": true,
+    "persistent_directory": "data"
 }
