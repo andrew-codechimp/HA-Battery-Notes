@@ -1,4 +1,4 @@
-## 551 Devices in library
+## 552 Devices in library
 
 This file is auto generated, do not modify
 
@@ -464,6 +464,7 @@ This file is auto generated, do not modify
 |TUYATEC-xrvzm3yI                                |RH3001                                                                |CR2032              |
 |Ultraloq                                        |U-BOLT-PRO-ZWAVE                                                      |4x AA               |
 |Universal Electronics Inc                       |URC4470BC0-X-R                                                        |2x CR123A           |
+|unk_manufacturer                                |lumi.remote.b28ac1                                                    |CR2450              |
 |VictorPest.com                                  |Rat Trap                                                              |4x C                |
 |Vision Security                                 |ZD2102-5                                                              |CR123A              |
 |Vision Security                                 |ZD2105                                                                |CR2                 |
