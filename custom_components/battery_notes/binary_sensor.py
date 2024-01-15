@@ -4,6 +4,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from datetime import datetime
 
+import logging
 import voluptuous as vol
 
 from homeassistant.config_entries import ConfigEntry
@@ -52,6 +53,8 @@ from .coordinator import BatteryNotesCoordinator
 from .entity import (
     BatteryNotesEntityDescription,
 )
+
+_LOGGER = logging.getLogger(__name__)
 
 
 @dataclass
@@ -216,11 +219,10 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
             )
 
     @callback
-    def async_state_changed_listener(
+    async def async_state_changed_listener(
         self, event: EventType[EventStateChangedData] | None = None
     ) -> None:
         """Handle child updates."""
-        updated = False
 
         if not self._battery_entity_id:
             return
@@ -231,26 +233,31 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
             self._attr_available = False
             return
 
+        _LOGGER.debug(
+            "%s Battery State Changed to %s",
+            self._battery_entity_id,
+            wrapped_battery_state.state,
+        )
+
         self.coordinator.set_battery_low(bool(int(wrapped_battery_state.state) < 100))
 
         self._attr_is_on = self.coordinator.battery_low
 
         self._attr_available = True
 
-        updated = True
+        self.async_write_ha_state()
 
-        if updated:
-            self.async_write_ha_state()
+        await self.coordinator.async_request_refresh()
 
     async def async_added_to_hass(self) -> None:
         """Handle added to Hass."""
 
         @callback
-        def _async_state_changed_listener(
+        async def _async_state_changed_listener(
             event: EventType[EventStateChangedData] | None = None,
         ) -> None:
             """Handle child updates."""
-            self.async_state_changed_listener(event)
+            await self.async_state_changed_listener(event)
 
         if self._battery_entity_id:
             self.async_on_remove(
