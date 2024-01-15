@@ -3,7 +3,6 @@ from contextlib import suppress
 from functools import partial
 import logging
 
-
 from homeassistant.config_entries import SOURCE_REAUTH, ConfigEntry
 from homeassistant.const import (
     CONF_NAME,
@@ -12,7 +11,19 @@ from homeassistant.const import (
 )
 from homeassistant.core import CALLBACK_TYPE, HomeAssistant
 from homeassistant.exceptions import ConfigEntryNotReady
-from homeassistant.helpers import device_registry as dr
+from homeassistant.helpers import (
+    device_registry as dr,
+    entity_registry as er,
+)
+from homeassistant.helpers.entity_registry import RegistryEntry
+
+from homeassistant.components.sensor import DOMAIN as SENSOR_DOMAIN
+from homeassistant.components.binary_sensor import DOMAIN as BINARY_SENSOR_DOMAIN
+
+from homeassistant.const import (
+    CONF_DEVICE_ID,
+    DEVICE_CLASS_BATTERY,
+)
 
 from .const import (
     PLATFORMS,
@@ -34,6 +45,7 @@ class BatteryNotesDevice:
 
     store: BatteryNotesStorage = None
     coordinator: BatteryNotesCoordinator = None
+    wrapped_battery: RegistryEntry = None
 
     def __init__(self, hass: HomeAssistant, config: ConfigEntry) -> None:
         """Initialize the device."""
@@ -70,15 +82,31 @@ class BatteryNotesDevice:
         """Set up the device and related entities."""
         config = self.config
 
+        device_id = config.data.get(CONF_DEVICE_ID)
+
         self.store = self.hass.data[DOMAIN][DATA_STORE]
         self.coordinator = BatteryNotesCoordinator(self.hass, self.store)
 
-        self.coordinator.device_id = config.data.get(CONF_DEVICE_ID)
+        self.coordinator.device_id = device_id
         self.coordinator.battery_type = config.data.get(CONF_BATTERY_TYPE)
         try:
             self.coordinator.battery_quantity = int(config.data.get(CONF_BATTERY_QUANTITY))
         except ValueError:
             self.coordinator.battery_quantity = 1
+
+        entity_registry = er.async_get(self.hass)
+        for entity in entity_registry.entities.values():
+            if not entity.device_id or entity.device_id != device_id:
+                continue
+            if not entity.domain or not entity.domain in {BINARY_SENSOR_DOMAIN, SENSOR_DOMAIN}:
+                continue
+            if not entity.platform or entity.platform == DOMAIN:
+                continue
+            device_class = entity.device_class or entity.original_device_class
+            if not device_class == DEVICE_CLASS_BATTERY:
+                continue
+
+            self.wrapped_battery = entity_registry.async_get(entity.entity_id)
 
         self.hass.data[DOMAIN][DATA].devices[config.entry_id] = self
         self.reset_jobs.append(config.add_update_listener(self.async_update))

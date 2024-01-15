@@ -44,6 +44,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
 
     async def _async_update_data(self):
         """Update data."""
+        self.async_set_updated_data(None)
 
         _LOGGER.debug("Update coordinator")
 
