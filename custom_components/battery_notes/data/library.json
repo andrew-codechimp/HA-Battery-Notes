@@ -2976,6 +2976,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "TuYa",
+            "model": "Smart button (MINI-ZSB)",
+            "battery_type": "CR2032"
         }
     ]
 }
