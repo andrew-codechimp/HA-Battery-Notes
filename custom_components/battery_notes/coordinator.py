@@ -4,9 +4,13 @@ from __future__ import annotations
 import logging
 from datetime import datetime
 
+from homeassistant.helpers.entity_registry import RegistryEntry
+
 from homeassistant.helpers.update_coordinator import (
     DataUpdateCoordinator,
 )
+
+from .store import BatteryNotesStorage
 
 from .const import (
     DOMAIN,
@@ -24,10 +28,13 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
     battery_type: str
     battery_quantity: int
 
-    def __init__(self, hass, store):
+    def __init__(
+        self, hass, store: BatteryNotesStorage, wrapped_battery: RegistryEntry
+    ):
         """Initialize."""
         self.hass = hass
         self.store = store
+        self.wrapped_battery = wrapped_battery
 
         super().__init__(hass, _LOGGER, name=DOMAIN)
 

@@ -84,16 +84,7 @@ class BatteryNotesDevice:
 
         device_id = config.data.get(CONF_DEVICE_ID)
 
-        self.store = self.hass.data[DOMAIN][DATA_STORE]
-        self.coordinator = BatteryNotesCoordinator(self.hass, self.store)
-
-        self.coordinator.device_id = device_id
-        self.coordinator.battery_type = config.data.get(CONF_BATTERY_TYPE)
-        try:
-            self.coordinator.battery_quantity = int(config.data.get(CONF_BATTERY_QUANTITY))
-        except ValueError:
-            self.coordinator.battery_quantity = 1
-
+        # Find a battery for this device
         entity_registry = er.async_get(self.hass)
         for entity in entity_registry.entities.values():
             if not entity.device_id or entity.device_id != device_id:
@@ -107,6 +98,16 @@ class BatteryNotesDevice:
                 continue
 
             self.wrapped_battery = entity_registry.async_get(entity.entity_id)
+
+        self.store = self.hass.data[DOMAIN][DATA_STORE]
+        self.coordinator = BatteryNotesCoordinator(self.hass, self.store, self.wrapped_battery)
+
+        self.coordinator.device_id = device_id
+        self.coordinator.battery_type = config.data.get(CONF_BATTERY_TYPE)
+        try:
+            self.coordinator.battery_quantity = int(config.data.get(CONF_BATTERY_QUANTITY))
+        except ValueError:
+            self.coordinator.battery_quantity = 1
 
         self.hass.data[DOMAIN][DATA].devices[config.entry_id] = self
         self.reset_jobs.append(config.add_update_listener(self.async_update))
