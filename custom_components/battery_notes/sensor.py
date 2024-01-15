@@ -10,6 +10,7 @@ from homeassistant.components.homeassistant import exposed_entities
 from homeassistant.components.sensor import (
     PLATFORM_SCHEMA,
     SensorDeviceClass,
+    SensorStateClass,
     SensorEntity,
     SensorEntityDescription,
     RestoreSensor,
@@ -293,7 +294,7 @@ class BatteryNotesBatteryNotedSensor(SensorEntity):
         self._battery_entity_id = wrapped_battery.entity_id if wrapped_battery else None
 
         self._attr_device_class = SensorDeviceClass.BATTERY
-        self._attr_state_class = SensorDeviceClass.BATTERY
+        self._attr_state_class = SensorStateClass.MEASUREMENT
         self._attr_native_unit_of_measurement = PERCENTAGE
 
 
@@ -307,6 +308,9 @@ class BatteryNotesBatteryNotedSensor(SensorEntity):
     ) -> None:
         """Handle child updates."""
         updated = False
+
+        if not self._battery_entity_id:
+            return
 
         if (
             state := self.hass.states.get(self._battery_entity_id)
@@ -349,18 +353,19 @@ class BatteryNotesBatteryNotedSensor(SensorEntity):
             """Handle child updates."""
             self.async_state_changed_listener(event)
 
-        self.async_on_remove(
-            async_track_state_change_event(
-                self.hass, [self._battery_entity_id], _async_state_changed_listener
+        if self._battery_entity_id:
+            self.async_on_remove(
+                async_track_state_change_event(
+                    self.hass, [self._battery_entity_id], _async_state_changed_listener
+                )
             )
-        )
 
         # Call once on adding
         _async_state_changed_listener()
 
         # Update entity options
         registry = er.async_get(self.hass)
-        if registry.async_get(self.entity_id) is not None:
+        if registry.async_get(self.entity_id) is not None and self._battery_entity_id:
             registry.async_update_entity_options(
                 self.entity_id,
                 DOMAIN,
@@ -399,11 +404,11 @@ class BatteryNotesBatteryNotedSensor(SensorEntity):
         copy_custom_name(wrapped_battery)
         copy_expose_settings()
 
-    # @callback
-    # def _handle_coordinator_update(self) -> None:
-    #     """Handle updated data from the coordinator."""
+    @callback
+    def _handle_coordinator_update(self) -> None:
+        """Handle updated data from the coordinator."""
 
-    #     self.async_schedule_update_ha_state(force_refresh =True)
+        self.async_schedule_update_ha_state(force_refresh =True)
 
     @property
     def native_value(self) -> int | None:
