@@ -267,7 +267,7 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
             )
 
         # Call once on adding
-        _async_state_changed_listener()
+        await _async_state_changed_listener()
 
         # Update entity options
         registry = er.async_get(self.hass)
