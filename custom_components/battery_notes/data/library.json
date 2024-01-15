@@ -2992,6 +2992,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "_TZ1800_fcdjzz3s",
+            "model": "TY0202",
+            "battery_type": "AA",
+            "battery_quantity": 2
         }
     ]
 }
