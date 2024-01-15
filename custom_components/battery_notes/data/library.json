@@ -1381,6 +1381,12 @@
             "battery_type": "CR2477"
         },
         {
+            "manufacturer": "modkam.ru",
+            "model": "DIYRuZ_Flower",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Moes",
             "model": "Smoke sensor (ZSS-HM-SSD01)",
             "battery_type": "CR123A"
@@ -2976,12 +2982,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "modkam.ru",
-            "model": "DIYRuZ_Flower",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
