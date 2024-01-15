@@ -14,7 +14,11 @@
             "battery": {
                 "data": {
                     "battery_type": "Batteri type",
-                    "battery_quantity": "Antal batterier"
+                    "battery_quantity": "Antal batterier",
+                    "battery_low_threshold": "Lav tærskel for batteri"
+                },
+                "data_description": {
+                    "battery_low_threshold": "0 vil bruge den globale standardtærskel"
                 }
             }
         },
@@ -32,10 +36,12 @@
                 "data": {
                     "name": "Navn",
                     "battery_type": "Batteri type",
-                    "battery_quantity": "Antal batterier"
+                    "battery_quantity": "Antal batterier",
+                    "battery_low_threshold": "Lav tærskel for batteri"
                 },
                 "data_description": {
-                    "name": "Hvis du lader det være tomt, hentes navnet fra kildeenheden"
+                    "name": "Hvis du lader det være tomt, hentes navnet fra kildeenheden",
+                    "battery_low_threshold": "0 vil bruge den globale standardtærskel"
                 }
             }
         },
@@ -46,7 +52,12 @@
     "entity": {
         "binary_sensor": {
             "battery_low": {
-                "name": "Lavt batteri"
+                "name": "Lavt batteri",
+                "state_attributes": {
+                    "battery_low_threshold": {
+                        "name": "Lav tærskel for batteri"
+                    }
+                }
             }
         },
         "button": {
@@ -69,6 +80,9 @@
                     },
                     "battery_low": {
                         "name": "Lavt batteri"
+                    },
+                    "battery_low_threshold": {
+                        "name": "Lav tærskel for batteri"
                     }
                 }
             },

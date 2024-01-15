@@ -14,7 +14,11 @@
             "battery": {
                 "data": {
                     "battery_type": "Typ baterii",
-                    "battery_quantity": "Liczba baterii"
+                    "battery_quantity": "Liczba baterii",
+                    "battery_low_threshold": "Próg niskiego poziomu baterii"
+                },
+                "data_description": {
+                    "battery_low_threshold": "0 will use the global default threshold"
                 }
             }
         },
@@ -32,10 +36,12 @@
                 "data": {
                     "name": "Nazwa",
                     "battery_type": "Typ baterii",
-                    "battery_quantity": "Liczba baterii"
+                    "battery_quantity": "Liczba baterii",
+                    "battery_low_threshold": "Próg niskiego poziomu baterii"
                 },
                 "data_description": {
-                    "name": "Pozostawienie pustego pola spowoduje pobranie nazwy z urządzenia źródłowego"
+                    "name": "Pozostawienie pustego pola spowoduje pobranie nazwy z urządzenia źródłowego",
+                    "battery_low_threshold": "0 will use the global default threshold"
                 }
             }
         },
@@ -46,7 +52,12 @@
     "entity": {
         "binary_sensor": {
             "battery_low": {
-                "name": "Niski poziom baterii"
+                "name": "Niski poziom baterii",
+                "state_attributes": {
+                    "battery_low_threshold": {
+                        "name": "Próg niskiego poziomu baterii"
+                    }
+                }
             }
         },
         "button": {
@@ -69,6 +80,9 @@
                     },
                     "battery_low": {
                         "name": "Niski poziom baterii"
+                    },
+                    "battery_low_threshold": {
+                        "name": "Próg niskiego poziomu baterii"
                     }
                 }
             },
