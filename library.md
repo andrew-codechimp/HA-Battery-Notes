@@ -1,4 +1,4 @@
-## 550 Devices in library
+## 551 Devices in library
 
 This file is auto generated, do not modify
 
@@ -436,6 +436,7 @@ This file is auto generated, do not modify
 |TuYa                                            |Photoelectric smoke detector (PA-44Z)                                 |PP3                 |
 |TuYa                                            |Radiator valve with thermostat (TS0601_thermostat)                    |2x AA               |
 |TuYa                                            |Smart button (IH-K663)                                                |CR2032              |
+|TuYa                                            |Smart button (MINI-ZSB)                                               |CR2032              |
 |TuYa                                            |Smart knob (ERS-10TZBVK-AA)                                           |CR2032              |
 |TuYa                                            |Smoke sensor (TS0205)                                                 |CR123               |
 |TuYa                                            |Smoke sensor (TS0601_smoke_1)                                         |2x AAA              |

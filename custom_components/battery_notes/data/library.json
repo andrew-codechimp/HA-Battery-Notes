@@ -2360,6 +2360,11 @@
         },
         {
             "manufacturer": "TuYa",
+            "model": "Smart button (MINI-ZSB)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "TuYa",
             "model": "Smart knob (ERS-10TZBVK-AA)",
             "battery_type": "CR2032"
         },
@@ -2982,11 +2987,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "TuYa",
-            "model": "Smart button (MINI-ZSB)",
-            "battery_type": "CR2032"
         }
     ]
 }
