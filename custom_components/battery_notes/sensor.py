@@ -397,7 +397,7 @@ class BatteryNotesBatteryNotedSensor(
             self.coordinator.async_add_listener(self._handle_coordinator_update)
         )
 
-        self.coordinator.async_config_entry_first_refresh()
+        await self.coordinator.async_config_entry_first_refresh()
 
     @callback
     def _handle_coordinator_update(self) -> None:

@@ -271,7 +271,7 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
                 {"entity_id": self._battery_entity_id},
             )
 
-        self.coordinator.async_config_entry_first_refresh()
+        await self.coordinator.async_config_entry_first_refresh()
 
     @property
     def extra_state_attributes(self) -> dict[str, str] | None:
