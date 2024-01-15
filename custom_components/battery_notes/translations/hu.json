@@ -18,7 +18,7 @@
                     "battery_low_threshold": "Az akkumulátor alacsony küszöbértéke"
                 },
                 "data_description": {
-                    "battery_low_threshold": "0 will use the global default threshold"
+                    "battery_low_threshold": "A 0 a globális alapértelmezett küszöböt fogja használni"
                 }
             }
         },
@@ -41,7 +41,7 @@
                 },
                 "data_description": {
                     "name": "Üresen hagyva a forrás eszköz neve lesz használva",
-                    "battery_low_threshold": "0 will use the global default threshold"
+                    "battery_low_threshold": "A 0 a globális alapértelmezett küszöböt fogja használni"
                 }
             }
         },
