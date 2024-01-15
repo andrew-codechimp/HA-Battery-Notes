@@ -5,7 +5,6 @@ import logging
 from datetime import datetime
 from dataclasses import dataclass
 import voluptuous as vol
-from contextlib import suppress
 
 from homeassistant.components.homeassistant import exposed_entities
 from homeassistant.components.sensor import (
@@ -47,9 +46,7 @@ from homeassistant.components.binary_sensor import DOMAIN as BINARY_SENSOR_DOMAI
 from homeassistant.const import (
     CONF_NAME,
     CONF_DEVICE_ID,
-    DEVICE_CLASS_BATTERY,
     STATE_UNAVAILABLE,
-    STATE_UNKNOWN,
     PERCENTAGE,
 )
 
@@ -59,8 +56,6 @@ from .const import (
     CONF_BATTERY_TYPE,
     CONF_BATTERY_QUANTITY,
     DATA,
-    DATA_COORDINATOR,
-    DATA_STORE,
     LAST_REPLACED,
     DOMAIN_CONFIG,
     CONF_ENABLE_REPLACED,
@@ -68,6 +63,7 @@ from .const import (
     ATTR_BATTERY_TYPE,
     ATTR_BATTERY_LAST_REPLACED,
     ATTR_BATTERY_LOW,
+    ATTR_BATTERY_LOW_THRESHOLD,
 )
 
 from .device import BatteryNotesDevice
@@ -420,6 +416,7 @@ class BatteryNotesBatteryNotedSensor(
             ATTR_BATTERY_TYPE: self.coordinator.battery_type,
             ATTR_BATTERY_LAST_REPLACED: self.coordinator.last_replaced,
             ATTR_BATTERY_LOW: self.coordinator.battery_low,
+            ATTR_BATTERY_LOW_THRESHOLD: self.coordinator.battery_low_threshold,
         }
 
         super_attrs = super().extra_state_attributes

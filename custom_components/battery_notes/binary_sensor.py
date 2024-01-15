@@ -43,6 +43,7 @@ from .const import (
     DOMAIN_CONFIG,
     DATA,
     CONF_ENABLE_REPLACED,
+    ATTR_BATTERY_LOW_THRESHOLD,
 )
 
 from .device import BatteryNotesDevice
@@ -271,3 +272,16 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
             )
 
         self.coordinator.async_config_entry_first_refresh()
+
+    @property
+    def extra_state_attributes(self) -> dict[str, str] | None:
+        """Return the state attributes of battery low."""
+
+        attrs = {
+            ATTR_BATTERY_LOW_THRESHOLD: self.coordinator.battery_low_threshold,
+        }
+
+        super_attrs = super().extra_state_attributes
+        if super_attrs:
+            attrs.update(super_attrs)
+        return attrs

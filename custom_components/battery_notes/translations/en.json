@@ -14,7 +14,11 @@
             "battery": {
                 "data": {
                     "battery_type": "Battery type",
-                    "battery_quantity": "Battery quantity"
+                    "battery_quantity": "Battery quantity",
+                    "battery_low_threshold": "Low battery threshold"
+                },
+                "data_description": {
+                    "battery_low_threshold": "0 will use the global default threshold"
                 }
             }
         },
@@ -32,10 +36,12 @@
                 "data": {
                     "name": "Name",
                     "battery_type": "Battery type",
-                    "battery_quantity": "Battery quantity"
+                    "battery_quantity": "Battery quantity",
+                    "battery_low_threshold": "Low battery threshold"
                 },
                 "data_description": {
-                    "name": "Leaving blank will take the name from the source device"
+                    "name": "Leaving blank will take the name from the source device",
+                    "battery_low_threshold": "0 will use the global default threshold"
                 }
             }
         },
@@ -46,7 +52,12 @@
     "entity": {
         "binary_sensor": {
             "battery_low": {
-                "name": "Battery low"
+                "name": "Battery low",
+                "state_attributes": {
+                    "battery_low_threshold": {
+                        "name": "Battery low threshold"
+                    }
+                }
             }
         },
         "button": {
@@ -69,6 +80,9 @@
                     },
                     "battery_low": {
                         "name": "Battery low"
+                    },
+                    "battery_low_threshold": {
+                        "name": "Battery low threshold"
                     }
                 }
             },

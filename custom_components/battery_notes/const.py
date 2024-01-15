@@ -28,6 +28,7 @@ DEFAULT_BATTERY_LOW_THRESHOLD = 10
 
 CONF_BATTERY_TYPE = "battery_type"
 CONF_BATTERY_QUANTITY = "battery_quantity"
+CONF_BATTERY_LOW_THRESHOLD = "battery_low_threshold"
 CONF_SENSORS = "sensors"
 CONF_ENABLE_AUTODISCOVERY = "enable_autodiscovery"
 CONF_USER_LIBRARY = "user_library"
@@ -58,6 +59,7 @@ ATTR_BATTERY_QUANTITY = "battery_quantity"
 ATTR_BATTERY_TYPE = "battery_type"
 ATTR_BATTERY_LAST_REPLACED = "battery_last_replaced"
 ATTR_BATTERY_LOW = "battery_low"
+ATTR_BATTERY_LOW_THRESHOLD = "battery_low_threshold"
 
 SERVICE_BATTERY_REPLACED_SCHEMA = vol.Schema(
     {

@@ -14,8 +14,11 @@ from .store import BatteryNotesStorage
 
 from .const import (
     DOMAIN,
+    DOMAIN_CONFIG,
     ATTR_REMOVE,
     LAST_REPLACED,
+    CONF_BATTERY_LOW_THRESHOLD,
+    CONF_DEFAULT_BATTERY_LOW_THRESHOLD,
 )
 
 _LOGGER = logging.getLogger(__name__)
@@ -28,6 +31,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
     battery_type: str
     battery_quantity: int
     battery_low: bool
+    battery_low_threshold: int
 
     def __init__(
         self, hass, store: BatteryNotesStorage, wrapped_battery: RegistryEntry
