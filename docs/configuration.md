@@ -16,7 +16,7 @@ Name | Type | Requirement | Default | Description |
 enable_autodiscovery | Boolean | Optional | True | If set to true will automatically match devices against the library and create a setup flow within the integrations page. |
 show_all_devices | Boolean | Optional | False | If set to true will show all devices in the manual add dropdown, rather than just those with batteries. |
 enable_replaced | Boolean | Optional | True | If set to false new devices added to battery notes will have the battery replaced sensor and button disabled.  Any devices you have previously added to Battery Notes you will have to disable these sensors manually, which also means you can enable specific sensors of important ones you want to track. |
-user_library | String | Optional |  | If specified then a user library file will be searched prior to the main library, the user library must be in the same format as the library and placed in the same folder. Only really used for dev purposes, if you are using HACS your user_library will be removed on updates. |
+user_library | String | Optional |  | If specified then a user library file will be searched prior to the main library, the user library must be in the same format as the library and placed in the same folder. Only really used for dev purposes. |
 
 # Debug Logging
 
