@@ -24,6 +24,8 @@ LAST_REPLACED = "battery_last_replaced"
 
 DOMAIN_CONFIG = "config"
 
+DEFAULT_BATTERY_LOW_THRESHOLD = 10
+
 CONF_BATTERY_TYPE = "battery_type"
 CONF_BATTERY_QUANTITY = "battery_quantity"
 CONF_SENSORS = "sensors"
@@ -35,6 +37,7 @@ CONF_DEVICE_NAME = "device_name"
 CONF_LIBRARY_URL = "https://raw.githubusercontent.com/andrew-codechimp/HA-Battery-Notes/main/custom_components/battery_notes/data/library.json"  # pylint: disable=line-too-long
 CONF_SHOW_ALL_DEVICES = "show_all_devices"
 CONF_ENABLE_REPLACED = "enable_replaced"
+CONF_DEFAULT_BATTERY_LOW_THRESHOLD = "default_battery_low_threshold"
 
 DATA_CONFIGURED_ENTITIES = "configured_entities"
 DATA_DISCOVERED_ENTITIES = "discovered_entities"
@@ -54,15 +57,17 @@ ATTR_REMOVE = "remove"
 ATTR_BATTERY_QUANTITY = "battery_quantity"
 ATTR_BATTERY_TYPE = "battery_type"
 ATTR_BATTERY_LAST_REPLACED = "battery_last_replaced"
+ATTR_BATTERY_LOW = "battery_low"
 
 SERVICE_BATTERY_REPLACED_SCHEMA = vol.Schema(
     {
         vol.Required(ATTR_DEVICE_ID): cv.string,
-        vol.Optional(SERVICE_DATA_DATE_TIME_REPLACED): cv.datetime
+        vol.Optional(SERVICE_DATA_DATE_TIME_REPLACED): cv.datetime,
     }
 )
 
 PLATFORMS: Final = [
     Platform.BUTTON,
     Platform.SENSOR,
+    Platform.BINARY_SENSOR,
 ]

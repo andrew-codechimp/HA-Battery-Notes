@@ -15,11 +15,9 @@ from homeassistant.components.sensor import (
     SensorEntity,
     SensorEntityDescription,
     RestoreSensor,
-    Entity,
 )
 
 # from homeassistant.components import state_changes_during_period
-from homeassistant.components.recorder import get_instance, history
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_ENTITY_ID
 from homeassistant.core import HomeAssistant, callback, Event
@@ -69,6 +67,7 @@ from .const import (
     ATTR_BATTERY_QUANTITY,
     ATTR_BATTERY_TYPE,
     ATTR_BATTERY_LAST_REPLACED,
+    ATTR_BATTERY_LOW,
 )
 
 from .device import BatteryNotesDevice
@@ -327,26 +326,12 @@ class BatteryNotesBatteryNotedSensor(
             self._attr_available = False
             return
 
-        print(wrapped_battery_state)
-        # self._native_value = state.state
         self._attr_native_value = wrapped_battery_state.state
         self._wrapped_attributes = wrapped_battery_state.attributes
 
         self._attr_available = True
 
         updated = True
-
-        # history_list = history.state_changes_during_period(
-        #     self.hass,
-        #     datetime.datetime.now() - datetime.timedelta(hours=1),
-        #     entity_id=self._battery_entity_id,
-        #     no_attributes=True,
-        # )
-        # for state in history_list.get(self._battery_entity_id, []):
-        #     # filter out all None, NaN and "unknown" states
-        #     # only keep real values
-        #     with suppress(ValueError):
-        #         print(int(state.state))
 
         if updated:
             self.async_write_ha_state()
@@ -434,6 +419,7 @@ class BatteryNotesBatteryNotedSensor(
             ATTR_BATTERY_QUANTITY: self.coordinator.battery_quantity,
             ATTR_BATTERY_TYPE: self.coordinator.battery_type,
             ATTR_BATTERY_LAST_REPLACED: self.coordinator.last_replaced,
+            ATTR_BATTERY_LOW: self.coordinator.battery_low,
         }
 
         super_attrs = super().extra_state_attributes

@@ -27,6 +27,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
     device_id: str
     battery_type: str
     battery_quantity: int
+    battery_low: bool
 
     def __init__(
         self, hass, store: BatteryNotesStorage, wrapped_battery: RegistryEntry
@@ -35,6 +36,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
         self.hass = hass
         self.store = store
         self.wrapped_battery = wrapped_battery
+        self.battery_low = False
 
         super().__init__(hass, _LOGGER, name=DOMAIN)
 
@@ -48,6 +50,13 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
                 )
                 return last_replaced_date
         return None
+
+    def set_battery_low(self, value: bool):
+        self.battery_low = value
+
+    # @property
+    # def battery_low(self) -> bool:
+    #     return self._battery_low
 
     async def _async_update_data(self):
         """Update data."""

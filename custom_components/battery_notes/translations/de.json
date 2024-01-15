@@ -44,12 +44,34 @@
         }
     },
     "entity": {
+        "binary_sensor": {
+            "battery_low": {
+                "name": "Akku fast leer"
+            }
+        },
         "button": {
             "battery_replaced": {
                 "name": "Batterie ersetzt"
             }
         },
         "sensor": {
+            "battery_noted": {
+                "name": "Batterie",
+                "state_attributes": {
+                    "battery_type": {
+                        "name": "Batterieart"
+                    },
+                    "battery_quantity": {
+                        "name": "Batteriemenge"
+                    },
+                    "battery_last_replaced": {
+                        "name": "Batterie zuletzt ersetzt"
+                    },
+                    "battery_low": {
+                        "name": "Akku fast leer"
+                    }
+                }
+            },
             "battery_type": {
                 "name": "Batterieart",
                 "state_attributes": {

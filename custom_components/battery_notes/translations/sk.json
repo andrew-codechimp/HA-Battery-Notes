@@ -44,12 +44,34 @@
         }
     },
     "entity": {
+        "binary_sensor": {
+            "battery_low": {
+                "name": "Slabá batéria"
+            }
+        },
         "button": {
             "battery_replaced": {
                 "name": "Batéria vymenená"
             }
         },
         "sensor": {
+            "battery_noted": {
+                "name": "Batéria",
+                "state_attributes": {
+                    "battery_type": {
+                        "name": "Typ batérie"
+                    },
+                    "battery_quantity": {
+                        "name": "Množstvo batérie"
+                    },
+                    "battery_last_replaced": {
+                        "name": "Batéria naposledy vymenená"
+                    },
+                    "battery_low": {
+                        "name": "Slabá batéria"
+                    }
+                }
+            },
             "battery_type": {
                 "name": "Typ batérie",
                 "state_attributes": {

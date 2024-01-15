@@ -44,12 +44,34 @@
         }
     },
     "entity": {
+        "binary_sensor": {
+            "battery_low": {
+                "name": "Niski poziom baterii"
+            }
+        },
         "button": {
             "battery_replaced": {
                 "name": "Wymiana baterii"
             }
         },
         "sensor": {
+            "battery_noted": {
+                "name": "Bateria",
+                "state_attributes": {
+                    "battery_type": {
+                        "name": "Typ baterii"
+                    },
+                    "battery_quantity": {
+                        "name": "Liczba baterii"
+                    },
+                    "battery_last_replaced": {
+                        "name": "Ostatnia wymiana baterii"
+                    },
+                    "battery_low": {
+                        "name": "Niski poziom baterii"
+                    }
+                }
+            },
             "battery_type": {
                 "name": "Typ baterii",
                 "state_attributes": {

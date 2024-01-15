@@ -44,12 +44,34 @@
         }
     },
     "entity": {
+        "binary_sensor": {
+            "battery_low": {
+                "name": "Lavt batteri"
+            }
+        },
         "button": {
             "battery_replaced": {
                 "name": "Batteri udskiftet"
             }
         },
         "sensor": {
+            "battery_noted": {
+                "name": "Batteri",
+                "state_attributes": {
+                    "battery_type": {
+                        "name": "Batteri type"
+                    },
+                    "battery_quantity": {
+                        "name": "Antal batterier"
+                    },
+                    "battery_last_replaced": {
+                        "name": "Batteri sidst skiftet"
+                    },
+                    "battery_low": {
+                        "name": "Lavt batteri"
+                    }
+                }
+            },
             "battery_type": {
                 "name": "Batteri type",
                 "state_attributes": {

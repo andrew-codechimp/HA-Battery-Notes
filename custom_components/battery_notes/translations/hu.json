@@ -44,12 +44,34 @@
         }
     },
     "entity": {
+        "binary_sensor": {
+            "battery_low": {
+                "name": "Lemerült elem"
+            }
+        },
         "button": {
             "battery_replaced": {
                 "name": "Elem cserélve"
             }
         },
         "sensor": {
+            "battery_noted": {
+                "name": "Akkumulátor",
+                "state_attributes": {
+                    "battery_type": {
+                        "name": "Elem típus"
+                    },
+                    "battery_quantity": {
+                        "name": "Az akkumulátor mennyisége"
+                    },
+                    "battery_last_replaced": {
+                        "name": "Utolsó elemcsere"
+                    },
+                    "battery_low": {
+                        "name": "Lemerült elem"
+                    }
+                }
+            },
             "battery_type": {
                 "name": "Elem típus",
                 "state_attributes": {

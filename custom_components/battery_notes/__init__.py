@@ -43,6 +43,8 @@ from .const import (
     DATA_LIBRARY_UPDATER,
     CONF_SHOW_ALL_DEVICES,
     CONF_ENABLE_REPLACED,
+    CONF_DEFAULT_BATTERY_LOW_THRESHOLD,
+    DEFAULT_BATTERY_LOW_THRESHOLD,
     SERVICE_BATTERY_REPLACED,
     SERVICE_BATTERY_REPLACED_SCHEMA,
     SERVICE_DATA_DATE_TIME_REPLACED,
@@ -67,6 +69,10 @@ CONFIG_SCHEMA = vol.Schema(
                     vol.Optional(CONF_USER_LIBRARY, default=""): cv.string,
                     vol.Optional(CONF_SHOW_ALL_DEVICES, default=False): cv.boolean,
                     vol.Optional(CONF_ENABLE_REPLACED, default=True): cv.boolean,
+                    vol.Optional(
+                        CONF_DEFAULT_BATTERY_LOW_THRESHOLD,
+                        default=DEFAULT_BATTERY_LOW_THRESHOLD,
+                    ): cv.positive_int,
                 },
             ),
         ),
@@ -74,12 +80,14 @@ CONFIG_SCHEMA = vol.Schema(
     extra=vol.ALLOW_EXTRA,
 )
 
+
 @dataclass
 class BatteryNotesData:
     """Class for sharing data within the BatteryNotes integration."""
 
     devices: dict[str, BatteryNotesDevice] = field(default_factory=dict)
     platforms: dict = field(default_factory=dict)
+
 
 async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     """Integration setup."""
@@ -97,6 +105,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         CONF_ENABLE_AUTODISCOVERY: True,
         CONF_SHOW_ALL_DEVICES: False,
         CONF_ENABLE_REPLACED: True,
+        CONF_DEFAULT_BATTERY_LOW_THRESHOLD: DEFAULT_BATTERY_LOW_THRESHOLD,
     }
 
     hass.data[DOMAIN] = {
@@ -125,6 +134,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
 
     return True
 
+
 async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> bool:
     """Set up a config entry."""
 
@@ -136,6 +146,7 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
 
     return True
 
+
 async def async_unload_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> bool:
     """Unload a config entry."""
     data: BatteryNotesData = hass.data[DOMAIN][DATA]
@@ -144,6 +155,7 @@ async def async_unload_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> 
     result = await device.async_unload()
 
     return result
+
 
 async def async_remove_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> None:
     """Device removed, tidy up store."""
@@ -199,6 +211,7 @@ async def async_migrate_entry(hass, config_entry: ConfigEntry):
 
     return True
 
+
 @callback
 async def async_update_options(hass: HomeAssistant, entry: ConfigEntry) -> None:
     """Update options."""
@@ -220,7 +233,9 @@ def register_services(hass):
         datetime_replaced_entry = call.data.get(SERVICE_DATA_DATE_TIME_REPLACED)
 
         if datetime_replaced_entry:
-            datetime_replaced = dt_util.as_utc(datetime_replaced_entry).replace(tzinfo=None)
+            datetime_replaced = dt_util.as_utc(datetime_replaced_entry).replace(
+                tzinfo=None
+            )
         else:
             datetime_replaced = datetime.utcnow()
 
@@ -234,8 +249,9 @@ def register_services(hass):
             if (
                 entry := hass.config_entries.async_get_entry(entry_id)
             ) and entry.domain == DOMAIN:
-
-                coordinator: BatteryNotesCoordinator = hass.data[DOMAIN][DATA_COORDINATOR]
+                coordinator: BatteryNotesCoordinator = hass.data[DOMAIN][
+                    DATA_COORDINATOR
+                ]
                 device_entry = {"battery_last_replaced": datetime_replaced}
 
                 coordinator.async_update_device_config(
@@ -245,7 +261,9 @@ def register_services(hass):
                 await coordinator.async_request_refresh()
 
                 _LOGGER.debug(
-                    "Device %s battery replaced on %s", device_id, str(datetime_replaced)
+                    "Device %s battery replaced on %s",
+                    device_id,
+                    str(datetime_replaced),
                 )
 
     hass.services.async_register(

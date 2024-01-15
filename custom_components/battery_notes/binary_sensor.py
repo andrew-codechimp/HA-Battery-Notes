@@ -1,4 +1,4 @@
-"""Button platform for battery_notes."""
+"""Binary Sensor platform for battery_notes."""
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -15,21 +15,25 @@ from homeassistant.helpers import (
     device_registry as dr,
     entity_registry as er,
 )
-from homeassistant.components.button import (
+from homeassistant.components.binary_sensor import (
     PLATFORM_SCHEMA,
-    ButtonEntity,
-    ButtonEntityDescription,
+    BinarySensorEntity,
+    BinarySensorEntityDescription,
 )
 from homeassistant.helpers.entity import DeviceInfo, EntityCategory
 from homeassistant.helpers.event import (
+    EventStateChangedData,
+    async_track_state_change_event,
     async_track_entity_registry_updated_event,
 )
-
+from homeassistant.helpers.typing import EventType
 from homeassistant.helpers.reload import async_setup_reload_service
 
 from homeassistant.const import (
     CONF_NAME,
     CONF_DEVICE_ID,
+    STATE_UNAVAILABLE,
+    STATE_UNKNOWN,
 )
 
 from . import PLATFORMS
@@ -41,6 +45,7 @@ from .const import (
     CONF_ENABLE_REPLACED,
 )
 
+from .device import BatteryNotesDevice
 from .coordinator import BatteryNotesCoordinator
 
 from .entity import (
@@ -49,9 +54,9 @@ from .entity import (
 
 
 @dataclass
-class BatteryNotesButtonEntityDescription(
+class BatteryNotesBinarySensorEntityDescription(
     BatteryNotesEntityDescription,
-    ButtonEntityDescription,
+    BinarySensorEntityDescription,
 ):
     """Describes Battery Notes button entity."""
 
@@ -128,26 +133,29 @@ async def async_setup_entry(
         domain_config: dict = hass.data[DOMAIN][DOMAIN_CONFIG]
         enable_replaced = domain_config.get(CONF_ENABLE_REPLACED, True)
 
-    description = BatteryNotesButtonEntityDescription(
-        unique_id_suffix="_battery_replaced_button",
-        key="battery_replaced",
-        translation_key="battery_replaced",
-        icon="mdi:battery-sync",
+    description = BatteryNotesBinarySensorEntityDescription(
+        unique_id_suffix="_battery_low",
+        key="battery_low",
+        translation_key="battery_low",
+        icon="mdi:battery-alert",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=enable_replaced,
     )
 
-    async_add_entities(
-        [
-            BatteryNotesButton(
-                hass,
-                coordinator,
-                description,
-                f"{config_entry.entry_id}{description.unique_id_suffix}",
-                device_id,
-            )
-        ]
-    )
+    device = hass.data[DOMAIN][DATA].devices[config_entry.entry_id]
+
+    if device.wrapped_battery is not None:
+        async_add_entities(
+            [
+                BatteryNotesBatteryLowSensor(
+                    hass,
+                    coordinator,
+                    description,
+                    f"{config_entry.entry_id}{description.unique_id_suffix}",
+                    device,
+                )
+            ]
+        )
 
 
 async def async_setup_platform(
@@ -158,37 +166,43 @@ async def async_setup_platform(
     await async_setup_reload_service(hass, DOMAIN, PLATFORMS)
 
 
-class BatteryNotesButton(ButtonEntity):
-    """Represents a battery replaced button."""
+class BatteryNotesBatteryLowSensor(BinarySensorEntity):
+    """Represents a low battery threshold binary sensor."""
 
     _attr_should_poll = False
+    _battery_entity_id = None
 
-    entity_description: BatteryNotesButtonEntityDescription
+    entity_description: BatteryNotesBinarySensorEntityDescription
 
     def __init__(
         self,
         hass: HomeAssistant,
         coordinator: BatteryNotesCoordinator,
-        description: BatteryNotesButtonEntityDescription,
+        description: BatteryNotesBinarySensorEntityDescription,
         unique_id: str,
-        device_id: str,
+        device: BatteryNotesDevice,
     ) -> None:
-        """Create a battery replaced button."""
+        """Create a low battery binary sensor."""
         device_registry = dr.async_get(hass)
 
         self.coordinator = coordinator
         self.entity_description = description
         self._attr_unique_id = unique_id
         self._attr_has_entity_name = True
-        self._device_id = device_id
 
-        if device_id and (device := device_registry.async_get(device_id)):
+        if coordinator.device_id and (
+            device_entry := device_registry.async_get(coordinator.device_id)
+        ):
             self._attr_device_info = DeviceInfo(
-                connections=device.connections,
-                identifiers=device.identifiers,
+                connections=device_entry.connections,
+                identifiers=device_entry.identifiers,
             )
 
-            self.entity_id = f"button.{device.name}_{description.key}"
+            self.entity_id = f"binary_sensor.{device.name}_{description.key}"
+
+        self._battery_entity_id = (
+            device.wrapped_battery.entity_id if device.wrapped_battery else None
+        )
 
     async def async_added_to_hass(self) -> None:
         """Handle added to Hass."""
@@ -200,13 +214,60 @@ class BatteryNotesButton(ButtonEntity):
                 {"entity_id": self._attr_unique_id},
             )
 
-    async def async_press(self) -> None:
-        """Press the button."""
-        device_id = self._device_id
+    @callback
+    def async_state_changed_listener(
+        self, event: EventType[EventStateChangedData] | None = None
+    ) -> None:
+        """Handle child updates."""
+        updated = False
 
-        device_entry = {"battery_last_replaced": datetime.utcnow()}
+        if not self._battery_entity_id:
+            return
 
-        self.coordinator.async_update_device_config(
-            device_id=device_id, data=device_entry
-        )
-        await self.coordinator.async_request_refresh()
+        if (
+            wrapped_battery_state := self.hass.states.get(self._battery_entity_id)
+        ) is None or wrapped_battery_state.state == STATE_UNAVAILABLE:
+            self._attr_available = False
+            return
+
+        self.coordinator.set_battery_low(bool(int(wrapped_battery_state.state) < 100))
+
+        self._attr_is_on = self.coordinator.battery_low
+
+        self._attr_available = True
+
+        updated = True
+
+        if updated:
+            self.async_write_ha_state()
+
+    async def async_added_to_hass(self) -> None:
+        """Handle added to Hass."""
+
+        @callback
+        def _async_state_changed_listener(
+            event: EventType[EventStateChangedData] | None = None,
+        ) -> None:
+            """Handle child updates."""
+            self.async_state_changed_listener(event)
+
+        if self._battery_entity_id:
+            self.async_on_remove(
+                async_track_state_change_event(
+                    self.hass, [self._battery_entity_id], _async_state_changed_listener
+                )
+            )
+
+        # Call once on adding
+        _async_state_changed_listener()
+
+        # Update entity options
+        registry = er.async_get(self.hass)
+        if registry.async_get(self.entity_id) is not None and self._battery_entity_id:
+            registry.async_update_entity_options(
+                self.entity_id,
+                DOMAIN,
+                {"entity_id": self._battery_entity_id},
+            )
+
+        self.coordinator.async_config_entry_first_refresh()
