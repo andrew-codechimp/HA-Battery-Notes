@@ -126,6 +126,13 @@ class BatteryNotesDevice:
                 CONF_DEFAULT_BATTERY_LOW_THRESHOLD, DEFAULT_BATTERY_LOW_THRESHOLD
             )
 
+        if self.wrapped_battery:
+            _LOGGER.debug(
+                "%s low threshold set at %d",
+                self.wrapped_battery.entity_id,
+                self.coordinator.battery_low_threshold,
+            )
+
         self.hass.data[DOMAIN][DATA].devices[config.entry_id] = self
         self.reset_jobs.append(config.add_update_listener(self.async_update))
 

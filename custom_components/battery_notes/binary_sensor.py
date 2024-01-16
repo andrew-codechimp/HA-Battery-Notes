@@ -239,7 +239,12 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
             wrapped_battery_state.state,
         )
 
-        self.coordinator.set_battery_low(bool(int(wrapped_battery_state.state) < 100))
+        self.coordinator.set_battery_low(
+            bool(
+                int(wrapped_battery_state.state)
+                < self.coordinator.battery_low_threshold
+            )
+        )
 
         self._attr_is_on = self.coordinator.battery_low
 

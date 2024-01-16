@@ -50,9 +50,6 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
             return str(self.battery_quantity) + "x " + self.battery_type
         return self.battery_type
 
-    def set_battery_low(self, value: bool):
-        self.battery_low = value
-
     @property
     def last_replaced(self) -> datetime:
         device_entry = self.store.async_get_device(self.device_id)
