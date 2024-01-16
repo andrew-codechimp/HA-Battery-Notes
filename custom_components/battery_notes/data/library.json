@@ -1211,6 +1211,12 @@
         },
         {
             "manufacturer": "Kwikset",
+            "model": "HC620",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Kwikset",
             "model": "Kevo",
             "battery_type": "AA",
             "battery_quantity": 4
@@ -2998,12 +3004,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Kwikset",
-            "model": "HC620",
-            "battery_type": "AA",
-            "battery_quantity": 4
         }
     ]
 }

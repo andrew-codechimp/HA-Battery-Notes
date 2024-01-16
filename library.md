@@ -1,4 +1,4 @@
-## 553 Devices in library
+## 554 Devices in library
 
 This file is auto generated, do not modify
 
@@ -225,6 +225,7 @@ This file is auto generated, do not modify
 |Kwikset                                         |910                                                                   |4x AA               |
 |Kwikset                                         |912                                                                   |4x AA               |
 |Kwikset                                         |HALO-01                                                               |4x AA               |
+|Kwikset                                         |HC620                                                                 |4x AA               |
 |Kwikset                                         |Kevo                                                                  |4x AA               |
 |Kwikset                                         |SmartCode traditional electronic deadbolt (99140-031)                 |4x AA               |
 |Kwikset                                         |SMARTCODE_DEADBOLT_10T                                                |4x AA               |
