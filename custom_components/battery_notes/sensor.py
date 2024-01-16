@@ -61,6 +61,7 @@ from .const import (
     CONF_ENABLE_REPLACED,
     ATTR_BATTERY_QUANTITY,
     ATTR_BATTERY_TYPE,
+    ATTR_BATTERY_TYPE_AND_QUANTITY,
     ATTR_BATTERY_LAST_REPLACED,
     ATTR_BATTERY_LOW,
     ATTR_BATTERY_LOW_THRESHOLD,
@@ -414,6 +415,7 @@ class BatteryNotesBatteryNotedSensor(
         attrs = {
             ATTR_BATTERY_QUANTITY: self.coordinator.battery_quantity,
             ATTR_BATTERY_TYPE: self.coordinator.battery_type,
+            ATTR_BATTERY_TYPE_AND_QUANTITY: self.coordinator.battery_type_and_quantity,
             ATTR_BATTERY_LAST_REPLACED: self.coordinator.last_replaced,
             ATTR_BATTERY_LOW: self.coordinator.battery_low,
             ATTR_BATTERY_LOW_THRESHOLD: self.coordinator.battery_low_threshold,
@@ -486,10 +488,7 @@ class BatteryNotesTypeSensor(RestoreSensor, SensorEntity):
     @property
     def native_value(self) -> str:
         """Return the native value of the sensor."""
-
-        if self._battery_quantity and int(self._battery_quantity) > 1:
-            return str(self._battery_quantity) + "x " + self._battery_type
-        return self._battery_type
+        return self.coordinator.battery_type_and_quantity
 
     @property
     def extra_state_attributes(self) -> dict[str, str] | None:

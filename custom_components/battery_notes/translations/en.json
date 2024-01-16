@@ -75,6 +75,9 @@
                     "battery_quantity": {
                         "name": "Battery quantity"
                     },
+                    "battery_type_and_quantity": {
+                        "name": "Battery type and quantity"
+                    },
                     "battery_last_replaced": {
                         "name": "Battery last replaced"
                     },

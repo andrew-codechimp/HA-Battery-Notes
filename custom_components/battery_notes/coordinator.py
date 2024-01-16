@@ -45,6 +45,15 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
         super().__init__(hass, _LOGGER, name=DOMAIN)
 
     @property
+    def battery_type_and_quantity(self) -> str:
+        if self.battery_quantity and int(self.battery_quantity) > 1:
+            return str(self.battery_quantity) + "x " + self.battery_type
+        return self.battery_type
+
+    def set_battery_low(self, value: bool):
+        self.battery_low = value
+
+    @property
     def last_replaced(self) -> datetime:
         device_entry = self.store.async_get_device(self.device_id)
         if device_entry:
@@ -57,10 +66,6 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
 
     def set_battery_low(self, value: bool):
         self.battery_low = value
-
-    # @property
-    # def battery_low(self) -> bool:
-    #     return self._battery_low
 
     async def _async_update_data(self):
         """Update data."""

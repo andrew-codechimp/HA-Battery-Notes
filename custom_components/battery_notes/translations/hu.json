@@ -75,6 +75,9 @@
                     "battery_quantity": {
                         "name": "Az akkumulátor mennyisége"
                     },
+                    "battery_type_and_quantity": {
+                        "name": "Az akkumulátor típusa és mennyisége"
+                    },
                     "battery_last_replaced": {
                         "name": "Utolsó elemcsere"
                     },

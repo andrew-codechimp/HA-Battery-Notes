@@ -75,6 +75,9 @@
                     "battery_quantity": {
                         "name": "Množstvo batérie"
                     },
+                    "battery_type_and_quantity": {
+                        "name": "Typ a množstvo batérie"
+                    },
                     "battery_last_replaced": {
                         "name": "Batéria naposledy vymenená"
                     },

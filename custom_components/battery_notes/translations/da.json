@@ -75,6 +75,9 @@
                     "battery_quantity": {
                         "name": "Antal batterier"
                     },
+                    "battery_type_and_quantity": {
+                        "name": "Batteritype og mængde"
+                    },
                     "battery_last_replaced": {
                         "name": "Batteri sidst skiftet"
                     },
