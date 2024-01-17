@@ -1,6 +1,6 @@
 site_name: Battery Notes for Home Assistant
-site_url: https://andrew-codechimp.github.io/ha-battery-notes
-repo_url: https://github.com/andrew-codechimp/ha-battery-notes
+site_url: https://andrew-codechimp.github.io/HA-Battery-Notes
+repo_url: https://github.com/andrew-codechimp/HA-Battery-Notes
 docs_dir: docs
 
 nav:
