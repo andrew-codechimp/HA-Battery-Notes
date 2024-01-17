@@ -8,7 +8,7 @@ It will pull the latest devices that have been merged into the main branch, if y
 
 ## Submit Definition via GitHub Issues Form
 
-To add a new device via GitHub Issues, fill out [this form](https://github.com/andrew-codechimp/HA-Battery-Notes/issues/new?template=new_device_request.yml&title=[Device]%3A+).
+To add a new device via GitHub Issues, fill out [this form](https://github.com/andrew-codechimp/HA-Battery-Notes/issues/new?template=new_device_request.yml&title=[Device]%3A+).  
 Upon submission of the issue, GitHub will attempt to make the required code changes automatically.
 
 ## Submit Definition via Pull Request

@@ -1,4 +1,4 @@
-# Home Assistant Battery Notes
+# Battery Notes for Home Assistant
 
 [![GitHub Release][releases-shield]][releases]
 [![GitHub Activity][commits-shield]][commits]
