@@ -2524,6 +2524,11 @@
         },
         {
             "manufacturer": "Universal Electronics Inc",
+            "model": "Magnetic door & window contact sensor (XHS2-UE)",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Universal Electronics Inc",
             "model": "URC4470BC0-X-R",
             "battery_type": "CR123A",
             "battery_quantity": 2
