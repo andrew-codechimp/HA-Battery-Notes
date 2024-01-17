@@ -3010,6 +3010,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Universal Electronics Inc",
+            "model": "Magnetic door & window contact sensor (XHS2-UE)",
+            "battery_type": "CR2450"
         }
     ]
 }
