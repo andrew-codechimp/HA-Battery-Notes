@@ -1,10 +1,11 @@
-## 552 Devices in library
+## 556 Devices in library
 
 This file is auto generated, do not modify
 
 |                  Manufacturer                  |                                Model                                 |    Battery Type    |
 |------------------------------------------------|----------------------------------------------------------------------|--------------------|
 |_TYZB01_7qf81wty                                |TS1001                                                                |2x AAA              |
+|_TZ1800_fcdjzz3s                                |TY0202                                                                |2x AA               |
 |_TZ3000_4fjiwweb                                |TS004F                                                                |CR2032              |
 |_TZ3000_6ygjfyll                                |TS0202                                                                |CR2450              |
 |_TZ3000_abci1hiu                                |TS0044                                                                |A23                 |
@@ -223,7 +224,9 @@ This file is auto generated, do not modify
 |Konke                                           |3AFE28010402000D                                                      |CR2450              |
 |Kwikset                                         |910                                                                   |4x AA               |
 |Kwikset                                         |912                                                                   |4x AA               |
+|Kwikset                                         |914                                                                   |4x AA               |
 |Kwikset                                         |HALO-01                                                               |4x AA               |
+|Kwikset                                         |HC620                                                                 |4x AA               |
 |Kwikset                                         |Kevo                                                                  |4x AA               |
 |Kwikset                                         |SmartCode traditional electronic deadbolt (99140-031)                 |4x AA               |
 |Kwikset                                         |SMARTCODE_DEADBOLT_10T                                                |4x AA               |
@@ -463,6 +466,7 @@ This file is auto generated, do not modify
 |Tuya                                            |zqeaw7pi                                                              |2x AAA              |
 |TUYATEC-xrvzm3yI                                |RH3001                                                                |CR2032              |
 |Ultraloq                                        |U-BOLT-PRO-ZWAVE                                                      |4x AA               |
+|Universal Electronics Inc                       |Magnetic door & window contact sensor (XHS2-UE)                       |CR2450              |
 |Universal Electronics Inc                       |URC4470BC0-X-R                                                        |2x CR123A           |
 |unk_manufacturer                                |lumi.remote.b28ac1                                                    |CR2450              |
 |VictorPest.com                                  |Rat Trap                                                              |4x C                |

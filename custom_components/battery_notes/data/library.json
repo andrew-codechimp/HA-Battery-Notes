@@ -9,6 +9,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "_TZ1800_fcdjzz3s",
+            "model": "TY0202",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "_TZ3000_4fjiwweb",
             "model": "TS004F",
             "battery_type": "CR2032"
@@ -1199,7 +1205,19 @@
         },
         {
             "manufacturer": "Kwikset",
+            "model": "914",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Kwikset",
             "model": "HALO-01",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Kwikset",
+            "model": "HC620",
             "battery_type": "AA",
             "battery_quantity": 4
         },
@@ -2503,6 +2521,11 @@
             "model": "U-BOLT-PRO-ZWAVE",
             "battery_type": "AA",
             "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Universal Electronics Inc",
+            "model": "Magnetic door & window contact sensor (XHS2-UE)",
+            "battery_type": "CR2450"
         },
         {
             "manufacturer": "Universal Electronics Inc",

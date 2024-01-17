@@ -1,0 +1,43 @@
+site_name: Battery Notes for Home Assistant
+site_url: https://andrew-codechimp.github.io/ha-battery-notes
+repo_url: https://github.com/andrew-codechimp/ha-battery-notes
+docs_dir: docs
+
+nav:
+  - Home: index.md
+  - Entities: entities.md
+  - Services: services.md
+  - Library: library.md
+  - Configuration: configuration.md
+  - Community: community.md
+  - FAQ: faq.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - attr_list
+  - toc:
+      permalink: "#"
+
+theme:
+  name: material
+  features:
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - toc.follow
+  palette:
+    # Palette toggle for light mode
+    - scheme: default
+      primary: light blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      primary: light blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
