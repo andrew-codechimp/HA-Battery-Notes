@@ -178,4 +178,3 @@ Thanks to everyone who has submitted devices to the library.
 [releases-shield]: https://img.shields.io/github/release/andrew-codechimp/HA-Battery-Notes.svg?style=for-the-badge
 [releases]: https://github.com/andrew-codechimp/HA-Battery-Notes/releases
 [download-latest-shield]: https://img.shields.io/github/downloads/andrew-codechimp/ha-battery-notes/latest/total?style=for-the-badge
-

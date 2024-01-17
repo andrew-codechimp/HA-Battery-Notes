@@ -16,9 +16,9 @@ body:
   attributes:
     label: Checklist
     options:
-      - label: I have added `battery_notes:` to my configuration.yaml and restarted. 
+      - label: I have added `battery_notes:` to my configuration.yaml and restarted.
         required: true
-      - label: I have read the [FAQ's](https://github.com/andrew-codechimp/HA-Battery-Notes#faqs). 
+      - label: I have read the [FAQ's](https://github.com/andrew-codechimp/HA-Battery-Notes#faqs).
         required: true
       - label: I have enabled debug logging for my installation.
         required: true
