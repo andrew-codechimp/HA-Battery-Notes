@@ -1,4 +1,4 @@
-## 554 Devices in library
+## 555 Devices in library
 
 This file is auto generated, do not modify
 
@@ -224,6 +224,7 @@ This file is auto generated, do not modify
 |Konke                                           |3AFE28010402000D                                                      |CR2450              |
 |Kwikset                                         |910                                                                   |4x AA               |
 |Kwikset                                         |912                                                                   |4x AA               |
+|Kwikset                                         |914                                                                   |4x AA               |
 |Kwikset                                         |HALO-01                                                               |4x AA               |
 |Kwikset                                         |HC620                                                                 |4x AA               |
 |Kwikset                                         |Kevo                                                                  |4x AA               |
