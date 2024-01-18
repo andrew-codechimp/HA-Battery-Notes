@@ -3015,6 +3015,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "_TZ3000_26fmupbb",
+            "model": "TS0203",
+            "battery_type": "CR2032"
         }
     ]
 }
