@@ -1,4 +1,4 @@
-## 559 Devices in library
+## 560 Devices in library
 
 This file is auto generated, do not modify
 
@@ -23,6 +23,7 @@ This file is auto generated, do not modify
 |_TZ3210_up3pngle                                |TS0205                                                                |2x AAA              |
 |_TZE200_b6wax7g0                                |TS0601                                                                |2x AA               |
 |_TZE200_c88teujp                                |TS0601                                                                |2x AA               |
+|_TZE200_hhrtiq0x                                |TS0601                                                                |2x AA               |
 |_TZE200_locansqn                                |TS0601                                                                |3x AAA              |
 |AEON Labs                                       |DSB05                                                                 |4x AAA              |
 |AEON Labs                                       |DSB29                                                                 |2x AAA              |
