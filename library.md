@@ -1,4 +1,4 @@
-## 557 Devices in library
+## 558 Devices in library
 
 This file is auto generated, do not modify
 
@@ -342,6 +342,7 @@ This file is auto generated, do not modify
 |Shelly                                          |Shelly H&T                                                            |CR123A              |
 |Shelly                                          |Shelly Plus Smoke                                                     |CR123A              |
 |Shenzhen Heiman Technology Co., Ltd.            |HS1HT-Z                                                               |CR2450              |
+|Shenzhen Heiman Technology Co., Ltd.            |HS1SA-Z                                                               |CR123A              |
 |Shenzhen Heiman Technology Co., Ltd.            |Smoke Detector (HS1SA-Z)                                              |CR123A              |
 |Shenzhen Kaadas Intelligent Technology Co., Ltd.|DB1                                                                   |4x AA               |
 |Shenzhen Neo Electronics Co., Ltd.              |NAS-DS01Z                                                             |CR2                 |
