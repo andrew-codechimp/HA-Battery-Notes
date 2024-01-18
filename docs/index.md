@@ -3,7 +3,7 @@
 Integration to add battery notes to a device, with automatic discovery via a growing [battery library](https://github.com/andrew-codechimp/HA-Battery-Notes/blob/main/library.md) for devices.  
 Track both the battery type and also when the battery was replaced.  
 
-*Please star this repo on [GitHub](https://github.com/andrew-codechimp/HA-Battery-Notes) if you find it useful*  
+*Please :star: this repo on [GitHub](https://github.com/andrew-codechimp/HA-Battery-Notes) if you find it useful*  
 *If you want to show your support please*
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png)](https://www.buymeacoffee.com/codechimp)

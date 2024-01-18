@@ -1,4 +1,4 @@
-## 556 Devices in library
+## 558 Devices in library
 
 This file is auto generated, do not modify
 
@@ -6,6 +6,7 @@ This file is auto generated, do not modify
 |------------------------------------------------|----------------------------------------------------------------------|--------------------|
 |_TYZB01_7qf81wty                                |TS1001                                                                |2x AAA              |
 |_TZ1800_fcdjzz3s                                |TY0202                                                                |2x AA               |
+|_TZ3000_26fmupbb                                |TS0203                                                                |CR2032              |
 |_TZ3000_4fjiwweb                                |TS004F                                                                |CR2032              |
 |_TZ3000_6ygjfyll                                |TS0202                                                                |CR2450              |
 |_TZ3000_abci1hiu                                |TS0044                                                                |A23                 |
@@ -341,6 +342,7 @@ This file is auto generated, do not modify
 |Shelly                                          |Shelly H&T                                                            |CR123A              |
 |Shelly                                          |Shelly Plus Smoke                                                     |CR123A              |
 |Shenzhen Heiman Technology Co., Ltd.            |HS1HT-Z                                                               |CR2450              |
+|Shenzhen Heiman Technology Co., Ltd.            |HS1SA-Z                                                               |CR123A              |
 |Shenzhen Heiman Technology Co., Ltd.            |Smoke Detector (HS1SA-Z)                                              |CR123A              |
 |Shenzhen Kaadas Intelligent Technology Co., Ltd.|DB1                                                                   |4x AA               |
 |Shenzhen Neo Electronics Co., Ltd.              |NAS-DS01Z                                                             |CR2                 |

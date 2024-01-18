@@ -56,7 +56,9 @@ To get full use of the integration, please visit the [docs](https://andrew-codec
 
 ## Contributing to the Battery Library
 
-To add a device definition to the battery library so that it will be automatically configured fill out [this form](https://github.com/andrew-codechimp/HA-Battery-Notes/issues/new?template=new_device_request.yml&title=[Device]%3A+) or see the [docs](https://andrew-codechimp.github.io/HA-Battery-Notes/library) for adding via pull request.
+[!["New Device Request"](https://github.com/andrew-codechimp/HA-Battery-Notes/blob/main/docs/assets/new-device-request.png)](https://github.com/andrew-codechimp/HA-Battery-Notes/issues/new?template=new_device_request.yml&title=[Device]%3A+)
+
+To add a device definition to the battery library so that it will be automatically configured fill out the above form or see the [docs](https://andrew-codechimp.github.io/HA-Battery-Notes/library) for adding via pull request.
 
 ## Contributions are welcome!
 
