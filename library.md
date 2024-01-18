@@ -1,4 +1,4 @@
-## 556 Devices in library
+## 557 Devices in library
 
 This file is auto generated, do not modify
 
@@ -6,6 +6,7 @@ This file is auto generated, do not modify
 |------------------------------------------------|----------------------------------------------------------------------|--------------------|
 |_TYZB01_7qf81wty                                |TS1001                                                                |2x AAA              |
 |_TZ1800_fcdjzz3s                                |TY0202                                                                |2x AA               |
+|_TZ3000_26fmupbb                                |TS0203                                                                |CR2032              |
 |_TZ3000_4fjiwweb                                |TS004F                                                                |CR2032              |
 |_TZ3000_6ygjfyll                                |TS0202                                                                |CR2450              |
 |_TZ3000_abci1hiu                                |TS0044                                                                |A23                 |
