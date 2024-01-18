@@ -2,40 +2,17 @@
 
 These are a few contributions by the community.
 
-## Automation Examples
+## Blueprints
 
-### Set the battery replaced automatically  
-Submitted by @danielbrunt57
+[Blueprints](https://www.home-assistant.io/docs/automation/using_blueprints/) are an excellent way to get you up and running with the integration quickly. They can also be used as a guide for setting up new automations which you can tailor to your needs. 
 
-```
-alias: Battery Replaced
-description: "Set the battery replaced automatically"
-trigger:
-  - platform: state
-    entity_id:
-      - sensor.yourdevice1_battery
-      - sensor.yourdevice2_battery
-    for:
-      hours: 0
-      minutes: 0
-      seconds: 10
-condition:
-  - condition: template
-    value_template: >-
-      {{ trigger.from_state is not none and trigger.from_state.state not in
-      ['unavailable','unknown'] and trigger.from_state.state|float(0) < 100 and
-      trigger.to_state.state|float(0) > 98 }}
-action:
-  - service: battery_notes.set_battery_replaced
-    data:
-      device_id: "{{ device_id(trigger.entity_id) }}"
-    enabled: true
-  - service: notify.persistent_notification
-    metadata: {}
-    data:
-      message: "Battery replaced: {{ state_attr(trigger.entity_id, 'friendly_name') }}"
-mode: single
-```
+### Battery Replaced
+
+[Install blueprint](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fraw.githubusercontent.com%2Fandrew-codechimp%2FHA-Battery-Notes%2Fmain%2Fdocs%2Fblueprints%2Fbattery_notes_battery_replaced.yaml) | [Source](./blueprints/battery_notes_battery_replaced.yaml)
+
+This blueprint will automatically update the battery replaced sensor when the battery goes above 98%.
+
+Adapted from an example automation by @danielbrunt57
 
 ## Contributing  
 If you want to contribute then [fork the repository](https://github.com/andrew-codechimp/HA-Battery-Notes), edit this page which is in the docs folder and submit a pull request.
