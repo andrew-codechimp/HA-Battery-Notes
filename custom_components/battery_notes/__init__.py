@@ -138,7 +138,6 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
 async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> bool:
     """Set up a config entry."""
 
-    # data: BatteryNotesData = hass.data[DOMAIN][DATA_DEVICES]
     device: BatteryNotesDevice = BatteryNotesDevice(hass, config_entry)
 
     if not await device.async_setup():
@@ -249,9 +248,10 @@ def register_services(hass):
             if (
                 entry := hass.config_entries.async_get_entry(entry_id)
             ) and entry.domain == DOMAIN:
-                coordinator: BatteryNotesCoordinator = hass.data[DOMAIN][
-                    DATA_COORDINATOR
-                ]
+                coordinator = (
+                    hass.data[DOMAIN][DATA].devices[entry.entry_id].coordinator
+                )
+
                 device_entry = {"battery_last_replaced": datetime_replaced}
 
                 coordinator.async_update_device_config(
