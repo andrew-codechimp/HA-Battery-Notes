@@ -242,6 +242,10 @@ def register_services(hass):
 
         device_entry = device_registry.async_get(device_id)
         if not device_entry:
+            _LOGGER.error(
+                "Device %s not found",
+                device_id,
+            )
             return
 
         for entry_id in device_entry.config_entries:
@@ -265,6 +269,14 @@ def register_services(hass):
                     device_id,
                     str(datetime_replaced),
                 )
+
+                # Found and dealt with, exit
+                return
+
+        _LOGGER.error(
+            "Device %s not configured in Battery Notes",
+            device_id,
+        )
 
     hass.services.async_register(
         DOMAIN,
