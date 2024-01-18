@@ -1,4 +1,4 @@
-## 558 Devices in library
+## 559 Devices in library
 
 This file is auto generated, do not modify
 
@@ -87,6 +87,7 @@ This file is auto generated, do not modify
 |Danalock                                        |V3-BTZBE                                                              |4x CR123A           |
 |Danfoss                                         |010101                                                                |2x AA               |
 |Danfoss                                         |eTRV0100                                                              |2x AA               |
+|Danfoss                                         |eTRV0103                                                              |2x AA               |
 |Danfoss                                         |LC-13                                                                 |2x AA               |
 |Danfoss                                         |TRV001                                                                |2x AA               |
 |Develco                                         |Smoke detector with siren (SMSZB-120)                                 |CR123               |
