@@ -21,6 +21,12 @@ from homeassistant.components.binary_sensor import (
     BinarySensorEntity,
     BinarySensorEntityDescription,
 )
+
+from homeassistant.components.event import (
+    EventEntity,
+    EventExtraStoredData,
+)
+
 from homeassistant.helpers.entity import DeviceInfo, EntityCategory
 from homeassistant.helpers.event import (
     EventStateChangedData,
@@ -44,7 +50,14 @@ from .const import (
     DOMAIN_CONFIG,
     DATA,
     CONF_ENABLE_REPLACED,
+    ATTR_DEVICE_ID,
+    ATTR_BATTERY_QUANTITY,
+    ATTR_BATTERY_TYPE,
+    ATTR_BATTERY_TYPE_AND_QUANTITY,
+    ATTR_BATTERY_LOW,
     ATTR_BATTERY_LOW_THRESHOLD,
+    ATTR_DEVICE_NAME,
+    ATTR_BATTERY_LEVEL,
 )
 
 from .device import BatteryNotesDevice
@@ -175,6 +188,8 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
 
     _attr_should_poll = False
     _battery_entity_id = None
+    device_name = None
+    _previous_battery_low = None
 
     entity_description: BatteryNotesBinarySensorEntityDescription
 
@@ -203,6 +218,7 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
             )
 
             self.entity_id = f"binary_sensor.{device.name}_{description.key}"
+            self.device_name = device.name
 
         self._battery_entity_id = (
             device.wrapped_battery.entity_id if device.wrapped_battery else None
@@ -239,12 +255,11 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
             wrapped_battery_state.state,
         )
 
-        self.coordinator.set_battery_low(
-            bool(
-                int(wrapped_battery_state.state)
-                < self.coordinator.battery_low_threshold
-            )
+        battery_low = bool(
+            int(wrapped_battery_state.state) < self.coordinator.battery_low_threshold
         )
+
+        self.coordinator.set_battery_low(battery_low)
 
         self._attr_is_on = self.coordinator.battery_low
 
@@ -253,6 +268,22 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
         self.async_write_ha_state()
 
         await self.coordinator.async_request_refresh()
+
+        if battery_low != self._previous_battery_low:
+            self.hass.bus.fire(
+                "battery_notes_battery_low",
+                {
+                    ATTR_DEVICE_ID: self.coordinator.device_id,
+                    ATTR_DEVICE_NAME: self.device_name,
+                    ATTR_BATTERY_TYPE_AND_QUANTITY: self.coordinator.battery_type_and_quantity,
+                    ATTR_BATTERY_TYPE: self.coordinator.battery_type,
+                    ATTR_BATTERY_QUANTITY: self.coordinator.battery_quantity,
+                    ATTR_BATTERY_LEVEL: int(wrapped_battery_state.state),
+                    ATTR_BATTERY_LOW: battery_low,
+                },
+            )
+
+        self._previous_battery_low = battery_low
 
     async def async_added_to_hass(self) -> None:
         """Handle added to Hass."""

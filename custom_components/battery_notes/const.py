@@ -61,6 +61,8 @@ ATTR_BATTERY_TYPE_AND_QUANTITY = "battery_type_and_quantity"
 ATTR_BATTERY_LAST_REPLACED = "battery_last_replaced"
 ATTR_BATTERY_LOW = "battery_low"
 ATTR_BATTERY_LOW_THRESHOLD = "battery_low_threshold"
+ATTR_DEVICE_NAME = "device_name"
+ATTR_BATTERY_LEVEL = "battery_level"
 
 SERVICE_BATTERY_REPLACED_SCHEMA = vol.Schema(
     {
