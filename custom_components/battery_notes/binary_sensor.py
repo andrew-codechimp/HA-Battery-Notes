@@ -2,7 +2,8 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from datetime import datetime
+from datetime import datetime, timedelta
+import pytz
 
 import logging
 import voluptuous as vol
@@ -192,6 +193,7 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
     device_name = None
     _previous_battery_low = None
     _previous_battery_level = None
+    _previous_state_last_changed = None
 
     entity_description: BatteryNotesBinarySensorEntityDescription
 
@@ -271,28 +273,39 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
 
         await self.coordinator.async_request_refresh()
 
-        if battery_low != self._previous_battery_low:
-            # # Check Tolerance
-            # if not self._previous_battery_level:
-            #     difference = 100
-            # else:
-            #     difference = self._previous_battery_level - int(
-            #         wrapped_battery_state.state
-            #     )
-            # if difference not in range(-5, 5):
-            self.hass.bus.fire(
-                EVENT_BATTERY_THRESHOLD,
-                {
-                    ATTR_DEVICE_ID: self.coordinator.device_id,
-                    ATTR_DEVICE_NAME: self.device_name,
-                    ATTR_BATTERY_LOW: battery_low,
-                    ATTR_BATTERY_TYPE_AND_QUANTITY: self.coordinator.battery_type_and_quantity,
-                    ATTR_BATTERY_TYPE: self.coordinator.battery_type,
-                    ATTR_BATTERY_QUANTITY: self.coordinator.battery_quantity,
-                    ATTR_BATTERY_LEVEL: int(wrapped_battery_state.state),
-                },
-            )
+        if (
+            self._previous_state_last_changed
+            and self._previous_state_last_changed + timedelta(seconds=10)
+            < pytz.UTC.localize(datetime.utcnow())
+        ):
+            if battery_low != self._previous_battery_low:
+                # # Check Tolerance
+                # if not self._previous_battery_level:
+                #     difference = 100
+                # else:
+                #     difference = self._previous_battery_level - int(
+                #         wrapped_battery_state.state
+                #     )
+                # if difference not in range(-5, 5):
+                self.hass.bus.fire(
+                    EVENT_BATTERY_THRESHOLD,
+                    {
+                        ATTR_DEVICE_ID: self.coordinator.device_id,
+                        ATTR_DEVICE_NAME: self.device_name,
+                        ATTR_BATTERY_LOW: battery_low,
+                        ATTR_BATTERY_TYPE_AND_QUANTITY: self.coordinator.battery_type_and_quantity,
+                        ATTR_BATTERY_TYPE: self.coordinator.battery_type,
+                        ATTR_BATTERY_QUANTITY: self.coordinator.battery_quantity,
+                        ATTR_BATTERY_LEVEL: int(wrapped_battery_state.state),
+                    },
+                )
 
+                _LOGGER.debug("battery_threshold event fired")
+
+        # print(f"Now: {pytz.UTC.localize(datetime.utcnow())}")
+        # print(f"Then: {self._previous_state_last_changed}")
+
+        self._previous_state_last_changed = wrapped_battery_state.last_changed
         self._previous_battery_level = int(wrapped_battery_state.state)
         self._previous_battery_low = battery_low
 
