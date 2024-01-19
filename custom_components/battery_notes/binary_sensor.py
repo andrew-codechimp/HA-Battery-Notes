@@ -271,15 +271,15 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
 
         if battery_low != self._previous_battery_low:
             self.hass.bus.fire(
-                "battery_notes_battery_low",
+                "battery_notes_battery_threshold",
                 {
                     ATTR_DEVICE_ID: self.coordinator.device_id,
                     ATTR_DEVICE_NAME: self.device_name,
+                    ATTR_BATTERY_LOW: battery_low,
                     ATTR_BATTERY_TYPE_AND_QUANTITY: self.coordinator.battery_type_and_quantity,
                     ATTR_BATTERY_TYPE: self.coordinator.battery_type,
                     ATTR_BATTERY_QUANTITY: self.coordinator.battery_quantity,
                     ATTR_BATTERY_LEVEL: int(wrapped_battery_state.state),
-                    ATTR_BATTERY_LOW: battery_low,
                 },
             )
 
