@@ -53,6 +53,8 @@ DATA = "data"
 SERVICE_BATTERY_REPLACED = "set_battery_replaced"
 SERVICE_DATA_DATE_TIME_REPLACED = "datetime_replaced"
 
+EVENT_BATTERY_THRESHOLD = "battery_notes_battery_threshold"
+
 ATTR_DEVICE_ID = "device_id"
 ATTR_REMOVE = "remove"
 ATTR_BATTERY_QUANTITY = "battery_quantity"

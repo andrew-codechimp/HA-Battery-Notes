@@ -50,6 +50,7 @@ from .const import (
     DOMAIN_CONFIG,
     DATA,
     CONF_ENABLE_REPLACED,
+    EVENT_BATTERY_THRESHOLD,
     ATTR_DEVICE_ID,
     ATTR_BATTERY_QUANTITY,
     ATTR_BATTERY_TYPE,
@@ -190,6 +191,7 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
     _battery_entity_id = None
     device_name = None
     _previous_battery_low = None
+    _previous_battery_level = None
 
     entity_description: BatteryNotesBinarySensorEntityDescription
 
@@ -270,8 +272,16 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
         await self.coordinator.async_request_refresh()
 
         if battery_low != self._previous_battery_low:
+            # # Check Tolerance
+            # if not self._previous_battery_level:
+            #     difference = 100
+            # else:
+            #     difference = self._previous_battery_level - int(
+            #         wrapped_battery_state.state
+            #     )
+            # if difference not in range(-5, 5):
             self.hass.bus.fire(
-                "battery_notes_battery_threshold",
+                EVENT_BATTERY_THRESHOLD,
                 {
                     ATTR_DEVICE_ID: self.coordinator.device_id,
                     ATTR_DEVICE_NAME: self.device_name,
@@ -283,6 +293,7 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
                 },
             )
 
+        self._previous_battery_level = int(wrapped_battery_state.state)
         self._previous_battery_low = battery_low
 
     async def async_added_to_hass(self) -> None:
