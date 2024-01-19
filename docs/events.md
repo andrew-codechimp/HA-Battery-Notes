@@ -18,7 +18,7 @@ This is fired when any device within Battery Notes has a battery level changed t
 | `battery_quantity` | `int` | Battery quantity. |
 | `battery_level` | `int` | Battery level % of the device. |
 
-### Automation Example
+### Automation Examples
 
 ```yaml
 alias: Battery Low Notification
@@ -38,5 +38,21 @@ action:
         The device has a battery level of {{ trigger.event.data.battery_level
         }}% {{ '\n' -}} You need {{ trigger.event.data.battery_quantity }}x {{
         trigger.event.data.battery_type }}
+mode: queued
+```
+
+```yaml
+alias: Battery Replaced
+description: Battery Replaced
+trigger:
+  - platform: event
+    event_type: battery_notes_battery_threshold
+    event_data:
+      battery_low: false
+condition: []
+action:
+  - service: battery_notes.set_battery_replaced
+    data:
+      device_id: "{{ trigger.event.data.device_id }}"
 mode: queued
 ```
