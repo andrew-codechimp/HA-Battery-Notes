@@ -12,7 +12,7 @@ This is fired when any device within Battery Notes has a battery level changed t
 |-----------|------|-------------|
 | `device_id` | `string` | The device id of the device. |
 | `device_name` | `string` | The device name. |
-| `battery_low` | `bool` | Returns True if the battery has gone below the threshold, false when the battery has returned above the threshold. **Your automations will almost certainly want to examine this value and set/clear notifications or other indicators.** |
+| `battery_low` | `bool` | Returns true if the battery has gone below the threshold, false when the battery has returned above the threshold. **Your automations will almost certainly want to examine this value and set/clear notifications or other indicators.** |
 | `battery_type_and_quantity` | `string` | Battery type & quantity. |
 | `battery_type` | `string` | Battery type. |
 | `battery_quantity` | `int` | Battery quantity. |
