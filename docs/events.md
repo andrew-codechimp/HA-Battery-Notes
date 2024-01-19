@@ -6,7 +6,7 @@ The following events are raised by the integration. These events can be used wit
 
 `battery_notes_battery_threshold`
 
-This is fired when the a device within Battery Notes has a battery level changed to either below or above the device specific or global threshold.
+This is fired when any device within Battery Notes has a battery level changed to either below or above the device specific or global threshold.
 
 | Attribute | Type | Description |
 |-----------|------|-------------|
