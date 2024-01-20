@@ -1837,6 +1837,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Schneider Electric",
+            "model": "Wiser radiator thermostat (WV704R0A0902)",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Sengled",
             "model": "E1D-G73",
             "battery_type": "CR1632"
@@ -3074,12 +3080,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Schneider Electric",
-            "model": "Wiser radiator thermostat (WV704R0A0902)",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
