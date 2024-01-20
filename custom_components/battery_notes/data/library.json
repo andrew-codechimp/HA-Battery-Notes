@@ -826,6 +826,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Feasycom",
+            "model": "FeasyBeacon FSC-BP108",
+            "battery_type": "CR3032"
+        },
+        {
             "manufacturer": "Fibargroup",
             "model": "FGCD001",
             "battery_type": "CR123A"
@@ -3080,11 +3085,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Feasycom",
-            "model": "FeasyBeacon FSC-BP108",
-            "battery_type": "CR3032"
         }
     ]
 }
