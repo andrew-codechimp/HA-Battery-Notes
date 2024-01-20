@@ -3080,6 +3080,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Feasycom",
+            "model": "FeasyBeacon FSC-BP108",
+            "battery_type": "CR3032"
         }
     ]
 }
