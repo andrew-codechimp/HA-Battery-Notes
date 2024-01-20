@@ -2600,6 +2600,11 @@
         },
         {
             "manufacturer": "Visonic",
+            "model": "Magnetic door & window contact sensor (MCT-340 E)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Visonic",
             "model": "MCT-340 E",
             "battery_type": "CR2032"
         },
@@ -3043,11 +3048,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Visonic",
-            "model": "Magnetic door & window contact sensor (MCT-340 E)",
-            "battery_type": "CR2032"
         }
     ]
 }

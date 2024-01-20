@@ -1,4 +1,4 @@
-## 561 Devices in library
+## 562 Devices in library
 
 This file is auto generated, do not modify
 
@@ -480,6 +480,7 @@ This file is auto generated, do not modify
 |Vision Security                                 |ZG8101                                                                |CR123               |
 |Vision Security                                 |ZP3111-5                                                              |2x AAA              |
 |Vision Security                                 |ZS5101                                                                |CR123A              |
+|Visonic                                         |Magnetic door & window contact sensor (MCT-340 E)                     |CR2032              |
 |Visonic                                         |MCT-340 E                                                             |CR2032              |
 |WyzeLabs                                        |WVOD1                                                                 |Rechargeable        |
 |WyzeLabs                                        |YD.LO1                                                                |Rechargeable        |
