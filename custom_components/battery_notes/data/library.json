@@ -3037,6 +3037,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Bosch",
+            "model": "Motion sensor (ISW-ZPR1-WP13)",
+            "battery_type": "AA",
+            "battery_quantity": 4
         }
     ]
 }
