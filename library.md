@@ -1,4 +1,4 @@
-## 564 Devices in library
+## 565 Devices in library
 
 This file is auto generated, do not modify
 
@@ -484,6 +484,7 @@ This file is auto generated, do not modify
 |Vision Security                                 |ZS5101                                                                |CR123A              |
 |Visonic                                         |Magnetic door & window contact sensor (MCT-340 E)                     |CR2032              |
 |Visonic                                         |MCT-340 E                                                             |CR2032              |
+|Wink Inc.                                       |Motion Sensor                                                         |CR123A              |
 |WyzeLabs                                        |WVOD1                                                                 |Rechargeable        |
 |WyzeLabs                                        |YD.LO1                                                                |Rechargeable        |
 |Xiaomi                                          |Aqara D1 double key wireless wall switch (WXKG07LM)                   |CR2032              |
