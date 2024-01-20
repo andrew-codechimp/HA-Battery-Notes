@@ -3053,6 +3053,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "SmartThings",
+            "model": "Motion sensor (2016 model) (STS-IRM-250)",
+            "battery_type": "CR2477"
         }
     ]
 }
