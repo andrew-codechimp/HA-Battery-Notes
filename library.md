@@ -1,4 +1,4 @@
-## 560 Devices in library
+## 561 Devices in library
 
 This file is auto generated, do not modify
 
@@ -549,6 +549,7 @@ This file is auto generated, do not modify
 |Xiaomi                                          |zigbee WSDCGQ01LM (lumi.sensor_ht)                                    |CR2032              |
 |Xiaomi                                          |zigbee WXKG01LM (lumi.sensor_switch)                                  |CR2032              |
 |Xiaomi                                          |zigbee WXKG01LM (lumi.sensor_switch)                                  |CR2032              |
+|Yale                                            |YRD210                                                                |4x AA               |
 |Yale                                            |YRD220/240 TSDB                                                       |4x AA               |
 |Yeelight                                        |ble YLAI003                                                           |CR2032              |
 |YoLink                                          |DoorSensor                                                            |2x AAA              |
