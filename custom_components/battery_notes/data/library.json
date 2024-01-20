@@ -3058,6 +3058,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Wink Inc.",
+            "model": "Motion Sensor",
+            "battery_type": "CR123A"
         }
     ]
 }
