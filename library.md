@@ -1,4 +1,4 @@
-## 566 Devices in library
+## 567 Devices in library
 
 This file is auto generated, do not modify
 
@@ -100,6 +100,7 @@ This file is auto generated, do not modify
 |Devolo                                          |MT2756                                                                |CR123A              |
 |Drayton Wiser                                   |iTRV                                                                  |2x AA               |
 |Drayton Wiser                                   |RoomStat                                                              |2x AA               |
+|ecobee                                          |ecobee Room Sensor                                                    |CR2032              |
 |ecobee Inc.                                     |EBERS41                                                               |CR2477              |
 |ecobee Inc.                                     |EBRSE4                                                                |CR2032              |
 |Ecolink                                         |DWZWAVE25                                                             |CR123A              |

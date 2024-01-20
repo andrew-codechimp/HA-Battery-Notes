@@ -527,6 +527,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "ecobee",
+            "model": "ecobee Room Sensor",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "ecobee Inc.",
             "model": "EBERS41",
             "battery_type": "CR2477"
@@ -3069,11 +3074,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "ecobee",
-            "model": "ecobee Room Sensor",
-            "battery_type": "CR2032"
         }
     ]
 }
