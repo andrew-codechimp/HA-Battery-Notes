@@ -3074,6 +3074,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Schneider Electric",
+            "model": "Wiser radiator thermostat (WV704R0A0902)",
+            "battery_type": "AA",
+            "battery_quantity": 2
         }
     ]
 }
