@@ -3037,6 +3037,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "ecobee",
+            "model": "ecobee Room Sensor",
+            "battery_type": "CR2032"
         }
     ]
 }
