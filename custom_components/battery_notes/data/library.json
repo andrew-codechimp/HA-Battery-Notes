@@ -2060,6 +2060,11 @@
         },
         {
             "manufacturer": "SmartThings",
+            "model": "Water leak sensor (2018 model) (IM6001-WLP01)",
+            "battery_type": "CR2"
+        },
+        {
+            "manufacturer": "SmartThings",
             "model": "Water sensor (3315-S)",
             "battery_type": "CR2"
         },
@@ -3048,11 +3053,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "SmartThings",
-            "model": "Water leak sensor (2018 model) (IM6001-WLP01)",
-            "battery_type": "CR2"
         }
     ]
 }
