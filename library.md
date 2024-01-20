@@ -1,4 +1,4 @@
-## 565 Devices in library
+## 566 Devices in library
 
 This file is auto generated, do not modify
 
@@ -71,6 +71,7 @@ This file is auto generated, do not modify
 |August Home Inc.                                |AUG-SL05-M01-S01                                                      |2x CR123A           |
 |AVATTO                                          |ME167                                                                 |2x AA               |
 |Bosch                                           |ISW-ZPR1-WP13                                                         |4x AA               |
+|Bosch                                           |Motion sensor (ISW-ZPR1-WP13)                                         |4x AA               |
 |Bosch                                           |Radiator thermostat II (BTH-RA)                                       |2x AA               |
 |BRK Brands, Inc.                                |ZCOMBO                                                                |2x AA               |
 |BRK Brands, Inc.                                |ZSMOKE                                                                |2x AA               |
