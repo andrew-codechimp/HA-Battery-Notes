@@ -1,4 +1,4 @@
-## 563 Devices in library
+## 564 Devices in library
 
 This file is auto generated, do not modify
 
@@ -377,6 +377,7 @@ This file is auto generated, do not modify
 |SMaBiT (Bitron Video)                           |Compact magnetic contact sensor (AV2010/21A)                          |CR2                 |
 |SmartThings                                     |Button (IM6001-BTP01)                                                 |CR2450              |
 |SmartThings                                     |moisturev4                                                            |CR2                 |
+|SmartThings                                     |Motion sensor (2016 model) (STS-IRM-250)                              |CR2477              |
 |SmartThings                                     |Motion sensor (2018 model) (IM6001-MTP01)                             |CR2                 |
 |SmartThings                                     |Multi Sensor (2015 model) (3321-S)                                    |CR2450              |
 |SmartThings                                     |Multipurpose sensor (2018 model) (IM6001-MPP01)                       |CR2450              |
