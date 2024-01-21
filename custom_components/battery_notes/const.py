@@ -39,6 +39,7 @@ CONF_LIBRARY_URL = "https://raw.githubusercontent.com/andrew-codechimp/HA-Batter
 CONF_SHOW_ALL_DEVICES = "show_all_devices"
 CONF_ENABLE_REPLACED = "enable_replaced"
 CONF_DEFAULT_BATTERY_LOW_THRESHOLD = "default_battery_low_threshold"
+CONF_HIDE_BATTERY = "hide_battery"
 
 DATA_CONFIGURED_ENTITIES = "configured_entities"
 DATA_DISCOVERED_ENTITIES = "discovered_entities"

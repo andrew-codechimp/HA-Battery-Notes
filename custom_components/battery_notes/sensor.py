@@ -59,6 +59,7 @@ from .const import (
     LAST_REPLACED,
     DOMAIN_CONFIG,
     CONF_ENABLE_REPLACED,
+    CONF_HIDE_BATTERY,
     ATTR_BATTERY_QUANTITY,
     ATTR_BATTERY_TYPE,
     ATTR_BATTERY_TYPE_AND_QUANTITY,
@@ -215,6 +216,7 @@ async def async_setup_entry(
                 battery_plus_sensor_entity_description,
                 f"{config_entry.entry_id}{battery_plus_sensor_entity_description.unique_id_suffix}",
                 device,
+                enable_replaced,
             )
         )
 
@@ -248,6 +250,7 @@ class BatteryNotesBatteryPlusSensor(
         description: BatteryNotesSensorEntityDescription,
         unique_id: str,
         device: BatteryNotesDevice,
+        enable_replaced: bool,
     ) -> None:
         """Initialize the sensor."""
         super().__init__(coordinator)
@@ -261,6 +264,7 @@ class BatteryNotesBatteryPlusSensor(
         self._attr_has_entity_name = True
         self._attr_unique_id = unique_id
         self.device = device
+        self.enable_replaced = enable_replaced
 
         if coordinator.device_id and (
             device_entry := device_registry.async_get(coordinator.device_id)
@@ -367,6 +371,20 @@ class BatteryNotesBatteryPlusSensor(
         ):
             return
 
+        if DOMAIN_CONFIG in self.hass.data[DOMAIN]:
+            domain_config: dict = self.hass.data[DOMAIN][DOMAIN_CONFIG]
+            hide_battery = domain_config.get(CONF_HIDE_BATTERY, False)
+            if hide_battery:
+                if wrapped_battery and not wrapped_battery.hidden:
+                    registry.async_update_entity(
+                        wrapped_battery.entity_id, hidden_by=er.RegistryEntryHider.INTEGRATION
+                    )
+            else:
+                if wrapped_battery and wrapped_battery.hidden_by == er.RegistryEntryHider.INTEGRATION:
+                    registry.async_update_entity(
+                        wrapped_battery.entity_id, hidden_by=None
+                    )
+
         def copy_custom_name(wrapped_battery: er.RegistryEntry) -> None:
             """Copy the name set by user from the wrapped entity."""
             if wrapped_battery.name is None:
@@ -416,10 +434,12 @@ class BatteryNotesBatteryPlusSensor(
             ATTR_BATTERY_QUANTITY: self.coordinator.battery_quantity,
             ATTR_BATTERY_TYPE: self.coordinator.battery_type,
             ATTR_BATTERY_TYPE_AND_QUANTITY: self.coordinator.battery_type_and_quantity,
-            ATTR_BATTERY_LAST_REPLACED: self.coordinator.last_replaced,
             ATTR_BATTERY_LOW: self.coordinator.battery_low,
             ATTR_BATTERY_LOW_THRESHOLD: self.coordinator.battery_low_threshold,
         }
+
+        if self.enable_replaced:
+            attrs[ATTR_BATTERY_LAST_REPLACED] = self.coordinator.last_replaced
 
         super_attrs = super().extra_state_attributes
         if super_attrs:
