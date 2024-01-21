@@ -2319,6 +2319,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "TS0042",
+            "model": "_TZ3000_ftwuvum5",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "TS004F",
             "model": "_TZ3000_qja6nq5z",
             "battery_type": "CR2032"
@@ -3090,11 +3095,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "TS0042",
-            "model": "_TZ3000_ftwuvum5",
-            "battery_type": "CR2032"
         }
     ]
 }
