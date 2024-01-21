@@ -269,7 +269,7 @@ class BatteryNotesBatteryPlusSensor(
                 identifiers=device_entry.identifiers,
             )
 
-            self.entity_id = f"sensor.{device_entry.name}_{description.key}"
+            self.entity_id = f"sensor.{device_entry.name.lower()}_{description.key}"
 
         entity_category = (
             device.wrapped_battery.entity_category if device.wrapped_battery else None
@@ -278,8 +278,15 @@ class BatteryNotesBatteryPlusSensor(
             device.wrapped_battery.has_entity_name if device.wrapped_battery else False
         )
 
+        existing_entity = entity_registry.async_get(self.entity_id)
+        self._is_new_entity = existing_entity == None
+
         name: str | None = config_entry.title
-        if device.wrapped_battery:
+
+        if existing_entity:
+            name = existing_entity.name
+
+        if not existing_entity and device.wrapped_battery:
             name = device.wrapped_battery.original_name + "+"
 
         self._device_id = coordinator.device_id
@@ -301,10 +308,6 @@ class BatteryNotesBatteryPlusSensor(
         self._attr_device_class = SensorDeviceClass.BATTERY
         self._attr_state_class = SensorStateClass.MEASUREMENT
         self._attr_native_unit_of_measurement = PERCENTAGE
-
-        self._is_new_entity = (
-            entity_registry.async_get_entity_id(DOMAIN, DOMAIN, unique_id) is None
-        )
 
     @callback
     def async_state_changed_listener(
@@ -458,7 +461,7 @@ class BatteryNotesTypeSensor(RestoreSensor, SensorEntity):
                 identifiers=device_entry.identifiers,
             )
 
-            self.entity_id = f"sensor.{device_entry.name}_{description.key}"
+            self.entity_id = f"sensor.{device_entry.name.lower()}_{description.key}"
 
         self._battery_type = coordinator.battery_type
         self._battery_quantity = coordinator.battery_quantity
@@ -539,7 +542,7 @@ class BatteryNotesLastReplacedSensor(
                 identifiers=device_entry.identifiers,
             )
 
-            self.entity_id = f"sensor.{device_entry.name}_{description.key}"
+            self.entity_id = f"sensor.{device_entry.name.lower()}_{description.key}"
 
     async def async_added_to_hass(self) -> None:
         """Handle added to Hass."""

@@ -219,7 +219,7 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
                 identifiers=device_entry.identifiers,
             )
 
-            self.entity_id = f"binary_sensor.{device.name}_{description.key}"
+            self.entity_id = f"binary_sensor.{device.name.lower()}_{description.key}"
             self.device_name = device.name
 
         self._battery_entity_id = (
