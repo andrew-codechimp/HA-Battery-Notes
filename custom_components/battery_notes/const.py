@@ -25,6 +25,7 @@ LAST_REPLACED = "battery_last_replaced"
 DOMAIN_CONFIG = "config"
 
 DEFAULT_BATTERY_LOW_THRESHOLD = 10
+DEFAULT_BATTERY_INCREASE_THRESHOLD = 10
 
 CONF_BATTERY_TYPE = "battery_type"
 CONF_BATTERY_QUANTITY = "battery_quantity"
@@ -39,6 +40,7 @@ CONF_LIBRARY_URL = "https://raw.githubusercontent.com/andrew-codechimp/HA-Batter
 CONF_SHOW_ALL_DEVICES = "show_all_devices"
 CONF_ENABLE_REPLACED = "enable_replaced"
 CONF_DEFAULT_BATTERY_LOW_THRESHOLD = "default_battery_low_threshold"
+CONF_BATTERY_INCREASE_THRESHOLD = "battery_increase_threshold"
 CONF_HIDE_BATTERY = "hide_battery"
 
 DATA_CONFIGURED_ENTITIES = "configured_entities"
@@ -55,6 +57,7 @@ SERVICE_BATTERY_REPLACED = "set_battery_replaced"
 SERVICE_DATA_DATE_TIME_REPLACED = "datetime_replaced"
 
 EVENT_BATTERY_THRESHOLD = "battery_notes_battery_threshold"
+EVENT_BATTERY_INCREASED = "battery_notes_battery_increased"
 
 ATTR_DEVICE_ID = "device_id"
 ATTR_REMOVE = "remove"
@@ -66,6 +69,7 @@ ATTR_BATTERY_LOW = "battery_low"
 ATTR_BATTERY_LOW_THRESHOLD = "battery_low_threshold"
 ATTR_DEVICE_NAME = "device_name"
 ATTR_BATTERY_LEVEL = "battery_level"
+ATTR_PREVIOUS_BATTERY_LEVEL = "previous_battery_level"
 
 SERVICE_BATTERY_REPLACED_SCHEMA = vol.Schema(
     {

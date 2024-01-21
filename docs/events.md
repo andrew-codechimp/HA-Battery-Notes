@@ -41,14 +41,30 @@ action:
 mode: queued
 ```
 
+## Battery Increased
+
+`battery_notes_battery_increased`
+
+This is fired when any device within Battery Notes has a battery level increased above the battery_increase_threshold (default 10%) if not changed within [configuration setting](./configuration.md).
+
+| Attribute | Type | Description |
+|-----------|------|-------------|
+| `device_id` | `string` | The device id of the device. |
+| `device_name` | `string` | The device name. |
+| `battery_low` | `bool` | Returns true if the battery has gone below the threshold, false when the battery has returned above the threshold. **Your automations will almost certainly want to examine this value and set/clear notifications or other indicators.** |
+| `battery_type_and_quantity` | `string` | Battery type & quantity. |
+| `battery_type` | `string` | Battery type. |
+| `battery_quantity` | `int` | Battery quantity. |
+| `battery_level` | `int` | Current battery level % of the device. |
+| `previous_battery_level` | `int` | Previous battery level % of the device. |
+
+### Automation Examples
 ```yaml
 alias: Battery Replaced
 description: Battery Replaced
 trigger:
   - platform: event
-    event_type: battery_notes_battery_threshold
-    event_data:
-      battery_low: false
+    event_type: battery_notes_battery_increased
 condition: []
 action:
   - service: battery_notes.set_battery_replaced

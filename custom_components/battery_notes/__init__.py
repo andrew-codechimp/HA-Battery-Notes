@@ -44,8 +44,10 @@ from .const import (
     CONF_SHOW_ALL_DEVICES,
     CONF_ENABLE_REPLACED,
     CONF_DEFAULT_BATTERY_LOW_THRESHOLD,
+    CONF_BATTERY_INCREASE_THRESHOLD,
     CONF_HIDE_BATTERY,
     DEFAULT_BATTERY_LOW_THRESHOLD,
+    DEFAULT_BATTERY_INCREASE_THRESHOLD,
     SERVICE_BATTERY_REPLACED,
     SERVICE_BATTERY_REPLACED_SCHEMA,
     SERVICE_DATA_DATE_TIME_REPLACED,
@@ -74,6 +76,10 @@ CONFIG_SCHEMA = vol.Schema(
                     vol.Optional(
                         CONF_DEFAULT_BATTERY_LOW_THRESHOLD,
                         default=DEFAULT_BATTERY_LOW_THRESHOLD,
+                    ): cv.positive_int,
+                    vol.Optional(
+                        CONF_BATTERY_INCREASE_THRESHOLD,
+                        default=DEFAULT_BATTERY_INCREASE_THRESHOLD,
                     ): cv.positive_int,
                 },
             ),
@@ -109,6 +115,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         CONF_ENABLE_REPLACED: True,
         CONF_HIDE_BATTERY: False,
         CONF_DEFAULT_BATTERY_LOW_THRESHOLD: DEFAULT_BATTERY_LOW_THRESHOLD,
+        CONF_BATTERY_INCREASE_THRESHOLD: DEFAULT_BATTERY_INCREASE_THRESHOLD,
     }
 
     hass.data[DOMAIN] = {
