@@ -384,7 +384,7 @@ class BatteryNotesBatteryPlusSensor(
             """Copy the name set by user from the wrapped entity."""
             if wrapped_battery.name is None:
                 return
-            registry.async_update_entity(self.entity_id, name=wrapped_battery.name)
+            registry.async_update_entity(self.entity_id, name=wrapped_battery.name + "+")
 
         copy_custom_name(wrapped_battery)
 
