@@ -1,4 +1,4 @@
-## 580 Devices in library
+## 581 Devices in library
 
 This file is auto generated, do not modify
 
@@ -486,6 +486,7 @@ This file is auto generated, do not modify
 |TuYa                                            |Zigbee water leak sensor (TS0207_water_leak_detector_2)               |CR2032              |
 |Tuya                                            |zqeaw7pi                                                              |2x AAA              |
 |TUYATEC-xrvzm3yI                                |RH3001                                                                |CR2032              |
+|TUYATEC-yg5dcbfu                                |RH3052                                                                |CR2032              |
 |Ultraloq                                        |U-BOLT-PRO-ZWAVE                                                      |4x AA               |
 |Universal Electronics Inc                       |Magnetic door & window contact sensor (XHS2-UE)                       |CR2450              |
 |Universal Electronics Inc                       |URC4470BC0-X-R                                                        |2x CR123A           |
