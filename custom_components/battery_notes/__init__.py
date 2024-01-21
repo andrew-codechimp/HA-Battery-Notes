@@ -19,6 +19,7 @@ from homeassistant.core import HomeAssistant, callback
 from homeassistant.const import __version__ as HA_VERSION  # noqa: N812
 from homeassistant.helpers.typing import ConfigType
 from homeassistant.helpers import device_registry as dr
+from homeassistant.helpers import entity_registry as er
 from homeassistant.util import dt as dt_util
 
 from .config_flow import CONFIG_VERSION
@@ -172,14 +173,27 @@ async def async_remove_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> 
     if "device_id" not in config_entry.data:
         return
 
-    device_id = config_entry.data["device_id"]
+    device : BatteryNotesDevice = hass.data[DOMAIN][DATA].devices[config_entry.entry_id]
+    if not device:
+        return
 
-    coordinator: BatteryNotesCoordinator = hass.data[DOMAIN][DATA_COORDINATOR]
     data = {ATTR_REMOVE: True}
 
-    coordinator.async_update_device_config(device_id=device_id, data=data)
+    device.coordinator.async_update_device_config(device_id=device.coordinator.device_id, data=data)
 
-    _LOGGER.debug("Removed Device %s", device_id)
+    # Unhide the battery
+    entity_registry = er.async_get(hass)
+    if not device.wrapped_battery:
+        return
+
+    if not (wrapped_battery_entity_entry := entity_registry.async_get(device.wrapped_battery.entity_id)):
+        return
+
+    # Unhide the wrapped entity
+    if wrapped_battery_entity_entry.hidden_by == er.RegistryEntryHider.INTEGRATION:
+        entity_registry.async_update_entity(device.wrapped_battery.entity_id, hidden_by=None)
+
+    _LOGGER.debug("Removed Device %s", device.coordinator.device_id)
 
 
 async def async_migrate_entry(hass, config_entry: ConfigEntry):
