@@ -14,11 +14,8 @@ from .store import BatteryNotesStorage
 
 from .const import (
     DOMAIN,
-    DOMAIN_CONFIG,
     ATTR_REMOVE,
     LAST_REPLACED,
-    CONF_BATTERY_LOW_THRESHOLD,
-    CONF_DEFAULT_BATTERY_LOW_THRESHOLD,
 )
 
 _LOGGER = logging.getLogger(__name__)

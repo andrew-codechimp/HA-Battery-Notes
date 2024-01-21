@@ -16,7 +16,6 @@ from homeassistant.components.sensor import (
     RestoreSensor,
 )
 
-# from homeassistant.components import state_changes_during_period
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_ENTITY_ID
 from homeassistant.core import HomeAssistant, callback, Event
@@ -38,10 +37,6 @@ from homeassistant.helpers.update_coordinator import (
 from homeassistant.helpers.reload import async_setup_reload_service
 from homeassistant.helpers.event import async_track_state_change_event
 from homeassistant.helpers.typing import EventType
-
-from homeassistant.components.sensor import DOMAIN as SENSOR_DOMAIN
-from homeassistant.components.binary_sensor import DOMAIN as BINARY_SENSOR_DOMAIN
-
 
 from homeassistant.const import (
     CONF_NAME,

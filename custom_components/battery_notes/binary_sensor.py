@@ -23,11 +23,6 @@ from homeassistant.components.binary_sensor import (
     BinarySensorEntityDescription,
 )
 
-from homeassistant.components.event import (
-    EventEntity,
-    EventExtraStoredData,
-)
-
 from homeassistant.helpers.entity import DeviceInfo, EntityCategory
 from homeassistant.helpers.event import (
     EventStateChangedData,
@@ -41,7 +36,6 @@ from homeassistant.const import (
     CONF_NAME,
     CONF_DEVICE_ID,
     STATE_UNAVAILABLE,
-    STATE_UNKNOWN,
 )
 
 from . import PLATFORMS
