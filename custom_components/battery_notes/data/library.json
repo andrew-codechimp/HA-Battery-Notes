@@ -3120,6 +3120,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "WIFI \u6c34\u6d78\u62a5\u8b66\u5668",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
