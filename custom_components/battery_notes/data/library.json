@@ -2451,6 +2451,11 @@
         },
         {
             "manufacturer": "TuYa",
+            "model": "Motion sensor (ZMS-102)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "TuYa",
             "model": "Photoelectric smoke detector (PA-44Z)",
             "battery_type": "PP3"
         },
@@ -3120,11 +3125,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "TuYa",
-            "model": "Motion sensor (ZMS-102)",
-            "battery_type": "CR2032"
         }
     ]
 }
