@@ -3120,6 +3120,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "TuYa",
+            "model": "Motion sensor (ZMS-102)",
+            "battery_type": "CR2032"
         }
     ]
 }
