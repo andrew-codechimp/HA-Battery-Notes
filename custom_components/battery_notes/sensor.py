@@ -164,10 +164,10 @@ async def async_setup_entry(
         domain_config: dict = hass.data[DOMAIN][DOMAIN_CONFIG]
         enable_replaced = domain_config.get(CONF_ENABLE_REPLACED, True)
 
-    noted_battery_sensor_entity_description = BatteryNotesSensorEntityDescription(
-        unique_id_suffix="_battery_noted",
-        key="battery_noted",
-        translation_key="battery_noted",
+    battery_plus_sensor_entity_description = BatteryNotesSensorEntityDescription(
+        unique_id_suffix="_battery_plus",
+        key="battery_plus",
+        translation_key="battery_plus",
         device_class=SensorDeviceClass.BATTERY,
     )
 
@@ -208,12 +208,12 @@ async def async_setup_entry(
 
     if device.wrapped_battery is not None:
         entities.append(
-            BatteryNotesBatteryNotedSensor(
+            BatteryNotesBatteryPlusSensor(
                 hass,
                 config_entry,
                 coordinator,
-                noted_battery_sensor_entity_description,
-                f"{config_entry.entry_id}{noted_battery_sensor_entity_description.unique_id_suffix}",
+                battery_plus_sensor_entity_description,
+                f"{config_entry.entry_id}{battery_plus_sensor_entity_description.unique_id_suffix}",
                 device,
             )
         )
@@ -231,10 +231,10 @@ async def async_setup_platform(
     await async_setup_reload_service(hass, DOMAIN, PLATFORMS)
 
 
-class BatteryNotesBatteryNotedSensor(
+class BatteryNotesBatteryPlusSensor(
     SensorEntity, CoordinatorEntity[BatteryNotesCoordinator]
 ):
-    """Represents a noted battery type sensor."""
+    """Represents a battery plus type sensor."""
 
     _attr_should_poll = False
     _is_new_entity: bool
