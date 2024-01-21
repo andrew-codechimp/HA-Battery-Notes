@@ -2461,6 +2461,12 @@
         },
         {
             "manufacturer": "TuYa",
+            "model": "PIR sensor (RH3040)",
+            "battery_type": "AAA",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "TuYa",
             "model": "Radiator valve with thermostat (TS0601_thermostat)",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -3125,12 +3131,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "TuYa",
-            "model": "PIR sensor (RH3040)",
-            "battery_type": "AAA",
-            "battery_quantity": 3
         }
     ]
 }

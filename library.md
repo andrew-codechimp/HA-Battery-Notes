@@ -1,4 +1,4 @@
-## 577 Devices in library
+## 578 Devices in library
 
 This file is auto generated, do not modify
 
@@ -455,6 +455,7 @@ This file is auto generated, do not modify
 |TuYa                                            |Motion sensor (IH012-RT01)                                            |CR2450              |
 |TuYa                                            |Motion sensor (ZMS-102)                                               |CR2032              |
 |TuYa                                            |Photoelectric smoke detector (PA-44Z)                                 |PP3                 |
+|TuYa                                            |PIR sensor (RH3040)                                                   |3x AAA              |
 |TuYa                                            |Radiator valve with thermostat (TS0601_thermostat)                    |2x AA               |
 |TuYa                                            |Smart button (IH-K663)                                                |CR2032              |
 |TuYa                                            |Smart button (MINI-ZSB)                                               |CR2032              |
