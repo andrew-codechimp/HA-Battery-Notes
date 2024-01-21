@@ -3142,6 +3142,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "TUYATEC-yg5dcbfu",
+            "model": "RH3052",
+            "battery_type": "CR2032"
         }
     ]
 }
