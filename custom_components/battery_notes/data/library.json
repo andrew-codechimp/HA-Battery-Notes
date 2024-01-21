@@ -2404,6 +2404,11 @@
         },
         {
             "manufacturer": "TuYa",
+            "model": "Aegislink Wi-Fi Combination Alarm (cfet7ouwznslditf)",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "TuYa",
             "model": "Button scene switch (SH-SC07)",
             "battery_type": "CR2450"
         },
@@ -3131,11 +3136,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "TuYa",
-            "model": "Aegislink Wi-Fi Combination Alarm (cfet7ouwznslditf)",
-            "battery_type": "CR123A"
         }
     ]
 }
