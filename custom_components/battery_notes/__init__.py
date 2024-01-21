@@ -14,6 +14,7 @@ import voluptuous as vol
 import re
 
 from awesomeversion.awesomeversion import AwesomeVersion
+from homeassistant.components.homeassistant import exposed_entities
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.const import __version__ as HA_VERSION  # noqa: N812
@@ -29,7 +30,6 @@ from .discovery import DiscoveryManager
 from .library_updater import (
     LibraryUpdater,
 )
-from .coordinator import BatteryNotesCoordinator
 from .store import (
     async_get_registry,
 )
@@ -181,6 +181,8 @@ async def async_remove_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> 
 
     device.coordinator.async_update_device_config(device_id=device.coordinator.device_id, data=data)
 
+    _LOGGER.debug("Removed Device %s", device.coordinator.device_id)
+
     # Unhide the battery
     entity_registry = er.async_get(hass)
     if not device.wrapped_battery:
@@ -189,11 +191,9 @@ async def async_remove_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> 
     if not (wrapped_battery_entity_entry := entity_registry.async_get(device.wrapped_battery.entity_id)):
         return
 
-    # Unhide the wrapped entity
     if wrapped_battery_entity_entry.hidden_by == er.RegistryEntryHider.INTEGRATION:
         entity_registry.async_update_entity(device.wrapped_battery.entity_id, hidden_by=None)
-
-    _LOGGER.debug("Removed Device %s", device.coordinator.device_id)
+        _LOGGER.debug("Unhidden Original Battery for device%s", device.coordinator.device_id)
 
 
 async def async_migrate_entry(hass, config_entry: ConfigEntry):

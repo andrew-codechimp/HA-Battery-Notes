@@ -386,26 +386,7 @@ class BatteryNotesBatteryPlusSensor(
                 return
             registry.async_update_entity(self.entity_id, name=wrapped_battery.name)
 
-        def copy_expose_settings() -> None:
-            """Copy assistant expose settings from the wrapped entity.
-
-            Also unexpose the wrapped entity if exposed.
-            """
-            expose_settings = exposed_entities.async_get_entity_settings(
-                self.hass, self._battery_entity_id
-            )
-            for assistant, settings in expose_settings.items():
-                if (should_expose := settings.get("should_expose")) is None:
-                    continue
-                exposed_entities.async_expose_entity(
-                    self.hass, assistant, self.entity_id, should_expose
-                )
-                exposed_entities.async_expose_entity(
-                    self.hass, assistant, self._battery_entity_id, False
-                )
-
         copy_custom_name(wrapped_battery)
-        copy_expose_settings()
 
         self.async_on_remove(
             self.coordinator.async_add_listener(self._handle_coordinator_update)
