@@ -50,7 +50,8 @@ mode: queued
 
 This is fired when any device within Battery Notes has a battery level increased above the battery_increase_threshold (default 25%) if not changed within [configuration setting](./configuration.md).
 
-It deliberately does not update the battery_replaced sensor allowing you to choose how you want to handle this.  An example automation below shows how to update the battery_replaced.
+It deliberately does not update the battery_replaced sensor allowing you to choose how you want to handle this.  The increase theshold allows for detecting/handling of partially charged batteries rather than just full batteries.  
+An example automation below shows how to update the battery_replaced.
 
 | Attribute | Type | Description |
 |-----------|------|-------------|
