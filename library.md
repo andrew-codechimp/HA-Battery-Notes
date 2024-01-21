@@ -1,4 +1,4 @@
-## 575 Devices in library
+## 576 Devices in library
 
 This file is auto generated, do not modify
 
@@ -18,6 +18,7 @@ This file is auto generated, do not modify
 |_TZ3000_k4ej3ww2                                |TS0207                                                                |CR2032              |
 |_TZ3000_lf56vpxj                                |TS0202                                                                |2x AAA              |
 |_TZ3000_mh9px7cq                                |TS0044                                                                |A23                 |
+|_TZ3000_nss8amz9                                |TS0202                                                                |CR2450              |
 |_TZ3000_wkai4ga5                                |TS0044                                                                |CR2430              |
 |_TZ3000_xr3htd96                                |TS0201                                                                |2x AAA              |
 |_TZ3000_yxqnffam                                |TS0203                                                                |2x AAA              |
