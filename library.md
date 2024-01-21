@@ -1,4 +1,4 @@
-## 569 Devices in library
+## 570 Devices in library
 
 This file is auto generated, do not modify
 
@@ -159,6 +159,7 @@ This file is auto generated, do not modify
 |Fibargroup                                      |FGFS101                                                               |CR123A              |
 |Fibargroup                                      |FGFS101                                                               |CR123A              |
 |Fibargroup                                      |FGK101                                                                |ER14250             |
+|Fibargroup                                      |FGKF601                                                               |CR2450              |
 |Fibargroup                                      |FGMS001                                                               |CR123A              |
 |Fibargroup                                      |FGSD002                                                               |CR123A              |
 |Fibargroup                                      |FGSS001                                                               |CR123A              |
