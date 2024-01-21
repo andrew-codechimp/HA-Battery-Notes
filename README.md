@@ -7,7 +7,7 @@
 [![hacs][hacsbadge]][hacs]
 
 Integration to add battery notes to a device, with automatic discovery via a growing [battery library](library.md) for devices.  
-Track both the battery type and also when the battery was replaced.  
+Track the battery type, when the battery was replaced and also when a battery is low based on device or global thresholds.  
 
 *Please :star: this repo if you find it useful*  
 *If you want to show your support please*

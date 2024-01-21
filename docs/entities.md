@@ -5,7 +5,8 @@ You'll get the following entities for each device you have added to battery note
 ## Battery+
 `sensor.{{device_name}}_battery_plus`
 
-An enhanced battery sensor that mirrors the normal battery but with additional attributes specific to battery notes.
+An enhanced battery sensor that duplicates the normal battery but with additional attributes specific to battery notes.  
+Use the battery+ sensor on dashboards with secondary information fields/templates etc to display battery notes specific details along with the battery level.  
 The original battery can optionally be hidden by adding a [configuration setting](./configuration.md).
 
 | Attribute | Type | Description |

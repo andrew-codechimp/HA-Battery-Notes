@@ -282,6 +282,7 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
             and self._previous_state_last_changed + timedelta(seconds=10)
             < pytz.UTC.localize(datetime.utcnow())
         ):
+            # Battery low event
             if battery_low != self._previous_battery_low:
                 self.hass.bus.fire(
                     EVENT_BATTERY_THRESHOLD,
@@ -293,11 +294,13 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
                         ATTR_BATTERY_TYPE: self.coordinator.battery_type,
                         ATTR_BATTERY_QUANTITY: self.coordinator.battery_quantity,
                         ATTR_BATTERY_LEVEL: int(wrapped_battery_state.state),
+                        ATTR_PREVIOUS_BATTERY_LEVEL: self._previous_battery_level,
                     },
                 )
 
                 _LOGGER.debug("battery_threshold event fired")
 
+            # Battery increased event
             increase_threshold = DEFAULT_BATTERY_INCREASE_THRESHOLD
             if DOMAIN_CONFIG in self.hass.data[DOMAIN]:
                 domain_config: dict = self.hass.data[DOMAIN][DOMAIN_CONFIG]

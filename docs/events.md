@@ -8,6 +8,8 @@ The following events are raised by the integration. These events can be used wit
 
 This is fired when any device within Battery Notes has a battery level changed to either below or above the device specific or global threshold.
 
+You can use this to send notifications in your preferred method.  An example automation below displays a persistent notification.  
+
 | Attribute | Type | Description |
 |-----------|------|-------------|
 | `device_id` | `string` | The device id of the device. |
@@ -17,6 +19,7 @@ This is fired when any device within Battery Notes has a battery level changed t
 | `battery_type` | `string` | Battery type. |
 | `battery_quantity` | `int` | Battery quantity. |
 | `battery_level` | `int` | Battery level % of the device. |
+| `previous_battery_level` | `int` | Previous battery level % of the device. |
 
 ### Automation Examples
 
@@ -45,13 +48,15 @@ mode: queued
 
 `battery_notes_battery_increased`
 
-This is fired when any device within Battery Notes has a battery level increased above the battery_increase_threshold (default 10%) if not changed within [configuration setting](./configuration.md).
+This is fired when any device within Battery Notes has a battery level increased above the battery_increase_threshold (default 25%) if not changed within [configuration setting](./configuration.md).
+
+It deliberately does not update the battery_replaced sensor allowing you to choose how you want to handle this.  An example automation below shows how to update the battery_replaced.
 
 | Attribute | Type | Description |
 |-----------|------|-------------|
 | `device_id` | `string` | The device id of the device. |
 | `device_name` | `string` | The device name. |
-| `battery_low` | `bool` | Returns true if the battery has gone below the threshold, false when the battery has returned above the threshold. **Your automations will almost certainly want to examine this value and set/clear notifications or other indicators.** |
+| `battery_low` | `bool` | Returns true if the battery has gone below the threshold, false when the battery has returned above the threshold. |
 | `battery_type_and_quantity` | `string` | Battery type & quantity. |
 | `battery_type` | `string` | Battery type. |
 | `battery_quantity` | `int` | Battery quantity. |
