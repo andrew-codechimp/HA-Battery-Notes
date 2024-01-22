@@ -4,26 +4,48 @@
 
 ### Battery Low Notification
 
-Raise a persistent notification when a battery is low.
+Raise a persistent notification when a battery is low, dismiss when it's not low
 
 ```yaml
 alias: Battery Low Notification
-description: Battery Low Notification
+description: Battery Low Notification with auto dismiss
 trigger:
   - platform: event
     event_type: battery_notes_battery_threshold
     event_data:
       battery_low: true
+    id: low
+  - platform: event
+    event_type: battery_notes_battery_threshold
+    event_data:
+      battery_low: false
+    id: notlow
 condition: []
 action:
-  - service: persistent_notification.create
-    data:
-      title: |
-        {{ trigger.event.data.device_name }} Battery Low
-      message: >
-        The device has a battery level of {{ trigger.event.data.battery_level
-        }}% {{ '\n' -}} You need {{ trigger.event.data.battery_quantity }}x {{
-        trigger.event.data.battery_type }}
+  - choose:
+      - conditions:
+          - condition: trigger
+            id:
+              - low
+        sequence:
+          - service: persistent_notification.create
+            data:
+              title: |
+                {{ trigger.event.data.device_name }} Battery Low
+              notification_id: "{{ trigger.event.data.device_id }}"
+              message: >
+                The device has a battery level of {{
+                trigger.event.data.battery_level }}% {{ '\n' -}} You need {{
+                trigger.event.data.battery_quantity }}x {{
+                trigger.event.data.battery_type }}
+      - conditions:
+          - condition: trigger
+            id:
+              - notlow
+        sequence:
+          - service: persistent_notification.dismiss
+            data:
+              notification_id: "{{ trigger.event.data.device_id }}"
 mode: queued
 ```
 
