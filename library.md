@@ -1,4 +1,4 @@
-## 582 Devices in library
+## 583 Devices in library
 
 This file is auto generated, do not modify
 
@@ -179,6 +179,7 @@ This file is auto generated, do not modify
 |Govee                                           |H5054                                                                 |2x AAA              |
 |Govee                                           |H5072/H5075                                                           |2x AAA              |
 |Govee                                           |H5101/H5102/H5177                                                     |AAA                 |
+|GoveeLife                                       |H5105                                                                 |CR2450              |
 |HAB Home Intelligence LLC                       |iblinds V3                                                            |Rechargeable        |
 |HANK Electronics Ltd.                           |HKZW-DWS01                                                            |2x AAA              |
 |Heatit                                          |Z-PH WALL CONTROLLER                                                  |CR2450              |
