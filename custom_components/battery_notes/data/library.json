@@ -2350,6 +2350,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Trust",
+            "model": "COSensor-EM",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "TS0041",
             "model": "_TZ3000_itb0omhv",
             "battery_type": "CR2032"
@@ -3157,11 +3162,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Trust",
-            "model": "COSensor-EM",
-            "battery_type": "CR123A"
         }
     ]
 }

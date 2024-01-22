@@ -1,4 +1,4 @@
-## 583 Devices in library
+## 584 Devices in library
 
 This file is auto generated, do not modify
 
@@ -434,6 +434,7 @@ This file is auto generated, do not modify
 |Third Reality, Inc                              |3RSS009Z                                                              |2x AAA              |
 |Third Reality, Inc                              |3RTHS24BZ                                                             |2x AAA              |
 |Third Reality, Inc                              |3RWS18BZ                                                              |2x AAA              |
+|Trust                                           |COSensor-EM                                                           |CR123A              |
 |TS0041                                          |_TZ3000_itb0omhv                                                      |CR2032              |
 |TS0042                                          |_TZ3000_dfgbtub0                                                      |CR2032              |
 |TS0042                                          |_TZ3000_ftwuvum5                                                      |CR2032              |
