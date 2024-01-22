@@ -66,8 +66,8 @@
             }
         },
         "sensor": {
-            "battery_noted": {
-                "name": "Akkumulátor",
+            "battery_plus": {
+                "name": "Akkumulátor+",
                 "state_attributes": {
                     "battery_type": {
                         "name": "Elem típus"

@@ -66,8 +66,8 @@
             }
         },
         "sensor": {
-            "battery_noted": {
-                "name": "Batéria",
+            "battery_plus": {
+                "name": "Batéria+",
                 "state_attributes": {
                     "battery_type": {
                         "name": "Typ batérie"

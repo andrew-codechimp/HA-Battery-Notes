@@ -234,7 +234,6 @@ class BatteryNotesBatteryPlusSensor(
     """Represents a battery plus type sensor."""
 
     _attr_should_poll = False
-    _is_new_entity: bool
     _wrapped_attributes = None
 
     def __init__(
@@ -274,20 +273,6 @@ class BatteryNotesBatteryPlusSensor(
         entity_category = (
             device.wrapped_battery.entity_category if device.wrapped_battery else None
         )
-        has_entity_name = (
-            device.wrapped_battery.has_entity_name if device.wrapped_battery else False
-        )
-
-        existing_entity = entity_registry.async_get(self.entity_id)
-        self._is_new_entity = existing_entity == None
-
-        name: str | None = config_entry.title
-
-        if existing_entity:
-            name = existing_entity.name
-
-        if not existing_entity and device.wrapped_battery:
-            name = device.wrapped_battery.original_name + "+"
 
         self._device_id = coordinator.device_id
         if coordinator.device_id and (
@@ -298,8 +283,6 @@ class BatteryNotesBatteryPlusSensor(
                 identifiers=device_entry.identifiers,
             )
         self._attr_entity_category = entity_category
-        self._attr_has_entity_name = has_entity_name
-        self._attr_name = name
         self._attr_unique_id = unique_id
         self._battery_entity_id = (
             device.wrapped_battery.entity_id if device.wrapped_battery else None
@@ -364,9 +347,7 @@ class BatteryNotesBatteryPlusSensor(
                 {"entity_id": self._battery_entity_id},
             )
 
-        if not self._is_new_entity or not (
-            wrapped_battery := registry.async_get(self._battery_entity_id)
-        ):
+        if not (wrapped_battery := registry.async_get(self._battery_entity_id)):
             return
 
         if DOMAIN_CONFIG in self.hass.data[DOMAIN]:
@@ -375,10 +356,14 @@ class BatteryNotesBatteryPlusSensor(
             if hide_battery:
                 if wrapped_battery and not wrapped_battery.hidden:
                     registry.async_update_entity(
-                        wrapped_battery.entity_id, hidden_by=er.RegistryEntryHider.INTEGRATION
+                        wrapped_battery.entity_id,
+                        hidden_by=er.RegistryEntryHider.INTEGRATION,
                     )
             else:
-                if wrapped_battery and wrapped_battery.hidden_by == er.RegistryEntryHider.INTEGRATION:
+                if (
+                    wrapped_battery
+                    and wrapped_battery.hidden_by == er.RegistryEntryHider.INTEGRATION
+                ):
                     registry.async_update_entity(
                         wrapped_battery.entity_id, hidden_by=None
                     )
@@ -387,7 +372,9 @@ class BatteryNotesBatteryPlusSensor(
             """Copy the name set by user from the wrapped entity."""
             if wrapped_battery.name is None:
                 return
-            registry.async_update_entity(self.entity_id, name=wrapped_battery.name + "+")
+            registry.async_update_entity(
+                self.entity_id, name=wrapped_battery.name + "+"
+            )
 
         copy_custom_name(wrapped_battery)
 
