@@ -3147,6 +3147,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Samjin",
+            "model": "button",
+            "battery_type": "CR2"
         }
     ]
 }
