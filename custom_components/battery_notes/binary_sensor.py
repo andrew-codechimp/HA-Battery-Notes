@@ -251,12 +251,6 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
             self._attr_available = False
             return
 
-        _LOGGER.debug(
-            "%s Battery State Changed to %s",
-            self._battery_entity_id,
-            wrapped_battery_state.state,
-        )
-
         battery_low = bool(
             int(wrapped_battery_state.state) < self.coordinator.battery_low_threshold
         )
@@ -298,9 +292,13 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
             increase_threshold = DEFAULT_BATTERY_INCREASE_THRESHOLD
             if DOMAIN_CONFIG in self.hass.data[DOMAIN]:
                 domain_config: dict = self.hass.data[DOMAIN][DOMAIN_CONFIG]
-                increase_threshold = domain_config.get(CONF_BATTERY_INCREASE_THRESHOLD, DEFAULT_BATTERY_INCREASE_THRESHOLD)
+                increase_threshold = domain_config.get(
+                    CONF_BATTERY_INCREASE_THRESHOLD, DEFAULT_BATTERY_INCREASE_THRESHOLD
+                )
 
-            if int(wrapped_battery_state.state) >= (self._previous_battery_level + increase_threshold):
+            if int(wrapped_battery_state.state) >= (
+                self._previous_battery_level + increase_threshold
+            ):
                 self.hass.bus.fire(
                     EVENT_BATTERY_INCREASED,
                     {

@@ -42,9 +42,11 @@ _LOGGER = logging.getLogger(__name__)
 class BatteryNotesDevice:
     """Manages a Battery Note device."""
 
+    config: ConfigEntry = None
     store: BatteryNotesStorage = None
     coordinator: BatteryNotesCoordinator = None
     wrapped_battery: RegistryEntry = None
+    device_name: str = None
 
     def __init__(self, hass: HomeAssistant, config: ConfigEntry) -> None:
         """Initialize the device."""
@@ -55,7 +57,7 @@ class BatteryNotesDevice:
     @property
     def name(self) -> str:
         """Return the name of the device."""
-        return self.config.title
+        return self.device_name
 
     @property
     def unique_id(self) -> str | None:
@@ -78,6 +80,7 @@ class BatteryNotesDevice:
 
         # Find a battery for this device
         entity_registry = er.async_get(self.hass)
+        device_registry = dr.async_get(self.hass)
         for entity in entity_registry.entities.values():
             if not entity.device_id or entity.device_id != device_id:
                 continue
@@ -93,6 +96,11 @@ class BatteryNotesDevice:
                 continue
 
             self.wrapped_battery = entity_registry.async_get(entity.entity_id)
+
+        device_entry = device_registry.async_get(device_id)
+        self.device_name = (
+            device_entry.name_by_user or device_entry.name or self.config.title
+        )
 
         self.store = self.hass.data[DOMAIN][DATA_STORE]
         self.coordinator = BatteryNotesCoordinator(
