@@ -1848,6 +1848,11 @@
         },
         {
             "manufacturer": "Samjin",
+            "model": "button",
+            "battery_type": "CR2"
+        },
+        {
+            "manufacturer": "Samjin",
             "model": "motion",
             "battery_type": "CR2"
         },
@@ -3147,11 +3152,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Samjin",
-            "model": "button",
-            "battery_type": "CR2"
         }
     ]
 }

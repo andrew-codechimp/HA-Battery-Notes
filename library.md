@@ -1,4 +1,4 @@
-## 581 Devices in library
+## 582 Devices in library
 
 This file is auto generated, do not modify
 
@@ -341,6 +341,7 @@ This file is auto generated, do not modify
 |rtl_433                                         |Vauno-EN8822C                                                         |2x AAA              |
 |rtl_433                                         |WT450-TH                                                              |AA                  |
 |Ruuvi                                           |Ruuvitag                                                              |CR2477T             |
+|Samjin                                          |button                                                                |CR2                 |
 |Samjin                                          |motion                                                                |CR2                 |
 |Samjin                                          |multi                                                                 |CR2450              |
 |Samjin                                          |water                                                                 |CR2                 |
