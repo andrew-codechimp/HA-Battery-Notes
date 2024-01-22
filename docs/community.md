@@ -81,7 +81,7 @@ mode: queued
 
 To call the battery replaced service from an entity trigger you will need the device_id, here's an easy way to get this
 
-```
+```yaml
 action:
   - service: battery_notes.set_battery_replaced
     data:
