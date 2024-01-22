@@ -1,4 +1,4 @@
-## 575 Devices in library
+## 581 Devices in library
 
 This file is auto generated, do not modify
 
@@ -18,11 +18,13 @@ This file is auto generated, do not modify
 |_TZ3000_k4ej3ww2                                |TS0207                                                                |CR2032              |
 |_TZ3000_lf56vpxj                                |TS0202                                                                |2x AAA              |
 |_TZ3000_mh9px7cq                                |TS0044                                                                |A23                 |
+|_TZ3000_nss8amz9                                |TS0202                                                                |CR2450              |
 |_TZ3000_wkai4ga5                                |TS0044                                                                |CR2430              |
 |_TZ3000_xr3htd96                                |TS0201                                                                |2x AAA              |
 |_TZ3000_yxqnffam                                |TS0203                                                                |2x AAA              |
 |_TZ3210_j4pdtz9v                                |TS0001                                                                |CR2                 |
 |_TZ3210_up3pngle                                |TS0205                                                                |2x AAA              |
+|_TZE200_4eeyebrt                                |TS0601                                                                |2x AA               |
 |_TZE200_b6wax7g0                                |TS0601                                                                |2x AA               |
 |_TZE200_c88teujp                                |TS0601                                                                |2x AA               |
 |_TZE200_hhrtiq0x                                |TS0601                                                                |2x AA               |
@@ -443,6 +445,7 @@ This file is auto generated, do not modify
 |Tuya                                            |_TZ3000_itb0omhv                                                      |CR2032              |
 |Tuya                                            |_TZ3000_oxslv1c9                                                      |2x AAA              |
 |Tuya                                            |_TZ3000_upgcbody                                                      |2x AAA              |
+|TuYa                                            |Aegislink Wi-Fi Combination Alarm (cfet7ouwznslditf)                  |CR123A              |
 |TuYa                                            |Button scene switch (SH-SC07)                                         |CR2450              |
 |TuYa                                            |Door sensor (TS0203)                                                  |CR2032              |
 |TuYa                                            |Door sensor (ZD08)                                                    |CR2032              |
@@ -452,7 +455,9 @@ This file is auto generated, do not modify
 |TuYa                                            |Luminance door sensor (ZG-102ZL)                                      |CR2032              |
 |TuYa                                            |Luminance motion sensor (ZG-204ZL)                                    |CR2450              |
 |TuYa                                            |Motion sensor (IH012-RT01)                                            |CR2450              |
+|TuYa                                            |Motion sensor (ZMS-102)                                               |CR2032              |
 |TuYa                                            |Photoelectric smoke detector (PA-44Z)                                 |PP3                 |
+|TuYa                                            |PIR sensor (RH3040)                                                   |3x AAA              |
 |TuYa                                            |Radiator valve with thermostat (TS0601_thermostat)                    |2x AA               |
 |TuYa                                            |Smart button (IH-K663)                                                |CR2032              |
 |TuYa                                            |Smart button (MINI-ZSB)                                               |CR2032              |
@@ -481,6 +486,7 @@ This file is auto generated, do not modify
 |TuYa                                            |Zigbee water leak sensor (TS0207_water_leak_detector_2)               |CR2032              |
 |Tuya                                            |zqeaw7pi                                                              |2x AAA              |
 |TUYATEC-xrvzm3yI                                |RH3001                                                                |CR2032              |
+|TUYATEC-yg5dcbfu                                |RH3052                                                                |CR2032              |
 |Ultraloq                                        |U-BOLT-PRO-ZWAVE                                                      |4x AA               |
 |Universal Electronics Inc                       |Magnetic door & window contact sensor (XHS2-UE)                       |CR2450              |
 |Universal Electronics Inc                       |URC4470BC0-X-R                                                        |2x CR123A           |

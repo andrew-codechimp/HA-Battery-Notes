@@ -77,6 +77,11 @@
             "battery_type": "A23"
         },
         {
+            "manufacturer": "_TZ3000_nss8amz9",
+            "model": "TS0202",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "_TZ3000_wkai4ga5",
             "model": "TS0044",
             "battery_type": "CR2430"
@@ -102,6 +107,12 @@
             "manufacturer": "_TZ3210_up3pngle",
             "model": "TS0205",
             "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "_TZE200_4eeyebrt",
+            "model": "TS0601",
+            "battery_type": "AA",
             "battery_quantity": 2
         },
         {
@@ -2399,6 +2410,11 @@
         },
         {
             "manufacturer": "TuYa",
+            "model": "Aegislink Wi-Fi Combination Alarm (cfet7ouwznslditf)",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "TuYa",
             "model": "Button scene switch (SH-SC07)",
             "battery_type": "CR2450"
         },
@@ -2446,8 +2462,19 @@
         },
         {
             "manufacturer": "TuYa",
+            "model": "Motion sensor (ZMS-102)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "TuYa",
             "model": "Photoelectric smoke detector (PA-44Z)",
             "battery_type": "PP3"
+        },
+        {
+            "manufacturer": "TuYa",
+            "model": "PIR sensor (RH3040)",
+            "battery_type": "AAA",
+            "battery_quantity": 3
         },
         {
             "manufacturer": "TuYa",
@@ -2598,6 +2625,11 @@
         {
             "manufacturer": "TUYATEC-xrvzm3yI",
             "model": "RH3001",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "TUYATEC-yg5dcbfu",
+            "model": "RH3052",
             "battery_type": "CR2032"
         },
         {
