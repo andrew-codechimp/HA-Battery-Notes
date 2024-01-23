@@ -14,9 +14,9 @@ Track the battery type, when the battery was replaced and also when a battery is
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png)](https://www.buymeacoffee.com/codechimp)
 
-![Battery Notes](https://github.com/andrew-codechimp/HA-Battery-Notes/blob/main/docs/assets/screenshot-device.png "Battery Notes")
+![Battery Notes](https://raw.githubusercontent.com/andrew-codechimp/ha-battery-notes/main/docs/assets/screenshot-device.png "Battery Notes")
 
-![Discovery](https://github.com/andrew-codechimp/HA-Battery-Notes/blob/main/docs/assets/screenshot-discovery.png "Device Discovery")
+![Discovery](https://raw.githubusercontent.com/andrew-codechimp/ha-battery-notes/main/docs/assets/screenshot-discovery.png "Device Discovery")
 
 ## Installation
 

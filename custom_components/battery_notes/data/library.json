@@ -964,6 +964,11 @@
             "battery_type": "AAA"
         },
         {
+            "manufacturer": "GoveeLife",
+            "model": "H5105",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "HAB Home Intelligence LLC",
             "model": "iblinds V3",
             "battery_type": "Rechargeable"
@@ -1848,6 +1853,11 @@
         },
         {
             "manufacturer": "Samjin",
+            "model": "button",
+            "battery_type": "CR2"
+        },
+        {
+            "manufacturer": "Samjin",
             "model": "motion",
             "battery_type": "CR2"
         },
@@ -2338,6 +2348,11 @@
             "model": "3RWS18BZ",
             "battery_type": "AAA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Trust",
+            "model": "COSensor-EM",
+            "battery_type": "CR123A"
         },
         {
             "manufacturer": "TS0041",

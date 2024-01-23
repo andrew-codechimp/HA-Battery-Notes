@@ -1,4 +1,4 @@
-## 581 Devices in library
+## 584 Devices in library
 
 This file is auto generated, do not modify
 
@@ -179,6 +179,7 @@ This file is auto generated, do not modify
 |Govee                                           |H5054                                                                 |2x AAA              |
 |Govee                                           |H5072/H5075                                                           |2x AAA              |
 |Govee                                           |H5101/H5102/H5177                                                     |AAA                 |
+|GoveeLife                                       |H5105                                                                 |CR2450              |
 |HAB Home Intelligence LLC                       |iblinds V3                                                            |Rechargeable        |
 |HANK Electronics Ltd.                           |HKZW-DWS01                                                            |2x AAA              |
 |Heatit                                          |Z-PH WALL CONTROLLER                                                  |CR2450              |
@@ -341,6 +342,7 @@ This file is auto generated, do not modify
 |rtl_433                                         |Vauno-EN8822C                                                         |2x AAA              |
 |rtl_433                                         |WT450-TH                                                              |AA                  |
 |Ruuvi                                           |Ruuvitag                                                              |CR2477T             |
+|Samjin                                          |button                                                                |CR2                 |
 |Samjin                                          |motion                                                                |CR2                 |
 |Samjin                                          |multi                                                                 |CR2450              |
 |Samjin                                          |water                                                                 |CR2                 |
@@ -432,6 +434,7 @@ This file is auto generated, do not modify
 |Third Reality, Inc                              |3RSS009Z                                                              |2x AAA              |
 |Third Reality, Inc                              |3RTHS24BZ                                                             |2x AAA              |
 |Third Reality, Inc                              |3RWS18BZ                                                              |2x AAA              |
+|Trust                                           |COSensor-EM                                                           |CR123A              |
 |TS0041                                          |_TZ3000_itb0omhv                                                      |CR2032              |
 |TS0042                                          |_TZ3000_dfgbtub0                                                      |CR2032              |
 |TS0042                                          |_TZ3000_ftwuvum5                                                      |CR2032              |
