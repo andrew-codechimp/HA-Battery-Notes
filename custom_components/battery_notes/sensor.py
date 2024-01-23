@@ -249,7 +249,6 @@ class BatteryNotesBatteryPlusSensor(
         """Initialize the sensor."""
         super().__init__(coordinator)
 
-        entity_registry = er.async_get(hass)
         device_registry = dr.async_get(hass)
 
         self.config_entry = config_entry
@@ -295,7 +294,7 @@ class BatteryNotesBatteryPlusSensor(
     @callback
     def async_state_changed_listener(
         self, event: EventType[EventStateChangedData] | None = None
-    ) -> None:
+    ) -> None:  # pylint: disable=unused-argument
         """Handle child updates."""
         updated = False
 
