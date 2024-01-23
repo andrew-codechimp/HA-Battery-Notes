@@ -2,7 +2,6 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from datetime import datetime, timedelta
 
 import logging
 import voluptuous as vol
@@ -255,11 +254,7 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
 
         await self.coordinator.async_request_refresh()
 
-        if (
-            self._previous_state_last_changed
-            and self._previous_state_last_changed + timedelta(seconds=10)
-            < datetime.utcnow().astimezone()
-        ):
+        if self._previous_state_last_changed:
             # Battery low event
             if battery_low != self._previous_battery_low:
                 self.hass.bus.fire(
@@ -276,7 +271,7 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
                     },
                 )
 
-                _LOGGER.debug("battery_threshold event fired")
+                _LOGGER.debug("battery_threshold event fired Low: %s", battery_low)
 
             # Battery increased event
             increase_threshold = DEFAULT_BATTERY_INCREASE_THRESHOLD
