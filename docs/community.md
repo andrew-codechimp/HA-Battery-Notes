@@ -15,11 +15,13 @@ trigger:
     event_data:
       battery_low: true
     id: low
+    alias: Battery went low
   - platform: event
     event_type: battery_notes_battery_threshold
     event_data:
       battery_low: false
     id: notlow
+    alias: Battery went high
 condition: []
 action:
   - choose:
