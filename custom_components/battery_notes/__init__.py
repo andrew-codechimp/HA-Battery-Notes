@@ -164,8 +164,6 @@ async def async_unload_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> 
     device = data.devices.pop(config_entry.entry_id)
     result = await device.async_unload()
 
-    if result:
-        return await hass.config_entries.async_unload_platforms(config_entry, PLATFORMS)
     return result
 
 
@@ -175,15 +173,13 @@ async def async_remove_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> 
     if "device_id" not in config_entry.data:
         return
 
-    device: BatteryNotesDevice = hass.data[DOMAIN][DATA].devices[config_entry.entry_id]
+    device : BatteryNotesDevice = hass.data[DOMAIN][DATA].devices[config_entry.entry_id]
     if not device:
         return
 
     data = {ATTR_REMOVE: True}
 
-    device.coordinator.async_update_device_config(
-        device_id=device.coordinator.device_id, data=data
-    )
+    device.coordinator.async_update_device_config(device_id=device.coordinator.device_id, data=data)
 
     _LOGGER.debug("Removed Device %s", device.coordinator.device_id)
 
@@ -192,20 +188,12 @@ async def async_remove_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> 
     if not device.wrapped_battery:
         return
 
-    if not (
-        wrapped_battery_entity_entry := entity_registry.async_get(
-            device.wrapped_battery.entity_id
-        )
-    ):
+    if not (wrapped_battery_entity_entry := entity_registry.async_get(device.wrapped_battery.entity_id)):
         return
 
     if wrapped_battery_entity_entry.hidden_by == er.RegistryEntryHider.INTEGRATION:
-        entity_registry.async_update_entity(
-            device.wrapped_battery.entity_id, hidden_by=None
-        )
-        _LOGGER.debug(
-            "Unhidden Original Battery for device%s", device.coordinator.device_id
-        )
+        entity_registry.async_update_entity(device.wrapped_battery.entity_id, hidden_by=None)
+        _LOGGER.debug("Unhidden Original Battery for device%s", device.coordinator.device_id)
 
 
 async def async_migrate_entry(hass, config_entry: ConfigEntry):
@@ -251,6 +239,11 @@ async def async_migrate_entry(hass, config_entry: ConfigEntry):
 async def async_update_options(hass: HomeAssistant, entry: ConfigEntry) -> None:
     """Update options."""
     await hass.config_entries.async_reload(entry.entry_id)
+
+
+async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
+    """Unload a config entry."""
+    return await hass.config_entries.async_unload_platforms(entry, PLATFORMS)
 
 
 @callback

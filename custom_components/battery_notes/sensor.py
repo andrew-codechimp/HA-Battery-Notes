@@ -193,6 +193,7 @@ async def async_setup_entry(
         ),
         BatteryNotesLastReplacedSensor(
             hass,
+            config_entry,
             coordinator,
             last_replaced_sensor_entity_description,
             f"{config_entry.entry_id}{last_replaced_sensor_entity_description.unique_id_suffix}",
@@ -501,10 +502,12 @@ class BatteryNotesLastReplacedSensor(
     def __init__(
         self,
         hass,
+        config_entry: ConfigEntry,
         coordinator: BatteryNotesCoordinator,
         description: BatteryNotesSensorEntityDescription,
         unique_id: str,
     ) -> None:
+        # pylint: disable=unused-argument
         """Initialize the sensor."""
         super().__init__(coordinator)
         self._attr_device_class = description.device_class
@@ -532,7 +535,8 @@ class BatteryNotesLastReplacedSensor(
         """Handle added to Hass."""
         await super().async_added_to_hass()
 
-    def _set_native_value(self, log_on_error=True):  # pylint: disable=unused-argument
+    def _set_native_value(self, log_on_error=True):
+        # pylint: disable=unused-argument
         device_entry = self.coordinator.store.async_get_device(self._device_id)
         if device_entry:
             if LAST_REPLACED in device_entry:

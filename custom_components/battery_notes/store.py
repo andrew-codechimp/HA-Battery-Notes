@@ -2,12 +2,12 @@
 from __future__ import annotations
 
 import logging
-import attr
 from collections import OrderedDict
 from collections.abc import MutableMapping
 from typing import cast
 from datetime import datetime
 
+import attr
 from homeassistant.core import callback, HomeAssistant
 from homeassistant.loader import bind_hass
 from homeassistant.helpers.storage import Store
@@ -37,12 +37,15 @@ class MigratableStore(Store):
     """Holds battery notes data."""
 
     async def _async_migrate_func(
-        self, old_major_version: int, old_minor_version: int, old_data: dict
+        self, old_major_version: int, old_minor_version: int, data: dict
     ):
+        # pylint: disable=arguments-renamed
+        # pylint: disable=unused-argument
+
         # if old_major_version == 1:
         # Do nothing for now
 
-        return old_data
+        return data
 
 
 class BatteryNotesStorage:
