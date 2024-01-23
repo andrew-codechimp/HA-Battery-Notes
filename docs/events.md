@@ -37,7 +37,7 @@ trigger:
     event_type: battery_notes_battery_threshold
     event_data:
       battery_low: false
-    id: notlow
+    id: high
     alias: Battery went high
 condition: []
 action:
@@ -60,7 +60,7 @@ action:
       - conditions:
           - condition: trigger
             id:
-              - notlow
+              - high
         sequence:
           - service: persistent_notification.dismiss
             data:
