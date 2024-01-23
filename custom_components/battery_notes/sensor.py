@@ -6,7 +6,6 @@ from datetime import datetime
 from dataclasses import dataclass
 import voluptuous as vol
 
-from homeassistant.components.homeassistant import exposed_entities
 from homeassistant.components.sensor import (
     PLATFORM_SCHEMA,
     SensorDeviceClass,
@@ -35,7 +34,6 @@ from homeassistant.helpers.update_coordinator import (
     CoordinatorEntity,
 )
 from homeassistant.helpers.reload import async_setup_reload_service
-from homeassistant.helpers.event import async_track_state_change_event
 from homeassistant.helpers.typing import EventType
 
 from homeassistant.const import (
@@ -195,7 +193,6 @@ async def async_setup_entry(
         ),
         BatteryNotesLastReplacedSensor(
             hass,
-            config_entry,
             coordinator,
             last_replaced_sensor_entity_description,
             f"{config_entry.entry_id}{last_replaced_sensor_entity_description.unique_id_suffix}",
@@ -294,7 +291,8 @@ class BatteryNotesBatteryPlusSensor(
     @callback
     def async_state_changed_listener(
         self, event: EventType[EventStateChangedData] | None = None
-    ) -> None:  # pylint: disable=unused-argument
+    ) -> None:
+        # pylint: disable=unused-argument
         """Handle child updates."""
         updated = False
 
@@ -427,7 +425,8 @@ class BatteryNotesTypeSensor(RestoreSensor, SensorEntity):
         coordinator: BatteryNotesCoordinator,
         description: BatteryNotesSensorEntityDescription,
         unique_id: str,
-    ) -> None:  # pylint: disable=unused-argument
+    ) -> None:
+        # pylint: disable=unused-argument
         """Initialize the sensor."""
         super().__init__()
 
@@ -502,11 +501,10 @@ class BatteryNotesLastReplacedSensor(
     def __init__(
         self,
         hass,
-        config_entry: ConfigEntry,
         coordinator: BatteryNotesCoordinator,
         description: BatteryNotesSensorEntityDescription,
         unique_id: str,
-    ) -> None:  # pylint: disable=unused-argument
+    ) -> None:
         """Initialize the sensor."""
         super().__init__(coordinator)
         self._attr_device_class = description.device_class

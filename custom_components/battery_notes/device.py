@@ -2,9 +2,6 @@
 import logging
 
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import (
-    CONF_DEVICE_ID,
-)
 from homeassistant.core import CALLBACK_TYPE, HomeAssistant
 from homeassistant.helpers import (
     device_registry as dr,
@@ -146,8 +143,6 @@ class BatteryNotesDevice:
 
     async def async_unload(self) -> bool:
         """Unload the device and related entities."""
-        if self.update_manager is None:
-            return True
 
         while self.reset_jobs:
             self.reset_jobs.pop()()

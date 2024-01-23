@@ -3,9 +3,8 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from datetime import datetime, timedelta
-import pytz
-
 import logging
+
 import voluptuous as vol
 
 from homeassistant.config_entries import ConfigEntry
@@ -228,18 +227,40 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
 
     async def async_added_to_hass(self) -> None:
         """Handle added to Hass."""
+
+        @callback
+        async def _async_state_changed_listener(
+            event: EventType[EventStateChangedData] | None = None,
+        ) -> None:
+            """Handle child updates."""
+            await self.async_state_changed_listener(event)
+
+        if self._battery_entity_id:
+            self.async_on_remove(
+                async_track_state_change_event(
+                    self.hass, [self._battery_entity_id], _async_state_changed_listener
+                )
+            )
+
+        # Call once on adding
+        await _async_state_changed_listener()
+
+        # Update entity options
         registry = er.async_get(self.hass)
-        if registry.async_get(self.entity_id) is not None:
+        if registry.async_get(self.entity_id) is not None and self._battery_entity_id:
             registry.async_update_entity_options(
                 self.entity_id,
                 DOMAIN,
-                {"entity_id": self._attr_unique_id},
+                {"entity_id": self._battery_entity_id},
             )
+
+        await self.coordinator.async_config_entry_first_refresh()
 
     @callback
     async def async_state_changed_listener(
         self, event: EventType[EventStateChangedData] | None = None
     ) -> None:
+        # pylint: disable=unused-argument
         """Handle child updates."""
 
         if not self._battery_entity_id:
@@ -268,7 +289,7 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
         if (
             self._previous_state_last_changed
             and self._previous_state_last_changed + timedelta(seconds=10)
-            < pytz.UTC.localize(datetime.utcnow())
+            < datetime.utcnow().astimezone()
         ):
             # Battery low event
             if battery_low != self._previous_battery_low:
@@ -318,37 +339,6 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
         self._previous_state_last_changed = wrapped_battery_state.last_changed
         self._previous_battery_level = int(wrapped_battery_state.state)
         self._previous_battery_low = battery_low
-
-    async def async_added_to_hass(self) -> None:
-        """Handle added to Hass."""
-
-        @callback
-        async def _async_state_changed_listener(
-            event: EventType[EventStateChangedData] | None = None,
-        ) -> None:
-            """Handle child updates."""
-            await self.async_state_changed_listener(event)
-
-        if self._battery_entity_id:
-            self.async_on_remove(
-                async_track_state_change_event(
-                    self.hass, [self._battery_entity_id], _async_state_changed_listener
-                )
-            )
-
-        # Call once on adding
-        await _async_state_changed_listener()
-
-        # Update entity options
-        registry = er.async_get(self.hass)
-        if registry.async_get(self.entity_id) is not None and self._battery_entity_id:
-            registry.async_update_entity_options(
-                self.entity_id,
-                DOMAIN,
-                {"entity_id": self._battery_entity_id},
-            )
-
-        await self.coordinator.async_config_entry_first_refresh()
 
     @property
     def extra_state_attributes(self) -> dict[str, str] | None:
