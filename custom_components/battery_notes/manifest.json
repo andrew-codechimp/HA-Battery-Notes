@@ -5,7 +5,7 @@
     "@andrew-codechimp"
   ],
   "config_flow": true,
-  "documentation": "https://github.com/andrew-codechimp/ha-battery-notes",
+  "documentation": "https://andrew-codechimp.github.io/HA-Battery-Notes/",
   "integration_type": "device",
   "iot_class": "calculated",
   "issue_tracker": "https://github.com/andrew-codechimp/ha-battery-notes/issues",
