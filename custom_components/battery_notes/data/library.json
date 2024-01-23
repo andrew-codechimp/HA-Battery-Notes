@@ -3162,6 +3162,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "CPS",
+            "model": "CP1500PFCLCD",
+            "battery_type": "12V9AH-SLA",
+            "battery_quantity": 2
         }
     ]
 }
