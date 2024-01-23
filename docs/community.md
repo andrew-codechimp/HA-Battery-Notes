@@ -2,7 +2,7 @@
 
 ## Automations
 
-### Battery Low Notification
+### Battery Low Notification (Beta Only)
 
 Raise a persistent notification when a battery is low, dismiss when it's not low
 
@@ -49,7 +49,7 @@ action:
 mode: queued
 ```
 
-### Battery Replaced
+### Battery Replaced (Beta Only)
 
 Mark a battery as replaced when there is an increase in battery level.
 
@@ -64,38 +64,6 @@ action:
   - service: battery_notes.set_battery_replaced
     data:
       device_id: "{{ trigger.event.data.device_id }}"
-mode: queued
-```
-
-### Battery Replaced Repair Notification
-
-If you are using the excellent [Spook](https://github.com/frenck/spook) HACS integration you can create a Repair notification in home assistant with a link to the device to confirm the battery has been replaced.
-
-```yaml
-alias: Battery Replaced Repair Notification
-description: Battery Replaced using Spook
-trigger:
-  - platform: event
-    event_type: battery_notes_battery_increased
-condition: []
-action:
-  - service: battery_notes.set_battery_replaced
-    data:
-      device_id: "{{ trigger.event.data.device_id }}"
-    enabled: false
-  - service: repairs.create
-    metadata: {}
-    data:
-      title: Battery Replaced
-      issue_id: "{{ trigger.event.data.device_id }}"
-      domain: battery_notes
-      persistent: true
-      description: >-
-        It seems like the battery was replaced on [{{
-        trigger.event.data.device_name }}](./devices/device/{{
-        trigger.event.data.device_id }})  
-
-        Clicking Submit will clear this repair.
 mode: queued
 ```
 

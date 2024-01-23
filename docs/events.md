@@ -2,7 +2,7 @@
 
 The following events are raised by the integration. These events can be used within automations.
 
-## Battery Threshold (beta)
+## Battery Threshold (Beta Only)
 
 `battery_notes_battery_threshold`
 
@@ -66,7 +66,7 @@ action:
 mode: queued
 ```
 
-## Battery Increased (beta)
+## Battery Increased (Beta Only)
 
 `battery_notes_battery_increased`
 
