@@ -1034,6 +1034,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Homematic",
+            "model": "HmIP-STHO-A",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Honeywell",
             "model": "TH6320ZW",
             "battery_type": "AA",
@@ -3174,12 +3180,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Homematic",
-            "model": "HmIP-STHO-A",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
