@@ -454,6 +454,12 @@
         },
         {
             "manufacturer": "CPS",
+            "model": "CP1500PFCLCD",
+            "battery_type": "12V9AH-SLA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "CPS",
             "model": "CP1500PFCLCDa",
             "battery_type": "RB1290X2"
         },
@@ -998,6 +1004,12 @@
             "manufacturer": "HEIMAN",
             "model": "Smoke detector (HS3SA/HS1SA)",
             "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "HEIMAN",
+            "model": "Water leakage sensor (HS1WL/HS3WL)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "Hive",

@@ -1,4 +1,4 @@
-## 584 Devices in library
+## 586 Devices in library
 
 This file is auto generated, do not modify
 
@@ -87,6 +87,7 @@ This file is auto generated, do not modify
 |CentraLite                                      |3450-L                                                                |CR2450              |
 |Computime                                       |SLT3                                                                  |4x AA               |
 |CPS                                             |CP1500AVRLCDa                                                         |Rechargeable        |
+|CPS                                             |CP1500PFCLCD                                                          |2x 12V9AH-SLA       |
 |CPS                                             |CP1500PFCLCDa                                                         |RB1290X2            |
 |Custom devices (DiY)                            |Xiaomi temperature & humidity sensor with custom firmware (LYWSD03MMC)|CR2032              |
 |Danalock                                        |BT/ZB smartlock (V3-BTZB/V3-BTZBE)                                    |4x CR123A           |
@@ -186,6 +187,7 @@ This file is auto generated, do not modify
 |HEIMAN                                          |Smart carbon monoxide sensor (HS1CA-E)                                |CR123A              |
 |HEIMAN                                          |Smoke detector (HS1SA)                                                |CR123A              |
 |HEIMAN                                          |Smoke detector (HS3SA/HS1SA)                                          |CR123A              |
+|HEIMAN                                          |Water leakage sensor (HS1WL/HS3WL)                                    |2x AAA              |
 |Hive                                            |Heating thermostat remote control (SLT3C)                             |4x AA               |
 |Homematic                                       |HM-RC-4-3                                                             |AAA                 |
 |Homematic                                       |HM-Sec-SCo                                                            |AAA                 |
