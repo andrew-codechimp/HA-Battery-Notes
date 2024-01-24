@@ -164,6 +164,7 @@ async def async_setup_entry(
         key="battery_plus",
         translation_key="battery_plus",
         device_class=SensorDeviceClass.BATTERY,
+        suggested_display_precision=1,
     )
 
     type_sensor_entity_description = BatteryNotesSensorEntityDescription(
@@ -310,7 +311,7 @@ class BatteryNotesBatteryPlusSensor(
 
         self._attr_available = True
 
-        self._attr_native_value = wrapped_battery_state.state
+        self._attr_native_value = round(float(wrapped_battery_state.state), 1)
         self._wrapped_attributes = wrapped_battery_state.attributes
 
         self.async_write_ha_state()

@@ -34,6 +34,7 @@ from homeassistant.const import (
     CONF_NAME,
     CONF_DEVICE_ID,
     STATE_UNAVAILABLE,
+    STATE_UNKNOWN,
 )
 
 from . import PLATFORMS
@@ -242,7 +243,7 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
             return
 
         battery_low = bool(
-            int(wrapped_battery_state.state) < self.coordinator.battery_low_threshold
+            float(wrapped_battery_state.state) < self.coordinator.battery_low_threshold
         )
 
         self.coordinator.set_battery_low(battery_low)
@@ -271,7 +272,9 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
                         ATTR_BATTERY_TYPE_AND_QUANTITY: self.coordinator.battery_type_and_quantity,
                         ATTR_BATTERY_TYPE: self.coordinator.battery_type,
                         ATTR_BATTERY_QUANTITY: self.coordinator.battery_quantity,
-                        ATTR_BATTERY_LEVEL: int(wrapped_battery_state.state),
+                        ATTR_BATTERY_LEVEL: round(float(wrapped_battery_state.state), 1)
+                        if isfloat(wrapped_battery_state.state)
+                        else wrapped_battery_state.state,
                         ATTR_PREVIOUS_BATTERY_LEVEL: self._previous_battery_level,
                     },
                 )
@@ -286,28 +289,34 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
                     CONF_BATTERY_INCREASE_THRESHOLD, DEFAULT_BATTERY_INCREASE_THRESHOLD
                 )
 
-            if int(wrapped_battery_state.state) >= (
-                self._previous_battery_level + increase_threshold
-            ):
-                self.hass.bus.fire(
-                    EVENT_BATTERY_INCREASED,
-                    {
-                        ATTR_DEVICE_ID: self.coordinator.device_id,
-                        ATTR_DEVICE_NAME: self.device_name,
-                        ATTR_BATTERY_LOW: battery_low,
-                        ATTR_BATTERY_TYPE_AND_QUANTITY: self.coordinator.battery_type_and_quantity,
-                        ATTR_BATTERY_TYPE: self.coordinator.battery_type,
-                        ATTR_BATTERY_QUANTITY: self.coordinator.battery_quantity,
-                        ATTR_BATTERY_LEVEL: int(wrapped_battery_state.state),
-                        ATTR_PREVIOUS_BATTERY_LEVEL: self._previous_battery_level,
-                    },
-                )
+            if wrapped_battery_state.state not in [STATE_UNAVAILABLE, STATE_UNKNOWN]:
+                if float(wrapped_battery_state.state) >= (
+                    self._previous_battery_level + increase_threshold
+                ):
+                    self.hass.bus.fire(
+                        EVENT_BATTERY_INCREASED,
+                        {
+                            ATTR_DEVICE_ID: self.coordinator.device_id,
+                            ATTR_DEVICE_NAME: self.device_name,
+                            ATTR_BATTERY_LOW: battery_low,
+                            ATTR_BATTERY_TYPE_AND_QUANTITY: self.coordinator.battery_type_and_quantity,
+                            ATTR_BATTERY_TYPE: self.coordinator.battery_type,
+                            ATTR_BATTERY_QUANTITY: self.coordinator.battery_quantity,
+                            ATTR_BATTERY_LEVEL: round(
+                                float(wrapped_battery_state.state), 1
+                            )
+                            if isfloat(wrapped_battery_state.state)
+                            else wrapped_battery_state.state,
+                            ATTR_PREVIOUS_BATTERY_LEVEL: self._previous_battery_level,
+                        },
+                    )
 
-                _LOGGER.debug("battery_increased event fired")
+                    _LOGGER.debug("battery_increased event fired")
 
-        self._previous_state_last_changed = wrapped_battery_state.last_changed
-        self._previous_battery_level = int(wrapped_battery_state.state)
-        self._previous_battery_low = battery_low
+                self._previous_battery_level = float(wrapped_battery_state.state)
+
+            self._previous_state_last_changed = wrapped_battery_state.last_changed
+            self._previous_battery_low = battery_low
 
     async def async_added_to_hass(self) -> None:
         """Handle added to Hass."""
@@ -352,3 +361,11 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
         if super_attrs:
             attrs.update(super_attrs)
         return attrs
+
+
+def isfloat(num):
+    try:
+        float(num)
+        return True
+    except ValueError:
+        return False
