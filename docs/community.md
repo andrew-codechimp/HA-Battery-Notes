@@ -1,5 +1,25 @@
 # Community Contributions
 
+## UI
+
+### Battery State Card (Beta Only)
+
+Using the excellent [Battery State Card](https://github.com/maxwroc/battery-state-card) by maxwroc you can easily display devices with their batteries required where the devices battery threshold indicates it's low and show be replaced.
+
+```yaml
+type: custom:battery-state-card
+secondary_info: '{attributes.battery_type_and_quantity}'
+filter:
+  include:
+    - name: entity_id
+      value: '*_battery_plus'
+  exclude:
+    - name: attributes.battery_low
+      value: false
+sort:
+  - state
+```
+
 ## Automations
 
 ### Battery Low Notification (Beta Only)
