@@ -24,6 +24,7 @@ from homeassistant.helpers import (
     device_registry as dr,
     entity_registry as er,
 )
+from homeassistant.helpers.typing import StateType
 from homeassistant.helpers.entity import DeviceInfo, EntityCategory
 from homeassistant.helpers.event import (
     EventStateChangedData,
@@ -40,7 +41,6 @@ from homeassistant.const import (
     CONF_NAME,
     CONF_DEVICE_ID,
     STATE_UNAVAILABLE,
-    STATE_UNKNOWN,
     PERCENTAGE,
 )
 
@@ -296,7 +296,6 @@ class BatteryNotesBatteryPlusSensor(
     ) -> None:
         # pylint: disable=unused-argument
         """Handle child updates."""
-        updated = False
 
         if not self._battery_entity_id:
             return
@@ -304,19 +303,17 @@ class BatteryNotesBatteryPlusSensor(
         if (
             wrapped_battery_state := self.hass.states.get(self._battery_entity_id)
         ) is None or wrapped_battery_state.state == STATE_UNAVAILABLE:
-            self._attr_state = STATE_UNKNOWN
+            self._attr_native_value = None
             self._attr_available = False
+            self.async_write_ha_state()
             return
+
+        self._attr_available = True
 
         self._attr_native_value = wrapped_battery_state.state
         self._wrapped_attributes = wrapped_battery_state.attributes
 
-        self._attr_available = True
-
-        updated = True
-
-        if updated:
-            self.async_write_ha_state()
+        self.async_write_ha_state()
 
     async def async_added_to_hass(self) -> None:
         """Handle added to Hass."""
@@ -413,6 +410,11 @@ class BatteryNotesBatteryPlusSensor(
         if self._wrapped_attributes:
             attrs.update(self._wrapped_attributes)
         return attrs
+
+    @property
+    def native_value(self) -> StateType:
+        """Return the value reported by the sensor."""
+        return self._attr_native_value
 
 
 class BatteryNotesTypeSensor(RestoreSensor, SensorEntity):
