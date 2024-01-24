@@ -17,6 +17,8 @@ filter:
   exclude:
     - name: attributes.battery_low
       value: false
+bulk_rename:
+  - from: "Battery+"      
 sort:
   - state
 ```
