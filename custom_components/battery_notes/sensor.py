@@ -40,6 +40,7 @@ from homeassistant.const import (
     CONF_NAME,
     CONF_DEVICE_ID,
     STATE_UNAVAILABLE,
+    STATE_UNKNOWN,
     PERCENTAGE,
 )
 
@@ -303,6 +304,7 @@ class BatteryNotesBatteryPlusSensor(
         if (
             wrapped_battery_state := self.hass.states.get(self._battery_entity_id)
         ) is None or wrapped_battery_state.state == STATE_UNAVAILABLE:
+            self._attr_state = STATE_UNKNOWN
             self._attr_available = False
             return
 
