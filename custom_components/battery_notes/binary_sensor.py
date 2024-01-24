@@ -253,6 +253,10 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
 
         self.async_write_ha_state()
 
+        _LOGGER.debug(
+            "%s battery_low changed: %s", self._battery_entity_id, battery_low
+        )
+
         await self.coordinator.async_request_refresh()
 
         if self._previous_state_last_changed:

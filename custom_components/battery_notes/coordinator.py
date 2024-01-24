@@ -43,12 +43,14 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
 
     @property
     def battery_type_and_quantity(self) -> str:
+        """Merge battery type & quantity."""
         if self.battery_quantity and int(self.battery_quantity) > 1:
             return str(self.battery_quantity) + "x " + self.battery_type
         return self.battery_type
 
     @property
     def last_replaced(self) -> datetime:
+        """Get the last replaced datetime."""
         device_entry = self.store.async_get_device(self.device_id)
         if device_entry:
             if LAST_REPLACED in device_entry:
@@ -59,6 +61,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
         return None
 
     def set_battery_low(self, value: bool):
+        """Battery low setter."""
         self.battery_low = value
 
     async def _async_update_data(self):
