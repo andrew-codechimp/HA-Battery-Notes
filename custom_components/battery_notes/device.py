@@ -12,10 +12,12 @@ from homeassistant.helpers.entity_registry import RegistryEntry
 
 from homeassistant.components.sensor import DOMAIN as SENSOR_DOMAIN
 from homeassistant.components.binary_sensor import DOMAIN as BINARY_SENSOR_DOMAIN
+from homeassistant.components.sensor import (
+    SensorDeviceClass,
+)
 
 from homeassistant.const import (
     CONF_DEVICE_ID,
-    DEVICE_CLASS_BATTERY,
 )
 
 from .const import (
@@ -90,7 +92,7 @@ class BatteryNotesDevice:
             if not entity.platform or entity.platform == DOMAIN:
                 continue
             device_class = entity.device_class or entity.original_device_class
-            if not device_class == DEVICE_CLASS_BATTERY:
+            if not device_class == SensorDeviceClass.BATTERY:
                 continue
 
             self.wrapped_battery = entity_registry.async_get(entity.entity_id)
