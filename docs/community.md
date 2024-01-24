@@ -9,6 +9,7 @@ Using the excellent [Battery State Card](https://github.com/maxwroc/battery-stat
 ```yaml
 type: custom:battery-state-card
 secondary_info: '{attributes.battery_type_and_quantity}'
+round: 0
 filter:
   include:
     - name: entity_id
