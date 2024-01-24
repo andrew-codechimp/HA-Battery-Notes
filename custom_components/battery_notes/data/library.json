@@ -1006,6 +1006,12 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "HEIMAN",
+            "model": "Water leakage sensor (HS1WL/HS3WL)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Hive",
             "model": "Heating thermostat remote control (SLT3C)",
             "battery_type": "AA",
@@ -3168,12 +3174,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "HEIMAN",
-            "model": "Water leakage sensor (HS1WL/HS3WL)",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
