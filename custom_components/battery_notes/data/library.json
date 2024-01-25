@@ -683,6 +683,12 @@
         },
         {
             "manufacturer": "eQ-3",
+            "model": "HmIP-RC8",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "eQ-3",
             "model": "HmIP-SCI",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -708,6 +714,12 @@
         {
             "manufacturer": "eQ-3",
             "model": "HmIP-SMO",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "eQ-3",
+            "model": "HmIP-SPI",
             "battery_type": "AA",
             "battery_quantity": 2
         },
