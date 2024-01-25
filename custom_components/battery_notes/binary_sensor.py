@@ -316,8 +316,7 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
 
                     _LOGGER.debug("battery_increased event fired")
 
-                self._previous_battery_level = float(wrapped_battery_state.state)
-
+        self._previous_battery_level = float(wrapped_battery_state.state)
         self._previous_state_last_changed = wrapped_battery_state.last_changed
         self._previous_battery_low = battery_low
 
