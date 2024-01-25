@@ -12,11 +12,13 @@ blueprint:
       default: []
       selector:
         action:
-mode: queued
+
 trigger:
   - platform: event
     event_type: battery_notes_battery_increased
+
 condition: []
+
 action:
   - service: battery_notes.set_battery_replaced
     data:
@@ -24,3 +26,5 @@ action:
   - alias: "Run user on replaced actions"
     choose: []
     default: !input 'on_replaced_actions'
+
+mode: queued
