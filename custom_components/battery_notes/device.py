@@ -84,7 +84,7 @@ class BatteryNotesDevice:
         for entity in entity_registry.entities.values():
             if not entity.device_id or entity.device_id != device_id:
                 continue
-            if not entity.domain or not entity.domain in {
+            if not entity.domain or entity.domain not in {
                 BINARY_SENSOR_DOMAIN,
                 SENSOR_DOMAIN,
             }:
@@ -92,7 +92,7 @@ class BatteryNotesDevice:
             if not entity.platform or entity.platform == DOMAIN:
                 continue
             device_class = entity.device_class or entity.original_device_class
-            if not device_class == SensorDeviceClass.BATTERY:
+            if device_class != SensorDeviceClass.BATTERY:
                 continue
 
             self.wrapped_battery = entity_registry.async_get(entity.entity_id)

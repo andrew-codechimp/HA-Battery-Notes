@@ -364,6 +364,7 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
 
 
 def isfloat(num):
+    """Is the value a float."""
     try:
         float(num)
         return True

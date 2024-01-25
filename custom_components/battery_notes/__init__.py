@@ -6,15 +6,14 @@ https://github.com/andrew-codechimp/ha-battery-notes
 from __future__ import annotations
 
 import logging
+import re
 from datetime import datetime
 from dataclasses import dataclass, field
 
 import homeassistant.helpers.config_validation as cv
 import voluptuous as vol
-import re
 
 from awesomeversion.awesomeversion import AwesomeVersion
-from homeassistant.components.homeassistant import exposed_entities
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.const import __version__ as HA_VERSION  # noqa: N812
@@ -53,7 +52,6 @@ from .const import (
     SERVICE_BATTERY_REPLACED_SCHEMA,
     SERVICE_DATA_DATE_TIME_REPLACED,
     DATA_STORE,
-    DATA_COORDINATOR,
     ATTR_REMOVE,
     ATTR_DEVICE_ID,
     CONF_BATTERY_TYPE,
