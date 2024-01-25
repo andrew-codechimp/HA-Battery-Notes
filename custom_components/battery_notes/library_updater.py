@@ -31,12 +31,14 @@ _LOGGER = logging.getLogger(__name__)
 
 BUILT_IN_DATA_DIRECTORY = os.path.join(os.path.dirname(__file__), "data")
 
+
 class LibraryUpdaterClientError(Exception):
     """Exception to indicate a general API error."""
 
 
 class LibraryUpdaterClientCommunicationError(LibraryUpdaterClientError):
     """Exception to indicate a communication error."""
+
 
 class LibraryUpdater:
     """Library updater."""
@@ -48,11 +50,8 @@ class LibraryUpdater:
 
         # Fire the library check every 24 hours from now
         async_track_utc_time_change(
-            hass,
-            self.timer_update,
-            hour = datetime.now().hour,
-            minute = 1,
-            second=1)
+            hass, self.timer_update, hour=datetime.now().hour, minute=1, second=1
+        )
 
     @callback
     async def timer_update(self, time):
@@ -74,7 +73,8 @@ class LibraryUpdater:
             _LOGGER.debug("Auto discovery disabled")
 
     @callback
-    async def get_library_updates(self, time): # pylint: disable=unused-argument
+    async def get_library_updates(self, time):
+        # pylint: disable=unused-argument
         """Make a call to GitHub to get the latest library.json."""
         try:
             _LOGGER.debug("Getting library updates")
@@ -132,6 +132,7 @@ class LibraryUpdater:
         except ValueError:
             return False
         return True
+
 
 class LibraryUpdaterClient:
     """Library downloader."""

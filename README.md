@@ -7,16 +7,16 @@
 [![hacs][hacsbadge]][hacs]
 
 Integration to add battery notes to a device, with automatic discovery via a growing [battery library](library.md) for devices.  
-Track both the battery type and also when the battery was replaced.  
+Track the battery type, when the battery was replaced and also when a battery is low based on device or global thresholds.  
 
 *Please :star: this repo if you find it useful*  
 *If you want to show your support please*
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png)](https://www.buymeacoffee.com/codechimp)
 
-![Battery Notes](https://github.com/andrew-codechimp/HA-Battery-Notes/blob/main/docs/assets/screenshot-device.png "Battery Notes")
+![Battery Notes](https://raw.githubusercontent.com/andrew-codechimp/ha-battery-notes/main/docs/assets/screenshot-device.png "Battery Notes")
 
-![Discovery](https://github.com/andrew-codechimp/HA-Battery-Notes/blob/main/docs/assets/screenshot-discovery.png "Device Discovery")
+![Discovery](https://raw.githubusercontent.com/andrew-codechimp/ha-battery-notes/main/docs/assets/screenshot-discovery.png "Device Discovery")
 
 ## Installation
 
@@ -56,7 +56,9 @@ To get full use of the integration, please visit the [docs](https://andrew-codec
 
 ## Contributing to the Battery Library
 
-To add a device definition to the battery library so that it will be automatically configured fill out [this form](https://github.com/andrew-codechimp/HA-Battery-Notes/issues/new?template=new_device_request.yml&title=[Device]%3A+) or see the [docs](https://andrew-codechimp.github.io/HA-Battery-Notes/library) for adding via pull request.
+[!["New Device Request"](https://raw.githubusercontent.com/andrew-codechimp/ha-battery-notes/main/docs/assets/new-device-request.png)](https://github.com/andrew-codechimp/HA-Battery-Notes/issues/new?template=new_device_request.yml&title=[Device]%3A+)
+
+To add a device definition to the battery library so that it will be automatically configured fill out the above form or see the [docs](https://andrew-codechimp.github.io/HA-Battery-Notes/library) for adding via pull request.
 
 ## Contributions are welcome!
 

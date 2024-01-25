@@ -1,4 +1,4 @@
-## 556 Devices in library
+## 592 Devices in library
 
 This file is auto generated, do not modify
 
@@ -6,22 +6,28 @@ This file is auto generated, do not modify
 |------------------------------------------------|----------------------------------------------------------------------|--------------------|
 |_TYZB01_7qf81wty                                |TS1001                                                                |2x AAA              |
 |_TZ1800_fcdjzz3s                                |TY0202                                                                |2x AA               |
+|_TZ3000_26fmupbb                                |TS0203                                                                |CR2032              |
 |_TZ3000_4fjiwweb                                |TS004F                                                                |CR2032              |
+|_TZ3000_4upl1fcj                                |TS0041                                                                |CR2032              |
 |_TZ3000_6ygjfyll                                |TS0202                                                                |CR2450              |
 |_TZ3000_abci1hiu                                |TS0044                                                                |A23                 |
 |_TZ3000_bzxlofth                                |TS0203                                                                |CR2032              |
+|_TZ3000_dfgbtub0                                |TS0042                                                                |CR2032              |
 |_TZ3000_dowj6gyi                                |TS0201                                                                |CR2450              |
 |_TZ3000_fllyghyj                                |TS0201                                                                |2x AAA              |
 |_TZ3000_k4ej3ww2                                |TS0207                                                                |CR2032              |
 |_TZ3000_lf56vpxj                                |TS0202                                                                |2x AAA              |
 |_TZ3000_mh9px7cq                                |TS0044                                                                |A23                 |
+|_TZ3000_nss8amz9                                |TS0202                                                                |CR2450              |
 |_TZ3000_wkai4ga5                                |TS0044                                                                |CR2430              |
 |_TZ3000_xr3htd96                                |TS0201                                                                |2x AAA              |
 |_TZ3000_yxqnffam                                |TS0203                                                                |2x AAA              |
 |_TZ3210_j4pdtz9v                                |TS0001                                                                |CR2                 |
 |_TZ3210_up3pngle                                |TS0205                                                                |2x AAA              |
+|_TZE200_4eeyebrt                                |TS0601                                                                |2x AA               |
 |_TZE200_b6wax7g0                                |TS0601                                                                |2x AA               |
 |_TZE200_c88teujp                                |TS0601                                                                |2x AA               |
+|_TZE200_hhrtiq0x                                |TS0601                                                                |2x AA               |
 |_TZE200_locansqn                                |TS0601                                                                |3x AAA              |
 |AEON Labs                                       |DSB05                                                                 |4x AAA              |
 |AEON Labs                                       |DSB29                                                                 |2x AAA              |
@@ -69,6 +75,7 @@ This file is auto generated, do not modify
 |August Home Inc.                                |AUG-SL05-M01-S01                                                      |2x CR123A           |
 |AVATTO                                          |ME167                                                                 |2x AA               |
 |Bosch                                           |ISW-ZPR1-WP13                                                         |4x AA               |
+|Bosch                                           |Motion sensor (ISW-ZPR1-WP13)                                         |4x AA               |
 |Bosch                                           |Radiator thermostat II (BTH-RA)                                       |2x AA               |
 |BRK Brands, Inc.                                |ZCOMBO                                                                |2x AA               |
 |BRK Brands, Inc.                                |ZSMOKE                                                                |2x AA               |
@@ -80,12 +87,14 @@ This file is auto generated, do not modify
 |CentraLite                                      |3450-L                                                                |CR2450              |
 |Computime                                       |SLT3                                                                  |4x AA               |
 |CPS                                             |CP1500AVRLCDa                                                         |Rechargeable        |
+|CPS                                             |CP1500PFCLCD                                                          |2x 12V9AH-SLA       |
 |CPS                                             |CP1500PFCLCDa                                                         |RB1290X2            |
 |Custom devices (DiY)                            |Xiaomi temperature & humidity sensor with custom firmware (LYWSD03MMC)|CR2032              |
 |Danalock                                        |BT/ZB smartlock (V3-BTZB/V3-BTZBE)                                    |4x CR123A           |
 |Danalock                                        |V3-BTZBE                                                              |4x CR123A           |
 |Danfoss                                         |010101                                                                |2x AA               |
 |Danfoss                                         |eTRV0100                                                              |2x AA               |
+|Danfoss                                         |eTRV0103                                                              |2x AA               |
 |Danfoss                                         |LC-13                                                                 |2x AA               |
 |Danfoss                                         |TRV001                                                                |2x AA               |
 |Develco                                         |Smoke detector with siren (SMSZB-120)                                 |CR123               |
@@ -96,6 +105,7 @@ This file is auto generated, do not modify
 |Devolo                                          |MT2756                                                                |CR123A              |
 |Drayton Wiser                                   |iTRV                                                                  |2x AA               |
 |Drayton Wiser                                   |RoomStat                                                              |2x AA               |
+|ecobee                                          |ecobee Room Sensor                                                    |CR2032              |
 |ecobee Inc.                                     |EBERS41                                                               |CR2477              |
 |ecobee Inc.                                     |EBRSE4                                                                |CR2032              |
 |Ecolink                                         |DWZWAVE25                                                             |CR123A              |
@@ -118,11 +128,13 @@ This file is auto generated, do not modify
 |eQ-3                                            |HmIP-eTRV-CL                                                          |4x AA               |
 |eQ-3                                            |HMIP-eTRV-E                                                           |2x AA               |
 |eQ-3                                            |HmIP-KRCK                                                             |AAA                 |
+|eQ-3                                            |HmIP-RC8                                                              |2x AAA              |
 |eQ-3                                            |HmIP-SCI                                                              |2x AAA              |
 |eQ-3                                            |HmIP-SLO                                                              |2x AA               |
 |eQ-3                                            |HmIP-SMI                                                              |2x AA               |
 |eQ-3                                            |HmIP-SMI55                                                            |2x AAA              |
 |eQ-3                                            |HmIP-SMO                                                              |2x AA               |
+|eQ-3                                            |HmIP-SPI                                                              |2x AA               |
 |eQ-3                                            |HmIP-SRH                                                              |AAA                 |
 |eQ-3                                            |HmIP-STH                                                              |2x AAA              |
 |eQ-3                                            |HmIP-SWDM                                                             |2x AAA              |
@@ -148,15 +160,18 @@ This file is auto generated, do not modify
 |eWeLink                                         |TH01                                                                  |CR2450              |
 |eWeLink                                         |WB01                                                                  |CR2450              |
 |Fantem                                          |4 in 1 multi sensor (ZB003-X)                                         |2x CR123A           |
+|Feasycom                                        |FeasyBeacon FSC-BP108                                                 |CR3032              |
 |Fibargroup                                      |FGCD001                                                               |CR123A              |
 |Fibargroup                                      |FGDW002                                                               |ER14250             |
 |Fibargroup                                      |FGFS101                                                               |CR123A              |
 |Fibargroup                                      |FGFS101                                                               |CR123A              |
 |Fibargroup                                      |FGK101                                                                |ER14250             |
+|Fibargroup                                      |FGKF601                                                               |CR2450              |
 |Fibargroup                                      |FGMS001                                                               |CR123A              |
 |Fibargroup                                      |FGSD002                                                               |CR123A              |
 |Fibargroup                                      |FGSS001                                                               |CR123A              |
 |First Alert (BRK Brands Inc)                    |ZCOMBO                                                                |2x AA               |
+|Flo by Moen                                     |puck_v1                                                               |CR123A              |
 |Frient                                          |EMIZB-141                                                             |2x AA               |
 |frient                                          |MOSZB-140                                                             |2x AA               |
 |Frient                                          |ZHEMI101                                                              |3x AA               |
@@ -168,16 +183,19 @@ This file is auto generated, do not modify
 |Govee                                           |H5054                                                                 |2x AAA              |
 |Govee                                           |H5072/H5075                                                           |2x AAA              |
 |Govee                                           |H5101/H5102/H5177                                                     |AAA                 |
+|GoveeLife                                       |H5105                                                                 |CR2450              |
 |HAB Home Intelligence LLC                       |iblinds V3                                                            |Rechargeable        |
 |HANK Electronics Ltd.                           |HKZW-DWS01                                                            |2x AAA              |
 |Heatit                                          |Z-PH WALL CONTROLLER                                                  |CR2450              |
 |HEIMAN                                          |Smart carbon monoxide sensor (HS1CA-E)                                |CR123A              |
 |HEIMAN                                          |Smoke detector (HS1SA)                                                |CR123A              |
 |HEIMAN                                          |Smoke detector (HS3SA/HS1SA)                                          |CR123A              |
+|HEIMAN                                          |Water leakage sensor (HS1WL/HS3WL)                                    |2x AAA              |
 |Hive                                            |Heating thermostat remote control (SLT3C)                             |4x AA               |
 |Homematic                                       |HM-RC-4-3                                                             |AAA                 |
 |Homematic                                       |HM-Sec-SCo                                                            |AAA                 |
 |Homematic                                       |HmIP-DSD-PCB                                                          |2x AAA              |
+|Homematic                                       |HmIP-STHO-A                                                           |2x AA               |
 |Honeywell                                       |TH6320ZW                                                              |3x AA               |
 |Honeywell                                       |zigbee JTYJ-GD-01LM/BW (lumi.sensor_smoke)                            |2x CR123A           |
 |Hunter Douglas                                  |Duette                                                                |12x AA              |
@@ -309,6 +327,7 @@ This file is auto generated, do not modify
 |Philips                                         |SML001                                                                |2x AAA              |
 |Philips                                         |SML002                                                                |2x AA               |
 |Philips Hue                                     |SML001                                                                |2x AAA              |
+|PLab                                            |HomeButtons                                                           |18650               |
 |Poly-control                                    |Danalock V3-BTZE                                                      |4x CR123A           |
 |Popp                                            |Smart thermostat (701721)                                             |2x AA               |
 |Popp & Co                                       |004407                                                                |LR14250             |
@@ -330,10 +349,12 @@ This file is auto generated, do not modify
 |rtl_433                                         |Vauno-EN8822C                                                         |2x AAA              |
 |rtl_433                                         |WT450-TH                                                              |AA                  |
 |Ruuvi                                           |Ruuvitag                                                              |CR2477T             |
+|Samjin                                          |button                                                                |CR2                 |
 |Samjin                                          |motion                                                                |CR2                 |
 |Samjin                                          |multi                                                                 |CR2450              |
 |Samjin                                          |water                                                                 |CR2                 |
 |Saswell                                         |Thermostatic radiator valve (SEA801-Zigbee/SEA802-Zigbee)             |2x AA               |
+|Schneider Electric                              |Wiser radiator thermostat (WV704R0A0902)                              |2x AA               |
 |Sengled                                         |E1D-G73                                                               |CR1632              |
 |Sercomm Corp.                                   |XHS2-SE                                                               |CR2450              |
 |Shelly                                          |Shelly Door/Window 2                                                  |2x CR123A           |
@@ -341,6 +362,7 @@ This file is auto generated, do not modify
 |Shelly                                          |Shelly H&T                                                            |CR123A              |
 |Shelly                                          |Shelly Plus Smoke                                                     |CR123A              |
 |Shenzhen Heiman Technology Co., Ltd.            |HS1HT-Z                                                               |CR2450              |
+|Shenzhen Heiman Technology Co., Ltd.            |HS1SA-Z                                                               |CR123A              |
 |Shenzhen Heiman Technology Co., Ltd.            |Smoke Detector (HS1SA-Z)                                              |CR123A              |
 |Shenzhen Kaadas Intelligent Technology Co., Ltd.|DB1                                                                   |4x AA               |
 |Shenzhen Neo Electronics Co., Ltd.              |NAS-DS01Z                                                             |CR2                 |
@@ -373,10 +395,12 @@ This file is auto generated, do not modify
 |SMaBiT (Bitron Video)                           |Compact magnetic contact sensor (AV2010/21A)                          |CR2                 |
 |SmartThings                                     |Button (IM6001-BTP01)                                                 |CR2450              |
 |SmartThings                                     |moisturev4                                                            |CR2                 |
+|SmartThings                                     |Motion sensor (2016 model) (STS-IRM-250)                              |CR2477              |
 |SmartThings                                     |Motion sensor (2018 model) (IM6001-MTP01)                             |CR2                 |
 |SmartThings                                     |Multi Sensor (2015 model) (3321-S)                                    |CR2450              |
 |SmartThings                                     |Multipurpose sensor (2018 model) (IM6001-MPP01)                       |CR2450              |
 |Smartthings                                     |Water leak sensor (2016 model) (STS-WTR-250)                          |CR2                 |
+|SmartThings                                     |Water leak sensor (2018 model) (IM6001-WLP01)                         |CR2                 |
 |SmartThings                                     |Water sensor (3315-S)                                                 |CR2                 |
 |SOMFY                                           |Sonesse 28 WF Li-Ion Roller                                           |MANUAL              |
 |Sonoff                                          |Contact sensor (SNZB-04)                                              |CR2032              |
@@ -417,6 +441,10 @@ This file is auto generated, do not modify
 |Third Reality, Inc                              |3RSS009Z                                                              |2x AAA              |
 |Third Reality, Inc                              |3RTHS24BZ                                                             |2x AAA              |
 |Third Reality, Inc                              |3RWS18BZ                                                              |2x AAA              |
+|Trust                                           |COSensor-EM                                                           |CR123A              |
+|TS0041                                          |_TZ3000_itb0omhv                                                      |CR2032              |
+|TS0042                                          |_TZ3000_dfgbtub0                                                      |CR2032              |
+|TS0042                                          |_TZ3000_ftwuvum5                                                      |CR2032              |
 |TS004F                                          |_TZ3000_qja6nq5z                                                      |CR2032              |
 |TT Lock                                         |SN511-180MS_PV53                                                      |4x AA               |
 |TUO Accessories LLC                             |TUO Smart Button                                                      |CR2032              |
@@ -427,6 +455,7 @@ This file is auto generated, do not modify
 |Tuya                                            |_TZ3000_itb0omhv                                                      |CR2032              |
 |Tuya                                            |_TZ3000_oxslv1c9                                                      |2x AAA              |
 |Tuya                                            |_TZ3000_upgcbody                                                      |2x AAA              |
+|TuYa                                            |Aegislink Wi-Fi Combination Alarm (cfet7ouwznslditf)                  |CR123A              |
 |TuYa                                            |Button scene switch (SH-SC07)                                         |CR2450              |
 |TuYa                                            |Door sensor (TS0203)                                                  |CR2032              |
 |TuYa                                            |Door sensor (ZD08)                                                    |CR2032              |
@@ -436,7 +465,9 @@ This file is auto generated, do not modify
 |TuYa                                            |Luminance door sensor (ZG-102ZL)                                      |CR2032              |
 |TuYa                                            |Luminance motion sensor (ZG-204ZL)                                    |CR2450              |
 |TuYa                                            |Motion sensor (IH012-RT01)                                            |CR2450              |
+|TuYa                                            |Motion sensor (ZMS-102)                                               |CR2032              |
 |TuYa                                            |Photoelectric smoke detector (PA-44Z)                                 |PP3                 |
+|TuYa                                            |PIR sensor (RH3040)                                                   |3x AAA              |
 |TuYa                                            |Radiator valve with thermostat (TS0601_thermostat)                    |2x AA               |
 |TuYa                                            |Smart button (IH-K663)                                                |CR2032              |
 |TuYa                                            |Smart button (MINI-ZSB)                                               |CR2032              |
@@ -465,10 +496,12 @@ This file is auto generated, do not modify
 |TuYa                                            |Zigbee water leak sensor (TS0207_water_leak_detector_2)               |CR2032              |
 |Tuya                                            |zqeaw7pi                                                              |2x AAA              |
 |TUYATEC-xrvzm3yI                                |RH3001                                                                |CR2032              |
+|TUYATEC-yg5dcbfu                                |RH3052                                                                |CR2032              |
 |Ultraloq                                        |U-BOLT-PRO-ZWAVE                                                      |4x AA               |
 |Universal Electronics Inc                       |Magnetic door & window contact sensor (XHS2-UE)                       |CR2450              |
 |Universal Electronics Inc                       |URC4470BC0-X-R                                                        |2x CR123A           |
 |unk_manufacturer                                |lumi.remote.b28ac1                                                    |CR2450              |
+|Verisure                                        |Lockguard Smartlock                                                   |4x AA               |
 |VictorPest.com                                  |Rat Trap                                                              |4x C                |
 |Vision Security                                 |ZD2102-5                                                              |CR123A              |
 |Vision Security                                 |ZD2105                                                                |CR2                 |
@@ -476,7 +509,9 @@ This file is auto generated, do not modify
 |Vision Security                                 |ZG8101                                                                |CR123               |
 |Vision Security                                 |ZP3111-5                                                              |2x AAA              |
 |Vision Security                                 |ZS5101                                                                |CR123A              |
+|Visonic                                         |Magnetic door & window contact sensor (MCT-340 E)                     |CR2032              |
 |Visonic                                         |MCT-340 E                                                             |CR2032              |
+|Wink Inc.                                       |Motion Sensor                                                         |CR123A              |
 |WyzeLabs                                        |WVOD1                                                                 |Rechargeable        |
 |WyzeLabs                                        |YD.LO1                                                                |Rechargeable        |
 |Xiaomi                                          |Aqara D1 double key wireless wall switch (WXKG07LM)                   |CR2032              |
@@ -545,6 +580,7 @@ This file is auto generated, do not modify
 |Xiaomi                                          |zigbee WSDCGQ01LM (lumi.sensor_ht)                                    |CR2032              |
 |Xiaomi                                          |zigbee WXKG01LM (lumi.sensor_switch)                                  |CR2032              |
 |Xiaomi                                          |zigbee WXKG01LM (lumi.sensor_switch)                                  |CR2032              |
+|Yale                                            |YRD210                                                                |4x AA               |
 |Yale                                            |YRD220/240 TSDB                                                       |4x AA               |
 |Yeelight                                        |ble YLAI003                                                           |CR2032              |
 |YoLink                                          |DoorSensor                                                            |2x AAA              |

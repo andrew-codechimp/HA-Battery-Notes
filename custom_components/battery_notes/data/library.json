@@ -15,8 +15,18 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "_TZ3000_26fmupbb",
+            "model": "TS0203",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "_TZ3000_4fjiwweb",
             "model": "TS004F",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "_TZ3000_4upl1fcj",
+            "model": "TS0041",
             "battery_type": "CR2032"
         },
         {
@@ -32,6 +42,11 @@
         {
             "manufacturer": "_TZ3000_bzxlofth",
             "model": "TS0203",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "_TZ3000_dfgbtub0",
+            "model": "TS0042",
             "battery_type": "CR2032"
         },
         {
@@ -62,6 +77,11 @@
             "battery_type": "A23"
         },
         {
+            "manufacturer": "_TZ3000_nss8amz9",
+            "model": "TS0202",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "_TZ3000_wkai4ga5",
             "model": "TS0044",
             "battery_type": "CR2430"
@@ -90,6 +110,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "_TZE200_4eeyebrt",
+            "model": "TS0601",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "_TZE200_b6wax7g0",
             "model": "TS0601",
             "battery_type": "AA",
@@ -97,6 +123,12 @@
         },
         {
             "manufacturer": "_TZE200_c88teujp",
+            "model": "TS0601",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "_TZE200_hhrtiq0x",
             "model": "TS0601",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -357,6 +389,12 @@
         },
         {
             "manufacturer": "Bosch",
+            "model": "Motion sensor (ISW-ZPR1-WP13)",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Bosch",
             "model": "Radiator thermostat II (BTH-RA)",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -416,6 +454,12 @@
         },
         {
             "manufacturer": "CPS",
+            "model": "CP1500PFCLCD",
+            "battery_type": "12V9AH-SLA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "CPS",
             "model": "CP1500PFCLCDa",
             "battery_type": "RB1290X2"
         },
@@ -445,6 +489,12 @@
         {
             "manufacturer": "Danfoss",
             "model": "eTRV0100",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Danfoss",
+            "model": "eTRV0103",
             "battery_type": "AA",
             "battery_quantity": 2
         },
@@ -502,6 +552,11 @@
             "model": "RoomStat",
             "battery_type": "AA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "ecobee",
+            "model": "ecobee Room Sensor",
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "ecobee Inc.",
@@ -628,6 +683,12 @@
         },
         {
             "manufacturer": "eQ-3",
+            "model": "HmIP-RC8",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "eQ-3",
             "model": "HmIP-SCI",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -653,6 +714,12 @@
         {
             "manufacturer": "eQ-3",
             "model": "HmIP-SMO",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "eQ-3",
+            "model": "HmIP-SPI",
             "battery_type": "AA",
             "battery_quantity": 2
         },
@@ -798,6 +865,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Feasycom",
+            "model": "FeasyBeacon FSC-BP108",
+            "battery_type": "CR3032"
+        },
+        {
             "manufacturer": "Fibargroup",
             "model": "FGCD001",
             "battery_type": "CR123A"
@@ -824,6 +896,11 @@
         },
         {
             "manufacturer": "Fibargroup",
+            "model": "FGKF601",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Fibargroup",
             "model": "FGMS001",
             "battery_type": "CR123A"
         },
@@ -842,6 +919,11 @@
             "model": "ZCOMBO",
             "battery_type": "AA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Flo by Moen",
+            "model": "puck_v1",
+            "battery_type": "CR123A"
         },
         {
             "manufacturer": "Frient",
@@ -905,6 +987,11 @@
             "battery_type": "AAA"
         },
         {
+            "manufacturer": "GoveeLife",
+            "model": "H5105",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "HAB Home Intelligence LLC",
             "model": "iblinds V3",
             "battery_type": "Rechargeable"
@@ -936,6 +1023,12 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "HEIMAN",
+            "model": "Water leakage sensor (HS1WL/HS3WL)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Hive",
             "model": "Heating thermostat remote control (SLT3C)",
             "battery_type": "AA",
@@ -955,6 +1048,12 @@
             "manufacturer": "Homematic",
             "model": "HmIP-DSD-PCB",
             "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Homematic",
+            "model": "HmIP-STHO-A",
+            "battery_type": "AA",
             "battery_quantity": 2
         },
         {
@@ -1672,6 +1771,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "PLab",
+            "model": "HomeButtons",
+            "battery_type": "18650"
+        },
+        {
             "manufacturer": "Poly-control",
             "model": "Danalock V3-BTZE",
             "battery_type": "CR123A",
@@ -1789,6 +1893,11 @@
         },
         {
             "manufacturer": "Samjin",
+            "model": "button",
+            "battery_type": "CR2"
+        },
+        {
+            "manufacturer": "Samjin",
             "model": "motion",
             "battery_type": "CR2"
         },
@@ -1805,6 +1914,12 @@
         {
             "manufacturer": "Saswell",
             "model": "Thermostatic radiator valve (SEA801-Zigbee/SEA802-Zigbee)",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Schneider Electric",
+            "model": "Wiser radiator thermostat (WV704R0A0902)",
             "battery_type": "AA",
             "battery_quantity": 2
         },
@@ -1843,6 +1958,11 @@
             "manufacturer": "Shenzhen Heiman Technology Co., Ltd.",
             "model": "HS1HT-Z",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Shenzhen Heiman Technology Co., Ltd.",
+            "model": "HS1SA-Z",
+            "battery_type": "CR123A"
         },
         {
             "manufacturer": "Shenzhen Heiman Technology Co., Ltd.",
@@ -2018,6 +2138,11 @@
         },
         {
             "manufacturer": "SmartThings",
+            "model": "Motion sensor (2016 model) (STS-IRM-250)",
+            "battery_type": "CR2477"
+        },
+        {
+            "manufacturer": "SmartThings",
             "model": "Motion sensor (2018 model) (IM6001-MTP01)",
             "battery_type": "CR2"
         },
@@ -2034,6 +2159,11 @@
         {
             "manufacturer": "Smartthings",
             "model": "Water leak sensor (2016 model) (STS-WTR-250)",
+            "battery_type": "CR2"
+        },
+        {
+            "manufacturer": "SmartThings",
+            "model": "Water leak sensor (2018 model) (IM6001-WLP01)",
             "battery_type": "CR2"
         },
         {
@@ -2260,6 +2390,26 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Trust",
+            "model": "COSensor-EM",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "TS0041",
+            "model": "_TZ3000_itb0omhv",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "TS0042",
+            "model": "_TZ3000_dfgbtub0",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "TS0042",
+            "model": "_TZ3000_ftwuvum5",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "TS004F",
             "model": "_TZ3000_qja6nq5z",
             "battery_type": "CR2032"
@@ -2315,6 +2465,11 @@
         },
         {
             "manufacturer": "TuYa",
+            "model": "Aegislink Wi-Fi Combination Alarm (cfet7ouwznslditf)",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "TuYa",
             "model": "Button scene switch (SH-SC07)",
             "battery_type": "CR2450"
         },
@@ -2362,8 +2517,19 @@
         },
         {
             "manufacturer": "TuYa",
+            "model": "Motion sensor (ZMS-102)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "TuYa",
             "model": "Photoelectric smoke detector (PA-44Z)",
             "battery_type": "PP3"
+        },
+        {
+            "manufacturer": "TuYa",
+            "model": "PIR sensor (RH3040)",
+            "battery_type": "AAA",
+            "battery_quantity": 3
         },
         {
             "manufacturer": "TuYa",
@@ -2517,6 +2683,11 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "TUYATEC-yg5dcbfu",
+            "model": "RH3052",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "Ultraloq",
             "model": "U-BOLT-PRO-ZWAVE",
             "battery_type": "AA",
@@ -2537,6 +2708,12 @@
             "manufacturer": "unk_manufacturer",
             "model": "lumi.remote.b28ac1",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Verisure",
+            "model": "Lockguard Smartlock",
+            "battery_type": "AA",
+            "battery_quantity": 4
         },
         {
             "manufacturer": "VictorPest.com",
@@ -2578,8 +2755,18 @@
         },
         {
             "manufacturer": "Visonic",
+            "model": "Magnetic door & window contact sensor (MCT-340 E)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Visonic",
             "model": "MCT-340 E",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Wink Inc.",
+            "model": "Motion Sensor",
+            "battery_type": "CR123A"
         },
         {
             "manufacturer": "WyzeLabs",
@@ -2932,6 +3119,12 @@
             "manufacturer": "Xiaomi",
             "model": "zigbee WXKG01LM (lumi.sensor_switch)",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Yale",
+            "model": "YRD210",
+            "battery_type": "AA",
+            "battery_quantity": 4
         },
         {
             "manufacturer": "Yale",

@@ -1,7 +1,7 @@
 # Battery Notes for Home Assistant
 
 Integration to add battery notes to a device, with automatic discovery via a growing [battery library](https://github.com/andrew-codechimp/HA-Battery-Notes/blob/main/library.md) for devices.  
-Track both the battery type and also when the battery was replaced.  
+Track the battery type, when the battery was replaced and also when a battery is low based on device or global thresholds (battery low in beta).  
 
 *Please :star: this repo on [GitHub](https://github.com/andrew-codechimp/HA-Battery-Notes) if you find it useful*  
 *If you want to show your support please*
@@ -17,6 +17,7 @@ The integration will add additional diagnostic entities to your device.
 
 * [Entities](./entities.md)
 * [Services](./services.md)
+* [Events](./events.md)
 
 ## How to use Battery Notes
 Once you have [installed the integration](https://github.com/andrew-codechimp/HA-Battery-Notes#installation) you will hopefully have some devices discovered and you can follow the Notification to confirm their details and add them, if you don't have devices discovered you can add them manually.
@@ -27,7 +28,7 @@ Once you have [installed the integration](https://github.com/andrew-codechimp/HA
 * Go to Settings/Integrations and click Add Integration.
 * Select Battery Notes.
 * Choose your device from the drop down and click next.
-* Enter the battery type and quantity and click submit.
+* Enter the battery type and quantity and optionally a battery low threshold and click submit.
 
 !!! info
 

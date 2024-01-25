@@ -14,7 +14,11 @@
             "battery": {
                 "data": {
                     "battery_type": "Typ batérie",
-                    "battery_quantity": "Množstvo batérie"
+                    "battery_quantity": "Množstvo batérie",
+                    "battery_low_threshold": "Nízky prah batérie"
+                },
+                "data_description": {
+                    "battery_low_threshold": "0 použije globálny predvolený prah"
                 }
             }
         },
@@ -32,10 +36,12 @@
                 "data": {
                     "name": "Názov",
                     "battery_type": "Typ batérie",
-                    "battery_quantity": "Množstvo batérie"
+                    "battery_quantity": "Množstvo batérie",
+                    "battery_low_threshold": "Nízky prah batérie"
                 },
                 "data_description": {
-                    "name": "Ak ponecháte prázdne, názov sa prevezme zo zdrojového zariadenia"
+                    "name": "Ak ponecháte prázdne, názov sa prevezme zo zdrojového zariadenia",
+                    "battery_low_threshold": "0 použije globálny predvolený prah"
                 }
             }
         },
@@ -44,12 +50,45 @@
         }
     },
     "entity": {
+        "binary_sensor": {
+            "battery_low": {
+                "name": "Slabá batéria",
+                "state_attributes": {
+                    "battery_low_threshold": {
+                        "name": "Nízky prah batérie"
+                    }
+                }
+            }
+        },
         "button": {
             "battery_replaced": {
                 "name": "Batéria vymenená"
             }
         },
         "sensor": {
+            "battery_plus": {
+                "name": "Batéria+",
+                "state_attributes": {
+                    "battery_type": {
+                        "name": "Typ batérie"
+                    },
+                    "battery_quantity": {
+                        "name": "Množstvo batérie"
+                    },
+                    "battery_type_and_quantity": {
+                        "name": "Typ a množstvo batérie"
+                    },
+                    "battery_last_replaced": {
+                        "name": "Batéria naposledy vymenená"
+                    },
+                    "battery_low": {
+                        "name": "Slabá batéria"
+                    },
+                    "battery_low_threshold": {
+                        "name": "Nízky prah batérie"
+                    }
+                }
+            },
             "battery_type": {
                 "name": "Typ batérie",
                 "state_attributes": {
