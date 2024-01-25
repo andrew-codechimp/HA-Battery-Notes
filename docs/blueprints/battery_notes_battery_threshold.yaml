@@ -1,0 +1,94 @@
+blueprint:
+  name: Battery Notes - Battery Threshold
+  description: Actions to perform when the battery threshold is met
+  author: andrew-codechimp
+  source_url: https://raw.githubusercontent.com/andrew-codechimp/HA-Battery-Notes/main/docs/blueprints/battery_notes_battery_threshold.yaml
+  domain: automation
+
+  input:
+    low_notification:
+      name: Battery Low Notification
+      description: Create a persistent notification when the battery is low.
+      default: True
+      selector:
+        boolean:
+    high_notification:
+      name: Remove Low Notification
+      description: Remove the persistent notification when the battery is no longer low. Use any event data via trigger.event.data.xxx
+      default: True
+      selector:
+        boolean:
+    on_low_actions:
+      name: On Low Actions
+      description: User actions to run on battery low.
+      default: []
+      selector:
+        action:
+    on_high_actions:
+      name: On High Actions
+      description: User actions to run on battery returning from low. Use any event data via trigger.event.data.xxx
+      default: []
+      selector:
+        action:
+
+variables:
+  low_notification: !input low_notification
+  high_notification: !input high_notification
+
+trigger:
+  - platform: event
+    event_type: battery_notes_battery_threshold
+    event_data:
+      battery_low: true
+    id: low
+    alias: Battery went low
+  - platform: event
+    event_type: battery_notes_battery_threshold
+    event_data:
+      battery_low: false
+    id: high
+    alias: Battery went high
+
+condition: []
+
+action:
+  - choose:
+      - conditions:
+          - condition: trigger
+            id:
+              - low
+        sequence:
+          - if:
+              - condition: template
+                value_template: "{{ low_notification }}"
+            then:
+              - service: persistent_notification.create
+                data:
+                  title: |
+                    {{ trigger.event.data.device_name }} Battery Low
+                  notification_id: "{{ trigger.event.data.device_id }}"
+                  message: >
+                    The device has a battery level of {{
+                    trigger.event.data.battery_level }}% {{ '\n' -}} You need {{
+                    trigger.event.data.battery_quantity }}x {{
+                    trigger.event.data.battery_type }}
+          - alias: "Run user on low actions"
+            choose: []
+            default: !input 'on_low_actions'
+      - conditions:
+          - condition: trigger
+            id:
+              - high
+        sequence:
+          - if:
+              - condition: template
+                value_template: "{{ low_notification }}"
+            then:
+              - service: persistent_notification.dismiss
+                data:
+                  notification_id: "{{ trigger.event.data.device_id }}"
+          - alias: "Run user on high actions"
+            choose: []
+            default: !input 'on_high_actions'
+
+mode: queued
