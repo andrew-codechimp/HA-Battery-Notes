@@ -1,34 +1,26 @@
 blueprint:
   name: Battery Notes - Battery Replaced
-  description: Set the battery replaced automatically when the battery goes above 98%
+  description: Set the battery replaced automatically when the battery increased
   author: andrew-codechimp
   source_url: https://raw.githubusercontent.com/andrew-codechimp/HA-Battery-Notes/main/docs/blueprints/battery_notes_battery_replaced.yaml
   domain: automation
 
   input:
-    battery_entities:
-      name: Battery Entities
-      description: 'Specify which battery entities should trigger this automation.'
+    on_replaced_actions:
+      name: On Replaced Actions
+      description: User actions to run on battery replacement, the battery is marked as replaced automatically. Use any event data via trigger.event.data.xxx
+      default: []
       selector:
-        entity:
-          device_class: battery
-          multiple: true
+        action:
 mode: queued
 trigger:
-  - platform: state
-    entity_id: !input 'battery_entities'
-    for:
-      hours: 0
-      minutes: 0
-      seconds: 10
-condition:
-  - condition: template
-    value_template: >-
-      {{ trigger.from_state is not none and trigger.from_state.state not in
-      ['unavailable','unknown'] and trigger.from_state.state|float(0) < 100 and
-      trigger.to_state.state|float(0) > 98 }}
+  - platform: event
+    event_type: battery_notes_battery_increased
+condition: []
 action:
   - service: battery_notes.set_battery_replaced
     data:
-      device_id: "{{ device_id(trigger.entity_id) }}"
-    enabled: true
+      device_id: "{{ trigger.event.data.device_id }}"
+  - alias: "Run user on replaced actions"
+    choose: []
+    default: !input 'on_replaced_actions'
