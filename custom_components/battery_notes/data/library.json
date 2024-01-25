@@ -1363,8 +1363,7 @@
         {
             "manufacturer": "Lidl",
             "model": "Silvercrest smart motion sensor (HG06335/HG07310)",
-            "battery_type": "AAA",
-            "battery_quantity": 2
+            "battery_type": "CR123A"
         },
         {
             "manufacturer": "Lidl",
