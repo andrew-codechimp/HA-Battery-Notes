@@ -1,4 +1,4 @@
-## 586 Devices in library
+## 590 Devices in library
 
 This file is auto generated, do not modify
 
@@ -169,6 +169,7 @@ This file is auto generated, do not modify
 |Fibargroup                                      |FGSD002                                                               |CR123A              |
 |Fibargroup                                      |FGSS001                                                               |CR123A              |
 |First Alert (BRK Brands Inc)                    |ZCOMBO                                                                |2x AA               |
+|Flo by Moen                                     |puck_v1                                                               |CR123A              |
 |Frient                                          |EMIZB-141                                                             |2x AA               |
 |frient                                          |MOSZB-140                                                             |2x AA               |
 |Frient                                          |ZHEMI101                                                              |3x AA               |
@@ -192,6 +193,7 @@ This file is auto generated, do not modify
 |Homematic                                       |HM-RC-4-3                                                             |AAA                 |
 |Homematic                                       |HM-Sec-SCo                                                            |AAA                 |
 |Homematic                                       |HmIP-DSD-PCB                                                          |2x AAA              |
+|Homematic                                       |HmIP-STHO-A                                                           |2x AA               |
 |Honeywell                                       |TH6320ZW                                                              |3x AA               |
 |Honeywell                                       |zigbee JTYJ-GD-01LM/BW (lumi.sensor_smoke)                            |2x CR123A           |
 |Hunter Douglas                                  |Duette                                                                |12x AA              |
@@ -323,6 +325,7 @@ This file is auto generated, do not modify
 |Philips                                         |SML001                                                                |2x AAA              |
 |Philips                                         |SML002                                                                |2x AA               |
 |Philips Hue                                     |SML001                                                                |2x AAA              |
+|PLab                                            |HomeButtons                                                           |18650               |
 |Poly-control                                    |Danalock V3-BTZE                                                      |4x CR123A           |
 |Popp                                            |Smart thermostat (701721)                                             |2x AA               |
 |Popp & Co                                       |004407                                                                |LR14250             |
@@ -496,6 +499,7 @@ This file is auto generated, do not modify
 |Universal Electronics Inc                       |Magnetic door & window contact sensor (XHS2-UE)                       |CR2450              |
 |Universal Electronics Inc                       |URC4470BC0-X-R                                                        |2x CR123A           |
 |unk_manufacturer                                |lumi.remote.b28ac1                                                    |CR2450              |
+|Verisure                                        |Lockguard Smartlock                                                   |4x AA               |
 |VictorPest.com                                  |Rat Trap                                                              |4x C                |
 |Vision Security                                 |ZD2102-5                                                              |CR123A              |
 |Vision Security                                 |ZD2105                                                                |CR2                 |

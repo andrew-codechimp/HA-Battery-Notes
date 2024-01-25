@@ -909,6 +909,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Flo by Moen",
+            "model": "puck_v1",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "Frient",
             "model": "EMIZB-141",
             "battery_type": "AA",
@@ -1031,6 +1036,12 @@
             "manufacturer": "Homematic",
             "model": "HmIP-DSD-PCB",
             "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Homematic",
+            "model": "HmIP-STHO-A",
+            "battery_type": "AA",
             "battery_quantity": 2
         },
         {
@@ -1746,6 +1757,11 @@
             "model": "SML001",
             "battery_type": "AAA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "PLab",
+            "model": "HomeButtons",
+            "battery_type": "18650"
         },
         {
             "manufacturer": "Poly-control",
@@ -2680,6 +2696,12 @@
             "manufacturer": "unk_manufacturer",
             "model": "lumi.remote.b28ac1",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Verisure",
+            "model": "Lockguard Smartlock",
+            "battery_type": "AA",
+            "battery_quantity": 4
         },
         {
             "manufacturer": "VictorPest.com",
