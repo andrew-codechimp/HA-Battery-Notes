@@ -909,6 +909,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Flo by Moen",
+            "model": "puck_v1",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "Frient",
             "model": "EMIZB-141",
             "battery_type": "AA",
@@ -3191,11 +3196,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Flo by Moen",
-            "model": "puck_v1",
-            "battery_type": "CR123A"
         }
     ]
 }

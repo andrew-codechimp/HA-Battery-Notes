@@ -1,4 +1,4 @@
-## 589 Devices in library
+## 590 Devices in library
 
 This file is auto generated, do not modify
 
@@ -169,6 +169,7 @@ This file is auto generated, do not modify
 |Fibargroup                                      |FGSD002                                                               |CR123A              |
 |Fibargroup                                      |FGSS001                                                               |CR123A              |
 |First Alert (BRK Brands Inc)                    |ZCOMBO                                                                |2x AA               |
+|Flo by Moen                                     |puck_v1                                                               |CR123A              |
 |Frient                                          |EMIZB-141                                                             |2x AA               |
 |frient                                          |MOSZB-140                                                             |2x AA               |
 |Frient                                          |ZHEMI101                                                              |3x AA               |
