@@ -253,7 +253,7 @@ This file is auto generated, do not modify
 |Lidl                                            |HG06335/HG07310                                                       |MANUAL              |
 |Lidl                                            |HG06336                                                               |2x AAA              |
 |Lidl                                            |Silvercrest radiator valve with thermostat (368308_2010)              |2x AA               |
-|Lidl                                            |Silvercrest smart motion sensor (HG06335/HG07310)                     |2x AAA              |
+|Lidl                                            |Silvercrest smart motion sensor (HG06335/HG07310)                     |MANUAL              |
 |Lidl                                            |Silvercrest smart motion sensor (HG06335/HG07310)                     |CR123A              |
 |Linkind                                         |Door/window Sensor (ZS110050078)                                      |CR2032              |
 |Linkind                                         |PIR motion sensor, wireless motion detector (ZS1100400-IN-V1A02)      |CR2450              |
