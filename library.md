@@ -1,4 +1,4 @@
-## 592 Devices in library
+## 593 Devices in library
 
 This file is auto generated, do not modify
 
@@ -55,6 +55,7 @@ This file is auto generated, do not modify
 |American Power Conversion                       |Back-UPS ES 600M1                                                     |Rechargeable        |
 |American Power Conversion                       |Back-UPS XS 1500M                                                     |Rechargeable        |
 |APC                                             |Back-UPS XS 1500M                                                     |Rechargeable        |
+|APC                                             |SRV 2K I -AR                                                          |APCRBCV204          |
 |Aqara                                           |Aqara Door and Window Sensor P2                                       |CR123A              |
 |Aqara                                           |zigbee DJT11LM (lumi.vibration.aq1)                                   |CR2032              |
 |Aqara                                           |zigbee MCCGQ11LM (lumi.sensor_magnet.aq2)                             |CR1632              |

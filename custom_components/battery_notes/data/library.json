@@ -279,6 +279,11 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "APC",
+            "model": "SRV 2K I -AR",
+            "battery_type": "APCRBCV204"
+        },
+        {
             "manufacturer": "Aqara",
             "model": "Aqara Door and Window Sensor P2",
             "battery_type": "CR123A"
@@ -3208,11 +3213,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "APC",
-            "model": "SRV 2K I -AR",
-            "battery_type": "APCRBCV204"
         }
     ]
 }
