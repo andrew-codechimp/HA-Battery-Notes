@@ -290,8 +290,11 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
                 )
 
             if wrapped_battery_state.state not in [STATE_UNAVAILABLE, STATE_UNKNOWN]:
-                if float(wrapped_battery_state.state) >= (
-                    self._previous_battery_level + increase_threshold
+                if (
+                    wrapped_battery_state.state
+                    and self._previous_battery_level
+                    and float(wrapped_battery_state.state)
+                    >= (self._previous_battery_level + increase_threshold)
                 ):
                     self.hass.bus.fire(
                         EVENT_BATTERY_INCREASED,
@@ -315,8 +318,8 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
 
                 self._previous_battery_level = float(wrapped_battery_state.state)
 
-            self._previous_state_last_changed = wrapped_battery_state.last_changed
-            self._previous_battery_low = battery_low
+        self._previous_state_last_changed = wrapped_battery_state.last_changed
+        self._previous_battery_low = battery_low
 
     async def async_added_to_hass(self) -> None:
         """Handle added to Hass."""
