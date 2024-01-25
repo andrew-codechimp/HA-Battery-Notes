@@ -1,4 +1,4 @@
-## 590 Devices in library
+## 591 Devices in library
 
 This file is auto generated, do not modify
 
@@ -133,6 +133,7 @@ This file is auto generated, do not modify
 |eQ-3                                            |HmIP-SMI                                                              |2x AA               |
 |eQ-3                                            |HmIP-SMI55                                                            |2x AAA              |
 |eQ-3                                            |HmIP-SMO                                                              |2x AA               |
+|eQ-3                                            |HmIP-SPI                                                              |2x AA               |
 |eQ-3                                            |HmIP-SRH                                                              |AAA                 |
 |eQ-3                                            |HmIP-STH                                                              |2x AAA              |
 |eQ-3                                            |HmIP-SWDM                                                             |2x AAA              |
