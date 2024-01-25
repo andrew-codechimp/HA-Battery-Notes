@@ -14,7 +14,11 @@
             "battery": {
                 "data": {
                     "battery_type": "Batterieart",
-                    "battery_quantity": "Batteriemenge"
+                    "battery_quantity": "Batteriemenge",
+                    "battery_low_threshold": "Schwelle für niedrigen Batteriestand"
+                },
+                "data_description": {
+                    "battery_low_threshold": "0 verwendet den globalen Standardschwellenwert"
                 }
             }
         },
@@ -32,10 +36,12 @@
                 "data": {
                     "name": "Name",
                     "battery_type": "Batterieart",
-                    "battery_quantity": "Batteriemenge"
+                    "battery_quantity": "Batteriemenge",
+                    "battery_low_threshold": "Schwelle für niedrigen Batteriestand"
                 },
                 "data_description": {
-                    "name": "Wenn du nichts eingibst, wird der Name vom Quellgerät übernommen"
+                    "name": "Wenn du nichts eingibst, wird der Name vom Quellgerät übernommen",
+                    "battery_low_threshold": "0 verwendet den globalen Standardschwellenwert"
                 }
             }
         },
@@ -44,12 +50,45 @@
         }
     },
     "entity": {
+        "binary_sensor": {
+            "battery_low": {
+                "name": "Akku fast leer",
+                "state_attributes": {
+                    "battery_low_threshold": {
+                        "name": "Schwelle für niedrigen Batteriestand"
+                    }
+                }
+            }
+        },
         "button": {
             "battery_replaced": {
                 "name": "Batterie ersetzt"
             }
         },
         "sensor": {
+            "battery_plus": {
+                "name": "Batterie+",
+                "state_attributes": {
+                    "battery_type": {
+                        "name": "Batterieart"
+                    },
+                    "battery_quantity": {
+                        "name": "Batteriemenge"
+                    },
+                    "battery_type_and_quantity": {
+                        "name": "Batterietyp und -menge"
+                    },
+                    "battery_last_replaced": {
+                        "name": "Batterie zuletzt ersetzt"
+                    },
+                    "battery_low": {
+                        "name": "Akku fast leer"
+                    },
+                    "battery_low_threshold": {
+                        "name": "Schwelle für niedrigen Batteriestand"
+                    }
+                }
+            },
             "battery_type": {
                 "name": "Batterieart",
                 "state_attributes": {
