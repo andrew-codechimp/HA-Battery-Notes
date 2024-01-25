@@ -1,4 +1,4 @@
-## 588 Devices in library
+## 589 Devices in library
 
 This file is auto generated, do not modify
 
@@ -498,6 +498,7 @@ This file is auto generated, do not modify
 |Universal Electronics Inc                       |Magnetic door & window contact sensor (XHS2-UE)                       |CR2450              |
 |Universal Electronics Inc                       |URC4470BC0-X-R                                                        |2x CR123A           |
 |unk_manufacturer                                |lumi.remote.b28ac1                                                    |CR2450              |
+|Verisure                                        |Lockguard Smartlock                                                   |4x AA               |
 |VictorPest.com                                  |Rat Trap                                                              |4x C                |
 |Vision Security                                 |ZD2102-5                                                              |CR123A              |
 |Vision Security                                 |ZD2105                                                                |CR2                 |

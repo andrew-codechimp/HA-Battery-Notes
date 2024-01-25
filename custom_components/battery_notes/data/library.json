@@ -2693,6 +2693,12 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "Verisure",
+            "model": "Lockguard Smartlock",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
             "manufacturer": "VictorPest.com",
             "model": "Rat Trap",
             "battery_type": "C",
@@ -3185,12 +3191,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Verisure",
-            "model": "Lockguard Smartlock",
-            "battery_type": "AA",
-            "battery_quantity": 4
         }
     ]
 }
