@@ -3180,6 +3180,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "PLab",
+            "model": "HomeButtons",
+            "battery_type": "18650"
         }
     ]
 }
