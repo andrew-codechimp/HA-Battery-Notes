@@ -3223,6 +3223,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Visonic",
+            "model": "MP-841",
+            "battery_type": "CR-123A",
+            "battery_quantity": 2
         }
     ]
 }
