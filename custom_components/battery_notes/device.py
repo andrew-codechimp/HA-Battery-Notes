@@ -11,7 +11,6 @@ from homeassistant.helpers import (
 from homeassistant.helpers.entity_registry import RegistryEntry
 
 from homeassistant.components.sensor import DOMAIN as SENSOR_DOMAIN
-from homeassistant.components.binary_sensor import DOMAIN as BINARY_SENSOR_DOMAIN
 from homeassistant.components.sensor import (
     SensorDeviceClass,
 )
