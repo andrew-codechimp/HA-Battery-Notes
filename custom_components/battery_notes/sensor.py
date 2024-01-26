@@ -41,6 +41,7 @@ from homeassistant.const import (
     CONF_NAME,
     CONF_DEVICE_ID,
     STATE_UNAVAILABLE,
+    STATE_UNKNOWN,
     PERCENTAGE,
 )
 
@@ -62,6 +63,7 @@ from .const import (
     ATTR_BATTERY_LOW_THRESHOLD,
 )
 
+from .common import isfloat
 from .device import BatteryNotesDevice
 from .coordinator import BatteryNotesCoordinator
 
@@ -259,6 +261,7 @@ class BatteryNotesBatteryPlusSensor(
         self.device = device
         self.enable_replaced = enable_replaced
 
+        self._device_id = coordinator.device_id
         if coordinator.device_id and (
             device_entry := device_registry.async_get(coordinator.device_id)
         ):
@@ -273,14 +276,6 @@ class BatteryNotesBatteryPlusSensor(
             device.wrapped_battery.entity_category if device.wrapped_battery else None
         )
 
-        self._device_id = coordinator.device_id
-        if coordinator.device_id and (
-            device_entry := device_registry.async_get(coordinator.device_id)
-        ):
-            self._attr_device_info = DeviceInfo(
-                connections=device_entry.connections,
-                identifiers=device_entry.identifiers,
-            )
         self._attr_entity_category = entity_category
         self._attr_unique_id = unique_id
         self._battery_entity_id = (
@@ -302,8 +297,15 @@ class BatteryNotesBatteryPlusSensor(
             return
 
         if (
-            wrapped_battery_state := self.hass.states.get(self._battery_entity_id)
-        ) is None or wrapped_battery_state.state == STATE_UNAVAILABLE:
+            (wrapped_battery_state := self.hass.states.get(self._battery_entity_id))
+            is None
+            or wrapped_battery_state.state
+            in [
+                STATE_UNAVAILABLE,
+                STATE_UNKNOWN,
+            ]
+            or not isfloat(wrapped_battery_state.state)
+        ):
             self._attr_native_value = None
             self._attr_available = False
             self.async_write_ha_state()
@@ -312,6 +314,7 @@ class BatteryNotesBatteryPlusSensor(
         self._attr_available = True
 
         self._attr_native_value = round(float(wrapped_battery_state.state), 1)
+
         self._wrapped_attributes = wrapped_battery_state.attributes
 
         self.async_write_ha_state()
