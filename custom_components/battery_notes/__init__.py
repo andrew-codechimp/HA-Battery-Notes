@@ -171,6 +171,9 @@ async def async_remove_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> 
     if "device_id" not in config_entry.data:
         return
 
+    if config_entry.entry_id not in hass.data[DOMAIN][DATA].devices:
+        return
+
     device: BatteryNotesDevice = hass.data[DOMAIN][DATA].devices[config_entry.entry_id]
     if not device:
         return

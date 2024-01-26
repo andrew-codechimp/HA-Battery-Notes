@@ -59,6 +59,7 @@ from .const import (
     ATTR_PREVIOUS_BATTERY_LEVEL,
 )
 
+from .common import isfloat
 from .device import BatteryNotesDevice
 from .coordinator import BatteryNotesCoordinator
 
@@ -363,12 +364,3 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
         if super_attrs:
             attrs.update(super_attrs)
         return attrs
-
-
-def isfloat(num):
-    """Is the value a float."""
-    try:
-        float(num)
-        return True
-    except ValueError:
-        return False
