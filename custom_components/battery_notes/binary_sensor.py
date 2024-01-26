@@ -238,7 +238,7 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
 
         if (
             wrapped_battery_state := self.hass.states.get(self._battery_entity_id)
-        ) is None or wrapped_battery_state.state == STATE_UNAVAILABLE:
+        ) is None or wrapped_battery_state.state in [STATE_UNAVAILABLE, STATE_UNKNOWN]:
             self._attr_is_on = False
             self._attr_available = True
             return
