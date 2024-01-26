@@ -3212,6 +3212,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Kwikset",
+            "model": "SmartCode 888",
+            "battery_type": "AA",
+            "battery_quantity": 4
         }
     ]
 }
