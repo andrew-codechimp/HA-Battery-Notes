@@ -1338,6 +1338,12 @@
         },
         {
             "manufacturer": "Kwikset",
+            "model": "SmartCode 888",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Kwikset",
             "model": "SmartCode traditional electronic deadbolt (99140-031)",
             "battery_type": "AA",
             "battery_quantity": 4
@@ -3217,12 +3223,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Kwikset",
-            "model": "SmartCode 888",
-            "battery_type": "AA",
-            "battery_quantity": 4
         }
     ]
 }
