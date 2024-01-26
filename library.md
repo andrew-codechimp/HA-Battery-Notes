@@ -1,4 +1,4 @@
-## 593 Devices in library
+## 594 Devices in library
 
 This file is auto generated, do not modify
 
@@ -197,6 +197,7 @@ This file is auto generated, do not modify
 |Homematic                                       |HM-Sec-SCo                                                            |AAA                 |
 |Homematic                                       |HmIP-DSD-PCB                                                          |2x AAA              |
 |Homematic                                       |HmIP-STHO-A                                                           |2x AA               |
+|HomeSeer Technologies                           |HS-LS100+                                                             |ER14250             |
 |Honeywell                                       |TH6320ZW                                                              |3x AA               |
 |Honeywell                                       |zigbee JTYJ-GD-01LM/BW (lumi.sensor_smoke)                            |2x CR123A           |
 |Hunter Douglas                                  |Duette                                                                |12x AA              |

@@ -1062,6 +1062,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "HomeSeer Technologies",
+            "model": "HS-LS100+",
+            "battery_type": "ER14250"
+        },
+        {
             "manufacturer": "Honeywell",
             "model": "TH6320ZW",
             "battery_type": "AA",
@@ -3212,11 +3217,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "HomeSeer Technologies",
-            "model": "HS-LS100+",
-            "battery_type": "ER14250"
         }
     ]
 }
