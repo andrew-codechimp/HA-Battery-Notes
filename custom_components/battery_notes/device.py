@@ -18,6 +18,7 @@ from homeassistant.components.sensor import (
 
 from homeassistant.const import (
     CONF_DEVICE_ID,
+    PERCENTAGE,
 )
 
 from .const import (
@@ -91,8 +92,15 @@ class BatteryNotesDevice:
                 continue
             if not entity.platform or entity.platform == DOMAIN:
                 continue
+
+            if entity.disabled:
+                continue
+
             device_class = entity.device_class or entity.original_device_class
             if device_class != SensorDeviceClass.BATTERY:
+                continue
+
+            if entity.unit_of_measurement != PERCENTAGE:
                 continue
 
             self.wrapped_battery = entity_registry.async_get(entity.entity_id)
