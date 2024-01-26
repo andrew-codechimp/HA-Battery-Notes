@@ -85,10 +85,7 @@ class BatteryNotesDevice:
         for entity in entity_registry.entities.values():
             if not entity.device_id or entity.device_id != device_id:
                 continue
-            if not entity.domain or entity.domain not in {
-                BINARY_SENSOR_DOMAIN,
-                SENSOR_DOMAIN,
-            }:
+            if not entity.domain or entity.domain != SENSOR_DOMAIN:
                 continue
             if not entity.platform or entity.platform == DOMAIN:
                 continue
