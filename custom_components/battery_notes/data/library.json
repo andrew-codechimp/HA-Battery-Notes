@@ -2779,6 +2779,12 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Visonic",
+            "model": "MP-841",
+            "battery_type": "CR123A",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Wink Inc.",
             "model": "Motion Sensor",
             "battery_type": "CR123A"
@@ -3223,12 +3229,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Visonic",
-            "model": "MP-841",
-            "battery_type": "CR123A",
-            "battery_quantity": 2
         }
     ]
 }
