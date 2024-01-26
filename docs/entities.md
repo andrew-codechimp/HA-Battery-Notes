@@ -9,6 +9,8 @@ An enhanced battery sensor that duplicates the normal battery but with additiona
 Use the battery+ sensor on dashboards with secondary information fields/templates etc to display battery notes specific details along with the battery level.  
 The original battery can optionally be hidden by adding a [configuration setting](./configuration.md).
 
+See how to use this entity in the [community contributions](./community.md)
+
 | Attribute | Type | Description |
 |-----------|------|-------------|
 | `battery_quantity` | `int` | The quantity of batteries |

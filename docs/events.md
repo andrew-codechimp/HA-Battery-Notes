@@ -21,7 +21,9 @@ You can use this to send notifications in your preferred method.  An example aut
 | `battery_level` | `int` | Battery level % of the device. |
 | `previous_battery_level` | `int` | Previous battery level % of the device. |
 
-### Automation Examples
+### Automation Example
+
+See others in the [community contributions](./community.md)
 
 ```yaml
 alias: Battery Low Notification
@@ -88,7 +90,10 @@ An example automation below shows how to update the battery_replaced.
 | `battery_level` | `int` | Current battery level % of the device. |
 | `previous_battery_level` | `int` | Previous battery level % of the device. |
 
-### Automation Examples
+### Automation Example
+
+See others in the [community contributions](./community.md)
+
 ```yaml
 alias: Battery Replaced
 description: Battery Replaced

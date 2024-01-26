@@ -4,6 +4,8 @@
 
 For updating the [battery replaced date](./entities.md#battery-replaced). This allows you to change the date a battery was replaced.
 
+See how to use this service in the [community contributions](./community.md)
+
 | Parameter                | Optional | Description                                                                                                           |
 | ------------------------ | -------- | --------------------------------------------------------------------------------------------------------------------- |
 | `data.device_id`      | `no`    | The device id that you want to change the battery replaced date for. |
