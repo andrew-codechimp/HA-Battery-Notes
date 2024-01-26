@@ -3212,6 +3212,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "HomeSeer Technologies",
+            "model": "HS-LS100+",
+            "battery_type": "ER14250"
         }
     ]
 }
