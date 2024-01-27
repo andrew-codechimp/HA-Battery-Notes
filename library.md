@@ -1,4 +1,4 @@
-## 602 Devices in library
+## 603 Devices in library
 
 This file is auto generated, do not modify
 
@@ -490,6 +490,7 @@ This file is auto generated, do not modify
 |TuYa                                            |Temperature and humidity sensor (TH02Z)                               |2x AAA              |
 |TuYa                                            |Temperature and humidity sensor (ZG-227Z)                             |CR2450              |
 |TuYa                                            |Temperature and humidity sensor (ZTH05)                               |CR2032              |
+|Tuya                                            |TRV602 (_TZE200_rtrmfadk)                                             |3x AAA              |
 |TuYa                                            |TS0042                                                                |CR2032              |
 |TuYa                                            |TS0201_1                                                              |2x AA               |
 |TuYa                                            |TS0203                                                                |CR2032              |
