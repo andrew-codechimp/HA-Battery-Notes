@@ -3229,6 +3229,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Ecolink",
+            "model": "DWZWAVE2",
+            "battery_type": "CR123A"
         }
     ]
 }
