@@ -590,6 +590,11 @@
         },
         {
             "manufacturer": "Ecolink",
+            "model": "H214104",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Ecolink",
             "model": "TILT-ZWAVE2.5-ECO",
             "battery_type": "CR123A"
         },
@@ -3254,11 +3259,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Ecolink",
-            "model": "H214104",
-            "battery_type": "CR123A"
         }
     ]
 }

@@ -1,4 +1,4 @@
-## 601 Devices in library
+## 602 Devices in library
 
 This file is auto generated, do not modify
 
@@ -112,6 +112,7 @@ This file is auto generated, do not modify
 |Ecolink                                         |DWZWAVE2                                                              |CR123A              |
 |Ecolink                                         |DWZWAVE25                                                             |CR123A              |
 |Ecolink                                         |FF-ZWAVE5-ECO                                                         |CR123               |
+|Ecolink                                         |H214104                                                               |CR123A              |
 |Ecolink                                         |TILT-ZWAVE2.5-ECO                                                     |CR123A              |
 |Ecolink                                         |TILTZWAVE1                                                            |CR123A              |
 |Elexa Consumer Products Inc.                    |DMS01                                                                 |2x CR123A           |
