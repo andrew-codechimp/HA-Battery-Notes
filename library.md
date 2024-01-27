@@ -1,4 +1,4 @@
-## 596 Devices in library
+## 602 Devices in library
 
 This file is auto generated, do not modify
 
@@ -109,8 +109,10 @@ This file is auto generated, do not modify
 |ecobee                                          |ecobee Room Sensor                                                    |CR2032              |
 |ecobee Inc.                                     |EBERS41                                                               |CR2477              |
 |ecobee Inc.                                     |EBRSE4                                                                |CR2032              |
+|Ecolink                                         |DWZWAVE2                                                              |CR123A              |
 |Ecolink                                         |DWZWAVE25                                                             |CR123A              |
 |Ecolink                                         |FF-ZWAVE5-ECO                                                         |CR123               |
+|Ecolink                                         |H214104                                                               |CR123A              |
 |Ecolink                                         |TILT-ZWAVE2.5-ECO                                                     |CR123A              |
 |Ecolink                                         |TILTZWAVE1                                                            |CR123A              |
 |Elexa Consumer Products Inc.                    |DMS01                                                                 |2x CR123A           |
@@ -269,13 +271,17 @@ This file is auto generated, do not modify
 |LUMI                                            |lumi.remote.b1acn01                                                   |CR2032              |
 |LUMI                                            |lumi.remote.b686opcn01                                                |CR2032              |
 |LUMI                                            |lumi.sen_ill.mgl01                                                    |CR2450              |
+|LUMI                                            |lumi.sensor_86sw1                                                     |CR2032              |
+|LUMI                                            |lumi.sensor_cube                                                      |CR2450              |
 |LUMI                                            |lumi.sensor_cube.aqgl01                                               |CR2450              |
 |LUMI                                            |lumi.sensor_h1                                                        |CR2032              |
+|LUMI                                            |lumi.sensor_ht                                                        |CR2032              |
 |LUMI                                            |lumi.sensor_magnet                                                    |CR1632              |
 |LUMI                                            |lumi.sensor_magnet.aq2                                                |CR1632              |
 |LUMI                                            |lumi.sensor_motion                                                    |CR2450              |
 |LUMI                                            |lumi.sensor_motion.aq2                                                |CR2450              |
 |LUMI                                            |lumi.sensor_switch                                                    |CR2032              |
+|LUMI                                            |lumi.sensor_switch.aq2                                                |CR2032              |
 |LUMI                                            |lumi.sensor_switch.aq3                                                |CR2032              |
 |LUMI                                            |lumi.sensor_wleak.aq1                                                 |CR2032              |
 |LUMI                                            |lumi.vibration.aq1                                                    |CR2032              |
