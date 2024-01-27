@@ -504,6 +504,7 @@ This file is auto generated, do not modify
 |TuYa                                            |Zigbee fingerbot plus (TS0001_fingerbot)                              |CR2                 |
 |TuYa                                            |Zigbee water leak sensor (TS0207_water_leak_detector_2)               |CR2032              |
 |Tuya                                            |zqeaw7pi                                                              |2x AAA              |
+|Tuya                                            |TRV602 (_TZE200_rtrmfadk)                                             |2x AAA              |
 |TUYATEC-xrvzm3yI                                |RH3001                                                                |CR2032              |
 |TUYATEC-yg5dcbfu                                |RH3052                                                                |CR2032              |
 |Ultraloq                                        |U-BOLT-PRO-ZWAVE                                                      |4x AA               |
