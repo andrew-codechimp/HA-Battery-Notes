@@ -1454,12 +1454,22 @@
         },
         {
             "manufacturer": "LUMI",
+            "model": "lumi.sensor_cube",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "LUMI",
             "model": "lumi.sensor_cube.aqgl01",
             "battery_type": "CR2450"
         },
         {
             "manufacturer": "LUMI",
             "model": "lumi.sensor_h1",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "LUMI",
+            "model": "lumi.sensor_ht",
             "battery_type": "CR2032"
         },
         {
@@ -1489,12 +1499,22 @@
         },
         {
             "manufacturer": "LUMI",
+            "model": "lumi.sensor_switch.aq2",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "LUMI",
             "model": "lumi.sensor_switch.aq3",
             "battery_type": "CR2032"
         },
         {
             "manufacturer": "LUMI",
             "model": "lumi.sensor_wleak.aq1",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "LUMI",
+            "model": "lumi.sensor_86sw1",
             "battery_type": "CR2032"
         },
         {
