@@ -1,4 +1,4 @@
-## 600 Devices in library
+## 601 Devices in library
 
 This file is auto generated, do not modify
 
@@ -109,6 +109,7 @@ This file is auto generated, do not modify
 |ecobee                                          |ecobee Room Sensor                                                    |CR2032              |
 |ecobee Inc.                                     |EBERS41                                                               |CR2477              |
 |ecobee Inc.                                     |EBRSE4                                                                |CR2032              |
+|Ecolink                                         |DWZWAVE2                                                              |CR123A              |
 |Ecolink                                         |DWZWAVE25                                                             |CR123A              |
 |Ecolink                                         |FF-ZWAVE5-ECO                                                         |CR123               |
 |Ecolink                                         |TILT-ZWAVE2.5-ECO                                                     |CR123A              |
