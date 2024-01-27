@@ -1454,6 +1454,11 @@
         },
         {
             "manufacturer": "LUMI",
+            "model": "lumi.sensor_86sw1",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "LUMI",
             "model": "lumi.sensor_cube",
             "battery_type": "CR2450"
         },
@@ -1510,11 +1515,6 @@
         {
             "manufacturer": "LUMI",
             "model": "lumi.sensor_wleak.aq1",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "LUMI",
-            "model": "lumi.sensor_86sw1",
             "battery_type": "CR2032"
         },
         {

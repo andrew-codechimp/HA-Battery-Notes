@@ -1,4 +1,4 @@
-## 596 Devices in library
+## 600 Devices in library
 
 This file is auto generated, do not modify
 
@@ -269,13 +269,17 @@ This file is auto generated, do not modify
 |LUMI                                            |lumi.remote.b1acn01                                                   |CR2032              |
 |LUMI                                            |lumi.remote.b686opcn01                                                |CR2032              |
 |LUMI                                            |lumi.sen_ill.mgl01                                                    |CR2450              |
+|LUMI                                            |lumi.sensor_86sw1                                                     |CR2032              |
+|LUMI                                            |lumi.sensor_cube                                                      |CR2450              |
 |LUMI                                            |lumi.sensor_cube.aqgl01                                               |CR2450              |
 |LUMI                                            |lumi.sensor_h1                                                        |CR2032              |
+|LUMI                                            |lumi.sensor_ht                                                        |CR2032              |
 |LUMI                                            |lumi.sensor_magnet                                                    |CR1632              |
 |LUMI                                            |lumi.sensor_magnet.aq2                                                |CR1632              |
 |LUMI                                            |lumi.sensor_motion                                                    |CR2450              |
 |LUMI                                            |lumi.sensor_motion.aq2                                                |CR2450              |
 |LUMI                                            |lumi.sensor_switch                                                    |CR2032              |
+|LUMI                                            |lumi.sensor_switch.aq2                                                |CR2032              |
 |LUMI                                            |lumi.sensor_switch.aq3                                                |CR2032              |
 |LUMI                                            |lumi.sensor_wleak.aq1                                                 |CR2032              |
 |LUMI                                            |lumi.vibration.aq1                                                    |CR2032              |
