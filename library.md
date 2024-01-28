@@ -1,4 +1,4 @@
-## 605 Devices in library
+## 606 Devices in library
 
 This file is auto generated, do not modify
 
@@ -459,6 +459,7 @@ This file is auto generated, do not modify
 |TS004F                                          |_TZ3000_qja6nq5z                                                      |CR2032                    |
 |TT Lock                                         |SN511-180MS_PV53                                                      |4x AA                     |
 |TUO Accessories LLC                             |TUO Smart Button                                                      |CR2032                    |
+|Tuya                                            |(dagu44fhznig1omo)                                                    |2x AAA                    |
 |Tuya                                            |_TZ3000_au1rjicn                                                      |2x AAA                    |
 |Tuya                                            |_TZ3000_dfgbtub0                                                      |CR2032                    |
 |Tuya                                            |_TZ3000_ee8nrt2l                                                      |CR2032                    |
