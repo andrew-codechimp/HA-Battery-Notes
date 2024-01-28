@@ -3292,6 +3292,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Signify Netherlands B.V.",
+            "model": "RDM002",
+            "battery_type": "CR2032"
         }
     ]
 }
