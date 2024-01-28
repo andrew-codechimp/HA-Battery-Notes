@@ -1,4 +1,4 @@
-## 607 Devices in library
+## 608 Devices in library
 
 This file is auto generated, do not modify
 
@@ -527,6 +527,7 @@ This file is auto generated, do not modify
 |Visonic                                         |MCT-340 E                                                             |CR2032                    |
 |Visonic                                         |MP-841                                                                |2x CR123A                 |
 |Wink Inc.                                       |Motion Sensor                                                         |CR123A                    |
+|Woox                                            |Smart siren (R7051)                                                   |Rechargeable              |
 |WyzeLabs                                        |WVOD1                                                                 |Rechargeable              |
 |WyzeLabs                                        |YD.LO1                                                                |Rechargeable              |
 |Xiaomi                                          |Aqara D1 double key wireless wall switch (WXKG07LM)                   |CR2032                    |
