@@ -3287,6 +3287,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Woox",
+            "model": "Smart siren (R7051)",
+            "battery_type": "Rechargeable"
         }
     ]
 }
