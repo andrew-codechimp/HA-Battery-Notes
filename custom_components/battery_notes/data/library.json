@@ -1871,6 +1871,11 @@
         },
         {
             "manufacturer": "Ring",
+            "model": "Doorbell 3",
+            "battery_type": "Rechargeable 5AT3S3 (Ring)"
+        },
+        {
+            "manufacturer": "Ring",
             "model": "Motion Sensor",
             "battery_type": "AA",
             "battery_quantity": 2
