@@ -2,8 +2,7 @@
 
 The following events are raised by the integration. These events can be used within automations.
 
-## Battery Threshold (Beta Only)
-
+## Battery Threshold
 `battery_notes_battery_threshold`
 
 This is fired when any device within Battery Notes has a battery level changed to either below or above the device specific or global threshold.
@@ -70,8 +69,7 @@ action:
 mode: queued
 ```
 
-## Battery Increased (Beta Only)
-
+## Battery Increased
 `battery_notes_battery_increased`
 
 This is fired when any device within Battery Notes has a battery level increased above the battery_increase_threshold (default 25%) if not changed within [configuration setting](./configuration.md).
