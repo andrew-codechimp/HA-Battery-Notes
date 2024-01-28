@@ -2106,6 +2106,11 @@
         },
         {
             "manufacturer": "Signify Netherlands B.V.",
+            "model": "RDM002",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Signify Netherlands B.V.",
             "model": "ROM001",
             "battery_type": "CR2032"
         },
@@ -3292,11 +3297,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Signify Netherlands B.V.",
-            "model": "RDM002",
-            "battery_type": "CR2032"
         }
     ]
 }

@@ -1,4 +1,4 @@
-## 608 Devices in library
+## 609 Devices in library
 
 This file is auto generated, do not modify
 
@@ -390,6 +390,7 @@ This file is auto generated, do not modify
 |Signify Netherlands B.V.                        |Hue tap dial switch (RDM002)                                          |CR2032                    |
 |Signify Netherlands B.V.                        |Hue wall switch module (RDM001)                                       |CR2450                    |
 |Signify Netherlands B.V.                        |RDM001                                                                |CR2450                    |
+|Signify Netherlands B.V.                        |RDM002                                                                |CR2032                    |
 |Signify Netherlands B.V.                        |ROM001                                                                |CR2032                    |
 |Signify Netherlands B.V.                        |RWL022                                                                |CR2032                    |
 |Signify Netherlands B.V.                        |SML001                                                                |2x AAA                    |
