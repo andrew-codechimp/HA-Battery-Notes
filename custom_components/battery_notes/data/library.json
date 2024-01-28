@@ -1653,6 +1653,11 @@
         },
         {
             "manufacturer": "Nortek Security & Control LLC",
+            "model": "NGD00Z-4",
+            "battery_type": "CR2023"
+        },
+        {
+            "manufacturer": "Nortek Security & Control LLC",
             "model": "WADWAZ-1",
             "battery_type": "CR123A"
         },
@@ -3265,11 +3270,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Nortek Security & Control LLC",
-            "model": "NGD00Z-4",
-            "battery_type": "CR2023"
         }
     ]
 }

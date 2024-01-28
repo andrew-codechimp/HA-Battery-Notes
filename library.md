@@ -1,4 +1,4 @@
-## 603 Devices in library
+## 604 Devices in library
 
 This file is auto generated, do not modify
 
@@ -306,6 +306,7 @@ This file is auto generated, do not modify
 |Netatmo                                         |Smart Rain Gauge                                                      |2x AAA              |
 |Netatmo                                         |Smart Thermostat                                                      |3x AAA              |
 |Netatmo                                         |Smart Valve                                                           |2x AA               |
+|Nortek Security & Control LLC                   |NGD00Z-4                                                              |CR2023              |
 |Nortek Security & Control LLC                   |WADWAZ-1                                                              |CR123A              |
 |Nortek Security & Control LLC                   |WADWAZ-1                                                              |CR123A              |
 |NorthQ                                          |NQ-9121                                                               |2x AA               |
