@@ -3265,6 +3265,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Nortek Security & Control LLC",
+            "model": "NGD00Z-4",
+            "battery_type": "CR2023"
         }
     ]
 }
