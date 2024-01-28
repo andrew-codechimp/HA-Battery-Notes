@@ -22,6 +22,7 @@ enable_replaced | Boolean | Optional | True | If set to false new devices added 
 default_battery_low_threshold (Beta Only)| Int | Optional | 10 | The default threshold where a devices battery_low entity is set to true and the battery_notes_battery_threshold event is fired, can be overriden per device in device configuration. |
 battery_increase_threshold (Beta Only) | Int | Optional | 25 | The threshold where the battery_notes_battery_increased event is fired, use this event for battery replaced automations. The threshold is the difference in increase between previous and current battery level. |
 hide_battery (Beta Only)| Boolean | Optional | False | Hide the standard battery when adding Battery+. This will not effect existing dashboards, automations etc.|
+round_battery (Beta Only)| Boolean | Optional | False | Round battery+ to whole percentages.|
 user_library | String | Optional |  | If specified then a user library file will be searched prior to the main library, the user library must be in the same format as the library and placed in the same folder. Only really used for dev purposes. |
 
 # Debug Logging

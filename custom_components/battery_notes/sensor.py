@@ -55,6 +55,7 @@ from .const import (
     DOMAIN_CONFIG,
     CONF_ENABLE_REPLACED,
     CONF_HIDE_BATTERY,
+    CONF_ROUND_BATTERY,
     ATTR_BATTERY_QUANTITY,
     ATTR_BATTERY_TYPE,
     ATTR_BATTERY_TYPE_AND_QUANTITY,
@@ -157,16 +158,19 @@ async def async_setup_entry(
     await coordinator.async_refresh()
 
     enable_replaced = True
+    round_battery = False
+
     if DOMAIN_CONFIG in hass.data[DOMAIN]:
         domain_config: dict = hass.data[DOMAIN][DOMAIN_CONFIG]
         enable_replaced = domain_config.get(CONF_ENABLE_REPLACED, True)
+        round_battery = domain_config.get(CONF_ROUND_BATTERY, False)
 
     battery_plus_sensor_entity_description = BatteryNotesSensorEntityDescription(
         unique_id_suffix="_battery_plus",
         key="battery_plus",
         translation_key="battery_plus",
         device_class=SensorDeviceClass.BATTERY,
-        suggested_display_precision=1,
+        suggested_display_precision=0 if round_battery else 1,
     )
 
     type_sensor_entity_description = BatteryNotesSensorEntityDescription(
@@ -214,6 +218,7 @@ async def async_setup_entry(
                 f"{config_entry.entry_id}{battery_plus_sensor_entity_description.unique_id_suffix}",
                 device,
                 enable_replaced,
+                round_battery,
             )
         )
 
@@ -247,6 +252,7 @@ class BatteryNotesBatteryPlusSensor(
         unique_id: str,
         device: BatteryNotesDevice,
         enable_replaced: bool,
+        round_battery: bool,
     ) -> None:
         """Initialize the sensor."""
         super().__init__(coordinator)
@@ -260,6 +266,7 @@ class BatteryNotesBatteryPlusSensor(
         self._attr_unique_id = unique_id
         self.device = device
         self.enable_replaced = enable_replaced
+        self.round_battery = round_battery
 
         self._device_id = coordinator.device_id
         if coordinator.device_id and (
@@ -313,7 +320,10 @@ class BatteryNotesBatteryPlusSensor(
 
         self._attr_available = True
 
-        self._attr_native_value = round(float(wrapped_battery_state.state), 1)
+        if self.round_battery:
+            self._attr_native_value = int(wrapped_battery_state.state)
+        else:
+            self._attr_native_value = round(float(wrapped_battery_state.state), 1)
 
         self._wrapped_attributes = wrapped_battery_state.attributes
 
