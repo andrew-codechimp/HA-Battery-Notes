@@ -3297,6 +3297,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Yale",
+            "model": "YRD450-ZW3",
+            "battery_type": "AA",
+            "battery_quantity": 4
         }
     ]
 }
