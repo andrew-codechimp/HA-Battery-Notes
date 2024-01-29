@@ -3309,6 +3309,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Tile",
+            "model": "T1301N",
+            "battery_type": "CR2032"
         }
     ]
 }
