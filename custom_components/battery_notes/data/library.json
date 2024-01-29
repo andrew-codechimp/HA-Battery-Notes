@@ -2456,6 +2456,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Tile",
+            "model": "T1301N",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "Trust",
             "model": "COSensor-EM",
             "battery_type": "CR123A"
@@ -3309,11 +3314,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Tile",
-            "model": "T1301N",
-            "battery_type": "CR2032"
         }
     ]
 }
