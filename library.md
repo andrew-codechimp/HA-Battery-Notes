@@ -1,4 +1,4 @@
-## 612 Devices in library
+## 613 Devices in library
 
 This file is auto generated, do not modify
 
@@ -265,6 +265,7 @@ This file is auto generated, do not modify
 |Linkind                                         |Security keypad battery (ZS130000078)                                 |2x CR123A                 |
 |Linkind                                         |Water leak sensor (LS21001)                                           |2x AAA                    |
 |LK                                              |A001082                                                               |2x AAA                    |
+|Loratap                                         |GDC311ZBQ1                                                            |CR2032                    |
 |LUMI                                            |lumi.airmonitor.acn01                                                 |2x CR2450                 |
 |LUMI                                            |lumi.airrtc.agl001                                                    |2x AA                     |
 |LUMI                                            |lumi.curtain.acn002                                                   |Rechargeable              |
