@@ -1431,6 +1431,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Loratap",
+            "model": "GDC311ZBQ1",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "LUMI",
             "model": "lumi.airmonitor.acn01",
             "battery_type": "CR2450",
