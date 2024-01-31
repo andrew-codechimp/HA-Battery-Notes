@@ -3359,6 +3359,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "iRobot",
+            "model": "c975840",
+            "battery_type": "Rechargeable"
         }
     ]
 }
