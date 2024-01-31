@@ -2891,6 +2891,12 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "Woox",
+            "model": "Smart smoke alarm (R7049)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "WyzeLabs",
             "model": "WVOD1",
             "battery_type": "Rechargeable"
@@ -3347,12 +3353,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Woox",
-            "model": "Smart smoke alarm (R7049)",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }

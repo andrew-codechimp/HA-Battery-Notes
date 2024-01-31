@@ -1,4 +1,4 @@
-## 618 Devices in library
+## 619 Devices in library
 
 This file is auto generated, do not modify
 
@@ -535,6 +535,7 @@ This file is auto generated, do not modify
 |Visonic                                         |MP-841                                                                |2x CR123A                 |
 |Wink Inc.                                       |Motion Sensor                                                         |CR123A                    |
 |Woox                                            |Smart siren (R7051)                                                   |Rechargeable              |
+|Woox                                            |Smart smoke alarm (R7049)                                             |2x AAA                    |
 |WyzeLabs                                        |WVOD1                                                                 |Rechargeable              |
 |WyzeLabs                                        |YD.LO1                                                                |Rechargeable              |
 |Xiaomi                                          |Aqara curtain driver E1 (ZNCLBL01LM)                                  |Rechargeable              |
