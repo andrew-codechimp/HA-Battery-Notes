@@ -1,4 +1,4 @@
-## 617 Devices in library
+## 618 Devices in library
 
 This file is auto generated, do not modify
 
@@ -537,6 +537,7 @@ This file is auto generated, do not modify
 |Woox                                            |Smart siren (R7051)                                                   |Rechargeable              |
 |WyzeLabs                                        |WVOD1                                                                 |Rechargeable              |
 |WyzeLabs                                        |YD.LO1                                                                |Rechargeable              |
+|Xiaomi                                          |Aqara curtain driver E1 (ZNCLBL01LM)                                  |Rechargeable              |
 |Xiaomi                                          |Aqara D1 double key wireless wall switch (WXKG07LM)                   |CR2032                    |
 |Xiaomi                                          |Aqara D1 single key wireless wall switch (WXKG06LM)                   |CR2032                    |
 |Xiaomi                                          |Aqara door & window contact sensor (MCCGQ11LM)                        |CR1632                    |

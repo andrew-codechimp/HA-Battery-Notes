@@ -2902,6 +2902,11 @@
         },
         {
             "manufacturer": "Xiaomi",
+            "model": "Aqara curtain driver E1 (ZNCLBL01LM)",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Xiaomi",
             "model": "Aqara D1 double key wireless wall switch (WXKG07LM)",
             "battery_type": "CR2032"
         },
@@ -3342,11 +3347,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Xiaomi",
-            "model": "Aqara curtain driver E1 (ZNCLBL01LM)",
-            "battery_type": "Rechargeable"
         }
     ]
 }
