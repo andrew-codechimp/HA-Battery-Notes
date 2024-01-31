@@ -1,4 +1,4 @@
-## 613 Devices in library
+## 614 Devices in library
 
 This file is auto generated, do not modify
 
@@ -99,6 +99,7 @@ This file is auto generated, do not modify
 |Danfoss                                         |eTRV0103                                                              |2x AA                     |
 |Danfoss                                         |LC-13                                                                 |2x AA                     |
 |Danfoss                                         |TRV001                                                                |2x AA                     |
+|Develco                                         |KEYZB-110                                                             |4x AA                     |
 |Develco                                         |Smoke detector with siren (SMSZB-120)                                 |CR123                     |
 |Develco Products A/S                            |AQSZB-110                                                             |2x AA                     |
 |Devolo                                          |MT02647                                                               |CR123A                    |
