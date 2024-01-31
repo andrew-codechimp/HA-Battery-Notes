@@ -1633,6 +1633,12 @@
         },
         {
             "manufacturer": "Netatmo",
+            "model": "Netatmo Smart Thermostat",
+            "battery_type": "AAA",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "Netatmo",
             "model": "Netatmo Valve",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -3353,12 +3359,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Netatmo",
-            "model": "Netatmo Smart Thermostat",
-            "battery_type": "AAA",
-            "battery_quantity": 3
         }
     ]
 }

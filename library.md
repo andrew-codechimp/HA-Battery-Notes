@@ -1,4 +1,4 @@
-## 619 Devices in library
+## 620 Devices in library
 
 This file is auto generated, do not modify
 
@@ -303,6 +303,7 @@ This file is auto generated, do not modify
 |Neo                                             |NAS-PD07                                                              |2x CR123A                 |
 |Neo                                             |Temperature & humidity sensor and alarm (NAS-AB02B0)                  |2x CR123A                 |
 |Netatmo                                         |Additional Indoor Module                                              |4x AAA                    |
+|Netatmo                                         |Netatmo Smart Thermostat                                              |3x AAA                    |
 |Netatmo                                         |Netatmo Valve                                                         |2x AA                     |
 |Netatmo                                         |Outdoor Module                                                        |2x AAA                    |
 |Netatmo                                         |Smart Anemometer                                                      |4x AA                     |
