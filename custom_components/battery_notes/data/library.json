@@ -819,6 +819,11 @@
             "battery_type": "AAA"
         },
         {
+            "manufacturer": "iRobot",
+            "model": "c975840",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "HAB Home Intelligence LLC",
             "model": "iblinds V3",
             "battery_type": "Rechargeable"
