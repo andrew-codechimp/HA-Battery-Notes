@@ -892,6 +892,11 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "Fairphone",
+            "model": "FP5",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Fantem",
             "model": "4 in 1 multi sensor (ZB003-X)",
             "battery_type": "CR123A",
@@ -3364,11 +3369,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Fairphone",
-            "model": "FP5",
-            "battery_type": "Rechargeable"
         }
     ]
 }
