@@ -1,4 +1,4 @@
-## 616 Devices in library
+## 617 Devices in library
 
 This file is auto generated, do not modify
 
@@ -582,6 +582,7 @@ This file is auto generated, do not modify
 |Xiaomi                                          |LYWSD03MMC/MJWSD05MMC_PVVX                                            |CR2032                    |
 |Xiaomi                                          |LYWSDCGQ                                                              |AAA                       |
 |Xiaomi                                          |MCCGQ01LM                                                             |CR1632                    |
+|Xiaomi                                          |MHO-C303                                                              |2x AAA                    |
 |Xiaomi                                          |Mi/Aqara smart home cube (MFKZQ01LM)                                  |CR2450                    |
 |Xiaomi                                          |MiJia door & window contact sensor (MCCGQ01LM)                        |CR1632                    |
 |Xiaomi                                          |MiJia Honeywell smoke detector (JTYJ-GD-01LM/BW)                      |2x CR123A                 |
