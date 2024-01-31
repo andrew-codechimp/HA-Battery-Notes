@@ -3369,6 +3369,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Nuki Home Solutions GmbH",
+            "model": "Nuki opener",
+            "battery_type": "AAA",
+            "battery_quantity": 4
         }
     ]
 }
