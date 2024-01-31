@@ -523,6 +523,12 @@
         },
         {
             "manufacturer": "Develco",
+            "model": "KEYZB-110",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Develco",
             "model": "Smoke detector with siren (SMSZB-120)",
             "battery_type": "CR123"
         },
@@ -3319,12 +3325,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Develco",
-            "model": "KEYZB-110",
-            "battery_type": "AA",
-            "battery_quantity": 4
         }
     ]
 }
