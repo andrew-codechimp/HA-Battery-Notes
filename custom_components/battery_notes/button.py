@@ -37,7 +37,7 @@ from . import PLATFORMS
 from .const import (
     DOMAIN,
     DOMAIN_CONFIG,
-    DATA_COORDINATOR,
+    DATA,
     CONF_ENABLE_REPLACED,
 )
 
@@ -113,6 +113,8 @@ async def async_setup_entry(
                 device_id, remove_config_entry_id=config_entry.entry_id
             )
 
+    coordinator = hass.data[DOMAIN][DATA].devices[config_entry.entry_id].coordinator
+
     config_entry.async_on_unload(
         async_track_entity_registry_updated_event(
             hass, config_entry.entry_id, async_registry_updated
@@ -139,6 +141,7 @@ async def async_setup_entry(
         [
             BatteryNotesButton(
                 hass,
+                coordinator,
                 description,
                 f"{config_entry.entry_id}{description.unique_id_suffix}",
                 device_id,
@@ -165,6 +168,7 @@ class BatteryNotesButton(ButtonEntity):
     def __init__(
         self,
         hass: HomeAssistant,
+        coordinator: BatteryNotesCoordinator,
         description: BatteryNotesButtonEntityDescription,
         unique_id: str,
         device_id: str,
@@ -172,6 +176,7 @@ class BatteryNotesButton(ButtonEntity):
         """Create a battery replaced button."""
         device_registry = dr.async_get(hass)
 
+        self.coordinator = coordinator
         self.entity_description = description
         self._attr_unique_id = unique_id
         self._attr_has_entity_name = True
@@ -183,7 +188,7 @@ class BatteryNotesButton(ButtonEntity):
                 identifiers=device.identifiers,
             )
 
-            self.entity_id = f"button.{device.name}_{description.key}"
+            self.entity_id = f"button.{device.name.lower()}_{description.key}"
 
     async def async_added_to_hass(self) -> None:
         """Handle added to Hass."""
@@ -201,6 +206,7 @@ class BatteryNotesButton(ButtonEntity):
 
         device_entry = {"battery_last_replaced": datetime.utcnow()}
 
-        coordinator: BatteryNotesCoordinator = self.hass.data[DOMAIN][DATA_COORDINATOR]
-        coordinator.async_update_device_config(device_id=device_id, data=device_entry)
-        await coordinator.async_request_refresh()
+        self.coordinator.async_update_device_config(
+            device_id=device_id, data=device_entry
+        )
+        await self.coordinator.async_request_refresh()

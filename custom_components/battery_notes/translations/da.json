@@ -14,7 +14,11 @@
             "battery": {
                 "data": {
                     "battery_type": "Batteri type",
-                    "battery_quantity": "Antal batterier"
+                    "battery_quantity": "Antal batterier",
+                    "battery_low_threshold": "Lav tærskel for batteri"
+                },
+                "data_description": {
+                    "battery_low_threshold": "0 vil bruge den globale standardtærskel"
                 }
             }
         },
@@ -32,10 +36,12 @@
                 "data": {
                     "name": "Navn",
                     "battery_type": "Batteri type",
-                    "battery_quantity": "Antal batterier"
+                    "battery_quantity": "Antal batterier",
+                    "battery_low_threshold": "Lav tærskel for batteri"
                 },
                 "data_description": {
-                    "name": "Hvis du lader det være tomt, hentes navnet fra kildeenheden"
+                    "name": "Hvis du lader det være tomt, hentes navnet fra kildeenheden",
+                    "battery_low_threshold": "0 vil bruge den globale standardtærskel"
                 }
             }
         },
@@ -44,12 +50,45 @@
         }
     },
     "entity": {
+        "binary_sensor": {
+            "battery_low": {
+                "name": "Lavt batteri",
+                "state_attributes": {
+                    "battery_low_threshold": {
+                        "name": "Lav tærskel for batteri"
+                    }
+                }
+            }
+        },
         "button": {
             "battery_replaced": {
                 "name": "Batteri udskiftet"
             }
         },
         "sensor": {
+            "battery_plus": {
+                "name": "Batteri+",
+                "state_attributes": {
+                    "battery_type": {
+                        "name": "Batteri type"
+                    },
+                    "battery_quantity": {
+                        "name": "Antal batterier"
+                    },
+                    "battery_type_and_quantity": {
+                        "name": "Batteritype og mængde"
+                    },
+                    "battery_last_replaced": {
+                        "name": "Batteri sidst skiftet"
+                    },
+                    "battery_low": {
+                        "name": "Lavt batteri"
+                    },
+                    "battery_low_threshold": {
+                        "name": "Lav tærskel for batteri"
+                    }
+                }
+            },
             "battery_type": {
                 "name": "Batteri type",
                 "state_attributes": {

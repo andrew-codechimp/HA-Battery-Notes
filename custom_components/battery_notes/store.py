@@ -2,13 +2,13 @@
 from __future__ import annotations
 
 import logging
-import attr
 from collections import OrderedDict
 from collections.abc import MutableMapping
 from typing import cast
 from datetime import datetime
 
-from homeassistant.core import (callback, HomeAssistant)
+import attr
+from homeassistant.core import callback, HomeAssistant
 from homeassistant.loader import bind_hass
 from homeassistant.helpers.storage import Store
 
@@ -24,6 +24,7 @@ STORAGE_VERSION_MAJOR = 1
 STORAGE_VERSION_MINOR = 0
 SAVE_DELAY = 10
 
+
 @attr.s(slots=True, frozen=True)
 class DeviceEntry:
     """Battery Notes storage Entry."""
@@ -31,13 +32,18 @@ class DeviceEntry:
     device_id = attr.ib(type=str, default=None)
     battery_last_replaced = attr.ib(type=datetime, default=None)
 
+
 class MigratableStore(Store):
     """Holds battery notes data."""
 
-    async def _async_migrate_func(self, old_major_version: int, old_minor_version: int, data: dict):
+    async def _async_migrate_func(
+        self, old_major_version: int, old_minor_version: int, data: dict
+    ):
+        # pylint: disable=arguments-renamed
+        # pylint: disable=unused-argument
 
         # if old_major_version == 1:
-            # Do nothing for now
+        # Do nothing for now
 
         return data
 
@@ -49,17 +55,19 @@ class BatteryNotesStorage:
         """Initialize the storage."""
         self.hass = hass
         self.devices: MutableMapping[str, DeviceEntry] = {}
-        self._store = MigratableStore(hass, STORAGE_VERSION_MAJOR, STORAGE_KEY, minor_version=STORAGE_VERSION_MINOR)
+        self._store = MigratableStore(
+            hass,
+            STORAGE_VERSION_MAJOR,
+            STORAGE_KEY,
+            minor_version=STORAGE_VERSION_MINOR,
+        )
 
     async def async_load(self) -> None:
         """Load the registry of schedule entries."""
         data = await self._store.async_load()
         devices: OrderedDict[str, DeviceEntry] = OrderedDict()
 
-        if (
-            data is not None
-            and "devices" in data
-        ):
+        if data is not None and "devices" in data:
             for device in data["devices"]:
                 devices[device["device_id"]] = DeviceEntry(**device)
 
@@ -79,9 +87,7 @@ class BatteryNotesStorage:
         """Return data for the registry to store in a file."""
         store_data = {}
 
-        store_data["devices"] = [
-            attr.asdict(entry) for entry in self.devices.values()
-        ]
+        store_data["devices"] = [attr.asdict(entry) for entry in self.devices.values()]
 
         return store_data
 
@@ -90,8 +96,6 @@ class BatteryNotesStorage:
         _LOGGER.warning("Removing battery notes data!")
         await self._store.async_remove()
         self.devices = {}
-        await self.async_factory_default()
-
 
     @callback
     def async_get_device(self, device_id) -> DeviceEntry:
@@ -103,7 +107,7 @@ class BatteryNotesStorage:
     def async_get_devices(self):
         """Get an existing DeviceEntry by id."""
         res = {}
-        for (key, val) in self.devices.items():
+        for key, val in self.devices.items():
             res[key] = attr.asdict(val)
         return res
 

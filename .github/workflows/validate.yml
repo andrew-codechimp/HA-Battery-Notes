@@ -9,8 +9,10 @@ on:
       - "main"
     paths-ignore:
       - 'custom_components/battery_notes/data/**'
+      - 'docs/**'
       - 'README.md'
       - 'library.md'
+      - 'mkdocs.yml'
   pull_request:
     branches:
       - "main"
@@ -41,5 +43,3 @@ jobs:
           uses: "hacs/action@main"
           with:
             category: "integration"
-            # Remove this 'ignore' key when you have added brand images for your integration to https://github.com/home-assistant/brands
-            ignore: "brands"

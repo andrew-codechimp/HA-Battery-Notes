@@ -14,7 +14,11 @@
             "battery": {
                 "data": {
                     "battery_type": "Typ baterii",
-                    "battery_quantity": "Liczba baterii"
+                    "battery_quantity": "Liczba baterii",
+                    "battery_low_threshold": "Próg niskiego poziomu baterii"
+                },
+                "data_description": {
+                    "battery_low_threshold": "0 użyje globalnego progu domyślnego"
                 }
             }
         },
@@ -32,10 +36,12 @@
                 "data": {
                     "name": "Nazwa",
                     "battery_type": "Typ baterii",
-                    "battery_quantity": "Liczba baterii"
+                    "battery_quantity": "Liczba baterii",
+                    "battery_low_threshold": "Próg niskiego poziomu baterii"
                 },
                 "data_description": {
-                    "name": "Pozostawienie pustego pola spowoduje pobranie nazwy z urządzenia źródłowego"
+                    "name": "Pozostawienie pustego pola spowoduje pobranie nazwy z urządzenia źródłowego",
+                    "battery_low_threshold": "0 użyje globalnego progu domyślnego"
                 }
             }
         },
@@ -44,12 +50,45 @@
         }
     },
     "entity": {
+        "binary_sensor": {
+            "battery_low": {
+                "name": "Niski poziom baterii",
+                "state_attributes": {
+                    "battery_low_threshold": {
+                        "name": "Próg niskiego poziomu baterii"
+                    }
+                }
+            }
+        },
         "button": {
             "battery_replaced": {
                 "name": "Wymiana baterii"
             }
         },
         "sensor": {
+            "battery_plus": {
+                "name": "Bateria+",
+                "state_attributes": {
+                    "battery_type": {
+                        "name": "Typ baterii"
+                    },
+                    "battery_quantity": {
+                        "name": "Liczba baterii"
+                    },
+                    "battery_type_and_quantity": {
+                        "name": "Typ i ilość baterii"
+                    },
+                    "battery_last_replaced": {
+                        "name": "Ostatnia wymiana baterii"
+                    },
+                    "battery_low": {
+                        "name": "Niski poziom baterii"
+                    },
+                    "battery_low_threshold": {
+                        "name": "Próg niskiego poziomu baterii"
+                    }
+                }
+            },
             "battery_type": {
                 "name": "Typ baterii",
                 "state_attributes": {

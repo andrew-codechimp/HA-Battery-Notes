@@ -1,0 +1,124 @@
+{
+    "config": {
+        "step": {
+            "user": {
+                "description": "En cas de demande d'aide, aller à: https://github.com/andrew-codechimp/ha-battery-notes",
+                "data": {
+                    "device_id": "Entité",
+                    "name": "Nom"
+                },
+                "data_description": {
+                    "name": "Le nom sera celui de l'entité si absent"
+                }
+            },
+            "battery": {
+                "data": {
+                    "battery_type": "Type de batterie",
+                    "battery_quantity": "Nombre de batteries",
+                    "battery_low_threshold": "Seuil de batterie faible"
+                },
+                "data_description": {
+                    "battery_low_threshold": "0 gardera le seuil par defaut"
+                }
+            }
+        },
+        "abort": {
+            "already_configured": "L'entité est deja configurée"
+        },
+        "error": {
+            "unknown": "Erreur inconnue."
+        }
+    },
+    "options": {
+        "step": {
+            "init": {
+                "description": "En cas de demande d'aide, aller à: https://github.com/andrew-codechimp/ha-battery-notes",
+                "data": {
+                    "name": "Nom",
+                    "battery_type": "Type de batterie",
+                    "battery_quantity": "Nombre de batteries",
+                    "battery_low_threshold": "Seuil de batterie faible"
+                },
+                "data_description": {
+                    "name": "Laisser vide gardera le seuil par defaut",
+                    "battery_low_threshold": "0 gardera le seuil par defaut"
+                }
+            }
+        },
+        "error": {
+            "unknown": "Erreur inconnue.."
+        }
+    },
+    "entity": {
+        "binary_sensor": {
+            "battery_low": {
+                "name": "Batterie faible",
+                "state_attributes": {
+                    "battery_low_threshold": {
+                        "name": "Seuil bas de la batterie"
+                    }
+                }
+            }
+        },
+        "button": {
+            "battery_replaced": {
+                "name": "Batterie remplacée"
+            }
+        },
+        "sensor": {
+            "battery_plus": {
+                "name": "Batterie+",
+                "state_attributes": {
+                    "battery_type": {
+                        "name": "Type de batterie"
+                    },
+                    "battery_quantity": {
+                        "name": "Nombre de batteries"
+                    },
+                    "battery_type_and_quantity": {
+                        "name": "Type de batterie et quantité"
+                    },
+                    "battery_last_replaced": {
+                        "name": "Dernier remplacement de la batterie"
+                    },
+                    "battery_low": {
+                        "name": "Batterie faible"
+                    },
+                    "battery_low_threshold": {
+                        "name": "Seuil bas de la batterie"
+                    }
+                }
+            },
+            "battery_type": {
+                "name": "Battery type",
+                "state_attributes": {
+                    "battery_type": {
+                        "name": "Type de batterie"
+                    },
+                    "battery_quantity": {
+                        "name": "Nombre de batteries"
+                    }
+                }
+            },
+            "battery_last_replaced": {
+                "name": "Dernier remplacement de la batterie"
+            }
+        }
+    },
+    "services": {
+        "set_battery_replaced": {
+            "description": "Forcer le remplacement de la batterie.",
+            "fields": {
+                "device_id": {
+                    "description": "Entitée non remplacée.",
+                    "name": "Device"
+                },
+                "datetime_replaced": {
+                    "description": "Date de remplacement.",
+                    "name": "Date"
+                }
+            },
+            "name": "Mise à jour remplacement de la batterie"
+        }
+    }
+}

@@ -6,11 +6,12 @@ https://github.com/andrew-codechimp/ha-battery-notes
 from __future__ import annotations
 
 import logging
+import re
 from datetime import datetime
+from dataclasses import dataclass, field
 
 import homeassistant.helpers.config_validation as cv
 import voluptuous as vol
-import re
 
 from awesomeversion.awesomeversion import AwesomeVersion
 from homeassistant.config_entries import ConfigEntry
@@ -18,15 +19,16 @@ from homeassistant.core import HomeAssistant, callback
 from homeassistant.const import __version__ as HA_VERSION  # noqa: N812
 from homeassistant.helpers.typing import ConfigType
 from homeassistant.helpers import device_registry as dr
+from homeassistant.helpers import entity_registry as er
 from homeassistant.util import dt as dt_util
 
 from .config_flow import CONFIG_VERSION
 
+from .device import BatteryNotesDevice
 from .discovery import DiscoveryManager
 from .library_updater import (
     LibraryUpdater,
 )
-from .coordinator import BatteryNotesCoordinator
 from .store import (
     async_get_registry,
 )
@@ -37,15 +39,21 @@ from .const import (
     PLATFORMS,
     CONF_ENABLE_AUTODISCOVERY,
     CONF_USER_LIBRARY,
+    DATA,
     DATA_LIBRARY_UPDATER,
     CONF_SHOW_ALL_DEVICES,
     CONF_ENABLE_REPLACED,
+    CONF_DEFAULT_BATTERY_LOW_THRESHOLD,
+    CONF_BATTERY_INCREASE_THRESHOLD,
+    CONF_HIDE_BATTERY,
+    DEFAULT_BATTERY_LOW_THRESHOLD,
+    DEFAULT_BATTERY_INCREASE_THRESHOLD,
     SERVICE_BATTERY_REPLACED,
     SERVICE_BATTERY_REPLACED_SCHEMA,
-    DATA_COORDINATOR,
+    SERVICE_DATA_DATE_TIME_REPLACED,
+    DATA_STORE,
     ATTR_REMOVE,
     ATTR_DEVICE_ID,
-    ATTR_DATE_TIME_REPLACED,
     CONF_BATTERY_TYPE,
     CONF_BATTERY_QUANTITY,
 )
@@ -63,12 +71,30 @@ CONFIG_SCHEMA = vol.Schema(
                     vol.Optional(CONF_USER_LIBRARY, default=""): cv.string,
                     vol.Optional(CONF_SHOW_ALL_DEVICES, default=False): cv.boolean,
                     vol.Optional(CONF_ENABLE_REPLACED, default=True): cv.boolean,
+                    vol.Optional(CONF_HIDE_BATTERY, default=False): cv.boolean,
+                    vol.Optional(
+                        CONF_DEFAULT_BATTERY_LOW_THRESHOLD,
+                        default=DEFAULT_BATTERY_LOW_THRESHOLD,
+                    ): cv.positive_int,
+                    vol.Optional(
+                        CONF_BATTERY_INCREASE_THRESHOLD,
+                        default=DEFAULT_BATTERY_INCREASE_THRESHOLD,
+                    ): cv.positive_int,
                 },
             ),
         ),
     },
     extra=vol.ALLOW_EXTRA,
 )
+
+
+@dataclass
+class BatteryNotesData:
+    """Class for sharing data within the BatteryNotes integration."""
+
+    devices: dict[str, BatteryNotesDevice] = field(default_factory=dict)
+    platforms: dict = field(default_factory=dict)
+
 
 async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     """Integration setup."""
@@ -86,6 +112,9 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         CONF_ENABLE_AUTODISCOVERY: True,
         CONF_SHOW_ALL_DEVICES: False,
         CONF_ENABLE_REPLACED: True,
+        CONF_HIDE_BATTERY: False,
+        CONF_DEFAULT_BATTERY_LOW_THRESHOLD: DEFAULT_BATTERY_LOW_THRESHOLD,
+        CONF_BATTERY_INCREASE_THRESHOLD: DEFAULT_BATTERY_INCREASE_THRESHOLD,
     }
 
     hass.data[DOMAIN] = {
@@ -93,9 +122,9 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     }
 
     store = await async_get_registry(hass)
+    hass.data[DOMAIN][DATA_STORE] = store
 
-    coordinator = BatteryNotesCoordinator(hass, store)
-    hass.data[DOMAIN][DATA_COORDINATOR] = coordinator
+    hass.data[DOMAIN][DATA] = BatteryNotesData()
 
     library_updater = LibraryUpdater(hass)
 
@@ -103,27 +132,37 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
 
     hass.data[DOMAIN][DATA_LIBRARY_UPDATER] = library_updater
 
-    await coordinator.async_refresh()
-
     if domain_config.get(CONF_ENABLE_AUTODISCOVERY):
         discovery_manager = DiscoveryManager(hass, config)
         await discovery_manager.start_discovery()
     else:
         _LOGGER.debug("Auto discovery disabled")
 
-    return True
-
-async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
-    """Set up a config entry."""
-
-    await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
-
-    entry.async_on_unload(entry.add_update_listener(async_update_options))
-
     # Register custom services
     register_services(hass)
 
     return True
+
+
+async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> bool:
+    """Set up a config entry."""
+
+    device: BatteryNotesDevice = BatteryNotesDevice(hass, config_entry)
+
+    if not await device.async_setup():
+        return False
+
+    return True
+
+
+async def async_unload_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> bool:
+    """Unload a config entry."""
+    data: BatteryNotesData = hass.data[DOMAIN][DATA]
+
+    device = data.devices.pop(config_entry.entry_id)
+    await device.async_unload()
+
+    return await hass.config_entries.async_unload_platforms(config_entry, PLATFORMS)
 
 
 async def async_remove_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> None:
@@ -132,14 +171,40 @@ async def async_remove_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> 
     if "device_id" not in config_entry.data:
         return
 
-    device_id = config_entry.data["device_id"]
+    if config_entry.entry_id not in hass.data[DOMAIN][DATA].devices:
+        return
 
-    coordinator: BatteryNotesCoordinator = hass.data[DOMAIN][DATA_COORDINATOR]
+    device: BatteryNotesDevice = hass.data[DOMAIN][DATA].devices[config_entry.entry_id]
+    if not device:
+        return
+
     data = {ATTR_REMOVE: True}
 
-    coordinator.async_update_device_config(device_id=device_id, data=data)
+    device.coordinator.async_update_device_config(
+        device_id=device.coordinator.device_id, data=data
+    )
 
-    _LOGGER.debug("Removed Device %s", device_id)
+    _LOGGER.debug("Removed Device %s", device.coordinator.device_id)
+
+    # Unhide the battery
+    entity_registry = er.async_get(hass)
+    if not device.wrapped_battery:
+        return
+
+    if not (
+        wrapped_battery_entity_entry := entity_registry.async_get(
+            device.wrapped_battery.entity_id
+        )
+    ):
+        return
+
+    if wrapped_battery_entity_entry.hidden_by == er.RegistryEntryHider.INTEGRATION:
+        entity_registry.async_update_entity(
+            device.wrapped_battery.entity_id, hidden_by=None
+        )
+        _LOGGER.debug(
+            "Unhidden Original Battery for device%s", device.coordinator.device_id
+        )
 
 
 async def async_migrate_entry(hass, config_entry: ConfigEntry):
@@ -180,15 +245,11 @@ async def async_migrate_entry(hass, config_entry: ConfigEntry):
 
     return True
 
+
 @callback
 async def async_update_options(hass: HomeAssistant, entry: ConfigEntry) -> None:
     """Update options."""
     await hass.config_entries.async_reload(entry.entry_id)
-
-
-async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
-    """Unload a config entry."""
-    return await hass.config_entries.async_unload_platforms(entry, PLATFORMS)
 
 
 @callback
@@ -198,10 +259,12 @@ def register_services(hass):
     async def handle_battery_replaced(call):
         """Handle the service call."""
         device_id = call.data.get(ATTR_DEVICE_ID, "")
-        datetime_replaced_entry = call.data.get(ATTR_DATE_TIME_REPLACED)
+        datetime_replaced_entry = call.data.get(SERVICE_DATA_DATE_TIME_REPLACED)
 
         if datetime_replaced_entry:
-            datetime_replaced = dt_util.as_utc(datetime_replaced_entry).replace(tzinfo=None)
+            datetime_replaced = dt_util.as_utc(datetime_replaced_entry).replace(
+                tzinfo=None
+            )
         else:
             datetime_replaced = datetime.utcnow()
 
@@ -209,14 +272,20 @@ def register_services(hass):
 
         device_entry = device_registry.async_get(device_id)
         if not device_entry:
+            _LOGGER.error(
+                "Device %s not found",
+                device_id,
+            )
             return
 
         for entry_id in device_entry.config_entries:
             if (
                 entry := hass.config_entries.async_get_entry(entry_id)
             ) and entry.domain == DOMAIN:
+                coordinator = (
+                    hass.data[DOMAIN][DATA].devices[entry.entry_id].coordinator
+                )
 
-                coordinator: BatteryNotesCoordinator = hass.data[DOMAIN][DATA_COORDINATOR]
                 device_entry = {"battery_last_replaced": datetime_replaced}
 
                 coordinator.async_update_device_config(
@@ -226,8 +295,18 @@ def register_services(hass):
                 await coordinator.async_request_refresh()
 
                 _LOGGER.debug(
-                    "Device %s battery replaced on %s", device_id, str(datetime_replaced)
+                    "Device %s battery replaced on %s",
+                    device_id,
+                    str(datetime_replaced),
                 )
+
+                # Found and dealt with, exit
+                return
+
+        _LOGGER.error(
+            "Device %s not configured in Battery Notes",
+            device_id,
+        )
 
     hass.services.async_register(
         DOMAIN,
