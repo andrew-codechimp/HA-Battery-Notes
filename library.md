@@ -1,4 +1,4 @@
-## 614 Devices in library
+## 615 Devices in library
 
 This file is auto generated, do not modify
 
@@ -193,6 +193,7 @@ This file is auto generated, do not modify
 |HANK Electronics Ltd.                           |HKZW-DWS01                                                            |2x AAA                    |
 |Heatit                                          |Z-PH WALL CONTROLLER                                                  |CR2450                    |
 |HEIMAN                                          |Smart carbon monoxide sensor (HS1CA-E)                                |CR123A                    |
+|HEIMAN                                          |Smart carbon monoxide sensor (HS1CA-M)                                |CR123A                    |
 |HEIMAN                                          |Smoke detector (HS1SA)                                                |CR123A                    |
 |HEIMAN                                          |Smoke detector (HS3SA/HS1SA)                                          |CR123A                    |
 |HEIMAN                                          |Water leakage sensor (HS1WL/HS3WL)                                    |2x AAA                    |
