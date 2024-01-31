@@ -1,4 +1,4 @@
-## 606 Devices in library
+## 613 Devices in library
 
 This file is auto generated, do not modify
 
@@ -8,6 +8,7 @@ This file is auto generated, do not modify
 |_TZ1800_fcdjzz3s                                |TY0202                                                                |2x AA                     |
 |_TZ3000_26fmupbb                                |TS0203                                                                |CR2032                    |
 |_TZ3000_4fjiwweb                                |TS004F                                                                |CR2032                    |
+|_TZ3000_4ugnzsli                                |TS0203                                                                |2x AAA                    |
 |_TZ3000_4upl1fcj                                |TS0041                                                                |CR2032                    |
 |_TZ3000_6ygjfyll                                |TS0202                                                                |CR2450                    |
 |_TZ3000_abci1hiu                                |TS0044                                                                |A23                       |
@@ -264,6 +265,7 @@ This file is auto generated, do not modify
 |Linkind                                         |Security keypad battery (ZS130000078)                                 |2x CR123A                 |
 |Linkind                                         |Water leak sensor (LS21001)                                           |2x AAA                    |
 |LK                                              |A001082                                                               |2x AAA                    |
+|Loratap                                         |GDC311ZBQ1                                                            |CR2032                    |
 |LUMI                                            |lumi.airmonitor.acn01                                                 |2x CR2450                 |
 |LUMI                                            |lumi.airrtc.agl001                                                    |2x AA                     |
 |LUMI                                            |lumi.curtain.acn002                                                   |Rechargeable              |
@@ -389,6 +391,7 @@ This file is auto generated, do not modify
 |Signify Netherlands B.V.                        |Hue tap dial switch (RDM002)                                          |CR2032                    |
 |Signify Netherlands B.V.                        |Hue wall switch module (RDM001)                                       |CR2450                    |
 |Signify Netherlands B.V.                        |RDM001                                                                |CR2450                    |
+|Signify Netherlands B.V.                        |RDM002                                                                |CR2032                    |
 |Signify Netherlands B.V.                        |ROM001                                                                |CR2032                    |
 |Signify Netherlands B.V.                        |RWL022                                                                |CR2032                    |
 |Signify Netherlands B.V.                        |SML001                                                                |2x AAA                    |
@@ -452,6 +455,7 @@ This file is auto generated, do not modify
 |Third Reality, Inc                              |3RSS009Z                                                              |2x AAA                    |
 |Third Reality, Inc                              |3RTHS24BZ                                                             |2x AAA                    |
 |Third Reality, Inc                              |3RWS18BZ                                                              |2x AAA                    |
+|Tile                                            |T1301N                                                                |CR2032                    |
 |Trust                                           |COSensor-EM                                                           |CR123A                    |
 |TS0041                                          |_TZ3000_itb0omhv                                                      |CR2032                    |
 |TS0042                                          |_TZ3000_dfgbtub0                                                      |CR2032                    |
@@ -469,6 +473,7 @@ This file is auto generated, do not modify
 |Tuya                                            |_TZ3000_upgcbody                                                      |2x AAA                    |
 |TuYa                                            |Aegislink Wi-Fi Combination Alarm (cfet7ouwznslditf)                  |CR123A                    |
 |TuYa                                            |Button scene switch (SH-SC07)                                         |CR2450                    |
+|Tuya                                            |dagu44fhznig1omo                                                      |2x AAA                    |
 |TuYa                                            |Door sensor (TS0203)                                                  |CR2032                    |
 |TuYa                                            |Door sensor (ZD08)                                                    |CR2032                    |
 |TuYa                                            |IH012-RT01                                                            |CR2450                    |
@@ -526,6 +531,7 @@ This file is auto generated, do not modify
 |Visonic                                         |MCT-340 E                                                             |CR2032                    |
 |Visonic                                         |MP-841                                                                |2x CR123A                 |
 |Wink Inc.                                       |Motion Sensor                                                         |CR123A                    |
+|Woox                                            |Smart siren (R7051)                                                   |Rechargeable              |
 |WyzeLabs                                        |WVOD1                                                                 |Rechargeable              |
 |WyzeLabs                                        |YD.LO1                                                                |Rechargeable              |
 |Xiaomi                                          |Aqara D1 double key wireless wall switch (WXKG07LM)                   |CR2032                    |
@@ -596,6 +602,7 @@ This file is auto generated, do not modify
 |Xiaomi                                          |zigbee WXKG01LM (lumi.sensor_switch)                                  |CR2032                    |
 |Yale                                            |YRD210                                                                |4x AA                     |
 |Yale                                            |YRD220/240 TSDB                                                       |4x AA                     |
+|Yale                                            |YRD450-ZW3                                                            |4x AA                     |
 |Yeelight                                        |ble YLAI003                                                           |CR2032                    |
 |YoLink                                          |DoorSensor                                                            |2x AAA                    |
 |YoLink                                          |LeakSensor                                                            |2x AAA                    |

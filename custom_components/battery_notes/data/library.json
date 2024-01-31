@@ -1,5 +1,5 @@
 {
-    "$schema": "../../../schema.json",
+    "$schema": "../schema.json",
     "version": 1,
     "devices": [
         {
@@ -23,6 +23,12 @@
             "manufacturer": "_TZ3000_4fjiwweb",
             "model": "TS004F",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "_TZ3000_4ugnzsli",
+            "model": "TS0203",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "_TZ3000_4upl1fcj",
@@ -1425,6 +1431,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Loratap",
+            "model": "GDC311ZBQ1",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "LUMI",
             "model": "lumi.airmonitor.acn01",
             "battery_type": "CR2450",
@@ -2100,6 +2111,11 @@
         },
         {
             "manufacturer": "Signify Netherlands B.V.",
+            "model": "RDM002",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Signify Netherlands B.V.",
             "model": "ROM001",
             "battery_type": "CR2032"
         },
@@ -2445,6 +2461,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Tile",
+            "model": "T1301N",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "Trust",
             "model": "COSensor-EM",
             "battery_type": "CR123A"
@@ -2533,6 +2554,12 @@
             "manufacturer": "TuYa",
             "model": "Button scene switch (SH-SC07)",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "dagu44fhznig1omo",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "TuYa",
@@ -2840,6 +2867,11 @@
             "manufacturer": "Wink Inc.",
             "model": "Motion Sensor",
             "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Woox",
+            "model": "Smart siren (R7051)",
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "WyzeLabs",
@@ -3202,6 +3234,12 @@
         {
             "manufacturer": "Yale",
             "model": "YRD220/240 TSDB",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Yale",
+            "model": "YRD450-ZW3",
             "battery_type": "AA",
             "battery_quantity": 4
         },

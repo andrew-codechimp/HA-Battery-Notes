@@ -2,7 +2,7 @@
 
 You'll get the following entities for each device you have added to battery notes.
 
-## Battery+ (Beta Only)
+## Battery+
 `sensor.{{device_name}}_battery_plus`
 
 An enhanced battery sensor that duplicates the normal battery but with additional attributes specific to battery notes.  
@@ -40,7 +40,7 @@ The last time the battery of the device was replaced.
 
 A button to set the battery_last_replaced entity to now.
 
-## Battery Low (Beta Only)
+## Battery Low
 `sensor.{{device_name}}_battery_low`
 
 A boolean sensor indicating if the battery is low, true when the battery is below the device or global threshold.
