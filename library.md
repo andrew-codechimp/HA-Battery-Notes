@@ -1,4 +1,4 @@
-## 614 Devices in library
+## 622 Devices in library
 
 This file is auto generated, do not modify
 
@@ -57,6 +57,7 @@ This file is auto generated, do not modify
 |American Power Conversion                       |Back-UPS XS 1500M                                                     |Rechargeable              |
 |APC                                             |Back-UPS XS 1500M                                                     |Rechargeable              |
 |APC                                             |SRV 2K I -AR                                                          |APCRBCV204                |
+|Apple                                           |iPad5,1                                                               |Rechargable               |
 |Aqara                                           |Aqara Door and Window Sensor P2                                       |CR123A                    |
 |Aqara                                           |zigbee DJT11LM (lumi.vibration.aq1)                                   |CR2032                    |
 |Aqara                                           |zigbee MCCGQ11LM (lumi.sensor_magnet.aq2)                             |CR1632                    |
@@ -164,6 +165,7 @@ This file is auto generated, do not modify
 |eWeLink                                         |SNZB-02P                                                              |CR2477                    |
 |eWeLink                                         |TH01                                                                  |CR2450                    |
 |eWeLink                                         |WB01                                                                  |CR2450                    |
+|Fairphone                                       |FP5                                                                   |Rechargable               |
 |Fantem                                          |4 in 1 multi sensor (ZB003-X)                                         |2x CR123A                 |
 |Feasycom                                        |FeasyBeacon FSC-BP108                                                 |CR3032                    |
 |Fibargroup                                      |FGCD001                                                               |CR123A                    |
@@ -244,6 +246,7 @@ This file is auto generated, do not modify
 |iNode                                           |iNode Energy Meter                                                    |CR2032                    |
 |Iris                                            |3326-L                                                                |CR2                       |
 |Iris                                            |Contact and temperature sensor (IL06_1)                               |CR2                       |
+|iRobot                                          |c975840                                                               |Rechargeable              |
 |iRobot                                          |i715640                                                               |Rechargeable              |
 |Konke                                           |3AFE28010402000D                                                      |CR2450                    |
 |Kwikset                                         |910                                                                   |4x AA                     |
@@ -301,6 +304,7 @@ This file is auto generated, do not modify
 |Neo                                             |NAS-PD07                                                              |2x CR123A                 |
 |Neo                                             |Temperature & humidity sensor and alarm (NAS-AB02B0)                  |2x CR123A                 |
 |Netatmo                                         |Additional Indoor Module                                              |4x AAA                    |
+|Netatmo                                         |Netatmo Smart Thermostat                                              |3x AAA                    |
 |Netatmo                                         |Netatmo Valve                                                         |2x AA                     |
 |Netatmo                                         |Outdoor Module                                                        |2x AAA                    |
 |Netatmo                                         |Smart Anemometer                                                      |4x AA                     |
@@ -342,6 +346,7 @@ This file is auto generated, do not modify
 |Philips Hue                                     |SML001                                                                |2x AAA                    |
 |PLab                                            |HomeButtons                                                           |18650                     |
 |Poly-control                                    |Danalock V3-BTZE                                                      |4x CR123A                 |
+|Popp                                            |Smart thermostat (701721)                                             |2x AA                     |
 |Popp                                            |Smart thermostat (701721)                                             |2x AA                     |
 |Popp & Co                                       |004407                                                                |LR14250                   |
 |Popp & Co                                       |POPE700168                                                            |2x AAA                    |
@@ -533,8 +538,10 @@ This file is auto generated, do not modify
 |Visonic                                         |MP-841                                                                |2x CR123A                 |
 |Wink Inc.                                       |Motion Sensor                                                         |CR123A                    |
 |Woox                                            |Smart siren (R7051)                                                   |Rechargeable              |
+|Woox                                            |Smart smoke alarm (R7049)                                             |2x AAA                    |
 |WyzeLabs                                        |WVOD1                                                                 |Rechargeable              |
 |WyzeLabs                                        |YD.LO1                                                                |Rechargeable              |
+|Xiaomi                                          |Aqara curtain driver E1 (ZNCLBL01LM)                                  |Rechargable               |
 |Xiaomi                                          |Aqara D1 double key wireless wall switch (WXKG07LM)                   |CR2032                    |
 |Xiaomi                                          |Aqara D1 single key wireless wall switch (WXKG06LM)                   |CR2032                    |
 |Xiaomi                                          |Aqara door & window contact sensor (MCCGQ11LM)                        |CR1632                    |
@@ -580,6 +587,7 @@ This file is auto generated, do not modify
 |Xiaomi                                          |LYWSD03MMC/MJWSD05MMC_PVVX                                            |CR2032                    |
 |Xiaomi                                          |LYWSDCGQ                                                              |AAA                       |
 |Xiaomi                                          |MCCGQ01LM                                                             |CR1632                    |
+|Xiaomi                                          |MHO-C303                                                              |2x AAA                    |
 |Xiaomi                                          |Mi/Aqara smart home cube (MFKZQ01LM)                                  |CR2450                    |
 |Xiaomi                                          |MiJia door & window contact sensor (MCCGQ01LM)                        |CR1632                    |
 |Xiaomi                                          |MiJia Honeywell smoke detector (JTYJ-GD-01LM/BW)                      |2x CR123A                 |

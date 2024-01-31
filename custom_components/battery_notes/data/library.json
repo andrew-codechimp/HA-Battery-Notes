@@ -1324,12 +1324,12 @@
         },
         {
             "manufacturer": "iRobot",
-            "model": "i715640",
+            "model": "c975840",
             "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "iRobot",
-            "model": "c975840",
+            "model": "i715640",
             "battery_type": "Rechargeable"
         },
         {
@@ -1637,6 +1637,12 @@
         },
         {
             "manufacturer": "Netatmo",
+            "model": "Netatmo Smart Thermostat",
+            "battery_type": "AAA",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "Netatmo",
             "model": "Netatmo Valve",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -1682,12 +1688,6 @@
             "model": "Smart Valve",
             "battery_type": "AA",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Netatmo",
-            "model": "Netatmo Smart Thermostat",
-            "battery_type": "AAA",
-            "battery_quantity": 3
         },
         {
             "manufacturer": "Nortek Security & Control LLC",
@@ -1738,12 +1738,6 @@
             "manufacturer": "Nyce",
             "model": "Door/window sensor (NCZ-3011-HA)",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Popp",
-            "model": "Smart thermostat (701721)",
-            "battery_type": "AA",
-            "battery_quantity": 2
         },
         {
             "manufacturer": "OpenEpaperLink",
@@ -1874,6 +1868,12 @@
             "model": "Danalock V3-BTZE",
             "battery_type": "CR123A",
             "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Popp",
+            "model": "Smart thermostat (701721)",
+            "battery_type": "AA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "Popp",
