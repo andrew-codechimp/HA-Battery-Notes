@@ -252,6 +252,12 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "Alecto",
+            "model": "Smoke detector (SMART-SMOKE10)",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Allegion",
             "model": "BE468ZP",
             "battery_type": "AA",
@@ -3330,12 +3336,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Alecto",
-            "model": "Smoke detector (SMART-SMOKE10)",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }

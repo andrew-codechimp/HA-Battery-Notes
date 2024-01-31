@@ -1,4 +1,4 @@
-## 615 Devices in library
+## 616 Devices in library
 
 This file is auto generated, do not modify
 
@@ -50,6 +50,7 @@ This file is auto generated, do not modify
 |Airthings                                       |View Radon                                                            |6x AA                     |
 |Airthings AS                                    |Wave Plus                                                             |2x AA                     |
 |Aldi                                            |MEGOS switch and dimming light remote control (141L100RC)             |CR2450                    |
+|Alecto                                          |Smoke detector (SMART-SMOKE10)                                        |2x AA                     |
 |Allegion                                        |BE468ZP                                                               |4x AA                     |
 |Allegion                                        |BE469                                                                 |4x AA                     |
 |Allegion                                        |BE469ZP                                                               |4x AA                     |
