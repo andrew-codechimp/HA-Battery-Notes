@@ -1325,6 +1325,11 @@
         },
         {
             "manufacturer": "iRobot",
+            "model": "c975840",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "iRobot",
             "model": "i715640",
             "battery_type": "Rechargeable"
         },
@@ -3359,11 +3364,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "iRobot",
-            "model": "c975840",
-            "battery_type": "Rechargeable"
         }
     ]
 }
