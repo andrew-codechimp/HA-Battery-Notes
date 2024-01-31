@@ -1,0 +1,124 @@
+{
+    "config": {
+        "step": {
+            "user": {
+                "description": "اگر آپ کو ترتیب میں مدد کی ضرورت ہو تو یہاں ایک نظر ڈالیں: https://github.com/andrew-codechimp/ha-battery-notes",
+                "data": {
+                    "device_id": "آلہ",
+                    "name": "نام"
+                },
+                "data_description": {
+                    "name": "خالی چھوڑنے سے نام ماخذ آلہ سے لیا جائے گا۔"
+                }
+            },
+            "battery": {
+                "data": {
+                    "battery_type": "بیٹری کی قسم",
+                    "battery_quantity": "بیٹری کی مقدار",
+                    "battery_low_threshold": "بیٹری کی کم حد"
+                },
+                "data_description": {
+                    "battery_low_threshold": "0 عالمی ڈیفالٹ حد استعمال کرے گا۔"
+                }
+            }
+        },
+        "abort": {
+            "already_configured": "ڈیوائس پہلے سے ہی ترتیب شدہ ہے۔"
+        },
+        "error": {
+            "unknown": "نامعلوم خرابی پیش آگئی."
+        }
+    },
+    "options": {
+        "step": {
+            "init": {
+                "description": "اگر آپ کو ترتیب میں مدد کی ضرورت ہو تو یہاں ایک نظر ڈالیں: https://github.com/andrew-codechimp/ha-battery-notes",
+                "data": {
+                    "name": "نام",
+                    "battery_type": "بیٹری کی قسم",
+                    "battery_quantity": "بیٹری کی مقدار",
+                    "battery_low_threshold": "بیٹری کی کم حد"
+                },
+                "data_description": {
+                    "name": "خالی چھوڑنے سے نام ماخذ آلہ سے لیا جائے گا۔",
+                    "battery_low_threshold": "0 عالمی ڈیفالٹ حد استعمال کرے گا۔"
+                }
+            }
+        },
+        "error": {
+            "unknown": "نامعلوم خرابی پیش آگئی."
+        }
+    },
+    "entity": {
+        "binary_sensor": {
+            "battery_low": {
+                "name": "بیٹری کم",
+                "state_attributes": {
+                    "battery_low_threshold": {
+                        "name": "بیٹری کی کم حد"
+                    }
+                }
+            }
+        },
+        "button": {
+            "battery_replaced": {
+                "name": "بیٹری تبدیل کر دی گئی۔"
+            }
+        },
+        "sensor": {
+            "battery_plus": {
+                "name": "بیٹری+",
+                "state_attributes": {
+                    "battery_type": {
+                        "name": "بیٹری کی قسم"
+                    },
+                    "battery_quantity": {
+                        "name": "بیٹری کی مقدار"
+                    },
+                    "battery_type_and_quantity": {
+                        "name": "بیٹری کی قسم اور مقدار"
+                    },
+                    "battery_last_replaced": {
+                        "name": "بیٹری کو آخری بار تبدیل کیا گیا۔"
+                    },
+                    "battery_low": {
+                        "name": "بیٹری کم ہے۔"
+                    },
+                    "battery_low_threshold": {
+                        "name": "بیٹری کی کم حد"
+                    }
+                }
+            },
+            "battery_type": {
+                "name": "بیٹری کی قسم",
+                "state_attributes": {
+                    "battery_type": {
+                        "name": "بیٹری کی قسم"
+                    },
+                    "battery_quantity": {
+                        "name": "بیٹری کی مقدار"
+                    }
+                }
+            },
+            "battery_last_replaced": {
+                "name": "بیٹری آخری بار تبدیل کی گئی۔"
+            }
+        }
+    },
+    "services": {
+        "set_battery_replaced": {
+            "description": "آخری بار تبدیل کی گئی بیٹری سیٹ کریں۔.",
+            "fields": {
+                "device_id": {
+                    "description": "وہ آلہ جس کی بیٹری تبدیل کر دی گئی ہو۔.",
+                    "name": "آلہ"
+                },
+                "datetime_replaced": {
+                    "description": "تاریخ تبدیل کر دی گئی۔.",
+                    "name": "تاریخ"
+                }
+            },
+            "name": "سیٹ کی بیٹری کو تبدیل کر دیا گیا۔"
+        }
+    }
+}
