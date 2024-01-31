@@ -1741,6 +1741,12 @@
             "battery_quantity": 4
         },
         {
+            "manufacturer": "Nuki Home Solutions GmbH",
+            "model": "Nuki smart lock 3.0 (pro)",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
             "manufacturer": "NYCE",
             "model": "3043",
             "battery_type": "AAA",
@@ -3375,12 +3381,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Nuki Home Solutions GmbH",
-            "model": "Nuki smart lock 3.0 (pro)",
-            "battery_type": "AA",
-            "battery_quantity": 4
         }
     ]
 }

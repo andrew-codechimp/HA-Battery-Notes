@@ -1,4 +1,4 @@
-## 623 Devices in library
+## 624 Devices in library
 
 This file is auto generated, do not modify
 
@@ -322,6 +322,7 @@ This file is auto generated, do not modify
 |Nuki                                            |Nuki Smart Lock                                                       |4x AA                     |
 |Nuki Home Solutions GmbH                        |Nuki opener                                                           |4x AAA                    |
 |Nuki Home Solutions GmbH                        |Nuki smart lock 1.0/2.0                                               |4x AA                     |
+|Nuki Home Solutions GmbH                        |Nuki smart lock 3.0 (pro)                                             |4x AA                     |
 |NYCE                                            |3043                                                                  |2x AAA                    |
 |Nyce                                            |Door/window sensor (NCZ-3011-HA)                                      |CR2032                    |
 |OpenEpaperLink                                  |ST‐GR16000 1.54                                                       |CR2450                    |
