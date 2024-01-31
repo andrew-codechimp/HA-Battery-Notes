@@ -3325,6 +3325,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "HEIMAN",
+            "model": "Smart carbon monoxide sensor (HS1CA-M)",
+            "battery_type": "CR123A"
         }
     ]
 }
