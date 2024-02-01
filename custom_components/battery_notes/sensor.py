@@ -321,7 +321,7 @@ class BatteryNotesBatteryPlusSensor(
         self._attr_available = True
 
         if self.round_battery:
-            self._attr_native_value = int(wrapped_battery_state.state)
+            self._attr_native_value = round(float(wrapped_battery_state.state), 0)
         else:
             self._attr_native_value = round(float(wrapped_battery_state.state), 1)
 
