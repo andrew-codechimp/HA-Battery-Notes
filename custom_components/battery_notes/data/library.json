@@ -3386,6 +3386,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Govee",
+            "model": "H5179",
+            "battery_type": "AA",
+            "battery_quantity": 3
         }
     ]
 }
