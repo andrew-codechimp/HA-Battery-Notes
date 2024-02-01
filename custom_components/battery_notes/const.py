@@ -42,6 +42,7 @@ CONF_ENABLE_REPLACED = "enable_replaced"
 CONF_DEFAULT_BATTERY_LOW_THRESHOLD = "default_battery_low_threshold"
 CONF_BATTERY_INCREASE_THRESHOLD = "battery_increase_threshold"
 CONF_HIDE_BATTERY = "hide_battery"
+CONF_ROUND_BATTERY = "round_battery"
 
 DATA_CONFIGURED_ENTITIES = "configured_entities"
 DATA_DISCOVERED_ENTITIES = "discovered_entities"
