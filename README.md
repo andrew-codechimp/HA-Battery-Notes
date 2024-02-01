@@ -8,7 +8,7 @@
 
 Integration to add battery notes to a device, with automatic discovery via a growing [battery library](library.md) for devices.  
 Track the battery type, when the battery was replaced and also when a battery is low based on device or global thresholds.  
-A battery+ sensor provides useful attributes for easy use in dashboards and the standard battery can optionally be hidden.  
+A battery+ sensor provides useful attributes for easy use in dashboards, the standard battery can optionally be hidden.  
 
 *Please :star: this repo if you find it useful*  
 *If you want to show your support please*
