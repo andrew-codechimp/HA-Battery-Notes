@@ -10,6 +10,7 @@ battery_notes:
   default_battery_low_threshold: 10
   battery_increase_threshold: 25
   hide_battery: false
+  round_battery: false
 ```
 
 A restart of Home Assistant is required for the changed to take effect.
