@@ -1,4 +1,4 @@
-## 624 Devices in library
+## 625 Devices in library
 
 This file is auto generated, do not modify
 
@@ -274,6 +274,7 @@ This file is auto generated, do not modify
 |LUMI                                            |lumi.airmonitor.acn01                                                 |2x CR2450                 |
 |LUMI                                            |lumi.airrtc.agl001                                                    |2x AA                     |
 |LUMI                                            |lumi.curtain.acn002                                                   |Rechargeable              |
+|LUMI                                            |lumi.magnet.agl02                                                     |CR1632                    |
 |LUMI                                            |lumi.motion.ac02                                                      |2x CR2450                 |
 |LUMI                                            |lumi.remote.b1acn01                                                   |CR2032                    |
 |LUMI                                            |lumi.remote.b686opcn01                                                |CR2032                    |
