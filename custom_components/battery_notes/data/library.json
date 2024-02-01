@@ -252,6 +252,12 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "Alecto",
+            "model": "Smoke detector (SMART-SMOKE10)",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Allegion",
             "model": "BE468ZP",
             "battery_type": "AA",
@@ -886,6 +892,11 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "Fairphone",
+            "model": "FP5",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Fantem",
             "model": "4 in 1 multi sensor (ZB003-X)",
             "battery_type": "CR123A",
@@ -1037,6 +1048,11 @@
         {
             "manufacturer": "HEIMAN",
             "model": "Smart carbon monoxide sensor (HS1CA-E)",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "HEIMAN",
+            "model": "Smart carbon monoxide sensor (HS1CA-M)",
             "battery_type": "CR123A"
         },
         {
@@ -1311,6 +1327,11 @@
             "manufacturer": "Iris",
             "model": "Contact and temperature sensor (IL06_1)",
             "battery_type": "CR2"
+        },
+        {
+            "manufacturer": "iRobot",
+            "model": "c975840",
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "iRobot",
@@ -1622,6 +1643,12 @@
         },
         {
             "manufacturer": "Netatmo",
+            "model": "Netatmo Smart Thermostat",
+            "battery_type": "AAA",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "Netatmo",
             "model": "Netatmo Valve",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -1703,7 +1730,19 @@
         },
         {
             "manufacturer": "Nuki Home Solutions GmbH",
+            "model": "Nuki opener",
+            "battery_type": "AAA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Nuki Home Solutions GmbH",
             "model": "Nuki smart lock 1.0/2.0",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Nuki Home Solutions GmbH",
+            "model": "Nuki smart lock 3.0 (pro)",
             "battery_type": "AA",
             "battery_quantity": 4
         },
@@ -2880,6 +2919,12 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "Woox",
+            "model": "Smart smoke alarm (R7049)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "WyzeLabs",
             "model": "WVOD1",
             "battery_type": "Rechargeable"
@@ -2887,6 +2932,11 @@
         {
             "manufacturer": "WyzeLabs",
             "model": "YD.LO1",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "Aqara curtain driver E1 (ZNCLBL01LM)",
             "battery_type": "Rechargeable"
         },
         {
@@ -3122,6 +3172,12 @@
             "manufacturer": "Xiaomi",
             "model": "MCCGQ01LM",
             "battery_type": "CR1632"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "MHO-C303",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "Xiaomi",

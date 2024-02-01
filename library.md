@@ -1,4 +1,4 @@
-## 614 Devices in library
+## 624 Devices in library
 
 This file is auto generated, do not modify
 
@@ -50,6 +50,7 @@ This file is auto generated, do not modify
 |Airthings                                       |View Radon                                                            |6x AA                     |
 |Airthings AS                                    |Wave Plus                                                             |2x AA                     |
 |Aldi                                            |MEGOS switch and dimming light remote control (141L100RC)             |CR2450                    |
+|Alecto                                          |Smoke detector (SMART-SMOKE10)                                        |2x AA                     |
 |Allegion                                        |BE468ZP                                                               |4x AA                     |
 |Allegion                                        |BE469                                                                 |4x AA                     |
 |Allegion                                        |BE469ZP                                                               |4x AA                     |
@@ -164,6 +165,7 @@ This file is auto generated, do not modify
 |eWeLink                                         |SNZB-02P                                                              |CR2477                    |
 |eWeLink                                         |TH01                                                                  |CR2450                    |
 |eWeLink                                         |WB01                                                                  |CR2450                    |
+|Fairphone                                       |FP5                                                                   |Rechargeable              |
 |Fantem                                          |4 in 1 multi sensor (ZB003-X)                                         |2x CR123A                 |
 |Feasycom                                        |FeasyBeacon FSC-BP108                                                 |CR3032                    |
 |Fibargroup                                      |FGCD001                                                               |CR123A                    |
@@ -193,6 +195,7 @@ This file is auto generated, do not modify
 |HANK Electronics Ltd.                           |HKZW-DWS01                                                            |2x AAA                    |
 |Heatit                                          |Z-PH WALL CONTROLLER                                                  |CR2450                    |
 |HEIMAN                                          |Smart carbon monoxide sensor (HS1CA-E)                                |CR123A                    |
+|HEIMAN                                          |Smart carbon monoxide sensor (HS1CA-M)                                |CR123A                    |
 |HEIMAN                                          |Smoke detector (HS1SA)                                                |CR123A                    |
 |HEIMAN                                          |Smoke detector (HS3SA/HS1SA)                                          |CR123A                    |
 |HEIMAN                                          |Water leakage sensor (HS1WL/HS3WL)                                    |2x AAA                    |
@@ -244,6 +247,7 @@ This file is auto generated, do not modify
 |iNode                                           |iNode Energy Meter                                                    |CR2032                    |
 |Iris                                            |3326-L                                                                |CR2                       |
 |Iris                                            |Contact and temperature sensor (IL06_1)                               |CR2                       |
+|iRobot                                          |c975840                                                               |Rechargeable              |
 |iRobot                                          |i715640                                                               |Rechargeable              |
 |Konke                                           |3AFE28010402000D                                                      |CR2450                    |
 |Kwikset                                         |910                                                                   |4x AA                     |
@@ -301,6 +305,7 @@ This file is auto generated, do not modify
 |Neo                                             |NAS-PD07                                                              |2x CR123A                 |
 |Neo                                             |Temperature & humidity sensor and alarm (NAS-AB02B0)                  |2x CR123A                 |
 |Netatmo                                         |Additional Indoor Module                                              |4x AAA                    |
+|Netatmo                                         |Netatmo Smart Thermostat                                              |3x AAA                    |
 |Netatmo                                         |Netatmo Valve                                                         |2x AA                     |
 |Netatmo                                         |Outdoor Module                                                        |2x AAA                    |
 |Netatmo                                         |Smart Anemometer                                                      |4x AA                     |
@@ -315,7 +320,9 @@ This file is auto generated, do not modify
 |NorthQ                                          |NQ-9121                                                               |2x AA                     |
 |Nuki                                            |Nuki Opener                                                           |4x AAA                    |
 |Nuki                                            |Nuki Smart Lock                                                       |4x AA                     |
+|Nuki Home Solutions GmbH                        |Nuki opener                                                           |4x AAA                    |
 |Nuki Home Solutions GmbH                        |Nuki smart lock 1.0/2.0                                               |4x AA                     |
+|Nuki Home Solutions GmbH                        |Nuki smart lock 3.0 (pro)                                             |4x AA                     |
 |NYCE                                            |3043                                                                  |2x AAA                    |
 |Nyce                                            |Door/window sensor (NCZ-3011-HA)                                      |CR2032                    |
 |OpenEpaperLink                                  |ST‐GR16000 1.54                                                       |CR2450                    |
@@ -533,8 +540,10 @@ This file is auto generated, do not modify
 |Visonic                                         |MP-841                                                                |2x CR123A                 |
 |Wink Inc.                                       |Motion Sensor                                                         |CR123A                    |
 |Woox                                            |Smart siren (R7051)                                                   |Rechargeable              |
+|Woox                                            |Smart smoke alarm (R7049)                                             |2x AAA                    |
 |WyzeLabs                                        |WVOD1                                                                 |Rechargeable              |
 |WyzeLabs                                        |YD.LO1                                                                |Rechargeable              |
+|Xiaomi                                          |Aqara curtain driver E1 (ZNCLBL01LM)                                  |Rechargeable              |
 |Xiaomi                                          |Aqara D1 double key wireless wall switch (WXKG07LM)                   |CR2032                    |
 |Xiaomi                                          |Aqara D1 single key wireless wall switch (WXKG06LM)                   |CR2032                    |
 |Xiaomi                                          |Aqara door & window contact sensor (MCCGQ11LM)                        |CR1632                    |
@@ -580,6 +589,7 @@ This file is auto generated, do not modify
 |Xiaomi                                          |LYWSD03MMC/MJWSD05MMC_PVVX                                            |CR2032                    |
 |Xiaomi                                          |LYWSDCGQ                                                              |AAA                       |
 |Xiaomi                                          |MCCGQ01LM                                                             |CR1632                    |
+|Xiaomi                                          |MHO-C303                                                              |2x AAA                    |
 |Xiaomi                                          |Mi/Aqara smart home cube (MFKZQ01LM)                                  |CR2450                    |
 |Xiaomi                                          |MiJia door & window contact sensor (MCCGQ01LM)                        |CR1632                    |
 |Xiaomi                                          |MiJia Honeywell smoke detector (JTYJ-GD-01LM/BW)                      |2x CR123A                 |
