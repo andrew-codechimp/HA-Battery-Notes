@@ -272,7 +272,7 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
 
         if isfloat(wrapped_battery_state.state):
             if self.round_battery:
-                battery_level = int(wrapped_battery_state.state)
+                battery_level = round(float(wrapped_battery_state.state), 0)
             else:
                 battery_level = round(float(wrapped_battery_state.state), 1)
         else:
