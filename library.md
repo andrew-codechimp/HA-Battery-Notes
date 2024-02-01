@@ -1,4 +1,4 @@
-## 627 Devices in library
+## 628 Devices in library
 
 This file is auto generated, do not modify
 
@@ -185,6 +185,7 @@ This file is auto generated, do not modify
 |frient A/S                                      |HESZB-120                                                             |CR123A                    |
 |frient A/S                                      |SMSZB-120                                                             |CR123                     |
 |GiEX                                            |Water irrigation valve (QT06_2)                                       |4x AA                     |
+|Google                                          |A12                                                                   |3x AA                     |
 |Google                                          |KR1                                                                   |CR2                       |
 |Google                                          |Topaz-2.7                                                             |MANUAL                    |
 |Govee                                           |H5054                                                                 |2x AAA                    |

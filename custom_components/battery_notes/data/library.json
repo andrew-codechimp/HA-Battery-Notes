@@ -999,6 +999,12 @@
         },
         {
             "manufacturer": "Google",
+            "model": "A12",
+            "battery_type": "AA",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "Google",
             "model": "KR1",
             "battery_type": "CR2"
         },
@@ -3398,12 +3404,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Google",
-            "model": "A12",
-            "battery_type": "AA",
-            "battery_quantity": 3
         }
     ]
 }
