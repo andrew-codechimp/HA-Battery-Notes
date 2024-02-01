@@ -1,4 +1,4 @@
-## 626 Devices in library
+## 627 Devices in library
 
 This file is auto generated, do not modify
 
@@ -377,6 +377,7 @@ This file is auto generated, do not modify
 |Samjin                                          |multi                                                                 |CR2450                    |
 |Samjin                                          |water                                                                 |CR2                       |
 |Saswell                                         |Thermostatic radiator valve (SEA801-Zigbee/SEA802-Zigbee)             |2x AA                     |
+|Schlage                                         |BE469NX                                                               |4x AA                     |
 |Schneider Electric                              |Wiser radiator thermostat (WV704R0A0902)                              |2x AA                     |
 |Sengled                                         |E1D-G73                                                               |CR1632                    |
 |Sercomm Corp.                                   |XHS2-SE                                                               |CR2450                    |
