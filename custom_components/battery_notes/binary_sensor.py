@@ -19,6 +19,7 @@ from homeassistant.components.binary_sensor import (
     PLATFORM_SCHEMA,
     BinarySensorEntity,
     BinarySensorEntityDescription,
+    BinarySensorDeviceClass,
 )
 
 from homeassistant.helpers.entity import DeviceInfo, EntityCategory
@@ -161,6 +162,7 @@ async def async_setup_entry(
         icon="mdi:battery-alert",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=enable_replaced,
+        device_class=BinarySensorDeviceClass.BATTERY,
     )
 
     device = hass.data[DOMAIN][DATA].devices[config_entry.entry_id]
