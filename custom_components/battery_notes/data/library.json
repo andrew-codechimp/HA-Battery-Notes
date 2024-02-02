@@ -406,8 +406,26 @@
         },
         {
             "manufacturer": "AVM",
+            "model": "FRITZ!DECT 300",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "AVM",
+            "model": "FRITZ!DECT 301",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "AVM",
             "model": "FRITZ!DECT 400",
             "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "AVM",
+            "model": "FRITZ!DECT 440",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "AVM",
