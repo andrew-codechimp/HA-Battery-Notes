@@ -1,4 +1,4 @@
-## 633 Devices in library
+## 634 Devices in library
 
 This file is auto generated, do not modify
 
@@ -79,6 +79,7 @@ This file is auto generated, do not modify
 |August Home Inc.                                |AUG-SL05-M01-S01                                                      |2x CR123A                 |
 |AVATTO                                          |ME167                                                                 |2x AA                     |
 |AVM                                             |FRITZ!DECT 400                                                        |CR123A                    |
+|AVM                                             |FRITZ!DECT 440                                                        |2x AAA                    |
 |Bosch                                           |ISW-ZPR1-WP13                                                         |4x AA                     |
 |Bosch                                           |Motion sensor (ISW-ZPR1-WP13)                                         |4x AA                     |
 |Bosch                                           |Radiator thermostat II (BTH-RA)                                       |2x AA                     |
