@@ -1,4 +1,4 @@
-## 634 Devices in library
+## 635 Devices in library
 
 This file is auto generated, do not modify
 
@@ -78,6 +78,7 @@ This file is auto generated, do not modify
 |August Home Inc.                                |AUG-SL04-M01-G04                                                      |4x AA                     |
 |August Home Inc.                                |AUG-SL05-M01-S01                                                      |2x CR123A                 |
 |AVATTO                                          |ME167                                                                 |2x AA                     |
+|AVM                                             |FRITZ!DECT 300                                                        |2x AA                     |
 |AVM                                             |FRITZ!DECT 400                                                        |CR123A                    |
 |AVM                                             |FRITZ!DECT 440                                                        |2x AAA                    |
 |Bosch                                           |ISW-ZPR1-WP13                                                         |4x AA                     |
