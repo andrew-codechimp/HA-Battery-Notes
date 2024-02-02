@@ -883,6 +883,11 @@
         },
         {
             "manufacturer": "eWeLink",
+            "model": "SNZB-03",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "eWeLink",
             "model": "TH01",
             "battery_type": "CR2450"
         },
@@ -3413,11 +3418,6 @@
         {
             "manufacturer": "Zooz",
             "model": "ZSE44",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "eWeLink",
-            "model": "SNZB-03",
             "battery_type": "CR2450"
         }
     ]

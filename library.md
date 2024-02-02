@@ -1,4 +1,4 @@
-## 630 Devices in library
+## 631 Devices in library
 
 This file is auto generated, do not modify
 
@@ -163,6 +163,7 @@ This file is auto generated, do not modify
 |eWeLink                                         |MS01                                                                  |CR2450                    |
 |eWeLink                                         |SNZB-01P                                                              |CR2477                    |
 |eWeLink                                         |SNZB-02P                                                              |CR2477                    |
+|eWeLink                                         |SNZB-03                                                               |CR2450                    |
 |eWeLink                                         |TH01                                                                  |CR2450                    |
 |eWeLink                                         |WB01                                                                  |CR2450                    |
 |Fairphone                                       |FP5                                                                   |Rechargeable              |
