@@ -3425,6 +3425,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "AVM",
+            "model": "FRITZ!DECT 400",
+            "battery_type": "CR123A"
         }
     ]
 }
