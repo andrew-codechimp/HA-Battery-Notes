@@ -1331,6 +1331,11 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Inovelli",
+            "model": "LZW60",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "Iris",
             "model": "3326-L",
             "battery_type": "CR2"
@@ -3404,11 +3409,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Inovelli",
-            "model": "LZW60",
-            "battery_type": "CR123A"
         }
     ]
 }
