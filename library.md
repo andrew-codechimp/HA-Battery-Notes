@@ -1,4 +1,4 @@
-## 639 Devices in library
+## 640 Devices in library
 
 This file is auto generated, do not modify
 
@@ -82,6 +82,7 @@ This file is auto generated, do not modify
 |AVM                                             |FRITZ!DECT 300                                                        |2x AA                     |
 |AVM                                             |FRITZ!DECT 301                                                        |2x AA                     |
 |AVM                                             |FRITZ!DECT 302                                                        |3x AA                     |
+|AVM                                             |FRITZ!DECT 350                                                        |2x AAA                    |
 |AVM                                             |FRITZ!DECT 400                                                        |CR123A                    |
 |AVM                                             |FRITZ!DECT 440                                                        |2x AAA                    |
 |AVM                                             |FRITZ!DECT 440                                                        |2x AAA                    |

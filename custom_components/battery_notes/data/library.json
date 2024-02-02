@@ -430,6 +430,12 @@
         },
         {
             "manufacturer": "AVM",
+            "model": "FRITZ!DECT 350",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "AVM",
             "model": "FRITZ!DECT 400",
             "battery_type": "CR123A"
         },
@@ -3466,12 +3472,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "AVM",
-            "model": "FRITZ!DECT 350",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
