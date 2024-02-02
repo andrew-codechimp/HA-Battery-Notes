@@ -1,4 +1,4 @@
-## 631 Devices in library
+## 632 Devices in library
 
 This file is auto generated, do not modify
 
@@ -30,6 +30,7 @@ This file is auto generated, do not modify
 |_TZE200_c88teujp                                |TS0601                                                                |2x AA                     |
 |_TZE200_hhrtiq0x                                |TS0601                                                                |2x AA                     |
 |_TZE200_locansqn                                |TS0601                                                                |3x AAA                    |
+|_TZE200_p3dbf6qs                                |TS0601                                                                |2x AA                     |
 |AEON Labs                                       |DSB05                                                                 |4x AAA                    |
 |AEON Labs                                       |DSB29                                                                 |2x AAA                    |
 |AEON Labs                                       |DSB45                                                                 |2x AAA                    |
