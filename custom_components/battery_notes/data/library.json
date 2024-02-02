@@ -1011,7 +1011,8 @@
         {
             "manufacturer": "Google",
             "model": "Topaz-2.7",
-            "battery_type": "MANUAL"
+            "battery_type": "AA",
+            "battery_quantity": 6
         },
         {
             "manufacturer": "Govee",
