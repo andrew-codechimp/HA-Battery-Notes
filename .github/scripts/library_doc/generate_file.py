@@ -46,6 +46,7 @@ def generate_device_list():
     writer.value_matrix = rows
     tables_output += f"## {num_devices} Devices in library\n\n"
     tables_output += "This file is auto generated, do not modify\n\n"
+    tables_output += "Request new devices to be added to the library [here](https://github.com/andrew-codechimp/HA-Battery-Notes/issues/new?template=new_device_request.yml&title=%5BDevice%5D%3A+)\n\n"
     tables_output += writer.dumps()
 
     with open("library.md", "w", encoding="UTF-8") as md_file:
