@@ -3505,6 +3505,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Vision Security",
+            "model": "ZP3102",
+            "battery_type": "CR132A"
         }
     ]
 }
