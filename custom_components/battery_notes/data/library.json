@@ -335,6 +335,11 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "WSDCGQ11LM",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "zigbee DJT11LM (lumi.vibration.aq1)",
             "battery_type": "CR2032"
         },
@@ -3516,11 +3521,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Aqara",
-            "model": "WSDCGQ11LM",
-            "battery_type": "CR2032"
         }
     ]
 }
