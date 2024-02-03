@@ -335,6 +335,12 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "SRTS-A01",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "WSDCGQ11LM",
             "battery_type": "CR2032"
         },
@@ -3521,12 +3527,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Aqara",
-            "model": "SRTS-A01",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
