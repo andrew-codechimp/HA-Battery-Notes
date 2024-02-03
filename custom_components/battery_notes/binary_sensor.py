@@ -271,10 +271,7 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
         await self.coordinator.async_request_refresh()
 
         if isfloat(wrapped_battery_state.state):
-            if self.round_battery:
-                battery_level = round(float(wrapped_battery_state.state), 0)
-            else:
-                battery_level = round(float(wrapped_battery_state.state), 1)
+            battery_level = round(float(wrapped_battery_state.state), 0 if self.round_battery else 1)
         else:
             battery_level = wrapped_battery_state.state
 
