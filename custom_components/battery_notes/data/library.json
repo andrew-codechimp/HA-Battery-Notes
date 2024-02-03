@@ -3007,6 +3007,11 @@
         },
         {
             "manufacturer": "Vision Security",
+            "model": "ZP3102",
+            "battery_type": "CR132A"
+        },
+        {
+            "manufacturer": "Vision Security",
             "model": "ZP3111-5",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -3505,11 +3510,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Vision Security",
-            "model": "ZP3102",
-            "battery_type": "CR132A"
         }
     ]
 }

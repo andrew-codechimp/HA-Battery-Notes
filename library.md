@@ -1,4 +1,4 @@
-## 646 Devices in library
+## 647 Devices in library
 
 This file is auto generated, do not modify
 
@@ -555,6 +555,7 @@ This file is auto generated, do not modify
 |Vision Security                                 |ZD2105                                                                |CR2                       |
 |Vision Security                                 |ZD2201                                                                |2x AAA                    |
 |Vision Security                                 |ZG8101                                                                |CR123                     |
+|Vision Security                                 |ZP3102                                                                |CR132A                    |
 |Vision Security                                 |ZP3111-5                                                              |2x AAA                    |
 |Vision Security                                 |ZS5101                                                                |CR123A                    |
 |Visonic                                         |Magnetic door & window contact sensor (MCT-340 E)                     |CR2032                    |
