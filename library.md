@@ -1,4 +1,4 @@
-## 647 Devices in library
+## 648 Devices in library
 
 This file is auto generated, do not modify
 
@@ -175,6 +175,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Eurotronic                                      |Spirit Zigbee wireless heater thermostat (SPZB0001)                   |2x AA                     |
 |Eurotronics                                     |Spirit                                                                |2x AA                     |
 |Eve Systems                                     |Eve Door 20EBN9901                                                    |ER14250                   |
+|Eve Systems                                     |Eve Motion 20EBY9901                                                  |2x AAA                    |
 |Everspring                                      |ST812                                                                 |2x AA                     |
 |eWeLink                                         |DS01                                                                  |CR2032                    |
 |eWeLink                                         |MS01                                                                  |CR2450                    |
