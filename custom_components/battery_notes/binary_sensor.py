@@ -156,8 +156,8 @@ async def async_setup_entry(
         round_battery = domain_config.get(CONF_ROUND_BATTERY, False)
 
     description = BatteryNotesBinarySensorEntityDescription(
-        unique_id_suffix="_battery_low",
-        key="battery_low",
+        unique_id_suffix="_battery_plus_low",
+        key="_battery_plus_low",
         translation_key="battery_low",
         icon="mdi:battery-alert",
         entity_category=EntityCategory.DIAGNOSTIC,
