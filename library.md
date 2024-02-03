@@ -1,4 +1,4 @@
-## 642 Devices in library
+## 643 Devices in library
 
 This file is auto generated, do not modify
 
@@ -93,6 +93,7 @@ This file is auto generated, do not modify
 |Bosch                                           |Radiator thermostat II (BTH-RA)                                       |2x AA                     |
 |BRK Brands, Inc.                                |ZCOMBO                                                                |2x AA                     |
 |BRK Brands, Inc.                                |ZSMOKE                                                                |2x AA                     |
+|Centralite                                      |3157100                                                               |4x AA                     |
 |CentraLite                                      |3315-S                                                                |CR2                       |
 |CentraLite                                      |3320-L                                                                |CR2                       |
 |CentraLite                                      |3321-S                                                                |CR2450                    |

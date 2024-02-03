@@ -493,6 +493,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Centralite",
+            "model": "3157100",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
             "manufacturer": "CentraLite",
             "model": "3315-S",
             "battery_type": "CR2"
@@ -3483,12 +3489,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Centralite",
-            "model": "3157100",
-            "battery_type": "AA",
-            "battery_quantity": 4
         }
     ]
 }
