@@ -395,6 +395,11 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Aubess",
+            "model": "IH-K665",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "August",
             "model": "TEST200228",
             "battery_type": "AA",
@@ -3527,11 +3532,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Aubess",
-            "model": "IH-K665",
-            "battery_type": "CR2032"
         }
     ]
 }

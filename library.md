@@ -1,4 +1,4 @@
-## 650 Devices in library
+## 651 Devices in library
 
 This file is auto generated, do not modify
 
@@ -79,6 +79,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Aqara                                           |zigbee WXKG11LM (lumi.remote.b1acn01)                                 |CR2032                    |
 |Aqara                                           |zigbee WXKG12LM (lumi.sensor_switch.aq3)                              |CR2032                    |
 |Aqara                                           |zigbee WXKG17LM (lumi.remote.acn004)                                  |CR2032                    |
+|Aubess                                          |IH-K665                                                               |CR2032                    |
 |August                                          |TEST200228                                                            |4x AA                     |
 |August Home Inc.                                |AK-R1                                                                 |2x AAA                    |
 |August Home Inc.                                |ASL6_05/101200/SI                                                     |4x AA                     |
