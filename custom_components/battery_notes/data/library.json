@@ -3650,6 +3650,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Plugwise",
+            "model": "168-01",
+            "battery_type": "CR2032"
         }
     ]
 }
