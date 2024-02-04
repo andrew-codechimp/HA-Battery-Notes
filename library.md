@@ -1,4 +1,4 @@
-## 670 Devices in library
+## 671 Devices in library
 
 This file is auto generated, do not modify
 
@@ -142,6 +142,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Ecolink                                         |TILT-ZWAVE2.5-ECO                                                     |CR123A                    |
 |Ecolink                                         |TILTZWAVE1                                                            |CR123A                    |
 |ECOWITT                                         |GW1101                                                                |2x AA                     |
+|ECOWITT                                         |WH51                                                                  |AA                        |
 |Elexa Consumer Products Inc.                    |DMS01                                                                 |2x CR123A                 |
 |Elexa Consumer Products Inc.                    |DMWS1                                                                 |CR2                       |
 |eQ-3                                            |HM-CC-RT-DN                                                           |2x AA                     |
