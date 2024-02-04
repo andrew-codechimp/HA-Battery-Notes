@@ -3650,6 +3650,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Powermax",
+            "model": "MCT-426",
+            "battery_type": "CR123A"
         }
     ]
 }
