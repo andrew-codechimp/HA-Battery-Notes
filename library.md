@@ -1,4 +1,4 @@
-## 652 Devices in library
+## 653 Devices in library
 
 This file is auto generated, do not modify
 
@@ -57,6 +57,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Aeotec Ltd.                                     |ZWA039                                                                |CR2477                    |
 |Airthings                                       |View Radon                                                            |6x AA                     |
 |Airthings AS                                    |Wave Plus                                                             |2x AA                     |
+|Alarm.com                                       |n/a                                                                   |CR123A                    |
 |Aldi                                            |MEGOS switch and dimming light remote control (141L100RC)             |CR2450                    |
 |Alecto                                          |Smoke detector (SMART-SMOKE10)                                        |2x AA                     |
 |Allegion                                        |BE468ZP                                                               |4x AA                     |

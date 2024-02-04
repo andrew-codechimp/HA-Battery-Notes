@@ -280,6 +280,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Alarm.com",
+            "model": "n/a",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "Aldi",
             "model": "MEGOS switch and dimming light remote control (141L100RC)",
             "battery_type": "CR2450"
@@ -3537,11 +3542,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Alarm.com",
-            "model": "n/a",
-            "battery_type": "CR123A"
         }
     ]
 }
