@@ -1,4 +1,4 @@
-## 672 Devices in library
+## 673 Devices in library
 
 This file is auto generated, do not modify
 
@@ -112,6 +112,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |CentraLite                                      |3326-L                                                                |CR2                       |
 |CentraLite                                      |3450-L                                                                |CR2450                    |
 |Computime                                       |SLT3                                                                  |4x AA                     |
+|Computime                                       |SS909ZB                                                               |CR2                       |
 |CPS                                             |CP1500AVRLCDa                                                         |Rechargeable              |
 |CPS                                             |CP1500PFCLCD                                                          |2x 12V9AH-SLA             |
 |CPS                                             |CP1500PFCLCDa                                                         |RB1290X2                  |

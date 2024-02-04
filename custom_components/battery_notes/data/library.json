@@ -583,6 +583,11 @@
             "battery_quantity": 4
         },
         {
+            "manufacturer": "Computime",
+            "model": "SS909ZB",
+            "battery_type": "CR2"
+        },
+        {
             "manufacturer": "CPS",
             "model": "CP1500AVRLCDa",
             "battery_type": "Rechargeable"
@@ -3645,11 +3650,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Computime",
-            "model": "SS909ZB",
-            "battery_type": "CR2"
         }
     ]
 }
