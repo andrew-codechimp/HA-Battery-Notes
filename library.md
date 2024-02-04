@@ -1,4 +1,4 @@
-## 651 Devices in library
+## 652 Devices in library
 
 This file is auto generated, do not modify
 
@@ -295,6 +295,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Linkind                                         |Security keypad battery (ZS130000078)                                 |2x CR123A                 |
 |Linkind                                         |Water leak sensor (LS21001)                                           |2x AAA                    |
 |LK                                              |A001082                                                               |2x AAA                    |
+|Loginovo                                        |ZG-101ZL                                                              |CR2032                    |
 |Loratap                                         |GDC311ZBQ1                                                            |CR2032                    |
 |LUMI                                            |lumi.airmonitor.acn01                                                 |2x CR2450                 |
 |LUMI                                            |lumi.airrtc.agl001                                                    |2x AA                     |
