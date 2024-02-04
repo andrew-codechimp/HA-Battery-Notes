@@ -132,7 +132,7 @@ async def async_setup_entry(
     device_id = async_add_to_device(hass, config_entry)
 
     description = BatteryNotesBinarySensorEntityDescription(
-        unique_id_suffix="_battery_plus_low",
+        unique_id_suffix="_battery_low",
         key="_battery_plus_low",
         translation_key="battery_low",
         icon="mdi:battery-alert",
