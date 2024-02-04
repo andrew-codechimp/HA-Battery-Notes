@@ -3548,6 +3548,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "MOES",
+            "model": "Wireless switch with 4 buttons (TS0044)",
+            "battery_type": "CR2430"
         }
     ]
 }
