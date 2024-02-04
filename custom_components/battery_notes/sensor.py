@@ -287,9 +287,6 @@ class BatteryNotesBatteryPlusSensor(
 
         self._attr_entity_category = entity_category
         self._attr_unique_id = unique_id
-        self._battery_entity_id = (
-            device.wrapped_battery.entity_id if device.wrapped_battery else None
-        )
 
         self._attr_device_class = SensorDeviceClass.BATTERY
         self._attr_state_class = SensorStateClass.MEASUREMENT
@@ -299,32 +296,29 @@ class BatteryNotesBatteryPlusSensor(
     def async_state_changed_listener(
         self, event: EventType[EventStateChangedData] | None = None
     ) -> None:
-        # pylint: disable=unused-argument
         """Handle child updates."""
 
-        if not self._battery_entity_id:
+        if not event:
             return
 
-        if (
-            (wrapped_battery_state := self.hass.states.get(self._battery_entity_id))
-            is None
-            or wrapped_battery_state.state
-            in [
-                STATE_UNAVAILABLE,
-                STATE_UNKNOWN,
-            ]
-            or not isfloat(wrapped_battery_state.state)
-        ):
+        if not self.coordinator.wrapped_battery.entity_id:
+            return
+
+        new_state = event.data["new_state"]
+        old_state = event.data["old_state"]
+        if new_state is None or new_state.state in [STATE_UNAVAILABLE, STATE_UNKNOWN] or not isfloat(new_state.state):
             self._attr_native_value = None
             self._attr_available = False
             self.async_write_ha_state()
             return
 
+        self.coordinator.current_battery_level = new_state.state
+
         self._attr_available = True
 
-        self._attr_native_value = round(float(wrapped_battery_state.state), 0 if self.round_battery else 1)
+        self._attr_native_value = self.coordinator.rounded_battery_level
 
-        self._wrapped_attributes = wrapped_battery_state.attributes
+        self._wrapped_attributes = new_state.attributes
 
         self.async_write_ha_state()
 
@@ -338,10 +332,10 @@ class BatteryNotesBatteryPlusSensor(
             """Handle child updates."""
             self.async_state_changed_listener(event)
 
-        if self._battery_entity_id:
+        if self.coordinator.wrapped_battery.entity_id:
             self.async_on_remove(
                 async_track_state_change_event(
-                    self.hass, [self._battery_entity_id], _async_state_changed_listener
+                    self.hass, [self.coordinator.wrapped_battery.entity_id], _async_state_changed_listener
                 )
             )
 
@@ -350,32 +344,32 @@ class BatteryNotesBatteryPlusSensor(
 
         # Update entity options
         registry = er.async_get(self.hass)
-        if registry.async_get(self.entity_id) is not None and self._battery_entity_id:
+        if registry.async_get(self.entity_id) is not None and self.coordinator.wrapped_battery.entity_id:
             registry.async_update_entity_options(
                 self.entity_id,
                 DOMAIN,
-                {"entity_id": self._battery_entity_id},
+                {"entity_id": self.coordinator.wrapped_battery.entity_id},
             )
 
-        if not (wrapped_battery := registry.async_get(self._battery_entity_id)):
+        if not self.coordinator.wrapped_battery:
             return
 
         if DOMAIN_CONFIG in self.hass.data[DOMAIN]:
             domain_config: dict = self.hass.data[DOMAIN][DOMAIN_CONFIG]
             hide_battery = domain_config.get(CONF_HIDE_BATTERY, False)
             if hide_battery:
-                if wrapped_battery and not wrapped_battery.hidden:
+                if self.coordinator.wrapped_battery and not self.coordinator.wrapped_battery.hidden:
                     registry.async_update_entity(
-                        wrapped_battery.entity_id,
+                        self.coordinator.wrapped_battery.entity_id,
                         hidden_by=er.RegistryEntryHider.INTEGRATION,
                     )
             else:
                 if (
-                    wrapped_battery
-                    and wrapped_battery.hidden_by == er.RegistryEntryHider.INTEGRATION
+                    self.coordinator.wrapped_battery
+                    and self.coordinator.wrapped_battery.hidden_by == er.RegistryEntryHider.INTEGRATION
                 ):
                     registry.async_update_entity(
-                        wrapped_battery.entity_id, hidden_by=None
+                        self.coordinator.wrapped_battery.entity_id, hidden_by=None
                     )
 
         def copy_custom_name(wrapped_battery: er.RegistryEntry) -> None:
@@ -386,7 +380,7 @@ class BatteryNotesBatteryPlusSensor(
                 self.entity_id, name=wrapped_battery.name + "+"
             )
 
-        copy_custom_name(wrapped_battery)
+        copy_custom_name(self.coordinator.wrapped_battery)
 
         self.async_on_remove(
             self.coordinator.async_add_listener(self._handle_coordinator_update)
@@ -516,7 +510,6 @@ class BatteryNotesLastReplacedSensor(
 
     _attr_should_poll = False
     entity_description: BatteryNotesSensorEntityDescription
-    _battery_entity_id = None
 
     def __init__(
         self,

@@ -10,14 +10,32 @@ from homeassistant.helpers.update_coordinator import (
     DataUpdateCoordinator,
 )
 
+from homeassistant.const import (
+    STATE_UNAVAILABLE,
+    STATE_UNKNOWN,
+)
+
+
 from .common import isfloat
 from .store import BatteryNotesStorage
 
 from .const import (
     DOMAIN,
     DOMAIN_CONFIG,
+    CONF_BATTERY_INCREASE_THRESHOLD,
     CONF_ENABLE_REPLACED,
     CONF_ROUND_BATTERY,
+    EVENT_BATTERY_THRESHOLD,
+    EVENT_BATTERY_INCREASED,
+    DEFAULT_BATTERY_INCREASE_THRESHOLD,
+    ATTR_DEVICE_ID,
+    ATTR_BATTERY_QUANTITY,
+    ATTR_BATTERY_TYPE,
+    ATTR_BATTERY_TYPE_AND_QUANTITY,
+    ATTR_BATTERY_LOW,
+    ATTR_DEVICE_NAME,
+    ATTR_BATTERY_LEVEL,
+    ATTR_PREVIOUS_BATTERY_LEVEL,
     ATTR_REMOVE,
     LAST_REPLACED,
 )
@@ -29,15 +47,19 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
     """Define an object to hold Battery Notes device."""
 
     device_id: str
+    device_name: str
     battery_type: str
     battery_quantity: int
     battery_low_threshold: int
     last_reported: datetime = None
     last_reported_level: float = None
     wrapped_battery: RegistryEntry
-    current_battery_level: str = None
+    device: any
+    _current_battery_level: str = None
     enable_replaced: bool = True
     _round_battery: bool = False
+    _previous_battery_low: bool = None
+    _previous_battery_level: str = None
 
     def __init__(
         self, hass, store: BatteryNotesStorage, wrapped_battery: RegistryEntry
@@ -52,6 +74,72 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
             self._round_battery = domain_config.get(CONF_ROUND_BATTERY, False)
 
         super().__init__(hass, _LOGGER, name=DOMAIN)
+
+    @property
+    def current_battery_level(self):
+        return self._current_battery_level
+
+    @current_battery_level.setter
+    def current_battery_level(self, value):
+        self._current_battery_level = value
+
+        if self._previous_battery_low is not None:
+
+            # Battery low event
+            if self.battery_low != self._previous_battery_low:
+                self.hass.bus.async_fire(
+                    EVENT_BATTERY_THRESHOLD,
+                    {
+                        ATTR_DEVICE_ID: self.device_id,
+                        ATTR_DEVICE_NAME: self.device_name,
+                        ATTR_BATTERY_LOW: self.battery_low,
+                        ATTR_BATTERY_TYPE_AND_QUANTITY: self.battery_type_and_quantity,
+                        ATTR_BATTERY_TYPE: self.battery_type,
+                        ATTR_BATTERY_QUANTITY: self.battery_quantity,
+                        ATTR_BATTERY_LEVEL: self.rounded_battery_level,
+                        ATTR_PREVIOUS_BATTERY_LEVEL: self._previous_battery_level,
+                    },
+                )
+
+                _LOGGER.debug("battery_threshold event fired Low: %s", self.battery_low)
+
+            # Battery increased event
+            increase_threshold = DEFAULT_BATTERY_INCREASE_THRESHOLD
+            if DOMAIN_CONFIG in self.hass.data[DOMAIN]:
+                domain_config: dict = self.hass.data[DOMAIN][DOMAIN_CONFIG]
+                increase_threshold = domain_config.get(
+                    CONF_BATTERY_INCREASE_THRESHOLD, DEFAULT_BATTERY_INCREASE_THRESHOLD
+                )
+
+            if self._current_battery_level not in [STATE_UNAVAILABLE, STATE_UNKNOWN]:
+                if (
+                    self._current_battery_level
+                    and self._previous_battery_level
+                    and float(self._current_battery_level)
+                    >= (float(self._previous_battery_level) + increase_threshold)
+                ):
+                    self.hass.bus.async_fire(
+                        EVENT_BATTERY_INCREASED,
+                        {
+                            ATTR_DEVICE_ID: self.device_id,
+                            ATTR_DEVICE_NAME: self.device_name,
+                            ATTR_BATTERY_LOW: self.battery_low,
+                            ATTR_BATTERY_TYPE_AND_QUANTITY: self.battery_type_and_quantity,
+                            ATTR_BATTERY_TYPE: self.battery_type,
+                            ATTR_BATTERY_QUANTITY: self.battery_quantity,
+                            ATTR_BATTERY_LEVEL: self.rounded_battery_level,
+                            ATTR_PREVIOUS_BATTERY_LEVEL: self._previous_battery_level,
+                        },
+                    )
+
+                    _LOGGER.debug("battery_increased event fired")
+
+                # self.last_reported = new_state.last_changed
+                self.last_reported_level = self._current_battery_level
+
+        if self._current_battery_level not in [STATE_UNAVAILABLE, STATE_UNKNOWN]:
+            self._previous_battery_low = self.battery_low
+            self._previous_battery_level = self.current_battery_level
 
     @property
     def battery_type_and_quantity(self) -> str:
@@ -86,7 +174,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
     def rounded_battery_level(self) -> float:
         """Return the battery level, rounded if preferred."""
         if isfloat(self.current_battery_level):
-            return round(float(self.current_battery_level), 0 if self.round_battery else 1)
+            return round(float(self.current_battery_level), 0 if self._round_battery else 1)
         else:
             return self.current_battery_level
 
