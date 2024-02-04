@@ -3173,6 +3173,11 @@
         },
         {
             "manufacturer": "Xiaomi",
+            "model": "Aqara magic cube T1 Pro (CTP-R01)",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Xiaomi",
             "model": "Aqara Opple switch 2 bands (WXCJKG12LM)",
             "battery_type": "CR2032"
         },
@@ -3577,11 +3582,6 @@
         {
             "manufacturer": "Zooz",
             "model": "ZSE44",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Xiaomi",
-            "model": "Aqara magic cube T1 Pro (CTP-R01)",
             "battery_type": "CR2450"
         }
     ]

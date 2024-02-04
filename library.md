@@ -1,4 +1,4 @@
-## 660 Devices in library
+## 661 Devices in library
 
 This file is auto generated, do not modify
 
@@ -589,6 +589,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Xiaomi                                          |Aqara E1 human body movement and illuminance sensor (RTCGQ15LM)       |CR2450                    |
 |Xiaomi                                          |Aqara E1 wireless mini switch (WXKG20LM)                              |CR2032                    |
 |Xiaomi                                          |Aqara human body movement and illuminance sensor (RTCGQ11LM)          |CR2450                    |
+|Xiaomi                                          |Aqara magic cube T1 Pro (CTP-R01)                                     |CR2450                    |
 |Xiaomi                                          |Aqara Opple switch 2 bands (WXCJKG12LM)                               |CR2032                    |
 |Xiaomi                                          |Aqara Opple switch 3 bands (WXCJKG13LM)                               |CR2032                    |
 |Xiaomi                                          |Aqara P1 human body movement and illuminance sensor (RTCGQ14LM)       |2x CR2450                 |
