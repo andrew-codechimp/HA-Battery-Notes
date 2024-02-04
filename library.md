@@ -1,4 +1,4 @@
-## 668 Devices in library
+## 669 Devices in library
 
 This file is auto generated, do not modify
 
@@ -149,6 +149,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |eQ-3                                            |HM-Sec-RHS                                                            |2x LR44                   |
 |eQ-3                                            |HM-Sec-SCo                                                            |AAA                       |
 |eQ-3                                            |HM-TC-IT-WM-W-EU                                                      |2x AAA                    |
+|eQ-3                                            |HM-WDS10-TH-O                                                         |2x AA                     |
 |eQ-3                                            |HM-WDS40-TH-I-2                                                       |2x AA                     |
 |eQ-3                                            |HmIP-DLD                                                              |4x AA                     |
 |eQ-3                                            |HMIP-eTRV                                                             |2x AA                     |
