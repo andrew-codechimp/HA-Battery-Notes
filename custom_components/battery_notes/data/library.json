@@ -3553,6 +3553,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "TuYa",
+            "model": "Wireless switch with 4 buttons (TS0044) by TuYa",
+            "battery_type": "CR2032"
         }
     ]
 }
