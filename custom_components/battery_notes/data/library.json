@@ -3588,6 +3588,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "SensorPush",
+            "model": "HTP.xw",
+            "battery_type": "CR2477"
         }
     ]
 }
