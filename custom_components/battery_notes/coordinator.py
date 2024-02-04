@@ -134,7 +134,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
 
                     _LOGGER.debug("battery_increased event fired")
 
-                # self.last_reported = new_state.last_changed
+                self.last_reported = datetime.utcnow()
                 self.last_reported_level = self._current_battery_level
 
         if self._current_battery_level not in [STATE_UNAVAILABLE, STATE_UNKNOWN]:
