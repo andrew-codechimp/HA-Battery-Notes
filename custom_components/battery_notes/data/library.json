@@ -3593,6 +3593,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "ECOWITT",
+            "model": "WH51",
+            "battery_type": "AA"
         }
     ]
 }
