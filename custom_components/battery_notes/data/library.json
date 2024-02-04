@@ -3578,6 +3578,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "Aqara magic cube T1 Pro (CTP-R01)",
+            "battery_type": "CR2450"
         }
     ]
 }
