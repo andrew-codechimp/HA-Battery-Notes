@@ -864,6 +864,12 @@
         },
         {
             "manufacturer": "eQ-3",
+            "model": "HmIP-SMI55-2",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "eQ-3",
             "model": "HmIP-SMO",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -3593,12 +3599,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "eQ-3",
-            "model": "HmIP-SMI55-2",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
