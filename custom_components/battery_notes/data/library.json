@@ -179,6 +179,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "_TZE200_yjjdcqsq",
+            "model": "TS0601",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "AEON Labs",
             "model": "DSB05",
             "battery_type": "AAA",
@@ -3542,12 +3548,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "_TZE200_yjjdcqsq",
-            "model": "TS0601",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }

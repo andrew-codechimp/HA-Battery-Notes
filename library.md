@@ -1,4 +1,4 @@
-## 653 Devices in library
+## 654 Devices in library
 
 This file is auto generated, do not modify
 
@@ -38,6 +38,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |_TZE200_hhrtiq0x                                |TS0601                                                                |2x AA                     |
 |_TZE200_locansqn                                |TS0601                                                                |3x AAA                    |
 |_TZE200_p3dbf6qs                                |TS0601                                                                |2x AA                     |
+|_TZE200_yjjdcqsq                                |TS0601                                                                |2x AAA                    |
 |AEON Labs                                       |DSB05                                                                 |4x AAA                    |
 |AEON Labs                                       |DSB29                                                                 |2x AAA                    |
 |AEON Labs                                       |DSB45                                                                 |2x AAA                    |
