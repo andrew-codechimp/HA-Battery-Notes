@@ -3605,6 +3605,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "eQ-3",
+            "model": "HmIP-eTRV-B1",
+            "battery_type": "AA",
+            "battery_quantity": 2
         }
     ]
 }
