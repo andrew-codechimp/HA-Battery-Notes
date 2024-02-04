@@ -86,6 +86,12 @@
                     },
                     "battery_low_threshold": {
                         "name": "Lav tærskel for batteri"
+                    },
+                    "battery_last_reported": {
+                        "name": "Batteri sidst rapporteret"
+                    },
+                    "battery_last_reported_level": {
+                        "name": "Sidst rapporterede batteriniveau"
                     }
                 }
             },

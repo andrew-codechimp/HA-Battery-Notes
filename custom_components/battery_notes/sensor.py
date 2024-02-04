@@ -62,6 +62,8 @@ from .const import (
     ATTR_BATTERY_LAST_REPLACED,
     ATTR_BATTERY_LOW,
     ATTR_BATTERY_LOW_THRESHOLD,
+    ATTR_BATTERY_LAST_REPORTED,
+    ATTR_BATTERY_LAST_REPORTED_LEVEL,
 )
 
 from .common import isfloat
@@ -410,6 +412,8 @@ class BatteryNotesBatteryPlusSensor(
             ATTR_BATTERY_TYPE_AND_QUANTITY: self.coordinator.battery_type_and_quantity,
             ATTR_BATTERY_LOW: self.coordinator.battery_low,
             ATTR_BATTERY_LOW_THRESHOLD: self.coordinator.battery_low_threshold,
+            ATTR_BATTERY_LAST_REPORTED: self.coordinator.last_reported,
+            ATTR_BATTERY_LAST_REPORTED_LEVEL: self.coordinator.last_reported_level,
         }
 
         if self.enable_replaced:

@@ -1,5 +1,6 @@
 """Battery Notes device, contains device level details."""
 import logging
+import datetime
 
 from homeassistant.config_entries import ConfigEntry
 

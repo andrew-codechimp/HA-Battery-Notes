@@ -86,6 +86,12 @@
                     },
                     "battery_low_threshold": {
                         "name": "Nízky prah batérie"
+                    },
+                    "battery_last_reported": {
+                        "name": "Batéria bola naposledy nahlásená"
+                    },
+                    "battery_last_reported_level": {
+                        "name": "Posledná nahlásená úroveň batérie"
                     }
                 }
             },

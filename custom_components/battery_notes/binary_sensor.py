@@ -44,8 +44,6 @@ from .const import (
     DOMAIN,
     DOMAIN_CONFIG,
     DATA,
-    CONF_ENABLE_REPLACED,
-    CONF_ROUND_BATTERY,
     CONF_BATTERY_INCREASE_THRESHOLD,
     EVENT_BATTERY_THRESHOLD,
     EVENT_BATTERY_INCREASED,
@@ -147,21 +145,12 @@ async def async_setup_entry(
 
     device_id = async_add_to_device(hass, config_entry)
 
-    enable_replaced = True
-    round_battery = False
-
-    if DOMAIN_CONFIG in hass.data[DOMAIN]:
-        domain_config: dict = hass.data[DOMAIN][DOMAIN_CONFIG]
-        enable_replaced = domain_config.get(CONF_ENABLE_REPLACED, True)
-        round_battery = domain_config.get(CONF_ROUND_BATTERY, False)
-
     description = BatteryNotesBinarySensorEntityDescription(
         unique_id_suffix="_battery_plus_low",
         key="_battery_plus_low",
         translation_key="battery_low",
         icon="mdi:battery-alert",
         entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=enable_replaced,
         device_class=BinarySensorDeviceClass.BATTERY,
     )
 
@@ -176,7 +165,6 @@ async def async_setup_entry(
                     description,
                     f"{config_entry.entry_id}{description.unique_id_suffix}",
                     device,
-                    round_battery,
                 )
             ]
         )
@@ -194,11 +182,11 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
     """Represents a low battery threshold binary sensor."""
 
     _attr_should_poll = False
-    _battery_entity_id = None
     device_name = None
     _previous_battery_low = None
     _previous_battery_level = None
     _previous_state_last_changed = None
+    device: BatteryNotesDevice
 
     entity_description: BatteryNotesBinarySensorEntityDescription
 
@@ -209,7 +197,6 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
         description: BatteryNotesBinarySensorEntityDescription,
         unique_id: str,
         device: BatteryNotesDevice,
-        round_battery: bool,
     ) -> None:
         """Create a low battery binary sensor."""
         device_registry = dr.async_get(hass)
@@ -218,7 +205,7 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
         self.entity_description = description
         self._attr_unique_id = unique_id
         self._attr_has_entity_name = True
-        self.round_battery = round_battery
+        self.device = device
 
         if coordinator.device_id and (
             device_entry := device_registry.async_get(coordinator.device_id)
@@ -231,32 +218,26 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
             self.entity_id = f"binary_sensor.{device.name.lower()}_{description.key}"
             self.device_name = device.name
 
-        self._battery_entity_id = (
-            device.wrapped_battery.entity_id if device.wrapped_battery else None
-        )
-
     @callback
     async def async_state_changed_listener(
         self, event: EventType[EventStateChangedData] | None = None
     ) -> None:
-        # pylint: disable=unused-argument
-        """Handle child updates."""
+        """Handle wrapped battery updates."""
 
-        if not self._battery_entity_id:
+        if not event:
             return
 
-        if (
-            wrapped_battery_state := self.hass.states.get(self._battery_entity_id)
-        ) is None or wrapped_battery_state.state in [STATE_UNAVAILABLE, STATE_UNKNOWN]:
+        if not self.coordinator.wrapped_battery:
+            return
+
+        new_state = event.data["new_state"]
+        old_state = event.data["old_state"]
+        if new_state is None or new_state.state in (STATE_UNAVAILABLE, STATE_UNKNOWN):
             self._attr_is_on = False
             self._attr_available = True
             return
 
-        battery_low = bool(
-            float(wrapped_battery_state.state) < self.coordinator.battery_low_threshold
-        )
-
-        self.coordinator.set_battery_low(battery_low)
+        self.coordinator.current_battery_level = float(new_state.state)
 
         self._attr_is_on = self.coordinator.battery_low
 
@@ -265,34 +246,29 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
         self.async_write_ha_state()
 
         _LOGGER.debug(
-            "%s battery_low changed: %s", self._battery_entity_id, battery_low
+            "%s battery_low changed: %s", self.coordinator.wrapped_battery.entity_id, self.coordinator.battery_low
         )
 
         await self.coordinator.async_request_refresh()
 
-        if isfloat(wrapped_battery_state.state):
-            battery_level = round(float(wrapped_battery_state.state), 0 if self.round_battery else 1)
-        else:
-            battery_level = wrapped_battery_state.state
-
         if self._previous_state_last_changed:
             # Battery low event
-            if battery_low != self._previous_battery_low:
+            if self.coordinator.battery_low != self._previous_battery_low:
                 self.hass.bus.fire(
                     EVENT_BATTERY_THRESHOLD,
                     {
                         ATTR_DEVICE_ID: self.coordinator.device_id,
                         ATTR_DEVICE_NAME: self.device_name,
-                        ATTR_BATTERY_LOW: battery_low,
+                        ATTR_BATTERY_LOW: self.coordinator.battery_low,
                         ATTR_BATTERY_TYPE_AND_QUANTITY: self.coordinator.battery_type_and_quantity,
                         ATTR_BATTERY_TYPE: self.coordinator.battery_type,
                         ATTR_BATTERY_QUANTITY: self.coordinator.battery_quantity,
-                        ATTR_BATTERY_LEVEL: battery_level,
+                        ATTR_BATTERY_LEVEL: self.coordinator.rounded_battery_level,
                         ATTR_PREVIOUS_BATTERY_LEVEL: self._previous_battery_level,
                     },
                 )
 
-                _LOGGER.debug("battery_threshold event fired Low: %s", battery_low)
+                _LOGGER.debug("battery_threshold event fired Low: %s", self.coordinator.battery_low)
 
             # Battery increased event
             increase_threshold = DEFAULT_BATTERY_INCREASE_THRESHOLD
@@ -302,11 +278,11 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
                     CONF_BATTERY_INCREASE_THRESHOLD, DEFAULT_BATTERY_INCREASE_THRESHOLD
                 )
 
-            if wrapped_battery_state.state not in [STATE_UNAVAILABLE, STATE_UNKNOWN]:
+            if new_state.state not in [STATE_UNAVAILABLE, STATE_UNKNOWN]:
                 if (
-                    wrapped_battery_state.state
+                    new_state.state
                     and self._previous_battery_level
-                    and float(wrapped_battery_state.state)
+                    and float(new_state.state)
                     >= (self._previous_battery_level + increase_threshold)
                 ):
                     self.hass.bus.fire(
@@ -314,20 +290,23 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
                         {
                             ATTR_DEVICE_ID: self.coordinator.device_id,
                             ATTR_DEVICE_NAME: self.device_name,
-                            ATTR_BATTERY_LOW: battery_low,
+                            ATTR_BATTERY_LOW: self.coordinator.battery_low,
                             ATTR_BATTERY_TYPE_AND_QUANTITY: self.coordinator.battery_type_and_quantity,
                             ATTR_BATTERY_TYPE: self.coordinator.battery_type,
                             ATTR_BATTERY_QUANTITY: self.coordinator.battery_quantity,
-                            ATTR_BATTERY_LEVEL: battery_level,
+                            ATTR_BATTERY_LEVEL: self.coordinator.rounded_battery_level,
                             ATTR_PREVIOUS_BATTERY_LEVEL: self._previous_battery_level,
                         },
                     )
 
                     _LOGGER.debug("battery_increased event fired")
 
-        self._previous_battery_level = battery_level
-        self._previous_state_last_changed = wrapped_battery_state.last_changed
-        self._previous_battery_low = battery_low
+                self.coordinator.last_reported = new_state.last_changed
+                self.coordinator.last_reported_level = self.coordinator.current_battery_level
+
+        self._previous_battery_level = self.coordinator.current_battery_level
+        self._previous_state_last_changed = new_state.last_changed
+        self._previous_battery_low = self.coordinator.battery_low
 
     async def async_added_to_hass(self) -> None:
         """Handle added to Hass."""
@@ -339,10 +318,10 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
             """Handle child updates."""
             await self.async_state_changed_listener(event)
 
-        if self._battery_entity_id:
+        if self.coordinator.wrapped_battery.entity_id:
             self.async_on_remove(
                 async_track_state_change_event(
-                    self.hass, [self._battery_entity_id], _async_state_changed_listener
+                    self.hass, [self.coordinator.wrapped_battery.entity_id], _async_state_changed_listener
                 )
             )
 
@@ -351,11 +330,11 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity):
 
         # Update entity options
         registry = er.async_get(self.hass)
-        if registry.async_get(self.entity_id) is not None and self._battery_entity_id:
+        if registry.async_get(self.entity_id) is not None and self.coordinator.wrapped_battery.entity_id:
             registry.async_update_entity_options(
                 self.entity_id,
                 DOMAIN,
-                {"entity_id": self._battery_entity_id},
+                {"entity_id": self.coordinator.wrapped_battery.entity_id},
             )
 
         await self.coordinator.async_config_entry_first_refresh()

@@ -10,10 +10,14 @@ from homeassistant.helpers.update_coordinator import (
     DataUpdateCoordinator,
 )
 
+from .common import isfloat
 from .store import BatteryNotesStorage
 
 from .const import (
     DOMAIN,
+    DOMAIN_CONFIG,
+    CONF_ENABLE_REPLACED,
+    CONF_ROUND_BATTERY,
     ATTR_REMOVE,
     LAST_REPLACED,
 )
@@ -27,17 +31,25 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
     device_id: str
     battery_type: str
     battery_quantity: int
-    battery_low: bool
     battery_low_threshold: int
+    last_reported: datetime = None
+    last_reported_level: float = None
+    wrapped_battery: RegistryEntry
+    current_battery_level: str = None
+    enable_replaced: bool = True
+    _round_battery: bool = False
 
     def __init__(
         self, hass, store: BatteryNotesStorage, wrapped_battery: RegistryEntry
     ):
         """Initialize."""
-        self.hass = hass
         self.store = store
         self.wrapped_battery = wrapped_battery
-        self.battery_low = False
+
+        if DOMAIN_CONFIG in hass.data[DOMAIN]:
+            domain_config: dict = hass.data[DOMAIN][DOMAIN_CONFIG]
+            self.enable_replaced = domain_config.get(CONF_ENABLE_REPLACED, True)
+            self._round_battery = domain_config.get(CONF_ROUND_BATTERY, False)
 
         super().__init__(hass, _LOGGER, name=DOMAIN)
 
@@ -49,7 +61,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
         return self.battery_type
 
     @property
-    def last_replaced(self) -> datetime:
+    def last_replaced(self) -> datetime | None:
         """Get the last replaced datetime."""
         device_entry = self.store.async_get_device(self.device_id)
         if device_entry:
@@ -60,9 +72,23 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
                 return last_replaced_date
         return None
 
-    def set_battery_low(self, value: bool):
-        """Battery low setter."""
-        self.battery_low = value
+    @property
+    def battery_low(self) -> bool:
+        """Check if battery low against threshold."""
+        if isfloat(self.current_battery_level):
+            return bool(
+                float(self.current_battery_level) < self.battery_low_threshold
+            )
+
+        return False
+
+    @property
+    def rounded_battery_level(self) -> float:
+        """Return the battery level, rounded if preferred."""
+        if isfloat(self.current_battery_level):
+            return round(float(self.current_battery_level), 0 if self.round_battery else 1)
+        else:
+            return self.current_battery_level
 
     async def _async_update_data(self):
         """Update data."""
