@@ -313,6 +313,7 @@ class BatteryNotesBatteryPlusSensor(
             return
 
         self.coordinator.current_battery_level = new_state.state
+        TODO: Need to handle initial add to get current level
 
         self._attr_available = True
 
