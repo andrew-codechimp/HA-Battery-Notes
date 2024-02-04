@@ -3650,6 +3650,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Oral-B",
+            "model": "IO Series 8/9",
+            "battery_type": "Rechargeable"
         }
     ]
 }
