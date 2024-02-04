@@ -1,4 +1,4 @@
-## 666 Devices in library
+## 667 Devices in library
 
 This file is auto generated, do not modify
 
@@ -152,6 +152,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |eQ-3                                            |HmIP-DLD                                                              |4x AA                     |
 |eQ-3                                            |HMIP-eTRV                                                             |2x AA                     |
 |eQ-3                                            |HMIP-eTRV-2                                                           |2x AA                     |
+|eQ-3                                            |HmIP-eTRV-2 I9F                                                       |2x AA                     |
 |eQ-3                                            |HMIP-eTRV-B                                                           |2x AA                     |
 |eQ-3                                            |HmIP-eTRV-B1                                                          |2x AA                     |
 |eQ-3                                            |HMIP-eTRV-C                                                           |2x AA                     |
