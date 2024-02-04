@@ -2807,6 +2807,11 @@
         },
         {
             "manufacturer": "TuYa",
+            "model": "Motion sensor (809WZT)",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "TuYa",
             "model": "Motion sensor (IH012-RT01)",
             "battery_type": "CR2450"
         },
@@ -3557,11 +3562,6 @@
         {
             "manufacturer": "Zooz",
             "model": "ZSE44",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "TuYa",
-            "model": "Motion sensor (809WZT)",
             "battery_type": "CR2450"
         }
     ]
