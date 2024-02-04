@@ -1,4 +1,4 @@
-## 658 Devices in library
+## 659 Devices in library
 
 This file is auto generated, do not modify
 
@@ -638,6 +638,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Xiaomi                                          |Temperature & humidity sensor (LYWSD03MMC)                            |CR2032                    |
 |Xiaomi                                          |Temperature/Humidity sensor                                           |CR2032                    |
 |Xiaomi                                          |WSDCGQ01LM                                                            |CR2032                    |
+|Xiaomi                                          |XMTZC01HM/XMTZC04HM                                                   |CR2032                    |
 |Xiaomi                                          |XMTZC02HM/XMTZC05HM/NUN4049CN                                         |4x AAA                    |
 |Xiaomi                                          |XMWSDJ04MMC                                                           |CR2450                    |
 |Xiaomi                                          |zigbee GZCGQ01LM (lumi.sen_ill.mgl01)                                 |CR2032                    |
