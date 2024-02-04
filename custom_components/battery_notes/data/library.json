@@ -3640,6 +3640,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "NUKI",
+            "model": "Nuki Door Sensor",
+            "battery_type": "ER14250"
         }
     ]
 }
