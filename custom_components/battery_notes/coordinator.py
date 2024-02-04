@@ -54,7 +54,6 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
     last_reported: datetime = None
     last_reported_level: float = None
     wrapped_battery: RegistryEntry
-    device: any
     _current_battery_level: str = None
     enable_replaced: bool = True
     _round_battery: bool = False
@@ -134,12 +133,11 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
 
                     _LOGGER.debug("battery_increased event fired")
 
-                self.last_reported = datetime.utcnow()
-                self.last_reported_level = self._current_battery_level
-
         if self._current_battery_level not in [STATE_UNAVAILABLE, STATE_UNKNOWN]:
+            self.last_reported = datetime.utcnow()
+            self.last_reported_level = self._current_battery_level
             self._previous_battery_low = self.battery_low
-            self._previous_battery_level = self.current_battery_level
+            self._previous_battery_level = self._current_battery_level
 
     @property
     def battery_type_and_quantity(self) -> str:
