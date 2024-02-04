@@ -2207,6 +2207,11 @@
             "battery_type": "CR1632"
         },
         {
+            "manufacturer": "SensorPush",
+            "model": "HTP.xw",
+            "battery_type": "CR2477"
+        },
+        {
             "manufacturer": "Sercomm Corp.",
             "model": "XHS2-SE",
             "battery_type": "CR2450"
@@ -3588,11 +3593,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "SensorPush",
-            "model": "HTP.xw",
-            "battery_type": "CR2477"
         }
     ]
 }
