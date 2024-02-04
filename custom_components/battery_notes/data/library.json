@@ -2964,6 +2964,11 @@
         },
         {
             "manufacturer": "TuYa",
+            "model": "Wireless switch with 6 buttons (TS0046)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "TuYa",
             "model": "Zigbee fingerbot plus (TS0001_fingerbot)",
             "battery_type": "CR2"
         },
@@ -3548,11 +3553,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "TuYa",
-            "model": "Wireless switch with 6 buttons (TS0046)",
-            "battery_type": "CR2032"
         }
     ]
 }
