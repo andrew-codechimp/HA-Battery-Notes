@@ -2001,6 +2001,11 @@
         },
         {
             "manufacturer": "Philips",
+            "model": "RWL020",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Philips",
             "model": "RWL021",
             "battery_type": "CR2450"
         },
@@ -3562,11 +3567,6 @@
         {
             "manufacturer": "Zooz",
             "model": "ZSE44",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Philips",
-            "model": "RWL020",
             "battery_type": "CR2450"
         }
     ]

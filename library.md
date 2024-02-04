@@ -1,4 +1,4 @@
-## 657 Devices in library
+## 658 Devices in library
 
 This file is auto generated, do not modify
 
@@ -371,6 +371,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Philips                                         |Hue motion sensor (9290030675)                                        |2x AAA                    |
 |Philips                                         |Hue smart button (8718699693985)                                      |CR2032                    |
 |Philips                                         |Hue wall switch module (929003017102)                                 |CR2450                    |
+|Philips                                         |RWL020                                                                |CR2450                    |
 |Philips                                         |RWL021                                                                |CR2450                    |
 |Philips                                         |RWL022                                                                |CR2032                    |
 |Philips                                         |SML001                                                                |2x AAA                    |
