@@ -41,7 +41,7 @@ The last time the battery of the device was replaced.
 A button to set the battery_last_replaced entity to now.
 
 ## Battery Low
-`sensor.{{device_name}}_battery_low`
+`sensor.{{device_name}}_battery_plus_low`
 
 A boolean sensor indicating if the battery is low, true when the battery is below the device or global threshold.
 
