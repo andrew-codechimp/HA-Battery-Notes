@@ -740,6 +740,12 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "ECOWITT",
+            "model": "GW1101",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Elexa Consumer Products Inc.",
             "model": "DMS01",
             "battery_type": "CR123A",
@@ -3629,12 +3635,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "ECOWITT",
-            "model": "GW1101",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
