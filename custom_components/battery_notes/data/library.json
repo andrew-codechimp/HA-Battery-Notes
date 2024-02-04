@@ -3532,6 +3532,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Loginovo",
+            "model": "ZG-101ZL",
+            "battery_type": "CR2032"
         }
     ]
 }
