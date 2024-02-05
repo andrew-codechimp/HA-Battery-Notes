@@ -3707,6 +3707,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Visonic",
+            "model": "MCW-K980",
+            "battery_type": "LS14250"
         }
     ]
 }
