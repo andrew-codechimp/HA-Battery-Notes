@@ -2253,6 +2253,12 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Remotec",
+            "model": "BW8510",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Ring",
             "model": "4AK1SZ",
             "battery_type": "Rechargeable"
@@ -3800,12 +3806,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Remotec",
-            "model": "BW8510",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }

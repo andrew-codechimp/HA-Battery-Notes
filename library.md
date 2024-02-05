@@ -1,4 +1,4 @@
-## 702 Devices in library
+## 703 Devices in library
 
 This file is auto generated, do not modify
 
@@ -418,6 +418,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Popp & Co                                       |POPE700168                                                            |2x AAA                    |
 |Powermax                                        |MCT-426                                                               |CR123A                    |
 |Qingping                                        |CGG1                                                                  |CR2032                    |
+|Remotec                                         |BW8510                                                                |2x AAA                    |
 |Ring                                            |4AK1SZ                                                                |Rechargeable              |
 |Ring                                            |Contact Sensor                                                        |2x CR2032                 |
 |Ring                                            |Doorbell 2                                                            |Rechargeable              |
