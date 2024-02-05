@@ -1,4 +1,4 @@
-## 685 Devices in library
+## 686 Devices in library
 
 This file is auto generated, do not modify
 
@@ -595,6 +595,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Visonic                                         |Magnetic door & window contact sensor (MCT-340 E)                     |CR2032                    |
 |Visonic                                         |MCT-302                                                               |CR2                       |
 |Visonic                                         |MCT-340 E                                                             |CR2032                    |
+|Visonic                                         |MCT-427                                                               |CR123A                    |
 |Visonic                                         |MCW-K980                                                              |LS14250                   |
 |Visonic                                         |MP-841                                                                |2x CR123A                 |
 |Visonic                                         |Next K9-85                                                            |CR123A                    |

@@ -3210,6 +3210,11 @@
         },
         {
             "manufacturer": "Visonic",
+            "model": "MCT-427",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Visonic",
             "model": "MCW-K980",
             "battery_type": "LS14250"
         },
@@ -3712,11 +3717,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Visonic",
-            "model": "MCT-427",
-            "battery_type": "CR123A"
         }
     ]
 }
