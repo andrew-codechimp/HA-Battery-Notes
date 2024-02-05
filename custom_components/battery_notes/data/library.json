@@ -105,6 +105,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "_TZ3000_mcxw5ehu",
+            "model": "TS0202",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "_TZ3000_mh9px7cq",
             "model": "TS0044",
             "battery_type": "A23"
@@ -3727,11 +3732,6 @@
         {
             "manufacturer": "Zooz",
             "model": "ZSE44",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "_TZ3000_mcxw5ehu",
-            "model": "TS0202",
             "battery_type": "CR2450"
         }
     ]
