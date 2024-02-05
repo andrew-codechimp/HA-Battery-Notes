@@ -174,6 +174,9 @@ class BatteryNotesButton(ButtonEntity):
         device_id: str,
     ) -> None:
         """Create a battery replaced button."""
+
+        super().__init__()
+
         device_registry = dr.async_get(hass)
 
         self.coordinator = coordinator
