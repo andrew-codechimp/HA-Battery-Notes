@@ -1,4 +1,4 @@
-## 681 Devices in library
+## 682 Devices in library
 
 This file is auto generated, do not modify
 
@@ -592,6 +592,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Vision Security                                 |ZP3111-5                                                              |2x AAA                    |
 |Vision Security                                 |ZS5101                                                                |CR123A                    |
 |Visonic                                         |Magnetic door & window contact sensor (MCT-340 E)                     |CR2032                    |
+|Visonic                                         |MCT-302                                                               |CR2                       |
 |Visonic                                         |MCT-340 E                                                             |CR2032                    |
 |Visonic                                         |MP-841                                                                |2x CR123A                 |
 |Wink Inc.                                       |Motion Sensor                                                         |CR123A                    |
