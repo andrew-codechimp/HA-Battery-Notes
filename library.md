@@ -1,4 +1,4 @@
-## 679 Devices in library
+## 680 Devices in library
 
 This file is auto generated, do not modify
 
@@ -374,6 +374,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |OpenEpaperLink                                  |ST‐GR29000 2.9                                                        |2x CR2450                 |
 |Oral-B                                          |Genius X                                                              |Rechargeable              |
 |Oral-B                                          |IO Series 6/7                                                         |Rechargeable              |
+|Oral-B                                          |IO Series 8/9                                                         |Rechargeable              |
 |Oras                                            |Electra Washbasin Faucet                                              |2CR5                      |
 |Orbit BHyve                                     |HT25-0000                                                             |2x AA                     |
 |ORVIBO                                          |e70f96b3773a4c9283c6862dbafb6a99                                      |CR2032                    |
