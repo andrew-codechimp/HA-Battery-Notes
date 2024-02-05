@@ -62,6 +62,12 @@
             "battery_type": "A23"
         },
         {
+            "manufacturer": "_TZ3000_bguser20",
+            "model": "TS0201",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "_TZ3000_bjawzodf",
             "model": "TY0201",
             "battery_type": "AAA",
@@ -3794,12 +3800,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "_TZ3000_bguser20",
-            "model": "TS0201",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
