@@ -3702,6 +3702,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Visonic",
+            "model": "Next K9-85",
+            "battery_type": "CR123A"
         }
     ]
 }
