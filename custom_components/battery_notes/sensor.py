@@ -279,7 +279,7 @@ class BatteryNotesBatteryPlusSensor(
                 identifiers=device_entry.identifiers,
             )
 
-            self.entity_id = f"sensor.{device_entry.name.lower()}_{description.key}"
+        self.entity_id = f"sensor.{coordinator.device_name.lower()}_{description.key}"
 
         entity_category = (
             device.wrapped_battery.entity_category if device.wrapped_battery else None
@@ -321,9 +321,7 @@ class BatteryNotesBatteryPlusSensor(
             self.async_write_ha_state()
             return
 
-        self.coordinator.current_battery_level = self.hass.states.get(
-            self.coordinator.wrapped_battery.entity_id
-        )
+        self.coordinator.current_battery_level = wrapped_battery_state.state
 
         self._attr_available = True
         self._attr_native_value = self.coordinator.rounded_battery_level
@@ -478,7 +476,7 @@ class BatteryNotesTypeSensor(RestoreSensor, SensorEntity):
                 identifiers=device_entry.identifiers,
             )
 
-            self.entity_id = f"sensor.{device_entry.name.lower()}_{description.key}"
+        self.entity_id = f"sensor.{coordinator.device_name.lower()}_{description.key}"
 
         self._battery_type = coordinator.battery_type
         self._battery_quantity = coordinator.battery_quantity
@@ -539,13 +537,16 @@ class BatteryNotesLastReplacedSensor(
     ) -> None:
         # pylint: disable=unused-argument
         """Initialize the sensor."""
-        super().__init__(coordinator)
+
         self._attr_device_class = description.device_class
         self._attr_has_entity_name = True
         self._attr_unique_id = unique_id
         self._device_id = coordinator.device_id
         self.entity_description = description
         self._native_value = None
+
+        super().__init__(
+            coordinator=coordinator)
 
         self._set_native_value(log_on_error=False)
 
@@ -559,7 +560,7 @@ class BatteryNotesLastReplacedSensor(
                 identifiers=device_entry.identifiers,
             )
 
-            self.entity_id = f"sensor.{device_entry.name.lower()}_{description.key}"
+            self.entity_id = f"sensor.{coordinator.device_name.lower()}_{description.key}"
 
     async def async_added_to_hass(self) -> None:
         """Handle added to Hass."""

@@ -188,7 +188,7 @@ class BatteryNotesButton(ButtonEntity):
                 identifiers=device.identifiers,
             )
 
-            self.entity_id = f"button.{device.name.lower()}_{description.key}"
+        self.entity_id = f"button.{coordinator.device_name.lower()}_{description.key}"
 
     async def async_added_to_hass(self) -> None:
         """Handle added to Hass."""

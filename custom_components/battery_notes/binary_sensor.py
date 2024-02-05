@@ -46,7 +46,6 @@ from .const import (
     ATTR_BATTERY_LOW_THRESHOLD,
 )
 
-from .device import BatteryNotesDevice
 from .coordinator import BatteryNotesCoordinator
 
 from .entity import (
@@ -150,7 +149,6 @@ async def async_setup_entry(
                     coordinator,
                     description,
                     f"{config_entry.entry_id}{description.unique_id_suffix}",
-                    device,
                 )
             ]
         )
@@ -168,11 +166,9 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity, EventEntity):
     """Represents a low battery threshold binary sensor."""
 
     _attr_should_poll = False
-    device_name = None
     _previous_battery_low = None
     _previous_battery_level = None
     _previous_state_last_changed = None
-    device: BatteryNotesDevice
 
     entity_description: BatteryNotesBinarySensorEntityDescription
 
@@ -182,7 +178,6 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity, EventEntity):
         coordinator: BatteryNotesCoordinator,
         description: BatteryNotesBinarySensorEntityDescription,
         unique_id: str,
-        device: BatteryNotesDevice,
     ) -> None:
         """Create a low battery binary sensor."""
         self._attr_event_types = [EVENT_BATTERY_THRESHOLD]
@@ -193,7 +188,8 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity, EventEntity):
         self.entity_description = description
         self._attr_unique_id = unique_id
         self._attr_has_entity_name = True
-        self.device = device
+
+        super().__init__()
 
         if coordinator.device_id and (
             device_entry := device_registry.async_get(coordinator.device_id)
@@ -203,8 +199,7 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity, EventEntity):
                 identifiers=device_entry.identifiers,
             )
 
-            self.entity_id = f"binary_sensor.{device.name.lower()}_{description.key}"
-            self.device_name = device.name
+            self.entity_id = f"binary_sensor.{coordinator.device_name.lower()}_{description.key}"
 
     @callback
     async def _async_handle_event(self, event) -> None:
