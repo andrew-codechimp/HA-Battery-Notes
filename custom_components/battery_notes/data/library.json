@@ -1870,6 +1870,11 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Motion Blinds, Coulisse B.V.",
+            "model": "RollerShutter",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Namron",
             "model": "Zigbee 4 channel switch K8 (black) (4512721)",
             "battery_type": "CR2450"
@@ -3733,11 +3738,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Motion Blinds, Coulisse B.V.",
-            "model": "RollerShutter",
-            "battery_type": "Rechargeable"
         }
     ]
 }
