@@ -1,4 +1,4 @@
-## 690 Devices in library
+## 691 Devices in library
 
 This file is auto generated, do not modify
 
@@ -348,6 +348,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Moes                                            |Universal smart IR remote control (UFO-R11)                           |2x AAA                    |
 |Mopeka IOT                                      |M1015                                                                 |AAA-Lithium               |
 |Mopeka IOT                                      |M1017                                                                 |CR2032                    |
+|Motion Blinds, Coulisse B.V.                    |HoneycombBlind                                                        |Rechargeable              |
 |Motion Blinds, Coulisse B.V.                    |RollerShutter                                                         |Rechargeable              |
 |Namron                                          |Zigbee 4 channel switch K8 (black) (4512721)                          |CR2450                    |
 |Neo                                             |NAS-AB06B2                                                            |18650                     |
