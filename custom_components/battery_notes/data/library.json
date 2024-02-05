@@ -2115,6 +2115,11 @@
             "battery_type": "18650"
         },
         {
+            "manufacturer": "Plugwise",
+            "model": "168-01",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "Poly-control",
             "model": "Danalock V3-BTZE",
             "battery_type": "CR123A",
@@ -3665,11 +3670,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Plugwise",
-            "model": "168-01",
-            "battery_type": "CR2032"
         }
     ]
 }

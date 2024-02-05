@@ -1,4 +1,4 @@
-## 676 Devices in library
+## 677 Devices in library
 
 This file is auto generated, do not modify
 
@@ -392,6 +392,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Philips                                         |SML002                                                                |2x AA                     |
 |Philips Hue                                     |SML001                                                                |2x AAA                    |
 |PLab                                            |HomeButtons                                                           |18650                     |
+|Plugwise                                        |168-01                                                                |CR2032                    |
 |Poly-control                                    |Danalock V3-BTZE                                                      |4x CR123A                 |
 |Popp                                            |Smart thermostat (701721)                                             |2x AA                     |
 |Popp & Co                                       |004407                                                                |LR14250                   |
