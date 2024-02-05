@@ -3712,6 +3712,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Visonic",
+            "model": "MCT-427",
+            "battery_type": "CR123A"
         }
     ]
 }
