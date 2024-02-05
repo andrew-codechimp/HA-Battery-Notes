@@ -1,4 +1,4 @@
-## 692 Devices in library
+## 701 Devices in library
 
 This file is auto generated, do not modify
 
@@ -67,6 +67,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Aeotec Ltd.                                     |ZWA039                                                                |CR2477                    |
 |Airthings                                       |View Radon                                                            |6x AA                     |
 |Airthings AS                                    |Wave Plus                                                             |2x AA                     |
+|Airthings AS                                    |Wave Radon                                                            |2x AA                     |
 |Alarm.com                                       |n/a                                                                   |CR123A                    |
 |Aldi                                            |MEGOS switch and dimming light remote control (141L100RC)             |CR2450                    |
 |Alecto                                          |Smoke detector (SMART-SMOKE10)                                        |2x AA                     |
@@ -78,8 +79,13 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |APC                                             |Back-UPS XS 1500M                                                     |Rechargeable              |
 |APC                                             |SRV 2K I -AR                                                          |APCRBCV204                |
 |Aqara                                           |Aqara Door and Window Sensor P2                                       |CR123A                    |
+|Aqara                                           |Door and window sensor (MCCGQ11LM)                                    |CR1632                    |
 |Aqara                                           |Smart smoke detector (JY-GZ-01AQ)                                     |CR17450                   |
 |Aqara                                           |SRTS-A01                                                              |2x AA                     |
+|Aqara                                           |Temperature and humidity sensor (WSDCGQ11LM)                          |CR2032                    |
+|Aqara                                           |Vibration sensor (DJT11LM)                                            |CR2032                    |
+|Aqara                                           |Water leak sensor (SJCGQ11LM)                                         |CR2032                    |
+|Aqara                                           |Wireless mini switch (WXKG11LM)                                       |CR2032                    |
 |Aqara                                           |WSDCGQ11LM                                                            |CR2032                    |
 |Aqara                                           |zigbee DJT11LM (lumi.vibration.aq1)                                   |CR2032                    |
 |Aqara                                           |zigbee MCCGQ11LM (lumi.sensor_magnet.aq2)                             |CR1632                    |
@@ -108,6 +114,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |AVM                                             |FRITZ!DECT 400                                                        |CR123A                    |
 |AVM                                             |FRITZ!DECT 440                                                        |2x AAA                    |
 |AVM                                             |FRITZ!DECT 440                                                        |2x AAA                    |
+|BlueMaestro                                     |Tempo Disc THD                                                        |CR2032                    |
 |Bosch                                           |ISW-ZPR1-WP13                                                         |4x AA                     |
 |Bosch                                           |Motion sensor (ISW-ZPR1-WP13)                                         |4x AA                     |
 |Bosch                                           |Radiator thermostat II (BTH-RA)                                       |2x AA                     |
@@ -234,6 +241,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Google                                          |Topaz-2.7                                                             |MANUAL                    |
 |Govee                                           |H5054                                                                 |2x AAA                    |
 |Govee                                           |H5072/H5075                                                           |2x AAA                    |
+|Govee                                           |H5074                                                                 |CR2477                    |
 |Govee                                           |H5101/H5102/H5177                                                     |AAA                       |
 |Govee                                           |H5179                                                                 |3x AA                     |
 |GoveeLife                                       |H5105                                                                 |CR2450                    |
@@ -434,6 +442,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Schlage                                         |BE469NX                                                               |4x AA                     |
 |Schneider Electric                              |Wiser radiator thermostat (WV704R0A0902)                              |2x AA                     |
 |Sengled                                         |E1D-G73                                                               |CR1632                    |
+|Sengled                                         |Smart window and door sensor (E1D-G73WNA)                             |CR1632                    |
 |SensorPush                                      |HTP.xw                                                                |CR2477                    |
 |Sercomm Corp.                                   |XHS2-SE                                                               |CR2450                    |
 |Shelly                                          |Shelly Door/Window 2                                                  |2x CR123A                 |
