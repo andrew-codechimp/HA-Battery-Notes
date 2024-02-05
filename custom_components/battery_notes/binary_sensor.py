@@ -43,7 +43,9 @@ from .const import (
     DOMAIN,
     DATA,
     EVENT_BATTERY_THRESHOLD,
+    EVENT_BATTERY_THRESHOLD_INTERNAL,
     ATTR_BATTERY_LOW_THRESHOLD,
+    ATTR_PREVIOUS_BATTERY_LEVEL,
 )
 
 from .coordinator import BatteryNotesCoordinator
@@ -203,7 +205,7 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity, EventEntity):
 
     @callback
     async def _async_handle_event(self, event) -> None:
-        if event.event_type == EVENT_BATTERY_THRESHOLD:
+        if event.event_type == EVENT_BATTERY_THRESHOLD_INTERNAL:
             self._attr_is_on = self.coordinator.battery_low
 
             self._attr_available = True
@@ -211,17 +213,26 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity, EventEntity):
             self.async_write_ha_state()
 
             _LOGGER.debug(
-                "%s battery_low changed: %s", self.coordinator.wrapped_battery.entity_id, self.coordinator.battery_low
+                "%s internal battery_low changed: %s", self.coordinator.wrapped_battery.entity_id, self.coordinator.battery_low
             )
 
             await self.coordinator.async_request_refresh()
 
-            self._trigger_event(event.event_type, event.data)
+            if event.data[ATTR_PREVIOUS_BATTERY_LEVEL]:
+                _LOGGER.debug(
+                    "%s triggering battery_low changed: %s", self.coordinator.wrapped_battery.entity_id, self.coordinator.battery_low
+                )
+
+                self.hass.bus.async_fire(
+                    EVENT_BATTERY_THRESHOLD,
+                    event.data
+                )
+                # self._trigger_event(EVENT_BATTERY_THRESHOLD, event.data)
 
     async def async_added_to_hass(self) -> None:
         """Handle added to Hass."""
 
-        self.hass.bus.async_listen(EVENT_BATTERY_THRESHOLD, self._async_handle_event)
+        self.hass.bus.async_listen(EVENT_BATTERY_THRESHOLD_INTERNAL, self._async_handle_event)
 
         self._attr_is_on = self.coordinator.battery_low
         self._attr_available = True

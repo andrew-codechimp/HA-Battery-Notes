@@ -57,6 +57,7 @@ DATA = "data"
 SERVICE_BATTERY_REPLACED = "set_battery_replaced"
 SERVICE_DATA_DATE_TIME_REPLACED = "datetime_replaced"
 
+EVENT_BATTERY_THRESHOLD_INTERNAL = "battery_notes_battery_threshold_internal"
 EVENT_BATTERY_THRESHOLD = "battery_notes_battery_threshold"
 EVENT_BATTERY_INCREASED = "battery_notes_battery_increased"
 
