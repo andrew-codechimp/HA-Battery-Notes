@@ -1029,6 +1029,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Eufy Security",
+            "model": "T8213",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Eurotronic",
             "model": "Spirit Zigbee wireless heater thermostat (SPZB0001)",
             "battery_type": "AA",
@@ -3675,11 +3680,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Eufy Security",
-            "model": "T8213",
-            "battery_type": "Rechargeable"
         }
     ]
 }
