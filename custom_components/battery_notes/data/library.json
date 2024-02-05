@@ -3722,6 +3722,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "_TZE200_cwnjrr72",
+            "model": "TS0601",
+            "battery_type": "AA",
+            "battery_quantity": 2
         }
     ]
 }
