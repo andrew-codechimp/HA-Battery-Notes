@@ -2170,6 +2170,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Powermax",
+            "model": "MCT-426",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "Qingping",
             "model": "CGG1",
             "battery_type": "CR2032"
@@ -3717,11 +3722,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Powermax",
-            "model": "MCT-426",
-            "battery_type": "CR123A"
         }
     ]
 }
