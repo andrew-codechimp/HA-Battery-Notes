@@ -179,7 +179,6 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity, CoordinatorEntity[Battery
         self.entity_description = description
         self._attr_unique_id = unique_id
         self._attr_has_entity_name = True
-        self._native_value = None
 
         super().__init__(coordinator=coordinator)
 
