@@ -1,4 +1,4 @@
-## 705 Devices in library
+## 706 Devices in library
 
 This file is auto generated, do not modify
 
@@ -62,7 +62,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Aeotec Ltd.                                     |ZWA003                                                                |LIR2450                   |
 |Aeotec Ltd.                                     |ZWA004                                                                |Rechargeable              |
 |Aeotec Ltd.                                     |ZWA005                                                                |CR123A                    |
-|Aeotec Ltd.                                     |ZWA008                                                                |ER14250                   |
+|Aeotec Ltd.                                     |ZWA008                                                                |LS14250                   |
 |Aeotec Ltd.                                     |ZWA009                                                                |CR2477                    |
 |Aeotec Ltd.                                     |ZWA012                                                                |LS14250                   |
 |Aeotec Ltd.                                     |ZWA019                                                                |LS14250                   |
@@ -208,7 +208,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Eufy Security                                   |T8213                                                                 |Rechargeable              |
 |Eurotronic                                      |Spirit Zigbee wireless heater thermostat (SPZB0001)                   |2x AA                     |
 |Eurotronics                                     |Spirit                                                                |2x AA                     |
-|Eve Systems                                     |Eve Door 20EBN9901                                                    |ER14250                   |
+|Eve Systems                                     |Eve Door 20EBN9901                                                    |LS14250                   |
 |Eve Systems                                     |Eve Motion 20EBY9901                                                  |2x AAA                    |
 |Everspring                                      |ST812                                                                 |2x AA                     |
 |eWeLink                                         |DS01                                                                  |CR2032                    |
@@ -222,10 +222,10 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Fantem                                          |4 in 1 multi sensor (ZB003-X)                                         |2x CR123A                 |
 |Feasycom                                        |FeasyBeacon FSC-BP108                                                 |CR3032                    |
 |Fibargroup                                      |FGCD001                                                               |CR123A                    |
-|Fibargroup                                      |FGDW002                                                               |ER14250                   |
+|Fibargroup                                      |FGDW002                                                               |LS14250                   |
 |Fibargroup                                      |FGFS101                                                               |CR123A                    |
 |Fibargroup                                      |FGFS101                                                               |CR123A                    |
-|Fibargroup                                      |FGK101                                                                |ER14250                   |
+|Fibargroup                                      |FGK101                                                                |LS14250                   |
 |Fibargroup                                      |FGKF601                                                               |CR2450                    |
 |Fibargroup                                      |FGMS001                                                               |CR123A                    |
 |Fibargroup                                      |FGSD002                                                               |CR123A                    |
@@ -260,7 +260,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Homematic                                       |HM-Sec-SCo                                                            |AAA                       |
 |Homematic                                       |HmIP-DSD-PCB                                                          |2x AAA                    |
 |Homematic                                       |HmIP-STHO-A                                                           |2x AA                     |
-|HomeSeer Technologies                           |HS-LS100+                                                             |ER14250                   |
+|HomeSeer Technologies                           |HS-LS100+                                                             |LS14250                   |
 |Honeywell                                       |TH6320ZW                                                              |3x AA                     |
 |Honeywell                                       |zigbee JTYJ-GD-01LM/BW (lumi.sensor_smoke)                            |2x CR123A                 |
 |Hunter Douglas                                  |Duette                                                                |12x AA                    |
@@ -379,7 +379,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Nortek Security & Control LLC                   |WADWAZ-1                                                              |CR123A                    |
 |Nortek Security & Control LLC                   |WADWAZ-1                                                              |CR123A                    |
 |NorthQ                                          |NQ-9121                                                               |2x AA                     |
-|NUKI                                            |Nuki Door Sensor                                                      |ER14250                   |
+|NUKI                                            |Nuki Door Sensor                                                      |LS14250                   |
 |Nuki                                            |Nuki Opener                                                           |4x AAA                    |
 |Nuki                                            |Nuki Smart Lock                                                       |4x AA                     |
 |Nuki Home Solutions GmbH                        |Nuki opener                                                           |4x AAA                    |
@@ -415,6 +415,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Plugwise                                        |168-01                                                                |CR2032                    |
 |Poly-control                                    |Danalock V3-BTZE                                                      |4x CR123A                 |
 |Popp                                            |Smart thermostat (701721)                                             |2x AA                     |
+|Popp & Co                                       |004001                                                                |PP3                       |
 |Popp & Co                                       |004407                                                                |LR14250                   |
 |Popp & Co                                       |POPE700168                                                            |2x AAA                    |
 |Powermax                                        |MCT-426                                                               |CR123A                    |

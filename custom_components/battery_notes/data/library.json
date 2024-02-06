@@ -310,7 +310,7 @@
         {
             "manufacturer": "Aeotec Ltd.",
             "model": "ZWA008",
-            "battery_type": "ER14250"
+            "battery_type": "LS14250"
         },
         {
             "manufacturer": "Aeotec Ltd.",
@@ -1123,7 +1123,7 @@
         {
             "manufacturer": "Eve Systems",
             "model": "Eve Door 20EBN9901",
-            "battery_type": "ER14250"
+            "battery_type": "LS14250"
         },
         {
             "manufacturer": "Eve Systems",
@@ -1196,7 +1196,7 @@
         {
             "manufacturer": "Fibargroup",
             "model": "FGDW002",
-            "battery_type": "ER14250"
+            "battery_type": "LS14250"
         },
         {
             "manufacturer": "Fibargroup",
@@ -1211,7 +1211,7 @@
         {
             "manufacturer": "Fibargroup",
             "model": "FGK101",
-            "battery_type": "ER14250"
+            "battery_type": "LS14250"
         },
         {
             "manufacturer": "Fibargroup",
@@ -1400,7 +1400,7 @@
         {
             "manufacturer": "HomeSeer Technologies",
             "model": "HS-LS100+",
-            "battery_type": "ER14250"
+            "battery_type": "LS14250"
         },
         {
             "manufacturer": "Honeywell",
@@ -2042,7 +2042,7 @@
         {
             "manufacturer": "NUKI",
             "model": "Nuki Door Sensor",
-            "battery_type": "ER14250"
+            "battery_type": "LS14250"
         },
         {
             "manufacturer": "Nuki",
@@ -2235,6 +2235,11 @@
             "model": "Smart thermostat (701721)",
             "battery_type": "AA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Popp & Co",
+            "model": "004001",
+            "battery_type": "PP3"
         },
         {
             "manufacturer": "Popp & Co",
