@@ -2238,6 +2238,11 @@
         },
         {
             "manufacturer": "Popp & Co",
+            "model": "004001",
+            "battery_type": "PP3"
+        },
+        {
+            "manufacturer": "Popp & Co",
             "model": "004407",
             "battery_type": "LR14250"
         },

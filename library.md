@@ -1,4 +1,4 @@
-## 705 Devices in library
+## 706 Devices in library
 
 This file is auto generated, do not modify
 
@@ -415,6 +415,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Plugwise                                        |168-01                                                                |CR2032                    |
 |Poly-control                                    |Danalock V3-BTZE                                                      |4x CR123A                 |
 |Popp                                            |Smart thermostat (701721)                                             |2x AA                     |
+|Popp & Co                                       |004001                                                                |PP3                       |
 |Popp & Co                                       |004407                                                                |LR14250                   |
 |Popp & Co                                       |POPE700168                                                            |2x AAA                    |
 |Powermax                                        |MCT-426                                                               |CR123A                    |
