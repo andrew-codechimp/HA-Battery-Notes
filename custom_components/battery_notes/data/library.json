@@ -3817,6 +3817,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Popp & Co",
+            "model": "004001",
+            "battery_type": "9-volt"
         }
     ]
 }
