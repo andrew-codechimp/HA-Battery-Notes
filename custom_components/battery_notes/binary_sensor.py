@@ -33,6 +33,8 @@ from homeassistant.helpers.reload import async_setup_reload_service
 from homeassistant.const import (
     CONF_NAME,
     CONF_DEVICE_ID,
+    STATE_UNAVAILABLE,
+    STATE_UNKNOWN,
 )
 
 from . import PLATFORMS
@@ -42,6 +44,8 @@ from .const import (
     DATA,
     ATTR_BATTERY_LOW_THRESHOLD,
 )
+
+from .common import isfloat
 
 from .coordinator import BatteryNotesCoordinator
 
@@ -211,6 +215,25 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity, CoordinatorEntity[Battery
     @callback
     def _handle_coordinator_update(self) -> None:
         """Handle updated data from the coordinator."""
+
+        if (
+            (
+                wrapped_battery_state := self.hass.states.get(
+                    self.coordinator.wrapped_battery.entity_id
+                )
+            )
+            is None
+            or wrapped_battery_state.state
+            in [
+                STATE_UNAVAILABLE,
+                STATE_UNKNOWN,
+            ]
+            or not isfloat(wrapped_battery_state.state)
+        ):
+            self._attr_is_on = None
+            self._attr_available = False
+            self.async_write_ha_state()
+            return
 
         self._attr_is_on = self.coordinator.battery_low
 
