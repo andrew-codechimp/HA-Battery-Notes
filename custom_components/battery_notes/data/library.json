@@ -2238,6 +2238,11 @@
         },
         {
             "manufacturer": "Popp & Co",
+            "model": "004001",
+            "battery_type": "PP3"
+        },
+        {
+            "manufacturer": "Popp & Co",
             "model": "004407",
             "battery_type": "LR14250"
         },
@@ -3817,11 +3822,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Popp & Co",
-            "model": "004001",
-            "battery_type": "PP3"
         }
     ]
 }
