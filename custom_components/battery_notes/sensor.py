@@ -293,7 +293,7 @@ class BatteryNotesBatteryPlusSensor(
         self._attr_native_unit_of_measurement = PERCENTAGE
 
     @callback
-    def async_state_changed_listener(
+    async def async_state_changed_listener(
         self, event: EventType[EventStateChangedData] | None = None
     ) -> None:
         # pylint: disable=unused-argument
@@ -323,6 +323,8 @@ class BatteryNotesBatteryPlusSensor(
 
         self.coordinator.current_battery_level = wrapped_battery_state.state
 
+        await self.coordinator.async_request_refresh()
+
         self._attr_available = True
         self._attr_native_value = self.coordinator.rounded_battery_level
         self._wrapped_attributes = wrapped_battery_state.attributes
@@ -333,11 +335,11 @@ class BatteryNotesBatteryPlusSensor(
         """Handle added to Hass."""
 
         @callback
-        def _async_state_changed_listener(
+        async def _async_state_changed_listener(
             event: EventType[EventStateChangedData] | None = None,
         ) -> None:
             """Handle child updates."""
-            self.async_state_changed_listener(event)
+            await self.async_state_changed_listener(event)
 
         if self.coordinator.wrapped_battery.entity_id:
             self.async_on_remove(
@@ -349,7 +351,7 @@ class BatteryNotesBatteryPlusSensor(
             )
 
         # Call once on adding
-        _async_state_changed_listener()
+        await _async_state_changed_listener()
 
         # Update entity options
         registry = er.async_get(self.hass)

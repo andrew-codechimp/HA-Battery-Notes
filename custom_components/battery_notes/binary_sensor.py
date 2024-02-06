@@ -21,16 +21,14 @@ from homeassistant.components.binary_sensor import (
     BinarySensorEntityDescription,
     BinarySensorDeviceClass,
 )
-
+from homeassistant.helpers.update_coordinator import (
+    CoordinatorEntity,
+)
 from homeassistant.helpers.entity import DeviceInfo, EntityCategory
 from homeassistant.helpers.event import (
     async_track_entity_registry_updated_event,
 )
 from homeassistant.helpers.reload import async_setup_reload_service
-
-from homeassistant.components.event import (
-    EventEntity,
-)
 
 from homeassistant.const import (
     CONF_NAME,
@@ -42,10 +40,7 @@ from . import PLATFORMS
 from .const import (
     DOMAIN,
     DATA,
-    EVENT_BATTERY_THRESHOLD,
-    EVENT_BATTERY_THRESHOLD_INTERNAL,
     ATTR_BATTERY_LOW_THRESHOLD,
-    ATTR_PREVIOUS_BATTERY_LEVEL,
 )
 
 from .coordinator import BatteryNotesCoordinator
@@ -164,15 +159,10 @@ async def async_setup_platform(
     await async_setup_reload_service(hass, DOMAIN, PLATFORMS)
 
 
-class BatteryNotesBatteryLowSensor(BinarySensorEntity, EventEntity):
+class BatteryNotesBatteryLowSensor(BinarySensorEntity, CoordinatorEntity[BatteryNotesCoordinator]):
     """Represents a low battery threshold binary sensor."""
 
     _attr_should_poll = False
-    _previous_battery_low = None
-    _previous_battery_level = None
-    _previous_state_last_changed = None
-
-    entity_description: BatteryNotesBinarySensorEntityDescription
 
     def __init__(
         self,
@@ -182,7 +172,6 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity, EventEntity):
         unique_id: str,
     ) -> None:
         """Create a low battery binary sensor."""
-        self._attr_event_types = [EVENT_BATTERY_THRESHOLD]
 
         device_registry = dr.async_get(hass)
 
@@ -190,8 +179,9 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity, EventEntity):
         self.entity_description = description
         self._attr_unique_id = unique_id
         self._attr_has_entity_name = True
+        self._native_value = None
 
-        super().__init__()
+        super().__init__(coordinator=coordinator)
 
         if coordinator.device_id and (
             device_entry := device_registry.async_get(coordinator.device_id)
@@ -203,40 +193,10 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity, EventEntity):
 
             self.entity_id = f"binary_sensor.{coordinator.device_name.lower()}_{description.key}"
 
-    @callback
-    async def _async_handle_event(self, event) -> None:
-        if event.event_type == EVENT_BATTERY_THRESHOLD_INTERNAL:
-            self._attr_is_on = self.coordinator.battery_low
-
-            self._attr_available = True
-
-            self.async_write_ha_state()
-
-            _LOGGER.debug(
-                "%s internal battery_low changed: %s", self.coordinator.wrapped_battery.entity_id, self.coordinator.battery_low
-            )
-
-            await self.coordinator.async_request_refresh()
-
-            if event.data[ATTR_PREVIOUS_BATTERY_LEVEL]:
-                _LOGGER.debug(
-                    "%s triggering battery_low changed: %s", self.coordinator.wrapped_battery.entity_id, self.coordinator.battery_low
-                )
-
-                self.hass.bus.async_fire(
-                    EVENT_BATTERY_THRESHOLD,
-                    event.data
-                )
-                # self._trigger_event(EVENT_BATTERY_THRESHOLD, event.data)
-
     async def async_added_to_hass(self) -> None:
         """Handle added to Hass."""
 
-        self.hass.bus.async_listen(EVENT_BATTERY_THRESHOLD_INTERNAL, self._async_handle_event)
-
-        self._attr_is_on = self.coordinator.battery_low
-        self._attr_available = True
-        self.async_write_ha_state()
+        await super().async_added_to_hass()
 
         # Update entity options
         registry = er.async_get(self.hass)
@@ -248,6 +208,16 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity, EventEntity):
             )
 
         await self.coordinator.async_config_entry_first_refresh()
+
+    @callback
+    def _handle_coordinator_update(self) -> None:
+        """Handle updated data from the coordinator."""
+
+        self._attr_is_on = self.coordinator.battery_low
+
+        self.async_write_ha_state()
+
+        _LOGGER.debug("%s binary sensor battery_low set to: %s", self.coordinator.wrapped_battery.entity_id, self.coordinator.battery_low)
 
     @property
     def extra_state_attributes(self) -> dict[str, str] | None:

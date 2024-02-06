@@ -25,7 +25,7 @@ from .const import (
     CONF_BATTERY_INCREASE_THRESHOLD,
     CONF_ENABLE_REPLACED,
     CONF_ROUND_BATTERY,
-    EVENT_BATTERY_THRESHOLD_INTERNAL,
+    EVENT_BATTERY_THRESHOLD,
     EVENT_BATTERY_INCREASED,
     DEFAULT_BATTERY_INCREASE_THRESHOLD,
     ATTR_DEVICE_ID,
@@ -82,30 +82,11 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
     def current_battery_level(self, value):
         self._current_battery_level = value
 
-        # Send an initial event internally to set the battery low indicator
-        if self._previous_battery_low is None:
-            self.hass.bus.async_fire(
-                EVENT_BATTERY_THRESHOLD_INTERNAL,
-                {
-                    ATTR_DEVICE_ID: self.device_id,
-                    ATTR_DEVICE_NAME: self.device_name,
-                    ATTR_BATTERY_LOW: self.battery_low,
-                    ATTR_BATTERY_TYPE_AND_QUANTITY: self.battery_type_and_quantity,
-                    ATTR_BATTERY_TYPE: self.battery_type,
-                    ATTR_BATTERY_QUANTITY: self.battery_quantity,
-                    ATTR_BATTERY_LEVEL: self.rounded_battery_level,
-                    ATTR_PREVIOUS_BATTERY_LEVEL: self._previous_battery_level,
-                },
-            )
-
-            _LOGGER.debug("initial internal battery_threshold event fired Low: %s", self.battery_low)
-        else:
-            # Standard event handlers, after initial setting of _previous_battery_low
-
+        if self._previous_battery_level is not None:
             # Battery low event
             if self.battery_low != self._previous_battery_low:
                 self.hass.bus.async_fire(
-                    EVENT_BATTERY_THRESHOLD_INTERNAL,
+                    EVENT_BATTERY_THRESHOLD,
                     {
                         ATTR_DEVICE_ID: self.device_id,
                         ATTR_DEVICE_NAME: self.device_name,
@@ -118,7 +99,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
                     },
                 )
 
-                _LOGGER.debug("internal battery_threshold event fired Low: %s", self.battery_low)
+                _LOGGER.debug("battery_threshold event fired Low: %s", self.battery_low)
 
             # Battery increased event
             increase_threshold = DEFAULT_BATTERY_INCREASE_THRESHOLD
@@ -147,7 +128,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
                             ATTR_BATTERY_LEVEL: self.rounded_battery_level,
                             ATTR_PREVIOUS_BATTERY_LEVEL: self._previous_battery_level,
                         },
-                    )
+                        )
 
                     _LOGGER.debug("battery_increased event fired")
 
