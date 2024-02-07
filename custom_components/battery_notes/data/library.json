@@ -3837,6 +3837,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "iMagic by GreatStar",
+            "model": "1117-S",
+            "battery_type": "CR123A"
         }
     ]
 }
