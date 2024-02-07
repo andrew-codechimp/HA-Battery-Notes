@@ -1,4 +1,4 @@
-## 707 Devices in library
+## 708 Devices in library
 
 This file is auto generated, do not modify
 
@@ -205,6 +205,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |eQ-3                                            |MAX! Radiator Thermostat                                              |2x AA                     |
 |eQ-3                                            |MAX! Wall Thermostat                                                  |2x AAA                    |
 |eQ-3                                            |MAX! Window Sensor                                                    |2x AAA                    |
+|Eufy Security                                   |T8113                                                                 |Rechargeable              |
 |Eufy Security                                   |T8210                                                                 |Rechargeable              |
 |Eufy Security                                   |T8213                                                                 |Rechargeable              |
 |Eurotronic                                      |Spirit Zigbee wireless heater thermostat (SPZB0001)                   |2x AA                     |
