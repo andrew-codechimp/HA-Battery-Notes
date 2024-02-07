@@ -13,7 +13,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |_TZ3000_26fmupbb                                |TS0203                                                                |CR2032                    |
 |_TZ3000_4fjiwweb                                |TS004F                                                                |CR2032                    |
 |_TZ3000_4ugnzsli                                |TS0203                                                                |2x AAA                    |
-|_TZ3000_4upl1fcj                                |TS0041                                                                |CR2032                    |
+|_TZ3000_4upl1fcj                                |TS0041                                                                |CR2430                    |
 |_TZ3000_6ygjfyll                                |TS0202                                                                |CR2450                    |
 |_TZ3000_7d8yme6f                                |TS0203                                                                |CR2032                    |
 |_TZ3000_8yhypbo7                                |TS0203                                                                |CR2032                    |
@@ -21,7 +21,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |_TZ3000_bguser20                                |TS0201                                                                |2x AAA                    |
 |_TZ3000_bjawzodf                                |TY0201                                                                |2x AAA                    |
 |_TZ3000_bzxlofth                                |TS0203                                                                |CR2032                    |
-|_TZ3000_dfgbtub0                                |TS0042                                                                |CR2032                    |
+|_TZ3000_dfgbtub0                                |TS0042                                                                |CR2430                    |
 |_TZ3000_dowj6gyi                                |TS0201                                                                |CR2450                    |
 |_TZ3000_ee8nrt2l                                |TS0044                                                                |CR2032                    |
 |_TZ3000_fllyghyj                                |TS0201                                                                |2x AAA                    |
