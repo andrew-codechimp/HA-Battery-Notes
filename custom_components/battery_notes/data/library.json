@@ -3827,6 +3827,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Eufy Security",
+            "model": "T8113",
+            "battery_type": "Rechargeable"
         }
     ]
 }
