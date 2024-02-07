@@ -115,6 +115,7 @@ class BatteryNotesDevice:
         )
 
         self.coordinator.device_id = device_id
+        self.coordinator.device_name = self.device_name
         self.coordinator.battery_type = config.data.get(CONF_BATTERY_TYPE)
         try:
             self.coordinator.battery_quantity = int(

@@ -174,6 +174,9 @@ class BatteryNotesButton(ButtonEntity):
         device_id: str,
     ) -> None:
         """Create a battery replaced button."""
+
+        super().__init__()
+
         device_registry = dr.async_get(hass)
 
         self.coordinator = coordinator
@@ -188,7 +191,7 @@ class BatteryNotesButton(ButtonEntity):
                 identifiers=device.identifiers,
             )
 
-            self.entity_id = f"button.{device.name.lower()}_{description.key}"
+        self.entity_id = f"button.{coordinator.device_name.lower()}_{description.key}"
 
     async def async_added_to_hass(self) -> None:
         """Handle added to Hass."""

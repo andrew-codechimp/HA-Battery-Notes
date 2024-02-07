@@ -18,7 +18,9 @@ See how to use this entity in the [community contributions](./community.md)
 | `battery_type_and_quantity` | `string` | The type of batteries with the quantity if more than 1 |
 | `battery_last_replaced` | `string` | The date and time the battery was last replaced |
 | `battery_low` | `bool` | An indicator of whether the battery is low based on the device or global threshold |
-| `battery_low_threshold` | `int` | The device or global threshold for when the battery is low. |
+| `battery_low_threshold` | `int` | The device or global threshold for when the battery is low |
+| `battery_last_reported` | `datetime` | The datetime when the battery level was last reported |
+| `battery_last_reported_level` | `float` | The level when the battery was last reported |
 
 ## Battery Type
 `sensor.{{device_name}}_battery_type`
@@ -41,7 +43,7 @@ The last time the battery of the device was replaced.
 A button to set the battery_last_replaced entity to now.
 
 ## Battery Low
-`sensor.{{device_name}}_battery_low`
+`sensor.{{device_name}}_battery_plus_low`
 
 A boolean sensor indicating if the battery is low, true when the battery is below the device or global threshold.
 

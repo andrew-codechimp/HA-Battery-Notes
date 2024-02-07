@@ -86,6 +86,12 @@
                     },
                     "battery_low_threshold": {
                         "name": "Seuil bas de la batterie"
+                    },
+                    "battery_last_reported": {
+                        "name": "Batterie signalée pour la dernière fois"
+                    },
+                    "battery_last_reported_level": {
+                        "name": "Dernier niveau de batterie signalé"
                     }
                 }
             },
