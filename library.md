@@ -1,4 +1,4 @@
-## 709 Devices in library
+## 710 Devices in library
 
 This file is auto generated, do not modify
 
@@ -300,6 +300,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |IKEA of Sweden                                  |TREDANSEN block-out cellul blind                                      |Rechargeable              |
 |IKEA of Sweden                                  |VALLHORN Wireless Motion Sensor                                       |2x AAA                    |
 |iMagic by GreatStar                             |1116-S                                                                |CR2                       |
+|iMagic by GreatStar                             |1117-S                                                                |CR123A                    |
 |INKBIRD                                         |IBS-TH                                                                |2x AAA                    |
 |INKBIRD                                         |IBS-TH2/P01B                                                          |2x AAA                    |
 |iNode                                           |iNode Energy Meter                                                    |CR2032                    |
