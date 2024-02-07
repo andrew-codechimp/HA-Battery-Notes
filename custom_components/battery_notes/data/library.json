@@ -3087,6 +3087,11 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Tuya",
+            "model": "Smoke Detector (lsjnzox4skgduemo)",
+            "battery_type": "PP3"
+        },
+        {
             "manufacturer": "TuYa",
             "model": "Smoke sensor (TS0205)",
             "battery_type": "CR123"
@@ -3832,11 +3837,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Smoke Detector (lsjnzox4skgduemo)",
-            "battery_type": "PP3"
         }
     ]
 }
