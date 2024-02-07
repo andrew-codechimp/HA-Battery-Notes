@@ -76,10 +76,12 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
 
     @property
     def current_battery_level(self):
+        """Get the current battery level."""
         return self._current_battery_level
 
     @current_battery_level.setter
     def current_battery_level(self, value):
+        """Set the current battery level and fire events if valid."""
         self._current_battery_level = value
 
         if self._previous_battery_level is not None:
