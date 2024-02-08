@@ -201,15 +201,6 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity, CoordinatorEntity[Battery
 
         await super().async_added_to_hass()
 
-        # Update entity options
-        registry = er.async_get(self.hass)
-        if registry.async_get(self.entity_id) is not None and self.coordinator.wrapped_battery.entity_id:
-            registry.async_update_entity_options(
-                self.entity_id,
-                DOMAIN,
-                {"entity_id": self.coordinator.wrapped_battery.entity_id},
-            )
-
         await self.coordinator.async_config_entry_first_refresh()
 
     @callback

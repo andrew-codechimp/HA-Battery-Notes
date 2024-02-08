@@ -37,6 +37,10 @@ from homeassistant.helpers.update_coordinator import (
 from homeassistant.helpers.reload import async_setup_reload_service
 from homeassistant.helpers.typing import EventType
 
+from homeassistant.helpers.entity_registry import (
+    EVENT_ENTITY_REGISTRY_UPDATED,
+)
+
 from homeassistant.const import (
     CONF_NAME,
     CONF_DEVICE_ID,
@@ -236,7 +240,6 @@ async def async_setup_platform(
 
     await async_setup_reload_service(hass, DOMAIN, PLATFORMS)
 
-
 class BatteryNotesBatteryPlusSensor(
     SensorEntity, CoordinatorEntity[BatteryNotesCoordinator]
 ):
@@ -331,6 +334,64 @@ class BatteryNotesBatteryPlusSensor(
 
         self.async_write_ha_state()
 
+    async def _register_entity_id_change_listener(
+        self,
+        entity_id: str,
+        source_entity_id: str,
+    ) -> None:
+        """
+        When the user changes the entity id of the source entity,
+        we also need to change the battery notes plus config entry to reflect these changes
+        This method adds the necessary listener and handler to facilitate this
+        """
+
+        @callback
+        async def _entity_rename_listener(event: Event) -> None:
+            """Handle renaming of the entity"""
+            old_entity_id = event.data["old_entity_id"]
+            new_entity_id = event.data[CONF_ENTITY_ID]
+            _LOGGER.debug(
+                "Entity id has been changed, updating battery notes plus entity registry. old_id=%s, new_id=%s",
+                old_entity_id,
+                new_entity_id,
+            )
+
+            entity_registry = er.async_get(self.hass)
+            if (
+                entity_registry.async_get(entity_id) is not None
+            ):
+                entity_registry.async_update_entity_options(
+                    entity_id,
+                    DOMAIN,
+                    {"entity_id": new_entity_id},
+                )
+
+                new_wrapped_battery = entity_registry.async_get(new_entity_id)
+                self.coordinator.wrapped_battery = new_wrapped_battery
+
+                self.async_on_remove(
+                    async_track_state_change_event(
+                        self.hass,
+                        [self.coordinator.wrapped_battery.entity_id],
+                        self.async_state_changed_listener,
+                    )
+                )
+
+        @callback
+        def _filter_entity_id(event: Event) -> bool:
+            """Only dispatch the listener for update events concerning the source entity"""
+            return (
+                event.data["action"] == "update"
+                and "old_entity_id" in event.data
+                and event.data["old_entity_id"] == source_entity_id
+            )
+
+        self.hass.bus.async_listen(
+            EVENT_ENTITY_REGISTRY_UPDATED,
+            _entity_rename_listener,
+            event_filter=_filter_entity_id,
+        )
+
     async def async_added_to_hass(self) -> None:
         """Handle added to Hass."""
 
@@ -349,6 +410,11 @@ class BatteryNotesBatteryPlusSensor(
                     _async_state_changed_listener,
                 )
             )
+
+        await self._register_entity_id_change_listener(
+            self.entity_id,
+            self.coordinator.wrapped_battery.entity_id,
+        )
 
         # Call once on adding
         await _async_state_changed_listener()
