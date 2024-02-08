@@ -1,4 +1,4 @@
-## 710 Devices in library
+## 711 Devices in library
 
 This file is auto generated, do not modify
 
@@ -541,6 +541,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Third Reality, Inc                              |3RWS18BZ                                                              |2x AAA                    |
 |Tile                                            |T1301N                                                                |CR2032                    |
 |Trust                                           |COSensor-EM                                                           |CR123A                    |
+|Trust                                           |ZYCT-202                                                              |CR2450                    |
 |TS0041                                          |_TZ3000_itb0omhv                                                      |CR2032                    |
 |TS0042                                          |_TZ3000_dfgbtub0                                                      |CR2032                    |
 |TS0042                                          |_TZ3000_ftwuvum5                                                      |CR2032                    |
