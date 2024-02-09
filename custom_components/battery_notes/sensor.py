@@ -339,15 +339,11 @@ class BatteryNotesBatteryPlusSensor(
         entity_id: str,
         source_entity_id: str,
     ) -> None:
-        """
-        When the user changes the entity id of the source entity,
-        we also need to change the battery notes plus config entry to reflect these changes
-        This method adds the necessary listener and handler to facilitate this
-        """
+        """Listen for battery entity_id changes and update battery_plus."""
 
         @callback
         async def _entity_rename_listener(event: Event) -> None:
-            """Handle renaming of the entity"""
+            """Handle renaming of the entity."""
             old_entity_id = event.data["old_entity_id"]
             new_entity_id = event.data[CONF_ENTITY_ID]
             _LOGGER.debug(
@@ -380,7 +376,7 @@ class BatteryNotesBatteryPlusSensor(
 
         @callback
         def _filter_entity_id(event: Event) -> bool:
-            """Only dispatch the listener for update events concerning the source entity"""
+            """Only dispatch the listener for update events concerning the source entity."""
             return (
                 event.data["action"] == "update"
                 and "old_entity_id" in event.data
