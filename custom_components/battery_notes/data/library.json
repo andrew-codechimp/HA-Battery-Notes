@@ -3148,6 +3148,12 @@
         },
         {
             "manufacturer": "TuYa",
+            "model": "Temperature and humidity sensor (ZTH01)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "TuYa",
             "model": "Temperature and humidity sensor (ZTH05)",
             "battery_type": "CR2032"
         },
@@ -3853,12 +3859,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "TuYa",
-            "model": "Temperature and humidity sensor (ZTH01)",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
