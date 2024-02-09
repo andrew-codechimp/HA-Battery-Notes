@@ -96,7 +96,7 @@
                 }
             },
             "battery_type": {
-                "name": "Battery type",
+                "name": "Type de batterie",
                 "state_attributes": {
                     "battery_type": {
                         "name": "Type de batterie"
@@ -117,7 +117,7 @@
             "fields": {
                 "device_id": {
                     "description": "Entitée non remplacée.",
-                    "name": "Device"
+                    "name": "Appareil"
                 },
                 "datetime_replaced": {
                     "description": "Date de remplacement.",
