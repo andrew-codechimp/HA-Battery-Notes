@@ -5,7 +5,7 @@
 "preserve_hierarchy": true
 files: [
   {
-    "source": "/custom_components/mastodon_profile_stats/translations/en.json",
-    "translation": "/custom_components/mastodon_profile_stats/translations/%two_letters_code%.json",
+    "source": "/custom_components/battery_notes/translations/en.json",
+    "translation": "/custom_components/battery_notes/translations/%two_letters_code%.json",
   }
 ]
