@@ -1,4 +1,4 @@
-## 713 Devices in library
+## 714 Devices in library
 
 This file is auto generated, do not modify
 
@@ -701,6 +701,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Xiaomi                                          |zigbee WSDCGQ01LM (lumi.sensor_ht)                                    |CR2032                    |
 |Xiaomi                                          |zigbee WXKG01LM (lumi.sensor_switch)                                  |CR2032                    |
 |Xiaomi                                          |zigbee WXKG01LM (lumi.sensor_switch)                                  |CR2032                    |
+|Yale                                            |420D                                                                  |4x AA                     |
 |Yale                                            |YRD210                                                                |4x AA                     |
 |Yale                                            |YRD220/240 TSDB                                                       |4x AA                     |
 |Yale                                            |YRD450-ZW3                                                            |4x AA                     |
