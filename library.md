@@ -1,4 +1,4 @@
-## 710 Devices in library
+## 713 Devices in library
 
 This file is auto generated, do not modify
 
@@ -541,6 +541,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Third Reality, Inc                              |3RWS18BZ                                                              |2x AAA                    |
 |Tile                                            |T1301N                                                                |CR2032                    |
 |Trust                                           |COSensor-EM                                                           |CR123A                    |
+|Trust                                           |ZYCT-202                                                              |CR2450                    |
 |TS0041                                          |_TZ3000_itb0omhv                                                      |CR2032                    |
 |TS0042                                          |_TZ3000_dfgbtub0                                                      |CR2032                    |
 |TS0042                                          |_TZ3000_ftwuvum5                                                      |CR2032                    |
@@ -583,6 +584,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |TuYa                                            |Temperature & humidity sensor with display (TS0201)                   |2x AAA                    |
 |TuYa                                            |Temperature and humidity sensor (TH02Z)                               |2x AAA                    |
 |TuYa                                            |Temperature and humidity sensor (ZG-227Z)                             |CR2450                    |
+|TuYa                                            |Temperature and humidity sensor (ZTH01)                               |2x AAA                    |
 |TuYa                                            |Temperature and humidity sensor (ZTH05)                               |CR2032                    |
 |Tuya                                            |TRV602 (_TZE200_rtrmfadk)                                             |3x AAA                    |
 |TuYa                                            |TS0042                                                                |CR2032                    |
@@ -711,6 +713,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |YoLink                                          |VibrationSensor                                                       |2x AAA                    |
 |Zipato                                          |HS1SA                                                                 |CR123A                    |
 |Zooz                                            |ZEN34                                                                 |2x CR2032                 |
+|Zooz                                            |ZSE40                                                                 |2x AAA                    |
 |Zooz                                            |ZSE40 700                                                             |CR123A                    |
 |Zooz                                            |ZSE41                                                                 |CR2032                    |
 |Zooz                                            |ZSE42                                                                 |CR2032                    |

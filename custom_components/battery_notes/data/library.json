@@ -2917,6 +2917,11 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "Trust",
+            "model": "ZYCT-202",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "TS0041",
             "model": "_TZ3000_itb0omhv",
             "battery_type": "CR2032"
@@ -3140,6 +3145,12 @@
             "manufacturer": "TuYa",
             "model": "Temperature and humidity sensor (ZG-227Z)",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "TuYa",
+            "model": "Temperature and humidity sensor (ZTH01)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "TuYa",
@@ -3816,6 +3827,12 @@
             "manufacturer": "Zooz",
             "model": "ZEN34",
             "battery_type": "CR2032",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Zooz",
+            "model": "ZSE40",
+            "battery_type": "AAA",
             "battery_quantity": 2
         },
         {
