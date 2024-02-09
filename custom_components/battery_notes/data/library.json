@@ -3859,6 +3859,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Bosh",
+            "model": "Smoke alarm detector (BSD-2)",
+            "battery_type": "lifespan 10 years"
         }
     ]
 }
