@@ -8,7 +8,7 @@ Battery Notes uses Crowdin to make contributing easy.
 
 First register and join the translation project
 
-- If you don’t have a crowdin account yet, create one at https://crowdin.com
+- If you don’t have a Crowdin account yet, create one at [https://crowdin.com](https://crowdin.com)
 - Go to the [Battery Notes Crowdin project page](https://crowdin.com/project/battery-notes)
 - Click Join.
 
