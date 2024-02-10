@@ -2639,6 +2639,12 @@
             "battery_type": "CR2"
         },
         {
+            "manufacturer": "smartlife",
+            "model": "T & H Sensor (lf36y5nwb8jkxwgg)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "SmartThings",
             "model": "Button (IM6001-BTP01)",
             "battery_type": "CR2450"
@@ -3865,12 +3871,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "smartlife",
-            "model": "T & H Sensor (lf36y5nwb8jkxwgg)",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }

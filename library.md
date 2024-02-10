@@ -1,4 +1,4 @@
-## 714 Devices in library
+## 715 Devices in library
 
 This file is auto generated, do not modify
 
@@ -490,6 +490,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Simplisafe                                      |Smoke                                                                 |CR123A                    |
 |Siterwell                                       |Radiator valve with thermostat (GS361A-H04)                           |2x AA                     |
 |SMaBiT (Bitron Video)                           |Compact magnetic contact sensor (AV2010/21A)                          |CR2                       |
+|smartlife                                       |T & H Sensor (lf36y5nwb8jkxwgg)                                       |2x AAA                    |
 |SmartThings                                     |Button (IM6001-BTP01)                                                 |CR2450                    |
 |SmartThings                                     |moisturev4                                                            |CR2                       |
 |SmartThings                                     |Motion sensor (2016 model) (STS-IRM-250)                              |CR2477                    |
