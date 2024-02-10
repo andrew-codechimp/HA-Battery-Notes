@@ -3877,6 +3877,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "HEIMAN",
+            "model": "Smart motion sensor (HS3MS) by HEIMAN",
+            "battery_type": "CR123A"
         }
     ]
 }
