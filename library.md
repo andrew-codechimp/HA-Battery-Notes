@@ -1,4 +1,4 @@
-## 715 Devices in library
+## 716 Devices in library
 
 This file is auto generated, do not modify
 
@@ -580,6 +580,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |TuYa                                            |Smoke sensor (TS0205)                                                 |CR123                     |
 |TuYa                                            |Smoke sensor (TS0601_smoke_1)                                         |2x AAA                    |
 |TuYa                                            |Soil sensor (TS0601_soil)                                             |2x AA                     |
+|TuYa                                            |T & H Sensor (lf36y5nwb8jkxwgg)                                       |2x AAA                    |
 |TuYa                                            |Temperature & humidity sensor (IH-K009)                               |CR2450                    |
 |TuYa                                            |Temperature & humidity sensor (WSD500A)                               |2x AAA                    |
 |TuYa                                            |Temperature & humidity sensor with display (TS0201)                   |2x AAA                    |

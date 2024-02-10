@@ -3126,6 +3126,12 @@
         },
         {
             "manufacturer": "TuYa",
+            "model": "T & H Sensor (lf36y5nwb8jkxwgg)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "TuYa",
             "model": "Temperature & humidity sensor (IH-K009)",
             "battery_type": "CR2450"
         },
@@ -3871,12 +3877,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "TuYa",
-            "model": "T & H Sensor (lf36y5nwb8jkxwgg)",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
