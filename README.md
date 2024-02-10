@@ -61,6 +61,10 @@ To get full use of the integration, please visit the [docs](https://andrew-codec
 
 To add a device definition to the battery library so that it will be automatically configured fill out the above form or see the [docs](https://andrew-codechimp.github.io/HA-Battery-Notes/library) for adding via pull request.
 
+## Translations
+
+To add a new language translation to Battery Notes see [here](https://andrew-codechimp.github.io/HA-Battery-Notes/translations)
+
 ## Contributions are welcome!
 
 If you want to contribute to this please read the [Contribution guidelines](CONTRIBUTING.md).

@@ -2,8 +2,8 @@ name: Crowdin download
 
 on:
   workflow_dispatch:
-  # schedule:
-  #   - cron: '0 * * * *'
+  schedule:
+    - cron: "0 0 * * *"
 
 permissions: write-all
 
