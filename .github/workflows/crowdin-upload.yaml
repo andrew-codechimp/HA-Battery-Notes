@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - custom_components/mastodon_profile_stats/translations/*
-    branches: [ master ]
+    branches: [ main ]
   workflow_dispatch:
 
 jobs:
