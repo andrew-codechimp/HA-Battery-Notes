@@ -1,4 +1,4 @@
-## 721 Devices in library
+## 722 Devices in library
 
 This file is auto generated, do not modify
 
@@ -232,6 +232,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Fibargroup                                      |FGK101                                                                |LS14250                   |
 |Fibargroup                                      |FGKF601                                                               |CR2450                    |
 |Fibargroup                                      |FGMS001                                                               |CR123A                    |
+|Fibargroup                                      |FGPB-101                                                              |ER14250                   |
 |Fibargroup                                      |FGSD002                                                               |CR123A                    |
 |Fibargroup                                      |FGSS001                                                               |CR123A                    |
 |First Alert (BRK Brands Inc)                    |ZCOMBO                                                                |2x AA                     |
