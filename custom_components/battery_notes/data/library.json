@@ -3899,6 +3899,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Woox",
+            "model": "Smart garden irrigation control (R7060)",
+            "battery_type": "AA",
+            "battery_quantity": 4
         }
     ]
 }
