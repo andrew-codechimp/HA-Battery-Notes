@@ -51,6 +51,8 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
     battery_type: str
     battery_quantity: int
     battery_low_threshold: int
+    battery_low_template: str
+    battery_low_template_entity_id: str
     last_reported: datetime = None
     last_reported_level: float = None
     wrapped_battery: RegistryEntry
