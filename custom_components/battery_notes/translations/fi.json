@@ -4,8 +4,8 @@
             "user": {
                 "description": "If you need help with the configuration have a look here: https://github.com/andrew-codechimp/ha-battery-notes",
                 "data": {
-                    "device_id": "Apparaat",
-                    "name": "Naam"
+                    "device_id": "Device",
+                    "name": "Name"
                 },
                 "data_description": {
                     "name": "Leaving blank will take the name from the source device"
@@ -13,7 +13,7 @@
             },
             "battery": {
                 "data": {
-                    "battery_type": "Batterij Type",
+                    "battery_type": "Battery type",
                     "battery_quantity": "Battery quantity",
                     "battery_low_threshold": "Battery low threshold"
                 },
@@ -34,8 +34,8 @@
             "init": {
                 "description": "If you need help with the configuration have a look here: https://github.com/andrew-codechimp/ha-battery-notes",
                 "data": {
-                    "name": "Naam",
-                    "battery_type": "Batterij Type",
+                    "name": "Nimi",
+                    "battery_type": "Battery type",
                     "battery_quantity": "Battery quantity",
                     "battery_low_threshold": "Battery low threshold"
                 },
@@ -52,7 +52,7 @@
     "entity": {
         "binary_sensor": {
             "battery_low": {
-                "name": "Lage batterij",
+                "name": "Battery low",
                 "state_attributes": {
                     "battery_low_threshold": {
                         "name": "Battery low threshold"
@@ -67,10 +67,10 @@
         },
         "sensor": {
             "battery_plus": {
-                "name": "Batterij+",
+                "name": "Battery+",
                 "state_attributes": {
                     "battery_type": {
-                        "name": "Batterij Type"
+                        "name": "Battery type"
                     },
                     "battery_quantity": {
                         "name": "Battery quantity"
@@ -82,7 +82,7 @@
                         "name": "Battery last replaced"
                     },
                     "battery_low": {
-                        "name": "Lage batterij"
+                        "name": "Battery low"
                     },
                     "battery_low_threshold": {
                         "name": "Battery low threshold"
@@ -96,10 +96,10 @@
                 }
             },
             "battery_type": {
-                "name": "Batterij Type",
+                "name": "Battery type",
                 "state_attributes": {
                     "battery_type": {
-                        "name": "Batterij Type"
+                        "name": "Battery type"
                     },
                     "battery_quantity": {
                         "name": "Battery quantity"
@@ -117,11 +117,11 @@
             "fields": {
                 "device_id": {
                     "description": "Device that has had it's battery replaced.",
-                    "name": "Apparaat"
+                    "name": "Device"
                 },
                 "datetime_replaced": {
-                    "description": "Datum vervangen.",
-                    "name": "Datum"
+                    "description": "Date replaced.",
+                    "name": "Date"
                 }
             },
             "name": "Set battery replaced"
