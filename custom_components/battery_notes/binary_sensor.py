@@ -47,6 +47,7 @@ from .const import (
 
 from .common import isfloat
 
+from .device import BatteryNotesDevice
 from .coordinator import BatteryNotesCoordinator
 
 from .entity import (
@@ -122,7 +123,7 @@ async def async_setup_entry(
                 device_id, remove_config_entry_id=config_entry.entry_id
             )
 
-    coordinator = hass.data[DOMAIN][DATA].devices[config_entry.entry_id].coordinator
+    coordinator: BatteryNotesCoordinator = hass.data[DOMAIN][DATA].devices[config_entry.entry_id].coordinator
 
     config_entry.async_on_unload(
         async_track_entity_registry_updated_event(
@@ -144,9 +145,11 @@ async def async_setup_entry(
         device_class=BinarySensorDeviceClass.BATTERY,
     )
 
-    device = hass.data[DOMAIN][DATA].devices[config_entry.entry_id]
+    device: BatteryNotesDevice = hass.data[DOMAIN][DATA].devices[config_entry.entry_id]
 
-    if device.wrapped_battery is not None:
+    if device.wrapped_battery is not None or (
+        coordinator.battery_low_template is not None and
+          coordinator.battery_low_template_entity_id is not None):
         async_add_entities(
             [
                 BatteryNotesBatteryLowSensor(
