@@ -34,6 +34,17 @@ Once you have [installed the integration](https://github.com/andrew-codechimp/HA
 
     The library is updated automatically with new devices approximately every 24 hours from starting Home Assistant, if you have added a device to the library using [this form](https://github.com/andrew-codechimp/HA-Battery-Notes/issues/new?template=new_device_request.yml&title=[Device]%3A+) then this will take about a day to be discovered once it's approved and added.
 
+## Battery Low Template
+This is for advanced use where a device does not have a typical battery percentage but still provides an indication of the level, such as a string, boolean or voltage.  
+You can specify a template that must return true when the battery is deemed low.  
+The entity must be selected to allow Battery Notes to track it for changes, this is usually the entity specified in the template.  
+
+Example templates  
+```
+{{ states('sensor.mysensor_battery_low') }}
+{{ states('sensor.mysensor_battery_level') == "Low" }}
+{{ float(states('sensor.mysensor_battery_voltage')) < 1 }}
+```
 
 ## Community Contributions
 
