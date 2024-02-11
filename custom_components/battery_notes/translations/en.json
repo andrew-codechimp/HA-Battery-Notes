@@ -16,11 +16,13 @@
                     "battery_type": "Battery type",
                     "battery_quantity": "Battery quantity",
                     "battery_low_threshold": "Battery low threshold",
-                    "battery_low_template": "Battery low template"
+                    "battery_low_template": "Battery low template",
+                    "battery_low_template_entity_id": "Battery low template entity"
                 },
                 "data_description": {
                     "battery_low_threshold": "0 will use the global default threshold",
-                    "battery_low_template": "Template to determine a battery is low, should return true if low, only needed for non-standard batteries"
+                    "battery_low_template": "Template to determine a battery is low, should return true if low. Only needed for non-standard batteries",
+                    "battery_low_template_entity_id": "Entity to watch for template evaluation, usually the entity referenced in the template. Only needed for non-standard batteries"
                 }
             }
         },
@@ -40,12 +42,14 @@
                     "battery_type": "Battery type",
                     "battery_quantity": "Battery quantity",
                     "battery_low_threshold": "Battery low threshold",
-                    "battery_low_template": "Battery low template"
+                    "battery_low_template": "Battery low template",
+                    "battery_low_template_entity_id": "Battery low template entity"
                 },
                 "data_description": {
                     "name": "Leaving blank will take the name from the source device",
                     "battery_low_threshold": "0 will use the global default threshold",
-                    "battery_low_template": "Template to determine a battery is low, should return true if low, only needed for non-standard batteries"
+                    "battery_low_template": "Template to determine a battery is low, should return true if low. Only needed for non-standard batteries",
+                    "battery_low_template_entity_id": "Entity to watch for template evaluation, usually the entity referenced in the template. Only needed for non-standard batteries"
                 }
             }
         },
