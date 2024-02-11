@@ -680,7 +680,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Xiaomi                                          |DJT11LM                                                               |CR2032                    |
 |Xiaomi                                          |GZCGQ01LM                                                             |CR2450                    |
 |Xiaomi                                          |HHCCJCY01                                                             |CR2032                    |
-|Xiaomi                                          |LYWSD02                                                               |CR2430                    |
+|Xiaomi                                          |LYWSD02                                                               |2x CR2032                 |
 |Xiaomi                                          |LYWSD03MMC                                                            |CR2032                    |
 |Xiaomi                                          |LYWSD03MMC/MJWSD05MMC_PVVX                                            |CR2032                    |
 |Xiaomi                                          |LYWSDCGQ                                                              |AAA                       |
