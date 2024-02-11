@@ -3658,7 +3658,8 @@
         {
             "manufacturer": "Xiaomi",
             "model": "LYWSD02",
-            "battery_type": "CR2430"
+            "battery_type": "CR2032",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "Xiaomi",
