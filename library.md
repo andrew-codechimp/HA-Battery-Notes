@@ -1,4 +1,4 @@
-## 720 Devices in library
+## 721 Devices in library
 
 This file is auto generated, do not modify
 
@@ -632,6 +632,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Visonic                                         |MP-841                                                                |2x CR123A                 |
 |Visonic                                         |Next K9-85                                                            |CR123A                    |
 |Wink Inc.                                       |Motion Sensor                                                         |CR123A                    |
+|Woox                                            |Smart garden irrigation control (R7060)                               |4x AA                     |
 |Woox                                            |Smart siren (R7051)                                                   |Rechargeable              |
 |Woox                                            |Smart smoke alarm (R7049)                                             |2x AAA                    |
 |WyzeLabs                                        |WVOD1                                                                 |Rechargeable              |
