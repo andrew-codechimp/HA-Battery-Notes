@@ -1,4 +1,4 @@
-## 718 Devices in library
+## 719 Devices in library
 
 This file is auto generated, do not modify
 
@@ -451,6 +451,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Schlage                                         |BE469NX                                                               |4x AA                     |
 |Schlage                                         |be499WB                                                               |4x AA                     |
 |Schneider Electric                              |Wiser radiator thermostat (WV704R0A0902)                              |2x AA                     |
+|Secure Meters                                   |SRT321                                                                |2x AAA                    |
 |Sengled                                         |E1D-G73                                                               |CR1632                    |
 |Sengled                                         |Smart window and door sensor (E1D-G73WNA)                             |CR1632                    |
 |SensorPush                                      |HTP.xw                                                                |CR2477                    |
