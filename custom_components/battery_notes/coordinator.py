@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import logging
-from datetime import datetime
+from datetime import datetime, timezone
 
 from homeassistant.helpers.entity_registry import RegistryEntry
 
@@ -135,7 +135,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
                     _LOGGER.debug("battery_increased event fired")
 
         if self._current_battery_level not in [STATE_UNAVAILABLE, STATE_UNKNOWN]:
-            self.last_reported = datetime.utcnow()
+            self.last_reported = datetime.now(timezone.utc)
             self.last_reported_level = self._current_battery_level
             self._previous_battery_low = self.battery_low
             self._previous_battery_level = self._current_battery_level
