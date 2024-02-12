@@ -2,129 +2,129 @@
     "config": {
         "step": {
             "user": {
-                "description": "If you need help with the configuration have a look here: https://github.com/andrew-codechimp/ha-battery-notes",
+                "description": "Jos tarvitset apua asetuksissa, katso täältä: https://github.com/andrew-codechimp/ha-battery-notes",
                 "data": {
-                    "device_id": "Device",
-                    "name": "Name"
+                    "device_id": "Laite",
+                    "name": "Nimi"
                 },
                 "data_description": {
-                    "name": "Leaving blank will take the name from the source device"
+                    "name": "Tyhjäksi jättäminen ottaa nimen lähteen laitteesta"
                 }
             },
             "battery": {
                 "data": {
-                    "battery_type": "Battery type",
-                    "battery_quantity": "Battery quantity",
-                    "battery_low_threshold": "Battery low threshold"
+                    "battery_type": "Akun tyyppi",
+                    "battery_quantity": "Akkujen määrä",
+                    "battery_low_threshold": "Akun alhainen raja"
                 },
                 "data_description": {
-                    "battery_low_threshold": "0 will use the global default threshold"
+                    "battery_low_threshold": "0 käyttää yleistä oletusarvoa"
                 }
             }
         },
         "abort": {
-            "already_configured": "Device is already configured"
+            "already_configured": "Laite on jo määritelty"
         },
         "error": {
-            "unknown": "Unknown error occurred."
+            "unknown": "Tuntematon virhe."
         }
     },
     "options": {
         "step": {
             "init": {
-                "description": "If you need help with the configuration have a look here: https://github.com/andrew-codechimp/ha-battery-notes",
+                "description": "Jos tarvitset apua asetuksissa, katso täältä: https://github.com/andrew-codechimp/ha-battery-notes",
                 "data": {
                     "name": "Nimi",
-                    "battery_type": "Battery type",
-                    "battery_quantity": "Battery quantity",
-                    "battery_low_threshold": "Battery low threshold"
+                    "battery_type": "Akun tyyppi",
+                    "battery_quantity": "Akkujen määrä",
+                    "battery_low_threshold": "Akun alhainen raja"
                 },
                 "data_description": {
-                    "name": "Leaving blank will take the name from the source device",
-                    "battery_low_threshold": "0 will use the global default threshold"
+                    "name": "Tyhjäksi jättäminen ottaa nimen lähteen laitteesta",
+                    "battery_low_threshold": "0 käyttää yleistä oletusarvoa"
                 }
             }
         },
         "error": {
-            "unknown": "Unknown error occurred."
+            "unknown": "Tuntematon virhe."
         }
     },
     "entity": {
         "binary_sensor": {
             "battery_low": {
-                "name": "Battery low",
+                "name": "Akku vähissä",
                 "state_attributes": {
                     "battery_low_threshold": {
-                        "name": "Battery low threshold"
+                        "name": "Akun alhainen raja"
                     }
                 }
             }
         },
         "button": {
             "battery_replaced": {
-                "name": "Battery replaced"
+                "name": "Akku vaihdettu"
             }
         },
         "sensor": {
             "battery_plus": {
-                "name": "Battery+",
+                "name": "Akku+",
                 "state_attributes": {
                     "battery_type": {
-                        "name": "Battery type"
+                        "name": "Akun tyyppi"
                     },
                     "battery_quantity": {
-                        "name": "Battery quantity"
+                        "name": "Akkujen määrä"
                     },
                     "battery_type_and_quantity": {
-                        "name": "Battery type and quantity"
+                        "name": "Akun tyyppi ja määrä"
                     },
                     "battery_last_replaced": {
-                        "name": "Battery last replaced"
+                        "name": "Akku viimeksi vaihdettu"
                     },
                     "battery_low": {
-                        "name": "Battery low"
+                        "name": "Akku vähissä"
                     },
                     "battery_low_threshold": {
-                        "name": "Battery low threshold"
+                        "name": "Akun alhainen raja"
                     },
                     "battery_last_reported": {
-                        "name": "Battery last reported"
+                        "name": "Akku viimeksi raportoitu"
                     },
                     "battery_last_reported_level": {
-                        "name": "Battery last reported level"
+                        "name": "Akku viimeksi raportoitu taso"
                     }
                 }
             },
             "battery_type": {
-                "name": "Battery type",
+                "name": "Akun tyyppi",
                 "state_attributes": {
                     "battery_type": {
-                        "name": "Battery type"
+                        "name": "Akun tyyppi"
                     },
                     "battery_quantity": {
-                        "name": "Battery quantity"
+                        "name": "Akkujen määrä"
                     }
                 }
             },
             "battery_last_replaced": {
-                "name": "Battery last replaced"
+                "name": "Akku viimeksi vaihdettu"
             }
         }
     },
     "services": {
         "set_battery_replaced": {
-            "description": "Set the battery last replaced.",
+            "description": "Aseta akku viimeksi vaihdetuksi.",
             "fields": {
                 "device_id": {
-                    "description": "Device that has had it's battery replaced.",
-                    "name": "Device"
+                    "description": "Laite, jonka akku on vaihdettu.",
+                    "name": "Laite"
                 },
                 "datetime_replaced": {
-                    "description": "Date replaced.",
-                    "name": "Date"
+                    "description": "Päivä, jolloin vaihdettu.",
+                    "name": "Päivä"
                 }
             },
-            "name": "Set battery replaced"
+            "name": "Aseta akku vaihdetuksi"
         }
     }
 }
