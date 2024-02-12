@@ -3960,6 +3960,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "b5g40alm",
+            "battery_type": "CR2450"
         }
     ]
 }
