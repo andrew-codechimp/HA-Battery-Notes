@@ -3965,6 +3965,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "haozee",
+            "model": "3towulqd",
+            "battery_type": "CR2450"
         }
     ]
 }
