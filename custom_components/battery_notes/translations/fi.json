@@ -8,7 +8,7 @@
                     "name": "Nimi"
                 },
                 "data_description": {
-                    "name": "Tyhjäksi jättäminen ottaa nimen lähteen laitteesta"
+                    "name": "Tyhjäksi jättäminen ottaa nimen lähdelaitteesta"
                 }
             },
             "battery": {
@@ -40,7 +40,7 @@
                     "battery_low_threshold": "Akun alhainen raja"
                 },
                 "data_description": {
-                    "name": "Tyhjäksi jättäminen ottaa nimen lähteen laitteesta",
+                    "name": "Tyhjäksi jättäminen ottaa nimen lähdelaitteesta",
                     "battery_low_threshold": "0 käyttää yleistä oletusarvoa"
                 }
             }

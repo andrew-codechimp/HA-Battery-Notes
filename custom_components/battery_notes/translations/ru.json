@@ -2,18 +2,18 @@
     "config": {
         "step": {
             "user": {
-                "description": "Αν χρειάζεστε βοήθεια με τις ρυθμίσεις παραμέτρων ρίξτε μια ματιά εδώ: https://github.com/andrew-codechimp/ha-battery-notes",
+                "description": "If you need help with the configuration have a look here: https://github.com/andrew-codechimp/ha-battery-notes",
                 "data": {
-                    "device_id": "Συσκευή",
-                    "name": "Ονομα"
+                    "device_id": "Device",
+                    "name": "Name"
                 },
                 "data_description": {
-                    "name": "Αφήνοντάς το κενό θα πάρει το όνομα από τη συσκευή προέλευσης"
+                    "name": "Leaving blank will take the name from the source device"
                 }
             },
             "battery": {
                 "data": {
-                    "battery_type": "Τύπος μπαταρίας",
+                    "battery_type": "Battery type",
                     "battery_quantity": "Battery quantity",
                     "battery_low_threshold": "Battery low threshold"
                 },
