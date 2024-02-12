@@ -38,6 +38,8 @@ from .const import (
     ATTR_PREVIOUS_BATTERY_LEVEL,
     ATTR_REMOVE,
     LAST_REPLACED,
+    LAST_REPORTED,
+    LAST_REPORTED_LEVEL,
 )
 
 _LOGGER = logging.getLogger(__name__)
@@ -51,8 +53,6 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
     battery_type: str
     battery_quantity: int
     battery_low_threshold: int
-    last_reported: datetime = None
-    last_reported_level: float = None
     wrapped_battery: RegistryEntry
     _current_battery_level: str = None
     enable_replaced: bool = True
@@ -135,7 +135,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
                     _LOGGER.debug("battery_increased event fired")
 
         if self._current_battery_level not in [STATE_UNAVAILABLE, STATE_UNKNOWN]:
-            self.last_reported = datetime.now(timezone.utc)
+            self.last_reported = datetime.utcnow()
             self.last_reported_level = self._current_battery_level
             self._previous_battery_low = self.battery_low
             self._previous_battery_level = self._current_battery_level
@@ -160,6 +160,48 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
         return None
 
     @property
+    def last_reported(self) -> datetime | None:
+        """Get the last reported datetime."""
+        device_entry = self.store.async_get_device(self.device_id)
+        if device_entry:
+            if LAST_REPORTED in device_entry:
+                if device_entry[LAST_REPORTED]:
+                    last_reported_date = datetime.fromisoformat(
+                        str(device_entry[LAST_REPORTED]) + "+00:00"
+                    )
+                    return last_reported_date
+        return None
+
+    @last_reported.setter
+    def last_reported(self, value):
+        """Set the last reported datetime and store it."""
+        device_entry = {"battery_last_reported": value}
+
+        self.async_update_device_config(
+            device_id=self.device_id, data=device_entry
+        )
+
+    @property
+    def last_reported_level(self) -> float | None:
+        """Get the last reported level."""
+        device_entry = self.store.async_get_device(self.device_id)
+        if device_entry:
+            if LAST_REPORTED_LEVEL in device_entry:
+                if device_entry[LAST_REPORTED_LEVEL]:
+                    last_reported_level = float(device_entry[LAST_REPORTED_LEVEL])
+                    return self._rounded_level(last_reported_level)
+        return None
+
+    @last_reported_level.setter
+    def last_reported_level(self, value):
+        """Set the last reported level and store it."""
+        device_entry = {"battery_last_reported_level": value}
+
+        self.async_update_device_config(
+            device_id=self.device_id, data=device_entry
+        )
+
+    @property
     def battery_low(self) -> bool:
         """Check if battery low against threshold."""
         if isfloat(self.current_battery_level):
@@ -172,10 +214,14 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
     @property
     def rounded_battery_level(self) -> float:
         """Return the battery level, rounded if preferred."""
-        if isfloat(self.current_battery_level):
-            return round(float(self.current_battery_level), 0 if self._round_battery else 1)
+        return self._rounded_level(self.current_battery_level)
+
+    def _rounded_level(self, value) -> float:
+        """Round the level, if preferred."""
+        if isfloat(value):
+            return round(float(value), 0 if value else 1)
         else:
-            return self.current_battery_level
+            return value
 
     async def _async_update_data(self):
         """Update data."""
