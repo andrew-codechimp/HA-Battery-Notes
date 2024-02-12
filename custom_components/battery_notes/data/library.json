@@ -2760,6 +2760,12 @@
         },
         {
             "manufacturer": "SONOFF",
+            "model": "DW2-WI-FI-L",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "SONOFF",
             "model": "Motion sensor (SNZB-03)",
             "battery_type": "CR2450"
         },
@@ -3938,12 +3944,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "SONOFF",
-            "model": "DW2-WI-FI-L",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }

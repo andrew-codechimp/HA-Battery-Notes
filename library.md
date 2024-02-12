@@ -1,4 +1,4 @@
-## 727 Devices in library
+## 728 Devices in library
 
 This file is auto generated, do not modify
 
@@ -513,6 +513,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |SmartThings                                     |Water sensor (3315-S)                                                 |CR2                       |
 |SOMFY                                           |Sonesse 28 WF Li-Ion Roller                                           |MANUAL                    |
 |Sonoff                                          |Contact sensor (SNZB-04)                                              |CR2032                    |
+|SONOFF                                          |DW2-WI-FI-L                                                           |2x AAA                    |
 |SONOFF                                          |Motion sensor (SNZB-03)                                               |CR2450                    |
 |Sonoff                                          |SNZB-02                                                               |CR2450                    |
 |SONOFF                                          |SNZB-02D                                                              |CR2450                    |
