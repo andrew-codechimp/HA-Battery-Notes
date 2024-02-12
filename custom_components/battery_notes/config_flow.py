@@ -39,7 +39,6 @@ from .const import (
     DOMAIN_CONFIG,
     CONF_SHOW_ALL_DEVICES,
     CONF_BATTERY_LOW_TEMPLATE,
-    CONF_BATTERY_LOW_TEMPLATE_ENTITY_ID,
 )
 
 _LOGGER = logging.getLogger(__name__)
@@ -86,7 +85,6 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
     VERSION = CONFIG_VERSION
 
     data: dict
-    template_entity_ids = []
 
     @staticmethod
     @callback
@@ -158,13 +156,6 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                 self.data[
                     CONF_BATTERY_QUANTITY
                 ] = device_battery_details.battery_quantity
-
-            # Get entities for the device for use in battery step
-            self.template_entity_ids.clear
-            entity_registry = er.async_get(self.hass)
-            for entry in entity_registry.entities.values():
-                if entry.domain != DOMAIN and entry.device_id == device_id:
-                    self.template_entity_ids.append(entry.entity_id)
 
             return await self.async_step_battery()
 
@@ -239,12 +230,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                             min=0, max=99, mode=selector.NumberSelectorMode.BOX
                         ),
                     ),
-                    vol.Optional(CONF_BATTERY_LOW_TEMPLATE): selector.TemplateSelector(),
-                    vol.Optional(CONF_BATTERY_LOW_TEMPLATE_ENTITY_ID): selector.EntitySelector(
-                        config=selector.EntitySelectorConfig(
-                            include_entities=self.template_entity_ids
-                        )
-                    )
+                    vol.Optional(CONF_BATTERY_LOW_TEMPLATE): selector.TemplateSelector()
                 }
             ),
             errors=errors,
@@ -253,8 +239,6 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
 
 class OptionsFlowHandler(OptionsFlow):
     """Handle an option flow for BatteryNotes."""
-
-    template_entity_ids = []
 
     def __init__(self, config_entry: ConfigEntry) -> None:
         """Initialize options flow."""
@@ -265,7 +249,6 @@ class OptionsFlowHandler(OptionsFlow):
         self.battery_type: str = self.current_config.get(CONF_BATTERY_TYPE)
         self.battery_quantity: int = self.current_config.get(CONF_BATTERY_QUANTITY)
         self.battery_low_template: str = self.current_config.get(CONF_BATTERY_LOW_TEMPLATE)
-        self.battery_low_template_entity_id: str = self.current_config.get(CONF_BATTERY_LOW_TEMPLATE_ENTITY_ID)
 
     async def async_step_init(
         self,
@@ -274,13 +257,6 @@ class OptionsFlowHandler(OptionsFlow):
         """Handle options flow."""
         errors = {}
         self.current_config = dict(self.config_entry.data)
-
-        # Get entities for the device for use in battery step
-        self.template_entity_ids.clear
-        entity_registry = er.async_get(self.hass)
-        for entry in entity_registry.entities.values():
-            if entry.platform != DOMAIN and entry.device_id == self.source_device_id:
-                self.template_entity_ids.append(entry.entity_id)
 
         schema = self.build_options_schema()
         if user_input is not None:
@@ -356,12 +332,7 @@ class OptionsFlowHandler(OptionsFlow):
                         min=0, max=99, mode=selector.NumberSelectorMode.BOX
                     ),
                 ),
-                vol.Optional(CONF_BATTERY_LOW_TEMPLATE): selector.TemplateSelector(),
-                vol.Optional(CONF_BATTERY_LOW_TEMPLATE_ENTITY_ID): selector.EntitySelector(
-                    config=selector.EntitySelectorConfig(
-                        include_entities=self.template_entity_ids
-                    )
-                )
+                vol.Optional(CONF_BATTERY_LOW_TEMPLATE): selector.TemplateSelector()
             }
         )
 

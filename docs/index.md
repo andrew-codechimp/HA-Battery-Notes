@@ -37,7 +37,6 @@ Once you have [installed the integration](https://github.com/andrew-codechimp/HA
 ## Battery Low Template
 This is for advanced use where a device does not have a typical battery percentage but still provides an indication of the level, such as a string, boolean or voltage.  
 You can specify a template that must return true when the battery is deemed low.  
-The entity must be selected to allow Battery Notes to track it for changes, this is usually the entity specified in the template.  
 
 Example templates  
 ```
