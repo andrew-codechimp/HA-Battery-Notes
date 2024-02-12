@@ -1,4 +1,4 @@
-## 730 Devices in library
+## 731 Devices in library
 
 This file is auto generated, do not modify
 
@@ -88,6 +88,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Aqara                                           |Aqara Door and Window Sensor P2                                       |CR123A                    |
 |Aqara                                           |Cube (MFKZQ01LM)                                                      |CR2450                    |
 |Aqara                                           |Door and window sensor (MCCGQ11LM)                                    |CR1632                    |
+|Aqara                                           |RTCGQ11LM                                                             |CR2450                    |
 |Aqara                                           |Smart smoke detector (JY-GZ-01AQ)                                     |CR17450                   |
 |Aqara                                           |SRTS-A01                                                              |2x AA                     |
 |Aqara                                           |Temperature and humidity sensor (WSDCGQ11LM)                          |CR2032                    |
