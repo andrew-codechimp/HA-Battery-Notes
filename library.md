@@ -1,4 +1,4 @@
-## 731 Devices in library
+## 732 Devices in library
 
 This file is auto generated, do not modify
 
@@ -572,6 +572,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tuya                                            |_TZ3000_oxslv1c9                                                      |2x AAA                    |
 |Tuya                                            |_TZ3000_upgcbody                                                      |2x AAA                    |
 |TuYa                                            |Aegislink Wi-Fi Combination Alarm (cfet7ouwznslditf)                  |CR123A                    |
+|Tuya                                            |b5g40alm                                                              |CR2450                    |
 |TuYa                                            |Button scene switch (SH-SC07)                                         |CR2450                    |
 |Tuya                                            |dagu44fhznig1omo                                                      |2x AAA                    |
 |TuYa                                            |Door sensor (TS0203)                                                  |CR2032                    |
