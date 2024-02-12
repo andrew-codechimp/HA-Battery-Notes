@@ -116,7 +116,7 @@
             "description": "Set the battery last replaced.",
             "fields": {
                 "device_id": {
-                    "description": "Device that has had it's battery replaced.",
+                    "description": "Device that has had its battery replaced.",
                     "name": "Apparaat"
                 },
                 "datetime_replaced": {
