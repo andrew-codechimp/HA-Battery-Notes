@@ -1,4 +1,4 @@
-## 738 Devices in library
+## 739 Devices in library
 
 This file is auto generated, do not modify
 
@@ -379,6 +379,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Motion Blinds, Coulisse B.V.                    |HoneycombBlind                                                        |Rechargeable              |
 |Motion Blinds, Coulisse B.V.                    |RollerShutter                                                         |Rechargeable              |
 |Namron                                          |Zigbee 4 channel switch K8 (black) (4512721)                          |CR2450                    |
+|Neo                                             |Alarm (NAS-AB02B2)                                                    |CR123A Lithium            |
 |Neo                                             |NAS-AB06B2                                                            |18650                     |
 |Neo                                             |NAS-PD07                                                              |2x CR123A                 |
 |Neo                                             |Temperature & humidity sensor and alarm (NAS-AB02B0)                  |2x CR123A                 |

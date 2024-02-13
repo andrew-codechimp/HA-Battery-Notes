@@ -2032,6 +2032,11 @@
         },
         {
             "manufacturer": "Neo",
+            "model": "Alarm (NAS-AB02B2)",
+            "battery_type": "CR123A Lithium"
+        },
+        {
+            "manufacturer": "Neo",
             "model": "NAS-AB06B2",
             "battery_type": "18650"
         },
@@ -3996,11 +4001,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Neo",
-            "model": "Alarm (NAS-AB02B2)",
-            "battery_type": "CR123A Lithium"
         }
     ]
 }
