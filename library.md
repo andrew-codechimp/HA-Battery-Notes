@@ -1,4 +1,4 @@
-## 741 Devices in library
+## 742 Devices in library
 
 This file is auto generated, do not modify
 
@@ -85,6 +85,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |American Power Conversion                       |Back-UPS XS 1500M                                                     |Rechargeable              |
 |APC                                             |Back-UPS XS 1500M                                                     |Rechargeable              |
 |APC                                             |SRV 2K I -AR                                                          |APCRBCV204                |
+|Apple                                           |iPhone14,7                                                            |Rechargeable              |
 |Aqara                                           |Aqara Door and Window Sensor P2                                       |CR123A                    |
 |Aqara                                           |AS006                                                                 |CR1632                    |
 |Aqara                                           |Cube (MFKZQ01LM)                                                      |CR2450                    |
