@@ -454,6 +454,11 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "MCCGQ14LM",
+            "battery_type": "CR1632"
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "RTCGQ11LM",
             "battery_type": "CR2450"
         },
@@ -3985,11 +3990,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Aqara",
-            "model": "MCCGQ14LM",
-            "battery_type": "CR1632"
         }
     ]
 }
