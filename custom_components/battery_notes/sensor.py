@@ -457,16 +457,6 @@ class BatteryNotesBatteryPlusSensor(
                         self.coordinator.wrapped_battery.entity_id, hidden_by=None
                     )
 
-        def copy_custom_name(wrapped_battery: er.RegistryEntry) -> None:
-            """Copy the name set by user from the wrapped entity."""
-            if wrapped_battery.name is None:
-                return
-            registry.async_update_entity(
-                self.entity_id, name=wrapped_battery.name + "+"
-            )
-
-        copy_custom_name(self.coordinator.wrapped_battery)
-
         self.async_on_remove(
             self.coordinator.async_add_listener(self._handle_coordinator_update)
         )
@@ -639,7 +629,7 @@ class BatteryNotesLastReplacedSensor(
         # pylint: disable=unused-argument
         device_entry = self.coordinator.store.async_get_device(self._device_id)
         if device_entry:
-            if LAST_REPLACED in device_entry:
+            if LAST_REPLACED in device_entry and device_entry[LAST_REPLACED] is not None:
                 last_replaced_date = datetime.fromisoformat(
                     str(device_entry[LAST_REPLACED]) + "+00:00"
                 )
@@ -654,7 +644,7 @@ class BatteryNotesLastReplacedSensor(
 
         device_entry = self.coordinator.store.async_get_device(self._device_id)
         if device_entry:
-            if LAST_REPLACED in device_entry:
+            if LAST_REPLACED in device_entry and device_entry[LAST_REPLACED] is not None:
                 last_replaced_date = datetime.fromisoformat(
                     str(device_entry[LAST_REPLACED]) + "+00:00"
                 )
