@@ -33,7 +33,7 @@ def generate_device_list():
 
     for device in devices:
         if device.get("battery_quantity", 1) > 1:
-            battery_type_qty = f"{device['battery_quantity']}x {device['battery_type']}"
+            battery_type_qty = f"{device['battery_quantity']}× {device['battery_type']}"
         else:
             battery_type_qty = device["battery_type"]
         row = [

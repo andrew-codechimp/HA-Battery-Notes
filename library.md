@@ -1,4 +1,4 @@
-## 737 Devices in library
+## 740 Devices in library
 
 This file is auto generated, do not modify
 
@@ -271,6 +271,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |HEIMAN                                          |Smoke detector (HS1SA)                                                |CR123A                    |
 |HEIMAN                                          |Smoke detector (HS3SA/HS1SA)                                          |CR123A                    |
 |HEIMAN                                          |Water leakage sensor (HS1WL/HS3WL)                                    |2x AAA                    |
+|Hive                                            |Heating thermostat remote control (SLT3B)                             |4x AA                     |
 |Hive                                            |Heating thermostat remote control (SLT3C)                             |4x AA                     |
 |Homematic                                       |HM-RC-4-3                                                             |AAA                       |
 |Homematic                                       |HM-Sec-SCo                                                            |AAA                       |
@@ -379,6 +380,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Motion Blinds, Coulisse B.V.                    |HoneycombBlind                                                        |Rechargeable              |
 |Motion Blinds, Coulisse B.V.                    |RollerShutter                                                         |Rechargeable              |
 |Namron                                          |Zigbee 4 channel switch K8 (black) (4512721)                          |CR2450                    |
+|Neo                                             |Alarm (NAS-AB02B2)                                                    |CR123A Lithium            |
 |Neo                                             |NAS-AB06B2                                                            |18650                     |
 |Neo                                             |NAS-PD07                                                              |2x CR123A                 |
 |Neo                                             |Temperature & humidity sensor and alarm (NAS-AB02B0)                  |2x CR123A                 |
@@ -601,6 +603,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |TuYa                                            |Smoke sensor (TS0601_smoke_1)                                         |2x AAA                    |
 |TuYa                                            |Soil sensor (TS0601_soil)                                             |2x AA                     |
 |TuYa                                            |T & H Sensor (lf36y5nwb8jkxwgg)                                       |2x AAA                    |
+|Tuya                                            |T & H Sensor (xlk3mtpjo1zkmdvh)                                       |3x AAA                    |
 |TuYa                                            |Temperature & humidity sensor (IH-K009)                               |CR2450                    |
 |TuYa                                            |Temperature & humidity sensor (WSD500A)                               |2x AAA                    |
 |TuYa                                            |Temperature & humidity sensor with display (TS0201)                   |2x AAA                    |

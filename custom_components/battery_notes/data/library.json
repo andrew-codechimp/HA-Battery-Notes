@@ -1455,6 +1455,12 @@
         },
         {
             "manufacturer": "Hive",
+            "model": "Heating thermostat remote control (SLT3B)",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Hive",
             "model": "Heating thermostat remote control (SLT3C)",
             "battery_type": "AA",
             "battery_quantity": 4
@@ -2029,6 +2035,11 @@
             "manufacturer": "Namron",
             "model": "Zigbee 4 channel switch K8 (black) (4512721)",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Neo",
+            "model": "Alarm (NAS-AB02B2)",
+            "battery_type": "CR123A Lithium"
         },
         {
             "manufacturer": "Neo",
@@ -3235,6 +3246,12 @@
             "model": "T & H Sensor (lf36y5nwb8jkxwgg)",
             "battery_type": "AAA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "T & H Sensor (xlk3mtpjo1zkmdvh)",
+            "battery_type": "AAA",
+            "battery_quantity": 3
         },
         {
             "manufacturer": "TuYa",
