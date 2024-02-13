@@ -2,7 +2,7 @@
     "config": {
         "step": {
             "user": {
-                "description": "Hvis du har brug for hjælp til konfigurationen, så kig her: https://github.com/andrew-codechimp/ha-battery-notes",
+                "description": "Hvis du har brug for hjælp til konfigurationen, så kig her: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
                     "device_id": "Enhed",
                     "name": "Navn"
@@ -32,7 +32,7 @@
     "options": {
         "step": {
             "init": {
-                "description": "Hvis du har brug for hjælp til konfigurationen, så kig her: https://github.com/andrew-codechimp/ha-battery-notes",
+                "description": "Hvis du har brug for hjælp til konfigurationen, så kig her: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
                     "name": "Navn",
                     "battery_type": "Batteri type",

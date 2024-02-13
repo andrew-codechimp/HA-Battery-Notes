@@ -2,7 +2,7 @@
     "config": {
         "step": {
             "user": {
-                "description": "اگر آپ کو ترتیب میں مدد کی ضرورت ہو تو یہاں ایک نظر ڈالیں: https://github.com/andrew-codechimp/ha-battery-notes",
+                "description": "اگر آپ کو ترتیب میں مدد کی ضرورت ہو تو یہاں ایک نظر ڈالیں: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
                     "device_id": "آلہ",
                     "name": "نام"
@@ -32,7 +32,7 @@
     "options": {
         "step": {
             "init": {
-                "description": "اگر آپ کو ترتیب میں مدد کی ضرورت ہو تو یہاں ایک نظر ڈالیں: https://github.com/andrew-codechimp/ha-battery-notes",
+                "description": "اگر آپ کو ترتیب میں مدد کی ضرورت ہو تو یہاں ایک نظر ڈالیں: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
                     "name": "نام",
                     "battery_type": "بیٹری کی قسم",

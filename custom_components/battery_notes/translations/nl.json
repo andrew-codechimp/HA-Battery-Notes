@@ -2,7 +2,7 @@
     "config": {
         "step": {
             "user": {
-                "description": "If you need help with the configuration have a look here: https://github.com/andrew-codechimp/ha-battery-notes",
+                "description": "If you need help with the configuration have a look here: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
                     "device_id": "Apparaat",
                     "name": "Naam"
@@ -32,7 +32,7 @@
     "options": {
         "step": {
             "init": {
-                "description": "If you need help with the configuration have a look here: https://github.com/andrew-codechimp/ha-battery-notes",
+                "description": "If you need help with the configuration have a look here: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
                     "name": "Naam",
                     "battery_type": "Batterij Type",

@@ -2,7 +2,7 @@
     "config": {
         "step": {
             "user": {
-                "description": "Если вам нужна помощь с настройкой, посмотрите здесь: https://github.com/andrew-codechimp/ha-battery-notes",
+                "description": "Если вам нужна помощь с настройкой, посмотрите здесь: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
                     "device_id": "Устройство",
                     "name": "Название"
@@ -32,7 +32,7 @@
     "options": {
         "step": {
             "init": {
-                "description": "Если вам нужна помощь с настройкой, посмотрите здесь: https://github.com/andrew-codechimp/ha-battery-notes",
+                "description": "Если вам нужна помощь с настройкой, посмотрите здесь: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
                     "name": "Название",
                     "battery_type": "Тип батареи",
