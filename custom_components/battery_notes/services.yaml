@@ -1,11 +1,10 @@
-
 set_battery_replaced:
   name: Set battery replaced
   description: "Set the battery last replaced."
   fields:
     device_id:
       name: Device
-      description: Device that has had it's battery replaced.
+      description: Device that has had its battery replaced.
       required: true
       selector:
         device:
@@ -17,3 +16,16 @@ set_battery_replaced:
       required: false
       selector:
         datetime:
+check_battery_last_reported:
+  name: Check battery reported
+  description: "Raise events for devices that haven't reported their battery level."
+  fields:
+    days_last_reported:
+      name: Days
+      description: Number of days since a device last reported its battery level.
+      required: true
+      selector:
+        number:
+          min: 1
+          max: 100
+          mode: box

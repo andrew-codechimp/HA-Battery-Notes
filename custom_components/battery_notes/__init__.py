@@ -52,6 +52,9 @@ from .const import (
     SERVICE_BATTERY_REPLACED,
     SERVICE_BATTERY_REPLACED_SCHEMA,
     SERVICE_DATA_DATE_TIME_REPLACED,
+    SERVICE_CHECK_BATTERY_LAST_REPORTED,
+    SERVICE_DATA_DAYS_LAST_REPORTED,
+    SERVICE_CHECK_BATTERY_LAST_REPORTED_SCHEMA,
     DATA_STORE,
     ATTR_REMOVE,
     ATTR_DEVICE_ID,
@@ -311,9 +314,34 @@ def register_services(hass):
             device_id,
         )
 
+    async def handle_battery_last_reported(call):
+        """Handle the service call."""
+        days_last_reported = call.data.get(SERVICE_DATA_DAYS_LAST_REPORTED)
+
+        for device in hass.data[DOMAIN][DATA].devices.values():
+            if device.coordinator.last_report:
+                print(device.coordinator.last_reported)
+
+
+        # _LOGGER.debug(
+        #     "Device %s battery replaced on %s",
+        #     device_id,
+        #     str(datetime_replaced),
+        # )
+
+        # Found and dealt with, exit
+        return
+
     hass.services.async_register(
         DOMAIN,
         SERVICE_BATTERY_REPLACED,
         handle_battery_replaced,
         schema=SERVICE_BATTERY_REPLACED_SCHEMA,
+    )
+
+    hass.services.async_register(
+        DOMAIN,
+        SERVICE_CHECK_BATTERY_LAST_REPORTED,
+        handle_battery_last_reported,
+        schema=SERVICE_CHECK_BATTERY_LAST_REPORTED_SCHEMA,
     )

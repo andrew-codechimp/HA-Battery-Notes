@@ -129,6 +129,16 @@
                 }
             },
             "name": "Set battery replaced"
+        },
+        "check_battery_last_reported": {
+            "description": "Raise events for devices that haven't reported their battery level.",
+            "fields": {
+                "days_last_reported": {
+                    "description": "Number of days since a device last reported its battery level.",
+                    "name": "Days"
+                }
+            },
+            "name": "Check battery last reported"
         }
     }
 }

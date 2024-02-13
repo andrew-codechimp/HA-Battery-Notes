@@ -1,5 +1,6 @@
 {
     "services": {
-        "set_battery_replaced": "mdi:battery-sync"
+        "set_battery_replaced": "mdi:battery-sync",
+        "check_battery_reported": "mdi:battery-unknown"
     }
 }

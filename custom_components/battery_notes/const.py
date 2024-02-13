@@ -60,6 +60,9 @@ DATA = "data"
 SERVICE_BATTERY_REPLACED = "set_battery_replaced"
 SERVICE_DATA_DATE_TIME_REPLACED = "datetime_replaced"
 
+SERVICE_CHECK_BATTERY_LAST_REPORTED = "check_battery_last_reported"
+SERVICE_DATA_DAYS_LAST_REPORTED = "days_last_reported"
+
 EVENT_BATTERY_THRESHOLD = "battery_notes_battery_threshold"
 EVENT_BATTERY_INCREASED = "battery_notes_battery_increased"
 
@@ -81,6 +84,12 @@ SERVICE_BATTERY_REPLACED_SCHEMA = vol.Schema(
     {
         vol.Required(ATTR_DEVICE_ID): cv.string,
         vol.Optional(SERVICE_DATA_DATE_TIME_REPLACED): cv.datetime,
+    }
+)
+
+SERVICE_CHECK_BATTERY_LAST_REPORTED_SCHEMA = vol.Schema(
+    {
+        vol.Required(SERVICE_DATA_DAYS_LAST_REPORTED): cv.positive_int,
     }
 )
 
