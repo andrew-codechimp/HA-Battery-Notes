@@ -443,6 +443,31 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "Apple",
+            "model": "iPhone16,2",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Apple",
+            "model": "iPad8,1",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Apple",
+            "model": "MacBookPro18,1",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Apple",
+            "model": "iPhone14,2",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Apple",
+            "model": "iPad14,3",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Aqara",
             "model": "Aqara Door and Window Sensor P2",
             "battery_type": "CR123A"
