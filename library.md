@@ -7,7 +7,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |                  Manufacturer                  |                                Model                                 |       Battery Type       |
 |------------------------------------------------|----------------------------------------------------------------------|--------------------------|
 |_TYZB01_7qf81wty                                |TS1001                                                                |2× AAA                    |
-|_TZ1800_fcdjzz3s                                |TY0202                                                                |2× AA                     |
+|_TZ1800_fcdjzz3s                                |TY0202                                                                |2× AAA                    |
 |_TZ2000_a476raq2                                |TS0201                                                                |2× AAA                    |
 |_TZ3000_1bwpjvlz                                |TS0203                                                                |CR2032                    |
 |_TZ3000_26fmupbb                                |TS0203                                                                |CR2032                    |
