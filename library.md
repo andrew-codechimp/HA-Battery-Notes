@@ -1,4 +1,4 @@
-## 740 Devices in library
+## 748 Devices in library
 
 This file is auto generated, do not modify
 
@@ -85,6 +85,13 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |American Power Conversion                       |Back-UPS XS 1500M                                                     |Rechargeable              |
 |APC                                             |Back-UPS XS 1500M                                                     |Rechargeable              |
 |APC                                             |SRV 2K I -AR                                                          |APCRBCV204                |
+|Apple                                           |iPad14,3                                                              |Rechargeable              |
+|Apple                                           |iPad8,1                                                               |Rechargeable              |
+|Apple                                           |iPhone11,2                                                            |Rechargeable              |
+|Apple                                           |iPhone14,2                                                            |Rechargeable              |
+|Apple                                           |iPhone14,7                                                            |Rechargeable              |
+|Apple                                           |iPhone16,2                                                            |Rechargeable              |
+|Apple                                           |MacBookPro18,1                                                        |Rechargeable              |
 |Aqara                                           |Aqara Door and Window Sensor P2                                       |CR123A                    |
 |Aqara                                           |AS006                                                                 |CR1632                    |
 |Aqara                                           |Cube (MFKZQ01LM)                                                      |CR2450                    |
@@ -383,6 +390,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Neo                                             |Alarm (NAS-AB02B2)                                                    |CR123A Lithium            |
 |Neo                                             |NAS-AB06B2                                                            |18650                     |
 |Neo                                             |NAS-PD07                                                              |2× CR123A                 |
+|Neo                                             |Outdoor solar alarm (NAS-AB06B2)                                      |18650                     |
 |Neo                                             |Temperature & humidity sensor and alarm (NAS-AB02B0)                  |2× CR123A                 |
 |Netatmo                                         |Additional Indoor Module                                              |4× AAA                    |
 |Netatmo                                         |Netatmo Smart Thermostat                                              |3× AAA                    |

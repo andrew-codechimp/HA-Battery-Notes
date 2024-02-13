@@ -59,7 +59,7 @@ action:
               message: >
                 The device has a battery level of {{
                 trigger.event.data.battery_level }}% {{ '\n' -}} You need {{
-                trigger.event.data.battery_quantity }}x {{
+                trigger.event.data.battery_quantity }}× {{
                 trigger.event.data.battery_type }}
       - conditions:
           - condition: trigger
