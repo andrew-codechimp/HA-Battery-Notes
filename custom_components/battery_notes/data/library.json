@@ -3137,6 +3137,11 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Tuya",
+            "model": "Luminance Motion sensor (3towulqd)",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "TuYa",
             "model": "Luminance motion sensor (ZG-204ZL)",
             "battery_type": "CR2450"
@@ -3974,11 +3979,6 @@
         {
             "manufacturer": "Zooz",
             "model": "ZSE44",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Luminance Motion sensor (3towulqd)",
             "battery_type": "CR2450"
         }
     ]
