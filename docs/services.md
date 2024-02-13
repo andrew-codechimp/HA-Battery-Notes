@@ -19,4 +19,4 @@ For raising events for devices that haven't reported their battery level.
 
 | Parameter                | Optional | Description                                                                                                           |
 | ------------------------ | -------- | --------------------------------------------------------------------------------------------------------------------- |
-| `data.days`      | `no`    |  The Number of days since a device last reported its battery level. |
+| `data.days`      | `no`    |  The number of days since a device last reported its battery level. |
