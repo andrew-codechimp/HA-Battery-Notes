@@ -144,7 +144,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
     def battery_type_and_quantity(self) -> str:
         """Merge battery type & quantity."""
         if self.battery_quantity and int(self.battery_quantity) > 1:
-            return str(self.battery_quantity) + "x " + self.battery_type
+            return str(self.battery_quantity) + "× " + self.battery_type
         return self.battery_type
 
     @property
