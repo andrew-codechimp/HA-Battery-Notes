@@ -45,6 +45,11 @@ Example templates
 {{ states('sensor.mysensor_battery_voltage') | float(5) < 1 }}
 ```
 
+!!! info
+
+    If a template is specified then the battery percentage, even if present will be ignored when evaluating threshold and increased events. 
+
+
 ## Community Contributions
 
 A collection of community contributions can be found on the [community contributions](./community.md) page. 

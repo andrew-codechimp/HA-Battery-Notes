@@ -14,7 +14,6 @@ from homeassistant.core import (
     HomeAssistant,
     callback,
     Event,
-    validate_state,
 )
 from homeassistant.exceptions import TemplateError
 from homeassistant.helpers import template
@@ -30,13 +29,11 @@ from homeassistant.helpers.event import (
     EventStateChangedData,
     TrackTemplate,
     TrackTemplateResult,
-    TrackTemplateResultInfo,
     async_track_template_result,
 )
 from homeassistant.helpers.template import (
     Template,
     TemplateStateFromEntityId,
-    result_as_boolean,
 )
 from homeassistant.components.binary_sensor import (
     PLATFORM_SCHEMA,
@@ -52,7 +49,7 @@ from homeassistant.helpers.event import (
     async_track_entity_registry_updated_event,
 )
 from homeassistant.helpers.reload import async_setup_reload_service
-from homeassistant.helpers.typing import ConfigType, EventType
+from homeassistant.helpers.typing import EventType
 
 from homeassistant.const import (
     CONF_NAME,
@@ -67,6 +64,13 @@ from .const import (
     DOMAIN,
     DATA,
     ATTR_BATTERY_LOW_THRESHOLD,
+    EVENT_BATTERY_THRESHOLD,
+    ATTR_DEVICE_ID,
+    ATTR_BATTERY_QUANTITY,
+    ATTR_BATTERY_TYPE,
+    ATTR_BATTERY_TYPE_AND_QUANTITY,
+    ATTR_BATTERY_LOW,
+    ATTR_DEVICE_NAME,
 )
 
 from .common import isfloat
@@ -344,37 +348,6 @@ class BatteryNotesBatteryLowTemplateSensor(BinarySensorEntity, CoordinatorEntity
 
         async_at_start(self.hass, self._async_template_startup)
 
-        # await self.coordinator.async_config_entry_first_refresh()
-
-    # @callback
-    # def _handle_coordinator_update(self) -> None:
-    #     """Handle updated data from the coordinator."""
-
-    #     if (
-    #         (
-    #             wrapped_battery_state := self.hass.states.get(
-    #                 self.coordinator.wrapped_battery.entity_id
-    #             )
-    #         )
-    #         is None
-    #         or wrapped_battery_state.state
-    #         in [
-    #             STATE_UNAVAILABLE,
-    #             STATE_UNKNOWN,
-    #         ]
-    #         or not isfloat(wrapped_battery_state.state)
-    #     ):
-    #         self._attr_is_on = None
-    #         self._attr_available = False
-    #         self.async_write_ha_state()
-    #         return
-
-    #     self._attr_is_on = self.coordinator.battery_low
-
-    #     self.async_write_ha_state()
-
-    #     _LOGGER.debug("%s binary sensor battery_low set to: %s", self.coordinator.wrapped_battery.entity_id, self.coordinator.battery_low)
-
     def add_template_attribute(
         self,
         attribute: str,
@@ -504,6 +477,8 @@ class BatteryNotesBatteryLowTemplateSensor(BinarySensorEntity, CoordinatorEntity
             return
 
         self._state = state
+        self.coordinator.battery_low_template_state = state
+        _LOGGER.debug("%s binary sensor battery_low set to: %s via template", self.entity_id, state)
 
 
     @property
