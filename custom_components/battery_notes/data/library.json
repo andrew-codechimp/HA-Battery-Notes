@@ -4007,6 +4007,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Apple",
+            "model": "iPhone14,7",
+            "battery_type": "Rechargeable"
         }
     ]
 }
