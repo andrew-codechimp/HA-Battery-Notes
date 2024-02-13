@@ -42,7 +42,7 @@ Example templates
 ```
 {{ states('sensor.mysensor_battery_low') }}
 {{ states('sensor.mysensor_battery_level') == "Low" }}
-{{ float(states('sensor.mysensor_battery_voltage')) < 1 }}
+{{ states('sensor.mysensor_battery_voltage') | float(5) < 1 }}
 ```
 
 ## Community Contributions
