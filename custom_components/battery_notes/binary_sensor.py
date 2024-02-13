@@ -9,6 +9,8 @@ import voluptuous as vol
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_ENTITY_ID
 from homeassistant.core import HomeAssistant, callback, Event
+from homeassistant.exceptions import TemplateError
+from homeassistant.helpers import template
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers import (
     config_validation as cv,
@@ -147,7 +149,20 @@ async def async_setup_entry(
 
     device: BatteryNotesDevice = hass.data[DOMAIN][DATA].devices[config_entry.entry_id]
 
-    if device.wrapped_battery is not None or coordinator.battery_low_template is not None:
+    if coordinator.battery_low_template is not None:
+        async_add_entities(
+            [
+                BatteryNotesBatteryLowTemplateSensor(
+                    hass,
+                    coordinator,
+                    description,
+                    f"{config_entry.entry_id}{description.unique_id_suffix}",
+                    coordinator.battery_low_template,
+                )
+            ]
+        )
+
+    elif device.wrapped_battery is not None:
         async_add_entities(
             [
                 BatteryNotesBatteryLowSensor(
@@ -167,6 +182,105 @@ async def async_setup_platform(
 
     await async_setup_reload_service(hass, DOMAIN, PLATFORMS)
 
+class BatteryNotesBatteryLowTemplateSensor(BinarySensorEntity, CoordinatorEntity[BatteryNotesCoordinator]):
+    """Represents a low battery threshold binary sensor."""
+    _attr_should_poll = False
+
+    def __init__(
+        self,
+        hass: HomeAssistant,
+        coordinator: BatteryNotesCoordinator,
+        description: BatteryNotesBinarySensorEntityDescription,
+        unique_id: str,
+        template: str,
+    ) -> None:
+        """Create a low battery binary sensor."""
+
+        device_registry = dr.async_get(hass)
+
+        self.coordinator = coordinator
+        self.entity_description = description
+        self._attr_unique_id = unique_id
+        self._attr_has_entity_name = True
+
+        super().__init__(coordinator=coordinator)
+
+        if coordinator.device_id and (
+            device_entry := device_registry.async_get(coordinator.device_id)
+        ):
+            self._attr_device_info = DeviceInfo(
+                connections=device_entry.connections,
+                identifiers=device_entry.identifiers,
+            )
+
+        self.entity_id = f"binary_sensor.{coordinator.device_name.lower()}_{description.key}"
+
+        self._template = template
+        self._state: bool | None = None
+
+    async def async_added_to_hass(self) -> None:
+        """Handle added to Hass."""
+
+        await super().async_added_to_hass()
+
+        await self.coordinator.async_config_entry_first_refresh()
+
+    # @callback
+    # def _handle_coordinator_update(self) -> None:
+    #     """Handle updated data from the coordinator."""
+
+    #     if (
+    #         (
+    #             wrapped_battery_state := self.hass.states.get(
+    #                 self.coordinator.wrapped_battery.entity_id
+    #             )
+    #         )
+    #         is None
+    #         or wrapped_battery_state.state
+    #         in [
+    #             STATE_UNAVAILABLE,
+    #             STATE_UNKNOWN,
+    #         ]
+    #         or not isfloat(wrapped_battery_state.state)
+    #     ):
+    #         self._attr_is_on = None
+    #         self._attr_available = False
+    #         self.async_write_ha_state()
+    #         return
+
+    #     self._attr_is_on = self.coordinator.battery_low
+
+    #     self.async_write_ha_state()
+
+    #     _LOGGER.debug("%s binary sensor battery_low set to: %s", self.coordinator.wrapped_battery.entity_id, self.coordinator.battery_low)
+
+    @callback
+    def _async_setup_templates(self) -> None:
+        """Set up templates."""
+        self.add_template_attribute("_state", self._template, None, self._update_state)
+
+        super()._async_setup_templates()
+
+    @callback
+    def _update_state(self, result):
+        super()._update_state(result)
+
+        state = (
+            None
+            if isinstance(result, TemplateError)
+            else template.result_as_boolean(result)
+        )
+
+        if state == self._state:
+            return
+
+        self._state = state
+
+
+    @property
+    def is_on(self) -> bool | None:
+        """Return true if sensor is on."""
+        return self._state
 
 class BatteryNotesBatteryLowSensor(BinarySensorEntity, CoordinatorEntity[BatteryNotesCoordinator]):
     """Represents a low battery threshold binary sensor."""
