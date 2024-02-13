@@ -31,7 +31,6 @@ from .const import (
     CONF_BATTERY_LOW_THRESHOLD,
     CONF_DEFAULT_BATTERY_LOW_THRESHOLD,
     CONF_BATTERY_LOW_TEMPLATE,
-    CONF_BATTERY_LOW_TEMPLATE_ENTITY_ID,
     DEFAULT_BATTERY_LOW_THRESHOLD,
 )
 
@@ -137,7 +136,6 @@ class BatteryNotesDevice:
             )
 
         self.coordinator.battery_low_template = config.data.get(CONF_BATTERY_LOW_TEMPLATE)
-        self.coordinator.battery_low_template_entity_id = config.data.get(CONF_BATTERY_LOW_TEMPLATE_ENTITY_ID)
 
         if self.wrapped_battery:
             _LOGGER.debug(

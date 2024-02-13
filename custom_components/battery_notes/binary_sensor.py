@@ -147,9 +147,7 @@ async def async_setup_entry(
 
     device: BatteryNotesDevice = hass.data[DOMAIN][DATA].devices[config_entry.entry_id]
 
-    if device.wrapped_battery is not None or (
-        coordinator.battery_low_template is not None and
-          coordinator.battery_low_template_entity_id is not None):
+    if device.wrapped_battery is not None or coordinator.battery_low_template is not None:
         async_add_entities(
             [
                 BatteryNotesBatteryLowSensor(
