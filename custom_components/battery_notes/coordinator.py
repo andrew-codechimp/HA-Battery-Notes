@@ -153,7 +153,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
         """Get the last replaced datetime."""
         device_entry = self.store.async_get_device(self.device_id)
         if device_entry:
-            if LAST_REPLACED in device_entry:
+            if LAST_REPLACED in device_entry and device_entry[LAST_REPLACED] is not None:
                 last_replaced_date = datetime.fromisoformat(
                     str(device_entry[LAST_REPLACED]) + "+00:00"
                 )

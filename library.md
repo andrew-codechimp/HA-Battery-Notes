@@ -1,4 +1,4 @@
-## 727 Devices in library
+## 736 Devices in library
 
 This file is auto generated, do not modify
 
@@ -86,8 +86,10 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |APC                                             |Back-UPS XS 1500M                                                     |Rechargeable              |
 |APC                                             |SRV 2K I -AR                                                          |APCRBCV204                |
 |Aqara                                           |Aqara Door and Window Sensor P2                                       |CR123A                    |
+|Aqara                                           |AS006                                                                 |CR1632                    |
 |Aqara                                           |Cube (MFKZQ01LM)                                                      |CR2450                    |
 |Aqara                                           |Door and window sensor (MCCGQ11LM)                                    |CR1632                    |
+|Aqara                                           |RTCGQ11LM                                                             |CR2450                    |
 |Aqara                                           |Smart smoke detector (JY-GZ-01AQ)                                     |CR17450                   |
 |Aqara                                           |SRTS-A01                                                              |2x AA                     |
 |Aqara                                           |Temperature and humidity sensor (WSDCGQ11LM)                          |CR2032                    |
@@ -185,6 +187,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |eQ-3                                            |HMIP-eTRV-B                                                           |2x AA                     |
 |eQ-3                                            |HmIP-eTRV-B1                                                          |2x AA                     |
 |eQ-3                                            |HMIP-eTRV-C                                                           |2x AA                     |
+|eQ-3                                            |HmIP-eTRV-C-2                                                         |2x AA                     |
 |eQ-3                                            |HmIP-eTRV-CL                                                          |4x AA                     |
 |eQ-3                                            |HMIP-eTRV-E                                                           |2x AA                     |
 |eQ-3                                            |HmIP-KRCK                                                             |AAA                       |
@@ -201,6 +204,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |eQ-3                                            |HmIP-SWDM                                                             |2x AAA                    |
 |eQ-3                                            |HmIP-SWDM-B2                                                          |2x AAA                    |
 |eQ-3                                            |HMIP-SWDO                                                             |AAA                       |
+|eQ-3                                            |HmIP-SWDO-2                                                           |AAA                       |
 |eQ-3                                            |HMIP-SWDO-I                                                           |2x AAA                    |
 |eQ-3                                            |HMIP-SWDO-PL                                                          |2x AAA                    |
 |eQ-3                                            |HMIP-WRC2                                                             |2x AAA                    |
@@ -439,6 +443,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Ring                                            |Doorbell 3                                                            |Rechargeable 5AT3S3 (Ring)|
 |Ring                                            |Motion Sensor                                                         |2x AA                     |
 |Ring                                            |Security Keypad                                                       |Rechargeable              |
+|Ring                                            |Spotlight Cam Plus                                                    |Rechargeable              |
 |Roborock                                        |roborock.vacuum.a15                                                   |Rechargeable              |
 |rtl_433                                         |Acurite-986                                                           |2x AA                     |
 |rtl_433                                         |Acurite-Tower                                                         |2x AA                     |
@@ -513,6 +518,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |SmartThings                                     |Water sensor (3315-S)                                                 |CR2                       |
 |SOMFY                                           |Sonesse 28 WF Li-Ion Roller                                           |MANUAL                    |
 |Sonoff                                          |Contact sensor (SNZB-04)                                              |CR2032                    |
+|SONOFF                                          |DW2-WI-FI-L                                                           |2x AAA                    |
 |SONOFF                                          |Motion sensor (SNZB-03)                                               |CR2450                    |
 |Sonoff                                          |SNZB-02                                                               |CR2450                    |
 |SONOFF                                          |SNZB-02D                                                              |CR2450                    |
@@ -568,6 +574,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tuya                                            |_TZ3000_oxslv1c9                                                      |2x AAA                    |
 |Tuya                                            |_TZ3000_upgcbody                                                      |2x AAA                    |
 |TuYa                                            |Aegislink Wi-Fi Combination Alarm (cfet7ouwznslditf)                  |CR123A                    |
+|Tuya                                            |b5g40alm                                                              |CR2450                    |
 |TuYa                                            |Button scene switch (SH-SC07)                                         |CR2450                    |
 |Tuya                                            |dagu44fhznig1omo                                                      |2x AAA                    |
 |TuYa                                            |Door sensor (TS0203)                                                  |CR2032                    |
@@ -576,11 +583,13 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tuya                                            |kscbebaf3s1eogvt                                                      |2x AAA                    |
 |TuYa                                            |LCZ030                                                                |2x AA                     |
 |TuYa                                            |Luminance door sensor (ZG-102ZL)                                      |CR2032                    |
+|Tuya                                            |Luminance Motion sensor (3towulqd)                                    |CR2450                    |
 |TuYa                                            |Luminance motion sensor (ZG-204ZL)                                    |CR2450                    |
 |TuYa                                            |Motion sensor (809WZT)                                                |CR2450                    |
 |TuYa                                            |Motion sensor (IH012-RT01)                                            |CR2450                    |
 |TuYa                                            |Motion sensor (ZMS-102)                                               |CR2032                    |
 |TuYa                                            |Photoelectric smoke detector (PA-44Z)                                 |PP3                       |
+|Tuya                                            |PIR (b5g40alm)                                                        |CR2450                    |
 |TuYa                                            |PIR sensor (RH3040)                                                   |3x AAA                    |
 |TuYa                                            |Radiator valve with thermostat (TS0601_thermostat)                    |2x AA                     |
 |TuYa                                            |Smart button (IH-K663)                                                |CR2032                    |
