@@ -140,7 +140,7 @@ class DeviceBatteryDetails(NamedTuple):
             quantity = 0
 
         if quantity > 1:
-            batteries = str(quantity) + "x " + self.battery_type
+            batteries = str(quantity) + "× " + self.battery_type
         else:
             batteries = self.battery_type
 
