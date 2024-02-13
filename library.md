@@ -1,4 +1,4 @@
-## 732 Devices in library
+## 733 Devices in library
 
 This file is auto generated, do not modify
 
@@ -86,6 +86,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |APC                                             |Back-UPS XS 1500M                                                     |Rechargeable              |
 |APC                                             |SRV 2K I -AR                                                          |APCRBCV204                |
 |Aqara                                           |Aqara Door and Window Sensor P2                                       |CR123A                    |
+|Aqara                                           |AS006                                                                 |CR1632                    |
 |Aqara                                           |Cube (MFKZQ01LM)                                                      |CR2450                    |
 |Aqara                                           |Door and window sensor (MCCGQ11LM)                                    |CR1632                    |
 |Aqara                                           |RTCGQ11LM                                                             |CR2450                    |
