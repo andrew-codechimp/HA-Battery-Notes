@@ -47,7 +47,7 @@ Example templates
 
 !!! info
 
-    If a template is specified then the battery percentage, even if present will be ignored when evaluating threshold and increased events. 
+    If a template is specified then the battery percentage will be ignored when evaluating threshold and increased events. 
 
 
 ## Community Contributions
