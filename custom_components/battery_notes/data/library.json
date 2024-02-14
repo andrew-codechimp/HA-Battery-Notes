@@ -11,7 +11,7 @@
         {
             "manufacturer": "_TZ1800_fcdjzz3s",
             "model": "TY0202",
-            "battery_type": "AA",
+            "battery_type": "AAA",
             "battery_quantity": 2
         },
         {
@@ -198,6 +198,12 @@
             "manufacturer": "_TZ3290_ot6ewjvmejq5ekhl",
             "model": "TS1201",
             "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "_TZE200_2wg5qrjy",
+            "model": "TS0601",
+            "battery_type": "AA",
             "battery_quantity": 2
         },
         {
@@ -489,6 +495,11 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "MCCGQ11LM",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "MCCGQ14LM",
             "battery_type": "CR1632"
         },
@@ -584,6 +595,11 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Aqara",
+            "model": "ZNJLBL01LM",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Aubess",
             "model": "IH-K665",
             "battery_type": "CR2032"
@@ -633,7 +649,7 @@
         {
             "manufacturer": "AVATTO",
             "model": "ME167",
-            "battery_type": "AA",
+            "battery_type": "AAA",
             "battery_quantity": 2
         },
         {

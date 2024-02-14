@@ -1,4 +1,4 @@
-## 748 Devices in library
+## 751 Devices in library
 
 This file is auto generated, do not modify
 
@@ -7,7 +7,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |                  Manufacturer                  |                                Model                                 |       Battery Type       |
 |------------------------------------------------|----------------------------------------------------------------------|--------------------------|
 |_TYZB01_7qf81wty                                |TS1001                                                                |2× AAA                    |
-|_TZ1800_fcdjzz3s                                |TY0202                                                                |2× AA                     |
+|_TZ1800_fcdjzz3s                                |TY0202                                                                |2× AAA                    |
 |_TZ2000_a476raq2                                |TS0201                                                                |2× AAA                    |
 |_TZ3000_1bwpjvlz                                |TS0203                                                                |CR2032                    |
 |_TZ3000_26fmupbb                                |TS0203                                                                |CR2032                    |
@@ -43,6 +43,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |_TZ3210_j4pdtz9v                                |TS0001                                                                |CR2                       |
 |_TZ3210_up3pngle                                |TS0205                                                                |2× AAA                    |
 |_TZ3290_ot6ewjvmejq5ekhl                        |TS1201                                                                |2× AAA                    |
+|_TZE200_2wg5qrjy                                |TS0601                                                                |2× AA                     |
 |_TZE200_4eeyebrt                                |TS0601                                                                |2× AA                     |
 |_TZE200_a8sdabtg                                |TS0601                                                                |2× AAA                    |
 |_TZE200_b6wax7g0                                |TS0601                                                                |2× AA                     |
@@ -96,6 +97,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Aqara                                           |AS006                                                                 |CR1632                    |
 |Aqara                                           |Cube (MFKZQ01LM)                                                      |CR2450                    |
 |Aqara                                           |Door and window sensor (MCCGQ11LM)                                    |CR1632                    |
+|Aqara                                           |MCCGQ11LM                                                             |CR2032                    |
 |Aqara                                           |MCCGQ14LM                                                             |CR1632                    |
 |Aqara                                           |RTCGQ11LM                                                             |CR2450                    |
 |Aqara                                           |Smart smoke detector (JY-GZ-01AQ)                                     |CR17450                   |
@@ -115,6 +117,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Aqara                                           |zigbee WXKG11LM (lumi.remote.b1acn01)                                 |CR2032                    |
 |Aqara                                           |zigbee WXKG12LM (lumi.sensor_switch.aq3)                              |CR2032                    |
 |Aqara                                           |zigbee WXKG17LM (lumi.remote.acn004)                                  |CR2032                    |
+|Aqara                                           |ZNJLBL01LM                                                            |Rechargeable              |
 |Aubess                                          |IH-K665                                                               |CR2032                    |
 |August                                          |TEST200228                                                            |4× AA                     |
 |August Home Inc.                                |AK-R1                                                                 |2× AAA                    |
@@ -123,7 +126,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |August Home Inc.                                |AUG-SL03-C02-G03                                                      |4× AA                     |
 |August Home Inc.                                |AUG-SL04-M01-G04                                                      |4× AA                     |
 |August Home Inc.                                |AUG-SL05-M01-S01                                                      |2× CR123A                 |
-|AVATTO                                          |ME167                                                                 |2× AA                     |
+|AVATTO                                          |ME167                                                                 |2× AAA                    |
 |AVM                                             |FRITZ!DECT 300                                                        |2× AA                     |
 |AVM                                             |FRITZ!DECT 300                                                        |2× AA                     |
 |AVM                                             |FRITZ!DECT 301                                                        |2× AA                     |
