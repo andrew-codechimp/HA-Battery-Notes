@@ -125,7 +125,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |August Home Inc.                                |AUG-SL03-C02-G03                                                      |4× AA                     |
 |August Home Inc.                                |AUG-SL04-M01-G04                                                      |4× AA                     |
 |August Home Inc.                                |AUG-SL05-M01-S01                                                      |2× CR123A                 |
-|AVATTO                                          |ME167                                                                 |2× AA                     |
+|AVATTO                                          |ME167                                                                 |2× AAA                    |
 |AVM                                             |FRITZ!DECT 300                                                        |2× AA                     |
 |AVM                                             |FRITZ!DECT 300                                                        |2× AA                     |
 |AVM                                             |FRITZ!DECT 301                                                        |2× AA                     |
