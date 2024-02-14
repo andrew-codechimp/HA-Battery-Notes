@@ -269,7 +269,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
     def _rounded_level(self, value) -> float:
         """Round the level, if preferred."""
         if isfloat(value):
-            return round(float(value), 0 if value else 1)
+            return round(float(value), None if self._round_battery else 1)
         else:
             return value
 

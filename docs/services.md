@@ -19,6 +19,8 @@ The service will raise a seperate [battery_not_reported](./events/battery_not_re
 
 You can use this service call to schedule checks on batteries that is convenient to you, e.g. when you wake up, once a week etc.  
 
+See how to use this service in the [community contributions](./community.md)
+
 | Parameter                | Optional | Description                                                                                                           |
 | ------------------------ | -------- | --------------------------------------------------------------------------------------------------------------------- |
 | `data.days`      | `no`    |  The number of days since a device last reported its battery level. |

@@ -123,3 +123,29 @@ The service can raise multiple events quickly so when using with an automation i
 | `battery_last_reported` | `datetime` | The datetime the battery was last reported. |
 | `battery_last_reported_level` | `float` | The level of the battery when it was last reported. |
 
+### Automation Example
+
+See others in the [community contributions](./community.md)
+
+```yaml
+alias: Battery Not Reported
+description: Battery not reported
+trigger:
+  - platform: event
+    event_type: battery_notes_battery_not_reported
+condition: []
+action:
+  - service: persistent_notification.create
+    data:
+      title: |
+        {{ trigger.event.data.device_name }} Battery Not Reported
+      message: >
+        The device has not reported its battery level since {{
+        trigger.event.data.battery_last_reported.strftime('%d %B %Y') }} {{ '\n'
+        -}} Its last reported level was {{
+        trigger.event.data.battery_last_reported_level }} {{ '\n' -}} You need
+        {{ trigger.event.data.battery_quantity }}x {{
+        trigger.event.data.battery_type }}
+mode: queued
+max: 30
+```

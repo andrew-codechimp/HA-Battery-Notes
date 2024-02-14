@@ -89,6 +89,50 @@ action:
 mode: queued
 ```
 
+### Check Battery Last Reported Daily
+Call the check battery last reported service every day to raise events for those not reported in the last two days.  
+To be used in conjunction with a Battery Not Reported automation.
+
+```yaml
+alias: Daily Battery Not Reported Check
+description: Check whether a battery has reported
+trigger:
+  - platform: time
+    at: "09:00:00"
+condition: []
+action:
+  - service: battery_notes.check_battery_last_reported
+    data:
+      days_last_reported: 2
+mode: single
+```
+
+### Battery Not Reported
+Respond to events raised by the check_battery_last_reported service and create notifications.
+
+```yaml
+alias: Battery Not Reported
+description: Battery not reported
+trigger:
+  - platform: event
+    event_type: battery_notes_battery_not_reported
+condition: []
+action:
+  - service: persistent_notification.create
+    data:
+      title: |
+        {{ trigger.event.data.device_name }} Battery Not Reported
+      message: >
+        The device has not reported its battery level since {{
+        trigger.event.data.battery_last_reported.strftime('%d %B %Y') }} {{ '\n'
+        -}} Its last reported level was {{
+        trigger.event.data.battery_last_reported_level }}% {{ '\n' -}} You need
+        {{ trigger.event.data.battery_quantity }}× {{
+        trigger.event.data.battery_type }}
+mode: queued
+max: 30
+```
+
 ## Automation Tips
 
 To call the battery replaced service from an entity trigger you will need the device_id, here's an easy way to get this
