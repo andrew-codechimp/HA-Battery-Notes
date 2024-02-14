@@ -143,7 +143,7 @@ action:
         The device has not reported its battery level since {{
         trigger.event.data.battery_last_reported.strftime('%d %B %Y') }} {{ '\n'
         -}} Its last reported level was {{
-        trigger.event.data.battery_last_reported_level }} {{ '\n' -}} You need
+        trigger.event.data.battery_last_reported_level }}% {{ '\n' -}} You need
         {{ trigger.event.data.battery_quantity }}× {{
         trigger.event.data.battery_type }}
 mode: queued
