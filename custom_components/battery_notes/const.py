@@ -65,6 +65,7 @@ SERVICE_DATA_DAYS_LAST_REPORTED = "days_last_reported"
 
 EVENT_BATTERY_THRESHOLD = "battery_notes_battery_threshold"
 EVENT_BATTERY_INCREASED = "battery_notes_battery_increased"
+EVENT_BATTERY_NOT_REPORTED = "battery_notes_battery_not_reported"
 
 ATTR_DEVICE_ID = "device_id"
 ATTR_REMOVE = "remove"

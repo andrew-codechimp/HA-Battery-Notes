@@ -17,8 +17,8 @@ You can use this to send notifications in your preferred method.  An example aut
 | `battery_type_and_quantity` | `string` | Battery type & quantity. |
 | `battery_type` | `string` | Battery type. |
 | `battery_quantity` | `int` | Battery quantity. |
-| `battery_level` | `int` | Battery level % of the device. |
-| `previous_battery_level` | `int` | Previous battery level % of the device. |
+| `battery_level` | `float` | Battery level % of the device. |
+| `previous_battery_level` | `float` | Previous battery level % of the device. |
 
 ### Automation Example
 
@@ -85,8 +85,8 @@ An example automation below shows how to update the battery_replaced.
 | `battery_type_and_quantity` | `string` | Battery type & quantity. |
 | `battery_type` | `string` | Battery type. |
 | `battery_quantity` | `int` | Battery quantity. |
-| `battery_level` | `int` | Current battery level % of the device. |
-| `previous_battery_level` | `int` | Previous battery level % of the device. |
+| `battery_level` | `float` | Current battery level % of the device. |
+| `previous_battery_level` | `float` | Previous battery level % of the device. |
 
 ### Automation Example
 
@@ -105,3 +105,21 @@ action:
       device_id: "{{ trigger.event.data.device_id }}"
 mode: queued
 ```
+
+## Battery Not Reported
+`battery_notes_battery_not_reported`
+
+This is fired from the [check_battery_last_reported](./services/check_battery_last_reported) service call for each device that has not reported its battery level for the number of days specified in the service call.
+
+The service can raise multiple events quickly so when using with an automation it's important to use the `mode: queued` to handle these.
+
+| Attribute | Type | Description |
+|-----------|------|-------------|
+| `device_id` | `string` | The device id of the device. |
+| `device_name` | `string` | The device name. |
+| `battery_type_and_quantity` | `string` | Battery type & quantity. |
+| `battery_type` | `string` | Battery type. |
+| `battery_quantity` | `int` | Battery quantity. |
+| `battery_last_reported` | `datetime` | The datetime the battery was last reported. |
+| `battery_last_reported_level` | `float` | The level of the battery when it was last reported. |
+

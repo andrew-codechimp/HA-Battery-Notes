@@ -13,7 +13,11 @@ See how to use this service in the [community contributions](./community.md)
 
 ## battery_notes.check_battery_last_reported
 
-For raising events for devices that haven't reported their battery level.
+For raising events for devices that haven't reported their battery level.  
+
+The service will raise a seperate [battery_not_reported](./events/battery_not_reported) event for each device where its last reported date is older than the number of days specified.  
+
+You can use this service call to schedule checks on batteries that is convenient to you, e.g. when you wake up, once a week etc.  
 
 | Parameter                | Optional | Description                                                                                                           |
 | ------------------------ | -------- | --------------------------------------------------------------------------------------------------------------------- |

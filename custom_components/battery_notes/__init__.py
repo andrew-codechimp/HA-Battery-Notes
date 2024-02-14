@@ -55,9 +55,16 @@ from .const import (
     SERVICE_CHECK_BATTERY_LAST_REPORTED,
     SERVICE_DATA_DAYS_LAST_REPORTED,
     SERVICE_CHECK_BATTERY_LAST_REPORTED_SCHEMA,
+    EVENT_BATTERY_NOT_REPORTED,
     DATA_STORE,
     ATTR_REMOVE,
     ATTR_DEVICE_ID,
+    ATTR_DEVICE_NAME,
+    ATTR_BATTERY_TYPE_AND_QUANTITY,
+    ATTR_BATTERY_TYPE,
+    ATTR_BATTERY_QUANTITY,
+    ATTR_BATTERY_LAST_REPORTED,
+    ATTR_BATTERY_LAST_REPORTED_LEVEL,
     CONF_BATTERY_TYPE,
     CONF_BATTERY_QUANTITY,
 )
@@ -318,19 +325,32 @@ def register_services(hass):
         """Handle the service call."""
         days_last_reported = call.data.get(SERVICE_DATA_DAYS_LAST_REPORTED)
 
+        device: BatteryNotesDevice
         for device in hass.data[DOMAIN][DATA].devices.values():
-            if device.coordinator.last_report:
-                print(device.coordinator.last_reported)
+            if device.coordinator.last_reported:
+                time_since_lastreported = datetime.utcnow() - device.coordinator.last_reported
 
+                if time_since_lastreported.days > days_last_reported:
 
-        # _LOGGER.debug(
-        #     "Device %s battery replaced on %s",
-        #     device_id,
-        #     str(datetime_replaced),
-        # )
+                    hass.bus.async_fire(
+                        EVENT_BATTERY_NOT_REPORTED,
+                        {
+                            ATTR_DEVICE_ID: device.coordinator.device_id,
+                            ATTR_DEVICE_NAME: device.coordinator.device_name,
+                            ATTR_BATTERY_TYPE_AND_QUANTITY: device.coordinator.battery_type_and_quantity,
+                            ATTR_BATTERY_TYPE: device.coordinator.battery_type,
+                            ATTR_BATTERY_QUANTITY: device.coordinator.battery_quantity,
+                            ATTR_BATTERY_LAST_REPORTED: device.coordinator.last_reported,
+                            ATTR_BATTERY_LAST_REPORTED_LEVEL: device.coordinator.last_reported_level,
+                        },
+                    )
 
-        # Found and dealt with, exit
-        return
+                    _LOGGER.debug(
+                        "Raised event device %s not reported since %s",
+                        device.coordinator.device_id,
+                        str(device.coordinator.last_reported),
+                    )
+
 
     hass.services.async_register(
         DOMAIN,
