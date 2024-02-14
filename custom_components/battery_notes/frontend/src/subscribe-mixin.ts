@@ -1,7 +1,7 @@
 import { PropertyValues, ReactiveElement } from 'lit';
 import { property } from 'lit/decorators.js';
 import { UnsubscribeFunc } from 'home-assistant-js-websocket';
-import { HomeAssistant } from './types';
+import { HomeAssistant } from 'custom-card-helpers';
 
 export interface HassSubscribeElement {
   hassSubscribe(): UnsubscribeFunc[];

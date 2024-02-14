@@ -39,7 +39,7 @@ export const commonStyle = css`
     right: 0px;
   }
 
-  mwc-button.active:not([disabled]) {
+  mwc-button.active {
     background: var(--primary-color);
     --mdc-theme-primary: var(--text-primary-color);
     border-radius: 4px;
@@ -49,6 +49,10 @@ export const commonStyle = css`
   }
   mwc-button.success {
     --mdc-theme-primary: var(--success-color);
+  }
+
+  mwc-button.disabled.active {
+    opacity: 0.5;
   }
 
   div.entity-row {
@@ -82,6 +86,7 @@ export const commonStyle = css`
   ha-textfield {
     min-width: 220px;
   }
+
 
   a,
   a:visited {
@@ -131,6 +136,7 @@ export const commonStyle = css`
   ha-card > ha-card {
     margin: 10px;
   }
+
 `;
 
 export const dialogStyle = css`

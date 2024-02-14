@@ -3,18 +3,26 @@ import { property, customElement, state } from "lit/decorators.js";
 import { HomeAssistant } from "custom-card-helpers";
 import { mdiClose } from "@mdi/js";
 
-@customElement("error-dialog")
-export class ErrorDialog extends LitElement {
+@customElement("confirmation-dialog")
+export class ConfirmationDialog extends LitElement {
   @property({ attribute: false }) public hass!: HomeAssistant;
 
   @state() private _params?: any;
+  private _target?: any;
 
   public async showDialog(params: any): Promise<void> {
+    console.log("showdialog params: " + params);
+
+    this._target = params["target"];
     this._params = params;
     await this.updateComplete;
   }
 
-  public async closeDialog() {
+  public async confirmAction() {
+    this.dispatchEvent(new CustomEvent("confirmAction", this._params));
+    this._params = undefined;
+  }
+  public async cancelAction() {
     this._params = undefined;
   }
 
@@ -24,8 +32,8 @@ export class ErrorDialog extends LitElement {
       <ha-dialog
         open
         .heading=${true}
-        @closed=${this.closeDialog}
-        @close-dialog=${this.closeDialog}
+        @closed=${this.cancelAction}
+        @close-dialog=${this.cancelAction}
       >
         <div slot="heading">
           <ha-header-bar>
@@ -35,19 +43,27 @@ export class ErrorDialog extends LitElement {
               .path=${mdiClose}
             ></ha-icon-button>
             <span slot="title">
-              ${this.hass.localize("state_badge.default.error")}
+              ${this.hass.localize("dialogs.confirmation.title")}
             </span>
           </ha-header-bar>
         </div>
-        <div class="wrapper">${this._params.error || ""}</div>
+        <div class="wrapper">${this._params.message || ""}</div>
 
         <mwc-button
           slot="primaryAction"
           style="float: left"
-          @click=${this.closeDialog}
+          @click=${this.confirmAction}
           dialogAction="close"
         >
-          ${this.hass.localize("ui.dialogs.generic.ok")}
+          ${this.hass.localize("dialogs.generic.ok")}
+        </mwc-button>
+        <mwc-button
+          slot="primaryAction"
+          style="float: left"
+          @click=${this.cancelAction}
+          dialogAction="cancel"
+        >
+          ${this.hass.localize("dialogs.generic.cancel")}
         </mwc-button>
       </ha-dialog>
     `;

@@ -1,0 +1,187 @@
+{
+  "common": {
+    "actions": {
+      "delete": "Slett"
+    },
+    "labels": {
+      "module": "Modul",
+      "no": "Nei",
+      "select": "Velg",
+      "yes": "Ja"
+    }
+  },
+  "panels": {
+    "general": {
+      "cards": {
+        "automatic-duration-calculation": {
+          "header": "Automatisk varighetsberegning",
+          "labels": {
+            "auto-calc-enabled": "Beregn sonevarigheter automatisk",
+            "auto-calc-time": "Beregn ved"
+          }
+        },
+        "automatic-update": {
+          "errors": {
+            "warning-update-time-on-or-after-calc-time": "Advarsel: Oppdateringstidspunkt for værdata på eller etter beregningstidspunktet"
+          },
+          "header": "Automatisk oppdatering av værdata",
+          "labels": {
+            "auto-update-enabled": "Oppdater værdata automatisk",
+            "auto-update-first-update": "(Første) Oppdatering kl",
+            "auto-update-interval": "Oppdater sensordata hvert"
+          },
+          "options": {
+            "days": "dager",
+            "hours": "timer",
+            "minutes": "minutter"
+          }
+        }
+      },
+      "description": "Denne siden gir globale innstillinger.",
+      "title": "Generelt"
+    },
+    "help": {
+      "title": "Hjelp",
+      "cards": {
+        "how-to-get-help": {
+          "title": "Hvordan få hjelp",
+          "first-read-the": "Først, les",
+          "wiki": "Wikien",
+          "if-you-still-need-help": "Hvis du fremdeles trenger hjelp, ta kontakt på",
+          "community-forum": "Fellesskapsforumet",
+          "or-open-a": "eller åpne en",
+          "github-issue": "Github-sak",
+          "english-only": "Kun på engelsk"
+        }
+      }
+    },
+    "mappings": {
+      "cards": {
+        "add-mapping": {
+          "actions": {
+            "add": "Legg til sensorguppe"
+          },
+          "header": "Legg til sensorgupper"
+        },
+        "mapping": {
+          "aggregates": {
+            "average": "Gjennomsnitt",
+            "first": "Første",
+            "last": "Siste",
+            "maximum": "Maksimum",
+            "median": "Median",
+            "minimum": "Minimum",
+            "sum": "Sum"
+          },
+          "errors": {
+            "cannot-delete-mapping-because-zones-use-it": "Du kan ikke slette denne sensorguppen fordi minst én sone bruker den."
+          },
+          "items": {
+            "dewpoint": "Duggpunkt",
+            "evapotranspiration": "Evapotranspirasjon",
+            "humidity": "Luftfuktighet",
+            "maximum temperature": "Maksimumstemperatur",
+            "minimum temperature": "Minimumstemperatur",
+            "precipitation": "Total nedbør",
+            "pressure": "Trykk",
+            "solar radiation": "Solstråling",
+            "temperature": "Temperatur",
+            "windspeed": "Vindhastighet"
+          },
+          "sensor-aggregate-of-sensor-values-to-calculate": "av sensordata for å beregne varighet",
+          "sensor-aggregate-use-the": "Bruk",
+          "sensor-entity": "Sensorenhet",
+          "static_value": "Verdi",
+          "input-units": "Inndata gir verdier i",
+          "source": "Kilde",
+          "sources": {
+            "none": "Ingen",
+            "openweathermap": "OpenWeatherMap",
+            "sensor": "Sensor",
+            "static": "Statisk verdi"
+          }
+        }
+      },
+      "description": "Legg til en eller flere sensorgupper som henter værdata fra OpenWeatherMap, fra sensorer eller en kombinasjon av disse. Du kan tilordne hver sensorguppe til en eller flere soner",
+      "labels": {
+        "mapping-name": "Navn"
+      },
+      "no_items": "Det er ingen definerte sensorgupper ennå.",
+      "title": "Sensorgupper"
+    },
+    "modules": {
+      "cards": {
+        "add-module": {
+          "actions": {
+            "add": "Legg til modul"
+          },
+          "header": "Legg til modul"
+        },
+        "module": {
+          "errors": {
+            "cannot-delete-module-because-zones-use-it": "Du kan ikke slette denne modulen fordi minst én sone bruker den."
+          },
+          "labels": {
+            "configuration": "Konfigurasjon",
+            "required": "indikerer et obligatorisk felt"
+          },
+          "translated-options": {
+            "DontEstimate": "Ikke beregn",
+            "EstimateFromSunHours": "Beregn fra soltimer",
+            "EstimateFromTemp": "Beregn fra temperatur"
+          }
+        }
+      },
+      "description": "Legg til en eller flere moduler som beregner vanningsvarighet. Hver modul har sin egen konfigurasjon og kan brukes til å beregne varighet for en eller flere soner.",
+      "no_items": "Det er ingen definerte moduler ennå.",
+      "title": "Moduler"
+    },
+    "zones": {
+      "actions": {
+        "add": "Legg til",
+        "calculate": "Beregn",
+        "information": "Informasjon",
+        "update": "Oppdater",
+        "reset-bucket": "Nullstill bøtte"
+      },
+      "cards": {
+        "add-zone": {
+          "actions": {
+            "add": "Legg til sone"
+          },
+          "header": "Legg til sone"
+        },
+        "zone-actions": {
+          "actions": {
+            "calculate-all": "Beregn alle soner",
+            "update-all": "Oppdater alle soner",
+            "reset-all-buckets": "Nullstill alle bøtter"
+          },
+          "header": "Handlinger på alle soner"
+        }
+      },
+      "description": "Spesifiser en eller flere vanningssoner her. Vanningens varighet beregnes per sone, avhengig av størrelse, gjennomstrømning, tilstand, modul og sensorguppe.",
+      "labels": {
+        "bucket": "Bøtte",
+        "duration": "Varighet",
+        "lead-time": "Ledetid",
+        "mapping": "Sensorguppe",
+        "maximum-duration": "Maksimal varighet",
+        "multiplier": "Multiplikator",
+        "name": "Navn",
+        "size": "Størrelse",
+        "state": "Tilstand",
+        "states": {
+          "automatic": "Automatisk",
+          "disabled": "Deaktivert",
+          "manual": "Manuell"
+        },
+        "throughput": "Gjennomstrømning",
+        "maximum-bucket": "Maksimal bøtte"
+      },
+      "no_items": "Det er ingen definerte soner ennå.",
+      "title": "Soner"
+    },
+    "title": "Smart vanning"
+  }
+}

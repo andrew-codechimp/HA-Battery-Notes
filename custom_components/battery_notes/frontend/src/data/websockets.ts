@@ -1,111 +1,148 @@
+import { HomeAssistant } from "custom-card-helpers";
 import {
-  AlarmoConfig,
-  AlarmoModeConfig,
-  AlarmoSensor,
-  Dictionary,
-  AlarmoUser,
-  EArmModes,
-  AlarmoAutomation,
-  AlarmoArea,
-  SensorGroup,
-  HomeAssistant,
-} from '../types';
+  SmartIrrigationConfig,
+  SmartIrrigationZone,
+  SmartIrrigationModule,
+  SmartIrrigationMapping,
+} from "../types";
+import { DOMAIN } from "../const";
 
-export const fetchConfig = (hass: HomeAssistant): Promise<AlarmoConfig> =>
+export const fetchConfig = (
+  hass: HomeAssistant
+): Promise<SmartIrrigationConfig> =>
   hass.callWS({
-    type: 'alarmo/config',
+    type: DOMAIN + "/config",
   });
 
-export const fetchSensors = (hass: HomeAssistant): Promise<Dictionary<AlarmoSensor>> =>
-  hass.callWS({
-    type: 'alarmo/sensors',
-  });
-
-export const fetchUsers = (hass: HomeAssistant): Promise<Dictionary<AlarmoUser>> =>
-  hass.callWS({
-    type: 'alarmo/users',
-  });
-
-export const fetchAutomations = (hass: HomeAssistant): Promise<Dictionary<AlarmoAutomation>> =>
-  hass.callWS({
-    type: 'alarmo/automations',
-  });
-
-export const fetchSensorGroups = (hass: HomeAssistant): Promise<Dictionary<SensorGroup>> =>
-  hass.callWS({
-    type: 'alarmo/sensor_groups',
-  });
-
-export const saveConfig = (hass: HomeAssistant, config: Partial<AlarmoConfig>): Promise<boolean> => {
-  return hass.callApi('POST', 'alarmo/config', config);
-};
-
-export const saveModeConfig = (
+export const saveConfig = (
   hass: HomeAssistant,
-  config: Partial<AlarmoModeConfig> & { mode: EArmModes }
+  config: Partial<SmartIrrigationConfig>
 ): Promise<boolean> => {
-  return hass.callApi('POST', 'alarmo/mode', config);
+  return hass.callApi("POST", DOMAIN + "/config", config);
 };
 
-export const saveSensor = (
-  hass: HomeAssistant,
-  config: Partial<AlarmoSensor> & { entity_id: string }
-): Promise<boolean> => {
-  return hass.callApi('POST', 'alarmo/sensors', config);
-};
-
-export const deleteSensor = (hass: HomeAssistant, entity_id: string): Promise<boolean> => {
-  return hass.callApi('POST', 'alarmo/sensors', {
-    entity_id: entity_id,
-    remove: true,
-  });
-};
-
-export const saveUser = (hass: HomeAssistant, config: Partial<AlarmoUser>): Promise<boolean> => {
-  return hass.callApi('POST', 'alarmo/users', config);
-};
-
-export const deleteUser = (hass: HomeAssistant, user_id: string): Promise<boolean> => {
-  return hass.callApi('POST', 'alarmo/users', {
-    user_id: user_id,
-    remove: true,
-  });
-};
-
-export const saveAutomation = (hass: HomeAssistant, config: Partial<AlarmoAutomation>): Promise<boolean> => {
-  return hass.callApi('POST', 'alarmo/automations', config);
-};
-
-export const deleteAutomation = (hass: HomeAssistant, automation_id: string): Promise<boolean> => {
-  return hass.callApi('POST', 'alarmo/automations', {
-    automation_id: automation_id,
-    remove: true,
-  });
-};
-
-export const fetchAreas = (hass: HomeAssistant): Promise<Dictionary<AlarmoArea>> =>
+/*export const fetchZones = (
+  hass: HomeAssistant
+): Promise<Dictionary<SmartIrrigationZone>> =>*/
+export const fetchZones = (
+  hass: HomeAssistant
+): Promise<SmartIrrigationZone[]> =>
   hass.callWS({
-    type: 'alarmo/areas',
+    type: DOMAIN + "/zones",
   });
 
-export const saveArea = (hass: HomeAssistant, config: Partial<AlarmoArea>): Promise<boolean> => {
-  return hass.callApi('POST', 'alarmo/area', config);
+export const saveZone = (
+  hass: HomeAssistant,
+  config: Partial<SmartIrrigationZone>
+): Promise<boolean> => {
+  return hass.callApi("POST", DOMAIN + "/zones", config);
 };
 
-export const deleteArea = (hass: HomeAssistant, area_id: string): Promise<boolean> => {
-  return hass.callApi('POST', 'alarmo/area', {
-    area_id: area_id,
+export const calculateZone = (
+  hass: HomeAssistant,
+  zone_id: string
+): Promise<boolean> => {
+  return hass.callApi("POST", DOMAIN + "/zones", {
+    id: zone_id,
+    calculate: true,
+    override_cache: true,
+  });
+};
+
+export const updateZone = (
+  hass: HomeAssistant,
+  zone_id: string
+): Promise<boolean> => {
+  return hass.callApi("POST", DOMAIN + "/zones", {
+    id: zone_id,
+    update: true,
+  });
+};
+export const calculateAllZones = (hass: HomeAssistant): Promise<boolean> => {
+  return hass.callApi("POST", DOMAIN + "/zones", {
+    calculate_all: true,
+  });
+};
+
+export const updateAllZones = (hass: HomeAssistant): Promise<boolean> => {
+  return hass.callApi("POST", DOMAIN + "/zones", {
+    update_all: true,
+  });
+};
+
+export const resetAllBuckets = (hass: HomeAssistant): Promise<boolean> => {
+  return hass.callApi("POST", DOMAIN + "/zones", {
+    reset_all_buckets: true,
+  });
+};
+
+export const clearAllWeatherdata = (hass: HomeAssistant): Promise<boolean> => {
+  return hass.callApi("POST", DOMAIN + "/zones", {
+    clear_all_weatherdata: true,
+  });
+};
+
+
+export const deleteZone = (
+  hass: HomeAssistant,
+  zone_id: string
+): Promise<boolean> => {
+  return hass.callApi("POST", DOMAIN + "/zones", {
+    id: zone_id,
     remove: true,
   });
 };
 
-export const saveSensorGroup = (hass: HomeAssistant, config: Partial<SensorGroup>): Promise<boolean> => {
-  return hass.callApi('POST', 'alarmo/sensor_groups', config);
+export const fetchModules = (
+  hass: HomeAssistant
+): Promise<SmartIrrigationModule[]> =>
+  hass.callWS({
+    type: DOMAIN + "/modules",
+  });
+
+export const fetchAllModules = (
+  hass: HomeAssistant
+): Promise<SmartIrrigationModule[]> =>
+  hass.callWS({
+    type: DOMAIN + "/allmodules",
+  });
+
+export const saveModule = (
+  hass: HomeAssistant,
+  config: Partial<SmartIrrigationModule>
+): Promise<boolean> => {
+  return hass.callApi("POST", DOMAIN + "/modules", config);
 };
 
-export const deleteSensorGroup = (hass: HomeAssistant, group_id: string): Promise<boolean> => {
-  return hass.callApi('POST', 'alarmo/sensor_groups', {
-    group_id: group_id,
+export const deleteModule = (
+  hass: HomeAssistant,
+  module_id: string
+): Promise<boolean> => {
+  return hass.callApi("POST", DOMAIN + "/modules", {
+    id: module_id,
+    remove: true,
+  });
+};
+
+export const fetchMappings = (
+  hass: HomeAssistant
+): Promise<SmartIrrigationMapping[]> =>
+  hass.callWS({
+    type: DOMAIN + "/mappings",
+  });
+export const saveMapping = (
+  hass: HomeAssistant,
+  config: Partial<SmartIrrigationMapping>
+): Promise<boolean> => {
+  return hass.callApi("POST", DOMAIN + "/mappings", config);
+};
+
+export const deleteMapping = (
+  hass: HomeAssistant,
+  module_id: string
+): Promise<boolean> => {
+  return hass.callApi("POST", DOMAIN + "/mappings", {
+    id: module_id,
     remove: true,
   });
 };
