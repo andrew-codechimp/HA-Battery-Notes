@@ -161,5 +161,12 @@ It is extended from the example Battery Low Notification automation yaml above f
 This blueprint will automatically update the battery replaced sensor and custom actions to be performed when the battery increases.
 It is extended from the example Battery Replaced automation yaml above for those who'd prefer an easy way to get started.
 
+### Battery Not Reported
+[Install blueprint](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fraw.githubusercontent.com%2Fandrew-codechimp%2FHA-Battery-Notes%2Fmain%2Fdocs%2Fblueprints%2Fbattery_notes_battery_not_reported.yaml) | [Source](./blueprints/battery_notes_battery_not_reported.yaml)
+
+This blueprint will allow notifications to be raised and/or custom actions to be performed when the battery not reported event is fired.  
+It is extended from the example Battery Not Reported automation yaml above for those who'd prefer an easy way to get started.  
+You will want to trigger the check_battery_not_reported service via an automation to raise events, see Check Battery Last Reported Daily above.
+
 ## Contributing  
 If you want to contribute then [fork the repository](https://github.com/andrew-codechimp/HA-Battery-Notes), edit this page which is in the docs folder and submit a pull request.
