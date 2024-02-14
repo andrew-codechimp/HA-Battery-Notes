@@ -33,6 +33,11 @@ from .store import (
     async_get_registry,
 )
 
+from .panel import (
+    async_register_panel,
+    async_unregister_panel,
+)
+
 from .const import (
     DOMAIN,
     DOMAIN_CONFIG,
@@ -151,6 +156,9 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     else:
         _LOGGER.debug("Auto discovery disabled")
 
+    # Register the panel (frontend)
+    await async_register_panel(hass)
+
     # Register custom services
     register_services(hass)
 
@@ -174,6 +182,8 @@ async def async_unload_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> 
 
     device = data.devices.pop(config_entry.entry_id)
     await device.async_unload()
+
+    await async_unregister_panel(hass)
 
     return await hass.config_entries.async_unload_platforms(config_entry, PLATFORMS)
 

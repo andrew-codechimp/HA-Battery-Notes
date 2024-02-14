@@ -1,0 +1,40 @@
+{
+    "name": "BN Frontend",
+    "image": "mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye",
+    "remoteUser": "node",
+    // "postCreateCommand": "make init",
+    "forwardPorts": [
+        5000
+    ],
+    "portsAttributes": {
+        "5000": {
+            "label": "Frontend server port",
+            "onAutoForward": "ignore"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "github.vscode-pull-request-github",
+                "dbaeumer.vscode-eslint",
+                "esbenp.prettier-vscode",
+                "bierner.lit-html",
+                "runem.lit-plugin"
+            ],
+            "settings": {
+                "files.eol": "\n",
+                "editor.tabSize": 2,
+                "editor.formatOnPaste": false,
+                "editor.formatOnSave": true,
+                "editor.formatOnType": true,
+                "[typescript]": {
+                    "editor.defaultFormatter": "esbenp.prettier-vscode"
+                },
+                "[javascript]": {
+                    "editor.defaultFormatter": "esbenp.prettier-vscode"
+                },
+                "files.trimTrailingWhitespace": true
+            }
+        }
+    }
+}
