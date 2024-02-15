@@ -16,7 +16,6 @@ from homeassistant.helpers.typing import DiscoveryInfoType
 from homeassistant.const import Platform
 from homeassistant.components.sensor import SensorDeviceClass
 import homeassistant.helpers.device_registry as dr
-import homeassistant.helpers.entity_registry as er
 from homeassistant.util import dt as dt_util
 
 from homeassistant.const import (

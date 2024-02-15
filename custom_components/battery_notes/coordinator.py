@@ -102,8 +102,8 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
             _LOGGER.debug("battery_threshold event fired Low: %s via template", self.battery_low)
 
             if (
-                self._previous_battery_low_template_state == True
-                and self._battery_low_template_state == False
+                self._previous_battery_low_template_state
+                and not self._battery_low_template_state
             ):
                 self.hass.bus.async_fire(
                     EVENT_BATTERY_INCREASED,

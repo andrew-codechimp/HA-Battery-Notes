@@ -1,7 +1,7 @@
 """Binary Sensor platform for battery_notes."""
 from __future__ import annotations
 
-from collections.abc import Callable, Mapping
+from collections.abc import Callable
 from dataclasses import dataclass
 from typing import Any
 
@@ -16,7 +16,6 @@ from homeassistant.core import (
     Event,
 )
 from homeassistant.exceptions import TemplateError
-from homeassistant.helpers import template
 from homeassistant.helpers.entity import Entity
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.start import async_at_start
@@ -64,13 +63,6 @@ from .const import (
     DOMAIN,
     DATA,
     ATTR_BATTERY_LOW_THRESHOLD,
-    EVENT_BATTERY_THRESHOLD,
-    ATTR_DEVICE_ID,
-    ATTR_BATTERY_QUANTITY,
-    ATTR_BATTERY_TYPE,
-    ATTR_BATTERY_TYPE_AND_QUANTITY,
-    ATTR_BATTERY_LOW,
-    ATTR_DEVICE_NAME,
 )
 
 from .common import isfloat
