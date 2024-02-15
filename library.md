@@ -1,4 +1,4 @@
-## 755 Devices in library
+## 757 Devices in library
 
 This file is auto generated, do not modify
 
@@ -288,6 +288,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Homematic                                       |HmIP-DSD-PCB                                                          |2× AAA                    |
 |Homematic                                       |HmIP-STHO-A                                                           |2× AA                     |
 |HomeSeer Technologies                           |HS-LS100+                                                             |LS14250                   |
+|HomeWizard                                      |HWE-WTR                                                               |2× CR123A                 |
 |Honeywell                                       |TH6320ZW                                                              |3× AA                     |
 |Honeywell                                       |zigbee JTYJ-GD-01LM/BW (lumi.sensor_smoke)                            |2× CR123A                 |
 |Hunter Douglas                                  |Duette                                                                |12× AA                    |
@@ -473,6 +474,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |rtl_433                                         |Vauno-EN8822C                                                         |2× AAA                    |
 |rtl_433                                         |WT450-TH                                                              |AA                        |
 |Ruuvi                                           |Ruuvitag                                                              |CR2477T                   |
+|Ruuvi Innovations Ltd.                          |RuuviTag                                                              |CR2477                    |
 |Samjin                                          |button                                                                |CR2                       |
 |Samjin                                          |motion                                                                |CR2                       |
 |Samjin                                          |multi                                                                 |CR2450                    |
