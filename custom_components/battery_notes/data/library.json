@@ -1880,8 +1880,23 @@
         },
         {
             "manufacturer": "LifeControl",
+            "model": "Door sensor (MCLH-04)",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "LifeControl",
             "model": "MCLH-05",
             "battery_type": "AA"
+        },
+        {
+            "manufacturer": "LifeControl",
+            "model": "Motion sensor (MCLH-05)",
+            "battery_type": "AA"
+        },
+        {
+            "manufacturer": "LifeControl",
+            "model": "Water leak switch (MCLH-07)",
+            "battery_type": "CR123A"
         },
         {
             "manufacturer": "Linkind",
