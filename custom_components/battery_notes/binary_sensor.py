@@ -209,7 +209,7 @@ class _TemplateAttribute:
         self,
         entity: Entity,
         attribute: str,
-        low_template: Template,
+        template: Template,
         validator: Callable[[Any], Any] | None = None,
         on_update: Callable[[Any], None] | None = None,
         none_on_template_error: bool | None = False,
@@ -217,7 +217,7 @@ class _TemplateAttribute:
         """Template attribute."""
         self._entity = entity
         self._attribute = attribute
-        self.low_template = low_template
+        self.template = template
         self.validator = validator
         self.on_update = on_update
         self.async_update = None
@@ -243,7 +243,7 @@ class _TemplateAttribute:
     def handle_result(
         self,
         event: EventType[EventStateChangedData] | None,
-        low_template: Template,
+        template: Template,
         last_result: str | None | TemplateError,
         result: str | TemplateError,
     ) -> None:
@@ -256,7 +256,7 @@ class _TemplateAttribute:
                     "for attribute '%s' in entity '%s'"
                 ),
                 result,
-                self.low_template,
+                self.template,
                 self._attribute,
                 self._entity.entity_id,
             )
@@ -283,7 +283,7 @@ class _TemplateAttribute:
                     "validation message '%s'"
                 ),
                 result,
-                self.low_template,
+                self.template,
                 self._attribute,
                 self._entity.entity_id,
                 ex.msg,
@@ -307,7 +307,7 @@ class BatteryNotesBatteryLowTemplateSensor(BinarySensorEntity, CoordinatorEntity
         coordinator: BatteryNotesCoordinator,
         description: BatteryNotesBinarySensorEntityDescription,
         unique_id: str,
-        low_template: str,
+        template: str,
     ) -> None:
         """Create a low battery binary sensor."""
 
@@ -331,7 +331,7 @@ class BatteryNotesBatteryLowTemplateSensor(BinarySensorEntity, CoordinatorEntity
 
         self.entity_id = f"binary_sensor.{coordinator.device_name.lower()}_{description.key}"
 
-        self._template = low_template
+        self._template = template
         self._state: bool | None = None
 
     async def async_added_to_hass(self) -> None:
@@ -346,7 +346,7 @@ class BatteryNotesBatteryLowTemplateSensor(BinarySensorEntity, CoordinatorEntity
     def add_template_attribute(
         self,
         attribute: str,
-        low_template: Template,
+        template: Template,
         validator: Callable[[Any], Any] | None = None,
         on_update: Callable[[Any], None] | None = None,
         none_on_template_error: bool = False,
@@ -371,12 +371,12 @@ class BatteryNotesBatteryLowTemplateSensor(BinarySensorEntity, CoordinatorEntity
 
         """
         assert self.hass is not None, "hass cannot be None"
-        low_template.hass = self.hass
+        template.hass = self.hass
         template_attribute = _TemplateAttribute(
-            self, attribute, low_template, validator, on_update, none_on_template_error
+            self, attribute, template, validator, on_update, none_on_template_error
         )
-        self._template_attrs.setdefault(low_template, [])
-        self._template_attrs[low_template].append(template_attribute)
+        self._template_attrs.setdefault(template, [])
+        self._template_attrs[template].append(template_attribute)
 
     @callback
     def _async_setup_templates(self) -> None:
@@ -394,8 +394,8 @@ class BatteryNotesBatteryLowTemplateSensor(BinarySensorEntity, CoordinatorEntity
 
         variables = {"this": TemplateStateFromEntityId(self.hass, self.entity_id)}
 
-        for _template, attributes in self._template_attrs.items():
-            template_var_tup = TrackTemplate(_template, variables)
+        for loop_template, attributes in self._template_attrs.items():
+            template_var_tup = TrackTemplate(loop_template, variables)
             is_availability_template = False
             for attribute in attributes:
                 # pylint: disable-next=protected-access
