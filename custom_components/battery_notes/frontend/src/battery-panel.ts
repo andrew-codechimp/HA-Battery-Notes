@@ -34,6 +34,64 @@ export class BatteryPanel extends LitElement {
       </div>
     `;
   }
+
+  static get styles(): CSSResultGroup {
+    return css`
+      ${commonStyle} :host {
+        color: var(--primary-text-color);
+        --paper-card-header-color: var(--primary-text-color);
+      }
+      .header {
+        background-color: var(--app-header-background-color);
+        color: var(--app-header-text-color, white);
+        border-bottom: var(--app-header-border-bottom, none);
+      }
+      .toolbar {
+        height: var(--header-height);
+        display: flex;
+        align-items: center;
+        font-size: 20px;
+        padding: 0 16px;
+        font-weight: 400;
+        box-sizing: border-box;
+      }
+      .main-title {
+        margin: 0 0 0 24px;
+        line-height: 20px;
+        flex-grow: 1;
+      }
+      ha-tabs {
+        margin-left: max(env(safe-area-inset-left), 24px);
+        margin-right: max(env(safe-area-inset-right), 24px);
+        --paper-tabs-selection-bar-color: var(
+          --app-header-selection-bar-color,
+          var(--app-header-text-color, #fff)
+        );
+        text-transform: uppercase;
+      }
+
+      .view {
+        height: calc(100vh - 112px);
+        display: flex;
+        justify-content: center;
+      }
+
+      .view > * {
+        width: 600px;
+        max-width: 600px;
+      }
+
+      .view > *:last-child {
+        margin-bottom: 20px;
+      }
+
+      .version {
+        font-size: 14px;
+        font-weight: 500;
+        color: rgba(var(--rgb-text-primary-color), 0.9);
+      }
+    `;
+  }
 }
 
 declare global {
