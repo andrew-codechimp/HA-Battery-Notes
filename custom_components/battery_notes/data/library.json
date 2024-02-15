@@ -1544,6 +1544,12 @@
             "battery_type": "LS14250"
         },
         {
+            "manufacturer": "HomeWizard",
+            "model": "HWE-WTR",
+            "battery_type": "CR123A",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Honeywell",
             "model": "TH6320ZW",
             "battery_type": "AA",
@@ -2541,6 +2547,11 @@
             "manufacturer": "Ruuvi",
             "model": "Ruuvitag",
             "battery_type": "CR2477T"
+        },
+        {
+            "manufacturer": "Ruuvi Innovations Ltd.",
+            "model": "RuuviTag",
+            "battery_type": "CR2477"
         },
         {
             "manufacturer": "Samjin",

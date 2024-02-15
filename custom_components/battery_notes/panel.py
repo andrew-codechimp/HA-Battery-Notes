@@ -3,6 +3,7 @@ import logging
 
 from homeassistant.components import frontend
 from homeassistant.components import panel_custom
+from homeassistant.core import HomeAssistant
 
 from .const import (
     CUSTOM_COMPONENTS,
@@ -19,8 +20,14 @@ from .const import (
 _LOGGER = logging.getLogger(__name__)
 
 
-async def async_register_panel(hass):
+async def async_register_panel(hass: HomeAssistant):
+  """Create Battery Notes panel."""
   root_dir = os.path.join(hass.config.path(CUSTOM_COMPONENTS), INTEGRATION_FOLDER)
+
+  # Handle dev container
+  if root_dir.startswith("/workspaces/HA-Battery-Notes"):
+    root_dir = root_dir.replace("config/", "")
+
   panel_dir = os.path.join(root_dir, PANEL_FOLDER)
   view_url = os.path.join(panel_dir, PANEL_FILENAME)
 
@@ -39,5 +46,6 @@ async def async_register_panel(hass):
 
 
 def async_unregister_panel(hass):
+  """Remove Battery Notes panel."""
   frontend.async_remove_panel(hass, DOMAIN)
   _LOGGER.debug("Removing panel")

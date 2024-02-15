@@ -4,6 +4,10 @@
   "codeowners": [
     "@andrew-codechimp"
   ],
+  "dependencies": [
+    "panel_custom",
+    "websocket_api"
+  ],
   "config_flow": true,
   "documentation": "https://andrew-codechimp.github.io/HA-Battery-Notes/",
   "integration_type": "device",

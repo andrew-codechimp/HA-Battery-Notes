@@ -23,14 +23,19 @@ MANUFACTURER = "@Andrew-CodeChimp"
 
 CUSTOM_COMPONENTS = "custom_components"
 INTEGRATION_FOLDER = DOMAIN
-PANEL_FOLDER = "frontend"
-PANEL_FILENAME = "dist/battery-notes.js"
 
 LAST_REPLACED = "battery_last_replaced"
 LAST_REPORTED = "battery_last_reported"
 LAST_REPORTED_LEVEL = "battery_last_reported_level"
 
 DOMAIN_CONFIG = "config"
+
+PANEL_ICON = "mdi:battery"
+PANEL_NAME = "battery-panel"
+PANEL_TITLE = NAME
+PANEL_FOLDER = "frontend/dist"
+PANEL_FILENAME = "battery-panel.js"
+PANEL_URL = "/api/panel_custom/battery-notes"
 
 DEFAULT_BATTERY_LOW_THRESHOLD = 10
 DEFAULT_BATTERY_INCREASE_THRESHOLD = 25

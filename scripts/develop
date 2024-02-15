@@ -11,9 +11,9 @@ if [[ ! -d "${PWD}/config" ]]; then
 fi
 
 # Set the path to custom_components
-## This let's us have the structure we want <root>/custom_components/integration_battery_types
+## This let's us have the structure we want <root>/custom_components/battery_notes
 ## while at the same time have Home Assistant configuration inside <root>/config
-## without resulting to symlinks.
+## without resorting to symlinks.
 export PYTHONPATH="${PYTHONPATH}:${PWD}/custom_components"
 
 # Start Home Assistant

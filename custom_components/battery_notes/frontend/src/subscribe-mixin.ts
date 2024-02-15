@@ -1,14 +1,16 @@
-import { PropertyValues, ReactiveElement } from 'lit';
-import { property } from 'lit/decorators.js';
-import { UnsubscribeFunc } from 'home-assistant-js-websocket';
-import { HomeAssistant } from 'custom-card-helpers';
+import { PropertyValues, ReactiveElement } from "lit";
+import { property } from "lit/decorators.js";
+import { UnsubscribeFunc } from "home-assistant-js-websocket";
+import { HomeAssistant } from "./types";
 
 export interface HassSubscribeElement {
   hassSubscribe(): UnsubscribeFunc[];
 }
 export type Constructor<T = any> = new (...args: any[]) => T;
 
-export const SubscribeMixin = <T extends Constructor<ReactiveElement>>(superClass: T) => {
+export const SubscribeMixin = <T extends Constructor<ReactiveElement>>(
+  superClass: T
+) => {
   class SubscribeClass extends superClass {
     @property({ attribute: false }) public hass?: HomeAssistant;
 
@@ -25,7 +27,7 @@ export const SubscribeMixin = <T extends Constructor<ReactiveElement>>(superClas
         while (this.__unsubs.length) {
           const unsub = this.__unsubs.pop()!;
           if (unsub instanceof Promise) {
-            unsub.then(unsubFunc => unsubFunc());
+            unsub.then((unsubFunc) => unsubFunc());
           } else {
             unsub();
           }
@@ -36,17 +38,23 @@ export const SubscribeMixin = <T extends Constructor<ReactiveElement>>(superClas
 
     protected updated(changedProps: PropertyValues) {
       super.updated(changedProps);
-      if (changedProps.has('hass')) {
+      if (changedProps.has("hass")) {
         this.__checkSubscribed();
       }
     }
 
-    protected hassSubscribe(): Array<UnsubscribeFunc | Promise<UnsubscribeFunc>> {
+    protected hassSubscribe(): Array<
+      UnsubscribeFunc | Promise<UnsubscribeFunc>
+    > {
       return [];
     }
 
     private __checkSubscribed(): void {
-      if (this.__unsubs !== undefined || !((this as unknown) as Element).isConnected || this.hass === undefined) {
+      if (
+        this.__unsubs !== undefined ||
+        !(this as unknown as Element).isConnected ||
+        this.hass === undefined
+      ) {
         return;
       }
       this.__unsubs = this.hassSubscribe();

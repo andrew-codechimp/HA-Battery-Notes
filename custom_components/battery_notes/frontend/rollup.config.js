@@ -1,33 +1,33 @@
-import nodeResolve from '@rollup/plugin-node-resolve';
-import typescript from 'rollup-plugin-typescript2';
-import babel from '@rollup/plugin-babel';
-import json from '@rollup/plugin-json';
-import { terser } from 'rollup-plugin-terser';
-import commonjs from '@rollup/plugin-commonjs';
+import nodeResolve from "@rollup/plugin-node-resolve";
+import typescript from "rollup-plugin-typescript2";
+import babel from "@rollup/plugin-babel";
+import json from "@rollup/plugin-json";
+import { terser } from "rollup-plugin-terser";
+import commonjs from "@rollup/plugin-commonjs";
 
 const plugins = [
   nodeResolve(),
   commonjs({
-    include: 'node_modules/**'
+    include: "node_modules/**",
   }),
   typescript(),
   json(),
   babel({
-    exclude: 'node_modules/**',
+    exclude: "node_modules/**",
   }),
-  terser()
+  terser(),
 ];
 
 export default [
   {
-    input: 'src/smart-irrigation.ts',
+    input: "src/battery-panel.ts",
     output: {
-      dir: 'dist',
-      format: 'iife',
+      dir: "dist",
+      format: "iife",
       inlineDynamicImports: true,
       sourcemap: false,
     },
     plugins: [...plugins],
-    context: 'window'
+    context: "window",
   },
 ];
