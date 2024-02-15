@@ -666,7 +666,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Woox                                            |Smart siren (R7051)                                                   |Rechargeable              |
 |Woox                                            |Smart smoke alarm (R7049)                                             |2× AAA                    |
 |WyzeLabs                                        |WVOD1                                                                 |Rechargeable              |
-|WyzeLabs                                        |YD.LO1                                                                |Rechargeable              |
+|WyzeLabs                                        |YD.LO1                                                                |4× AA                     |
 |Xiaomi                                          |Aqara curtain driver E1 (ZNCLBL01LM)                                  |Rechargeable              |
 |Xiaomi                                          |Aqara D1 double key wireless wall switch (WXKG07LM)                   |CR2032                    |
 |Xiaomi                                          |Aqara D1 single key wireless wall switch (WXKG06LM)                   |CR2032                    |

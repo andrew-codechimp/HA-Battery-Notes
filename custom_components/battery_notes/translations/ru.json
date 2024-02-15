@@ -15,10 +15,12 @@
                 "data": {
                     "battery_type": "Тип батареи",
                     "battery_quantity": "Количество батарей",
-                    "battery_low_threshold": "Порог низкого заряда батареи"
+                    "battery_low_threshold": "Порог низкого заряда батареи",
+                    "battery_low_template": "Battery low template"
                 },
                 "data_description": {
-                    "battery_low_threshold": "0 будет использовать общий порог по умолчанию"
+                    "battery_low_threshold": "0 будет использовать общий порог по умолчанию",
+                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels"
                 }
             }
         },
@@ -37,11 +39,13 @@
                     "name": "Название",
                     "battery_type": "Тип батареи",
                     "battery_quantity": "Количество батарей",
-                    "battery_low_threshold": "Порог низкого заряда батареи"
+                    "battery_low_threshold": "Порог низкого заряда батареи",
+                    "battery_low_template": "Battery low template"
                 },
                 "data_description": {
                     "name": "Если оставить пустым, то имя будет взято с исходного устройства",
-                    "battery_low_threshold": "0 будет использовать общий порог по умолчанию"
+                    "battery_low_threshold": "0 будет использовать общий порог по умолчанию",
+                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels"
                 }
             }
         },
@@ -125,6 +129,16 @@
                 }
             },
             "name": "Отметить замену батареи"
+        },
+        "check_battery_last_reported": {
+            "description": "Raise events for devices that haven't reported their battery level.",
+            "fields": {
+                "days_last_reported": {
+                    "description": "Number of days since a device last reported its battery level.",
+                    "name": "Days"
+                }
+            },
+            "name": "Check battery last reported"
         }
     }
 }
