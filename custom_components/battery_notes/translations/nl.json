@@ -2,7 +2,7 @@
     "config": {
         "step": {
             "user": {
-                "description": "If you need help with the configuration have a look here: https://github.com/andrew-codechimp/ha-battery-notes",
+                "description": "If you need help with the configuration have a look here: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
                     "device_id": "Apparaat",
                     "name": "Naam"
@@ -15,10 +15,12 @@
                 "data": {
                     "battery_type": "Batterij Type",
                     "battery_quantity": "Battery quantity",
-                    "battery_low_threshold": "Battery low threshold"
+                    "battery_low_threshold": "Battery low threshold",
+                    "battery_low_template": "Battery low template"
                 },
                 "data_description": {
-                    "battery_low_threshold": "0 will use the global default threshold"
+                    "battery_low_threshold": "0 will use the global default threshold",
+                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels"
                 }
             }
         },
@@ -32,16 +34,18 @@
     "options": {
         "step": {
             "init": {
-                "description": "If you need help with the configuration have a look here: https://github.com/andrew-codechimp/ha-battery-notes",
+                "description": "If you need help with the configuration have a look here: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
                     "name": "Naam",
                     "battery_type": "Batterij Type",
                     "battery_quantity": "Battery quantity",
-                    "battery_low_threshold": "Battery low threshold"
+                    "battery_low_threshold": "Battery low threshold",
+                    "battery_low_template": "Battery low template"
                 },
                 "data_description": {
                     "name": "Leaving blank will take the name from the source device",
-                    "battery_low_threshold": "0 will use the global default threshold"
+                    "battery_low_threshold": "0 will use the global default threshold",
+                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels"
                 }
             }
         },
@@ -125,6 +129,16 @@
                 }
             },
             "name": "Set battery replaced"
+        },
+        "check_battery_last_reported": {
+            "description": "Raise events for devices that haven't reported their battery level.",
+            "fields": {
+                "days_last_reported": {
+                    "description": "Number of days since a device last reported its battery level.",
+                    "name": "Days"
+                }
+            },
+            "name": "Check battery last reported"
         }
     }
 }

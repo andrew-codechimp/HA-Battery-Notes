@@ -15,10 +15,12 @@
                 "data": {
                     "battery_type": "Batteri type",
                     "battery_quantity": "Antal batterier",
-                    "battery_low_threshold": "Lav tærskel for batteri"
+                    "battery_low_threshold": "Lav tærskel for batteri",
+                    "battery_low_template": "Battery low template"
                 },
                 "data_description": {
-                    "battery_low_threshold": "0 vil bruge den globale standardtærskel"
+                    "battery_low_threshold": "0 vil bruge den globale standardtærskel",
+                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels"
                 }
             }
         },
@@ -37,11 +39,13 @@
                     "name": "Navn",
                     "battery_type": "Batteri type",
                     "battery_quantity": "Antal batterier",
-                    "battery_low_threshold": "Lav tærskel for batteri"
+                    "battery_low_threshold": "Lav tærskel for batteri",
+                    "battery_low_template": "Battery low template"
                 },
                 "data_description": {
                     "name": "Hvis du lader det være tomt, hentes navnet fra kildeenheden",
-                    "battery_low_threshold": "0 vil bruge den globale standardtærskel"
+                    "battery_low_threshold": "0 vil bruge den globale standardtærskel",
+                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels"
                 }
             }
         },
@@ -125,6 +129,16 @@
                 }
             },
             "name": "Sæt batteri udskiftet"
+        },
+        "check_battery_last_reported": {
+            "description": "Raise events for devices that haven't reported their battery level.",
+            "fields": {
+                "days_last_reported": {
+                    "description": "Number of days since a device last reported its battery level.",
+                    "name": "Days"
+                }
+            },
+            "name": "Check battery last reported"
         }
     }
 }
