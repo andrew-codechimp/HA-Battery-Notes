@@ -15,10 +15,12 @@
                 "data": {
                     "battery_type": "بیٹری کی قسم",
                     "battery_quantity": "بیٹری کی مقدار",
-                    "battery_low_threshold": "بیٹری کی کم حد"
+                    "battery_low_threshold": "بیٹری کی کم حد",
+                    "battery_low_template": "Battery low template"
                 },
                 "data_description": {
-                    "battery_low_threshold": "0 عالمی ڈیفالٹ حد استعمال کرے گا۔"
+                    "battery_low_threshold": "0 عالمی ڈیفالٹ حد استعمال کرے گا۔",
+                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels"
                 }
             }
         },
@@ -32,16 +34,18 @@
     "options": {
         "step": {
             "init": {
-                "description": "اگر آپ کو ترتیب میں مدد کی ضرورت ہو تو یہاں ایک نظر ڈالیں: https://github.com/andrew-codechimp/ha-battery-notes",
+                "description": "اگر آپ کو ترتیب میں مدد کی ضرورت ہو تو یہاں ایک نظر ڈالیں: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
                     "name": "نام",
                     "battery_type": "بیٹری کی قسم",
                     "battery_quantity": "بیٹری کی مقدار",
-                    "battery_low_threshold": "بیٹری کی کم حد"
+                    "battery_low_threshold": "بیٹری کی کم حد",
+                    "battery_low_template": "Battery low template"
                 },
                 "data_description": {
                     "name": "خالی چھوڑنے سے نام ماخذ آلہ سے لیا جائے گا۔",
-                    "battery_low_threshold": "0 عالمی ڈیفالٹ حد استعمال کرے گا۔"
+                    "battery_low_threshold": "0 عالمی ڈیفالٹ حد استعمال کرے گا۔",
+                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels"
                 }
             }
         },
@@ -125,6 +129,16 @@
                 }
             },
             "name": "سیٹ کی بیٹری کو تبدیل کر دیا گیا۔"
+        },
+        "check_battery_last_reported": {
+            "description": "Raise events for devices that haven't reported their battery level.",
+            "fields": {
+                "days_last_reported": {
+                    "description": "Number of days since a device last reported its battery level.",
+                    "name": "Days"
+                }
+            },
+            "name": "Check battery last reported"
         }
     }
 }

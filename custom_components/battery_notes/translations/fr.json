@@ -15,10 +15,12 @@
                 "data": {
                     "battery_type": "Type de batterie",
                     "battery_quantity": "Nombre de batteries",
-                    "battery_low_threshold": "Seuil de batterie faible"
+                    "battery_low_threshold": "Seuil de batterie faible",
+                    "battery_low_template": "Battery low template"
                 },
                 "data_description": {
-                    "battery_low_threshold": "0 gardera le seuil par defaut"
+                    "battery_low_threshold": "0 gardera le seuil par defaut",
+                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels"
                 }
             }
         },
@@ -37,11 +39,13 @@
                     "name": "Nom",
                     "battery_type": "Type de batterie",
                     "battery_quantity": "Nombre de batteries",
-                    "battery_low_threshold": "Seuil de batterie faible"
+                    "battery_low_threshold": "Seuil de batterie faible",
+                    "battery_low_template": "Battery low template"
                 },
                 "data_description": {
                     "name": "Laisser vide gardera le seuil par defaut",
-                    "battery_low_threshold": "0 gardera le seuil par defaut"
+                    "battery_low_threshold": "0 gardera le seuil par defaut",
+                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels"
                 }
             }
         },
@@ -125,6 +129,16 @@
                 }
             },
             "name": "Mise à jour remplacement de la batterie"
+        },
+        "check_battery_last_reported": {
+            "description": "Raise events for devices that haven't reported their battery level.",
+            "fields": {
+                "days_last_reported": {
+                    "description": "Number of days since a device last reported its battery level.",
+                    "name": "Days"
+                }
+            },
+            "name": "Check battery last reported"
         }
     }
 }

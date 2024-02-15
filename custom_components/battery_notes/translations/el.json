@@ -2,7 +2,7 @@
     "config": {
         "step": {
             "user": {
-                "description": "Αν χρειάζεστε βοήθεια με τις ρυθμίσεις παραμέτρων ρίξτε μια ματιά εδώ: https://github.com/andrew-codechimp/ha-battery-notes",
+                "description": "Αν χρειάζεστε βοήθεια με τις ρυθμίσεις παραμέτρων ρίξτε μια ματιά εδώ: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
                     "device_id": "Συσκευή",
                     "name": "Ονομα"
@@ -15,10 +15,12 @@
                 "data": {
                     "battery_type": "Τύπος μπαταρίας",
                     "battery_quantity": "Αριθμός μπαταριών",
-                    "battery_low_threshold": "Ελάχιστο όριο μπαταρίας"
+                    "battery_low_threshold": "Ελάχιστο όριο μπαταρίας",
+                    "battery_low_template": "Battery low template"
                 },
                 "data_description": {
-                    "battery_low_threshold": "0 θα χρησιμοποιηθεί το καθολικό προεπιλεγμένο ελάχιστο όριο"
+                    "battery_low_threshold": "0 θα χρησιμοποιηθεί το καθολικό προεπιλεγμένο ελάχιστο όριο",
+                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels"
                 }
             }
         },
@@ -32,16 +34,18 @@
     "options": {
         "step": {
             "init": {
-                "description": "Αν χρειάζεστε βοήθεια με τις ρυθμίσεις παραμέτρων ρίξτε μια ματιά εδώ: https://github.com/andrew-codechimp/ha-battery-notes",
+                "description": "Αν χρειάζεστε βοήθεια με τις ρυθμίσεις παραμέτρων ρίξτε μια ματιά εδώ: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
                     "name": "Ονομα",
                     "battery_type": "Τύπος μπαταρίας",
                     "battery_quantity": "Αριθμός μπαταριών",
-                    "battery_low_threshold": "Ελάχιστο όριο μπαταρίας"
+                    "battery_low_threshold": "Ελάχιστο όριο μπαταρίας",
+                    "battery_low_template": "Battery low template"
                 },
                 "data_description": {
                     "name": "Αφήνοντάς το κενό θα πάρει το όνομα από τη συσκευή προέλευσης",
-                    "battery_low_threshold": "0 θα χρησιμοποιηθεί το καθολικό προεπιλεγμένο ελάχιστο όριο"
+                    "battery_low_threshold": "0 θα χρησιμοποιηθεί το καθολικό προεπιλεγμένο ελάχιστο όριο",
+                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels"
                 }
             }
         },
@@ -125,6 +129,16 @@
                 }
             },
             "name": "Ορισμός μπαταρίας ως αντικατεστημένη"
+        },
+        "check_battery_last_reported": {
+            "description": "Raise events for devices that haven't reported their battery level.",
+            "fields": {
+                "days_last_reported": {
+                    "description": "Number of days since a device last reported its battery level.",
+                    "name": "Days"
+                }
+            },
+            "name": "Check battery last reported"
         }
     }
 }
