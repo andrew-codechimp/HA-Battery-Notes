@@ -30,6 +30,7 @@ from .const import (
     CONF_BATTERY_QUANTITY,
     CONF_BATTERY_LOW_THRESHOLD,
     CONF_DEFAULT_BATTERY_LOW_THRESHOLD,
+    CONF_BATTERY_LOW_TEMPLATE,
     DEFAULT_BATTERY_LOW_THRESHOLD,
 )
 
@@ -133,6 +134,8 @@ class BatteryNotesDevice:
             self.coordinator.battery_low_threshold = domain_config.get(
                 CONF_DEFAULT_BATTERY_LOW_THRESHOLD, DEFAULT_BATTERY_LOW_THRESHOLD
             )
+
+        self.coordinator.battery_low_template = config.data.get(CONF_BATTERY_LOW_TEMPLATE)
 
         if self.wrapped_battery:
             _LOGGER.debug(

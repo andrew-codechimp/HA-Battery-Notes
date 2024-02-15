@@ -1,0 +1,53 @@
+blueprint:
+  name: Battery Notes - Battery Not Reported
+  description: Actions to perform when the battery not reported event is fired
+  author: andrew-codechimp
+  source_url: https://raw.githubusercontent.com/andrew-codechimp/HA-Battery-Notes/main/docs/blueprints/battery_notes_battery_not_reported.yaml
+  domain: automation
+
+  input:
+    not_reported_notification:
+      name: Battery Not Reported Notification
+      description: Create a persistent notification when the battery is not reported.
+      default: True
+      selector:
+        boolean:
+    user_actions:
+      name: User Actions
+      description: User actions to run on battery not reported.
+      default: []
+      selector:
+        action:
+
+variables:
+  not_reported_notification: !input not_reported_notification
+
+trigger:
+  - platform: event
+    event_type: battery_notes_battery_not_reported
+    alias: Battery not reported
+
+condition: []
+
+action:
+  - if:
+      - condition: template
+        value_template: "{{ not_reported_notification }}"
+    then:
+      - service: persistent_notification.create
+        data:
+          title: |
+            {{ trigger.event.data.device_name }} Battery Not Reported
+          message: >
+            The device has not reported its battery level for {{
+            trigger.event.data.battery_last_reported_days }} days {{ '\n'
+            -}} Its last reported level was {{
+            trigger.event.data.battery_last_reported_level }}% {{ '\n' -}} You need
+            {{ trigger.event.data.battery_quantity }}× {{
+            trigger.event.data.battery_type }}
+      - alias: "Run user actions"
+        choose: []
+        default: !input 'user_actions'
+
+mode: queued
+max: 30

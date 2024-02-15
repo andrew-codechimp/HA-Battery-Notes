@@ -89,6 +89,50 @@ action:
 mode: queued
 ```
 
+### Check Battery Last Reported Daily
+Call the check battery last reported service every day to raise events for those not reported in the last two days.  
+To be used in conjunction with a Battery Not Reported automation.
+
+```yaml
+alias: Daily Battery Not Reported Check
+description: Check whether a battery has reported
+trigger:
+  - platform: time
+    at: "09:00:00"
+condition: []
+action:
+  - service: battery_notes.check_battery_last_reported
+    data:
+      days_last_reported: 2
+mode: single
+```
+
+### Battery Not Reported
+Respond to events raised by the check_battery_last_reported service and create notifications.
+
+```yaml
+alias: Battery Not Reported
+description: Battery not reported
+trigger:
+  - platform: event
+    event_type: battery_notes_battery_not_reported
+condition: []
+action:
+  - service: persistent_notification.create
+    data:
+      title: |
+        {{ trigger.event.data.device_name }} Battery Not Reported
+      message: >
+        The device has not reported its battery level for {{
+        trigger.event.data.battery_last_reported_days }} days {{ '\n'
+        -}} Its last reported level was {{
+        trigger.event.data.battery_last_reported_level }}% {{ '\n' -}} You need
+        {{ trigger.event.data.battery_quantity }}× {{
+        trigger.event.data.battery_type }}
+mode: queued
+max: 30
+```
+
 ## Automation Tips
 
 To call the battery replaced service from an entity trigger you will need the device_id, here's an easy way to get this
@@ -116,6 +160,13 @@ It is extended from the example Battery Low Notification automation yaml above f
 
 This blueprint will automatically update the battery replaced sensor and custom actions to be performed when the battery increases.
 It is extended from the example Battery Replaced automation yaml above for those who'd prefer an easy way to get started.
+
+### Battery Not Reported
+[Install blueprint](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fraw.githubusercontent.com%2Fandrew-codechimp%2FHA-Battery-Notes%2Fmain%2Fdocs%2Fblueprints%2Fbattery_notes_battery_not_reported.yaml) | [Source](./blueprints/battery_notes_battery_not_reported.yaml)
+
+This blueprint will allow notifications to be raised and/or custom actions to be performed when the battery not reported event is fired.  
+It is extended from the example Battery Not Reported automation yaml above for those who'd prefer an easy way to get started.  
+You will want to trigger the check_battery_not_reported service via an automation to raise events, see Check Battery Last Reported Daily above.
 
 ## Contributing  
 If you want to contribute then [fork the repository](https://github.com/andrew-codechimp/HA-Battery-Notes), edit this page which is in the docs folder and submit a pull request.

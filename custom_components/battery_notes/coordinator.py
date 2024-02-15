@@ -53,12 +53,15 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
     battery_type: str
     battery_quantity: int
     battery_low_threshold: int
+    battery_low_template: str
     wrapped_battery: RegistryEntry
     _current_battery_level: str = None
     enable_replaced: bool = True
     _round_battery: bool = False
     _previous_battery_low: bool = None
     _previous_battery_level: str = None
+    _battery_low_template_state: bool = False
+    _previous_battery_low_template_state: bool = None
 
     def __init__(
         self, hass, store: BatteryNotesStorage, wrapped_battery: RegistryEntry
@@ -75,6 +78,50 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
         super().__init__(hass, _LOGGER, name=DOMAIN)
 
     @property
+    def battery_low_template_state(self):
+        """Get the current battery low status from a templated device."""
+        return self._battery_low_template_state
+
+    @battery_low_template_state.setter
+    def battery_low_template_state(self, value):
+        """Set the current battery low status from a templated device and fire events if valid."""
+        self._battery_low_template_state = value
+        if self._previous_battery_low_template_state is not None and self.battery_low_template:
+            self.hass.bus.async_fire(
+                EVENT_BATTERY_THRESHOLD,
+                {
+                    ATTR_DEVICE_ID: self.device_id,
+                    ATTR_DEVICE_NAME: self.device_name,
+                    ATTR_BATTERY_LOW: self.battery_low,
+                    ATTR_BATTERY_TYPE_AND_QUANTITY: self.battery_type_and_quantity,
+                    ATTR_BATTERY_TYPE: self.battery_type,
+                    ATTR_BATTERY_QUANTITY: self.battery_quantity,
+                },
+            )
+
+            _LOGGER.debug("battery_threshold event fired Low: %s via template", self.battery_low)
+
+            if (
+                self._previous_battery_low_template_state
+                and not self._battery_low_template_state
+            ):
+                self.hass.bus.async_fire(
+                    EVENT_BATTERY_INCREASED,
+                    {
+                        ATTR_DEVICE_ID: self.device_id,
+                        ATTR_DEVICE_NAME: self.device_name,
+                        ATTR_BATTERY_LOW: self.battery_low,
+                        ATTR_BATTERY_TYPE_AND_QUANTITY: self.battery_type_and_quantity,
+                        ATTR_BATTERY_TYPE: self.battery_type,
+                        ATTR_BATTERY_QUANTITY: self.battery_quantity,
+                    },
+                    )
+
+                _LOGGER.debug("battery_increased event fired via template")
+
+        self._previous_battery_low_template_state = value
+
+    @property
     def current_battery_level(self):
         """Get the current battery level."""
         return self._current_battery_level
@@ -84,7 +131,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
         """Set the current battery level and fire events if valid."""
         self._current_battery_level = value
 
-        if self._previous_battery_level is not None:
+        if self._previous_battery_level is not None and self.battery_low_template is None:
             # Battery low event
             if self.battery_low != self._previous_battery_low:
                 self.hass.bus.async_fire(
@@ -204,10 +251,13 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
     @property
     def battery_low(self) -> bool:
         """Check if battery low against threshold."""
-        if isfloat(self.current_battery_level):
-            return bool(
-                float(self.current_battery_level) < self.battery_low_threshold
-            )
+        if self.battery_low_template:
+            return self.battery_low_template_state
+        else:
+            if isfloat(self.current_battery_level):
+                return bool(
+                    float(self.current_battery_level) < self.battery_low_threshold
+                )
 
         return False
 

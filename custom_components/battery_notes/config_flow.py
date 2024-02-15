@@ -37,6 +37,7 @@ from .const import (
     DATA_LIBRARY_UPDATER,
     DOMAIN_CONFIG,
     CONF_SHOW_ALL_DEVICES,
+    CONF_BATTERY_LOW_TEMPLATE,
 )
 
 _LOGGER = logging.getLogger(__name__)
@@ -50,7 +51,7 @@ DEVICE_SCHEMA_ALL = vol.Schema(
         ),
         vol.Optional(CONF_NAME): selector.TextSelector(
             selector.TextSelectorConfig(type=selector.TextSelectorType.TEXT),
-        ),
+        )
     }
 )
 
@@ -72,7 +73,7 @@ DEVICE_SCHEMA = vol.Schema(
         ),
         vol.Optional(CONF_NAME): selector.TextSelector(
             selector.TextSelectorConfig(type=selector.TextSelectorType.TEXT),
-        ),
+        )
     }
 )
 
@@ -228,6 +229,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                             min=0, max=99, mode=selector.NumberSelectorMode.BOX
                         ),
                     ),
+                    vol.Optional(CONF_BATTERY_LOW_TEMPLATE): selector.TemplateSelector()
                 }
             ),
             errors=errors,
@@ -245,6 +247,7 @@ class OptionsFlowHandler(OptionsFlow):
         self.name: str = self.current_config.get(CONF_NAME)
         self.battery_type: str = self.current_config.get(CONF_BATTERY_TYPE)
         self.battery_quantity: int = self.current_config.get(CONF_BATTERY_QUANTITY)
+        self.battery_low_template: str = self.current_config.get(CONF_BATTERY_LOW_TEMPLATE)
 
     async def async_step_init(
         self,
@@ -328,6 +331,7 @@ class OptionsFlowHandler(OptionsFlow):
                         min=0, max=99, mode=selector.NumberSelectorMode.BOX
                     ),
                 ),
+                vol.Optional(CONF_BATTERY_LOW_TEMPLATE): selector.TemplateSelector()
             }
         )
 

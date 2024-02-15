@@ -45,6 +45,7 @@ CONF_DEFAULT_BATTERY_LOW_THRESHOLD = "default_battery_low_threshold"
 CONF_BATTERY_INCREASE_THRESHOLD = "battery_increase_threshold"
 CONF_HIDE_BATTERY = "hide_battery"
 CONF_ROUND_BATTERY = "round_battery"
+CONF_BATTERY_LOW_TEMPLATE = "battery_low_template"
 
 DATA_CONFIGURED_ENTITIES = "configured_entities"
 DATA_DISCOVERED_ENTITIES = "discovered_entities"
@@ -59,8 +60,12 @@ DATA = "data"
 SERVICE_BATTERY_REPLACED = "set_battery_replaced"
 SERVICE_DATA_DATE_TIME_REPLACED = "datetime_replaced"
 
+SERVICE_CHECK_BATTERY_LAST_REPORTED = "check_battery_last_reported"
+SERVICE_DATA_DAYS_LAST_REPORTED = "days_last_reported"
+
 EVENT_BATTERY_THRESHOLD = "battery_notes_battery_threshold"
 EVENT_BATTERY_INCREASED = "battery_notes_battery_increased"
+EVENT_BATTERY_NOT_REPORTED = "battery_notes_battery_not_reported"
 
 ATTR_DEVICE_ID = "device_id"
 ATTR_REMOVE = "remove"
@@ -73,6 +78,7 @@ ATTR_BATTERY_LOW_THRESHOLD = "battery_low_threshold"
 ATTR_DEVICE_NAME = "device_name"
 ATTR_BATTERY_LEVEL = "battery_level"
 ATTR_BATTERY_LAST_REPORTED = "battery_last_reported"
+ATTR_BATTERY_LAST_REPORTED_DAYS = "battery_last_reported_days"
 ATTR_BATTERY_LAST_REPORTED_LEVEL = "battery_last_reported_level"
 ATTR_PREVIOUS_BATTERY_LEVEL = "previous_battery_level"
 
@@ -80,6 +86,12 @@ SERVICE_BATTERY_REPLACED_SCHEMA = vol.Schema(
     {
         vol.Required(ATTR_DEVICE_ID): cv.string,
         vol.Optional(SERVICE_DATA_DATE_TIME_REPLACED): cv.datetime,
+    }
+)
+
+SERVICE_CHECK_BATTERY_LAST_REPORTED_SCHEMA = vol.Schema(
+    {
+        vol.Required(SERVICE_DATA_DAYS_LAST_REPORTED): cv.positive_int,
     }
 )
 
