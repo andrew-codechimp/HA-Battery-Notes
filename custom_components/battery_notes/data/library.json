@@ -1879,6 +1879,11 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "LifeControl",
+            "model": "MCLH-05",
+            "battery_type": "AA"
+        },
+        {
             "manufacturer": "Linkind",
             "model": "Door/window Sensor (ZS110050078)",
             "battery_type": "CR2032"
@@ -4064,11 +4069,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "LifeControl",
-            "model": "MCLH-05",
-            "battery_type": "AA"
         }
     ]
 }
