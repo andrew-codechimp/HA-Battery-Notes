@@ -2543,6 +2543,11 @@
             "battery_type": "CR2477T"
         },
         {
+            "manufacturer": "Ruuvi Innovations Ltd.",
+            "model": "RuuviTag",
+            "battery_type": "CR2477"
+        },
+        {
             "manufacturer": "Samjin",
             "model": "button",
             "battery_type": "CR2"
@@ -4084,11 +4089,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Ruuvi Innovations Ltd.",
-            "model": "RuuviTag",
-            "battery_type": "CR2477"
         }
     ]
 }
