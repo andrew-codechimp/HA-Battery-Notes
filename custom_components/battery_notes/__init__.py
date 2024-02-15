@@ -69,6 +69,7 @@ from .const import (
     ATTR_BATTERY_TYPE,
     ATTR_BATTERY_QUANTITY,
     ATTR_BATTERY_LAST_REPORTED,
+    ATTR_BATTERY_LAST_REPORTED_DAYS,
     ATTR_BATTERY_LAST_REPORTED_LEVEL,
     CONF_BATTERY_TYPE,
     CONF_BATTERY_QUANTITY,
@@ -351,6 +352,7 @@ def register_services(hass):
                             ATTR_BATTERY_TYPE: device.coordinator.battery_type,
                             ATTR_BATTERY_QUANTITY: device.coordinator.battery_quantity,
                             ATTR_BATTERY_LAST_REPORTED: device.coordinator.last_reported,
+                            ATTR_BATTERY_LAST_REPORTED_DAYS: time_since_lastreported.days,
                             ATTR_BATTERY_LAST_REPORTED_LEVEL: device.coordinator.last_reported_level,
                         },
                     )
