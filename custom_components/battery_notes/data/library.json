@@ -1475,6 +1475,11 @@
         },
         {
             "manufacturer": "HEIMAN",
+            "model": "HS2WD-E",
+            "battery_type": "LP103454 3.7v 700mah"
+        },
+        {
+            "manufacturer": "HEIMAN",
             "model": "Smart carbon monoxide sensor (HS1CA-E)",
             "battery_type": "CR123A"
         },
@@ -4095,11 +4100,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "HEIMAN",
-            "model": "HS2WD-E",
-            "battery_type": "LP103454 3.7v 700mah"
         }
     ]
 }
