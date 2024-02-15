@@ -1544,6 +1544,12 @@
             "battery_type": "LS14250"
         },
         {
+            "manufacturer": "HomeWizard",
+            "model": "HWE-WTR",
+            "battery_type": "CR123A",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Honeywell",
             "model": "TH6320ZW",
             "battery_type": "AA",
@@ -4089,12 +4095,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "HomeWizard",
-            "model": "HWE-WTR",
-            "battery_type": "CR123A",
-            "battery_quantity": 2
         }
     ]
 }
