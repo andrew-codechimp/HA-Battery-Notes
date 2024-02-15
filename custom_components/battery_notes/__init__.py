@@ -184,7 +184,7 @@ async def async_unload_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> 
     device = data.devices.pop(config_entry.entry_id)
     await device.async_unload()
 
-    await async_unregister_panel(hass)
+    # async_unregister_panel(hass)
 
     return await hass.config_entries.async_unload_platforms(config_entry, PLATFORMS)
 
