@@ -4095,6 +4095,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "HEIMAN",
+            "model": "HS2WD-E",
+            "battery_type": "LP103454 3.7v 700mah"
         }
     ]
 }
