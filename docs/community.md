@@ -123,8 +123,8 @@ action:
       title: |
         {{ trigger.event.data.device_name }} Battery Not Reported
       message: >
-        The device has not reported its battery level since {{
-        trigger.event.data.battery_last_reported.strftime('%d %B %Y') }} {{ '\n'
+        The device has not reported its battery level for {{
+        trigger.event.data.battery_last_reported_days }} days {{ '\n'
         -}} Its last reported level was {{
         trigger.event.data.battery_last_reported_level }}% {{ '\n' -}} You need
         {{ trigger.event.data.battery_quantity }}× {{
