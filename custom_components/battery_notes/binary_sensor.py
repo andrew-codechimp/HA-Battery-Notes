@@ -30,6 +30,8 @@ from homeassistant.helpers.event import (
     TrackTemplateResult,
     async_track_template_result,
 )
+
+from homeassistant.helpers import template
 from homeassistant.helpers.template import (
     Template,
     TemplateStateFromEntityId,
@@ -296,6 +298,7 @@ class _TemplateAttribute:
 
 class BatteryNotesBatteryLowTemplateSensor(BinarySensorEntity, CoordinatorEntity[BatteryNotesCoordinator]):
     """Represents a low battery threshold binary sensor."""
+
     _attr_should_poll = False
 
     def __init__(
