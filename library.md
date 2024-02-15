@@ -1,4 +1,4 @@
-## 753 Devices in library
+## 754 Devices in library
 
 This file is auto generated, do not modify
 
@@ -352,6 +352,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Lidl                                            |Silvercrest smart motion sensor (HG06335/HG07310)                     |CR123A                    |
 |LifeControl                                     |MCLH-05                                                               |AA                        |
 |LifeControl                                     |Motion sensor (MCLH-05)                                               |AA                        |
+|LifeControl                                     |Water leak switch (MCLH-07)                                           |CR123A                    |
 |Linkind                                         |Door/window Sensor (ZS110050078)                                      |CR2032                    |
 |Linkind                                         |PIR motion sensor, wireless motion detector (ZS1100400-IN-V1A02)      |CR2450                    |
 |Linkind                                         |Security keypad battery (ZS130000078)                                 |2× CR123A                 |
