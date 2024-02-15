@@ -1880,6 +1880,11 @@
         },
         {
             "manufacturer": "LifeControl",
+            "model": "Door sensor (MCLH-04)",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "LifeControl",
             "model": "MCLH-05",
             "battery_type": "AA"
         },
@@ -4079,11 +4084,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "LifeControl",
-            "model": "Door sensor (MCLH-04)",
-            "battery_type": "CR123A"
         }
     ]
 }
