@@ -1,4 +1,4 @@
-## 751 Devices in library
+## 752 Devices in library
 
 This file is auto generated, do not modify
 
@@ -350,6 +350,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Lidl                                            |Silvercrest radiator valve with thermostat (368308_2010)              |2× AA                     |
 |Lidl                                            |Silvercrest smart motion sensor (HG06335/HG07310)                     |MANUAL                    |
 |Lidl                                            |Silvercrest smart motion sensor (HG06335/HG07310)                     |CR123A                    |
+|LifeControl                                     |MCLH-05                                                               |AA                        |
 |Linkind                                         |Door/window Sensor (ZS110050078)                                      |CR2032                    |
 |Linkind                                         |PIR motion sensor, wireless motion detector (ZS1100400-IN-V1A02)      |CR2450                    |
 |Linkind                                         |Security keypad battery (ZS130000078)                                 |2× CR123A                 |

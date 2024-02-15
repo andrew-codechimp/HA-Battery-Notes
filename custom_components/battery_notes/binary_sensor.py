@@ -1,7 +1,7 @@
 """Binary Sensor platform for battery_notes."""
 from __future__ import annotations
 
-from collections.abc import Callable, Mapping
+from collections.abc import Callable
 from dataclasses import dataclass
 from typing import Any
 
@@ -16,7 +16,6 @@ from homeassistant.core import (
     Event,
 )
 from homeassistant.exceptions import TemplateError
-from homeassistant.helpers import template
 from homeassistant.helpers.entity import Entity
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.start import async_at_start
@@ -31,6 +30,8 @@ from homeassistant.helpers.event import (
     TrackTemplateResult,
     async_track_template_result,
 )
+
+from homeassistant.helpers import template
 from homeassistant.helpers.template import (
     Template,
     TemplateStateFromEntityId,
@@ -304,6 +305,7 @@ class _TemplateAttribute:
 
 class BatteryNotesBatteryLowTemplateSensor(BinarySensorEntity, CoordinatorEntity[BatteryNotesCoordinator]):
     """Represents a low battery threshold binary sensor."""
+
     _attr_should_poll = False
 
     def __init__(
@@ -399,8 +401,8 @@ class BatteryNotesBatteryLowTemplateSensor(BinarySensorEntity, CoordinatorEntity
 
         variables = {"this": TemplateStateFromEntityId(self.hass, self.entity_id)}
 
-        for template, attributes in self._template_attrs.items():
-            template_var_tup = TrackTemplate(template, variables)
+        for loop_template, attributes in self._template_attrs.items():
+            template_var_tup = TrackTemplate(loop_template, variables)
             is_availability_template = False
             for attribute in attributes:
                 # pylint: disable-next=protected-access
