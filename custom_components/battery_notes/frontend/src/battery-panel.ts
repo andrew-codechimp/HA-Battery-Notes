@@ -6,6 +6,13 @@ import { commonStyle } from "./styles";
 import { Dictionary, HomeAssistant } from "./types";
 import { localize } from "../localize/localize";
 
+import { documentationUrl } from "./const";
+
+import { mdiFileDocument } from "@mdi/js";
+
+// import { IconOverflowMenuItem } from "../../homeassistant-frontend/src/components/ha-icon-overflow-menu";
+// import { mainWindow } from "../../homeassistant-frontend/src/common/dom/get_main_window";
+
 @customElement("battery-panel")
 export class BatteryPanel extends LitElement {
   @property({ attribute: false }) public hass!: HomeAssistant;

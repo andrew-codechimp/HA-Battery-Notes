@@ -1,3 +1,6 @@
 {
-    "title": "Battery Notes"
+    "title": "Battery Notes",
+    "menu": {
+        "documentation": "Documentation"
+      }
 }
