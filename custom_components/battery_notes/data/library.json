@@ -2338,12 +2338,12 @@
         {
             "manufacturer": "Philips",
             "model": "Hue dimmer switch (324131092621)",
-            "battery_type": "CR2450"
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "Philips",
             "model": "Hue dimmer switch (929002398602)",
-            "battery_type": "CR2450"
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "Philips",
