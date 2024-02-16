@@ -4111,6 +4111,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "Motion sensor (RTCGQ11LM)",
+            "battery_type": "CR2450"
         }
     ]
 }
