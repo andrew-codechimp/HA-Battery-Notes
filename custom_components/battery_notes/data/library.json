@@ -4134,6 +4134,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "IKEA",
+            "model": "SOMRIG shortcut button (E2213)",
+            "battery_type": "AAA"
         }
     ]
 }
