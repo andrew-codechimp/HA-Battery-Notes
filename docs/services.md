@@ -11,7 +11,7 @@ See how to use this service in the [community contributions](./community.md)
 | `data.device_id`      | `no`    | The device id that you want to change the battery replaced date for. |
 | `data.datetime_replaced` | `yes`    | The optional datetime that you want to set the battery replaced to, if omitted the current date/time will be used. |
 
-## battery_notes.check_battery_last_reported (Beta Only)
+## battery_notes.check_battery_last_reported
 
 For raising events for devices that haven't reported their battery level.  
 

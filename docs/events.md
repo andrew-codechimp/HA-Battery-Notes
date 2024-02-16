@@ -106,7 +106,7 @@ action:
 mode: queued
 ```
 
-## Battery Not Reported (Beta Only)
+## Battery Not Reported
 `battery_notes_battery_not_reported`
 
 This is fired from the [check_battery_last_reported](./services/check_battery_last_reported) service call for each device that has not reported its battery level for the number of days specified in the service call.

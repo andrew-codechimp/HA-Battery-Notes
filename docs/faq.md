@@ -40,5 +40,15 @@ battery_notes:
   enable_replaced: False
 ```
 
+* How do I create a battery low template
+The best way to do this is to test in the developer tools/template section for your sensor.  
+Be aware that Home Assistant shows friendly alternatives for some sensors, so when you are seeing Normal/Low this may really be a bool, testing in the template tool will allow you to determine the correct template to use.  Start by adapting one of these.  
+```
+{{ states('sensor.mysensor_battery_low') }}
+{{ states('sensor.mysensor_battery_level') == "Low" }}
+{{ states('sensor.mysensor_battery_voltage') | float(5) < 1 }}
+```
+Once you have got your template correct you can copy/paste it into the battery notes configuration section for that device and it will use that for detecting the battery is low and raising the battery notes event.
+
 * How can I show my support?  
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png)](https://www.buymeacoffee.com/codechimp)
