@@ -1644,6 +1644,11 @@
         },
         {
             "manufacturer": "IKEA",
+            "model": "SOMRIG shortcut button (E2213)",
+            "battery_type": "AAA"
+        },
+        {
+            "manufacturer": "IKEA",
             "model": "STYRBAR remote control (E2001/E2002)",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -4134,11 +4139,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "IKEA",
-            "model": "SOMRIG shortcut button (E2213)",
-            "battery_type": "AAA"
         }
     ]
 }
