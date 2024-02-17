@@ -16,11 +16,11 @@
                     "battery_type": "Typ baterii",
                     "battery_quantity": "Liczba baterii",
                     "battery_low_threshold": "Próg niskiego poziomu baterii",
-                    "battery_low_template": "Battery low template"
+                    "battery_low_template": "Szablon niskiego poziomu baterii"
                 },
                 "data_description": {
                     "battery_low_threshold": "0 użyje globalnego progu domyślnego",
-                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels"
+                    "battery_low_template": "Szablon do określenia czy poziom naładowania baterii jest niski, powinien zwrócić wartość true, jeśli poziom jest niski.\nJest wymagany tylko dla niestandardowych raportów poziomu baterii"
                 }
             }
         },
@@ -40,12 +40,12 @@
                     "battery_type": "Typ baterii",
                     "battery_quantity": "Liczba baterii",
                     "battery_low_threshold": "Próg niskiego poziomu baterii",
-                    "battery_low_template": "Battery low template"
+                    "battery_low_template": "Szablon niskiego poziomu baterii"
                 },
                 "data_description": {
                     "name": "Pozostawienie pustego pola spowoduje pobranie nazwy z urządzenia źródłowego",
                     "battery_low_threshold": "0 użyje globalnego progu domyślnego",
-                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels"
+                    "battery_low_template": "Szablon do określenia czy poziom naładowania baterii jest niski, powinien zwrócić wartość true, jeśli poziom jest niski.\nJest wymagany tylko dla niestandardowych raportów poziomu baterii"
                 }
             }
         },
@@ -131,14 +131,14 @@
             "name": "Ustaw wymianę baterii"
         },
         "check_battery_last_reported": {
-            "description": "Raise events for devices that haven't reported their battery level.",
+            "description": "Zgłaszaj zdarzenia dla urządzeń, które nie zgłosiły poziomu naładowania baterii.",
             "fields": {
                 "days_last_reported": {
-                    "description": "Number of days since a device last reported its battery level.",
+                    "description": "Liczba dni od ostatniego zgłoszenia poziomu baterii przez urządzenie.",
                     "name": "Dni"
                 }
             },
-            "name": "Check battery last reported"
+            "name": "Ostatni raport dotyczący sprawdzenia baterii"
         }
     }
 }

@@ -8,19 +8,19 @@
                     "name": "Navn"
                 },
                 "data_description": {
-                    "name": "Hvis du lader det være tomt, hentes navnet fra kildeenheden"
+                    "name": "Hvis du lader dette felt være tomt, hentes navnet fra kildeenheden"
                 }
             },
             "battery": {
                 "data": {
                     "battery_type": "Batteri type",
                     "battery_quantity": "Antal batterier",
-                    "battery_low_threshold": "Lav tærskel for batteri",
+                    "battery_low_threshold": "Lavt batteri niveau",
                     "battery_low_template": "Batteri lav skabelon"
                 },
                 "data_description": {
                     "battery_low_threshold": "0 vil bruge den globale standardtærskel",
-                    "battery_low_template": "Skabelon til at bestemme et batteri er lavt, skal returnere sand, hvis lavt\nKun nødvendigt for ikke-standard batteriniveauer"
+                    "battery_low_template": "Skabelon til at bestemme om et batteri er lavt, skal returnere sand, hvis lavt.\nKun nødvendigt for ikke-standard batteriniveauer"
                 }
             }
         },
@@ -39,13 +39,13 @@
                     "name": "Navn",
                     "battery_type": "Batteri type",
                     "battery_quantity": "Antal batterier",
-                    "battery_low_threshold": "Lav tærskel for batteri",
+                    "battery_low_threshold": "Lavt batteri niveau",
                     "battery_low_template": "Batteri lav skabelon"
                 },
                 "data_description": {
-                    "name": "Hvis du lader det være tomt, hentes navnet fra kildeenheden",
+                    "name": "Hvis du lader dette felt være tomt, hentes navnet fra kildeenheden",
                     "battery_low_threshold": "0 vil bruge den globale standardtærskel",
-                    "battery_low_template": "Skabelon til at bestemme et batteri er lavt, skal returnere sand, hvis lavt\nKun nødvendigt for ikke-standard batteriniveauer"
+                    "battery_low_template": "Skabelon til at bestemme om et batteri er lavt, skal returnere sand, hvis lavt\nKun nødvendigt for ikke-standard batteriniveauer"
                 }
             }
         },
@@ -59,7 +59,7 @@
                 "name": "Lavt batteri",
                 "state_attributes": {
                     "battery_low_threshold": {
-                        "name": "Lav tærskel for batteri"
+                        "name": "Lavt batteri niveau"
                     }
                 }
             }
@@ -80,7 +80,7 @@
                         "name": "Antal batterier"
                     },
                     "battery_type_and_quantity": {
-                        "name": "Batteritype og mængde"
+                        "name": "Batteritype og antal"
                     },
                     "battery_last_replaced": {
                         "name": "Batteri sidst skiftet"
@@ -89,7 +89,7 @@
                         "name": "Lavt batteri"
                     },
                     "battery_low_threshold": {
-                        "name": "Lav tærskel for batteri"
+                        "name": "Lavt batteri niveau"
                     },
                     "battery_last_reported": {
                         "name": "Batteri sidst rapporteret"
@@ -117,7 +117,7 @@
     },
     "services": {
         "set_battery_replaced": {
-            "description": "Indstil det sidst udskiftede batteri.",
+            "description": "Indstil hvornår batteri sidst blev udskiftet.",
             "fields": {
                 "device_id": {
                     "description": "Enhed, der har fået skiftet batteri.",
@@ -128,17 +128,17 @@
                     "name": "Dato"
                 }
             },
-            "name": "Sæt batteri udskiftet"
+            "name": "Batteri udskiftet"
         },
         "check_battery_last_reported": {
-            "description": "Hæv begivenheder for enheder, der ikke har rapporteret deres batteriniveau.",
+            "description": "Opret begivenheder for enheder, der ikke har rapporteret deres batteriniveau.",
             "fields": {
                 "days_last_reported": {
                     "description": "Antal dage siden en enhed sidst rapporterede sit batteriniveau.",
                     "name": "Dage"
                 }
             },
-            "name": "Kontrollér senest rapporterede batteri"
+            "name": "Batteri sidst rapporteret"
         }
     }
 }
