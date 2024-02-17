@@ -1,4 +1,4 @@
-## 778 Devices in library
+## 779 Devices in library
 
 This file is auto generated, do not modify
 
@@ -547,6 +547,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |SmartThings                                     |Motion sensor (2016 model) (STS-IRM-250)                              |CR2477                    |
 |SmartThings                                     |Motion sensor (2018 model) (IM6001-MTP01)                             |CR2                       |
 |SmartThings                                     |motionv4                                                              |CR2477                    |
+|SmartThings                                     |motionv5                                                              |CR2477                    |
 |SmartThings                                     |Multi Sensor (2015 model) (3321-S)                                    |CR2450                    |
 |SmartThings                                     |Multipurpose sensor (2018 model) (IM6001-MPP01)                       |CR2450                    |
 |SmartThings                                     |multiv4                                                               |CR2450                    |

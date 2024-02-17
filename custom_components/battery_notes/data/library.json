@@ -2943,6 +2943,11 @@
         },
         {
             "manufacturer": "SmartThings",
+            "model": "motionv5",
+            "battery_type": "CR2477"
+        },
+        {
+            "manufacturer": "SmartThings",
             "model": "Multi Sensor (2015 model) (3321-S)",
             "battery_type": "CR2450"
         },
@@ -4211,11 +4216,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "SmartThings",
-            "model": "motionv5",
-            "battery_type": "CR2477"
         }
     ]
 }
