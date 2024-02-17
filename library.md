@@ -1,4 +1,4 @@
-## 774 Devices in library
+## 775 Devices in library
 
 This file is auto generated, do not modify
 
@@ -774,6 +774,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |YoLink                                          |VibrationSensor                                                       |2× AAA                    |
 |Zipato                                          |HS1SA                                                                 |CR123A                    |
 |Zooz                                            |ZEN34                                                                 |2× CR2032                 |
+|Zooz                                            |ZSE18                                                                 |CR123A                    |
 |Zooz                                            |ZSE40                                                                 |2× AAA                    |
 |Zooz                                            |ZSE40 700                                                             |CR123A                    |
 |Zooz                                            |ZSE41                                                                 |CR2032                    |
