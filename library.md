@@ -1,4 +1,4 @@
-## 757 Devices in library
+## 772 Devices in library
 
 This file is auto generated, do not modify
 
@@ -15,6 +15,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |_TZ3000_4ugnzsli                                |TS0203                                                                |2× AAA                    |
 |_TZ3000_4upl1fcj                                |TS0041                                                                |CR2430                    |
 |_TZ3000_6ygjfyll                                |TS0202                                                                |CR2450                    |
+|_TZ3000_6zvw8ham                                |TS0203                                                                |2× AAA                    |
 |_TZ3000_7d8yme6f                                |TS0203                                                                |CR2032                    |
 |_TZ3000_85czd6fy                                |TS0207                                                                |CR2032                    |
 |_TZ3000_8yhypbo7                                |TS0203                                                                |CR2032                    |
@@ -27,6 +28,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |_TZ3000_dowj6gyi                                |TS0201                                                                |CR2450                    |
 |_TZ3000_ee8nrt2l                                |TS0044                                                                |CR2032                    |
 |_TZ3000_fllyghyj                                |TS0201                                                                |2× AAA                    |
+|_TZ3000_hkcpblrs                                |TS0203                                                                |2× AAA                    |
 |_TZ3000_ixla93vd                                |TS004F                                                                |CR2032                    |
 |_TZ3000_k4ej3ww2                                |TS0207                                                                |CR2032                    |
 |_TZ3000_lf56vpxj                                |TS0202                                                                |2× AAA                    |
@@ -99,7 +101,11 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Aqara                                           |Door and window sensor (MCCGQ11LM)                                    |CR1632                    |
 |Aqara                                           |MCCGQ11LM                                                             |CR2032                    |
 |Aqara                                           |MCCGQ14LM                                                             |CR1632                    |
+|Aqara                                           |Motion sensor (RTCGQ11LM)                                             |CR2450                    |
+|Aqara                                           |Motion sensor P1 (RTCGQ14LM)                                          |2× CR2450                 |
+|Aqara                                           |Opple wireless switch (single band) (WXCJKG11LM)                      |CR2032                    |
 |Aqara                                           |RTCGQ11LM                                                             |CR2450                    |
+|Aqara                                           |Smart radiator thermostat E1 (SRTS-A01)                               |2× AA                     |
 |Aqara                                           |Smart smoke detector (JY-GZ-01AQ)                                     |CR17450                   |
 |Aqara                                           |SRTS-A01                                                              |2× AA                     |
 |Aqara                                           |Temperature and humidity sensor (WSDCGQ11LM)                          |CR2032                    |
@@ -218,6 +224,8 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |eQ-3                                            |HmIP-SWDO-2                                                           |AAA                       |
 |eQ-3                                            |HMIP-SWDO-I                                                           |2× AAA                    |
 |eQ-3                                            |HMIP-SWDO-PL                                                          |2× AAA                    |
+|eQ-3                                            |HmIP-SWO-B                                                            |3× AA                     |
+|eQ-3                                            |HmIP-SWO-PR                                                           |3× AA                     |
 |eQ-3                                            |HMIP-WRC2                                                             |2× AAA                    |
 |eQ-3                                            |HmIP-WRC6                                                             |2× AAA                    |
 |eQ-3                                            |HmIP-WRCD                                                             |2× AAA                    |
@@ -275,6 +283,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |HAB Home Intelligence LLC                       |iblinds V3                                                            |Rechargeable              |
 |HANK Electronics Ltd.                           |HKZW-DWS01                                                            |2× AAA                    |
 |Heatit                                          |Z-PH WALL CONTROLLER                                                  |CR2450                    |
+|HEIMAN                                          |HS2WD-E                                                               |LP103454 3.7v 700mah      |
 |HEIMAN                                          |Smart carbon monoxide sensor (HS1CA-E)                                |CR123A                    |
 |HEIMAN                                          |Smart carbon monoxide sensor (HS1CA-M)                                |CR123A                    |
 |HEIMAN                                          |Smart motion sensor (HS3MS)                                           |CR123A                    |
@@ -299,6 +308,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |IKEA                                            |FYRTUR roller blind (E1757)                                           |Rechargeable              |
 |IKEA                                            |PARASOLL door/window Sensor (E2013)                                   |AAA                       |
 |IKEA                                            |RODRET wireless dimmer/power switch (E2201)                           |AAA                       |
+|IKEA                                            |SOMRIG shortcut button (E2213)                                        |AAA                       |
 |IKEA                                            |STYRBAR remote control (E2001/E2002)                                  |2× AAA                    |
 |IKEA                                            |SYMFONISK sound controller (E1744)                                    |CR2032                    |
 |IKEA                                            |SYMFONISK sound remote gen2 (E2123)                                   |2× AAA                    |
@@ -386,6 +396,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |LUMI                                            |lumi.vibration.aq1                                                    |CR2032                    |
 |LUMI                                            |lumi.weather                                                          |CR2032                    |
 |Meross                                          |ms100                                                                 |CR2477                    |
+|Mi light sensor                                 |GZCGQ01LM                                                             |CR2450                    |
 |modkam.ru                                       |DIYRuZ_Flower                                                         |2× AAA                    |
 |Moes                                            |Smoke sensor (ZSS-HM-SSD01)                                           |CR123A                    |
 |Moes                                            |Thermostatic radiator valve (BRT-100-TRV)                             |2× AA                     |
@@ -432,14 +443,15 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |ORVIBO                                          |e70f96b3773a4c9283c6862dbafb6a99                                      |CR2032                    |
 |OSRAM                                           |Smart+ switch mini (AC0251100NJ/AC0251600NJ/AC0251700NJ)              |CR2450                    |
 |Philio Technology Corp                          |PST02A                                                                |CR123A                    |
-|Philips                                         |Hue dimmer switch (324131092621)                                      |CR2450                    |
-|Philips                                         |Hue dimmer switch (929002398602)                                      |CR2450                    |
+|Philips                                         |Hue dimmer switch (324131092621)                                      |CR2032                    |
+|Philips                                         |Hue dimmer switch (929002398602)                                      |CR2032                    |
 |Philips                                         |Hue motion outdoor sensor (9290019758)                                |2× AA                     |
 |Philips                                         |Hue motion outdoor sensor (9290030674)                                |2× AA                     |
 |Philips                                         |Hue motion sensor (9290012607)                                        |2× AAA                    |
 |Philips                                         |Hue motion sensor (9290030675)                                        |2× AAA                    |
 |Philips                                         |Hue smart button (8718699693985)                                      |CR2032                    |
 |Philips                                         |Hue wall switch module (929003017102)                                 |CR2450                    |
+|Philips                                         |ROM001                                                                |CR2032                    |
 |Philips                                         |RWL020                                                                |CR2450                    |
 |Philips                                         |RWL021                                                                |CR2450                    |
 |Philips                                         |RWL022                                                                |CR2032                    |
@@ -527,6 +539,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |SMaBiT (Bitron Video)                           |Compact magnetic contact sensor (AV2010/21A)                          |CR2                       |
 |smartlife                                       |T & H Sensor (lf36y5nwb8jkxwgg)                                       |2× AAA                    |
 |SmartThings                                     |Button (IM6001-BTP01)                                                 |CR2450                    |
+|Smartthings                                     |GP-U999SJVLEAA                                                        |CR2450                    |
 |SmartThings                                     |moisturev4                                                            |CR2                       |
 |SmartThings                                     |Motion sensor (2016 model) (STS-IRM-250)                              |CR2477                    |
 |SmartThings                                     |Motion sensor (2018 model) (IM6001-MTP01)                             |CR2                       |
@@ -536,6 +549,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Smartthings                                     |Water leak sensor (2016 model) (STS-WTR-250)                          |CR2                       |
 |SmartThings                                     |Water leak sensor (2018 model) (IM6001-WLP01)                         |CR2                       |
 |SmartThings                                     |Water sensor (3315-S)                                                 |CR2                       |
+|Smoke detector                                  |SSHM-I1                                                               |CR123A                    |
 |SOMFY                                           |Sonesse 28 WF Li-Ion Roller                                           |MANUAL                    |
 |Sonoff                                          |Contact sensor (SNZB-04)                                              |CR2032                    |
 |SONOFF                                          |DW2-WI-FI-L                                                           |2× AAA                    |
@@ -569,6 +583,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tado                                            |VA01                                                                  |2× AA                     |
 |Tado                                            |VA02                                                                  |2× AA                     |
 |ThermoBeacon                                    |27                                                                    |CR2477                    |
+|Third Reality                                   |3RSB015BZ                                                             |4× AA                     |
 |Third Reality                                   |Smart switch Gen3 (3RSS009Z)                                          |2× AAA                    |
 |Third Reality, Inc                              |3RDS17BZ                                                              |2× AAA                    |
 |Third Reality, Inc                              |3RMS16BZ                                                              |2× AAA                    |

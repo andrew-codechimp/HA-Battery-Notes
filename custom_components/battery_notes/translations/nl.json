@@ -135,7 +135,7 @@
             "fields": {
                 "days_last_reported": {
                     "description": "Number of days since a device last reported its battery level.",
-                    "name": "Days"
+                    "name": "Dagen"
                 }
             },
             "name": "Check battery last reported"

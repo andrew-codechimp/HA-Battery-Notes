@@ -52,6 +52,12 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "_TZ3000_6zvw8ham",
+            "model": "TS0203",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "_TZ3000_7d8yme6f",
             "model": "TS0203",
             "battery_type": "CR2032"
@@ -112,6 +118,12 @@
         {
             "manufacturer": "_TZ3000_fllyghyj",
             "model": "TS0201",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "_TZ3000_hkcpblrs",
+            "model": "TS0203",
             "battery_type": "AAA",
             "battery_quantity": 2
         },
@@ -505,8 +517,30 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "Motion sensor (RTCGQ11LM)",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "Motion sensor P1 (RTCGQ14LM)",
+            "battery_type": "CR2450",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "Opple wireless switch (single band) (WXCJKG11LM)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "RTCGQ11LM",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "Smart radiator thermostat E1 (SRTS-A01)",
+            "battery_type": "AA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "Aqara",
@@ -1167,6 +1201,18 @@
         },
         {
             "manufacturer": "eQ-3",
+            "model": "HmIP-SWO-B",
+            "battery_type": "AA",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "eQ-3",
+            "model": "HmIP-SWO-PR",
+            "battery_type": "AA",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "eQ-3",
             "model": "HMIP-WRC2",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -1475,6 +1521,11 @@
         },
         {
             "manufacturer": "HEIMAN",
+            "model": "HS2WD-E",
+            "battery_type": "LP103454 3.7v 700mah"
+        },
+        {
+            "manufacturer": "HEIMAN",
             "model": "Smart carbon monoxide sensor (HS1CA-E)",
             "battery_type": "CR123A"
         },
@@ -1601,6 +1652,11 @@
         {
             "manufacturer": "IKEA",
             "model": "RODRET wireless dimmer/power switch (E2201)",
+            "battery_type": "AAA"
+        },
+        {
+            "manufacturer": "IKEA",
+            "model": "SOMRIG shortcut button (E2213)",
             "battery_type": "AAA"
         },
         {
@@ -2066,6 +2122,11 @@
             "battery_type": "CR2477"
         },
         {
+            "manufacturer": "Mi light sensor",
+            "model": "GZCGQ01LM",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "modkam.ru",
             "model": "DIYRuZ_Flower",
             "battery_type": "AAA",
@@ -2322,12 +2383,12 @@
         {
             "manufacturer": "Philips",
             "model": "Hue dimmer switch (324131092621)",
-            "battery_type": "CR2450"
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "Philips",
             "model": "Hue dimmer switch (929002398602)",
-            "battery_type": "CR2450"
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "Philips",
@@ -2362,6 +2423,11 @@
             "manufacturer": "Philips",
             "model": "Hue wall switch module (929003017102)",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Philips",
+            "model": "ROM001",
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "Philips",
@@ -2683,12 +2749,12 @@
         {
             "manufacturer": "Signify Netherlands B.V.",
             "model": "Hue dimmer switch (RWL020)",
-            "battery_type": "CR2450"
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "Signify Netherlands B.V.",
             "model": "Hue dimmer switch (RWL021)",
-            "battery_type": "CR2450"
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "Signify Netherlands B.V.",
@@ -2833,6 +2899,11 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "Smartthings",
+            "model": "GP-U999SJVLEAA",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "SmartThings",
             "model": "moisturev4",
             "battery_type": "CR2"
@@ -2876,6 +2947,11 @@
             "manufacturer": "SmartThings",
             "model": "Water sensor (3315-S)",
             "battery_type": "CR2"
+        },
+        {
+            "manufacturer": "Smoke detector",
+            "model": "SSHM-I1",
+            "battery_type": "CR123A"
         },
         {
             "manufacturer": "SOMFY",
@@ -3058,6 +3134,12 @@
             "manufacturer": "ThermoBeacon",
             "model": "27",
             "battery_type": "CR2477"
+        },
+        {
+            "manufacturer": "Third Reality",
+            "model": "3RSB015BZ",
+            "battery_type": "AA",
+            "battery_quantity": 4
         },
         {
             "manufacturer": "Third Reality",

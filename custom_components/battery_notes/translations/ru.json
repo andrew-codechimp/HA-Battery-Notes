@@ -16,11 +16,11 @@
                     "battery_type": "Тип батареи",
                     "battery_quantity": "Количество батарей",
                     "battery_low_threshold": "Порог низкого заряда батареи",
-                    "battery_low_template": "Battery low template"
+                    "battery_low_template": "Шаблон низкого заряда батареи"
                 },
                 "data_description": {
                     "battery_low_threshold": "0 будет использовать общий порог по умолчанию",
-                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels"
+                    "battery_low_template": "Шаблон низкого заряда батареи. В случае низкого заряда должен возвращать true.\nТребуется только для нестандартных уровней заряда батареи."
                 }
             }
         },
@@ -40,12 +40,12 @@
                     "battery_type": "Тип батареи",
                     "battery_quantity": "Количество батарей",
                     "battery_low_threshold": "Порог низкого заряда батареи",
-                    "battery_low_template": "Battery low template"
+                    "battery_low_template": "Шаблон низкого заряда батареи"
                 },
                 "data_description": {
                     "name": "Если оставить пустым, то имя будет взято с исходного устройства",
                     "battery_low_threshold": "0 будет использовать общий порог по умолчанию",
-                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels"
+                    "battery_low_template": "Шаблон низкого заряда батареи. В случае низкого заряда должен возвращать true.\nТребуется только для нестандартных уровней заряда батареи."
                 }
             }
         },
@@ -83,7 +83,7 @@
                         "name": "Тип и количество батарей"
                     },
                     "battery_last_replaced": {
-                        "name": "Батарея в последний раз заменена"
+                        "name": "Последняя замена батареи"
                     },
                     "battery_low": {
                         "name": "Низкий заряд батареи"
@@ -111,7 +111,7 @@
                 }
             },
             "battery_last_replaced": {
-                "name": "Батарея в последний раз заменена"
+                "name": "Последняя замена батареи"
             }
         }
     },
@@ -131,14 +131,14 @@
             "name": "Отметить замену батареи"
         },
         "check_battery_last_reported": {
-            "description": "Raise events for devices that haven't reported their battery level.",
+            "description": "Вызов событий для устройств, которые не сообщили уровень заряда батареи.",
             "fields": {
                 "days_last_reported": {
-                    "description": "Number of days since a device last reported its battery level.",
-                    "name": "Days"
+                    "description": "Количество дней с последнего отчёта об уровне заряда батареи.",
+                    "name": "Дней"
                 }
             },
-            "name": "Check battery last reported"
+            "name": "Последняя информация по батарее"
         }
     }
 }
