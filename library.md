@@ -1,4 +1,4 @@
-## 768 Devices in library
+## 769 Devices in library
 
 This file is auto generated, do not modify
 
@@ -394,6 +394,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |LUMI                                            |lumi.vibration.aq1                                                    |CR2032                    |
 |LUMI                                            |lumi.weather                                                          |CR2032                    |
 |Meross                                          |ms100                                                                 |CR2477                    |
+|Mi light sensor                                 |GZCGQ01LM                                                             |CR2450                    |
 |modkam.ru                                       |DIYRuZ_Flower                                                         |2× AAA                    |
 |Moes                                            |Smoke sensor (ZSS-HM-SSD01)                                           |CR123A                    |
 |Moes                                            |Thermostatic radiator valve (BRT-100-TRV)                             |2× AA                     |
