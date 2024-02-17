@@ -68,6 +68,7 @@ from .const import (
     ATTR_BATTERY_LOW_THRESHOLD,
     ATTR_BATTERY_LAST_REPORTED,
     ATTR_BATTERY_LAST_REPORTED_LEVEL,
+    ATTR_DEVICE_ID,
 )
 
 from .common import isfloat
@@ -475,6 +476,7 @@ class BatteryNotesBatteryPlusSensor(
     def extra_state_attributes(self) -> dict[str, str] | None:
         """Return the state attributes of the battery type."""
 
+        # Battery related attributes
         attrs = {
             ATTR_BATTERY_QUANTITY: self.coordinator.battery_quantity,
             ATTR_BATTERY_TYPE: self.coordinator.battery_type,
@@ -487,6 +489,9 @@ class BatteryNotesBatteryPlusSensor(
 
         if self.enable_replaced:
             attrs[ATTR_BATTERY_LAST_REPLACED] = self.coordinator.last_replaced
+
+        # Other attributes that should follow battery, attribute list is unsorted
+        attrs[ATTR_DEVICE_ID] = self.coordinator.device_id
 
         super_attrs = super().extra_state_attributes
         if super_attrs:
