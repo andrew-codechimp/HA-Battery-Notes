@@ -4155,6 +4155,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Mi light sensor",
+            "model": "GZCGQ01LM",
+            "battery_type": "CR2450"
         }
     ]
 }
