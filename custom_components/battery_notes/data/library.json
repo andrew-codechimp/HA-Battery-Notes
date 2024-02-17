@@ -2426,6 +2426,11 @@
         },
         {
             "manufacturer": "Philips",
+            "model": "ROM001",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Philips",
             "model": "RWL020",
             "battery_type": "CR2450"
         },
@@ -4172,11 +4177,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Philips",
-            "model": "ROM001",
-            "battery_type": "CR2032"
         }
     ]
 }
