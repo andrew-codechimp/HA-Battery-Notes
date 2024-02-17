@@ -32,6 +32,7 @@ theme:
     - search.suggest
     - search.highlight
     - toc.follow
+    - toc.integrate
     - content.code.copy
   palette:
     # Palette toggle for light mode
