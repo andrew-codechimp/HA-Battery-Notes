@@ -1,4 +1,4 @@
-## 766 Devices in library
+## 767 Devices in library
 
 This file is auto generated, do not modify
 
@@ -535,6 +535,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |SMaBiT (Bitron Video)                           |Compact magnetic contact sensor (AV2010/21A)                          |CR2                       |
 |smartlife                                       |T & H Sensor (lf36y5nwb8jkxwgg)                                       |2× AAA                    |
 |SmartThings                                     |Button (IM6001-BTP01)                                                 |CR2450                    |
+|Smartthings                                     |GP-U999SJVLEAA                                                        |CR2450                    |
 |SmartThings                                     |moisturev4                                                            |CR2                       |
 |SmartThings                                     |Motion sensor (2016 model) (STS-IRM-250)                              |CR2477                    |
 |SmartThings                                     |Motion sensor (2018 model) (IM6001-MTP01)                             |CR2                       |

@@ -2877,6 +2877,11 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "Smartthings",
+            "model": "GP-U999SJVLEAA",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "SmartThings",
             "model": "moisturev4",
             "battery_type": "CR2"
@@ -4144,11 +4149,6 @@
         {
             "manufacturer": "Zooz",
             "model": "ZSE44",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Smartthings",
-            "model": "GP-U999SJVLEAA",
             "battery_type": "CR2450"
         }
     ]
