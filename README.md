@@ -53,7 +53,9 @@ battery_notes:
 
 ## Docs
 
-To get full use of the integration, please visit the [docs](https://andrew-codechimp.github.io/HA-Battery-Notes/).
+To get full use of the integration, read the documentation. It contains community quick starts as well as details on all the services, events and entities.
+
+[!["Documentation"](https://raw.githubusercontent.com/andrew-codechimp/ha-battery-notes/main/docs/assets/documentation.png)](https://andrew-codechimp.github.io/HA-Battery-Notes/)
 
 ## Contributing to the Battery Library
 
