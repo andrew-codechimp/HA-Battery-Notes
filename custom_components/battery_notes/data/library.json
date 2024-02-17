@@ -2927,6 +2927,11 @@
             "battery_type": "CR2"
         },
         {
+            "manufacturer": "Smoke detector",
+            "model": "SSHM-I1",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "SOMFY",
             "model": "Sonesse 28 WF Li-Ion Roller",
             "battery_type": "MANUAL"
@@ -4150,11 +4155,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Smoke detector",
-            "model": "SSHM-I1",
-            "battery_type": "CR123A"
         }
     ]
 }
