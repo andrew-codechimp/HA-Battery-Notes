@@ -116,6 +116,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "_TZ3000_hkcpblrs",
+            "model": "TS0203",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "_TZ3000_ixla93vd",
             "model": "TS004F",
             "battery_type": "CR2032"
@@ -4160,12 +4166,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "_TZ3000_hkcpblrs",
-            "model": "TS0203",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
