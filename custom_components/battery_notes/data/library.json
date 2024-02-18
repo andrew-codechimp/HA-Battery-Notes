@@ -448,6 +448,11 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "Amazon",
+            "model": "KFRAWI",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "American Power Conversion",
             "model": "Back-UPS ES 600M1",
             "battery_type": "Rechargeable"
@@ -4254,11 +4259,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Amazon",
-            "model": "KFRAWI",
-            "battery_type": "Rechargeable"
         }
     ]
 }
