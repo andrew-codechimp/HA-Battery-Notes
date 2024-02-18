@@ -1,4 +1,4 @@
-## 781 Devices in library
+## 782 Devices in library
 
 This file is auto generated, do not modify
 
@@ -77,6 +77,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Aeotec Ltd.                                     |ZWA039                                                                |CR2477                    |
 |Airthings                                       |View Plus                                                             |6× AA                     |
 |Airthings                                       |View Radon                                                            |6× AA                     |
+|Airthings                                       |Wave Plus                                                             |2× AA                     |
 |Airthings AS                                    |Wave Plus                                                             |2× AA                     |
 |Airthings AS                                    |Wave Radon                                                            |2× AA                     |
 |Alarm.com                                       |n/a                                                                   |CR123A                    |
