@@ -1,4 +1,4 @@
-## 785 Devices in library
+## 786 Devices in library
 
 This file is auto generated, do not modify
 
@@ -86,6 +86,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Allegion                                        |BE468ZP                                                               |4× AA                     |
 |Allegion                                        |BE469                                                                 |4× AA                     |
 |Allegion                                        |BE469ZP                                                               |4× AA                     |
+|Amazon                                          |KFONWI                                                                |Rechargeable              |
 |American Power Conversion                       |Back-UPS ES 600M1                                                     |Rechargeable              |
 |American Power Conversion                       |Back-UPS XS 1500M                                                     |Rechargeable              |
 |APC                                             |Back-UPS XS 1500M                                                     |Rechargeable              |
