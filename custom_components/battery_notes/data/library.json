@@ -380,6 +380,12 @@
         },
         {
             "manufacturer": "Airthings",
+            "model": "View Plus",
+            "battery_type": "AA",
+            "battery_quantity": 6
+        },
+        {
+            "manufacturer": "Airthings",
             "model": "View Radon",
             "battery_type": "AA",
             "battery_quantity": 6
@@ -4222,12 +4228,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Airthings",
-            "model": "View Plus",
-            "battery_type": "AA",
-            "battery_quantity": 6
         }
     ]
 }
