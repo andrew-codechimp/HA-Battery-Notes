@@ -26,6 +26,7 @@ from .config_flow import CONFIG_VERSION
 
 from .device import BatteryNotesDevice
 from .discovery import DiscoveryManager
+from .websockets import async_register_websockets
 from .library_updater import (
     LibraryUpdater,
 )
@@ -159,6 +160,9 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
 
     # Register the panel (frontend)
     await async_register_panel(hass)
+
+    # Websocket support
+    await async_register_websockets(hass)
 
     # Register custom services
     register_services(hass)
