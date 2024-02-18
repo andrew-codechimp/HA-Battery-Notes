@@ -2671,6 +2671,11 @@
         },
         {
             "manufacturer": "samsung",
+            "model": "SM-G955U",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "samsung",
             "model": "SM-G998U",
             "battery_type": "Rechargeable"
         },
@@ -4244,11 +4249,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "samsung",
-            "model": "SM-G955U",
-            "battery_type": "Rechargeable"
         }
     ]
 }

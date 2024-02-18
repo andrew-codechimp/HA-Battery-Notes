@@ -1,4 +1,4 @@
-## 784 Devices in library
+## 785 Devices in library
 
 This file is auto generated, do not modify
 
@@ -496,6 +496,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Samjin                                          |motion                                                                |CR2                       |
 |Samjin                                          |multi                                                                 |CR2450                    |
 |Samjin                                          |water                                                                 |CR2                       |
+|samsung                                         |SM-G955U                                                              |Rechargeable              |
 |samsung                                         |SM-G998U                                                              |Rechargeable              |
 |samsung                                         |SM-S918U                                                              |Rechargeable              |
 |Saswell                                         |Thermostatic radiator valve (SEA801-Zigbee/SEA802-Zigbee)             |2× AA                     |
