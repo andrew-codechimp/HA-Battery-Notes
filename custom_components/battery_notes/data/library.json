@@ -4249,6 +4249,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Amazon",
+            "model": "KFONWI",
+            "battery_type": "Rechargeable"
         }
     ]
 }
