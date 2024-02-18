@@ -1,6 +1,4 @@
 import {
-  HassEntity,
-  HassEntityAttributeBase,
   MessageBase,
   Connection,
   HassEntities,
@@ -50,13 +48,20 @@ export interface HomeAssistant {
   callApi: <T>(
     method: "GET" | "POST" | "PUT" | "DELETE",
     path: string,
-    parameters?: { [key: string]: any }
+    parameters?: { [key: string]: any },
   ) => Promise<T>;
   callService: (
     domain: ServiceCallRequest["domain"],
     service: ServiceCallRequest["service"],
     serviceData?: ServiceCallRequest["serviceData"],
-    target?: ServiceCallRequest["target"]
+    target?: ServiceCallRequest["target"],
   ) => Promise<void>;
   callWS: <T>(msg: MessageBase) => Promise<T>;
 }
+
+export type BatteryNotesDevice = {
+  device_id: string;
+  device_name: string;
+  battery_type: string;
+  battery_quantity: number;
+};
