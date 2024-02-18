@@ -521,8 +521,8 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Shenzhen Neo Electronics Co., Ltd.              |NAS-DS01Z                                                             |CR2                       |
 |Shenzhen Neo Electronics Co., Ltd.              |NAS-PD01Z                                                             |CR123A                    |
 |Shenzhen Neo Electronics Co., Ltd.              |NAS-WS01Z                                                             |CR2                       |
-|Signify Netherlands B.V.                        |Hue dimmer switch (RWL020)                                            |CR2032                    |
-|Signify Netherlands B.V.                        |Hue dimmer switch (RWL021)                                            |CR2032                    |
+|Signify Netherlands B.V.                        |Hue dimmer switch (RWL020)                                            |CR2450                    |
+|Signify Netherlands B.V.                        |Hue dimmer switch (RWL021)                                            |CR2450                    |
 |Signify Netherlands B.V.                        |Hue dimmer switch (RWL022)                                            |CR2032                    |
 |Signify Netherlands B.V.                        |Hue motion sensor (SML001)                                            |2× AAA                    |
 |Signify Netherlands B.V.                        |Hue motion sensor (SML003)                                            |2× AAA                    |
