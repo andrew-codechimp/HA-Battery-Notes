@@ -16,7 +16,7 @@
                     "battery_type": "Batterieart",
                     "battery_quantity": "Batteriemenge",
                     "battery_low_threshold": "Schwelle für niedrigen Batteriestand",
-                    "battery_low_template": "Battery low template"
+                    "battery_low_template": "Vorlage niedriger Batteriestand"
                 },
                 "data_description": {
                     "battery_low_threshold": "0 verwendet den globalen Standardschwellenwert",
@@ -40,7 +40,7 @@
                     "battery_type": "Batterieart",
                     "battery_quantity": "Batteriemenge",
                     "battery_low_threshold": "Schwelle für niedrigen Batteriestand",
-                    "battery_low_template": "Battery low template"
+                    "battery_low_template": "Vorlage niedriger Batteriestand"
                 },
                 "data_description": {
                     "name": "Wenn du nichts eingibst, wird der Name vom Quellgerät übernommen",
@@ -134,11 +134,11 @@
             "description": "Raise events for devices that haven't reported their battery level.",
             "fields": {
                 "days_last_reported": {
-                    "description": "Number of days since a device last reported its battery level.",
+                    "description": "Anzahl der Tage seit dem letzten Akkustands-Report.",
                     "name": "Tage"
                 }
             },
-            "name": "Check battery last reported"
+            "name": "Batteriestatus zuletzt gemeldet"
         }
     }
 }
