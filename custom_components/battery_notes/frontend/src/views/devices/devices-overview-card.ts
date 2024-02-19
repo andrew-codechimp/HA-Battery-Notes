@@ -8,8 +8,8 @@ import {
   TableData,
   TableFilterConfig,
 } from "../../components/batterynotes-table";
-import { ESensorIcons, ESensorIconsActive, ESensorTypes } from "../../const";
-import { fetchAreas, fetchSensors, saveSensor } from "../../data/websockets";
+// import { ESensorIcons, ESensorIconsActive, ESensorTypes } from "../../const";
+import { fetchDevices, saveDevice } from "../../data/websockets";
 import {
   computeName,
   handleError,
@@ -19,10 +19,8 @@ import {
 import { commonStyle } from "../../styles";
 import { SubscribeMixin } from "../../subscribe-mixin";
 import {
-  AlarmoArea,
-  AlarmoSensor,
+  BatteryNotesDevice,
   Dictionary,
-  EArmModes,
   HomeAssistant,
 } from "../../types";
 import { getModesList, modesByArea } from "../../common/modes";
@@ -41,16 +39,10 @@ export class SensorsOverviewCard extends SubscribeMixin(LitElement) {
   narrow!: boolean;
 
   @property()
-  areas!: Dictionary<AlarmoArea>;
-
-  @property()
-  sensors!: Dictionary<AlarmoSensor>;
+  devices!: Dictionary<BatteryNotesDevice>;
 
   @property()
   selectedArea?: string;
-
-  @property()
-  selectedMode?: EArmModes;
 
   @property()
   path!: string[] | null;
@@ -69,7 +61,7 @@ export class SensorsOverviewCard extends SubscribeMixin(LitElement) {
       return;
     }
     this.areas = await fetchAreas(this.hass);
-    this.sensors = await fetchSensors(this.hass);
+    this.devices = await fetchSensors(this.hass);
   }
 
   async firstUpdated() {
@@ -79,8 +71,8 @@ export class SensorsOverviewCard extends SubscribeMixin(LitElement) {
 
   shouldUpdate(changedProps: PropertyValues) {
     const oldHass = changedProps.get("hass") as HomeAssistant | undefined;
-    if (oldHass && changedProps.size == 1 && this.sensors) {
-      return Object.keys(this.sensors).some(
+    if (oldHass && changedProps.size == 1 && this.devices) {
+      return Object.keys(this.devices).some(
         (id) => oldHass.states[id] !== this.hass.states[id],
       );
     }
@@ -88,7 +80,7 @@ export class SensorsOverviewCard extends SubscribeMixin(LitElement) {
   }
 
   render() {
-    if (!this.hass || !this.areas || !this.sensors) return html``;
+    if (!this.hass || !this.areas || !this.devices) return html``;
 
     return html`
       <ha-card header="${localize("panels.sensors.title", this.hass.language)}">
@@ -230,9 +222,9 @@ export class SensorsOverviewCard extends SubscribeMixin(LitElement) {
   }
 
   private getTableData(): Record<string, any>[] {
-    const sensorsList = Object.keys(this.sensors).map(id => {
+    const sensorsList = Object.keys(this.devices).map(id => {
       const stateObj = this.hass!.states[id];
-      const config = this.sensors[id];
+      const config = this.devices[id];
       const modesList = config.area
         ? modesByArea(this.areas[config.area])
         : getModesList(this.areas);
@@ -280,7 +272,7 @@ export class SensorsOverviewCard extends SubscribeMixin(LitElement) {
       )
       .sort(sortAlphabetically);
 
-    if (Object.values(this.sensors).filter(e => !e.area).length)
+    if (Object.values(this.devices).filter(e => !e.area).length)
       areaFilterOptions = [
         {
           value: noArea,
