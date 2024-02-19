@@ -1,4 +1,4 @@
-## 788 Devices in library
+## 789 Devices in library
 
 This file is auto generated, do not modify
 
@@ -7,6 +7,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |                  Manufacturer                  |                                Model                                 |       Battery Type       |
 |------------------------------------------------|----------------------------------------------------------------------|--------------------------|
 |_TYZB01_7qf81wty                                |TS1001                                                                |2× AAA                    |
+|_TYZB01_hww2py6b                                |TS1001                                                                |CR2450                    |
 |_TZ1800_fcdjzz3s                                |TY0202                                                                |2× AAA                    |
 |_TZ2000_a476raq2                                |TS0201                                                                |2× AAA                    |
 |_TZ3000_1bwpjvlz                                |TS0203                                                                |CR2032                    |
