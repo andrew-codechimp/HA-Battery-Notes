@@ -68,9 +68,9 @@ jobs:
             set_output("bqt", f"{new_device['battery_quantity']}x {new_device['battery_type']}")
 
             if duplicate_found:
-              set_output("mode", "Updates")
+              set_output("mode", "updates")
             else:
-              set_output("mode", "Adds")            
+              set_output("mode", "adds")            
 
             with open("custom_components/battery_notes/data/library.json", "w") as f:
               f.write(json.dumps(devices_json, indent=4))
