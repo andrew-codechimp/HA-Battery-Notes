@@ -229,6 +229,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "_TZE200_3towulqd",
+            "model": "TS0601",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "_TZE200_4eeyebrt",
             "model": "TS0601",
             "battery_type": "AA",
@@ -4278,11 +4283,6 @@
         {
             "manufacturer": "Zooz",
             "model": "ZSE44",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "_TZE200_3towulqd",
-            "model": "TS0601",
             "battery_type": "CR2450"
         }
     ]
