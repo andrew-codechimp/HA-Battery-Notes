@@ -65,7 +65,7 @@ jobs:
             set_output("mm", "_".join(re.findall(r"\w+",f"{new_device['manufacturer']}{new_device['model']})".lower())))
             set_output("manufacturer", "_".join(re.findall(r"\w+",f"{new_device['manufacturer']})")))
             set_output("model", "_".join(re.findall(r"\w+",f"{new_device['model']})")))
-            set_output("bqt", f"{new_device['battery_quantity']}x {new_device['battery_type']}")
+            set_output("bqt", f"{numeric_quantity}x {new_device['battery_type']}")
 
             if duplicate_found:
               set_output("mode", "updates")
