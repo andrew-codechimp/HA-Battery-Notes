@@ -731,6 +731,12 @@
         },
         {
             "manufacturer": "AVM",
+            "model": "Comet DECT",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "AVM",
             "model": "FRITZ!DECT 300",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -4300,12 +4306,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "AVM",
-            "model": "Comet DECT",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
