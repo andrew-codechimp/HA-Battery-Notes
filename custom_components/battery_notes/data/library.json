@@ -2965,6 +2965,11 @@
         },
         {
             "manufacturer": "SmartThings",
+            "model": "3305-S",
+            "battery_type": "123A"
+        },
+        {
+            "manufacturer": "SmartThings",
             "model": "Button (IM6001-BTP01)",
             "battery_type": "CR2450"
         },
@@ -4284,11 +4289,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "SmartThings",
-            "model": "3305-S",
-            "battery_type": "123A"
         }
     ]
 }
