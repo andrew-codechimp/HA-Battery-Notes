@@ -1,4 +1,4 @@
-## 793 Devices in library
+## 794 Devices in library
 
 This file is auto generated, do not modify
 
@@ -161,6 +161,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |CentraLite                                      |3321-S                                                                |CR2450                    |
 |CentraLite                                      |3323-G                                                                |CR2450                    |
 |CentraLite                                      |3326-L                                                                |CR2                       |
+|Centralite                                      |3328-G                                                                |CR2450                    |
 |CentraLite                                      |3450-L                                                                |CR2450                    |
 |Computime                                       |SLT3                                                                  |4× AA                     |
 |Computime                                       |SS909ZB                                                               |CR2                       |
