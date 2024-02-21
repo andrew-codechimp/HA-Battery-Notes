@@ -3620,6 +3620,12 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Tuya",
+            "model": "WiFi Temperature & Humidity Sensor (q29ebws5adwye1l8)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "TuYa",
             "model": "Wireless switch with 1 button (TS0041)",
             "battery_type": "CR2032"
@@ -4306,12 +4312,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "WiFi Temperature & Humidity Sensor (q29ebws5adwye1l8)",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
