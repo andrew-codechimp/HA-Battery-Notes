@@ -1,4 +1,4 @@
-## 794 Devices in library
+## 795 Devices in library
 
 This file is auto generated, do not modify
 
@@ -144,6 +144,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |AVM                                             |FRITZ!DECT 300                                                        |2× AA                     |
 |AVM                                             |FRITZ!DECT 300                                                        |2× AA                     |
 |AVM                                             |FRITZ!DECT 301                                                        |2× AA                     |
+|AVM                                             |FRITZ!Dect 301                                                        |2× AA                     |
 |AVM                                             |FRITZ!DECT 302                                                        |3× AA                     |
 |AVM                                             |FRITZ!DECT 350                                                        |2× AAA                    |
 |AVM                                             |FRITZ!DECT 400                                                        |CR123A                    |
