@@ -1,4 +1,4 @@
-## 798 Devices in library
+## 799 Devices in library
 
 This file is auto generated, do not modify
 
@@ -336,6 +336,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Ikea                                            |TREDANSEN cellular blind (E2103)                                      |Rechargeable              |
 |IKEA                                            |VALLHORN wireless motion sensor (E2134)                               |2× AAA                    |
 |IKEA of Sweden                                  |FYRTUR block-out roller blind                                         |BRAUNIT Battery pack      |
+|IKEA of Sweden                                  |PARASOLL Door/Window Sensor                                           |AAA                       |
 |IKEA of Sweden                                  |PRAKTLYSING cellular blind                                            |Rechargeable              |
 |IKEA of Sweden                                  |Remote Control N2                                                     |2× AAA                    |
 |IKEA of Sweden                                  |RODRET Dimmer                                                         |AAA                       |
