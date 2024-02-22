@@ -1,4 +1,4 @@
-## 787 Devices in library
+## 798 Devices in library
 
 This file is auto generated, do not modify
 
@@ -7,6 +7,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |                  Manufacturer                  |                                Model                                 |       Battery Type       |
 |------------------------------------------------|----------------------------------------------------------------------|--------------------------|
 |_TYZB01_7qf81wty                                |TS1001                                                                |2× AAA                    |
+|_TYZB01_hww2py6b                                |TS1001                                                                |CR2450                    |
 |_TZ1800_fcdjzz3s                                |TY0202                                                                |2× AAA                    |
 |_TZ2000_a476raq2                                |TS0201                                                                |2× AAA                    |
 |_TZ3000_1bwpjvlz                                |TS0203                                                                |CR2032                    |
@@ -30,6 +31,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |_TZ3000_fllyghyj                                |TS0201                                                                |2× AAA                    |
 |_TZ3000_hkcpblrs                                |TS0203                                                                |2× AAA                    |
 |_TZ3000_ixla93vd                                |TS004F                                                                |CR2032                    |
+|_TZ3000_ja5osu5g                                |TS004F                                                                |CR2032                    |
 |_TZ3000_k4ej3ww2                                |TS0207                                                                |CR2032                    |
 |_TZ3000_lf56vpxj                                |TS0202                                                                |2× AAA                    |
 |_TZ3000_mcxw5ehu                                |TS0202                                                                |CR2450                    |
@@ -46,6 +48,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |_TZ3210_up3pngle                                |TS0205                                                                |2× AAA                    |
 |_TZ3290_ot6ewjvmejq5ekhl                        |TS1201                                                                |2× AAA                    |
 |_TZE200_2wg5qrjy                                |TS0601                                                                |2× AA                     |
+|_TZE200_3towulqd                                |TS0601                                                                |CR2450                    |
 |_TZE200_4eeyebrt                                |TS0601                                                                |2× AA                     |
 |_TZE200_a8sdabtg                                |TS0601                                                                |2× AAA                    |
 |_TZE200_b6wax7g0                                |TS0601                                                                |2× AA                     |
@@ -128,6 +131,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Aqara                                           |zigbee WXKG12LM (lumi.sensor_switch.aq3)                              |CR2032                    |
 |Aqara                                           |zigbee WXKG17LM (lumi.remote.acn004)                                  |CR2032                    |
 |Aqara                                           |ZNJLBL01LM                                                            |Rechargeable              |
+|ATC                                             |ATC (Atc1441)                                                         |CR2032                    |
 |Aubess                                          |IH-K665                                                               |CR2032                    |
 |August                                          |TEST200228                                                            |4× AA                     |
 |August Home Inc.                                |AK-R1                                                                 |2× AAA                    |
@@ -138,9 +142,11 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |August Home Inc.                                |AUG-SL04-M01-G04                                                      |4× AA                     |
 |August Home Inc.                                |AUG-SL05-M01-S01                                                      |2× CR123A                 |
 |AVATTO                                          |ME167                                                                 |2× AAA                    |
+|AVM                                             |Comet DECT                                                            |2× AA                     |
 |AVM                                             |FRITZ!DECT 300                                                        |2× AA                     |
 |AVM                                             |FRITZ!DECT 300                                                        |2× AA                     |
 |AVM                                             |FRITZ!DECT 301                                                        |2× AA                     |
+|AVM                                             |FRITZ!Dect 301                                                        |2× AA                     |
 |AVM                                             |FRITZ!DECT 302                                                        |3× AA                     |
 |AVM                                             |FRITZ!DECT 350                                                        |2× AAA                    |
 |AVM                                             |FRITZ!DECT 400                                                        |CR123A                    |
@@ -158,6 +164,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |CentraLite                                      |3321-S                                                                |CR2450                    |
 |CentraLite                                      |3323-G                                                                |CR2450                    |
 |CentraLite                                      |3326-L                                                                |CR2                       |
+|Centralite                                      |3328-G                                                                |CR2450                    |
 |CentraLite                                      |3450-L                                                                |CR2450                    |
 |Computime                                       |SLT3                                                                  |4× AA                     |
 |Computime                                       |SS909ZB                                                               |CR2                       |
@@ -450,7 +457,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |ORVIBO                                          |e70f96b3773a4c9283c6862dbafb6a99                                      |CR2032                    |
 |OSRAM                                           |Smart+ switch mini (AC0251100NJ/AC0251600NJ/AC0251700NJ)              |CR2450                    |
 |Philio Technology Corp                          |PST02A                                                                |CR123A                    |
-|Philips                                         |Hue dimmer switch (324131092621)                                      |CR2032                    |
+|Philips                                         |Hue dimmer switch (324131092621)                                      |CR2450                    |
 |Philips                                         |Hue dimmer switch (929002398602)                                      |CR2032                    |
 |Philips                                         |Hue motion outdoor sensor (9290019758)                                |2× AA                     |
 |Philips                                         |Hue motion outdoor sensor (9290030674)                                |2× AA                     |
@@ -521,8 +528,8 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Shenzhen Neo Electronics Co., Ltd.              |NAS-DS01Z                                                             |CR2                       |
 |Shenzhen Neo Electronics Co., Ltd.              |NAS-PD01Z                                                             |CR123A                    |
 |Shenzhen Neo Electronics Co., Ltd.              |NAS-WS01Z                                                             |CR2                       |
-|Signify Netherlands B.V.                        |Hue dimmer switch (RWL020)                                            |CR2032                    |
-|Signify Netherlands B.V.                        |Hue dimmer switch (RWL021)                                            |CR2032                    |
+|Signify Netherlands B.V.                        |Hue dimmer switch (RWL020)                                            |CR2450                    |
+|Signify Netherlands B.V.                        |Hue dimmer switch (RWL021)                                            |CR2450                    |
 |Signify Netherlands B.V.                        |Hue dimmer switch (RWL022)                                            |CR2032                    |
 |Signify Netherlands B.V.                        |Hue motion sensor (SML001)                                            |2× AAA                    |
 |Signify Netherlands B.V.                        |Hue motion sensor (SML003)                                            |2× AAA                    |
@@ -548,6 +555,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Siterwell                                       |Radiator valve with thermostat (GS361A-H04)                           |2× AA                     |
 |SMaBiT (Bitron Video)                           |Compact magnetic contact sensor (AV2010/21A)                          |CR2                       |
 |smartlife                                       |T & H Sensor (lf36y5nwb8jkxwgg)                                       |2× AAA                    |
+|SmartThings                                     |3305-S                                                                |123A                      |
 |SmartThings                                     |Button (IM6001-BTP01)                                                 |CR2450                    |
 |Smartthings                                     |GP-U999SJVLEAA                                                        |CR2450                    |
 |SmartThings                                     |moisturev4                                                            |CR2                       |
@@ -665,6 +673,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |TuYa                                            |TS0601                                                                |2× AAA                    |
 |TuYa                                            |TS0601_smoke_1                                                        |2× AAA                    |
 |TuYa                                            |Water leak detector (TS0207_water_leak_detector)                      |CR2032                    |
+|Tuya                                            |WiFi Temperature & Humidity Sensor (q29ebws5adwye1l8)                 |2× AAA                    |
 |TuYa                                            |Wireless switch with 1 button (TS0041)                                |CR2032                    |
 |TuYa                                            |Wireless switch with 2 buttons (TS0042)                               |CR2032                    |
 |TuYa                                            |Wireless switch with 4 buttons (TS0044)                               |CR2430                    |
@@ -749,6 +758,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Xiaomi                                          |LYWSDCGQ                                                              |AAA                       |
 |Xiaomi                                          |MCCGQ01LM                                                             |CR1632                    |
 |Xiaomi                                          |MHO-C303                                                              |2× AAA                    |
+|Xiaomi                                          |Mi light sensor (GZCGQ01LM)                                           |CR2450                    |
 |Xiaomi                                          |Mi Scale V1                                                           |CR2032                    |
 |Xiaomi                                          |Mi/Aqara smart home cube (MFKZQ01LM)                                  |CR2450                    |
 |Xiaomi                                          |MiJia door & window contact sensor (MCCGQ01LM)                        |CR1632                    |
@@ -762,6 +772,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Xiaomi                                          |Temperature & humidity sensor (LYWSD03MMC)                            |CR2032                    |
 |Xiaomi                                          |Temperature/Humidity sensor                                           |CR2032                    |
 |Xiaomi                                          |WSDCGQ01LM                                                            |CR2032                    |
+|Xiaomi                                          |WXKG13LM                                                              |CR2032                    |
 |Xiaomi                                          |XMTZC01HM/XMTZC04HM                                                   |CR2032                    |
 |Xiaomi                                          |XMTZC02HM/XMTZC05HM/NUN4049CN                                         |4× AAA                    |
 |Xiaomi                                          |XMWSDJ04MMC                                                           |CR2450                    |

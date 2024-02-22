@@ -65,6 +65,12 @@ jobs:
             set_output("mm", "_".join(re.findall(r"\w+",f"{new_device['manufacturer']}{new_device['model']})".lower())))
             set_output("manufacturer", "_".join(re.findall(r"\w+",f"{new_device['manufacturer']})")))
             set_output("model", "_".join(re.findall(r"\w+",f"{new_device['model']})")))
+            set_output("bqt", f"{numeric_quantity}x {new_device['battery_type']}")
+
+            if duplicate_found:
+              set_output("mode", "updates")
+            else:
+              set_output("mode", "adds")            
 
             with open("custom_components/battery_notes/data/library.json", "w") as f:
               f.write(json.dumps(devices_json, indent=4))
@@ -90,7 +96,7 @@ jobs:
         with:
           commit-message: "Update device: ${{ steps.update-json.outputs.model }} by ${{ steps.update-json.outputs.manufacturer }}"
           title: "Device: ${{ steps.update-json.outputs.manufacturer }} - ${{ steps.update-json.outputs.model }}"
-          body: "This pull request adds or updates the device information for ${{ steps.update-json.outputs.model }} by ${{ steps.update-json.outputs.manufacturer }}\nIt closes issue #${{ github.event.issue.number }}"
+          body: "This pull request ${{ steps.update-json.outputs.mode }} the device information for ${{ steps.update-json.outputs.model }} by ${{ steps.update-json.outputs.manufacturer }} with ${{ steps.update-json.outputs.bqt }}\nIt closes issue #${{ github.event.issue.number }}"
           branch: "device-${{ steps.update-json.outputs.mm }}"
 
       - name: Close Issue

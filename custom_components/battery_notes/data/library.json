@@ -9,6 +9,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "_TYZB01_hww2py6b",
+            "model": "TS1001",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "_TZ1800_fcdjzz3s",
             "model": "TY0202",
             "battery_type": "AAA",
@@ -133,6 +138,11 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "_TZ3000_ja5osu5g",
+            "model": "TS004F",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "_TZ3000_k4ej3ww2",
             "model": "TS0207",
             "battery_type": "CR2032"
@@ -217,6 +227,11 @@
             "model": "TS0601",
             "battery_type": "AA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "_TZE200_3towulqd",
+            "model": "TS0601",
+            "battery_type": "CR2450"
         },
         {
             "manufacturer": "_TZE200_4eeyebrt",
@@ -656,6 +671,11 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "ATC",
+            "model": "ATC (Atc1441)",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "Aubess",
             "model": "IH-K665",
             "battery_type": "CR2032"
@@ -716,6 +736,12 @@
         },
         {
             "manufacturer": "AVM",
+            "model": "Comet DECT",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "AVM",
             "model": "FRITZ!DECT 300",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -729,6 +755,12 @@
         {
             "manufacturer": "AVM",
             "model": "FRITZ!DECT 301",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "AVM",
+            "model": "FRITZ!Dect 301",
             "battery_type": "AA",
             "battery_quantity": 2
         },
@@ -826,6 +858,11 @@
             "manufacturer": "CentraLite",
             "model": "3326-L",
             "battery_type": "CR2"
+        },
+        {
+            "manufacturer": "Centralite",
+            "model": "3328-G",
+            "battery_type": "CR2450"
         },
         {
             "manufacturer": "CentraLite",
@@ -2423,7 +2460,7 @@
         {
             "manufacturer": "Philips",
             "model": "Hue dimmer switch (324131092621)",
-            "battery_type": "CR2032"
+            "battery_type": "CR2450"
         },
         {
             "manufacturer": "Philips",
@@ -2804,12 +2841,12 @@
         {
             "manufacturer": "Signify Netherlands B.V.",
             "model": "Hue dimmer switch (RWL020)",
-            "battery_type": "CR2032"
+            "battery_type": "CR2450"
         },
         {
             "manufacturer": "Signify Netherlands B.V.",
             "model": "Hue dimmer switch (RWL021)",
-            "battery_type": "CR2032"
+            "battery_type": "CR2450"
         },
         {
             "manufacturer": "Signify Netherlands B.V.",
@@ -2947,6 +2984,11 @@
             "model": "T & H Sensor (lf36y5nwb8jkxwgg)",
             "battery_type": "AAA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "SmartThings",
+            "model": "3305-S",
+            "battery_type": "123A"
         },
         {
             "manufacturer": "SmartThings",
@@ -3583,6 +3625,12 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Tuya",
+            "model": "WiFi Temperature & Humidity Sensor (q29ebws5adwye1l8)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "TuYa",
             "model": "Wireless switch with 1 button (TS0041)",
             "battery_type": "CR2032"
@@ -4026,6 +4074,11 @@
         },
         {
             "manufacturer": "Xiaomi",
+            "model": "Mi light sensor (GZCGQ01LM)",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Xiaomi",
             "model": "Mi Scale V1",
             "battery_type": "CR2032"
         },
@@ -4089,6 +4142,11 @@
         {
             "manufacturer": "Xiaomi",
             "model": "WSDCGQ01LM",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "WXKG13LM",
             "battery_type": "CR2032"
         },
         {

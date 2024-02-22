@@ -1,4 +1,5 @@
 """Sample API Client."""
+
 from __future__ import annotations
 
 import logging
@@ -98,7 +99,9 @@ class LibraryUpdater:
                 _LOGGER.error("Library file is invalid, not updated")
 
         except LibraryUpdaterClientError:
-            _LOGGER.error("Library update failed")
+            _LOGGER.warning(
+                "Library update failed, this could be a GitHub or internet connectivity issue, will retry later."
+            )
 
     async def time_to_update_library(self) -> bool:
         """Check when last updated and if OK to do a new library update."""
