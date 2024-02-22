@@ -2387,6 +2387,12 @@
             "battery_quantity": 4
         },
         {
+            "manufacturer": "Nuki",
+            "model": "SmartLock",
+            "battery_type": "MANUAL",
+            "battery_quantity": 4
+        },
+        {
             "manufacturer": "Nuki Home Solutions GmbH",
             "model": "Nuki opener",
             "battery_type": "AAA",
@@ -4327,12 +4333,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Nuki",
-            "model": "SmartLock",
-            "battery_type": "MANUAL",
-            "battery_quantity": 4
         }
     ]
 }
