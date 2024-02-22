@@ -4322,6 +4322,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "Wireless remote switch H1 (double rocker) (WXKG15LM)",
+            "battery_type": "CR2450"
         }
     ]
 }
