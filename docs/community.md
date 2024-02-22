@@ -89,7 +89,7 @@ action:
 mode: queued
 ```
 
-### Check Battery Last Reported Daily (Beta Only)
+### Check Battery Last Reported Daily
 Call the check battery last reported service every day to raise events for those not reported in the last two days.  
 To be used in conjunction with a Battery Not Reported automation.
 
@@ -107,7 +107,7 @@ action:
 mode: single
 ```
 
-### Battery Not Reported (Beta Only)
+### Battery Not Reported
 Respond to events raised by the check_battery_last_reported service and create notifications.
 
 ```yaml
@@ -161,7 +161,7 @@ It is extended from the example Battery Low Notification automation yaml above f
 This blueprint will automatically update the battery replaced sensor and custom actions to be performed when the battery increases.
 It is extended from the example Battery Replaced automation yaml above for those who'd prefer an easy way to get started.
 
-### Battery Not Reported (Beta Only)
+### Battery Not Reported
 [Install blueprint](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fraw.githubusercontent.com%2Fandrew-codechimp%2FHA-Battery-Notes%2Fmain%2Fdocs%2Fblueprints%2Fbattery_notes_battery_not_reported.yaml) | [Source](./blueprints/battery_notes_battery_not_reported.yaml)
 
 This blueprint will allow notifications to be raised and/or custom actions to be performed when the battery not reported event is fired.  
