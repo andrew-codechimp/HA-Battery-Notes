@@ -4317,6 +4317,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "IKEA of Sweden",
+            "model": "PARASOLL Door/Window Sensor",
+            "battery_type": "AAA"
         }
     ]
 }
