@@ -4366,6 +4366,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "switchbot",
+            "model": "WoContact",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
