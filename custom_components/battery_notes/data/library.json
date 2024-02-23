@@ -570,6 +570,11 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "Opple wireless switch (triple band) (WXCJKG13LM)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "RTCGQ11LM",
             "battery_type": "CR2450"
         },
@@ -4350,11 +4355,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Aqara",
-            "model": "Opple wireless switch (triple band) (WXCJKG13LM)",
-            "battery_type": "CR2032"
         }
     ]
 }
