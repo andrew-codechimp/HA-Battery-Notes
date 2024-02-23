@@ -1,4 +1,4 @@
-## 802 Devices in library
+## 803 Devices in library
 
 This file is auto generated, do not modify
 
@@ -524,6 +524,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Shelly                                          |Shelly Door/Window 2                                                  |2× CR123A                 |
 |Shelly                                          |Shelly Flood                                                          |CR123A                    |
 |Shelly                                          |Shelly H&T                                                            |CR123A                    |
+|Shelly                                          |Shelly Motion                                                         |Rechargable               |
 |Shelly                                          |Shelly Plus Smoke                                                     |CR123A                    |
 |Shenzhen Heiman Technology Co., Ltd.            |HS1HT-Z                                                               |CR2450                    |
 |Shenzhen Heiman Technology Co., Ltd.            |HS1SA-Z                                                               |CR123A                    |
