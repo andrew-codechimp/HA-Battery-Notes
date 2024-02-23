@@ -3316,6 +3316,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Third Reality",
+            "model": "Temperature and humidity sensor (3RTHS24BZ)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Third Reality, Inc",
             "model": "3RDS17BZ",
             "battery_type": "AAA",
@@ -4372,12 +4378,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Third Reality",
-            "model": "Temperature and humidity sensor (3RTHS24BZ)",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
