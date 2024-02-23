@@ -4355,6 +4355,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Tedee",
+            "model": "Tedee GO",
+            "battery_type": "CR123A",
+            "battery_quantity": 3
         }
     ]
 }
