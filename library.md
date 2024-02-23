@@ -1,4 +1,4 @@
-## 806 Devices in library
+## 807 Devices in library
 
 This file is auto generated, do not modify
 
@@ -611,6 +611,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tado                                            |SU02                                                                  |3× AAA                    |
 |Tado                                            |VA01                                                                  |2× AA                     |
 |Tado                                            |VA02                                                                  |2× AA                     |
+|Tedee                                           |Tedee GO                                                              |3× CR123A                 |
 |ThermoBeacon                                    |27                                                                    |CR2477                    |
 |Third Reality                                   |3RSB015BZ                                                             |4× AA                     |
 |Third Reality                                   |Smart switch Gen3 (3RSS009Z)                                          |2× AAA                    |
