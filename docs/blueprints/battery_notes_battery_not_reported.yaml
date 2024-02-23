@@ -17,7 +17,9 @@ blueprint:
       default:
       selector:
         device:
-          multiple: true      
+          multiple: true
+          entity:
+            - integration: battery_notes          
     user_actions:
       name: User Actions
       description: User actions to run on battery not reported.
