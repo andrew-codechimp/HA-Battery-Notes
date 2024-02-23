@@ -1,4 +1,4 @@
-## 798 Devices in library
+## 805 Devices in library
 
 This file is auto generated, do not modify
 
@@ -111,6 +111,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Aqara                                           |Motion sensor (RTCGQ11LM)                                             |CR2450                    |
 |Aqara                                           |Motion sensor P1 (RTCGQ14LM)                                          |2× CR2450                 |
 |Aqara                                           |Opple wireless switch (single band) (WXCJKG11LM)                      |CR2032                    |
+|Aqara                                           |Opple wireless switch (triple band) (WXCJKG13LM)                      |CR2032                    |
 |Aqara                                           |RTCGQ11LM                                                             |CR2450                    |
 |Aqara                                           |Smart radiator thermostat E1 (SRTS-A01)                               |2× AA                     |
 |Aqara                                           |Smart smoke detector (JY-GZ-01AQ)                                     |CR17450                   |
@@ -119,6 +120,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Aqara                                           |Vibration sensor (DJT11LM)                                            |CR2032                    |
 |Aqara                                           |Water leak sensor (SJCGQ11LM)                                         |CR2032                    |
 |Aqara                                           |Wireless mini switch (WXKG11LM)                                       |CR2032                    |
+|Aqara                                           |Wireless remote switch H1 (double rocker) (WXKG15LM)                  |CR2450                    |
 |Aqara                                           |WSDCGQ11LM                                                            |CR2032                    |
 |Aqara                                           |zigbee DJT11LM (lumi.vibration.aq1)                                   |CR2032                    |
 |Aqara                                           |zigbee MCCGQ11LM (lumi.sensor_magnet.aq2)                             |CR1632                    |
@@ -135,6 +137,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Aubess                                          |IH-K665                                                               |CR2032                    |
 |August                                          |TEST200228                                                            |4× AA                     |
 |August Home Inc.                                |AK-R1                                                                 |2× AAA                    |
+|August Home Inc.                                |ASL-06                                                                |4× AA                     |
 |August Home Inc.                                |ASL6_05/101200/SI                                                     |4× AA                     |
 |August Home Inc.                                |ASL6_05/101300/SI                                                     |4× AA                     |
 |August Home Inc.                                |AUG-SL03-C02-G03                                                      |4× AA                     |
@@ -336,6 +339,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Ikea                                            |TREDANSEN cellular blind (E2103)                                      |Rechargeable              |
 |IKEA                                            |VALLHORN wireless motion sensor (E2134)                               |2× AAA                    |
 |IKEA of Sweden                                  |FYRTUR block-out roller blind                                         |BRAUNIT Battery pack      |
+|IKEA of Sweden                                  |PARASOLL Door/Window Sensor                                           |AAA                       |
 |IKEA of Sweden                                  |PRAKTLYSING cellular blind                                            |Rechargeable              |
 |IKEA of Sweden                                  |Remote Control N2                                                     |2× AAA                    |
 |IKEA of Sweden                                  |RODRET Dimmer                                                         |AAA                       |
@@ -442,6 +446,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |NUKI                                            |Nuki Door Sensor                                                      |LS14250                   |
 |Nuki                                            |Nuki Opener                                                           |4× AAA                    |
 |Nuki                                            |Nuki Smart Lock                                                       |4× AA                     |
+|Nuki                                            |SmartLock                                                             |4× MANUAL                 |
 |Nuki Home Solutions GmbH                        |Nuki opener                                                           |4× AAA                    |
 |Nuki Home Solutions GmbH                        |Nuki smart lock 1.0/2.0                                               |4× AA                     |
 |Nuki Home Solutions GmbH                        |Nuki smart lock 3.0 (pro)                                             |4× AA                     |
@@ -520,6 +525,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Shelly                                          |Shelly Door/Window 2                                                  |2× CR123A                 |
 |Shelly                                          |Shelly Flood                                                          |CR123A                    |
 |Shelly                                          |Shelly H&T                                                            |CR123A                    |
+|Shelly                                          |Shelly Motion                                                         |Rechargable               |
 |Shelly                                          |Shelly Plus Smoke                                                     |CR123A                    |
 |Shenzhen Heiman Technology Co., Ltd.            |HS1HT-Z                                                               |CR2450                    |
 |Shenzhen Heiman Technology Co., Ltd.            |HS1SA-Z                                                               |CR123A                    |
@@ -577,6 +583,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |SONOFF                                          |Motion sensor (SNZB-03)                                               |CR2450                    |
 |Sonoff                                          |SNZB-02                                                               |CR2450                    |
 |SONOFF                                          |SNZB-02D                                                              |CR2450                    |
+|SONOFF                                          |SNZB-04                                                               |2× AAA                    |
 |Sonoff                                          |Temperature and humidity sensor (SNZB-02)                             |CR2450                    |
 |SONOFF                                          |Temperature and humidity sensor (SNZB-02P)                            |CR2477                    |
 |SONOFF                                          |Temperature and humidity sensor with screen (SNZB-02D)                |CR2450                    |

@@ -570,6 +570,11 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "Opple wireless switch (triple band) (WXCJKG13LM)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "RTCGQ11LM",
             "battery_type": "CR2450"
         },
@@ -609,6 +614,11 @@
             "manufacturer": "Aqara",
             "model": "Wireless mini switch (WXKG11LM)",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "Wireless remote switch H1 (double rocker) (WXKG15LM)",
+            "battery_type": "CR2450"
         },
         {
             "manufacturer": "Aqara",
@@ -691,6 +701,12 @@
             "model": "AK-R1",
             "battery_type": "AAA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "August Home Inc.",
+            "model": "ASL-06",
+            "battery_type": "AA",
+            "battery_quantity": 4
         },
         {
             "manufacturer": "August Home Inc.",
@@ -1808,6 +1824,11 @@
         },
         {
             "manufacturer": "IKEA of Sweden",
+            "model": "PARASOLL Door/Window Sensor",
+            "battery_type": "AAA"
+        },
+        {
+            "manufacturer": "IKEA of Sweden",
             "model": "PRAKTLYSING cellular blind",
             "battery_type": "Rechargeable"
         },
@@ -2377,6 +2398,12 @@
             "battery_quantity": 4
         },
         {
+            "manufacturer": "Nuki",
+            "model": "SmartLock",
+            "battery_type": "MANUAL",
+            "battery_quantity": 4
+        },
+        {
             "manufacturer": "Nuki Home Solutions GmbH",
             "model": "Nuki opener",
             "battery_type": "AAA",
@@ -2799,6 +2826,11 @@
         },
         {
             "manufacturer": "Shelly",
+            "model": "Shelly Motion",
+            "battery_type": "Rechargable"
+        },
+        {
+            "manufacturer": "Shelly",
             "model": "Shelly Plus Smoke",
             "battery_type": "CR123A"
         },
@@ -3096,6 +3128,12 @@
             "manufacturer": "SONOFF",
             "model": "SNZB-02D",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "SONOFF",
+            "model": "SNZB-04",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "Sonoff",
