@@ -44,15 +44,12 @@ action:
   then:
   - service: persistent_notification.create
     data:
-      title: '{{ trigger.event.data.device_name }} Battery Not Reported
-
-        '
+      title: '{{ trigger.event.data.device_name }} Battery Not Reported'
       message: 'The device has not reported its battery level for {{ trigger.event.data.battery_last_reported_days
         }} days {{ ''\n'' -}} Its last reported level was {{ trigger.event.data.battery_last_reported_level
         }}% {{ ''\n'' -}} You need {{ trigger.event.data.battery_quantity }}× {{ trigger.event.data.battery_type
-        }}
-
-        '
+        }}'
+      notification_id: 'battery_notes_not_reported {{ trigger.event.data.device_id }}'
   - alias: Run user actions
     choose: []
     default: !input user_actions

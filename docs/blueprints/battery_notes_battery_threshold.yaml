@@ -66,7 +66,7 @@ action:
                 data:
                   title: |
                     {{ trigger.event.data.device_name }} Battery Low
-                  notification_id: "{{ trigger.event.data.device_id }}"
+                  notification_id: "battery_notes_threshold {{ trigger.event.data.device_id }}"
                   message: >
                     The device has a battery level of {{
                     trigger.event.data.battery_level }}% {{ '\n' -}} You need {{
@@ -86,7 +86,7 @@ action:
             then:
               - service: persistent_notification.dismiss
                 data:
-                  notification_id: "{{ trigger.event.data.device_id }}"
+                  notification_id: "battery_notes_threshold {{ trigger.event.data.device_id }}"
           - alias: "Run user on high actions"
             choose: []
             default: !input 'on_high_actions'
