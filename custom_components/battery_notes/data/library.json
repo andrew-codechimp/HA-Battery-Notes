@@ -3230,6 +3230,12 @@
         },
         {
             "manufacturer": "switchbot",
+            "model": "WoContact",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "switchbot",
             "model": "WoCurtain",
             "battery_type": "Rechargeable"
         },
@@ -4366,12 +4372,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "switchbot",
-            "model": "WoContact",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }

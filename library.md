@@ -1,4 +1,4 @@
-## 807 Devices in library
+## 808 Devices in library
 
 This file is auto generated, do not modify
 
@@ -601,6 +601,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |SwitchBot                                       |W1201500                                                              |2× AAA                    |
 |SwitchBot                                       |W340001X                                                              |2× AAA                    |
 |switchbot                                       |WoBlindTilt                                                           |Rechargeable              |
+|switchbot                                       |WoContact                                                             |2× AAA                    |
 |switchbot                                       |WoCurtain                                                             |Rechargeable              |
 |switchbot                                       |woHand                                                                |CR2                       |
 |switchbot                                       |WoIOSensorTH                                                          |2× AAA                    |
