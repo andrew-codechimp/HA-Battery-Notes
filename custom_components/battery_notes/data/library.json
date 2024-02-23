@@ -1538,6 +1538,11 @@
         },
         {
             "manufacturer": "frient A/S",
+            "model": "SBTZB-110",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "frient A/S",
             "model": "SMSZB-120",
             "battery_type": "CR123"
         },
@@ -4354,11 +4359,6 @@
         {
             "manufacturer": "Zooz",
             "model": "ZSE44",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "frient A/S",
-            "model": "SBTZB-110",
             "battery_type": "CR2450"
         }
     ]
