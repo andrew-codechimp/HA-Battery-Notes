@@ -2,7 +2,7 @@ blueprint:
   name: Battery Notes - Battery Replaced
   description: Set the battery replaced automatically when the battery increased
   author: andrew-codechimp
-  source_url: https://raw.githubusercontent.com/andrew-codechimp/HA-Battery-Notes/main/docs/blueprints/battery_notes_battery_replaced.yaml
+  source_url: https://raw.githubusercontent.com/andrew-codechimp/HA-Battery-Notes/main/blueprints/battery_notes_battery_replaced.yaml
   domain: automation
 
   input:
