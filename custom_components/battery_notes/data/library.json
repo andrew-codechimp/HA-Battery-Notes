@@ -1503,6 +1503,12 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "First Alert",
+            "model": "1044807",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "First Alert (BRK Brands Inc)",
             "model": "ZCOMBO",
             "battery_type": "AA",
@@ -4378,12 +4384,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "First Alert",
-            "model": "1044807",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
