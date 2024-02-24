@@ -1,4 +1,4 @@
-## 810 Devices in library
+## 811 Devices in library
 
 This file is auto generated, do not modify
 
@@ -766,6 +766,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Xiaomi                                          |HHCCJCY01                                                             |CR2032                    |
 |Xiaomi                                          |LYWSD02                                                               |2× CR2032                 |
 |Xiaomi                                          |LYWSD03MMC                                                            |CR2032                    |
+|Xiaomi                                          |LYWSD03MMC-z                                                          |CR2032                    |
 |Xiaomi                                          |LYWSD03MMC/MJWSD05MMC_PVVX                                            |CR2032                    |
 |Xiaomi                                          |LYWSDCGQ                                                              |AAA                       |
 |Xiaomi                                          |MCCGQ01LM                                                             |CR1632                    |

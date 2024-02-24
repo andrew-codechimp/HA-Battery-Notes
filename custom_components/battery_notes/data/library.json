@@ -4120,6 +4120,11 @@
         },
         {
             "manufacturer": "Xiaomi",
+            "model": "LYWSD03MMC-z",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Xiaomi",
             "model": "LYWSD03MMC/MJWSD05MMC_PVVX",
             "battery_type": "CR2032"
         },
@@ -4384,11 +4389,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Xiaomi",
-            "model": "LYWSD03MMC-z",
-            "battery_type": "CR2032"
         }
     ]
 }
