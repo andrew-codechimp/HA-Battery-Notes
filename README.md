@@ -7,8 +7,11 @@
 [![hacs][hacsbadge]][hacs]
 
 Integration to add battery notes to a device, with automatic discovery via a growing [battery library](library.md) for devices.  
-Track the battery type, when the battery was replaced and also when a battery is low based on device or global thresholds.  
+Track the battery type, when the battery was replaced, when a battery is low based on device or global thresholds and also when a device hasn't reported a battery for a while.  
+
 A battery+ sensor provides useful attributes for easy use in dashboards, the standard battery can optionally be hidden.  
+
+Battery low, replaced and not reported are all via events and services, you have the option of creating your own automations for these or using the predefined ones in [community](https://andrew-codechimp.github.io/HA-Battery-Notes/community.md).  
 
 *Please :star: this repo if you find it useful*  
 *If you want to show your support please*
