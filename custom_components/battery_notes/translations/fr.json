@@ -16,7 +16,7 @@
                     "battery_type": "Type de batterie",
                     "battery_quantity": "Nombre de batteries",
                     "battery_low_threshold": "Seuil de batterie faible",
-                    "battery_low_template": "Battery low template"
+                    "battery_low_template": "Modèle de batterie faible"
                 },
                 "data_description": {
                     "battery_low_threshold": "0 gardera le seuil par defaut",
@@ -40,7 +40,7 @@
                     "battery_type": "Type de batterie",
                     "battery_quantity": "Nombre de batteries",
                     "battery_low_threshold": "Seuil de batterie faible",
-                    "battery_low_template": "Battery low template"
+                    "battery_low_template": "Modèle de batterie faible"
                 },
                 "data_description": {
                     "name": "Laisser vide gardera le seuil par defaut",
