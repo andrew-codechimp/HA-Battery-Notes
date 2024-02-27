@@ -2231,6 +2231,11 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Merkury",
+            "model": "SS003",
+            "battery_type": "CR2"
+        },
+        {
             "manufacturer": "Meross",
             "model": "ms100",
             "battery_type": "CR2477"
@@ -4394,11 +4399,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Merkury",
-            "model": "SS003",
-            "battery_type": "CR2"
         }
     ]
 }
