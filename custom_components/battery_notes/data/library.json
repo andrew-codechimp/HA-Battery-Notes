@@ -4415,6 +4415,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Remsol",
+            "model": "ismartgateLITE",
+            "battery_type": "N",
+            "battery_quantity": 2
         }
     ]
 }
