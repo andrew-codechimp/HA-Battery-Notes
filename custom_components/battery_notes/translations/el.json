@@ -16,11 +16,11 @@
                     "battery_type": "Τύπος μπαταρίας",
                     "battery_quantity": "Αριθμός μπαταριών",
                     "battery_low_threshold": "Ελάχιστο όριο μπαταρίας",
-                    "battery_low_template": "Battery low template"
+                    "battery_low_template": "Template χαμηλής στάθμης μπαταρίας"
                 },
                 "data_description": {
                     "battery_low_threshold": "0 θα χρησιμοποιηθεί το καθολικό προεπιλεγμένο ελάχιστο όριο",
-                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels"
+                    "battery_low_template": "Template για τον προσδιορισμό μιας μπαταρίας είναι χαμηλή, θα πρέπει να επιστρέψει true εάν είναι χαμηλή\nΧρειάζεται μόνο για μη τυπικές στάθμες μπαταρίας"
                 }
             }
         },
@@ -40,12 +40,12 @@
                     "battery_type": "Τύπος μπαταρίας",
                     "battery_quantity": "Αριθμός μπαταριών",
                     "battery_low_threshold": "Ελάχιστο όριο μπαταρίας",
-                    "battery_low_template": "Battery low template"
+                    "battery_low_template": "Template χαμηλής στάθμης μπαταρίας"
                 },
                 "data_description": {
                     "name": "Αφήνοντάς το κενό θα πάρει το όνομα από τη συσκευή προέλευσης",
                     "battery_low_threshold": "0 θα χρησιμοποιηθεί το καθολικό προεπιλεγμένο ελάχιστο όριο",
-                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels"
+                    "battery_low_template": "Template για τον προσδιορισμό μιας μπαταρίας είναι χαμηλή, θα πρέπει να επιστρέψει true εάν είναι χαμηλή\nΧρειάζεται μόνο για μη τυπικές στάθμες μπαταρίας"
                 }
             }
         },
@@ -56,7 +56,7 @@
     "entity": {
         "binary_sensor": {
             "battery_low": {
-                "name": "Χαμηλό επίπεδο μπαταρίας",
+                "name": "Χαμηλή στάθμη μπαταρίας",
                 "state_attributes": {
                     "battery_low_threshold": {
                         "name": "Ελάχιστο όριο μπαταρίας"
@@ -131,14 +131,14 @@
             "name": "Ορισμός μπαταρίας ως αντικατεστημένη"
         },
         "check_battery_last_reported": {
-            "description": "Raise events for devices that haven't reported their battery level.",
+            "description": "Εμφάνιση συμβάντων για συσκευές που δεν έχουν αναφέρει τη στάθμη της μπαταρίας τους.",
             "fields": {
                 "days_last_reported": {
-                    "description": "Number of days since a device last reported its battery level.",
+                    "description": "Αριθμός ημερών από την τελευταία φορά που μια συσκευή ανέφερε τη στάθμη της μπαταρίας της.",
                     "name": "Ημέρες"
                 }
             },
-            "name": "Check battery last reported"
+            "name": "Ελεγχος τελευταίας αναφοράς μπαταρίας"
         }
     }
 }
