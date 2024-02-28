@@ -4161,6 +4161,11 @@
         },
         {
             "manufacturer": "Xiaomi",
+            "model": "Mi door and window sensor (MCCGQ01LM)",
+            "battery_type": "CR1632"
+        },
+        {
+            "manufacturer": "Xiaomi",
             "model": "Mi light sensor (GZCGQ01LM)",
             "battery_type": "CR2450"
         },
@@ -4404,11 +4409,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Xiaomi",
-            "model": "Mi door and window sensor (MCCGQ01LM)",
-            "battery_type": "CR1632"
         }
     ]
 }
