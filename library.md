@@ -1,4 +1,4 @@
-## 816 Devices in library
+## 817 Devices in library
 
 This file is auto generated, do not modify
 
@@ -492,6 +492,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Powermax                                        |MCT-426                                                               |CR123A                    |
 |Qingping                                        |CGG1                                                                  |CR2032                    |
 |Remotec                                         |BW8510                                                                |2× AAA                    |
+|Remsol                                          |ismartgateLITE                                                        |2× N                      |
 |Ring                                            |4AK1SZ                                                                |Rechargeable              |
 |Ring                                            |Contact Sensor                                                        |2× CR2032                 |
 |Ring                                            |Doorbell 2                                                            |Rechargeable              |
