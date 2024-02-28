@@ -1,4 +1,4 @@
-## 805 Devices in library
+## 815 Devices in library
 
 This file is auto generated, do not modify
 
@@ -69,6 +69,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |AEON Labs                                       |ZW122                                                                 |CR123A                    |
 |AEON Labs                                       |ZW129                                                                 |Rechargeable              |
 |AEON Labs                                       |ZW130                                                                 |Rechargeable              |
+|Aeotec                                          |ZWA011                                                                |CR14250                   |
 |Aeotec Ltd.                                     |ZW187                                                                 |CR2                       |
 |Aeotec Ltd.                                     |ZWA003                                                                |LIR2450                   |
 |Aeotec Ltd.                                     |ZWA004                                                                |Rechargeable              |
@@ -280,12 +281,14 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Fibargroup                                      |FGPB-101                                                              |ER14250                   |
 |Fibargroup                                      |FGSD002                                                               |CR123A                    |
 |Fibargroup                                      |FGSS001                                                               |CR123A                    |
+|First Alert                                     |1044807                                                               |2× AA                     |
 |First Alert (BRK Brands Inc)                    |ZCOMBO                                                                |2× AA                     |
 |Flo by Moen                                     |puck_v1                                                               |CR123A                    |
 |Frient                                          |EMIZB-141                                                             |2× AA                     |
 |frient                                          |MOSZB-140                                                             |2× AA                     |
 |Frient                                          |ZHEMI101                                                              |3× AA                     |
 |frient A/S                                      |HESZB-120                                                             |CR123A                    |
+|frient A/S                                      |SBTZB-110                                                             |CR2450                    |
 |frient A/S                                      |SMSZB-120                                                             |CR123                     |
 |GiEX                                            |Water irrigation valve (QT06_2)                                       |4× AA                     |
 |Google                                          |A12                                                                   |3× AA                     |
@@ -413,6 +416,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |LUMI                                            |lumi.sensor_wleak.aq1                                                 |CR2032                    |
 |LUMI                                            |lumi.vibration.aq1                                                    |CR2032                    |
 |LUMI                                            |lumi.weather                                                          |CR2032                    |
+|Merkury                                         |SS003                                                                 |CR2                       |
 |Meross                                          |ms100                                                                 |CR2477                    |
 |Mi light sensor                                 |GZCGQ01LM                                                             |CR2450                    |
 |modkam.ru                                       |DIYRuZ_Flower                                                         |2× AAA                    |
@@ -600,6 +604,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |SwitchBot                                       |W1201500                                                              |2× AAA                    |
 |SwitchBot                                       |W340001X                                                              |2× AAA                    |
 |switchbot                                       |WoBlindTilt                                                           |Rechargeable              |
+|switchbot                                       |WoContact                                                             |2× AAA                    |
 |switchbot                                       |WoCurtain                                                             |Rechargeable              |
 |switchbot                                       |woHand                                                                |CR2                       |
 |switchbot                                       |WoIOSensorTH                                                          |2× AAA                    |
@@ -610,9 +615,11 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tado                                            |SU02                                                                  |3× AAA                    |
 |Tado                                            |VA01                                                                  |2× AA                     |
 |Tado                                            |VA02                                                                  |2× AA                     |
+|Tedee                                           |Tedee GO                                                              |3× CR123A                 |
 |ThermoBeacon                                    |27                                                                    |CR2477                    |
 |Third Reality                                   |3RSB015BZ                                                             |4× AA                     |
 |Third Reality                                   |Smart switch Gen3 (3RSS009Z)                                          |2× AAA                    |
+|Third Reality                                   |Temperature and humidity sensor (3RTHS24BZ)                           |2× AAA                    |
 |Third Reality, Inc                              |3RDS17BZ                                                              |2× AAA                    |
 |Third Reality, Inc                              |3RMS16BZ                                                              |2× AAA                    |
 |Third Reality, Inc                              |3RSB22BZ                                                              |2× AAA                    |
@@ -685,6 +692,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |TuYa                                            |Wireless switch with 2 buttons (TS0042)                               |CR2032                    |
 |TuYa                                            |Wireless switch with 4 buttons (TS0044)                               |CR2430                    |
 |TuYa                                            |Wireless switch with 4 buttons (TS0044) by TuYa                       |CR2032                    |
+|TuYa                                            |Wireless switch with 4 buttons (TS004F)                               |CR2032                    |
 |TuYa                                            |Wireless switch with 6 buttons (TS0046)                               |CR2032                    |
 |TuYa                                            |Zigbee fingerbot plus (TS0001_fingerbot)                              |CR2                       |
 |TuYa                                            |Zigbee water leak sensor (TS0207_water_leak_detector_2)               |CR2032                    |
@@ -761,10 +769,12 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Xiaomi                                          |HHCCJCY01                                                             |CR2032                    |
 |Xiaomi                                          |LYWSD02                                                               |2× CR2032                 |
 |Xiaomi                                          |LYWSD03MMC                                                            |CR2032                    |
+|Xiaomi                                          |LYWSD03MMC-z                                                          |CR2032                    |
 |Xiaomi                                          |LYWSD03MMC/MJWSD05MMC_PVVX                                            |CR2032                    |
 |Xiaomi                                          |LYWSDCGQ                                                              |AAA                       |
 |Xiaomi                                          |MCCGQ01LM                                                             |CR1632                    |
 |Xiaomi                                          |MHO-C303                                                              |2× AAA                    |
+|Xiaomi                                          |Mi door and window sensor (MCCGQ01LM)                                 |CR1632                    |
 |Xiaomi                                          |Mi light sensor (GZCGQ01LM)                                           |CR2450                    |
 |Xiaomi                                          |Mi Scale V1                                                           |CR2032                    |
 |Xiaomi                                          |Mi/Aqara smart home cube (MFKZQ01LM)                                  |CR2450                    |

@@ -349,6 +349,11 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "Aeotec",
+            "model": "ZWA011",
+            "battery_type": "CR14250"
+        },
+        {
             "manufacturer": "Aeotec Ltd.",
             "model": "ZW187",
             "battery_type": "CR2"
@@ -1503,6 +1508,12 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "First Alert",
+            "model": "1044807",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "First Alert (BRK Brands Inc)",
             "model": "ZCOMBO",
             "battery_type": "AA",
@@ -1535,6 +1546,11 @@
             "manufacturer": "frient A/S",
             "model": "HESZB-120",
             "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "frient A/S",
+            "model": "SBTZB-110",
+            "battery_type": "CR2450"
         },
         {
             "manufacturer": "frient A/S",
@@ -2213,6 +2229,11 @@
             "manufacturer": "LUMI",
             "model": "lumi.weather",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Merkury",
+            "model": "SS003",
+            "battery_type": "CR2"
         },
         {
             "manufacturer": "Meross",
@@ -3225,6 +3246,12 @@
         },
         {
             "manufacturer": "switchbot",
+            "model": "WoContact",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "switchbot",
             "model": "WoCurtain",
             "battery_type": "Rechargeable"
         },
@@ -3282,6 +3309,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Tedee",
+            "model": "Tedee GO",
+            "battery_type": "CR123A",
+            "battery_quantity": 3
+        },
+        {
             "manufacturer": "ThermoBeacon",
             "model": "27",
             "battery_type": "CR2477"
@@ -3295,6 +3328,12 @@
         {
             "manufacturer": "Third Reality",
             "model": "Smart switch Gen3 (3RSS009Z)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Third Reality",
+            "model": "Temperature and humidity sensor (3RTHS24BZ)",
             "battery_type": "AAA",
             "battery_quantity": 2
         },
@@ -3686,6 +3725,11 @@
         {
             "manufacturer": "TuYa",
             "model": "Wireless switch with 4 buttons (TS0044) by TuYa",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "TuYa",
+            "model": "Wireless switch with 4 buttons (TS004F)",
             "battery_type": "CR2032"
         },
         {
@@ -4091,6 +4135,11 @@
         },
         {
             "manufacturer": "Xiaomi",
+            "model": "LYWSD03MMC-z",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Xiaomi",
             "model": "LYWSD03MMC/MJWSD05MMC_PVVX",
             "battery_type": "CR2032"
         },
@@ -4109,6 +4158,11 @@
             "model": "MHO-C303",
             "battery_type": "AAA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "Mi door and window sensor (MCCGQ01LM)",
+            "battery_type": "CR1632"
         },
         {
             "manufacturer": "Xiaomi",
