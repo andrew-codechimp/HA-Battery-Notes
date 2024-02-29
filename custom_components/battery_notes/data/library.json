@@ -2137,6 +2137,11 @@
         },
         {
             "manufacturer": "LUMI",
+            "model": "lumi.flood.agl02",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "LUMI",
             "model": "lumi.magnet.agl02",
             "battery_type": "CR1632"
         },
@@ -4426,11 +4431,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "LUMI",
-            "model": "lumi.flood.agl02",
-            "battery_type": "CR2032"
         }
     ]
 }
