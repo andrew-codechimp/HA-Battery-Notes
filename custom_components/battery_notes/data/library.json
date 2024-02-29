@@ -2888,6 +2888,11 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "Shelly",
+            "model": "Shelly Valve",
+            "battery_type": "Rechargable"
+        },
+        {
             "manufacturer": "Shenzhen Heiman Technology Co., Ltd.",
             "model": "HS1HT-Z",
             "battery_type": "CR2450"
@@ -4441,11 +4446,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Shelly",
-            "model": "Shelly Valve",
-            "battery_type": "Rechargable"
         }
     ]
 }
