@@ -1,4 +1,4 @@
-## 817 Devices in library
+## 818 Devices in library
 
 This file is auto generated, do not modify
 
@@ -466,6 +466,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Orbit BHyve                                     |HT25-0000                                                             |2× AA                     |
 |ORVIBO                                          |e70f96b3773a4c9283c6862dbafb6a99                                      |CR2032                    |
 |OSRAM                                           |Smart+ switch mini (AC0251100NJ/AC0251600NJ/AC0251700NJ)              |CR2450                    |
+|Philio Technology Corp                          |PAT02-C                                                               |CR123A                    |
 |Philio Technology Corp                          |PST02A                                                                |CR123A                    |
 |Philips                                         |Hue dimmer switch (324131092621)                                      |CR2450                    |
 |Philips                                         |Hue dimmer switch (929002398602)                                      |CR2032                    |
