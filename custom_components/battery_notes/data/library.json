@@ -4426,6 +4426,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "LUMI",
+            "model": "lumi.flood.agl02",
+            "battery_type": "CR2032"
         }
     ]
 }
