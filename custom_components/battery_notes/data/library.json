@@ -4436,6 +4436,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Shelly",
+            "model": "BLU Door/Window",
+            "battery_type": "CR2032"
         }
     ]
 }
