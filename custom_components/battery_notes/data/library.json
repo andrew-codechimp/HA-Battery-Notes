@@ -4446,6 +4446,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Innr",
+            "model": "Remote control (RC 210)",
+            "battery_type": "CR2032"
         }
     ]
 }
