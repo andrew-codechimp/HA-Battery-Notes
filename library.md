@@ -1,4 +1,4 @@
-## 822 Devices in library
+## 823 Devices in library
 
 This file is auto generated, do not modify
 
@@ -361,6 +361,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |iMagic by GreatStar                             |1117-S                                                                |CR123A                    |
 |INKBIRD                                         |IBS-TH                                                                |2× AAA                    |
 |INKBIRD                                         |IBS-TH2/P01B                                                          |2× AAA                    |
+|Innr                                            |Remote control (RC 210)                                               |CR2032                    |
 |iNode                                           |iNode Energy Meter                                                    |CR2032                    |
 |Inovelli                                        |LZW60                                                                 |CR123A                    |
 |Iris                                            |3326-L                                                                |CR2                       |
