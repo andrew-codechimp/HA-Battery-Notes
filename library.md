@@ -259,7 +259,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Eurotronics                                     |Spirit                                                                |2× AA                     |
 |Eve Systems                                     |Eve Door 20EBN9901                                                    |LS14250                   |
 |Eve Systems                                     |Eve Motion 20EBY9901                                                  |2× AAA                    |
-|Everspring                                      |ST812                                                                 |2× AA                     |
+|Everspring                                      |ST812                                                                 |3× AA                     |
 |eWeLink                                         |66666                                                                 |CR2450                    |
 |eWeLink                                         |DS01                                                                  |CR2032                    |
 |eWeLink                                         |MS01                                                                  |CR2450                    |
