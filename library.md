@@ -1,4 +1,4 @@
-## 823 Devices in library
+## 824 Devices in library
 
 This file is auto generated, do not modify
 
@@ -641,6 +641,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |TS0042                                          |_TZ3000_dfgbtub0                                                      |CR2032                    |
 |TS0042                                          |_TZ3000_ftwuvum5                                                      |CR2032                    |
 |TS004F                                          |_TZ3000_qja6nq5z                                                      |CR2032                    |
+|TS0207                                          |_TYZB01_0eaduw43                                                      |CR2032                    |
 |TT Lock                                         |SN511-180MS_PV53                                                      |4× AA                     |
 |TUO Accessories LLC                             |TUO Smart Button                                                      |CR2032                    |
 |Tuya                                            |(dagu44fhznig1omo)                                                    |2× AAA                    |
