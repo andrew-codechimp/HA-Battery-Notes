@@ -4456,6 +4456,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Third Reality, Inc",
+            "model": "3RSB015BZ",
+            "battery_type": "AA",
+            "battery_quantity": 4
         }
     ]
 }
