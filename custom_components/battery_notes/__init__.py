@@ -69,9 +69,8 @@ from .const import (
     ATTR_BATTERY_LAST_REPORTED_LEVEL,
     CONF_BATTERY_TYPE,
     CONF_BATTERY_QUANTITY,
+    MIN_HA_VERSION,
 )
-
-MIN_HA_VERSION = "2023.9"
 
 _LOGGER = logging.getLogger(__name__)
 
