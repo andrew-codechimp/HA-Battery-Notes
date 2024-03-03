@@ -3,6 +3,7 @@
 For more details about this integration, please refer to
 https://github.com/andrew-codechimp/ha-battery-notes
 """
+
 from __future__ import annotations
 
 import logging
@@ -70,7 +71,7 @@ from .const import (
     CONF_BATTERY_QUANTITY,
 )
 
-MIN_HA_VERSION = "2023.7"
+MIN_HA_VERSION = "2023.9"
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -329,7 +330,10 @@ def register_services(hass):
         device: BatteryNotesDevice
         for device in hass.data[DOMAIN][DATA].devices.values():
             if device.coordinator.last_reported:
-                time_since_lastreported = datetime.fromisoformat(str(datetime.utcnow())+"+00:00") - device.coordinator.last_reported
+                time_since_lastreported = (
+                    datetime.fromisoformat(str(datetime.utcnow()) + "+00:00")
+                    - device.coordinator.last_reported
+                )
 
                 if time_since_lastreported.days > days_last_reported:
 
@@ -352,7 +356,6 @@ def register_services(hass):
                         device.coordinator.device_id,
                         str(device.coordinator.last_reported),
                     )
-
 
     hass.services.async_register(
         DOMAIN,
