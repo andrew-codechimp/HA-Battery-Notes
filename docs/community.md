@@ -110,7 +110,7 @@ mode: single
 ### Battery Not Reported
 Respond to events raised by the check_battery_last_reported service and create notifications.
 
-Note this cannot be run manually as it examines event triggers, use it with the above Check Battery Last Reported Daily or similar.
+Note this cannot be run manually as it examines event triggers, use it with the [Check Battery Last Reported Daily](community.md/#check-battery-last-reported-daily) or similar.
 
 ```yaml
 alias: Battery Not Reported
