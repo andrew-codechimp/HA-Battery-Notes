@@ -1,6 +1,6 @@
 blueprint:
   name: Battery Notes - Battery Not Reported
-  description: Actions to perform when the battery not reported event is fired
+  description: Actions to perform when the battery not reported event is fired, note this cannot be run manually as it examines event triggers.
   author: andrew-codechimp
   source_url: https://raw.githubusercontent.com/andrew-codechimp/HA-Battery-Notes/main/docs/blueprints/battery_notes_battery_not_reported.yaml
   domain: automation

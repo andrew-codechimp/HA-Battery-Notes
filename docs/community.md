@@ -110,6 +110,8 @@ mode: single
 ### Battery Not Reported
 Respond to events raised by the check_battery_last_reported service and create notifications.
 
+Note this cannot be run manually as it examines event triggers, use it with the above Check Battery Last Reported Daily or similar.
+
 ```yaml
 alias: Battery Not Reported
 description: Battery not reported
@@ -166,7 +168,7 @@ It is extended from the example Battery Replaced automation yaml above for those
 
 This blueprint will allow notifications to be raised and/or custom actions to be performed when the battery not reported event is fired.  
 It is extended from the example Battery Not Reported automation yaml above for those who'd prefer an easy way to get started.  
-You will want to trigger the check_battery_not_reported service via an automation to raise events, see [Check Battery Last Reported Daily](community.md/#check-battery-last-reported-daily) above.
+You must trigger the check_battery_not_reported service via an automation to raise events, see [Check Battery Last Reported Daily](community.md/#check-battery-last-reported-daily) above.
 
 ## Contributing  
 If you want to contribute then [fork the repository](https://github.com/andrew-codechimp/HA-Battery-Notes), edit this page which is in the docs folder and submit a pull request.

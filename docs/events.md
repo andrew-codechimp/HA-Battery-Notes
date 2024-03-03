@@ -128,6 +128,8 @@ The service can raise multiple events quickly so when using with an automation i
 
 See others in the [community contributions](./community.md)
 
+Note this cannot be run manually as it examines event triggers.
+
 ```yaml
 alias: Battery Not Reported
 description: Battery not reported
