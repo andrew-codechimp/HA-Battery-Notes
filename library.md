@@ -1,4 +1,4 @@
-## 827 Devices in library
+## 828 Devices in library
 
 This file is auto generated, do not modify
 
@@ -350,6 +350,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |IKEA of Sweden                                  |SOMRIG shortcut button                                                |AAA                       |
 |IKEA of Sweden                                  |SYMFONISK Sound Controller                                            |CR2032                    |
 |IKEA of Sweden                                  |SYMFONISK Sound Controller                                            |CR2032                    |
+|IKEA of Sweden                                  |SYMFONISK sound remote gen2                                           |2× AAA                    |
 |IKEA of Sweden                                  |TRADFRI motion sensor                                                 |2× CR2032                 |
 |IKEA of Sweden                                  |TRADFRI ON/OFF switch                                                 |CR2032                    |
 |IKEA of Sweden                                  |TRADFRI open/close remote                                             |CR2032                    |
