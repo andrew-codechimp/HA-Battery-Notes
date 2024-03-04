@@ -89,6 +89,25 @@ action:
 mode: queued
 ```
 
+Send a notification when there is an increase in battery level.
+
+```yaml
+alias: Battery Increased Notification
+description: Battery Increased Notification
+trigger:
+  - platform: event
+    event_type: battery_notes_battery_increased
+condition: []
+action:
+  - service: persistent_notification.create
+    data:
+      title: |
+        {{ trigger.event.data.device_name }} Battery Increased
+      message: >
+        The device has increased its battery level, you probably want to mark it as replaced
+mode: queued
+```
+
 ### Check Battery Last Reported Daily
 Call the check battery last reported service every day to raise events for those not reported in the last two days.  
 To be used in conjunction with a Battery Not Reported automation.
