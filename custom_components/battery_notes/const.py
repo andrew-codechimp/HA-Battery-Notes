@@ -65,6 +65,7 @@ SERVICE_DATA_DATE_TIME_REPLACED = "datetime_replaced"
 
 SERVICE_CHECK_BATTERY_LAST_REPORTED = "check_battery_last_reported"
 SERVICE_DATA_DAYS_LAST_REPORTED = "days_last_reported"
+SERVICE_CHECK_BATTERY_LOW = "check_battery_low"
 
 EVENT_BATTERY_THRESHOLD = "battery_notes_battery_threshold"
 EVENT_BATTERY_INCREASED = "battery_notes_battery_increased"
@@ -84,6 +85,7 @@ ATTR_BATTERY_LAST_REPORTED = "battery_last_reported"
 ATTR_BATTERY_LAST_REPORTED_DAYS = "battery_last_reported_days"
 ATTR_BATTERY_LAST_REPORTED_LEVEL = "battery_last_reported_level"
 ATTR_PREVIOUS_BATTERY_LEVEL = "previous_battery_level"
+ATTR_BATTERY_THRESHOLD_SCHEDULED = "scheduled"
 
 SERVICE_BATTERY_REPLACED_SCHEMA = vol.Schema(
     {

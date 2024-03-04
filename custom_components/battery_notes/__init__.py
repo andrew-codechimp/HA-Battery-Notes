@@ -56,7 +56,9 @@ from .const import (
     SERVICE_CHECK_BATTERY_LAST_REPORTED,
     SERVICE_DATA_DAYS_LAST_REPORTED,
     SERVICE_CHECK_BATTERY_LAST_REPORTED_SCHEMA,
+    SERVICE_CHECK_BATTERY_LOW,
     EVENT_BATTERY_NOT_REPORTED,
+    EVENT_BATTERY_THRESHOLD,
     DATA_STORE,
     ATTR_REMOVE,
     ATTR_DEVICE_ID,
@@ -67,6 +69,8 @@ from .const import (
     ATTR_BATTERY_LAST_REPORTED,
     ATTR_BATTERY_LAST_REPORTED_DAYS,
     ATTR_BATTERY_LAST_REPORTED_LEVEL,
+    ATTR_BATTERY_THRESHOLD_SCHEDULED,
+    ATTR_BATTERY_LOW,
     CONF_BATTERY_TYPE,
     CONF_BATTERY_QUANTITY,
     MIN_HA_VERSION,
@@ -267,7 +271,7 @@ async def async_update_options(hass: HomeAssistant, entry: ConfigEntry) -> None:
 
 
 @callback
-def register_services(hass):
+def register_services(hass: HomeAssistant):
     """Register services used by battery notes component."""
 
     async def handle_battery_replaced(call):
@@ -356,6 +360,31 @@ def register_services(hass):
                         str(device.coordinator.last_reported),
                     )
 
+    async def handle_battery_low(call):
+        """Handle the service call."""
+
+        device: BatteryNotesDevice
+        for device in hass.data[DOMAIN][DATA].devices.values():
+            if device.coordinator.battery_low == True:
+
+                    hass.bus.async_fire(
+                        EVENT_BATTERY_THRESHOLD,
+                        {
+                            ATTR_DEVICE_ID: device.coordinator.device_id,
+                            ATTR_DEVICE_NAME: device.coordinator.device_name,
+                            ATTR_BATTERY_LOW: device.coordinator.battery_low,
+                            ATTR_BATTERY_TYPE_AND_QUANTITY: device.coordinator.battery_type_and_quantity,
+                            ATTR_BATTERY_TYPE: device.coordinator.battery_type,
+                            ATTR_BATTERY_QUANTITY: device.coordinator.battery_quantity,
+                            ATTR_BATTERY_THRESHOLD_SCHEDULED: True,
+                        },
+                    )
+
+                    _LOGGER.debug(
+                        "Raised event device %s battery low",
+                        device.coordinator.device_id,
+                    )
+
     hass.services.async_register(
         DOMAIN,
         SERVICE_BATTERY_REPLACED,
@@ -368,4 +397,10 @@ def register_services(hass):
         SERVICE_CHECK_BATTERY_LAST_REPORTED,
         handle_battery_last_reported,
         schema=SERVICE_CHECK_BATTERY_LAST_REPORTED_SCHEMA,
+    )
+
+    hass.services.async_register(
+        DOMAIN,
+        SERVICE_CHECK_BATTERY_LOW,
+        handle_battery_low,
     )

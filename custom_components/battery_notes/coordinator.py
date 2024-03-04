@@ -36,6 +36,7 @@ from .const import (
     ATTR_DEVICE_NAME,
     ATTR_BATTERY_LEVEL,
     ATTR_PREVIOUS_BATTERY_LEVEL,
+    ATTR_BATTERY_THRESHOLD_SCHEDULED,
     ATTR_REMOVE,
     LAST_REPLACED,
     LAST_REPORTED,
@@ -96,6 +97,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
                     ATTR_BATTERY_TYPE_AND_QUANTITY: self.battery_type_and_quantity,
                     ATTR_BATTERY_TYPE: self.battery_type,
                     ATTR_BATTERY_QUANTITY: self.battery_quantity,
+                    ATTR_BATTERY_THRESHOLD_SCHEDULED: False,
                 },
             )
 
@@ -145,6 +147,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
                         ATTR_BATTERY_QUANTITY: self.battery_quantity,
                         ATTR_BATTERY_LEVEL: self.rounded_battery_level,
                         ATTR_PREVIOUS_BATTERY_LEVEL: self._previous_battery_level,
+                        ATTR_BATTERY_THRESHOLD_SCHEDULED: False,
                     },
                 )
 
