@@ -140,8 +140,6 @@ class BatteryNotesStorage:
         self.async_schedule_save()
         return new
 
-
-@bind_hass
 async def async_get_registry(hass: HomeAssistant) -> BatteryNotesStorage:
     """Return battery notes storage instance."""
     task = hass.data.get(DATA_REGISTRY)
