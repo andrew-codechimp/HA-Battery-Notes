@@ -69,6 +69,8 @@ from .const import (
     ATTR_BATTERY_LAST_REPORTED,
     ATTR_BATTERY_LAST_REPORTED_DAYS,
     ATTR_BATTERY_LAST_REPORTED_LEVEL,
+    ATTR_BATTERY_LEVEL,
+    ATTR_PREVIOUS_BATTERY_LEVEL,
     ATTR_BATTERY_THRESHOLD_SCHEDULED,
     ATTR_BATTERY_LOW,
     CONF_BATTERY_TYPE,
@@ -376,6 +378,8 @@ def register_services(hass: HomeAssistant):
                             ATTR_BATTERY_TYPE_AND_QUANTITY: device.coordinator.battery_type_and_quantity,
                             ATTR_BATTERY_TYPE: device.coordinator.battery_type,
                             ATTR_BATTERY_QUANTITY: device.coordinator.battery_quantity,
+                            ATTR_BATTERY_LEVEL: device.coordinator.rounded_battery_level,
+                            ATTR_PREVIOUS_BATTERY_LEVEL: device.coordinator._previous_battery_level,
                             ATTR_BATTERY_THRESHOLD_SCHEDULED: True,
                         },
                     )
