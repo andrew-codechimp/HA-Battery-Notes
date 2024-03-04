@@ -1,4 +1,4 @@
-## 826 Devices in library
+## 827 Devices in library
 
 This file is auto generated, do not modify
 
@@ -693,6 +693,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |TuYa                                            |TS0042                                                                |CR2032                    |
 |TuYa                                            |TS0201_1                                                              |2× AA                     |
 |TuYa                                            |TS0203                                                                |CR2032                    |
+|Tuya                                            |TS0205                                                                |CR123A                    |
 |tuya                                            |TS0210                                                                |2× AAA                    |
 |tuya                                            |TS0601                                                                |CR2                       |
 |TuYa                                            |TS0601                                                                |2× AAA                    |
