@@ -31,7 +31,7 @@ For raising events for devices that have a battery low status.
 
 The service will raise a seperate [battery_threshold](./events/battery_threshold) event for each device that have a battery low status.  
 
-You can use this service call as a reminder that is convenient to you, e.g. when you wake up, once a week etc.  The event has a boolean data item `scheduled` to determine if the event was raised by this service or the device battery going to a low state."
+You can use this service call as a reminder that is convenient to you, e.g. when you wake up, once a week etc.  The event has a boolean data item `scheduled` to determine if the event was raised by this service or the device battery going to a low state.
 
 See how to use this service in the [community contributions](./community.md)
 
