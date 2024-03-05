@@ -139,6 +139,10 @@
                 }
             },
             "name": "Batteriestatus zuletzt gemeldet"
+        },
+        "check_battery_low": {
+            "description": "Raise events for devices that have a low battery.",
+            "name": "Check battery low"
         }
     }
 }
