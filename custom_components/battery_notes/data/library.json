@@ -4468,7 +4468,7 @@
         {
             "manufacturer": "Zooz",
             "model": "ZSE42",
-            "battery_type": "CR2032"
+            "battery_type": "CR2450"
         },
         {
             "manufacturer": "Zooz",
@@ -4478,7 +4478,7 @@
         {
             "manufacturer": "Zooz",
             "model": "ZSE44",
-            "battery_type": "CR2450"
+            "battery_type": "MANUAL"
         }
     ]
 }
