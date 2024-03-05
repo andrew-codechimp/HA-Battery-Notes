@@ -1,4 +1,4 @@
-## 826 Devices in library
+## 828 Devices in library
 
 This file is auto generated, do not modify
 
@@ -350,6 +350,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |IKEA of Sweden                                  |SOMRIG shortcut button                                                |AAA                       |
 |IKEA of Sweden                                  |SYMFONISK Sound Controller                                            |CR2032                    |
 |IKEA of Sweden                                  |SYMFONISK Sound Controller                                            |CR2032                    |
+|IKEA of Sweden                                  |SYMFONISK sound remote gen2                                           |2× AAA                    |
 |IKEA of Sweden                                  |TRADFRI motion sensor                                                 |2× CR2032                 |
 |IKEA of Sweden                                  |TRADFRI ON/OFF switch                                                 |CR2032                    |
 |IKEA of Sweden                                  |TRADFRI open/close remote                                             |CR2032                    |
@@ -693,6 +694,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |TuYa                                            |TS0042                                                                |CR2032                    |
 |TuYa                                            |TS0201_1                                                              |2× AA                     |
 |TuYa                                            |TS0203                                                                |CR2032                    |
+|Tuya                                            |TS0205                                                                |CR123A                    |
 |tuya                                            |TS0210                                                                |2× AAA                    |
 |tuya                                            |TS0601                                                                |CR2                       |
 |TuYa                                            |TS0601                                                                |2× AAA                    |
@@ -829,6 +831,6 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Zooz                                            |ZSE40                                                                 |2× AAA                    |
 |Zooz                                            |ZSE40 700                                                             |CR123A                    |
 |Zooz                                            |ZSE41                                                                 |CR2032                    |
-|Zooz                                            |ZSE42                                                                 |CR2032                    |
+|Zooz                                            |ZSE42                                                                 |CR2450                    |
 |Zooz                                            |ZSE43                                                                 |CR2032                    |
-|Zooz                                            |ZSE44                                                                 |CR2450                    |
+|Zooz                                            |ZSE44                                                                 |MANUAL                    |
