@@ -29,3 +29,6 @@ check_battery_last_reported:
           min: 1
           max: 100
           mode: box
+check_battery_low:
+  name: Check battery low
+  description: "Raise events for devices that have a low battery."

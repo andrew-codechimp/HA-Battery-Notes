@@ -9,7 +9,6 @@ from datetime import datetime
 
 import attr
 from homeassistant.core import callback, HomeAssistant
-from homeassistant.loader import bind_hass
 from homeassistant.helpers.storage import Store
 
 from .const import (
@@ -140,8 +139,6 @@ class BatteryNotesStorage:
         self.async_schedule_save()
         return new
 
-
-@bind_hass
 async def async_get_registry(hass: HomeAssistant) -> BatteryNotesStorage:
     """Return battery notes storage instance."""
     task = hass.data.get(DATA_REGISTRY)

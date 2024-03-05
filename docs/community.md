@@ -72,6 +72,22 @@ action:
 mode: queued
 ```
 
+### Check Battery Low daily reminder
+Call the check battery low service every day to raise events for those that are still low.  
+To be used in conjunction with a [Battery Low Notification](community.md/#battery-low-notification) or similar.
+
+```yaml
+alias: Daily Battery Low Check
+description: Check whether a battery is low
+trigger:
+  - platform: time
+    at: "09:00:00"
+condition: []
+action:
+  - service: battery_notes.check_battery_low
+mode: single
+```
+
 ### Battery Replaced
 Mark a battery as replaced when there is an increase in battery level.
 

@@ -19,6 +19,7 @@ You can use this to send notifications in your preferred method.  An example aut
 | `battery_quantity` | `int` | Battery quantity. |
 | `battery_level` | `float` | Battery level % of the device. |
 | `previous_battery_level` | `float` | Previous battery level % of the device. |
+| `reminder` | `bool` | Returns true if the event was raised by a service call, false if it's from a device event. |
 
 ### Automation Example
 
