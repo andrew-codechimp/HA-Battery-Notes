@@ -9,7 +9,6 @@ from datetime import datetime
 
 import attr
 from homeassistant.core import callback, HomeAssistant
-from homeassistant.loader import bind_hass
 from homeassistant.helpers.storage import Store
 
 from .const import (

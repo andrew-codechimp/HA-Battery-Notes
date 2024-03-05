@@ -367,7 +367,7 @@ def register_services(hass: HomeAssistant):
 
         device: BatteryNotesDevice
         for device in hass.data[DOMAIN][DATA].devices.values():
-            if device.coordinator.battery_low == True:
+            if device.coordinator.battery_low is True:
 
                     hass.bus.async_fire(
                         EVENT_BATTERY_THRESHOLD,
