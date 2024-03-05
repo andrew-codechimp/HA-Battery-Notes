@@ -85,7 +85,7 @@ ATTR_BATTERY_LAST_REPORTED = "battery_last_reported"
 ATTR_BATTERY_LAST_REPORTED_DAYS = "battery_last_reported_days"
 ATTR_BATTERY_LAST_REPORTED_LEVEL = "battery_last_reported_level"
 ATTR_PREVIOUS_BATTERY_LEVEL = "previous_battery_level"
-ATTR_BATTERY_THRESHOLD_SCHEDULED = "scheduled"
+ATTR_BATTERY_THRESHOLD_REMINDER = "reminder"
 
 SERVICE_BATTERY_REPLACED_SCHEMA = vol.Schema(
     {
