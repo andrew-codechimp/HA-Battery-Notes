@@ -4479,6 +4479,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "MANUAL"
+        },
+        {
+            "manufacturer": "Minoston",
+            "model": "MR40Z",
+            "battery_type": "CR2032",
+            "battery_quantity": 2
         }
     ]
 }
