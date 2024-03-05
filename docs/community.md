@@ -88,6 +88,26 @@ action:
 mode: single
 ```
 
+### Check Battery Low weekly reminder
+Weekly reminders are a little trickier, you will need to create a [Schedule Helper](https://www.home-assistant.io/integrations/schedule/) for when you want the battery check to occur then use this automation for when the helper is on.  
+Below I am referencing a schedule helper called maintenance which I have set to come on weekly.  
+To be used in conjunction with a [Battery Low Notification](community.md/#battery-low-notification) or similar.  
+
+```yaml
+alias: Battery Low Check
+description: Check whether a battery is low
+trigger:
+  - platform: state
+    entity_id:
+      - schedule.maintenance
+    to: "on"
+condition: []
+action:
+  - service: battery_notes.check_battery_low
+    data: {}
+mode: single
+```
+
 ### Battery Replaced
 Mark a battery as replaced when there is an increase in battery level.
 
