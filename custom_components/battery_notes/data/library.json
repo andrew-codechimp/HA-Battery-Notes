@@ -3173,6 +3173,33 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "Somfy",
+            "model": "IntelliTag",
+            "battery_type": "AAA"
+        },
+        {
+            "manufacturer": "Somfy",
+            "model": "Key Fob",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Somfy",
+            "model": "Myfox Security Infrared Sensor",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Somfy",
+            "model": "Myfox Security Outdoor Siren",
+            "battery_type": "LR20",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Somfy",
+            "model": "Somfy Smoke Detector",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "SOMFY",
             "model": "Sonesse 28 WF Li-Ion Roller",
             "battery_type": "MANUAL"
