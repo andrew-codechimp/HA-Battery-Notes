@@ -141,8 +141,8 @@
             "name": "Последняя информация по батарее"
         },
         "check_battery_low": {
-            "description": "Raise events for devices that have a low battery.",
-            "name": "Check battery low"
+            "description": "Вызов событий для устройств с низким зарядом батареи.\nVyzyvayte sobytiya dlya ustroystv s nizki",
+            "name": "Проверить низкий заряд батареи"
         }
     }
 }
