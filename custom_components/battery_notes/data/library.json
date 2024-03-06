@@ -3183,6 +3183,12 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "Somfy",
+            "model": "Somfy Smoke Detector",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "SOMFY",
             "model": "Sonesse 28 WF Li-Ion Roller",
             "battery_type": "MANUAL"
@@ -4500,12 +4506,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "MANUAL"
-        },
-        {
-            "manufacturer": "Somfy",
-            "model": "Somfy Smoke Detector",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
