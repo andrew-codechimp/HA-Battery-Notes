@@ -1,4 +1,4 @@
-## 835 Devices in library
+## 837 Devices in library
 
 This file is auto generated, do not modify
 
@@ -594,7 +594,9 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Somfy                                           |IntelliTag                                                            |AAA                       |
 |Somfy                                           |Key Fob                                                               |CR2032                    |
 |Somfy                                           |Myfox Security Infrared Sensor                                        |CR123A                    |
+|Somfy                                           |Myfox Security Infrared Sensor                                        |CR123A                    |
 |Somfy                                           |Myfox Security Outdoor Siren                                          |4× LR20                   |
+|Somfy                                           |Myfox Security Siren                                                  |4× LR20                   |
 |Somfy                                           |Somfy Smoke Detector                                                  |2× AA                     |
 |SOMFY                                           |Sonesse 28 WF Li-Ion Roller                                           |MANUAL                    |
 |Sonoff                                          |Contact sensor (SNZB-04)                                              |CR2032                    |
