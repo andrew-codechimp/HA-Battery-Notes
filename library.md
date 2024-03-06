@@ -1,4 +1,4 @@
-## 833 Devices in library
+## 834 Devices in library
 
 This file is auto generated, do not modify
 
@@ -592,6 +592,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |SmartThings                                     |Water sensor (3315-S)                                                 |CR2                       |
 |Smoke detector                                  |SSHM-I1                                                               |CR123A                    |
 |Somfy                                           |IntelliTag                                                            |AAA                       |
+|Somfy                                           |Key Fob                                                               |CR2032                    |
 |Somfy                                           |Myfox Security Infrared Sensor                                        |CR123A                    |
 |Somfy                                           |Somfy Smoke Detector                                                  |2× AA                     |
 |SOMFY                                           |Sonesse 28 WF Li-Ion Roller                                           |MANUAL                    |
