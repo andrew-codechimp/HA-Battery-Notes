@@ -3174,6 +3174,11 @@
         },
         {
             "manufacturer": "Somfy",
+            "model": "IntelliTag",
+            "battery_type": "AAA"
+        },
+        {
+            "manufacturer": "Somfy",
             "model": "Myfox Security Infrared Sensor",
             "battery_type": "CR123A"
         },
@@ -4495,11 +4500,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "MANUAL"
-        },
-        {
-            "manufacturer": "Somfy",
-            "model": "IntelliTag",
-            "battery_type": "AAA"
         }
     ]
 }

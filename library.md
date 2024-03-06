@@ -1,4 +1,4 @@
-## 831 Devices in library
+## 832 Devices in library
 
 This file is auto generated, do not modify
 
@@ -591,6 +591,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |SmartThings                                     |Water leak sensor (2018 model) (IM6001-WLP01)                         |CR2                       |
 |SmartThings                                     |Water sensor (3315-S)                                                 |CR2                       |
 |Smoke detector                                  |SSHM-I1                                                               |CR123A                    |
+|Somfy                                           |IntelliTag                                                            |AAA                       |
 |Somfy                                           |Myfox Security Infrared Sensor                                        |CR123A                    |
 |SOMFY                                           |Sonesse 28 WF Li-Ion Roller                                           |MANUAL                    |
 |Sonoff                                          |Contact sensor (SNZB-04)                                              |CR2032                    |
