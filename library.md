@@ -1,4 +1,4 @@
-## 829 Devices in library
+## 830 Devices in library
 
 This file is auto generated, do not modify
 
@@ -503,6 +503,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Ring                                            |Doorbell 2                                                            |Rechargeable              |
 |Ring                                            |Doorbell 3                                                            |Rechargeable 5AT3S3 (Ring)|
 |Ring                                            |Motion Sensor                                                         |2× AA                     |
+|Ring                                            |Peephole Cam                                                          |Rechargeable              |
 |Ring                                            |Security Keypad                                                       |Rechargeable              |
 |Ring                                            |Spotlight Cam Plus                                                    |Rechargeable              |
 |Roborock                                        |roborock.vacuum.a15                                                   |Rechargeable              |

@@ -2709,6 +2709,11 @@
         },
         {
             "manufacturer": "Ring",
+            "model": "Peephole Cam",
+            "battery_type": "\"Rechargeable\""
+        },
+        {
+            "manufacturer": "Ring",
             "model": "Security Keypad",
             "battery_type": "Rechargeable"
         },
@@ -4485,11 +4490,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "MANUAL"
-        },
-        {
-            "manufacturer": "Ring",
-            "model": "Peephole Cam",
-            "battery_type": "\"Rechargeable\""
         }
     ]
 }
