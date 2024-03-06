@@ -146,7 +146,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
                         ATTR_BATTERY_TYPE: self.battery_type,
                         ATTR_BATTERY_QUANTITY: self.battery_quantity,
                         ATTR_BATTERY_LEVEL: self.rounded_battery_level,
-                        ATTR_PREVIOUS_BATTERY_LEVEL: self._previous_battery_level,
+                        ATTR_PREVIOUS_BATTERY_LEVEL: self.rounded_previous_battery_level,
                         ATTR_BATTERY_THRESHOLD_REMINDER: False,
                     },
                 )
@@ -178,7 +178,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
                             ATTR_BATTERY_TYPE: self.battery_type,
                             ATTR_BATTERY_QUANTITY: self.battery_quantity,
                             ATTR_BATTERY_LEVEL: self.rounded_battery_level,
-                            ATTR_PREVIOUS_BATTERY_LEVEL: self._previous_battery_level,
+                            ATTR_PREVIOUS_BATTERY_LEVEL: self.rounded_previous_battery_level,
                         },
                         )
 
@@ -268,6 +268,11 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
     def rounded_battery_level(self) -> float:
         """Return the battery level, rounded if preferred."""
         return self._rounded_level(self.current_battery_level)
+
+    @property
+    def rounded_previous_battery_level(self) -> float:
+        """Return the previous battery level, rounded if preferred."""
+        return self._rounded_level(self._previous_battery_level)
 
     def _rounded_level(self, value) -> float:
         """Round the level, if preferred."""

@@ -379,7 +379,7 @@ def register_services(hass: HomeAssistant):
                             ATTR_BATTERY_TYPE: device.coordinator.battery_type,
                             ATTR_BATTERY_QUANTITY: device.coordinator.battery_quantity,
                             ATTR_BATTERY_LEVEL: device.coordinator.rounded_battery_level,
-                            ATTR_PREVIOUS_BATTERY_LEVEL: device.coordinator._previous_battery_level,
+                            ATTR_PREVIOUS_BATTERY_LEVEL: device.coordinator.rounded_previous_battery_level,
                             ATTR_BATTERY_THRESHOLD_REMINDER: True,
                         },
                     )
