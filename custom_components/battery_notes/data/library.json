@@ -3189,11 +3189,6 @@
         },
         {
             "manufacturer": "Somfy",
-            "model": "Myfox Security Infrared Sensor",
-            "battery_type": "CR123A"
-        },
-        {
-            "manufacturer": "Somfy",
             "model": "Myfox Security Outdoor Siren",
             "battery_type": "LR20",
             "battery_quantity": 4
