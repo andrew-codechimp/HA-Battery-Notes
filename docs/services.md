@@ -15,7 +15,7 @@ See how to use this service in the [community contributions](./community.md)
 
 For raising events for devices that haven't reported their battery level.  
 
-The service will raise a seperate [battery_not_reported](./events/battery_not_reported) event for each device where its last reported date is older than the number of days specified.  
+The service will raise a seperate [battery_not_reported](./events.md/#battery_not_reported) event for each device where its last reported date is older than the number of days specified.  
 
 You can use this service call to schedule checks on batteries that is convenient to you, e.g. when you wake up, once a week etc.  
 
@@ -29,7 +29,7 @@ See how to use this service in the [community contributions](./community.md)
 
 For raising events for devices that have a battery low status.  
 
-The service will raise a seperate [battery_threshold](./events/battery_threshold) event for each device that have a battery low status.  
+The service will raise a seperate [battery_threshold](./events.md/#battery_threshold) event for each device that have a battery low status.  
 
 You can use this service call as a reminder that is convenient to you, e.g. when you wake up, once a week etc.  The event has a boolean data item `reminder` to determine if the event was raised by this service or the device battery going to a low state.
 

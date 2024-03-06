@@ -110,7 +110,7 @@ mode: queued
 ## Battery Not Reported
 `battery_notes_battery_not_reported`
 
-This is fired from the [check_battery_last_reported](./services/check_battery_last_reported) service call for each device that has not reported its battery level for the number of days specified in the service call.
+This is fired from the [check_battery_last_reported](./services.md/#check_battery_last_reported) service call for each device that has not reported its battery level for the number of days specified in the service call.
 
 The service can raise multiple events quickly so when using with an automation it's important to use the `mode: queued` to handle these.
 
