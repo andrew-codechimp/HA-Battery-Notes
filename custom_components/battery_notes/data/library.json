@@ -3189,6 +3189,12 @@
         },
         {
             "manufacturer": "Somfy",
+            "model": "Myfox Security Outdoor Siren",
+            "battery_type": "LR20",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Somfy",
             "model": "Somfy Smoke Detector",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -4511,12 +4517,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "MANUAL"
-        },
-        {
-            "manufacturer": "Somfy",
-            "model": "Myfox Security Outdoor Siren",
-            "battery_type": "LR20",
-            "battery_quantity": 4
         }
     ]
 }
