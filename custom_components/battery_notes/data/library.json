@@ -4506,6 +4506,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "MANUAL"
+        },
+        {
+            "manufacturer": "Somfy",
+            "model": "Key Fob",
+            "battery_type": "CR2032"
         }
     ]
 }
