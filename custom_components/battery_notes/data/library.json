@@ -3189,7 +3189,18 @@
         },
         {
             "manufacturer": "Somfy",
+            "model": "Myfox Security Infrared Sensor",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Somfy",
             "model": "Myfox Security Outdoor Siren",
+            "battery_type": "LR20",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Somfy",
+            "model": "Myfox Security Siren",
             "battery_type": "LR20",
             "battery_quantity": 4
         },
@@ -4517,17 +4528,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "MANUAL"
-        },
-        {
-            "manufacturer": "Somfy",
-            "model": "Myfox Security Infrared Sensor",
-            "battery_type": "CR123A"
-        },
-        {
-            "manufacturer": "Somfy",
-            "model": "Myfox Security Siren",
-            "battery_type": "LR20",
-            "battery_quantity": 4
         }
     ]
 }
