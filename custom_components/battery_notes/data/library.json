@@ -4485,6 +4485,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "MANUAL"
+        },
+        {
+            "manufacturer": "Somfy",
+            "model": "IntelliTag",
+            "battery_type": "AAA"
         }
     ]
 }
