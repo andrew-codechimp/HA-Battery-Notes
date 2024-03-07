@@ -4535,6 +4535,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "MANUAL"
+        },
+        {
+            "manufacturer": "Ring",
+            "model": "Intercom",
+            "battery_type": "\"Rechargeable\""
         }
     ]
 }
