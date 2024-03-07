@@ -1,4 +1,4 @@
-## 836 Devices in library
+## 837 Devices in library
 
 This file is auto generated, do not modify
 
@@ -824,6 +824,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Yale                                            |420D                                                                  |4× AA                     |
 |Yale                                            |YRD210                                                                |4× AA                     |
 |Yale                                            |YRD220/240 TSDB                                                       |4× AA                     |
+|Yale                                            |YRD420-ZW3                                                            |4× AA                     |
 |Yale                                            |YRD450-ZW3                                                            |4× AA                     |
 |Yeelight                                        |ble YLAI003                                                           |CR2032                    |
 |YoLink                                          |DoorSensor                                                            |2× AAA                    |
