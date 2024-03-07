@@ -1,4 +1,4 @@
-## 837 Devices in library
+## 838 Devices in library
 
 This file is auto generated, do not modify
 
@@ -137,6 +137,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |ATC                                             |ATC (Atc1441)                                                         |CR2032                    |
 |Aubess                                          |IH-K665                                                               |CR2032                    |
 |August                                          |TEST200228                                                            |4× AA                     |
+|August Home                                     |ASL-03                                                                |4× AA                     |
 |August Home Inc.                                |AK-R1                                                                 |2× AAA                    |
 |August Home Inc.                                |ASL-06                                                                |4× AA                     |
 |August Home Inc.                                |ASL6_05/101200/SI                                                     |4× AA                     |

@@ -702,6 +702,12 @@
             "battery_quantity": 4
         },
         {
+            "manufacturer": "August Home",
+            "model": "ASL-03",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
             "manufacturer": "August Home Inc.",
             "model": "AK-R1",
             "battery_type": "AAA",
@@ -4529,12 +4535,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "MANUAL"
-        },
-        {
-            "manufacturer": "August Home",
-            "model": "ASL-03",
-            "battery_type": "AA",
-            "battery_quantity": 4
         }
     ]
 }
