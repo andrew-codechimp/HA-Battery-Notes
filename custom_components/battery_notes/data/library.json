@@ -2709,6 +2709,11 @@
         },
         {
             "manufacturer": "Ring",
+            "model": "Intercom",
+            "battery_type": "\"Rechargeable\""
+        },
+        {
+            "manufacturer": "Ring",
             "model": "Motion Sensor",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -4535,11 +4540,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "MANUAL"
-        },
-        {
-            "manufacturer": "Ring",
-            "model": "Intercom",
-            "battery_type": "\"Rechargeable\""
         }
     ]
 }
