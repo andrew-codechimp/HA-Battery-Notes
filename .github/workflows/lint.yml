@@ -58,4 +58,10 @@ jobs:
 
       - name: Lint the code with ruff
         run: |
-          ruff check .
+          ruff check $(git ls-files '*.py') --output-format sarif -o results.sarif
+
+      - name: Upload SARIF file
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: results.sarif
+          category: ruff
