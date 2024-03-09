@@ -4540,6 +4540,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "MANUAL"
+        },
+        {
+            "manufacturer": "Danfoss",
+            "model": "Ally thermostat (014G2461)",
+            "battery_type": "AA",
+            "battery_quantity": 2
         }
     ]
 }
