@@ -1014,6 +1014,11 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "Doogee",
+            "model": "S98 Pro",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Drayton Wiser",
             "model": "iTRV",
             "battery_type": "AA",
@@ -4546,11 +4551,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Doogee",
-            "model": "S98 Pro",
-            "battery_type": "Rechargeable"
         }
     ]
 }

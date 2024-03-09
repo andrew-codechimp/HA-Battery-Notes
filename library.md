@@ -1,4 +1,4 @@
-## 840 Devices in library
+## 841 Devices in library
 
 This file is auto generated, do not modify
 
@@ -192,6 +192,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Devolo                                          |MT02648                                                               |CR123A                    |
 |Devolo                                          |MT2652                                                                |CR2032                    |
 |Devolo                                          |MT2756                                                                |CR123A                    |
+|Doogee                                          |S98 Pro                                                               |Rechargeable              |
 |Drayton Wiser                                   |iTRV                                                                  |2× AA                     |
 |Drayton Wiser                                   |RoomStat                                                              |2× AA                     |
 |ecobee                                          |ecobee Room Sensor                                                    |CR2032                    |
