@@ -23,7 +23,7 @@ from homeassistant.const import (
     CONF_DEVICE_ID,
 )
 
-from .library import Library
+from .library import Library, ModelInfo
 from .library_updater import LibraryUpdater
 
 from .const import (
@@ -134,8 +134,10 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             device_entry = device_registry.async_get(device_id)
 
             _LOGGER.debug(
-                "Looking up device %s %s", device_entry.manufacturer, device_entry.model
+                "Looking up device %s %s %s", device_entry.manufacturer, device_entry.model, device_entry.hw_version
             )
+
+            model_info = ModelInfo(device_entry.manufacturer, device_entry.model, device_entry.hw_version)
 
             library = Library.factory(self.hass)
 
@@ -143,12 +145,12 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             self.data[CONF_BATTERY_QUANTITY] = 1
 
             device_battery_details = await library.get_device_battery_details(
-                device_entry.manufacturer, device_entry.model
+                model_info
             )
 
             if device_battery_details and not device_battery_details.is_manual:
                 _LOGGER.debug(
-                    "Found device %s %s", device_entry.manufacturer, device_entry.model
+                    "Found device %s %s %s", device_entry.manufacturer, device_entry.model, device_entry.hw_version
                 )
                 self.data[CONF_BATTERY_TYPE] = device_battery_details.battery_type
 

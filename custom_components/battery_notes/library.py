@@ -88,8 +88,7 @@ class Library:  # pylint: disable=too-few-public-methods
 
     async def get_device_battery_details(
         self,
-        manufacturer: str,
-        model: str,
+        model_info: ModelInfo,
     ) -> DeviceBatteryDetails | None:
         """Create a battery details object from the JSON devices data."""
 
@@ -97,18 +96,22 @@ class Library:  # pylint: disable=too-few-public-methods
             for device in self._devices:
                 if (
                     str(device["manufacturer"] or "").casefold()
-                    == str(manufacturer or "").casefold()
+                    == str(model_info.manufacturer or "").casefold()
                     and str(device["model"] or "").casefold()
-                    == str(model or "").casefold()
+                    == str(model_info.model or "").casefold()
                 ):
-                    device_battery_details = DeviceBatteryDetails(
-                        manufacturer=device["manufacturer"],
-                        model=device["model"],
-                        hw_version=device["hw_version"],
-                        battery_type=device["battery_type"],
-                        battery_quantity=device.get("battery_quantity", 1),
-                    )
-                    return device_battery_details
+                    if (
+                        device["hw_version"]
+                        and str(device["hw_version"] or "").casefold() == str(model_info.hw_version or "").casefold()
+                    ):
+                        device_battery_details = DeviceBatteryDetails(
+                            manufacturer=device["manufacturer"],
+                            model=device["model"],
+                            hw_version=device["hw_version"],
+                            battery_type=device["battery_type"],
+                            battery_quantity=device.get("battery_quantity", 1),
+                        )
+                        return device_battery_details
 
         return None
 
@@ -154,3 +157,4 @@ class ModelInfo(NamedTuple):
 
     manufacturer: str
     model: str
+    hw_version: str
