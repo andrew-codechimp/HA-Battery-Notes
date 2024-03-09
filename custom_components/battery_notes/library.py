@@ -104,6 +104,7 @@ class Library:  # pylint: disable=too-few-public-methods
                     device_battery_details = DeviceBatteryDetails(
                         manufacturer=device["manufacturer"],
                         model=device["model"],
+                        hw_version=device["hw_version"],
                         battery_type=device["battery_type"],
                         battery_quantity=device.get("battery_quantity", 1),
                     )
@@ -121,6 +122,7 @@ class DeviceBatteryDetails(NamedTuple):
 
     manufacturer: str
     model: str
+    hw_version: str
     battery_type: str
     battery_quantity: int
 
