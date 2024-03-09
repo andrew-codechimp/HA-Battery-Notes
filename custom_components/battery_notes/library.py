@@ -100,6 +100,8 @@ class Library:  # pylint: disable=too-few-public-methods
                     and str(device["model"] or "").casefold()
                     == str(model_info.model or "").casefold()
                 ):
+                    # Need to think about ordering of devices in library, need the hw_version specifics before non specific for
+                    # same make/model
                     if (
                         device["hw_version"]
                         and str(device["hw_version"] or "").casefold() == str(model_info.hw_version or "").casefold()
