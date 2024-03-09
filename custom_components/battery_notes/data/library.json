@@ -948,6 +948,12 @@
         },
         {
             "manufacturer": "Danfoss",
+            "model": "Ally thermostat (014G2461)",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Danfoss",
             "model": "eTRV0100",
             "battery_type": "AA",
             "battery_quantity": 2
