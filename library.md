@@ -842,6 +842,6 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Zooz                                            |ZSE40                                                                 |2× AAA                    |
 |Zooz                                            |ZSE40 700                                                             |CR123A                    |
 |Zooz                                            |ZSE41                                                                 |CR2032                    |
-|Zooz                                            |ZSE42                                                                 |CR2450                    |
+|Zooz                                            |ZSE42                                                                 |MANUAL                    |
 |Zooz                                            |ZSE43                                                                 |CR2032                    |
-|Zooz                                            |ZSE44                                                                 |MANUAL                    |
+|Zooz                                            |ZSE44                                                                 |CR2450                    |
