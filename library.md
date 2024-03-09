@@ -1,4 +1,4 @@
-## 839 Devices in library
+## 840 Devices in library
 
 This file is auto generated, do not modify
 
@@ -180,6 +180,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Danalock                                        |BT/ZB smartlock (V3-BTZB/V3-BTZBE)                                    |4× CR123A                 |
 |Danalock                                        |V3-BTZBE                                                              |4× CR123A                 |
 |Danfoss                                         |010101                                                                |2× AA                     |
+|Danfoss                                         |Ally thermostat (014G2461)                                            |2× AA                     |
 |Danfoss                                         |eTRV0100                                                              |2× AA                     |
 |Danfoss                                         |eTRV0103                                                              |2× AA                     |
 |Danfoss                                         |LC-13                                                                 |2× AA                     |
