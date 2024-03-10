@@ -533,7 +533,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Schlage                                         |BE469NX                                                               |4× AA                     |
 |Schlage                                         |be499WB                                                               |4× AA                     |
 |Schneider Electric                              |Wiser radiator thermostat (WV704R0A0902)                              |2× AA                     |
-|Secure Meters                                   |SRT321                                                                |2× AAA                    |
+|Secure Meters (UK) Ltd.                         |SRT321                                                                |2× AAA                    |
 |Sengled                                         |E1D-G73                                                               |CR1632                    |
 |Sengled                                         |Smart window and door sensor (E1D-G73WNA)                             |CR1632                    |
 |SensorPush                                      |HTP.xw                                                                |CR2477                    |
