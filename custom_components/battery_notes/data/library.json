@@ -463,6 +463,12 @@
             "battery_quantity": 4
         },
         {
+            "manufacturer": "Allegion",
+            "model": "CKPD FE599",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
             "manufacturer": "Amazon",
             "model": "KFONWI",
             "battery_type": "Rechargeable"
@@ -2870,7 +2876,7 @@
             "battery_quantity": 2
         },
         {
-            "manufacturer": "Secure Meters",
+            "manufacturer": "Secure Meters (UK) Ltd.",
             "model": "SRT321",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -4005,6 +4011,11 @@
             "manufacturer": "Visonic",
             "model": "Next K9-85",
             "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Wink Inc.",
+            "model": "D/W SENSOR",
+            "battery_type": "CR14250"
         },
         {
             "manufacturer": "Wink Inc.",

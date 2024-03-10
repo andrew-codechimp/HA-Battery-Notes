@@ -4,12 +4,14 @@ on:
   workflow_dispatch:
   push:
     paths:
+    - 'custom_components/battery_notes/schema.json'
     - 'custom_components/battery_notes/data/**'
-    - '.github/workflows/**'
+    - '.github/workflows/json*.yml'
   pull_request:
     paths:
+    - 'custom_components/battery_notes/schema.json'
     - 'custom_components/battery_notes/data/**'
-    - '.github/workflows/**'
+    - '.github/workflows/json*.yml'
 
 jobs:
   verify-json-validation:

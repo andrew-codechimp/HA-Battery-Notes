@@ -2,40 +2,66 @@ name: Lint
 
 on:
   push:
-    branches:
-      - "main"
     paths:
       - '**.py' # Run if pushed commits include a change to a Python (.py) file.
-      - '.github/workflows/*.yml' # Run if pushed commits include a change to a github actions workflow file.
+      - '.github/workflows/lint.yml' # Run if pushed commits include a change to a github actions workflow file.
       - 'requirements.txt' # Run if pushed commits include a change to the Python requirements.txt file.
+      - '.ruff.toml' # Run if ruff configuration file changes.
   pull_request:
-    branches:
-      - "main"
     paths:
       - '**.py' # Run if pushed commits include a change to a Python (.py) file.
-      - '.github/workflows/*.yml' # Run if pushed commits include a change to a github actions workflow file.
+      - '.github/workflows/lint.yml' # Run if pushed commits include a change to a github actions workflow file.
       - 'requirements.txt' # Run if pushed commits include a change to the Python requirements.txt file.
+      - '.ruff.toml' # Run if ruff configuration file changes.
   workflow_dispatch:
 
 jobs:
   build:
-    runs-on: "ubuntu-latest"
     strategy:
+      fail-fast: false
       matrix:
-        python-version: ["3.11"]
+        os:
+          - ubuntu-latest
+        python-version:
+          - "3.12"
+          - "3.11"
+
+    runs-on: ${{ matrix.os }}
+
+    permissions:
+      security-events: write
+      actions: read
+      contents: read
+
     steps:
-    - name: Checkout repo
-      uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v5
-      with:
-        python-version: ${{ matrix.python-version }}
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
 
-    - name: Install dependencies from requirements.txt
-      run: |
-        if [ -f requirements.txt ]; then pip3 install -r requirements.txt; fi
+      - name: Install uv and create venv
+        run: |
+          pip install -U pip uv
+          uv venv
 
-    - name: Analyse the code with ruff
-      run: |
-        python3 -m ruff check .
+      - name: Enable venv
+        run: |
+          source .venv/bin/activate
+          echo $PATH >> $GITHUB_PATH
+
+      - name: Install dependencies
+        run: |
+          if [ -f requirements.txt ]; then uv pip install -r requirements.txt; fi
+
+      - name: Lint the code with ruff
+        run: |
+          ruff check $(git ls-files '*.py') --output-format sarif -o results.sarif
+
+      - name: Upload SARIF file
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: results.sarif
+          category: ruff

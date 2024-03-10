@@ -1,4 +1,4 @@
-## 841 Devices in library
+## 843 Devices in library
 
 This file is auto generated, do not modify
 
@@ -90,6 +90,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Allegion                                        |BE468ZP                                                               |4× AA                     |
 |Allegion                                        |BE469                                                                 |4× AA                     |
 |Allegion                                        |BE469ZP                                                               |4× AA                     |
+|Allegion                                        |CKPD FE599                                                            |4× AA                     |
 |Amazon                                          |KFONWI                                                                |Rechargeable              |
 |Amazon                                          |KFRAWI                                                                |Rechargeable              |
 |American Power Conversion                       |Back-UPS ES 600M1                                                     |Rechargeable              |
@@ -533,7 +534,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Schlage                                         |BE469NX                                                               |4× AA                     |
 |Schlage                                         |be499WB                                                               |4× AA                     |
 |Schneider Electric                              |Wiser radiator thermostat (WV704R0A0902)                              |2× AA                     |
-|Secure Meters                                   |SRT321                                                                |2× AAA                    |
+|Secure Meters (UK) Ltd.                         |SRT321                                                                |2× AAA                    |
 |Sengled                                         |E1D-G73                                                               |CR1632                    |
 |Sengled                                         |Smart window and door sensor (E1D-G73WNA)                             |CR1632                    |
 |SensorPush                                      |HTP.xw                                                                |CR2477                    |
@@ -744,6 +745,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Visonic                                         |MCW-K980                                                              |LS14250                   |
 |Visonic                                         |MP-841                                                                |2× CR123A                 |
 |Visonic                                         |Next K9-85                                                            |CR123A                    |
+|Wink Inc.                                       |D/W SENSOR                                                            |CR14250                   |
 |Wink Inc.                                       |Motion Sensor                                                         |CR123A                    |
 |Woox                                            |Smart garden irrigation control (R7060)                               |4× AA                     |
 |Woox                                            |Smart siren (R7051)                                                   |Rechargeable              |
