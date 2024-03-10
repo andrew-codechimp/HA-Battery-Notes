@@ -99,7 +99,7 @@ class DiscoveryManager:
                     continue
 
                 device_battery_details = await library.get_device_battery_details(
-                    model_info.manufacturer, model_info.model
+                    model_info
                 )
 
                 if not device_battery_details:

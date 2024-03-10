@@ -93,23 +93,59 @@ class Library:  # pylint: disable=too-few-public-methods
         """Create a battery details object from the JSON devices data."""
 
         if self._devices is not None:
-            for device in self._devices:
-                if (
-                    str(device["manufacturer"] or "").casefold()
-                    == str(model_info.manufacturer or "").casefold()
-                    and str(device["model"] or "").casefold()
-                    == str(model_info.model or "").casefold()
-                ):
-                    # Need to think about ordering of devices in library, need the hw_version specifics before non specific for
-                    # same make/model
+
+            # If a hw_version is present try find that first
+            if model_info.hw_version:
+                matching_devices = []
+
+                # Find all devices that match the manufacturer and model
+                for device in self._devices:
                     if (
-                        device["hw_version"]
-                        and str(device["hw_version"] or "").casefold() == str(model_info.hw_version or "").casefold()
+                        str(device["manufacturer"] or "").casefold()
+                        == str(model_info.manufacturer or "").casefold()
+                        and str(device["model"] or "").casefold()
+                        == str(model_info.model or "").casefold()
+                    ):
+                        matching_devices.append(device)
+
+                # Check if any matching devices have specified hw_version
+                for device in matching_devices:
+                    if device.get("hw_version", "").casefold() == str(model_info.hw_version or "").casefold():
+                        matched_device = device
+                        device_battery_details = DeviceBatteryDetails(
+                            manufacturer=matched_device["manufacturer"],
+                            model=matched_device["model"],
+                            hw_version=matched_device["hw_version"],
+                            battery_type=matched_device["battery_type"],
+                            battery_quantity=matched_device.get("battery_quantity", 1),
+                        )
+                        break
+                else:
+                    # Return first item in list, the non hw_version one
+                    matched_device = matching_devices[0]
+
+                device_battery_details = DeviceBatteryDetails(
+                    manufacturer=matched_device["manufacturer"],
+                    model=matched_device["model"],
+                    hw_version=matched_device.get("hw_version", None),
+                    battery_type=matched_device["battery_type"],
+                    battery_quantity=matched_device.get("battery_quantity", 1),
+                )
+                return device_battery_details
+
+            else:
+                # For devices that don't have hw_version
+                for device in self._devices:
+                    if (
+                        str(device["manufacturer"] or "").casefold()
+                        == str(model_info.manufacturer or "").casefold()
+                        and str(device["model"] or "").casefold()
+                        == str(model_info.model or "").casefold()
                     ):
                         device_battery_details = DeviceBatteryDetails(
                             manufacturer=device["manufacturer"],
                             model=device["model"],
-                            hw_version=device["hw_version"],
+                            hw_version=device.get("hw_version", None),
                             battery_type=device["battery_type"],
                             battery_quantity=device.get("battery_quantity", 1),
                         )
