@@ -4014,6 +4014,11 @@
         },
         {
             "manufacturer": "Wink Inc.",
+            "model": "D/W SENSOR",
+            "battery_type": "CR14250"
+        },
+        {
+            "manufacturer": "Wink Inc.",
             "model": "Motion Sensor",
             "battery_type": "CR123A"
         },
@@ -4557,11 +4562,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Wink Inc.",
-            "model": "D/W SENSOR",
-            "battery_type": "CR14250"
         }
     ]
 }
