@@ -17,7 +17,7 @@
             "type": "array",
             "items": {
                 "type": "object",
-                "additionalProperties": false,
+                "additionalProperties": true,
                 "required": [
                     "manufacturer",
                     "model",
@@ -31,6 +31,10 @@
                     "model": {
                         "type": "string",
                         "description": "The model of the device as it appears in Home Assistant."
+                    },
+                    "hw_version": {
+                        "type": "string",
+                        "description": "The hardware version of the device as it appears in Home Assistant. Only required where there are two versions of a model."
                     },
                     "battery_type": {
                         "type": "string",
