@@ -108,6 +108,9 @@ class Library:  # pylint: disable=too-few-public-methods
                     ):
                         matching_devices.append(device)
 
+                if matching_devices is None or not matching_devices or len(matching_devices) == 0:
+                    return None
+
                 # Check if any matching devices have specified hw_version
                 for device in matching_devices:
                     if device.get("hw_version", "").casefold() == str(model_info.hw_version or "").casefold():
