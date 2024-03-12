@@ -25,7 +25,7 @@ def generate_device_list():
     writer = MarkdownTableWriter()
     headers = [
         "Manufacturer",
-        "Model (HW Version)",
+        "Model",
         "Battery Type",
     ]
 
