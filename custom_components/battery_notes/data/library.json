@@ -3236,7 +3236,14 @@
         {
             "manufacturer": "SOMFY",
             "model": "Sonesse 28 WF Li-Ion Roller",
+            "hw_version": "zigbee:SomfyRollerShadeComponent",
             "battery_type": "MANUAL"
+        },
+        {
+            "manufacturer": "SOMFY",
+            "model": "Sonesse 28 WF Li-Ion Roller",
+            "hw_version": "zigbee:SomfyConfigurationToolComponent",
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "Sonoff",
