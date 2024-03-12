@@ -20,7 +20,7 @@ blueprint:
         boolean:
     on_low_actions:
       name: On Low Actions
-      description: User actions to run on battery low.
+      description: User actions to run on battery low. Use any event data via trigger.event.data.xxx
       default: []
       selector:
         action:
