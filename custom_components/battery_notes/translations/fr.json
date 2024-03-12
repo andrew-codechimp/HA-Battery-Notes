@@ -138,11 +138,11 @@
                     "name": "Jours"
                 }
             },
-            "name": "Check battery last reported"
+            "name": "Batterie signalée pour la dernière fois"
         },
         "check_battery_low": {
-            "description": "Raise events for devices that have a low battery.",
-            "name": "Check battery low"
+            "description": "Déclenche des événements pour les appareils qui ont une batterie faible.",
+            "name": "Vérifier si batterie faible"
         }
     }
 }

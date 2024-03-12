@@ -1,0 +1,148 @@
+{
+    "config": {
+        "step": {
+            "user": {
+                "description": "Se hai bisogno di aiuto per la configurazione, dai un'occhiata qui: https://andrew-codechimp.github.io/HA-Battery-Notes/",
+                "data": {
+                    "device_id": "Dispositivo",
+                    "name": "Nome"
+                },
+                "data_description": {
+                    "name": "Lasciando vuoto prenderà il nome dal dispositivo di origine"
+                }
+            },
+            "battery": {
+                "data": {
+                    "battery_type": "Tipo di batteria",
+                    "battery_quantity": "Quantità batteria",
+                    "battery_low_threshold": "Livello batteria bassa",
+                    "battery_low_template": "Modello batteria bassa"
+                },
+                "data_description": {
+                    "battery_low_threshold": "0 utilizzerà la soglia globale predefinita",
+                    "battery_low_template": "Modello per determinare se una batteria è scarica, dovrebbe restituire vero se scarica. \nNecessario solo per livelli di batteria non standard"
+                }
+            }
+        },
+        "abort": {
+            "already_configured": "Il dispositivo è già configurato"
+        },
+        "error": {
+            "unknown": "Errore sconosciuto."
+        }
+    },
+    "options": {
+        "step": {
+            "init": {
+                "description": "Se hai bisogno di aiuto per la configurazione, dai un'occhiata qui: https://andrew-codechimp.github.io/HA-Battery-Notes/",
+                "data": {
+                    "name": "Nome",
+                    "battery_type": "Tipo di batteria",
+                    "battery_quantity": "Quantità batteria",
+                    "battery_low_threshold": "Livello batteria bassa",
+                    "battery_low_template": "Modello batteria bassa"
+                },
+                "data_description": {
+                    "name": "Lasciando vuoto prenderà il nome dal dispositivo di origine",
+                    "battery_low_threshold": "0 utilizzerà la soglia globale predefinita",
+                    "battery_low_template": "Modello per determinare se una batteria è scarica, dovrebbe restituire vero se scarica. \nNecessario solo per livelli di batteria non standard"
+                }
+            }
+        },
+        "error": {
+            "unknown": "Errore sconosciuto."
+        }
+    },
+    "entity": {
+        "binary_sensor": {
+            "battery_low": {
+                "name": "Batteria bassa",
+                "state_attributes": {
+                    "battery_low_threshold": {
+                        "name": "Livello batteria bassa"
+                    }
+                }
+            }
+        },
+        "button": {
+            "battery_replaced": {
+                "name": "Batteria sostituita"
+            }
+        },
+        "sensor": {
+            "battery_plus": {
+                "name": "Batteria+",
+                "state_attributes": {
+                    "battery_type": {
+                        "name": "Tipo di batteria"
+                    },
+                    "battery_quantity": {
+                        "name": "Quantità batteria"
+                    },
+                    "battery_type_and_quantity": {
+                        "name": "Tipo e quantità della batteria"
+                    },
+                    "battery_last_replaced": {
+                        "name": "Ultima sostituzione della batteria"
+                    },
+                    "battery_low": {
+                        "name": "Batteria bassa"
+                    },
+                    "battery_low_threshold": {
+                        "name": "Livello batteria bassa"
+                    },
+                    "battery_last_reported": {
+                        "name": "Ultima batteria riportata"
+                    },
+                    "battery_last_reported_level": {
+                        "name": "Ultimo livello di batteria segnalato"
+                    }
+                }
+            },
+            "battery_type": {
+                "name": "Tipo di batteria",
+                "state_attributes": {
+                    "battery_type": {
+                        "name": "Tipo di batteria"
+                    },
+                    "battery_quantity": {
+                        "name": "Quantità batteria"
+                    }
+                }
+            },
+            "battery_last_replaced": {
+                "name": "Ultima sostituzione della batteria"
+            }
+        }
+    },
+    "services": {
+        "set_battery_replaced": {
+            "description": "Imposta l'ultima batteria sostituita.",
+            "fields": {
+                "device_id": {
+                    "description": "Dispositivo che ha avuto la batteria sostituita.",
+                    "name": "Dispositivo"
+                },
+                "datetime_replaced": {
+                    "description": "Data di sostituzione",
+                    "name": "Data"
+                }
+            },
+            "name": "Imposta la batteria sostituita"
+        },
+        "check_battery_last_reported": {
+            "description": "Genera eventi per i dispositivi che non hanno segnalato il livello della batteria.",
+            "fields": {
+                "days_last_reported": {
+                    "description": "Numero di giorni dall'ultima segnalazione del livello della batteria da parte di un dispositivo",
+                    "name": "Giorni"
+                }
+            },
+            "name": "Verifica ultima segnalazione batteria"
+        },
+        "check_battery_low": {
+            "description": "Genera eventi per i dispositivi che hanno una batteria scarica.",
+            "name": "Verifica batteria scarica"
+        }
+    }
+}
