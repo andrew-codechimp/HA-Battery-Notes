@@ -31,8 +31,9 @@ For the example image below, your JSON entry will look like this:
 {
     "manufacturer": "Philips",
     "model": "Hue motion sensor (9290012607)",
+    "hw_version": "Some specific hardware detail", < Optional, only use if two devices have the same model and the hw_version are different.
     "battery_type": "AAA",
-    "battery_quantity": 2
+    "battery_quantity": 2  < Only use if more than 1 battery
 },
 ```
 

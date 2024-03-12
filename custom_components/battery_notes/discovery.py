@@ -55,11 +55,12 @@ async def get_model_information(
 
     manufacturer = device_entry.manufacturer
     model = device_entry.model
+    hw_version = device_entry.hw_version
 
     if not manufacturer or not model:
         return None
 
-    return ModelInfo(manufacturer, model)
+    return ModelInfo(manufacturer, model, hw_version)
 
 
 class DiscoveryManager:
@@ -98,7 +99,7 @@ class DiscoveryManager:
                     continue
 
                 device_battery_details = await library.get_device_battery_details(
-                    model_info.manufacturer, model_info.model
+                    model_info
                 )
 
                 if not device_battery_details:
