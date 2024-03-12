@@ -25,7 +25,7 @@ def generate_device_list():
     writer = MarkdownTableWriter()
     headers = [
         "Manufacturer",
-        "Model",
+        "Model (HW Version)",
         "Battery Type",
     ]
 
@@ -36,9 +36,15 @@ def generate_device_list():
             battery_type_qty = f"{device['battery_quantity']}× {device['battery_type']}"
         else:
             battery_type_qty = device["battery_type"]
+
+        if "hw_version" in device:
+            model = f"{device['model']} ({device['hw_version']})"
+        else:
+            model = device['model']
+
         row = [
             device['manufacturer'],
-            device['model'],
+            model,
             battery_type_qty,
         ]
         rows.append(row)
