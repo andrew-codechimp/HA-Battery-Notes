@@ -4,7 +4,7 @@ This file is auto generated, do not modify
 
 Request new devices to be added to the library [here](https://github.com/andrew-codechimp/HA-Battery-Notes/issues/new?template=new_device_request.yml&title=%5BDevice%5D%3A+)
 
-|                  Manufacturer                  |                                Model                                 |       Battery Type       |
+|                  Manufacturer                  |                          Model (HW Version)                          |       Battery Type       |
 |------------------------------------------------|----------------------------------------------------------------------|--------------------------|
 |_TYZB01_7qf81wty                                |TS1001                                                                |2× AAA                    |
 |_TYZB01_hww2py6b                                |TS1001                                                                |CR2450                    |
@@ -602,8 +602,8 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Somfy                                           |Myfox Security Outdoor Siren                                          |4× LR20                   |
 |Somfy                                           |Myfox Security Siren                                                  |4× LR20                   |
 |Somfy                                           |Somfy Smoke Detector                                                  |2× AA                     |
-|SOMFY                                           |Sonesse 28 WF Li-Ion Roller                                           |Rechargeable              |
-|SOMFY                                           |Sonesse 28 WF Li-Ion Roller                                           |MANUAL                    |
+|SOMFY                                           |Sonesse 28 WF Li-Ion Roller (zigbee:SomfyConfigurationToolComponent)  |Rechargeable              |
+|SOMFY                                           |Sonesse 28 WF Li-Ion Roller (zigbee:SomfyRollerShadeComponent)        |MANUAL                    |
 |Sonoff                                          |Contact sensor (SNZB-04)                                              |CR2032                    |
 |SONOFF                                          |DW2-Wi-Fi                                                             |2× AAA                    |
 |SONOFF                                          |DW2-WI-FI-L                                                           |2× AAA                    |
