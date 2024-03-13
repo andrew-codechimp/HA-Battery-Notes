@@ -69,6 +69,7 @@ from .const import (
     ATTR_BATTERY_LAST_REPORTED,
     ATTR_BATTERY_LAST_REPORTED_LEVEL,
     ATTR_DEVICE_ID,
+    ATTR_DEVICE_NAME,
 )
 
 from .common import isfloat
@@ -492,6 +493,7 @@ class BatteryNotesBatteryPlusSensor(
 
         # Other attributes that should follow battery, attribute list is unsorted
         attrs[ATTR_DEVICE_ID] = self.coordinator.device_id
+        attrs[ATTR_DEVICE_NAME] = self.coordinator.device_name
 
         super_attrs = super().extra_state_attributes
         if super_attrs:

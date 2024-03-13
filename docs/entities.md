@@ -22,6 +22,7 @@ See how to use this entity in the [community contributions](./community.md)
 | `battery_last_reported` | `datetime` | The datetime when the battery level was last reported |
 | `battery_last_reported_level` | `float` | The level when the battery was last reported |
 | `device_id` | `string` | The device_id of the device |
+| `device_name` | `string` | The name of the device |
 
 ## Battery Type
 `sensor.{{device_name}}_battery_type`
