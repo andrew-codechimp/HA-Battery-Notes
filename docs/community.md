@@ -1,6 +1,6 @@
 # Community Contributions
 
-## UI
+## Dashboards
 
 ### Battery State Card
 Using the excellent [Battery State Card](https://github.com/maxwroc/battery-state-card) by maxwroc you can easily display devices with their batteries required where the devices battery threshold indicates it's low and show be replaced.
