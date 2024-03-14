@@ -2558,6 +2558,11 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "Paulmann",
+            "model": "Smart switch 4 buttons white (501.34)",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "Philio Technology Corp",
             "model": "PAT02-C",
             "battery_type": "CR123A"
@@ -4585,11 +4590,6 @@
         {
             "manufacturer": "Zooz",
             "model": "ZSE44",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Paulmann",
-            "model": "Smart switch 4 buttons white (501.34)",
             "battery_type": "CR2450"
         }
     ]
