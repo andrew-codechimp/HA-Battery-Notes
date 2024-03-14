@@ -4586,6 +4586,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Paulmann",
+            "model": "Smart switch 4 buttons white (501.34)",
+            "battery_type": "CR2450"
         }
     ]
 }
