@@ -3569,6 +3569,12 @@
             "battery_quantity": 4
         },
         {
+            "manufacturer": "TT Lock",
+            "model": "SN9206-01-FS_PV53",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
             "manufacturer": "TUO Accessories LLC",
             "model": "TUO Smart Button",
             "battery_type": "CR2032"
@@ -4591,12 +4597,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "TT Lock",
-            "model": "SN9206-01-FS_PV53",
-            "battery_type": "AA",
-            "battery_quantity": 4
         }
     ]
 }
