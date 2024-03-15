@@ -16,11 +16,11 @@
                     "battery_type": "بیٹری کی قسم",
                     "battery_quantity": "بیٹری کی مقدار",
                     "battery_low_threshold": "بیٹری کی کم حد",
-                    "battery_low_template": "Battery low template"
+                    "battery_low_template": "کم بیٹری ٹیمپلیٹ"
                 },
                 "data_description": {
                     "battery_low_threshold": "0 عالمی ڈیفالٹ حد استعمال کرے گا۔",
-                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels"
+                    "battery_low_template": "بیٹری کم ہونے کا تعین کرنے کے لیے ٹیمپلیٹ، کم ہونے کی صورت میں درست ہونا چاہیے\nصرف غیر معیاری بیٹری کی سطح کے لیے ضروری ہے"
                 }
             }
         },
@@ -40,12 +40,12 @@
                     "battery_type": "بیٹری کی قسم",
                     "battery_quantity": "بیٹری کی مقدار",
                     "battery_low_threshold": "بیٹری کی کم حد",
-                    "battery_low_template": "Battery low template"
+                    "battery_low_template": " کم بیٹری ٹیمپلیٹ "
                 },
                 "data_description": {
                     "name": "خالی چھوڑنے سے نام ماخذ آلہ سے لیا جائے گا۔",
                     "battery_low_threshold": "0 عالمی ڈیفالٹ حد استعمال کرے گا۔",
-                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels"
+                    "battery_low_template": "بیٹری کم ہونے کا تعین کرنے کے لیے ٹیمپلیٹ، کم ہونے کی صورت میں درست ہونا چاہیے\nصرف غیر معیاری بیٹری کی سطح کے لیے ضروری ہے"
                 }
             }
         },
@@ -131,18 +131,18 @@
             "name": "سیٹ کی بیٹری کو تبدیل کر دیا گیا۔"
         },
         "check_battery_last_reported": {
-            "description": "Raise events for devices that haven't reported their battery level.",
+            "description": "ان آلات کے لئے واقعات کو بڑھائیں جنہوں نے اپنی بیٹری کی سطح کی اطلاع نہیں دی ہے۔",
             "fields": {
                 "days_last_reported": {
-                    "description": "Number of days since a device last reported its battery level.",
-                    "name": "Days"
+                    "description": "دنوں کی تعداد جب سے کسی آلے نے آخری بار اس کی بیٹری کی سطح کی اطلاع دی۔",
+                    "name": "دن"
                 }
             },
-            "name": "Check battery last reported"
+            "name": "بیٹری کی آخری اطلاع چیک کریں"
         },
         "check_battery_low": {
-            "description": "Raise events for devices that have a low battery.",
-            "name": "Check battery low"
+            "description": "کم بیٹری والے آلات کے لئے واقعات کو بڑھائیں.",
+            "name": "کم بیٹری چیک کریں۔"
         }
     }
 }
