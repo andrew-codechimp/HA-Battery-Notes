@@ -98,7 +98,7 @@
                         "name": "Battery last reported level"
                     },
                     "device_id": {
-                        "name": "Device id"
+                        "name": "Device Id"
                     },
                     "device_name": {
                         "name": "Device name"
