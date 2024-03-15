@@ -96,6 +96,12 @@
                     },
                     "battery_last_reported_level": {
                         "name": "Dernier niveau de batterie signalé"
+                    },
+                    "device_id": {
+                        "name": "ID de l’appareil"
+                    },
+                    "device_name": {
+                        "name": "Nom de l'appareil"
                     }
                 }
             },

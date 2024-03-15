@@ -96,6 +96,12 @@
                     },
                     "battery_last_reported_level": {
                         "name": "Последний уровень заряда батареи"
+                    },
+                    "device_id": {
+                        "name": "Id устройства"
+                    },
+                    "device_name": {
+                        "name": "Название устройства"
                     }
                 }
             },

@@ -96,6 +96,12 @@
                     },
                     "battery_last_reported_level": {
                         "name": "Battery last reported level"
+                    },
+                    "device_id": {
+                        "name": "Apparaat ID"
+                    },
+                    "device_name": {
+                        "name": "Device name"
                     }
                 }
             },

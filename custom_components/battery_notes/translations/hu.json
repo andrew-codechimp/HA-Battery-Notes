@@ -96,6 +96,12 @@
                     },
                     "battery_last_reported_level": {
                         "name": "Az akkumulátor utoljára jelentett szintje"
+                    },
+                    "device_id": {
+                        "name": "Device Id"
+                    },
+                    "device_name": {
+                        "name": "Device name"
                     }
                 }
             },

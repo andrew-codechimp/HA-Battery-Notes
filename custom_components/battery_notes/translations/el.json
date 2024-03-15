@@ -96,6 +96,12 @@
                     },
                     "battery_last_reported_level": {
                         "name": "Τελευταία αναφερόμενη στάθμη μπαταρίας"
+                    },
+                    "device_id": {
+                        "name": "ID Συσκευής:"
+                    },
+                    "device_name": {
+                        "name": "Όνομα συσκευής"
                     }
                 }
             },
