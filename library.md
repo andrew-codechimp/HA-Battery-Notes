@@ -1,4 +1,4 @@
-## 853 Devices in library
+## 854 Devices in library
 
 This file is auto generated, do not modify
 
@@ -308,6 +308,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |GoveeLife                                       |H5105                                                                 |CR2450                    |
 |GS                                              |Motion sensor (SMHM-I1)                                               |CR123A                    |
 |GS                                              |Open and close sensor (SOHM-I1)                                       |2× AAA                    |
+|GS                                              |Temperature and humidity sensor (STHM-I1H)                            |CR2450                    |
 |GS                                              |Water leakage sensor (SWHM-I1)                                        |2× AAA                    |
 |HAB Home Intelligence LLC                       |iblinds V3                                                            |Rechargeable              |
 |HANK Electronics Ltd.                           |HKZW-DWS01                                                            |2× AAA                    |
