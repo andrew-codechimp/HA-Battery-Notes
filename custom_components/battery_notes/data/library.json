@@ -1660,6 +1660,11 @@
         },
         {
             "manufacturer": "GS",
+            "model": "Smoke detector (SSHM-I1)",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "GS",
             "model": "Temperature and humidity sensor (STHM-I1H)",
             "battery_type": "CR2450"
         },
@@ -4624,11 +4629,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "GS",
-            "model": "Smoke detector (SSHM-I1)",
-            "battery_type": "CR123A"
         }
     ]
 }
