@@ -1648,6 +1648,12 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "GS",
+            "model": "Water leakage sensor (SWHM-I1)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "HAB Home Intelligence LLC",
             "model": "iblinds V3",
             "battery_type": "Rechargeable"
@@ -4602,12 +4608,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "GS",
-            "model": "Water leakage sensor (SWHM-I1)",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
