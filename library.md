@@ -1,4 +1,4 @@
-## 856 Devices in library
+## 857 Devices in library
 
 This file is auto generated, do not modify
 
@@ -715,6 +715,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |TuYa                                            |Temperature and humidity sensor (ZTH01)                               |2× AAA                    |
 |TuYa                                            |Temperature and humidity sensor (ZTH02)                               |CR2032                    |
 |TuYa                                            |Temperature and humidity sensor (ZTH05)                               |CR2032                    |
+|TuYa                                            |TRV602                                                                |3× AA                     |
 |Tuya                                            |TRV602 (_TZE200_rtrmfadk)                                             |3× AAA                    |
 |TuYa                                            |TS0042                                                                |CR2032                    |
 |TuYa                                            |TS0201_1                                                              |2× AA                     |
