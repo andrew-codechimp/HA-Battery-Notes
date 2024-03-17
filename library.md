@@ -723,7 +723,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tuya                                            |TS0205                                                                |CR123A                    |
 |tuya                                            |TS0210                                                                |2× AAA                    |
 |tuya                                            |TS0601                                                                |CR2                       |
-|TuYa                                            |TS0601                                                                |2× AAA                    |
+|TuYa                                            |TS0601                                                                |3× AA                     |
 |TuYa                                            |TS0601_smoke_1                                                        |2× AAA                    |
 |TuYa                                            |Water leak detector (TS0207_water_leak_detector)                      |CR2032                    |
 |Tuya                                            |WiFi Temperature & Humidity Sensor (q29ebws5adwye1l8)                 |2× AAA                    |
