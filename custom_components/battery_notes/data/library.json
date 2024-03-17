@@ -3866,6 +3866,12 @@
         },
         {
             "manufacturer": "TuYa",
+            "model": "TH08",
+            "battery_type": "AAA",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "TuYa",
             "model": "TRV602",
             "battery_type": "AA",
             "battery_quantity": 3
@@ -4650,12 +4656,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "TuYa",
-            "model": "TH08",
-            "battery_type": "AAA",
-            "battery_quantity": 3
         }
     ]
 }
