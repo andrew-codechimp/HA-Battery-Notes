@@ -189,6 +189,12 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "_TZ3000_upgcbody",
+            "model": "TS0207",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "_TZ3000_wkai4ga5",
             "model": "TS0044",
             "battery_type": "CR2430"
@@ -4661,12 +4667,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "_TZ3000_upgcbody",
-            "model": "TS0207",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
