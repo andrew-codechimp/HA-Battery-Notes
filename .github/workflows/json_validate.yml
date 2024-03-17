@@ -19,7 +19,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Validate JSON
-        uses: docker://orrosenblatt/validate-json-action:latest
-        env:
-          INPUT_SCHEMA: custom_components/battery_notes/schema.json
-          INPUT_JSONS: custom_components/battery_notes/data/library.json
+        uses: dsanders11/json-schema-validate-action@v1.1.0
+        with:
+          schema: custom_components/battery_notes/schema.json
+          files: custom_components/battery_notes/data/library.json
+          
