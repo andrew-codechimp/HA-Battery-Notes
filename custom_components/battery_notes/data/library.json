@@ -4667,6 +4667,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "eQ-3",
+            "model": "HmIP-ASIR",
+            "battery_type": "AA",
+            "battery_quantity": 3
         }
     ]
 }
