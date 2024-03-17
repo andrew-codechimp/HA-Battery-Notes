@@ -1235,6 +1235,11 @@
         },
         {
             "manufacturer": "eQ-3",
+            "model": "HmIP-KRCA",
+            "battery_type": "AAA"
+        },
+        {
+            "manufacturer": "eQ-3",
             "model": "HmIP-KRCK",
             "battery_type": "AAA"
         },
@@ -4673,11 +4678,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "eQ-3",
-            "model": "HmIP-KRCA",
-            "battery_type": "AAA"
         }
     ]
 }
