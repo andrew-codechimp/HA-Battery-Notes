@@ -4645,6 +4645,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "eWelink",
+            "model": "SNZB-02",
+            "battery_type": "CR2450"
         }
     ]
 }
