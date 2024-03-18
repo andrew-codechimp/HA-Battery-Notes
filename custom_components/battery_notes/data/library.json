@@ -3184,6 +3184,12 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "Sinop\u00e9",
+            "model": "LM4110ZB",
+            "battery_type": "AA",
+            "battery_quantity": 3
+        },
+        {
             "manufacturer": "Siterwell",
             "model": "Radiator valve with thermostat (GS361A-H04)",
             "battery_type": "AA",
@@ -4678,12 +4684,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Sinop\u00e9",
-            "model": "LM4110ZB",
-            "battery_type": "AA",
-            "battery_quantity": 3
         }
     ]
 }

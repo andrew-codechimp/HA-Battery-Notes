@@ -1,4 +1,4 @@
-## 864 Devices in library
+## 865 Devices in library
 
 This file is auto generated, do not modify
 
@@ -592,6 +592,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |SimpliSafe                                      |Motion                                                                |CR123A                    |
 |SimpliSafe                                      |Siren                                                                 |4× AA                     |
 |Simplisafe                                      |Smoke                                                                 |CR123A                    |
+|Sinopé                                          |LM4110ZB                                                              |3× AA                     |
 |Siterwell                                       |Radiator valve with thermostat (GS361A-H04)                           |2× AA                     |
 |SMaBiT (Bitron Video)                           |Compact magnetic contact sensor (AV2010/21A)                          |CR2                       |
 |smartlife                                       |T & H Sensor (lf36y5nwb8jkxwgg)                                       |2× AAA                    |
