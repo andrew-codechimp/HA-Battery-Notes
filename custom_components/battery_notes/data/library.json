@@ -4678,6 +4678,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Sinop\u00e9",
+            "model": "LM4110ZB",
+            "battery_type": "AA",
+            "battery_quantity": 3
         }
     ]
 }
