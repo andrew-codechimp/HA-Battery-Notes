@@ -4706,6 +4706,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "WAXMAN",
+            "model": "leakSMART Water Valve v2.10",
+            "battery_type": "AA",
+            "battery_quantity": 4
         }
     ]
 }
