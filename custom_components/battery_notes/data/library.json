@@ -4690,6 +4690,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Sercomm Corp.",
+            "model": "Tripper",
+            "battery_type": "CR2032"
         }
     ]
 }
