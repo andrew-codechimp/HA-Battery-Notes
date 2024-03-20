@@ -1,7 +1,7 @@
 """Sensor platform for battery_notes."""
 from __future__ import annotations
 
-from collection.abc import Mapping
+from collections.abc import Mapping
 import logging
 from datetime import datetime
 from dataclasses import dataclass
@@ -387,7 +387,7 @@ class BatteryNotesBatteryPlusSensor(
             """Only dispatch the listener for update events concerning the source entity."""
             return (
                 event_data["action"] == "update"
-                and "old_entity_id" in event.data
+                and "old_entity_id" in event_data
                 and event_data["old_entity_id"] == source_entity_id
             )
 
