@@ -1,9 +1,11 @@
 """Sensor platform for battery_notes."""
 from __future__ import annotations
 
+from collection.abc import Mapping
 import logging
 from datetime import datetime
 from dataclasses import dataclass
+from typing import Any
 import voluptuous as vol
 
 from homeassistant.components.sensor import (
@@ -381,12 +383,12 @@ class BatteryNotesBatteryPlusSensor(
                 )
 
         @callback
-        def _filter_entity_id(event: Event) -> bool:
+        def _filter_entity_id(event_data: Mapping[str, Any]) -> bool:
             """Only dispatch the listener for update events concerning the source entity."""
             return (
-                event.data["action"] == "update"
+                event_data["action"] == "update"
                 and "old_entity_id" in event.data
-                and event.data["old_entity_id"] == source_entity_id
+                and event_data["old_entity_id"] == source_entity_id
             )
 
         self.hass.bus.async_listen(
