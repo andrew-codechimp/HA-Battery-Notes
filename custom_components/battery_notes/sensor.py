@@ -383,8 +383,13 @@ class BatteryNotesBatteryPlusSensor(
                 )
 
         @callback
-        def _filter_entity_id(event_data: Mapping[str, Any]) -> bool:
+        def _filter_entity_id(event_data: Mapping[str, Any] | Event) -> bool:
             """Only dispatch the listener for update events concerning the source entity."""
+
+            # Breaking change in 2024.4.0, check for Event for versions prior to this
+            if type(event_data) is Event:  # Intentionally avoid `isinstance` because it's slow and we trust `Event` is not subclassed
+                event_data = event_data.data
+
             return (
                 event_data["action"] == "update"
                 and "old_entity_id" in event_data
