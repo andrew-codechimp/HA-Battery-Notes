@@ -2571,6 +2571,11 @@
         },
         {
             "manufacturer": "NYCE",
+            "model": "3010",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "NYCE",
             "model": "3043",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -4695,11 +4700,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "NYCE",
-            "model": "3010",
-            "battery_type": "CR2032"
         }
     ]
 }

@@ -1,4 +1,4 @@
-## 867 Devices in library
+## 868 Devices in library
 
 This file is auto generated, do not modify
 
@@ -477,6 +477,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Nuki Home Solutions GmbH                        |Nuki opener                                                           |4× AAA                    |
 |Nuki Home Solutions GmbH                        |Nuki smart lock 1.0/2.0                                               |4× AA                     |
 |Nuki Home Solutions GmbH                        |Nuki smart lock 3.0 (pro)                                             |4× AA                     |
+|NYCE                                            |3010                                                                  |CR2032                    |
 |NYCE                                            |3043                                                                  |2× AAA                    |
 |Nyce                                            |Door/window sensor (NCZ-3011-HA)                                      |CR2032                    |
 |OpenEpaperLink                                  |ST‐GR16000 1.54                                                       |CR2450                    |
