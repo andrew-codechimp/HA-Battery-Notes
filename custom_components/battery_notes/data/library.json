@@ -4145,6 +4145,12 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "WAXMAN",
+            "model": "leakSMART Water Sensor V2",
+            "battery_type": "AAA",
+            "battery_quantity": 3
+        },
+        {
             "manufacturer": "Wink Inc.",
             "model": "D/W SENSOR",
             "battery_type": "CR14250"
@@ -4700,12 +4706,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "WAXMAN",
-            "model": "leakSMART Water Sensor V2",
-            "battery_type": "AAA",
-            "battery_quantity": 3
         }
     ]
 }
