@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Validate JSON
-        uses: dsanders11/json-schema-validate-action@v1.1.0
+        uses: dsanders11/json-schema-validate-action@v1.1.2
         with:
           schema: custom_components/battery_notes/schema.json
           files: custom_components/battery_notes/data/library.json
