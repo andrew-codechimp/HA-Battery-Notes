@@ -1,4 +1,4 @@
-## 869 Devices in library
+## 870 Devices in library
 
 This file is auto generated, do not modify
 
@@ -770,6 +770,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Visonic                                         |MP-841                                                                |2× CR123A                 |
 |Visonic                                         |Next K9-85                                                            |CR123A                    |
 |WAXMAN                                          |leakSMART Water Sensor V2                                             |3× AAA                    |
+|WAXMAN                                          |leakSMART Water Valve v2.10                                           |4× AA                     |
 |Wink Inc.                                       |D/W SENSOR                                                            |CR14250                   |
 |Wink Inc.                                       |Motion Sensor                                                         |CR123A                    |
 |Wink Inc.                                       |Siren                                                                 |2× CR123A                 |

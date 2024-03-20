@@ -4151,6 +4151,12 @@
             "battery_quantity": 3
         },
         {
+            "manufacturer": "WAXMAN",
+            "model": "leakSMART Water Valve v2.10",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
             "manufacturer": "Wink Inc.",
             "model": "D/W SENSOR",
             "battery_type": "CR14250"
@@ -4706,12 +4712,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "WAXMAN",
-            "model": "leakSMART Water Valve v2.10",
-            "battery_type": "AA",
-            "battery_quantity": 4
         }
     ]
 }
