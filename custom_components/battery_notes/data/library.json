@@ -4700,6 +4700,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "WAXMAN",
+            "model": "leakSMART Water Sensor V2",
+            "battery_type": "AAA",
+            "battery_quantity": 3
         }
     ]
 }
