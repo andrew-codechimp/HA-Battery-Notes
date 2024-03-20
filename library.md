@@ -1,4 +1,4 @@
-## 866 Devices in library
+## 867 Devices in library
 
 This file is auto generated, do not modify
 
@@ -553,6 +553,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Sengled                                         |E1D-G73                                                               |CR1632                    |
 |Sengled                                         |Smart window and door sensor (E1D-G73WNA)                             |CR1632                    |
 |SensorPush                                      |HTP.xw                                                                |CR2477                    |
+|Sercomm Corp.                                   |Tripper                                                               |CR2032                    |
 |Sercomm Corp.                                   |XHS2-SE                                                               |CR2450                    |
 |Shelly                                          |BLU Button1                                                           |CR2032                    |
 |Shelly                                          |BLU Door/Window                                                       |CR2032                    |
