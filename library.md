@@ -1,4 +1,4 @@
-## 874 Devices in library
+## 875 Devices in library
 
 This file is auto generated, do not modify
 
@@ -518,6 +518,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Popp & Co                                       |POPE700168                                                            |2× AAA                    |
 |Powermax                                        |MCT-426                                                               |CR123A                    |
 |Qingping                                        |CGG1                                                                  |CR2032                    |
+|raspiaudio                                      |muse-luxe                                                             |Rechargeable              |
 |Remotec                                         |BW8510                                                                |2× AAA                    |
 |Remsol                                          |ismartgateLITE                                                        |2× N                      |
 |Ring                                            |4AK1SZ                                                                |Rechargeable              |
