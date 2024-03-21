@@ -2842,6 +2842,11 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "ROBB smarrt",
+            "model": "ROB_200-024-0",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "Roborock",
             "model": "roborock.vacuum.a15",
             "battery_type": "Rechargeable"
@@ -4723,11 +4728,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "ROBB smarrt",
-            "model": "ROB_200-024-0",
-            "battery_type": "CR2032"
         }
     ]
 }
