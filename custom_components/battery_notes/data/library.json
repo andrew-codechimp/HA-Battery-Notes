@@ -4756,6 +4756,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Ring",
+            "model": "4SP1SZ",
+            "battery_type": "AA",
+            "battery_quantity": 2
         }
     ]
 }
