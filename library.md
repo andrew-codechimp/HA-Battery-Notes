@@ -1,4 +1,4 @@
-## 876 Devices in library
+## 877 Devices in library
 
 This file is auto generated, do not modify
 
@@ -526,6 +526,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Ring                                            |Contact Sensor                                                        |2× CR2032                 |
 |Ring                                            |Doorbell 2                                                            |Rechargeable              |
 |Ring                                            |Doorbell 3                                                            |Rechargeable 5AT3S3 (Ring)|
+|Ring                                            |Glass Break Sensor                                                    |2× AA                     |
 |Ring                                            |Intercom                                                              |Rechargeable              |
 |Ring                                            |Motion Sensor                                                         |2× AA                     |
 |Ring                                            |Peephole Cam                                                          |Rechargeable              |

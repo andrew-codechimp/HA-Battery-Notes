@@ -2833,6 +2833,12 @@
         },
         {
             "manufacturer": "Ring",
+            "model": "Glass Break Sensor",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Ring",
             "model": "Intercom",
             "battery_type": "\"Rechargeable\""
         },
@@ -4744,12 +4750,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Ring",
-            "model": "Glass Break Sensor",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
