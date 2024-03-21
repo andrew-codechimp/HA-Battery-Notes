@@ -1,4 +1,4 @@
-## 870 Devices in library
+## 871 Devices in library
 
 This file is auto generated, do not modify
 
@@ -668,6 +668,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Third Reality, Inc                              |3RSB22BZ                                                              |2× AAA                    |
 |Third Reality, Inc                              |3RSS009Z                                                              |2× AAA                    |
 |Third Reality, Inc                              |3RTHS24BZ                                                             |2× AAA                    |
+|Third Reality, Inc                              |3RVS01031Z                                                            |2× AAA                    |
 |Third Reality, Inc                              |3RWS18BZ                                                              |2× AAA                    |
 |Tile                                            |T1301N                                                                |CR2032                    |
 |Trust                                           |COSensor-EM                                                           |CR123A                    |
