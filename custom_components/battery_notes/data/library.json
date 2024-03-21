@@ -4728,6 +4728,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Apple",
+            "model": "iPad6,11",
+            "battery_type": "Rechargeable"
         }
     ]
 }
