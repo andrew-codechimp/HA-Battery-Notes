@@ -1,4 +1,5 @@
 """Sensor platform for battery_notes."""
+
 from __future__ import annotations
 
 from collections.abc import Mapping
@@ -113,9 +114,12 @@ def async_add_to_device(hass: HomeAssistant, entry: ConfigEntry) -> str | None:
     device_id = entry.data.get(CONF_DEVICE_ID)
 
     if device_registry.async_get(device_id):
-        device_registry.async_update_device(device_id, add_config_entry_id=entry.entry_id)
+        device_registry.async_update_device(
+            device_id, add_config_entry_id=entry.entry_id
+        )
         return device_id
     return None
+
 
 async def async_setup_entry(
     hass: HomeAssistant,
@@ -248,6 +252,7 @@ async def async_setup_platform(
 
     await async_setup_reload_service(hass, DOMAIN, PLATFORMS)
 
+
 class BatteryNotesBatteryPlusSensor(
     SensorEntity, CoordinatorEntity[BatteryNotesCoordinator]
 ):
@@ -361,9 +366,7 @@ class BatteryNotesBatteryPlusSensor(
             )
 
             entity_registry = er.async_get(self.hass)
-            if (
-                entity_registry.async_get(entity_id) is not None
-            ):
+            if entity_registry.async_get(entity_id) is not None:
                 entity_registry.async_update_entity_options(
                     entity_id,
                     DOMAIN,
@@ -387,7 +390,7 @@ class BatteryNotesBatteryPlusSensor(
             """Only dispatch the listener for update events concerning the source entity."""
 
             # Breaking change in 2024.4.0, check for Event for versions prior to this
-            if type(event_data) is Event:  # Intentionally avoid `isinstance` because it's slow and we trust `Event` is not subclassed
+            if type(event_data) is Event:  # pylint: disable=unidiomatic-typecheck
                 event_data = event_data.data
 
             return (
@@ -618,8 +621,7 @@ class BatteryNotesLastReplacedSensor(
         self.entity_description = description
         self._native_value = None
 
-        super().__init__(
-            coordinator=coordinator)
+        super().__init__(coordinator=coordinator)
 
         self._set_native_value(log_on_error=False)
 
@@ -633,7 +635,9 @@ class BatteryNotesLastReplacedSensor(
                 identifiers=device_entry.identifiers,
             )
 
-            self.entity_id = f"sensor.{coordinator.device_name.lower()}_{description.key}"
+            self.entity_id = (
+                f"sensor.{coordinator.device_name.lower()}_{description.key}"
+            )
 
     async def async_added_to_hass(self) -> None:
         """Handle added to Hass."""
@@ -643,7 +647,10 @@ class BatteryNotesLastReplacedSensor(
         # pylint: disable=unused-argument
         device_entry = self.coordinator.store.async_get_device(self._device_id)
         if device_entry:
-            if LAST_REPLACED in device_entry and device_entry[LAST_REPLACED] is not None:
+            if (
+                LAST_REPLACED in device_entry
+                and device_entry[LAST_REPLACED] is not None
+            ):
                 last_replaced_date = datetime.fromisoformat(
                     str(device_entry[LAST_REPLACED]) + "+00:00"
                 )
@@ -658,7 +665,10 @@ class BatteryNotesLastReplacedSensor(
 
         device_entry = self.coordinator.store.async_get_device(self._device_id)
         if device_entry:
-            if LAST_REPLACED in device_entry and device_entry[LAST_REPLACED] is not None:
+            if (
+                LAST_REPLACED in device_entry
+                and device_entry[LAST_REPLACED] is not None
+            ):
                 last_replaced_date = datetime.fromisoformat(
                     str(device_entry[LAST_REPLACED]) + "+00:00"
                 )
