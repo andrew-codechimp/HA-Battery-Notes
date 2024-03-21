@@ -4733,6 +4733,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "raspiaudio",
+            "model": "muse-luxe",
+            "battery_type": "Rechargeable"
         }
     ]
 }
