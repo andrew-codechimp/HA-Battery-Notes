@@ -4723,6 +4723,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "ROBB smarrt",
+            "model": "ROB_200-024-0",
+            "battery_type": "CR2032"
         }
     ]
 }
