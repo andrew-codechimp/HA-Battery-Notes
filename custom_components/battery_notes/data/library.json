@@ -4647,6 +4647,12 @@
         },
         {
             "manufacturer": "Yale",
+            "model": "YRD226 / YRC226 / YRC246 / YRD256 / YRC256 / YRD446",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Yale",
             "model": "YRD420-ZW3",
             "battery_type": "AA",
             "battery_quantity": 4
@@ -4750,12 +4756,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Yale",
-            "model": "YRD226 / YRC226 / YRC246 / YRD256 / YRC256 / YRD446",
-            "battery_type": "AA",
-            "battery_quantity": 4
         }
     ]
 }
