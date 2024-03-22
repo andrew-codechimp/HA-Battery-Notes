@@ -1,4 +1,4 @@
-## 884 Devices in library
+## 885 Devices in library
 
 This file is auto generated, do not modify
 
@@ -234,6 +234,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |eQ-3                                            |HmIP-eTRV-C-2                                                         |2× AA                     |
 |eQ-3                                            |HmIP-eTRV-CL                                                          |4× AA                     |
 |eQ-3                                            |HMIP-eTRV-E                                                           |2× AA                     |
+|eQ-3                                            |HmIP-KRC4                                                             |AAA                       |
 |eQ-3                                            |HmIP-KRCA                                                             |AAA                       |
 |eQ-3                                            |HmIP-KRCK                                                             |AAA                       |
 |eQ-3                                            |HmIP-RC8                                                              |2× AAA                    |
