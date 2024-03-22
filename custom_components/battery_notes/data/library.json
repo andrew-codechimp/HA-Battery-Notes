@@ -2421,6 +2421,12 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "MultiSensor",
+            "model": "MultiSensor 6 (ZW100)",
+            "battery_type": "CR123A",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Namron",
             "model": "Zigbee 4 channel switch K8 (black) (4512721)",
             "battery_type": "CR2450"
@@ -4762,12 +4768,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "MultiSensor",
-            "model": "MultiSensor 6 (ZW100)",
-            "battery_type": "CR123A",
-            "battery_quantity": 2
         }
     ]
 }

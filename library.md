@@ -1,4 +1,4 @@
-## 879 Devices in library
+## 880 Devices in library
 
 This file is auto generated, do not modify
 
@@ -451,6 +451,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Mopeka IOT                                      |M1017                                                                 |CR2032                    |
 |Motion Blinds, Coulisse B.V.                    |HoneycombBlind                                                        |Rechargeable              |
 |Motion Blinds, Coulisse B.V.                    |RollerShutter                                                         |Rechargeable              |
+|MultiSensor                                     |MultiSensor 6 (ZW100)                                                 |2× CR123A                 |
 |Namron                                          |Zigbee 4 channel switch K8 (black) (4512721)                          |CR2450                    |
 |Neo                                             |Alarm (NAS-AB02B2)                                                    |CR123A Lithium            |
 |Neo                                             |NAS-AB06B2                                                            |18650                     |
