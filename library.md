@@ -1,4 +1,4 @@
-## 880 Devices in library
+## 881 Devices in library
 
 This file is auto generated, do not modify
 
@@ -294,6 +294,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Fibargroup                                      |FGSD002                                                               |CR123A                    |
 |Fibargroup                                      |FGSS001                                                               |CR123A                    |
 |Fibargroup                                      |Flood Sensor (FGFS101)                                                |CR123A                    |
+|Fibargroup                                      |Motion Sensor (FGMS001)                                               |CR123A                    |
 |First Alert                                     |1044807                                                               |2× AA                     |
 |First Alert (BRK Brands Inc)                    |ZCOMBO                                                                |2× AA                     |
 |Flo by Moen                                     |puck_v1                                                               |CR123A                    |
