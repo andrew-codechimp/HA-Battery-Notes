@@ -1,4 +1,4 @@
-## 881 Devices in library
+## 880 Devices in library
 
 This file is auto generated, do not modify
 
@@ -286,7 +286,6 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Feasycom                                        |FeasyBeacon FSC-BP108                                                 |CR3032                    |
 |Fibargroup                                      |FGCD001                                                               |CR123A                    |
 |Fibargroup                                      |FGDW002                                                               |LS14250                   |
-|Fibargroup                                      |FGFS101                                                               |CR123A                    |
 |Fibargroup                                      |FGFS101                                                               |CR123A                    |
 |Fibargroup                                      |FGK101                                                                |LS14250                   |
 |Fibargroup                                      |FGKF601                                                               |CR2450                    |
