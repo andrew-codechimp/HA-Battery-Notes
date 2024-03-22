@@ -4768,6 +4768,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Fibargroup",
+            "model": "Flood Sensor (FGFS101)",
+            "battery_type": "CR123A"
         }
     ]
 }
