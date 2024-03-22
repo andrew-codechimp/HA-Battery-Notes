@@ -18,6 +18,15 @@ blueprint:
       default: True
       selector:
         boolean:
+    excluded_devices:
+      name: Devices to exclude (Optional)
+      description: Devices that you do not want to trigger this automation.
+      default:
+      selector:
+        device:
+          multiple: true
+          entity:
+            - integration: battery_notes        
     on_low_actions:
       name: On Low Actions
       description: User actions to run on battery low. Use any event data via trigger.event.data.xxx
@@ -29,11 +38,12 @@ blueprint:
       description: User actions to run on battery returning from low. Use any event data via trigger.event.data.xxx
       default: []
       selector:
-        action:
+        action:   
 
 variables:
   low_notification: !input low_notification
   high_notification: !input high_notification
+  excluded_devices: !input excluded_devices
 
 trigger:
   - platform: event
@@ -49,7 +59,10 @@ trigger:
     id: high
     alias: Battery went high
 
-condition: []
+condition:
+  - condition: template
+    value_template: |-
+      {{ trigger.event.data.device_id not in excluded_devices}}
 
 action:
   - choose:
