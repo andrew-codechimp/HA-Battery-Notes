@@ -1546,11 +1546,6 @@
         },
         {
             "manufacturer": "Fibargroup",
-            "model": "Flood_Sensor_FGFS101",
-            "battery_type": "CR123A"
-        },        
-        {
-            "manufacturer": "Fibargroup",
             "model": "FGK101",
             "battery_type": "LS14250"
         },
@@ -1586,6 +1581,11 @@
         },
         {
             "manufacturer": "Fibargroup",
+            "model": "Flood_Sensor_FGFS101",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Fibargroup",
             "model": "Motion Sensor (FGMS001)",
             "battery_type": "CR123A"
         },
@@ -1593,7 +1593,7 @@
             "manufacturer": "Fibargroup",
             "model": "Motion_Sensor_FGMS001",
             "battery_type": "CR123A"
-        },        
+        },
         {
             "manufacturer": "First Alert",
             "model": "1044807",
