@@ -1137,6 +1137,12 @@
             "battery_type": "CR2"
         },
         {
+            "manufacturer": "Elgato",
+            "model": "Eve Motion 20EAK9901",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "eQ-3",
             "model": "HM-CC-RT-DN",
             "battery_type": "AA",
@@ -4794,12 +4800,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Elgato",
-            "model": "Eve Motion 20EAK9901",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
