@@ -1481,6 +1481,12 @@
         },
         {
             "manufacturer": "Everspring",
+            "model": "AC301",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Everspring",
             "model": "ST812",
             "battery_type": "AA",
             "battery_quantity": 3
@@ -4805,12 +4811,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Everspring",
-            "model": "AC301",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
