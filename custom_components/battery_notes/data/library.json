@@ -4513,6 +4513,11 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "XIAOMI",
+            "model": "lumi.sen_ill.mgl01",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "Xiaomi",
             "model": "LYWSD02",
             "battery_type": "CR2032",
@@ -4811,11 +4816,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "XIAOMI",
-            "model": "lumi.sen_ill.mgl01",
-            "battery_type": "CR2032"
         }
     ]
 }
