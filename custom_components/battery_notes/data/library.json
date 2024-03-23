@@ -2634,6 +2634,11 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Onvis",
+            "model": "HS2",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "OpenEpaperLink",
             "model": "ST\u2010GR16000 1.54\"",
             "battery_type": "CR2450"
@@ -4799,11 +4804,6 @@
         {
             "manufacturer": "Zooz",
             "model": "ZSE44",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Onvis",
-            "model": "HS2",
             "battery_type": "CR2450"
         }
     ]
