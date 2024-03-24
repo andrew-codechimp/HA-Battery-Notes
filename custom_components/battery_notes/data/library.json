@@ -4822,6 +4822,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Hive",
+            "model": "TRV003",
+            "battery_type": "AA",
+            "battery_quantity": 2
         }
     ]
 }
