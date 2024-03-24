@@ -1,4 +1,4 @@
-## 891 Devices in library
+## 892 Devices in library
 
 This file is auto generated, do not modify
 
@@ -312,6 +312,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |frient A/S                                      |HESZB-120                                                             |CR123A                    |
 |frient A/S                                      |SBTZB-110                                                             |CR2450                    |
 |frient A/S                                      |SMSZB-120                                                             |CR123                     |
+|GiEX                                            |Water irrigation valve (QT06_1)                                       |4× AA                     |
 |GiEX                                            |Water irrigation valve (QT06_2)                                       |4× AA                     |
 |Google                                          |A12                                                                   |3× AA                     |
 |Google                                          |KR1                                                                   |CR2                       |

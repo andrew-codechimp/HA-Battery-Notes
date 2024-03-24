@@ -1681,6 +1681,12 @@
         },
         {
             "manufacturer": "GiEX",
+            "model": "Water irrigation valve (QT06_1)",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "GiEX",
             "model": "Water irrigation valve (QT06_2)",
             "battery_type": "AA",
             "battery_quantity": 4
@@ -4828,12 +4834,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "GiEX",
-            "model": "Water irrigation valve (QT06_1)",
-            "battery_type": "AA",
-            "battery_quantity": 4
         }
     ]
 }
