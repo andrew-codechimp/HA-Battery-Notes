@@ -1,4 +1,4 @@
-## 889 Devices in library
+## 890 Devices in library
 
 This file is auto generated, do not modify
 
@@ -166,6 +166,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |BlueMaestro                                     |Tempo Disc THD                                                        |CR2032                    |
 |Bosch                                           |ISW-ZPR1-WP13                                                         |4× AA                     |
 |Bosch                                           |Motion sensor (ISW-ZPR1-WP13)                                         |4× AA                     |
+|Bosch                                           |Radiator Thermostat II                                                |2× AA                     |
 |Bosch                                           |Radiator thermostat II (BTH-RA)                                       |2× AA                     |
 |BRK Brands, Inc.                                |ZCOMBO                                                                |2× AA                     |
 |BRK Brands, Inc.                                |ZSMOKE                                                                |2× AA                     |

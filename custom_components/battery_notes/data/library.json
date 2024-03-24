@@ -873,6 +873,12 @@
         },
         {
             "manufacturer": "Bosch",
+            "model": "Radiator Thermostat II",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Bosch",
             "model": "Radiator thermostat II (BTH-RA)",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -4816,12 +4822,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Bosch",
-            "model": "Radiator Thermostat II",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
