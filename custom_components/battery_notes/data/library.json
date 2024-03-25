@@ -2483,6 +2483,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "M\u00fcller Licht",
+            "model": "Tint remote control (MLI-404011/MLI-404049)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Namron",
             "model": "Zigbee 4 channel switch K8 (black) (4512721)",
             "battery_type": "CR2450"
@@ -4845,12 +4851,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "M\u00fcller Licht",
-            "model": "Tint remote control (MLI-404011/MLI-404049)",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
