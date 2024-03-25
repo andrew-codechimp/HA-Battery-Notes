@@ -4590,6 +4590,11 @@
         },
         {
             "manufacturer": "Xiaomi",
+            "model": "Mi motion sensor (RTCGQ01LM)",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Xiaomi",
             "model": "Mi Scale V1",
             "battery_type": "CR2032"
         },
@@ -4839,11 +4844,6 @@
         {
             "manufacturer": "Zooz",
             "model": "ZSE44",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Xiaomi",
-            "model": "Mi motion sensor (RTCGQ01LM)",
             "battery_type": "CR2450"
         }
     ]
