@@ -2625,6 +2625,11 @@
         },
         {
             "manufacturer": "Nuki",
+            "model": "Smart Lock Pro",
+            "battery_type": "Nuki Battery Pack"
+        },
+        {
+            "manufacturer": "Nuki",
             "model": "SmartLock",
             "battery_type": "MANUAL",
             "battery_quantity": 4
@@ -4851,11 +4856,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Nuki",
-            "model": "Smart Lock Pro",
-            "battery_type": "Nuki Battery Pack"
         }
     ]
 }

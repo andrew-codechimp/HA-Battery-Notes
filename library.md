@@ -1,4 +1,4 @@
-## 895 Devices in library
+## 896 Devices in library
 
 This file is auto generated, do not modify
 
@@ -487,6 +487,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |NUKI                                            |Nuki Door Sensor                                                      |LS14250                   |
 |Nuki                                            |Nuki Opener                                                           |4× AAA                    |
 |Nuki                                            |Nuki Smart Lock                                                       |4× AA                     |
+|Nuki                                            |Smart Lock Pro                                                        |Nuki Battery Pack         |
 |Nuki                                            |SmartLock                                                             |4× MANUAL                 |
 |Nuki Home Solutions GmbH                        |Nuki opener                                                           |4× AAA                    |
 |Nuki Home Solutions GmbH                        |Nuki smart lock 1.0/2.0                                               |4× AA                     |
