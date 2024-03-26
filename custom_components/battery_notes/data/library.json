@@ -2364,6 +2364,11 @@
         },
         {
             "manufacturer": "LUMI",
+            "model": "lumi.sensor_ht.agl02",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "LUMI",
             "model": "lumi.sensor_magnet",
             "battery_type": "CR1632"
         },
@@ -4861,11 +4866,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "LUMI",
-            "model": "lumi.sensor_ht.agl02",
-            "battery_type": "CR2032"
         }
     ]
 }
