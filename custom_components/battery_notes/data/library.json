@@ -1132,6 +1132,11 @@
             "battery_type": "AA"
         },
         {
+            "manufacturer": "ECOWITT",
+            "model": "WN34L",
+            "battery_type": "AA"
+        },
+        {
             "manufacturer": "Elexa Consumer Products Inc.",
             "model": "DMS01",
             "battery_type": "CR123A",
@@ -4856,11 +4861,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "ECOWITT",
-            "model": "WN34L",
-            "battery_type": "AA"
         }
     ]
 }
