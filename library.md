@@ -412,7 +412,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Kwikset                                         |SmartCode traditional electronic deadbolt (99140-031)                 |4× AA                     |
 |Kwikset                                         |SMARTCODE_DEADBOLT_10T                                                |4× AA                     |
 |LDS                                             |ZBT-CCTSwitch-D0001                                                   |CR2450                    |
-|Lidl                                            |HG06335/HG07310                                                       |MANUAL                    |
+|Lidl                                            |HG06335/HG07310                                                       |CR123A                    |
 |Lidl                                            |HG06336                                                               |2× AAA                    |
 |Lidl                                            |Silvercrest radiator valve with thermostat (368308_2010)              |2× AA                     |
 |Lidl                                            |Silvercrest smart motion sensor (HG06335/HG07310)                     |MANUAL                    |
