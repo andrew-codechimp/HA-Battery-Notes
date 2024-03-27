@@ -1,4 +1,4 @@
-## 907 Devices in library
+## 908 Devices in library
 
 This file is auto generated, do not modify
 
@@ -751,6 +751,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |TuYa                                            |Soil sensor (TS0601_soil)                                                  |2× AA                     |
 |TuYa                                            |T & H Sensor (lf36y5nwb8jkxwgg)                                            |2× AAA                    |
 |Tuya                                            |T & H Sensor (xlk3mtpjo1zkmdvh)                                            |3× AAA                    |
+|TuYa                                            |Temperature & humidity LCD sensor (ZG-227ZL)                               |CR2032                    |
 |TuYa                                            |Temperature & humidity sensor (IH-K009)                                    |CR2450                    |
 |TuYa                                            |Temperature & humidity sensor (WSD500A)                                    |2× AAA                    |
 |TuYa                                            |Temperature & humidity sensor with display (TS0201)                        |2× AAA                    |
