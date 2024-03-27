@@ -4908,6 +4908,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "smarthjemmet.dk",
+            "model": "[Multi switch from Smarthjemmet.dk](https://smarthjemmet.dk) (MULTI-ZIG-SW)",
+            "battery_type": "CR2032"
         }
     ]
 }
