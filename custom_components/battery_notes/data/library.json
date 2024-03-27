@@ -3391,6 +3391,11 @@
             "battery_type": "CR2"
         },
         {
+            "manufacturer": "smarthjemmet.dk",
+            "model": "[Multi switch from Smarthjemmet.dk](https://smarthjemmet.dk) (MULTI-ZIG-SW)",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "smartlife",
             "model": "T & H Sensor (lf36y5nwb8jkxwgg)",
             "battery_type": "AAA",
@@ -4908,11 +4913,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "smarthjemmet.dk",
-            "model": "[Multi switch from Smarthjemmet.dk](https://smarthjemmet.dk) (MULTI-ZIG-SW)",
-            "battery_type": "CR2032"
         }
     ]
 }
