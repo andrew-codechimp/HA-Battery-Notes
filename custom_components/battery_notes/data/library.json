@@ -4893,6 +4893,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Motionblinds, Coulisse B.V.",
+            "model": "RollerBlind",
+            "battery_type": "Rechargeable"
         }
     ]
 }
