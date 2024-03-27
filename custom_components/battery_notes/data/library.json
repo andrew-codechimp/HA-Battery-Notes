@@ -1206,6 +1206,11 @@
         },
         {
             "manufacturer": "eQ-3",
+            "model": "HM-Sec-SD-2",
+            "battery_type": "Irreplaceable"
+        },
+        {
+            "manufacturer": "eQ-3",
             "model": "HM-TC-IT-WM-W-EU",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -4898,11 +4903,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "eQ-3",
-            "model": "HM-Sec-SD-2",
-            "battery_type": "Irreplaceable"
         }
     ]
 }
