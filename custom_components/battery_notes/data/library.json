@@ -4876,6 +4876,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "eQ-3",
+            "model": "HM-OU-CFM-TW",
+            "battery_type": "Baby C",
+            "battery_quantity": 2
         }
     ]
 }
