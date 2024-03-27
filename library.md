@@ -1,4 +1,4 @@
-## 903 Devices in library
+## 904 Devices in library
 
 This file is auto generated, do not modify
 
@@ -467,6 +467,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Mopeka IOT                                      |M1017                                                                 |CR2032                    |
 |Motion Blinds, Coulisse B.V.                    |HoneycombBlind                                                        |Rechargeable              |
 |Motion Blinds, Coulisse B.V.                    |RollerShutter                                                         |Rechargeable              |
+|Motionblinds, Coulisse B.V.                     |RollerBlind                                                           |Rechargeable              |
 |MultiSensor                                     |MultiSensor 6 (ZW100)                                                 |2× CR123A                 |
 |Müller Licht                                    |Tint remote control (MLI-404011/MLI-404049)                           |2× AAA                    |
 |Namron                                          |Zigbee 4 channel switch K8 (black) (4512721)                          |CR2450                    |
