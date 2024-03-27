@@ -1178,6 +1178,11 @@
         },
         {
             "manufacturer": "eQ-3",
+            "model": "HM-RC-Key4-3",
+            "battery_type": "AAA"
+        },
+        {
+            "manufacturer": "eQ-3",
             "model": "HM-Sec-RHS",
             "battery_type": "LR44",
             "battery_quantity": 2
@@ -4871,11 +4876,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "eQ-3",
-            "model": "HM-RC-Key4-3",
-            "battery_type": "AAA"
         }
     ]
 }
