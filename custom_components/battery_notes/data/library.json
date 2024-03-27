@@ -4866,6 +4866,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "Light sensor T1 (GZCGQ11LM)",
+            "battery_type": "CR2450"
         }
     ]
 }
