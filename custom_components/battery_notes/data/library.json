@@ -4903,6 +4903,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Philips",
+            "model": "Hue Tap dial switch (8719514440937/8719514440999)",
+            "battery_type": "CR2032"
         }
     ]
 }
