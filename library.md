@@ -1,4 +1,4 @@
-## 900 Devices in library
+## 901 Devices in library
 
 This file is auto generated, do not modify
 
@@ -222,6 +222,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |eQ-3                                            |HM-CC-RT-DN                                                           |2× AA                     |
 |eQ-3                                            |HM-Dis-EP-WM55                                                        |2× AAA                    |
 |eQ-3                                            |HM-ES-TX-WM                                                           |4× AA                     |
+|eQ-3                                            |HM-OU-CFM-TW                                                          |2× Baby C                 |
 |eQ-3                                            |HM-RC-Key4-3                                                          |AAA                       |
 |eQ-3                                            |HM-Sec-RHS                                                            |2× LR44                   |
 |eQ-3                                            |HM-Sec-SCo                                                            |AAA                       |
