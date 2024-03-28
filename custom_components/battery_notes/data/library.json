@@ -4918,6 +4918,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "LUMI",
+            "model": "lumi.magnet.acn001",
+            "battery_type": "CR1632"
         }
     ]
 }
