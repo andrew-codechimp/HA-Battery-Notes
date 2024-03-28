@@ -1,4 +1,4 @@
-## 909 Devices in library
+## 910 Devices in library
 
 This file is auto generated, do not modify
 
@@ -63,6 +63,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |_TZE200_p3dbf6qs                                |TS0601                                                                     |2× AA                     |
 |_TZE200_yjjdcqsq                                |TS0601                                                                     |2× AAA                    |
 |_TZE200_znbl8dj5                                |TS0601                                                                     |CR2032                    |
+|Adaprox                                         |TS0001_fingerbot_1                                                         |CR2                       |
 |AEON Labs                                       |DSB05                                                                      |4× AAA                    |
 |AEON Labs                                       |DSB29                                                                      |2× AAA                    |
 |AEON Labs                                       |DSB45                                                                      |2× AAA                    |
