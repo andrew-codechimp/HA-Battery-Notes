@@ -4923,6 +4923,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Adaprox",
+            "model": "TS0001_fingerbot_1",
+            "battery_type": "CR2"
         }
     ]
 }
