@@ -4928,6 +4928,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "TS0001",
+            "model": "_TZ3210_j4pdtz9v",
+            "battery_type": "CR2"
         }
     ]
 }
