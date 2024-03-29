@@ -4933,6 +4933,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "AEON Labs",
+            "model": "ZW089",
+            "battery_type": "CR2"
         }
     ]
 }
