@@ -340,6 +340,11 @@
         },
         {
             "manufacturer": "AEON Labs",
+            "model": "ZW089",
+            "battery_type": "CR2"
+        },
+        {
+            "manufacturer": "AEON Labs",
             "model": "ZW100",
             "battery_type": "CR123A",
             "battery_quantity": 2
@@ -4933,11 +4938,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "AEON Labs",
-            "model": "ZW089",
-            "battery_type": "CR2"
         }
     ]
 }
