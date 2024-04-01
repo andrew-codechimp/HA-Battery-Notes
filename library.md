@@ -1,4 +1,4 @@
-## 915 Devices in library
+## 916 Devices in library
 
 This file is auto generated, do not modify
 
@@ -595,6 +595,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Sercomm Corp.                                   |XHS2-SE                                                                    |CR2450                    |
 |Shelly                                          |BLU Button1                                                                |CR2032                    |
 |Shelly                                          |BLU Door/Window                                                            |CR2032                    |
+|Shelly                                          |Shelly Button1                                                             |Rechargable               |
 |Shelly                                          |Shelly Door/Window 2                                                       |2× CR123A                 |
 |Shelly                                          |Shelly Flood                                                               |CR123A                    |
 |Shelly                                          |Shelly H&T                                                                 |CR123A                    |
