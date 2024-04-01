@@ -1,4 +1,4 @@
-## 914 Devices in library
+## 915 Devices in library
 
 This file is auto generated, do not modify
 
@@ -599,6 +599,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Shelly                                          |Shelly Flood                                                               |CR123A                    |
 |Shelly                                          |Shelly H&T                                                                 |CR123A                    |
 |Shelly                                          |Shelly Motion                                                              |Rechargable               |
+|Shelly                                          |Shelly Motion 2                                                            |Rechargable               |
 |Shelly                                          |Shelly Plus Smoke                                                          |CR123A                    |
 |Shelly                                          |Shelly Valve                                                               |Rechargable               |
 |Shenzhen Heiman Technology Co., Ltd.            |HS1HT-Z                                                                    |CR2450                    |

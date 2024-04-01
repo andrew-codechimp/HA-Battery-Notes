@@ -3225,6 +3225,11 @@
         },
         {
             "manufacturer": "Shelly",
+            "model": "Shelly Motion 2",
+            "battery_type": "Rechargable"
+        },
+        {
+            "manufacturer": "Shelly",
             "model": "Shelly Plus Smoke",
             "battery_type": "CR123A"
         },
@@ -4949,11 +4954,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Shelly",
-            "model": "Shelly Motion 2",
-            "battery_type": "Rechargable"
         }
     ]
 }
