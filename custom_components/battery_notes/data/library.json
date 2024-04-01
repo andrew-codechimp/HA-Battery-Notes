@@ -4954,6 +4954,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Shelly",
+            "model": "Shelly Button1",
+            "battery_type": "Rechargable"
         }
     ]
 }
