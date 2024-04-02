@@ -4959,6 +4959,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "X-Sense",
+            "model": "Wi-Fi Smoke Alarm (skivkhveqwmqw4gs)",
+            "battery_type": "CR123A"
         }
     ]
 }
