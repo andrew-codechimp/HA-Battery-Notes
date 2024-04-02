@@ -4243,6 +4243,11 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Tuya",
+            "model": "X-Sense Wi-Fi Smoke Alarm (skivkhveqwmqw4gs)",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "TuYa",
             "model": "Zigbee fingerbot plus (TS0001_fingerbot)",
             "battery_type": "CR2"
@@ -4959,11 +4964,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "X-Sense Wi-Fi Smoke Alarm (skivkhveqwmqw4gs)",
-            "battery_type": "CR123A"
         }
     ]
 }
