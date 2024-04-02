@@ -1,4 +1,4 @@
-## 917 Devices in library
+## 918 Devices in library
 
 This file is auto generated, do not modify
 
@@ -752,6 +752,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |TuYa                                            |Smart button (IH-K663)                                                     |CR2032                    |
 |TuYa                                            |Smart button (MINI-ZSB)                                                    |CR2032                    |
 |TuYa                                            |Smart knob (ERS-10TZBVK-AA)                                                |CR2032                    |
+|Tuya                                            |Smoke Alarm (gymi8xdlnxtpslit)                                             |CR123A                    |
 |Tuya                                            |Smoke Detector (lsjnzox4skgduemo)                                          |PP3                       |
 |TuYa                                            |Smoke sensor (TS0205)                                                      |CR123                     |
 |TuYa                                            |Smoke sensor (TS0205_smoke_2)                                              |2× AAA                    |

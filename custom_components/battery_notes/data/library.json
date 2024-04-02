@@ -4052,6 +4052,11 @@
         },
         {
             "manufacturer": "Tuya",
+            "model": "Smoke Alarm (gymi8xdlnxtpslit)",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Tuya",
             "model": "Smoke Detector (lsjnzox4skgduemo)",
             "battery_type": "PP3"
         },
@@ -4964,11 +4969,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Smoke Alarm (gymi8xdlnxtpslit)",
-            "battery_type": "CR123A"
         }
     ]
 }
