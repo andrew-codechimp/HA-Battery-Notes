@@ -2779,6 +2779,12 @@
             "battery_type": "2CR5"
         },
         {
+            "manufacturer": "Orbit",
+            "model": "HT32-0001",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Orbit BHyve",
             "model": "HT25-0000",
             "battery_type": "AA",
@@ -4974,12 +4980,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Orbit",
-            "model": "HT32-0001",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
