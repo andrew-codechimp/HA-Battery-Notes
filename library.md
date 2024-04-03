@@ -1,4 +1,4 @@
-## 918 Devices in library
+## 919 Devices in library
 
 This file is auto generated, do not modify
 
@@ -780,6 +780,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |tuya                                            |TS0601                                                                     |CR2                       |
 |TuYa                                            |TS0601                                                                     |3× AA                     |
 |TuYa                                            |TS0601_smoke_1                                                             |2× AAA                    |
+|Tuya                                            |TT001ZAV20                                                                 |CR2032                    |
 |TuYa                                            |Water leak detector (TS0207_water_leak_detector)                           |CR2032                    |
 |Tuya                                            |WiFi Temperature & Humidity Sensor (q29ebws5adwye1l8)                      |2× AAA                    |
 |TuYa                                            |Wireless switch with 1 button (TS0041)                                     |CR2032                    |

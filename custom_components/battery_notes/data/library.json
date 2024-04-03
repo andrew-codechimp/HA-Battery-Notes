@@ -4207,6 +4207,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Tuya",
+            "model": "TT001ZAV20",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "TuYa",
             "model": "Water leak detector (TS0207_water_leak_detector)",
             "battery_type": "CR2032"
@@ -4969,11 +4974,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "TT001ZAV20",
-            "battery_type": "CR2032"
         }
     ]
 }
