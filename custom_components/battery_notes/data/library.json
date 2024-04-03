@@ -4980,6 +4980,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Orbit BHyve",
+            "model": "HT32-0001",
+            "battery_type": "AA",
+            "battery_quantity": 2
         }
     ]
 }
