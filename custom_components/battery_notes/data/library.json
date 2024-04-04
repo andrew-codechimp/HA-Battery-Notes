@@ -2797,6 +2797,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Orbit BHyve",
+            "model": "HT34-0001",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "ORVIBO",
             "model": "e70f96b3773a4c9283c6862dbafb6a99",
             "battery_type": "CR2032"
@@ -4986,12 +4992,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Orbit BHyve",
-            "model": "HT34-0001",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
