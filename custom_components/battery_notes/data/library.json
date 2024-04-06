@@ -5004,6 +5004,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Fyta",
+            "model": "Plant",
+            "battery_type": "CR2032"
         }
     ]
 }
