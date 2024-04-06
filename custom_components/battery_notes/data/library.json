@@ -1926,6 +1926,12 @@
         },
         {
             "manufacturer": "Honeywell",
+            "model": "TH6320ZW2007",
+            "battery_type": "AA",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "Honeywell",
             "model": "zigbee JTYJ-GD-01LM/BW (lumi.sensor_smoke)",
             "battery_type": "CR123A",
             "battery_quantity": 2
