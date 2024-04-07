@@ -2259,6 +2259,12 @@
         },
         {
             "manufacturer": "Kwikset",
+            "model": "SMARTCODE_CONVERT_GEN1",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Kwikset",
             "model": "SMARTCODE_CONVERT_GEN1_W3",
             "battery_type": "AA",
             "battery_quantity": 4
@@ -5014,12 +5020,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Kwikset",
-            "model": "SMARTCODE_CONVERT_GEN1",
-            "battery_type": "AA",
-            "battery_quantity": 4
         }
     ]
 }
