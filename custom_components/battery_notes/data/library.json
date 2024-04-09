@@ -1186,6 +1186,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Elro",
+            "model": "Heat alarm",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "eQ-3",
             "model": "HM-CC-RT-DN",
             "battery_type": "AA",
@@ -5026,12 +5032,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Elro",
-            "model": "Heat alarm",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
