@@ -1,4 +1,4 @@
-## 927 Devices in library
+## 928 Devices in library
 
 This file is auto generated, do not modify
 
@@ -223,6 +223,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Elexa Consumer Products Inc.                    |DMS01                                                                      |2× CR123A                 |
 |Elexa Consumer Products Inc.                    |DMWS1                                                                      |CR2                       |
 |Elgato                                          |Eve Motion 20EAK9901                                                       |2× AA                     |
+|Elro                                            |Fire alarm                                                                 |2× AA                     |
 |eQ-3                                            |HM-CC-RT-DN                                                                |2× AA                     |
 |eQ-3                                            |HM-Dis-EP-WM55                                                             |2× AAA                    |
 |eQ-3                                            |HM-ES-TX-WM                                                                |4× AA                     |
