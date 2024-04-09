@@ -1181,6 +1181,12 @@
         },
         {
             "manufacturer": "Elro",
+            "model": "CO alarm",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Elro",
             "model": "Fire alarm",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -5038,12 +5044,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Elro",
-            "model": "CO alarm",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
