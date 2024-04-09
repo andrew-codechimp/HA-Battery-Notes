@@ -2084,6 +2084,11 @@
         },
         {
             "manufacturer": "IKEA of Sweden",
+            "model": "BADRING Water Leakage Sensor",
+            "battery_type": "AAA"
+        },
+        {
+            "manufacturer": "IKEA of Sweden",
             "model": "FYRTUR block-out roller blind",
             "battery_type": "BRAUNIT Battery pack"
         },
@@ -5044,11 +5049,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "IKEA of Sweden",
-            "model": "BADRING Water Leakage Sensor",
-            "battery_type": "AAA"
         }
     ]
 }

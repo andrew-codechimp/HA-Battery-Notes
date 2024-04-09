@@ -1,4 +1,4 @@
-## 931 Devices in library
+## 932 Devices in library
 
 This file is auto generated, do not modify
 
@@ -386,6 +386,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |IKEA                                            |TRADFRI wireless dimmer (ICTC-G-1)                                         |CR2032                    |
 |Ikea                                            |TREDANSEN cellular blind (E2103)                                           |Rechargeable              |
 |IKEA                                            |VALLHORN wireless motion sensor (E2134)                                    |2× AAA                    |
+|IKEA of Sweden                                  |BADRING Water Leakage Sensor                                               |AAA                       |
 |IKEA of Sweden                                  |FYRTUR block-out roller blind                                              |BRAUNIT Battery pack      |
 |IKEA of Sweden                                  |KADRILJ roller blind                                                       |BRAUNIT Battery pack      |
 |IKEA of Sweden                                  |PARASOLL Door/Window Sensor                                                |AAA                       |
