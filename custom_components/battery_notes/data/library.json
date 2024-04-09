@@ -4921,6 +4921,11 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Xiaomi Aquara",
+            "model": "sensor_magnet.aq2",
+            "battery_type": "CR1632"
+        },
+        {
             "manufacturer": "Yale",
             "model": "420D",
             "battery_type": "AA",
@@ -5049,11 +5054,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Xiaomi Aquara",
-            "model": "sensor_magnet.aq2",
-            "battery_type": "CR1632"
         }
     ]
 }
