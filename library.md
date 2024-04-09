@@ -1,4 +1,4 @@
-## 929 Devices in library
+## 930 Devices in library
 
 This file is auto generated, do not modify
 
@@ -225,6 +225,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Elgato                                          |Eve Motion 20EAK9901                                                       |2× AA                     |
 |Elro                                            |Fire alarm                                                                 |2× AA                     |
 |Elro                                            |Heat alarm                                                                 |2× AA                     |
+|Elro                                            |TEMPERATURE_SENSOR                                                         |2× AA                     |
 |eQ-3                                            |HM-CC-RT-DN                                                                |2× AA                     |
 |eQ-3                                            |HM-Dis-EP-WM55                                                             |2× AAA                    |
 |eQ-3                                            |HM-ES-TX-WM                                                                |4× AA                     |
