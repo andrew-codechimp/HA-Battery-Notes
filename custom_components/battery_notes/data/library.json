@@ -5044,6 +5044,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "IKEA of Sweden",
+            "model": "BADRING Water Leakage Sensor",
+            "battery_type": "AAA"
         }
     ]
 }
