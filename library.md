@@ -1,4 +1,4 @@
-## 933 Devices in library
+## 934 Devices in library
 
 This file is auto generated, do not modify
 
@@ -28,6 +28,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |_TZ3000_dfgbtub0                                |TS0042                                                                     |CR2430                    |
 |_TZ3000_dowj6gyi                                |TS0201                                                                     |CR2450                    |
 |_TZ3000_ee8nrt2l                                |TS0044                                                                     |CR2032                    |
+|_TZ3000_f2bw0b6k                                |TS0201                                                                     |CR2032                    |
 |_TZ3000_fllyghyj                                |TS0201                                                                     |2× AAA                    |
 |_TZ3000_hkcpblrs                                |TS0203                                                                     |2× AAA                    |
 |_TZ3000_ixla93vd                                |TS004F                                                                     |CR2032                    |
