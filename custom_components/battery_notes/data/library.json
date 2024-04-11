@@ -1970,6 +1970,11 @@
             "battery_type": "LS14250"
         },
         {
+            "manufacturer": "HomeSeer Technologies",
+            "model": "HS-MS100+",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "HomeWizard",
             "model": "HWE-WTR",
             "battery_type": "CR123A",
@@ -5093,11 +5098,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "HomeSeer Technologies",
-            "model": "HS-MS100+",
-            "battery_type": "CR123A"
         }
     ]
 }
