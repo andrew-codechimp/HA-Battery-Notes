@@ -3281,6 +3281,11 @@
             "battery_type": "CR1632"
         },
         {
+            "manufacturer": "Sensative AB",
+            "model": "11-01-011",
+            "battery_type": "Irreplaceable"
+        },
+        {
             "manufacturer": "SensorPush",
             "model": "HTP.xw",
             "battery_type": "CR2477"
@@ -5098,11 +5103,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Sensative AB",
-            "model": "11-01-011",
-            "battery_type": "Irreplaceable"
         }
     ]
 }
