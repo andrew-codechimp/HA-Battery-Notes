@@ -1,4 +1,4 @@
-## 942 Devices in library
+## 943 Devices in library
 
 This file is auto generated, do not modify
 
@@ -539,6 +539,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |OSRAM                                           |SMART+ Motion Sensor (AC01353010G)                                         |CR2                       |
 |OSRAM                                           |Smart+ switch mini (AC0251100NJ/AC0251600NJ/AC0251700NJ)                   |CR2450                    |
 |Paulmann                                        |Smart switch 4 buttons white (501.34)                                      |CR2450                    |
+|Philio Technology Corp                          |PAT02-B                                                                    |CR123A                    |
 |Philio Technology Corp                          |PAT02-C                                                                    |CR123A                    |
 |Philio Technology Corp                          |PST02A                                                                     |CR123A                    |
 |Philips                                         |Hue dimmer switch (324131092621)                                           |CR2450                    |
