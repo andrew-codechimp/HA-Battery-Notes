@@ -1580,6 +1580,12 @@
             "battery_quantity": 3
         },
         {
+            "manufacturer": "Everspring",
+            "model": "ST814",
+            "battery_type": "AA",
+            "battery_quantity": 3
+        },
+        {
             "manufacturer": "eWeLink",
             "model": "66666",
             "battery_type": "CR2450"
@@ -5075,12 +5081,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Everspring",
-            "model": "ST814",
-            "battery_type": "AA",
-            "battery_quantity": 3
         }
     ]
 }
