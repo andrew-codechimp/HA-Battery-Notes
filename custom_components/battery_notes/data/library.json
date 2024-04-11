@@ -5098,6 +5098,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Sensative AB",
+            "model": "11-01-011",
+            "battery_type": "Irreplaceable"
         }
     ]
 }
