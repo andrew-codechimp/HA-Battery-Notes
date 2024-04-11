@@ -5025,6 +5025,11 @@
         },
         {
             "manufacturer": "Zooz",
+            "model": "ZAC38",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Zooz",
             "model": "ZEN34",
             "battery_type": "CR2032",
             "battery_quantity": 2
@@ -5064,11 +5069,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Zooz",
-            "model": "ZAC38",
-            "battery_type": "Rechargeable"
         }
     ]
 }
