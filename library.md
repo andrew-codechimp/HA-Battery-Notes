@@ -1,4 +1,4 @@
-## 943 Devices in library
+## 944 Devices in library
 
 This file is auto generated, do not modify
 
@@ -83,6 +83,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Aeotec Ltd.                                     |ZWA008                                                                     |LS14250                   |
 |Aeotec Ltd.                                     |ZWA009                                                                     |CR2477                    |
 |Aeotec Ltd.                                     |ZWA012                                                                     |LS14250                   |
+|Aeotec Ltd.                                     |ZWA018                                                                     |CR14250                   |
 |Aeotec Ltd.                                     |ZWA019                                                                     |LS14250                   |
 |Aeotec Ltd.                                     |ZWA039                                                                     |CR2477                    |
 |Airthings                                       |View Plus                                                                  |6× AA                     |
