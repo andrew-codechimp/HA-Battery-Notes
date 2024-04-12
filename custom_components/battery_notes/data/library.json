@@ -5129,6 +5129,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Zooz",
+            "model": "ZEN37",
+            "battery_type": "LIR2032"
         }
     ]
 }
