@@ -2343,6 +2343,11 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "Leedarson",
+            "model": "4-Key Remote Controller (6ARCZABZH)",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "Lidl",
             "model": "HG06335/HG07310",
             "battery_type": "CR123A"
@@ -5117,11 +5122,6 @@
         {
             "manufacturer": "Zooz",
             "model": "ZSE44",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Leedarson",
-            "model": "4-Key Remote Controller (6ARCZABZH)",
             "battery_type": "CR2450"
         }
     ]

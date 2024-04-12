@@ -1,4 +1,4 @@
-## 945 Devices in library
+## 946 Devices in library
 
 This file is auto generated, do not modify
 
@@ -434,6 +434,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Kwikset                                         |SMARTCODE_CONVERT_GEN1_W3                                                  |4× AA                     |
 |Kwikset                                         |SMARTCODE_DEADBOLT_10T                                                     |4× AA                     |
 |LDS                                             |ZBT-CCTSwitch-D0001                                                        |CR2450                    |
+|Leedarson                                       |4-Key Remote Controller (6ARCZABZH)                                        |CR2450                    |
 |Lidl                                            |HG06335/HG07310                                                            |CR123A                    |
 |Lidl                                            |HG06336                                                                    |2× AAA                    |
 |Lidl                                            |Silvercrest radiator valve with thermostat (368308_2010)                   |2× AA                     |
