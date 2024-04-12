@@ -1,4 +1,4 @@
-## 944 Devices in library
+## 945 Devices in library
 
 This file is auto generated, do not modify
 
@@ -481,6 +481,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Mi light sensor                                 |GZCGQ01LM                                                                  |CR2450                    |
 |Minoston                                        |MR40Z                                                                      |2× CR2032                 |
 |modkam.ru                                       |DIYRuZ_Flower                                                              |2× AAA                    |
+|Moes                                            |Door/window magnetic sensor (ZSS-X-GWM-C)                                  |CR2032                    |
 |Moes                                            |kvwjujy9                                                                   |CR2032                    |
 |Moes                                            |Smoke sensor (ZSS-HM-SSD01)                                                |CR123A                    |
 |Moes                                            |Thermostatic radiator valve (BRT-100-TRV)                                  |2× AA                     |
