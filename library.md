@@ -1,4 +1,4 @@
-## 946 Devices in library
+## 947 Devices in library
 
 This file is auto generated, do not modify
 
@@ -587,6 +587,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Ring                                            |Spotlight Cam Plus                                                         |Rechargeable              |
 |ROBB smarrt                                     |ROB_200-024-0                                                              |CR2032                    |
 |Roborock                                        |roborock.vacuum.a15                                                        |Rechargeable              |
+|rtl_433                                         |Acurite-515                                                                |2× AA                     |
 |rtl_433                                         |Acurite-986                                                                |2× AA                     |
 |rtl_433                                         |Acurite-Tower                                                              |2× AA                     |
 |rtl_433                                         |Fineoffset-WH51                                                            |AA                        |

@@ -3166,6 +3166,12 @@
         },
         {
             "manufacturer": "rtl_433",
+            "model": "Acurite-515",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "rtl_433",
             "model": "Acurite-986",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -5123,12 +5129,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "rtl_433",
-            "model": "Acurite-515",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
