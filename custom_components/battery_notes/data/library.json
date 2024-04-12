@@ -5113,6 +5113,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Moes",
+            "model": "Door/window magnetic sensor (ZSS-X-GWM-C)",
+            "battery_type": "CR2032"
         }
     ]
 }
