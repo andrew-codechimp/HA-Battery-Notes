@@ -5149,6 +5149,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "CentraLite",
+            "model": "Contact Sensor-A",
+            "battery_type": "CR2"
         }
     ]
 }
