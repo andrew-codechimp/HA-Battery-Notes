@@ -1,4 +1,4 @@
-## 948 Devices in library
+## 949 Devices in library
 
 This file is auto generated, do not modify
 
@@ -177,6 +177,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |BRK Brands, Inc.                                |ZCOMBO                                                                     |2× AA                     |
 |BRK Brands, Inc.                                |ZSMOKE                                                                     |2× AA                     |
 |Centralite                                      |3157100                                                                    |4× AA                     |
+|CentraLite                                      |3315-L                                                                     |CR2                       |
 |CentraLite                                      |3315-S                                                                     |CR2                       |
 |CentraLite                                      |3320-L                                                                     |CR2                       |
 |CentraLite                                      |3321-S                                                                     |CR2450                    |
