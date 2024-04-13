@@ -2928,6 +2928,11 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "Perenio",
+            "model": "PECWS01",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "Philio Technology Corp",
             "model": "PAT02-B",
             "battery_type": "CR123A"
@@ -5139,11 +5144,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Perenio",
-            "model": "PECWS01",
-            "battery_type": "CR2032"
         }
     ]
 }
