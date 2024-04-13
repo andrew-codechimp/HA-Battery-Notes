@@ -1,4 +1,4 @@
-## 951 Devices in library
+## 952 Devices in library
 
 This file is auto generated, do not modify
 
@@ -186,6 +186,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Centralite                                      |3328-G                                                                     |CR2450                    |
 |CentraLite                                      |3450-L                                                                     |CR2450                    |
 |CentraLite                                      |3460-L                                                                     |CR2450                    |
+|CentraLite                                      |Contact Sensor-A                                                           |CR2                       |
 |Computime                                       |SLT3                                                                       |4× AA                     |
 |Computime                                       |SS909ZB                                                                    |CR2                       |
 |CPS                                             |CP1500AVRLCDa                                                              |Rechargeable              |
