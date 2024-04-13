@@ -5134,6 +5134,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "CentraLite",
+            "model": "3315-L",
+            "battery_type": "CR2"
         }
     ]
 }
