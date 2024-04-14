@@ -327,6 +327,12 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "_TZE204_t1blo2bj",
+            "model": "TS0601",
+            "battery_type": "CR123A",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Adaprox",
             "model": "TS0001_fingerbot_1",
             "battery_type": "CR2"
@@ -5160,12 +5166,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "_TZE204_t1blo2bj",
-            "model": "TS0601",
-            "battery_type": "CR123A",
-            "battery_quantity": 2
         }
     ]
 }
