@@ -5182,6 +5182,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "TuYa",
+            "model": "TS0202_1",
+            "battery_type": "CR123A"
         }
     ]
 }
