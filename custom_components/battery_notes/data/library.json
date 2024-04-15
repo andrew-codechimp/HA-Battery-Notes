@@ -2609,6 +2609,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Minoston",
+            "model": "MSE30Z",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "modkam.ru",
             "model": "DIYRuZ_Flower",
             "battery_type": "AAA",
@@ -5165,11 +5170,6 @@
         {
             "manufacturer": "Zooz",
             "model": "ZSE44",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Minoston",
-            "model": "MSE30Z",
             "battery_type": "CR2450"
         }
     ]

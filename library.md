@@ -1,4 +1,4 @@
-## 954 Devices in library
+## 955 Devices in library
 
 This file is auto generated, do not modify
 
@@ -485,6 +485,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Meross                                          |ms100                                                                      |CR2477                    |
 |Mi light sensor                                 |GZCGQ01LM                                                                  |CR2450                    |
 |Minoston                                        |MR40Z                                                                      |2× CR2032                 |
+|Minoston                                        |MSE30Z                                                                     |CR2450                    |
 |modkam.ru                                       |DIYRuZ_Flower                                                              |2× AAA                    |
 |Moes                                            |Door/window magnetic sensor (ZSS-X-GWM-C)                                  |CR2032                    |
 |Moes                                            |kvwjujy9                                                                   |CR2032                    |
