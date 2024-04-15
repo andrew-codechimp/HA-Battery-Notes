@@ -1,4 +1,4 @@
-## 956 Devices in library
+## 957 Devices in library
 
 This file is auto generated, do not modify
 
@@ -822,6 +822,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |TuYa                                            |Wireless switch with 4 buttons (TS004F)                                    |CR2032                    |
 |TuYa                                            |Wireless switch with 6 buttons (TS0046)                                    |CR2032                    |
 |Tuya                                            |X-Sense Wi-Fi Smoke Alarm (skivkhveqwmqw4gs)                               |CR123A                    |
+|TuYa                                            |ZG-204ZL                                                                   |CR2450                    |
 |TuYa                                            |Zigbee fingerbot plus (TS0001_fingerbot)                                   |CR2                       |
 |TuYa                                            |Zigbee water leak sensor (TS0207_water_leak_detector_2)                    |CR2032                    |
 |Tuya                                            |zqeaw7pi                                                                   |2× AAA                    |
