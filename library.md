@@ -1,4 +1,4 @@
-## 958 Devices in library
+## 959 Devices in library
 
 This file is auto generated, do not modify
 
@@ -673,6 +673,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |SmartThings                                     |Button (IM6001-BTP01)                                                      |CR2450                    |
 |Smartthings                                     |GP-U999SJVLEAA                                                             |CR2450                    |
 |SmartThings                                     |moisturev4                                                                 |CR2                       |
+|SmartThings                                     |Motion sensor (2015 model) (3325-S)                                        |CR2450                    |
 |SmartThings                                     |Motion sensor (2016 model) (STS-IRM-250)                                   |CR2477                    |
 |SmartThings                                     |Motion sensor (2018 model) (IM6001-MTP01)                                  |CR2                       |
 |SmartThings                                     |motionv4                                                                   |CR2477                    |
