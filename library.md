@@ -1,4 +1,4 @@
-## 959 Devices in library
+## 960 Devices in library
 
 This file is auto generated, do not modify
 
@@ -160,6 +160,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |August Home Inc.                                |AUG-SL04-M01-G04                                                           |4× AA                     |
 |August Home Inc.                                |AUG-SL05-M01-S01                                                           |2× CR123A                 |
 |August Home Inc.                                |MD-01                                                                      |4× AA                     |
+|August Home, Inc.                               |ASL-02                                                                     |4× AA                     |
 |AVATTO                                          |ME167                                                                      |2× AAA                    |
 |AVM                                             |Comet DECT                                                                 |2× AA                     |
 |AVM                                             |FRITZ!DECT 300                                                             |2× AA                     |

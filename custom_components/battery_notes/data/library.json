@@ -833,6 +833,12 @@
             "battery_quantity": 4
         },
         {
+            "manufacturer": "August Home, Inc.",
+            "model": "ASL-02",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
             "manufacturer": "AVATTO",
             "model": "ME167",
             "battery_type": "AAA",
@@ -5192,12 +5198,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "August Home, Inc.",
-            "model": "ASL-02",
-            "battery_type": "AA",
-            "battery_quantity": 4
         }
     ]
 }
