@@ -1,4 +1,4 @@
-## 961 Devices in library
+## 962 Devices in library
 
 This file is auto generated, do not modify
 
@@ -205,6 +205,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Danfoss                                         |eTRV0103                                                                   |2× AA                     |
 |Danfoss                                         |LC-13                                                                      |2× AA                     |
 |Danfoss                                         |TRV001                                                                     |2× AA                     |
+|Develco                                         |Fire detector with siren (HESZB-120)                                       |CR123A                    |
 |Develco                                         |KEYZB-110                                                                  |4× AA                     |
 |Develco                                         |Smoke detector with siren (SMSZB-120)                                      |CR123                     |
 |Develco Products A/S                            |AQSZB-110                                                                  |2× AA                     |
