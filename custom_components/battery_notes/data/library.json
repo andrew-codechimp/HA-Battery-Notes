@@ -1166,6 +1166,11 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "EcoDim",
+            "model": "Zigbee 8 button wall switch - white (ED-10014)",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "Ecolink",
             "model": "DWZWAVE2",
             "battery_type": "CR123A"
@@ -5213,11 +5218,6 @@
         {
             "manufacturer": "Zooz",
             "model": "ZSE44",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "EcoDim",
-            "model": "Zigbee 8 button wall switch - white (ED-10014)",
             "battery_type": "CR2450"
         }
     ]
