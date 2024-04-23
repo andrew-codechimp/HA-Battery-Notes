@@ -1,0 +1,154 @@
+{
+    "config": {
+        "step": {
+            "user": {
+                "description": "If you need help with the configuration have a look here: https://andrew-codechimp.github.io/HA-Battery-Notes/",
+                "data": {
+                    "device_id": "Device",
+                    "name": "Name"
+                },
+                "data_description": {
+                    "name": "Leaving blank will take the name from the source device"
+                }
+            },
+            "battery": {
+                "data": {
+                    "battery_type": "Battery type",
+                    "battery_quantity": "Battery quantity",
+                    "battery_low_threshold": "Battery low threshold",
+                    "battery_low_template": "Battery low template"
+                },
+                "data_description": {
+                    "battery_low_threshold": "0 will use the global default threshold",
+                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels"
+                }
+            }
+        },
+        "abort": {
+            "already_configured": "Device is already configured"
+        },
+        "error": {
+            "unknown": "Unknown error occurred."
+        }
+    },
+    "options": {
+        "step": {
+            "init": {
+                "description": "If you need help with the configuration have a look here: https://andrew-codechimp.github.io/HA-Battery-Notes/",
+                "data": {
+                    "name": "Name",
+                    "battery_type": "Battery type",
+                    "battery_quantity": "Battery quantity",
+                    "battery_low_threshold": "Battery low threshold",
+                    "battery_low_template": "Battery low template"
+                },
+                "data_description": {
+                    "name": "Leaving blank will take the name from the source device",
+                    "battery_low_threshold": "0 will use the global default threshold",
+                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels"
+                }
+            }
+        },
+        "error": {
+            "unknown": "Unknown error occurred."
+        }
+    },
+    "entity": {
+        "binary_sensor": {
+            "battery_low": {
+                "name": "Battery low",
+                "state_attributes": {
+                    "battery_low_threshold": {
+                        "name": "Battery low threshold"
+                    }
+                }
+            }
+        },
+        "button": {
+            "battery_replaced": {
+                "name": "Battery replaced"
+            }
+        },
+        "sensor": {
+            "battery_plus": {
+                "name": "Battery+",
+                "state_attributes": {
+                    "battery_type": {
+                        "name": "Battery type"
+                    },
+                    "battery_quantity": {
+                        "name": "Battery quantity"
+                    },
+                    "battery_type_and_quantity": {
+                        "name": "Battery type and quantity"
+                    },
+                    "battery_last_replaced": {
+                        "name": "Battery last replaced"
+                    },
+                    "battery_low": {
+                        "name": "Battery low"
+                    },
+                    "battery_low_threshold": {
+                        "name": "Battery low threshold"
+                    },
+                    "battery_last_reported": {
+                        "name": "Battery last reported"
+                    },
+                    "battery_last_reported_level": {
+                        "name": "Battery last reported level"
+                    },
+                    "device_id": {
+                        "name": "Device Id"
+                    },
+                    "device_name": {
+                        "name": "Device name"
+                    }
+                }
+            },
+            "battery_type": {
+                "name": "Battery type",
+                "state_attributes": {
+                    "battery_type": {
+                        "name": "Battery type"
+                    },
+                    "battery_quantity": {
+                        "name": "Battery quantity"
+                    }
+                }
+            },
+            "battery_last_replaced": {
+                "name": "Battery last replaced"
+            }
+        }
+    },
+    "services": {
+        "set_battery_replaced": {
+            "description": "Set the battery last replaced.",
+            "fields": {
+                "device_id": {
+                    "description": "Device that has had its battery replaced.",
+                    "name": "Device"
+                },
+                "datetime_replaced": {
+                    "description": "Date replaced.",
+                    "name": "Date"
+                }
+            },
+            "name": "Set battery replaced"
+        },
+        "check_battery_last_reported": {
+            "description": "Raise events for devices that haven't reported their battery level.",
+            "fields": {
+                "days_last_reported": {
+                    "description": "Number of days since a device last reported its battery level.",
+                    "name": "Days"
+                }
+            },
+            "name": "Check battery last reported"
+        },
+        "check_battery_low": {
+            "description": "Raise events for devices that have a low battery.",
+            "name": "Check battery low"
+        }
+    }
+}
