@@ -2,153 +2,153 @@
     "config": {
         "step": {
             "user": {
-                "description": "If you need help with the configuration have a look here: https://andrew-codechimp.github.io/HA-Battery-Notes/",
+                "description": "Si necessiteu ajuda amb la configuració, feu una ullada aquí: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
-                    "device_id": "Device",
-                    "name": "Name"
+                    "device_id": "Dispositiu",
+                    "name": "Nom"
                 },
                 "data_description": {
-                    "name": "Leaving blank will take the name from the source device"
+                    "name": "Si ho deixes en blanc, agafarà el nom del dispositiu d'origen"
                 }
             },
             "battery": {
                 "data": {
-                    "battery_type": "Battery type",
-                    "battery_quantity": "Battery quantity",
-                    "battery_low_threshold": "Battery low threshold",
-                    "battery_low_template": "Battery low template"
+                    "battery_type": "Tipus de bateria",
+                    "battery_quantity": "Qualitat de la bateria",
+                    "battery_low_threshold": "Llindar baix de la bateria",
+                    "battery_low_template": "Plantilla de bateria baixa"
                 },
                 "data_description": {
-                    "battery_low_threshold": "0 will use the global default threshold",
-                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels"
+                    "battery_low_threshold": "0 utilitzarà el llindar predeterminat global",
+                    "battery_low_template": "La plantilla per determinar que la bateria és baixa, hauria de tornar correcte si és baixa\nNomés és necessari per a nivells de bateria no estàndard"
                 }
             }
         },
         "abort": {
-            "already_configured": "Device is already configured"
+            "already_configured": "El dispositiu ja està configurat"
         },
         "error": {
-            "unknown": "Unknown error occurred."
+            "unknown": "S'ha produït un error desconegut"
         }
     },
     "options": {
         "step": {
             "init": {
-                "description": "If you need help with the configuration have a look here: https://andrew-codechimp.github.io/HA-Battery-Notes/",
+                "description": "Si necessiteu ajuda amb la configuració, feu una ullada aquí: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
-                    "name": "Name",
-                    "battery_type": "Battery type",
-                    "battery_quantity": "Battery quantity",
-                    "battery_low_threshold": "Battery low threshold",
-                    "battery_low_template": "Battery low template"
+                    "name": "Nom",
+                    "battery_type": "Tipus de bateria",
+                    "battery_quantity": "Qualitat de la bateria",
+                    "battery_low_threshold": "Llindar baix de la bateria",
+                    "battery_low_template": "Plantilla de bateria baixa"
                 },
                 "data_description": {
-                    "name": "Leaving blank will take the name from the source device",
-                    "battery_low_threshold": "0 will use the global default threshold",
-                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels"
+                    "name": "Si ho deixes en blanc, agafarà el nom del dispositiu d'origen",
+                    "battery_low_threshold": "0 utilitzarà el llindar predeterminat global",
+                    "battery_low_template": "La plantilla per determinar que la bateria és baixa, hauria de tornar correcte si és baixa\nNomés és necessari per a nivells de bateria no estàndard"
                 }
             }
         },
         "error": {
-            "unknown": "Unknown error occurred."
+            "unknown": "S'ha produït un error desconegut"
         }
     },
     "entity": {
         "binary_sensor": {
             "battery_low": {
-                "name": "Battery low",
+                "name": "Bateria baixa",
                 "state_attributes": {
                     "battery_low_threshold": {
-                        "name": "Battery low threshold"
+                        "name": "Llindar baix de la bateria"
                     }
                 }
             }
         },
         "button": {
             "battery_replaced": {
-                "name": "Battery replaced"
+                "name": "S'ha canviat la bateria"
             }
         },
         "sensor": {
             "battery_plus": {
-                "name": "Battery+",
+                "name": "Bateria+",
                 "state_attributes": {
                     "battery_type": {
-                        "name": "Battery type"
+                        "name": "Tipus de bateria"
                     },
                     "battery_quantity": {
-                        "name": "Battery quantity"
+                        "name": "Qualitat de la bateria"
                     },
                     "battery_type_and_quantity": {
-                        "name": "Battery type and quantity"
+                        "name": "Tipus i qualitat de la bateria"
                     },
                     "battery_last_replaced": {
-                        "name": "Battery last replaced"
+                        "name": "Últim cop que es va canviar la bateria"
                     },
                     "battery_low": {
-                        "name": "Battery low"
+                        "name": "Bateria baixa"
                     },
                     "battery_low_threshold": {
-                        "name": "Battery low threshold"
+                        "name": "Llindar baix de la bateria"
                     },
                     "battery_last_reported": {
-                        "name": "Battery last reported"
+                        "name": "Darrera notificació de la bateria"
                     },
                     "battery_last_reported_level": {
-                        "name": "Battery last reported level"
+                        "name": "Últim nivell de bateria notificat"
                     },
                     "device_id": {
-                        "name": "Device Id"
+                        "name": "Id del dispositiu"
                     },
                     "device_name": {
-                        "name": "Device name"
+                        "name": "Nom del dispositiu"
                     }
                 }
             },
             "battery_type": {
-                "name": "Battery type",
+                "name": "Tipus de bateria",
                 "state_attributes": {
                     "battery_type": {
-                        "name": "Battery type"
+                        "name": "Tipus de bateria"
                     },
                     "battery_quantity": {
-                        "name": "Battery quantity"
+                        "name": "Qualitat de la bateria"
                     }
                 }
             },
             "battery_last_replaced": {
-                "name": "Battery last replaced"
+                "name": "Últim cop que es va substituir la bateria"
             }
         }
     },
     "services": {
         "set_battery_replaced": {
-            "description": "Set the battery last replaced.",
+            "description": "Establiu la bateria substituïda per darrera vegada.",
             "fields": {
                 "device_id": {
-                    "description": "Device that has had its battery replaced.",
-                    "name": "Device"
+                    "description": "Dispositiu que ha canviat la bateria.",
+                    "name": "Dispositiu"
                 },
                 "datetime_replaced": {
-                    "description": "Date replaced.",
-                    "name": "Date"
+                    "description": "Data substituïda.",
+                    "name": "Data"
                 }
             },
-            "name": "Set battery replaced"
+            "name": "Establiu la bateria substituïda"
         },
         "check_battery_last_reported": {
-            "description": "Raise events for devices that haven't reported their battery level.",
+            "description": "Llença els esdeveniments per als dispositius que no han informat del nivell de bateria.",
             "fields": {
                 "days_last_reported": {
-                    "description": "Number of days since a device last reported its battery level.",
-                    "name": "Days"
+                    "description": "Nombre de dies des que un dispositiu va informar per última vegada del nivell de bateria.",
+                    "name": "Dies"
                 }
             },
-            "name": "Check battery last reported"
+            "name": "Comproveu l'última informació de la bateria"
         },
         "check_battery_low": {
-            "description": "Raise events for devices that have a low battery.",
-            "name": "Check battery low"
+            "description": "Llença les notificacions per als dispositius que tenen una bateria baixa.",
+            "name": "Comproveu l'última informació de la bateria"
         }
     }
 }

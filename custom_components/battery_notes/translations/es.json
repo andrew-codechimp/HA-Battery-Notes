@@ -2,153 +2,153 @@
     "config": {
         "step": {
             "user": {
-                "description": "If you need help with the configuration have a look here: https://andrew-codechimp.github.io/HA-Battery-Notes/",
+                "description": "Si necesitas ayuda con la configuración, echa un vistazo aquí: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
-                    "device_id": "Device",
-                    "name": "Name"
+                    "device_id": "Dispositivo",
+                    "name": "Nombre"
                 },
                 "data_description": {
-                    "name": "Leaving blank will take the name from the source device"
+                    "name": "Dejar en blanco utilizará el nombre del dispositivo de serie"
                 }
             },
             "battery": {
                 "data": {
-                    "battery_type": "Battery type",
-                    "battery_quantity": "Battery quantity",
-                    "battery_low_threshold": "Battery low threshold",
-                    "battery_low_template": "Battery low template"
+                    "battery_type": "Tipo de batería",
+                    "battery_quantity": "Cantidad de batería",
+                    "battery_low_threshold": "Umbral bajo de batería",
+                    "battery_low_template": "Plantilla de batería baja"
                 },
                 "data_description": {
-                    "battery_low_threshold": "0 will use the global default threshold",
-                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels"
+                    "battery_low_threshold": "0 usará el umbral global por defecto",
+                    "battery_low_template": "Plantilla para determinar que una batería es baja, debe devolver verdadero si es baja\nSolo necesario para niveles de batería no estándar"
                 }
             }
         },
         "abort": {
-            "already_configured": "Device is already configured"
+            "already_configured": "Dispositivo ya configurado"
         },
         "error": {
-            "unknown": "Unknown error occurred."
+            "unknown": "Se ha producido un error desconocido."
         }
     },
     "options": {
         "step": {
             "init": {
-                "description": "If you need help with the configuration have a look here: https://andrew-codechimp.github.io/HA-Battery-Notes/",
+                "description": "Si necesitas ayuda con la configuración, echa un vistazo aquí: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
-                    "name": "Name",
-                    "battery_type": "Battery type",
-                    "battery_quantity": "Battery quantity",
-                    "battery_low_threshold": "Battery low threshold",
-                    "battery_low_template": "Battery low template"
+                    "name": "Nombre",
+                    "battery_type": "Tipo de batería",
+                    "battery_quantity": "Cantidad de batería",
+                    "battery_low_threshold": "Umbral bajo de batería",
+                    "battery_low_template": "Plantilla de batería baja"
                 },
                 "data_description": {
-                    "name": "Leaving blank will take the name from the source device",
-                    "battery_low_threshold": "0 will use the global default threshold",
-                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels"
+                    "name": "Dejar en blanco utilizará el nombre del dispositivo de serie",
+                    "battery_low_threshold": "0 usará el umbral global por defecto",
+                    "battery_low_template": "Plantilla para determinar que una batería es baja, debe devolver verdadero si es baja\nSolo necesario para niveles de batería no estándar"
                 }
             }
         },
         "error": {
-            "unknown": "Unknown error occurred."
+            "unknown": "Se ha producido un error desconocido."
         }
     },
     "entity": {
         "binary_sensor": {
             "battery_low": {
-                "name": "Battery low",
+                "name": "Batería baja",
                 "state_attributes": {
                     "battery_low_threshold": {
-                        "name": "Battery low threshold"
+                        "name": "Umbral bajo de batería"
                     }
                 }
             }
         },
         "button": {
             "battery_replaced": {
-                "name": "Battery replaced"
+                "name": "Batería remplazada"
             }
         },
         "sensor": {
             "battery_plus": {
-                "name": "Battery+",
+                "name": "Batería+",
                 "state_attributes": {
                     "battery_type": {
-                        "name": "Battery type"
+                        "name": "Tipo de batería"
                     },
                     "battery_quantity": {
-                        "name": "Battery quantity"
+                        "name": "Cantidad de batería"
                     },
                     "battery_type_and_quantity": {
-                        "name": "Battery type and quantity"
+                        "name": "Tipo y cantidad de batería"
                     },
                     "battery_last_replaced": {
-                        "name": "Battery last replaced"
+                        "name": "Última batería reemplazada"
                     },
                     "battery_low": {
-                        "name": "Battery low"
+                        "name": "Batería baja"
                     },
                     "battery_low_threshold": {
-                        "name": "Battery low threshold"
+                        "name": "Umbral bajo de batería"
                     },
                     "battery_last_reported": {
-                        "name": "Battery last reported"
+                        "name": "Última notificación de batería"
                     },
                     "battery_last_reported_level": {
-                        "name": "Battery last reported level"
+                        "name": "Último nivel de batería reportado"
                     },
                     "device_id": {
-                        "name": "Device Id"
+                        "name": "ID del dispositivo"
                     },
                     "device_name": {
-                        "name": "Device name"
+                        "name": "Nombre del dispositivo"
                     }
                 }
             },
             "battery_type": {
-                "name": "Battery type",
+                "name": "Tipo de batería",
                 "state_attributes": {
                     "battery_type": {
-                        "name": "Battery type"
+                        "name": "Tipo de batería"
                     },
                     "battery_quantity": {
-                        "name": "Battery quantity"
+                        "name": "Cantidad de batería"
                     }
                 }
             },
             "battery_last_replaced": {
-                "name": "Battery last replaced"
+                "name": "Batería remplazada"
             }
         }
     },
     "services": {
         "set_battery_replaced": {
-            "description": "Set the battery last replaced.",
+            "description": "Establece la última batería reemplazada.",
             "fields": {
                 "device_id": {
-                    "description": "Device that has had its battery replaced.",
-                    "name": "Device"
+                    "description": "Dispositivo al que le ha sido reemplazada la batería.",
+                    "name": "Dispositivo"
                 },
                 "datetime_replaced": {
-                    "description": "Date replaced.",
-                    "name": "Date"
+                    "description": "Fecha de reemplazo.",
+                    "name": "Fecha"
                 }
             },
-            "name": "Set battery replaced"
+            "name": "Establecer batería sustituida"
         },
         "check_battery_last_reported": {
-            "description": "Raise events for devices that haven't reported their battery level.",
+            "description": "Lanza los eventos para dispositivos que no han reportado su nivel de batería.",
             "fields": {
                 "days_last_reported": {
-                    "description": "Number of days since a device last reported its battery level.",
-                    "name": "Days"
+                    "description": "Número de días desde la última vez que un dispositivo informó de su nivel de batería.",
+                    "name": "Días"
                 }
             },
-            "name": "Check battery last reported"
+            "name": "Comprobar última batería reportada"
         },
         "check_battery_low": {
-            "description": "Raise events for devices that have a low battery.",
-            "name": "Check battery low"
+            "description": "Lanza los eventos para dispositivos con poca batería.",
+            "name": "Comprobar batería baja"
         }
     }
 }
