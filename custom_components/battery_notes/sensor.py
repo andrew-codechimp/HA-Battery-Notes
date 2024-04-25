@@ -38,7 +38,6 @@ from homeassistant.helpers.update_coordinator import (
     CoordinatorEntity,
 )
 from homeassistant.helpers.reload import async_setup_reload_service
-from homeassistant.helpers.typing import EventType
 
 from homeassistant.helpers.entity_registry import (
     EVENT_ENTITY_REGISTRY_UPDATED,
@@ -310,7 +309,7 @@ class BatteryNotesBatteryPlusSensor(
 
     @callback
     async def async_state_changed_listener(
-        self, event: EventType[EventStateChangedData] | None = None
+        self, event: Event[EventStateChangedData] | None = None
     ) -> None:
         # pylint: disable=unused-argument
         """Handle child updates."""
@@ -410,7 +409,7 @@ class BatteryNotesBatteryPlusSensor(
 
         @callback
         async def _async_state_changed_listener(
-            event: EventType[EventStateChangedData] | None = None,
+            event: Event[EventStateChangedData] | None = None,
         ) -> None:
             """Handle child updates."""
             await self.async_state_changed_listener(event)
