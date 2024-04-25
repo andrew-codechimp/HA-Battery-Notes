@@ -944,6 +944,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Bosch",
+            "model": "Smoke alarm detector (BSD-2)",
+            "battery_type": "Irreplaceable"
+        },
+        {
             "manufacturer": "BRK Brands, Inc.",
             "model": "ZCOMBO",
             "battery_type": "AA",
@@ -5240,11 +5245,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Bosch",
-            "model": "Smoke alarm detector (BSD-2)",
-            "battery_type": "Irreplaceable"
         }
     ]
 }
