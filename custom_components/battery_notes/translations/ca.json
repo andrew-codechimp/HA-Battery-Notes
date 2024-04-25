@@ -2,7 +2,7 @@
     "config": {
         "step": {
             "user": {
-                "description": "Si necessiteu ajuda amb la configuració, feu una ullada aquí: https://andrew-codechimp.github.io/HA-Battery-Notes/",
+                "description": "Si necessiteu ajuda amb la configuració, mireu aquí: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
                     "device_id": "Dispositiu",
                     "name": "Nom"
@@ -14,7 +14,7 @@
             "battery": {
                 "data": {
                     "battery_type": "Tipus de bateria",
-                    "battery_quantity": "Qualitat de la bateria",
+                    "battery_quantity": "Quantitat de bateries",
                     "battery_low_threshold": "Llindar baix de la bateria",
                     "battery_low_template": "Plantilla de bateria baixa"
                 },
@@ -34,11 +34,11 @@
     "options": {
         "step": {
             "init": {
-                "description": "Si necessiteu ajuda amb la configuració, feu una ullada aquí: https://andrew-codechimp.github.io/HA-Battery-Notes/",
+                "description": "Si necessiteu ajuda amb la configuració, mireu aquí: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
                     "name": "Nom",
                     "battery_type": "Tipus de bateria",
-                    "battery_quantity": "Qualitat de la bateria",
+                    "battery_quantity": "Quantitat de bateries",
                     "battery_low_threshold": "Llindar baix de la bateria",
                     "battery_low_template": "Plantilla de bateria baixa"
                 },
@@ -77,10 +77,10 @@
                         "name": "Tipus de bateria"
                     },
                     "battery_quantity": {
-                        "name": "Qualitat de la bateria"
+                        "name": "Quantitat de bateries"
                     },
                     "battery_type_and_quantity": {
-                        "name": "Tipus i qualitat de la bateria"
+                        "name": "Tipus i quantitat de bateries"
                     },
                     "battery_last_replaced": {
                         "name": "Últim cop que es va canviar la bateria"
@@ -112,7 +112,7 @@
                         "name": "Tipus de bateria"
                     },
                     "battery_quantity": {
-                        "name": "Qualitat de la bateria"
+                        "name": "Quantitat de bateries"
                     }
                 }
             },
@@ -123,7 +123,7 @@
     },
     "services": {
         "set_battery_replaced": {
-            "description": "Establiu la bateria substituïda per darrera vegada.",
+            "description": "Estableix l'últim cop que es va substituir la bateria.",
             "fields": {
                 "device_id": {
                     "description": "Dispositiu que ha canviat la bateria.",
@@ -134,7 +134,7 @@
                     "name": "Data"
                 }
             },
-            "name": "Establiu la bateria substituïda"
+            "name": "Estableix la data de substitució de la bateria"
         },
         "check_battery_last_reported": {
             "description": "Llença els esdeveniments per als dispositius que no han informat del nivell de bateria.",
