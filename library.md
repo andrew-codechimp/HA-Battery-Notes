@@ -1,4 +1,4 @@
-## 970 Devices in library
+## 971 Devices in library
 
 This file is auto generated, do not modify
 
@@ -474,6 +474,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |LUMI                                            |lumi.motion.ac02                                                           |2× CR2450                 |
 |LUMI                                            |lumi.remote.b1acn01                                                        |CR2032                    |
 |LUMI                                            |lumi.remote.b286opcn01                                                     |CR2032                    |
+|LUMI                                            |lumi.remote.b486opcn01                                                     |CR2032                    |
 |LUMI                                            |lumi.remote.b686opcn01                                                     |CR2032                    |
 |LUMI                                            |lumi.sen_ill.mgl01                                                         |CR2450                    |
 |LUMI                                            |lumi.sensor_86sw1                                                          |CR2032                    |
