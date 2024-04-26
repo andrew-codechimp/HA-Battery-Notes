@@ -2552,6 +2552,11 @@
         },
         {
             "manufacturer": "LUMI",
+            "model": "lumi.remote.b286opcn01",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "LUMI",
             "model": "lumi.remote.b686opcn01",
             "battery_type": "CR2032"
         },
@@ -5245,11 +5250,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "LUMI",
-            "model": "lumi.remote.b286opcn01",
-            "battery_type": "CR2032"
         }
     ]
 }
