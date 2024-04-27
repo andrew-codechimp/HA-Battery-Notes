@@ -1,4 +1,4 @@
-## 971 Devices in library
+## 972 Devices in library
 
 This file is auto generated, do not modify
 
@@ -793,6 +793,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tuya                                            |PIR (b5g40alm)                                                             |CR2450                    |
 |TuYa                                            |PIR sensor (RH3040)                                                        |3× AAA                    |
 |TuYa                                            |Radiator valve with thermostat (TS0601_thermostat)                         |2× AA                     |
+|TuYa                                            |RSH-HS06_1                                                                 |CR2450                    |
 |TuYa                                            |Smart button (IH-K663)                                                     |CR2032                    |
 |TuYa                                            |Smart button (MINI-ZSB)                                                    |CR2032                    |
 |TuYa                                            |Smart knob (ERS-10TZBVK-AA)                                                |CR2032                    |
