@@ -92,7 +92,7 @@
                         "name": "Schwelle für niedrigen Batteriestand"
                     },
                     "battery_last_reported": {
-                        "name": "Batterie zuletzt gemeldet"
+                        "name": "Letzte gemeldete Batterie"
                     },
                     "battery_last_reported_level": {
                         "name": "Letzter gemeldeter Batteriestand"
@@ -134,21 +134,21 @@
                     "name": "Datum"
                 }
             },
-            "name": "ktualisiert den Zeitpunkt des letzten Batteriewechsels"
+            "name": "Stelle Batteriewechsel ein"
         },
         "check_battery_last_reported": {
             "description": "Erzeuge Ereignis für Geräte, die keinen Batteriestand gemeldet haben.",
             "fields": {
                 "days_last_reported": {
-                    "description": "Anzahl der Tage seit dem letzten Akkustands-Report.",
+                    "description": "Anzahl der Tage seit der letzten Batteriestands-Meldung.",
                     "name": "Tage"
                 }
             },
-            "name": "Batteriestatus zuletzt gemeldet"
+            "name": "Prüfe auf letzte Batteriestands-Meldungen"
         },
         "check_battery_low": {
             "description": "Erzeuge Ereignis für Geräte, die einen niedrigen Batteriestand haben.",
-            "name": "Batterie schwach prüfen"
+            "name": "Prüfe auf schwache Batterien"
         }
     }
 }
