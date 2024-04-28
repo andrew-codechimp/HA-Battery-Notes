@@ -5260,6 +5260,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Immax NEO",
+            "model": "TS0203",
+            "battery_type": "CR2032"
         }
     ]
 }
