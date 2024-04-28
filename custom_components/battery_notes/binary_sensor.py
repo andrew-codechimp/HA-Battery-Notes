@@ -511,7 +511,7 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity, CoordinatorEntity[Battery
                 identifiers=device_entry.identifiers,
             )
 
-            self.entity_id = f"binary_sensor.{coordinator.device_name.lower()}_{description.key}"
+        self.entity_id = f"binary_sensor.{coordinator.device_name.lower()}_{description.key}"
 
     async def async_added_to_hass(self) -> None:
         """Handle added to Hass."""
