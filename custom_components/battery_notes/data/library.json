@@ -869,12 +869,6 @@
         },
         {
             "manufacturer": "AVM",
-            "model": "FRITZ!DECT 300",
-            "battery_type": "AA",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "AVM",
             "model": "FRITZ!DECT 301",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -901,12 +895,6 @@
             "manufacturer": "AVM",
             "model": "FRITZ!DECT 400",
             "battery_type": "CR123A"
-        },
-        {
-            "manufacturer": "AVM",
-            "model": "FRITZ!DECT 440",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         },
         {
             "manufacturer": "AVM",
@@ -2238,11 +2226,6 @@
         },
         {
             "manufacturer": "IKEA of Sweden",
-            "model": "SYMFONISK Sound Controller",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "IKEA of Sweden",
             "model": "SYMFONISK sound remote gen2",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -2852,11 +2835,6 @@
             "manufacturer": "Nortek Security & Control LLC",
             "model": "NGD00Z-4",
             "battery_type": "CR2023"
-        },
-        {
-            "manufacturer": "Nortek Security & Control LLC",
-            "model": "WADWAZ-1",
-            "battery_type": "CR123A"
         },
         {
             "manufacturer": "Nortek Security & Control LLC",
@@ -5118,11 +5096,6 @@
         {
             "manufacturer": "Xiaomi",
             "model": "zigbee WSDCGQ01LM (lumi.sensor_ht)",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Xiaomi",
-            "model": "zigbee WXKG01LM (lumi.sensor_switch)",
             "battery_type": "CR2032"
         },
         {
