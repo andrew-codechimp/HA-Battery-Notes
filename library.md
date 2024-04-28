@@ -1,4 +1,4 @@
-## 972 Devices in library
+## 973 Devices in library
 
 This file is auto generated, do not modify
 
@@ -426,6 +426,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |IKEA of Sweden                                  |VALLHORN Wireless Motion Sensor                                            |2× AAA                    |
 |iMagic by GreatStar                             |1116-S                                                                     |CR2                       |
 |iMagic by GreatStar                             |1117-S                                                                     |CR123A                    |
+|Immax NEO                                       |TS0203                                                                     |CR2032                    |
 |INKBIRD                                         |IBS-TH                                                                     |2× AAA                    |
 |INKBIRD                                         |IBS-TH2/P01B                                                               |2× AAA                    |
 |Innr                                            |Remote control (RC 210)                                                    |CR2032                    |

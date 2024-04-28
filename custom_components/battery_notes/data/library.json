@@ -2295,6 +2295,11 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "Immax NEO",
+            "model": "TS0203",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "INKBIRD",
             "model": "IBS-TH",
             "battery_type": "AAA",
@@ -5260,11 +5265,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Immax NEO",
-            "model": "TS0203",
-            "battery_type": "CR2032"
         }
     ]
 }
