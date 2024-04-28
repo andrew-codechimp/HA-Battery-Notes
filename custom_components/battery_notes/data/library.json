@@ -869,12 +869,6 @@
         },
         {
             "manufacturer": "AVM",
-            "model": "FRITZ!DECT 301",
-            "battery_type": "AA",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "AVM",
             "model": "FRITZ!Dect 301",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -2438,11 +2432,6 @@
             "battery_type": "MANUAL"
         },
         {
-            "manufacturer": "Lidl",
-            "model": "Silvercrest smart motion sensor (HG06335/HG07310)",
-            "battery_type": "CR123A"
-        },
-        {
             "manufacturer": "LifeControl",
             "model": "Door sensor (MCLH-04)",
             "battery_type": "CR123A"
@@ -3824,11 +3813,6 @@
         },
         {
             "manufacturer": "SONOFF",
-            "model": "Temperature and humidity sensor (SNZB-02)",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "SONOFF",
             "model": "Temperature and humidity sensor (SNZB-02P)",
             "battery_type": "CR2477"
         },
@@ -4450,13 +4434,7 @@
         {
             "manufacturer": "tuya",
             "model": "TS0601",
-            "battery_type": "CR2"
-        },
-        {
-            "manufacturer": "TuYa",
-            "model": "TS0601",
-            "battery_type": "AA",
-            "battery_quantity": 3
+            "battery_type": "MANUAL"
         },
         {
             "manufacturer": "TuYa",
