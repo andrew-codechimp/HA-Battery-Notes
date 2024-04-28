@@ -1,4 +1,4 @@
-## 972 Devices in library
+## 968 Devices in library
 
 This file is auto generated, do not modify
 
@@ -166,7 +166,6 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |AVATTO                                          |ME167                                                                      |2× AAA                    |
 |AVM                                             |Comet DECT                                                                 |2× AA                     |
 |AVM                                             |FRITZ!DECT 300                                                             |2× AA                     |
-|AVM                                             |FRITZ!DECT 301                                                             |2× AA                     |
 |AVM                                             |FRITZ!Dect 301                                                             |2× AA                     |
 |AVM                                             |FRITZ!DECT 302                                                             |3× AA                     |
 |AVM                                             |FRITZ!DECT 350                                                             |2× AAA                    |
@@ -452,7 +451,6 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Lidl                                            |Silvercrest radiator valve with thermostat (368308_2010)                   |2× AA                     |
 |Lidl                                            |Silvercrest smart button (HG08164)                                         |CR2032                    |
 |Lidl                                            |Silvercrest smart motion sensor (HG06335/HG07310)                          |MANUAL                    |
-|Lidl                                            |Silvercrest smart motion sensor (HG06335/HG07310)                          |CR123A                    |
 |LifeControl                                     |Door sensor (MCLH-04)                                                      |CR123A                    |
 |LifeControl                                     |MCLH-05                                                                    |AA                        |
 |LifeControl                                     |Motion sensor (MCLH-05)                                                    |AA                        |
@@ -711,7 +709,6 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |SONOFF                                          |SNZB-02D                                                                   |CR2450                    |
 |SONOFF                                          |SNZB-04                                                                    |2× AAA                    |
 |Sonoff                                          |Temperature and humidity sensor (SNZB-02)                                  |CR2450                    |
-|SONOFF                                          |Temperature and humidity sensor (SNZB-02)                                  |CR2450                    |
 |SONOFF                                          |Temperature and humidity sensor (SNZB-02P)                                 |CR2477                    |
 |SONOFF                                          |Temperature and humidity sensor with screen (SNZB-02D)                     |CR2450                    |
 |SONOFF                                          |TRVZB                                                                      |3× AA                     |
@@ -825,8 +822,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |TuYa                                            |TS0203                                                                     |CR2032                    |
 |Tuya                                            |TS0205                                                                     |CR123A                    |
 |tuya                                            |TS0210                                                                     |2× AAA                    |
-|tuya                                            |TS0601                                                                     |CR2                       |
-|TuYa                                            |TS0601                                                                     |3× AA                     |
+|tuya                                            |TS0601                                                                     |MANUAL                    |
 |TuYa                                            |TS0601_smoke_1                                                             |2× AAA                    |
 |Tuya                                            |TT001ZAV20                                                                 |CR2032                    |
 |TuYa                                            |Water leak detector (TS0207_water_leak_detector)                           |CR2032                    |
