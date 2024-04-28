@@ -2447,7 +2447,7 @@
         {
             "manufacturer": "Lidl",
             "model": "Silvercrest smart button (HG08164)",
-            "battery_type": "MANUAL"
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "Lidl",
