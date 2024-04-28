@@ -869,12 +869,6 @@
         },
         {
             "manufacturer": "AVM",
-            "model": "FRITZ!DECT 300",
-            "battery_type": "AA",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "AVM",
             "model": "FRITZ!DECT 301",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -901,12 +895,6 @@
             "manufacturer": "AVM",
             "model": "FRITZ!DECT 400",
             "battery_type": "CR123A"
-        },
-        {
-            "manufacturer": "AVM",
-            "model": "FRITZ!DECT 440",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         },
         {
             "manufacturer": "AVM",
@@ -2238,11 +2226,6 @@
         },
         {
             "manufacturer": "IKEA of Sweden",
-            "model": "SYMFONISK Sound Controller",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "IKEA of Sweden",
             "model": "SYMFONISK sound remote gen2",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -2443,6 +2426,11 @@
             "model": "Silvercrest radiator valve with thermostat (368308_2010)",
             "battery_type": "AA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Lidl",
+            "model": "Silvercrest smart button (HG08164)",
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "Lidl",
@@ -2847,11 +2835,6 @@
             "manufacturer": "Nortek Security & Control LLC",
             "model": "NGD00Z-4",
             "battery_type": "CR2023"
-        },
-        {
-            "manufacturer": "Nortek Security & Control LLC",
-            "model": "WADWAZ-1",
-            "battery_type": "CR123A"
         },
         {
             "manufacturer": "Nortek Security & Control LLC",
@@ -4080,6 +4063,11 @@
         },
         {
             "manufacturer": "Trust",
+            "model": "Smoke detector (ZSDR-850)",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Trust",
             "model": "ZYCT-202",
             "battery_type": "CR2450"
         },
@@ -4255,6 +4243,11 @@
         },
         {
             "manufacturer": "TuYa",
+            "model": "Motion sensor (TS0202)",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "TuYa",
             "model": "Motion sensor (ZMS-102)",
             "battery_type": "CR2032"
         },
@@ -4284,6 +4277,11 @@
             "manufacturer": "TuYa",
             "model": "RSH-HS06_1",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "TuYa",
+            "model": "Security remote control (TS0215A_remote)",
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "TuYa",
@@ -5098,11 +5096,6 @@
         {
             "manufacturer": "Xiaomi",
             "model": "zigbee WSDCGQ01LM (lumi.sensor_ht)",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Xiaomi",
-            "model": "zigbee WXKG01LM (lumi.sensor_switch)",
             "battery_type": "CR2032"
         },
         {
