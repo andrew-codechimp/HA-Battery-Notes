@@ -1,4 +1,4 @@
-## 973 Devices in library
+## 969 Devices in library
 
 This file is auto generated, do not modify
 
@@ -166,13 +166,10 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |AVATTO                                          |ME167                                                                      |2× AAA                    |
 |AVM                                             |Comet DECT                                                                 |2× AA                     |
 |AVM                                             |FRITZ!DECT 300                                                             |2× AA                     |
-|AVM                                             |FRITZ!DECT 300                                                             |2× AA                     |
-|AVM                                             |FRITZ!DECT 301                                                             |2× AA                     |
 |AVM                                             |FRITZ!Dect 301                                                             |2× AA                     |
 |AVM                                             |FRITZ!DECT 302                                                             |3× AA                     |
 |AVM                                             |FRITZ!DECT 350                                                             |2× AAA                    |
 |AVM                                             |FRITZ!DECT 400                                                             |CR123A                    |
-|AVM                                             |FRITZ!DECT 440                                                             |2× AAA                    |
 |AVM                                             |FRITZ!DECT 440                                                             |2× AAA                    |
 |BlueMaestro                                     |Tempo Disc THD                                                             |CR2032                    |
 |Bosch                                           |ISW-ZPR1-WP13                                                              |4× AA                     |
@@ -183,6 +180,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |BRK Brands, Inc.                                |ZCOMBO                                                                     |2× AA                     |
 |BRK Brands, Inc.                                |ZSMOKE                                                                     |2× AA                     |
 |Centralite                                      |3157100                                                                    |4× AA                     |
+|CentraLite                                      |3315                                                                       |CR2                       |
 |CentraLite                                      |3315-L                                                                     |CR2                       |
 |CentraLite                                      |3315-S                                                                     |CR2                       |
 |CentraLite                                      |3320-L                                                                     |CR2                       |
@@ -415,7 +413,6 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |IKEA of Sweden                                  |RODRET Dimmer                                                              |AAA                       |
 |IKEA of Sweden                                  |SOMRIG shortcut button                                                     |AAA                       |
 |IKEA of Sweden                                  |SYMFONISK Sound Controller                                                 |CR2032                    |
-|IKEA of Sweden                                  |SYMFONISK Sound Controller                                                 |CR2032                    |
 |IKEA of Sweden                                  |SYMFONISK sound remote gen2                                                |2× AAA                    |
 |IKEA of Sweden                                  |TRADFRI motion sensor                                                      |2× CR2032                 |
 |IKEA of Sweden                                  |TRADFRI ON/OFF switch                                                      |CR2032                    |
@@ -453,8 +450,8 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Lidl                                            |HG06335/HG07310                                                            |CR123A                    |
 |Lidl                                            |HG06336                                                                    |2× AAA                    |
 |Lidl                                            |Silvercrest radiator valve with thermostat (368308_2010)                   |2× AA                     |
+|Lidl                                            |Silvercrest smart button (HG08164)                                         |CR2032                    |
 |Lidl                                            |Silvercrest smart motion sensor (HG06335/HG07310)                          |MANUAL                    |
-|Lidl                                            |Silvercrest smart motion sensor (HG06335/HG07310)                          |CR123A                    |
 |LifeControl                                     |Door sensor (MCLH-04)                                                      |CR123A                    |
 |LifeControl                                     |MCLH-05                                                                    |AA                        |
 |LifeControl                                     |Motion sensor (MCLH-05)                                                    |AA                        |
@@ -529,7 +526,6 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Netatmo                                         |Smart Thermostat                                                           |3× AAA                    |
 |Netatmo                                         |Smart Valve                                                                |2× AA                     |
 |Nortek Security & Control LLC                   |NGD00Z-4                                                                   |CR2023                    |
-|Nortek Security & Control LLC                   |WADWAZ-1                                                                   |CR123A                    |
 |Nortek Security & Control LLC                   |WADWAZ-1                                                                   |CR123A                    |
 |Nortek Security and Control                     |F-ADT-WTR-1                                                                |CR123A                    |
 |NorthQ                                          |NQ-9121                                                                    |2× AA                     |
@@ -714,7 +710,6 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |SONOFF                                          |SNZB-02D                                                                   |CR2450                    |
 |SONOFF                                          |SNZB-04                                                                    |2× AAA                    |
 |Sonoff                                          |Temperature and humidity sensor (SNZB-02)                                  |CR2450                    |
-|SONOFF                                          |Temperature and humidity sensor (SNZB-02)                                  |CR2450                    |
 |SONOFF                                          |Temperature and humidity sensor (SNZB-02P)                                 |CR2477                    |
 |SONOFF                                          |Temperature and humidity sensor with screen (SNZB-02D)                     |CR2450                    |
 |SONOFF                                          |TRVZB                                                                      |3× AA                     |
@@ -756,6 +751,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Third Reality, Inc                              |3RWS18BZ                                                                   |2× AAA                    |
 |Tile                                            |T1301N                                                                     |CR2032                    |
 |Trust                                           |COSensor-EM                                                                |CR123A                    |
+|Trust                                           |Smoke detector (ZSDR-850)                                                  |CR123A                    |
 |Trust                                           |ZYCT-202                                                                   |CR2450                    |
 |TS0001                                          |_TZ3210_j4pdtz9v                                                           |CR2                       |
 |TS0041                                          |_TZ3000_itb0omhv                                                           |CR2032                    |
@@ -789,12 +785,14 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |TuYa                                            |Luminance motion sensor (ZG-204ZL)                                         |CR2450                    |
 |TuYa                                            |Motion sensor (809WZT)                                                     |CR2450                    |
 |TuYa                                            |Motion sensor (IH012-RT01)                                                 |CR2450                    |
+|TuYa                                            |Motion sensor (TS0202)                                                     |CR2450                    |
 |TuYa                                            |Motion sensor (ZMS-102)                                                    |CR2032                    |
 |TuYa                                            |Photoelectric smoke detector (PA-44Z)                                      |PP3                       |
 |Tuya                                            |PIR (b5g40alm)                                                             |CR2450                    |
 |TuYa                                            |PIR sensor (RH3040)                                                        |3× AAA                    |
 |TuYa                                            |Radiator valve with thermostat (TS0601_thermostat)                         |2× AA                     |
 |TuYa                                            |RSH-HS06_1                                                                 |CR2450                    |
+|TuYa                                            |Security remote control (TS0215A_remote)                                   |CR2032                    |
 |TuYa                                            |Smart button (IH-K663)                                                     |CR2032                    |
 |TuYa                                            |Smart button (MINI-ZSB)                                                    |CR2032                    |
 |TuYa                                            |Smart knob (ERS-10TZBVK-AA)                                                |CR2032                    |
@@ -825,8 +823,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |TuYa                                            |TS0203                                                                     |CR2032                    |
 |Tuya                                            |TS0205                                                                     |CR123A                    |
 |tuya                                            |TS0210                                                                     |2× AAA                    |
-|tuya                                            |TS0601                                                                     |CR2                       |
-|TuYa                                            |TS0601                                                                     |3× AA                     |
+|tuya                                            |TS0601                                                                     |MANUAL                    |
 |TuYa                                            |TS0601_smoke_1                                                             |2× AAA                    |
 |Tuya                                            |TT001ZAV20                                                                 |CR2032                    |
 |TuYa                                            |Water leak detector (TS0207_water_leak_detector)                           |CR2032                    |
@@ -949,7 +946,6 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Xiaomi                                          |zigbee RTCGQ01LM (lumi.sensor_motion)                                      |CR2450                    |
 |Xiaomi                                          |zigbee RTCGQ11LM (lumi.sensor_motion.aq2)                                  |CR2450                    |
 |Xiaomi                                          |zigbee WSDCGQ01LM (lumi.sensor_ht)                                         |CR2032                    |
-|Xiaomi                                          |zigbee WXKG01LM (lumi.sensor_switch)                                       |CR2032                    |
 |Xiaomi                                          |zigbee WXKG01LM (lumi.sensor_switch)                                       |CR2032                    |
 |Xiaomi Aqara                                    |sensor_magnet.aq2                                                          |CR1632                    |
 |Xiaomi Aquara                                   |sensor_magnet.aq2                                                          |CR1632                    |

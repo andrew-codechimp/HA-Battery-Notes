@@ -869,18 +869,6 @@
         },
         {
             "manufacturer": "AVM",
-            "model": "FRITZ!DECT 300",
-            "battery_type": "AA",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "AVM",
-            "model": "FRITZ!DECT 301",
-            "battery_type": "AA",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "AVM",
             "model": "FRITZ!Dect 301",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -901,18 +889,6 @@
             "manufacturer": "AVM",
             "model": "FRITZ!DECT 400",
             "battery_type": "CR123A"
-        },
-        {
-            "manufacturer": "AVM",
-            "model": "FRITZ!DECT 440",
-            "battery_type": "AAA",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "AVM",
-            "model": "FRITZ!DECT 440",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         },
         {
             "manufacturer": "Blueforcer",
@@ -970,6 +946,11 @@
             "model": "3157100",
             "battery_type": "AA",
             "battery_quantity": 4
+        },
+        {
+            "manufacturer": "CentraLite",
+            "model": "3315",
+            "battery_type": "CR2"
         },
         {
             "manufacturer": "CentraLite",
@@ -2248,11 +2229,6 @@
         },
         {
             "manufacturer": "IKEA of Sweden",
-            "model": "SYMFONISK Sound Controller",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "IKEA of Sweden",
             "model": "SYMFONISK sound remote gen2",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -2457,17 +2433,17 @@
         {
             "manufacturer": "Lidl",
             "model": "Silvercrest smart button (HG08164)",
-            "battery_type": "MANUAL"
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Lidl",
+            "model": "Silvercrest smart button (HG08164)",
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "Lidl",
             "model": "Silvercrest smart motion sensor (HG06335/HG07310)",
             "battery_type": "MANUAL"
-        },
-        {
-            "manufacturer": "Lidl",
-            "model": "Silvercrest smart motion sensor (HG06335/HG07310)",
-            "battery_type": "CR123A"
         },
         {
             "manufacturer": "LifeControl",
@@ -2862,11 +2838,6 @@
             "manufacturer": "Nortek Security & Control LLC",
             "model": "NGD00Z-4",
             "battery_type": "CR2023"
-        },
-        {
-            "manufacturer": "Nortek Security & Control LLC",
-            "model": "WADWAZ-1",
-            "battery_type": "CR123A"
         },
         {
             "manufacturer": "Nortek Security & Control LLC",
@@ -3861,11 +3832,6 @@
         },
         {
             "manufacturer": "SONOFF",
-            "model": "Temperature and humidity sensor (SNZB-02)",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "SONOFF",
             "model": "Temperature and humidity sensor (SNZB-02P)",
             "battery_type": "CR2477"
         },
@@ -4487,13 +4453,7 @@
         {
             "manufacturer": "tuya",
             "model": "TS0601",
-            "battery_type": "CR2"
-        },
-        {
-            "manufacturer": "TuYa",
-            "model": "TS0601",
-            "battery_type": "AA",
-            "battery_quantity": 3
+            "battery_type": "MANUAL"
         },
         {
             "manufacturer": "TuYa",
@@ -5133,11 +5093,6 @@
         {
             "manufacturer": "Xiaomi",
             "model": "zigbee WSDCGQ01LM (lumi.sensor_ht)",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Xiaomi",
-            "model": "zigbee WXKG01LM (lumi.sensor_switch)",
             "battery_type": "CR2032"
         },
         {
