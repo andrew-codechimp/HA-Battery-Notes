@@ -2,55 +2,55 @@
     "config": {
         "step": {
             "user": {
-                "description": "If you need help with the configuration have a look here: https://andrew-codechimp.github.io/HA-Battery-Notes/",
+                "description": "Als u hulp nodig heeft bij de configuratie kunt u hier een kijkje nemen: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
                     "device_id": "Apparaat",
                     "name": "Naam"
                 },
                 "data_description": {
-                    "name": "Leaving blank will take the name from the source device"
+                    "name": "Indien dit leeg gelaten wordt dan wordt de naam van het bronapparaat overgenomen"
                 }
             },
             "battery": {
                 "data": {
-                    "battery_type": "Batterij Type",
-                    "battery_quantity": "Battery quantity",
-                    "battery_low_threshold": "Battery low threshold",
-                    "battery_low_template": "Battery low template"
+                    "battery_type": "Batterij type",
+                    "battery_quantity": "Aantal batterijen",
+                    "battery_low_threshold": "Drempelwaarde batterij bijna leeg",
+                    "battery_low_template": "Sjabloon batterij bijna leeg"
                 },
                 "data_description": {
-                    "battery_low_threshold": "0 will use the global default threshold",
-                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels"
+                    "battery_low_threshold": "0 zal de globale standaard drempelwaarde gebruiken",
+                    "battery_low_template": "Sjabloon om te bepalen dat een batterij bijna leeg is, zal 'waar' teruggeven als bijna leeg\nAlleen nodig voor niet-standaard batterijniveaus"
                 }
             }
         },
         "abort": {
-            "already_configured": "Device is already configured"
+            "already_configured": "Apparaat is al geconfigureerd"
         },
         "error": {
-            "unknown": "Unknown error occurred."
+            "unknown": "Onbekende fout opgetreden."
         }
     },
     "options": {
         "step": {
             "init": {
-                "description": "If you need help with the configuration have a look here: https://andrew-codechimp.github.io/HA-Battery-Notes/",
+                "description": "Als u hulp nodig heeft bij de configuratie kunt u hier een kijkje nemen: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
                     "name": "Naam",
-                    "battery_type": "Batterij Type",
-                    "battery_quantity": "Battery quantity",
-                    "battery_low_threshold": "Battery low threshold",
-                    "battery_low_template": "Battery low template"
+                    "battery_type": "Batterij type",
+                    "battery_quantity": "Aantal batterijen",
+                    "battery_low_threshold": "Drempelwaarde batterij bijna leeg",
+                    "battery_low_template": "Sjabloon batterij bijna leeg"
                 },
                 "data_description": {
-                    "name": "Leaving blank will take the name from the source device",
-                    "battery_low_threshold": "0 will use the global default threshold",
-                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels"
+                    "name": "Indien dit leeg gelaten wordt dan wordt de naam van het bronapparaat overgenomen",
+                    "battery_low_threshold": "0 zal de globale standaard drempelwaarde gebruiken",
+                    "battery_low_template": "Sjabloon om te bepalen dat een batterij bijna leeg is, zal 'waar' teruggeven als bijna leeg\nAlleen nodig voor niet-standaard batterijniveaus"
                 }
             }
         },
         "error": {
-            "unknown": "Unknown error occurred."
+            "unknown": "Onbekende fout opgetreden."
         }
     },
     "entity": {
@@ -59,14 +59,14 @@
                 "name": "Lage batterij",
                 "state_attributes": {
                     "battery_low_threshold": {
-                        "name": "Battery low threshold"
+                        "name": "Drempelwaarde batterij bijna leeg"
                     }
                 }
             }
         },
         "button": {
             "battery_replaced": {
-                "name": "Battery replaced"
+                "name": "Batterij vervangen"
             }
         },
         "sensor": {
@@ -74,56 +74,56 @@
                 "name": "Batterij+",
                 "state_attributes": {
                     "battery_type": {
-                        "name": "Batterij Type"
+                        "name": "Batterij type"
                     },
                     "battery_quantity": {
-                        "name": "Battery quantity"
+                        "name": "Aantal batterijen"
                     },
                     "battery_type_and_quantity": {
-                        "name": "Battery type and quantity"
+                        "name": "Batterij type en aantal"
                     },
                     "battery_last_replaced": {
-                        "name": "Battery last replaced"
+                        "name": "Batterij laatst vervangen"
                     },
                     "battery_low": {
-                        "name": "Lage batterij"
+                        "name": "Batterij bijna leeg"
                     },
                     "battery_low_threshold": {
-                        "name": "Battery low threshold"
+                        "name": "Drempelwaarde batterij bijna leeg"
                     },
                     "battery_last_reported": {
-                        "name": "Battery last reported"
+                        "name": "Batterij laatst gerapporteerd"
                     },
                     "battery_last_reported_level": {
-                        "name": "Battery last reported level"
+                        "name": "Laatst gerapporteerde batterijniveau"
                     },
                     "device_id": {
                         "name": "Apparaat ID"
                     },
                     "device_name": {
-                        "name": "Device name"
+                        "name": "Apparaatnaam"
                     }
                 }
             },
             "battery_type": {
-                "name": "Batterij Type",
+                "name": "Batterij type",
                 "state_attributes": {
                     "battery_type": {
-                        "name": "Batterij Type"
+                        "name": "Batterij type"
                     },
                     "battery_quantity": {
-                        "name": "Battery quantity"
+                        "name": "Aantal batterijen"
                     }
                 }
             },
             "battery_last_replaced": {
-                "name": "Battery last replaced"
+                "name": "Batterij laatst vervangen"
             }
         }
     },
     "services": {
         "set_battery_replaced": {
-            "description": "Set the battery last replaced.",
+            "description": "Stel de batterij in als laatst vervangen.",
             "fields": {
                 "device_id": {
                     "description": "Apparaat waarvan de batterij is vervangen.",
@@ -134,21 +134,21 @@
                     "name": "Datum"
                 }
             },
-            "name": "Set battery replaced"
+            "name": "Stel in batterij vervangen"
         },
         "check_battery_last_reported": {
             "description": "Raise events for devices that haven't reported their battery level.",
             "fields": {
                 "days_last_reported": {
-                    "description": "Number of days since a device last reported its battery level.",
+                    "description": "Aantal dagen sinds een apparaat voor het laatst het batterijniveau heeft gerapporteerd.",
                     "name": "Dagen"
                 }
             },
-            "name": "Check battery last reported"
+            "name": "Controleer batterij laatst gerapporteerd"
         },
         "check_battery_low": {
             "description": "Raise events for devices that have a low battery.",
-            "name": "Check battery low"
+            "name": "Controleer batterij bijna leeg"
         }
     }
 }
