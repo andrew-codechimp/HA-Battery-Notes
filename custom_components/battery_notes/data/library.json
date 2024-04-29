@@ -897,6 +897,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Blueforcer",
+            "model": "AWTRIX Light",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "BlueMaestro",
             "model": "Tempo Disc THD",
             "battery_type": "CR2032"
@@ -1141,6 +1146,11 @@
             "model": "RoomStat",
             "battery_type": "AA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Dreame",
+            "model": "L10 Pro",
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "ecobee",
@@ -3143,6 +3153,11 @@
             "manufacturer": "Powermax",
             "model": "MCT-426",
             "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Prolight",
+            "model": "Remote control (5412748727388)",
+            "battery_type": "..."
         },
         {
             "manufacturer": "Qingping",
