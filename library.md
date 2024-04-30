@@ -1,4 +1,4 @@
-## 969 Devices in library
+## 971 Devices in library
 
 This file is auto generated, do not modify
 
@@ -171,6 +171,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |AVM                                             |FRITZ!DECT 350                                                             |2× AAA                    |
 |AVM                                             |FRITZ!DECT 400                                                             |CR123A                    |
 |AVM                                             |FRITZ!DECT 440                                                             |2× AAA                    |
+|Blueforcer                                      |AWTRIX Light                                                               |Rechargeable              |
 |BlueMaestro                                     |Tempo Disc THD                                                             |CR2032                    |
 |Bosch                                           |ISW-ZPR1-WP13                                                              |4× AA                     |
 |Bosch                                           |Motion sensor (ISW-ZPR1-WP13)                                              |4× AA                     |
@@ -216,6 +217,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Doogee                                          |S98 Pro                                                                    |Rechargeable              |
 |Drayton Wiser                                   |iTRV                                                                       |2× AA                     |
 |Drayton Wiser                                   |RoomStat                                                                   |2× AA                     |
+|Dreame                                          |L10 Pro                                                                    |Rechargeable              |
 |ecobee                                          |ecobee Room Sensor                                                         |CR2032                    |
 |ecobee Inc.                                     |EBERS41                                                                    |CR2477                    |
 |ecobee Inc.                                     |EBRSE4                                                                     |CR2032                    |
