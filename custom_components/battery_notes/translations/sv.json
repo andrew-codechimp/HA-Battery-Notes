@@ -2,153 +2,153 @@
     "config": {
         "step": {
             "user": {
-                "description": "If you need help with the configuration have a look here: https://andrew-codechimp.github.io/HA-Battery-Notes/",
+                "description": "Om du behöver hjälp med konfigurationen? Ta en titt här: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
-                    "device_id": "Device",
-                    "name": "Name"
+                    "device_id": "Enhet",
+                    "name": "Namn"
                 },
                 "data_description": {
-                    "name": "Leaving blank will take the name from the source device"
+                    "name": "Genom att lämna blankt tas namnet från källenheten. "
                 }
             },
             "battery": {
                 "data": {
-                    "battery_type": "Battery type",
-                    "battery_quantity": "Battery quantity",
-                    "battery_low_threshold": "Battery low threshold",
-                    "battery_low_template": "Battery low template"
+                    "battery_type": "Batterityp",
+                    "battery_quantity": "Antal batterier",
+                    "battery_low_threshold": "Tröskelvärde lågt batteri",
+                    "battery_low_template": "Batteri lågt template"
                 },
                 "data_description": {
-                    "battery_low_threshold": "0 will use the global default threshold",
-                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels"
+                    "battery_low_threshold": "0 kommer att använda det globala standardtröskelvärdet",
+                    "battery_low_template": "Template för att bestämma om batteriet är lågt, borde returnera true om lågt.\nEndast nödvändigt för icke-standard batterinivåer. "
                 }
             }
         },
         "abort": {
-            "already_configured": "Device is already configured"
+            "already_configured": "Enheten är redan konfigurerad. "
         },
         "error": {
-            "unknown": "Unknown error occurred."
+            "unknown": "Okänt fel inträffade. "
         }
     },
     "options": {
         "step": {
             "init": {
-                "description": "If you need help with the configuration have a look here: https://andrew-codechimp.github.io/HA-Battery-Notes/",
+                "description": "Om du behöver hjälp med konfigurationen? Ta en titt här: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
-                    "name": "Name",
-                    "battery_type": "Battery type",
-                    "battery_quantity": "Battery quantity",
-                    "battery_low_threshold": "Battery low threshold",
-                    "battery_low_template": "Battery low template"
+                    "name": "Namn",
+                    "battery_type": "Batterityp",
+                    "battery_quantity": "Antal batterier",
+                    "battery_low_threshold": "Batteri lågt tröskelvärde",
+                    "battery_low_template": "Batteri lågt template"
                 },
                 "data_description": {
-                    "name": "Leaving blank will take the name from the source device",
-                    "battery_low_threshold": "0 will use the global default threshold",
-                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels"
+                    "name": "Genom att lämna blankt tas namnet från källenheten. ",
+                    "battery_low_threshold": "0 kommer att använda den globala standardtröskelvärdet. ",
+                    "battery_low_template": "Template för att bestämma om batteriet är lågt. Ska returnera true om lågt. Behövs endast för icke-standard batterinivåer. "
                 }
             }
         },
         "error": {
-            "unknown": "Unknown error occurred."
+            "unknown": "Okänt fel inträffade. "
         }
     },
     "entity": {
         "binary_sensor": {
             "battery_low": {
-                "name": "Battery low",
+                "name": "Lågt batteri. ",
                 "state_attributes": {
                     "battery_low_threshold": {
-                        "name": "Battery low threshold"
+                        "name": "Tröskelvärde lågt batteri"
                     }
                 }
             }
         },
         "button": {
             "battery_replaced": {
-                "name": "Battery replaced"
+                "name": "Bytt batteri"
             }
         },
         "sensor": {
             "battery_plus": {
-                "name": "Battery+",
+                "name": "Batteri+",
                 "state_attributes": {
                     "battery_type": {
-                        "name": "Battery type"
+                        "name": "Batterityp"
                     },
                     "battery_quantity": {
-                        "name": "Battery quantity"
+                        "name": "Antal batterier"
                     },
                     "battery_type_and_quantity": {
-                        "name": "Battery type and quantity"
+                        "name": "Batterityp och antal"
                     },
                     "battery_last_replaced": {
-                        "name": "Battery last replaced"
+                        "name": "Senast bytt batteri"
                     },
                     "battery_low": {
-                        "name": "Battery low"
+                        "name": "Batteriet lågt"
                     },
                     "battery_low_threshold": {
-                        "name": "Battery low threshold"
+                        "name": "Batteri lågt tröskelvärde"
                     },
                     "battery_last_reported": {
-                        "name": "Battery last reported"
+                        "name": "Senast rapporterade batteri"
                     },
                     "battery_last_reported_level": {
-                        "name": "Battery last reported level"
+                        "name": "Senast rapporterade batterinivå"
                     },
                     "device_id": {
-                        "name": "Device Id"
+                        "name": "Enhets ID"
                     },
                     "device_name": {
-                        "name": "Device name"
+                        "name": "Enhetsnamn"
                     }
                 }
             },
             "battery_type": {
-                "name": "Battery type",
+                "name": "Batterityp",
                 "state_attributes": {
                     "battery_type": {
-                        "name": "Battery type"
+                        "name": "Batterityp"
                     },
                     "battery_quantity": {
-                        "name": "Battery quantity"
+                        "name": "Antal batterier"
                     }
                 }
             },
             "battery_last_replaced": {
-                "name": "Battery last replaced"
+                "name": "Senast rapporterade batteri"
             }
         }
     },
     "services": {
         "set_battery_replaced": {
-            "description": "Set the battery last replaced.",
+            "description": "Ange senast bytt batteri",
             "fields": {
                 "device_id": {
-                    "description": "Device that has had its battery replaced.",
-                    "name": "Device"
+                    "description": "Enhet som haft sitt batteri bytt. ",
+                    "name": "Enhet"
                 },
                 "datetime_replaced": {
-                    "description": "Date replaced.",
-                    "name": "Date"
+                    "description": "Datum för bytt batteri",
+                    "name": "Datum"
                 }
             },
-            "name": "Set battery replaced"
+            "name": "Ange bytt batteri"
         },
         "check_battery_last_reported": {
-            "description": "Raise events for devices that haven't reported their battery level.",
+            "description": "Skapa händelser för enheter som inte har rapporterat sin batterinivå. ",
             "fields": {
                 "days_last_reported": {
-                    "description": "Number of days since a device last reported its battery level.",
-                    "name": "Days"
+                    "description": "Antal dagar sedan en enhet senast rapporterade batterinivån. ",
+                    "name": "Dagar"
                 }
             },
-            "name": "Check battery last reported"
+            "name": "Kontrollera senast bytt batteri"
         },
         "check_battery_low": {
-            "description": "Raise events for devices that have a low battery.",
-            "name": "Check battery low"
+            "description": "Skapa händelser för enheter som har låg batterinivå.",
+            "name": "Kontrollera lågt batteri"
         }
     }
 }
