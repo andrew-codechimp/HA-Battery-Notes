@@ -1,4 +1,4 @@
-## 972 Devices in library
+## 973 Devices in library
 
 This file is auto generated, do not modify
 
@@ -739,6 +739,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tado                                            |VA01                                                                       |2× AA                     |
 |Tado                                            |VA02                                                                       |2× AA                     |
 |Tedee                                           |Tedee GO                                                                   |3× CR123A                 |
+|ThermoBeacon                                    |16                                                                         |CR2477                    |
 |ThermoBeacon                                    |21                                                                         |CR2477                    |
 |ThermoBeacon                                    |27                                                                         |CR2477                    |
 |Third Reality                                   |3RSB015BZ                                                                  |4× AA                     |
