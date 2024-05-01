@@ -4739,6 +4739,11 @@
         },
         {
             "manufacturer": "Xiaomi",
+            "model": "Wireless remote switch (double rocker), 2018 model (WXKG02LM_rev2)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Xiaomi",
             "model": "Aqara E1 door & window contact sensor (MCCGQ14LM)",
             "battery_type": "CR1632"
         },
