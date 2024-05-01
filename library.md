@@ -1,4 +1,4 @@
-## 976 Devices in library
+## 977 Devices in library
 
 This file is auto generated, do not modify
 
@@ -882,6 +882,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Xiaomi                                          |Aqara D1 single key wireless wall switch (WXKG06LM)                        |CR2032                    |
 |Xiaomi                                          |Aqara door & window contact sensor (MCCGQ11LM)                             |CR1632                    |
 |Xiaomi                                          |Aqara double key wireless wall switch (2016 model) (WXKG02LM_rev1)         |CR2032                    |
+|Xiaomi                                          |Aqara double key wireless wall switch (2018 model) (WXKG02LM_rev2)         |CR2032                    |
 |Xiaomi                                          |Aqara E1 door & window contact sensor (MCCGQ14LM)                          |CR1632                    |
 |Xiaomi                                          |Aqara E1 double key wireless switch (WXKG17LM)                             |CR2032                    |
 |Xiaomi                                          |Aqara E1 human body movement and illuminance sensor (RTCGQ15LM)            |CR2450                    |
