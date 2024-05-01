@@ -5057,6 +5057,11 @@
         },
         {
             "manufacturer": "Xiaomi",
+            "model": "Wireless remote switch (double rocker), 2018 model (WXKG02LM_rev2)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Xiaomi",
             "model": "WSDCGQ01LM",
             "battery_type": "CR2032"
         },
