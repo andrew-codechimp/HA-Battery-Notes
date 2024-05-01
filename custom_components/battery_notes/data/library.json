@@ -4663,6 +4663,16 @@
             "battery_quantity": 3
         },
         {
+            "manufacturer": "Weenect",
+            "model": "pet2",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Weenect",
+            "model": "familykid",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "WAXMAN",
             "model": "leakSMART Water Valve v2.10",
             "battery_type": "AA",
