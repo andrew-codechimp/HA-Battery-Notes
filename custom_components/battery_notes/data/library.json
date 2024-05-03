@@ -620,6 +620,11 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "Door and window sensor E1 (MCCGQ14LM)",
+            "battery_type": "CR1632"
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "Light sensor T1 (GZCGQ11LM)",
             "battery_type": "CR2450"
         },
@@ -5286,11 +5291,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Aqara",
-            "model": "Door and window sensor E1 (MCCGQ14LM)",
-            "battery_type": "CR1632"
         }
     ]
 }
