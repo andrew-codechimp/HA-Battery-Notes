@@ -5291,6 +5291,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "RGB Genie",
+            "model": "Zigbee 3.0 remote control (ZB-5001)",
+            "battery_type": "CR2032"
         }
     ]
 }
