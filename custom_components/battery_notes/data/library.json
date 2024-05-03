@@ -767,6 +767,11 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "Arlo",
+            "model": "Pro 2",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "ATC",
             "model": "ATC (Atc1441)",
             "battery_type": "CR2032"
@@ -5296,11 +5301,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Arlo",
-            "model": "Pro 2",
-            "battery_type": "Rechargeable"
         }
     ]
 }
