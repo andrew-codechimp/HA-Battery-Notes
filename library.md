@@ -1,4 +1,4 @@
-## 982 Devices in library
+## 984 Devices in library
 
 This file is auto generated, do not modify
 
@@ -231,7 +231,9 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Ecolink                                         |H214104                                                                    |CR123A                    |
 |Ecolink                                         |TILT-ZWAVE2.5-ECO                                                          |CR123A                    |
 |Ecolink                                         |TILTZWAVE1                                                                 |CR123A                    |
+|Ecowitt                                         |GW1100                                                                     |MANUAL                    |
 |ECOWITT                                         |GW1101                                                                     |2× AA                     |
+|Ecowitt                                         |GW1200                                                                     |MANUAL                    |
 |Ecowitt                                         |GW2000A                                                                    |MANUAL                    |
 |ECOWITT                                         |WH51                                                                       |AA                        |
 |ECOWITT                                         |WN34L                                                                      |AA                        |

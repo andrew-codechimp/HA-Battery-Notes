@@ -1218,15 +1218,15 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "Ecowitt",
+            "model": "GW1100",
+            "battery_type": "MANUAL"
+        },
+        {
             "manufacturer": "ECOWITT",
             "model": "GW1101",
             "battery_type": "AA",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Ecowitt",
-            "model": "GW1100",
-            "battery_type": "MANUAL"
         },
         {
             "manufacturer": "Ecowitt",
