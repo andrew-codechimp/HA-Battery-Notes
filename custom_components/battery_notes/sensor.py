@@ -289,6 +289,8 @@ class BatteryNotesBatteryPlusSensor(
         self.round_battery = round_battery
 
         self._device_id = coordinator.device_id
+        self._entity_id = coordinator.entity_id
+
         if coordinator.device_id and (
             device_entry := device_registry.async_get(coordinator.device_id)
         ):
@@ -545,6 +547,7 @@ class BatteryNotesTypeSensor(RestoreSensor, SensorEntity):
         self._attr_has_entity_name = True
         self._attr_unique_id = unique_id
         self._device_id = coordinator.device_id
+        self._entity_id = coordinator.entity_id
 
         if coordinator.device_id and (
             device_entry := device_registry.async_get(coordinator.device_id)
@@ -620,6 +623,7 @@ class BatteryNotesLastReplacedSensor(
         self._attr_has_entity_name = True
         self._attr_unique_id = unique_id
         self._device_id = coordinator.device_id
+        self._entity_id = coordinator.entity_id
         self.entity_description = description
         self._native_value = None
 
@@ -647,14 +651,18 @@ class BatteryNotesLastReplacedSensor(
 
     def _set_native_value(self, log_on_error=True):
         # pylint: disable=unused-argument
-        device_entry = self.coordinator.store.async_get_device(self._device_id)
-        if device_entry:
+        if self._entity_id:
+            entry = self.coordinator.store.async_get_entity(self._entity_id)
+        else:
+            entry = self.coordinator.store.async_get_device(self._device_id)
+
+        if entry:
             if (
-                LAST_REPLACED in device_entry
-                and device_entry[LAST_REPLACED] is not None
+                LAST_REPLACED in entry
+                and entry[LAST_REPLACED] is not None
             ):
                 last_replaced_date = datetime.fromisoformat(
-                    str(device_entry[LAST_REPLACED]) + "+00:00"
+                    str(entry[LAST_REPLACED]) + "+00:00"
                 )
                 self._native_value = last_replaced_date
 
@@ -665,14 +673,18 @@ class BatteryNotesLastReplacedSensor(
     def _handle_coordinator_update(self) -> None:
         """Handle updated data from the coordinator."""
 
-        device_entry = self.coordinator.store.async_get_device(self._device_id)
-        if device_entry:
+        if self.coordinator.entity_id:
+            entry = self.coordinator.store.async_get_entity(self._entity_id)
+        else:
+            entry = self.coordinator.store.async_get_device(self._device_id)
+
+        if entry:
             if (
-                LAST_REPLACED in device_entry
-                and device_entry[LAST_REPLACED] is not None
+                LAST_REPLACED in entry
+                and entry[LAST_REPLACED] is not None
             ):
                 last_replaced_date = datetime.fromisoformat(
-                    str(device_entry[LAST_REPLACED]) + "+00:00"
+                    str(entry[LAST_REPLACED]) + "+00:00"
                 )
                 self._native_value = last_replaced_date
 

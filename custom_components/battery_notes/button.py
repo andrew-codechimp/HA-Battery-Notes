@@ -7,7 +7,6 @@ from datetime import datetime
 import voluptuous as vol
 
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import CONF_ENTITY_ID
 from homeassistant.core import HomeAssistant, callback, Event
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers import (
@@ -30,6 +29,7 @@ from homeassistant.helpers.reload import async_setup_reload_service
 from homeassistant.const import (
     CONF_NAME,
     CONF_DEVICE_ID,
+    CONF_ENTITY_ID,
 )
 
 from . import PLATFORMS
@@ -90,7 +90,8 @@ async def async_setup_entry(
     entity_registry = er.async_get(hass)
     device_registry = dr.async_get(hass)
 
-    device_id = config_entry.data.get(CONF_DEVICE_ID)
+    entity_id = config_entry.data.get(CONF_ENTITY_ID, None)
+    device_id = config_entry.data.get(CONF_DEVICE_ID, None)
 
     async def async_registry_updated(event: Event) -> None:
         """Handle entity registry update."""
@@ -157,7 +158,7 @@ async def async_setup_entry(
                 coordinator,
                 description,
                 f"{config_entry.entry_id}{description.unique_id_suffix}",
-                device_id,
+                device_id
             )
         ]
     )
@@ -197,6 +198,7 @@ class BatteryNotesButton(ButtonEntity):
         self._attr_unique_id = unique_id
         self._attr_has_entity_name = True
         self._device_id = device_id
+        self._entity_id = coordinator.entity_id
 
         if device_id and (device := device_registry.async_get(device_id)):
             self._attr_device_info = DeviceInfo(
@@ -220,9 +222,15 @@ class BatteryNotesButton(ButtonEntity):
         """Press the button."""
         device_id = self._device_id
 
-        device_entry = {"battery_last_replaced": datetime.utcnow()}
+        entry = {"battery_last_replaced": datetime.utcnow()}
 
-        self.coordinator.async_update_device_config(
-            device_id=device_id, data=device_entry
-        )
+        if self._entity_id:
+            self.coordinator.async_update_entity_config(
+                entity_id=self.coordinator.entity_id, data=entry
+            )
+        else:
+            self.coordinator.async_update_device_config(
+                device_id=device_id, data=entry
+            )
+
         await self.coordinator.async_request_refresh()
