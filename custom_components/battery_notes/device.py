@@ -88,6 +88,7 @@ class BatteryNotesDevice:
         device_id = config.data.get(CONF_DEVICE_ID, None)
         entity_id = config.data.get(CONF_ENTITY_ID, None)
 
+        device_registry = dr.async_get(self.hass)
         entity_registry = er.async_get(self.hass)
 
         if entity_id:
@@ -107,7 +108,6 @@ class BatteryNotesDevice:
             else:
                 self.device_name = self.config.title
         else:
-            device_registry = dr.async_get(self.hass)
             for entity in entity_registry.entities.values():
                 if not entity.device_id or entity.device_id != device_id:
                     continue

@@ -41,6 +41,7 @@ from .const import (
     CONF_ENABLE_REPLACED,
 )
 
+from .device import BatteryNotesDevice
 from .coordinator import BatteryNotesCoordinator
 
 from .entity import (
@@ -59,7 +60,11 @@ class BatteryNotesButtonEntityDescription(
 
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
-    {vol.Optional(CONF_NAME): cv.string, vol.Required(CONF_DEVICE_ID): cv.string}
+    {
+        vol.Optional(CONF_NAME): cv.string,
+        vol.Optional(CONF_DEVICE_ID): cv.string,
+        vol.Optional(CONF_ENTITY_ID): cv.string,
+    }
 )
 
 
@@ -70,9 +75,10 @@ def async_add_to_device(hass: HomeAssistant, entry: ConfigEntry) -> str | None:
 
     device_id = entry.data.get(CONF_DEVICE_ID)
 
-    if device_registry.async_get(device_id):
-        device_registry.async_update_device(device_id, add_config_entry_id=entry.entry_id)
-        return device_id
+    if device_id:
+        if device_registry.async_get(device_id):
+            device_registry.async_update_device(device_id, add_config_entry_id=entry.entry_id)
+            return device_id
     return None
 
 async def async_setup_entry(
@@ -122,10 +128,13 @@ async def async_setup_entry(
         )
     )
 
-    device_id = async_add_to_device(hass, config_entry)
+    device: BatteryNotesDevice = hass.data[DOMAIN][DATA].devices[config_entry.entry_id]
 
-    if not device_id:
-        return
+    if not device.fake_device:
+        device_id = async_add_to_device(hass, config_entry)
+
+        if not device_id:
+            return
 
     enable_replaced = True
     if DOMAIN_CONFIG in hass.data[DOMAIN]:
