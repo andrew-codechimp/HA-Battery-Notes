@@ -299,8 +299,8 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                 user_input[CONF_BATTERY_LOW_THRESHOLD]
             )
 
-            entity_id = self.data[CONF_ENTITY_ID]
-            device_id = self.data[CONF_DEVICE_ID]
+            entity_id = self.data.get(CONF_ENTITY_ID, None)
+            device_id = self.data.get(CONF_DEVICE_ID, None)
 
             if entity_id:
                 entity_registry = er.async_get(self.hass)
