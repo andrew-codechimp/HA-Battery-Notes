@@ -17,6 +17,7 @@ from homeassistant.components.sensor import (
 
 from homeassistant.const import (
     CONF_DEVICE_ID,
+    CONF_ENTITY_ID,
     PERCENTAGE,
 )
 
@@ -56,6 +57,13 @@ class BatteryNotesDevice:
         self.reset_jobs: list[CALLBACK_TYPE] = []
 
     @property
+    def fake_device(self) -> bool:
+        if self.config.data.get(CONF_ENTITY_ID, None):
+            if self.config.data.get(CONF_DEVICE_ID, None) is None:
+                return True
+        return False
+
+    @property
     def name(self) -> str:
         """Return the name of the device."""
         return self.device_name or self.config.title
@@ -77,38 +85,56 @@ class BatteryNotesDevice:
         """Set up the device and related entities."""
         config = self.config
 
-        device_id = config.data.get(CONF_DEVICE_ID)
+        device_id = config.data.get(CONF_DEVICE_ID, None)
+        entity_id = config.data.get(CONF_ENTITY_ID, None)
 
-        # Find a battery for this device
         entity_registry = er.async_get(self.hass)
-        device_registry = dr.async_get(self.hass)
-        for entity in entity_registry.entities.values():
-            if not entity.device_id or entity.device_id != device_id:
-                continue
-            if not entity.domain or entity.domain != SENSOR_DOMAIN:
-                continue
-            if not entity.platform or entity.platform == DOMAIN:
-                continue
 
-            if entity.disabled:
-                continue
-
+        if entity_id:
+            entity = entity_registry.async_get(entity_id)
             device_class = entity.device_class or entity.original_device_class
-            if device_class != SensorDeviceClass.BATTERY:
-                continue
+            if device_class == SensorDeviceClass.BATTERY and entity.unit_of_measurement == PERCENTAGE:
+                self.wrapped_battery = entity
 
-            if entity.unit_of_measurement != PERCENTAGE:
-                continue
-
-            self.wrapped_battery = entity_registry.async_get(entity.entity_id)
-
-        device_entry = device_registry.async_get(device_id)
-        if device_entry:
-            self.device_name = (
-                device_entry.name_by_user or device_entry.name or self.config.title
-            )
+            if entity.device_id:
+                device_entry = device_registry.async_get(entity.device_id)
+                if device_entry:
+                    self.device_name = (
+                        device_entry.name_by_user or device_entry.name or self.config.title
+                    )
+                else:
+                    self.device_name = self.config.title
+            else:
+                self.device_name = self.config.title
         else:
-            self.device_name = self.config.title
+            device_registry = dr.async_get(self.hass)
+            for entity in entity_registry.entities.values():
+                if not entity.device_id or entity.device_id != device_id:
+                    continue
+                if not entity.domain or entity.domain != SENSOR_DOMAIN:
+                    continue
+                if not entity.platform or entity.platform == DOMAIN:
+                    continue
+
+                if entity.disabled:
+                    continue
+
+                device_class = entity.device_class or entity.original_device_class
+                if device_class != SensorDeviceClass.BATTERY:
+                    continue
+
+                if entity.unit_of_measurement != PERCENTAGE:
+                    continue
+
+                self.wrapped_battery = entity_registry.async_get(entity.entity_id)
+
+            device_entry = device_registry.async_get(device_id)
+            if device_entry:
+                self.device_name = (
+                    device_entry.name_by_user or device_entry.name or self.config.title
+                )
+            else:
+                self.device_name = self.config.title
 
         self.store = self.hass.data[DOMAIN][DATA_STORE]
         self.coordinator = BatteryNotesCoordinator(
@@ -116,6 +142,7 @@ class BatteryNotesDevice:
         )
 
         self.coordinator.device_id = device_id
+        self.coordinator.entity_id = entity_id
         self.coordinator.device_name = self.device_name
         self.coordinator.battery_type = config.data.get(CONF_BATTERY_TYPE)
         try:

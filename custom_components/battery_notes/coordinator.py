@@ -29,6 +29,7 @@ from .const import (
     EVENT_BATTERY_INCREASED,
     DEFAULT_BATTERY_INCREASE_THRESHOLD,
     ATTR_DEVICE_ID,
+    ATTR_ENTITY_ID,
     ATTR_BATTERY_QUANTITY,
     ATTR_BATTERY_TYPE,
     ATTR_BATTERY_TYPE_AND_QUANTITY,
@@ -49,7 +50,8 @@ _LOGGER = logging.getLogger(__name__)
 class BatteryNotesCoordinator(DataUpdateCoordinator):
     """Define an object to hold Battery Notes device."""
 
-    device_id: str
+    device_id: str = None
+    entity_id: str = None
     device_name: str
     battery_type: str
     battery_quantity: int
@@ -92,6 +94,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
                 EVENT_BATTERY_THRESHOLD,
                 {
                     ATTR_DEVICE_ID: self.device_id,
+                    ATTR_ENTITY_ID: self.entity_id,
                     ATTR_DEVICE_NAME: self.device_name,
                     ATTR_BATTERY_LOW: self.battery_low,
                     ATTR_BATTERY_TYPE_AND_QUANTITY: self.battery_type_and_quantity,
@@ -111,6 +114,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
                     EVENT_BATTERY_INCREASED,
                     {
                         ATTR_DEVICE_ID: self.device_id,
+                        ATTR_ENTITY_ID: self.entity_id,
                         ATTR_DEVICE_NAME: self.device_name,
                         ATTR_BATTERY_LOW: self.battery_low,
                         ATTR_BATTERY_TYPE_AND_QUANTITY: self.battery_type_and_quantity,
@@ -140,6 +144,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
                     EVENT_BATTERY_THRESHOLD,
                     {
                         ATTR_DEVICE_ID: self.device_id,
+                        ATTR_ENTITY_ID: self.entity_id,
                         ATTR_DEVICE_NAME: self.device_name,
                         ATTR_BATTERY_LOW: self.battery_low,
                         ATTR_BATTERY_TYPE_AND_QUANTITY: self.battery_type_and_quantity,
@@ -173,6 +178,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
                         {
                             ATTR_DEVICE_ID: self.device_id,
                             ATTR_DEVICE_NAME: self.device_name,
+                            ATTR_ENTITY_ID: self.entity_id,
                             ATTR_BATTERY_LOW: self.battery_low,
                             ATTR_BATTERY_TYPE_AND_QUANTITY: self.battery_type_and_quantity,
                             ATTR_BATTERY_TYPE: self.battery_type,
@@ -200,11 +206,15 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
     @property
     def last_replaced(self) -> datetime | None:
         """Get the last replaced datetime."""
-        device_entry = self.store.async_get_device(self.device_id)
-        if device_entry:
-            if LAST_REPLACED in device_entry and device_entry[LAST_REPLACED] is not None:
+        if self.entity_id:
+            entry = self.store.async_get_entity(self.entity_id)
+        else:
+            entry = self.store.async_get_device(self.device_id)
+
+        if entry:
+            if LAST_REPLACED in entry and entry[LAST_REPLACED] is not None:
                 last_replaced_date = datetime.fromisoformat(
-                    str(device_entry[LAST_REPLACED]) + "+00:00"
+                    str(entry[LAST_REPLACED]) + "+00:00"
                 )
                 return last_replaced_date
         return None
@@ -212,12 +222,17 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
     @property
     def last_reported(self) -> datetime | None:
         """Get the last reported datetime."""
-        device_entry = self.store.async_get_device(self.device_id)
-        if device_entry:
-            if LAST_REPORTED in device_entry:
-                if device_entry[LAST_REPORTED]:
+
+        if self.entity_id:
+            entry = self.store.async_get_entity(self.entity_id)
+        else:
+            entry = self.store.async_get_device(self.device_id)
+
+        if entry:
+            if LAST_REPORTED in entry:
+                if entry[LAST_REPORTED]:
                     last_reported_date = datetime.fromisoformat(
-                        str(device_entry[LAST_REPORTED]) + "+00:00"
+                        str(entry[LAST_REPORTED]) + "+00:00"
                     )
                     return last_reported_date
         return None
@@ -225,31 +240,46 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
     @last_reported.setter
     def last_reported(self, value):
         """Set the last reported datetime and store it."""
-        device_entry = {"battery_last_reported": value}
+        entry = {"battery_last_reported": value}
 
-        self.async_update_device_config(
-            device_id=self.device_id, data=device_entry
-        )
+        if self.entity_id:
+            self.async_update_entity_config(
+                entity_id=self.entity_id, data=entry
+            )
+        else:
+            self.async_update_device_config(
+                device_id=self.device_id, data=entry
+            )
 
     @property
     def last_reported_level(self) -> float | None:
         """Get the last reported level."""
-        device_entry = self.store.async_get_device(self.device_id)
-        if device_entry:
-            if LAST_REPORTED_LEVEL in device_entry:
-                if device_entry[LAST_REPORTED_LEVEL]:
-                    last_reported_level = float(device_entry[LAST_REPORTED_LEVEL])
+
+        if self.entity_id:
+            entry = self.store.async_get_entity(self.entity_id)
+        else:
+            entry = self.store.async_get_device(self.device_id)
+
+        if entry:
+            if LAST_REPORTED_LEVEL in entry:
+                if entry[LAST_REPORTED_LEVEL]:
+                    last_reported_level = float(entry[LAST_REPORTED_LEVEL])
                     return self._rounded_level(last_reported_level)
         return None
 
     @last_reported_level.setter
     def last_reported_level(self, value):
         """Set the last reported level and store it."""
-        device_entry = {"battery_last_reported_level": value}
+        entry = {"battery_last_reported_level": value}
 
-        self.async_update_device_config(
-            device_id=self.device_id, data=device_entry
-        )
+        if self.entity_id:
+            self.async_update_entity_config(
+                entity_id=self.entity_id, data=entry
+            )
+        else:
+            self.async_update_device_config(
+                device_id=self.device_id, data=entry
+            )
 
     @property
     def battery_low(self) -> bool:
@@ -297,7 +327,12 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
         else:
             self.store.async_create_device(device_id, data)
 
-    async def async_delete_config(self):
-        """Wipe battery notes storage."""
+    def async_update_entity_config(self, entity_id: str, data: dict):
+        """Conditional create, update or remove entity from store."""
 
-        await self.store.async_delete()
+        if ATTR_REMOVE in data:
+            self.store.async_delete_entity(entity_id)
+        elif self.store.async_get_entity(entity_id):
+            self.store.async_update_entity(entity_id, data)
+        else:
+            self.store.async_create_entity(entity_id, data)

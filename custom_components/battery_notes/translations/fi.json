@@ -8,7 +8,7 @@
                 },
                 "menu_options": {
                     "device": "Device (recommended)",
-                    "entity": "Entity (advanced)"
+                    "entity": "Entity"
                 },
                 "title": "Choose your association type"
             },
@@ -147,6 +147,10 @@
                 "device_id": {
                     "description": "Laite, jonka akku on vaihdettu.",
                     "name": "Laite"
+                },
+                "entity_id": {
+                    "description": "Entity that has had its battery replaced.",
+                    "name": "Entity"
                 },
                 "datetime_replaced": {
                     "description": "Päivä, jolloin vaihdettu.",

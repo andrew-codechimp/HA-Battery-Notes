@@ -73,6 +73,7 @@ EVENT_BATTERY_INCREASED = "battery_notes_battery_increased"
 EVENT_BATTERY_NOT_REPORTED = "battery_notes_battery_not_reported"
 
 ATTR_DEVICE_ID = "device_id"
+ATTR_ENTITY_ID = "entity_id"
 ATTR_REMOVE = "remove"
 ATTR_BATTERY_QUANTITY = "battery_quantity"
 ATTR_BATTERY_TYPE = "battery_type"
