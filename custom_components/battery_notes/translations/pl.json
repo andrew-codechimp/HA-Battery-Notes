@@ -4,11 +4,30 @@
             "user": {
                 "description": "Jeśli potrzebujesz pomocy w konfiguracji, zajrzyj tutaj: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
+                    "association_type": "Association type"
+                },
+                "menu_options": {
+                    "device": "Device (recommended)",
+                    "entity": "Entity (advanced)"
+                },
+                "title": "Choose your association type"
+            },
+            "device": {
+                "data": {
                     "device_id": "Urządzenie",
                     "name": "Nazwa"
                 },
                 "data_description": {
                     "name": "Pozostawienie pustego pola spowoduje pobranie nazwy z urządzenia źródłowego"
+                }
+            },
+            "entity": {
+                "data": {
+                    "entity_id": "Entity",
+                    "name": "Nazwa"
+                },
+                "data_description": {
+                    "name": "Leaving blank will take the name from the source entity"
                 }
             },
             "battery": {

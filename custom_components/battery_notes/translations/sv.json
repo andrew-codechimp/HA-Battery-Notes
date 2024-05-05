@@ -4,11 +4,30 @@
             "user": {
                 "description": "Om du behöver hjälp med konfigurationen? Ta en titt här: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
+                    "association_type": "Association type"
+                },
+                "menu_options": {
+                    "device": "Device (recommended)",
+                    "entity": "Entity (advanced)"
+                },
+                "title": "Choose your association type"
+            },
+            "device": {
+                "data": {
                     "device_id": "Enhet",
                     "name": "Namn"
                 },
                 "data_description": {
                     "name": "Genom att lämna blankt tas namnet från källenheten. "
+                }
+            },
+            "entity": {
+                "data": {
+                    "entity_id": "Entity",
+                    "name": "Namn"
+                },
+                "data_description": {
+                    "name": "Leaving blank will take the name from the source entity"
                 }
             },
             "battery": {

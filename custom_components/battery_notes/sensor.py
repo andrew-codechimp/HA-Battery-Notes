@@ -74,7 +74,7 @@ from .const import (
     ATTR_DEVICE_NAME,
 )
 
-from .common import isfloat
+from .common import validate_is_float
 from .device import BatteryNotesDevice
 from .coordinator import BatteryNotesCoordinator
 
@@ -329,7 +329,7 @@ class BatteryNotesBatteryPlusSensor(
                 STATE_UNAVAILABLE,
                 STATE_UNKNOWN,
             ]
-            or not isfloat(wrapped_battery_state.state)
+            or not validate_is_float(wrapped_battery_state.state)
         ):
             self._attr_native_value = None
             self._attr_available = False

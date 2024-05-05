@@ -4,11 +4,30 @@
             "user": {
                 "description": "Jos tarvitset apua asetuksissa, katso täältä: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
+                    "association_type": "Association type"
+                },
+                "menu_options": {
+                    "device": "Device (recommended)",
+                    "entity": "Entity (advanced)"
+                },
+                "title": "Choose your association type"
+            },
+            "device": {
+                "data": {
                     "device_id": "Laite",
                     "name": "Nimi"
                 },
                 "data_description": {
                     "name": "Tyhjäksi jättäminen ottaa nimen lähdelaitteesta"
+                }
+            },
+            "entity": {
+                "data": {
+                    "entity_id": "Entity",
+                    "name": "Nimi"
+                },
+                "data_description": {
+                    "name": "Leaving blank will take the name from the source entity"
                 }
             },
             "battery": {

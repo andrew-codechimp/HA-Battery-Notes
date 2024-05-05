@@ -4,11 +4,30 @@
             "user": {
                 "description": "اگر آپ کو ترتیب میں مدد کی ضرورت ہو تو یہاں ایک نظر ڈالیں: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
+                    "association_type": "Association type"
+                },
+                "menu_options": {
+                    "device": "Device (recommended)",
+                    "entity": "Entity (advanced)"
+                },
+                "title": "Choose your association type"
+            },
+            "device": {
+                "data": {
                     "device_id": "آلہ",
                     "name": "نام"
                 },
                 "data_description": {
                     "name": "خالی چھوڑنے سے نام ماخذ آلہ سے لیا جائے گا۔"
+                }
+            },
+            "entity": {
+                "data": {
+                    "entity_id": "Entity",
+                    "name": "نام"
+                },
+                "data_description": {
+                    "name": "Leaving blank will take the name from the source entity"
                 }
             },
             "battery": {

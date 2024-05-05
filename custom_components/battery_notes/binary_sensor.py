@@ -66,7 +66,7 @@ from .const import (
     ATTR_BATTERY_LOW_THRESHOLD,
 )
 
-from .common import isfloat
+from .common import validate_is_float
 
 from .device import BatteryNotesDevice
 from .coordinator import BatteryNotesCoordinator
@@ -536,7 +536,7 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity, CoordinatorEntity[Battery
                 STATE_UNAVAILABLE,
                 STATE_UNKNOWN,
             ]
-            or not isfloat(wrapped_battery_state.state)
+            or not validate_is_float(wrapped_battery_state.state)
         ):
             self._attr_is_on = None
             self._attr_available = False

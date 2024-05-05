@@ -16,7 +16,7 @@ from homeassistant.const import (
 )
 
 
-from .common import isfloat
+from .common import validate_is_float
 from .store import BatteryNotesStorage
 
 from .const import (
@@ -257,7 +257,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
         if self.battery_low_template:
             return self.battery_low_template_state
         else:
-            if isfloat(self.current_battery_level):
+            if validate_is_float(self.current_battery_level):
                 return bool(
                     float(self.current_battery_level) < self.battery_low_threshold
                 )
@@ -276,7 +276,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
 
     def _rounded_level(self, value) -> float:
         """Round the level, if preferred."""
-        if isfloat(value):
+        if validate_is_float(value):
             return round(float(value), None if self._round_battery else 1)
         else:
             return value

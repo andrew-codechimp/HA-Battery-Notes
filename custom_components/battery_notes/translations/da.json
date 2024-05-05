@@ -4,11 +4,30 @@
             "user": {
                 "description": "Hvis du har brug for hjælp til konfigurationen, så kig her: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
+                    "association_type": "Association type"
+                },
+                "menu_options": {
+                    "device": "Device (recommended)",
+                    "entity": "Entity (advanced)"
+                },
+                "title": "Choose your association type"
+            },
+            "device": {
+                "data": {
                     "device_id": "Enhed",
                     "name": "Navn"
                 },
                 "data_description": {
                     "name": "Hvis du lader dette felt være tomt, hentes navnet fra kildeenheden"
+                }
+            },
+            "entity": {
+                "data": {
+                    "entity_id": "Entity",
+                    "name": "Navn"
+                },
+                "data_description": {
+                    "name": "Leaving blank will take the name from the source entity"
                 }
             },
             "battery": {

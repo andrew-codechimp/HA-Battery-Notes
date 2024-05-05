@@ -43,6 +43,7 @@ from .const import (
     DATA,
     DATA_LIBRARY_UPDATER,
     CONF_SHOW_ALL_DEVICES,
+    CONF_SHOW_ALL_ENTITIES,
     CONF_ENABLE_REPLACED,
     CONF_DEFAULT_BATTERY_LOW_THRESHOLD,
     CONF_BATTERY_INCREASE_THRESHOLD,
@@ -88,6 +89,7 @@ CONFIG_SCHEMA = vol.Schema(
                     vol.Optional(CONF_ENABLE_AUTODISCOVERY, default=True): cv.boolean,
                     vol.Optional(CONF_USER_LIBRARY, default=""): cv.string,
                     vol.Optional(CONF_SHOW_ALL_DEVICES, default=False): cv.boolean,
+                    vol.Optional(CONF_SHOW_ALL_ENTITIES, default=False): cv.boolean,
                     vol.Optional(CONF_ENABLE_REPLACED, default=True): cv.boolean,
                     vol.Optional(CONF_HIDE_BATTERY, default=False): cv.boolean,
                     vol.Optional(CONF_ROUND_BATTERY, default=False): cv.boolean,
@@ -130,6 +132,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     domain_config: ConfigType = config.get(DOMAIN) or {
         CONF_ENABLE_AUTODISCOVERY: True,
         CONF_SHOW_ALL_DEVICES: False,
+        CONF_SHOW_ALL_ENTITIES: False,
         CONF_ENABLE_REPLACED: True,
         CONF_HIDE_BATTERY: False,
         CONF_ROUND_BATTERY: False,
