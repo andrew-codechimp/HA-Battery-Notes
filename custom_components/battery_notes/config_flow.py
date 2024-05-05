@@ -302,16 +302,14 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             entity_id = self.data[CONF_ENTITY_ID]
             device_id = self.data[CONF_DEVICE_ID]
 
-            entity_registry = er.async_get(self.hass)
-            entity_entry = entity_registry.async_get(entity_id)
-
-            device_registry = dr.async_get(self.hass)
-            device_entry = device_registry.async_get(device_id)
-
             if entity_id:
+                entity_registry = er.async_get(self.hass)
+                entity_entry = entity_registry.async_get(entity_id)
                 entity_unique_id = entity_entry.unique_id or entity_entry.entity_id
                 unique_id = f"bn_{entity_unique_id}"
             else:
+                device_registry = dr.async_get(self.hass)
+                device_entry = device_registry.async_get(device_id)
                 unique_id = f"bn_{device_id}"
 
             await self.async_set_unique_id(unique_id)
