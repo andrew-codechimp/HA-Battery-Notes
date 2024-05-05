@@ -27,7 +27,7 @@
                     "name": "Nazwa"
                 },
                 "data_description": {
-                    "name": "Leaving blank will take the name from the source entity"
+                    "name": "Pozostawienie pustego pola spowoduje pobranie nazwy z encji źródłowej"
                 }
             },
             "battery": {

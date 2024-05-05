@@ -27,7 +27,7 @@
                     "name": "Namn"
                 },
                 "data_description": {
-                    "name": "Leaving blank will take the name from the source entity"
+                    "name": "Lämnas tom kommer namn tas från källentiteten"
                 }
             },
             "battery": {

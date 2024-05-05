@@ -27,7 +27,7 @@
                     "name": "Naam"
                 },
                 "data_description": {
-                    "name": "Leaving blank will take the name from the source entity"
+                    "name": "Indien dit leeg gelaten wordt dan wordt de naam van de bron entiteit overgenomen"
                 }
             },
             "battery": {

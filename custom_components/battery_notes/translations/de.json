@@ -27,7 +27,7 @@
                     "name": "Name"
                 },
                 "data_description": {
-                    "name": "Leaving blank will take the name from the source entity"
+                    "name": "Leer lassen wird den Namen von der Quell-Entität übernehmen"
                 }
             },
             "battery": {

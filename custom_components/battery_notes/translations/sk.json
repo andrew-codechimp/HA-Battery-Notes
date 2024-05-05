@@ -27,7 +27,7 @@
                     "name": "Názov"
                 },
                 "data_description": {
-                    "name": "Leaving blank will take the name from the source entity"
+                    "name": "Ak ponecháte prázdne, názov sa prevezme zo zdrojovej entity"
                 }
             },
             "battery": {
