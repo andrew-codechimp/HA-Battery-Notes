@@ -228,6 +228,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             self.data = user_input
 
             entity_id = user_input[CONF_ENTITY_ID]
+            self.data[CONF_ENTITY_ID] = entity_id
             entity_registry = er.async_get(self.hass)
             entity_entry = entity_registry.async_get(entity_id)
 
@@ -298,17 +299,28 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                 user_input[CONF_BATTERY_LOW_THRESHOLD]
             )
 
+            entity_id = self.data[CONF_ENTITY_ID]
             device_id = self.data[CONF_DEVICE_ID]
-            unique_id = f"bn_{device_id}"
+
+            entity_registry = er.async_get(self.hass)
+            entity_entry = entity_registry.async_get(entity_id)
 
             device_registry = dr.async_get(self.hass)
             device_entry = device_registry.async_get(device_id)
+
+            if entity_id:
+                entity_unique_id = entity_entry.unique_id or entity_entry.entity_id
+                unique_id = f"bn_{entity_unique_id}"
+            else:
+                unique_id = f"bn_{device_id}"
 
             await self.async_set_unique_id(unique_id)
             self._abort_if_unique_id_configured()
 
             if CONF_NAME in self.data:
                 title = self.data.get(CONF_NAME)
+            elif entity_id:
+                title = entity_entry.name or entity_entry.original_name
             else:
                 title = device_entry.name_by_user or device_entry.name
 
