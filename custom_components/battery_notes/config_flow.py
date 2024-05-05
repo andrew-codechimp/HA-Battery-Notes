@@ -47,14 +47,6 @@ _LOGGER = logging.getLogger(__name__)
 
 CONFIG_VERSION = 2
 
-MENU_OPTION_DEVICE = "device"
-MENU_OPTION_ENTITY = "entity"
-
-ASSOCIATION_TYPE_MENU = {
-    MENU_OPTION_DEVICE: "Device (recommended)",
-    MENU_OPTION_ENTITY: "Entity (advanced)",
-}
-
 DEVICE_SCHEMA_ALL = vol.Schema(
     {
         vol.Required(CONF_DEVICE_ID): selector.DeviceSelector(
@@ -144,7 +136,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             "model": discovery_info[CONF_MODEL],
         }
 
-        return await self.async_step_menu_device(discovery_info)
+        return await self.async_step_device(discovery_info)
 
     async def async_step_user(
         self,
@@ -152,7 +144,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
     ) -> config_entries.FlowResult:
         """Handle a flow initialized by the user."""
 
-        return self.async_show_menu(step_id="user", menu_options=ASSOCIATION_TYPE_MENU)
+        return self.async_show_menu(step_id="user", menu_options=["device", "entity"])
 
     async def async_step_device(
         self,
