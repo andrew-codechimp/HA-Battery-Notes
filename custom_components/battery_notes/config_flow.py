@@ -16,6 +16,7 @@ from homeassistant.helpers.typing import DiscoveryInfoType
 from homeassistant.const import Platform
 from homeassistant.components.sensor import SensorDeviceClass
 import homeassistant.helpers.device_registry as dr
+import homeassistant.helpers.entity_registry as er
 from homeassistant.util import dt as dt_util
 
 from homeassistant.const import (
@@ -226,43 +227,50 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
         if user_input is not None:
             self.data = user_input
 
-            # device_id = user_input[CONF_DEVICE_ID]
+            entity_id = user_input[CONF_ENTITY_ID]
+            entity_registry = er.async_get(self.hass)
+            entity_entry = entity_registry.async_get(entity_id)
 
-            # if (
-            #     DOMAIN in self.hass.data
-            #     and DATA_LIBRARY_UPDATER in self.hass.data[DOMAIN]
-            # ):
-            #     library_updater: LibraryUpdater = self.hass.data[DOMAIN][
-            #         DATA_LIBRARY_UPDATER
-            #     ]
-            #     await library_updater.get_library_updates(dt_util.utcnow())
-
-            # device_registry = dr.async_get(self.hass)
-            # device_entry = device_registry.async_get(device_id)
-
-            # _LOGGER.debug(
-            #     "Looking up device %s %s %s", device_entry.manufacturer, device_entry.model, device_entry.hw_version
-            # )
-
-            # model_info = ModelInfo(device_entry.manufacturer, device_entry.model, device_entry.hw_version)
-
-            # library = Library.factory(self.hass)
-
+            # Default battery quantity if not found in library lookup
             self.data[CONF_BATTERY_QUANTITY] = 1
 
-            # device_battery_details = await library.get_device_battery_details(
-            #     model_info
-            # )
+            if entity_entry.device_id:
 
-            # if device_battery_details and not device_battery_details.is_manual:
-            #     _LOGGER.debug(
-            #         "Found device %s %s %s", device_entry.manufacturer, device_entry.model, device_entry.hw_version
-            #     )
-            #     self.data[CONF_BATTERY_TYPE] = device_battery_details.battery_type
+                self.data[CONF_DEVICE_ID] = entity_entry.device_id
 
-            #     self.data[
-            #         CONF_BATTERY_QUANTITY
-            #     ] = device_battery_details.battery_quantity
+                if (
+                    DOMAIN in self.hass.data
+                    and DATA_LIBRARY_UPDATER in self.hass.data[DOMAIN]
+                ):
+                    library_updater: LibraryUpdater = self.hass.data[DOMAIN][
+                        DATA_LIBRARY_UPDATER
+                    ]
+                    await library_updater.get_library_updates(dt_util.utcnow())
+
+                device_registry = dr.async_get(self.hass)
+                device_entry = device_registry.async_get(entity_entry.device_id)
+
+                _LOGGER.debug(
+                    "Looking up device %s %s %s", device_entry.manufacturer, device_entry.model, device_entry.hw_version
+                )
+
+                model_info = ModelInfo(device_entry.manufacturer, device_entry.model, device_entry.hw_version)
+
+                library = Library.factory(self.hass)
+
+                device_battery_details = await library.get_device_battery_details(
+                    model_info
+                )
+
+                if device_battery_details and not device_battery_details.is_manual:
+                    _LOGGER.debug(
+                        "Found device %s %s %s", device_entry.manufacturer, device_entry.model, device_entry.hw_version
+                    )
+                    self.data[CONF_BATTERY_TYPE] = device_battery_details.battery_type
+
+                    self.data[
+                        CONF_BATTERY_QUANTITY
+                    ] = device_battery_details.battery_quantity
 
             return await self.async_step_battery()
 
