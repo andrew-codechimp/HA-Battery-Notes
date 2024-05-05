@@ -5301,6 +5301,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Ecowitt",
+            "model": "GW2000A",
+            "battery_type": "MANUAL"
         }
     ]
 }
