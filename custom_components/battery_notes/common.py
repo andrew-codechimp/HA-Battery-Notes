@@ -1,12 +1,9 @@
 """Common functions for battery_notes."""
 
-import re
 from typing import NamedTuple
 
 import homeassistant.helpers.device_registry as dr
 import homeassistant.helpers.entity_registry as er
-import voluptuous as vol
-from homeassistant.const import CONF_ENTITY_ID, CONF_NAME, CONF_UNIQUE_ID
 from homeassistant.core import HomeAssistant, split_entity_id
 
 class SourceEntity(NamedTuple):
@@ -17,6 +14,16 @@ class SourceEntity(NamedTuple):
     name: str | None = None
     entity_entry: er.RegistryEntry | None = None
     device_entry: dr.DeviceEntry | None = None
+
+def validate_is_float(num):
+    """Validate value is a float."""
+    if num:
+        try:
+            float(num)
+            return True
+        except ValueError:
+            return False
+    return False
 
 async def create_source_entity(entity_id: str, hass: HomeAssistant) -> SourceEntity:
     """Create object containing all information about the source entity."""
@@ -76,12 +83,3 @@ def get_wrapped_entity_name(
 
     return object_id
 
-def validate_is_float(num):
-    """Validate value is a float."""
-    if num:
-        try:
-            float(num)
-            return True
-        except ValueError:
-            return False
-    return False

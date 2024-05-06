@@ -71,7 +71,7 @@ from .common import validate_is_float
 from .device import BatteryNotesDevice
 from .coordinator import BatteryNotesCoordinator
 
-from .entity import (
+from .abstract import (
     BatteryNotesEntityDescription,
 )
 
