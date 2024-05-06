@@ -75,7 +75,7 @@
     "entity": {
         "binary_sensor": {
             "battery_low": {
-                "name": "Akku fast leer",
+                "name": "{device_name} Akku fast leer",
                 "state_attributes": {
                     "battery_low_threshold": {
                         "name": "Schwelle für niedrigen Batteriestand"
@@ -85,12 +85,12 @@
         },
         "button": {
             "battery_replaced": {
-                "name": "Batterie ersetzt"
+                "name": "{device_name} Batterie ersetzt"
             }
         },
         "sensor": {
             "battery_plus": {
-                "name": "Batterie+",
+                "name": "{device_name} Batterie+",
                 "state_attributes": {
                     "battery_type": {
                         "name": "Batterieart"
@@ -125,7 +125,7 @@
                 }
             },
             "battery_type": {
-                "name": "Batterieart",
+                "name": "{device_name} Batterieart",
                 "state_attributes": {
                     "battery_type": {
                         "name": "Batterieart"
@@ -136,7 +136,7 @@
                 }
             },
             "battery_last_replaced": {
-                "name": "Batterie zuletzt ersetzt"
+                "name": "{device_name} Batterie zuletzt ersetzt"
             }
         }
     },

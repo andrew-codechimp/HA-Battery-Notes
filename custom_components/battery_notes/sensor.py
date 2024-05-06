@@ -299,6 +299,11 @@ class BatteryNotesBatteryPlusSensor(
                 identifiers=device_entry.identifiers,
             )
 
+        if coordinator.entity_id:
+            self._attr_translation_placeholders = {"device_name": coordinator.device_name}
+        else:
+            self._attr_translation_placeholders = {"device_name": ""}
+
         self.entity_id = f"sensor.{coordinator.device_name.lower()}_{description.key}"
 
         entity_category = (
@@ -557,6 +562,11 @@ class BatteryNotesTypeSensor(RestoreSensor, SensorEntity):
                 identifiers=device_entry.identifiers,
             )
 
+        if coordinator.entity_id:
+            self._attr_translation_placeholders = {"device_name": coordinator.device_name}
+        else:
+            self._attr_translation_placeholders = {"device_name": ""}
+
         self.entity_id = f"sensor.{coordinator.device_name.lower()}_{description.key}"
 
         self._battery_type = coordinator.battery_type
@@ -641,9 +651,14 @@ class BatteryNotesLastReplacedSensor(
                 identifiers=device_entry.identifiers,
             )
 
-            self.entity_id = (
-                f"sensor.{coordinator.device_name.lower()}_{description.key}"
-            )
+        if coordinator.entity_id:
+            self._attr_translation_placeholders = {"device_name": coordinator.device_name}
+        else:
+            self._attr_translation_placeholders = {"device_name": ""}
+
+        self.entity_id = (
+            f"sensor.{coordinator.device_name.lower()}_{description.key}"
+        )
 
     async def async_added_to_hass(self) -> None:
         """Handle added to Hass."""

@@ -334,6 +334,11 @@ class BatteryNotesBatteryLowTemplateSensor(BinarySensorEntity, CoordinatorEntity
                 identifiers=device_entry.identifiers,
             )
 
+        if coordinator.entity_id:
+            self._attr_translation_placeholders = {"device_name": coordinator.device_name}
+        else:
+            self._attr_translation_placeholders = {"device_name": ""}
+
         self.entity_id = f"binary_sensor.{coordinator.device_name.lower()}_{description.key}"
 
         self._template = template
@@ -516,6 +521,11 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity, CoordinatorEntity[Battery
                 connections=device_entry.connections,
                 identifiers=device_entry.identifiers,
             )
+
+        if coordinator.entity_id:
+            self._attr_translation_placeholders = {"device_name": coordinator.device_name}
+        else:
+            self._attr_translation_placeholders = {"device_name": ""}
 
         self.entity_id = f"binary_sensor.{coordinator.device_name.lower()}_{description.key}"
 

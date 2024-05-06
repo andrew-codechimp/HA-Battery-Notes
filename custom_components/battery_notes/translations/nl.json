@@ -75,7 +75,7 @@
     "entity": {
         "binary_sensor": {
             "battery_low": {
-                "name": "Lage batterij",
+                "name": "{device_name} Lage batterij",
                 "state_attributes": {
                     "battery_low_threshold": {
                         "name": "Drempelwaarde batterij bijna leeg"
@@ -85,12 +85,12 @@
         },
         "button": {
             "battery_replaced": {
-                "name": "Batterij vervangen"
+                "name": "{device_name} Batterij vervangen"
             }
         },
         "sensor": {
             "battery_plus": {
-                "name": "Batterij+",
+                "name": "{device_name} Batterij+",
                 "state_attributes": {
                     "battery_type": {
                         "name": "Batterij type"
@@ -125,7 +125,7 @@
                 }
             },
             "battery_type": {
-                "name": "Batterij type",
+                "name": "{device_name} Batterij type",
                 "state_attributes": {
                     "battery_type": {
                         "name": "Batterij type"
@@ -136,7 +136,7 @@
                 }
             },
             "battery_last_replaced": {
-                "name": "Batterij laatst vervangen"
+                "name": "{device_name} Batterij laatst vervangen"
             }
         }
     },

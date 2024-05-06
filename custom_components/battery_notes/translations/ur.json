@@ -75,7 +75,7 @@
     "entity": {
         "binary_sensor": {
             "battery_low": {
-                "name": "بیٹری کم",
+                "name": "{device_name} بیٹری کم",
                 "state_attributes": {
                     "battery_low_threshold": {
                         "name": "بیٹری کی کم حد"
@@ -85,12 +85,12 @@
         },
         "button": {
             "battery_replaced": {
-                "name": "بیٹری تبدیل کر دی گئی۔"
+                "name": "{device_name} بیٹری تبدیل کر دی گئی۔"
             }
         },
         "sensor": {
             "battery_plus": {
-                "name": "بیٹری+",
+                "name": "{device_name} بیٹری+",
                 "state_attributes": {
                     "battery_type": {
                         "name": "بیٹری کی قسم"
@@ -125,7 +125,7 @@
                 }
             },
             "battery_type": {
-                "name": "بیٹری کی قسم",
+                "name": "{device_name} بیٹری کی قسم",
                 "state_attributes": {
                     "battery_type": {
                         "name": "بیٹری کی قسم"
@@ -136,7 +136,7 @@
                 }
             },
             "battery_last_replaced": {
-                "name": "بیٹری آخری بار تبدیل کی گئی۔"
+                "name": "{device_name} بیٹری آخری بار تبدیل کی گئی۔"
             }
         }
     },

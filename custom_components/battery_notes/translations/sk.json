@@ -75,7 +75,7 @@
     "entity": {
         "binary_sensor": {
             "battery_low": {
-                "name": "Slabá batéria",
+                "name": "{device_name} Slabá batéria",
                 "state_attributes": {
                     "battery_low_threshold": {
                         "name": "Nízky prah batérie"
@@ -85,12 +85,12 @@
         },
         "button": {
             "battery_replaced": {
-                "name": "Batéria vymenená"
+                "name": "{device_name} Batéria vymenená"
             }
         },
         "sensor": {
             "battery_plus": {
-                "name": "Batéria+",
+                "name": "{device_name} Batéria+",
                 "state_attributes": {
                     "battery_type": {
                         "name": "Typ batérie"
@@ -125,7 +125,7 @@
                 }
             },
             "battery_type": {
-                "name": "Typ batérie",
+                "name": "{device_name} Typ batérie",
                 "state_attributes": {
                     "battery_type": {
                         "name": "Typ batérie"
@@ -136,7 +136,7 @@
                 }
             },
             "battery_last_replaced": {
-                "name": "Batéria naposledy vymenená"
+                "name": "{device_name} Batéria naposledy vymenená"
             }
         }
     },

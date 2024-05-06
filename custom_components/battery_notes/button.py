@@ -206,6 +206,11 @@ class BatteryNotesButton(ButtonEntity):
                 identifiers=device.identifiers,
             )
 
+        if coordinator.entity_id:
+            self._attr_translation_placeholders = {"device_name": coordinator.device_name}
+        else:
+            self._attr_translation_placeholders = {"device_name": ""}
+
         self.entity_id = f"button.{coordinator.device_name.lower()}_{description.key}"
 
     async def async_added_to_hass(self) -> None:

@@ -75,7 +75,7 @@
     "entity": {
         "binary_sensor": {
             "battery_low": {
-                "name": "Χαμηλή στάθμη μπαταρίας",
+                "name": "{device_name} Χαμηλή στάθμη μπαταρίας",
                 "state_attributes": {
                     "battery_low_threshold": {
                         "name": "Ελάχιστο όριο μπαταρίας"
@@ -85,12 +85,12 @@
         },
         "button": {
             "battery_replaced": {
-                "name": "Η μπαταρία αντικαταστάθηκε"
+                "name": "{device_name} Η μπαταρία αντικαταστάθηκε"
             }
         },
         "sensor": {
             "battery_plus": {
-                "name": "Μπαταρία+",
+                "name": "{device_name} Μπαταρία+",
                 "state_attributes": {
                     "battery_type": {
                         "name": "Τύπος μπαταρίας"
@@ -125,7 +125,7 @@
                 }
             },
             "battery_type": {
-                "name": "Τύπος μπαταρίας",
+                "name": "{device_name} Τύπος μπαταρίας",
                 "state_attributes": {
                     "battery_type": {
                         "name": "Τύπος μπαταρίας"
@@ -136,7 +136,7 @@
                 }
             },
             "battery_last_replaced": {
-                "name": "Τελευταία αντικατάσταση μπαταρίας"
+                "name": "{device_name} Τελευταία αντικατάσταση μπαταρίας"
             }
         }
     },
