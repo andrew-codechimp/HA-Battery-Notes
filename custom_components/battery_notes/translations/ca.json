@@ -75,7 +75,7 @@
     "entity": {
         "binary_sensor": {
             "battery_low": {
-                "name": "Bateria baixa",
+                "name": "{device_name} Bateria baixa",
                 "state_attributes": {
                     "battery_low_threshold": {
                         "name": "Llindar baix de la bateria"
@@ -85,12 +85,12 @@
         },
         "button": {
             "battery_replaced": {
-                "name": "S'ha canviat la bateria"
+                "name": "{device_name} S'ha canviat la bateria"
             }
         },
         "sensor": {
             "battery_plus": {
-                "name": "Bateria+",
+                "name": "{device_name} Bateria+",
                 "state_attributes": {
                     "battery_type": {
                         "name": "Tipus de bateria"
@@ -125,7 +125,7 @@
                 }
             },
             "battery_type": {
-                "name": "Tipus de bateria",
+                "name": "{device_name} Tipus de bateria",
                 "state_attributes": {
                     "battery_type": {
                         "name": "Tipus de bateria"
@@ -136,7 +136,7 @@
                 }
             },
             "battery_last_replaced": {
-                "name": "Últim cop que es va substituir la bateria"
+                "name": "{device_name} Últim cop que es va substituir la bateria"
             }
         }
     },

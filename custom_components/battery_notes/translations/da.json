@@ -75,7 +75,7 @@
     "entity": {
         "binary_sensor": {
             "battery_low": {
-                "name": "Lavt batteri",
+                "name": "{device_name} Lavt batteri",
                 "state_attributes": {
                     "battery_low_threshold": {
                         "name": "Lavt batteri niveau"
@@ -85,12 +85,12 @@
         },
         "button": {
             "battery_replaced": {
-                "name": "Batteri udskiftet"
+                "name": "{device_name} Batteri udskiftet"
             }
         },
         "sensor": {
             "battery_plus": {
-                "name": "Batteri+",
+                "name": "{device_name} Batteri+",
                 "state_attributes": {
                     "battery_type": {
                         "name": "Batteri type"
@@ -125,7 +125,7 @@
                 }
             },
             "battery_type": {
-                "name": "Batteri type",
+                "name": "{device_name} Batteri type",
                 "state_attributes": {
                     "battery_type": {
                         "name": "Batteri type"
@@ -136,7 +136,7 @@
                 }
             },
             "battery_last_replaced": {
-                "name": "Batteri sidst skiftet"
+                "name": "{device_name} Batteri sidst skiftet"
             }
         }
     },
