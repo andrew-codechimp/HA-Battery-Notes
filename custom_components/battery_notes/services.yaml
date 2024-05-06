@@ -15,9 +15,7 @@ set_battery_replaced:
       description: Entity that has had its battery replaced.
       required: false
       selector:
-        device:
-          filter:
-            - integration: battery_notes
+        entity:
     datetime_replaced:
       name: Date
       description: Date replaced.

@@ -302,22 +302,33 @@ def register_services(hass: HomeAssistant):
                 )
                 return
 
-            coordinator = (
-                hass.data[DOMAIN][DATA].devices[entity_entry.config_entry_id].coordinator
-            )
+            # entity_id is the associated entity, now need to find the config entry for battery notes
+            for config_entry in hass.config_entries.async_entries(DOMAIN):
+                if config_entry.data.get("entity_id") == entity_id:
+                    config_entry_id = config_entry.entry_id
 
-            entity_entry = {"battery_last_replaced": datetime_replaced}
+                    coordinator = (
+                        hass.data[DOMAIN][DATA].devices[config_entry_id].coordinator
+                    )
 
-            coordinator.async_update_entity_config(
-                entity_id=entity_id, data=entity_entry
-            )
+                    entity_entry = {"battery_last_replaced": datetime_replaced}
 
-            await coordinator.async_request_refresh()
+                    coordinator.async_update_entity_config(
+                        entity_id=entity_id, data=entity_entry
+                    )
+                    await coordinator.async_request_refresh()
 
-            _LOGGER.debug(
-                "Entity %s battery replaced on %s",
-                entity_id,
-                str(datetime_replaced),
+                    _LOGGER.debug(
+                        "Entity %s battery replaced on %s",
+                        entity_id,
+                        str(datetime_replaced),
+                    )
+
+                    return
+
+            _LOGGER.error(
+                "Entity %s not configured in Battery Notes",
+                entity_id
             )
 
         else:

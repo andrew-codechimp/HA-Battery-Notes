@@ -90,7 +90,8 @@ ATTR_BATTERY_THRESHOLD_REMINDER = "reminder"
 
 SERVICE_BATTERY_REPLACED_SCHEMA = vol.Schema(
     {
-        vol.Required(ATTR_DEVICE_ID): cv.string,
+        vol.Optional(ATTR_DEVICE_ID): cv.string,
+        vol.Optional(ATTR_ENTITY_ID): cv.string,
         vol.Optional(SERVICE_DATA_DATE_TIME_REPLACED): cv.datetime,
     }
 )
