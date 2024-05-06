@@ -6,7 +6,6 @@ You can add these options to change the default behaviour of Battery Notes by ad
 battery_notes:
   enable_autodiscovery: true
   show_all_devices: false
-  show_all_entities: false
   enable_replaced: true
   default_battery_low_threshold: 10
   battery_increase_threshold: 25
@@ -20,7 +19,6 @@ Name | Type | Requirement | Default | Description |
 -- | -- | -- | -- | -- |
 enable_autodiscovery | Boolean | Optional | True | If set to true will automatically match devices against the library and create a setup flow within the integrations page. |
 show_all_devices | Boolean | Optional | False | If set to true will show all devices in the manual add dropdown, rather than just those with batteries. |
-show_all_entities | Boolean | Optional | False | If set to true will show all entities in the manual add dropdown, rather than just batteries. |
 enable_replaced | Boolean | Optional | True | If set to false new devices added to battery notes will have the battery replaced sensor and button disabled.  Any devices you have previously added to Battery Notes you will have to disable these sensors manually, which also means you can enable specific sensors of important ones you want to track. |
 default_battery_low_threshold | Int | Optional | 10 | The default threshold where a devices battery_low entity is set to true and the battery_notes_battery_threshold event is fired, can be overriden per device in device configuration. |
 battery_increase_threshold | Int | Optional | 25 | The threshold where the battery_notes_battery_increased event is fired, use this event for battery replaced automations. The threshold is the difference in increase between previous and current battery level. |

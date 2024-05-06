@@ -39,7 +39,6 @@ from .const import (
     DATA_LIBRARY_UPDATER,
     DOMAIN_CONFIG,
     CONF_SHOW_ALL_DEVICES,
-    CONF_SHOW_ALL_ENTITIES,
     CONF_BATTERY_LOW_TEMPLATE,
 )
 
@@ -267,12 +266,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
 
             return await self.async_step_battery()
 
-        schema = ENTITY_SCHEMA
-        # If show_all_entities = is specified and true, don't filter
-        if DOMAIN in self.hass.data and DOMAIN_CONFIG in self.hass.data[DOMAIN]:
-            domain_config: dict = self.hass.data[DOMAIN][DOMAIN_CONFIG]
-            if domain_config.get(CONF_SHOW_ALL_ENTITIES, False):
-                schema = ENTITY_SCHEMA_ALL
+        schema = ENTITY_SCHEMA_ALL
 
         return self.async_show_form(
             step_id="entity",
