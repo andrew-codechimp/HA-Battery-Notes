@@ -62,7 +62,7 @@ from .const import (
     DATA_STORE,
     ATTR_REMOVE,
     ATTR_DEVICE_ID,
-    ATTR_ENTITY_ID,
+    ATTR_SOURCE_ENTITY_ID,
     ATTR_DEVICE_NAME,
     ATTR_BATTERY_TYPE_AND_QUANTITY,
     ATTR_BATTERY_TYPE,
@@ -280,7 +280,7 @@ def register_services(hass: HomeAssistant):
     async def handle_battery_replaced(call):
         """Handle the service call."""
         device_id = call.data.get(ATTR_DEVICE_ID, "")
-        entity_id = call.data.get(ATTR_ENTITY_ID, "")
+        source_entity_id = call.data.get(ATTR_SOURCE_ENTITY_ID, "")
         datetime_replaced_entry = call.data.get(SERVICE_DATA_DATE_TIME_REPLACED)
 
         if datetime_replaced_entry:
@@ -293,34 +293,34 @@ def register_services(hass: HomeAssistant):
         entity_registry = er.async_get(hass)
         device_registry = dr.async_get(hass)
 
-        if entity_id:
-            entity_entry = entity_registry.async_get(entity_id)
-            if not entity_entry:
+        if source_entity_id:
+            source_entity_entry = entity_registry.async_get(source_entity_id)
+            if not source_entity_entry:
                 _LOGGER.error(
                     "Entity %s not found",
-                    entity_id,
+                    source_entity_id,
                 )
                 return
 
             # entity_id is the associated entity, now need to find the config entry for battery notes
             for config_entry in hass.config_entries.async_entries(DOMAIN):
-                if config_entry.data.get("entity_id") == entity_id:
+                if config_entry.data.get("source_entity_id") == source_entity_id:
                     config_entry_id = config_entry.entry_id
 
                     coordinator = (
                         hass.data[DOMAIN][DATA].devices[config_entry_id].coordinator
                     )
 
-                    entity_entry = {"battery_last_replaced": datetime_replaced}
+                    entry = {"battery_last_replaced": datetime_replaced}
 
                     coordinator.async_update_entity_config(
-                        entity_id=entity_id, data=entity_entry
+                        entity_id=source_entity_id, data=entry
                     )
                     await coordinator.async_request_refresh()
 
                     _LOGGER.debug(
                         "Entity %s battery replaced on %s",
-                        entity_id,
+                        source_entity_id,
                         str(datetime_replaced),
                     )
 
@@ -328,7 +328,7 @@ def register_services(hass: HomeAssistant):
 
             _LOGGER.error(
                 "Entity %s not configured in Battery Notes",
-                entity_id
+                source_entity_id
             )
 
         else:
@@ -388,7 +388,7 @@ def register_services(hass: HomeAssistant):
                         EVENT_BATTERY_NOT_REPORTED,
                         {
                             ATTR_DEVICE_ID: device.coordinator.device_id,
-                            ATTR_ENTITY_ID: device.coordinator.entity_id,
+                            ATTR_SOURCE_ENTITY_ID: device.coordinator.source_entity_id,
                             ATTR_DEVICE_NAME: device.coordinator.device_name,
                             ATTR_BATTERY_TYPE_AND_QUANTITY: device.coordinator.battery_type_and_quantity,
                             ATTR_BATTERY_TYPE: device.coordinator.battery_type,
@@ -417,7 +417,7 @@ def register_services(hass: HomeAssistant):
                         {
                             ATTR_DEVICE_ID: device.coordinator.device_id,
                             ATTR_DEVICE_NAME: device.coordinator.device_name,
-                            ATTR_ENTITY_ID: device.coordinator.entity_id,
+                            ATTR_SOURCE_ENTITY_ID: device.coordinator.source_entity_id,
                             ATTR_BATTERY_LOW: device.coordinator.battery_low,
                             ATTR_BATTERY_TYPE_AND_QUANTITY: device.coordinator.battery_type_and_quantity,
                             ATTR_BATTERY_TYPE: device.coordinator.battery_type,

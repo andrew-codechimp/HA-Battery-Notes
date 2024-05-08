@@ -29,7 +29,7 @@ from .const import (
     EVENT_BATTERY_INCREASED,
     DEFAULT_BATTERY_INCREASE_THRESHOLD,
     ATTR_DEVICE_ID,
-    ATTR_ENTITY_ID,
+    ATTR_SOURCE_ENTITY_ID,
     ATTR_BATTERY_QUANTITY,
     ATTR_BATTERY_TYPE,
     ATTR_BATTERY_TYPE_AND_QUANTITY,
@@ -51,7 +51,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
     """Define an object to hold Battery Notes device."""
 
     device_id: str = None
-    entity_id: str = None
+    source_entity_id: str = None
     device_name: str
     battery_type: str
     battery_quantity: int
@@ -94,7 +94,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
                 EVENT_BATTERY_THRESHOLD,
                 {
                     ATTR_DEVICE_ID: self.device_id,
-                    ATTR_ENTITY_ID: self.entity_id,
+                    ATTR_SOURCE_ENTITY_ID: self.source_entity_id,
                     ATTR_DEVICE_NAME: self.device_name,
                     ATTR_BATTERY_LOW: self.battery_low,
                     ATTR_BATTERY_TYPE_AND_QUANTITY: self.battery_type_and_quantity,
@@ -114,7 +114,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
                     EVENT_BATTERY_INCREASED,
                     {
                         ATTR_DEVICE_ID: self.device_id,
-                        ATTR_ENTITY_ID: self.entity_id,
+                        ATTR_SOURCE_ENTITY_ID: self.source_entity_id,
                         ATTR_DEVICE_NAME: self.device_name,
                         ATTR_BATTERY_LOW: self.battery_low,
                         ATTR_BATTERY_TYPE_AND_QUANTITY: self.battery_type_and_quantity,
@@ -144,7 +144,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
                     EVENT_BATTERY_THRESHOLD,
                     {
                         ATTR_DEVICE_ID: self.device_id,
-                        ATTR_ENTITY_ID: self.entity_id,
+                        ATTR_SOURCE_ENTITY_ID: self.source_entity_id,
                         ATTR_DEVICE_NAME: self.device_name,
                         ATTR_BATTERY_LOW: self.battery_low,
                         ATTR_BATTERY_TYPE_AND_QUANTITY: self.battery_type_and_quantity,
@@ -177,7 +177,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
                         EVENT_BATTERY_INCREASED,
                         {
                             ATTR_DEVICE_ID: self.device_id,
-                            ATTR_ENTITY_ID: self.entity_id,
+                            ATTR_SOURCE_ENTITY_ID: self.source_entity_id,
                             ATTR_DEVICE_NAME: self.device_name,
                             ATTR_BATTERY_LOW: self.battery_low,
                             ATTR_BATTERY_TYPE_AND_QUANTITY: self.battery_type_and_quantity,
@@ -206,8 +206,8 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
     @property
     def last_replaced(self) -> datetime | None:
         """Get the last replaced datetime."""
-        if self.entity_id:
-            entry = self.store.async_get_entity(self.entity_id)
+        if self.source_entity_id:
+            entry = self.store.async_get_entity(self.source_entity_id)
         else:
             entry = self.store.async_get_device(self.device_id)
 
@@ -223,8 +223,8 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
     def last_reported(self) -> datetime | None:
         """Get the last reported datetime."""
 
-        if self.entity_id:
-            entry = self.store.async_get_entity(self.entity_id)
+        if self.source_entity_id:
+            entry = self.store.async_get_entity(self.source_entity_id)
         else:
             entry = self.store.async_get_device(self.device_id)
 
@@ -242,9 +242,9 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
         """Set the last reported datetime and store it."""
         entry = {"battery_last_reported": value}
 
-        if self.entity_id:
+        if self.source_entity_id:
             self.async_update_entity_config(
-                entity_id=self.entity_id, data=entry
+                entity_id=self.source_entity_id, data=entry
             )
         else:
             self.async_update_device_config(
@@ -255,8 +255,8 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
     def last_reported_level(self) -> float | None:
         """Get the last reported level."""
 
-        if self.entity_id:
-            entry = self.store.async_get_entity(self.entity_id)
+        if self.source_entity_id:
+            entry = self.store.async_get_entity(self.source_entity_id)
         else:
             entry = self.store.async_get_device(self.device_id)
 
@@ -272,9 +272,9 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
         """Set the last reported level and store it."""
         entry = {"battery_last_reported_level": value}
 
-        if self.entity_id:
+        if self.source_entity_id:
             self.async_update_entity_config(
-                entity_id=self.entity_id, data=entry
+                entity_id=self.source_entity_id, data=entry
             )
         else:
             self.async_update_device_config(

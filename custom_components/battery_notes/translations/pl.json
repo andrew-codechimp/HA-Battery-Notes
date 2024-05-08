@@ -75,7 +75,7 @@
     "entity": {
         "binary_sensor": {
             "battery_low": {
-                "name": "{device_name} Niski poziom baterii",
+                "name": "{device_name}Niski poziom baterii",
                 "state_attributes": {
                     "battery_low_threshold": {
                         "name": "Próg niskiego poziomu baterii"
@@ -85,12 +85,12 @@
         },
         "button": {
             "battery_replaced": {
-                "name": "{device_name} Wymiana baterii"
+                "name": "{device_name}Wymiana baterii"
             }
         },
         "sensor": {
             "battery_plus": {
-                "name": "{device_name} Bateria+",
+                "name": "{device_name}Bateria+",
                 "state_attributes": {
                     "battery_type": {
                         "name": "Typ baterii"
@@ -116,6 +116,9 @@
                     "battery_last_reported_level": {
                         "name": "Ostatni zgłoszony poziom baterii"
                     },
+                    "source_entity_id": {
+                        "name": "Source Entity Id"
+                    },
                     "device_id": {
                         "name": "ID Urządzenia"
                     },
@@ -125,7 +128,7 @@
                 }
             },
             "battery_type": {
-                "name": "{device_name} Typ baterii",
+                "name": "{device_name}Typ baterii",
                 "state_attributes": {
                     "battery_type": {
                         "name": "Typ baterii"
@@ -136,7 +139,7 @@
                 }
             },
             "battery_last_replaced": {
-                "name": "{device_name} Ostatnia wymiana baterii"
+                "name": "{device_name}Ostatnia wymiana baterii"
             }
         }
     },

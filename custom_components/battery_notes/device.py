@@ -17,7 +17,6 @@ from homeassistant.components.sensor import (
 
 from homeassistant.const import (
     CONF_DEVICE_ID,
-    CONF_ENTITY_ID,
     PERCENTAGE,
 )
 
@@ -27,6 +26,7 @@ from .const import (
     DOMAIN_CONFIG,
     DATA,
     DATA_STORE,
+    CONF_SOURCE_ENTITY_ID,
     CONF_BATTERY_TYPE,
     CONF_BATTERY_QUANTITY,
     CONF_BATTERY_LOW_THRESHOLD,
@@ -58,7 +58,7 @@ class BatteryNotesDevice:
 
     @property
     def fake_device(self) -> bool:
-        if self.config.data.get(CONF_ENTITY_ID, None):
+        if self.config.data.get(CONF_SOURCE_ENTITY_ID, None):
             if self.config.data.get(CONF_DEVICE_ID, None) is None:
                 return True
         return False
@@ -86,13 +86,13 @@ class BatteryNotesDevice:
         config = self.config
 
         device_id = config.data.get(CONF_DEVICE_ID, None)
-        entity_id = config.data.get(CONF_ENTITY_ID, None)
+        source_entity_id = config.data.get(CONF_SOURCE_ENTITY_ID, None)
 
         device_registry = dr.async_get(self.hass)
         entity_registry = er.async_get(self.hass)
 
-        if entity_id:
-            entity = entity_registry.async_get(entity_id)
+        if source_entity_id:
+            entity = entity_registry.async_get(source_entity_id)
             device_class = entity.device_class or entity.original_device_class
             if device_class == SensorDeviceClass.BATTERY and entity.unit_of_measurement == PERCENTAGE:
                 self.wrapped_battery = entity
@@ -142,7 +142,7 @@ class BatteryNotesDevice:
         )
 
         self.coordinator.device_id = device_id
-        self.coordinator.entity_id = entity_id
+        self.coordinator.source_entity_id = source_entity_id
         self.coordinator.device_name = self.device_name
         self.coordinator.battery_type = config.data.get(CONF_BATTERY_TYPE)
         try:

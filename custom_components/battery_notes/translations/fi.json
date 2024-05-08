@@ -75,7 +75,7 @@
     "entity": {
         "binary_sensor": {
             "battery_low": {
-                "name": "{device_name} Akku vähissä",
+                "name": "{device_name}Akku vähissä",
                 "state_attributes": {
                     "battery_low_threshold": {
                         "name": "Akun alhainen raja"
@@ -85,12 +85,12 @@
         },
         "button": {
             "battery_replaced": {
-                "name": "{device_name} Akku vaihdettu"
+                "name": "{device_name}Akku vaihdettu"
             }
         },
         "sensor": {
             "battery_plus": {
-                "name": "{device_name} Akku+",
+                "name": "{device_name}Akku+",
                 "state_attributes": {
                     "battery_type": {
                         "name": "Akun tyyppi"
@@ -116,6 +116,9 @@
                     "battery_last_reported_level": {
                         "name": "Akku viimeksi raportoitu taso"
                     },
+                    "source_entity_id": {
+                        "name": "Source Entity Id"
+                    },
                     "device_id": {
                         "name": "Device Id"
                     },
@@ -125,7 +128,7 @@
                 }
             },
             "battery_type": {
-                "name": "{device_name} Akun tyyppi",
+                "name": "{device_name}Akun tyyppi",
                 "state_attributes": {
                     "battery_type": {
                         "name": "Akun tyyppi"
@@ -136,7 +139,7 @@
                 }
             },
             "battery_last_replaced": {
-                "name": "{device_name} Akku viimeksi vaihdettu"
+                "name": "{device_name}Akku viimeksi vaihdettu"
             }
         }
     },

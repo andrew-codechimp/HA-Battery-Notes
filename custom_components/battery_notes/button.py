@@ -29,7 +29,6 @@ from homeassistant.helpers.reload import async_setup_reload_service
 from homeassistant.const import (
     CONF_NAME,
     CONF_DEVICE_ID,
-    CONF_ENTITY_ID,
 )
 
 from . import PLATFORMS
@@ -39,6 +38,7 @@ from .const import (
     DOMAIN_CONFIG,
     DATA,
     CONF_ENABLE_REPLACED,
+    CONF_SOURCE_ENTITY_ID,
 )
 
 from .device import BatteryNotesDevice
@@ -63,7 +63,7 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
     {
         vol.Optional(CONF_NAME): cv.string,
         vol.Optional(CONF_DEVICE_ID): cv.string,
-        vol.Optional(CONF_ENTITY_ID): cv.string,
+        vol.Optional(CONF_SOURCE_ENTITY_ID): cv.string,
     }
 )
 
@@ -90,7 +90,7 @@ async def async_setup_entry(
     entity_registry = er.async_get(hass)
     device_registry = dr.async_get(hass)
 
-    entity_id = config_entry.data.get(CONF_ENTITY_ID, None)
+    source_entity_id = config_entry.data.get(CONF_SOURCE_ENTITY_ID, None)
     device_id = config_entry.data.get(CONF_DEVICE_ID, None)
 
     async def async_registry_updated(event: Event) -> None:
@@ -110,7 +110,7 @@ async def async_setup_entry(
             # If the tracked battery note is no longer in the device, remove our config entry
             # from the device
             if (
-                not (entity_entry := entity_registry.async_get(data[CONF_ENTITY_ID]))
+                not (entity_entry := entity_registry.async_get(data[CONF_SOURCE_ENTITY_ID]))
                 or not device_registry.async_get(device_id)
                 or entity_entry.device_id == device_id
             ):
@@ -198,7 +198,7 @@ class BatteryNotesButton(ButtonEntity):
         self._attr_unique_id = unique_id
         self._attr_has_entity_name = True
         self._device_id = device_id
-        self._entity_id = coordinator.entity_id
+        self._entity_id = coordinator.source_entity_id
 
         if device_id and (device := device_registry.async_get(device_id)):
             self._attr_device_info = DeviceInfo(
@@ -206,8 +206,8 @@ class BatteryNotesButton(ButtonEntity):
                 identifiers=device.identifiers,
             )
 
-        if coordinator.entity_id:
-            self._attr_translation_placeholders = {"device_name": coordinator.device_name}
+        if coordinator.source_entity_id and not coordinator.device_id:
+            self._attr_translation_placeholders = {"device_name": coordinator.device_name + " "}
         else:
             self._attr_translation_placeholders = {"device_name": ""}
 
@@ -231,7 +231,7 @@ class BatteryNotesButton(ButtonEntity):
 
         if self._entity_id:
             self.coordinator.async_update_entity_config(
-                entity_id=self.coordinator.entity_id, data=entry
+                entity_id=self.coordinator.source_entity_id, data=entry
             )
         else:
             self.coordinator.async_update_device_config(

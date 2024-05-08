@@ -9,7 +9,6 @@ import logging
 import voluptuous as vol
 
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import CONF_ENTITY_ID
 from homeassistant.core import (
     HomeAssistant,
     callback,
@@ -64,6 +63,7 @@ from .const import (
     DOMAIN,
     DATA,
     ATTR_BATTERY_LOW_THRESHOLD,
+    CONF_SOURCE_ENTITY_ID,
 )
 
 from .common import validate_is_float
@@ -91,7 +91,7 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
     {
         vol.Optional(CONF_NAME): cv.string,
         vol.Optional(CONF_DEVICE_ID): cv.string,
-        vol.Optional(CONF_ENTITY_ID): cv.string,
+        vol.Optional(CONF_SOURCE_ENTITY_ID): cv.string,
     }
 )
 
@@ -136,7 +136,7 @@ async def async_setup_entry(
             # If the tracked battery note is no longer in the device, remove our config entry
             # from the device
             if (
-                not (entity_entry := entity_registry.async_get(data[CONF_ENTITY_ID]))
+                not (entity_entry := entity_registry.async_get(data["entity_id"]))
                 or not device_registry.async_get(device_id)
                 or entity_entry.device_id == device_id
             ):
@@ -334,8 +334,8 @@ class BatteryNotesBatteryLowTemplateSensor(BinarySensorEntity, CoordinatorEntity
                 identifiers=device_entry.identifiers,
             )
 
-        if coordinator.entity_id:
-            self._attr_translation_placeholders = {"device_name": coordinator.device_name}
+        if coordinator.source_entity_id and not coordinator.device_id:
+            self._attr_translation_placeholders = {"device_name": coordinator.device_name + " "}
         else:
             self._attr_translation_placeholders = {"device_name": ""}
 
@@ -522,8 +522,8 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity, CoordinatorEntity[Battery
                 identifiers=device_entry.identifiers,
             )
 
-        if coordinator.entity_id:
-            self._attr_translation_placeholders = {"device_name": coordinator.device_name}
+        if coordinator.source_entity_id and not coordinator.device_id:
+            self._attr_translation_placeholders = {"device_name": coordinator.device_name + " "}
         else:
             self._attr_translation_placeholders = {"device_name": ""}
 

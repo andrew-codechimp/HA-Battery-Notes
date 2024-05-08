@@ -22,7 +22,6 @@ from homeassistant.util import dt as dt_util
 from homeassistant.const import (
     CONF_NAME,
     CONF_DEVICE_ID,
-    CONF_ENTITY_ID,
 )
 
 from .library import Library, ModelInfo
@@ -30,6 +29,7 @@ from .library_updater import LibraryUpdater
 
 from .const import (
     DOMAIN,
+    CONF_SOURCE_ENTITY_ID,
     CONF_BATTERY_TYPE,
     CONF_BATTERY_QUANTITY,
     CONF_BATTERY_LOW_THRESHOLD,
@@ -81,7 +81,7 @@ DEVICE_SCHEMA = vol.Schema(
 
 ENTITY_SCHEMA_ALL = vol.Schema(
     {
-        vol.Required(CONF_ENTITY_ID): selector.EntitySelector(
+        vol.Required(CONF_SOURCE_ENTITY_ID): selector.EntitySelector(
             config=selector.EntityFilterSelectorConfig()
         ),
         vol.Optional(CONF_NAME): selector.TextSelector(
@@ -92,7 +92,7 @@ ENTITY_SCHEMA_ALL = vol.Schema(
 
 ENTITY_SCHEMA = vol.Schema(
     {
-        vol.Required(CONF_ENTITY_ID): selector.EntitySelector(
+        vol.Required(CONF_SOURCE_ENTITY_ID): selector.EntitySelector(
             selector.EntityFilterSelectorConfig(
                 domain=[Platform.SENSOR, Platform.BINARY_SENSOR],
                 device_class=SensorDeviceClass.BATTERY,
@@ -218,10 +218,10 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
         if user_input is not None:
             self.data = user_input
 
-            entity_id = user_input[CONF_ENTITY_ID]
-            self.data[CONF_ENTITY_ID] = entity_id
+            source_entity_id = user_input[CONF_SOURCE_ENTITY_ID]
+            self.data[CONF_SOURCE_ENTITY_ID] = source_entity_id
             entity_registry = er.async_get(self.hass)
-            entity_entry = entity_registry.async_get(entity_id)
+            entity_entry = entity_registry.async_get(source_entity_id)
 
             # Default battery quantity if not found in library lookup
             self.data[CONF_BATTERY_QUANTITY] = 1
@@ -285,13 +285,13 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                 user_input[CONF_BATTERY_LOW_THRESHOLD]
             )
 
-            entity_id = self.data.get(CONF_ENTITY_ID, None)
+            source_entity_id = self.data.get(CONF_SOURCE_ENTITY_ID, None)
             device_id = self.data.get(CONF_DEVICE_ID, None)
 
-            if entity_id:
+            if source_entity_id:
                 entity_registry = er.async_get(self.hass)
-                entity_entry = entity_registry.async_get(entity_id)
-                source_entity_domain, source_object_id = split_entity_id(entity_id)
+                entity_entry = entity_registry.async_get(source_entity_id)
+                source_entity_domain, source_object_id = split_entity_id(source_entity_id)
                 entity_unique_id = entity_entry.unique_id or entity_entry.entity_id or source_object_id
                 unique_id = f"bn_{entity_unique_id}"
             else:
@@ -304,7 +304,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
 
             if CONF_NAME in self.data:
                 title = self.data.get(CONF_NAME)
-            elif entity_id:
+            elif source_entity_id:
                 title = entity_entry.name or entity_entry.original_name
             else:
                 title = device_entry.name_by_user or device_entry.name

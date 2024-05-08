@@ -75,7 +75,7 @@
     "entity": {
         "binary_sensor": {
             "battery_low": {
-                "name": "{device_name} Baterija senka",
+                "name": "{device_name}Baterija senka",
                 "state_attributes": {
                     "battery_low_threshold": {
                         "name": "Battery low threshold"
@@ -85,12 +85,12 @@
         },
         "button": {
             "battery_replaced": {
-                "name": "{device_name} Baterija pakeista"
+                "name": "{device_name}Baterija pakeista"
             }
         },
         "sensor": {
             "battery_plus": {
-                "name": "{device_name} Baterija+",
+                "name": "{device_name}Baterija+",
                 "state_attributes": {
                     "battery_type": {
                         "name": "Baterijos tipas"
@@ -116,6 +116,9 @@
                     "battery_last_reported_level": {
                         "name": "Battery last reported level"
                     },
+                    "source_entity_id": {
+                        "name": "Source Entity Id"
+                    },
                     "device_id": {
                         "name": "Device Id"
                     },
@@ -125,7 +128,7 @@
                 }
             },
             "battery_type": {
-                "name": "{device_name} Baterijos tipas",
+                "name": "{device_name}Baterijos tipas",
                 "state_attributes": {
                     "battery_type": {
                         "name": "Baterijos tipas"
@@ -136,7 +139,7 @@
                 }
             },
             "battery_last_replaced": {
-                "name": "{device_name} Baterija paskutinį kartą keista"
+                "name": "{device_name}Baterija paskutinį kartą keista"
             }
         }
     },
