@@ -321,7 +321,6 @@ class BatteryNotesBatteryLowTemplateSensor(BinarySensorEntity, CoordinatorEntity
         self.coordinator = coordinator
         self.entity_description = description
         self._attr_unique_id = unique_id
-        self._attr_has_entity_name = True
         self._template_attrs: dict[Template, list[_TemplateAttribute]] = {}
 
         super().__init__(coordinator=coordinator)
@@ -336,6 +335,8 @@ class BatteryNotesBatteryLowTemplateSensor(BinarySensorEntity, CoordinatorEntity
 
         if coordinator.source_entity_id and not coordinator.device_id:
             self._attr_translation_placeholders = {"device_name": coordinator.device_name + " "}
+        elif coordinator.source_entity_id and coordinator.device_id:
+            self._attr_translation_placeholders = {"device_name": coordinator.source_entity_name + " "}
         else:
             self._attr_translation_placeholders = {"device_name": ""}
 
@@ -508,9 +509,22 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity, CoordinatorEntity[Battery
         device_registry = dr.async_get(hass)
 
         self.coordinator = coordinator
+
+        if coordinator.source_entity_id and not coordinator.device_id:
+            self._attr_has_entity_name = True
+            self._attr_translation_placeholders = {"device_name": coordinator.device_name + " "}
+            self.entity_id = f"binary_sensor.{coordinator.device_name.lower()}_{description.key}"
+        elif coordinator.source_entity_id and coordinator.device_id:
+            self._attr_has_entity_name = False
+            self._attr_translation_placeholders = {"device_name": coordinator.source_entity_name + " "}
+            self.entity_id = f"binary_sensor.{coordinator.source_entity_name.lower()}_{description.key}"
+        else:
+            self._attr_has_entity_name = True
+            self._attr_translation_placeholders = {"device_name": ""}
+            self.entity_id = f"binary_sensor.{coordinator.device_name.lower()}_{description.key}"
+
         self.entity_description = description
         self._attr_unique_id = unique_id
-        self._attr_has_entity_name = True
 
         super().__init__(coordinator=coordinator)
 
@@ -521,13 +535,6 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity, CoordinatorEntity[Battery
                 connections=device_entry.connections,
                 identifiers=device_entry.identifiers,
             )
-
-        if coordinator.source_entity_id and not coordinator.device_id:
-            self._attr_translation_placeholders = {"device_name": coordinator.device_name + " "}
-        else:
-            self._attr_translation_placeholders = {"device_name": ""}
-
-        self.entity_id = f"binary_sensor.{coordinator.device_name.lower()}_{description.key}"
 
     async def async_added_to_hass(self) -> None:
         """Handle added to Hass."""

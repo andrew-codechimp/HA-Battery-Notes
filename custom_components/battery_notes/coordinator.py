@@ -10,6 +10,8 @@ from homeassistant.helpers.update_coordinator import (
     DataUpdateCoordinator,
 )
 
+from homeassistant.helpers import entity_registry as er
+
 from homeassistant.const import (
     STATE_UNAVAILABLE,
     STATE_UNKNOWN,
@@ -65,6 +67,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
     _previous_battery_level: str = None
     _battery_low_template_state: bool = False
     _previous_battery_low_template_state: bool = None
+    _source_entity_name: str = None
 
     def __init__(
         self, hass, store: BatteryNotesStorage, wrapped_battery: RegistryEntry
@@ -79,6 +82,19 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
             self._round_battery = domain_config.get(CONF_ROUND_BATTERY, False)
 
         super().__init__(hass, _LOGGER, name=DOMAIN)
+
+    @property
+    def source_entity_name(self):
+        """Get the current name of the source_entity_id."""
+        if not self._source_entity_name:
+            self._source_entity_name = ""
+
+            if self.source_entity_id:
+                entity_registry = er.async_get(self.hass)
+                registry_entry = entity_registry.async_get(self.source_entity_id)
+                self._source_entity_name = registry_entry.name or registry_entry.original_name
+
+        return self._source_entity_name
 
     @property
     def battery_low_template_state(self):

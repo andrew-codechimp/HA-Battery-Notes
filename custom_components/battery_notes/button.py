@@ -194,9 +194,22 @@ class BatteryNotesButton(ButtonEntity):
         device_registry = dr.async_get(hass)
 
         self.coordinator = coordinator
+
+        if coordinator.source_entity_id and not coordinator.device_id:
+            self._attr_has_entity_name = True
+            self._attr_translation_placeholders = {"device_name": coordinator.device_name + " "}
+            self.entity_id = f"button.{coordinator.device_name.lower()}_{description.key}"
+        elif coordinator.source_entity_id and coordinator.device_id:
+            self._attr_has_entity_name = False
+            self._attr_translation_placeholders = {"device_name": coordinator.source_entity_name + " "}
+            self.entity_id = f"button.{coordinator.source_entity_name.lower()}_{description.key}"
+        else:
+            self._attr_has_entity_name = True
+            self._attr_translation_placeholders = {"device_name": ""}
+            self.entity_id = f"button.{coordinator.device_name.lower()}_{description.key}"
+
         self.entity_description = description
         self._attr_unique_id = unique_id
-        self._attr_has_entity_name = True
         self._device_id = device_id
         self._entity_id = coordinator.source_entity_id
 
@@ -205,13 +218,6 @@ class BatteryNotesButton(ButtonEntity):
                 connections=device.connections,
                 identifiers=device.identifiers,
             )
-
-        if coordinator.source_entity_id and not coordinator.device_id:
-            self._attr_translation_placeholders = {"device_name": coordinator.device_name + " "}
-        else:
-            self._attr_translation_placeholders = {"device_name": ""}
-
-        self.entity_id = f"button.{coordinator.device_name.lower()}_{description.key}"
 
     async def async_added_to_hass(self) -> None:
         """Handle added to Hass."""

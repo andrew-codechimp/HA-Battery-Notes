@@ -282,8 +282,21 @@ class BatteryNotesBatteryPlusSensor(
 
         self.config_entry = config_entry
         self.coordinator = coordinator
+
+        if coordinator.source_entity_id and not coordinator.device_id:
+            self._attr_has_entity_name = True
+            self._attr_translation_placeholders = {"device_name": coordinator.device_name + " "}
+            self.entity_id = f"sensor.{coordinator.device_name.lower()}_{description.key}"
+        elif coordinator.source_entity_id and coordinator.device_id:
+            self._attr_has_entity_name = False
+            self._attr_translation_placeholders = {"device_name": coordinator.source_entity_name + " "}
+            self.entity_id = f"sensor.{coordinator.source_entity_name.lower()}_{description.key}"
+        else:
+            self._attr_has_entity_name = True
+            self._attr_translation_placeholders = {"device_name": ""}
+            self.entity_id = f"sensor.{coordinator.device_name.lower()}_{description.key}"
+
         self.entity_description = description
-        self._attr_has_entity_name = True
         self._attr_unique_id = unique_id
         self.device = device
         self.enable_replaced = enable_replaced
@@ -299,13 +312,6 @@ class BatteryNotesBatteryPlusSensor(
                 connections=device_entry.connections,
                 identifiers=device_entry.identifiers,
             )
-
-        if coordinator.source_entity_id and not coordinator.device_id:
-            self._attr_translation_placeholders = {"device_name": coordinator.device_name + " "}
-        else:
-            self._attr_translation_placeholders = {"device_name": ""}
-
-        self.entity_id = f"sensor.{coordinator.device_name.lower()}_{description.key}"
 
         entity_category = (
             device.wrapped_battery.entity_category if device.wrapped_battery else None
@@ -550,8 +556,21 @@ class BatteryNotesTypeSensor(RestoreSensor, SensorEntity):
         device_registry = dr.async_get(hass)
 
         self.coordinator = coordinator
+
+        if coordinator.source_entity_id and not coordinator.device_id:
+            self._attr_has_entity_name = True
+            self._attr_translation_placeholders = {"device_name": coordinator.device_name + " "}
+            self.entity_id = f"sensor.{coordinator.device_name.lower()}_{description.key}"
+        elif coordinator.source_entity_id and coordinator.device_id:
+            self._attr_has_entity_name = False
+            self._attr_translation_placeholders = {"device_name": coordinator.source_entity_name + " "}
+            self.entity_id = f"sensor.{coordinator.source_entity_name.lower()}_{description.key}"
+        else:
+            self._attr_has_entity_name = True
+            self._attr_translation_placeholders = {"device_name": ""}
+            self.entity_id = f"sensor.{coordinator.device_name.lower()}_{description.key}"
+
         self.entity_description = description
-        self._attr_has_entity_name = True
         self._attr_unique_id = unique_id
         self._device_id = coordinator.device_id
         self._entity_id = coordinator.source_entity_id
@@ -563,13 +582,6 @@ class BatteryNotesTypeSensor(RestoreSensor, SensorEntity):
                 connections=device_entry.connections,
                 identifiers=device_entry.identifiers,
             )
-
-        if coordinator.source_entity_id and not coordinator.device_id:
-            self._attr_translation_placeholders = {"device_name": coordinator.device_name + " "}
-        else:
-            self._attr_translation_placeholders = {"device_name": ""}
-
-        self.entity_id = f"sensor.{coordinator.device_name.lower()}_{description.key}"
 
         self._battery_type = coordinator.battery_type
         self._battery_quantity = coordinator.battery_quantity
@@ -630,16 +642,30 @@ class BatteryNotesLastReplacedSensor(
     ) -> None:
         # pylint: disable=unused-argument
         """Initialize the sensor."""
+        super().__init__(coordinator)
+
+        self.coordinator = coordinator
+
+        if coordinator.source_entity_id and not coordinator.device_id:
+            self._attr_has_entity_name = True
+            self._attr_translation_placeholders = {"device_name": coordinator.device_name + " "}
+            self.entity_id = f"sensor.{coordinator.device_name.lower()}_{description.key}"
+        elif coordinator.source_entity_id and coordinator.device_id:
+            self._attr_has_entity_name = False
+            self._attr_translation_placeholders = {"device_name": coordinator.source_entity_name + " "}
+            self.entity_id = f"sensor.{coordinator.source_entity_name.lower()}_{description.key}"
+        else:
+            self._attr_has_entity_name = True
+            self._attr_translation_placeholders = {"device_name": ""}
+            self.entity_id = f"sensor.{coordinator.device_name.lower()}_{description.key}"
 
         self._attr_device_class = description.device_class
-        self._attr_has_entity_name = True
         self._attr_unique_id = unique_id
         self._device_id = coordinator.device_id
         self._entity_id = coordinator.source_entity_id
         self.entity_description = description
         self._native_value = None
 
-        super().__init__(coordinator=coordinator)
 
         self._set_native_value(log_on_error=False)
 
@@ -652,15 +678,6 @@ class BatteryNotesLastReplacedSensor(
                 connections=device_entry.connections,
                 identifiers=device_entry.identifiers,
             )
-
-        if coordinator.source_entity_id and not coordinator.device_id:
-            self._attr_translation_placeholders = {"device_name": coordinator.device_name + " "}
-        else:
-            self._attr_translation_placeholders = {"device_name": ""}
-
-        self.entity_id = (
-            f"sensor.{coordinator.device_name.lower()}_{description.key}"
-        )
 
     async def async_added_to_hass(self) -> None:
         """Handle added to Hass."""

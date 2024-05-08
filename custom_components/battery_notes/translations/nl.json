@@ -23,7 +23,7 @@
             },
             "entity": {
                 "data": {
-                    "entity_id": "Entity",
+                    "source_entity_id": "Entity",
                     "name": "Naam"
                 },
                 "data_description": {
