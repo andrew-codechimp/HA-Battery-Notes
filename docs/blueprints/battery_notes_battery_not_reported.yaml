@@ -19,7 +19,7 @@ blueprint:
         device:
           multiple: true
           entity:
-            - integration: battery_notes          
+            - integration: battery_notes
     user_actions:
       name: User Actions
       description: User actions to run on battery not reported.
@@ -49,7 +49,7 @@ action:
         }} days {{ ''\n'' -}} Its last reported level was {{ trigger.event.data.battery_last_reported_level
         }}% {{ ''\n'' -}} You need {{ trigger.event.data.battery_quantity }}× {{ trigger.event.data.battery_type
         }}'
-      notification_id: 'battery_notes_not_reported {{ trigger.event.data.device_id }}'
+      notification_id: 'battery_notes_not_reported {{ trigger.event.data.device_id }}-{{ trigger.event.data.source_entity_id }}'
   - alias: Run user actions
     choose: []
     default: !input user_actions

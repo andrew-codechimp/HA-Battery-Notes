@@ -23,6 +23,7 @@ action:
   - service: battery_notes.set_battery_replaced
     data:
       device_id: "{{ trigger.event.data.device_id }}"
+      source_entity_id: "{{ trigger.event.data.source_entity_id }}"
   - alias: "Run user on replaced actions"
     choose: []
     default: !input 'on_replaced_actions'

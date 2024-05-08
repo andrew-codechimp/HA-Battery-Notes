@@ -26,7 +26,7 @@ blueprint:
         device:
           multiple: true
           entity:
-            - integration: battery_notes        
+            - integration: battery_notes
     on_low_actions:
       name: On Low Actions
       description: User actions to run on battery low. Use any event data via trigger.event.data.xxx
@@ -38,7 +38,7 @@ blueprint:
       description: User actions to run on battery returning from low. Use any event data via trigger.event.data.xxx
       default: []
       selector:
-        action:   
+        action:
 
 variables:
   low_notification: !input low_notification
@@ -79,7 +79,7 @@ action:
                 data:
                   title: |
                     {{ trigger.event.data.device_name }} Battery Low
-                  notification_id: "battery_notes_threshold {{ trigger.event.data.device_id }}"
+                  notification_id: "battery_notes_threshold {{ trigger.event.data.device_id }}-{{ trigger.event.data.source_entity_id }}"
                   message: >
                     The device has a battery level of {{
                     trigger.event.data.battery_level }}% {{ '\n' -}} You need {{
@@ -99,7 +99,7 @@ action:
             then:
               - service: persistent_notification.dismiss
                 data:
-                  notification_id: "battery_notes_threshold {{ trigger.event.data.device_id }}"
+                  notification_id: "battery_notes_threshold {{ trigger.event.data.device_id }}-{{ trigger.event.data.source_entity_id }}"
           - alias: "Run user on high actions"
             choose: []
             default: !input 'on_high_actions'
