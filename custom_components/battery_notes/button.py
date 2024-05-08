@@ -110,7 +110,7 @@ async def async_setup_entry(
             # If the tracked battery note is no longer in the device, remove our config entry
             # from the device
             if (
-                not (entity_entry := entity_registry.async_get(data[CONF_SOURCE_ENTITY_ID]))
+                not (entity_entry := entity_registry.async_get(data["entity_id"]))
                 or not device_registry.async_get(device_id)
                 or entity_entry.device_id == device_id
             ):
