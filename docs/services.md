@@ -8,8 +8,11 @@ See how to use this service in the [community contributions](./community.md)
 
 | Parameter                | Optional | Description                                                                                                           |
 | ------------------------ | -------- | --------------------------------------------------------------------------------------------------------------------- |
-| `data.device_id`      | `no`    | The device id that you want to change the battery replaced date for. |
+| `data.device_id`      | `yes`    | The device id that you want to change the battery replaced date for. |
+| `data.entity_id`      | `yes`    | The entity id that you want to change the battery replaced date for. (BETA ONLY)|
 | `data.datetime_replaced` | `yes`    | The optional datetime that you want to set the battery replaced to, if omitted the current date/time will be used. |
+
+You must specify either a device_id or entity_id, entity_id will be used in preference if both are specified.  This allows the service to work with battery notes associated with both a device and also an individual entity, whether it is part of a device or not.
 
 ## battery_notes.check_battery_last_reported
 

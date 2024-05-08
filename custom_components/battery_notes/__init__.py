@@ -388,8 +388,8 @@ def register_services(hass: HomeAssistant):
                         EVENT_BATTERY_NOT_REPORTED,
                         {
                             ATTR_DEVICE_ID: device.coordinator.device_id,
-                            ATTR_DEVICE_NAME: device.coordinator.device_name,
                             ATTR_ENTITY_ID: device.coordinator.entity_id,
+                            ATTR_DEVICE_NAME: device.coordinator.device_name,
                             ATTR_BATTERY_TYPE_AND_QUANTITY: device.coordinator.battery_type_and_quantity,
                             ATTR_BATTERY_TYPE: device.coordinator.battery_type,
                             ATTR_BATTERY_QUANTITY: device.coordinator.battery_quantity,

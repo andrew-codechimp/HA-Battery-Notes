@@ -55,7 +55,7 @@ action:
             data:
               title: |
                 {{ trigger.event.data.device_name }} Battery Low
-              notification_id: "{{ trigger.event.data.device_id }}"
+              notification_id: "{{ trigger.event.data.device_id }}-{{ trigger.event.data.event_id }}"
               message: >
                 The device has a battery level of {{
                 trigger.event.data.battery_level }}% {{ '\n' -}} You need {{
@@ -68,7 +68,7 @@ action:
         sequence:
           - service: persistent_notification.dismiss
             data:
-              notification_id: "{{ trigger.event.data.device_id }}"
+              notification_id: "{{ trigger.event.data.device_id }}-{{ trigger.event.data.event_id }}"
 mode: queued
 ```
 
@@ -122,6 +122,7 @@ action:
   - service: battery_notes.set_battery_replaced
     data:
       device_id: "{{ trigger.event.data.device_id }}"
+      entity_id: "{{ trigger.event.data.entity_id }}"
 mode: queued
 ```
 

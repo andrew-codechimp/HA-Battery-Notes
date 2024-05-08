@@ -177,8 +177,8 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
                         EVENT_BATTERY_INCREASED,
                         {
                             ATTR_DEVICE_ID: self.device_id,
-                            ATTR_DEVICE_NAME: self.device_name,
                             ATTR_ENTITY_ID: self.entity_id,
+                            ATTR_DEVICE_NAME: self.device_name,
                             ATTR_BATTERY_LOW: self.battery_low,
                             ATTR_BATTERY_TYPE_AND_QUANTITY: self.battery_type_and_quantity,
                             ATTR_BATTERY_TYPE: self.battery_type,
