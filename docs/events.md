@@ -12,7 +12,7 @@ You can use this to send notifications in your preferred method.  An example aut
 | Attribute | Type | Description |
 |-----------|------|-------------|
 | `device_id` | `string` | The device id of the device. |
-| `source_entity_id` | `string` | The entity id of the sensor associated with the battery note. (BETA ONLY)|
+| `source_entity_id` | `string` | The entity id of the sensor associated with the battery note. |
 | `device_name` | `string` | The device name (or associated sensor name if no device). |
 | `battery_low` | `bool` | Returns true if the battery has gone below the threshold, false when the battery has returned above the threshold. **Your automations will almost certainly want to examine this value and set/clear notifications or other indicators.** |
 | `battery_type_and_quantity` | `string` | Battery type & quantity. |
@@ -82,7 +82,7 @@ An example automation below shows how to update the battery_replaced.
 | Attribute | Type | Description |
 |-----------|------|-------------|
 | `device_id` | `string` | The device id of the device. |
-| `source_entity_id` | `string` | The entity id of the sensor associated with the battery note. (BETA ONLY)|
+| `source_entity_id` | `string` | The entity id of the sensor associated with the battery note. |
 | `device_name` | `string` | The device name (or associated sensor name if no device). |
 | `battery_low` | `bool` | Returns true if the battery has gone below the threshold, false when the battery has returned above the threshold. |
 | `battery_type_and_quantity` | `string` | Battery type & quantity. |
@@ -120,7 +120,7 @@ The service can raise multiple events quickly so when using with an automation i
 | Attribute | Type | Description |
 |-----------|------|-------------|
 | `device_id` | `string` | The device id of the device. |
-| `entity_id` | `string` | The entity id of the sensor associated with the battery note. (BETA ONLY)|
+| `source_entity_id` | `string` | The entity id of the sensor associated with the battery note. |
 | `device_name` | `string` | The device name (or associated sensor name if no device). |
 | `battery_type_and_quantity` | `string` | Battery type & quantity. |
 | `battery_type` | `string` | Battery type. |
