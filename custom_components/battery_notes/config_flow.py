@@ -284,6 +284,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             self.data[CONF_BATTERY_LOW_THRESHOLD] = int(
                 user_input[CONF_BATTERY_LOW_THRESHOLD]
             )
+            self.data[CONF_BATTERY_LOW_TEMPLATE] = user_input[CONF_BATTERY_LOW_TEMPLATE]
 
             source_entity_id = self.data.get(CONF_SOURCE_ENTITY_ID, None)
             device_id = self.data.get(CONF_DEVICE_ID, None)
@@ -376,6 +377,7 @@ class OptionsFlowHandler(OptionsFlow):
             user_input[CONF_BATTERY_LOW_THRESHOLD] = int(
                 user_input[CONF_BATTERY_LOW_THRESHOLD]
             )
+            user_input[CONF_BATTERY_LOW_TEMPLATE] = user_input[CONF_BATTERY_LOW_TEMPLATE]
             errors = await self.save_options(user_input, schema)
             if not errors:
                 return self.async_create_entry(title="", data={})
