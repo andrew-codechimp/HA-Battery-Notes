@@ -59,12 +59,6 @@ jobs:
         run: |
           if [ -f requirements.txt ]; then uv pip install -r requirements.txt; fi
 
-      - name: Lint the code with ruff
+      - name: Analyse the code with ruff
         run: |
-          ruff check $(git ls-files '*.py') --output-format sarif -o results.sarif
-
-      - name: Upload SARIF file
-        uses: github/codeql-action/upload-sarif@v3
-        with:
-          sarif_file: results.sarif
-          category: ruff
+          python3 -m ruff check .
