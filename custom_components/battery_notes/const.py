@@ -32,6 +32,7 @@ DOMAIN_CONFIG = "config"
 DEFAULT_BATTERY_LOW_THRESHOLD = 10
 DEFAULT_BATTERY_INCREASE_THRESHOLD = 25
 
+CONF_SOURCE_ENTITY_ID = "source_entity_id"
 CONF_BATTERY_TYPE = "battery_type"
 CONF_BATTERY_QUANTITY = "battery_quantity"
 CONF_BATTERY_LOW_THRESHOLD = "battery_low_threshold"
@@ -72,6 +73,7 @@ EVENT_BATTERY_INCREASED = "battery_notes_battery_increased"
 EVENT_BATTERY_NOT_REPORTED = "battery_notes_battery_not_reported"
 
 ATTR_DEVICE_ID = "device_id"
+ATTR_SOURCE_ENTITY_ID = "source_entity_id"
 ATTR_REMOVE = "remove"
 ATTR_BATTERY_QUANTITY = "battery_quantity"
 ATTR_BATTERY_TYPE = "battery_type"
@@ -89,7 +91,8 @@ ATTR_BATTERY_THRESHOLD_REMINDER = "reminder"
 
 SERVICE_BATTERY_REPLACED_SCHEMA = vol.Schema(
     {
-        vol.Required(ATTR_DEVICE_ID): cv.string,
+        vol.Optional(ATTR_DEVICE_ID): cv.string,
+        vol.Optional(ATTR_SOURCE_ENTITY_ID): cv.string,
         vol.Optional(SERVICE_DATA_DATE_TIME_REPLACED): cv.datetime,
     }
 )

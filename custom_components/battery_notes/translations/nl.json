@@ -4,11 +4,30 @@
             "user": {
                 "description": "Als u hulp nodig heeft bij de configuratie kunt u hier een kijkje nemen: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
+                    "association_type": "Association type"
+                },
+                "menu_options": {
+                    "device": "Device (recommended)",
+                    "entity": "Entity"
+                },
+                "title": "Choose your association type"
+            },
+            "device": {
+                "data": {
                     "device_id": "Apparaat",
                     "name": "Naam"
                 },
                 "data_description": {
                     "name": "Indien dit leeg gelaten wordt dan wordt de naam van het bronapparaat overgenomen"
+                }
+            },
+            "entity": {
+                "data": {
+                    "source_entity_id": "Entity",
+                    "name": "Naam"
+                },
+                "data_description": {
+                    "name": "Indien dit leeg gelaten wordt dan wordt de naam van de bron entiteit overgenomen"
                 }
             },
             "battery": {
@@ -56,7 +75,7 @@
     "entity": {
         "binary_sensor": {
             "battery_low": {
-                "name": "Lage batterij",
+                "name": "{device_name}Lage batterij",
                 "state_attributes": {
                     "battery_low_threshold": {
                         "name": "Drempelwaarde batterij bijna leeg"
@@ -66,12 +85,12 @@
         },
         "button": {
             "battery_replaced": {
-                "name": "Batterij vervangen"
+                "name": "{device_name}Batterij vervangen"
             }
         },
         "sensor": {
             "battery_plus": {
-                "name": "Batterij+",
+                "name": "{device_name}Batterij+",
                 "state_attributes": {
                     "battery_type": {
                         "name": "Batterij type"
@@ -97,6 +116,9 @@
                     "battery_last_reported_level": {
                         "name": "Laatst gerapporteerde batterijniveau"
                     },
+                    "source_entity_id": {
+                        "name": "Source Entity Id"
+                    },
                     "device_id": {
                         "name": "Apparaat ID"
                     },
@@ -106,7 +128,7 @@
                 }
             },
             "battery_type": {
-                "name": "Batterij type",
+                "name": "{device_name}Batterij type",
                 "state_attributes": {
                     "battery_type": {
                         "name": "Batterij type"
@@ -117,7 +139,7 @@
                 }
             },
             "battery_last_replaced": {
-                "name": "Batterij laatst vervangen"
+                "name": "{device_name}Batterij laatst vervangen"
             }
         }
     },
@@ -128,6 +150,10 @@
                 "device_id": {
                     "description": "Apparaat waarvan de batterij is vervangen.",
                     "name": "Apparaat"
+                },
+                "entity_id": {
+                    "description": "Entity that has had its battery replaced.",
+                    "name": "Entity"
                 },
                 "datetime_replaced": {
                     "description": "Datum vervangen.",

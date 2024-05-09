@@ -4,11 +4,30 @@
             "user": {
                 "description": "Jos tarvitset apua asetuksissa, katso täältä: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
+                    "association_type": "Association type"
+                },
+                "menu_options": {
+                    "device": "Device (recommended)",
+                    "entity": "Entity"
+                },
+                "title": "Choose your association type"
+            },
+            "device": {
+                "data": {
                     "device_id": "Laite",
                     "name": "Nimi"
                 },
                 "data_description": {
                     "name": "Tyhjäksi jättäminen ottaa nimen lähdelaitteesta"
+                }
+            },
+            "entity": {
+                "data": {
+                    "source_entity_id": "Entity",
+                    "name": "Nimi"
+                },
+                "data_description": {
+                    "name": "Leaving blank will take the name from the source entity"
                 }
             },
             "battery": {
@@ -56,7 +75,7 @@
     "entity": {
         "binary_sensor": {
             "battery_low": {
-                "name": "Akku vähissä",
+                "name": "{device_name}Akku vähissä",
                 "state_attributes": {
                     "battery_low_threshold": {
                         "name": "Akun alhainen raja"
@@ -66,12 +85,12 @@
         },
         "button": {
             "battery_replaced": {
-                "name": "Akku vaihdettu"
+                "name": "{device_name}Akku vaihdettu"
             }
         },
         "sensor": {
             "battery_plus": {
-                "name": "Akku+",
+                "name": "{device_name}Akku+",
                 "state_attributes": {
                     "battery_type": {
                         "name": "Akun tyyppi"
@@ -97,6 +116,9 @@
                     "battery_last_reported_level": {
                         "name": "Akku viimeksi raportoitu taso"
                     },
+                    "source_entity_id": {
+                        "name": "Source Entity Id"
+                    },
                     "device_id": {
                         "name": "Device Id"
                     },
@@ -106,7 +128,7 @@
                 }
             },
             "battery_type": {
-                "name": "Akun tyyppi",
+                "name": "{device_name}Akun tyyppi",
                 "state_attributes": {
                     "battery_type": {
                         "name": "Akun tyyppi"
@@ -117,7 +139,7 @@
                 }
             },
             "battery_last_replaced": {
-                "name": "Akku viimeksi vaihdettu"
+                "name": "{device_name}Akku viimeksi vaihdettu"
             }
         }
     },
@@ -128,6 +150,10 @@
                 "device_id": {
                     "description": "Laite, jonka akku on vaihdettu.",
                     "name": "Laite"
+                },
+                "entity_id": {
+                    "description": "Entity that has had its battery replaced.",
+                    "name": "Entity"
                 },
                 "datetime_replaced": {
                     "description": "Päivä, jolloin vaihdettu.",

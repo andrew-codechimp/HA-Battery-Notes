@@ -4,11 +4,30 @@
             "user": {
                 "description": "Ha segítségre van szükséged a konfigurációhoz: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
+                    "association_type": "Association type"
+                },
+                "menu_options": {
+                    "device": "Device (recommended)",
+                    "entity": "Entity"
+                },
+                "title": "Choose your association type"
+            },
+            "device": {
+                "data": {
                     "device_id": "Eszköz",
                     "name": "Név"
                 },
                 "data_description": {
                     "name": "Üresen hagyva a forrás eszköz neve lesz használva"
+                }
+            },
+            "entity": {
+                "data": {
+                    "source_entity_id": "Entity",
+                    "name": "Név"
+                },
+                "data_description": {
+                    "name": "Leaving blank will take the name from the source entity"
                 }
             },
             "battery": {
@@ -56,7 +75,7 @@
     "entity": {
         "binary_sensor": {
             "battery_low": {
-                "name": "Lemerült elem",
+                "name": "{device_name}Lemerült elem",
                 "state_attributes": {
                     "battery_low_threshold": {
                         "name": "Az akkumulátor alacsony küszöbértéke"
@@ -66,12 +85,12 @@
         },
         "button": {
             "battery_replaced": {
-                "name": "Elem cserélve"
+                "name": "{device_name}Elem cserélve"
             }
         },
         "sensor": {
             "battery_plus": {
-                "name": "Akkumulátor+",
+                "name": "{device_name}Akkumulátor+",
                 "state_attributes": {
                     "battery_type": {
                         "name": "Elem típus"
@@ -97,6 +116,9 @@
                     "battery_last_reported_level": {
                         "name": "Az akkumulátor utoljára jelentett szintje"
                     },
+                    "source_entity_id": {
+                        "name": "Source Entity Id"
+                    },
                     "device_id": {
                         "name": "Device Id"
                     },
@@ -106,7 +128,7 @@
                 }
             },
             "battery_type": {
-                "name": "Elem típus",
+                "name": "{device_name}Elem típus",
                 "state_attributes": {
                     "battery_type": {
                         "name": "Elem típus"
@@ -117,7 +139,7 @@
                 }
             },
             "battery_last_replaced": {
-                "name": "Utolsó elemcsere"
+                "name": "{device_name}Utolsó elemcsere"
             }
         }
     },
@@ -128,6 +150,10 @@
                 "device_id": {
                     "description": "Az eszköz eleme cserélve lett.",
                     "name": "Eszköz"
+                },
+                "entity_id": {
+                    "description": "Entity that has had its battery replaced.",
+                    "name": "Entity"
                 },
                 "datetime_replaced": {
                     "description": "Csere dátuma.",
