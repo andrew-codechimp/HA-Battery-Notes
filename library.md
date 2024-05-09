@@ -1,4 +1,4 @@
-## 984 Devices in library
+## 986 Devices in library
 
 This file is auto generated, do not modify
 
@@ -339,6 +339,8 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Fibargroup                                      |Motion_Sensor_FGMS001                                                      |CR123A                    |
 |First Alert                                     |1044807                                                                    |2× AA                     |
 |First Alert (BRK Brands Inc)                    |ZCOMBO                                                                     |2× AA                     |
+|Flair                                           |Smart Vent                                                                 |2× C                      |
+|Flair                                           |Wireless Puck                                                              |2× AAA                    |
 |Flo by Moen                                     |puck_v1                                                                    |CR123A                    |
 |Frient                                          |EMIZB-141                                                                  |2× AA                     |
 |frient                                          |MOSZB-140                                                                  |2× AA                     |

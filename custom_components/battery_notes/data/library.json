@@ -1822,6 +1822,18 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Flair",
+            "model": "Smart Vent",
+            "battery_type": "C",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Flair",
+            "model": "Wireless Puck",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Flo by Moen",
             "model": "puck_v1",
             "battery_type": "CR123A"
