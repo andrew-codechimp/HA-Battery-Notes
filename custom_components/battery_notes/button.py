@@ -7,7 +7,7 @@ from datetime import datetime
 import voluptuous as vol
 
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.core import HomeAssistant, callback, Event
+from homeassistant.core import HomeAssistant, callback, Event, split_entity_id
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers import (
     config_validation as cv,
@@ -195,16 +195,16 @@ class BatteryNotesButton(ButtonEntity):
 
         self.coordinator = coordinator
 
+        self._attr_has_entity_name = True
+
         if coordinator.source_entity_id and not coordinator.device_id:
-            self._attr_has_entity_name = True
             self._attr_translation_placeholders = {"device_name": coordinator.device_name + " "}
             self.entity_id = f"button.{coordinator.device_name.lower()}_{description.key}"
         elif coordinator.source_entity_id and coordinator.device_id:
-            self._attr_has_entity_name = False
+            source_entity_domain, source_object_id = split_entity_id(coordinator.source_entity_id)
             self._attr_translation_placeholders = {"device_name": coordinator.source_entity_name + " "}
-            self.entity_id = f"button.{coordinator.source_entity_name.lower()}_{description.key}"
+            self.entity_id = f"button.{source_object_id}_{description.key}"
         else:
-            self._attr_has_entity_name = True
             self._attr_translation_placeholders = {"device_name": ""}
             self.entity_id = f"button.{coordinator.device_name.lower()}_{description.key}"
 

@@ -13,6 +13,7 @@ from homeassistant.core import (
     HomeAssistant,
     callback,
     Event,
+    split_entity_id,
 )
 from homeassistant.exceptions import TemplateError
 from homeassistant.helpers.entity import Entity
@@ -333,14 +334,18 @@ class BatteryNotesBatteryLowTemplateSensor(BinarySensorEntity, CoordinatorEntity
                 identifiers=device_entry.identifiers,
             )
 
+        self._attr_has_entity_name = True
+
         if coordinator.source_entity_id and not coordinator.device_id:
             self._attr_translation_placeholders = {"device_name": coordinator.device_name + " "}
+            self.entity_id = f"binary_sensor.{coordinator.device_name.lower()}_{description.key}"
         elif coordinator.source_entity_id and coordinator.device_id:
+            source_entity_domain, source_object_id = split_entity_id(coordinator.source_entity_id)
             self._attr_translation_placeholders = {"device_name": coordinator.source_entity_name + " "}
+            self.entity_id = f"binary_sensor.{source_object_id}_{description.key}"
         else:
             self._attr_translation_placeholders = {"device_name": ""}
-
-        self.entity_id = f"binary_sensor.{coordinator.device_name.lower()}_{description.key}"
+            self.entity_id = f"binary_sensor.{coordinator.device_name.lower()}_{description.key}"
 
         self._template = template
         self._state: bool | None = None
@@ -509,17 +514,16 @@ class BatteryNotesBatteryLowSensor(BinarySensorEntity, CoordinatorEntity[Battery
         device_registry = dr.async_get(hass)
 
         self.coordinator = coordinator
+        self._attr_has_entity_name = True
 
         if coordinator.source_entity_id and not coordinator.device_id:
-            self._attr_has_entity_name = True
             self._attr_translation_placeholders = {"device_name": coordinator.device_name + " "}
             self.entity_id = f"binary_sensor.{coordinator.device_name.lower()}_{description.key}"
         elif coordinator.source_entity_id and coordinator.device_id:
-            self._attr_has_entity_name = False
+            source_entity_domain, source_object_id = split_entity_id(coordinator.source_entity_id)
             self._attr_translation_placeholders = {"device_name": coordinator.source_entity_name + " "}
-            self.entity_id = f"binary_sensor.{coordinator.source_entity_name.lower()}_{description.key}"
+            self.entity_id = f"binary_sensor.{source_object_id}_{description.key}"
         else:
-            self._attr_has_entity_name = True
             self._attr_translation_placeholders = {"device_name": ""}
             self.entity_id = f"binary_sensor.{coordinator.device_name.lower()}_{description.key}"
 

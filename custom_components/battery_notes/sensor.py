@@ -19,7 +19,7 @@ from homeassistant.components.sensor import (
 )
 
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.core import HomeAssistant, callback, Event
+from homeassistant.core import HomeAssistant, callback, Event, split_entity_id
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers import (
     config_validation as cv,
@@ -283,16 +283,16 @@ class BatteryNotesBatteryPlusSensor(
         self.config_entry = config_entry
         self.coordinator = coordinator
 
+        self._attr_has_entity_name = True
+
         if coordinator.source_entity_id and not coordinator.device_id:
-            self._attr_has_entity_name = True
             self._attr_translation_placeholders = {"device_name": coordinator.device_name + " "}
             self.entity_id = f"sensor.{coordinator.device_name.lower()}_{description.key}"
         elif coordinator.source_entity_id and coordinator.device_id:
-            self._attr_has_entity_name = False
+            source_entity_domain, source_object_id = split_entity_id(coordinator.source_entity_id)
             self._attr_translation_placeholders = {"device_name": coordinator.source_entity_name + " "}
-            self.entity_id = f"sensor.{coordinator.source_entity_name.lower()}_{description.key}"
+            self.entity_id = f"sensor.{source_object_id}_{description.key}"
         else:
-            self._attr_has_entity_name = True
             self._attr_translation_placeholders = {"device_name": ""}
             self.entity_id = f"sensor.{coordinator.device_name.lower()}_{description.key}"
 
@@ -557,16 +557,16 @@ class BatteryNotesTypeSensor(RestoreSensor, SensorEntity):
 
         self.coordinator = coordinator
 
+        self._attr_has_entity_name = True
+
         if coordinator.source_entity_id and not coordinator.device_id:
-            self._attr_has_entity_name = True
             self._attr_translation_placeholders = {"device_name": coordinator.device_name + " "}
             self.entity_id = f"sensor.{coordinator.device_name.lower()}_{description.key}"
         elif coordinator.source_entity_id and coordinator.device_id:
-            self._attr_has_entity_name = False
+            source_entity_domain, source_object_id = split_entity_id(coordinator.source_entity_id)
             self._attr_translation_placeholders = {"device_name": coordinator.source_entity_name + " "}
-            self.entity_id = f"sensor.{coordinator.source_entity_name.lower()}_{description.key}"
+            self.entity_id = f"sensor.{source_object_id}_{description.key}"
         else:
-            self._attr_has_entity_name = True
             self._attr_translation_placeholders = {"device_name": ""}
             self.entity_id = f"sensor.{coordinator.device_name.lower()}_{description.key}"
 
@@ -646,16 +646,16 @@ class BatteryNotesLastReplacedSensor(
 
         self.coordinator = coordinator
 
+        self._attr_has_entity_name = True
+
         if coordinator.source_entity_id and not coordinator.device_id:
-            self._attr_has_entity_name = True
             self._attr_translation_placeholders = {"device_name": coordinator.device_name + " "}
             self.entity_id = f"sensor.{coordinator.device_name.lower()}_{description.key}"
         elif coordinator.source_entity_id and coordinator.device_id:
-            self._attr_has_entity_name = False
+            source_entity_domain, source_object_id = split_entity_id(coordinator.source_entity_id)
             self._attr_translation_placeholders = {"device_name": coordinator.source_entity_name + " "}
-            self.entity_id = f"sensor.{coordinator.source_entity_name.lower()}_{description.key}"
+            self.entity_id = f"sensor.{source_object_id}_{description.key}"
         else:
-            self._attr_has_entity_name = True
             self._attr_translation_placeholders = {"device_name": ""}
             self.entity_id = f"sensor.{coordinator.device_name.lower()}_{description.key}"
 
