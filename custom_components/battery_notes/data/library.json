@@ -1883,6 +1883,11 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "GE/Enbrighten",
+            "model": "32563 / ZW6301",
+            "battery_type": "CR2"
+        },
+        {
             "manufacturer": "GiEX",
             "model": "Water irrigation valve (QT06_1)",
             "battery_type": "AA",
@@ -5328,11 +5333,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "GE/Enbrighten",
-            "model": "32563 / ZW6301",
-            "battery_type": "CR2"
         }
     ]
 }
