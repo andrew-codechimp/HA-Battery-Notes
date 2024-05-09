@@ -284,7 +284,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             self.data[CONF_BATTERY_LOW_THRESHOLD] = int(
                 user_input[CONF_BATTERY_LOW_THRESHOLD]
             )
-            self.data[CONF_BATTERY_LOW_TEMPLATE] = user_input[CONF_BATTERY_LOW_TEMPLATE]
+            self.data[CONF_BATTERY_LOW_TEMPLATE] = user_input.get(CONF_BATTERY_LOW_TEMPLATE, None)
 
             source_entity_id = self.data.get(CONF_SOURCE_ENTITY_ID, None)
             device_id = self.data.get(CONF_DEVICE_ID, None)
@@ -377,7 +377,7 @@ class OptionsFlowHandler(OptionsFlow):
             user_input[CONF_BATTERY_LOW_THRESHOLD] = int(
                 user_input[CONF_BATTERY_LOW_THRESHOLD]
             )
-            user_input[CONF_BATTERY_LOW_TEMPLATE] = user_input[CONF_BATTERY_LOW_TEMPLATE]
+            user_input[CONF_BATTERY_LOW_TEMPLATE] = user_input.get(CONF_BATTERY_LOW_TEMPLATE, None)
             errors = await self.save_options(user_input, schema)
             if not errors:
                 return self.async_create_entry(title="", data={})
@@ -399,8 +399,16 @@ class OptionsFlowHandler(OptionsFlow):
             self.config_entry.data.get(CONF_DEVICE_ID)
         )
 
+        source_entity_id = self.config_entry.data.get(CONF_SOURCE_ENTITY_ID, None)
+
+        if source_entity_id:
+            entity_registry = er.async_get(self.hass)
+            entity_entry = entity_registry.async_get(source_entity_id)
+
         if CONF_NAME in user_input:
             title = user_input.get(CONF_NAME)
+        elif source_entity_id:
+            title = entity_entry.name or entity_entry.original_name
         else:
             title = device_entry.name_by_user or device_entry.name
 
