@@ -1823,6 +1823,12 @@
         },
         {
             "manufacturer": "Flair",
+            "model": "Smart Vent",
+            "battery_type": "C",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Flair",
             "model": "Wireless Puck",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -5322,12 +5328,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Flair",
-            "model": "Smart Vent",
-            "battery_type": "C",
-            "battery_quantity": 2
         }
     ]
 }
