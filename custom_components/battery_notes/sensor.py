@@ -303,7 +303,7 @@ class BatteryNotesBatteryPlusSensor(
         self.round_battery = round_battery
 
         self._device_id = coordinator.device_id
-        self._entity_id = coordinator.source_entity_id
+        self._source_entity_id = coordinator.source_entity_id
 
         if coordinator.device_id and (
             device_entry := device_registry.async_get(coordinator.device_id)
@@ -573,7 +573,7 @@ class BatteryNotesTypeSensor(RestoreSensor, SensorEntity):
         self.entity_description = description
         self._attr_unique_id = unique_id
         self._device_id = coordinator.device_id
-        self._entity_id = coordinator.source_entity_id
+        self._source_entity_id = coordinator.source_entity_id
 
         if coordinator.device_id and (
             device_entry := device_registry.async_get(coordinator.device_id)
@@ -662,7 +662,7 @@ class BatteryNotesLastReplacedSensor(
         self._attr_device_class = description.device_class
         self._attr_unique_id = unique_id
         self._device_id = coordinator.device_id
-        self._entity_id = coordinator.source_entity_id
+        self._source_entity_id = coordinator.source_entity_id
         self.entity_description = description
         self._native_value = None
 
@@ -685,8 +685,8 @@ class BatteryNotesLastReplacedSensor(
 
     def _set_native_value(self, log_on_error=True):
         # pylint: disable=unused-argument
-        if self._entity_id:
-            entry = self.coordinator.store.async_get_entity(self._entity_id)
+        if self._source_entity_id:
+            entry = self.coordinator.store.async_get_entity(self._source_entity_id)
         else:
             entry = self.coordinator.store.async_get_device(self._device_id)
 
@@ -708,7 +708,7 @@ class BatteryNotesLastReplacedSensor(
         """Handle updated data from the coordinator."""
 
         if self.coordinator.source_entity_id:
-            entry = self.coordinator.store.async_get_entity(self._entity_id)
+            entry = self.coordinator.store.async_get_entity(self._source_entity_id)
         else:
             entry = self.coordinator.store.async_get_device(self._device_id)
 
