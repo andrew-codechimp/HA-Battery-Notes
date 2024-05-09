@@ -90,7 +90,6 @@ async def async_setup_entry(
     entity_registry = er.async_get(hass)
     device_registry = dr.async_get(hass)
 
-    source_entity_id = config_entry.data.get(CONF_SOURCE_ENTITY_ID, None)
     device_id = config_entry.data.get(CONF_DEVICE_ID, None)
 
     async def async_registry_updated(event: Event) -> None:

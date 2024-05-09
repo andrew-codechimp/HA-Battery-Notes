@@ -58,6 +58,7 @@ class BatteryNotesDevice:
 
     @property
     def fake_device(self) -> bool:
+        """Return if an actual device registry entry."""
         if self.config.data.get(CONF_SOURCE_ENTITY_ID, None):
             if self.config.data.get(CONF_DEVICE_ID, None) is None:
                 return True
