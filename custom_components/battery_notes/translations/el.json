@@ -4,13 +4,13 @@
             "user": {
                 "description": "Αν χρειάζεστε βοήθεια με τις ρυθμίσεις παραμέτρων ρίξτε μια ματιά εδώ: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
-                    "association_type": "Association type"
+                    "association_type": "Τύπος συσχετισμού"
                 },
                 "menu_options": {
-                    "device": "Device (recommended)",
-                    "entity": "Entity"
+                    "device": "Συσκευή (συνιστάται)",
+                    "entity": "Οντότητα"
                 },
-                "title": "Choose your association type"
+                "title": "Επιλέξτε τον τύπο συσχέτισης"
             },
             "device": {
                 "data": {
@@ -23,11 +23,11 @@
             },
             "entity": {
                 "data": {
-                    "source_entity_id": "Entity",
+                    "source_entity_id": "Οντότητα",
                     "name": "Ονομα"
                 },
                 "data_description": {
-                    "name": "Leaving blank will take the name from the source entity"
+                    "name": "Αφήνοντάς το κενό θα πάρει το όνομα από την οντότητα προέλευσης"
                 }
             },
             "battery": {
@@ -117,7 +117,7 @@
                         "name": "Τελευταία αναφερόμενη στάθμη μπαταρίας"
                     },
                     "source_entity_id": {
-                        "name": "Source Entity Id"
+                        "name": "Αναγνωριστικό Οντότητας Πηγής"
                     },
                     "device_id": {
                         "name": "ID Συσκευής:"
@@ -152,8 +152,8 @@
                     "name": "Συσκευή"
                 },
                 "entity_id": {
-                    "description": "Entity that has had its battery replaced.",
-                    "name": "Entity"
+                    "description": "Οντότητα της οποίας η μπαταρία έχει αντικατασταθεί.",
+                    "name": "Οντότητα"
                 },
                 "datetime_replaced": {
                     "description": "Ημερομηνία αντικατάστασης.",
