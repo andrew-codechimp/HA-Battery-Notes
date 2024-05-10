@@ -5333,6 +5333,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Hunter Douglas",
+            "model": "Bottom Up",
+            "battery_type": "AA",
+            "battery_quantity": 12
         }
     ]
 }
