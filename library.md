@@ -1,4 +1,4 @@
-## 987 Devices in library
+## 988 Devices in library
 
 This file is auto generated, do not modify
 
@@ -391,6 +391,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Honeywell                                       |TH6320ZW                                                                   |3× AA                     |
 |Honeywell                                       |TH6320ZW2007                                                               |3× AA                     |
 |Honeywell                                       |zigbee JTYJ-GD-01LM/BW (lumi.sensor_smoke)                                 |2× CR123A                 |
+|Hunter Douglas                                  |Bottom Up                                                                  |12× AA                    |
 |Hunter Douglas                                  |Duette                                                                     |12× AA                    |
 |iCasa                                           |Zigbee 3.0 Keypad Pulse 8S (ICZB-KPD18S)                                   |CR2450                    |
 |ID Lock AS                                      |ID-150                                                                     |8× AA                     |
