@@ -8,7 +8,7 @@
                 },
                 "menu_options": {
                     "device": "Device (recommended)",
-                    "entity": "Entity"
+                    "entity": "Entité"
                 },
                 "title": "Choose your association type"
             },
@@ -23,7 +23,7 @@
             },
             "entity": {
                 "data": {
-                    "entity_id": "Entité",
+                    "source_entity_id": "Entité",
                     "name": "Nom"
                 },
                 "data_description": {
@@ -153,7 +153,7 @@
                 },
                 "entity_id": {
                     "description": "Entity that has had its battery replaced.",
-                    "name": "Entity"
+                    "name": "Entité"
                 },
                 "datetime_replaced": {
                     "description": "Date de remplacement.",
