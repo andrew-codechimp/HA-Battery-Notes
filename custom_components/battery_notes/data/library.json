@@ -831,6 +831,12 @@
         },
         {
             "manufacturer": "August Home Inc.",
+            "model": "AUG-SL03-C02-S03",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "August Home Inc.",
             "model": "AUG-SL03-CON-S03",
             "battery_type": "AA",
             "battery_quantity": 4
@@ -5339,12 +5345,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "August Home Inc.",
-            "model": "AUG-SL03-C02-S03",
-            "battery_type": "AA",
-            "battery_quantity": 4
         }
     ]
 }
