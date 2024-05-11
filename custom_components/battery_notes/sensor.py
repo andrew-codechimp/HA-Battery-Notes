@@ -298,6 +298,12 @@ class BatteryNotesBatteryPlusSensor(
             self._attr_translation_placeholders = {"device_name": ""}
             self.entity_id = f"sensor.{coordinator.device_name.lower()}_{description.key}"
 
+        _LOGGER.debug(
+            "Setting up %s with wrapped battery %s",
+            self.entity_id,
+            self.coordinator.wrapped_battery.entity_id
+        )
+
         self.entity_description = description
         self._attr_unique_id = unique_id
         self.device = device

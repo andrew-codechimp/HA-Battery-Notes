@@ -97,6 +97,13 @@ class BatteryNotesDevice:
             device_class = entity.device_class or entity.original_device_class
             if device_class == SensorDeviceClass.BATTERY and entity.unit_of_measurement == PERCENTAGE:
                 self.wrapped_battery = entity
+            else:
+                _LOGGER.debug(
+                    "%s is not a battery entity device_class: %s unit_of_measurement: %s",
+                    source_entity_id,
+                    device_class,
+                    entity.unit_of_measurement,
+                )
 
             if entity.device_id:
                 device_entry = device_registry.async_get(entity.device_id)
@@ -128,6 +135,7 @@ class BatteryNotesDevice:
                     continue
 
                 self.wrapped_battery = entity_registry.async_get(entity.entity_id)
+                break
 
             device_entry = device_registry.async_get(device_id)
             if device_entry:
