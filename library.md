@@ -411,7 +411,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |IKEA                                            |TRADFRI ON/OFF switch (E1743)                                              |CR2032                    |
 |IKEA                                            |TRADFRI open/close remote (E1766)                                          |CR2032                    |
 |IKEA                                            |TRADFRI remote control (E1524/E1810)                                       |CR2032                    |
-|IKEA                                            |TRADFRI shortcut button (E1812)                                            |CR2032                    |
+|IKEA                                            |TRADFRI shortcut button (E1812)                                            |CR2450                    |
 |IKEA                                            |TRADFRI wireless dimmer (ICTC-G-1)                                         |CR2032                    |
 |Ikea                                            |TREDANSEN cellular blind (E2103)                                           |Rechargeable              |
 |IKEA                                            |VALLHORN wireless motion sensor (E2134)                                    |2× AAA                    |
