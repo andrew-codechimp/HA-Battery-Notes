@@ -6,8 +6,8 @@
 [![License][license-shield]](LICENSE)
 [![hacs][hacsbadge]][hacs]
 
-Integration to add battery notes to a device, with automatic discovery via a growing [battery library](library.md) for devices.  
-Track the battery type, when the battery was replaced, when a battery is low based on device or global thresholds and also when a device hasn't reported a battery for a while.  
+Integration to add battery notes to a device or entity, with automatic discovery via a growing [battery library](library.md) for devices.  
+Track the battery type, when the battery was replaced, when a battery is low based on device or global thresholds and also when a battery hasn't been reported for a while.  
 
 A battery+ sensor provides useful attributes for easy use in dashboards, the standard battery can optionally be hidden.  
 

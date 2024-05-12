@@ -9,6 +9,7 @@ See how to use this service in the [community contributions](./community.md)
 | Parameter                | Optional | Description                                                                                                           |
 | ------------------------ | -------- | --------------------------------------------------------------------------------------------------------------------- |
 | `data.device_id`      | `yes`    | The device id that you want to change the battery replaced date for. |
+| `data.source_entity_id`      | `yes`    | The entity id that you want to change the battery replaced date for. |
 | `data.datetime_replaced` | `yes`    | The optional datetime that you want to set the battery replaced to, if omitted the current date/time will be used. |
 
 You must specify either a device_id or entity_id, entity_id will be used in preference if both are specified.  This allows the service to work with battery notes associated with both a device and also an individual entity, whether it is part of a device or not.
@@ -36,4 +37,3 @@ The service will raise a seperate [battery_threshold](./events.md/#battery_thres
 You can use this service call as a reminder that is convenient to you, e.g. when you wake up, once a week etc.  The event has a boolean data item `reminder` to determine if the event was raised by this service or the device battery going to a low state.
 
 See how to use this service in the [community contributions](./community.md)
-
