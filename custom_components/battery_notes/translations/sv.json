@@ -4,11 +4,30 @@
             "user": {
                 "description": "Om du behöver hjälp med konfigurationen? Ta en titt här: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
+                    "association_type": "Association type"
+                },
+                "menu_options": {
+                    "device": "Device (recommended)",
+                    "entity": "Entitet"
+                },
+                "title": "Choose your association type"
+            },
+            "device": {
+                "data": {
                     "device_id": "Enhet",
                     "name": "Namn"
                 },
                 "data_description": {
                     "name": "Genom att lämna blankt tas namnet från källenheten. "
+                }
+            },
+            "entity": {
+                "data": {
+                    "source_entity_id": "Entitet",
+                    "name": "Namn"
+                },
+                "data_description": {
+                    "name": "Lämnas tom kommer namn tas från källentiteten"
                 }
             },
             "battery": {
@@ -56,7 +75,7 @@
     "entity": {
         "binary_sensor": {
             "battery_low": {
-                "name": "Lågt batteri. ",
+                "name": "{device_name}Lågt batteri. ",
                 "state_attributes": {
                     "battery_low_threshold": {
                         "name": "Tröskelvärde lågt batteri"
@@ -66,12 +85,12 @@
         },
         "button": {
             "battery_replaced": {
-                "name": "Bytt batteri"
+                "name": "{device_name}Bytt batteri"
             }
         },
         "sensor": {
             "battery_plus": {
-                "name": "Batteri+",
+                "name": "{device_name}Batteri+",
                 "state_attributes": {
                     "battery_type": {
                         "name": "Batterityp"
@@ -97,6 +116,9 @@
                     "battery_last_reported_level": {
                         "name": "Senast rapporterade batterinivå"
                     },
+                    "source_entity_id": {
+                        "name": "Source Entity Id"
+                    },
                     "device_id": {
                         "name": "Enhets ID"
                     },
@@ -106,7 +128,7 @@
                 }
             },
             "battery_type": {
-                "name": "Batterityp",
+                "name": "{device_name}Batterityp",
                 "state_attributes": {
                     "battery_type": {
                         "name": "Batterityp"
@@ -117,7 +139,7 @@
                 }
             },
             "battery_last_replaced": {
-                "name": "Senast rapporterade batteri"
+                "name": "{device_name}Senast rapporterade batteri"
             }
         }
     },
@@ -128,6 +150,10 @@
                 "device_id": {
                     "description": "Enhet som haft sitt batteri bytt. ",
                     "name": "Enhet"
+                },
+                "entity_id": {
+                    "description": "Entity that has had its battery replaced.",
+                    "name": "Entitet"
                 },
                 "datetime_replaced": {
                     "description": "Datum för bytt batteri",

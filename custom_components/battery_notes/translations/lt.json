@@ -4,11 +4,30 @@
             "user": {
                 "description": "Daugiau pagalbos apie konfigūraciją rasite čia: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
+                    "association_type": "Association type"
+                },
+                "menu_options": {
+                    "device": "Device (recommended)",
+                    "entity": "Entity"
+                },
+                "title": "Choose your association type"
+            },
+            "device": {
+                "data": {
                     "device_id": "Prietaisas",
                     "name": "Pavadinimas"
                 },
                 "data_description": {
                     "name": "Leaving blank will take the name from the source device"
+                }
+            },
+            "entity": {
+                "data": {
+                    "source_entity_id": "Entity",
+                    "name": "Pavadinimas"
+                },
+                "data_description": {
+                    "name": "Leaving blank will take the name from the source entity"
                 }
             },
             "battery": {
@@ -56,7 +75,7 @@
     "entity": {
         "binary_sensor": {
             "battery_low": {
-                "name": "Baterija senka",
+                "name": "{device_name}Baterija senka",
                 "state_attributes": {
                     "battery_low_threshold": {
                         "name": "Battery low threshold"
@@ -66,12 +85,12 @@
         },
         "button": {
             "battery_replaced": {
-                "name": "Baterija pakeista"
+                "name": "{device_name}Baterija pakeista"
             }
         },
         "sensor": {
             "battery_plus": {
-                "name": "Baterija+",
+                "name": "{device_name}Baterija+",
                 "state_attributes": {
                     "battery_type": {
                         "name": "Baterijos tipas"
@@ -97,6 +116,9 @@
                     "battery_last_reported_level": {
                         "name": "Battery last reported level"
                     },
+                    "source_entity_id": {
+                        "name": "Source Entity Id"
+                    },
                     "device_id": {
                         "name": "Device Id"
                     },
@@ -106,7 +128,7 @@
                 }
             },
             "battery_type": {
-                "name": "Baterijos tipas",
+                "name": "{device_name}Baterijos tipas",
                 "state_attributes": {
                     "battery_type": {
                         "name": "Baterijos tipas"
@@ -117,7 +139,7 @@
                 }
             },
             "battery_last_replaced": {
-                "name": "Baterija paskutinį kartą keista"
+                "name": "{device_name}Baterija paskutinį kartą keista"
             }
         }
     },
@@ -128,6 +150,10 @@
                 "device_id": {
                     "description": "Device that has had its battery replaced.",
                     "name": "Prietaisas"
+                },
+                "entity_id": {
+                    "description": "Entity that has had its battery replaced.",
+                    "name": "Entity"
                 },
                 "datetime_replaced": {
                     "description": "Date replaced.",

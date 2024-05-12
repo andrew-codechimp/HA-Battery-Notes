@@ -7,8 +7,7 @@ from datetime import datetime
 import voluptuous as vol
 
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import CONF_ENTITY_ID
-from homeassistant.core import HomeAssistant, callback, Event
+from homeassistant.core import HomeAssistant, callback, Event, split_entity_id
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers import (
     config_validation as cv,
@@ -39,8 +38,10 @@ from .const import (
     DOMAIN_CONFIG,
     DATA,
     CONF_ENABLE_REPLACED,
+    CONF_SOURCE_ENTITY_ID,
 )
 
+from .device import BatteryNotesDevice
 from .coordinator import BatteryNotesCoordinator
 
 from .entity import (
@@ -59,7 +60,11 @@ class BatteryNotesButtonEntityDescription(
 
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
-    {vol.Optional(CONF_NAME): cv.string, vol.Required(CONF_DEVICE_ID): cv.string}
+    {
+        vol.Optional(CONF_NAME): cv.string,
+        vol.Optional(CONF_DEVICE_ID): cv.string,
+        vol.Optional(CONF_SOURCE_ENTITY_ID): cv.string,
+    }
 )
 
 
@@ -70,9 +75,10 @@ def async_add_to_device(hass: HomeAssistant, entry: ConfigEntry) -> str | None:
 
     device_id = entry.data.get(CONF_DEVICE_ID)
 
-    if device_registry.async_get(device_id):
-        device_registry.async_update_device(device_id, add_config_entry_id=entry.entry_id)
-        return device_id
+    if device_id:
+        if device_registry.async_get(device_id):
+            device_registry.async_update_device(device_id, add_config_entry_id=entry.entry_id)
+            return device_id
     return None
 
 async def async_setup_entry(
@@ -84,7 +90,7 @@ async def async_setup_entry(
     entity_registry = er.async_get(hass)
     device_registry = dr.async_get(hass)
 
-    device_id = config_entry.data.get(CONF_DEVICE_ID)
+    device_id = config_entry.data.get(CONF_DEVICE_ID, None)
 
     async def async_registry_updated(event: Event) -> None:
         """Handle entity registry update."""
@@ -103,7 +109,7 @@ async def async_setup_entry(
             # If the tracked battery note is no longer in the device, remove our config entry
             # from the device
             if (
-                not (entity_entry := entity_registry.async_get(data[CONF_ENTITY_ID]))
+                not (entity_entry := entity_registry.async_get(data["entity_id"]))
                 or not device_registry.async_get(device_id)
                 or entity_entry.device_id == device_id
             ):
@@ -122,10 +128,13 @@ async def async_setup_entry(
         )
     )
 
-    device_id = async_add_to_device(hass, config_entry)
+    device: BatteryNotesDevice = hass.data[DOMAIN][DATA].devices[config_entry.entry_id]
 
-    if not device_id:
-        return
+    if not device.fake_device:
+        device_id = async_add_to_device(hass, config_entry)
+
+        if not device_id:
+            return
 
     enable_replaced = True
     if DOMAIN_CONFIG in hass.data[DOMAIN]:
@@ -148,7 +157,7 @@ async def async_setup_entry(
                 coordinator,
                 description,
                 f"{config_entry.entry_id}{description.unique_id_suffix}",
-                device_id,
+                device_id
             )
         ]
     )
@@ -184,18 +193,30 @@ class BatteryNotesButton(ButtonEntity):
         device_registry = dr.async_get(hass)
 
         self.coordinator = coordinator
+
+        self._attr_has_entity_name = True
+
+        if coordinator.source_entity_id and not coordinator.device_id:
+            self._attr_translation_placeholders = {"device_name": coordinator.device_name + " "}
+            self.entity_id = f"button.{coordinator.device_name.lower()}_{description.key}"
+        elif coordinator.source_entity_id and coordinator.device_id:
+            source_entity_domain, source_object_id = split_entity_id(coordinator.source_entity_id)
+            self._attr_translation_placeholders = {"device_name": coordinator.source_entity_name + " "}
+            self.entity_id = f"button.{source_object_id}_{description.key}"
+        else:
+            self._attr_translation_placeholders = {"device_name": ""}
+            self.entity_id = f"button.{coordinator.device_name.lower()}_{description.key}"
+
         self.entity_description = description
         self._attr_unique_id = unique_id
-        self._attr_has_entity_name = True
         self._device_id = device_id
+        self._source_entity_id = coordinator.source_entity_id
 
         if device_id and (device := device_registry.async_get(device_id)):
             self._attr_device_info = DeviceInfo(
                 connections=device.connections,
                 identifiers=device.identifiers,
             )
-
-        self.entity_id = f"button.{coordinator.device_name.lower()}_{description.key}"
 
     async def async_added_to_hass(self) -> None:
         """Handle added to Hass."""
@@ -211,9 +232,15 @@ class BatteryNotesButton(ButtonEntity):
         """Press the button."""
         device_id = self._device_id
 
-        device_entry = {"battery_last_replaced": datetime.utcnow()}
+        entry = {"battery_last_replaced": datetime.utcnow()}
 
-        self.coordinator.async_update_device_config(
-            device_id=device_id, data=device_entry
-        )
+        if self._source_entity_id:
+            self.coordinator.async_update_entity_config(
+                entity_id=self.coordinator.source_entity_id, data=entry
+            )
+        else:
+            self.coordinator.async_update_device_config(
+                device_id=device_id, data=entry
+            )
+
         await self.coordinator.async_request_refresh()

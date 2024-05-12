@@ -5,11 +5,17 @@ set_battery_replaced:
     device_id:
       name: Device
       description: Device that has had its battery replaced.
-      required: true
+      required: false
       selector:
         device:
           filter:
             - integration: battery_notes
+    source_entity_id:
+      name: Entity
+      description: Entity that has had its battery replaced.
+      required: false
+      selector:
+        entity:
     datetime_replaced:
       name: Date
       description: Date replaced.

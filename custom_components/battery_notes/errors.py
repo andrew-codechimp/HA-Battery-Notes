@@ -24,7 +24,7 @@ class SensorAlreadyConfiguredError(SensorConfigurationError):
         """Existing battery type configured."""
         self.existing_entities = existing_entities
         super().__init__(
-            f"{source_entity_id}: This entity has already configured a battery type. ",
+            f"{source_entity_id}: This entity already has a configured battery type. ",
         )
 
     def get_existing_entities(self) -> list:

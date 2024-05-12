@@ -4,11 +4,30 @@
             "user": {
                 "description": "Si necessiteu ajuda amb la configuració, mireu aquí: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
+                    "association_type": "Association type"
+                },
+                "menu_options": {
+                    "device": "Device (recommended)",
+                    "entity": "Entitat"
+                },
+                "title": "Choose your association type"
+            },
+            "device": {
+                "data": {
                     "device_id": "Dispositiu",
                     "name": "Nom"
                 },
                 "data_description": {
                     "name": "Si ho deixes en blanc, agafarà el nom del dispositiu d'origen"
+                }
+            },
+            "entity": {
+                "data": {
+                    "source_entity_id": "Entitat",
+                    "name": "Nom"
+                },
+                "data_description": {
+                    "name": "Leaving blank will take the name from the source entity"
                 }
             },
             "battery": {
@@ -56,7 +75,7 @@
     "entity": {
         "binary_sensor": {
             "battery_low": {
-                "name": "Bateria baixa",
+                "name": "{device_name}Bateria baixa",
                 "state_attributes": {
                     "battery_low_threshold": {
                         "name": "Llindar baix de la bateria"
@@ -66,12 +85,12 @@
         },
         "button": {
             "battery_replaced": {
-                "name": "S'ha canviat la bateria"
+                "name": "{device_name}S'ha canviat la bateria"
             }
         },
         "sensor": {
             "battery_plus": {
-                "name": "Bateria+",
+                "name": "{device_name}Bateria+",
                 "state_attributes": {
                     "battery_type": {
                         "name": "Tipus de bateria"
@@ -97,6 +116,9 @@
                     "battery_last_reported_level": {
                         "name": "Últim nivell de bateria notificat"
                     },
+                    "source_entity_id": {
+                        "name": "Source Entity Id"
+                    },
                     "device_id": {
                         "name": "Id del dispositiu"
                     },
@@ -106,7 +128,7 @@
                 }
             },
             "battery_type": {
-                "name": "Tipus de bateria",
+                "name": "{device_name}Tipus de bateria",
                 "state_attributes": {
                     "battery_type": {
                         "name": "Tipus de bateria"
@@ -117,7 +139,7 @@
                 }
             },
             "battery_last_replaced": {
-                "name": "Últim cop que es va substituir la bateria"
+                "name": "{device_name}Últim cop que es va substituir la bateria"
             }
         }
     },
@@ -128,6 +150,10 @@
                 "device_id": {
                     "description": "Dispositiu que ha canviat la bateria.",
                     "name": "Dispositiu"
+                },
+                "entity_id": {
+                    "description": "Entity that has had its battery replaced.",
+                    "name": "Entitat"
                 },
                 "datetime_replaced": {
                     "description": "Data substituïda.",

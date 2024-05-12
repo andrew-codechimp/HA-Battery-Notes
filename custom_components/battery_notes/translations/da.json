@@ -4,11 +4,30 @@
             "user": {
                 "description": "Hvis du har brug for hjælp til konfigurationen, så kig her: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
+                    "association_type": "Association type"
+                },
+                "menu_options": {
+                    "device": "Device (recommended)",
+                    "entity": "Enhed"
+                },
+                "title": "Choose your association type"
+            },
+            "device": {
+                "data": {
                     "device_id": "Enhed",
                     "name": "Navn"
                 },
                 "data_description": {
                     "name": "Hvis du lader dette felt være tomt, hentes navnet fra kildeenheden"
+                }
+            },
+            "entity": {
+                "data": {
+                    "source_entity_id": "Enhed",
+                    "name": "Navn"
+                },
+                "data_description": {
+                    "name": "Leaving blank will take the name from the source entity"
                 }
             },
             "battery": {
@@ -56,7 +75,7 @@
     "entity": {
         "binary_sensor": {
             "battery_low": {
-                "name": "Lavt batteri",
+                "name": "{device_name}Lavt batteri",
                 "state_attributes": {
                     "battery_low_threshold": {
                         "name": "Lavt batteri niveau"
@@ -66,12 +85,12 @@
         },
         "button": {
             "battery_replaced": {
-                "name": "Batteri udskiftet"
+                "name": "{device_name}Batteri udskiftet"
             }
         },
         "sensor": {
             "battery_plus": {
-                "name": "Batteri+",
+                "name": "{device_name}Batteri+",
                 "state_attributes": {
                     "battery_type": {
                         "name": "Batteri type"
@@ -97,6 +116,9 @@
                     "battery_last_reported_level": {
                         "name": "Sidst rapporterede batteriniveau"
                     },
+                    "source_entity_id": {
+                        "name": "Source Entity Id"
+                    },
                     "device_id": {
                         "name": "Enheds Id"
                     },
@@ -106,7 +128,7 @@
                 }
             },
             "battery_type": {
-                "name": "Batteri type",
+                "name": "{device_name}Batteri type",
                 "state_attributes": {
                     "battery_type": {
                         "name": "Batteri type"
@@ -117,7 +139,7 @@
                 }
             },
             "battery_last_replaced": {
-                "name": "Batteri sidst skiftet"
+                "name": "{device_name}Batteri sidst skiftet"
             }
         }
     },
@@ -127,6 +149,10 @@
             "fields": {
                 "device_id": {
                     "description": "Enhed, der har fået skiftet batteri.",
+                    "name": "Enhed"
+                },
+                "entity_id": {
+                    "description": "Entity that has had its battery replaced.",
                     "name": "Enhed"
                 },
                 "datetime_replaced": {

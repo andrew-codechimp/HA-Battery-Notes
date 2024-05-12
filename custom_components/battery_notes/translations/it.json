@@ -4,11 +4,30 @@
             "user": {
                 "description": "Se hai bisogno di aiuto per la configurazione, dai un'occhiata qui: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
+                    "association_type": "Association type"
+                },
+                "menu_options": {
+                    "device": "Device (recommended)",
+                    "entity": "Entità"
+                },
+                "title": "Choose your association type"
+            },
+            "device": {
+                "data": {
                     "device_id": "Dispositivo",
                     "name": "Nome"
                 },
                 "data_description": {
                     "name": "Lasciando vuoto prenderà il nome dal dispositivo di origine"
+                }
+            },
+            "entity": {
+                "data": {
+                    "source_entity_id": "Entità",
+                    "name": "Nome"
+                },
+                "data_description": {
+                    "name": "Leaving blank will take the name from the source entity"
                 }
             },
             "battery": {
@@ -56,7 +75,7 @@
     "entity": {
         "binary_sensor": {
             "battery_low": {
-                "name": "Batteria bassa",
+                "name": "{device_name}Batteria bassa",
                 "state_attributes": {
                     "battery_low_threshold": {
                         "name": "Livello batteria bassa"
@@ -66,12 +85,12 @@
         },
         "button": {
             "battery_replaced": {
-                "name": "Batteria sostituita"
+                "name": "{device_name}Batteria sostituita"
             }
         },
         "sensor": {
             "battery_plus": {
-                "name": "Batteria+",
+                "name": "{device_name}Batteria+",
                 "state_attributes": {
                     "battery_type": {
                         "name": "Tipo di batteria"
@@ -97,6 +116,9 @@
                     "battery_last_reported_level": {
                         "name": "Ultimo livello di batteria segnalato"
                     },
+                    "source_entity_id": {
+                        "name": "Source Entity Id"
+                    },
                     "device_id": {
                         "name": "ID dispositivo"
                     },
@@ -106,7 +128,7 @@
                 }
             },
             "battery_type": {
-                "name": "Tipo di batteria",
+                "name": "{device_name}Tipo di batteria",
                 "state_attributes": {
                     "battery_type": {
                         "name": "Tipo di batteria"
@@ -117,7 +139,7 @@
                 }
             },
             "battery_last_replaced": {
-                "name": "Ultima sostituzione della batteria"
+                "name": "{device_name}Ultima sostituzione della batteria"
             }
         }
     },
@@ -128,6 +150,10 @@
                 "device_id": {
                     "description": "Dispositivo che ha avuto la batteria sostituita.",
                     "name": "Dispositivo"
+                },
+                "entity_id": {
+                    "description": "Entity that has had its battery replaced.",
+                    "name": "Entità"
                 },
                 "datetime_replaced": {
                     "description": "Data di sostituzione",

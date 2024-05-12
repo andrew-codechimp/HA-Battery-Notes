@@ -1,4 +1,4 @@
-## 984 Devices in library
+## 989 Devices in library
 
 This file is auto generated, do not modify
 
@@ -160,6 +160,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |August Home Inc.                                |ASL6_05/101200/SI                                                          |4× AA                     |
 |August Home Inc.                                |ASL6_05/101300/SI                                                          |4× AA                     |
 |August Home Inc.                                |AUG-SL03-C02-G03                                                           |4× AA                     |
+|August Home Inc.                                |AUG-SL03-C02-S03                                                           |4× AA                     |
 |August Home Inc.                                |AUG-SL03-CON-S03                                                           |4× AA                     |
 |August Home Inc.                                |AUG-SL04-M01-G04                                                           |4× AA                     |
 |August Home Inc.                                |AUG-SL05-M01-S01                                                           |2× CR123A                 |
@@ -339,6 +340,8 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Fibargroup                                      |Motion_Sensor_FGMS001                                                      |CR123A                    |
 |First Alert                                     |1044807                                                                    |2× AA                     |
 |First Alert (BRK Brands Inc)                    |ZCOMBO                                                                     |2× AA                     |
+|Flair                                           |Smart Vent                                                                 |2× C                      |
+|Flair                                           |Wireless Puck                                                              |2× AAA                    |
 |Flo by Moen                                     |puck_v1                                                                    |CR123A                    |
 |Frient                                          |EMIZB-141                                                                  |2× AA                     |
 |frient                                          |MOSZB-140                                                                  |2× AA                     |
@@ -348,6 +351,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |frient A/S                                      |SBTZB-110                                                                  |CR2450                    |
 |frient A/S                                      |SMSZB-120                                                                  |CR123                     |
 |Fyta                                            |Plant                                                                      |CR2032                    |
+|GE/Enbrighten                                   |32563 / ZW6301                                                             |CR2                       |
 |GiEX                                            |Water irrigation valve (QT06_1)                                            |4× AA                     |
 |GiEX                                            |Water irrigation valve (QT06_2)                                            |4× AA                     |
 |Google                                          |A12                                                                        |3× AA                     |
@@ -388,6 +392,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Honeywell                                       |TH6320ZW                                                                   |3× AA                     |
 |Honeywell                                       |TH6320ZW2007                                                               |3× AA                     |
 |Honeywell                                       |zigbee JTYJ-GD-01LM/BW (lumi.sensor_smoke)                                 |2× CR123A                 |
+|Hunter Douglas                                  |Bottom Up                                                                  |12× AA                    |
 |Hunter Douglas                                  |Duette                                                                     |12× AA                    |
 |iCasa                                           |Zigbee 3.0 Keypad Pulse 8S (ICZB-KPD18S)                                   |CR2450                    |
 |ID Lock AS                                      |ID-150                                                                     |8× AA                     |
@@ -406,7 +411,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |IKEA                                            |TRADFRI ON/OFF switch (E1743)                                              |CR2032                    |
 |IKEA                                            |TRADFRI open/close remote (E1766)                                          |CR2032                    |
 |IKEA                                            |TRADFRI remote control (E1524/E1810)                                       |CR2032                    |
-|IKEA                                            |TRADFRI shortcut button (E1812)                                            |CR2032                    |
+|IKEA                                            |TRADFRI shortcut button (E1812)                                            |CR2450                    |
 |IKEA                                            |TRADFRI wireless dimmer (ICTC-G-1)                                         |CR2032                    |
 |Ikea                                            |TREDANSEN cellular blind (E2103)                                           |Rechargeable              |
 |IKEA                                            |VALLHORN wireless motion sensor (E2134)                                    |2× AAA                    |

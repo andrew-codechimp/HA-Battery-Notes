@@ -4,11 +4,30 @@
             "user": {
                 "description": "اگر آپ کو ترتیب میں مدد کی ضرورت ہو تو یہاں ایک نظر ڈالیں: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
+                    "association_type": "Association type"
+                },
+                "menu_options": {
+                    "device": "Device (recommended)",
+                    "entity": "Entity"
+                },
+                "title": "Choose your association type"
+            },
+            "device": {
+                "data": {
                     "device_id": "آلہ",
                     "name": "نام"
                 },
                 "data_description": {
                     "name": "خالی چھوڑنے سے نام ماخذ آلہ سے لیا جائے گا۔"
+                }
+            },
+            "entity": {
+                "data": {
+                    "source_entity_id": "Entity",
+                    "name": "نام"
+                },
+                "data_description": {
+                    "name": "Leaving blank will take the name from the source entity"
                 }
             },
             "battery": {
@@ -56,7 +75,7 @@
     "entity": {
         "binary_sensor": {
             "battery_low": {
-                "name": "بیٹری کم",
+                "name": "{device_name}بیٹری کم",
                 "state_attributes": {
                     "battery_low_threshold": {
                         "name": "بیٹری کی کم حد"
@@ -66,12 +85,12 @@
         },
         "button": {
             "battery_replaced": {
-                "name": "بیٹری تبدیل کر دی گئی۔"
+                "name": "{device_name}بیٹری تبدیل کر دی گئی۔"
             }
         },
         "sensor": {
             "battery_plus": {
-                "name": "بیٹری+",
+                "name": "{device_name}بیٹری+",
                 "state_attributes": {
                     "battery_type": {
                         "name": "بیٹری کی قسم"
@@ -97,6 +116,9 @@
                     "battery_last_reported_level": {
                         "name": "بیٹری کی آخری اطلاع دی گئی سطح"
                     },
+                    "source_entity_id": {
+                        "name": "Source Entity Id"
+                    },
                     "device_id": {
                         "name": "Device Id"
                     },
@@ -106,7 +128,7 @@
                 }
             },
             "battery_type": {
-                "name": "بیٹری کی قسم",
+                "name": "{device_name}بیٹری کی قسم",
                 "state_attributes": {
                     "battery_type": {
                         "name": "بیٹری کی قسم"
@@ -117,7 +139,7 @@
                 }
             },
             "battery_last_replaced": {
-                "name": "بیٹری آخری بار تبدیل کی گئی۔"
+                "name": "{device_name}بیٹری آخری بار تبدیل کی گئی۔"
             }
         }
     },
@@ -128,6 +150,10 @@
                 "device_id": {
                     "description": "وہ آلہ جس کی بیٹری تبدیل کر دی گئی ہو۔.",
                     "name": "آلہ"
+                },
+                "entity_id": {
+                    "description": "Entity that has had its battery replaced.",
+                    "name": "Entity"
                 },
                 "datetime_replaced": {
                     "description": "تاریخ تبدیل کر دی گئی۔.",

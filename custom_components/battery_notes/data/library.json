@@ -831,6 +831,12 @@
         },
         {
             "manufacturer": "August Home Inc.",
+            "model": "AUG-SL03-C02-S03",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "August Home Inc.",
             "model": "AUG-SL03-CON-S03",
             "battery_type": "AA",
             "battery_quantity": 4
@@ -1822,6 +1828,18 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Flair",
+            "model": "Smart Vent",
+            "battery_type": "C",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Flair",
+            "model": "Wireless Puck",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Flo by Moen",
             "model": "puck_v1",
             "battery_type": "CR123A"
@@ -1869,6 +1887,11 @@
             "manufacturer": "Fyta",
             "model": "Plant",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "GE/Enbrighten",
+            "model": "32563 / ZW6301",
+            "battery_type": "CR2"
         },
         {
             "manufacturer": "GiEX",
@@ -2092,6 +2115,12 @@
         },
         {
             "manufacturer": "Hunter Douglas",
+            "model": "Bottom Up",
+            "battery_type": "AA",
+            "battery_quantity": 12
+        },
+        {
+            "manufacturer": "Hunter Douglas",
             "model": "Duette",
             "battery_type": "AA",
             "battery_quantity": 12
@@ -2189,7 +2218,7 @@
         {
             "manufacturer": "IKEA",
             "model": "TRADFRI shortcut button (E1812)",
-            "battery_type": "CR2032"
+            "battery_type": "CR2450"
         },
         {
             "manufacturer": "IKEA",

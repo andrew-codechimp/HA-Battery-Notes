@@ -4,11 +4,30 @@
             "user": {
                 "description": "Αν χρειάζεστε βοήθεια με τις ρυθμίσεις παραμέτρων ρίξτε μια ματιά εδώ: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
+                    "association_type": "Τύπος συσχετισμού"
+                },
+                "menu_options": {
+                    "device": "Συσκευή (συνιστάται)",
+                    "entity": "Οντότητα"
+                },
+                "title": "Επιλέξτε τον τύπο συσχέτισης"
+            },
+            "device": {
+                "data": {
                     "device_id": "Συσκευή",
                     "name": "Ονομα"
                 },
                 "data_description": {
                     "name": "Αφήνοντάς το κενό θα πάρει το όνομα από τη συσκευή προέλευσης"
+                }
+            },
+            "entity": {
+                "data": {
+                    "source_entity_id": "Οντότητα",
+                    "name": "Ονομα"
+                },
+                "data_description": {
+                    "name": "Αφήνοντάς το κενό θα πάρει το όνομα από την οντότητα προέλευσης"
                 }
             },
             "battery": {
@@ -56,7 +75,7 @@
     "entity": {
         "binary_sensor": {
             "battery_low": {
-                "name": "Χαμηλή στάθμη μπαταρίας",
+                "name": "{device_name}Χαμηλή στάθμη μπαταρίας",
                 "state_attributes": {
                     "battery_low_threshold": {
                         "name": "Ελάχιστο όριο μπαταρίας"
@@ -66,12 +85,12 @@
         },
         "button": {
             "battery_replaced": {
-                "name": "Η μπαταρία αντικαταστάθηκε"
+                "name": "{device_name}Η μπαταρία αντικαταστάθηκε"
             }
         },
         "sensor": {
             "battery_plus": {
-                "name": "Μπαταρία+",
+                "name": "{device_name}Μπαταρία+",
                 "state_attributes": {
                     "battery_type": {
                         "name": "Τύπος μπαταρίας"
@@ -97,6 +116,9 @@
                     "battery_last_reported_level": {
                         "name": "Τελευταία αναφερόμενη στάθμη μπαταρίας"
                     },
+                    "source_entity_id": {
+                        "name": "Αναγνωριστικό Οντότητας Πηγής"
+                    },
                     "device_id": {
                         "name": "ID Συσκευής:"
                     },
@@ -106,7 +128,7 @@
                 }
             },
             "battery_type": {
-                "name": "Τύπος μπαταρίας",
+                "name": "{device_name}Τύπος μπαταρίας",
                 "state_attributes": {
                     "battery_type": {
                         "name": "Τύπος μπαταρίας"
@@ -117,7 +139,7 @@
                 }
             },
             "battery_last_replaced": {
-                "name": "Τελευταία αντικατάσταση μπαταρίας"
+                "name": "{device_name}Τελευταία αντικατάσταση μπαταρίας"
             }
         }
     },
@@ -128,6 +150,10 @@
                 "device_id": {
                     "description": "Συσκευή της οποίας η μπαταρία έχει αντικατασταθεί.",
                     "name": "Συσκευή"
+                },
+                "entity_id": {
+                    "description": "Οντότητα της οποίας η μπαταρία έχει αντικατασταθεί.",
+                    "name": "Οντότητα"
                 },
                 "datetime_replaced": {
                     "description": "Ημερομηνία αντικατάστασης.",

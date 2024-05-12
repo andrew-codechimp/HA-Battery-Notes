@@ -62,6 +62,7 @@ from .const import (
     DATA_STORE,
     ATTR_REMOVE,
     ATTR_DEVICE_ID,
+    ATTR_SOURCE_ENTITY_ID,
     ATTR_DEVICE_NAME,
     ATTR_BATTERY_TYPE_AND_QUANTITY,
     ATTR_BATTERY_TYPE,
@@ -279,6 +280,7 @@ def register_services(hass: HomeAssistant):
     async def handle_battery_replaced(call):
         """Handle the service call."""
         device_id = call.data.get(ATTR_DEVICE_ID, "")
+        source_entity_id = call.data.get(ATTR_SOURCE_ENTITY_ID, "")
         datetime_replaced_entry = call.data.get(SERVICE_DATA_DATE_TIME_REPLACED)
 
         if datetime_replaced_entry:
@@ -288,45 +290,85 @@ def register_services(hass: HomeAssistant):
         else:
             datetime_replaced = datetime.utcnow()
 
+        entity_registry = er.async_get(hass)
         device_registry = dr.async_get(hass)
 
-        device_entry = device_registry.async_get(device_id)
-        if not device_entry:
-            _LOGGER.error(
-                "Device %s not found",
-                device_id,
-            )
-            return
-
-        for entry_id in device_entry.config_entries:
-            if (
-                entry := hass.config_entries.async_get_entry(entry_id)
-            ) and entry.domain == DOMAIN:
-                coordinator = (
-                    hass.data[DOMAIN][DATA].devices[entry.entry_id].coordinator
+        if source_entity_id:
+            source_entity_entry = entity_registry.async_get(source_entity_id)
+            if not source_entity_entry:
+                _LOGGER.error(
+                    "Entity %s not found",
+                    source_entity_id,
                 )
-
-                device_entry = {"battery_last_replaced": datetime_replaced}
-
-                coordinator.async_update_device_config(
-                    device_id=device_id, data=device_entry
-                )
-
-                await coordinator.async_request_refresh()
-
-                _LOGGER.debug(
-                    "Device %s battery replaced on %s",
-                    device_id,
-                    str(datetime_replaced),
-                )
-
-                # Found and dealt with, exit
                 return
 
-        _LOGGER.error(
-            "Device %s not configured in Battery Notes",
-            device_id,
-        )
+            # entity_id is the associated entity, now need to find the config entry for battery notes
+            for config_entry in hass.config_entries.async_entries(DOMAIN):
+                if config_entry.data.get("source_entity_id") == source_entity_id:
+                    config_entry_id = config_entry.entry_id
+
+                    coordinator = (
+                        hass.data[DOMAIN][DATA].devices[config_entry_id].coordinator
+                    )
+
+                    entry = {"battery_last_replaced": datetime_replaced}
+
+                    coordinator.async_update_entity_config(
+                        entity_id=source_entity_id, data=entry
+                    )
+                    await coordinator.async_request_refresh()
+
+                    _LOGGER.debug(
+                        "Entity %s battery replaced on %s",
+                        source_entity_id,
+                        str(datetime_replaced),
+                    )
+
+                    return
+
+            _LOGGER.error(
+                "Entity %s not configured in Battery Notes",
+                source_entity_id
+            )
+
+        else:
+            device_entry = device_registry.async_get(device_id)
+            if not device_entry:
+                _LOGGER.error(
+                    "Device %s not found",
+                    device_id,
+                )
+                return
+
+            for entry_id in device_entry.config_entries:
+                if (
+                    entry := hass.config_entries.async_get_entry(entry_id)
+                ) and entry.domain == DOMAIN:
+                    coordinator = (
+                        hass.data[DOMAIN][DATA].devices[entry.entry_id].coordinator
+                    )
+
+                    device_entry = {"battery_last_replaced": datetime_replaced}
+
+                    coordinator.async_update_device_config(
+                        device_id=device_id, data=device_entry
+                    )
+
+                    await coordinator.async_request_refresh()
+
+                    _LOGGER.debug(
+                        "Device %s battery replaced on %s",
+                        device_id,
+                        str(datetime_replaced),
+                    )
+
+                    # Found and dealt with, exit
+                    return
+
+            _LOGGER.error(
+                "Device %s not configured in Battery Notes",
+                device_id,
+            )
 
     async def handle_battery_last_reported(call):
         """Handle the service call."""
@@ -346,6 +388,7 @@ def register_services(hass: HomeAssistant):
                         EVENT_BATTERY_NOT_REPORTED,
                         {
                             ATTR_DEVICE_ID: device.coordinator.device_id,
+                            ATTR_SOURCE_ENTITY_ID: device.coordinator.source_entity_id,
                             ATTR_DEVICE_NAME: device.coordinator.device_name,
                             ATTR_BATTERY_TYPE_AND_QUANTITY: device.coordinator.battery_type_and_quantity,
                             ATTR_BATTERY_TYPE: device.coordinator.battery_type,
@@ -374,6 +417,7 @@ def register_services(hass: HomeAssistant):
                         {
                             ATTR_DEVICE_ID: device.coordinator.device_id,
                             ATTR_DEVICE_NAME: device.coordinator.device_name,
+                            ATTR_SOURCE_ENTITY_ID: device.coordinator.source_entity_id,
                             ATTR_BATTERY_LOW: device.coordinator.battery_low,
                             ATTR_BATTERY_TYPE_AND_QUANTITY: device.coordinator.battery_type_and_quantity,
                             ATTR_BATTERY_TYPE: device.coordinator.battery_type,

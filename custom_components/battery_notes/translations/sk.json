@@ -4,11 +4,30 @@
             "user": {
                 "description": "Ak potrebujete pomoc s konfiguráciou, pozrite sa sem: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
+                    "association_type": "Association type"
+                },
+                "menu_options": {
+                    "device": "Device (recommended)",
+                    "entity": "Entita"
+                },
+                "title": "Choose your association type"
+            },
+            "device": {
+                "data": {
                     "device_id": "Zariadenie",
                     "name": "Názov"
                 },
                 "data_description": {
                     "name": "Ak ponecháte prázdne, názov sa prevezme zo zdrojového zariadenia"
+                }
+            },
+            "entity": {
+                "data": {
+                    "source_entity_id": "Entita",
+                    "name": "Názov"
+                },
+                "data_description": {
+                    "name": "Ak ponecháte prázdne, názov sa prevezme zo zdrojovej entity"
                 }
             },
             "battery": {
@@ -56,7 +75,7 @@
     "entity": {
         "binary_sensor": {
             "battery_low": {
-                "name": "Slabá batéria",
+                "name": "{device_name}Slabá batéria",
                 "state_attributes": {
                     "battery_low_threshold": {
                         "name": "Nízky prah batérie"
@@ -66,12 +85,12 @@
         },
         "button": {
             "battery_replaced": {
-                "name": "Batéria vymenená"
+                "name": "{device_name}Batéria vymenená"
             }
         },
         "sensor": {
             "battery_plus": {
-                "name": "Batéria+",
+                "name": "{device_name}Batéria+",
                 "state_attributes": {
                     "battery_type": {
                         "name": "Typ batérie"
@@ -97,6 +116,9 @@
                     "battery_last_reported_level": {
                         "name": "Posledná nahlásená úroveň batérie"
                     },
+                    "source_entity_id": {
+                        "name": "Source Entity Id"
+                    },
                     "device_id": {
                         "name": "Device Id"
                     },
@@ -106,7 +128,7 @@
                 }
             },
             "battery_type": {
-                "name": "Typ batérie",
+                "name": "{device_name}Typ batérie",
                 "state_attributes": {
                     "battery_type": {
                         "name": "Typ batérie"
@@ -117,7 +139,7 @@
                 }
             },
             "battery_last_replaced": {
-                "name": "Batéria naposledy vymenená"
+                "name": "{device_name}Batéria naposledy vymenená"
             }
         }
     },
@@ -128,6 +150,10 @@
                 "device_id": {
                     "description": "Zariadenie, v ktorom bola vymenená batéria.",
                     "name": "Zariadenie"
+                },
+                "entity_id": {
+                    "description": "Entity that has had its battery replaced.",
+                    "name": "Entita"
                 },
                 "datetime_replaced": {
                     "description": "Dátum nahradený.",
