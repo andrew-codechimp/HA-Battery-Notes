@@ -5224,6 +5224,12 @@
         },
         {
             "manufacturer": "Yale",
+            "model": "P-KFCON-MOD-YALE",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Yale",
             "model": "YRD210",
             "battery_type": "AA",
             "battery_quantity": 4
@@ -5361,12 +5367,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Yale",
-            "model": "P-KFCON-MOD-YALE",
-            "battery_type": "AA",
-            "battery_quantity": 4
         }
     ]
 }

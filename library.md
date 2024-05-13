@@ -1,4 +1,4 @@
-## 992 Devices in library
+## 993 Devices in library
 
 This file is auto generated, do not modify
 
@@ -973,6 +973,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Xiaomi Aqara                                    |sensor_wleak.aq1                                                           |CR2032                    |
 |Xiaomi Aquara                                   |sensor_magnet.aq2                                                          |CR1632                    |
 |Yale                                            |420D                                                                       |4× AA                     |
+|Yale                                            |P-KFCON-MOD-YALE                                                           |4× AA                     |
 |Yale                                            |YRD210                                                                     |4× AA                     |
 |Yale                                            |YRD220/240 TSDB                                                            |4× AA                     |
 |Yale                                            |YRD226 / YRC226 / YRC246 / YRD256 / YRC256 / YRD446                        |4× AA                     |
