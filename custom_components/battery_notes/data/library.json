@@ -3010,6 +3010,11 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "Oral-B",
+            "model": "Smart Series 9000/10000",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Oras",
             "model": "Electra Washbasin Faucet",
             "battery_type": "2CR5"
@@ -5367,11 +5372,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Oral-B",
-            "model": "Smart Series 9000/10000",
-            "battery_type": "Rechargeable"
         }
     ]
 }
