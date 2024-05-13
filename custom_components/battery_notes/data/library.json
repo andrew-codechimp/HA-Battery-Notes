@@ -4589,6 +4589,12 @@
         },
         {
             "manufacturer": "TuYa",
+            "model": "Zigbee 3.0 temperature humidity sensor with display (TS0201_1)",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "TuYa",
             "model": "Zigbee fingerbot plus (TS0001_fingerbot)",
             "battery_type": "CR2"
         },
@@ -5345,12 +5351,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "TuYa",
-            "model": "Zigbee 3.0 temperature humidity sensor with display (TS0201_1)",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
