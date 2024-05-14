@@ -1,4 +1,4 @@
-## 995 Devices in library
+## 996 Devices in library
 
 This file is auto generated, do not modify
 
@@ -808,6 +808,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |TuYa                                            |Photoelectric smoke detector (PA-44Z)                                      |PP3                       |
 |Tuya                                            |PIR (b5g40alm)                                                             |CR2450                    |
 |TuYa                                            |PIR sensor (RH3040)                                                        |3× AAA                    |
+|TuYa                                            |Plant Sensor SGS01 (gvygg3m8)                                              |2× AAA                    |
 |TuYa                                            |Radiator valve with thermostat (TS0601_thermostat)                         |2× AA                     |
 |TuYa                                            |RSH-HS06_1                                                                 |CR2450                    |
 |TuYa                                            |Security remote control (TS0215A_remote)                                   |CR2032                    |

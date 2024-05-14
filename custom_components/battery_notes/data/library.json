@@ -4352,6 +4352,12 @@
         },
         {
             "manufacturer": "TuYa",
+            "model": "Plant Sensor SGS01 (gvygg3m8)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "TuYa",
             "model": "Radiator valve with thermostat (TS0601_thermostat)",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -5377,12 +5383,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "TuYa",
-            "model": "Plant Sensor SGS01 (gvygg3m8)",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
