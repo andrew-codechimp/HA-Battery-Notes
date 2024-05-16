@@ -3197,6 +3197,12 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Plugwise",
+            "model": "Tom/Floor",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Poly-control",
             "model": "Danalock V3-BTZE",
             "battery_type": "CR123A",
@@ -5394,12 +5400,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Plugwise",
-            "model": "Tom/Floor",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
