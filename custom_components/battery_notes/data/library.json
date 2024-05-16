@@ -3198,6 +3198,12 @@
         },
         {
             "manufacturer": "Plugwise",
+            "model": "Lisa",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Plugwise",
             "model": "Tom/Floor",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -5400,12 +5406,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Plugwise",
-            "model": "Lisa",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
