@@ -4788,6 +4788,12 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "Weiser",
+            "model": "GED1800",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
             "manufacturer": "Wink Inc.",
             "model": "D/W SENSOR",
             "battery_type": "CR14250"
@@ -5406,12 +5412,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Weiser",
-            "model": "GED1800",
-            "battery_type": "AA",
-            "battery_quantity": 4
         }
     ]
 }
