@@ -1,4 +1,4 @@
-## 1001 Devices in library
+## 1002 Devices in library
 
 This file is auto generated, do not modify
 
@@ -666,6 +666,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Shenzhen Heiman Technology Co., Ltd.            |HS1SA-Z                                                                    |CR123A                    |
 |Shenzhen Heiman Technology Co., Ltd.            |Smoke Detector (HS1SA-Z)                                                   |CR123A                    |
 |Shenzhen Kaadas Intelligent Technology Co., Ltd.|DB1                                                                        |4× AA                     |
+|Shenzhen Neo Electronics Co., Ltd.              |GED1800                                                                    |CR123A                    |
 |Shenzhen Neo Electronics Co., Ltd.              |NAS-DS01Z                                                                  |CR2                       |
 |Shenzhen Neo Electronics Co., Ltd.              |NAS-PD01Z                                                                  |CR123A                    |
 |Shenzhen Neo Electronics Co., Ltd.              |NAS-WS01Z                                                                  |CR2                       |
