@@ -5422,6 +5422,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Iris",
+            "model": "iL07-01",
+            "battery_type": "CR123"
         }
     ]
 }
