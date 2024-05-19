@@ -1,4 +1,4 @@
-## 1003 Devices in library
+## 1004 Devices in library
 
 This file is auto generated, do not modify
 
@@ -446,6 +446,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Inovelli                                        |LZW60                                                                      |CR123A                    |
 |Iris                                            |3326-L                                                                     |CR2                       |
 |Iris                                            |Contact and temperature sensor (IL06_1)                                    |CR2                       |
+|Iris                                            |iL07-01                                                                    |CR123                     |
 |iRobot                                          |c975840                                                                    |Rechargeable              |
 |iRobot                                          |i715640                                                                    |Rechargeable              |
 |Konke                                           |3AFE28010402000D                                                           |CR2450                    |
