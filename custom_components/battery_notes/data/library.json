@@ -1956,6 +1956,12 @@
         },
         {
             "manufacturer": "Govee",
+            "model": "H5075",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Govee",
             "model": "H5101/H5102/H5177",
             "battery_type": "AAA"
         },
@@ -5427,12 +5433,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Govee",
-            "model": "H5075",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
