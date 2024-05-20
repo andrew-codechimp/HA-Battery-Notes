@@ -5433,6 +5433,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "xiaomi_lywsdcgq",
+            "model": "devices do not display model number other than in title",
+            "battery_type": "AAA"
         }
     ]
 }
