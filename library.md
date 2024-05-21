@@ -662,7 +662,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Shelly                                          |Shelly Button1                                                             |Rechargable               |
 |Shelly                                          |Shelly Door/Window 2                                                       |2× CR123A                 |
 |Shelly                                          |Shelly Flood                                                               |CR123A                    |
-|Shelly                                          |Shelly H&T                                                                 |CR123A                    |
+|Shelly                                          |Shelly H&T                                                                 |MANUAL                    |
 |Shelly                                          |Shelly Motion                                                              |Rechargable               |
 |Shelly                                          |Shelly Motion 2                                                            |Rechargable               |
 |Shelly                                          |Shelly Plus Smoke                                                          |CR123A                    |
