@@ -3539,13 +3539,13 @@
         {
             "manufacturer": "Shelly",
             "model": "BLU Button1",
-            "battery_type": "CR2032"
+            "battery_type": "CR2032",
             "battery_quantity": 1
         },
         {
             "manufacturer": "Shelly",
             "model": "BLU Door/Window",
-            "battery_type": "CR2032"
+            "battery_type": "CR2032",
             "battery_quantity": 1
         },
         {
@@ -3562,13 +3562,13 @@
         {
             "manufacturer": "Shelly",
             "model": "Shelly Flood",
-            "battery_type": "CR123A"
+            "battery_type": "CR123A",
             "battery_quantity": 1
         },
         {
             "manufacturer": "Shelly",
             "model": "Shelly H&T",
-            "battery_type": "CR123A"
+            "battery_type": "CR123A",
             "battery_quantity": 1
         },
         {
@@ -3584,7 +3584,7 @@
         {
             "manufacturer": "Shelly",
             "model": "Shelly Plus Smoke",
-            "battery_type": "CR123A"
+            "battery_type": "CR123A",
             "battery_quantity": 1
         },
         {
