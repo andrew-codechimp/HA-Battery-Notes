@@ -3565,7 +3565,7 @@
         {
             "manufacturer": "Shelly",
             "model": "Shelly H&T",
-            "battery_type": "CR123A"
+            "battery_type": "MANUAL"
         },
         {
             "manufacturer": "Shelly",
