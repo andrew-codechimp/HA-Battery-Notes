@@ -3579,6 +3579,12 @@
         },
         {
             "manufacturer": "Shelly",
+            "model": "Shelly Plus H&T",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Shelly",
             "model": "Shelly Plus Smoke",
             "battery_type": "CR123A"
         },
@@ -3586,12 +3592,6 @@
             "manufacturer": "Shelly",
             "model": "Shelly Valve",
             "battery_type": "Rechargable"
-        },
-        {
-            "manufacturer": "Shelly",
-            "model": "Shelly Plus H&T",
-            "battery_type": "AA",
-            "battery_quantity": 4
         },
         {
             "manufacturer": "Shelly",

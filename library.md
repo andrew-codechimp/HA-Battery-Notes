@@ -1,4 +1,4 @@
-## 1009 Devices in library
+## 1010 Devices in library
 
 This file is auto generated, do not modify
 
@@ -665,6 +665,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Shelly                                          |Shelly H&T                                                                 |MANUAL                    |
 |Shelly                                          |Shelly Motion                                                              |Rechargable               |
 |Shelly                                          |Shelly Motion 2                                                            |Rechargable               |
+|Shelly                                          |Shelly Plus H&T                                                            |4× AA                     |
 |Shelly                                          |Shelly Plus Smoke                                                          |CR123A                    |
 |Shelly                                          |Shelly Valve                                                               |Rechargable               |
 |Shelly                                          |SNSN-0013A                                                                 |4× AA (LR6)               |
