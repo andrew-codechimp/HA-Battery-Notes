@@ -1244,6 +1244,12 @@
             "battery_type": "MANUAL"
         },
         {
+            "manufacturer": "Ecowitt",
+            "model": "GW1100A",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "ECOWITT",
             "model": "GW1101",
             "battery_type": "AA",
@@ -5460,12 +5466,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Ecowitt",
-            "model": "GW1100A",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
