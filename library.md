@@ -1,4 +1,4 @@
-## 1011 Devices in library
+## 1012 Devices in library
 
 This file is auto generated, do not modify
 
@@ -560,6 +560,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |NYCE                                            |3010                                                                       |CR2032                    |
 |NYCE                                            |3043                                                                       |2× AAA                    |
 |Nyce                                            |Door/window sensor (NCZ-3011-HA)                                           |CR2032                    |
+|Onvis                                           |CT3                                                                        |CR2450                    |
 |Onvis                                           |HS2                                                                        |CR2450                    |
 |OpenEpaperLink                                  |M2 2.9                                                                     |2× CR2450                 |
 |OpenEpaperLink                                  |ST‐GR16000 1.54                                                            |CR2450                    |

@@ -3017,6 +3017,11 @@
         },
         {
             "manufacturer": "Onvis",
+            "model": "CT3",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Onvis",
             "model": "HS2",
             "battery_type": "CR2450"
         },
@@ -5465,11 +5470,6 @@
         {
             "manufacturer": "Zooz",
             "model": "ZSE44",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Onvis",
-            "model": "CT3",
             "battery_type": "CR2450"
         }
     ]
