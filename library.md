@@ -1,4 +1,4 @@
-## 1016 Devices in library
+## 1017 Devices in library
 
 This file is auto generated, do not modify
 
@@ -408,6 +408,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |IKEA                                            |E2102                                                                      |Rechargeable                       |
 |IKEA                                            |FYRTUR roller blind (E1757)                                                |Rechargeable                       |
 |Ikea                                            |FYRTUR roller blind, block-out (E1757)                                     |BRAUNIT Battery pack (rechargeable)|
+|Ikea                                            |KADRILJ roller blind (E1926)                                               |BRAUNIT Battery pack (rechargeable)|
 |IKEA                                            |PARASOLL door/window Sensor (E2013)                                        |AAA                                |
 |IKEA                                            |RODRET wireless dimmer/power switch (E2201)                                |AAA                                |
 |IKEA                                            |SOMRIG shortcut button (E2213)                                             |AAA                                |
