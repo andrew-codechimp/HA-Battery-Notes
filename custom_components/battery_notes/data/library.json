@@ -1269,7 +1269,8 @@
         {
             "manufacturer": "Ecowitt",
             "model": "GW2000A",
-            "battery_type": "MANUAL"
+            "battery_type": "AA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "ECOWITT",
