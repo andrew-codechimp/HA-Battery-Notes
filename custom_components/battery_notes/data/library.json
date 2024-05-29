@@ -1949,6 +1949,12 @@
             "battery_type": "MANUAL"
         },
         {
+            "manufacturer": "Google",
+            "model": "Topaz-2.9",
+            "battery_type": "AA",
+            "battery_quantity": 6
+        },
+        {
             "manufacturer": "Govee",
             "model": "H5054",
             "battery_type": "AAA",
@@ -5476,12 +5482,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Google",
-            "model": "Topaz-2.9",
-            "battery_type": "AA",
-            "battery_quantity": 6
         }
     ]
 }
