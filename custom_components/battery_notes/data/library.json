@@ -2196,6 +2196,11 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "Ikea",
+            "model": "FYRTUR roller blind, block-out (E1757)",
+            "battery_type": "BRAUNIT Battery pack (rechargeable)"
+        },
+        {
             "manufacturer": "IKEA",
             "model": "PARASOLL door/window Sensor (E2013)",
             "battery_type": "AAA"
@@ -5488,11 +5493,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Ikea",
-            "model": "FYRTUR roller blind, block-out (E1757)",
-            "battery_type": "BRAUNIT Battery pack (rechargeable)"
         }
     ]
 }
