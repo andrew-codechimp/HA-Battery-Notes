@@ -1,4 +1,4 @@
-## 1018 Devices in library
+## 1019 Devices in library
 
 This file is auto generated, do not modify
 
@@ -970,6 +970,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Xiaomi                                          |Mi light sensor (GZCGQ01LM)                                                |CR2450                             |
 |Xiaomi                                          |Mi motion sensor (RTCGQ01LM)                                               |CR2450                             |
 |Xiaomi                                          |Mi Scale V1                                                                |CR2032                             |
+|Xiaomi                                          |Mi wireless switch (WXKG01LM)                                              |CR2032                             |
 |Xiaomi                                          |Mi/Aqara smart home cube (MFKZQ01LM)                                       |CR2450                             |
 |Xiaomi                                          |MiJia door & window contact sensor (MCCGQ01LM)                             |CR1632                             |
 |Xiaomi                                          |MiJia Honeywell smoke detector (JTYJ-GD-01LM/BW)                           |2× CR123A                          |

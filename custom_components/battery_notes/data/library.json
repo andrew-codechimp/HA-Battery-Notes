@@ -5217,6 +5217,11 @@
         },
         {
             "manufacturer": "Xiaomi",
+            "model": "Mi wireless switch (WXKG01LM)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Xiaomi",
             "model": "Mi/Aqara smart home cube (MFKZQ01LM)",
             "battery_type": "CR2450"
         },
@@ -5504,11 +5509,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Xiaomi",
-            "model": "Mi wireless switch (WXKG01LM)",
-            "battery_type": "CR2032"
         }
     ]
 }
