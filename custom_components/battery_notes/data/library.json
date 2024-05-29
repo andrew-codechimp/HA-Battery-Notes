@@ -5493,6 +5493,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Ikea",
+            "model": "KADRILJ roller blind (E1926)",
+            "battery_type": "BRAUNIT Battery pack (rechargeable)"
         }
     ]
 }
