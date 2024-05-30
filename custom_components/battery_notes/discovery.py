@@ -83,7 +83,7 @@ class DiscoveryManager:
         _LOGGER.debug("Start auto discovering devices")
         device_registry = dr.async_get(self.hass)
 
-        library = Library.factory(self.hass)
+        library = await Library.factory(self.hass)
 
         if library.loaded():
             for device_entry in list(device_registry.devices.values()):
