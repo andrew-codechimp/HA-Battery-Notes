@@ -6,6 +6,8 @@ import logging
 import os
 from typing import NamedTuple
 
+import aiofiles.os
+
 from homeassistant.core import HomeAssistant
 
 from .const import (
@@ -27,14 +29,18 @@ class Library:  # pylint: disable=too-few-public-methods
 
     def __init__(self, hass: HomeAssistant) -> None:
         """Init."""
+        self.hass = hass
+
+    async def initialize(self):
+        """Load the user and default libraries."""
 
         # User Library
         if (
-            DOMAIN_CONFIG in hass.data[DOMAIN]
-            and CONF_USER_LIBRARY in hass.data[DOMAIN][DOMAIN_CONFIG]
+            DOMAIN_CONFIG in self.hass.data[DOMAIN]
+            and CONF_USER_LIBRARY in self.hass.data[DOMAIN][DOMAIN_CONFIG]
             ):
-            user_library_filename = hass.data[DOMAIN][DOMAIN_CONFIG].get(CONF_USER_LIBRARY)
-            if  user_library_filename != "":
+            user_library_filename = self.hass.data[DOMAIN][DOMAIN_CONFIG].get(CONF_USER_LIBRARY)
+            if user_library_filename != "":
                 json_user_path = os.path.join(
                     BUILT_IN_DATA_DIRECTORY,
                     user_library_filename,
@@ -42,10 +48,12 @@ class Library:  # pylint: disable=too-few-public-methods
                 _LOGGER.debug("Using user library file at %s", json_user_path)
 
                 try:
-                    with open(json_user_path, encoding="utf-8") as user_file:
-                        user_json_data = json.load(user_file)
+                    async with aiofiles.open(json_user_path, mode="r", encoding="utf-8") as user_file:
+                        content = await user_file.read()
+                        user_json_data = json.loads(content)
                         self._devices = user_json_data["devices"]
-                        user_file.close()
+                        _LOGGER.debug("Loaded %s user devices", len(user_json_data["devices"]))
+                        await user_file.close()
 
                 except FileNotFoundError:
                     _LOGGER.error(
@@ -61,10 +69,12 @@ class Library:  # pylint: disable=too-few-public-methods
         _LOGGER.debug("Using library file at %s", json_default_path)
 
         try:
-            with open(json_default_path, encoding="utf-8") as default_file:
-                default_json_data = json.load(default_file)
+            async with aiofiles.open(json_default_path, mode="r", encoding="utf-8") as default_file:
+                content = await default_file.read()
+                default_json_data = json.loads(content)
                 self._devices.extend(default_json_data["devices"])
-                default_file.close()
+                _LOGGER.debug("Loaded %s default devices", len(default_json_data["devices"]))
+                await default_file.close()
 
         except FileNotFoundError:
             _LOGGER.error(
@@ -73,7 +83,7 @@ class Library:  # pylint: disable=too-few-public-methods
             )
 
     @staticmethod
-    def factory(hass: HomeAssistant) -> Library:
+    async def factory(hass: HomeAssistant) -> Library:
         """Return the library or create."""
 
         if DOMAIN not in hass.data:
@@ -83,6 +93,7 @@ class Library:  # pylint: disable=too-few-public-methods
             return hass.data[DOMAIN][DATA_LIBRARY]  # type: ignore
 
         library = Library(hass)
+        await library.initialize()
         hass.data[DOMAIN][DATA_LIBRARY] = library
         return library
 

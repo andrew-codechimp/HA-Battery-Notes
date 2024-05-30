@@ -10,6 +10,7 @@ import os
 from datetime import datetime, timedelta
 
 import aiohttp
+import aiofiles.os
 import async_timeout
 
 from homeassistant.exceptions import ConfigEntryNotReady
@@ -88,9 +89,9 @@ class LibraryUpdater:
                     "library.json",
                 )
 
-                with open(json_path, "w", encoding="utf-8") as file:
-                    file.write(content)
-                    file.close()
+                async with aiofiles.open(json_path, mode="w", encoding="utf-8") as library_file:
+                    await library_file.write(content)
+                    await library_file.close()
 
                 self.hass.data[DOMAIN][DATA_LIBRARY_LAST_UPDATE] = datetime.now()
 
