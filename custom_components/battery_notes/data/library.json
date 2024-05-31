@@ -5521,6 +5521,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Ecolink",
+            "model": "PIR Motion Sensor v2.5",
+            "battery_type": "CR123A"
         }
     ]
 }
