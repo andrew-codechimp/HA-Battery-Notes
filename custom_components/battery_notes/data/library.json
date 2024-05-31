@@ -1688,6 +1688,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Eve Systems",
+            "model": "Thermo 20EBP1701",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Everspring",
             "model": "AC301",
             "battery_type": "AA",
@@ -5515,12 +5521,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Eve Systems",
-            "model": "Thermo 20EBP1701",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
