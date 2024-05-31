@@ -1,4 +1,4 @@
-## 1019 Devices in library
+## 1020 Devices in library
 
 This file is auto generated, do not modify
 
@@ -310,6 +310,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Eufy Security                                   |T8213                                                                      |Rechargeable                       |
 |Eurotronic                                      |Spirit Zigbee wireless heater thermostat (SPZB0001)                        |2× AA                              |
 |Eurotronics                                     |Spirit                                                                     |2× AA                              |
+|Eve                                             |Thermo                                                                     |2× AA                              |
 |Eve Systems                                     |Eve Door 20EBN9901                                                         |LS14250                            |
 |Eve Systems                                     |Eve Motion 20EBY9901                                                       |2× AAA                             |
 |Everspring                                      |AC301                                                                      |2× AA                              |

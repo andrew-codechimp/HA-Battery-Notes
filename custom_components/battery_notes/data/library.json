@@ -1671,6 +1671,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Eve",
+            "model": "Thermo",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Eve Systems",
             "model": "Eve Door 20EBN9901",
             "battery_type": "LS14250"
@@ -5509,12 +5515,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Eve",
-            "model": "Thermo",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
