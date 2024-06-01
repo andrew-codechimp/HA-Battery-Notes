@@ -2,20 +2,20 @@
 
 from __future__ import annotations
 
+from typing import Any
 import logging
-import asyncio
 import socket
 import json
 import os
 from datetime import datetime, timedelta
 
 import aiohttp
-import aiofiles.os
+import asyncio
 import async_timeout
 
 from homeassistant.exceptions import ConfigEntryNotReady
 
-from homeassistant.core import callback
+from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.event import async_track_utc_time_change
 
@@ -45,7 +45,7 @@ class LibraryUpdaterClientCommunicationError(LibraryUpdaterClientError):
 class LibraryUpdater:
     """Library updater."""
 
-    def __init__(self, hass):
+    def __init__(self, hass: HomeAssistant):
         """Initialize the library updater."""
         self.hass = hass
         self._client = LibraryUpdaterClient(session=async_get_clientsession(hass))
@@ -78,6 +78,12 @@ class LibraryUpdater:
     async def get_library_updates(self, time):
         # pylint: disable=unused-argument
         """Make a call to GitHub to get the latest library.json."""
+
+        def _update_library_json(library_file: str, content: str) -> dict[str, Any]:
+            with open(library_file, mode="w", encoding="utf-8") as file:
+                file.write(content)
+                file.close()
+
         try:
             _LOGGER.debug("Getting library updates")
 
@@ -89,9 +95,7 @@ class LibraryUpdater:
                     "library.json",
                 )
 
-                async with aiofiles.open(json_path, mode="w", encoding="utf-8") as library_file:
-                    await library_file.write(content)
-                    await library_file.close()
+                await self.hass.async_add_executor_job(_update_library_json, json_path, content)
 
                 self.hass.data[DOMAIN][DATA_LIBRARY_LAST_UPDATE] = datetime.now()
 

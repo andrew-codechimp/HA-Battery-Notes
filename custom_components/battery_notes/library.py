@@ -1,12 +1,12 @@
 """Battery Type library for battery_notes."""
 from __future__ import annotations
 
+from typing import Any, cast
+
 import json
 import logging
 import os
 from typing import NamedTuple
-
-import aiofiles.os
 
 from homeassistant.core import HomeAssistant
 
@@ -31,8 +31,13 @@ class Library:  # pylint: disable=too-few-public-methods
         """Init."""
         self.hass = hass
 
-    async def initialize(self):
+    async def load_libraries(self):
         """Load the user and default libraries."""
+
+        def _load_library_json(library_file: str) -> dict[str, Any]:
+            """Load library json file."""
+            with open(library_file, mode="r", encoding="utf-8") as file:
+                return cast(dict[str, Any], json.load(file))
 
         # User Library
         if (
@@ -48,12 +53,10 @@ class Library:  # pylint: disable=too-few-public-methods
                 _LOGGER.debug("Using user library file at %s", json_user_path)
 
                 try:
-                    async with aiofiles.open(json_user_path, mode="r", encoding="utf-8") as user_file:
-                        content = await user_file.read()
-                        user_json_data = json.loads(content)
-                        self._devices = user_json_data["devices"]
-                        _LOGGER.debug("Loaded %s user devices", len(user_json_data["devices"]))
-                        await user_file.close()
+                    user_json_data = await self.hass.async_add_executor_job(_load_library_json, json_user_path)
+
+                    self._devices = user_json_data["devices"]
+                    _LOGGER.debug("Loaded %s user devices", len(user_json_data["devices"]))
 
                 except FileNotFoundError:
                     _LOGGER.error(
@@ -69,12 +72,9 @@ class Library:  # pylint: disable=too-few-public-methods
         _LOGGER.debug("Using library file at %s", json_default_path)
 
         try:
-            async with aiofiles.open(json_default_path, mode="r", encoding="utf-8") as default_file:
-                content = await default_file.read()
-                default_json_data = json.loads(content)
-                self._devices.extend(default_json_data["devices"])
-                _LOGGER.debug("Loaded %s default devices", len(default_json_data["devices"]))
-                await default_file.close()
+            default_json_data = await self.hass.async_add_executor_job(_load_library_json, json_default_path)
+            self._devices.extend(default_json_data["devices"])
+            _LOGGER.debug("Loaded %s default devices", len(default_json_data["devices"]))
 
         except FileNotFoundError:
             _LOGGER.error(
@@ -93,7 +93,7 @@ class Library:  # pylint: disable=too-few-public-methods
             return hass.data[DOMAIN][DATA_LIBRARY]  # type: ignore
 
         library = Library(hass)
-        await library.initialize()
+        await library.load_libraries()
         hass.data[DOMAIN][DATA_LIBRARY] = library
         return library
 
