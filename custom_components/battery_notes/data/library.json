@@ -5526,6 +5526,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Samsung",
+            "model": "SM-T225",
+            "battery_type": "HQ-3565S"
         }
     ]
 }
