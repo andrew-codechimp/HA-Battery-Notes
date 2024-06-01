@@ -36,7 +36,7 @@ class Library:  # pylint: disable=too-few-public-methods
 
         def _load_library_json(library_file: str) -> dict[str, Any]:
             """Load library json file."""
-            with open(library_file, mode="r", encoding="utf-8") as file:
+            with open(library_file, encoding="utf-8") as file:
                 return cast(dict[str, Any], json.load(file))
 
         # User Library
