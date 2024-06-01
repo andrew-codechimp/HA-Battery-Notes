@@ -3527,6 +3527,11 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "Samsung",
+            "model": "SM-T225",
+            "battery_type": "HQ-3565S"
+        },
+        {
             "manufacturer": "Saswell",
             "model": "Thermostatic radiator valve (SEA801-Zigbee/SEA802-Zigbee)",
             "battery_type": "AA",
@@ -5526,11 +5531,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Samsung",
-            "model": "SM-T225",
-            "battery_type": "HQ-3565S"
         }
     ]
 }
