@@ -2188,6 +2188,11 @@
             "battery_quantity": 12
         },
         {
+            "manufacturer": "Hunter Douglas",
+            "model": "Vertical Slats, Right Stack",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "iCasa",
             "model": "Zigbee 3.0 Keypad Pulse 8S (ICZB-KPD18S)",
             "battery_type": "CR2450"
@@ -5531,11 +5536,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Hunter Douglas",
-            "model": "Vertical Slats, Right Stack",
-            "battery_type": "Rechargeable"
         }
     ]
 }
