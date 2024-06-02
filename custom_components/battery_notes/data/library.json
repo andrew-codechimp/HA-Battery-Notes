@@ -5536,6 +5536,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Hunter Douglas",
+            "model": "Vertical Slats, Left Stack",
+            "battery_type": "Rechargeable"
         }
     ]
 }
