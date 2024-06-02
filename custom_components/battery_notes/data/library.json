@@ -5531,6 +5531,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "HunterDouglas",
+            "model": "HunterDouglas Li-ion battery pack (17.0371.0155)",
+            "battery_type": "Rechargeable"
         }
     ]
 }
