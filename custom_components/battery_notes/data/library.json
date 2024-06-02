@@ -3522,6 +3522,11 @@
             "battery_type": "CR2"
         },
         {
+            "manufacturer": "Samsung",
+            "model": "SM-A525F",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "samsung",
             "model": "SM-G955U",
             "battery_type": "Rechargeable"
@@ -5541,11 +5546,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Samsung",
-            "model": "SM-A525F",
-            "battery_type": "Rechargeable"
         }
     ]
 }

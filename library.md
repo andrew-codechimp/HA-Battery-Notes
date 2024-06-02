@@ -1,4 +1,4 @@
-## 1025 Devices in library
+## 1026 Devices in library
 
 This file is auto generated, do not modify
 
@@ -654,6 +654,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Samjin                                          |motion                                                                     |CR2                                |
 |Samjin                                          |multi                                                                      |CR2450                             |
 |Samjin                                          |water                                                                      |CR2                                |
+|Samsung                                         |SM-A525F                                                                   |Rechargeable                       |
 |samsung                                         |SM-G955U                                                                   |Rechargeable                       |
 |samsung                                         |SM-G998U                                                                   |Rechargeable                       |
 |samsung                                         |SM-S918U                                                                   |Rechargeable                       |
