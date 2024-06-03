@@ -265,6 +265,21 @@ class BatteryNotesBatteryPlusSensor(
 
     _attr_should_poll = False
     _wrapped_attributes = None
+    _unrecorded_attributes = frozenset(
+        {
+            ATTR_BATTERY_QUANTITY,
+            ATTR_BATTERY_TYPE,
+            ATTR_BATTERY_TYPE_AND_QUANTITY,
+            ATTR_BATTERY_LOW,
+            ATTR_BATTERY_LOW_THRESHOLD,
+            ATTR_BATTERY_LAST_REPORTED,
+            ATTR_BATTERY_LAST_REPORTED_LEVEL,
+            ATTR_BATTERY_LAST_REPLACED,
+            ATTR_DEVICE_ID,
+            ATTR_SOURCE_ENTITY_ID,
+            ATTR_DEVICE_NAME,
+        }
+    )
 
     def __init__(
         self,
@@ -288,20 +303,30 @@ class BatteryNotesBatteryPlusSensor(
         self._attr_has_entity_name = True
 
         if coordinator.source_entity_id and not coordinator.device_id:
-            self._attr_translation_placeholders = {"device_name": coordinator.device_name + " "}
-            self.entity_id = f"sensor.{coordinator.device_name.lower()}_{description.key}"
+            self._attr_translation_placeholders = {
+                "device_name": coordinator.device_name + " "
+            }
+            self.entity_id = (
+                f"sensor.{coordinator.device_name.lower()}_{description.key}"
+            )
         elif coordinator.source_entity_id and coordinator.device_id:
-            source_entity_domain, source_object_id = split_entity_id(coordinator.source_entity_id)
-            self._attr_translation_placeholders = {"device_name": coordinator.source_entity_name + " "}
+            source_entity_domain, source_object_id = split_entity_id(
+                coordinator.source_entity_id
+            )
+            self._attr_translation_placeholders = {
+                "device_name": coordinator.source_entity_name + " "
+            }
             self.entity_id = f"sensor.{source_object_id}_{description.key}"
         else:
             self._attr_translation_placeholders = {"device_name": ""}
-            self.entity_id = f"sensor.{coordinator.device_name.lower()}_{description.key}"
+            self.entity_id = (
+                f"sensor.{coordinator.device_name.lower()}_{description.key}"
+            )
 
         _LOGGER.debug(
             "Setting up %s with wrapped battery %s",
             self.entity_id,
-            self.coordinator.wrapped_battery.entity_id
+            self.coordinator.wrapped_battery.entity_id,
         )
 
         self.entity_description = description
@@ -548,6 +573,7 @@ class BatteryNotesTypeSensor(RestoreSensor, SensorEntity):
 
     _attr_should_poll = False
     entity_description: BatteryNotesSensorEntityDescription
+    _unrecorded_attributes = frozenset({ATTR_BATTERY_QUANTITY, ATTR_BATTERY_TYPE})
 
     def __init__(
         self,
@@ -568,15 +594,25 @@ class BatteryNotesTypeSensor(RestoreSensor, SensorEntity):
         self._attr_has_entity_name = True
 
         if coordinator.source_entity_id and not coordinator.device_id:
-            self._attr_translation_placeholders = {"device_name": coordinator.device_name + " "}
-            self.entity_id = f"sensor.{coordinator.device_name.lower()}_{description.key}"
+            self._attr_translation_placeholders = {
+                "device_name": coordinator.device_name + " "
+            }
+            self.entity_id = (
+                f"sensor.{coordinator.device_name.lower()}_{description.key}"
+            )
         elif coordinator.source_entity_id and coordinator.device_id:
-            source_entity_domain, source_object_id = split_entity_id(coordinator.source_entity_id)
-            self._attr_translation_placeholders = {"device_name": coordinator.source_entity_name + " "}
+            source_entity_domain, source_object_id = split_entity_id(
+                coordinator.source_entity_id
+            )
+            self._attr_translation_placeholders = {
+                "device_name": coordinator.source_entity_name + " "
+            }
             self.entity_id = f"sensor.{source_object_id}_{description.key}"
         else:
             self._attr_translation_placeholders = {"device_name": ""}
-            self.entity_id = f"sensor.{coordinator.device_name.lower()}_{description.key}"
+            self.entity_id = (
+                f"sensor.{coordinator.device_name.lower()}_{description.key}"
+            )
 
         self.entity_description = description
         self._attr_unique_id = unique_id
@@ -657,15 +693,25 @@ class BatteryNotesLastReplacedSensor(
         self._attr_has_entity_name = True
 
         if coordinator.source_entity_id and not coordinator.device_id:
-            self._attr_translation_placeholders = {"device_name": coordinator.device_name + " "}
-            self.entity_id = f"sensor.{coordinator.device_name.lower()}_{description.key}"
+            self._attr_translation_placeholders = {
+                "device_name": coordinator.device_name + " "
+            }
+            self.entity_id = (
+                f"sensor.{coordinator.device_name.lower()}_{description.key}"
+            )
         elif coordinator.source_entity_id and coordinator.device_id:
-            source_entity_domain, source_object_id = split_entity_id(coordinator.source_entity_id)
-            self._attr_translation_placeholders = {"device_name": coordinator.source_entity_name + " "}
+            source_entity_domain, source_object_id = split_entity_id(
+                coordinator.source_entity_id
+            )
+            self._attr_translation_placeholders = {
+                "device_name": coordinator.source_entity_name + " "
+            }
             self.entity_id = f"sensor.{source_object_id}_{description.key}"
         else:
             self._attr_translation_placeholders = {"device_name": ""}
-            self.entity_id = f"sensor.{coordinator.device_name.lower()}_{description.key}"
+            self.entity_id = (
+                f"sensor.{coordinator.device_name.lower()}_{description.key}"
+            )
 
         self._attr_device_class = description.device_class
         self._attr_unique_id = unique_id
@@ -673,7 +719,6 @@ class BatteryNotesLastReplacedSensor(
         self._source_entity_id = coordinator.source_entity_id
         self.entity_description = description
         self._native_value = None
-
 
         self._set_native_value(log_on_error=False)
 
@@ -699,10 +744,7 @@ class BatteryNotesLastReplacedSensor(
             entry = self.coordinator.store.async_get_device(self._device_id)
 
         if entry:
-            if (
-                LAST_REPLACED in entry
-                and entry[LAST_REPLACED] is not None
-            ):
+            if LAST_REPLACED in entry and entry[LAST_REPLACED] is not None:
                 last_replaced_date = datetime.fromisoformat(
                     str(entry[LAST_REPLACED]) + "+00:00"
                 )
@@ -721,10 +763,7 @@ class BatteryNotesLastReplacedSensor(
             entry = self.coordinator.store.async_get_device(self._device_id)
 
         if entry:
-            if (
-                LAST_REPLACED in entry
-                and entry[LAST_REPLACED] is not None
-            ):
+            if LAST_REPLACED in entry and entry[LAST_REPLACED] is not None:
                 last_replaced_date = datetime.fromisoformat(
                     str(entry[LAST_REPLACED]) + "+00:00"
                 )
