@@ -5507,6 +5507,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Yolink",
+            "model": "YS7103",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Zipato",
             "model": "HS1SA",
             "battery_type": "CR123A"
@@ -5568,12 +5574,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Yolink",
-            "model": "YS7103",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
