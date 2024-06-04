@@ -26,7 +26,7 @@ See how to use this service in the [community contributions](./community.md)
 
 | Parameter                | Optional | Description                                                                                                           |
 | ------------------------ | -------- | --------------------------------------------------------------------------------------------------------------------- |
-| `data.days`      | `no`    |  The number of days since a device last reported its battery level. |
+| `data.days_last_reported`      | `no`    |  The number of days since a device last reported its battery level. |
 
 ## battery_notes.check_battery_low
 
