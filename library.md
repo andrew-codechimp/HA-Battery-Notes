@@ -1,4 +1,4 @@
-## 1032 Devices in library
+## 1033 Devices in library
 
 This file is auto generated, do not modify
 
@@ -399,6 +399,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Homematic                                       |HM-Sec-SCo                                                                 |AAA                                |
 |Homematic                                       |HmIP-DSD-PCB                                                               |2× AAA                             |
 |Homematic                                       |HmIP-STHO-A                                                                |2× AA                              |
+|HomeSeer Technologies                           |HS-FS100+                                                                  |3× AAA                             |
 |HomeSeer Technologies                           |HS-LS100+                                                                  |LS14250                            |
 |HomeSeer Technologies                           |HS-MS100+                                                                  |CR123A                             |
 |HomeWizard                                      |HWE-WTR                                                                    |2× CR123A                          |

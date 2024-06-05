@@ -2154,6 +2154,12 @@
         },
         {
             "manufacturer": "HomeSeer Technologies",
+            "model": "HS-FS100+",
+            "battery_type": "AAA",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "HomeSeer Technologies",
             "model": "HS-LS100+",
             "battery_type": "LS14250"
         },
@@ -5580,12 +5586,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "HomeSeer Technologies",
-            "model": "HS-FS100+",
-            "battery_type": "AAA",
-            "battery_quantity": 3
         }
     ]
 }
