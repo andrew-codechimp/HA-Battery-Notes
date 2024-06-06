@@ -4,13 +4,13 @@
             "user": {
                 "description": "Если вам нужна помощь с настройкой, посмотрите здесь: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
-                    "association_type": "Association type"
+                    "association_type": "Тип связи"
                 },
                 "menu_options": {
-                    "device": "Device (recommended)",
-                    "entity": "Entity"
+                    "device": "Устройство (рекомендуется)",
+                    "entity": "Объект"
                 },
-                "title": "Choose your association type"
+                "title": "Выберите тип связи"
             },
             "device": {
                 "data": {
@@ -23,11 +23,11 @@
             },
             "entity": {
                 "data": {
-                    "source_entity_id": "Entity",
+                    "source_entity_id": "Объект",
                     "name": "Название"
                 },
                 "data_description": {
-                    "name": "Leaving blank will take the name from the source entity"
+                    "name": "Если оставить пустым, то название будет взято с исходного устройства"
                 }
             },
             "battery": {
@@ -117,7 +117,7 @@
                         "name": "Последний уровень заряда батареи"
                     },
                     "source_entity_id": {
-                        "name": "Source Entity Id"
+                        "name": "ID исходного объекта"
                     },
                     "device_id": {
                         "name": "Id устройства"
@@ -152,8 +152,8 @@
                     "name": "Устройство"
                 },
                 "entity_id": {
-                    "description": "Entity that has had its battery replaced.",
-                    "name": "Entity"
+                    "description": "Объект, в котором была заменена батарея.",
+                    "name": "Объект"
                 },
                 "datetime_replaced": {
                     "description": "Дата замены.",
