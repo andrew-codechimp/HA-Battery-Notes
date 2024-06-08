@@ -320,6 +320,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "_TZE200_kb5noeto",
+            "model": "TS0601",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "_TZE200_locansqn",
             "model": "TS0601",
             "battery_type": "AAA",
@@ -5586,12 +5592,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "_TZE200_kb5noeto",
-            "model": "TS0601",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
