@@ -5592,6 +5592,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "Mi temperature and humidity sensor (WSDCGQ01LM)",
+            "battery_type": "CR2032"
         }
     ]
 }
