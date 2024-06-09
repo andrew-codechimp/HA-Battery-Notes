@@ -1,0 +1,124 @@
+{
+    "config": {
+        "step": {
+            "user": {
+                "description": "Caso precise se ajude na configuração pode verificar em : https://github.com/andrew-codechimp/ha-battery-notes",
+                "data": {
+                    "device_id": "Equipamento",
+                    "name": "Nome"
+                },
+                "data_description": {
+                    "name": "Deixar em branco irá ter o mesmo nome que o equipamento de origem"
+                }
+            },
+            "battery": {
+                "data": {
+                    "battery_type": "Tipo de bateria",
+                    "battery_quantity": "Percentagem de bateria",
+                    "battery_low_threshold": "Bateria baixa"
+                },
+                "data_description": {
+                    "battery_low_threshold": "0 irá ser usado como valor por defeito para definir o descarregada"
+                }
+            }
+        },
+        "abort": {
+            "already_configured": "Equipamento já configurado"
+        },
+        "error": {
+            "unknown": "Erro desconhecido."
+        }
+    },
+    "options": {
+        "step": {
+            "init": {
+                "description": "Caso precise se ajude na configuração pode verificar em: https://github.com/andrew-codechimp/ha-battery-notes",
+                "data": {
+                    "name": "Nome",
+                    "battery_type": "Tipo de bateria",
+                    "battery_quantity": "Quantidade de baterias",
+                    "battery_low_threshold": "Limiar de bateria descarregada"
+                },
+                "data_description": {
+                    "name": "Deixar em branco irá ter o mesmo nome que o equipamento de origem",
+                    "battery_low_threshold": "0 irá ser usado como valor por defeito para definir o descarregada"
+                }
+            }
+        },
+        "error": {
+            "unknown": "Error desconhecido."
+        }
+    },
+    "entity": {
+        "binary_sensor": {
+            "battery_low": {
+                "name": "Bateria Baixa",
+                "state_attributes": {
+                    "battery_low_threshold": {
+                        "name": "Nivel de bateria descarregada"
+                    }
+                }
+            }
+        },
+        "button": {
+            "battery_replaced": {
+                "name": "Bateria substituída"
+            }
+        },
+        "sensor": {
+            "battery_plus": {
+                "name": "Bateria+",
+                "state_attributes": {
+                    "battery_type": {
+                        "name": "Tipo de Bateria"
+                    },
+                    "battery_quantity": {
+                        "name": "Quantidade de baterias"
+                    },
+                    "battery_type_and_quantity": {
+                        "name": "Tipo e quantidades de bateria"
+                    },
+                    "battery_last_replaced": {
+                        "name": "Bateria substituida à"
+                    },
+                    "battery_low": {
+                        "name": "Bateria com a carga baixa"
+                    },
+                    "battery_low_threshold": {
+                        "name": "Bateria descarregada"
+                    }
+                }
+            },
+            "battery_type": {
+                "name": "Tipo de Bateria",
+                "state_attributes": {
+                    "battery_type": {
+                        "name": "Tipo de Bateria"
+                    },
+                    "battery_quantity": {
+                        "name": "Quantidades de baterias"
+                    }
+                }
+            },
+            "battery_last_replaced": {
+                "name": "Foi substituida à"
+            }
+        }
+    },
+    "services": {
+        "set_battery_replaced": {
+            "description": "Defenir que a bateria foi substituida.",
+            "fields": {
+                "device_id": {
+                    "description": "O equipamento tem a bateria subtituida.",
+                    "name": "Equipamento"
+                },
+                "datetime_replaced": {
+                    "description": "Data da última substituição",
+                    "name": "Data"
+                }
+            },
+            "name": "Substituir bateria"
+        }
+    }
+}
