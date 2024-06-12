@@ -4050,6 +4050,11 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "SonOff",
+            "model": "SNZB-01",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "Sonoff",
             "model": "SNZB-02",
             "battery_type": "CR2450"
@@ -5602,11 +5607,6 @@
         {
             "manufacturer": "Zooz",
             "model": "ZSE44",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "SonOff",
-            "model": "SNZB-01",
             "battery_type": "CR2450"
         }
     ]
