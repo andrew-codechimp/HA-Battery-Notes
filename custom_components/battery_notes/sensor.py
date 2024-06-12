@@ -551,8 +551,8 @@ class BatteryNotesBatteryPlusSensor(
             attrs[ATTR_BATTERY_LAST_REPLACED] = self.coordinator.last_replaced
 
         # Other attributes that should follow battery, attribute list is unsorted
-        attrs[ATTR_DEVICE_ID] = self.coordinator.device_id
-        attrs[ATTR_SOURCE_ENTITY_ID] = self.coordinator.source_entity_id
+        attrs[ATTR_DEVICE_ID] = self.coordinator.device_id or ""
+        attrs[ATTR_SOURCE_ENTITY_ID] = self.coordinator.source_entity_id or ""
         attrs[ATTR_DEVICE_NAME] = self.coordinator.device_name
 
         super_attrs = super().extra_state_attributes

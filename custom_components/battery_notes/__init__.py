@@ -387,8 +387,8 @@ def register_services(hass: HomeAssistant):
                     hass.bus.async_fire(
                         EVENT_BATTERY_NOT_REPORTED,
                         {
-                            ATTR_DEVICE_ID: device.coordinator.device_id,
-                            ATTR_SOURCE_ENTITY_ID: device.coordinator.source_entity_id,
+                            ATTR_DEVICE_ID: device.coordinator.device_id or "",
+                            ATTR_SOURCE_ENTITY_ID: device.coordinator.source_entity_id or "",
                             ATTR_DEVICE_NAME: device.coordinator.device_name,
                             ATTR_BATTERY_TYPE_AND_QUANTITY: device.coordinator.battery_type_and_quantity,
                             ATTR_BATTERY_TYPE: device.coordinator.battery_type,
@@ -415,9 +415,9 @@ def register_services(hass: HomeAssistant):
                     hass.bus.async_fire(
                         EVENT_BATTERY_THRESHOLD,
                         {
-                            ATTR_DEVICE_ID: device.coordinator.device_id,
+                            ATTR_DEVICE_ID: device.coordinator.device_id or "",
                             ATTR_DEVICE_NAME: device.coordinator.device_name,
-                            ATTR_SOURCE_ENTITY_ID: device.coordinator.source_entity_id,
+                            ATTR_SOURCE_ENTITY_ID: device.coordinator.source_entity_id or "",
                             ATTR_BATTERY_LOW: device.coordinator.battery_low,
                             ATTR_BATTERY_TYPE_AND_QUANTITY: device.coordinator.battery_type_and_quantity,
                             ATTR_BATTERY_TYPE: device.coordinator.battery_type,
