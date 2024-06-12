@@ -788,6 +788,12 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "Aquara",
+            "model": "AS038",
+            "battery_type": "CR2450",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Arlo",
             "model": "Pro 2",
             "battery_type": "Rechargeable"
@@ -5597,12 +5603,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Aquara",
-            "model": "AS038",
-            "battery_type": "CR2450",
-            "battery_quantity": 2
         }
     ]
 }
