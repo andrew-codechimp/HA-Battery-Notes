@@ -6,6 +6,28 @@
 files: [
   {
     "source": "/custom_components/battery_notes/translations/en.json",
-    "translation": "/custom_components/battery_notes/translations/%two_letters_code%.json",
+    "translation": "/custom_components/battery_notes/translations/%locale%.json",
+    "languages_mapping": {
+            "locale": {
+                "ca": "ca",
+                "da": "da",
+                "de": "de",
+                "el": "el",
+                "en": "em",
+                "es": "es",
+                "fi": "fi",
+                "fr": "fr",
+                "hu": "hu",
+                "it": "it",
+                "lt": "lt",
+                "nl": "nl",
+                "pl": "pl",
+                "pt": "pt",
+                "ru": "ru",
+                "sk": "sk",
+                "sv": "sv",
+                "ur": "ur"
+            }
+        }    
   }
 ]
