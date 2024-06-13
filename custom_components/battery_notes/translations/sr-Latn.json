@@ -1,0 +1,180 @@
+{
+    "config": {
+        "step": {
+            "user": {
+                "description": "Ako vam treba pomoć oko konfiguracije, pogledajte ovde: https://andrew-codechimp.github.io/HA-Battery-Notes/",
+                "data": {
+                    "association_type": "Vrsta povezivanja"
+                },
+                "menu_options": {
+                    "device": "Uređaj (preporučeno)",
+                    "entity": "Entitet"
+                },
+                "title": "Odaberite vrstu povezivanja"
+            },
+            "device": {
+                "data": {
+                    "device_id": "Uređaj",
+                    "name": "Naziv"
+                },
+                "data_description": {
+                    "name": "Ako ostavite prazno, naziv će preuzeti sa izvornog uređaja"
+                }
+            },
+            "entity": {
+                "data": {
+                    "source_entity_id": "Entitet",
+                    "name": "Naziv"
+                },
+                "data_description": {
+                    "name": "Ako ostavite prazno, naziv će preuzeti sa izvornog entiteta"
+                }
+            },
+            "battery": {
+                "data": {
+                    "battery_type": "Tip baterije",
+                    "battery_quantity": "Broj baterija",
+                    "battery_low_threshold": "Nizak prag napunjenosti baterije",
+                    "battery_low_template": "Šablon ptazne baterije"
+                },
+                "data_description": {
+                    "battery_low_threshold": "0 će koristiti globalni podrazumevani prag",
+                    "battery_low_template": "Šablon za određivanje da je baterija prazna, treba da vrati true ako je nizak nivo\nPotrebno samo za nestandardne nivoe baterije"
+                }
+            }
+        },
+        "abort": {
+            "already_configured": "Uređaj je već konfigurisan"
+        },
+        "error": {
+            "unknown": "Nepoznata greška se dogodila."
+        }
+    },
+    "options": {
+        "step": {
+            "init": {
+                "description": "Ako vam treba pomoć oko konfiguracije, pogledajte ovde: https://andrew-codechimp.github.io/HA-Battery-Notes/",
+                "data": {
+                    "name": "Naziv",
+                    "battery_type": "Tip baterije",
+                    "battery_quantity": "Broj baterija",
+                    "battery_low_threshold": "Nizak prag napunjenosti baterije",
+                    "battery_low_template": "Šablon prazne baterije"
+                },
+                "data_description": {
+                    "name": "Ako ostavite prazno, naziv će preuzeti sa izvornog uređaja",
+                    "battery_low_threshold": "0 će koristiti globalni podrazumevani prag",
+                    "battery_low_template": "Šablon za određivanje da je baterija prazna, treba da vrati true ako je nizak nivo\nPotrebno samo za nestandardne nivoe baterije"
+                }
+            }
+        },
+        "error": {
+            "unknown": "Nepoznata greška se dogodila!"
+        }
+    },
+    "entity": {
+        "binary_sensor": {
+            "battery_low": {
+                "name": "{device_name}Baterija prazna",
+                "state_attributes": {
+                    "battery_low_threshold": {
+                        "name": "Nizak prag napunjenosti baterije"
+                    }
+                }
+            }
+        },
+        "button": {
+            "battery_replaced": {
+                "name": "{device_name}Baterija zamenjena"
+            }
+        },
+        "sensor": {
+            "battery_plus": {
+                "name": "{device_name}Baterija+",
+                "state_attributes": {
+                    "battery_type": {
+                        "name": "Tip baterije"
+                    },
+                    "battery_quantity": {
+                        "name": "Broj baterija"
+                    },
+                    "battery_type_and_quantity": {
+                        "name": "Tip baterije i količina"
+                    },
+                    "battery_last_replaced": {
+                        "name": "Baterija zadnja zamena"
+                    },
+                    "battery_low": {
+                        "name": "Prazna baterija"
+                    },
+                    "battery_low_threshold": {
+                        "name": "Nizak prag napunjenosti baterije"
+                    },
+                    "battery_last_reported": {
+                        "name": "Zadnja prijava baterije"
+                    },
+                    "battery_last_reported_level": {
+                        "name": "Zadnji prijavljeni nivo baterije"
+                    },
+                    "source_entity_id": {
+                        "name": "ID izvornog entiteta"
+                    },
+                    "device_id": {
+                        "name": "ID uređaja"
+                    },
+                    "device_name": {
+                        "name": "Naziv urеđaja"
+                    }
+                }
+            },
+            "battery_type": {
+                "name": "{device_name}Tip baterije",
+                "state_attributes": {
+                    "battery_type": {
+                        "name": "Tip baterije"
+                    },
+                    "battery_quantity": {
+                        "name": "Broj baterija"
+                    }
+                }
+            },
+            "battery_last_replaced": {
+                "name": "{device_name}Baterija zadnja zamena"
+            }
+        }
+    },
+    "services": {
+        "set_battery_replaced": {
+            "description": "Podesite poslednju zamenu baterije.",
+            "fields": {
+                "device_id": {
+                    "description": "Uređaj kome je zamenjena baterija.",
+                    "name": "Uređaj"
+                },
+                "entity_id": {
+                    "description": "Entitet kome je zamenjena baterija.",
+                    "name": "Entitet"
+                },
+                "datetime_replaced": {
+                    "description": "Baterija zamenjana.",
+                    "name": "Datum"
+                }
+            },
+            "name": "Set baterija zamenjen"
+        },
+        "check_battery_last_reported": {
+            "description": "Podignite događaje za uređaje koji nisu prijavili novi baterije.",
+            "fields": {
+                "days_last_reported": {
+                    "description": "Broj dana od kada je uređaj poslednji put prijavio nivo baterije.",
+                    "name": "Dana"
+                }
+            },
+            "name": "Proverite poslednju prijavu baterije"
+        },
+        "check_battery_low": {
+            "description": "Podignite događaje za uređaje koji imaju praznu bateriju.",
+            "name": "Proverite praznu bateriju"
+        }
+    }
+}
