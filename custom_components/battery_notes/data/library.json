@@ -4537,6 +4537,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Tuya",
+            "model": "R459",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "TuYa",
             "model": "Radiator valve with thermostat (TS0601_thermostat)",
             "battery_type": "AA",
@@ -5608,12 +5614,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "R459",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
