@@ -5614,6 +5614,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "TuYa",
+            "model": "Motion sensor with scene switch (TS0202_2)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
