@@ -14,7 +14,7 @@ files: [
                 "de": "de",
                 "el": "el",
                 "en": "em",
-                "es": "es",
+                "es-ES": "es-ES",
                 "fi": "fi",
                 "fr": "fr",
                 "hu": "hu",
@@ -25,8 +25,9 @@ files: [
                 "pt": "pt",
                 "ru": "ru",
                 "sk": "sk",
-                "sv": "sv",
-                "ur": "ur"
+                "sv-SE": "sv-SE",
+                "sr-CS": "sr-CS",
+                "ur-IN": "ur-IN"
             }
         }    
   }
