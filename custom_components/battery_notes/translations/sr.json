@@ -59,7 +59,7 @@
                     "battery_type": "Tip baterije",
                     "battery_quantity": "Broj baterija",
                     "battery_low_threshold": "Nizak prag napunjenosti baterije",
-                    "battery_low_template": "Šablon ptazne baterije"
+                    "battery_low_template": "Šablon prazne baterije"
                 },
                 "data_description": {
                     "name": "Ako ostavite prazno, naziv će preuzeti sa izvornog uređaja",
