@@ -2,23 +2,23 @@
     "config": {
         "step": {
             "user": {
-                "description": "En cas de demande d'aide, aller à: https://andrew-codechimp.github.io/HA-Battery-Notes/",
+                "description": "Si vous avez besoin d'aide pour la configuration, regardez ici : https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
-                    "association_type": "Association type"
+                    "association_type": "Type d'association:"
                 },
                 "menu_options": {
-                    "device": "Device (recommended)",
+                    "device": "Appareil (recommandé)",
                     "entity": "Entité"
                 },
-                "title": "Choose your association type"
+                "title": "Choisissez votre type d'association"
             },
             "device": {
                 "data": {
-                    "device_id": "Entité",
+                    "device_id": "Appareil",
                     "name": "Nom"
                 },
                 "data_description": {
-                    "name": "Le nom sera celui de l'entité si absent"
+                    "name": "Le nom par défaut sera utilisé si laissé vide"
                 }
             },
             "entity": {
@@ -27,7 +27,7 @@
                     "name": "Nom"
                 },
                 "data_description": {
-                    "name": "Le nom sera celui de l'entité si absent"
+                    "name": "Le nom de l'entité sera utilisé si laissé vide"
                 }
             },
             "battery": {
@@ -117,7 +117,7 @@
                         "name": "Dernier niveau de batterie signalé"
                     },
                     "source_entity_id": {
-                        "name": "Source Entity Id"
+                        "name": "ID de l'entité source"
                     },
                     "device_id": {
                         "name": "ID de l’appareil"
@@ -152,7 +152,7 @@
                     "name": "Appareil"
                 },
                 "entity_id": {
-                    "description": "Entity that has had its battery replaced.",
+                    "description": "Entité dont la batterie a été remplacée.",
                     "name": "Entité"
                 },
                 "datetime_replaced": {
