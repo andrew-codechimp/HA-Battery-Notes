@@ -13,7 +13,7 @@ files: [
                 "da": "da",
                 "de": "de",
                 "el": "el",
-                "en": "em",
+                "en": "en",
                 "es-ES": "es-ES",
                 "fi": "fi",
                 "fr": "fr",
@@ -29,6 +29,6 @@ files: [
                 "sr-CS": "sr-CS",
                 "ur-IN": "ur-IN"
             }
-        }    
+        }
   }
 ]
