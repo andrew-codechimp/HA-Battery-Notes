@@ -5630,6 +5630,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "ADEO",
+            "model": "RGB CTT LEXMAN ENKI remote control (HR-C99C-Z-C045)",
+            "battery_type": "CR2450"
         }
     ]
 }
