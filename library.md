@@ -1,4 +1,4 @@
-## 1042 Devices in library
+## 1043 Devices in library
 
 This file is auto generated, do not modify
 
@@ -165,6 +165,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |August Home Inc.                                |ASL-06                                                                     |4× AA                              |
 |August Home Inc.                                |ASL6_05/101200/SI                                                          |4× AA                              |
 |August Home Inc.                                |ASL6_05/101300/SI                                                          |4× AA                              |
+|August Home Inc.                                |AUG-MDY1                                                                   |4× AA                              |
 |August Home Inc.                                |AUG-SL02-M02-G02                                                           |4× AA                              |
 |August Home Inc.                                |AUG-SL03-C02-G03                                                           |4× AA                              |
 |August Home Inc.                                |AUG-SL03-C02-S03                                                           |4× AA                              |
