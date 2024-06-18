@@ -5641,6 +5641,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Ring",
+            "model": "Doorbell (2nd Gen)",
+            "battery_type": "Rechargeable"
         }
     ]
 }
