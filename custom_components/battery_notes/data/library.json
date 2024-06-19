@@ -692,6 +692,12 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "PETC1-M01",
+            "battery_type": "LR20",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "RTCGQ11LM",
             "battery_type": "CR2450"
         },
@@ -5669,12 +5675,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Aqara",
-            "model": "PETC1-M01",
-            "battery_type": "LR20",
-            "battery_quantity": 3
         }
     ]
 }
