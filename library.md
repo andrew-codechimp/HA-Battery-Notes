@@ -1,4 +1,4 @@
-## 1049 Devices in library
+## 1050 Devices in library
 
 This file is auto generated, do not modify
 
@@ -155,6 +155,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Aqara                                           |zigbee WXKG11LM (lumi.remote.b1acn01)                                      |CR2032                             |
 |Aqara                                           |zigbee WXKG12LM (lumi.sensor_switch.aq3)                                   |CR2032                             |
 |Aqara                                           |zigbee WXKG17LM (lumi.remote.acn004)                                       |CR2032                             |
+|Aqara                                           |ZNCWWSQ01LM                                                                |3× LR20                            |
 |Aqara                                           |ZNJLBL01LM                                                                 |Rechargeable                       |
 |Aquara                                          |AS038                                                                      |2× CR2450                          |
 |Arlo                                            |Pro 2                                                                      |Rechargeable                       |
