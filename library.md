@@ -1,4 +1,4 @@
-## 1050 Devices in library
+## 1051 Devices in library
 
 This file is auto generated, do not modify
 
@@ -128,6 +128,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Aqara                                           |Door and window sensor (MCCGQ11LM)                                         |CR1632                             |
 |Aqara                                           |Door and window sensor E1 (MCCGQ14LM)                                      |CR1632                             |
 |Aqara                                           |Light sensor T1 (GZCGQ11LM)                                                |CR2450                             |
+|Aqara                                           |lumi.sen_ill.agl01                                                         |CR2450                             |
 |Aqara                                           |MCCGQ11LM                                                                  |CR2032                             |
 |Aqara                                           |MCCGQ14LM                                                                  |CR1632                             |
 |Aqara                                           |Motion sensor (RTCGQ11LM)                                                  |CR2450                             |
