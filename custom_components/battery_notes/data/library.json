@@ -2523,6 +2523,11 @@
         },
         {
             "manufacturer": "Iris",
+            "model": "Contact and temperature sensor (3320-L)",
+            "battery_type": "CR2"
+        },
+        {
+            "manufacturer": "Iris",
             "model": "Contact and temperature sensor (IL06_1)",
             "battery_type": "CR2"
         },
@@ -2530,6 +2535,11 @@
             "manufacturer": "Iris",
             "model": "iL07-01",
             "battery_type": "CR123"
+        },
+        {
+            "manufacturer": "Iris",
+            "model": "Motion and temperature sensor (3326-L)",
+            "battery_type": "CR2"
         },
         {
             "manufacturer": "iRobot",
