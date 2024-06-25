@@ -106,7 +106,7 @@ action:
   - service: battery_notes.set_battery_replaced
     data:
       device_id: "{{ trigger.event.data.device_id }}"
-      entity_id: "{{ trigger.event.data.source_entity_id }}"
+      source_entity_id: "{{ trigger.event.data.source_entity_id }}"
 mode: queued
 ```
 
