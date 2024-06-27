@@ -568,7 +568,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Netatmo                                         |Smart Rain Gauge                                                           |2× AAA                             |
 |Netatmo                                         |Smart Thermostat                                                           |3× AAA                             |
 |Netatmo                                         |Smart Valve                                                                |2× AA                              |
-|Nortek Security & Control LLC                   |NGD00Z-4                                                                   |CR2023                             |
+|Nortek Security & Control LLC                   |NGD00Z-4                                                                   |CR2032                             |
 |Nortek Security & Control LLC                   |WADWAZ-1                                                                   |CR123A                             |
 |Nortek Security and Control                     |F-ADT-WTR-1                                                                |CR123A                             |
 |NorthQ                                          |NQ-9121                                                                    |2× AA                              |
