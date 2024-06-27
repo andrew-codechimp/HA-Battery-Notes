@@ -1,4 +1,4 @@
-## 1053 Devices in library
+## 1054 Devices in library
 
 This file is auto generated, do not modify
 
@@ -188,6 +188,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |AVM                                             |FRITZ!DECT 440                                                             |2× AAA                             |
 |Blueforcer                                      |AWTRIX Light                                                               |Rechargeable                       |
 |BlueMaestro                                     |Tempo Disc THD                                                             |CR2032                             |
+|Bosch                                           |BSEN-C2                                                                    |CR123                              |
 |Bosch                                           |ISW-ZPR1-WP13                                                              |4× AA                              |
 |Bosch                                           |Motion sensor (ISW-ZPR1-WP13)                                              |4× AA                              |
 |Bosch                                           |Radiator Thermostat II                                                     |2× AA                              |
