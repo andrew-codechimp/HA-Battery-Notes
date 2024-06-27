@@ -990,6 +990,11 @@
         },
         {
             "manufacturer": "Bosch",
+            "model": "BSEN-C2",
+            "battery_type": "CR123"
+        },
+        {
+            "manufacturer": "Bosch",
             "model": "ISW-ZPR1-WP13",
             "battery_type": "AA",
             "battery_quantity": 4
