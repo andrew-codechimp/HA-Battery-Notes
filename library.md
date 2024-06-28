@@ -1,4 +1,4 @@
-## 1054 Devices in library
+## 1055 Devices in library
 
 This file is auto generated, do not modify
 
@@ -751,6 +751,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Smartthings                                     |Water leak sensor (2016 model) (STS-WTR-250)                               |CR2                                |
 |SmartThings                                     |Water leak sensor (2018 model) (IM6001-WLP01)                              |CR2                                |
 |SmartThings                                     |Water sensor (3315-S)                                                      |CR2                                |
+|Smartwings                                      |Roller shade (WM25L-Z)                                                     |Rechargeable                       |
 |Smoke detector                                  |SSHM-I1                                                                    |CR123A                             |
 |Somfy                                           |IntelliTag                                                                 |AAA                                |
 |Somfy                                           |Key Fob                                                                    |CR2032                             |

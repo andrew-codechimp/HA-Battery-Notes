@@ -4037,6 +4037,11 @@
             "battery_type": "CR2"
         },
         {
+            "manufacturer": "Smartwings",
+            "model": "Roller shade (WM25L-Z)",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Smoke detector",
             "model": "SSHM-I1",
             "battery_type": "CR123A"
@@ -5701,11 +5706,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Smartwings",
-            "model": "Roller shade (WM25L-Z)",
-            "battery_type": "Rechargeable"
         }
     ]
 }
