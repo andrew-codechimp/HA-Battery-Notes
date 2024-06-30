@@ -5731,6 +5731,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "ThermoPro",
+            "model": "TP357",
+            "battery_type": "AAA"
         }
     ]
 }
