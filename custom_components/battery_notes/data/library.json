@@ -3619,6 +3619,11 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "Samsung",
+            "model": "SM-G991B",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "samsung",
             "model": "SM-G998U",
             "battery_type": "Rechargeable"
@@ -5716,11 +5721,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Samsung",
-            "model": "SM-G991B",
-            "battery_type": "Rechargeable"
         }
     ]
 }
