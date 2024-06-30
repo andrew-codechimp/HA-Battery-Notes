@@ -4400,6 +4400,11 @@
         },
         {
             "manufacturer": "Trust",
+            "model": "SmokeSensor-EM",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Trust",
             "model": "ZYCT-202",
             "battery_type": "CR2450"
         },
@@ -5711,11 +5716,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Trust",
-            "model": "SmokeSensor-EM",
-            "battery_type": "CR123A"
         }
     ]
 }
