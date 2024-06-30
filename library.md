@@ -1,4 +1,4 @@
-## 1060 Devices in library
+## 1061 Devices in library
 
 This file is auto generated, do not modify
 
@@ -657,6 +657,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |rtl_433                                         |Acurite-515                                                                |2× AA                              |
 |rtl_433                                         |Acurite-986                                                                |2× AA                              |
 |rtl_433                                         |Acurite-Tower                                                              |2× AA                              |
+|rtl_433                                         |Fineoffset-WH24                                                            |3× AA                              |
 |rtl_433                                         |Fineoffset-WH51                                                            |AA                                 |
 |rtl_433                                         |Hideki-Rain                                                                |2× AA                              |
 |rtl_433                                         |Hideki-TS04                                                                |AA                                 |
