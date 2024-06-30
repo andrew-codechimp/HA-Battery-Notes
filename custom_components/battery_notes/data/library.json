@@ -3640,6 +3640,11 @@
         },
         {
             "manufacturer": "Samsung",
+            "model": "SM-T500",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Samsung",
             "model": "SM-T510",
             "battery_type": "Rechargeable"
         },
@@ -5721,11 +5726,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Samsung",
-            "model": "SM-T500",
-            "battery_type": "Rechargeable"
         }
     ]
 }

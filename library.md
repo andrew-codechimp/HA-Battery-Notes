@@ -1,4 +1,4 @@
-## 1058 Devices in library
+## 1059 Devices in library
 
 This file is auto generated, do not modify
 
@@ -676,6 +676,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |samsung                                         |SM-G998U                                                                   |Rechargeable                       |
 |samsung                                         |SM-S918U                                                                   |Rechargeable                       |
 |Samsung                                         |SM-T225                                                                    |HQ-3565S                           |
+|Samsung                                         |SM-T500                                                                    |Rechargeable                       |
 |Samsung                                         |SM-T510                                                                    |Rechargeable                       |
 |Saswell                                         |Thermostatic radiator valve (SEA801-Zigbee/SEA802-Zigbee)                  |2× AA                              |
 |Schlage                                         |BE469NX                                                                    |4× AA                              |
