@@ -3552,6 +3552,12 @@
         },
         {
             "manufacturer": "rtl_433",
+            "model": "Fineoffset-WH65B",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "rtl_433",
             "model": "Hideki-Rain",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -5743,12 +5749,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "rtl_433",
-            "model": "Fineoffset-WH65B",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
