@@ -5731,6 +5731,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "rtl_433",
+            "model": "Fineoffset-WH24",
+            "battery_type": "AA",
+            "battery_quantity": 3
         }
     ]
 }
