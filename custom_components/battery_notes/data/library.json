@@ -3830,6 +3830,12 @@
             "battery_type": "CR2"
         },
         {
+            "manufacturer": "SIEGENIA",
+            "model": "Smart window handle",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Signify Netherlands B.V.",
             "model": "Hue dimmer switch (RWL020)",
             "battery_type": "CR2450"
@@ -5737,12 +5743,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "SIEGENIA",
-            "model": "Smart window handle",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
