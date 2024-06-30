@@ -5726,6 +5726,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Samsung",
+            "model": "SM-T580",
+            "battery_type": "Rechargeable"
         }
     ]
 }
