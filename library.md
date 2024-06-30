@@ -1,4 +1,4 @@
-## 1063 Devices in library
+## 1064 Devices in library
 
 This file is auto generated, do not modify
 
@@ -808,6 +808,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |ThermoBeacon                                    |16                                                                         |CR2477                             |
 |ThermoBeacon                                    |21                                                                         |CR2477                             |
 |ThermoBeacon                                    |27                                                                         |CR2477                             |
+|ThermoPro                                       |TP357                                                                      |AAA                                |
 |Third Reality                                   |3RSB015BZ                                                                  |4× AA                              |
 |Third Reality                                   |Smart switch Gen3 (3RSS009Z)                                               |2× AAA                             |
 |Third Reality                                   |Temperature and humidity sensor (3RTHS24BZ)                                |2× AAA                             |
