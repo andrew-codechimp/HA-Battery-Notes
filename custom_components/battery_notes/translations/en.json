@@ -152,7 +152,7 @@
                     "name": "Device"
                 },
                 "entity_id": {
-                    "description": "Entity that has had its battery replaced.",
+                    "description": "Entity that has had its battery replaced (only used for entity associated battery notes).",
                     "name": "Entity"
                 },
                 "datetime_replaced": {
