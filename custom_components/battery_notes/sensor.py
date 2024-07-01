@@ -259,7 +259,7 @@ async def async_setup_platform(
 
 
 class BatteryNotesBatteryPlusSensor(
-    SensorEntity, CoordinatorEntity[BatteryNotesCoordinator]
+    RestoreSensor, SensorEntity, CoordinatorEntity[BatteryNotesCoordinator]
 ):
     """Represents a battery plus type sensor."""
 
