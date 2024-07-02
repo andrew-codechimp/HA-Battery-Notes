@@ -5760,6 +5760,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Flic",
+            "model": "V2_white",
+            "battery_type": "Cr2032"
         }
     ]
 }
