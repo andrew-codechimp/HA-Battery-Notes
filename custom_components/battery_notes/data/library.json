@@ -5765,6 +5765,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "American Power Conversion",
+            "model": "Back-UPS NS 1250 LCD",
+            "battery_type": "UB1280",
+            "battery_quantity": 2
         }
     ]
 }
