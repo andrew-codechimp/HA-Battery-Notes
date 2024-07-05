@@ -5175,6 +5175,11 @@
             "battery_quantity": 4
         },
         {
+            "manufacturer": "X-Sense",
+            "model": "XS01-M",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "Xiaomi",
             "model": "Aqara curtain driver E1 (ZNCLBL01LM)",
             "battery_type": "Rechargeable"
@@ -5771,11 +5776,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "X-Sense",
-            "model": "XS01-M",
-            "battery_type": "CR123A"
         }
     ]
 }
