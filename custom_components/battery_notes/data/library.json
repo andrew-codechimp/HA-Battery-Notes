@@ -5771,6 +5771,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "X-Sense",
+            "model": "XS01-M",
+            "battery_type": "CR123A"
         }
     ]
 }
