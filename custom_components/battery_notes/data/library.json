@@ -289,6 +289,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "_TZE200_68nvbio9",
+            "model": "TS0601",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "_TZE200_a8sdabtg",
             "model": "TS0601",
             "battery_type": "AAA",
@@ -5776,11 +5781,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "_TZE200_68nvbio9",
-            "model": "TS0601",
-            "battery_type": "Rechargeable"
         }
     ]
 }
