@@ -1,4 +1,4 @@
-## 1069 Devices in library
+## 1070 Devices in library
 
 This file is auto generated, do not modify
 
@@ -869,6 +869,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |TuYa                                            |Photoelectric smoke detector (PA-44Z)                                      |PP3                                |
 |Tuya                                            |PIR (b5g40alm)                                                             |CR2450                             |
 |TuYa                                            |PIR sensor (RH3040)                                                        |3× AAA                             |
+|Tuya                                            |PIR Sensor (tuadvwloutnzat2p)                                              |3× AAA                             |
 |Tuya                                            |PIR Sensor (XFD2nSDKxFlGV5sV)                                              |3× AAA                             |
 |TuYa                                            |Plant Sensor SGS01 (gvygg3m8)                                              |2× AAA                             |
 |Tuya                                            |R459                                                                       |2× AAA                             |

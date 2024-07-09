@@ -4682,6 +4682,12 @@
         },
         {
             "manufacturer": "Tuya",
+            "model": "PIR Sensor (tuadvwloutnzat2p)",
+            "battery_type": "AAA",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "Tuya",
             "model": "PIR Sensor (XFD2nSDKxFlGV5sV)",
             "battery_type": "AAA",
             "battery_quantity": 3
@@ -5781,12 +5787,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "PIR Sensor (tuadvwloutnzat2p)",
-            "battery_type": "AAA",
-            "battery_quantity": 3
         }
     ]
 }
