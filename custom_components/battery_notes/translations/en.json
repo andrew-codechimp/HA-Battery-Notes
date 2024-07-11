@@ -47,7 +47,8 @@
             "already_configured": "Device is already configured"
         },
         "error": {
-            "unknown": "Unknown error occurred."
+            "unknown": "Unknown error occurred.",
+            "unconfigurable_entity": "It is not possible to add this entity to Battery Notes."
         }
     },
     "options": {
