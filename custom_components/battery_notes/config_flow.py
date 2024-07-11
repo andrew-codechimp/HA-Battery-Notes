@@ -150,7 +150,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
         user_input: dict | None = None,
     ) -> config_entries.FlowResult:
         """Handle a flow for a device or discovery."""
-        _errors = {}
+        errors: dict[str, str] = {}
         if user_input is not None:
             self.data = user_input
 
@@ -205,7 +205,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
         return self.async_show_form(
             step_id="device",
             data_schema=schema,
-            errors=_errors,
+            errors=errors,
             last_step=False,
         )
 
@@ -214,7 +214,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
         user_input: dict | None = None,
     ) -> config_entries.FlowResult:
         """Handle a flow for a device or discovery."""
-        _errors = {}
+        errors: dict[str, str] = {}
         if user_input is not None:
             self.data = user_input
 
@@ -226,52 +226,57 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             # Default battery quantity if not found in library lookup
             self.data[CONF_BATTERY_QUANTITY] = 1
 
-            if entity_entry.device_id:
+            if entity_entry:
 
-                self.data[CONF_DEVICE_ID] = entity_entry.device_id
+                if entity_entry.device_id:
 
-                if (
-                    DOMAIN in self.hass.data
-                    and DATA_LIBRARY_UPDATER in self.hass.data[DOMAIN]
-                ):
-                    library_updater: LibraryUpdater = self.hass.data[DOMAIN][
-                        DATA_LIBRARY_UPDATER
-                    ]
-                    await library_updater.get_library_updates(dt_util.utcnow())
+                    self.data[CONF_DEVICE_ID] = entity_entry.device_id
 
-                device_registry = dr.async_get(self.hass)
-                device_entry = device_registry.async_get(entity_entry.device_id)
+                    if (
+                        DOMAIN in self.hass.data
+                        and DATA_LIBRARY_UPDATER in self.hass.data[DOMAIN]
+                    ):
+                        library_updater: LibraryUpdater = self.hass.data[DOMAIN][
+                            DATA_LIBRARY_UPDATER
+                        ]
+                        await library_updater.get_library_updates(dt_util.utcnow())
 
-                _LOGGER.debug(
-                    "Looking up device %s %s %s", device_entry.manufacturer, device_entry.model, device_entry.hw_version
-                )
+                    device_registry = dr.async_get(self.hass)
+                    device_entry = device_registry.async_get(entity_entry.device_id)
 
-                model_info = ModelInfo(device_entry.manufacturer, device_entry.model, device_entry.hw_version)
-
-                library = await Library.factory(self.hass)
-
-                device_battery_details = await library.get_device_battery_details(
-                    model_info
-                )
-
-                if device_battery_details and not device_battery_details.is_manual:
                     _LOGGER.debug(
-                        "Found device %s %s %s", device_entry.manufacturer, device_entry.model, device_entry.hw_version
+                        "Looking up device %s %s %s", device_entry.manufacturer, device_entry.model, device_entry.hw_version
                     )
-                    self.data[CONF_BATTERY_TYPE] = device_battery_details.battery_type
 
-                    self.data[
-                        CONF_BATTERY_QUANTITY
-                    ] = device_battery_details.battery_quantity
+                    model_info = ModelInfo(device_entry.manufacturer, device_entry.model, device_entry.hw_version)
 
-            return await self.async_step_battery()
+                    library = await Library.factory(self.hass)
+
+                    device_battery_details = await library.get_device_battery_details(
+                        model_info
+                    )
+
+                    if device_battery_details and not device_battery_details.is_manual:
+                        _LOGGER.debug(
+                            "Found device %s %s %s", device_entry.manufacturer, device_entry.model, device_entry.hw_version
+                        )
+                        self.data[CONF_BATTERY_TYPE] = device_battery_details.battery_type
+
+                        self.data[
+                            CONF_BATTERY_QUANTITY
+                        ] = device_battery_details.battery_quantity
+
+                return await self.async_step_battery()
+            else:
+                # No entity_registry entry, must be a config.yaml entity which we can't support
+                errors["base"] = "unconfigurable_entity"
 
         schema = ENTITY_SCHEMA_ALL
 
         return self.async_show_form(
             step_id="entity",
             data_schema=schema,
-            errors=_errors,
+            errors=errors,
             last_step=False,
         )
 
