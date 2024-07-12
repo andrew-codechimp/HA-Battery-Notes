@@ -47,7 +47,8 @@
             "already_configured": "Uređaj je već konfigurisan"
         },
         "error": {
-            "unknown": "Nepoznata greška se dogodila."
+            "unknown": "Nepoznata greška se dogodila.",
+            "unconfigurable_entity": "It is not possible to add this entity to Battery Notes."
         }
     },
     "options": {

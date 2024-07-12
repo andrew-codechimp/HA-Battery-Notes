@@ -47,7 +47,8 @@
             "already_configured": "L'entité est deja configurée"
         },
         "error": {
-            "unknown": "Erreur inconnue."
+            "unknown": "Erreur inconnue.",
+            "unconfigurable_entity": "It is not possible to add this entity to Battery Notes."
         }
     },
     "options": {

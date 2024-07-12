@@ -47,7 +47,8 @@
             "already_configured": "Enheten är redan konfigurerad. "
         },
         "error": {
-            "unknown": "Okänt fel inträffade. "
+            "unknown": "Okänt fel inträffade. ",
+            "unconfigurable_entity": "It is not possible to add this entity to Battery Notes."
         }
     },
     "options": {

@@ -47,7 +47,8 @@
             "already_configured": "Laite on jo määritelty"
         },
         "error": {
-            "unknown": "Tuntematon virhe."
+            "unknown": "Tuntematon virhe.",
+            "unconfigurable_entity": "It is not possible to add this entity to Battery Notes."
         }
     },
     "options": {

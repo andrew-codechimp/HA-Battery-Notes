@@ -47,7 +47,8 @@
             "already_configured": "Zariadenie je už nakonfigurované"
         },
         "error": {
-            "unknown": "Vyskytla sa neznáma chyba."
+            "unknown": "Vyskytla sa neznáma chyba.",
+            "unconfigurable_entity": "It is not possible to add this entity to Battery Notes."
         }
     },
     "options": {

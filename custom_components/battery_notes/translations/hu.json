@@ -47,7 +47,8 @@
             "already_configured": "Eszköz már konfigurálva van"
         },
         "error": {
-            "unknown": "Ismeretlen hiba lépett fel."
+            "unknown": "Ismeretlen hiba lépett fel.",
+            "unconfigurable_entity": "It is not possible to add this entity to Battery Notes."
         }
     },
     "options": {
