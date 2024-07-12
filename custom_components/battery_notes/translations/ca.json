@@ -47,7 +47,8 @@
             "already_configured": "El dispositiu ja està configurat"
         },
         "error": {
-            "unknown": "S'ha produït un error desconegut"
+            "unknown": "S'ha produït un error desconegut",
+            "unconfigurable_entity": "It is not possible to add this entity to Battery Notes."
         }
     },
     "options": {

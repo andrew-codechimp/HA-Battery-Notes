@@ -47,7 +47,8 @@
             "already_configured": "Apparaat is al geconfigureerd"
         },
         "error": {
-            "unknown": "Onbekende fout opgetreden."
+            "unknown": "Onbekende fout opgetreden.",
+            "unconfigurable_entity": "It is not possible to add this entity to Battery Notes."
         }
     },
     "options": {

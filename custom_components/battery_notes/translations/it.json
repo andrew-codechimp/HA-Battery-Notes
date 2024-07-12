@@ -47,7 +47,8 @@
             "already_configured": "Il dispositivo è già configurato"
         },
         "error": {
-            "unknown": "Errore sconosciuto."
+            "unknown": "Errore sconosciuto.",
+            "unconfigurable_entity": "It is not possible to add this entity to Battery Notes."
         }
     },
     "options": {

@@ -47,7 +47,8 @@
             "already_configured": "Η συσκευή έχει ήδη ρυθμιστεί"
         },
         "error": {
-            "unknown": "Προέκυψε άγνωστο σφάλμα."
+            "unknown": "Προέκυψε άγνωστο σφάλμα.",
+            "unconfigurable_entity": "Δεν είναι δυνατή η προσθήκη αυτής της οντότητας στο Battery Notes."
         }
     },
     "options": {
