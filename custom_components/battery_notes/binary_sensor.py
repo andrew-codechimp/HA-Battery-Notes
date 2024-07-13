@@ -24,6 +24,7 @@ from homeassistant.helpers import (
     config_validation as cv,
     device_registry as dr,
     entity_registry as er,
+    template,
 )
 from homeassistant.helpers.event import (
     EventStateChangedData,
@@ -32,7 +33,6 @@ from homeassistant.helpers.event import (
     async_track_template_result,
 )
 
-from homeassistant.helpers import template
 from homeassistant.helpers.template import (
     Template,
     TemplateStateFromEntityId,
@@ -51,6 +51,7 @@ from homeassistant.helpers.event import (
     async_track_entity_registry_updated_event,
 )
 from homeassistant.helpers.reload import async_setup_reload_service
+from homeassistant.helpers.restore_state import RestoreEntity
 
 from homeassistant.const import (
     CONF_NAME,
@@ -313,7 +314,7 @@ class _TemplateAttribute:
 
 
 class BatteryNotesBatteryLowTemplateSensor(
-    BinarySensorEntity, CoordinatorEntity[BatteryNotesCoordinator]
+    BinarySensorEntity, CoordinatorEntity[BatteryNotesCoordinator], RestoreEntity
 ):
     """Represents a low battery threshold binary sensor."""
 

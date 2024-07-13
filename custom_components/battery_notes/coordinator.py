@@ -58,7 +58,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
     battery_type: str
     battery_quantity: int
     battery_low_threshold: int
-    battery_low_template: str
+    battery_low_template: str | None
     wrapped_battery: RegistryEntry
     _current_battery_level: str = None
     enable_replaced: bool = True
