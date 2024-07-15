@@ -2286,6 +2286,11 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "Husqvarna AB",
+            "model": "TBD",
+            "battery_type": "9V"
+        },
+        {
             "manufacturer": "iCasa",
             "model": "Zigbee 3.0 Keypad Pulse 8S (ICZB-KPD18S)",
             "battery_type": "CR2450"
@@ -5793,11 +5798,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Husqvarna AB",
-            "model": "TBD",
-            "battery_type": "9V"
         }
     ]
 }

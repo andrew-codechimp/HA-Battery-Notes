@@ -1,4 +1,4 @@
-## 1071 Devices in library
+## 1072 Devices in library
 
 This file is auto generated, do not modify
 
@@ -423,6 +423,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Hunter Douglas                                  |Duette                                                                     |12× AA                             |
 |Hunter Douglas                                  |Vertical Slats, Left Stack                                                 |Rechargeable                       |
 |Hunter Douglas                                  |Vertical Slats, Right Stack                                                |Rechargeable                       |
+|Husqvarna AB                                    |TBD                                                                        |9V                                 |
 |iCasa                                           |Zigbee 3.0 Keypad Pulse 8S (ICZB-KPD18S)                                   |CR2450                             |
 |ID Lock AS                                      |ID-150                                                                     |8× AA                              |
 |ID-RF                                           |CWS-3101                                                                   |CR2032                             |
