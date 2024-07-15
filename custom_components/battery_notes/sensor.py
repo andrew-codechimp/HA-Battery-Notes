@@ -2,83 +2,82 @@
 
 from __future__ import annotations
 
-from collections.abc import Mapping
 import logging
-from datetime import datetime
+from collections.abc import Mapping
 from dataclasses import dataclass
+from datetime import datetime
 from typing import Any
-import voluptuous as vol
 
+import voluptuous as vol
 from homeassistant.components.sensor import (
     PLATFORM_SCHEMA,
+    RestoreSensor,
     SensorDeviceClass,
-    SensorStateClass,
     SensorEntity,
     SensorEntityDescription,
-    RestoreSensor,
+    SensorStateClass,
 )
-
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.core import HomeAssistant, callback, Event, split_entity_id
-from homeassistant.helpers.entity_platform import AddEntitiesCallback
+from homeassistant.const import (
+    CONF_DEVICE_ID,
+    CONF_NAME,
+    PERCENTAGE,
+    STATE_UNAVAILABLE,
+    STATE_UNKNOWN,
+)
+from homeassistant.core import Event, HomeAssistant, callback, split_entity_id
 from homeassistant.helpers import (
     config_validation as cv,
+)
+from homeassistant.helpers import (
     device_registry as dr,
+)
+from homeassistant.helpers import (
     entity_registry as er,
 )
-from homeassistant.helpers.typing import StateType
 from homeassistant.helpers.entity import DeviceInfo, EntityCategory
-from homeassistant.helpers.event import (
-    EventStateChangedData,
-    async_track_state_change_event,
-    async_track_entity_registry_updated_event,
-)
-from homeassistant.helpers.update_coordinator import (
-    CoordinatorEntity,
-)
-from homeassistant.helpers.reload import async_setup_reload_service
-
+from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.entity_registry import (
     EVENT_ENTITY_REGISTRY_UPDATED,
 )
-
-from homeassistant.const import (
-    CONF_NAME,
-    CONF_DEVICE_ID,
-    STATE_UNAVAILABLE,
-    STATE_UNKNOWN,
-    PERCENTAGE,
+from homeassistant.helpers.event import (
+    EventStateChangedData,
+    async_track_entity_registry_updated_event,
+    async_track_state_change_event,
 )
-
-from .const import (
-    DOMAIN,
-    PLATFORMS,
-    CONF_SOURCE_ENTITY_ID,
-    CONF_BATTERY_TYPE,
-    CONF_BATTERY_QUANTITY,
-    DATA,
-    LAST_REPLACED,
-    DOMAIN_CONFIG,
-    CONF_ENABLE_REPLACED,
-    CONF_HIDE_BATTERY,
-    CONF_ROUND_BATTERY,
-    ATTR_BATTERY_QUANTITY,
-    ATTR_BATTERY_TYPE,
-    ATTR_BATTERY_TYPE_AND_QUANTITY,
-    ATTR_BATTERY_LAST_REPLACED,
-    ATTR_BATTERY_LOW,
-    ATTR_BATTERY_LOW_THRESHOLD,
-    ATTR_BATTERY_LAST_REPORTED,
-    ATTR_BATTERY_LAST_REPORTED_LEVEL,
-    ATTR_DEVICE_ID,
-    ATTR_DEVICE_NAME,
-    ATTR_SOURCE_ENTITY_ID,
+from homeassistant.helpers.reload import async_setup_reload_service
+from homeassistant.helpers.typing import StateType
+from homeassistant.helpers.update_coordinator import (
+    CoordinatorEntity,
 )
 
 from .common import validate_is_float
-from .device import BatteryNotesDevice
+from .const import (
+    ATTR_BATTERY_LAST_REPLACED,
+    ATTR_BATTERY_LAST_REPORTED,
+    ATTR_BATTERY_LAST_REPORTED_LEVEL,
+    ATTR_BATTERY_LOW,
+    ATTR_BATTERY_LOW_THRESHOLD,
+    ATTR_BATTERY_QUANTITY,
+    ATTR_BATTERY_TYPE,
+    ATTR_BATTERY_TYPE_AND_QUANTITY,
+    ATTR_DEVICE_ID,
+    ATTR_DEVICE_NAME,
+    ATTR_SOURCE_ENTITY_ID,
+    CONF_BATTERY_QUANTITY,
+    CONF_BATTERY_TYPE,
+    CONF_ENABLE_REPLACED,
+    CONF_HIDE_BATTERY,
+    CONF_ROUND_BATTERY,
+    CONF_SOURCE_ENTITY_ID,
+    DATA,
+    DOMAIN,
+    DOMAIN_CONFIG,
+    LAST_REPLACED,
+    PLATFORMS,
+)
 from .coordinator import BatteryNotesCoordinator
-
+from .device import BatteryNotesDevice
 from .entity import (
     BatteryNotesEntityDescription,
 )

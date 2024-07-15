@@ -1,50 +1,46 @@
 """DataUpdateCoordinator for battery notes."""
+
 from __future__ import annotations
 
 import logging
 from datetime import datetime
 
-from homeassistant.helpers.entity_registry import RegistryEntry
-
-from homeassistant.helpers.update_coordinator import (
-    DataUpdateCoordinator,
-)
-
-from homeassistant.helpers import entity_registry as er
-
 from homeassistant.const import (
     STATE_UNAVAILABLE,
     STATE_UNKNOWN,
 )
-
+from homeassistant.helpers import entity_registry as er
+from homeassistant.helpers.entity_registry import RegistryEntry
+from homeassistant.helpers.update_coordinator import (
+    DataUpdateCoordinator,
+)
 
 from .common import validate_is_float
-from .store import BatteryNotesStorage
-
 from .const import (
-    DOMAIN,
-    DOMAIN_CONFIG,
+    ATTR_BATTERY_LEVEL,
+    ATTR_BATTERY_LOW,
+    ATTR_BATTERY_QUANTITY,
+    ATTR_BATTERY_THRESHOLD_REMINDER,
+    ATTR_BATTERY_TYPE,
+    ATTR_BATTERY_TYPE_AND_QUANTITY,
+    ATTR_DEVICE_ID,
+    ATTR_DEVICE_NAME,
+    ATTR_PREVIOUS_BATTERY_LEVEL,
+    ATTR_REMOVE,
+    ATTR_SOURCE_ENTITY_ID,
     CONF_BATTERY_INCREASE_THRESHOLD,
     CONF_ENABLE_REPLACED,
     CONF_ROUND_BATTERY,
-    EVENT_BATTERY_THRESHOLD,
-    EVENT_BATTERY_INCREASED,
     DEFAULT_BATTERY_INCREASE_THRESHOLD,
-    ATTR_DEVICE_ID,
-    ATTR_SOURCE_ENTITY_ID,
-    ATTR_BATTERY_QUANTITY,
-    ATTR_BATTERY_TYPE,
-    ATTR_BATTERY_TYPE_AND_QUANTITY,
-    ATTR_BATTERY_LOW,
-    ATTR_DEVICE_NAME,
-    ATTR_BATTERY_LEVEL,
-    ATTR_PREVIOUS_BATTERY_LEVEL,
-    ATTR_BATTERY_THRESHOLD_REMINDER,
-    ATTR_REMOVE,
+    DOMAIN,
+    DOMAIN_CONFIG,
+    EVENT_BATTERY_INCREASED,
+    EVENT_BATTERY_THRESHOLD,
     LAST_REPLACED,
     LAST_REPORTED,
     LAST_REPORTED_LEVEL,
 )
+from .store import BatteryNotesStorage
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -92,7 +88,9 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
             if self.source_entity_id:
                 entity_registry = er.async_get(self.hass)
                 registry_entry = entity_registry.async_get(self.source_entity_id)
-                self._source_entity_name = registry_entry.name or registry_entry.original_name
+                self._source_entity_name = (
+                    registry_entry.name or registry_entry.original_name
+                )
 
         return self._source_entity_name
 
@@ -105,7 +103,10 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
     def battery_low_template_state(self, value):
         """Set the current battery low status from a templated device and fire events if valid."""
         self._battery_low_template_state = value
-        if self._previous_battery_low_template_state is not None and self.battery_low_template:
+        if (
+            self._previous_battery_low_template_state is not None
+            and self.battery_low_template
+        ):
             self.hass.bus.async_fire(
                 EVENT_BATTERY_THRESHOLD,
                 {
@@ -120,7 +121,9 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
                 },
             )
 
-            _LOGGER.debug("battery_threshold event fired Low: %s via template", self.battery_low)
+            _LOGGER.debug(
+                "battery_threshold event fired Low: %s via template", self.battery_low
+            )
 
             if (
                 self._previous_battery_low_template_state
@@ -137,7 +140,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
                         ATTR_BATTERY_TYPE: self.battery_type,
                         ATTR_BATTERY_QUANTITY: self.battery_quantity,
                     },
-                    )
+                )
 
                 _LOGGER.debug("battery_increased event fired via template")
 
@@ -153,7 +156,10 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
         """Set the current battery level and fire events if valid."""
         self._current_battery_level = value
 
-        if self._previous_battery_level is not None and self.battery_low_template is None:
+        if (
+            self._previous_battery_level is not None
+            and self.battery_low_template is None
+        ):
             # Battery low event
             if self.battery_low != self._previous_battery_low:
                 self.hass.bus.async_fire(
@@ -202,7 +208,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
                             ATTR_BATTERY_LEVEL: self.rounded_battery_level,
                             ATTR_PREVIOUS_BATTERY_LEVEL: self.rounded_previous_battery_level,
                         },
-                        )
+                    )
 
                     _LOGGER.debug("battery_increased event fired")
 
@@ -259,13 +265,9 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
         entry = {"battery_last_reported": value}
 
         if self.source_entity_id:
-            self.async_update_entity_config(
-                entity_id=self.source_entity_id, data=entry
-            )
+            self.async_update_entity_config(entity_id=self.source_entity_id, data=entry)
         else:
-            self.async_update_device_config(
-                device_id=self.device_id, data=entry
-            )
+            self.async_update_device_config(device_id=self.device_id, data=entry)
 
     @property
     def last_reported_level(self) -> float | None:
@@ -289,13 +291,9 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
         entry = {"battery_last_reported_level": value}
 
         if self.source_entity_id:
-            self.async_update_entity_config(
-                entity_id=self.source_entity_id, data=entry
-            )
+            self.async_update_entity_config(entity_id=self.source_entity_id, data=entry)
         else:
-            self.async_update_device_config(
-                device_id=self.device_id, data=entry
-            )
+            self.async_update_device_config(device_id=self.device_id, data=entry)
 
     @property
     def battery_low(self) -> bool:

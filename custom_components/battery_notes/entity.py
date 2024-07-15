@@ -1,9 +1,11 @@
 """Entity for battery_notes."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass
 
 from homeassistant.helpers.entity import EntityDescription
+
 
 @dataclass
 class BatteryNotesRequiredKeysMixin:

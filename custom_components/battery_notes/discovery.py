@@ -1,4 +1,5 @@
 """Discovery of devices with a battery definition."""
+
 from __future__ import annotations
 
 import logging
@@ -12,14 +13,14 @@ from homeassistant.helpers import discovery_flow
 from homeassistant.helpers.typing import ConfigType
 
 from .const import (
+    CONF_BATTERY_QUANTITY,
+    CONF_BATTERY_TYPE,
     CONF_DEVICE_NAME,
     CONF_MANUFACTURER,
     CONF_MODEL,
-    CONF_BATTERY_TYPE,
-    CONF_BATTERY_QUANTITY,
     DOMAIN,
 )
-from .library import ModelInfo, DeviceBatteryDetails, Library
+from .library import DeviceBatteryDetails, Library, ModelInfo
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -145,12 +146,10 @@ class DiscoveryManager:
         }
 
         if device_battery_details:
-            discovery_data[
-                CONF_BATTERY_TYPE
-            ] = device_battery_details.battery_type
-            discovery_data[
-                CONF_BATTERY_QUANTITY
-            ] = device_battery_details.battery_quantity
+            discovery_data[CONF_BATTERY_TYPE] = device_battery_details.battery_type
+            discovery_data[CONF_BATTERY_QUANTITY] = (
+                device_battery_details.battery_quantity
+            )
         discovery_data[CONF_MANUFACTURER] = device_battery_details.manufacturer
         discovery_data[CONF_MODEL] = device_battery_details.model
         discovery_data[CONF_DEVICE_NAME] = get_wrapped_device_name(

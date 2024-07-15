@@ -2,32 +2,29 @@
 
 from __future__ import annotations
 
-from typing import Any
-import logging
-import socket
+import asyncio
 import json
+import logging
 import os
+import socket
 from datetime import datetime, timedelta
+from typing import Any
 
 import aiohttp
-import asyncio
 import async_timeout
-
-from homeassistant.exceptions import ConfigEntryNotReady
-
 from homeassistant.core import HomeAssistant, callback
+from homeassistant.exceptions import ConfigEntryNotReady
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.event import async_track_utc_time_change
 
-from .discovery import DiscoveryManager
-
 from .const import (
-    CONF_LIBRARY_URL,
-    DOMAIN,
-    DATA_LIBRARY_LAST_UPDATE,
-    DOMAIN_CONFIG,
     CONF_ENABLE_AUTODISCOVERY,
+    CONF_LIBRARY_URL,
+    DATA_LIBRARY_LAST_UPDATE,
+    DOMAIN,
+    DOMAIN_CONFIG,
 )
+from .discovery import DiscoveryManager
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -95,7 +92,9 @@ class LibraryUpdater:
                     "library.json",
                 )
 
-                await self.hass.async_add_executor_job(_update_library_json, json_path, content)
+                await self.hass.async_add_executor_job(
+                    _update_library_json, json_path, content
+                )
 
                 self.hass.data[DOMAIN][DATA_LIBRARY_LAST_UPDATE] = datetime.now()
 

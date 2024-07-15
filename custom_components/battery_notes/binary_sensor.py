@@ -2,78 +2,74 @@
 
 from __future__ import annotations
 
+import logging
 from collections.abc import Callable
 from dataclasses import dataclass
 from typing import Any
 
-import logging
 import voluptuous as vol
-
+from homeassistant.components.binary_sensor import (
+    PLATFORM_SCHEMA,
+    BinarySensorDeviceClass,
+    BinarySensorEntity,
+    BinarySensorEntityDescription,
+)
 from homeassistant.config_entries import ConfigEntry
+from homeassistant.const import (
+    CONF_DEVICE_ID,
+    CONF_NAME,
+    STATE_UNAVAILABLE,
+    STATE_UNKNOWN,
+)
 from homeassistant.core import (
+    Event,
     HomeAssistant,
     callback,
-    Event,
     split_entity_id,
 )
 from homeassistant.exceptions import TemplateError
-from homeassistant.helpers.entity import Entity
-from homeassistant.helpers.entity_platform import AddEntitiesCallback
-from homeassistant.helpers.start import async_at_start
 from homeassistant.helpers import (
     config_validation as cv,
+)
+from homeassistant.helpers import (
     device_registry as dr,
+)
+from homeassistant.helpers import (
     entity_registry as er,
+)
+from homeassistant.helpers import (
     template,
 )
+from homeassistant.helpers.entity import DeviceInfo, Entity, EntityCategory
+from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.event import (
     EventStateChangedData,
     TrackTemplate,
     TrackTemplateResult,
+    async_track_entity_registry_updated_event,
     async_track_template_result,
 )
-
+from homeassistant.helpers.reload import async_setup_reload_service
+from homeassistant.helpers.restore_state import RestoreEntity
+from homeassistant.helpers.start import async_at_start
 from homeassistant.helpers.template import (
     Template,
     TemplateStateFromEntityId,
 )
-from homeassistant.components.binary_sensor import (
-    PLATFORM_SCHEMA,
-    BinarySensorEntity,
-    BinarySensorEntityDescription,
-    BinarySensorDeviceClass,
-)
 from homeassistant.helpers.update_coordinator import (
     CoordinatorEntity,
 )
-from homeassistant.helpers.entity import DeviceInfo, EntityCategory
-from homeassistant.helpers.event import (
-    async_track_entity_registry_updated_event,
-)
-from homeassistant.helpers.reload import async_setup_reload_service
-from homeassistant.helpers.restore_state import RestoreEntity
-
-from homeassistant.const import (
-    CONF_NAME,
-    CONF_DEVICE_ID,
-    STATE_UNAVAILABLE,
-    STATE_UNKNOWN,
-)
 
 from . import PLATFORMS
-
+from .common import validate_is_float
 from .const import (
-    DOMAIN,
-    DATA,
     ATTR_BATTERY_LOW_THRESHOLD,
     CONF_SOURCE_ENTITY_ID,
+    DATA,
+    DOMAIN,
 )
-
-from .common import validate_is_float
-
-from .device import BatteryNotesDevice
 from .coordinator import BatteryNotesCoordinator
-
+from .device import BatteryNotesDevice
 from .entity import (
     BatteryNotesEntityDescription,
 )
@@ -501,7 +497,6 @@ class BatteryNotesBatteryLowTemplateSensor(
 
     @callback
     def _update_state(self, result):
-
         state = (
             None
             if isinstance(result, TemplateError)

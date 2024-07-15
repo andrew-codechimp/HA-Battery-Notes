@@ -1,49 +1,48 @@
 """Button platform for battery_notes."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass
 from datetime import datetime
 
 import voluptuous as vol
-
-from homeassistant.config_entries import ConfigEntry
-from homeassistant.core import HomeAssistant, callback, Event, split_entity_id
-from homeassistant.helpers.entity_platform import AddEntitiesCallback
-from homeassistant.helpers import (
-    config_validation as cv,
-    device_registry as dr,
-    entity_registry as er,
-)
 from homeassistant.components.button import (
     PLATFORM_SCHEMA,
     ButtonEntity,
     ButtonEntityDescription,
 )
+from homeassistant.config_entries import ConfigEntry
+from homeassistant.const import (
+    CONF_DEVICE_ID,
+    CONF_NAME,
+)
+from homeassistant.core import Event, HomeAssistant, callback, split_entity_id
+from homeassistant.helpers import (
+    config_validation as cv,
+)
+from homeassistant.helpers import (
+    device_registry as dr,
+)
+from homeassistant.helpers import (
+    entity_registry as er,
+)
 from homeassistant.helpers.entity import DeviceInfo, EntityCategory
+from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.event import (
     async_track_entity_registry_updated_event,
 )
-
 from homeassistant.helpers.reload import async_setup_reload_service
 
-from homeassistant.const import (
-    CONF_NAME,
-    CONF_DEVICE_ID,
-)
-
 from . import PLATFORMS
-
 from .const import (
-    DOMAIN,
-    DOMAIN_CONFIG,
-    DATA,
     CONF_ENABLE_REPLACED,
     CONF_SOURCE_ENTITY_ID,
+    DATA,
+    DOMAIN,
+    DOMAIN_CONFIG,
 )
-
-from .device import BatteryNotesDevice
 from .coordinator import BatteryNotesCoordinator
-
+from .device import BatteryNotesDevice
 from .entity import (
     BatteryNotesEntityDescription,
 )
@@ -77,9 +76,12 @@ def async_add_to_device(hass: HomeAssistant, entry: ConfigEntry) -> str | None:
 
     if device_id:
         if device_registry.async_get(device_id):
-            device_registry.async_update_device(device_id, add_config_entry_id=entry.entry_id)
+            device_registry.async_update_device(
+                device_id, add_config_entry_id=entry.entry_id
+            )
             return device_id
     return None
+
 
 async def async_setup_entry(
     hass: HomeAssistant,
@@ -157,7 +159,7 @@ async def async_setup_entry(
                 coordinator,
                 description,
                 f"{config_entry.entry_id}{description.unique_id_suffix}",
-                device_id
+                device_id,
             )
         ]
     )
@@ -197,15 +199,25 @@ class BatteryNotesButton(ButtonEntity):
         self._attr_has_entity_name = True
 
         if coordinator.source_entity_id and not coordinator.device_id:
-            self._attr_translation_placeholders = {"device_name": coordinator.device_name + " "}
-            self.entity_id = f"button.{coordinator.device_name.lower()}_{description.key}"
+            self._attr_translation_placeholders = {
+                "device_name": coordinator.device_name + " "
+            }
+            self.entity_id = (
+                f"button.{coordinator.device_name.lower()}_{description.key}"
+            )
         elif coordinator.source_entity_id and coordinator.device_id:
-            source_entity_domain, source_object_id = split_entity_id(coordinator.source_entity_id)
-            self._attr_translation_placeholders = {"device_name": coordinator.source_entity_name + " "}
+            source_entity_domain, source_object_id = split_entity_id(
+                coordinator.source_entity_id
+            )
+            self._attr_translation_placeholders = {
+                "device_name": coordinator.source_entity_name + " "
+            }
             self.entity_id = f"button.{source_object_id}_{description.key}"
         else:
             self._attr_translation_placeholders = {"device_name": ""}
-            self.entity_id = f"button.{coordinator.device_name.lower()}_{description.key}"
+            self.entity_id = (
+                f"button.{coordinator.device_name.lower()}_{description.key}"
+            )
 
         self.entity_description = description
         self._attr_unique_id = unique_id
@@ -239,8 +251,6 @@ class BatteryNotesButton(ButtonEntity):
                 entity_id=self.coordinator.source_entity_id, data=entry
             )
         else:
-            self.coordinator.async_update_device_config(
-                device_id=device_id, data=entry
-            )
+            self.coordinator.async_update_device_config(device_id=device_id, data=entry)
 
         await self.coordinator.async_request_refresh()

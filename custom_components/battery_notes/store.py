@@ -1,14 +1,15 @@
 """Data store for battery_notes."""
+
 from __future__ import annotations
 
 import logging
 from collections import OrderedDict
 from collections.abc import MutableMapping
-from typing import cast
 from datetime import datetime
+from typing import cast
 
 import attr
-from homeassistant.core import callback, HomeAssistant
+from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers.storage import Store
 
 from .const import (
@@ -32,6 +33,7 @@ class DeviceEntry:
     battery_last_replaced = attr.ib(type=datetime, default=None)
     battery_last_reported = attr.ib(type=datetime, default=None)
     battery_last_reported_level = attr.ib(type=float, default=None)
+
 
 @attr.s(slots=True, frozen=True)
 class EntityEntry:
@@ -106,7 +108,9 @@ class BatteryNotesStorage:
         store_data = {}
 
         store_data["devices"] = [attr.asdict(entry) for entry in self.devices.values()]
-        store_data["entities"] = [attr.asdict(entry) for entry in self.entities.values()]
+        store_data["entities"] = [
+            attr.asdict(entry) for entry in self.entities.values()
+        ]
 
         return store_data
 
@@ -197,6 +201,7 @@ class BatteryNotesStorage:
         new = self.entities[entity_id] = attr.evolve(old, **changes)
         self.async_schedule_save()
         return new
+
 
 async def async_get_registry(hass: HomeAssistant) -> BatteryNotesStorage:
     """Return battery notes storage instance."""

@@ -1,42 +1,41 @@
 """Battery Notes device, contains device level details."""
+
 import logging
-
-from homeassistant.config_entries import ConfigEntry
-
-from homeassistant.core import CALLBACK_TYPE, HomeAssistant
-from homeassistant.helpers import (
-    device_registry as dr,
-    entity_registry as er,
-)
-from homeassistant.helpers.entity_registry import RegistryEntry
 
 from homeassistant.components.sensor import DOMAIN as SENSOR_DOMAIN
 from homeassistant.components.sensor import (
     SensorDeviceClass,
 )
-
+from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import (
     CONF_DEVICE_ID,
     PERCENTAGE,
 )
+from homeassistant.core import CALLBACK_TYPE, HomeAssistant
+from homeassistant.helpers import (
+    device_registry as dr,
+)
+from homeassistant.helpers import (
+    entity_registry as er,
+)
+from homeassistant.helpers.entity_registry import RegistryEntry
 
 from .const import (
-    PLATFORMS,
-    DOMAIN,
-    DOMAIN_CONFIG,
+    CONF_BATTERY_LOW_TEMPLATE,
+    CONF_BATTERY_LOW_THRESHOLD,
+    CONF_BATTERY_QUANTITY,
+    CONF_BATTERY_TYPE,
+    CONF_DEFAULT_BATTERY_LOW_THRESHOLD,
+    CONF_SOURCE_ENTITY_ID,
     DATA,
     DATA_STORE,
-    CONF_SOURCE_ENTITY_ID,
-    CONF_BATTERY_TYPE,
-    CONF_BATTERY_QUANTITY,
-    CONF_BATTERY_LOW_THRESHOLD,
-    CONF_DEFAULT_BATTERY_LOW_THRESHOLD,
-    CONF_BATTERY_LOW_TEMPLATE,
     DEFAULT_BATTERY_LOW_THRESHOLD,
+    DOMAIN,
+    DOMAIN_CONFIG,
+    PLATFORMS,
 )
-
-from .store import BatteryNotesStorage
 from .coordinator import BatteryNotesCoordinator
+from .store import BatteryNotesStorage
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -95,7 +94,10 @@ class BatteryNotesDevice:
         if source_entity_id:
             entity = entity_registry.async_get(source_entity_id)
             device_class = entity.device_class or entity.original_device_class
-            if device_class == SensorDeviceClass.BATTERY and entity.unit_of_measurement == PERCENTAGE:
+            if (
+                device_class == SensorDeviceClass.BATTERY
+                and entity.unit_of_measurement == PERCENTAGE
+            ):
                 self.wrapped_battery = entity
             else:
                 _LOGGER.debug(
@@ -109,7 +111,9 @@ class BatteryNotesDevice:
                 device_entry = device_registry.async_get(entity.device_id)
                 if device_entry:
                     self.device_name = (
-                        device_entry.name_by_user or device_entry.name or self.config.title
+                        device_entry.name_by_user
+                        or device_entry.name
+                        or self.config.title
                     )
                 else:
                     self.device_name = self.config.title
@@ -171,7 +175,9 @@ class BatteryNotesDevice:
                 CONF_DEFAULT_BATTERY_LOW_THRESHOLD, DEFAULT_BATTERY_LOW_THRESHOLD
             )
 
-        self.coordinator.battery_low_template = config.data.get(CONF_BATTERY_LOW_TEMPLATE)
+        self.coordinator.battery_low_template = config.data.get(
+            CONF_BATTERY_LOW_TEMPLATE
+        )
 
         if self.wrapped_battery:
             _LOGGER.debug(

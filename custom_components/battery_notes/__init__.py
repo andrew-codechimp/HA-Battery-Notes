@@ -8,23 +8,65 @@ from __future__ import annotations
 
 import logging
 import re
-from datetime import datetime
 from dataclasses import dataclass, field
+from datetime import datetime
 
-import homeassistant.helpers.config_validation as cv
 import voluptuous as vol
-
 from awesomeversion.awesomeversion import AwesomeVersion
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.core import HomeAssistant, callback
 from homeassistant.const import __version__ as HA_VERSION  # noqa: N812
-from homeassistant.helpers.typing import ConfigType
+from homeassistant.core import HomeAssistant, callback
+from homeassistant.helpers import config_validation as cv
 from homeassistant.helpers import device_registry as dr
 from homeassistant.helpers import entity_registry as er
+from homeassistant.helpers.typing import ConfigType
 from homeassistant.util import dt as dt_util
 
 from .config_flow import CONFIG_VERSION
-
+from .const import (
+    ATTR_BATTERY_LAST_REPORTED,
+    ATTR_BATTERY_LAST_REPORTED_DAYS,
+    ATTR_BATTERY_LAST_REPORTED_LEVEL,
+    ATTR_BATTERY_LEVEL,
+    ATTR_BATTERY_LOW,
+    ATTR_BATTERY_QUANTITY,
+    ATTR_BATTERY_THRESHOLD_REMINDER,
+    ATTR_BATTERY_TYPE,
+    ATTR_BATTERY_TYPE_AND_QUANTITY,
+    ATTR_DEVICE_ID,
+    ATTR_DEVICE_NAME,
+    ATTR_PREVIOUS_BATTERY_LEVEL,
+    ATTR_REMOVE,
+    ATTR_SOURCE_ENTITY_ID,
+    CONF_BATTERY_INCREASE_THRESHOLD,
+    CONF_BATTERY_QUANTITY,
+    CONF_BATTERY_TYPE,
+    CONF_DEFAULT_BATTERY_LOW_THRESHOLD,
+    CONF_ENABLE_AUTODISCOVERY,
+    CONF_ENABLE_REPLACED,
+    CONF_HIDE_BATTERY,
+    CONF_ROUND_BATTERY,
+    CONF_SHOW_ALL_DEVICES,
+    CONF_USER_LIBRARY,
+    DATA,
+    DATA_LIBRARY_UPDATER,
+    DATA_STORE,
+    DEFAULT_BATTERY_INCREASE_THRESHOLD,
+    DEFAULT_BATTERY_LOW_THRESHOLD,
+    DOMAIN,
+    DOMAIN_CONFIG,
+    EVENT_BATTERY_NOT_REPORTED,
+    EVENT_BATTERY_THRESHOLD,
+    MIN_HA_VERSION,
+    PLATFORMS,
+    SERVICE_BATTERY_REPLACED,
+    SERVICE_BATTERY_REPLACED_SCHEMA,
+    SERVICE_CHECK_BATTERY_LAST_REPORTED,
+    SERVICE_CHECK_BATTERY_LAST_REPORTED_SCHEMA,
+    SERVICE_CHECK_BATTERY_LOW,
+    SERVICE_DATA_DATE_TIME_REPLACED,
+    SERVICE_DATA_DAYS_LAST_REPORTED,
+)
 from .device import BatteryNotesDevice
 from .discovery import DiscoveryManager
 from .library_updater import (
@@ -32,51 +74,6 @@ from .library_updater import (
 )
 from .store import (
     async_get_registry,
-)
-
-from .const import (
-    DOMAIN,
-    DOMAIN_CONFIG,
-    PLATFORMS,
-    CONF_ENABLE_AUTODISCOVERY,
-    CONF_USER_LIBRARY,
-    DATA,
-    DATA_LIBRARY_UPDATER,
-    CONF_SHOW_ALL_DEVICES,
-    CONF_ENABLE_REPLACED,
-    CONF_DEFAULT_BATTERY_LOW_THRESHOLD,
-    CONF_BATTERY_INCREASE_THRESHOLD,
-    CONF_HIDE_BATTERY,
-    CONF_ROUND_BATTERY,
-    DEFAULT_BATTERY_LOW_THRESHOLD,
-    DEFAULT_BATTERY_INCREASE_THRESHOLD,
-    SERVICE_BATTERY_REPLACED,
-    SERVICE_BATTERY_REPLACED_SCHEMA,
-    SERVICE_DATA_DATE_TIME_REPLACED,
-    SERVICE_CHECK_BATTERY_LAST_REPORTED,
-    SERVICE_DATA_DAYS_LAST_REPORTED,
-    SERVICE_CHECK_BATTERY_LAST_REPORTED_SCHEMA,
-    SERVICE_CHECK_BATTERY_LOW,
-    EVENT_BATTERY_NOT_REPORTED,
-    EVENT_BATTERY_THRESHOLD,
-    DATA_STORE,
-    ATTR_REMOVE,
-    ATTR_DEVICE_ID,
-    ATTR_SOURCE_ENTITY_ID,
-    ATTR_DEVICE_NAME,
-    ATTR_BATTERY_TYPE_AND_QUANTITY,
-    ATTR_BATTERY_TYPE,
-    ATTR_BATTERY_QUANTITY,
-    ATTR_BATTERY_LAST_REPORTED,
-    ATTR_BATTERY_LAST_REPORTED_DAYS,
-    ATTR_BATTERY_LAST_REPORTED_LEVEL,
-    ATTR_BATTERY_LEVEL,
-    ATTR_PREVIOUS_BATTERY_LEVEL,
-    ATTR_BATTERY_THRESHOLD_REMINDER,
-    ATTR_BATTERY_LOW,
-    CONF_BATTERY_TYPE,
-    CONF_BATTERY_QUANTITY,
-    MIN_HA_VERSION,
 )
 
 _LOGGER = logging.getLogger(__name__)
@@ -326,10 +323,7 @@ def register_services(hass: HomeAssistant):
 
                     return
 
-            _LOGGER.error(
-                "Entity %s not configured in Battery Notes",
-                source_entity_id
-            )
+            _LOGGER.error("Entity %s not configured in Battery Notes", source_entity_id)
 
         else:
             device_entry = device_registry.async_get(device_id)
@@ -383,12 +377,12 @@ def register_services(hass: HomeAssistant):
                 )
 
                 if time_since_lastreported.days > days_last_reported:
-
                     hass.bus.async_fire(
                         EVENT_BATTERY_NOT_REPORTED,
                         {
                             ATTR_DEVICE_ID: device.coordinator.device_id or "",
-                            ATTR_SOURCE_ENTITY_ID: device.coordinator.source_entity_id or "",
+                            ATTR_SOURCE_ENTITY_ID: device.coordinator.source_entity_id
+                            or "",
                             ATTR_DEVICE_NAME: device.coordinator.device_name,
                             ATTR_BATTERY_TYPE_AND_QUANTITY: device.coordinator.battery_type_and_quantity,
                             ATTR_BATTERY_TYPE: device.coordinator.battery_type,
@@ -411,27 +405,27 @@ def register_services(hass: HomeAssistant):
         device: BatteryNotesDevice
         for device in hass.data[DOMAIN][DATA].devices.values():
             if device.coordinator.battery_low is True:
+                hass.bus.async_fire(
+                    EVENT_BATTERY_THRESHOLD,
+                    {
+                        ATTR_DEVICE_ID: device.coordinator.device_id or "",
+                        ATTR_DEVICE_NAME: device.coordinator.device_name,
+                        ATTR_SOURCE_ENTITY_ID: device.coordinator.source_entity_id
+                        or "",
+                        ATTR_BATTERY_LOW: device.coordinator.battery_low,
+                        ATTR_BATTERY_TYPE_AND_QUANTITY: device.coordinator.battery_type_and_quantity,
+                        ATTR_BATTERY_TYPE: device.coordinator.battery_type,
+                        ATTR_BATTERY_QUANTITY: device.coordinator.battery_quantity,
+                        ATTR_BATTERY_LEVEL: device.coordinator.rounded_battery_level,
+                        ATTR_PREVIOUS_BATTERY_LEVEL: device.coordinator.rounded_previous_battery_level,
+                        ATTR_BATTERY_THRESHOLD_REMINDER: True,
+                    },
+                )
 
-                    hass.bus.async_fire(
-                        EVENT_BATTERY_THRESHOLD,
-                        {
-                            ATTR_DEVICE_ID: device.coordinator.device_id or "",
-                            ATTR_DEVICE_NAME: device.coordinator.device_name,
-                            ATTR_SOURCE_ENTITY_ID: device.coordinator.source_entity_id or "",
-                            ATTR_BATTERY_LOW: device.coordinator.battery_low,
-                            ATTR_BATTERY_TYPE_AND_QUANTITY: device.coordinator.battery_type_and_quantity,
-                            ATTR_BATTERY_TYPE: device.coordinator.battery_type,
-                            ATTR_BATTERY_QUANTITY: device.coordinator.battery_quantity,
-                            ATTR_BATTERY_LEVEL: device.coordinator.rounded_battery_level,
-                            ATTR_PREVIOUS_BATTERY_LEVEL: device.coordinator.rounded_previous_battery_level,
-                            ATTR_BATTERY_THRESHOLD_REMINDER: True,
-                        },
-                    )
-
-                    _LOGGER.debug(
-                        "Raised event device %s battery low",
-                        device.coordinator.device_id,
-                    )
+                _LOGGER.debug(
+                    "Raised event device %s battery low",
+                    device.coordinator.device_id,
+                )
 
     hass.services.async_register(
         DOMAIN,
