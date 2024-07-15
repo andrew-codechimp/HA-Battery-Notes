@@ -48,7 +48,7 @@
         },
         "error": {
             "unknown": "Произошла неизвестная ошибка.",
-            "unconfigurable_entity": "It is not possible to add this entity to Battery Notes."
+            "unconfigurable_entity": "Невозможно добавить этот элемент в Battery Notes."
         }
     },
     "options": {
