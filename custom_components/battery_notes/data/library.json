@@ -5793,6 +5793,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Husqvarna AB",
+            "model": "TBD",
+            "battery_type": "9V"
         }
     ]
 }
