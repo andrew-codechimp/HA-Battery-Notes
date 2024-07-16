@@ -5798,6 +5798,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Vibration sensor (TS0210)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
