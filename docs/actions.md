@@ -8,9 +8,9 @@ See how to use this action in the [community contributions](./community.md)
 
 | Data attribute           | Optional | Description                                                                                                           |
 | ------------------------ | -------- | --------------------------------------------------------------------------------------------------------------------- |
-| `data.device_id`      | `yes`    | The device id that you want to change the battery replaced date for. |
-| `data.source_entity_id`      | `yes`    | The entity id that you want to change the battery replaced date for (only used for entity associated battery notes). |
-| `data.datetime_replaced` | `yes`    | The optional datetime that you want to set the battery replaced to, if omitted the current date/time will be used. |
+| `device_id`      | `yes`    | The device id that you want to change the battery replaced date for. |
+| `source_entity_id`      | `yes`    | The entity id that you want to change the battery replaced date for (only used for entity associated battery notes). |
+| `datetime_replaced` | `yes`    | The optional datetime that you want to set the battery replaced to, if omitted the current date/time will be used. |
 
 You must specify either a device_id or entity_id, entity_id will be used in preference if both are specified.  This allows the action to work with battery notes associated with both a device and also an individual entity, whether it is part of a device or not.
 
@@ -26,7 +26,7 @@ See how to use this action in the [community contributions](./community.md)
 
 | Data attribute           | Optional | Description                                                                                                           |
 | ------------------------ | -------- | --------------------------------------------------------------------------------------------------------------------- |
-| `data.days_last_reported`      | `no`    |  The number of days since a device last reported its battery level. |
+| `days_last_reported`      | `no`    |  The number of days since a device last reported its battery level. |
 
 ## battery_notes.check_battery_low
 
