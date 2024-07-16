@@ -847,6 +847,11 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Aubess",
+            "model": "Water leak sensor (IH-K665)",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "August",
             "model": "AUG-SL03-C02-S03",
             "battery_type": "AA",
@@ -5804,11 +5809,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Aubess",
-            "model": "Water leak sensor (IH-K665)",
-            "battery_type": "CR2032"
         }
     ]
 }
