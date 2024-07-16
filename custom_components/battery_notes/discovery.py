@@ -56,12 +56,13 @@ async def get_model_information(
 
     manufacturer = device_entry.manufacturer
     model = device_entry.model
+    model_id = device_entry.model if hasattr(device_entry, "model_id") else None
     hw_version = device_entry.hw_version
 
     if not manufacturer or not model:
         return None
 
-    return ModelInfo(manufacturer, model, hw_version)
+    return ModelInfo(manufacturer, model, model_id, hw_version)
 
 
 class DiscoveryManager:

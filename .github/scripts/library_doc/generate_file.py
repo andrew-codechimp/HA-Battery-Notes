@@ -37,10 +37,12 @@ def generate_device_list():
         else:
             battery_type_qty = device["battery_type"]
 
+        model = device['model']
+        if "model_id" in device:
+            model = f"{model} ({device['model_id']})"
         if "hw_version" in device:
-            model = f"{device['model']} ({device['hw_version']})"
-        else:
-            model = device['model']
+            model = f"{model} ({device['hw_version']})"
+
 
         row = [
             device['manufacturer'],

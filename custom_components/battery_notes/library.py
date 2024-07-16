@@ -1,20 +1,18 @@
 """Battery Type library for battery_notes."""
 from __future__ import annotations
 
-from typing import Any, cast
-
 import json
 import logging
 import os
-from typing import NamedTuple
+from typing import Any, NamedTuple, cast
 
 from homeassistant.core import HomeAssistant
 
 from .const import (
-    DOMAIN,
-    DATA_LIBRARY,
-    DOMAIN_CONFIG,
     CONF_USER_LIBRARY,
+    DATA_LIBRARY,
+    DOMAIN,
+    DOMAIN_CONFIG,
 )
 
 BUILT_IN_DATA_DIRECTORY = os.path.join(os.path.dirname(__file__), "data")
@@ -147,8 +145,51 @@ class Library:  # pylint: disable=too-few-public-methods
                 )
                 return device_battery_details
 
+            # If a model_id is present try find that first
+            elif model_info.model_id:
+                matching_devices = []
+
+                # Find all devices that match the manufacturer and model
+                for device in self._devices:
+                    if (
+                        str(device["manufacturer"] or "").casefold()
+                        == str(model_info.manufacturer or "").casefold()
+                        and str(device["model"] or "").casefold()
+                        == str(model_info.model or "").casefold()
+                    ):
+                        matching_devices.append(device)
+
+                if matching_devices is None or not matching_devices or len(matching_devices) == 0:
+                    return None
+
+                # Check if any matching devices have specified model_id
+                for device in matching_devices:
+                    if device.get("model_id", "").casefold() == str(model_info.model_id or "").casefold():
+                        matched_device = device
+                        device_battery_details = DeviceBatteryDetails(
+                            manufacturer=matched_device["manufacturer"],
+                            model=matched_device["model"],
+                            model_id = matched_device["model_id"],
+                            hw_version=matched_device["hw_version"],
+                            battery_type=matched_device["battery_type"],
+                            battery_quantity=matched_device.get("battery_quantity", 1),
+                        )
+                        break
+                else:
+                    # Return first item in list, the non hw_version one
+                    matched_device = matching_devices[0]
+
+                device_battery_details = DeviceBatteryDetails(
+                    manufacturer=matched_device["manufacturer"],
+                    model=matched_device["model"],
+                    model_id=matched_device.get["model_id", None],
+                    hw_version=matched_device.get("hw_version", None),
+                    battery_type=matched_device["battery_type"],
+                    battery_quantity=matched_device.get("battery_quantity", 1),
+                )
+                return device_battery_details
             else:
-                # For devices that don't have hw_version
+                # For devices that don't have hw_version or model_id
                 for device in self._devices:
                     if (
                         str(device["manufacturer"] or "").casefold()
@@ -159,6 +200,7 @@ class Library:  # pylint: disable=too-few-public-methods
                         device_battery_details = DeviceBatteryDetails(
                             manufacturer=device["manufacturer"],
                             model=device["model"],
+                            model_id=device.get("model_id", None),
                             hw_version=device.get("hw_version", None),
                             battery_type=device["battery_type"],
                             battery_quantity=device.get("battery_quantity", 1),
@@ -177,6 +219,7 @@ class DeviceBatteryDetails(NamedTuple):
 
     manufacturer: str
     model: str
+    model_id: str
     hw_version: str
     battery_type: str
     battery_quantity: int
@@ -209,4 +252,5 @@ class ModelInfo(NamedTuple):
 
     manufacturer: str
     model: str
+    model_id: str
     hw_version: str
