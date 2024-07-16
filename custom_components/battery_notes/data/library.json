@@ -4923,6 +4923,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Tuya",
+            "model": "Vibration sensor (TS0210)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "TuYa",
             "model": "Water leak detector (TS0207_water_leak_detector)",
             "battery_type": "CR2032"
@@ -5798,12 +5804,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Vibration sensor (TS0210)",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
