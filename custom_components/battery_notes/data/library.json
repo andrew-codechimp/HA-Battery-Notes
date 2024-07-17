@@ -5809,6 +5809,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Signify Netherlands B.V.",
+            "model": "Hue secure contact sensor (SOC001)",
+            "battery_type": "CR2 Lithium"
         }
     ]
 }
