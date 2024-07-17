@@ -106,8 +106,8 @@ jobs:
             This pull request ${{ steps.update-json.outputs.mode }} the device information for:
             Manufacturer: ${{ steps.update-json.outputs.manufacturer }}
             Model: ${{ steps.update-json.outputs.model }}
-            Model ID: ${{ steps.update-json.outputs.model_id }} 
-            HW Version: ${{ steps.update-json.outputs.hw_version }}
+            Model ID: ${{ steps.update-json.outputs.model_id }}
+            Hardware: ${{ steps.update-json.outputs.hw_version }}
             Battery: ${{ steps.update-json.outputs.bqt }}
             It closes issue #${{ github.event.issue.number }}
           branch: "device-${{ steps.update-json.outputs.branch }}"

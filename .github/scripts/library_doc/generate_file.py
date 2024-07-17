@@ -28,7 +28,7 @@ def generate_device_list():
         "Manufacturer",
         "Model",
         "Model ID",
-        "HW Version",
+        "Hardware",
         "Battery Type",
     ]
 
