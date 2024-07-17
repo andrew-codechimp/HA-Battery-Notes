@@ -16,8 +16,8 @@ Upon submission using the form above GitHub will attempt to make the required co
 
 Fork the repository, add your device details to the JSON document `custom_components/battery_notes/data/library.json`, and then submit a pull request. Do not enable GitHub Actions (disabled by default) as this will mess with the pull request and are unnecessary for a library submission.
 
-* The manufacturer and model should be exactly what is displayed on the Device screen within Home Assistant.
-* The make & model names may be different between integrations such as Zigbee2MQTT and ZHA, if you see a similar device please duplicate the entry rather than changing it.
+* The manufacturer and model should be exactly what is displayed on the Device screen within Home Assistant. If the Device screen has a Model ID or Hardware then these should be included as well.
+* The manufacturer & model names may be different between integrations such as Zigbee2MQTT and ZHA, if you see a similar device please duplicate the entry rather than changing it.
 * Please keep devices in alphabetical order by manufacturer/model.
 * The `battery_quantity` data is numeric (no quotes) and optional. If a device only requires a single battery, it should be omitted.
 * The `battery_type` data should follow the most common naming for general batteries (ex. AAA, D) and the IEC naming for battery cells according to [Wikipedia](https://en.wikipedia.org/wiki/List_of_battery_sizes) (ex. CR2032, 18650)
@@ -30,7 +30,8 @@ For the example image below, your JSON entry will look like this:
 ```
 {
     "manufacturer": "Philips",
-    "model": "Hue motion sensor (9290012607)",
+    "model": "Hue motion sensor",
+    "model_id": "9290012607", < Optional, only add it if your device shows it.
     "hw_version": "Some specific hardware detail", < Optional, only use if two devices have the same model and the hw_version are different.
     "battery_type": "AAA",
     "battery_quantity": 2  < Only use if more than 1 battery
