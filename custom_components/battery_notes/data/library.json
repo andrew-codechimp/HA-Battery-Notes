@@ -5562,6 +5562,12 @@
         },
         {
             "manufacturer": "Xiaomi",
+            "model": "MJYD02YL",
+            "battery_type": "AA",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "Xiaomi",
             "model": "RTCGQ01LM",
             "battery_type": "CR2450"
         },
@@ -5819,12 +5825,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Xiaomi",
-            "model": "MJYD02YL",
-            "battery_type": "AA",
-            "battery_quantity": 3
         }
     ]
 }
