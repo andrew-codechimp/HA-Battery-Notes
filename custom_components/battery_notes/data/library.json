@@ -4726,6 +4726,12 @@
         },
         {
             "manufacturer": "Tuya",
+            "model": "SGS01 (gvygg3m8)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tuya",
             "model": "R459",
             "battery_type": "AAA",
             "battery_quantity": 2
