@@ -1,4 +1,4 @@
-## 1081 Devices in library
+## 1082 Devices in library
 
 This file is auto generated, do not modify
 
@@ -796,6 +796,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Sonos                                           |Roam                                                                       |Rechargeable                       |
 |Springs Window Fashions                         |BRZ1                                                                       |CR2430                             |
 |Springs Window Fashions                         |CSZ1                                                                       |8× AA                              |
+|Springs Window Fashions                         |MCZ1                                                                       |2× AAA                             |
 |Springs Window Fashions                         |VCZ1                                                                       |CR2439                             |
 |Sure Petcare                                    |Cat flap                                                                   |4× AA                              |
 |Sure Petcare                                    |Felaqua                                                                    |4× C                               |

@@ -4279,6 +4279,12 @@
         },
         {
             "manufacturer": "Springs Window Fashions",
+            "model": "MCZ1",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Springs Window Fashions",
             "model": "VCZ1",
             "battery_type": "CR2439"
         },
@@ -5847,12 +5853,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Springs Window Fashions",
-            "model": "MCZ1",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
