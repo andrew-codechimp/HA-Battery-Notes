@@ -1,4 +1,4 @@
-## 1079 Devices in library
+## 1080 Devices in library
 
 This file is auto generated, do not modify
 
@@ -795,6 +795,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |SONOFF                                          |Zigbee thermostatic radiator valve (TRVZB)                                 |3× AA                              |
 |Sonos                                           |Roam                                                                       |Rechargeable                       |
 |Springs Window Fashions                         |BRZ1                                                                       |CR2430                             |
+|Springs Window Fashions                         |CSZ1                                                                       |8× AA                              |
 |Sure Petcare                                    |Cat flap                                                                   |4× AA                              |
 |Sure Petcare                                    |Felaqua                                                                    |4× C                               |
 |Sure Petcare                                    |Pet flap                                                                   |4× C                               |
