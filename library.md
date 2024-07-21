@@ -1,4 +1,4 @@
-## 1085 Devices in library
+## 1086 Devices in library
 
 This file is auto generated, do not modify
 
@@ -753,6 +753,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |SMaBiT (Bitron Video)                           |Compact magnetic contact sensor (AV2010/21A)                               |CR2                                |
 |smarthjemmet.dk                                 |[Multi switch from Smarthjemmet.dk](https://smarthjemmet.dk) (MULTI-ZIG-SW)|CR2032                             |
 |SmartLabs, Inc                                  |2844-222 (0x10, 0x16)                                                      |9-volt                             |
+|SmartLabs, Inc                                  |2845-222 (0x10, 0x11)                                                      |AAA                                |
 |smartlife                                       |T & H Sensor (lf36y5nwb8jkxwgg)                                            |2× AAA                             |
 |SmartThings                                     |3305-S                                                                     |123A                               |
 |SmartThings                                     |Button (IM6001-BTP01)                                                      |CR2450                             |

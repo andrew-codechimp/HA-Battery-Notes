@@ -4053,6 +4053,11 @@
             "battery_type": "9-volt"
         },
         {
+            "manufacturer": "SmartLabs, Inc",
+            "model": "2845-222 (0x10, 0x11)",
+            "battery_type": "AAA"
+        },
+        {
             "manufacturer": "smartlife",
             "model": "T & H Sensor (lf36y5nwb8jkxwgg)",
             "battery_type": "AAA",
@@ -5870,11 +5875,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "SmartLabs, Inc",
-            "model": "2845-222 (0x10, 0x11)",
-            "battery_type": "AAA"
         }
     ]
 }
