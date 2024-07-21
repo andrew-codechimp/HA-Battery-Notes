@@ -5836,6 +5836,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "SmartLabs, Inc",
+            "model": "2844-222 (0x10, 0x16)",
+            "battery_type": "9-volt"
         }
     ]
 }
