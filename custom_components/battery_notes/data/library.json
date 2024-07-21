@@ -5853,6 +5853,11 @@
             "model": "MCZ1",
             "battery_type": "AAA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "SmartLabs, Inc",
+            "model": "2842-222 (0x10, 0x01)",
+            "battery_type": "9-volt"
         }
     ]
 }
