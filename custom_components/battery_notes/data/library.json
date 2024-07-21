@@ -5842,6 +5842,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Springs Window Fashions",
+            "model": "VCZ1",
+            "battery_type": "CR2439"
         }
     ]
 }
