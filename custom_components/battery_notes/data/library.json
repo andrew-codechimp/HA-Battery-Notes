@@ -4070,6 +4070,11 @@
             "battery_type": "AAA"
         },
         {
+            "manufacturer": "SmartLabs_Inc",
+            "model": "2842_222_0x10_0x01",
+            "battery_type": "PP3"
+        },
+        {
             "manufacturer": "smartlife",
             "model": "T & H Sensor (lf36y5nwb8jkxwgg)",
             "battery_type": "AAA",
@@ -5887,11 +5892,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "SmartLabs_Inc",
-            "model": "2842_222_0x10_0x01",
-            "battery_type": "PP3"
         }
     ]
 }
