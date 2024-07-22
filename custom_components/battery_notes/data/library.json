@@ -2967,12 +2967,6 @@
         },
         {
             "manufacturer": "Moes",
-            "model": "Thermostatic radiator valve (BRT-100-TRV)",
-            "battery_type": "AA",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Moes",
             "model": "Thermostat radiator valve (TV01-ZB)",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -2980,6 +2974,12 @@
         {
             "manufacturer": "Moes",
             "model": "Thermostat radiator valve (ZTRV-ZX-TV01-MS)",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Moes",
+            "model": "Thermostatic radiator valve (BRT-100-TRV)",
             "battery_type": "AA",
             "battery_quantity": 2
         },

@@ -1,4 +1,4 @@
-## 1086 Devices in library
+## 1088 Devices in library
 
 This file is auto generated, do not modify
 
@@ -552,6 +552,8 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Moes                                            |Door/window magnetic sensor (ZSS-X-GWM-C)                                  |CR2032                             |
 |Moes                                            |kvwjujy9                                                                   |CR2032                             |
 |Moes                                            |Smoke sensor (ZSS-HM-SSD01)                                                |CR123A                             |
+|Moes                                            |Thermostat radiator valve (TV01-ZB)                                        |2× AA                              |
+|Moes                                            |Thermostat radiator valve (ZTRV-ZX-TV01-MS)                                |2× AA                              |
 |Moes                                            |Thermostatic radiator valve (BRT-100-TRV)                                  |2× AA                              |
 |Moes                                            |Universal smart IR remote control (UFO-R11)                                |2× AAA                             |
 |Mopeka IOT                                      |M1015                                                                      |AAA-Lithium                        |
