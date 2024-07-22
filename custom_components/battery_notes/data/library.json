@@ -2973,6 +2973,18 @@
         },
         {
             "manufacturer": "Moes",
+            "model": "Thermostat radiator valve (TV01-ZB)",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Moes",
+            "model": "Thermostat radiator valve (ZTRV-ZX-TV01-MS)",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Moes",
             "model": "Universal smart IR remote control (UFO-R11)",
             "battery_type": "AAA",
             "battery_quantity": 2
