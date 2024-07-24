@@ -1742,6 +1742,11 @@
         },
         {
             "manufacturer": "Eufy Security",
+            "model": "T8210C",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Eufy Security",
             "model": "T8213",
             "battery_type": "Rechargeable"
         },
@@ -5897,11 +5902,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Eufy Security",
-            "model": "T8210C",
-            "battery_type": "Rechargeable"
         }
     ]
 }
