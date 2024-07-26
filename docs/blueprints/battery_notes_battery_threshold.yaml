@@ -14,7 +14,7 @@ blueprint:
         boolean:
     high_notification:
       name: Remove Low Notification
-      description: Remove the persistent notification when the battery is no longer low. Use any event data via trigger.event.data.xxx
+      description: Remove the persistent notification when the battery is no longer low.
       default: True
       selector:
         boolean:

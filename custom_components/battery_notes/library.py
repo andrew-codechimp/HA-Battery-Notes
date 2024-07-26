@@ -97,110 +97,141 @@ class Library:  # pylint: disable=too-few-public-methods
 
     async def get_device_battery_details(
         self,
-        model_info: ModelInfo,
+        device_to_find: ModelInfo,
     ) -> DeviceBatteryDetails | None:
         """Create a battery details object from the JSON devices data."""
 
-        if self._devices is not None:
+        if self._devices is None:
+            return None
 
-            # If a hw_version is present try find that first
-            if model_info.hw_version:
-                matching_devices = []
+        # Get all devices matching manufacturer & model
+        matching_devices = []
 
-                # Find all devices that match the manufacturer and model
-                for device in self._devices:
-                    if self.devices_match(device, model_info):
-                        matching_devices.append(device)
+        # matching_devices = [x for x in self._devices if self.devices_basic_match(x, device_to_find)]
+        for device in self._devices:
+            if self.device_basic_match(device, device_to_find):
+                matching_devices.append(device)
 
-                if matching_devices is None or not matching_devices or len(matching_devices) == 0:
-                    return None
+        if len(matching_devices) > 1:
+            matching_devices = [x for x in matching_devices if self.device_partial_match(x, device_to_find)]
 
-                # Check if any matching devices have specified hw_version
-                for device in matching_devices:
-                    if device.get("hw_version", "").casefold() == str(model_info.hw_version or "").casefold():
-                        matched_device = device
-                        device_battery_details = DeviceBatteryDetails(
-                            manufacturer=matched_device["manufacturer"],
-                            model=matched_device["model"],
-                            hw_version=matched_device["hw_version"],
-                            battery_type=matched_device["battery_type"],
-                            battery_quantity=matched_device.get("battery_quantity", 1),
-                        )
-                        break
-                else:
-                    # Return first item in list, the non hw_version one
-                    matched_device = matching_devices[0]
+        if len(matching_devices) > 1:
+            fully_matching_devices = [x for x in matching_devices if self.device_full_match(x, device_to_find)]
 
-                device_battery_details = DeviceBatteryDetails(
+        if len(fully_matching_devices) > 0:
+            matching_devices = fully_matching_devices
+
+        if len(matching_devices) == 0:
+            return None
+
+        matched_device = matching_devices[0]
+        return DeviceBatteryDetails(
                     manufacturer=matched_device["manufacturer"],
                     model=matched_device["model"],
-                    hw_version=matched_device.get("hw_version", None),
+                    model_id=matched_device["model_id"],
+                    hw_version=matched_device["hw_version"],
                     battery_type=matched_device["battery_type"],
                     battery_quantity=matched_device.get("battery_quantity", 1),
                 )
-                return device_battery_details
 
-            # If a model_id is present try find that first
-            elif model_info.model_id:
-                matching_devices = []
 
-                # Find all devices that match the manufacturer and model
-                for device in self._devices:
-                    if self.devices_match(device, model_info):
-                        matching_devices.append(device)
 
-                if matching_devices is None or not matching_devices or len(matching_devices) == 0:
-                    return None
+        # # If a hw_version is present try find that first
+        # if device_to_find.hw_version:
+        #     matching_devices = []
 
-                # Check if any matching devices have specified model_id
-                for device in matching_devices:
-                    if device.get("model_id", "").casefold() == str(model_info.model_id or "").casefold():
-                        matched_device = device
-                        device_battery_details = DeviceBatteryDetails(
-                            manufacturer=matched_device["manufacturer"],
-                            model=matched_device["model"],
-                            model_id = matched_device["model_id"],
-                            hw_version=matched_device["hw_version"],
-                            battery_type=matched_device["battery_type"],
-                            battery_quantity=matched_device.get("battery_quantity", 1),
-                        )
-                        break
-                else:
-                    # Return first item in list, the non model_id one
-                    matched_device = matching_devices[0]
+        #     # Find all devices that match the manufacturer and model
+        #     for device in self._devices:
+        #         if self.devices_basic_match(device, device_to_find):
+        #             matching_devices.append(device)
 
-                device_battery_details = DeviceBatteryDetails(
-                    manufacturer=matched_device["manufacturer"],
-                    model=matched_device["model"],
-                    model_id=matched_device.get["model_id", None],
-                    hw_version=matched_device.get("hw_version", None),
-                    battery_type=matched_device["battery_type"],
-                    battery_quantity=matched_device.get("battery_quantity", 1),
-                )
-                return device_battery_details
-            else:
-                # For devices that don't have hw_version or model_id
-                for device in self._devices:
-                    if self.devices_match(device, model_info):
-                        device_battery_details = DeviceBatteryDetails(
-                            manufacturer=device["manufacturer"],
-                            model=device["model"],
-                            model_id=device.get("model_id", None),
-                            hw_version=device.get("hw_version", None),
-                            battery_type=device["battery_type"],
-                            battery_quantity=device.get("battery_quantity", 1),
-                        )
-                        return device_battery_details
+        #     if matching_devices is None or not matching_devices or len(matching_devices) == 0:
+        #         return None
 
-        return None
+        #     # Check if any matching devices have specified hw_version
+        #     for device in matching_devices:
+        #         if device.get("hw_version", "").casefold() == str(device_to_find.hw_version or "").casefold():
+        #             matched_device = device
+        #             device_battery_details = DeviceBatteryDetails(
+        #                 manufacturer=matched_device["manufacturer"],
+        #                 model=matched_device["model"],
+        #                 hw_version=matched_device["hw_version"],
+        #                 battery_type=matched_device["battery_type"],
+        #                 battery_quantity=matched_device.get("battery_quantity", 1),
+        #             )
+        #             break
+        #     else:
+        #         # Return first item in list, the non hw_version one
+        #         matched_device = matching_devices[0]
+
+        #     device_battery_details = DeviceBatteryDetails(
+        #         manufacturer=matched_device["manufacturer"],
+        #         model=matched_device["model"],
+        #         hw_version=matched_device.get("hw_version", None),
+        #         battery_type=matched_device["battery_type"],
+        #         battery_quantity=matched_device.get("battery_quantity", 1),
+        #     )
+        #     return device_battery_details
+
+        # # If a model_id is present try find that first
+        # elif device_to_find.model_id:
+        #     matching_devices = []
+
+        #     # Find all devices that match the manufacturer and model
+        #     for device in self._devices:
+        #         if self.devices_basic_match(device, device_to_find):
+        #             matching_devices.append(device)
+
+        #     if matching_devices is None or not matching_devices or len(matching_devices) == 0:
+        #         return None
+
+        #     # Check if any matching devices have specified model_id
+        #     for device in matching_devices:
+        #         if device.get("model_id", "").casefold() == str(device_to_find.model_id or "").casefold():
+        #             matched_device = device
+        #             device_battery_details = DeviceBatteryDetails(
+        #                 manufacturer=matched_device["manufacturer"],
+        #                 model=matched_device["model"],
+        #                 model_id = matched_device["model_id"],
+        #                 hw_version=matched_device["hw_version"],
+        #                 battery_type=matched_device["battery_type"],
+        #                 battery_quantity=matched_device.get("battery_quantity", 1),
+        #             )
+        #             break
+        #     else:
+        #         # Return first item in list, the non model_id one
+        #         matched_device = matching_devices[0]
+
+        #     device_battery_details = DeviceBatteryDetails(
+        #         manufacturer=matched_device["manufacturer"],
+        #         model=matched_device["model"],
+        #         model_id=matched_device.get["model_id", None],
+        #         hw_version=matched_device.get("hw_version", None),
+        #         battery_type=matched_device["battery_type"],
+        #         battery_quantity=matched_device.get("battery_quantity", 1),
+        #     )
+        #     return device_battery_details
+        # else:
+        #     # For devices that don't have hw_version or model_id
+        #     for device in self._devices:
+        #         if self.devices_basic_match(device, device_to_find):
+        #             device_battery_details = DeviceBatteryDetails(
+        #                 manufacturer=device["manufacturer"],
+        #                 model=device["model"],
+        #                 model_id=device.get("model_id", None),
+        #                 hw_version=device.get("hw_version", None),
+        #                 battery_type=device["battery_type"],
+        #                 battery_quantity=device.get("battery_quantity", 1),
+        #             )
+        #             return device_battery_details
 
 
     def loaded(self) -> bool:
         """Library loaded successfully."""
         return self._devices is not None
 
-    def devices_match(device, model_info: ModelInfo) -> bool:
-        """Check if devices match."""
+    def device_basic_match(device: dict[str, Any], model_info: ModelInfo) -> bool:
+        """Check if device match on manufacturer and model."""
         if (
             str(device["manufacturer"] or "").casefold()
             == str(model_info.manufacturer or "").casefold()
@@ -210,6 +241,25 @@ class Library:  # pylint: disable=too-few-public-methods
             return True
         return False
 
+    def device_partial_match(device: dict[str, Any], model_info: ModelInfo) -> bool:
+        """Check if device match on hw_version or model_id."""
+        if (
+            device.get("hw_version", "").casefold() == str(model_info.hw_version or "").casefold()
+            or
+            device.get("model_id", "").casefold() == str(model_info.model_id or "").casefold()
+        ):
+            return True
+        return False
+
+    def device_full_match(device: dict[str, Any], model_info: ModelInfo) -> bool:
+        """Check if device match on hw_version and model_id."""
+        if (
+            device.get("hw_version", "").casefold() == str(model_info.hw_version or "").casefold()
+            and
+            device.get("model_id", "").casefold() == str(model_info.model_id or "").casefold()
+        ):
+            return True
+        return False
 
 class DeviceBatteryDetails(NamedTuple):
     """Describes a device battery type."""
