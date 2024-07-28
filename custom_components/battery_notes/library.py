@@ -121,9 +121,6 @@ class Library:  # pylint: disable=too-few-public-methods
         fully_matching_devices = None
 
         matching_devices = [x for x in self._devices if self.device_basic_match(x, device_to_find)]
-        # for device in self._devices:
-        #     if self.device_basic_match(device, device_to_find):
-        #         matching_devices.append(device)
 
         if matching_devices and len(matching_devices) > 1:
             matching_devices = [
@@ -152,95 +149,6 @@ class Library:  # pylint: disable=too-few-public-methods
             battery_type=matched_device["battery_type"],
             battery_quantity=matched_device.get("battery_quantity", 1),
         )
-
-        # # If a hw_version is present try find that first
-        # if device_to_find.hw_version:
-        #     matching_devices = []
-
-        #     # Find all devices that match the manufacturer and model
-        #     for device in self._devices:
-        #         if self.devices_basic_match(device, device_to_find):
-        #             matching_devices.append(device)
-
-        #     if matching_devices is None or not matching_devices or len(matching_devices) == 0:
-        #         return None
-
-        #     # Check if any matching devices have specified hw_version
-        #     for device in matching_devices:
-        #         if device.get("hw_version", "").casefold() == str(device_to_find.hw_version or "").casefold():
-        #             matched_device = device
-        #             device_battery_details = DeviceBatteryDetails(
-        #                 manufacturer=matched_device["manufacturer"],
-        #                 model=matched_device["model"],
-        #                 hw_version=matched_device["hw_version"],
-        #                 battery_type=matched_device["battery_type"],
-        #                 battery_quantity=matched_device.get("battery_quantity", 1),
-        #             )
-        #             break
-        #     else:
-        #         # Return first item in list, the non hw_version one
-        #         matched_device = matching_devices[0]
-
-        #     device_battery_details = DeviceBatteryDetails(
-        #         manufacturer=matched_device["manufacturer"],
-        #         model=matched_device["model"],
-        #         hw_version=matched_device.get("hw_version", None),
-        #         battery_type=matched_device["battery_type"],
-        #         battery_quantity=matched_device.get("battery_quantity", 1),
-        #     )
-        #     return device_battery_details
-
-        # # If a model_id is present try find that first
-        # elif device_to_find.model_id:
-        #     matching_devices = []
-
-        #     # Find all devices that match the manufacturer and model
-        #     for device in self._devices:
-        #         if self.devices_basic_match(device, device_to_find):
-        #             matching_devices.append(device)
-
-        #     if matching_devices is None or not matching_devices or len(matching_devices) == 0:
-        #         return None
-
-        #     # Check if any matching devices have specified model_id
-        #     for device in matching_devices:
-        #         if device.get("model_id", "").casefold() == str(device_to_find.model_id or "").casefold():
-        #             matched_device = device
-        #             device_battery_details = DeviceBatteryDetails(
-        #                 manufacturer=matched_device["manufacturer"],
-        #                 model=matched_device["model"],
-        #                 model_id = matched_device["model_id"],
-        #                 hw_version=matched_device["hw_version"],
-        #                 battery_type=matched_device["battery_type"],
-        #                 battery_quantity=matched_device.get("battery_quantity", 1),
-        #             )
-        #             break
-        #     else:
-        #         # Return first item in list, the non model_id one
-        #         matched_device = matching_devices[0]
-
-        #     device_battery_details = DeviceBatteryDetails(
-        #         manufacturer=matched_device["manufacturer"],
-        #         model=matched_device["model"],
-        #         model_id=matched_device.get["model_id", None],
-        #         hw_version=matched_device.get("hw_version", None),
-        #         battery_type=matched_device["battery_type"],
-        #         battery_quantity=matched_device.get("battery_quantity", 1),
-        #     )
-        #     return device_battery_details
-        # else:
-        #     # For devices that don't have hw_version or model_id
-        #     for device in self._devices:
-        #         if self.devices_basic_match(device, device_to_find):
-        #             device_battery_details = DeviceBatteryDetails(
-        #                 manufacturer=device["manufacturer"],
-        #                 model=device["model"],
-        #                 model_id=device.get("model_id", None),
-        #                 hw_version=device.get("hw_version", None),
-        #                 battery_type=device["battery_type"],
-        #                 battery_quantity=device.get("battery_quantity", 1),
-        #             )
-        #             return device_battery_details
 
     def loaded(self) -> bool:
         """Library loaded successfully."""
