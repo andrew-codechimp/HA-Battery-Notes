@@ -1,4 +1,4 @@
-## 1094 Devices in library
+## 1095 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1087,6 +1087,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |YoLink                                          |THSensor                                                                   |2× AAA                             |
 |YoLink                                          |VibrationSensor                                                            |2× AAA                             |
 |Yolink                                          |YS7103                                                                     |2× AA                              |
+|YRL256                                          |Yale                                                                       |4× AA                              |
 |Zipato                                          |HS1SA                                                                      |CR123A                             |
 |Zooz                                            |ZAC38                                                                      |Rechargeable                       |
 |Zooz                                            |ZEN34                                                                      |2× CR2032                          |
