@@ -4286,6 +4286,11 @@
         },
         {
             "manufacturer": "Sonoff",
+            "model": "SNZB-05P",
+            "battery_type": "CR2477"
+        },
+        {
+            "manufacturer": "Sonoff",
             "model": "Temperature and humidity sensor (SNZB-02)",
             "battery_type": "CR2450"
         },
@@ -5929,11 +5934,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Sonoff",
-            "model": "SNZB-05P",
-            "battery_type": "CR2477"
         }
     ]
 }
