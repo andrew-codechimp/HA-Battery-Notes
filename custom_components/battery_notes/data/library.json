@@ -5851,6 +5851,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "YRL256",
+            "model": "Yale",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
             "manufacturer": "Zipato",
             "model": "HS1SA",
             "battery_type": "CR123A"
@@ -5917,12 +5923,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "YRL256",
-            "model": "Yale",
-            "battery_type": "AA",
-            "battery_quantity": 4
         }
     ]
 }
