@@ -116,18 +116,25 @@ class Library:  # pylint: disable=too-few-public-methods
         if self._devices is None:
             return None
 
+        # Test only
+        # device_to_find = ModelInfo("Espressif", "m5stack-atom", None, None)
+
         # Get all devices matching manufacturer & model
         matching_devices = None
+        partial_matching_devices = None
         fully_matching_devices = None
 
         matching_devices = [x for x in self._devices if self.device_basic_match(x, device_to_find)]
 
         if matching_devices and len(matching_devices) > 1:
-            matching_devices = [
+            partial_matching_devices = [
                 x
                 for x in matching_devices
                 if self.device_partial_match(x, device_to_find)
             ]
+
+        if partial_matching_devices and len(partial_matching_devices) > 0:
+            matching_devices = partial_matching_devices
 
         if matching_devices and len(matching_devices) > 1:
             fully_matching_devices = [
@@ -167,22 +174,31 @@ class Library:  # pylint: disable=too-few-public-methods
 
     def device_partial_match(self, device: dict[str, Any], model_info: ModelInfo) -> bool:
         """Check if device match on hw_version or model_id."""
-        if (
-            device.get("hw_version", "").casefold()
-            == str(model_info.hw_version or "").casefold()
-            or device.get("model_id", "").casefold()
-            == str(model_info.model_id or "").casefold()
-        ):
-            return True
+        if model_info.hw_version is None or model_info.model_id is None:
+            if (
+                device.get("hw_version", "##MISSING##").casefold()
+                == str(model_info.hw_version).casefold()
+                and device.get("model_id", "##MISSING##").casefold()
+                == str(model_info.model_id).casefold()
+            ):
+                return True
+        else:
+            if (
+                device.get("hw_version", "##MISSING##").casefold()
+                == str(model_info.hw_version).casefold()
+                or device.get("model_id", "##MISSING##").casefold()
+                == str(model_info.model_id).casefold()
+            ):
+                return True
         return False
 
     def device_full_match(self, device: dict[str, Any], model_info: ModelInfo) -> bool:
         """Check if device match on hw_version and model_id."""
         if (
-            device.get("hw_version", "").casefold()
-            == str(model_info.hw_version or "").casefold()
-            and device.get("model_id", "").casefold()
-            == str(model_info.model_id or "").casefold()
+            device.get("hw_version", "##MISSING##").casefold()
+            == str(model_info.hw_version).casefold()
+            and device.get("model_id", "##MISSING##").casefold()
+            == str(model_info.model_id).casefold()
         ):
             return True
         return False
@@ -226,5 +242,5 @@ class ModelInfo(NamedTuple):
 
     manufacturer: str
     model: str
-    model_id: str
-    hw_version: str
+    model_id: str | None
+    hw_version: str | None
