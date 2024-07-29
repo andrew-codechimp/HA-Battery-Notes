@@ -3239,6 +3239,12 @@
         },
         {
             "manufacturer": "OpenEpaperLink",
+            "model": "M3 2.9\"",
+            "battery_type": "CR2450",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "OpenEpaperLink",
             "model": "ST\u2010GR16000 1.54\"",
             "battery_type": "CR2450"
         },
@@ -5923,12 +5929,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "OpenEpaperLink",
-            "model": "M3 2.9\"",
-            "battery_type": "CR2450",
-            "battery_quantity": 2
         }
     ]
 }

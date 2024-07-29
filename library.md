@@ -1,4 +1,4 @@
-## 1095 Devices in library
+## 1096 Devices in library
 
 This file is auto generated, do not modify
 
@@ -601,6 +601,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Onvis                                           |CT3                                                                        |CR2450                             |
 |Onvis                                           |HS2                                                                        |CR2450                             |
 |OpenEpaperLink                                  |M2 2.9                                                                     |2× CR2450                          |
+|OpenEpaperLink                                  |M3 2.9                                                                     |2× CR2450                          |
 |OpenEpaperLink                                  |ST‐GR16000 1.54                                                            |CR2450                             |
 |OpenEpaperLink                                  |ST‐GR29000 2.9                                                             |2× CR2450                          |
 |Oral-B                                          |Genius X                                                                   |Rechargeable                       |
