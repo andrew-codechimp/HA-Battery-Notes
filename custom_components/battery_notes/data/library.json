@@ -3830,6 +3830,11 @@
         },
         {
             "manufacturer": "Shelly",
+            "model": "gen1 (SHHT-1)",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Shelly",
             "model": "Shelly Button1",
             "battery_type": "Rechargable"
         },
@@ -3848,11 +3853,6 @@
             "manufacturer": "Shelly",
             "model": "Shelly H&T",
             "battery_type": "MANUAL"
-        },
-        {
-            "manufacturer": "Shelly",
-            "model": "gen1 (SHHT-1)",
-            "battery_type": "CR123A"
         },
         {
             "manufacturer": "Shelly",
