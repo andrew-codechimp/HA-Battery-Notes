@@ -3851,6 +3851,11 @@
         },
         {
             "manufacturer": "Shelly",
+            "model": "gen1 (SHHT-1)",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Shelly",
             "model": "Shelly Motion",
             "battery_type": "Rechargable"
         },
