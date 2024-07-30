@@ -5814,6 +5814,12 @@
             "battery_quantity": 4
         },
         {
+            "manufacturer": "Yale",
+            "model": "YRL256",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
             "manufacturer": "Yeelight",
             "model": "ble YLAI003",
             "battery_type": "CR2032"
@@ -5865,12 +5871,6 @@
             "model": "YS7103",
             "battery_type": "AA",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "YRL256",
-            "model": "Yale",
-            "battery_type": "AA",
-            "battery_quantity": 4
         },
         {
             "manufacturer": "Zipato",
