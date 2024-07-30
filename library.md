@@ -1081,6 +1081,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Yale                                            |YRD226 / YRC226 / YRC246 / YRD256 / YRC256 / YRD446                        |4× AA                              |
 |Yale                                            |YRD420-ZW3                                                                 |4× AA                              |
 |Yale                                            |YRD450-ZW3                                                                 |4× AA                              |
+|Yale                                            |YRL256                                                                     |4× AA                              |
 |Yeelight                                        |ble YLAI003                                                                |CR2032                             |
 |YoLink                                          |DoorSensor                                                                 |2× AAA                             |
 |YoLink                                          |LeakSensor                                                                 |2× AAA                             |
@@ -1090,7 +1091,6 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |YoLink                                          |THSensor                                                                   |2× AAA                             |
 |YoLink                                          |VibrationSensor                                                            |2× AAA                             |
 |Yolink                                          |YS7103                                                                     |2× AA                              |
-|YRL256                                          |Yale                                                                       |4× AA                              |
 |Zipato                                          |HS1SA                                                                      |CR123A                             |
 |Zooz                                            |ZAC38                                                                      |Rechargeable                       |
 |Zooz                                            |ZEN34                                                                      |2× CR2032                          |
