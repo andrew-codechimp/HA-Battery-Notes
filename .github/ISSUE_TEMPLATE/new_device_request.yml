@@ -45,7 +45,7 @@ body:
     id: hw-version
     attributes:
       label: Hardware
-      description: Only use if two devices have the same model and the hardware are different.
+      description: If the device has a Hardware shown in the Devices screen within Home Assistant it must be included.
       placeholder: ex. V7.2
     validations:
       required: false
