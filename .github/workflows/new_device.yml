@@ -48,9 +48,9 @@ jobs:
             # Add  numeric "battery_quantity" key if it's more than 1
             if numeric_quantity > 1:
               new_device["battery_quantity"] = numeric_quantity
-            if new_device["model_id"].strip() == "":
+            if new_device.get("model_id", "MISSING").strip() == "":
               del new_device["model_id"]
-            if new_device["hw_version"].strip() == "":
+            if new_device.get("hw_version", "MISSING").strip() == "":
               del new_device["hw_version"]
 
             # Check for duplicates and replace old entry with new one
