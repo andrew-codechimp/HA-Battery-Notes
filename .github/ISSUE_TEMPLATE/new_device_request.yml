@@ -33,7 +33,7 @@ body:
       required: true
 
   - type: input
-    id: model-id
+    id: model_id
     attributes:
       label: Model ID
       description: If the device has a Model ID in the Devices screen within Home Assistant it must be included.
@@ -42,16 +42,16 @@ body:
       required: false
 
   - type: input
-    id: hw-version
+    id: hw_version
     attributes:
-      label: Hardware
-      description: If the device has a Hardware shown in the Devices screen within Home Assistant it must be included.
+      label: HW Version
+      description: If the device has a Hardware version shown in the Devices screen within Home Assistant it must be included.
       placeholder: ex. V7.2
     validations:
       required: false
 
   - type: input
-    id: battery-type
+    id: battery_type
     attributes:
       label: Battery Type
       description: When specifying battery types please use the Most Common naming for general batteries and the IEC naming for battery cells according to [Wikipedia](https://en.wikipedia.org/wiki/List_of_battery_sizes).
@@ -60,7 +60,7 @@ body:
       required: true
 
   - type: input
-    id: battery-quantity
+    id: battery_quantity
     attributes:
       label: Battery Quantity
       description: The battery_quantity attribute is numeric (no letters or special characters).
