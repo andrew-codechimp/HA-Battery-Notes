@@ -24,7 +24,7 @@
             "entity": {
                 "data": {
                     "source_entity_id": "Entity",
-                    "name": "Name"
+                    "name": "Navn"
                 },
                 "data_description": {
                     "name": "Leaving blank will take the name from the source entity"
@@ -56,7 +56,7 @@
             "init": {
                 "description": "If you need help with the configuration have a look here: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
-                    "name": "Name",
+                    "name": "Navn",
                     "battery_type": "Battery type",
                     "battery_quantity": "Battery quantity",
                     "battery_low_threshold": "Battery low threshold",
