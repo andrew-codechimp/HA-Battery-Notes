@@ -124,7 +124,9 @@ class Library:  # pylint: disable=too-few-public-methods
         partial_matching_devices = None
         fully_matching_devices = None
 
-        matching_devices = [x for x in self._devices if self.device_basic_match(x, device_to_find)]
+        matching_devices = [
+            x for x in self._devices if self.device_basic_match(x, device_to_find)
+        ]
 
         if matching_devices and len(matching_devices) > 1:
             partial_matching_devices = [
@@ -165,14 +167,41 @@ class Library:  # pylint: disable=too-few-public-methods
         """Check if device match on manufacturer and model."""
         if (
             str(device["manufacturer"] or "").casefold()
-            == str(model_info.manufacturer or "").casefold()
-            and str(device["model"] or "").casefold()
-            == str(model_info.model or "").casefold()
+            != str(model_info.manufacturer or "").casefold()
         ):
-            return True
+            return False
+
+        if "model_match_method" in device:
+            if device("model_match_method") == "startswith":
+                if (
+                    str(model_info.model or "")
+                    .casefold()
+                    .startswith(str(device["model"] or "").casefold())
+                ):
+                    return True
+            if device("model_match_method") == "endswith":
+                if (
+                    str(model_info.model or "")
+                    .casefold()
+                    .endswith(str(device["model"] or "").casefold())
+                ):
+                    return True
+            if device("model_match_method") == "contains":
+                if str(model_info.model or "").casefold() in (
+                    str(device["model"] or "").casefold()
+                ):
+                    return True
+        else:
+            if (
+                str(device["model"] or "").casefold()
+                == str(model_info.model or "").casefold()
+            ):
+                return True
         return False
 
-    def device_partial_match(self, device: dict[str, Any], model_info: ModelInfo) -> bool:
+    def device_partial_match(
+        self, device: dict[str, Any], model_info: ModelInfo
+    ) -> bool:
         """Check if device match on hw_version or model_id."""
         if model_info.hw_version is None or model_info.model_id is None:
             if (

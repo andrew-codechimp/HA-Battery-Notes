@@ -48,6 +48,15 @@
                         "type": "integer",
                         "exclusiveMinimum": 1,
                         "description": "The number of batteries required by the device. If a device only has one battery this property should be omitted."
+                    },
+                    "model_match_method": {
+                        "type": "string",
+                        "description": "The matching method for model, default exact.",
+                        "enum": [
+                            "startswith",
+                            "endswith",
+                            "contains"
+                        ]
                     }
                 }
             }
