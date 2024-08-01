@@ -5939,6 +5939,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "AMV FritzBox",
+            "model": "FRITZ!DECT 440",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
