@@ -40,9 +40,18 @@ def generate_device_list():
         else:
             battery_type_qty = device["battery_type"]
 
+        model = device["model"]
+        model_match_method = device.get("model_match_method", "")
+        if model_match_method == "startswith":
+            model = rf"\*{model}"
+        if model_match_method == "endswith":
+            model = rf"{model}\*"
+        if model_match_method == "contains":
+            model = rf"\*{model}\*"
+
         row = [
             device["manufacturer"],
-            device["model"],
+            model,
             device.get("model_id", ""),
             device.get("hw_version", ""),
             battery_type_qty,

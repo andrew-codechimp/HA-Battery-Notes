@@ -17,6 +17,7 @@ Upon submission using the form above GitHub will attempt to make the required co
 Fork the repository, add your device details to the JSON document `custom_components/battery_notes/data/library.json`, and then submit a pull request. Do not enable GitHub Actions (disabled by default) as this will mess with the pull request and are unnecessary for a library submission.
 
 * The manufacturer and model should be exactly what is displayed on the Device screen within Home Assistant. If the Device screen has a Model ID or Hardware Version then this should be included.
+* In some rare cases models could contain unique identifiers and you want the battery type to apply to all models that match a pattern, in these instances you can use the optional model_match_method attribute.  For example Apple iPhone's have a model of iPhoneXX.X but all have a rechargeable battery, here you could use the "model_match_method": "startswith" and just specify iPhone as the model.
 * The manufacturer & model names may be different between integrations such as Zigbee2MQTT and ZHA, if you see a similar device please duplicate the entry rather than changing it.
 * Please keep devices in alphabetical order by manufacturer/model.
 * The `battery_quantity` data is numeric (no quotes) and optional. If a device only requires a single battery, it should be omitted.
@@ -34,7 +35,9 @@ For the example image below, your JSON entry will look like this:
     "model_id": "9290012607", < Optional, only add it if your device shows it.
     "hw_version": "Some specific hardware detail", < Optional, only use if two devices have the same model and the hw_version are different.
     "battery_type": "AAA",
-    "battery_quantity": 2  < Only use if more than 1 battery
+    "battery_quantity": 2,  < Only use if more than 1 battery
+    "model_match_method": "startswith|endswith|contains" < Only use if you are creating a model with unique identifier (ex. trailing serial numbers)
+
 },
 ```
 
