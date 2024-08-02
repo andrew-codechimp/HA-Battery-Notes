@@ -1,4 +1,4 @@
-## 1103 Devices in library
+## 1104 Devices in library
 
 This file is auto generated, do not modify
 
@@ -243,6 +243,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Drayton Wiser                                   |iTRV                                                                       |2× AA                              |
 |Drayton Wiser                                   |RoomStat                                                                   |2× AA                              |
 |Dreame                                          |L10 Pro                                                                    |Rechargeable                       |
+|Eaton                                           |Ellipse ECO 650                                                            |Rechargeable                       |
 |ecobee                                          |ecobee Room Sensor                                                         |CR2032                             |
 |ecobee Inc.                                     |EBERS41                                                                    |CR2477                             |
 |ecobee Inc.                                     |EBRSE4                                                                     |CR2032                             |
