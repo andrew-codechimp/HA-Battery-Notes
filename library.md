@@ -1,4 +1,4 @@
-## 1098 Devices in library
+## 1099 Devices in library
 
 This file is auto generated, do not modify
 
@@ -379,6 +379,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |frient A/S                                      |SBTZB-110                                                                  |CR2450                             |
 |frient A/S                                      |SMSZB-120                                                                  |CR123                              |
 |Fyta                                            |Plant                                                                      |CR2032                             |
+|GE                                              |Hinge PIN Door Sensor, 500S                                                |CR123A                             |
 |GE/Enbrighten                                   |32563 / ZW6301                                                             |CR2                                |
 |GiEX                                            |Water irrigation valve (QT06_1)                                            |4× AA                              |
 |GiEX                                            |Water irrigation valve (QT06_2)                                            |4× AA                              |
