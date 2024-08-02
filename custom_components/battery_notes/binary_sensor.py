@@ -173,7 +173,6 @@ async def async_setup_entry(
         unique_id_suffix="_battery_low",
         key="_battery_plus_low",
         translation_key="battery_low",
-        icon="mdi:battery-alert",
         entity_category=EntityCategory.DIAGNOSTIC,
         device_class=BinarySensorDeviceClass.BATTERY,
     )
