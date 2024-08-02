@@ -5884,6 +5884,12 @@
         },
         {
             "manufacturer": "Zooz",
+            "model": "Q Sensor",
+            "battery_type": "CR123A",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Zooz",
             "model": "ZAC38",
             "battery_type": "Rechargeable"
         },
@@ -5944,12 +5950,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Zooz",
-            "model": "Q Sensor",
-            "battery_type": "CR123A",
-            "battery_quantity": 2
         }
     ]
 }
