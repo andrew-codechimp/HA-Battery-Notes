@@ -2041,6 +2041,11 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "GE",
+            "model": "Hinge PIN Door Sensor, 500S",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "GE/Enbrighten",
             "model": "32563 / ZW6301",
             "battery_type": "CR2"
@@ -5939,11 +5944,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "GE",
-            "model": "Hinge PIN Door Sensor, 500S",
-            "battery_type": "CR123A"
         }
     ]
 }
