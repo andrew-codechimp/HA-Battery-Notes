@@ -2064,12 +2064,6 @@
             "battery_type": "CR123A"
         },
         {
-            "manufacturer": "GE",
-            "model": "Q Sensor",
-            "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
             "manufacturer": "GE/Enbrighten",
             "model": "32563 / ZW6301",
             "battery_type": "CR2"
