@@ -4,7 +4,7 @@ This file is auto generated, do not modify
 
 Request new devices to be added to the library [here](https://github.com/andrew-codechimp/HA-Battery-Notes/issues/new?template=new_device_request.yml&title=%5BDevice%5D%3A+)
 
-|                  Manufacturer                  |                                   Model                                   |Model ID|              HW Version              |           Battery Type            |
+|                  Manufacturer                  |                                   Model                                   |Model ID|               Hardware               |           Battery Type            |
 |------------------------------------------------|---------------------------------------------------------------------------|--------|--------------------------------------|-----------------------------------|
 |_TYZB01_7qf81wty                                |TS1001                                                                     |        |                                      |2× AAA                             |
 |_TYZB01_hww2py6b                                |TS1001                                                                     |        |                                      |CR2450                             |
