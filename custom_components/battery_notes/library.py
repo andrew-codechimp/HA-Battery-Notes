@@ -127,7 +127,7 @@ class Library:  # pylint: disable=too-few-public-methods
             return None
 
         # Test only
-        device_to_find = ModelInfo("Espressif", "m5stack-atom", None, None)
+        # device_to_find = ModelInfo("Espressif", "m5stack-atom", None, None)
 
         # Get all devices matching manufacturer & model
         matching_devices = None
