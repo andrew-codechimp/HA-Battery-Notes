@@ -6,6 +6,14 @@ blueprint:
   domain: automation
 
   input:
+    additional_conditions:
+      name: Additional conditions
+      description: |
+        Extra conditions you may want to add to this automation
+        (Example: Home occupied)
+      default: []
+      selector:
+        condition:
     on_replaced_actions:
       name: On Replaced Actions
       description: User actions to run on battery replacement, the battery is marked as replaced automatically. Use any event data via trigger.event.data.xxx
@@ -17,7 +25,9 @@ trigger:
   - platform: event
     event_type: battery_notes_battery_increased
 
-condition: []
+condition:
+  - alias: User pick
+    condition: !input additional_conditions
 
 action:
   - service: battery_notes.set_battery_replaced

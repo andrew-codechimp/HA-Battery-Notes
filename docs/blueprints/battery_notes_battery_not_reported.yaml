@@ -20,6 +20,14 @@ blueprint:
           multiple: true
           entity:
             - integration: battery_notes
+    additional_conditions:
+      name: Additional conditions
+      description: |
+        Extra conditions you may want to add to this automation
+        (Example: Home occupied)
+      default: []
+      selector:
+        condition:
     user_actions:
       name: User Actions
       description: User actions to run on battery not reported.
@@ -37,6 +45,8 @@ condition:
   - condition: template
     value_template: |-
       {{ trigger.event.data.device_id not in excluded_devices}}
+  - alias: User pick
+    condition: !input additional_conditions
 action:
 - if:
   - condition: template
