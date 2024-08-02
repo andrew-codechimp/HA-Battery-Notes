@@ -5973,6 +5973,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Kwikset",
+            "model": "99120-021",
+            "battery_type": "AA",
+            "battery_quantity": 4
         }
     ]
 }
