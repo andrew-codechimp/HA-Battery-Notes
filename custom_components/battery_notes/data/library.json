@@ -1290,6 +1290,11 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "Eaton",
+            "model": "Ellipse ECO 650",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "ecobee",
             "model": "ecobee Room Sensor",
             "battery_type": "CR2032"
