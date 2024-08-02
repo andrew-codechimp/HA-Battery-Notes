@@ -1,4 +1,4 @@
-## 1104 Devices in library
+## 1105 Devices in library
 
 This file is auto generated, do not modify
 
@@ -496,6 +496,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Kwikset                                         |914                                                                        |4× AA                              |
 |Kwikset                                         |914C                                                                       |4× AA                              |
 |Kwikset                                         |916                                                                        |4× AA                              |
+|Kwikset                                         |99120-021                                                                  |4× AA                              |
 |Kwikset                                         |HALO-01                                                                    |4× AA                              |
 |Kwikset                                         |HC620                                                                      |4× AA                              |
 |Kwikset                                         |Kevo                                                                       |4× AA                              |
