@@ -5939,6 +5939,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "GE",
+            "model": "Hinge PIN Door Sensor, 500S",
+            "battery_type": "CR123A"
         }
     ]
 }
