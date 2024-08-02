@@ -1,4 +1,4 @@
-## 1102 Devices in library
+## 1103 Devices in library
 
 This file is auto generated, do not modify
 
@@ -115,6 +115,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |American Power Conversion                       |Back-UPS RS 900MI                                                          |Rechargeable                       |
 |American Power Conversion                       |Back-UPS XS 1500M                                                          |Rechargeable                       |
 |AMV FritzBox                                    |FRITZ!DECT 302                                                             |3× AA                              |
+|AMV FritzBox                                    |FRITZ!DECT 350                                                             |2× AAA                             |
 |APC                                             |Back-UPS XS 1500M                                                          |Rechargeable                       |
 |APC                                             |SRV 2K I -AR                                                               |APCRBCV204                         |
 |Apple                                           |iPad14,3                                                                   |Rechargeable                       |
