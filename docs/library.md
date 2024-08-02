@@ -37,7 +37,6 @@ For the example image below, your JSON entry will look like this:
     "battery_type": "AAA",
     "battery_quantity": 2,  < Only use if more than 1 battery
     "model_match_method": "startswith|endswith|contains" < Only use if you are creating a model with unique identifier (ex. trailing serial numbers)
-
 },
 ```
 
