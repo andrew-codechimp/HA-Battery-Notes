@@ -1,4 +1,24 @@
 {
+    "entity": {
+        "binary_sensor": {
+            "battery_low": {
+                "default": "mdi:battery-alert"
+            }
+        },
+        "button": {
+            "battery_replaced": {
+                "default": "mdi:battery-sync"
+            }
+        },
+        "sensor": {
+            "battery_type": {
+                "default": "mdi:battery-unknown"
+            },
+            "battery_last_replaced": {
+                "default": "mdi:battery-clock"
+            }
+        }
+    },
     "services": {
         "set_battery_replaced": "mdi:battery-sync",
         "check_battery_last_reported": "mdi:battery-unknown",

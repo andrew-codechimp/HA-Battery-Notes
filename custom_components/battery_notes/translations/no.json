@@ -2,7 +2,7 @@
     "config": {
         "step": {
             "user": {
-                "description": "Daugiau pagalbos apie konfigūraciją rasite čia: https://andrew-codechimp.github.io/HA-Battery-Notes/",
+                "description": "If you need help with the configuration have a look here: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
                     "association_type": "Association type"
                 },
@@ -14,8 +14,8 @@
             },
             "device": {
                 "data": {
-                    "device_id": "Prietaisas",
-                    "name": "Pavadinimas"
+                    "device_id": "Device",
+                    "name": "Navn"
                 },
                 "data_description": {
                     "name": "Leaving blank will take the name from the source device"
@@ -24,7 +24,7 @@
             "entity": {
                 "data": {
                     "source_entity_id": "Entity",
-                    "name": "Pavadinimas"
+                    "name": "Navn"
                 },
                 "data_description": {
                     "name": "Leaving blank will take the name from the source entity"
@@ -32,55 +32,51 @@
             },
             "battery": {
                 "data": {
-                    "battery_type": "Baterijos tipas",
-                    "battery_quantity": "Baterijų kiekis",
+                    "battery_type": "Battery type",
+                    "battery_quantity": "Battery quantity",
                     "battery_low_threshold": "Battery low threshold",
                     "battery_low_template": "Battery low template"
                 },
                 "data_description": {
-                    "battery_low_threshold": "Įrašius 0 bus naudojama numatytoji vertė",
+                    "battery_low_threshold": "0 will use the global default threshold",
                     "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels"
                 }
-            },
-            "manual": {
-                "description": "This device is marked in the library as manual, variants use different battery types so it cannot be set in the library.\nThe next step will allow you to set your battery type but please do not submit a device request.",
-                "title": "Device manual configuration"
             }
         },
         "abort": {
-            "already_configured": "Prietaisas jau sukonfigūruotas"
+            "already_configured": "Device is already configured"
         },
         "error": {
-            "unknown": "Įvyko nežinoma klaida.",
+            "unknown": "Unknown error occurred.",
             "unconfigurable_entity": "It is not possible to add this entity to Battery Notes."
         }
     },
     "options": {
         "step": {
             "init": {
-                "description": "Daugiau pagalbos apie konfigūraciją rasite čia: https://andrew-codechimp.github.io/HA-Battery-Notes/",
+                "description": "If you need help with the configuration have a look here: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
-                    "name": "Pavadinimas",
-                    "battery_type": "Baterijos tipas",
-                    "battery_quantity": "Baterijų kiekis",
+                    "name": "Navn",
+                    "battery_type": "Battery type",
+                    "battery_quantity": "Battery quantity",
                     "battery_low_threshold": "Battery low threshold",
                     "battery_low_template": "Battery low template"
                 },
                 "data_description": {
                     "name": "Leaving blank will take the name from the source device",
-                    "battery_low_threshold": "Įrašius 0 bus naudojama numatytoji vertė",
+                    "battery_low_threshold": "0 will use the global default threshold",
                     "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels"
                 }
             }
         },
         "error": {
-            "unknown": "Įvyko nežinoma klaida."
+            "unknown": "Unknown error occurred."
         }
     },
     "entity": {
         "binary_sensor": {
             "battery_low": {
-                "name": "{device_name}Baterija senka",
+                "name": "{device_name}Battery low",
                 "state_attributes": {
                     "battery_low_threshold": {
                         "name": "Battery low threshold"
@@ -90,27 +86,27 @@
         },
         "button": {
             "battery_replaced": {
-                "name": "{device_name}Baterija pakeista"
+                "name": "{device_name}Battery replaced"
             }
         },
         "sensor": {
             "battery_plus": {
-                "name": "{device_name}Baterija+",
+                "name": "{device_name}Battery+",
                 "state_attributes": {
                     "battery_type": {
-                        "name": "Baterijos tipas"
+                        "name": "Battery type"
                     },
                     "battery_quantity": {
-                        "name": "Baterijų kiekis"
+                        "name": "Battery quantity"
                     },
                     "battery_type_and_quantity": {
-                        "name": "Baterijų tipas ir kiekis"
+                        "name": "Battery type and quantity"
                     },
                     "battery_last_replaced": {
-                        "name": "Baterija paskutinį kartą keista"
+                        "name": "Battery last replaced"
                     },
                     "battery_low": {
-                        "name": "Baterija senka"
+                        "name": "Battery low"
                     },
                     "battery_low_threshold": {
                         "name": "Battery low threshold"
@@ -133,18 +129,18 @@
                 }
             },
             "battery_type": {
-                "name": "{device_name}Baterijos tipas",
+                "name": "{device_name}Battery type",
                 "state_attributes": {
                     "battery_type": {
-                        "name": "Baterijos tipas"
+                        "name": "Battery type"
                     },
                     "battery_quantity": {
-                        "name": "Baterijų kiekis"
+                        "name": "Battery quantity"
                     }
                 }
             },
             "battery_last_replaced": {
-                "name": "{device_name}Baterija paskutinį kartą keista"
+                "name": "{device_name}Battery last replaced"
             }
         }
     },
@@ -154,15 +150,15 @@
             "fields": {
                 "device_id": {
                     "description": "Device that has had its battery replaced.",
-                    "name": "Prietaisas"
+                    "name": "Device"
                 },
                 "entity_id": {
-                    "description": "Entity that has had its battery replaced.",
+                    "description": "Entity that has had its battery replaced (only used for entity associated battery notes).",
                     "name": "Entity"
                 },
                 "datetime_replaced": {
                     "description": "Date replaced.",
-                    "name": "Data"
+                    "name": "Date"
                 }
             },
             "name": "Set battery replaced"
@@ -172,7 +168,7 @@
             "fields": {
                 "days_last_reported": {
                     "description": "Number of days since a device last reported its battery level.",
-                    "name": "Dienos"
+                    "name": "Days"
                 }
             },
             "name": "Check battery last reported"

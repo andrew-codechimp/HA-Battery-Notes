@@ -9,6 +9,7 @@ body:
         The battery library is a JSON document at [custom_components/battery_notes/data/library.json](https://github.com/andrew-codechimp/HA-Battery-Notes/blob/main/custom_components/battery_notes/data/library.json)
         To contribute, submit your device details via this form and the relevant code changes will be proposed on your behalf.
         Note: The title above is not used and can be just a friendly description of the device. Manufacturer and model should be exactly what is displayed on the Device screen within Home Assistant.
+        If your device has a Model ID or HW Version then these must be included.
         To see your devices, click here:
 
         [![Open your Home Assistant instance and show your devices.](https://my.home-assistant.io/badges/devices.svg)](https://my.home-assistant.io/redirect/devices/)
@@ -18,7 +19,7 @@ body:
     attributes:
       label: Manufacturer
       description: The manufacturer should be exactly what is displayed on the Devices screen within Home Assistant.
-      placeholder: ex. eWeLink
+      placeholder: ex. Philips
     validations:
       required: true
 
@@ -27,12 +28,30 @@ body:
     attributes:
       label: Model
       description: The model should be exactly what is displayed on the Devices screen within Home Assistant.
-      placeholder: ex. DS01
+      placeholder: ex. Hue dimmer switch
     validations:
       required: true
 
   - type: input
-    id: battery-type
+    id: model_id
+    attributes:
+      label: Model ID
+      description: If the device has a Model ID in the Devices screen within Home Assistant it must be included.
+      placeholder: ex. 324131092621
+    validations:
+      required: false
+
+  - type: input
+    id: hw_version
+    attributes:
+      label: HW Version
+      description: If the device has a Hardware version shown in the Devices screen within Home Assistant it must be included.
+      placeholder: ex. V7.2
+    validations:
+      required: false
+
+  - type: input
+    id: battery_type
     attributes:
       label: Battery Type
       description: When specifying battery types please use the Most Common naming for general batteries and the IEC naming for battery cells according to [Wikipedia](https://en.wikipedia.org/wiki/List_of_battery_sizes).
@@ -41,7 +60,7 @@ body:
       required: true
 
   - type: input
-    id: battery-quantity
+    id: battery_quantity
     attributes:
       label: Battery Quantity
       description: The battery_quantity attribute is numeric (no letters or special characters).

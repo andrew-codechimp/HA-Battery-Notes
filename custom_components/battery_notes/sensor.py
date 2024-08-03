@@ -199,7 +199,6 @@ async def async_setup_entry(
         unique_id_suffix="",  # battery_type has uniqueId set to entityId in V1, never add a suffix
         key="battery_type",
         translation_key="battery_type",
-        icon="mdi:battery-unknown",
         entity_category=EntityCategory.DIAGNOSTIC,
     )
 
@@ -207,7 +206,6 @@ async def async_setup_entry(
         unique_id_suffix="_battery_last_replaced",
         key="battery_last_replaced",
         translation_key="battery_last_replaced",
-        icon="mdi:battery-clock",
         entity_category=EntityCategory.DIAGNOSTIC,
         device_class=SensorDeviceClass.TIMESTAMP,
         entity_registry_enabled_default=enable_replaced,

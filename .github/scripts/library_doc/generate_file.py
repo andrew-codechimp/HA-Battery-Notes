@@ -11,8 +11,9 @@ def generate_device_list():
     """Generate static file containing the device library."""
 
     # Load the existing JSON library file
-    with open("custom_components/battery_notes/data/library.json",
-              encoding="UTF-8") as f:
+    with open(
+        "custom_components/battery_notes/data/library.json", encoding="UTF-8"
+    ) as f:
         devices_json = json.loads(f.read())
         devices = devices_json.get("devices")
 
@@ -27,6 +28,8 @@ def generate_device_list():
         "Manufacturer",
         "Model",
         "Battery Type",
+        "Model ID (optional)",
+        "HW Version (optional)",
     ]
 
     writer.header_list = headers
@@ -37,15 +40,21 @@ def generate_device_list():
         else:
             battery_type_qty = device["battery_type"]
 
-        if "hw_version" in device:
-            model = f"{device['model']} ({device['hw_version']})"
-        else:
-            model = device['model']
+        model = device["model"]
+        model_match_method = device.get("model_match_method", "")
+        if model_match_method == "startswith":
+            model = rf"{model}\*"
+        if model_match_method == "endswith":
+            model = rf"\*{model}"
+        if model_match_method == "contains":
+            model = rf"\*{model}\*"
 
         row = [
-            device['manufacturer'],
+            device["manufacturer"],
             model,
             battery_type_qty,
+            device.get("model_id", ""),
+            device.get("hw_version", ""),
         ]
         rows.append(row)
 
@@ -58,5 +67,6 @@ def generate_device_list():
     with open("library.md", "w", encoding="UTF-8") as md_file:
         md_file.write("".join(toc_links) + tables_output)
         md_file.close()
+
 
 generate_device_list()
