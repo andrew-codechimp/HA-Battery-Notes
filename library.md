@@ -1,4 +1,4 @@
-## 1105 Devices in library
+## 1108 Devices in library
 
 This file is auto generated, do not modify
 
@@ -127,6 +127,9 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Apple                                           |iPhone14,7                                                                 |        |                                      |Rechargeable                       |
 |Apple                                           |iPhone16,2                                                                 |        |                                      |Rechargeable                       |
 |Apple                                           |MacBookPro18,1                                                             |        |                                      |Rechargeable                       |
+|Apple                                           |iPad\*                                                                     |        |                                      |Rechargeable                       |
+|Apple                                           |iPhone\*                                                                   |        |                                      |Rechargeable                       |
+|Apple                                           |MacBook\*                                                                  |        |                                      |Rechargeable                       |
 |Aqara                                           |Aqara Door and Window Sensor P2                                            |        |                                      |CR123A                             |
 |Aqara                                           |AS006                                                                      |        |                                      |CR1632                             |
 |Aqara                                           |AS008                                                                      |        |                                      |CR2032                             |
