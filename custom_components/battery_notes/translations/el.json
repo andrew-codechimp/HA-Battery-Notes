@@ -43,8 +43,8 @@
                 }
             },
             "manual": {
-                "description": "This device is marked in the library as manual, variants use different battery types so it cannot be set in the library.\nThe next step will allow you to set your battery type but please do not submit a device request.",
-                "title": "Device manual configuration"
+                "description": "Αυτή η συσκευή επισημαίνεται στη βιβλιοθήκη ως χειροκίνητη, οι παραλλαγές χρησιμοποιούν διαφορετικούς τύπους μπαταρίας ώστε να μην μπορεί να οριστεί στη βιβλιοθήκη.\nΤο επόμενο βήμα θα σας επιτρέψει να ορίσετε τον τύπο μπαταρίας σας αλλά μην υποβάλετε αίτημα συσκευής.",
+                "title": "Χειροκίνητη διαμόρφωση συσκευής"
             }
         },
         "abort": {
