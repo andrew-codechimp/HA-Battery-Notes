@@ -14,7 +14,7 @@ blueprint:
         boolean:
     high_notification:
       name: Remove Low Notification
-      description: Remove the persistent notification when the battery is no longer low. Use any event data via trigger.event.data.xxx
+      description: Remove the persistent notification when the battery is no longer low.
       default: True
       selector:
         boolean:
@@ -27,6 +27,14 @@ blueprint:
           multiple: true
           entity:
             - integration: battery_notes
+    additional_conditions:
+      name: Additional conditions
+      description: |
+        Extra conditions you may want to add to this automation
+        (Example: Home occupied)
+      default: []
+      selector:
+        condition:
     on_low_actions:
       name: On Low Actions
       description: User actions to run on battery low. Use any event data via trigger.event.data.xxx
@@ -63,6 +71,8 @@ condition:
   - condition: template
     value_template: |-
       {{ trigger.event.data.device_id not in excluded_devices}}
+  - alias: User pick
+    condition: !input additional_conditions
 
 action:
   - choose:

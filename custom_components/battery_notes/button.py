@@ -147,7 +147,6 @@ async def async_setup_entry(
         unique_id_suffix="_battery_replaced_button",
         key="battery_replaced",
         translation_key="battery_replaced",
-        icon="mdi:battery-sync",
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=enable_replaced,
     )

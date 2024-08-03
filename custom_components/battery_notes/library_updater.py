@@ -104,7 +104,8 @@ class LibraryUpdater:
 
         except LibraryUpdaterClientError:
             _LOGGER.warning(
-                "Unable to update library, this could be a GitHub or internet connectivity issue, will retry later."
+                "Unable to update library, this could be a GitHub or internet "
+                "connectivity issue, will retry later."
             )
 
     async def time_to_update_library(self) -> bool:

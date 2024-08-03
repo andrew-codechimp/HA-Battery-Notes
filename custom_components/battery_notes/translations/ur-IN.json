@@ -41,6 +41,10 @@
                     "battery_low_threshold": "0 عالمی ڈیفالٹ حد استعمال کرے گا۔",
                     "battery_low_template": "بیٹری کم ہونے کا تعین کرنے کے لیے ٹیمپلیٹ، کم ہونے کی صورت میں درست ہونا چاہیے\nصرف غیر معیاری بیٹری کی سطح کے لیے ضروری ہے"
                 }
+            },
+            "manual": {
+                "description": "This device is marked in the library as manual, variants use different battery types so it cannot be set in the library.\nThe next step will allow you to set your battery type but please do not submit a device request.",
+                "title": "Device manual configuration"
             }
         },
         "abort": {

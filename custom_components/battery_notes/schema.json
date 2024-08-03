@@ -32,9 +32,13 @@
                         "type": "string",
                         "description": "The model of the device as it appears in Home Assistant."
                     },
+                    "model_id": {
+                        "type": "string",
+                        "description": "The model id of the device as it appears in Home Assistant. Only required where a model id is specified."
+                    },
                     "hw_version": {
                         "type": "string",
-                        "description": "The hardware version of the device as it appears in Home Assistant. Only required where there are two versions of a model."
+                        "description": "The hardware version of the device as it appears in Home Assistant. Only required where there are multiple versions of a model."
                     },
                     "battery_type": {
                         "type": "string",
@@ -44,6 +48,15 @@
                         "type": "integer",
                         "exclusiveMinimum": 1,
                         "description": "The number of batteries required by the device. If a device only has one battery this property should be omitted."
+                    },
+                    "model_match_method": {
+                        "type": "string",
+                        "description": "The matching method for model, default exact.",
+                        "enum": [
+                            "startswith",
+                            "endswith",
+                            "contains"
+                        ]
                     }
                 }
             }

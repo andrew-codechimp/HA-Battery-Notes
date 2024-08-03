@@ -41,6 +41,10 @@
                     "battery_low_threshold": "0 će koristiti globalni podrazumevani prag",
                     "battery_low_template": "Šablon za određivanje da je baterija prazna, treba da vrati true ako je nizak nivo\nPotrebno samo za nestandardne nivoe baterije"
                 }
+            },
+            "manual": {
+                "description": "This device is marked in the library as manual, variants use different battery types so it cannot be set in the library.\nThe next step will allow you to set your battery type but please do not submit a device request.",
+                "title": "Device manual configuration"
             }
         },
         "abort": {
