@@ -48,7 +48,7 @@
         },
         "error": {
             "unknown": "Onbekende fout opgetreden.",
-            "unconfigurable_entity": "It is not possible to add this entity to Battery Notes."
+            "unconfigurable_entity": "Het is niet mogelijk om deze entiteit toe te voegen aan Battery Notes"
         }
     },
     "options": {
