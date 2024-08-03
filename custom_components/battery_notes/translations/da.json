@@ -41,6 +41,10 @@
                     "battery_low_threshold": "0 vil bruge den globale standardtærskel",
                     "battery_low_template": "Skabelon til at bestemme om et batteri er lavt, skal returnere sand, hvis lavt.\nKun nødvendigt for ikke-standard batteriniveauer"
                 }
+            },
+            "manual": {
+                "description": "This device is marked in the library as manual, variants use different battery types so it cannot be set in the library.\nThe next step will allow you to set your battery type but please do not submit a device request.",
+                "title": "Device manual configuration"
             }
         },
         "abort": {

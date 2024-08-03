@@ -152,6 +152,8 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
     ) -> config_entries.FlowResult:
         """Handle a flow for a device or discovery."""
         errors: dict[str, str] = {}
+        device_battery_details = None
+
         if user_input is not None:
             self.data = user_input
 
@@ -204,6 +206,9 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                     device_battery_details.battery_quantity
                 )
 
+            if device_battery_details and device_battery_details.is_manual:
+                return await self.async_step_manual()
+
             return await self.async_step_battery()
 
         schema = DEVICE_SCHEMA
@@ -226,6 +231,8 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
     ) -> config_entries.FlowResult:
         """Handle a flow for a device or discovery."""
         errors: dict[str, str] = {}
+        device_battery_details = None
+
         if user_input is not None:
             self.data = user_input
 
@@ -290,6 +297,8 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                             device_battery_details.battery_quantity
                         )
 
+                if device_battery_details and device_battery_details.is_manual:
+                    return await self.async_step_manual()
                 return await self.async_step_battery()
             else:
                 # No entity_registry entry, must be a config.yaml entity which we can't support
@@ -303,6 +312,20 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             errors=errors,
             last_step=False,
         )
+
+    async def async_step_manual(self, user_input: dict[str, Any] | None = None):
+        """Second step in config flow to add the battery type."""
+        errors: dict[str, str] = {}
+        if user_input is not None:
+            return await self.async_step_battery()
+
+        return self.async_show_form(
+            step_id="manual",
+            data_schema=None,
+            last_step=False,
+            errors=errors,
+        )
+
 
     async def async_step_battery(self, user_input: dict[str, Any] | None = None):
         """Second step in config flow to add the battery type."""
