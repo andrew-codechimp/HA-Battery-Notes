@@ -27,9 +27,9 @@ def generate_device_list():
     headers = [
         "Manufacturer",
         "Model",
-        "Model ID",
-        "Hardware",
         "Battery Type",
+        "Model ID (optional)",
+        "Hardware (optional)",
     ]
 
     writer.header_list = headers
@@ -52,9 +52,9 @@ def generate_device_list():
         row = [
             device["manufacturer"],
             model,
+            battery_type_qty,
             device.get("model_id", ""),
             device.get("hw_version", ""),
-            battery_type_qty,
         ]
         rows.append(row)
 
