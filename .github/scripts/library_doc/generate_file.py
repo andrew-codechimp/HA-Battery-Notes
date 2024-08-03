@@ -29,7 +29,7 @@ def generate_device_list():
         "Model",
         "Battery Type",
         "Model ID (optional)",
-        "Hardware (optional)",
+        "HW Version (optional)",
     ]
 
     writer.header_list = headers
