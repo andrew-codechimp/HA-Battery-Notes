@@ -4429,6 +4429,13 @@
         },
         {
             "manufacturer": "Sure Petcare",
+            "model": "Feeder",
+            "battery_type": "C",
+            "battery_quantity": 4,
+            "model_match_method": "startswith"
+        },
+        {
+            "manufacturer": "Sure Petcare",
             "model": "Felaqua",
             "battery_type": "C",
             "battery_quantity": 4
