@@ -1,4 +1,4 @@
-## 1109 Devices in library
+## 1110 Devices in library
 
 This file is auto generated, do not modify
 
@@ -825,6 +825,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Sure Petcare                                    |Cat flap                                                                   |4× AA                              |                   |                                      |
 |Sure Petcare                                    |Felaqua                                                                    |4× C                               |                   |                                      |
 |Sure Petcare                                    |Pet flap                                                                   |4× C                               |                   |                                      |
+|Sure Petcare                                    |Feeder\*                                                                   |4× C                               |                   |                                      |
 |SwitchBot                                       |W1101500                                                                   |2× AAA                             |                   |                                      |
 |SwitchBot                                       |W1201500                                                                   |2× AAA                             |                   |                                      |
 |SwitchBot                                       |W340001X                                                                   |2× AAA                             |                   |                                      |
