@@ -6010,6 +6010,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "HHCC Plant Technology Co. Ltd",
+            "model": "HHCCJCY10",
+            "battery_type": "CR2032"
         }
     ]
 }
