@@ -1,4 +1,4 @@
-## 1110 Devices in library
+## 1111 Devices in library
 
 This file is auto generated, do not modify
 
@@ -418,6 +418,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |HEIMAN                                          |Smoke detector (HS1SA)                                                     |CR123A                             |                   |                                      |
 |HEIMAN                                          |Smoke detector (HS3SA/HS1SA)                                               |CR123A                             |                   |                                      |
 |HEIMAN                                          |Water leakage sensor (HS1WL/HS3WL)                                         |2× AAA                             |                   |                                      |
+|HHCC Plant Technology Co. Ltd                   |HHCCJCY10                                                                  |CR2032                             |                   |                                      |
 |Hive                                            |Heating thermostat remote control (SLT3B)                                  |4× AA                              |                   |                                      |
 |Hive                                            |Heating thermostat remote control (SLT3C)                                  |4× AA                              |                   |                                      |
 |Hive                                            |TRV003                                                                     |2× AA                              |                   |                                      |
