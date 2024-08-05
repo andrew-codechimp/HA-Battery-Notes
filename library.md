@@ -1,4 +1,4 @@
-## 1111 Devices in library
+## 1112 Devices in library
 
 This file is auto generated, do not modify
 
@@ -836,6 +836,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |switchbot                                       |woHand                                                                     |CR2                                |                   |                                      |
 |switchbot                                       |WoIOSensorTH                                                               |2× AAA                             |                   |                                      |
 |switchbot                                       |WoLock                                                                     |2× CR123A                          |                   |                                      |
+|switchbot                                       |WoLockPro                                                                  |4× AA                              |                   |                                      |
 |switchbot                                       |WoPresence                                                                 |2× AAA                             |                   |                                      |
 |Tado                                            |RU01                                                                       |3× AAA                             |                   |                                      |
 |Tado                                            |RU02                                                                       |3× AAA                             |                   |                                      |
