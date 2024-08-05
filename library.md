@@ -1,4 +1,4 @@
-## 1112 Devices in library
+## 1113 Devices in library
 
 This file is auto generated, do not modify
 
@@ -69,6 +69,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |_TZE200_kb5noeto                                |TS0601                                                                     |2× AAA                             |                   |                                      |
 |_TZE200_locansqn                                |TS0601                                                                     |3× AAA                             |                   |                                      |
 |_TZE200_p3dbf6qs                                |TS0601                                                                     |2× AA                              |                   |                                      |
+|_TZE200_pay2byax                                |TS0601                                                                     |CR2032                             |                   |                                      |
 |_TZE200_yjjdcqsq                                |TS0601                                                                     |2× AAA                             |                   |                                      |
 |_TZE200_znbl8dj5                                |TS0601                                                                     |CR2032                             |                   |                                      |
 |_TZE204_t1blo2bj                                |TS0601                                                                     |2× CR123A                          |                   |                                      |
