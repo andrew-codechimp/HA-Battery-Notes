@@ -6015,6 +6015,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "switchbot",
+            "model": "WoLockPro",
+            "battery_type": "AA",
+            "battery_quantity": 4
         }
     ]
 }
