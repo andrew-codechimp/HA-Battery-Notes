@@ -163,6 +163,12 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "_TZ3000_kky16aay",
+            "model": "TS0222",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
             "manufacturer": "_TZ3000_kstbkt6a",
             "model": "TS0207",
             "battery_type": "CR2032"
@@ -6026,12 +6032,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "_TZ3000_kky16aay",
-            "model": "TS0222",
-            "battery_type": "AA",
-            "battery_quantity": 4
         }
     ]
 }
