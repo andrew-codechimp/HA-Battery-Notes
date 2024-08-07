@@ -73,7 +73,7 @@ mode: queued
 ```
 
 ### Check Battery Low daily reminder
-Call the check battery low service every day to raise events for those that are still low.  
+Call the check battery low action every day to raise events for those that are still low.  
 To be used in conjunction with a [Battery Low Notification](community.md/#battery-low-notification) or similar.
 
 ```yaml
@@ -146,7 +146,7 @@ mode: queued
 ```
 
 ### Check Battery Last Reported Daily
-Call the check battery last reported service every day to raise events for those not reported in the last two days.  
+Call the check battery last reported action every day to raise events for those not reported in the last two days.  
 To be used in conjunction with a Battery Not Reported automation.
 
 ```yaml
@@ -164,7 +164,7 @@ mode: single
 ```
 
 ### Battery Not Reported
-Respond to events raised by the check_battery_last_reported service and create notifications.
+Respond to events raised by the check_battery_last_reported action and create notifications.
 
 Note this cannot be run manually as it examines event triggers, use it with the [Check Battery Last Reported Daily](community.md/#check-battery-last-reported-daily) or similar.
 
@@ -193,7 +193,7 @@ max: 30
 
 ## Automation Tips
 
-To call the battery replaced service from an entity trigger you will need the device_id, here's an easy way to get this
+To call the battery replaced action from an entity trigger you will need the device_id, here's an easy way to get this
 
 ```yaml
 action:
@@ -224,7 +224,7 @@ It is extended from the example Battery Replaced automation yaml above for those
 
 This blueprint will allow notifications to be raised and/or custom actions to be performed when the battery not reported event is fired.  
 It is extended from the example Battery Not Reported automation yaml above for those who'd prefer an easy way to get started.  
-You must trigger the check_battery_not_reported service via an automation to raise events, see [Check Battery Last Reported Daily](community.md/#check-battery-last-reported-daily) above.
+You must trigger the check_battery_not_reported action via an automation to raise events, see [Check Battery Last Reported Daily](community.md/#check-battery-last-reported-daily) above.
 
 ## Contributing  
 If you want to contribute then [fork the repository](https://github.com/andrew-codechimp/HA-Battery-Notes), edit this page which is in the docs folder and submit a pull request.

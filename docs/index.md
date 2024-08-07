@@ -2,7 +2,7 @@
 
 Integration to add battery notes to a device or entity, with automatic discovery via a growing [battery library](library.md) for devices.  
 Track the battery type, when the battery was replaced, when a battery is low based on device or global thresholds and also when a battery hasn't been reported for a while.  
-Battery low, replaced and not reported are all via events and services, you have the option of creating your own automations for these or using the predefined ones in [community](./community.md).  
+Battery low, replaced and not reported are all via events and actions, you have the option of creating your own automations for these or using the predefined ones in [community](./community.md).  
 
 *Please :star: this repo on [GitHub](https://github.com/andrew-codechimp/HA-Battery-Notes) if you find it useful*  
 *If you want to show your support please*
@@ -17,7 +17,7 @@ The integration will add additional diagnostic entities to your device.
 ![device example](./assets/screenshot-device.png)
 
 * [Entities](./entities.md)
-* [Services](./services.md)
+* [Actions](./actions.md)
 * [Events](./events.md)
 
 ## How to use Battery Notes

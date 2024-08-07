@@ -20,7 +20,7 @@ You can use this to send notifications in your preferred method.  An example aut
 | `battery_quantity` | `int` | Battery quantity. |
 | `battery_level` | `float` | Battery level % of the device. |
 | `previous_battery_level` | `float` | Previous battery level % of the device. |
-| `reminder` | `bool` | Returns true if the event was raised by a service call, false if it's from a device event. |
+| `reminder` | `bool` | Returns true if the event was raised by an action, false if it's from a device event. |
 
 ### Automation Example
 
@@ -113,9 +113,9 @@ mode: queued
 ## Battery Not Reported
 `battery_notes_battery_not_reported`
 
-This is fired from the [check_battery_last_reported](./services.md/#check_battery_last_reported) service call for each device that has not reported its battery level for the number of days specified in the service call.
+This is fired from the [check_battery_last_reported](./actions.md/#check_battery_last_reported) action call for each device that has not reported its battery level for the number of days specified in the action call.
 
-The service can raise multiple events quickly so when using with an automation it's important to use the `mode: queued` to handle these.
+The action can raise multiple events quickly so when using with an automation it's important to use the `mode: queued` to handle these.
 
 | Attribute | Type | Description |
 |-----------|------|-------------|

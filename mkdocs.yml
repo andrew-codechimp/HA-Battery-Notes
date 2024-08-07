@@ -7,7 +7,7 @@ nav:
   - Home: index.md
   - Entities: entities.md
   - Events: events.md
-  - Services: services.md
+  - Actions: actions.md
   - Library: library.md
   - Configuration: configuration.md
   - Community: community.md

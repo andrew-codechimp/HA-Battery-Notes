@@ -11,7 +11,7 @@ Track the battery type, when the battery was replaced, when a battery is low bas
 
 A battery+ sensor provides useful attributes for easy use in dashboards, the standard battery can optionally be hidden.  
 
-Battery low, replaced and not reported are all via events and services, you have the option of creating your own automations for these or using the predefined ones in [community](https://andrew-codechimp.github.io/HA-Battery-Notes/community).  
+Battery low, replaced and not reported are all via events and actions, you have the option of creating your own automations for these or using the predefined ones in [community](https://andrew-codechimp.github.io/HA-Battery-Notes/community).  
 
 *Please :star: this repo if you find it useful*  
 *If you want to show your support please*
@@ -56,7 +56,7 @@ battery_notes:
 
 ## Docs
 
-To get full use of the integration, read the documentation. It contains community quick starts as well as details on all the services, events and entities.
+To get full use of the integration, read the documentation. It contains community quick starts as well as details on all the actions, events and entities.
 
 [!["Documentation"](https://raw.githubusercontent.com/andrew-codechimp/ha-battery-notes/main/docs/assets/documentation.png)](https://andrew-codechimp.github.io/HA-Battery-Notes/)
 
