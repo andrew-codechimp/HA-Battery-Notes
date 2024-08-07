@@ -43,8 +43,8 @@
                 }
             },
             "manual": {
-                "description": "This device is marked in the library as manual, variants use different battery types so it cannot be set in the library.\nThe next step will allow you to set your battery type but please do not submit a device request.",
-                "title": "Device manual configuration"
+                "description": "Это устройство помечено в библиотеке для настройки вручную, в разных версиях используются различные типы батарей, поэтому оно не может быть настроено автоматически.\nСледующий шаг позволит вам настроить тип батареи. Пожалуйста, не отправляйте запросы на добавление настроек устройства в библиотеку.",
+                "title": "Ручная настройка устройства"
             }
         },
         "abort": {
