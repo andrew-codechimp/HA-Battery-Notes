@@ -18,7 +18,7 @@
                     "name": "Nome"
                 },
                 "data_description": {
-                    "name": "Deixar em branco irá ter o mesmo nome que o dispositivo de origem"
+                    "name": "Deixar em branco fará com que tenha mesmo o nome que o dispositivo de origem"
                 }
             },
             "entity": {
@@ -27,7 +27,7 @@
                     "name": "Nome"
                 },
                 "data_description": {
-                    "name": "Deixar em branco irá ter o mesmo nome que a entidade de origem"
+                    "name": "Deixar em branco fará com que tenha mesmo o nome que a entidade de origem"
                 }
             },
             "battery": {
@@ -67,7 +67,7 @@
                     "battery_low_template": "Template de bateria baixa"
                 },
                 "data_description": {
-                    "name": "Deixar em branco irá ter o mesmo nome que o equipamento de origem",
+                    "name": "Deixar em branco fará com que tenha mesmo o nome que o dispositivo de origem",
                     "battery_low_threshold": "0 irá ser usado como valor por defeito para definir o descarregada",
                     "battery_low_template": "Template para determinar que a bateria está baixa, deve devolver true se estiver baixa\nÉ somente necessário para níveis de bateria non-standard"
                 }
@@ -107,7 +107,7 @@
                         "name": "Tipo e quantidades de bateria"
                     },
                     "battery_last_replaced": {
-                        "name": "Bateria substituida em"
+                        "name": "Bateria substituida a"
                     },
                     "battery_low": {
                         "name": "Bateria baixa"
@@ -116,7 +116,7 @@
                         "name": "Nivel de bateria baixa"
                     },
                     "battery_last_reported": {
-                        "name": "Bateria reportou em"
+                        "name": "Bateria reportou a"
                     },
                     "battery_last_reported_level": {
                         "name": "Bateria reportou o nível de"
@@ -144,7 +144,191 @@
                 }
             },
             "battery_last_replaced": {
-                "name": "{device_name}Foi substituida em"
+                "name": "{device_name}Foi substituida a"
+            }
+        }
+    },
+    "services": {
+        "set_battery_replaced": {
+            "description": "Definir que a bateria foi substituida.",
+            "fields": {
+                "device_id": {
+                    "description": "O dispositivo que teve a bateria substituida.",
+                    "name": "Dispositivo"
+                },
+                "entity_id": {
+                    "description": "Entidade teve a sua bateria substituida (somente usado se a entidade for associada ao battery notes).",
+                    "name": "Entidade"
+                },
+                "datetime_replaced": {
+                    "description": "Data da última substituição",
+                    "name": "Data"
+                }
+            },
+            "name": "Marcar bateria como trocada"
+        },
+        "check_battery_last_reported": {
+            "description": "Gerar eventos para dispositivos que não tenham reportado o seu nível de bateria.",
+            "fields": {
+                "days_last_reported": {
+                    "description": "Número de dias desde que o dispositivo reportou o seu nível de bateria.",
+                    "name": "Dias"
+                }
+            },
+            "name": "Substituir bateria"
+        },
+        "check_battery_low": {
+            "description": "Gerar eventos para dispositivos que tenham a bateria baixa.",
+            "name": "Verificar bateria com carga baixa"
+        }
+    }
+}{
+    "config": {
+        "step": {
+            "user": {
+                "description": "Caso precise se ajude na configuração pode verificar em : https://github.com/andrew-codechimp/ha-battery-notes",
+                "data": {
+                    "association_type": "Tipo de associação"
+                },
+                "menu_options": {
+                    "device": "Dispositivo (recomendado)",
+                    "entity": "Entidade"
+                },
+                "title": "Escolha o tipo de associação"
+            },
+            "device": {
+                "data": {
+                    "device_id": "Dispositivo",
+                    "name": "Nome"
+                },
+                "data_description": {
+                    "name": "Deixar em branco fará com que tenha mesmo o nome que o dispositivo de origem"
+                }
+            },
+            "entity": {
+                "data": {
+                    "source_entity_id": "Entidade",
+                    "name": "Nome"
+                },
+                "data_description": {
+                    "name": "Deixar em branco fará com que tenha mesmo nome que a entidade de origem"
+                }
+            },
+            "battery": {
+                "data": {
+                    "battery_type": "Tipo de bateria",
+                    "battery_quantity": "Quantidade de baterias",
+                    "battery_low_threshold": "Nivel de bateria baixa",
+                    "battery_low_template": "Template de bateria baixa"
+                },
+                "data_description": {
+                    "battery_low_threshold": "0 irá ser usado como valor por defeito para definir o descarregada",
+                    "battery_low_template": "Template para determinar que a bateria está baixa, deve devolver true se estiver baixa\nÉ somente necessário para níveis de bateria non-standard"
+                }
+            },
+            "manual": {
+                "description": "Este dispositivo está definido como criado manualmente, variantes usam tipos de bateria diferentes, portanto, não pode ser configurado na biblioteca. \n O próximo passo permitirá que defina o tipo de bateria, mas, por favor, não envie um pedido para o dispositivo.",
+                "title": "Configuração manual do dispositivo"
+            }
+        },
+        "abort": {
+            "already_configured": "Dispositivo já configurado"
+        },
+        "error": {
+            "unknown": "Erro desconhecido.",
+            "unconfigurable_entity": "Não é possível adicionar esta entidade ao Battery Notes."
+        }
+    },
+    "options": {
+        "step": {
+            "init": {
+                "description": "Caso precise se ajude na configuração pode verificar em: https://github.com/andrew-codechimp/ha-battery-notes",
+                "data": {
+                    "name": "Nome",
+                    "battery_type": "Tipo de bateria",
+                    "battery_quantity": "Quantidade de baterias",
+                    "battery_low_threshold": "Nivel de bateria baixa",
+                    "battery_low_template": "Template de bateria baixa"
+                },
+                "data_description": {
+                    "name": "Deixar em branco fará com que tenha mesmo o nome que o dispositivo de origem",
+                    "battery_low_threshold": "0 irá ser usado como valor por defeito para definir o descarregada",
+                    "battery_low_template": "Template para determinar que a bateria está baixa, deve devolver true se estiver baixa\nÉ somente necessário para níveis de bateria non-standard"
+                }
+            }
+        },
+        "error": {
+            "unknown": "Error desconhecido."
+        }
+    },
+    "entity": {
+        "binary_sensor": {
+            "battery_low": {
+                "name": "{device_name}Bateria baixa",
+                "state_attributes": {
+                    "battery_low_threshold": {
+                        "name": "Nivel de bateria baixa"
+                    }
+                }
+            }
+        },
+        "button": {
+            "battery_replaced": {
+                "name": "{device_name}Bateria substituída"
+            }
+        },
+        "sensor": {
+            "battery_plus": {
+                "name": "{device_name}Bateria+",
+                "state_attributes": {
+                    "battery_type": {
+                        "name": "Tipo de bateria"
+                    },
+                    "battery_quantity": {
+                        "name": "Quantidade de baterias"
+                    },
+                    "battery_type_and_quantity": {
+                        "name": "Tipo e quantidades de bateria"
+                    },
+                    "battery_last_replaced": {
+                        "name": "Bateria substituida a"
+                    },
+                    "battery_low": {
+                        "name": "Bateria baixa"
+                    },
+                    "battery_low_threshold": {
+                        "name": "Nivel de bateria baixa"
+                    },
+                    "battery_last_reported": {
+                        "name": "Bateria reportou a"
+                    },
+                    "battery_last_reported_level": {
+                        "name": "Bateria reportou o nível de"
+                    },
+                    "source_entity_id": {
+                        "name": "Id da Entidade"
+                    },
+                    "device_id": {
+                        "name": "Id do Dispositivo"
+                    },
+                    "device_name": {
+                        "name": "Nome do Dispositivo"
+                    }
+                }
+            },
+            "battery_type": {
+                "name": "{device_name}Tipo de Bateria",
+                "state_attributes": {
+                    "battery_type": {
+                        "name": "Tipo de bateria"
+                    },
+                    "battery_quantity": {
+                        "name": "Quantidades de baterias"
+                    }
+                }
+            },
+            "battery_last_replaced": {
+                "name": "{device_name}Foi substituida a"
             }
         }
     },
