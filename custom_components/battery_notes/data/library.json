@@ -6038,6 +6038,13 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "tado\u00b0 GmbH",
+            "model": "Smart Thermostat X",
+            "model_id": "RU04",
+            "battery_type": "AAA",
+            "battery_quantity": 3
         }
     ]
 }
