@@ -27,7 +27,7 @@
                     "name": "Nome"
                 },
                 "data_description": {
-                    "name": "Deixar em branco fará com que tenha o mesmo nome que a entidade de origem"
+                    "name": "Deixar em branco fará com que tenha mesmo nome que a entidade de origem"
                 }
             },
             "battery": {
