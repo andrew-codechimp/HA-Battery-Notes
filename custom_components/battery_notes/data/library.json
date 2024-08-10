@@ -6062,6 +6062,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Iris",
+            "model": "Motion Sensor (iL07_1)",
+            "battery_type": "CR123A"
         }
     ]
 }
