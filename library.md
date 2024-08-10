@@ -1,4 +1,4 @@
-## 1119 Devices in library
+## 1120 Devices in library
 
 This file is auto generated, do not modify
 
@@ -494,6 +494,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Iris                                            |Contact and temperature sensor (IL06_1)                                    |CR2                                |                   |                                      |
 |Iris                                            |iL07-01                                                                    |CR123                              |                   |                                      |
 |Iris                                            |Motion and temperature sensor (3326-L)                                     |CR2                                |                   |                                      |
+|Iris                                            |Motion Sensor (iL07_1)                                                     |CR123A                             |                   |                                      |
 |iRobot                                          |c975840                                                                    |Rechargeable                       |                   |                                      |
 |iRobot                                          |i715640                                                                    |Rechargeable                       |                   |                                      |
 |Konke                                           |3AFE28010402000D                                                           |CR2450                             |                   |                                      |
