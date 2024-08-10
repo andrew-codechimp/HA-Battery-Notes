@@ -3667,6 +3667,11 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "Ring",
+            "model": "Stick Up Cam (3rd Gen)",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "ROBB smarrt",
             "model": "ROB_200-024-0",
             "battery_type": "CR2032"
@@ -6045,11 +6050,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Ring",
-            "model": "Stick Up Cam (3rd Gen)",
-            "battery_type": "Rechargeable"
         }
     ]
 }
