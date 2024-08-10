@@ -4673,6 +4673,11 @@
         },
         {
             "manufacturer": "Tile",
+            "model": "T1101",
+            "battery_type": "Cr2032"
+        },
+        {
+            "manufacturer": "Tile",
             "model": "T1301N",
             "battery_type": "CR2032"
         },
@@ -6050,11 +6055,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Tile",
-            "model": "T1101",
-            "battery_type": "Cr2032"
         }
     ]
 }
