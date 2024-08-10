@@ -6045,6 +6045,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Tile",
+            "model": "T1101",
+            "battery_type": "Cr2032"
         }
     ]
 }
