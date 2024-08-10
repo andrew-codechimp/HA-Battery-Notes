@@ -6055,6 +6055,13 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Smart pet feeder AL",
+            "model_id": "xaw628wk93zqlr80",
+            "battery_type": "AA",
+            "battery_quantity": 4
         }
     ]
 }
