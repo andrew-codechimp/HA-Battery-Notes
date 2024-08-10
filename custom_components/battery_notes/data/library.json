@@ -6045,6 +6045,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Ring",
+            "model": "Stick Up Cam (3rd Gen)",
+            "battery_type": "Rechargeable"
         }
     ]
 }
