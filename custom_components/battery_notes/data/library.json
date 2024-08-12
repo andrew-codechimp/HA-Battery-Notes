@@ -2923,6 +2923,11 @@
         },
         {
             "manufacturer": "LUMI",
+            "model": "lumi.sen_ill.agl01",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "LUMI",
             "model": "lumi.sen_ill.mgl01",
             "battery_type": "CR2450"
         },
@@ -6066,11 +6071,6 @@
         {
             "manufacturer": "Zooz",
             "model": "ZSE44",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "LUMI",
-            "model": "lumi.sen_ill.agl01",
             "battery_type": "CR2450"
         }
     ]
