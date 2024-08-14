@@ -6078,6 +6078,13 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Ember",
+            "model": "Ember Mug 2",
+            "model_id": "14oz",
+            "hw_version": "10",
+            "battery_type": "Rechargeable"
         }
     ]
 }
