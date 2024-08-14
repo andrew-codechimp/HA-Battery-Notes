@@ -6085,6 +6085,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "OpenEpaperLink",
+            "model": "M2 1.54\"",
+            "battery_type": "CR2450"
         }
     ]
 }
