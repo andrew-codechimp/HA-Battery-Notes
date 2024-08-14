@@ -6081,8 +6081,8 @@
         },
         {
             "manufacturer": "Ember",
-            "model": "Ember Mug 2",
-            "model_id": "14oz",
+            "model": "Ember Mug 2 (14oz)",
+            "model_id": "",
             "hw_version": "10",
             "battery_type": "Rechargeable"
         }
