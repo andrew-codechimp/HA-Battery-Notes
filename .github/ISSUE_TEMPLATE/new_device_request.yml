@@ -36,7 +36,7 @@ body:
     id: model_id
     attributes:
       label: Model ID
-      description: If the device has a Model ID in the Devices screen within Home Assistant it must be included.
+      description: If the device has a Model ID (on a separate line) in the Devices screen within Home Assistant it must be included.
       placeholder: ex. 324131092621
     validations:
       required: false
