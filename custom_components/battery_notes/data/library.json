@@ -1468,6 +1468,13 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Ember",
+            "model": "Ember Mug 2 (14oz)",
+            "model_id": "",
+            "hw_version": "10",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "eQ-3",
             "model": "HM-CC-RT-DN",
             "battery_type": "AA",
