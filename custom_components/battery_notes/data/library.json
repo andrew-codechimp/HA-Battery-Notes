@@ -3413,6 +3413,11 @@
         },
         {
             "manufacturer": "OSRAM",
+            "model": "Lightify Switch Mini",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "OSRAM",
             "model": "SMART+ Motion Sensor (AC01353010G)",
             "battery_type": "CR2"
         },
@@ -6096,11 +6101,6 @@
         {
             "manufacturer": "Zooz",
             "model": "ZSE44",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "OSRAM",
-            "model": "Lightify Switch Mini",
             "battery_type": "CR2450"
         }
     ]
