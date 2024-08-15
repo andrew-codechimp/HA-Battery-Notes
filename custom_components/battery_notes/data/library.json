@@ -3427,6 +3427,11 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "OSRAM",
+            "model": "Switch 4x EU-LIGHTIFY",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "OWON",
             "model": "THS317-ET",
             "battery_type": "AAA",
@@ -6101,11 +6106,6 @@
         {
             "manufacturer": "Zooz",
             "model": "ZSE44",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "OSRAM",
-            "model": "Switch 4x EU-LIGHTIFY",
             "battery_type": "CR2450"
         }
     ]

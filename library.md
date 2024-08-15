@@ -1,4 +1,4 @@
-## 1126 Devices in library
+## 1127 Devices in library
 
 This file is auto generated, do not modify
 
@@ -635,6 +635,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |OSRAM                                           |Lightify Switch Mini                                                       |CR2450                             |                   |                                      |
 |OSRAM                                           |SMART+ Motion Sensor (AC01353010G)                                         |CR2                                |                   |                                      |
 |OSRAM                                           |Smart+ switch mini (AC0251100NJ/AC0251600NJ/AC0251700NJ)                   |CR2450                             |                   |                                      |
+|OSRAM                                           |Switch 4x EU-LIGHTIFY                                                      |CR2450                             |                   |                                      |
 |OWON                                            |THS317-ET                                                                  |2× AAA                             |                   |                                      |
 |Paulmann                                        |Smart switch 4 buttons white (501.34)                                      |CR2450                             |                   |                                      |
 |Perenio                                         |PECWS01                                                                    |CR2032                             |                   |                                      |
