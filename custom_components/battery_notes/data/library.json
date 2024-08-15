@@ -6107,6 +6107,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "ABUS Security-Center GmbH Co. KG",
+            "model": "SHRM10000",
+            "battery_type": "CR123A"
         }
     ]
 }
