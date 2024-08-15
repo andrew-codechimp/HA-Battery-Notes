@@ -1,4 +1,4 @@
-## 1127 Devices in library
+## 1128 Devices in library
 
 This file is auto generated, do not modify
 
@@ -74,6 +74,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |_TZE200_yjjdcqsq                                |TS0601                                                                     |2× AAA                             |                   |                                      |
 |_TZE200_znbl8dj5                                |TS0601                                                                     |CR2032                             |                   |                                      |
 |_TZE204_t1blo2bj                                |TS0601                                                                     |2× CR123A                          |                   |                                      |
+|ABUS Security-Center GmbH Co. KG                |SHRM10000                                                                  |CR123A                             |                   |                                      |
 |Adaprox                                         |TS0001_fingerbot_1                                                         |CR2                                |                   |                                      |
 |Adaprox                                         |Zigbee fingerbot plus (TS0001_fingerbot_1)                                 |CR2                                |                   |                                      |
 |ADEO                                            |RGB CTT LEXMAN ENKI remote control (HR-C99C-Z-C045)                        |CR2450                             |                   |                                      |

@@ -376,6 +376,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "ABUS Security-Center GmbH Co. KG",
+            "model": "SHRM10000",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "Adaprox",
             "model": "TS0001_fingerbot_1",
             "battery_type": "CR2"
@@ -6107,11 +6112,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "ABUS Security-Center GmbH Co. KG",
-            "model": "SHRM10000",
-            "battery_type": "CR123A"
         }
     ]
 }
