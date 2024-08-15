@@ -6097,6 +6097,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "OSRAM",
+            "model": "Lightify Switch Mini",
+            "battery_type": "CR2450"
         }
     ]
 }
