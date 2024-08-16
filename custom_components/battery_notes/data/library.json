@@ -4948,6 +4948,13 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Tuya",
+            "model": "NOTSEK smart Wifi Temperature Hygrometer",
+            "model_id": "hbluag8nbjwtkyqs",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "TuYa",
             "model": "Photoelectric smoke detector (PA-44Z)",
             "battery_type": "PP3"
@@ -6117,13 +6124,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "NOTSEK smart Wifi Temperature Hygrometer",
-            "model_id": "hbluag8nbjwtkyqs",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
