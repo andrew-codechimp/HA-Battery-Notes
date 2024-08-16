@@ -6117,6 +6117,13 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "NOTSEK smart Wifi Temperature Hygrometer",
+            "model_id": "hbluag8nbjwtkyqs",
+            "battery_type": "AA",
+            "battery_quantity": 2
         }
     ]
 }
