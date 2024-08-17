@@ -14,6 +14,12 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "_TYZB01_tob46aoq",
+            "model": "TS0205",
+            "hw_version": "0x00000044",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "_TZ1800_fcdjzz3s",
             "model": "TY0202",
             "battery_type": "AAA",
@@ -6124,12 +6130,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "_TYZB01_tob46aoq",
-            "model": "TS0205",
-            "hw_version": "0x00000044",
-            "battery_type": "CR123A"
         }
     ]
 }
