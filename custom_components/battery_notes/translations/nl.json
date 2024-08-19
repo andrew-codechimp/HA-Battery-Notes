@@ -44,7 +44,7 @@
             },
             "manual": {
                 "description": "This device is marked in the library as manual, variants use different battery types so it cannot be set in the library.\nThe next step will allow you to set your battery type but please do not submit a device request.",
-                "title": "Device manual configuration"
+                "title": "Handmatige configuratie van het toestel"
             }
         },
         "abort": {
