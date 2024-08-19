@@ -1860,6 +1860,13 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Eve",
+            "model": "Weather",
+            "model_id": "20EBS9901",
+            "hw_version": "1.1",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "Eve Systems",
             "model": "Eve Door 20EBN9901",
             "battery_type": "LS14250"
@@ -6134,13 +6141,6 @@
         {
             "manufacturer": "Zooz",
             "model": "ZSE44",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Eve",
-            "model": "Weather",
-            "model_id": "20EBS9901",
-            "hw_version": "1.1",
             "battery_type": "CR2450"
         }
     ]
