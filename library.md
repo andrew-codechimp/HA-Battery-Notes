@@ -1,4 +1,4 @@
-## 1137 Devices in library
+## 1138 Devices in library
 
 This file is auto generated, do not modify
 
@@ -726,6 +726,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Samsung                                         |SM-T500                                                                    |Rechargeable                       |                   |                                      |
 |Samsung                                         |SM-T510                                                                    |Rechargeable                       |                   |                                      |
 |Samsung                                         |SM-T580                                                                    |Rechargeable                       |                   |                                      |
+|Samsung                                         |SM-T825                                                                    |Rechargable                        |                   |                                      |
 |Saswell                                         |Thermostatic radiator valve (SEA801-Zigbee/SEA802-Zigbee)                  |2× AA                              |                   |                                      |
 |Schlage                                         |BE469NX                                                                    |4× AA                              |                   |                                      |
 |Schlage                                         |be499WB                                                                    |4× AA                              |                   |                                      |
