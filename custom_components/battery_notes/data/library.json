@@ -3310,7 +3310,7 @@
         {
             "manufacturer": "Nuki",
             "model": "Smart Lock 3.0 Pro",
-            "battery_type": "Rechargable"
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "Nuki",
@@ -3917,7 +3917,7 @@
         {
             "manufacturer": "Samsung",
             "model": "SM-T825",
-            "battery_type": "Rechargable"
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "Saswell",
@@ -4003,7 +4003,7 @@
         {
             "manufacturer": "Shelly",
             "model": "Shelly Button1",
-            "battery_type": "Rechargable"
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "Shelly",
@@ -4024,12 +4024,12 @@
         {
             "manufacturer": "Shelly",
             "model": "Shelly Motion",
-            "battery_type": "Rechargable"
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "Shelly",
             "model": "Shelly Motion 2",
-            "battery_type": "Rechargable"
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "Shelly",
@@ -4045,7 +4045,7 @@
         {
             "manufacturer": "Shelly",
             "model": "Shelly Valve",
-            "battery_type": "Rechargable"
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "Shelly",
