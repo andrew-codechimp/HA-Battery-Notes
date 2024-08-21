@@ -6158,6 +6158,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Nuki",
+            "model": "Smart Lock 3.0 Pro",
+            "battery_type": "Rechargable"
         }
     ]
 }
