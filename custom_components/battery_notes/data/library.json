@@ -6163,6 +6163,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Samsung",
+            "model": "SM-T825",
+            "battery_type": "Rechargable"
         }
     ]
 }
