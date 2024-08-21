@@ -1812,6 +1812,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Eufy",
+            "model": "T8114-Z",
+            "battery_type": "Rechargable"
+        },
+        {
             "manufacturer": "Eufy Security",
             "model": "T8113",
             "battery_type": "Rechargeable"
