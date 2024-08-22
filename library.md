@@ -1,4 +1,4 @@
-## 1132 Devices in library
+## 1138 Devices in library
 
 This file is auto generated, do not modify
 
@@ -335,6 +335,8 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |eQ-3                                            |MAX! Radiator Thermostat                                                   |2× AA                              |                   |                                      |
 |eQ-3                                            |MAX! Wall Thermostat                                                       |2× AAA                             |                   |                                      |
 |eQ-3                                            |MAX! Window Sensor                                                         |2× AAA                             |                   |                                      |
+|Eufy                                            |T8114                                                                      |Rechargeable                       |                   |                                      |
+|Eufy                                            |T8114-Z                                                                    |Rechargeable                       |                   |                                      |
 |Eufy Security                                   |T8113                                                                      |Rechargeable                       |                   |                                      |
 |Eufy Security                                   |T8113-V                                                                    |Rechargeable                       |                   |                                      |
 |Eufy Security                                   |T8160                                                                      |Rechargeable                       |                   |                                      |
@@ -344,6 +346,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Eurotronic                                      |Spirit Zigbee wireless heater thermostat (SPZB0001)                        |2× AA                              |                   |                                      |
 |Eurotronics                                     |Spirit                                                                     |2× AA                              |                   |                                      |
 |Eve                                             |Thermo                                                                     |2× AA                              |                   |                                      |
+|Eve                                             |Weather                                                                    |CR2450                             |20EBS9901          |                                   1.1|
 |Eve Systems                                     |Eve Door 20EBN9901                                                         |LS14250                            |                   |                                      |
 |Eve Systems                                     |Eve Motion 20EBY9901                                                       |2× AAA                             |                   |                                      |
 |Eve Systems                                     |Thermo 20EBP1701                                                           |2× AA                              |                   |                                      |
@@ -610,6 +613,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |NUKI                                            |Nuki Door Sensor                                                           |LS14250                            |                   |                                      |
 |Nuki                                            |Nuki Opener                                                                |4× AAA                             |                   |                                      |
 |Nuki                                            |Nuki Smart Lock                                                            |4× AA                              |                   |                                      |
+|Nuki                                            |Smart Lock 3.0 Pro                                                         |Rechargeable                       |                   |                                      |
 |Nuki                                            |Smart Lock Pro                                                             |Nuki Battery Pack                  |                   |                                      |
 |Nuki                                            |SmartLock                                                                  |4× MANUAL                          |                   |                                      |
 |Nuki Home Solutions GmbH                        |Nuki opener                                                                |4× AAA                             |                   |                                      |
@@ -722,6 +726,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Samsung                                         |SM-T500                                                                    |Rechargeable                       |                   |                                      |
 |Samsung                                         |SM-T510                                                                    |Rechargeable                       |                   |                                      |
 |Samsung                                         |SM-T580                                                                    |Rechargeable                       |                   |                                      |
+|Samsung                                         |SM-T825                                                                    |Rechargeable                       |                   |                                      |
 |Saswell                                         |Thermostatic radiator valve (SEA801-Zigbee/SEA802-Zigbee)                  |2× AA                              |                   |                                      |
 |Schlage                                         |BE469NX                                                                    |4× AA                              |                   |                                      |
 |Schlage                                         |be499WB                                                                    |4× AA                              |                   |                                      |
@@ -737,15 +742,15 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Shelly                                          |BLU Button1                                                                |CR2032                             |                   |                                      |
 |Shelly                                          |BLU Door/Window                                                            |CR2032                             |                   |                                      |
 |Shelly                                          |gen1 (SHHT-1)                                                              |CR123A                             |                   |                                      |
-|Shelly                                          |Shelly Button1                                                             |Rechargable                        |                   |                                      |
+|Shelly                                          |Shelly Button1                                                             |Rechargeable                       |                   |                                      |
 |Shelly                                          |Shelly Door/Window 2                                                       |2× CR123A                          |                   |                                      |
 |Shelly                                          |Shelly Flood                                                               |CR123A                             |                   |                                      |
 |Shelly                                          |Shelly H&T                                                                 |MANUAL                             |                   |                                      |
-|Shelly                                          |Shelly Motion                                                              |Rechargable                        |                   |                                      |
-|Shelly                                          |Shelly Motion 2                                                            |Rechargable                        |                   |                                      |
+|Shelly                                          |Shelly Motion                                                              |Rechargeable                       |                   |                                      |
+|Shelly                                          |Shelly Motion 2                                                            |Rechargeable                       |                   |                                      |
 |Shelly                                          |Shelly Plus H&T                                                            |4× AA                              |                   |                                      |
 |Shelly                                          |Shelly Plus Smoke                                                          |CR123A                             |                   |                                      |
-|Shelly                                          |Shelly Valve                                                               |Rechargable                        |                   |                                      |
+|Shelly                                          |Shelly Valve                                                               |Rechargeable                       |                   |                                      |
 |Shelly                                          |SNSN-0013A                                                                 |4× AA (LR6)                        |                   |                                      |
 |Shenzhen Heiman Technology Co., Ltd.            |HS1HT-Z                                                                    |CR2450                             |                   |                                      |
 |Shenzhen Heiman Technology Co., Ltd.            |HS1SA-Z                                                                    |CR123A                             |                   |                                      |
@@ -1077,6 +1082,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Xiaomi                                          |Mi light sensor (GZCGQ01LM)                                                |CR2450                             |                   |                                      |
 |Xiaomi                                          |Mi motion sensor (RTCGQ01LM)                                               |CR2450                             |                   |                                      |
 |Xiaomi                                          |Mi Scale V1                                                                |CR2032                             |                   |                                      |
+|Xiaomi                                          |Mi Temperature And Humidity Monitor 2                                      |CR2032                             |LYWSD03MMC-z       |                                      |
 |Xiaomi                                          |Mi temperature and humidity sensor (WSDCGQ01LM)                            |CR2032                             |                   |                                      |
 |Xiaomi                                          |Mi wireless switch (WXKG01LM)                                              |CR2032                             |                   |                                      |
 |Xiaomi                                          |Mi/Aqara smart home cube (MFKZQ01LM)                                       |CR2450                             |                   |                                      |
