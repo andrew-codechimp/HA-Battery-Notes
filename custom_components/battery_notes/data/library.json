@@ -2150,6 +2150,12 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "GE",
+            "model": "Hinge Pin Smart Door Sensor",
+            "model_id": "32563",
+            "battery_type": "CR2"
+        },
+        {
             "manufacturer": "GE/Enbrighten",
             "model": "32563 / ZW6301",
             "battery_type": "CR2"
@@ -6174,12 +6180,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "GE",
-            "model": "Hinge Pin Smart Door Sensor",
-            "model_id": "32563",
-            "battery_type": "CR2"
         }
     ]
 }
