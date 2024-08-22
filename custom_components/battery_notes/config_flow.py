@@ -422,6 +422,8 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
 class OptionsFlowHandler(OptionsFlow):
     """Handle an option flow for BatteryNotes."""
 
+    model_info: ModelInfo = None
+
     def __init__(self, config_entry: ConfigEntry) -> None:
         """Initialize options flow."""
         self.config_entry = config_entry
@@ -442,6 +444,25 @@ class OptionsFlowHandler(OptionsFlow):
         errors = {}
         self.current_config = dict(self.config_entry.data)
 
+        device_registry = dr.async_get(self.hass)
+        device_entry = device_registry.async_get(self.source_device_id)
+
+        _LOGGER.debug(
+            "Looking up device %s %s %s %s",
+            device_entry.manufacturer,
+            device_entry.model,
+            get_device_model_id(device_entry) or "",
+            device_entry.hw_version,
+        )
+
+        self.model_info = ModelInfo(
+            device_entry.manufacturer,
+            device_entry.model,
+            get_device_model_id(device_entry),
+            device_entry.hw_version,
+        )
+
+
         schema = self.build_options_schema()
         if user_input is not None:
             user_input[CONF_BATTERY_QUANTITY] = int(user_input[CONF_BATTERY_QUANTITY])
@@ -455,6 +476,12 @@ class OptionsFlowHandler(OptionsFlow):
 
         return self.async_show_form(
             step_id="init",
+            description_placeholders={
+                "manufacturer": self.model_info.manufacturer if self.model_info else "",
+                "model": self.model_info.model if self.model_info else "",
+                "model_id": self.model_info.model_id if self.model_info else "",
+                "hw_version": self.model_info.hw_version if self.model_info else "",
+            },
             data_schema=schema,
             errors=errors,
         )

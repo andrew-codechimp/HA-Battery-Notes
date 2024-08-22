@@ -31,6 +31,7 @@
                 }
             },
             "battery": {
+                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}\n",
                 "data": {
                     "battery_type": "Тип батареи",
                     "battery_quantity": "Количество батарей",
@@ -58,7 +59,7 @@
     "options": {
         "step": {
             "init": {
-                "description": "Если вам нужна помощь с настройкой, посмотрите здесь: https://andrew-codechimp.github.io/HA-Battery-Notes/",
+                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}\n",
                 "data": {
                     "name": "Название",
                     "battery_type": "Тип батареи",

@@ -31,6 +31,7 @@
                 }
             },
             "battery": {
+                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}\n",
                 "data": {
                     "battery_type": "Typ batérie",
                     "battery_quantity": "Množstvo batérie",
@@ -58,7 +59,7 @@
     "options": {
         "step": {
             "init": {
-                "description": "Ak potrebujete pomoc s konfiguráciou, pozrite sa sem: https://andrew-codechimp.github.io/HA-Battery-Notes/",
+                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}\n",
                 "data": {
                     "name": "Názov",
                     "battery_type": "Typ batérie",

@@ -31,6 +31,7 @@
                 }
             },
             "battery": {
+                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}\n",
                 "data": {
                     "battery_type": "Baterijos tipas",
                     "battery_quantity": "Baterijų kiekis",
@@ -58,7 +59,7 @@
     "options": {
         "step": {
             "init": {
-                "description": "Daugiau pagalbos apie konfigūraciją rasite čia: https://andrew-codechimp.github.io/HA-Battery-Notes/",
+                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}\n",
                 "data": {
                     "name": "Pavadinimas",
                     "battery_type": "Baterijos tipas",
