@@ -444,24 +444,24 @@ class OptionsFlowHandler(OptionsFlow):
         errors = {}
         self.current_config = dict(self.config_entry.data)
 
-        device_registry = dr.async_get(self.hass)
-        device_entry = device_registry.async_get(self.source_device_id)
+        if self.source_device_id:
+            device_registry = dr.async_get(self.hass)
+            device_entry = device_registry.async_get(self.source_device_id)
 
-        _LOGGER.debug(
-            "Looking up device %s %s %s %s",
-            device_entry.manufacturer,
-            device_entry.model,
-            get_device_model_id(device_entry) or "",
-            device_entry.hw_version,
-        )
+            _LOGGER.debug(
+                "Looking up device %s %s %s %s",
+                device_entry.manufacturer,
+                device_entry.model,
+                get_device_model_id(device_entry) or "",
+                device_entry.hw_version,
+            )
 
-        self.model_info = ModelInfo(
-            device_entry.manufacturer,
-            device_entry.model,
-            get_device_model_id(device_entry),
-            device_entry.hw_version,
-        )
-
+            self.model_info = ModelInfo(
+                device_entry.manufacturer,
+                device_entry.model,
+                get_device_model_id(device_entry),
+                device_entry.hw_version,
+            )
 
         schema = self.build_options_schema()
         if user_input is not None:
