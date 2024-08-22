@@ -1812,6 +1812,16 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Eufy",
+            "model": "T8114",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Eufy",
+            "model": "T8114-Z",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Eufy Security",
             "model": "T8113",
             "battery_type": "Rechargeable"
@@ -1858,6 +1868,13 @@
             "model": "Thermo",
             "battery_type": "AA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Eve",
+            "model": "Weather",
+            "model_id": "20EBS9901",
+            "hw_version": "1.1",
+            "battery_type": "CR2450"
         },
         {
             "manufacturer": "Eve Systems",
@@ -3292,6 +3309,11 @@
         },
         {
             "manufacturer": "Nuki",
+            "model": "Smart Lock 3.0 Pro",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Nuki",
             "model": "Smart Lock Pro",
             "battery_type": "Nuki Battery Pack"
         },
@@ -3893,6 +3915,11 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "Samsung",
+            "model": "SM-T825",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Saswell",
             "model": "Thermostatic radiator valve (SEA801-Zigbee/SEA802-Zigbee)",
             "battery_type": "AA",
@@ -3976,7 +4003,7 @@
         {
             "manufacturer": "Shelly",
             "model": "Shelly Button1",
-            "battery_type": "Rechargable"
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "Shelly",
@@ -3997,12 +4024,12 @@
         {
             "manufacturer": "Shelly",
             "model": "Shelly Motion",
-            "battery_type": "Rechargable"
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "Shelly",
             "model": "Shelly Motion 2",
-            "battery_type": "Rechargable"
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "Shelly",
@@ -4018,7 +4045,7 @@
         {
             "manufacturer": "Shelly",
             "model": "Shelly Valve",
-            "battery_type": "Rechargable"
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "Shelly",
@@ -5805,6 +5832,12 @@
         {
             "manufacturer": "Xiaomi",
             "model": "Mi Scale V1",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "Mi Temperature And Humidity Monitor 2",
+            "model_id": "LYWSD03MMC-z",
             "battery_type": "CR2032"
         },
         {
