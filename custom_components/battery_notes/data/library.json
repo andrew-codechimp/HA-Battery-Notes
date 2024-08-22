@@ -211,6 +211,12 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "_TZ3000_nrfkrgf4",
+            "model": "TS0046",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "_TZ3000_nss8amz9",
             "model": "TS0202",
             "battery_type": "CR2450"
@@ -6168,12 +6174,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "_TZ3000_nrfkrgf4",
-            "model": "TS0046",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
