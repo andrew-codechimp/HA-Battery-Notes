@@ -33,16 +33,17 @@ async def async_get_config_entry_diagnostics(
         entity = entity_registry.async_get(source_entity_id)
         device_id = entity.device_id
 
-    device_entry = device_registry.async_get(device_id)
+    if device_id:
+        device_entry = device_registry.async_get(device_id)
 
-    diagnostics = {"entry": config_entry.as_dict()}
-    if device_entry:
-        device_info = {
-            "manufacturer": device_entry.manufacturer,
-            "model": device_entry.model,
-            "model_id": get_device_model_id(device_entry),
-            "hw_version": device_entry.hw_version,
-        }
-        diagnostics.update({"device": device_info})
+        diagnostics = {"entry": config_entry.as_dict()}
+        if device_entry:
+            device_info = {
+                "manufacturer": device_entry.manufacturer,
+                "model": device_entry.model,
+                "model_id": get_device_model_id(device_entry),
+                "hw_version": device_entry.hw_version,
+            }
+            diagnostics.update({"device": device_info})
 
     return diagnostics
