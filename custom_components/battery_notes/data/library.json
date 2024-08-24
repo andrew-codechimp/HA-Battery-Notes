@@ -1819,22 +1819,22 @@
         },
         {
             "manufacturer": "Eufy Security",
-            "model": "T8114",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Eufy Security",
-            "model": "T8114-Z",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Eufy Security",
             "model": "T8113",
             "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "Eufy Security",
             "model": "T8113-V",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Eufy Security",
+            "model": "T8114",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Eufy Security",
+            "model": "T8114-Z",
             "battery_type": "Rechargeable"
         },
         {
@@ -5848,12 +5848,6 @@
         },
         {
             "manufacturer": "Xiaomi",
-            "model": "LYWSD03MMC-z",
-            "battery_type": "CR2032",
-            "model_match_method": "contains"
-        },
-        {
-            "manufacturer": "Xiaomi",
             "model": "Mi temperature and humidity sensor (WSDCGQ01LM)",
             "battery_type": "CR2032"
         },
@@ -5985,6 +5979,12 @@
             "manufacturer": "Xiaomi",
             "model": "zigbee WXKG01LM (lumi.sensor_switch)",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "LYWSD03MMC-z",
+            "battery_type": "CR2032",
+            "model_match_method": "contains"
         },
         {
             "manufacturer": "Xiaomi Aqara",
