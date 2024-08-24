@@ -13,9 +13,7 @@ def validate_is_float(num):
             return False
     return False
 
+
 def get_device_model_id(device_entry: DeviceEntry) -> str | None:
     """Get the device model if available."""
-    if hasattr(device_entry, "model_id"):
-        return  device_entry.model_id
-    else:
-        return None
+    return device_entry.model_id if hasattr(device_entry, "model_id") else None
