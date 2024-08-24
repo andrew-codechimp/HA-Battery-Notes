@@ -1818,12 +1818,12 @@
             "battery_quantity": 2
         },
         {
-            "manufacturer": "Eufy",
+            "manufacturer": "Eufy Security",
             "model": "T8114",
             "battery_type": "Rechargeable"
         },
         {
-            "manufacturer": "Eufy",
+            "manufacturer": "Eufy Security",
             "model": "T8114-Z",
             "battery_type": "Rechargeable"
         },
@@ -5848,9 +5848,9 @@
         },
         {
             "manufacturer": "Xiaomi",
-            "model": "Mi Temperature And Humidity Monitor 2",
-            "model_id": "LYWSD03MMC-z",
-            "battery_type": "CR2032"
+            "model": "LYWSD03MMC-z",
+            "battery_type": "CR2032",
+            "model_match_method": "contains"
         },
         {
             "manufacturer": "Xiaomi",
