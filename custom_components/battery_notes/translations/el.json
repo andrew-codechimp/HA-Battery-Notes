@@ -31,7 +31,7 @@
                 }
             },
             "battery": {
-                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}\n",
+                "description": "Κατασκευαστής: {manufacturer}\nΜοντέλο: {model}\nID Μοντέλου: {model_id}\nΕκδοση υλικού: {hw_version}",
                 "data": {
                     "battery_type": "Τύπος μπαταρίας",
                     "battery_quantity": "Αριθμός μπαταριών",
@@ -59,7 +59,7 @@
     "options": {
         "step": {
             "init": {
-                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}\n",
+                "description": "Κατασκευαστής: {manufacturer}\nΜοντέλο: {model}\nID Μοντέλου: {model_id}\nΕκδοση υλικού: {hw_version}",
                 "data": {
                     "name": "Ονομα",
                     "battery_type": "Τύπος μπαταρίας",
