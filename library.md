@@ -1,4 +1,4 @@
-## 1138 Devices in library
+## 1140 Devices in library
 
 This file is auto generated, do not modify
 
@@ -45,6 +45,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |_TZ3000_mh9px7cq                                |TS0044                                                                     |A23                                |                   |                                      |
 |_TZ3000_mrpevh8p                                |TS0041                                                                     |CR2032                             |                   |                                      |
 |_TZ3000_msl6wxk9                                |TS0202                                                                     |CR2450                             |                   |                                      |
+|_TZ3000_nrfkrgf4                                |TS0046                                                                     |2× AAA                             |                   |                                      |
 |_TZ3000_nss8amz9                                |TS0202                                                                     |CR2450                             |                   |                                      |
 |_TZ3000_o4mkahkc                                |TS0202                                                                     |2× AAA                             |                   |                                      |
 |_TZ3000_oxslv1c9                                |TS0203                                                                     |CR2032                             |                   |                                      |
@@ -335,10 +336,10 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |eQ-3                                            |MAX! Radiator Thermostat                                                   |2× AA                              |                   |                                      |
 |eQ-3                                            |MAX! Wall Thermostat                                                       |2× AAA                             |                   |                                      |
 |eQ-3                                            |MAX! Window Sensor                                                         |2× AAA                             |                   |                                      |
-|Eufy                                            |T8114                                                                      |Rechargeable                       |                   |                                      |
-|Eufy                                            |T8114-Z                                                                    |Rechargeable                       |                   |                                      |
 |Eufy Security                                   |T8113                                                                      |Rechargeable                       |                   |                                      |
 |Eufy Security                                   |T8113-V                                                                    |Rechargeable                       |                   |                                      |
+|Eufy Security                                   |T8114                                                                      |Rechargeable                       |                   |                                      |
+|Eufy Security                                   |T8114-Z                                                                    |Rechargeable                       |                   |                                      |
 |Eufy Security                                   |T8160                                                                      |Rechargeable                       |                   |                                      |
 |Eufy Security                                   |T8210                                                                      |Rechargeable                       |                   |                                      |
 |Eufy Security                                   |T8210C                                                                     |Rechargeable                       |                   |                                      |
@@ -397,6 +398,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |frient A/S                                      |SMSZB-120                                                                  |CR123                              |                   |                                      |
 |Fyta                                            |Plant                                                                      |CR2032                             |                   |                                      |
 |GE                                              |Hinge PIN Door Sensor, 500S                                                |CR123A                             |                   |                                      |
+|GE                                              |Hinge Pin Smart Door Sensor                                                |CR2                                |              32563|                                      |
 |GE/Enbrighten                                   |32563 / ZW6301                                                             |CR2                                |                   |                                      |
 |GiEX                                            |Water irrigation valve (QT06_1)                                            |4× AA                              |                   |                                      |
 |GiEX                                            |Water irrigation valve (QT06_2)                                            |4× AA                              |                   |                                      |
@@ -1082,7 +1084,6 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Xiaomi                                          |Mi light sensor (GZCGQ01LM)                                                |CR2450                             |                   |                                      |
 |Xiaomi                                          |Mi motion sensor (RTCGQ01LM)                                               |CR2450                             |                   |                                      |
 |Xiaomi                                          |Mi Scale V1                                                                |CR2032                             |                   |                                      |
-|Xiaomi                                          |Mi Temperature And Humidity Monitor 2                                      |CR2032                             |LYWSD03MMC-z       |                                      |
 |Xiaomi                                          |Mi temperature and humidity sensor (WSDCGQ01LM)                            |CR2032                             |                   |                                      |
 |Xiaomi                                          |Mi wireless switch (WXKG01LM)                                              |CR2032                             |                   |                                      |
 |Xiaomi                                          |Mi/Aqara smart home cube (MFKZQ01LM)                                       |CR2450                             |                   |                                      |
@@ -1109,6 +1110,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Xiaomi                                          |zigbee RTCGQ11LM (lumi.sensor_motion.aq2)                                  |CR2450                             |                   |                                      |
 |Xiaomi                                          |zigbee WSDCGQ01LM (lumi.sensor_ht)                                         |CR2032                             |                   |                                      |
 |Xiaomi                                          |zigbee WXKG01LM (lumi.sensor_switch)                                       |CR2032                             |                   |                                      |
+|Xiaomi                                          |Temp & RH Monitor Lite (pvxx/ZigbeeTLc)\*                                  |CR2032                             |                   |                                      |
 |Xiaomi Aqara                                    |sensor_magnet.aq2                                                          |CR1632                             |                   |                                      |
 |Xiaomi Aqara                                    |sensor_switch.aq2                                                          |CR2032                             |                   |                                      |
 |Xiaomi Aqara                                    |sensor_wleak.aq1                                                           |CR2032                             |                   |                                      |

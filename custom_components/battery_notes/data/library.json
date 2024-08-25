@@ -211,6 +211,12 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "_TZ3000_nrfkrgf4",
+            "model": "TS0046",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "_TZ3000_nss8amz9",
             "model": "TS0202",
             "battery_type": "CR2450"
@@ -1812,16 +1818,6 @@
             "battery_quantity": 2
         },
         {
-            "manufacturer": "Eufy",
-            "model": "T8114",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Eufy",
-            "model": "T8114-Z",
-            "battery_type": "Rechargeable"
-        },
-        {
             "manufacturer": "Eufy Security",
             "model": "T8113",
             "battery_type": "Rechargeable"
@@ -1829,6 +1825,16 @@
         {
             "manufacturer": "Eufy Security",
             "model": "T8113-V",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Eufy Security",
+            "model": "T8114",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Eufy Security",
+            "model": "T8114-Z",
             "battery_type": "Rechargeable"
         },
         {
@@ -2142,6 +2148,12 @@
             "manufacturer": "GE",
             "model": "Hinge PIN Door Sensor, 500S",
             "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "GE",
+            "model": "Hinge Pin Smart Door Sensor",
+            "model_id": "32563",
+            "battery_type": "CR2"
         },
         {
             "manufacturer": "GE/Enbrighten",
@@ -5836,12 +5848,6 @@
         },
         {
             "manufacturer": "Xiaomi",
-            "model": "Mi Temperature And Humidity Monitor 2",
-            "model_id": "LYWSD03MMC-z",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Xiaomi",
             "model": "Mi temperature and humidity sensor (WSDCGQ01LM)",
             "battery_type": "CR2032"
         },
@@ -5973,6 +5979,12 @@
             "manufacturer": "Xiaomi",
             "model": "zigbee WXKG01LM (lumi.sensor_switch)",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "Temp & RH Monitor Lite (pvxx/ZigbeeTLc)",
+            "battery_type": "CR2032",
+            "model_match_method": "startswith"
         },
         {
             "manufacturer": "Xiaomi Aqara",
