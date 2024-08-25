@@ -5982,9 +5982,9 @@
         },
         {
             "manufacturer": "Xiaomi",
-            "model": "LYWSD03MMC-z",
+            "model": "Temp & RH Monitor Lite (pvxx/ZigbeeTLc)",
             "battery_type": "CR2032",
-            "model_match_method": "contains"
+            "model_match_method": "startswith"
         },
         {
             "manufacturer": "Xiaomi Aqara",
