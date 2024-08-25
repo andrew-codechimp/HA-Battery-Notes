@@ -31,6 +31,7 @@
                 }
             },
             "battery": {
+                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}\n",
                 "data": {
                     "battery_type": "Elem típus",
                     "battery_quantity": "Az akkumulátor mennyisége",
@@ -58,7 +59,7 @@
     "options": {
         "step": {
             "init": {
-                "description": "Ha segítségre van szükséged a konfigurációhoz: https://andrew-codechimp.github.io/HA-Battery-Notes/",
+                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}\n",
                 "data": {
                     "name": "Név",
                     "battery_type": "Elem típus",
