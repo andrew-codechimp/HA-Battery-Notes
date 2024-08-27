@@ -4,13 +4,13 @@
             "user": {
                 "description": "Si necessiteu ajuda amb la configuració, mireu aquí: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
-                    "association_type": "Association type"
+                    "association_type": "Tipus d'associació"
                 },
                 "menu_options": {
-                    "device": "Device (recommended)",
+                    "device": "Dispositiu (recomanat)",
                     "entity": "Entitat"
                 },
-                "title": "Choose your association type"
+                "title": "Tria el tipus d'associació"
             },
             "device": {
                 "data": {
@@ -27,11 +27,11 @@
                     "name": "Nom"
                 },
                 "data_description": {
-                    "name": "Leaving blank will take the name from the source entity"
+                    "name": "Si ho deixes en blanc, agafarà el nom de l'entitat d'origen"
                 }
             },
             "battery": {
-                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}\n",
+                "description": "Fabricant: {manufacturer}\nModel: {model}\nIdentificador del model: {model_id}\nVersió de maquinari: {hw_version}",
                 "data": {
                     "battery_type": "Tipus de bateria",
                     "battery_quantity": "Quantitat de bateries",
@@ -44,8 +44,8 @@
                 }
             },
             "manual": {
-                "description": "This device is marked in the library as manual, variants use different battery types so it cannot be set in the library.\nThe next step will allow you to set your battery type but please do not submit a device request.",
-                "title": "Device manual configuration"
+                "description": "Aquest dispositiu està marcat a la biblioteca com a manual, les variants utilitzen diferents tipus de bateries, de manera que no es pot configurar a la biblioteca.\nEl següent pas us permetrà configurar el tipus de bateria, però no envieu cap sol·licitud de dispositiu.",
+                "title": "Configuració manual del dispositiu"
             }
         },
         "abort": {
@@ -53,13 +53,13 @@
         },
         "error": {
             "unknown": "S'ha produït un error desconegut",
-            "unconfigurable_entity": "It is not possible to add this entity to Battery Notes."
+            "unconfigurable_entity": "No es pot afegir aquesta entitat al Battery Notes "
         }
     },
     "options": {
         "step": {
             "init": {
-                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}\n",
+                "description": "Fabricant: {manufacturer}\nModel: {model}\nIdentificador del model: {model_id}\nVersió de maquinari: {hw_version}",
                 "data": {
                     "name": "Nom",
                     "battery_type": "Tipus de bateria",
@@ -123,7 +123,7 @@
                         "name": "Últim nivell de bateria notificat"
                     },
                     "source_entity_id": {
-                        "name": "Source Entity Id"
+                        "name": "Identificador de l'entitat"
                     },
                     "device_id": {
                         "name": "Id del dispositiu"
