@@ -6186,6 +6186,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Google",
+            "model": "Pixel 6a",
+            "battery_type": "Rechargeable"
         }
     ]
 }
