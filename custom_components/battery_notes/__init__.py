@@ -225,7 +225,7 @@ async def async_remove_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> 
         )
 
 
-async def async_migrate_entry(hass, config_entry: ConfigEntry):
+async def async_migrate_entry(hass: HomeAssistant, config_entry: ConfigEntry):
     """Migrate old config."""
     new_version = CONFIG_VERSION
 
@@ -249,10 +249,8 @@ async def async_migrate_entry(hass, config_entry: ConfigEntry):
         new_data[CONF_BATTERY_TYPE] = _type
         new_data[CONF_BATTERY_QUANTITY] = _qty
 
-        config_entry.version = new_version
-
         hass.config_entries.async_update_entry(
-            config_entry, title=config_entry.title, data=new_data
+            config_entry, version=new_version, title=config_entry.title, data=new_data
         )
 
         _LOGGER.info(
