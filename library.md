@@ -1,4 +1,4 @@
-## 1142 Devices in library
+## 1143 Devices in library
 
 This file is auto generated, do not modify
 
@@ -404,6 +404,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |GiEX                                            |Water irrigation valve (QT06_2)                                            |4× AA                              |                   |                                      |
 |Google                                          |A12                                                                        |3× AA                              |                   |                                      |
 |Google                                          |KR1                                                                        |CR2                                |                   |                                      |
+|Google                                          |Pixel 2                                                                    |Rechargeable                       |                   |                                      |
 |Google                                          |Topaz-2.7                                                                  |MANUAL                             |                   |                                      |
 |Google                                          |Topaz-2.9                                                                  |6× AA                              |                   |                                      |
 |Govee                                           |H5054                                                                      |2× AAA                             |                   |                                      |

@@ -2185,6 +2185,11 @@
         },
         {
             "manufacturer": "Google",
+            "model": "Pixel 2",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Google",
             "model": "Topaz-2.7",
             "battery_type": "MANUAL"
         },
@@ -6191,11 +6196,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Google",
-            "model": "Pixel 2",
-            "battery_type": "Rechargeable"
         }
     ]
 }
