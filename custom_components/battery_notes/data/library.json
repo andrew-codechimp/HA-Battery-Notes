@@ -3386,6 +3386,11 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Oculus",
+            "model": "Quest",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Onvis",
             "model": "CT3",
             "battery_type": "CR2450"
@@ -6201,11 +6206,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Oculus",
-            "model": "Quest",
-            "battery_type": "Rechargeable"
         }
     ]
 }
