@@ -1,4 +1,4 @@
-## 1141 Devices in library
+## 1142 Devices in library
 
 This file is auto generated, do not modify
 
@@ -724,6 +724,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |samsung                                         |SM-G955U                                                                   |Rechargeable                       |                   |                                      |
 |Samsung                                         |SM-G991B                                                                   |Rechargeable                       |                   |                                      |
 |samsung                                         |SM-G998U                                                                   |Rechargeable                       |                   |                                      |
+|samsung                                         |SM-S901U1                                                                  |Rechargeable                       |                   |                                      |
 |samsung                                         |SM-S918U                                                                   |Rechargeable                       |                   |                                      |
 |Samsung                                         |SM-T225                                                                    |HQ-3565S                           |                   |                                      |
 |Samsung                                         |SM-T500                                                                    |Rechargeable                       |                   |                                      |
