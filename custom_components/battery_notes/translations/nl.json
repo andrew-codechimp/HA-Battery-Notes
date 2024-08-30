@@ -4,13 +4,13 @@
             "user": {
                 "description": "Als u hulp nodig heeft bij de configuratie kunt u hier een kijkje nemen: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
-                    "association_type": "Association type"
+                    "association_type": "Associatietype"
                 },
                 "menu_options": {
                     "device": "Apparaat (aanbevolen)",
                     "entity": "Entiteit"
                 },
-                "title": "Choose your association type"
+                "title": "Kies uw associatietype"
             },
             "device": {
                 "data": {
@@ -31,7 +31,7 @@
                 }
             },
             "battery": {
-                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}\n",
+                "description": "Fabrikant: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware versie: {hw_version}",
                 "data": {
                     "battery_type": "Batterij type",
                     "battery_quantity": "Aantal batterijen",
@@ -44,7 +44,7 @@
                 }
             },
             "manual": {
-                "description": "This device is marked in the library as manual, variants use different battery types so it cannot be set in the library.\nThe next step will allow you to set your battery type but please do not submit a device request.",
+                "description": "Dit apparaat is in de bibliotheek gemarkeerd als handmatig, varianten gebruiken verschillende batterijtypen zodat het niet kan worden ingesteld in de bibliotheek.\nDe volgende stap staat je toe om je batterijtype in te stellen, maar gelieve geen apparaat verzoek in te dienen.",
                 "title": "Handmatige configuratie van het toestel"
             }
         },
@@ -59,7 +59,7 @@
     "options": {
         "step": {
             "init": {
-                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}\n",
+                "description": "Fabrikant: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware versie: {hw_version}",
                 "data": {
                     "name": "Naam",
                     "battery_type": "Batterij type",
