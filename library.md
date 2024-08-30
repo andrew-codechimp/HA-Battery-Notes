@@ -1,4 +1,4 @@
-## 1145 Devices in library
+## 1146 Devices in library
 
 This file is auto generated, do not modify
 
@@ -457,6 +457,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |ID Lock AS                                      |ID-150                                                                     |8× AA                              |                   |                                      |
 |ID-RF                                           |CWS-3101                                                                   |CR2032                             |                   |                                      |
 |ID-RF                                           |Soft Remote                                                                |CR2032                             |                   |                                      |
+|IKEA                                            |BADRING water leakage sensor                                               |AAA                                |E2202              |                                      |
 |IKEA                                            |E2102                                                                      |Rechargeable                       |                   |                                      |
 |IKEA                                            |FYRTUR roller blind (E1757)                                                |Rechargeable                       |                   |                                      |
 |Ikea                                            |FYRTUR roller blind, block-out (E1757)                                     |BRAUNIT Battery pack (rechargeable)|                   |                                      |
