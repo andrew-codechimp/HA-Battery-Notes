@@ -1,4 +1,4 @@
-## 1146 Devices in library
+## 1147 Devices in library
 
 This file is auto generated, do not modify
 
@@ -739,6 +739,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Schlage                                         |BE469NX                                                                    |4× AA                              |                   |                                      |
 |Schlage                                         |be499WB                                                                    |4× AA                              |                   |                                      |
 |Schneider Electric                              |Wiser radiator thermostat (WV704R0A0902)                                   |2× AA                              |                   |                                      |
+|Secure Meters (UK) Ltd.                         |HRT4-ZW / SRT321                                                           |2× AAA                             |                   |                                      |
 |Secure Meters (UK) Ltd.                         |SRT321                                                                     |2× AAA                             |                   |                                      |
 |Seegel Systeme                                  |WiFi ACM-ESP                                                               |2× AA                              |                   |                                      |
 |Sengled                                         |E1D-G73                                                                    |CR1632                             |                   |                                      |

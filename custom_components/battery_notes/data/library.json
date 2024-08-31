@@ -3989,6 +3989,12 @@
         },
         {
             "manufacturer": "Secure Meters (UK) Ltd.",
+            "model": "HRT4-ZW / SRT321",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Secure Meters (UK) Ltd.",
             "model": "SRT321",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -6212,12 +6218,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Secure Meters (UK) Ltd.",
-            "model": "HRT4-ZW / SRT321",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
