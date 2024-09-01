@@ -1119,6 +1119,12 @@
             "battery_type": "Irreplaceable"
         },
         {
+            "manufacturer": "Bosch",
+            "model": "Twinguard (8750001213)",
+            "battery_type": "AA",
+            "battery_quantity": 6
+        },
+        {
             "manufacturer": "BRK Brands, Inc.",
             "model": "ZCOMBO",
             "battery_type": "AA",
@@ -6218,12 +6224,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Bosch",
-            "model": "Twinguard (8750001213)",
-            "battery_type": "AA",
-            "battery_quantity": 6
         }
     ]
 }
