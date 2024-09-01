@@ -1,4 +1,4 @@
-## 1148 Devices in library
+## 1149 Devices in library
 
 This file is auto generated, do not modify
 
@@ -739,6 +739,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Saswell                                         |Thermostatic radiator valve (SEA801-Zigbee/SEA802-Zigbee)                  |2× AA                              |                   |                                      |
 |Schlage                                         |BE469NX                                                                    |4× AA                              |                   |                                      |
 |Schlage                                         |be499WB                                                                    |4× AA                              |                   |                                      |
+|Schneider Electric                              |LK FUGA wiser wireless battery 4 button switch (550D6001)                  |CR2032                             |                   |                                      |
 |Schneider Electric                              |Wiser radiator thermostat (WV704R0A0902)                                   |2× AA                              |                   |                                      |
 |Secure Meters (UK) Ltd.                         |HRT4-ZW / SRT321                                                           |2× AAA                             |                   |                                      |
 |Secure Meters (UK) Ltd.                         |SRT321                                                                     |2× AAA                             |                   |                                      |

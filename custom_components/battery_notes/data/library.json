@@ -3989,6 +3989,11 @@
         },
         {
             "manufacturer": "Schneider Electric",
+            "model": "LK FUGA wiser wireless battery 4 button switch (550D6001)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Schneider Electric",
             "model": "Wiser radiator thermostat (WV704R0A0902)",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -6224,11 +6229,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Schneider Electric",
-            "model": "LK FUGA wiser wireless battery 4 button switch (550D6001)",
-            "battery_type": "CR2032"
         }
     ]
 }
