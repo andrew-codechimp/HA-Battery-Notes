@@ -2,185 +2,185 @@
     "config": {
         "step": {
             "user": {
-                "description": "If you need help with the configuration have a look here: https://andrew-codechimp.github.io/HA-Battery-Notes/",
+                "description": "Якщо вам потрібна допомога з конфігурацією, подивіться тут: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
-                    "association_type": "Association type"
+                    "association_type": "Тип асоціацій"
                 },
                 "menu_options": {
-                    "device": "Device (recommended)",
-                    "entity": "Entity"
+                    "device": "Пристрій (рекомендовано)",
+                    "entity": "Об'єкт"
                 },
-                "title": "Choose your association type"
+                "title": "Виберіть тип асоціації"
             },
             "device": {
                 "data": {
-                    "device_id": "Device",
-                    "name": "Name"
+                    "device_id": "Пристрій",
+                    "name": "Назва"
                 },
                 "data_description": {
-                    "name": "Leaving blank will take the name from the source device"
+                    "name": "Залишаючи незаповненим, буде взяте ім'я з основного пристрою"
                 }
             },
             "entity": {
                 "data": {
-                    "source_entity_id": "Entity",
-                    "name": "Name"
+                    "source_entity_id": "Об'єкт",
+                    "name": "Назва"
                 },
                 "data_description": {
-                    "name": "Leaving blank will take the name from the source entity"
+                    "name": "Залишаючи незаповненим, буде взяте ім'я з основного об'єкта"
                 }
             },
             "battery": {
-                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}\n",
+                "description": "Виробник: {manufacturer}\nМодель: {model}\nID моделі: {model_id}\nРевізія: {hw_version}\n",
                 "data": {
-                    "battery_type": "Battery type",
-                    "battery_quantity": "Battery quantity",
-                    "battery_low_threshold": "Battery low threshold",
-                    "battery_low_template": "Battery low template"
+                    "battery_type": "Тип батареї",
+                    "battery_quantity": "Кількість батарей",
+                    "battery_low_threshold": "Нижній поріг батареї",
+                    "battery_low_template": "Шаблон низького заряду батареї"
                 },
                 "data_description": {
-                    "battery_low_threshold": "0 will use the global default threshold",
-                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels"
+                    "battery_low_threshold": "0 буде використовувати глобальний поріг за замовчуванням",
+                    "battery_low_template": "Шаблон для визначення, коли заряд батареї низький - в такому випадку має повернути \"true\"\nПотрібен тільки для нестандартних рівнів батареї"
                 }
             },
             "manual": {
-                "description": "This device is marked in the library as manual, variants use different battery types so it cannot be set in the library.\nThe next step will allow you to set your battery type but please do not submit a device request.",
-                "title": "Device manual configuration"
+                "description": "Цей пристрій позначено у бібліотеці як налаштований вручну, різні варіанти пристрою використовують різні типи батарей, тому її не можна додати до бібліотеки.\nНаступний крок дозволить встановити тип батареї, але, будь ласка, не надсилайте запит на додання пристрою.",
+                "title": "Ручне налаштування пристрою"
             }
         },
         "abort": {
-            "already_configured": "Device is already configured"
+            "already_configured": "Пристрій вже налаштовано"
         },
         "error": {
-            "unknown": "Unknown error occurred.",
-            "unconfigurable_entity": "It is not possible to add this entity to Battery Notes."
+            "unknown": "Сталася невідома помилка.",
+            "unconfigurable_entity": "Неможливо додати цей об'єкт до Battery Notes."
         }
     },
     "options": {
         "step": {
             "init": {
-                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}\n",
+                "description": "Виробник: {manufacturer}\nМодель: {model}\nID моделі: {model_id}\nРевізія: {hw_version}\n",
                 "data": {
-                    "name": "Name",
-                    "battery_type": "Battery type",
-                    "battery_quantity": "Battery quantity",
-                    "battery_low_threshold": "Battery low threshold",
-                    "battery_low_template": "Battery low template"
+                    "name": "Назва",
+                    "battery_type": "Тип батареї",
+                    "battery_quantity": "Кількість батарей",
+                    "battery_low_threshold": "Нижній поріг батареї",
+                    "battery_low_template": "Шаблон низького заряду батареї"
                 },
                 "data_description": {
-                    "name": "Leaving blank will take the name from the source device",
-                    "battery_low_threshold": "0 will use the global default threshold",
-                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels"
+                    "name": "Залишаючи незаповненим, буде взяте ім'я з основного пристрою",
+                    "battery_low_threshold": "0 буде використовувати глобальний поріг за замовчуванням",
+                    "battery_low_template": "Шаблон для визначення, коли заряд батареї низький - в такому випадку має повернути \"true\"\nПотрібен тільки для нестандартних рівнів батареї"
                 }
             }
         },
         "error": {
-            "unknown": "Unknown error occurred."
+            "unknown": "Сталася невідома помилка."
         }
     },
     "entity": {
         "binary_sensor": {
             "battery_low": {
-                "name": "{device_name}Battery low",
+                "name": "Низький заряд батареї {device_name}",
                 "state_attributes": {
                     "battery_low_threshold": {
-                        "name": "Battery low threshold"
+                        "name": "Поріг низького заряду батареї"
                     }
                 }
             }
         },
         "button": {
             "battery_replaced": {
-                "name": "{device_name}Battery replaced"
+                "name": "Батарею {device_name} замінено"
             }
         },
         "sensor": {
             "battery_plus": {
-                "name": "{device_name}Battery+",
+                "name": "{device_name}Батарея+",
                 "state_attributes": {
                     "battery_type": {
-                        "name": "Battery type"
+                        "name": "Тип батареї"
                     },
                     "battery_quantity": {
-                        "name": "Battery quantity"
+                        "name": "Кількість батарей"
                     },
                     "battery_type_and_quantity": {
-                        "name": "Battery type and quantity"
+                        "name": "Тип та кількість батареї"
                     },
                     "battery_last_replaced": {
-                        "name": "Battery last replaced"
+                        "name": "Остання заміна батареї"
                     },
                     "battery_low": {
-                        "name": "Battery low"
+                        "name": "Низький заряд батареї"
                     },
                     "battery_low_threshold": {
-                        "name": "Battery low threshold"
+                        "name": "Поріг низького заряду батареї"
                     },
                     "battery_last_reported": {
-                        "name": "Battery last reported"
+                        "name": "Останній звіт про заряд батареї"
                     },
                     "battery_last_reported_level": {
-                        "name": "Battery last reported level"
+                        "name": "Останній відзвітований рівень заряду батареї"
                     },
                     "source_entity_id": {
-                        "name": "Source Entity Id"
+                        "name": "Id початкового об'єкта"
                     },
                     "device_id": {
-                        "name": "Device Id"
+                        "name": "Id пристрою"
                     },
                     "device_name": {
-                        "name": "Device name"
+                        "name": "Назва пристрою"
                     }
                 }
             },
             "battery_type": {
-                "name": "{device_name}Battery type",
+                "name": "{device_name}Тип батареї",
                 "state_attributes": {
                     "battery_type": {
-                        "name": "Battery type"
+                        "name": "Тип батареї"
                     },
                     "battery_quantity": {
-                        "name": "Battery quantity"
+                        "name": "Кількість батарей"
                     }
                 }
             },
             "battery_last_replaced": {
-                "name": "{device_name}Battery last replaced"
+                "name": "{device_name}Остання заміна батареї"
             }
         }
     },
     "services": {
         "set_battery_replaced": {
-            "description": "Set the battery last replaced.",
+            "description": "Встановіть останню заміну батареї.",
             "fields": {
                 "device_id": {
-                    "description": "Device that has had its battery replaced.",
-                    "name": "Device"
+                    "description": "Пристрій, в якому було замінено батарею.",
+                    "name": "Пристрій"
                 },
                 "entity_id": {
-                    "description": "Entity that has had its battery replaced (only used for entity associated battery notes).",
-                    "name": "Entity"
+                    "description": "Об'єкт, в якому було замінено батарею (тільки для приміток до об'єктів).",
+                    "name": "Об'єкт"
                 },
                 "datetime_replaced": {
-                    "description": "Date replaced.",
-                    "name": "Date"
+                    "description": "Дата заміни.",
+                    "name": "Дата"
                 }
             },
-            "name": "Set battery replaced"
+            "name": "Встановити, що батарея була замінена"
         },
         "check_battery_last_reported": {
-            "description": "Raise events for devices that haven't reported their battery level.",
+            "description": "Створити події для пристроїв, що не відзвітували свій рівень заряду батареї.",
             "fields": {
                 "days_last_reported": {
-                    "description": "Number of days since a device last reported its battery level.",
-                    "name": "Days"
+                    "description": "Кількість днів з моменту останнього повідомлення про заряд акумулятора пристрою.",
+                    "name": "Дні(в)"
                 }
             },
-            "name": "Check battery last reported"
+            "name": "Перевірити час остатнього звіту від батареї"
         },
         "check_battery_low": {
-            "description": "Raise events for devices that have a low battery.",
-            "name": "Check battery low"
+            "description": "Створити події для пристроїв з низьким рівнем заряду батареї.",
+            "name": "Перевірити низький заряд акумулятора"
         }
     }
 }
