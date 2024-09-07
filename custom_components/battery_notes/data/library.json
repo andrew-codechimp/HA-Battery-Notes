@@ -6266,6 +6266,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "eQ-3",
+            "model": "HM-WDS30-OT2-SM",
+            "battery_type": "AA",
+            "battery_quantity": 2
         }
     ]
 }
