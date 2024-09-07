@@ -6235,6 +6235,13 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "iKEA",
+            "model": "SYMFONISK sound remote, Gen 2",
+            "model_id": "E2123",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
