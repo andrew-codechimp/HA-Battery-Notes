@@ -1528,6 +1528,12 @@
         },
         {
             "manufacturer": "eQ-3",
+            "model": "HM-PB-2-WM55",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "eQ-3",
             "model": "HM-PB-6-WM55",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -6260,12 +6266,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "eQ-3",
-            "model": "HM-PB-2-WM55",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
