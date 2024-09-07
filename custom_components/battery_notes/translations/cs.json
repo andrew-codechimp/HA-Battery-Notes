@@ -96,7 +96,7 @@
         },
         "sensor": {
             "battery_plus": {
-                "name": "{device_name} Battery+",
+                "name": "{device_name}Battery+",
                 "state_attributes": {
                     "battery_type": {
                         "name": "Typ baterie"
