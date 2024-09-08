@@ -6278,6 +6278,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Third Reality",
+            "model": "Smart button (3RSB22BZ)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
