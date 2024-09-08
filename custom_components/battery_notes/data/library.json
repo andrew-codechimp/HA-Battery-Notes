@@ -2582,6 +2582,12 @@
         },
         {
             "manufacturer": "IKEA",
+            "model": "SYMFONISK sound remote, gen 2 (E2123)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "IKEA",
             "model": "TRADFRI motion sensor",
             "battery_type": "CR2032",
             "battery_quantity": 2
@@ -6296,12 +6302,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "IKEA",
-            "model": "SYMFONISK sound remote, gen 2 (E2123)",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
