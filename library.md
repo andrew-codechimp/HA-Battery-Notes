@@ -1,4 +1,4 @@
-## 1161 Devices in library
+## 1162 Devices in library
 
 This file is auto generated, do not modify
 
@@ -791,6 +791,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Signify Netherlands B.V.                        |Hue Smart button (ROM001)                                                  |CR2032                             |                   |                                      |
 |Signify Netherlands B.V.                        |Hue tap dial switch (RDM002)                                               |CR2032                             |                   |                                      |
 |Signify Netherlands B.V.                        |Hue wall switch module (RDM001)                                            |CR2450                             |                   |                                      |
+|Signify Netherlands B.V.                        |Hue wall switch module (RDM004)                                            |CR2450                             |                   |                                      |
 |Signify Netherlands B.V.                        |RDM001                                                                     |CR2450                             |                   |                                      |
 |Signify Netherlands B.V.                        |RDM002                                                                     |CR2032                             |                   |                                      |
 |Signify Netherlands B.V.                        |ROM001                                                                     |CR2032                             |                   |                                      |
