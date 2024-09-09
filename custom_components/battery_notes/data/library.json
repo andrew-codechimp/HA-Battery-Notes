@@ -5469,6 +5469,12 @@
             "battery_type": "CR2"
         },
         {
+            "manufacturer": "Tuya",
+            "model": "Zigbee infrared remote (unsupported)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "TuYa",
             "model": "Zigbee water leak sensor (TS0207_water_leak_detector_2)",
             "battery_type": "CR2032"
@@ -6310,12 +6316,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Zigbee infrared remote (unsupported)",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
