@@ -6305,6 +6305,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Smoke Alarm",
+            "battery_type": "PP3"
         }
     ]
 }
