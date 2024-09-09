@@ -1949,6 +1949,12 @@
         },
         {
             "manufacturer": "Everspring",
+            "model": "SE812",
+            "battery_type": "LR14",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Everspring",
             "model": "ST812",
             "battery_type": "AA",
             "battery_quantity": 3
@@ -6316,12 +6322,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Everspring",
-            "model": "SE812",
-            "battery_type": "LR14",
-            "battery_quantity": 4
         }
     ]
 }
