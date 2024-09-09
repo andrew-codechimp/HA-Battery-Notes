@@ -1,4 +1,4 @@
-## 1162 Devices in library
+## 1160 Devices in library
 
 This file is auto generated, do not modify
 
@@ -476,7 +476,6 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |IKEA                                            |SYMFONISK sound controller (E1744)                                         |CR2032                             |                   |                                      |
 |IKEA                                            |SYMFONISK sound remote gen2 (E2123)                                        |2× AAA                             |                   |                                      |
 |Ikea                                            |SYMFONISK Sound remote, gen 2                                              |2× AAA                             |E2123              |                                      |
-|iKEA                                            |SYMFONISK sound remote, Gen 2                                              |2× AAA                             |E2123              |                                      |
 |IKEA                                            |SYMFONISK sound remote, gen 2 (E2123)                                      |2× AAA                             |                   |                                      |
 |IKEA                                            |TRADFRI motion sensor                                                      |2× CR2032                          |                   |                                      |
 |IKEA                                            |TRADFRI motion sensor (E1525/E1745)                                        |2× CR2032                          |                   |                                      |
@@ -889,7 +888,6 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |ThermoBeacon                                    |27                                                                         |CR2477                             |                   |                                      |
 |ThermoPro                                       |TP357                                                                      |AAA                                |                   |                                      |
 |Third Reality                                   |3RSB015BZ                                                                  |4× AA                              |                   |                                      |
-|Third Reality                                   |3RSB22BZ                                                                   |2× AAA                             |                   |                                      |
 |Third Reality                                   |Door sensor (3RDS17BZ)                                                     |2× AAA                             |                   |                                      |
 |Third Reality                                   |Smart button (3RSB22BZ)                                                    |2× AAA                             |                   |                                      |
 |Third Reality                                   |Smart switch Gen3 (3RSS009Z)                                               |2× AAA                             |                   |                                      |
