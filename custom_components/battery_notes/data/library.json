@@ -3644,6 +3644,11 @@
         },
         {
             "manufacturer": "Philips",
+            "model": "Hue wall switch module (RDM004)",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Philips",
             "model": "ROM001",
             "battery_type": "CR2032"
         },
@@ -6294,11 +6299,6 @@
         {
             "manufacturer": "Zooz",
             "model": "ZSE44",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Philips",
-            "model": "Hue wall switch module (RDM004)",
             "battery_type": "CR2450"
         }
     ]
