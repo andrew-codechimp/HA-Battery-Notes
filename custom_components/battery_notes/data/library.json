@@ -5203,6 +5203,11 @@
         },
         {
             "manufacturer": "Tuya",
+            "model": "Smoke Alarm",
+            "battery_type": "PP3"
+        },
+        {
+            "manufacturer": "Tuya",
             "model": "Smoke Alarm (gymi8xdlnxtpslit)",
             "battery_type": "CR123A"
         },
@@ -6305,11 +6310,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Smoke Alarm",
-            "battery_type": "PP3"
         }
     ]
 }
