@@ -6305,6 +6305,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Zigbee infrared remote (unsupported)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
