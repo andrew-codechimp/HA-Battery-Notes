@@ -6300,6 +6300,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Signify Netherlands B.V.",
+            "model": "Hue wall switch module (RDM004)",
+            "battery_type": "CR2450"
         }
     ]
 }
