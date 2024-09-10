@@ -4,13 +4,13 @@
             "user": {
                 "description": "Si necesitas ayuda con la configuración, echa un vistazo aquí: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
-                    "association_type": "Association type"
+                    "association_type": "Tipo de asociación"
                 },
                 "menu_options": {
-                    "device": "Device (recommended)",
+                    "device": "Dispositivo (recomendado)",
                     "entity": "Entidad"
                 },
-                "title": "Choose your association type"
+                "title": "Elija su tipo de asociación"
             },
             "device": {
                 "data": {
@@ -27,11 +27,11 @@
                     "name": "Nombre"
                 },
                 "data_description": {
-                    "name": "Leaving blank will take the name from the source entity"
+                    "name": "Dejar en blanco utilizará el nombre del dispositivo de serie"
                 }
             },
             "battery": {
-                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}\n",
+                "description": "Fabricante: {manufacturer}\nModelo: {model}\nID de Modelo: {model_id}\nVersión de Hardware: {hw_version}\n",
                 "data": {
                     "battery_type": "Tipo de batería",
                     "battery_quantity": "Cantidad de batería",
@@ -44,8 +44,8 @@
                 }
             },
             "manual": {
-                "description": "This device is marked in the library as manual, variants use different battery types so it cannot be set in the library.\nThe next step will allow you to set your battery type but please do not submit a device request.",
-                "title": "Device manual configuration"
+                "description": "Este dispositivo está marcado en la librería como manual; las variantes usan diferentes tipos de baterías, por lo que no se puede configurar en la librería.\nEl siguiente paso te permitirá configurar tu tipo de batería, pero por favor, no envíes una solicitud de dispositivo.",
+                "title": "Configuración manual del dispositivo"
             }
         },
         "abort": {
@@ -53,13 +53,13 @@
         },
         "error": {
             "unknown": "Se ha producido un error desconocido.",
-            "unconfigurable_entity": "It is not possible to add this entity to Battery Notes."
+            "unconfigurable_entity": "No es posible añadir esta entidad a las Notas de la batería."
         }
     },
     "options": {
         "step": {
             "init": {
-                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}\n",
+                "description": "Fabricante: {manufacturer}\nModelo: {model}\nID de Modelo: {model_id}\nVersión de Hardware: {hw_version}\n",
                 "data": {
                     "name": "Nombre",
                     "battery_type": "Tipo de batería",
@@ -123,7 +123,7 @@
                         "name": "Último nivel de batería reportado"
                     },
                     "source_entity_id": {
-                        "name": "Source Entity Id"
+                        "name": "Id de la entidad de origen"
                     },
                     "device_id": {
                         "name": "ID del dispositivo"
