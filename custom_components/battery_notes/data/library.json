@@ -2958,6 +2958,11 @@
         },
         {
             "manufacturer": "LifeControl",
+            "model": "MCLH-07",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "LifeControl",
             "model": "Motion sensor (MCLH-05)",
             "battery_type": "AA"
         },
@@ -6332,11 +6337,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "LifeControl",
-            "model": "MCLH-07",
-            "battery_type": "CR123A"
         }
     ]
 }
