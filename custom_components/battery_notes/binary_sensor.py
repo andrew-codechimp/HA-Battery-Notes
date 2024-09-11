@@ -416,7 +416,7 @@ class BatteryNotesBatteryLowTemplateSensor(
     def _async_setup_templates(self) -> None:
         """Set up templates."""
         self.add_template_attribute(
-            "_state", Template(self._template), None, self._update_state
+            "_state", Template(self._template, self.hass), None, self._update_state
         )
 
     @callback
