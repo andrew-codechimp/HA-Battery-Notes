@@ -1,4 +1,4 @@
-## 1168 Devices in library
+## 1169 Devices in library
 
 This file is auto generated, do not modify
 
@@ -953,6 +953,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tuya                                            |NOTSEK smart Wifi Temperature Hygrometer                                   |2× AA                              |hbluag8nbjwtkyqs   |                                      |
 |TuYa                                            |Photoelectric smoke detector (PA-44Z)                                      |PP3                                |                   |                                      |
 |Tuya                                            |PIR (b5g40alm)                                                             |CR2450                             |                   |                                      |
+|Tuya                                            |PIR 24Ghz human presence sensor                                            |2× AAA                             |ZG-204ZM           |                                      |
 |TuYa                                            |PIR sensor (RH3040)                                                        |3× AAA                             |                   |                                      |
 |Tuya                                            |PIR Sensor (tuadvwloutnzat2p)                                              |3× AAA                             |                   |                                      |
 |Tuya                                            |PIR Sensor (XFD2nSDKxFlGV5sV)                                              |3× AAA                             |                   |                                      |

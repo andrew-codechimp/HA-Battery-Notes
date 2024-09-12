@@ -5149,6 +5149,13 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "Tuya",
+            "model": "PIR 24Ghz human presence sensor",
+            "model_id": "ZG-204ZM",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "TuYa",
             "model": "PIR sensor (RH3040)",
             "battery_type": "AAA",
@@ -6337,13 +6344,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "PIR 24Ghz human presence sensor",
-            "model_id": "ZG-204ZM",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
