@@ -31,7 +31,7 @@
                 }
             },
             "battery": {
-                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}\n",
+                "description": "Fabricant : {manufacturer}\nModèle : {model}\nID modèle : {model_id}\nVersion du matériel : {hw_version}",
                 "data": {
                     "battery_type": "Type de batterie",
                     "battery_quantity": "Nombre de batteries",
@@ -44,8 +44,8 @@
                 }
             },
             "manual": {
-                "description": "This device is marked in the library as manual, variants use different battery types so it cannot be set in the library.\nThe next step will allow you to set your battery type but please do not submit a device request.",
-                "title": "Device manual configuration"
+                "description": "Cet appareil est marqué dans la bibliothèque comme manuel, les variantes utilisent des types de batterie différents, il ne peut donc pas être défini dans la bibliothèque.\nL'étape suivante vous permettra de définir votre type de batterie, mais veuillez ne pas soumettre de demande d'appareil.",
+                "title": "Configuration manuelle de l'appareil"
             }
         },
         "abort": {
@@ -53,13 +53,13 @@
         },
         "error": {
             "unknown": "Erreur inconnue.",
-            "unconfigurable_entity": "It is not possible to add this entity to Battery Notes."
+            "unconfigurable_entity": "Il n'est pas possible d'ajouter cette entité à Battery Notes."
         }
     },
     "options": {
         "step": {
             "init": {
-                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}\n",
+                "description": "Fabricant : {manufacturer}\nModèle : {model}\nID modèle : {model_id}\nVersion du matériel : {hw_version}",
                 "data": {
                     "name": "Nom",
                     "battery_type": "Type de batterie",
@@ -75,7 +75,7 @@
             }
         },
         "error": {
-            "unknown": "Erreur inconnue.."
+            "unknown": "Erreur inconnue."
         }
     },
     "entity": {
@@ -84,7 +84,7 @@
                 "name": "{device_name}Batterie faible",
                 "state_attributes": {
                     "battery_low_threshold": {
-                        "name": "Seuil bas de la batterie"
+                        "name": "Seuil de batterie faible"
                     }
                 }
             }
@@ -114,7 +114,7 @@
                         "name": "Batterie faible"
                     },
                     "battery_low_threshold": {
-                        "name": "Seuil bas de la batterie"
+                        "name": "Seuil de batterie faible"
                     },
                     "battery_last_reported": {
                         "name": "Batterie signalée pour la dernière fois"
