@@ -1,4 +1,4 @@
-## 1171 Devices in library
+## 1172 Devices in library
 
 This file is auto generated, do not modify
 
@@ -625,6 +625,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Netatmo                                         |Smart Valve                                                                |2× AA                              |                   |                                      |
 |Nortek Security & Control LLC                   |NGD00Z-4                                                                   |CR2032                             |                   |                                      |
 |Nortek Security & Control LLC                   |WADWAZ-1                                                                   |CR123A                             |                   |                                      |
+|Nortek Security & Control LLC                   |WAPIRZ-1                                                                   |CR123a                             |                   |                                      |
 |Nortek Security and Control                     |F-ADT-WTR-1                                                                |CR123A                             |                   |                                      |
 |NorthQ                                          |NQ-9121                                                                    |2× AA                              |                   |                                      |
 |NUKI                                            |Nuki Door Sensor                                                           |LS14250                            |                   |                                      |
