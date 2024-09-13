@@ -1236,6 +1236,11 @@
         },
         {
             "manufacturer": "Custom devices (DiY)",
+            "model": "Plant watering sensor zFlora_S (zFlora_S)",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Custom devices (DiY)",
             "model": "Xiaomi temperature & humidity sensor with custom firmware (LYWSD03MMC)",
             "battery_type": "CR2032"
         },
@@ -6361,11 +6366,6 @@
         {
             "manufacturer": "Zooz",
             "model": "ZSE44",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Custom devices (DiY)",
-            "model": "Plant watering sensor zFlora_S (zFlora_S)",
             "battery_type": "CR2450"
         }
     ]
