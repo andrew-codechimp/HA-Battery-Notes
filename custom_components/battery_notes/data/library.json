@@ -4916,6 +4916,13 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "TP-Link",
+            "model": "T315",
+            "hw_version": "1.0",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Trust",
             "model": "COSensor-EM",
             "battery_type": "CR123A"
@@ -6350,13 +6357,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "TP-Link",
-            "model": "T315",
-            "hw_version": "1.0",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }

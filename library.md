@@ -1,4 +1,4 @@
-## 1170 Devices in library
+## 1171 Devices in library
 
 This file is auto generated, do not modify
 
@@ -909,6 +909,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Third Reality, Inc                              |3RWS18BZ                                                                   |2× AAA                             |                   |                                      |
 |Tile                                            |T1101                                                                      |Cr2032                             |                   |                                      |
 |Tile                                            |T1301N                                                                     |CR2032                             |                   |                                      |
+|TP-Link                                         |T315                                                                       |2× AAA                             |                   |                                     1|
 |Trust                                           |COSensor-EM                                                                |CR123A                             |                   |                                      |
 |Trust                                           |Smoke detector (ZSDR-850)                                                  |CR123A                             |                   |                                      |
 |Trust                                           |SmokeSensor-EM                                                             |CR123A                             |                   |                                      |
