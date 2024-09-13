@@ -5347,6 +5347,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Tuya",
+            "model": "Thermostat radiator valve (TV02-Zigbee)",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "TuYa",
             "model": "TRV602",
             "battery_type": "AA",
@@ -6344,12 +6350,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Thermostat radiator valve (TV02-Zigbee)",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }

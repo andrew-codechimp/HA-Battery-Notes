@@ -1,4 +1,4 @@
-## 1169 Devices in library
+## 1170 Devices in library
 
 This file is auto generated, do not modify
 
@@ -988,6 +988,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tuya                                            |TH05                                                                       |CR2032                             |                   |                                      |
 |TuYa                                            |TH08                                                                       |3× AAA                             |                   |                                      |
 |Tuya                                            |Thermostat radiator valve                                                  |2× AA                              |TV02-Zigbee        |                                      |
+|Tuya                                            |Thermostat radiator valve (TV02-Zigbee)                                    |2× AA                              |                   |                                      |
 |TuYa                                            |TRV602                                                                     |3× AA                              |                   |                                      |
 |Tuya                                            |TRV602 (_TZE200_rtrmfadk)                                                  |3× AAA                             |                   |                                      |
 |TuYa                                            |TS0042                                                                     |CR2032                             |                   |                                      |
