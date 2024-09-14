@@ -721,6 +721,12 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "aqara.lock.bzacn4 ZNMS16LM",
+            "battery_type": "AA",
+            "battery_quantity": 6
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "AS006",
             "battery_type": "CR1632"
         },
@@ -6367,12 +6373,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Aqara",
-            "model": "aqara.lock.bzacn4 ZNMS16LM",
-            "battery_type": "AA",
-            "battery_quantity": 6
         }
     ]
 }

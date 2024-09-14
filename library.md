@@ -1,4 +1,4 @@
-## 1173 Devices in library
+## 1174 Devices in library
 
 This file is auto generated, do not modify
 
@@ -138,6 +138,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Apple                                           |iPhone\*                                                                   |Rechargeable                       |                   |                                      |
 |Apple                                           |MacBook\*                                                                  |Rechargeable                       |                   |                                      |
 |Aqara                                           |Aqara Door and Window Sensor P2                                            |CR123A                             |                   |                                      |
+|Aqara                                           |aqara.lock.bzacn4 ZNMS16LM                                                 |6× AA                              |                   |                                      |
 |Aqara                                           |AS006                                                                      |CR1632                             |                   |                                      |
 |Aqara                                           |AS008                                                                      |CR2032                             |                   |                                      |
 |Aqara                                           |Cube (MFKZQ01LM)                                                           |CR2450                             |                   |                                      |
