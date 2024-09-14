@@ -3211,6 +3211,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "modkam.ru",
+            "model": "ptvo_counter_2ch",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Moes",
             "model": "Door/window magnetic sensor (ZSS-X-GWM-C)",
             "battery_type": "CR2032"
@@ -6379,12 +6385,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "modkam.ru",
-            "model": "ptvo_counter_2ch",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }

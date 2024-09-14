@@ -1,4 +1,4 @@
-## 1175 Devices in library
+## 1176 Devices in library
 
 This file is auto generated, do not modify
 
@@ -595,6 +595,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Minoston                                        |MR40Z                                                                      |2× CR2032                          |                   |                                      |
 |Minoston                                        |MSE30Z                                                                     |CR2450                             |                   |                                      |
 |modkam.ru                                       |DIYRuZ_Flower                                                              |2× AAA                             |                   |                                      |
+|modkam.ru                                       |ptvo_counter_2ch                                                           |2× AAA                             |                   |                                      |
 |Moes                                            |Door/window magnetic sensor (ZSS-X-GWM-C)                                  |CR2032                             |                   |                                      |
 |Moes                                            |kvwjujy9                                                                   |CR2032                             |                   |                                      |
 |Moes                                            |Smoke sensor (ZSS-HM-SSD01)                                                |CR123A                             |                   |                                      |
