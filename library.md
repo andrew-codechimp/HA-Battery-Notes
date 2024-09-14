@@ -1,4 +1,4 @@
-## 1174 Devices in library
+## 1175 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1023,6 +1023,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |TuYa                                            |Zigbee fingerbot plus (TS0001_fingerbot)                                   |CR2                                |                   |                                      |
 |Tuya                                            |Zigbee infrared remote (unsupported)                                       |2× AAA                             |                   |                                      |
 |TuYa                                            |Zigbee water leak sensor (TS0207_water_leak_detector_2)                    |CR2032                             |                   |                                      |
+|Tuya                                            |ZP01                                                                       |2× AAA                             |                   |                                      |
 |Tuya                                            |zqeaw7pi                                                                   |2× AAA                             |                   |                                      |
 |TuYa                                            |ZTH08-E                                                                    |3× AAA                             |                   |                                      |
 |TUYATEC-riuj5xzs                                |RH3052                                                                     |CR2032                             |                   |                                      |

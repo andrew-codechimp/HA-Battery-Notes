@@ -5538,6 +5538,12 @@
         },
         {
             "manufacturer": "Tuya",
+            "model": "ZP01",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tuya",
             "model": "zqeaw7pi",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -6373,12 +6379,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "ZP01",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
