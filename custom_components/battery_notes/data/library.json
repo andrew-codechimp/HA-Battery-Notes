@@ -3607,6 +3607,13 @@
         },
         {
             "manufacturer": "OWON",
+            "model": "Temperature sensor",
+            "model_id": "THS317-ET",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "OWON",
             "model": "THS317-ET",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -6390,13 +6397,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "OWON",
-            "model": "Temperature sensor",
-            "model_id": "THS317-ET",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
