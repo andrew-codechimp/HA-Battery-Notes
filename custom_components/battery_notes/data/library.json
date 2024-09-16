@@ -6385,6 +6385,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "Door and window sensor T1 (MCCGQ12LM)",
+            "battery_type": "CR2032"
         }
     ]
 }
