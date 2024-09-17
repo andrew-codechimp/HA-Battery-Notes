@@ -1,4 +1,4 @@
-## 1183 Devices in library
+## 1184 Devices in library
 
 This file is auto generated, do not modify
 
@@ -839,6 +839,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |SmartThings                                     |motionv4                                                                   |CR2477                             |                   |                                      |
 |SmartThings                                     |motionv5                                                                   |CR2477                             |                   |                                      |
 |SmartThings                                     |Multi Sensor (2015 model) (3321-S)                                         |CR2450                             |                   |                                      |
+|SmartThings                                     |Multipurpose sensor (2016 model) (F-MLT-US-2)                              |CR2450                             |F-MLT-US-2         |                                      |
 |SmartThings                                     |Multipurpose sensor (2018 model) (IM6001-MPP01)                            |CR2450                             |                   |                                      |
 |SmartThings                                     |multiv4                                                                    |CR2450                             |                   |                                      |
 |Smartthings                                     |Water leak sensor (2016 model) (STS-WTR-250)                               |CR2                                |                   |                                      |
