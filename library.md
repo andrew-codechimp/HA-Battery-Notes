@@ -1,4 +1,4 @@
-## 1181 Devices in library
+## 1182 Devices in library
 
 This file is auto generated, do not modify
 
@@ -279,6 +279,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Ecowitt                                         |GW2000A                                                                    |MANUAL                             |                   |                                      |
 |ECOWITT                                         |WH51                                                                       |AA                                 |                   |                                      |
 |ECOWITT                                         |WN34L                                                                      |AA                                 |                   |                                      |
+|Elexa Consumer Products Inc.                    |DMMS1                                                                      |CR123A                             |                   |                                      |
 |Elexa Consumer Products Inc.                    |DMS01                                                                      |2× CR123A                          |                   |                                      |
 |Elexa Consumer Products Inc.                    |DMWS1                                                                      |CR2                                |                   |                                      |
 |Elgato                                          |Eve Motion 20EAK9901                                                       |2× AA                              |                   |                                      |
