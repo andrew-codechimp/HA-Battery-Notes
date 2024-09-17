@@ -4260,6 +4260,11 @@
         },
         {
             "manufacturer": "Shenzhen Neo Electronics Co., Ltd.",
+            "model": "NAS-PD02Z",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Shenzhen Neo Electronics Co., Ltd.",
             "model": "NAS-WS01Z",
             "battery_type": "CR2"
         },
@@ -6404,11 +6409,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Shenzhen Neo Electronics Co., Ltd.",
-            "model": "NAS-PD02Z",
-            "battery_type": "CR123A"
         }
     ]
 }
