@@ -4463,6 +4463,13 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "SmartThings",
+            "model": "F-MLT-US-2",
+            "model_id": "IL06_1",
+            "hw_version": "R860_#71",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "Smartthings",
             "model": "GP-U999SJVLEAA",
             "battery_type": "CR2450"
@@ -6396,13 +6403,6 @@
         {
             "manufacturer": "Zooz",
             "model": "ZSE44",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "SmartThings",
-            "model": "F-MLT-US-2",
-            "model_id": "IL06_1",
-            "hw_version": "R860_#71",
             "battery_type": "CR2450"
         }
     ]
