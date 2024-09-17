@@ -6409,6 +6409,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "SmartThings",
+            "model": "Multipurpose sensor (2016 model) (F-MLT-US-2)",
+            "model_id": "F-MLT-US-2",
+            "battery_type": "CR2450"
         }
     ]
 }
