@@ -1,4 +1,4 @@
-## 1187 Devices in library
+## 1188 Devices in library
 
 This file is auto generated, do not modify
 
@@ -528,6 +528,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Iris                                            |Motion Sensor (iL07_1)                                                     |CR123A                             |                   |                                      |
 |iRobot                                          |c975840                                                                    |Rechargeable                       |                   |                                      |
 |iRobot                                          |i715640                                                                    |Rechargeable                       |                   |                                      |
+|iRobot                                          |R675020                                                                    |Rechargeable                       |                   |                                      |
 |Konke                                           |3AFE28010402000D                                                           |CR2450                             |                   |                                      |
 |Kwikset                                         |910                                                                        |4× AA                              |                   |                                      |
 |Kwikset                                         |912                                                                        |4× AA                              |                   |                                      |
