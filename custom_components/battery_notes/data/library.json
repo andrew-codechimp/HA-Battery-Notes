@@ -3816,6 +3816,12 @@
             "battery_type": "CR2430"
         },
         {
+            "manufacturer": "Radio Thermostat Company of America (RTC)",
+            "model": "CT100",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
             "manufacturer": "raspiaudio",
             "model": "muse-luxe",
             "battery_type": "Rechargeable"
@@ -6431,12 +6437,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Radio Thermostat Company of America (RTC)",
-            "model": "CT100",
-            "battery_type": "AA",
-            "battery_quantity": 4
         }
     ]
 }
