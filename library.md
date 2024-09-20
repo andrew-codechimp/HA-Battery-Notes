@@ -1,4 +1,4 @@
-## 1188 Devices in library
+## 1189 Devices in library
 
 This file is auto generated, do not modify
 
@@ -451,6 +451,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |HHCC Plant Technology Co. Ltd                   |HHCCJCY10                                                                  |CR2032                             |                   |                                      |
 |Hive                                            |Heating thermostat remote control (SLT3B)                                  |4× AA                              |                   |                                      |
 |Hive                                            |Heating thermostat remote control (SLT3C)                                  |4× AA                              |                   |                                      |
+|Hive                                            |Radiator valve (UK7004240)                                                 |2× AA                              |                   |                                      |
 |Hive                                            |TRV003                                                                     |2× AA                              |                   |                                      |
 |Homematic                                       |HM-RC-4-3                                                                  |AAA                                |                   |                                      |
 |Homematic                                       |HM-Sec-SCo                                                                 |AAA                                |                   |                                      |
