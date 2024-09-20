@@ -6453,6 +6453,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Hive",
+            "model": "Radiator valve (UK7004240)",
+            "battery_type": "AA",
+            "battery_quantity": 2
         }
     ]
 }
