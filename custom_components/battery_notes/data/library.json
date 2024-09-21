@@ -6465,6 +6465,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Sonos",
+            "model": "Move",
+            "battery_type": "Rechargeable"
         }
     ]
 }
