@@ -1,4 +1,4 @@
-## 1190 Devices in library
+## 1191 Devices in library
 
 This file is auto generated, do not modify
 
@@ -86,6 +86,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |AEON Labs                                       |DSB29                                                                      |2× AAA                             |                   |                                      |
 |AEON Labs                                       |DSB45                                                                      |2× AAA                             |                   |                                      |
 |AEON Labs                                       |ZW089                                                                      |CR2                                |                   |                                      |
+|AEON Labs                                       |ZW097                                                                      |CR123A                             |                   |                                      |
 |AEON Labs                                       |ZW100                                                                      |2× CR123A                          |                   |                                      |
 |AEON Labs                                       |ZW112                                                                      |Rechargeable                       |                   |                                      |
 |AEON Labs                                       |ZW120                                                                      |2× AAA                             |                   |                                      |
