@@ -6487,6 +6487,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "PIR 24Ghz human presence sensor (ZG-204ZM)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
