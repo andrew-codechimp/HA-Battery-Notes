@@ -6476,6 +6476,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Zooz",
+            "model": "ZSE11",
+            "battery_type": "CR123A",
+            "battery_quantity": 2
         }
     ]
 }
