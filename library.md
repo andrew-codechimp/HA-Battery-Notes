@@ -1,4 +1,4 @@
-## 1196 Devices in library
+## 1197 Devices in library
 
 This file is auto generated, do not modify
 
@@ -969,6 +969,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |TuYa                                            |Motion sensor (IH012-RT01)                                                 |CR2450                             |                   |                                      |
 |TuYa                                            |Motion sensor (TS0202)                                                     |CR2450                             |                   |                                      |
 |TuYa                                            |Motion sensor (ZMS-102)                                                    |CR2032                             |                   |                                      |
+|Tuya                                            |Motion sensor (ZP01)                                                       |2× AAA                             |                   |                                      |
 |TuYa                                            |Motion sensor with scene switch (TS0202_2)                                 |2× AAA                             |                   |                                      |
 |Tuya                                            |NOTSEK smart Wifi Temperature Hygrometer                                   |2× AA                              |hbluag8nbjwtkyqs   |                                      |
 |TuYa                                            |Photoelectric smoke detector (PA-44Z)                                      |PP3                                |                   |                                      |
