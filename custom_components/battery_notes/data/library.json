@@ -5434,7 +5434,7 @@
         {
             "manufacturer": "Tuya",
             "model": "Temperature and humidity sensor (ZG-227Z)",
-            "battery_type": "AA",
+            "battery_type": "AAA",
             "battery_quantity": 2
         },
         {
