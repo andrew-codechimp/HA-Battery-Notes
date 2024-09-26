@@ -836,6 +836,12 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "TVOC air quality monitor (VOCKQJK11LM)",
+            "battery_type": "CR2450",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "Vibration sensor (DJT11LM)",
             "battery_type": "CR2032"
         },
@@ -6505,12 +6511,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Aqara",
-            "model": "TVOC air quality monitor (VOCKQJK11LM)",
-            "battery_type": "CR2450",
-            "battery_quantity": 2
         }
     ]
 }
