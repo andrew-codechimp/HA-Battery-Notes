@@ -6511,6 +6511,13 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Aeotec Ltd.",
+            "model": "MultiSensor 7",
+            "model_id": "ZWA024",
+            "battery_type": "CR123A",
+            "battery_quantity": 2
         }
     ]
 }
