@@ -1,4 +1,4 @@
-## 1199 Devices in library
+## 1200 Devices in library
 
 This file is auto generated, do not modify
 
@@ -311,6 +311,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |eQ-3                                            |HM-WDS30-OT2-SM                                                            |2× AA                              |                   |                                      |
 |eQ-3                                            |HM-WDS40-TH-I-2                                                            |2× AA                              |                   |                                      |
 |eQ-3                                            |HmIP-ASIR                                                                  |3× AA                              |                   |                                      |
+|eQ-3                                            |HmIP-ASIR-2                                                                |3× AA                              |                   |                                      |
 |eQ-3                                            |HmIP-DLD                                                                   |4× AA                              |                   |                                      |
 |eQ-3                                            |HMIP-eTRV                                                                  |2× AA                              |                   |                                      |
 |eQ-3                                            |HMIP-eTRV-2                                                                |2× AA                              |                   |                                      |
