@@ -6524,6 +6524,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Honeywell",
+            "model": "RF6000",
+            "battery_type": "CR123"
         }
     ]
 }
