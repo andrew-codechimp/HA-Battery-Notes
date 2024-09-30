@@ -1,4 +1,4 @@
-## 1200 Devices in library
+## 1201 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1011,6 +1011,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |TuYa                                            |Temperature and humidity sensor (ZTH01)                                    |2× AAA                             |                   |                                      |
 |TuYa                                            |Temperature and humidity sensor (ZTH02)                                    |CR2032                             |                   |                                      |
 |TuYa                                            |Temperature and humidity sensor (ZTH05)                                    |CR2032                             |                   |                                      |
+|Tuya                                            |Temperature and humidity sensor (ZTH08-E)                                  |3× AAA                             |                   |                                      |
 |Tuya                                            |TH05                                                                       |CR2032                             |                   |                                      |
 |TuYa                                            |TH08                                                                       |3× AAA                             |                   |                                      |
 |Tuya                                            |Thermostat radiator valve                                                  |2× AA                              |TV02-Zigbee        |                                      |
