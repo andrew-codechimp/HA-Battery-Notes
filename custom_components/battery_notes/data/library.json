@@ -6566,6 +6566,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Door sensor (TS0203)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
