@@ -3263,6 +3263,11 @@
         },
         {
             "manufacturer": "Lutron Electronics Co., Inc",
+            "model": "PJ2-3BRL-GXX-F01 (Pico3ButtonRaiseLower)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Lutron Electronics Co., Inc",
             "model": "PJ2-3BRL-GXX-X01 (Pico3ButtonRaiseLower)",
             "battery_type": "CR2032"
         },
@@ -6551,11 +6556,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Lutron Electronics Co., Inc",
-            "model": "PJ2-3BRL-GXX-F01 (Pico3ButtonRaiseLower)",
-            "battery_type": "CR2032"
         }
     ]
 }
