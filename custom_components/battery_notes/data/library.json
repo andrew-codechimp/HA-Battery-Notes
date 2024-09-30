@@ -3262,6 +3262,11 @@
             "battery_quantity": 6
         },
         {
+            "manufacturer": "Lutron Electronics Co., Inc",
+            "model": "PJ2-3BRL-GXX-X01 (Pico3ButtonRaiseLower)",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "Merkury",
             "model": "SS003",
             "battery_type": "CR2"
@@ -6546,11 +6551,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Lutron Electronics Co., Inc",
-            "model": "PJ2-3BRL-GXX-X01 (Pico3ButtonRaiseLower)",
-            "battery_type": "CR2032"
         }
     ]
 }
