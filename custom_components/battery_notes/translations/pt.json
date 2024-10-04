@@ -31,7 +31,7 @@
                 }
             },
             "battery": {
-                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}\n",
+                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
                 "data": {
                     "battery_type": "Tipo de bateria",
                     "battery_quantity": "Quantidade de baterias",
@@ -59,7 +59,7 @@
     "options": {
         "step": {
             "init": {
-                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}\n",
+                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
                 "data": {
                     "name": "Nome",
                     "battery_type": "Tipo de bateria",

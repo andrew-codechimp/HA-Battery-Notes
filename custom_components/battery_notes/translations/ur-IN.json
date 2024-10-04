@@ -31,7 +31,7 @@
                 }
             },
             "battery": {
-                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}\n",
+                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
                 "data": {
                     "battery_type": "بیٹری کی قسم",
                     "battery_quantity": "بیٹری کی مقدار",
@@ -59,7 +59,7 @@
     "options": {
         "step": {
             "init": {
-                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}\n",
+                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
                 "data": {
                     "name": "نام",
                     "battery_type": "بیٹری کی قسم",

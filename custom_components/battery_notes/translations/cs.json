@@ -31,7 +31,7 @@
                 }
             },
             "battery": {
-                "description": "Výrobce: {manufacturer}\nModel: {model}\nID modelu: {model_id}\nHardware verze: {hw_version}\n",
+                "description": "Výrobce: {manufacturer}\nModel: {model}\nID modelu: {model_id}\nHardware verze: {hw_version}",
                 "data": {
                     "battery_type": "Typ baterie",
                     "battery_quantity": "Množství baterií",
@@ -59,7 +59,7 @@
     "options": {
         "step": {
             "init": {
-                "description": "Výrobce: {manufacturer}\nModel: {model}\nID modelu: {model_id}\nHardware verze: {hw_version}\n",
+                "description": "Výrobce: {manufacturer}\nModel: {model}\nID modelu: {model_id}\nHardware verze: {hw_version}",
                 "data": {
                     "name": "Název",
                     "battery_type": "Typ baterie",

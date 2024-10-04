@@ -31,7 +31,7 @@
                 }
             },
             "battery": {
-                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}\n",
+                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
                 "data": {
                     "battery_type": "Typ batérie",
                     "battery_quantity": "Množstvo batérie",
@@ -59,7 +59,7 @@
     "options": {
         "step": {
             "init": {
-                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}\n",
+                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
                 "data": {
                     "name": "Názov",
                     "battery_type": "Typ batérie",

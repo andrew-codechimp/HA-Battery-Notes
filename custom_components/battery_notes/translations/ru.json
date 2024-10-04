@@ -31,7 +31,7 @@
                 }
             },
             "battery": {
-                "description": "Производитель: {manufacturer}\nМодель: {model}\nID модели: {model_id}\nРевизия: {hw_version}\n",
+                "description": "Производитель: {manufacturer}\nМодель: {model}\nID модели: {model_id}\nРевизия: {hw_version}",
                 "data": {
                     "battery_type": "Тип батареи",
                     "battery_quantity": "Количество батарей",
@@ -59,7 +59,7 @@
     "options": {
         "step": {
             "init": {
-                "description": "Производитель: {manufacturer}\nМодель: {model}\nID модели: {model_id}\nРевизия: {hw_version}\n",
+                "description": "Производитель: {manufacturer}\nМодель: {model}\nID модели: {model_id}\nРевизия: {hw_version}",
                 "data": {
                     "name": "Название",
                     "battery_type": "Тип батареи",
