@@ -44,7 +44,7 @@
                 }
             },
             "manual": {
-                "description": "Az eszköz különböző típusú elemekkel is használható, így manuálisan kell beállítani az elem típusát.\nA következő lépésben elvégezhető a beállíthatás, de kérlek, ne küldd be a központi nyilvántartásba ezt.",
+                "description": "Az eszköz különböző típusú elemekkel is használható, így manuálisan kell beállítani az elem típusát.\nA következő lépésben elvégezhető a beállítás, de kérlek, ne küldd be ezt az eszközt nekünk!",
                 "title": "Eszköz manuális beállítása"
             }
         },
@@ -91,7 +91,7 @@
         },
         "button": {
             "battery_replaced": {
-                "name": "{device_name}Elem cserélve"
+                "name": "{device_name}Elemcsere"
             }
         },
         "sensor": {
@@ -111,7 +111,7 @@
                         "name": "Elemcsere"
                     },
                     "battery_low": {
-                        "name": "Elem lemerült"
+                        "name": "Elem lemerül"
                     },
                     "battery_low_threshold": {
                         "name": "Alacsony elemszint küszöbérték"
