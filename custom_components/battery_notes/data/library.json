@@ -6579,6 +6579,12 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Namron AS",
+            "model": "Namron AS 4512762",
+            "model_id": "4512762",
+            "battery_type": "CR2350"
         }
     ]
 }
