@@ -6596,6 +6596,14 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Shelly",
+            "model": "Shelly H&T Gen3",
+            "model_id": "S3SN-0U12A",
+            "hw_version": "gen3",
+            "battery_type": "AA",
+            "battery_quantity": 4
         }
     ]
 }
