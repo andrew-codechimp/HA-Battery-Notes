@@ -1,4 +1,4 @@
-## 1211 Devices in library
+## 1212 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1192,6 +1192,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Yale                                            |YRD450-ZW3                                                                 |4× AA                              |                   |                                      |
 |Yale                                            |YRD652-ZW2                                                                 |4× AA                              |                   |                                      |
 |Yale                                            |YRL256                                                                     |4× AA                              |                   |                                      |
+|Yale Home Inc.                                  |AK-R1                                                                      |2× AAA                             |                   |                                      |
 |Yeelight                                        |ble YLAI003                                                                |CR2032                             |                   |                                      |
 |YoLink                                          |DoorSensor                                                                 |2× AAA                             |                   |                                      |
 |YoLink                                          |LeakSensor                                                                 |2× AAA                             |                   |                                      |
