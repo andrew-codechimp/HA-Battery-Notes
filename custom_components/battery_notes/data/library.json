@@ -3401,6 +3401,11 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "Namron AS",
+            "model": "4512762",
+            "battery_type": "CR2350"
+        },
+        {
             "manufacturer": "Neo",
             "model": "Alarm (NAS-AB02B2)",
             "battery_type": "CR123A Lithium"
