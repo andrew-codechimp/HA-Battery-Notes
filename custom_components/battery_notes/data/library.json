@@ -6453,6 +6453,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Yale Home Inc.",
+            "model": "ASL6_05/101110/MB",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
             "manufacturer": "Yeelight",
             "model": "ble YLAI003",
             "battery_type": "CR2032"
@@ -6590,12 +6596,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Yale Home Inc.",
-            "model": "ASL6_05/101110/MB",
-            "battery_type": "AA",
-            "battery_quantity": 4
         }
     ]
 }
