@@ -1,4 +1,4 @@
-## 1213 Devices in library
+## 1214 Devices in library
 
 This file is auto generated, do not modify
 
@@ -796,6 +796,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Shelly                                          |Shelly Door/Window 2                                                       |2× CR123A                          |                   |                                      |
 |Shelly                                          |Shelly Flood                                                               |CR123A                             |                   |                                      |
 |Shelly                                          |Shelly H&T                                                                 |MANUAL                             |                   |                                      |
+|Shelly                                          |Shelly H&T Gen3                                                            |4× AA                              |S3SN-0U12A         |gen3                                  |
 |Shelly                                          |Shelly Motion                                                              |Rechargeable                       |                   |                                      |
 |Shelly                                          |Shelly Motion 2                                                            |Rechargeable                       |                   |                                      |
 |Shelly                                          |Shelly Plus H&T                                                            |4× AA                              |                   |                                      |
