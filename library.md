@@ -1,4 +1,4 @@
-## 1210 Devices in library
+## 1211 Devices in library
 
 This file is auto generated, do not modify
 
@@ -630,6 +630,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |MultiSensor                                     |MultiSensor 6 (ZW100)                                                      |2× CR123A                          |                   |                                      |
 |Müller Licht                                    |Tint remote control (MLI-404011/MLI-404049)                                |2× AAA                             |                   |                                      |
 |Namron                                          |Zigbee 4 channel switch K8 (black) (4512721)                               |CR2450                             |                   |                                      |
+|Namron AS                                       |4512762                                                                    |CR2350                             |                   |                                      |
 |Neo                                             |Alarm (NAS-AB02B2)                                                         |CR123A Lithium                     |                   |                                      |
 |Neo                                             |NAS-AB06B2                                                                 |18650                              |                   |                                      |
 |Neo                                             |NAS-PD07                                                                   |2× CR123A                          |                   |                                      |
