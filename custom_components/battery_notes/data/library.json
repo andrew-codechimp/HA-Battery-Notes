@@ -6604,6 +6604,13 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Tado",
+            "model": "Smart Radiator Thermostat",
+            "model_id": "SRT01",
+            "battery_type": "AA",
+            "battery_quantity": 2
         }
     ]
 }
