@@ -432,12 +432,8 @@ class BatteryNotesBatteryPlusSensor(
                 )
 
         @callback
-        def _filter_entity_id(event_data: Mapping[str, Any] | Event) -> bool:
+        def _filter_entity_id(event_data: Mapping[str, Any]) -> bool:
             """Only dispatch the listener for update events concerning the source entity."""
-
-            # Breaking change in 2024.4.0, check for Event for versions prior to this
-            if type(event_data) is Event:  # pylint: disable=unidiomatic-typecheck
-                event_data = event_data.data
 
             return (
                 event_data["action"] == "update"
