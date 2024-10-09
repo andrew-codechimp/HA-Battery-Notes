@@ -816,6 +816,12 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "Roller shade driver E1",
+            "model_id": "ZNJLBL01LM",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "RTCGQ11LM",
             "battery_type": "CR2450"
         },
@@ -6618,12 +6624,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Aqara",
-            "model": "Roller shade driver E1",
-            "model_id": "ZNJLBL01LM",
-            "battery_type": "Rechargeable"
         }
     ]
 }
