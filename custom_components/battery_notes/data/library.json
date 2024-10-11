@@ -5493,6 +5493,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Tuya",
+            "model": "Soil sensor (TS0601_soil_3)",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "TuYa",
             "model": "T & H Sensor (lf36y5nwb8jkxwgg)",
             "battery_type": "AAA",
@@ -6630,12 +6636,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Soil sensor (TS0601_soil_3)",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
