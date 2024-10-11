@@ -2555,6 +2555,12 @@
         },
         {
             "manufacturer": "Honeywell",
+            "model": "RCHTSENSOR",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Honeywell",
             "model": "RF6000",
             "battery_type": "CR123"
         },
@@ -6624,12 +6630,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Honeywell",
-            "model": "RCHTSENSOR",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
