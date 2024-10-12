@@ -2257,6 +2257,12 @@
         },
         {
             "manufacturer": "frient A/S",
+            "model": "MOSZB-140",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "frient A/S",
             "model": "SBTZB-110",
             "battery_type": "CR2450"
         },
@@ -6636,12 +6642,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "frient A/S",
-            "model": "MOSZB-140",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
