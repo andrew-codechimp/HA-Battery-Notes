@@ -5506,7 +5506,7 @@
         {
             "manufacturer": "Tuya",
             "model": "Soil sensor (TS0601_soil_3)",
-            "battery_type": "AA",
+            "battery_type": "AAA",
             "battery_quantity": 2
         },
         {
