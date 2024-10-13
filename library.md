@@ -1,4 +1,4 @@
-## 1220 Devices in library
+## 1221 Devices in library
 
 This file is auto generated, do not modify
 
@@ -423,6 +423,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |GE                                              |Hinge PIN Door Sensor, 500S                                                |CR123A                             |                   |                                      |
 |GE                                              |Hinge Pin Smart Door Sensor                                                |CR2                                |              32563|                                      |
 |GE/Enbrighten                                   |32563 / ZW6301                                                             |CR2                                |                   |                                      |
+|Gerda                                           |Tedee Pro                                                                  |Rechargeable                       |                   |                                      |
 |GiEX                                            |Water irrigation valve (QT06_1)                                            |4× AA                              |                   |                                      |
 |GiEX                                            |Water irrigation valve (QT06_2)                                            |4× AA                              |                   |                                      |
 |Google                                          |A12                                                                        |3× AA                              |                   |                                      |
