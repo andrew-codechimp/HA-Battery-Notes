@@ -6642,6 +6642,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Gerda",
+            "model": "Tedee Pro",
+            "battery_type": "Rechargeable"
         }
     ]
 }
