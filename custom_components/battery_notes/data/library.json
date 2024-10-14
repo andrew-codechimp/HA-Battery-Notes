@@ -6647,6 +6647,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE44",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "TUYATEC-r9hgssol",
+            "model": "RH3001",
+            "battery_type": "CR2450"
         }
     ]
 }
