@@ -5793,6 +5793,11 @@
             "battery_quantity": 3
         },
         {
+            "manufacturer": "TUYATEC-r9hgssol",
+            "model": "RH3001",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "TUYATEC-riuj5xzs",
             "model": "RH3052",
             "battery_type": "CR2032"
@@ -6646,11 +6651,6 @@
         {
             "manufacturer": "Zooz",
             "model": "ZSE44",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "TUYATEC-r9hgssol",
-            "model": "RH3001",
             "battery_type": "CR2450"
         }
     ]

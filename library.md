@@ -1,4 +1,4 @@
-## 1221 Devices in library
+## 1222 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1067,6 +1067,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tuya                                            |ZP01                                                                       |2× AAA                             |                   |                                      |
 |Tuya                                            |zqeaw7pi                                                                   |2× AAA                             |                   |                                      |
 |TuYa                                            |ZTH08-E                                                                    |3× AAA                             |                   |                                      |
+|TUYATEC-r9hgssol                                |RH3001                                                                     |CR2450                             |                   |                                      |
 |TUYATEC-riuj5xzs                                |RH3052                                                                     |CR2032                             |                   |                                      |
 |TUYATEC-xrvzm3yI                                |RH3001                                                                     |CR2032                             |                   |                                      |
 |TUYATEC-yg5dcbfu                                |RH3052                                                                     |CR2032                             |                   |                                      |
