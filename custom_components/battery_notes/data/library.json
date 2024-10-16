@@ -5793,6 +5793,11 @@
             "battery_quantity": 3
         },
         {
+            "manufacturer": "TUYATEC-1wzznw9a",
+            "model": "RH3052",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "TUYATEC-r9hgssol",
             "model": "RH3001",
             "battery_type": "CR2450"
@@ -6658,11 +6663,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "TUYATEC-1wzznw9a",
-            "model": "RH3052",
-            "battery_type": "CR2032"
         }
     ]
 }
