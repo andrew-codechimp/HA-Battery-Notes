@@ -6658,6 +6658,11 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "TUYATEC-1wzznw9a",
+            "model": "RH3052",
+            "battery_type": "CR2032"
         }
     ]
 }
