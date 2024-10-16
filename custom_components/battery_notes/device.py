@@ -1,6 +1,7 @@
 """Battery Notes device, contains device level details."""
 
 import logging
+from datetime import datetime
 
 from homeassistant.components.sensor import DOMAIN as SENSOR_DOMAIN
 from homeassistant.components.sensor import (
@@ -185,6 +186,10 @@ class BatteryNotesDevice:
                 self.wrapped_battery.entity_id,
                 self.coordinator.battery_low_threshold,
             )
+
+        # If there is not a default last_reported set to now
+        if not self.coordinator.last_reported:
+            self.coordinator.last_reported = datetime.utcnow()
 
         self.hass.data[DOMAIN][DATA].devices[config.entry_id] = self
         self.reset_jobs.append(config.add_update_listener(self.async_update))

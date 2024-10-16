@@ -258,10 +258,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
                     )
                     return last_reported_date
 
-        self.last_reported = datetime.utcnow()
-        return datetime.fromisoformat(
-                        str(self.last_reported) + "+00:00"
-                    )
+        return None
 
     @last_reported.setter
     def last_reported(self, value):
