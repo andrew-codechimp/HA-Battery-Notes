@@ -1,4 +1,4 @@
-## 1224 Devices in library
+## 1225 Devices in library
 
 This file is auto generated, do not modify
 
@@ -370,6 +370,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Eve                                             |Weather                                                                    |CR2450                             |20EBS9901          |                                   1.1|
 |Eve Systems                                     |Eve Door 20EBN9901                                                         |LS14250                            |                   |                                      |
 |Eve Systems                                     |Eve Motion 20EBY9901                                                       |2× AAA                             |                   |                                      |
+|Eve Systems                                     |Eve Thermo 20EBP1701                                                       |2× AA                              |                 79|                                   1.1|
 |Eve Systems                                     |Thermo 20EBP1701                                                           |2× AA                              |                   |                                      |
 |Everspring                                      |AC301                                                                      |2× AA                              |                   |                                      |
 |Everspring                                      |SE812                                                                      |4× LR14                            |                   |                                      |
