@@ -5348,6 +5348,12 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "Tuya",
+            "model": "Motion Sensor (rjzon9kyxpoeksj3)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "TuYa",
             "model": "Motion sensor (TS0202)",
             "battery_type": "CR2450"
@@ -6670,12 +6676,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE70",
             "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Motion Sensor (rjzon9kyxpoeksj3)",
-            "battery_type": "AAA",
             "battery_quantity": 2
         }
     ]
