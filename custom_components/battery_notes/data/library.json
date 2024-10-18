@@ -4694,6 +4694,11 @@
             "battery_type": "CR2"
         },
         {
+            "manufacturer": "SmartWave",
+            "model": "SmartWave Window Covering (10001)",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Smartwings",
             "model": "Roller shade (WM25L-Z)",
             "battery_type": "Rechargeable"
@@ -6692,11 +6697,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "SmartWave",
-            "model": "SmartWave Window Covering (10001)",
-            "battery_type": "Rechargeable"
         }
     ]
 }
