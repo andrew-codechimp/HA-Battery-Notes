@@ -5531,6 +5531,14 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Tuya",
+            "model": "T & H Sensor",
+            "model_id": "lf36y5nwb8jkxwgg",
+            "hw_version": "TH01CB3S",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "TuYa",
             "model": "T & H Sensor (lf36y5nwb8jkxwgg)",
             "battery_type": "AAA",
@@ -6683,14 +6691,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE70",
             "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "T & H Sensor",
-            "model_id": "lf36y5nwb8jkxwgg",
-            "hw_version": "TH01CB3S",
-            "battery_type": "AAA",
             "battery_quantity": 2
         }
     ]
