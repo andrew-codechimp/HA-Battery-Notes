@@ -241,6 +241,16 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
                 return last_replaced_date
         return None
 
+    @last_replaced.setter
+    def last_replaced(self, value):
+        """Set the last replaced datetime and store it."""
+        entry = {LAST_REPLACED: value}
+
+        if self.source_entity_id:
+            self.async_update_entity_config(entity_id=self.source_entity_id, data=entry)
+        else:
+            self.async_update_device_config(device_id=self.device_id, data=entry)
+
     @property
     def last_reported(self) -> datetime | None:
         """Get the last reported datetime."""
@@ -263,7 +273,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
     @last_reported.setter
     def last_reported(self, value):
         """Set the last reported datetime and store it."""
-        entry = {"battery_last_reported": value}
+        entry = {LAST_REPORTED: value}
 
         if self.source_entity_id:
             self.async_update_entity_config(entity_id=self.source_entity_id, data=entry)
