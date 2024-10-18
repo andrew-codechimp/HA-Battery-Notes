@@ -187,7 +187,7 @@ class BatteryNotesDevice:
                 self.coordinator.battery_low_threshold,
             )
 
-        # If there is not a last replaced, set to device created date, or now if 1970
+        # If there is not a last replaced, set to device created date if not epoch
         if not self.coordinator.last_replaced:
             last_replaced = None
             if entity.device_id:
