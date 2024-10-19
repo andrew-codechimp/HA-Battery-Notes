@@ -6507,6 +6507,12 @@
         },
         {
             "manufacturer": "Yale",
+            "model": "SD-L1000-CH",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Yale",
             "model": "YRD210",
             "battery_type": "AA",
             "battery_quantity": 4
@@ -6703,12 +6709,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Yale",
-            "model": "SD-L1000-CH",
-            "battery_type": "AA",
-            "battery_quantity": 4
         }
     ]
 }
