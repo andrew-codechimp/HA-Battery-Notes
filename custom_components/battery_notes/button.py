@@ -241,15 +241,6 @@ class BatteryNotesButton(ButtonEntity):
 
     async def async_press(self) -> None:
         """Press the button."""
-        device_id = self._device_id
-
-        entry = {"battery_last_replaced": datetime.utcnow()}
-
-        if self._source_entity_id:
-            self.coordinator.async_update_entity_config(
-                entity_id=self.coordinator.source_entity_id, data=entry
-            )
-        else:
-            self.coordinator.async_update_device_config(device_id=device_id, data=entry)
+        self.coordinator.last_replaced(datetime.utcnow())
 
         await self.coordinator.async_request_refresh()

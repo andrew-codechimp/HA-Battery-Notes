@@ -57,6 +57,7 @@ from .const import (
     DOMAIN_CONFIG,
     EVENT_BATTERY_NOT_REPORTED,
     EVENT_BATTERY_THRESHOLD,
+    LAST_REPLACED,
     MIN_HA_VERSION,
     PLATFORMS,
     SERVICE_BATTERY_REPLACED,
@@ -306,7 +307,7 @@ def register_services(hass: HomeAssistant):
                         hass.data[DOMAIN][DATA].devices[config_entry_id].coordinator
                     )
 
-                    entry = {"battery_last_replaced": datetime_replaced}
+                    entry = {LAST_REPLACED: datetime_replaced}
 
                     coordinator.async_update_entity_config(
                         entity_id=source_entity_id, data=entry
@@ -340,7 +341,7 @@ def register_services(hass: HomeAssistant):
                         hass.data[DOMAIN][DATA].devices[entry.entry_id].coordinator
                     )
 
-                    device_entry = {"battery_last_replaced": datetime_replaced}
+                    device_entry = {LAST_REPLACED: datetime_replaced}
 
                     coordinator.async_update_device_config(
                         device_id=device_id, data=device_entry
