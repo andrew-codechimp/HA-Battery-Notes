@@ -1,4 +1,4 @@
-## 1229 Devices in library
+## 1230 Devices in library
 
 This file is auto generated, do not modify
 
@@ -232,6 +232,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |CentraLite                                      |3325-S                                                                     |CR2450                             |                   |                                      |
 |CentraLite                                      |3326-L                                                                     |CR2                                |                   |                                      |
 |Centralite                                      |3328-G                                                                     |CR2450                             |                   |                                      |
+|CentraLite                                      |3400                                                                       |2× CR123A                          |                   |                                      |
 |CentraLite                                      |3450-L                                                                     |CR2450                             |                   |                                      |
 |CentraLite                                      |3460-L                                                                     |CR2450                             |                   |                                      |
 |CentraLite                                      |Contact Sensor-A                                                           |CR2                                |                   |                                      |

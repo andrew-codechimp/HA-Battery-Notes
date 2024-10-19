@@ -1234,6 +1234,12 @@
         },
         {
             "manufacturer": "CentraLite",
+            "model": "3400",
+            "battery_type": "CR123A",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "CentraLite",
             "model": "3450-L",
             "battery_type": "CR2450"
         },
@@ -6695,12 +6701,6 @@
         {
             "manufacturer": "Zooz",
             "model": "ZSE70",
-            "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "CentraLite",
-            "model": "3400",
             "battery_type": "CR123A",
             "battery_quantity": 2
         }
