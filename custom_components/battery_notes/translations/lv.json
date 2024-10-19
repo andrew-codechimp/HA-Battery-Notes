@@ -2,185 +2,185 @@
     "config": {
         "step": {
             "user": {
-                "description": "If you need help with the configuration have a look here: https://andrew-codechimp.github.io/HA-Battery-Notes/",
+                "description": "Ja nepieciešama konfigurēšanas palīdzība, papildus informāciju var iegūt šeit: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
-                    "association_type": "Association type"
+                    "association_type": "Asociācijas veids"
                 },
                 "menu_options": {
-                    "device": "Device (recommended)",
-                    "entity": "Entity"
+                    "device": "Ierīce (ieteicams)",
+                    "entity": "Vienība"
                 },
-                "title": "Choose your association type"
+                "title": "Norādiet asociācijas veidu"
             },
             "device": {
                 "data": {
-                    "device_id": "Device",
-                    "name": "Name"
+                    "device_id": "Ierīce",
+                    "name": "Nosaukums"
                 },
                 "data_description": {
-                    "name": "Leaving blank will take the name from the source device"
+                    "name": "Atstājot tukšu tiks ņemts nosaukums no pamata ierīces"
                 }
             },
             "entity": {
                 "data": {
-                    "source_entity_id": "Entity",
-                    "name": "Name"
+                    "source_entity_id": "Vienība",
+                    "name": "Nosaukums"
                 },
                 "data_description": {
-                    "name": "Leaving blank will take the name from the source entity"
+                    "name": "Atstājot tukšu tiks ņemts nosaukums no pamata vienības"
                 }
             },
             "battery": {
-                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
+                "description": "Ražotājs: {manufacturer}\nModelis: {model}\nModeļa ID: {model_id}\nAparatūras versija: {hw_version}",
                 "data": {
-                    "battery_type": "Battery type",
-                    "battery_quantity": "Battery quantity",
-                    "battery_low_threshold": "Battery low threshold",
-                    "battery_low_template": "Battery low template"
+                    "battery_type": "Baterijas tips",
+                    "battery_quantity": "Bateriju daudzums",
+                    "battery_low_threshold": "Zema baterijas līmeņa slieksnis",
+                    "battery_low_template": "Zema baterijas līmeņa šablons"
                 },
                 "data_description": {
-                    "battery_low_threshold": "0 will use the global default threshold",
-                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels"
+                    "battery_low_threshold": "Norādiet 0, lai izmantotu noklusēto slieksni",
+                    "battery_low_template": "Šablons lai noteiktu zemu baterijas līmeni, kam jāatgriež patiesa vērtība, līmenis ir zems\nNepieciešams tikai nestandarta bateriju līmeņiem"
                 }
             },
             "manual": {
-                "description": "This device is marked in the library as manual, variants use different battery types so it cannot be set in the library.\nThe next step will allow you to set your battery type but please do not submit a device request.",
-                "title": "Device manual configuration"
+                "description": "Iekārta bibliotekā ir atzīmēta kā manuāla, kas nozīmē, ka šīs ierīces paveidi izmanto dažādus bateriju tipus.\nNākošājā solī norādiet kādu bateriju tipu ierīce izmanto. ",
+                "title": "Ierīces manuāla konfigurācija"
             }
         },
         "abort": {
-            "already_configured": "Device is already configured"
+            "already_configured": "Ierīce jau ir konfigurēta"
         },
         "error": {
-            "unknown": "Unknown error occurred.",
-            "unconfigurable_entity": "It is not possible to add this entity to Battery Notes."
+            "unknown": "Notika nezināma kļūda.",
+            "unconfigurable_entity": "Nav iespējams pievienot šo vienību baterijas piezīmēm."
         }
     },
     "options": {
         "step": {
             "init": {
-                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
+                "description": "Ražotājs: {manufacturer}\nModelis: {model}\nModeļa ID: {model_id}\nAparatūras versija: {hw_version}",
                 "data": {
-                    "name": "Name",
-                    "battery_type": "Battery type",
-                    "battery_quantity": "Battery quantity",
-                    "battery_low_threshold": "Battery low threshold",
-                    "battery_low_template": "Battery low template"
+                    "name": "Nosaukums",
+                    "battery_type": "Baterijas tips",
+                    "battery_quantity": "Bateriju daudzums",
+                    "battery_low_threshold": "Zema baterijas līmeņa slieksnis",
+                    "battery_low_template": "Zema baterijas līmeņa šablons"
                 },
                 "data_description": {
-                    "name": "Leaving blank will take the name from the source device",
-                    "battery_low_threshold": "0 will use the global default threshold",
-                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels"
+                    "name": "Atstājot tukšu tiks ņemts nosaukums no pamata ierīces",
+                    "battery_low_threshold": "Norādiet 0, lai izmantotu noklusēto slieksni",
+                    "battery_low_template": "Šablons lai noteiktu zemu baterijas līmeni, kam jāatgriež patiesa vērtība, līmenis ir zems\nNepieciešams tikai nestandarta bateriju līmeņiem"
                 }
             }
         },
         "error": {
-            "unknown": "Unknown error occurred."
+            "unknown": "Notika nezināma kļūda."
         }
     },
     "entity": {
         "binary_sensor": {
             "battery_low": {
-                "name": "{device_name}Battery low",
+                "name": "{device_name}Baterijai zems līmenis",
                 "state_attributes": {
                     "battery_low_threshold": {
-                        "name": "Battery low threshold"
+                        "name": "Zema baterijas līmeņa slieksnis"
                     }
                 }
             }
         },
         "button": {
             "battery_replaced": {
-                "name": "{device_name}Battery replaced"
+                "name": "{device_name}Baterija nomainīta"
             }
         },
         "sensor": {
             "battery_plus": {
-                "name": "{device_name}Battery+",
+                "name": "{device_name}Baterija+",
                 "state_attributes": {
                     "battery_type": {
-                        "name": "Battery type"
+                        "name": "Baterijas tips"
                     },
                     "battery_quantity": {
-                        "name": "Battery quantity"
+                        "name": "Bateriju daudzums"
                     },
                     "battery_type_and_quantity": {
-                        "name": "Battery type and quantity"
+                        "name": "Baterijas tips un daudzums"
                     },
                     "battery_last_replaced": {
-                        "name": "Battery last replaced"
+                        "name": "Baterija pēdējo reizi nomainīta"
                     },
                     "battery_low": {
-                        "name": "Battery low"
+                        "name": "Baterijai zems līmenis"
                     },
                     "battery_low_threshold": {
-                        "name": "Battery low threshold"
+                        "name": "Zema baterijas līmeņa slieksnis"
                     },
                     "battery_last_reported": {
-                        "name": "Battery last reported"
+                        "name": "Baterijas līmenis pēdējo reizi ziņots"
                     },
                     "battery_last_reported_level": {
-                        "name": "Battery last reported level"
+                        "name": "Baterijas pēdējais ziņotais līmenis"
                     },
                     "source_entity_id": {
-                        "name": "Source Entity Id"
+                        "name": "Pamata ierīces ID"
                     },
                     "device_id": {
-                        "name": "Device Id"
+                        "name": "Ierīces ID"
                     },
                     "device_name": {
-                        "name": "Device name"
+                        "name": "Ierīces nosaukums"
                     }
                 }
             },
             "battery_type": {
-                "name": "{device_name}Battery type",
+                "name": "{device_name}Baterijas tips",
                 "state_attributes": {
                     "battery_type": {
-                        "name": "Battery type"
+                        "name": "Baterijas tips"
                     },
                     "battery_quantity": {
-                        "name": "Battery quantity"
+                        "name": "Bateriju daudzums"
                     }
                 }
             },
             "battery_last_replaced": {
-                "name": "{device_name}Battery last replaced"
+                "name": "{device_name}Baterija pēdējo reizi nomainīta"
             }
         }
     },
     "services": {
         "set_battery_replaced": {
-            "description": "Set the battery last replaced.",
+            "description": "Uzstādīt bateriju kā nomainītu.",
             "fields": {
                 "device_id": {
-                    "description": "Device that has had its battery replaced.",
-                    "name": "Device"
+                    "description": "Ierīces baterija tika nomainīta.",
+                    "name": "Ierīce"
                 },
                 "entity_id": {
-                    "description": "Entity that has had its battery replaced (only used for entity associated battery notes).",
-                    "name": "Entity"
+                    "description": "Vienība, kurai tika nomainīta baterija (tiek izmantota tikai ar vienību saistītās baterijas piezīmēs).",
+                    "name": "Vienība"
                 },
                 "datetime_replaced": {
-                    "description": "Date replaced.",
-                    "name": "Date"
+                    "description": "Nomainīšanas datums.",
+                    "name": "Datums"
                 }
             },
-            "name": "Set battery replaced"
+            "name": "Baterija tika nomainīta"
         },
         "check_battery_last_reported": {
-            "description": "Raise events for devices that haven't reported their battery level.",
+            "description": "Izraisīt notikumu par ierīcēm, kas nav ziņojušas to baterijas līmeni.",
             "fields": {
                 "days_last_reported": {
-                    "description": "Number of days since a device last reported its battery level.",
-                    "name": "Days"
+                    "description": "Dienas, kopš ierīce pēdējo reizi ziņoja tās baterijas līmeni.",
+                    "name": "Dienas"
                 }
             },
-            "name": "Check battery last reported"
+            "name": "Pārbaudīt, kad pēdējo reizi ziņota informācija par bateriju"
         },
         "check_battery_low": {
-            "description": "Raise events for devices that have a low battery.",
-            "name": "Check battery low"
+            "description": "Izraisīt notikumus par ierīcēm, kam ir zems baterijas līmenis.",
+            "name": "Pārbaudīt zemu baterijas līmeni"
         }
     }
 }
