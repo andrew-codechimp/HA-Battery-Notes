@@ -157,3 +157,19 @@ action:
 mode: queued
 max: 30
 ```
+
+## Battery Replaced
+`battery_notes_battery_replaced`
+
+This is fired when the battery is replaced, either by a button press or the action.
+
+This can be useful for adding batteries to a shopping list or inventory system.
+
+| Attribute | Type | Description |
+|-----------|------|-------------|
+| `device_id` | `string` | The device id of the device. |
+| `source_entity_id` | `string` | The entity id of the sensor associated with the battery note. |
+| `device_name` | `string` | The device name (or associated sensor name if no device). |
+| `battery_type_and_quantity` | `string` | Battery type & quantity. |
+| `battery_type` | `string` | Battery type. |
+| `battery_quantity` | `int` | Battery quantity. |
