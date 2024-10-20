@@ -4373,7 +4373,7 @@
         {
             "manufacturer": "Shelly",
             "model": "SNSN-0013A",
-            "battery_type": "AA (LR6)",
+            "battery_type": "AA",
             "battery_quantity": 4
         },
         {
