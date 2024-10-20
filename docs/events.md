@@ -173,3 +173,25 @@ This can be useful for adding batteries to a shopping list or inventory system.
 | `battery_type_and_quantity` | `string` | Battery type & quantity. |
 | `battery_type` | `string` | Battery type. |
 | `battery_quantity` | `int` | Battery quantity. |
+
+### Automation Example
+
+Note this cannot be run manually as it examines event triggers.
+
+```yaml
+alias: Battery Replaced
+description: Battery replaced
+trigger:
+  - platform: event
+    event_type: battery_notes_battery_replaced
+condition: []
+action:
+  - service: persistent_notification.create
+    data:
+      title: |
+        {{ trigger.event.data.device_name }} Battery Replaced
+      message: >
+        You just used {{trigger.event.data.battery_type_and_quantity }} batteries
+mode: queued
+max: 30
+```
