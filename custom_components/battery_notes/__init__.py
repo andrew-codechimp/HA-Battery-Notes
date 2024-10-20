@@ -56,6 +56,7 @@ from .const import (
     DOMAIN,
     DOMAIN_CONFIG,
     EVENT_BATTERY_NOT_REPORTED,
+    EVENT_BATTERY_REPLACED,
     EVENT_BATTERY_THRESHOLD,
     LAST_REPLACED,
     MIN_HA_VERSION,
@@ -307,17 +308,31 @@ def register_services(hass: HomeAssistant):
                         hass.data[DOMAIN][DATA].devices[config_entry_id].coordinator
                     )
 
-                    entry = {LAST_REPLACED: datetime_replaced}
-
-                    coordinator.async_update_entity_config(
-                        entity_id=source_entity_id, data=entry
-                    )
+                    coordinator.last_replaced =datetime_replaced
                     await coordinator.async_request_refresh()
 
                     _LOGGER.debug(
                         "Entity %s battery replaced on %s",
                         source_entity_id,
                         str(datetime_replaced),
+                    )
+
+                    hass.bus.async_fire(
+                        EVENT_BATTERY_REPLACED,
+                        {
+                            ATTR_DEVICE_ID: coordinator.device_id or "",
+                            ATTR_SOURCE_ENTITY_ID: coordinator.source_entity_id
+                            or "",
+                            ATTR_DEVICE_NAME: coordinator.device_name,
+                            ATTR_BATTERY_TYPE_AND_QUANTITY: coordinator.battery_type_and_quantity,
+                            ATTR_BATTERY_TYPE: coordinator.battery_type,
+                            ATTR_BATTERY_QUANTITY: coordinator.battery_quantity,
+                        },
+                    )
+
+                    _LOGGER.debug(
+                        "Raised event battery replaced %s",
+                        coordinator.device_id,
                     )
 
                     return
@@ -341,11 +356,7 @@ def register_services(hass: HomeAssistant):
                         hass.data[DOMAIN][DATA].devices[entry.entry_id].coordinator
                     )
 
-                    device_entry = {LAST_REPLACED: datetime_replaced}
-
-                    coordinator.async_update_device_config(
-                        device_id=device_id, data=device_entry
-                    )
+                    coordinator.last_replaced =datetime_replaced
 
                     await coordinator.async_request_refresh()
 
@@ -355,6 +366,24 @@ def register_services(hass: HomeAssistant):
                         str(datetime_replaced),
                     )
 
+                    hass.bus.async_fire(
+                        EVENT_BATTERY_REPLACED,
+                        {
+                            ATTR_DEVICE_ID: coordinator.device_id or "",
+                            ATTR_SOURCE_ENTITY_ID: coordinator.source_entity_id
+                            or "",
+                            ATTR_DEVICE_NAME: coordinator.device_name,
+                            ATTR_BATTERY_TYPE_AND_QUANTITY: coordinator.battery_type_and_quantity,
+                            ATTR_BATTERY_TYPE: coordinator.battery_type,
+                            ATTR_BATTERY_QUANTITY: coordinator.battery_quantity,
+                        },
+                    )
+
+                    _LOGGER.debug(
+                        "Raised event battery replaced %s",
+                        coordinator.device_id,
+                    )
+
                     # Found and dealt with, exit
                     return
 
@@ -362,6 +391,7 @@ def register_services(hass: HomeAssistant):
                 "Device %s not configured in Battery Notes",
                 device_id,
             )
+
 
     async def handle_battery_last_reported(call):
         """Handle the service call."""

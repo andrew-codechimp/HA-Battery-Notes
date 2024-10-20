@@ -71,6 +71,7 @@ SERVICE_CHECK_BATTERY_LOW = "check_battery_low"
 EVENT_BATTERY_THRESHOLD = "battery_notes_battery_threshold"
 EVENT_BATTERY_INCREASED = "battery_notes_battery_increased"
 EVENT_BATTERY_NOT_REPORTED = "battery_notes_battery_not_reported"
+EVENT_BATTERY_REPLACED = "battery_notes_battery_replaced"
 
 ATTR_DEVICE_ID = "device_id"
 ATTR_SOURCE_ENTITY_ID = "source_entity_id"
