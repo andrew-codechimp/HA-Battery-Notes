@@ -20,8 +20,14 @@
         }
     },
     "services": {
-        "set_battery_replaced": "mdi:battery-sync",
-        "check_battery_last_reported": "mdi:battery-unknown",
-        "check_battery_low": "mdi:battery-alert"
+        "set_battery_replaced": {
+            "service": "mdi:battery-sync"
+        },
+        "check_battery_last_reported": {
+            "service": "mdi:battery-unknown"
+        },
+        "check_battery_low": {
+            "service": "mdi:battery-alert"
+        }
     }
 }
