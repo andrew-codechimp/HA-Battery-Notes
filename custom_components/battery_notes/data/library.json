@@ -2674,12 +2674,12 @@
         {
             "manufacturer": "Ikea",
             "model": "FYRTUR roller blind, block-out (E1757)",
-            "battery_type": "BRAUNIT Battery pack (rechargeable)"
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "Ikea",
             "model": "KADRILJ roller blind (E1926)",
-            "battery_type": "BRAUNIT Battery pack (rechargeable)"
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "IKEA",
@@ -2787,12 +2787,12 @@
         {
             "manufacturer": "IKEA of Sweden",
             "model": "FYRTUR block-out roller blind",
-            "battery_type": "BRAUNIT Battery pack"
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "IKEA of Sweden",
             "model": "KADRILJ roller blind",
-            "battery_type": "BRAUNIT Battery pack"
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "IKEA of Sweden",
