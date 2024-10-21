@@ -6715,6 +6715,13 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Google",
+            "model": "Topaz-2.33",
+            "hw_version": "Battery",
+            "battery_type": "AA",
+            "battery_quantity": 6
         }
     ]
 }
