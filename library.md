@@ -933,7 +933,6 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |ThermoBeacon                                    |21                                                                         |CR2477                    |                   |                                      |
 |ThermoBeacon                                    |27                                                                         |CR2477                    |                   |                                      |
 |ThermoPro                                       |TP357                                                                      |AAA                       |                   |                                      |
-|Third Reality                                   |3RDTS01056Z                                                                |2× AAA                    |                   |                                      |
 |Third Reality                                   |3RSB015BZ                                                                  |4× AA                     |                   |                                      |
 |Third Reality                                   |Door sensor (3RDS17BZ)                                                     |2× AAA                    |                   |                                      |
 |Third Reality                                   |Smart button (3RSB22BZ)                                                    |2× AAA                    |                   |                                      |
@@ -942,6 +941,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Third Reality                                   |Temperature and Humidity Sensor Lite                                       |2× AAA                    |3RTHS0224Z         |                                      |
 |Third Reality                                   |Water sensor (3RWS18BZ)                                                    |2× AAA                    |                   |                                      |
 |Third Reality, Inc                              |3RDS17BZ                                                                   |2× AAA                    |                   |                                      |
+|Third Reality, Inc                              |3RDTS01056Z                                                                |2× AAA                    |                   |                                      |
 |Third Reality, Inc                              |3RMS16BZ                                                                   |2× AAA                    |                   |                                      |
 |Third Reality, Inc                              |3RSB015BZ                                                                  |4× AA                     |                   |                                      |
 |Third Reality, Inc                              |3RSB22BZ                                                                   |2× AAA                    |                   |                                      |
