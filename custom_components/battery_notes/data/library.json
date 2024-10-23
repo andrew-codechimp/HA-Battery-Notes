@@ -6722,6 +6722,12 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "August Home Inc.",
+            "model": "AUG-SL05-M01-G01",
+            "battery_type": "CR123",
+            "battery_quantity": 2
         }
     ]
 }
