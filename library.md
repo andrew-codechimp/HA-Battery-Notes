@@ -1,4 +1,4 @@
-## 1235 Devices in library
+## 1236 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1019,6 +1019,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tuya                                            |Smart pet feeder AL                                                        |4× AA                     |xaw628wk93zqlr80   |                                      |
 |Tuya                                            |Smoke Alarm                                                                |PP3                       |                   |                                      |
 |Tuya                                            |Smoke Alarm (gymi8xdlnxtpslit)                                             |CR123A                    |                   |                                      |
+|Tuya                                            |Smoke Detector                                                             |PP3                       |lsjnzox4skgduemo   |                                      |
 |Tuya                                            |Smoke Detector (lsjnzox4skgduemo)                                          |PP3                       |                   |                                      |
 |TuYa                                            |Smoke sensor (TS0205)                                                      |CR123                     |                   |                                      |
 |TuYa                                            |Smoke sensor (TS0205_smoke_2)                                              |2× AAA                    |                   |                                      |
