@@ -6728,6 +6728,12 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Smoke Detector",
+            "model_id": "lsjnzox4skgduemo",
+            "battery_type": "PP3"
         }
     ]
 }
