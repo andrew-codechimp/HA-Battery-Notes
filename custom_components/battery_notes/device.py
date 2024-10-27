@@ -194,7 +194,9 @@ class BatteryNotesDevice:
                 device_entry = device_registry.async_get(entity.device_id)
 
                 if device_entry.created_at.year > 1970:
-                    last_replaced = device_entry.created_at.strftime("%Y-%m-%dT%H:%M:%S:%f")
+                    last_replaced = device_entry.created_at.strftime(
+                        "%Y-%m-%dT%H:%M:%S:%f"
+                    )
             else:
                 entity = entity_registry.async_get(source_entity_id)
                 if entity.created_at.year > 1970:
@@ -214,7 +216,7 @@ class BatteryNotesDevice:
             _LOGGER.debug(
                 "Defaulting %s battery last reported to %s",
                 source_entity_id or device_id,
-                last_replaced,
+                last_reported,
             )
             self.coordinator.last_reported = last_reported
 
