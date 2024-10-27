@@ -382,7 +382,7 @@
         },
         {
             "manufacturer": "_TZE200_myd45weu",
-            "model": "Quirk: zhaquirks.tuya.ts0601_sensor.TuyaSoilSensor",
+            "model": "TS0601",
             "battery_type": "AA",
             "battery_quantity": 2
         },
