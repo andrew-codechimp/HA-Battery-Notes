@@ -157,3 +157,41 @@ action:
 mode: queued
 max: 30
 ```
+
+## Battery Replaced (BETA ONLY)
+`battery_notes_battery_replaced`
+
+This is fired when the battery is replaced, either by a button press or the action.
+
+This can be useful for adding batteries to a shopping list or inventory system.
+
+| Attribute | Type | Description |
+|-----------|------|-------------|
+| `device_id` | `string` | The device id of the device. |
+| `source_entity_id` | `string` | The entity id of the sensor associated with the battery note. |
+| `device_name` | `string` | The device name (or associated sensor name if no device). |
+| `battery_type_and_quantity` | `string` | Battery type & quantity. |
+| `battery_type` | `string` | Battery type. |
+| `battery_quantity` | `int` | Battery quantity. |
+
+### Automation Example
+
+Note this cannot be run manually as it examines event triggers.
+
+```yaml
+alias: Battery Replaced
+description: Battery replaced
+trigger:
+  - platform: event
+    event_type: battery_notes_battery_replaced
+condition: []
+action:
+  - service: persistent_notification.create
+    data:
+      title: |
+        {{ trigger.event.data.device_name }} Battery Replaced
+      message: >
+        You just used {{trigger.event.data.battery_type_and_quantity }} batteries
+mode: queued
+max: 30
+```
