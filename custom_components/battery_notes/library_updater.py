@@ -172,7 +172,7 @@ class LibraryUpdaterClient:
                 # response.raise_for_status()
                 return await response.text()
 
-        except asyncio.TimeoutError as exception:
+        except TimeoutError as exception:
             raise LibraryUpdaterClientCommunicationError(
                 "Timeout error fetching information",
             ) from exception
