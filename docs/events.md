@@ -158,7 +158,7 @@ mode: queued
 max: 30
 ```
 
-## Battery Replaced
+## Battery Replaced (BETA ONLY)
 `battery_notes_battery_replaced`
 
 This is fired when the battery is replaced, either by a button press or the action.
