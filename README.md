@@ -45,7 +45,7 @@ Search for `Battery Notes` in HACS and install it under the "Integrations" categ
 <details>
 <summary>More Details</summary>
 
-* You should take the latest [published release](https://github.com/andrew-codechimp/ha-battery-notes/releases).  
+* You should take the zip file from the latest [published release](https://github.com/andrew-codechimp/ha-battery-notes/releases).  
 * To install, place the contents of `custom_components` into the `<config directory>/custom_components` folder of your Home Assistant installation.  
 * Add the following entry to your `configuration.yaml`  
 ```

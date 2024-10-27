@@ -1,0 +1,186 @@
+{
+    "config": {
+        "step": {
+            "user": {
+                "description": "Ja nepieciešama konfigurēšanas palīdzība, papildus informāciju var iegūt šeit: https://andrew-codechimp.github.io/HA-Battery-Notes/",
+                "data": {
+                    "association_type": "Asociācijas veids"
+                },
+                "menu_options": {
+                    "device": "Ierīce (ieteicams)",
+                    "entity": "Vienība"
+                },
+                "title": "Norādiet asociācijas veidu"
+            },
+            "device": {
+                "data": {
+                    "device_id": "Ierīce",
+                    "name": "Nosaukums"
+                },
+                "data_description": {
+                    "name": "Atstājot tukšu tiks ņemts nosaukums no pamata ierīces"
+                }
+            },
+            "entity": {
+                "data": {
+                    "source_entity_id": "Vienība",
+                    "name": "Nosaukums"
+                },
+                "data_description": {
+                    "name": "Atstājot tukšu tiks ņemts nosaukums no pamata vienības"
+                }
+            },
+            "battery": {
+                "description": "Ražotājs: {manufacturer}\nModelis: {model}\nModeļa ID: {model_id}\nAparatūras versija: {hw_version}",
+                "data": {
+                    "battery_type": "Baterijas tips",
+                    "battery_quantity": "Bateriju daudzums",
+                    "battery_low_threshold": "Zema baterijas līmeņa slieksnis",
+                    "battery_low_template": "Zema baterijas līmeņa šablons"
+                },
+                "data_description": {
+                    "battery_low_threshold": "Norādiet 0, lai izmantotu noklusēto slieksni",
+                    "battery_low_template": "Šablons lai noteiktu zemu baterijas līmeni, kam jāatgriež patiesa vērtība, līmenis ir zems\nNepieciešams tikai nestandarta bateriju līmeņiem"
+                }
+            },
+            "manual": {
+                "description": "Iekārta bibliotekā ir atzīmēta kā manuāla, kas nozīmē, ka šīs ierīces paveidi izmanto dažādus bateriju tipus.\nNākošājā solī norādiet kādu bateriju tipu ierīce izmanto. ",
+                "title": "Ierīces manuāla konfigurācija"
+            }
+        },
+        "abort": {
+            "already_configured": "Ierīce jau ir konfigurēta"
+        },
+        "error": {
+            "unknown": "Notika nezināma kļūda.",
+            "unconfigurable_entity": "Nav iespējams pievienot šo vienību baterijas piezīmēm."
+        }
+    },
+    "options": {
+        "step": {
+            "init": {
+                "description": "Ražotājs: {manufacturer}\nModelis: {model}\nModeļa ID: {model_id}\nAparatūras versija: {hw_version}",
+                "data": {
+                    "name": "Nosaukums",
+                    "battery_type": "Baterijas tips",
+                    "battery_quantity": "Bateriju daudzums",
+                    "battery_low_threshold": "Zema baterijas līmeņa slieksnis",
+                    "battery_low_template": "Zema baterijas līmeņa šablons"
+                },
+                "data_description": {
+                    "name": "Atstājot tukšu tiks ņemts nosaukums no pamata ierīces",
+                    "battery_low_threshold": "Norādiet 0, lai izmantotu noklusēto slieksni",
+                    "battery_low_template": "Šablons lai noteiktu zemu baterijas līmeni, kam jāatgriež patiesa vērtība, līmenis ir zems\nNepieciešams tikai nestandarta bateriju līmeņiem"
+                }
+            }
+        },
+        "error": {
+            "unknown": "Notika nezināma kļūda."
+        }
+    },
+    "entity": {
+        "binary_sensor": {
+            "battery_low": {
+                "name": "{device_name}Baterijai zems līmenis",
+                "state_attributes": {
+                    "battery_low_threshold": {
+                        "name": "Zema baterijas līmeņa slieksnis"
+                    }
+                }
+            }
+        },
+        "button": {
+            "battery_replaced": {
+                "name": "{device_name}Baterija nomainīta"
+            }
+        },
+        "sensor": {
+            "battery_plus": {
+                "name": "{device_name}Baterija+",
+                "state_attributes": {
+                    "battery_type": {
+                        "name": "Baterijas tips"
+                    },
+                    "battery_quantity": {
+                        "name": "Bateriju daudzums"
+                    },
+                    "battery_type_and_quantity": {
+                        "name": "Baterijas tips un daudzums"
+                    },
+                    "battery_last_replaced": {
+                        "name": "Baterija pēdējo reizi nomainīta"
+                    },
+                    "battery_low": {
+                        "name": "Baterijai zems līmenis"
+                    },
+                    "battery_low_threshold": {
+                        "name": "Zema baterijas līmeņa slieksnis"
+                    },
+                    "battery_last_reported": {
+                        "name": "Baterijas līmenis pēdējo reizi ziņots"
+                    },
+                    "battery_last_reported_level": {
+                        "name": "Baterijas pēdējais ziņotais līmenis"
+                    },
+                    "source_entity_id": {
+                        "name": "Pamata ierīces ID"
+                    },
+                    "device_id": {
+                        "name": "Ierīces ID"
+                    },
+                    "device_name": {
+                        "name": "Ierīces nosaukums"
+                    }
+                }
+            },
+            "battery_type": {
+                "name": "{device_name}Baterijas tips",
+                "state_attributes": {
+                    "battery_type": {
+                        "name": "Baterijas tips"
+                    },
+                    "battery_quantity": {
+                        "name": "Bateriju daudzums"
+                    }
+                }
+            },
+            "battery_last_replaced": {
+                "name": "{device_name}Baterija pēdējo reizi nomainīta"
+            }
+        }
+    },
+    "services": {
+        "set_battery_replaced": {
+            "description": "Uzstādīt bateriju kā nomainītu.",
+            "fields": {
+                "device_id": {
+                    "description": "Ierīces baterija tika nomainīta.",
+                    "name": "Ierīce"
+                },
+                "entity_id": {
+                    "description": "Vienība, kurai tika nomainīta baterija (tiek izmantota tikai ar vienību saistītās baterijas piezīmēs).",
+                    "name": "Vienība"
+                },
+                "datetime_replaced": {
+                    "description": "Nomainīšanas datums.",
+                    "name": "Datums"
+                }
+            },
+            "name": "Baterija tika nomainīta"
+        },
+        "check_battery_last_reported": {
+            "description": "Izraisīt notikumu par ierīcēm, kas nav ziņojušas to baterijas līmeni.",
+            "fields": {
+                "days_last_reported": {
+                    "description": "Dienas, kopš ierīce pēdējo reizi ziņoja tās baterijas līmeni.",
+                    "name": "Dienas"
+                }
+            },
+            "name": "Pārbaudīt, kad pēdējo reizi ziņota informācija par bateriju"
+        },
+        "check_battery_low": {
+            "description": "Izraisīt notikumus par ierīcēm, kam ir zems baterijas līmenis.",
+            "name": "Pārbaudīt zemu baterijas līmeni"
+        }
+    }
+}
