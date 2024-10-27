@@ -381,6 +381,12 @@
             "battery_quantity": 3
         },
         {
+            "manufacturer": "_TZE200_myd45weu",
+            "model": "Quirk: zhaquirks.tuya.ts0601_sensor.TuyaSoilSensor",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "_TZE200_p3dbf6qs",
             "model": "TS0601",
             "battery_type": "AA",
@@ -6749,12 +6755,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE70",
             "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "_TZE200_myd45weu",
-            "model": "Quirk: zhaquirks.tuya.ts0601_sensor.TuyaSoilSensor",
-            "battery_type": "AA",
             "battery_quantity": 2
         }
     ]
