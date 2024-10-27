@@ -1,6 +1,7 @@
 """Battery Notes device, contains device level details."""
 
 import logging
+from datetime import datetime
 
 from homeassistant.components.sensor import DOMAIN as SENSOR_DOMAIN
 from homeassistant.components.sensor import (
@@ -185,6 +186,37 @@ class BatteryNotesDevice:
                 self.wrapped_battery.entity_id,
                 self.coordinator.battery_low_threshold,
             )
+
+        # If there is not a last replaced, set to device created date if not epoch
+        if not self.coordinator.last_replaced:
+            last_replaced = None
+            if entity.device_id:
+                device_entry = device_registry.async_get(entity.device_id)
+
+                if device_entry.created_at.year > 1970:
+                    last_replaced = device_entry.created_at.strftime("%Y-%m-%dT%H:%M:%S:%f")
+            else:
+                entity = entity_registry.async_get(source_entity_id)
+                if entity.created_at.year > 1970:
+                    last_replaced = entity.created_at.strftime("%Y-%m-%dT%H:%M:%S:%f")
+
+            _LOGGER.debug(
+                "Defaulting %s battery last replaced to %s",
+                source_entity_id or device_id,
+                last_replaced,
+            )
+
+            self.coordinator.last_replaced = last_replaced
+
+        # If there is not a last_reported set to now
+        if not self.coordinator.last_reported:
+            last_reported = datetime.utcnow()
+            _LOGGER.debug(
+                "Defaulting %s battery last reported to %s",
+                source_entity_id or device_id,
+                last_replaced,
+            )
+            self.coordinator.last_reported = last_reported
 
         self.hass.data[DOMAIN][DATA].devices[config.entry_id] = self
         self.reset_jobs.append(config.add_update_listener(self.async_update))

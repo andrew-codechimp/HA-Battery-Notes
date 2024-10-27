@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import logging
 from dataclasses import dataclass
 from datetime import datetime
 
@@ -35,17 +36,26 @@ from homeassistant.helpers.reload import async_setup_reload_service
 
 from . import PLATFORMS
 from .const import (
+    ATTR_BATTERY_QUANTITY,
+    ATTR_BATTERY_TYPE,
+    ATTR_BATTERY_TYPE_AND_QUANTITY,
+    ATTR_DEVICE_ID,
+    ATTR_DEVICE_NAME,
+    ATTR_SOURCE_ENTITY_ID,
     CONF_ENABLE_REPLACED,
     CONF_SOURCE_ENTITY_ID,
     DATA,
     DOMAIN,
     DOMAIN_CONFIG,
+    EVENT_BATTERY_REPLACED,
 )
 from .coordinator import BatteryNotesCoordinator
 from .device import BatteryNotesDevice
 from .entity import (
     BatteryNotesEntityDescription,
 )
+
+_LOGGER = logging.getLogger(__name__)
 
 
 @dataclass
@@ -241,15 +251,24 @@ class BatteryNotesButton(ButtonEntity):
 
     async def async_press(self) -> None:
         """Press the button."""
-        device_id = self._device_id
+        self.coordinator.last_replaced = datetime.utcnow()
 
-        entry = {"battery_last_replaced": datetime.utcnow()}
+        self.hass.bus.async_fire(
+            EVENT_BATTERY_REPLACED,
+            {
+                ATTR_DEVICE_ID: self.coordinator.device_id or "",
+                ATTR_SOURCE_ENTITY_ID: self.coordinator.source_entity_id
+                or "",
+                ATTR_DEVICE_NAME: self.coordinator.device_name,
+                ATTR_BATTERY_TYPE_AND_QUANTITY: self.coordinator.battery_type_and_quantity,
+                ATTR_BATTERY_TYPE: self.coordinator.battery_type,
+                ATTR_BATTERY_QUANTITY: self.coordinator.battery_quantity,
+            },
+        )
 
-        if self._source_entity_id:
-            self.coordinator.async_update_entity_config(
-                entity_id=self.coordinator.source_entity_id, data=entry
-            )
-        else:
-            self.coordinator.async_update_device_config(device_id=device_id, data=entry)
+        _LOGGER.debug(
+            "Raised event battery replaced %s",
+            self.coordinator.device_id,
+        )
 
         await self.coordinator.async_request_refresh()

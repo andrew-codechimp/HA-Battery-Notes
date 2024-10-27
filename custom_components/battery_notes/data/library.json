@@ -105,6 +105,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "_TZ3000_bi6lpsew",
+            "model": "TS0043",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "_TZ3000_bjawzodf",
             "model": "TY0201",
             "battery_type": "AAA",
@@ -272,6 +277,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "_TZ3000_zl1kmjqx",
+            "model": "TY0201",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "_TZ3210_alxkwn0h",
             "model": "TS0201",
             "battery_type": "AA",
@@ -353,6 +363,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "_TZE200_hue3yfsn",
+            "model": "TS0601",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "_TZE200_kb5noeto",
             "model": "TS0601",
             "battery_type": "AAA",
@@ -363,6 +379,12 @@
             "model": "TS0601",
             "battery_type": "AAA",
             "battery_quantity": 3
+        },
+        {
+            "manufacturer": "_TZE200_myd45weu",
+            "model": "TS0601",
+            "battery_type": "AA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "_TZE200_p3dbf6qs",
@@ -1048,6 +1070,12 @@
             "model": "AUG-SL04-M01-G04",
             "battery_type": "AA",
             "battery_quantity": 4
+        },
+        {
+            "manufacturer": "August Home Inc.",
+            "model": "AUG-SL05-M01-G01",
+            "battery_type": "CR123",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "August Home Inc.",
@@ -2346,6 +2374,13 @@
         },
         {
             "manufacturer": "Google",
+            "model": "Topaz-2.33",
+            "hw_version": "Battery",
+            "battery_type": "AA",
+            "battery_quantity": 6
+        },
+        {
+            "manufacturer": "Google",
             "model": "Topaz-2.7",
             "battery_type": "MANUAL"
         },
@@ -2674,12 +2709,12 @@
         {
             "manufacturer": "Ikea",
             "model": "FYRTUR roller blind, block-out (E1757)",
-            "battery_type": "BRAUNIT Battery pack (rechargeable)"
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "Ikea",
             "model": "KADRILJ roller blind (E1926)",
-            "battery_type": "BRAUNIT Battery pack (rechargeable)"
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "IKEA",
@@ -2787,12 +2822,12 @@
         {
             "manufacturer": "IKEA of Sweden",
             "model": "FYRTUR block-out roller blind",
-            "battery_type": "BRAUNIT Battery pack"
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "IKEA of Sweden",
             "model": "KADRILJ roller blind",
-            "battery_type": "BRAUNIT Battery pack"
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "IKEA of Sweden",
@@ -3398,7 +3433,7 @@
         {
             "manufacturer": "Mopeka IOT",
             "model": "M1015",
-            "battery_type": "AAA-Lithium"
+            "battery_type": "AAA Lithium"
         },
         {
             "manufacturer": "Mopeka IOT",
@@ -4020,7 +4055,7 @@
         {
             "manufacturer": "Ring",
             "model": "Intercom",
-            "battery_type": "\"Rechargeable\""
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "Ring",
@@ -4031,7 +4066,7 @@
         {
             "manufacturer": "Ring",
             "model": "Peephole Cam",
-            "battery_type": "\"Rechargeable\""
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "Ring",
@@ -4373,7 +4408,7 @@
         {
             "manufacturer": "Shelly",
             "model": "SNSN-0013A",
-            "battery_type": "AA (LR6)",
+            "battery_type": "AA",
             "battery_quantity": 4
         },
         {
@@ -4593,7 +4628,7 @@
         {
             "manufacturer": "SmartLabs, Inc",
             "model": "2844-222 (0x10, 0x16)",
-            "battery_type": "9-volt"
+            "battery_type": "9V"
         },
         {
             "manufacturer": "SmartLabs, Inc",
@@ -5095,6 +5130,12 @@
         },
         {
             "manufacturer": "Third Reality, Inc",
+            "model": "3RDTS01056Z",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Third Reality, Inc",
             "model": "3RMS16BZ",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -5138,7 +5179,7 @@
         {
             "manufacturer": "Tile",
             "model": "T1101",
-            "battery_type": "Cr2032"
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "Tile",
@@ -5506,6 +5547,12 @@
             "manufacturer": "Tuya",
             "model": "Smoke Alarm (gymi8xdlnxtpslit)",
             "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Smoke Detector",
+            "model_id": "lsjnzox4skgduemo",
+            "battery_type": "PP3"
         },
         {
             "manufacturer": "Tuya",

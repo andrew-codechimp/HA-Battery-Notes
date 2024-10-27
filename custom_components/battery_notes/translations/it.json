@@ -4,13 +4,13 @@
             "user": {
                 "description": "Se hai bisogno di aiuto per la configurazione, dai un'occhiata qui: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
-                    "association_type": "Association type"
+                    "association_type": "Tipo di associazione"
                 },
                 "menu_options": {
-                    "device": "Device (recommended)",
+                    "device": "Dispositivo (consigliato)",
                     "entity": "Entità"
                 },
-                "title": "Choose your association type"
+                "title": "Scegli il tipo di associazione"
             },
             "device": {
                 "data": {
@@ -27,11 +27,11 @@
                     "name": "Nome"
                 },
                 "data_description": {
-                    "name": "Leaving blank will take the name from the source entity"
+                    "name": "Lasciando vuoto prenderà il nome dall'entità di origine"
                 }
             },
             "battery": {
-                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
+                "description": "Produttore: {manufacturer}\nModello: {model}\nID Modello: {model_id}\nVersione hardware: {hw_version}",
                 "data": {
                     "battery_type": "Tipo di batteria",
                     "battery_quantity": "Quantità batteria",
@@ -44,8 +44,8 @@
                 }
             },
             "manual": {
-                "description": "This device is marked in the library as manual, variants use different battery types so it cannot be set in the library.\nThe next step will allow you to set your battery type but please do not submit a device request.",
-                "title": "Device manual configuration"
+                "description": "Questo dispositivo è contrassegnato nella libreria come manuale, le varianti usano diversi tipi di batteria per cui non può essere impostato nella libreria.\nIl passo successivo ti permetterà di scegliere il tipo di batteria, non inviare una richiesta di dispositivo per favore.",
+                "title": "Configurazione manuale del dispositivo"
             }
         },
         "abort": {
@@ -53,13 +53,13 @@
         },
         "error": {
             "unknown": "Errore sconosciuto.",
-            "unconfigurable_entity": "It is not possible to add this entity to Battery Notes."
+            "unconfigurable_entity": "Non è possibile aggiungere questa entità a Battery Notes."
         }
     },
     "options": {
         "step": {
             "init": {
-                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
+                "description": "Produttore: {manufacturer}\nModello: {model}\nID Modello: {model_id}\nVersione hardware: {hw_version}",
                 "data": {
                     "name": "Nome",
                     "battery_type": "Tipo di batteria",
@@ -123,7 +123,7 @@
                         "name": "Ultimo livello di batteria segnalato"
                     },
                     "source_entity_id": {
-                        "name": "Source Entity Id"
+                        "name": "ID entità sorgente"
                     },
                     "device_id": {
                         "name": "ID dispositivo"
@@ -158,11 +158,11 @@
                     "name": "Dispositivo"
                 },
                 "entity_id": {
-                    "description": "Entity that has had its battery replaced.",
+                    "description": "Entità che ha avuto la batteria sostituita (usato solo per le entità associate a Battery Notes).",
                     "name": "Entità"
                 },
                 "datetime_replaced": {
-                    "description": "Data di sostituzione",
+                    "description": "Data di sostituzione.",
                     "name": "Data"
                 }
             },
@@ -172,11 +172,11 @@
             "description": "Genera eventi per i dispositivi che non hanno segnalato il livello della batteria.",
             "fields": {
                 "days_last_reported": {
-                    "description": "Numero di giorni dall'ultima segnalazione del livello della batteria da parte di un dispositivo",
+                    "description": "Numero di giorni dall'ultima segnalazione del livello della batteria da parte di un dispositivo.",
                     "name": "Giorni"
                 }
             },
-            "name": "Verifica ultima segnalazione batteria"
+            "name": "Verifica ultima segnalazione livello batteria"
         },
         "check_battery_low": {
             "description": "Genera eventi per i dispositivi che hanno una batteria scarica.",
