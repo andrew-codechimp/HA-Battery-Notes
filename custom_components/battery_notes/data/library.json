@@ -6756,6 +6756,13 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "PLab",
+            "model": "Home Buttons Mini",
+            "hw_version": "1.1",
+            "battery_type": "AA",
+            "battery_quantity": 2
         }
     ]
 }
