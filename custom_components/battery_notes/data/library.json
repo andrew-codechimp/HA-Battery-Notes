@@ -6763,6 +6763,12 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "PLab",
+            "model": "Home Buttons",
+            "hw_version": "2.3",
+            "battery_type": "Rechargeable"
         }
     ]
 }
