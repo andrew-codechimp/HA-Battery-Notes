@@ -1,4 +1,4 @@
-## 1239 Devices in library
+## 1240 Devices in library
 
 This file is auto generated, do not modify
 
@@ -722,6 +722,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Philips                                         |SML001                                                                     |2× AAA                    |                   |                                      |
 |Philips                                         |SML002                                                                     |2× AA                     |                   |                                      |
 |Philips Hue                                     |SML001                                                                     |2× AAA                    |                   |                                      |
+|PLab                                            |Home Buttons Mini                                                          |2× AA                     |                   |                                   1.1|
 |PLab                                            |HomeButtons                                                                |18650                     |                   |                                      |
 |plant                                           |by smart                                                                   |Rechargeable              |                   |                                      |
 |Plugwise                                        |168-01                                                                     |CR2032                    |                   |                                      |
