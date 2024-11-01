@@ -398,7 +398,7 @@ def register_services(hass: HomeAssistant):
 
         device: BatteryNotesDevice
         for device in hass.data[DOMAIN][DATA].devices.values():
-            if device.coordinator.last_reported:
+            if device.coordinator.device_id and device.coordinator.last_reported:
                 time_since_lastreported = (
                     datetime.fromisoformat(str(datetime.utcnow()) + "+00:00")
                     - device.coordinator.last_reported
