@@ -193,13 +193,13 @@ class BatteryNotesDevice:
             if entity.device_id:
                 device_entry = device_registry.async_get(entity.device_id)
 
-                if device_entry.created_at.year > 1970:
+                if device_entry and device_entry.created_at.year > 1970:
                     last_replaced = device_entry.created_at.strftime(
                         "%Y-%m-%dT%H:%M:%S:%f"
                     )
             else:
                 entity = entity_registry.async_get(source_entity_id)
-                if entity.created_at.year > 1970:
+                if entity and entity.created_at.year > 1970:
                     last_replaced = entity.created_at.strftime("%Y-%m-%dT%H:%M:%S:%f")
 
             _LOGGER.debug(
