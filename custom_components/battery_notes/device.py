@@ -13,12 +13,9 @@ from homeassistant.const import (
     PERCENTAGE,
 )
 from homeassistant.core import CALLBACK_TYPE, HomeAssistant
-from homeassistant.helpers import (
-    device_registry as dr,
-)
-from homeassistant.helpers import (
-    entity_registry as er,
-)
+from homeassistant.helpers import device_registry as dr
+from homeassistant.helpers import entity_registry as er
+from homeassistant.helpers import issue_registry as ir
 from homeassistant.helpers.entity_registry import RegistryEntry
 
 from .const import (
@@ -27,6 +24,7 @@ from .const import (
     CONF_BATTERY_QUANTITY,
     CONF_BATTERY_TYPE,
     CONF_DEFAULT_BATTERY_LOW_THRESHOLD,
+    CONF_DEVICE_NAME,
     CONF_SOURCE_ENTITY_ID,
     DATA,
     DATA_STORE,
@@ -88,12 +86,33 @@ class BatteryNotesDevice:
 
         device_id = config.data.get(CONF_DEVICE_ID, None)
         source_entity_id = config.data.get(CONF_SOURCE_ENTITY_ID, None)
+        device_name = config.data.get(CONF_DEVICE_NAME)
 
         device_registry = dr.async_get(self.hass)
         entity_registry = er.async_get(self.hass)
 
         if source_entity_id:
             entity = entity_registry.async_get(source_entity_id)
+
+            if not entity:
+                ir.async_create_issue(
+                    self.hass,
+                    DOMAIN,
+                    f"missing_device_{self.config.entry_id}",
+                    data={
+                        "entry_id": self.config.entry_id,
+                        "device_id": device_id,
+                        "source_entity_id": source_entity_id,
+                        "device_name": device_name,
+                    },
+                    is_fixable=True,
+                    severity=ir.IssueSeverity.WARNING,
+                    translation_key="missing_device",
+                    translation_placeholders={
+                            "name": device_name,
+                        },
+                )
+
             device_class = entity.device_class or entity.original_device_class
             if (
                 device_class == SensorDeviceClass.BATTERY
