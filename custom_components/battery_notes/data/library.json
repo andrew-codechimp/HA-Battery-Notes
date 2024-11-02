@@ -3766,6 +3766,12 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "ORVIBO",
+            "model": "Temperature & humidity sensor (ST30)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "OSRAM",
             "model": "Lightify Switch Mini",
             "battery_type": "CR2450"
@@ -6773,12 +6779,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE70",
             "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "ORVIBO",
-            "model": "Temperature & humidity sensor (ST30)",
-            "battery_type": "AAA",
             "battery_quantity": 2
         }
     ]
