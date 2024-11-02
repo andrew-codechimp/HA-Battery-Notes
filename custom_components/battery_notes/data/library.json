@@ -5656,6 +5656,12 @@
         },
         {
             "manufacturer": "Tuya",
+            "model": "Temperature & humidity sensor with display (TS0201)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tuya",
             "model": "Temperature and humidity sensor",
             "model_id": "ZG-227Z",
             "battery_type": "AAA",
@@ -6779,12 +6785,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE70",
             "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Temperature & humidity sensor with display (TS0201)",
-            "battery_type": "AAA",
             "battery_quantity": 2
         }
     ]
