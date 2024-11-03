@@ -1,4 +1,4 @@
-## 1242 Devices in library
+## 1244 Devices in library
 
 This file is auto generated, do not modify
 
@@ -695,6 +695,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Orbit BHyve                                     |HT32-0001                                                                  |2× AA                     |                   |                                      |
 |Orbit BHyve                                     |HT34-0001                                                                  |2× AA                     |                   |                                      |
 |ORVIBO                                          |e70f96b3773a4c9283c6862dbafb6a99                                           |CR2032                    |                   |                                      |
+|ORVIBO                                          |Temperature & humidity sensor (ST30)                                       |2× AAA                    |                   |                                      |
 |OSRAM                                           |Lightify Switch Mini                                                       |CR2450                    |                   |                                      |
 |OSRAM                                           |SMART+ Motion Sensor (AC01353010G)                                         |CR2                       |                   |                                      |
 |OSRAM                                           |Smart+ switch mini (AC0251100NJ/AC0251600NJ/AC0251700NJ)                   |CR2450                    |                   |                                      |
@@ -1039,6 +1040,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |TuYa                                            |Temperature & humidity sensor (IH-K009)                                    |CR2450                    |                   |                                      |
 |TuYa                                            |Temperature & humidity sensor (WSD500A)                                    |2× AAA                    |                   |                                      |
 |TuYa                                            |Temperature & humidity sensor with display (TS0201)                        |2× AAA                    |                   |                                      |
+|Tuya                                            |Temperature & humidity sensor with display (TS0201)                        |2× AAA                    |                   |                                      |
 |Tuya                                            |Temperature and humidity sensor                                            |2× AAA                    |ZG-227Z            |                                      |
 |TuYa                                            |Temperature and humidity sensor (TH02Z)                                    |2× AAA                    |                   |                                      |
 |TuYa                                            |Temperature and humidity sensor (ZG-227Z)                                  |CR2450                    |                   |                                      |
