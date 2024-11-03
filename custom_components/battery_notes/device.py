@@ -113,6 +113,12 @@ class BatteryNotesDevice:
                         },
                 )
 
+                _LOGGER.debug(
+                    "%s is orphaned, unable to find entity %s",
+                    self.config.entry_id,
+                    source_entity_id,
+                )
+
             device_class = entity.device_class or entity.original_device_class
             if (
                 device_class == SensorDeviceClass.BATTERY
@@ -168,6 +174,30 @@ class BatteryNotesDevice:
                 )
             else:
                 self.device_name = self.config.title
+
+                ir.async_create_issue(
+                    self.hass,
+                    DOMAIN,
+                    f"missing_device_{self.config.entry_id}",
+                    data={
+                        "entry_id": self.config.entry_id,
+                        "device_id": device_id,
+                        "source_entity_id": source_entity_id,
+                        "device_name": device_name,
+                    },
+                    is_fixable=True,
+                    severity=ir.IssueSeverity.WARNING,
+                    translation_key="missing_device",
+                    translation_placeholders={
+                            "name": device_name,
+                        },
+                )
+
+                _LOGGER.debug(
+                    "%s is orphaned, unable to find device %s",
+                    self.config.entry_id,
+                    device_id,
+                )
 
         self.store = self.hass.data[DOMAIN][DATA_STORE]
         self.coordinator = BatteryNotesCoordinator(
