@@ -4,9 +4,10 @@ from __future__ import annotations
 
 import voluptuous as vol
 from homeassistant import data_entry_flow
-from homeassistant.components.repairs import ConfirmRepairFlow, RepairsFlow
+from homeassistant.components.repairs import RepairsFlow
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers import device_registry as dr
+from homeassistant.helpers import issue_registry as ir
 
 
 class MissingDeviceRepairFlow(RepairsFlow):
@@ -37,7 +38,16 @@ class MissingDeviceRepairFlow(RepairsFlow):
 
             return self.async_create_entry(title="", data={})
 
-        return self.async_show_form(step_id="confirm", data_schema=vol.Schema({}))
+        issue_registry = ir.async_get(self.hass)
+        description_placeholders = None
+        if issue := issue_registry.async_get_issue(self.handler, self.issue_id):
+            description_placeholders = issue.translation_placeholders
+
+        return self.async_show_form(
+            step_id="confirm_delete_entity",
+            data_schema=vol.Schema({}),
+            description_placeholders=description_placeholders
+        )
 
 
 async def async_create_fix_flow(
