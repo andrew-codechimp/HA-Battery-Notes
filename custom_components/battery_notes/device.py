@@ -86,7 +86,6 @@ class BatteryNotesDevice:
 
         device_id = config.data.get(CONF_DEVICE_ID, None)
         source_entity_id = config.data.get(CONF_SOURCE_ENTITY_ID, None)
-        device_name = config.data.get(CONF_DEVICE_NAME)
 
         device_registry = dr.async_get(self.hass)
         entity_registry = er.async_get(self.hass)
@@ -103,17 +102,16 @@ class BatteryNotesDevice:
                         "entry_id": self.config.entry_id,
                         "device_id": device_id,
                         "source_entity_id": source_entity_id,
-                        "device_name": device_name,
                     },
                     is_fixable=True,
                     severity=ir.IssueSeverity.WARNING,
                     translation_key="missing_device",
                     translation_placeholders={
-                            "name": device_name,
+                            "name": config.title,
                         },
                 )
 
-                _LOGGER.debug(
+                _LOGGER.warning(
                     "%s is orphaned, unable to find entity %s",
                     self.config.entry_id,
                     source_entity_id,
@@ -183,17 +181,16 @@ class BatteryNotesDevice:
                         "entry_id": self.config.entry_id,
                         "device_id": device_id,
                         "source_entity_id": source_entity_id,
-                        "device_name": device_name,
                     },
                     is_fixable=True,
                     severity=ir.IssueSeverity.WARNING,
                     translation_key="missing_device",
                     translation_placeholders={
-                            "name": device_name,
+                            "name": config.title,
                         },
                 )
 
-                _LOGGER.debug(
+                _LOGGER.warning(
                     "%s is orphaned, unable to find device %s",
                     self.config.entry_id,
                     device_id,

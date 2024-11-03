@@ -6,7 +6,6 @@ import voluptuous as vol
 from homeassistant import data_entry_flow
 from homeassistant.components.repairs import RepairsFlow
 from homeassistant.core import HomeAssistant
-from homeassistant.helpers import device_registry as dr
 from homeassistant.helpers import issue_registry as ir
 
 
@@ -18,7 +17,6 @@ class MissingDeviceRepairFlow(RepairsFlow):
         self.entry_id = data["entry_id"]
         self.device_id = data["device_id"]
         self.source_entity_id = data["source_entity_id"]
-        self.device_name = data["name"]
 
     async def async_step_init(
         self, user_input: dict[str, str] | None = None
@@ -32,9 +30,8 @@ class MissingDeviceRepairFlow(RepairsFlow):
     ) -> data_entry_flow.FlowResult:
         """Handle the confirm step of a fix flow."""
         if user_input is not None:
-
-            device_registry = dr.async_get(self.hass)
-            device_registry.async_remove_device(self.device_id)
+            print(self.entry_id)
+            await self.hass.config_entries.async_remove(self.entry_id)
 
             return self.async_create_entry(title="", data={})
 
@@ -44,7 +41,7 @@ class MissingDeviceRepairFlow(RepairsFlow):
             description_placeholders = issue.translation_placeholders
 
         return self.async_show_form(
-            step_id="confirm_delete_entity",
+            step_id="confirm",
             data_schema=vol.Schema({}),
             description_placeholders=description_placeholders
         )

@@ -186,11 +186,11 @@
     "issues": {
         "missing_device": {
             "title": "Orphaned Battery Note",
-            "description": "The associated device or entity no longer exists for the Battery Note entry {name}, the Battery Note should be deleted.",
             "fix_flow": {
                 "step": {
-                    "confirm_delete_entity": {
-                        "description": "Delete this Battery Note"
+                    "confirm": {
+                        "title": "Orphaned Battery Note",
+                        "description": "The associated device or entity no longer exists for the Battery Note entry {name}, the Battery Note should be deleted.\nSelect **Submit** to delete this Battery Note."
                     }
                 }
             }
