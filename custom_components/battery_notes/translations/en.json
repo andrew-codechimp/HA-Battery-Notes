@@ -75,6 +75,7 @@
             }
         },
         "error": {
+            "orphaned_battery_note": "The associated device or entity no longer exists for this Battery Note.",
             "unknown": "Unknown error occurred."
         }
     },

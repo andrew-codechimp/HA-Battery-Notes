@@ -110,11 +110,12 @@ class BatteryNotesDevice:
                         },
                 )
 
-                _LOGGER.debug(
+                _LOGGER.warning(
                     "%s is orphaned, unable to find entity %s",
                     self.config.entry_id,
                     source_entity_id,
                 )
+                return False
 
             device_class = entity.device_class or entity.original_device_class
             if (
@@ -189,11 +190,12 @@ class BatteryNotesDevice:
                         },
                 )
 
-                _LOGGER.debug(
+                _LOGGER.warning(
                     "%s is orphaned, unable to find device %s",
                     self.config.entry_id,
                     device_id,
                 )
+                return False
 
         self.store = self.hass.data[DOMAIN][DATA_STORE]
         self.coordinator = BatteryNotesCoordinator(
