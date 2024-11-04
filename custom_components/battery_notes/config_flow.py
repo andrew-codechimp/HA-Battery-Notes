@@ -501,20 +501,18 @@ class OptionsFlowHandler(OptionsFlow):
         device_entry = device_registry.async_get(
             self.config_entry.data.get(CONF_DEVICE_ID)
         )
+        if not device_entry:
+            errors["base"] = "orphaned_battery_note"
+            return errors
 
         source_entity_id = self.config_entry.data.get(CONF_SOURCE_ENTITY_ID, None)
 
         if source_entity_id:
             entity_registry = er.async_get(self.hass)
             entity_entry = entity_registry.async_get(source_entity_id)
-
-        if not device_entry:
-            errors["base"] = "orphaned_battery_note"
-            return errors
-
-        if source_entity_id and not entity_entry:
-            errors["base"] = "orphaned_battery_note"
-            return errors
+            if not entity_entry:
+                errors["base"] = "orphaned_battery_note"
+                return errors
 
         if CONF_NAME in user_input:
             title = user_input.get(CONF_NAME)
