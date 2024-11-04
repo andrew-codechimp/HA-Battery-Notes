@@ -1673,6 +1673,12 @@
         },
         {
             "manufacturer": "eQ-3",
+            "model": "HM-Sen-MDIR-O-2",
+            "battery_type": "AA",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "eQ-3",
             "model": "HM-Sen-MDIR-WM55",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -6786,12 +6792,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "eQ-3",
-            "model": "HM-Sen-MDIR-O-2",
-            "battery_type": "AA",
-            "battery_quantity": 3
         }
     ]
 }
