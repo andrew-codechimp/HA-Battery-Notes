@@ -111,7 +111,7 @@ class BatteryNotesDevice:
                         },
                 )
 
-                _LOGGER.warning(
+                _LOGGER.debug(
                     "%s is orphaned, unable to find entity %s",
                     self.config.entry_id,
                     source_entity_id,
@@ -190,7 +190,7 @@ class BatteryNotesDevice:
                         },
                 )
 
-                _LOGGER.warning(
+                _LOGGER.debug(
                     "%s is orphaned, unable to find device %s",
                     self.config.entry_id,
                     device_id,
