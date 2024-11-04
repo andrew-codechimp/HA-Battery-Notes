@@ -6792,6 +6792,12 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "TS0205",
+            "model_id": "_TYZB01_dsjszp0x",
+            "battery_type": "CR123A"
         }
     ]
 }
