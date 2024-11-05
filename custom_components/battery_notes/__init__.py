@@ -17,6 +17,7 @@ from homeassistant.const import __version__ as HA_VERSION  # noqa: N812
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers import config_validation as cv
 from homeassistant.helpers import entity_registry as er
+from homeassistant.helpers import issue_registry as ir
 from homeassistant.helpers.typing import ConfigType
 from homeassistant.util import dt as dt_util
 
@@ -162,6 +163,9 @@ async def async_unload_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> 
 
 async def async_remove_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> None:
     """Device removed, tidy up store."""
+
+    # Remove any issues raised
+    ir.async_delete_issue(hass, DOMAIN, f"missing_device_{config_entry.entry_id}")
 
     if "device_id" not in config_entry.data:
         return

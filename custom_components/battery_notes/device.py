@@ -13,12 +13,9 @@ from homeassistant.const import (
     PERCENTAGE,
 )
 from homeassistant.core import CALLBACK_TYPE, HomeAssistant
-from homeassistant.helpers import (
-    device_registry as dr,
-)
-from homeassistant.helpers import (
-    entity_registry as er,
-)
+from homeassistant.helpers import device_registry as dr
+from homeassistant.helpers import entity_registry as er
+from homeassistant.helpers import issue_registry as ir
 from homeassistant.helpers.entity_registry import RegistryEntry
 
 from .const import (
@@ -94,6 +91,32 @@ class BatteryNotesDevice:
 
         if source_entity_id:
             entity = entity_registry.async_get(source_entity_id)
+
+            if not entity:
+                ir.async_create_issue(
+                    self.hass,
+                    DOMAIN,
+                    f"missing_device_{self.config.entry_id}",
+                    data={
+                        "entry_id": self.config.entry_id,
+                        "device_id": device_id,
+                        "source_entity_id": source_entity_id,
+                    },
+                    is_fixable=True,
+                    severity=ir.IssueSeverity.WARNING,
+                    translation_key="missing_device",
+                    translation_placeholders={
+                            "name": config.title,
+                        },
+                )
+
+                _LOGGER.warning(
+                    "%s is orphaned, unable to find entity %s",
+                    self.config.entry_id,
+                    source_entity_id,
+                )
+                return False
+
             device_class = entity.device_class or entity.original_device_class
             if (
                 device_class == SensorDeviceClass.BATTERY
@@ -149,6 +172,30 @@ class BatteryNotesDevice:
                 )
             else:
                 self.device_name = self.config.title
+
+                ir.async_create_issue(
+                    self.hass,
+                    DOMAIN,
+                    f"missing_device_{self.config.entry_id}",
+                    data={
+                        "entry_id": self.config.entry_id,
+                        "device_id": device_id,
+                        "source_entity_id": source_entity_id,
+                    },
+                    is_fixable=True,
+                    severity=ir.IssueSeverity.WARNING,
+                    translation_key="missing_device",
+                    translation_placeholders={
+                            "name": config.title,
+                        },
+                )
+
+                _LOGGER.warning(
+                    "%s is orphaned, unable to find device %s",
+                    self.config.entry_id,
+                    device_id,
+                )
+                return False
 
         self.store = self.hass.data[DOMAIN][DATA_STORE]
         self.coordinator = BatteryNotesCoordinator(
