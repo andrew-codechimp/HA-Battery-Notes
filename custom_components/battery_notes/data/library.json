@@ -5809,6 +5809,12 @@
         },
         {
             "manufacturer": "Tuya",
+            "model": "TS0601_smoke_6",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tuya",
             "model": "TS0601_temperature_humidity_sensor_1",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -6803,12 +6809,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE70",
             "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "TS0601_smoke_6",
-            "battery_type": "AAA",
             "battery_quantity": 2
         }
     ]
