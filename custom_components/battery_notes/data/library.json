@@ -6810,6 +6810,12 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "Aqara Smart Lock U50",
+            "battery_type": "AA",
+            "battery_quantity": 4
         }
     ]
 }
