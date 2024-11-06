@@ -75,6 +75,7 @@
             }
         },
         "error": {
+            "orphaned_battery_note": "The associated device or entity no longer exists for this Battery Note.",
             "unknown": "Unknown error occurred."
         }
     },
@@ -181,6 +182,19 @@
         "check_battery_low": {
             "description": "Raise events for devices that have a low battery.",
             "name": "Check battery low"
+        }
+    },
+    "issues": {
+        "missing_device": {
+            "title": "Orphaned Battery Note",
+            "fix_flow": {
+                "step": {
+                    "confirm": {
+                        "title": "Orphaned Battery Note",
+                        "description": "The associated device or entity no longer exists for the Battery Note entry {name}, the Battery Note should be deleted.\nSelect **Submit** to delete this Battery Note."
+                    }
+                }
+            }
         }
     }
 }
