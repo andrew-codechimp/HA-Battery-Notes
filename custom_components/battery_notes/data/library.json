@@ -6834,6 +6834,11 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "TUO Accessories LLC",
+            "model": "TUO Contact Sensor Door & Window",
+            "battery_type": "CR2450"
         }
     ]
 }
