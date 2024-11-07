@@ -5064,6 +5064,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "switchbot",
+            "model": "WoTHP",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Tado",
             "model": "RU01",
             "battery_type": "AAA",
@@ -6843,12 +6849,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE70",
             "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "switchbot",
-            "model": "WoTHP",
-            "battery_type": "AAA",
             "battery_quantity": 2
         }
     ]
