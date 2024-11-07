@@ -6827,6 +6827,13 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Homematic",
+            "model": "HM-CC-RT-DN",
+            "model_id": "MEQ0789539",
+            "battery_type": "AA",
+            "battery_quantity": 2
         }
     ]
 }
