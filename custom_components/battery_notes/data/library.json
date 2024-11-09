@@ -6869,6 +6869,12 @@
             "model": "Garage door tilt sensor (3RDTS01056Z)",
             "battery_type": "AAA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Onesti Products AS",
+            "model": "Zigbee module for Nimly Doorlock series (Nimly)",
+            "battery_type": "AA",
+            "battery_quantity": 3
         }
     ]
 }
