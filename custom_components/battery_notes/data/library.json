@@ -3709,6 +3709,12 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "Onesti Products AS",
+            "model": "Zigbee module for Nimly Doorlock series (Nimly)",
+            "battery_type": "AA",
+            "battery_quantity": 3
+        },
+        {
             "manufacturer": "Onvis",
             "model": "CT3",
             "battery_type": "CR2450"
@@ -5159,6 +5165,12 @@
         {
             "manufacturer": "Third Reality",
             "model": "Door sensor (3RDS17BZ)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Third Reality",
+            "model": "Garage door tilt sensor (3RDTS01056Z)",
             "battery_type": "AAA",
             "battery_quantity": 2
         },
@@ -6875,18 +6887,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Third Reality",
-            "model": "Garage door tilt sensor (3RDTS01056Z)",
-            "battery_type": "AAA",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Onesti Products AS",
-            "model": "Zigbee module for Nimly Doorlock series (Nimly)",
-            "battery_type": "AA",
-            "battery_quantity": 3
         }
     ]
 }
