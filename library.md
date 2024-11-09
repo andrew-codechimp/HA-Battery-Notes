@@ -1,4 +1,4 @@
-## 1259 Devices in library
+## 1261 Devices in library
 
 This file is auto generated, do not modify
 
@@ -684,6 +684,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |NYCE                                            |3043                                                                       |2× AAA                    |                   |                                      |
 |Nyce                                            |Door/window sensor (NCZ-3011-HA)                                           |CR2032                    |                   |                                      |
 |Oculus                                          |Quest                                                                      |Rechargeable              |                   |                                      |
+|Onesti Products AS                              |Zigbee module for Nimly Doorlock series (Nimly)                            |3× AA                     |                   |                                      |
 |Onvis                                           |CT3                                                                        |CR2450                    |                   |                                      |
 |Onvis                                           |HS2                                                                        |CR2450                    |                   |                                      |
 |OpenEpaperLink                                  |M2 1.54                                                                    |CR2450                    |                   |                                      |
@@ -952,6 +953,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |ThermoPro                                       |TP357                                                                      |AAA                       |                   |                                      |
 |Third Reality                                   |3RSB015BZ                                                                  |4× AA                     |                   |                                      |
 |Third Reality                                   |Door sensor (3RDS17BZ)                                                     |2× AAA                    |                   |                                      |
+|Third Reality                                   |Garage door tilt sensor (3RDTS01056Z)                                      |2× AAA                    |                   |                                      |
 |Third Reality                                   |Garage door tilt sensor (3RDTS01056Z)                                      |2× AAA                    |                   |                                      |
 |Third Reality                                   |Smart button (3RSB22BZ)                                                    |2× AAA                    |                   |                                      |
 |Third Reality                                   |Smart switch Gen3 (3RSS009Z)                                               |2× AAA                    |                   |                                      |
