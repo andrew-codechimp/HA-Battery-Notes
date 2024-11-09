@@ -6864,6 +6864,12 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Inkbird",
+            "model": "IBS-TH1/TH2/P01B/ITH-12S",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
