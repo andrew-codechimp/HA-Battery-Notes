@@ -1,4 +1,4 @@
-## 1257 Devices in library
+## 1258 Devices in library
 
 This file is auto generated, do not modify
 
@@ -951,6 +951,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |ThermoPro                                       |TP357                                                                      |AAA                       |                   |                                      |
 |Third Reality                                   |3RSB015BZ                                                                  |4× AA                     |                   |                                      |
 |Third Reality                                   |Door sensor (3RDS17BZ)                                                     |2× AAA                    |                   |                                      |
+|Third Reality                                   |Garage door tilt sensor (3RDTS01056Z)                                      |2× AAA                    |                   |                                      |
 |Third Reality                                   |Smart button (3RSB22BZ)                                                    |2× AAA                    |                   |                                      |
 |Third Reality                                   |Smart switch Gen3 (3RSS009Z)                                               |2× AAA                    |                   |                                      |
 |Third Reality                                   |Temperature and humidity sensor (3RTHS24BZ)                                |2× AAA                    |                   |                                      |
