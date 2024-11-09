@@ -2965,6 +2965,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Inkbird",
+            "model": "IBS-TH1/TH2/P01B/ITH-12S",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "INKBIRD",
             "model": "IBS-TH2/P01B",
             "battery_type": "AAA",
@@ -5153,6 +5159,12 @@
         {
             "manufacturer": "Third Reality",
             "model": "Door sensor (3RDS17BZ)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Third Reality",
+            "model": "Garage door tilt sensor (3RDTS01056Z)",
             "battery_type": "AAA",
             "battery_quantity": 2
         },
