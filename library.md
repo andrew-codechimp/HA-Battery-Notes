@@ -1,4 +1,4 @@
-## 1256 Devices in library
+## 1257 Devices in library
 
 This file is auto generated, do not modify
 
@@ -978,6 +978,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |TS0042                                          |_TZ3000_ftwuvum5                                                           |CR2032                    |                   |                                      |
 |TS004F                                          |_TZ3000_qja6nq5z                                                           |CR2032                    |                   |                                      |
 |TS0207                                          |_TYZB01_0eaduw43                                                           |CR2032                    |                   |                                      |
+|TT Lock                                         |Electronic lock                                                            |4× AA                     |w301_901ca5        |V1.1                                  |
 |TT Lock                                         |SN511-180MS_PV53                                                           |4× AA                     |                   |                                      |
 |TT Lock                                         |SN9206-01-FS_PV53                                                          |4× AA                     |                   |                                      |
 |TUO Accessories LLC                             |TUO Contact Sensor Door & Window                                           |CR2450                    |                   |                                      |

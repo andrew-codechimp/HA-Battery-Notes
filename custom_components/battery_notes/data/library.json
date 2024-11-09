@@ -5311,6 +5311,14 @@
         },
         {
             "manufacturer": "TT Lock",
+            "model": "Electronic lock",
+            "model_id": "w301_901ca5",
+            "hw_version": "V1.1",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "TT Lock",
             "model": "SN511-180MS_PV53",
             "battery_type": "AA",
             "battery_quantity": 4
@@ -6856,14 +6864,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "TT Lock",
-            "model": "Electronic lock",
-            "model_id": "w301_901ca5",
-            "hw_version": "V1.1",
-            "battery_type": "AA",
-            "battery_quantity": 4
         }
     ]
 }
