@@ -3022,6 +3022,11 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "Iris",
+            "model": "Water sensor (3315-L)",
+            "battery_type": "CR2"
+        },
+        {
             "manufacturer": "iRobot",
             "model": "c975840",
             "battery_type": "Rechargeable"
@@ -6887,11 +6892,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Iris",
-            "model": "Water sensor (3315-L)",
-            "battery_type": "CR2"
         }
     ]
 }
