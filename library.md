@@ -1,4 +1,4 @@
-## 1268 Devices in library
+## 1269 Devices in library
 
 This file is auto generated, do not modify
 
@@ -945,6 +945,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |switchbot                                       |WoPresence                                                                 |2× AAA                    |                   |                                      |
 |switchbot                                       |WoTHP                                                                      |2× AAA                    |                   |                                      |
 |Sylvania                                        |Contact Sensor-A                                                           |CR2                       |                   |                                      |
+|Sylvania                                        |Smart+ contact and temperature sensor (74388)                              |CR2                       |                   |                                      |
 |Tado                                            |RU01                                                                       |3× AAA                    |                   |                                      |
 |Tado                                            |RU02                                                                       |3× AAA                    |                   |                                      |
 |Tado                                            |Smart Radiator Thermostat                                                  |2× AA                     |SRT01              |                                      |
