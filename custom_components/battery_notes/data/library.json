@@ -5103,6 +5103,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Sylvania",
+            "model": "Contact Sensor-A",
+            "battery_type": "CR2"
+        },
+        {
             "manufacturer": "Tado",
             "model": "RU01",
             "battery_type": "AAA",
@@ -6903,11 +6908,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Sylvania",
-            "model": "Contact Sensor-A",
-            "battery_type": "CR2"
         }
     ]
 }
