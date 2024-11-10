@@ -1,4 +1,4 @@
-## 1265 Devices in library
+## 1266 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1240,6 +1240,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Yale                                            |YRD220/240 TSDB                                                            |4× AA                     |                   |                                      |
 |Yale                                            |YRD226 / YRC226 / YRC246 / YRD256 / YRC256 / YRD446                        |4× AA                     |                   |                                      |
 |Yale                                            |YRD420-ZW3                                                                 |4× AA                     |                   |                                      |
+|Yale                                            |YRD450-F-ZW3                                                               |4× AA                     |                   |                                      |
 |Yale                                            |YRD450-ZW3                                                                 |4× AA                     |                   |                                      |
 |Yale                                            |YRD652-ZW2                                                                 |4× AA                     |                   |                                      |
 |Yale                                            |YRL256                                                                     |4× AA                     |                   |                                      |
