@@ -244,6 +244,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "_TZ3000_rsqqkdxv",
+            "model": "TS0041",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "_TZ3000_sj7jbgks",
             "model": "TS0043",
             "battery_type": "CR2032"
