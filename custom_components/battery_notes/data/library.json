@@ -3286,6 +3286,12 @@
         },
         {
             "manufacturer": "LUMI",
+            "model": "lumi.motion.agl04",
+            "battery_type": "CR2450",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "LUMI",
             "model": "lumi.remote.b1acn01",
             "battery_type": "CR2032"
         },
