@@ -1,4 +1,4 @@
-## 1263 Devices in library
+## 1264 Devices in library
 
 This file is auto generated, do not modify
 
@@ -571,6 +571,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Kwikset                                         |99120-021                                                                  |4× AA                     |                   |                                      |
 |Kwikset                                         |HALO-01                                                                    |4× AA                     |                   |                                      |
 |Kwikset                                         |HC620                                                                      |4× AA                     |                   |                                      |
+|Kwikset                                         |Home connect smart lock conversion kit (99140-139)                         |4× AA                     |                   |                                      |
 |Kwikset                                         |Kevo                                                                       |4× AA                     |                   |                                      |
 |Kwikset                                         |SmartCode 888                                                              |4× AA                     |                   |                                      |
 |Kwikset                                         |SmartCode traditional electronic deadbolt (99140-031)                      |4× AA                     |                   |                                      |

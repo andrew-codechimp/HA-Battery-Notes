@@ -3101,6 +3101,12 @@
         },
         {
             "manufacturer": "Kwikset",
+            "model": "Home connect smart lock conversion kit (99140-139)",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Kwikset",
             "model": "Kevo",
             "battery_type": "AA",
             "battery_quantity": 4
@@ -6897,12 +6903,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Kwikset",
-            "model": "Home connect smart lock conversion kit (99140-139)",
-            "battery_type": "AA",
-            "battery_quantity": 4
         }
     ]
 }
