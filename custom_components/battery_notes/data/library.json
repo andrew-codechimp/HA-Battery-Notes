@@ -6925,6 +6925,11 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Sylvania",
+            "model": "Smart+ contact and temperature sensor (74388)",
+            "battery_type": "CR2"
         }
     ]
 }
