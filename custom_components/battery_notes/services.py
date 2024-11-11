@@ -2,6 +2,7 @@
 
 import logging
 from datetime import datetime
+from typing import cast
 
 from homeassistant.core import (
     HomeAssistant,
@@ -169,7 +170,7 @@ def setup_services(hass: HomeAssistant) -> None:
 
     async def handle_battery_last_reported(call: ServiceCall) -> ServiceResponse:
         """Handle the service call."""
-        days_last_reported = call.data.get(SERVICE_DATA_DAYS_LAST_REPORTED)
+        days_last_reported = cast(int, call.data.get(SERVICE_DATA_DAYS_LAST_REPORTED))
 
         device: BatteryNotesDevice
         for device in hass.data[DOMAIN][DATA].devices.values():
