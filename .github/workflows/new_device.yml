@@ -110,6 +110,9 @@ jobs:
             Hardware: ${{ steps.update-json.outputs.hw_version }}
             Battery: ${{ steps.update-json.outputs.bqt }}
             It closes issue #${{ github.event.issue.number }}
+
+            If Battery Notes is useful to you please
+            [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png)](https://www.buymeacoffee.com/codechimp)
           branch: "device-${{ steps.update-json.outputs.branch }}"
 
       - name: Close Issue
