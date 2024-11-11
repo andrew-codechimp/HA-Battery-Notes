@@ -12,7 +12,7 @@ from homeassistant.helpers import issue_registry as ir
 class MissingDeviceRepairFlow(RepairsFlow):
     """Handler for an issue fixing flow."""
 
-    def __init__(self, data: dict[str, str]) -> None:
+    def __init__(self, data: dict[str, str | int | float | None] | None) -> None:
         """Initialize."""
         self.entry_id = data["entry_id"]
         self.device_id = data["device_id"]
@@ -55,3 +55,4 @@ async def async_create_fix_flow(
     if issue_id.startswith("missing_device_"):
         assert data
         return MissingDeviceRepairFlow(data)
+    raise ValueError(f"unknown repair {issue_id}")
