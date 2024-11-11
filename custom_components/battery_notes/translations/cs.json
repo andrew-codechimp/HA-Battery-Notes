@@ -40,7 +40,7 @@
                 },
                 "data_description": {
                     "battery_low_threshold": "0 se použije jako globální výchozí práh",
-                    "battery_low_template": "Šablona k určení zda je stav baterie nízký, měla by vrátit hodnotu pravda, pokud je nízký\nJe potřeba pouze pro nestandardní úroveně baterie"
+                    "battery_low_template": "Šablona pro zjištění, zda je baterie vybitá, měla by vracet hodnotu PRAVDA (true), pokud je vybitá.\nPotřebné pouze pro nestandardní úrovně nabití baterie"
                 }
             },
             "manual": {
@@ -75,7 +75,7 @@
             }
         },
         "error": {
-            "orphaned_battery_note": "The associated device or entity no longer exists for this Battery Note.",
+            "orphaned_battery_note": "Přidružené zařízení nebo entita pro tuto poznámku k baterii již neexistuje.",
             "unknown": "Vyskytla se neznámá chyba."
         }
     },
@@ -163,7 +163,7 @@
                     "name": "Entita"
                 },
                 "datetime_replaced": {
-                    "description": "Datum nahrazení.",
+                    "description": "Datum výměny.",
                     "name": "Datum"
                 }
             },
@@ -177,7 +177,7 @@
                     "name": "Dny"
                 }
             },
-            "name": "Zkontrolovat baterii - naposledy nahlášeno"
+            "name": "Poslední nahlášená kontrola baterií"
         },
         "check_battery_low": {
             "description": "Vytváří události pro zařízení, která mají nízkou baterii.",
@@ -186,12 +186,12 @@
     },
     "issues": {
         "missing_device": {
-            "title": "Orphaned Battery Note",
+            "title": "Poznámka k osiřelé baterii",
             "fix_flow": {
                 "step": {
                     "confirm": {
-                        "title": "Orphaned Battery Note",
-                        "description": "The associated device or entity no longer exists for the Battery Note entry {name}, the Battery Note should be deleted.\nSelect **Submit** to delete this Battery Note."
+                        "title": "Poznámka k osiřelé baterii",
+                        "description": "Přidružené zařízení nebo entita již neexistuje. Poznámka k baterii pro {name} by měla být odstraněna.\nVýběrem možnosti **Odeslat** tuto poznámku o baterii odstraníte."
                     }
                 }
             }
