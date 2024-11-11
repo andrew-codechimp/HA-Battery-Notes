@@ -110,6 +110,7 @@ def setup_services(hass: HomeAssistant) -> None:
                     return None
 
             _LOGGER.error("Entity %s not configured in Battery Notes", source_entity_id)
+            return None
 
         else:
             device_entry = device_registry.async_get(device_id)
