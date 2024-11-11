@@ -123,7 +123,7 @@ async def async_setup_entry(
 
     device_id = config_entry.data.get(CONF_DEVICE_ID)
 
-    async def async_registry_updated(event: Event) -> None:
+    async def async_registry_updated(event: Event[er.EventEntityRegistryUpdatedData]) -> None:
         """Handle entity registry update."""
         data = event.data
         if data["action"] == "remove":
