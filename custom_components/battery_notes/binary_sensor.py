@@ -177,8 +177,6 @@ async def async_setup_entry(
         device_class=BinarySensorDeviceClass.BATTERY,
     )
 
-    device: BatteryNotesDevice = hass.data[DOMAIN][DATA].devices[config_entry.entry_id]
-
     if coordinator.battery_low_template is not None:
         async_add_entities(
             [
