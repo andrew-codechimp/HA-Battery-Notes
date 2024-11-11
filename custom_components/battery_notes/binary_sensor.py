@@ -312,6 +312,7 @@ class BatteryNotesBatteryLowTemplateSensor(
     """Represents a low battery threshold binary sensor."""
 
     _attr_should_poll = False
+    _self_ref_update_count = 0
 
     def __init__(
         self,
