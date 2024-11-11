@@ -7,13 +7,13 @@ from dataclasses import dataclass
 from homeassistant.helpers.entity import EntityDescription
 
 
-@dataclass
+@dataclass(frozen=True, kw_only=True)
 class BatteryNotesRequiredKeysMixin:
     """Mixin for required keys."""
 
     unique_id_suffix: str
 
 
-@dataclass
+@dataclass(frozen=True, kw_only=True)
 class BatteryNotesEntityDescription(EntityDescription, BatteryNotesRequiredKeysMixin):
     """Generic Battery Notes entity description."""
