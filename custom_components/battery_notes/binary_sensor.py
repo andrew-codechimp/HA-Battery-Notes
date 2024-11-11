@@ -614,7 +614,7 @@ class BatteryNotesBatteryLowSensor(
         )
 
     @property
-    def extra_state_attributes(self) -> dict[str, str] | None:
+    def extra_state_attributes(self) -> dict[str, Any] | None:
         """Return the state attributes of battery low."""
 
         attrs = {

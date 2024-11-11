@@ -526,7 +526,7 @@ class BatteryNotesBatteryPlusSensor(
         self.async_write_ha_state()
 
     @property
-    def extra_state_attributes(self) -> dict[str, str] | None:
+    def extra_state_attributes(self) -> dict[str, Any] | None:
         """Return the state attributes of the battery type."""
 
         # Battery related attributes
@@ -647,7 +647,7 @@ class BatteryNotesTypeSensor(RestoreSensor, SensorEntity):
         return self.coordinator.battery_type_and_quantity
 
     @property
-    def extra_state_attributes(self) -> dict[str, str] | None:
+    def extra_state_attributes(self) -> dict[str, Any] | None:
         """Return the state attributes of the battery type."""
 
         attrs = {
