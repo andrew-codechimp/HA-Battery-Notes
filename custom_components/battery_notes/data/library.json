@@ -914,6 +914,11 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "Wireless remote switch (double rocker), 2018 model (WXKG02LM_rev2)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "Wireless remote switch (single rocker), 2018 model (WXKG03LM_rev2)",
             "battery_type": "CR2032"
         },
@@ -6935,11 +6940,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Aqara",
-            "model": "Wireless remote switch (double rocker), 2018 model (WXKG02LM_rev2)",
-            "battery_type": "CR2032"
         }
     ]
 }
