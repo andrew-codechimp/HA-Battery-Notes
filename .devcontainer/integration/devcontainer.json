@@ -1,6 +1,20 @@
 {
     "name": "BN Integration",
     "image": "mcr.microsoft.com/devcontainers/python:3.12",
+    "features": {
+        "ghcr.io/devcontainers/features/github-cli:1": {
+            "installDirectlyFromGitHubRelease": true,
+            "version": "latest"
+        },
+        "ghcr.io/devcontainers/features/node:1": {
+            "nodeGypDependencies": true,
+            "version": "lts"
+        },
+        "ghcr.io/devcontainers-contrib/features/poetry:2": {
+            "version": "latest"
+        },
+        "ghcr.io/devcontainers/features/rust:1": {}
+    },
     "postCreateCommand": "scripts/setup",
     "runArgs": [
         "--network=host"
@@ -44,8 +58,5 @@
             }
         }
     },
-    "remoteUser": "vscode",
-    "features": {
-        "ghcr.io/devcontainers/features/rust:1": {}
-    }
+    "remoteUser": "vscode"
 }
