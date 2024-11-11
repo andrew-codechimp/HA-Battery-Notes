@@ -2753,6 +2753,11 @@
         },
         {
             "manufacturer": "IKEA",
+            "model": "BADRING water leakage sensor (E2202)",
+            "battery_type": "AAA"
+        },
+        {
+            "manufacturer": "IKEA",
             "model": "E2102",
             "battery_type": "Rechargeable"
         },
@@ -6940,11 +6945,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "IKEA",
-            "model": "BADRING water leakage sensor (E2202)",
-            "battery_type": "AAA"
         }
     ]
 }
