@@ -2553,6 +2553,12 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "Heatit",
+            "model": "Z-Temp2",
+            "battery_type": "AA",
+            "battery_quantity": 3
+        },
+        {
             "manufacturer": "HEIMAN",
             "model": "HS2WD-E",
             "battery_type": "LP103454 3.7v 700mah"
@@ -6945,12 +6951,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Heatit",
-            "model": "Z-Temp2",
-            "battery_type": "AA",
-            "battery_quantity": 3
         }
     ]
 }
