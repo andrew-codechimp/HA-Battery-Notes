@@ -77,7 +77,7 @@ from .entity import (
 _LOGGER = logging.getLogger(__name__)
 
 
-@dataclass
+@dataclass(frozen=True, kw_only=True)
 class BatteryNotesBinarySensorEntityDescription(
     BatteryNotesEntityDescription,
     BinarySensorEntityDescription,

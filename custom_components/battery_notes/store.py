@@ -145,7 +145,7 @@ class BatteryNotesStorage:
         return new_device
 
     @callback
-    def async_delete_device(self, device_id: str) -> None:
+    def async_delete_device(self, device_id: str) -> bool:
         """Delete DeviceEntry."""
         if device_id in self.devices:
             del self.devices[device_id]
@@ -186,7 +186,7 @@ class BatteryNotesStorage:
         return new_entity
 
     @callback
-    def async_delete_entity(self, entity_id: str) -> None:
+    def async_delete_entity(self, entity_id: str) -> bool:
         """Delete EntityEntry."""
         if entity_id in self.entities:
             del self.entities[entity_id]

@@ -83,7 +83,7 @@ from .entity import (
 )
 
 
-@dataclass
+@dataclass(frozen=True, kw_only=True)
 class BatteryNotesSensorEntityDescription(
     BatteryNotesEntityDescription,
     SensorEntityDescription,
