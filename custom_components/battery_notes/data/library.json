@@ -4920,6 +4920,11 @@
         },
         {
             "manufacturer": "SONOFF",
+            "model": "Contact sensor (SNZB-04P)",
+            "battery_type": "CR2477"
+        },
+        {
+            "manufacturer": "SONOFF",
             "model": "DW2-Wi-Fi",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -6956,11 +6961,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "SONOFF",
-            "model": "Contact sensor (SNZB-04P)",
-            "battery_type": "CR2477"
         }
     ]
 }
