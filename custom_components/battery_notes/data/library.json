@@ -6994,6 +6994,11 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Sourcing & Creation",
+            "model": "EB-SB-1B",
+            "battery_type": "CR2032"
         }
     ]
 }
