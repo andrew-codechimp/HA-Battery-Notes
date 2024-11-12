@@ -53,7 +53,7 @@ async def autodiscover_model(
 
 async def get_model_information(
     device_entry: dr.DeviceEntry,
-) -> DeviceBatteryDetails | None:
+) -> ModelInfo | None:
     """See if we have enough information to automatically setup the battery type."""
 
     manufacturer = device_entry.manufacturer
@@ -129,7 +129,7 @@ class DiscoveryManager:
     def _init_entity_discovery(
         self,
         device_entry: dr.DeviceEntry,
-        device_battery_details: DeviceBatteryDetails | None,
+        device_battery_details: DeviceBatteryDetails,
     ) -> None:
         """Dispatch the discovery flow for a given entity."""
         existing_entries = [

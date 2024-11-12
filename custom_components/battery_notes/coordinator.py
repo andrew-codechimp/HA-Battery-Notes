@@ -55,7 +55,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
     battery_quantity: int
     battery_low_threshold: int
     battery_low_template: str | None
-    wrapped_battery: RegistryEntry
+    wrapped_battery: RegistryEntry | None = None
     _current_battery_level: str | None = None
     enable_replaced: bool = True
     _round_battery: bool = False
@@ -66,7 +66,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
     _source_entity_name: str | None = None
 
     def __init__(
-        self, hass, store: BatteryNotesStorage, wrapped_battery: RegistryEntry
+        self, hass, store: BatteryNotesStorage, wrapped_battery: RegistryEntry | None
     ):
         """Initialize."""
         self.store = store
@@ -242,13 +242,13 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
         return None
 
     @last_replaced.setter
-    def last_replaced(self, value):
+    def last_replaced(self, value: datetime):
         """Set the last replaced datetime and store it."""
         entry = {LAST_REPLACED: value}
 
         if self.source_entity_id:
             self.async_update_entity_config(entity_id=self.source_entity_id, data=entry)
-        else:
+        elif self.device_id:
             self.async_update_device_config(device_id=self.device_id, data=entry)
 
     @property
