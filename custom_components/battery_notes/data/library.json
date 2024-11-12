@@ -5050,6 +5050,11 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "Sourcing & Creation",
+            "model": "EB-SB-1B",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "Springs Window Fashions",
             "model": "BRZ1",
             "battery_type": "CR2430"
@@ -6994,11 +6999,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Sourcing & Creation",
-            "model": "EB-SB-1B",
-            "battery_type": "CR2032"
         }
     ]
 }
