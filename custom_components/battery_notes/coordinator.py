@@ -48,22 +48,22 @@ _LOGGER = logging.getLogger(__name__)
 class BatteryNotesCoordinator(DataUpdateCoordinator):
     """Define an object to hold Battery Notes device."""
 
-    device_id: str = None
-    source_entity_id: str = None
+    device_id: str | None = None
+    source_entity_id: str | None = None
     device_name: str
     battery_type: str
     battery_quantity: int
     battery_low_threshold: int
     battery_low_template: str | None
     wrapped_battery: RegistryEntry
-    _current_battery_level: str = None
+    _current_battery_level: str | None = None
     enable_replaced: bool = True
     _round_battery: bool = False
-    _previous_battery_low: bool = None
-    _previous_battery_level: str = None
+    _previous_battery_low: bool | None = None
+    _previous_battery_level: str | None = None
     _battery_low_template_state: bool = False
-    _previous_battery_low_template_state: bool = None
-    _source_entity_name: str = None
+    _previous_battery_low_template_state: bool | None = None
+    _source_entity_name: str | None = None
 
     def __init__(
         self, hass, store: BatteryNotesStorage, wrapped_battery: RegistryEntry

@@ -121,11 +121,10 @@ class BatteryNotesStorage:
         self.devices = {}
 
     @callback
-    def async_get_device(self, device_id) -> DeviceEntry | None:
+    def async_get_device(self, device_id)-> dict[str, Any] | None:
         """Get an existing DeviceEntry by id."""
         res = self.devices.get(device_id)
-        return res
-        # return attr.asdict(res) if res else None
+        return attr.asdict(res) if res else None
 
     @callback
     def async_get_devices(self):
@@ -163,14 +162,14 @@ class BatteryNotesStorage:
         return new
 
     @callback
-    def async_get_entity(self, entity_id) -> DeviceEntry:
+    def async_get_entity(self, entity_id) -> dict[str, Any] | None:
         """Get an existing EntityEntry by id."""
         res = self.entities.get(entity_id)
         return attr.asdict(res) if res else None
 
     @callback
     def async_get_entities(self):
-        """Get an existing EntityEntry by id."""
+        """Get all entities."""
         res = {}
         for key, val in self.entities.items():
             res[key] = attr.asdict(val)
