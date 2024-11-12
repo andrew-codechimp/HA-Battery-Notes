@@ -214,7 +214,7 @@ async def async_migrate_entry(hass: HomeAssistant, config_entry: ConfigEntry):
         # Version 1 had a single config for qty & type, split them
         _LOGGER.debug("Migrating config entry from version %s", config_entry.version)
 
-        matches: re.Match = re.search(
+        matches = re.search(
             r"^(\d+)(?=x)(?:x\s)(\w+$)|([\s\S]+)", config_entry.data[CONF_BATTERY_TYPE]
         )
         if matches:
