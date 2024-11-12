@@ -1,4 +1,4 @@
-## 1279 Devices in library
+## 1280 Devices in library
 
 This file is auto generated, do not modify
 
@@ -88,6 +88,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Adaprox                                         |TS0001_fingerbot_1                                                         |CR2                       |                   |                                      |
 |Adaprox                                         |Zigbee fingerbot plus (TS0001_fingerbot_1)                                 |CR2                       |                   |                                      |
 |ADEO                                            |RGB CTT LEXMAN ENKI remote control (HR-C99C-Z-C045)                        |CR2450                    |                   |                                      |
+|ADEO                                            |ZBEK-26                                                                    |CR2450                    |                   |                                      |
 |AEON Labs                                       |DSB05                                                                      |4× AAA                    |                   |                                      |
 |AEON Labs                                       |DSB29                                                                      |2× AAA                    |                   |                                      |
 |AEON Labs                                       |DSB45                                                                      |2× AAA                    |                   |                                      |
