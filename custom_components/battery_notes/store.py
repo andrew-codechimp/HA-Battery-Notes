@@ -6,7 +6,7 @@ import logging
 from collections import OrderedDict
 from collections.abc import MutableMapping
 from datetime import datetime
-from typing import cast
+from typing import Any, cast
 
 import attr
 from homeassistant.core import HomeAssistant, callback
@@ -121,10 +121,11 @@ class BatteryNotesStorage:
         self.devices = {}
 
     @callback
-    def async_get_device(self, device_id) -> DeviceEntry:
+    def async_get_device(self, device_id) -> DeviceEntry | None:
         """Get an existing DeviceEntry by id."""
         res = self.devices.get(device_id)
-        return attr.asdict(res) if res else None
+        return res
+        # return attr.asdict(res) if res else None
 
     @callback
     def async_get_devices(self):
@@ -135,10 +136,10 @@ class BatteryNotesStorage:
         return res
 
     @callback
-    def async_create_device(self, device_id: str, data: dict) -> DeviceEntry:
+    def async_create_device(self, device_id: str, data: dict) -> DeviceEntry | None:
         """Create a new DeviceEntry."""
         if device_id in self.devices:
-            return False
+            return None
         new_device = DeviceEntry(**data, device_id=device_id)
         self.devices[device_id] = new_device
         self.async_schedule_save()
@@ -176,10 +177,10 @@ class BatteryNotesStorage:
         return res
 
     @callback
-    def async_create_entity(self, entity_id: str, data: dict) -> EntityEntry:
+    def async_create_entity(self, entity_id: str, data: dict) -> EntityEntry | None:
         """Create a new EntityEntry."""
         if entity_id in self.entities:
-            return False
+            return None
         new_entity = EntityEntry(**data, entity_id=entity_id)
         self.entities[entity_id] = new_entity
         self.async_schedule_save()
