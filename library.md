@@ -1,4 +1,4 @@
-## 1277 Devices in library
+## 1278 Devices in library
 
 This file is auto generated, do not modify
 
@@ -975,6 +975,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Third Reality                                   |Temperature and humidity sensor (3RTHS24BZ)                                |2× AAA                    |                   |                                      |
 |Third Reality                                   |Temperature and Humidity Sensor Lite                                       |2× AAA                    |3RTHS0224Z         |                                      |
 |Third Reality                                   |Water sensor (3RWS18BZ)                                                    |2× AAA                    |                   |                                      |
+|Third Reality                                   |Zigbee vibration sensor (3RVS01031Z)                                       |2× AAA                    |                   |                                      |
 |Third Reality, Inc                              |3RDS17BZ                                                                   |2× AAA                    |                   |                                      |
 |Third Reality, Inc                              |3RDTS01056Z                                                                |2× AAA                    |                   |                                      |
 |Third Reality, Inc                              |3RMS16BZ                                                                   |2× AAA                    |                   |                                      |
