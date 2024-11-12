@@ -23,15 +23,16 @@ async def async_get_config_entry_diagnostics(
 ) -> dict[str, Any]:
     """Return diagnostics for a config entry."""
 
-    device_id = config_entry.data.get(CONF_DEVICE_ID, None)
-    source_entity_id = config_entry.data.get(CONF_SOURCE_ENTITY_ID, None)
-
     device_registry = dr.async_get(hass)
     entity_registry = er.async_get(hass)
 
+    device_id = config_entry.data.get(CONF_DEVICE_ID, None)
+    source_entity_id = config_entry.data.get(CONF_SOURCE_ENTITY_ID, None)
+
     if source_entity_id:
         entity = entity_registry.async_get(source_entity_id)
-        device_id = entity.device_id
+        if entity:
+            device_id = entity.device_id
 
     diagnostics = {"entry": config_entry.as_dict()}
 

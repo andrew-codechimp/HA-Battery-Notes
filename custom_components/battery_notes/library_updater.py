@@ -75,7 +75,7 @@ class LibraryUpdater:
         # pylint: disable=unused-argument
         """Make a call to GitHub to get the latest library.json."""
 
-        def _update_library_json(library_file: str, content: str) -> dict[str, Any]:
+        def _update_library_json(library_file: str, content: str) -> None:
             with open(library_file, mode="w", encoding="utf-8") as file:
                 file.write(content)
                 file.close()
@@ -151,7 +151,7 @@ class LibraryUpdaterClient:
         """Client to get latest library file from GitHub."""
         self._session = session
 
-    async def async_get_data(self) -> any:
+    async def async_get_data(self) -> Any:
         """Get data from the API."""
         return await self._api_wrapper(method="get", url=CONF_LIBRARY_URL)
 
@@ -159,7 +159,7 @@ class LibraryUpdaterClient:
         self,
         method: str,
         url: str,
-    ) -> any:
+    ) -> Any:
         """Get information from the API."""
         try:
             async with async_timeout.timeout(10):

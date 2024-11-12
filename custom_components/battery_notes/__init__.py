@@ -174,7 +174,7 @@ async def async_remove_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> 
         return
 
     device: BatteryNotesDevice = hass.data[DOMAIN][DATA].devices[config_entry.entry_id]
-    if not device:
+    if not device or not device.coordinator.device_id:
         return
 
     data = {ATTR_REMOVE: True}
