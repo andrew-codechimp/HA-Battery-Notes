@@ -7,7 +7,7 @@
                     "association_type": "Association type"
                 },
                 "menu_options": {
-                    "device": "Device (recommended)",
+                    "device": "Enhed (anbefales)",
                     "entity": "Enhed"
                 },
                 "title": "Choose your association type"
@@ -27,11 +27,11 @@
                     "name": "Navn"
                 },
                 "data_description": {
-                    "name": "Leaving blank will take the name from the source entity"
+                    "name": "Hvis du lader stå tomt, tages navnet fra kildeenheden"
                 }
             },
             "battery": {
-                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
+                "description": "Fabrikant: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
                 "data": {
                     "battery_type": "Batteri type",
                     "battery_quantity": "Antal batterier",
@@ -45,7 +45,7 @@
             },
             "manual": {
                 "description": "This device is marked in the library as manual, variants use different battery types so it cannot be set in the library.\nThe next step will allow you to set your battery type but please do not submit a device request.",
-                "title": "Device manual configuration"
+                "title": "Manuel konfiguration enheden"
             }
         },
         "abort": {
@@ -53,13 +53,13 @@
         },
         "error": {
             "unknown": "Der opstod en ukendt fejl.",
-            "unconfigurable_entity": "It is not possible to add this entity to Battery Notes."
+            "unconfigurable_entity": "Det er ikke muligt at tilføje denne enhed til Battery Notes."
         }
     },
     "options": {
         "step": {
             "init": {
-                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
+                "description": "Fabrikant: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
                 "data": {
                     "name": "Navn",
                     "battery_type": "Batteri type",
@@ -75,7 +75,7 @@
             }
         },
         "error": {
-            "orphaned_battery_note": "The associated device or entity no longer exists for this Battery Note.",
+            "orphaned_battery_note": "Den tilknyttede enhed eller enhed eksisterer ikke længere for dette Battery Note.",
             "unknown": "Der opstod en ukendt fejl."
         }
     },
@@ -124,7 +124,7 @@
                         "name": "Sidst rapporterede batteriniveau"
                     },
                     "source_entity_id": {
-                        "name": "Source Entity Id"
+                        "name": "Kildeenheds id"
                     },
                     "device_id": {
                         "name": "Enheds Id"
