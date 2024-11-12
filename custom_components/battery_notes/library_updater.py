@@ -160,10 +160,9 @@ class LibraryUpdaterClient:
         self._library_url = library_url
         self._session = session
 
-    async def async_get_data(self) -> any:
-        """Get data from the hosted library."""
-        _LOGGER.debug(f"Updating library from {self._library_url}")
-        return await self._api_wrapper(method="get", url=self._library_url)
+    async def async_get_data(self) -> Any:
+        """Get data from the API."""
+        return await self._api_wrapper(method="get", url=CONF_LIBRARY_URL)
 
     async def _api_wrapper(
         self,
