@@ -4617,6 +4617,12 @@
         },
         {
             "manufacturer": "Signify Netherlands B.V.",
+            "model": "Hue outdoor motion sensor (SML004)",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Signify Netherlands B.V.",
             "model": "Hue secure contact sensor (SOC001)",
             "battery_type": "CR2 Lithium"
         },
@@ -6960,12 +6966,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE70",
             "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Signify Netherlands B.V.",
-            "model": "Hue outdoor motion sensor (SML004)",
-            "battery_type": "AA",
             "battery_quantity": 2
         }
     ]
