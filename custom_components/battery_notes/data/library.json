@@ -2891,12 +2891,6 @@
             "battery_quantity": 2
         },
         {
-            "manufacturer": "IKEA of Sweden",
-            "model": "VALLHORN Wireless Motion Sensor",
-            "battery_type": "AAA",
-            "battery_quantity": 2
-        },
-        {
             "manufacturer": "IKEA",
             "model": "Water leakage detection sensor (E2202)",
             "battery_type": "AAA"
@@ -2983,6 +2977,12 @@
             "manufacturer": "IKEA of Sweden",
             "model": "TREDANSEN block-out cellul blind",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "IKEA of Sweden",
+            "model": "VALLHORN Wireless Motion Sensor",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "IKEA of Sweden",

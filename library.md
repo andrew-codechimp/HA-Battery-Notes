@@ -1,4 +1,4 @@
-## 1282 Devices in library
+## 1283 Devices in library
 
 This file is auto generated, do not modify
 
@@ -549,6 +549,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |IKEA of Sweden                                  |TRADFRI remote control                                                     |CR2032                    |                   |                                      |
 |IKEA of Sweden                                  |TRADFRI SHORTCUT Button                                                    |CR2032                    |                   |                                      |
 |IKEA of Sweden                                  |TREDANSEN block-out cellul blind                                           |Rechargeable              |                   |                                      |
+|IKEA of Sweden                                  |VALLHORN Wireless Motion Sensor                                            |2× AAA                    |                   |                                      |
 |IKEA of Sweden                                  |VALLHORN Wireless Motion Sensor                                            |2× AAA                    |                   |                                      |
 |iMagic by GreatStar                             |1116-S                                                                     |CR2                       |                   |                                      |
 |iMagic by GreatStar                             |1117-S                                                                     |CR123A                    |                   |                                      |
