@@ -75,7 +75,7 @@
             }
         },
         "error": {
-            "orphaned_battery_note": "The associated device or entity no longer exists for this Battery Note.",
+            "orphaned_battery_note": "Az ehhez a Battery Note-hoz társított eszköz vagy entitás már nem létezik.",
             "unknown": "Ismeretlen hiba lépett fel."
         }
     },
@@ -186,12 +186,12 @@
     },
     "issues": {
         "missing_device": {
-            "title": "Orphaned Battery Note",
+            "title": "Árva Battery Note",
             "fix_flow": {
                 "step": {
                     "confirm": {
-                        "title": "Orphaned Battery Note",
-                        "description": "The associated device or entity no longer exists for the Battery Note entry {name}, the Battery Note should be deleted.\nSelect **Submit** to delete this Battery Note."
+                        "title": "Árva Battery Note",
+                        "description": "A(z) {name} Battery Note-hoz társított eszköz vagy entitás már nem létezik, ezért a Battery Note törölhető.\nVálaszd a **Mehet**-et, hogy töröld ezt a Battery Note-ot."
                     }
                 }
             }
