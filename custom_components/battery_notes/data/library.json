@@ -803,6 +803,11 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "AS010",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "Cube (MFKZQ01LM)",
             "battery_type": "CR2450"
         },
