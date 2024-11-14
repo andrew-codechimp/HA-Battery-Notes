@@ -1,4 +1,4 @@
-## 1283 Devices in library
+## 1284 Devices in library
 
 This file is auto generated, do not modify
 
@@ -153,6 +153,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Aqara                                           |aqara.lock.bzacn4 ZNMS16LM                                                 |6× AA                     |                   |                                      |
 |Aqara                                           |AS006                                                                      |CR1632                    |                   |                                      |
 |Aqara                                           |AS008                                                                      |CR2032                    |                   |                                      |
+|Aqara                                           |AS010                                                                      |CR2032                    |                   |                                      |
 |Aqara                                           |Cube (MFKZQ01LM)                                                           |CR2450                    |                   |                                      |
 |Aqara                                           |Door and window sensor (MCCGQ11LM)                                         |CR1632                    |                   |                                      |
 |Aqara                                           |Door and window sensor E1 (MCCGQ14LM)                                      |CR1632                    |                   |                                      |
