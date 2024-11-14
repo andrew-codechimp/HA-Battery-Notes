@@ -430,6 +430,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "_TZE204_myd45weu",
+            "model": "TS0601",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "ABUS Security-Center GmbH Co. KG",
             "model": "SHRM10000",
             "battery_type": "CR123A"
