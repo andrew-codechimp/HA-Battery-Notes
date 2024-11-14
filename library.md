@@ -1,4 +1,4 @@
-## 1285 Devices in library
+## 1286 Devices in library
 
 This file is auto generated, do not modify
 
@@ -646,6 +646,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Merkury                                         |SS003                                                                      |CR2                       |                   |                                      |
 |Meross                                          |ms100                                                                      |CR2477                    |                   |                                      |
 |Mi light sensor                                 |GZCGQ01LM                                                                  |CR2450                    |                   |                                      |
+|MiaoMiaoCe                                      |MHO-C401N-z                                                                |CR2032                    |                   |                                      |
 |Minoston                                        |MR40Z                                                                      |2× CR2032                 |                   |                                      |
 |Minoston                                        |MSE30Z                                                                     |CR2450                    |                   |                                      |
 |modkam.ru                                       |DIYRuZ_Flower                                                              |2× AAA                    |                   |                                      |
