@@ -424,15 +424,15 @@
             "battery_type": "CR2032"
         },
         {
-            "manufacturer": "_TZE204_t1blo2bj",
-            "model": "TS0601",
-            "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
             "manufacturer": "_TZE204_myd45weu",
             "model": "TS0601",
             "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "_TZE204_t1blo2bj",
+            "model": "TS0601",
+            "battery_type": "CR123A",
             "battery_quantity": 2
         },
         {
