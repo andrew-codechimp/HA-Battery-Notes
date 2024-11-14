@@ -3495,6 +3495,11 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "MiaoMiaoCe",
+            "model": "MHO-C401N-z",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "Minoston",
             "model": "MR40Z",
             "battery_type": "CR2032",
