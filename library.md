@@ -1,4 +1,4 @@
-## 1288 Devices in library
+## 1289 Devices in library
 
 This file is auto generated, do not modify
 
@@ -832,6 +832,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Sercomm Corp.                                   |Tripper                                                                    |CR2032                    |                   |                                      |
 |Sercomm Corp.                                   |XHS2-SE                                                                    |CR2450                    |                   |                                      |
 |Shelly                                          |BLU Button1                                                                |CR2032                    |                   |                                      |
+|Shelly                                          |BLU Door Window Sensor                                                     |CR2032                    |                   |                                      |
 |Shelly                                          |BLU Door/Window                                                            |CR2032                    |                   |                                      |
 |Shelly                                          |gen1 (SHHT-1)                                                              |CR123A                    |                   |                                      |
 |Shelly                                          |Shelly Button1                                                             |Rechargeable              |                   |                                      |
