@@ -586,6 +586,8 @@ class BatteryNotesBatteryLowSensor(
         """Handle updated data from the coordinator."""
 
         if (
+            not self.coordinator.wrapped_battery
+            or
             (
                 wrapped_battery_state := self.hass.states.get(
                     self.coordinator.wrapped_battery.entity_id
