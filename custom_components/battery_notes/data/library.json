@@ -7021,6 +7021,11 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Shelly",
+            "model": "BLU Door Window Sensor",
+            "battery_type": "CR2032"
         }
     ]
 }
