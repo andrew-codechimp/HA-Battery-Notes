@@ -52,12 +52,12 @@ class LibraryUpdater:
         )
 
     @callback
-    async def timer_update(self, time):
+    async def timer_update(self, now: datetime):
         """Need to update the library."""
         if await self.time_to_update_library() is False:
             return
 
-        await self.get_library_updates(time)
+        await self.get_library_updates(now)
 
         if DOMAIN_CONFIG not in self.hass.data[DOMAIN]:
             return
@@ -65,13 +65,13 @@ class LibraryUpdater:
         domain_config: dict = self.hass.data[DOMAIN][DOMAIN_CONFIG]
 
         if domain_config.get(CONF_ENABLE_AUTODISCOVERY):
-            discovery_manager = DiscoveryManager(self.hass, self.hass.config)
+            discovery_manager = DiscoveryManager(self.hass, domain_config)
             await discovery_manager.start_discovery()
         else:
             _LOGGER.debug("Auto discovery disabled")
 
     @callback
-    async def get_library_updates(self, time):
+    async def get_library_updates(self, now: datetime):
         # pylint: disable=unused-argument
         """Make a call to GitHub to get the latest library.json."""
 

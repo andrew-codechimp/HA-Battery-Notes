@@ -256,7 +256,7 @@ class BatteryNotesDevice:
                 last_replaced,
             )
 
-            self.coordinator.last_replaced = last_replaced
+            self.coordinator.last_replaced = datetime.fromisoformat(last_replaced) if last_replaced else None
 
         # If there is not a last_reported set to now
         if not self.coordinator.last_reported:

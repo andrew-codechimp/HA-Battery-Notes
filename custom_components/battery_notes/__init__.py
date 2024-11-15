@@ -129,7 +129,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     hass.data[DOMAIN][DATA_LIBRARY_UPDATER] = library_updater
 
     if domain_config.get(CONF_ENABLE_AUTODISCOVERY):
-        discovery_manager = DiscoveryManager(hass, config)
+        discovery_manager = DiscoveryManager(hass, domain_config)
         await discovery_manager.start_discovery()
     else:
         _LOGGER.debug("Auto discovery disabled")
