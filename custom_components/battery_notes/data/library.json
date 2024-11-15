@@ -3860,6 +3860,11 @@
         },
         {
             "manufacturer": "Oral-B",
+            "model": "Smart Series 8000",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Oral-B",
             "model": "Smart Series 9000/10000",
             "battery_type": "Rechargeable"
         },
@@ -7021,11 +7026,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Oral-B",
-            "model": "Smart Series 8000",
-            "battery_type": "Rechargeable"
         }
     ]
 }

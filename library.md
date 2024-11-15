@@ -1,4 +1,4 @@
-## 1286 Devices in library
+## 1287 Devices in library
 
 This file is auto generated, do not modify
 
@@ -712,6 +712,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Oral-B                                          |Genius X                                                                   |Rechargeable              |                   |                                      |
 |Oral-B                                          |IO Series 6/7                                                              |Rechargeable              |                   |                                      |
 |Oral-B                                          |IO Series 8/9                                                              |Rechargeable              |                   |                                      |
+|Oral-B                                          |Smart Series 8000                                                          |Rechargeable              |                   |                                      |
 |Oral-B                                          |Smart Series 9000/10000                                                    |Rechargeable              |                   |                                      |
 |Oras                                            |Electra Washbasin Faucet                                                   |2CR5                      |                   |                                      |
 |Orbit                                           |HT32-0001                                                                  |2× AA                     |                   |                                      |
