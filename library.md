@@ -1,4 +1,4 @@
-## 1292 Devices in library
+## 1293 Devices in library
 
 This file is auto generated, do not modify
 
@@ -324,6 +324,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |eQ-3                                            |HM-Sec-RHS                                                                 |2× LR44                   |                   |                                      |
 |eQ-3                                            |HM-Sec-SC-2                                                                |2× LR44                   |                   |                                      |
 |eQ-3                                            |HM-Sec-SCo                                                                 |AAA                       |                   |                                      |
+|eQ-3                                            |HM-Sec-SD                                                                  |3× AA                     |                   |                                      |
 |eQ-3                                            |HM-Sec-SD-2                                                                |Irreplaceable             |                   |                                      |
 |eQ-3                                            |HM-Sec-Sir-WM                                                              |2× LR14                   |                   |                                      |
 |eQ-3                                            |HM-Sen-MDIR-O-2                                                            |3× AA                     |                   |                                      |
