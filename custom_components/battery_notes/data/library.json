@@ -1708,6 +1708,11 @@
         },
         {
             "manufacturer": "eQ-3",
+            "model": "HM-SCI-3-FM",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "eQ-3",
             "model": "HM-Sec-MDIR-2",
             "battery_type": "AA",
             "battery_quantity": 3
@@ -7042,11 +7047,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "eQ-3",
-            "model": "HM-SCI-3-FM",
-            "battery_type": "CR2032"
         }
     ]
 }
