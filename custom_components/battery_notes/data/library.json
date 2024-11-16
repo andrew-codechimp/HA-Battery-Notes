@@ -854,6 +854,13 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "Motion and Light Sensor P2",
+            "hw_version": "1.0.0.0",
+            "battery_type": "CR2450",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "Motion sensor (RTCGQ11LM)",
             "battery_type": "CR2450"
         },
@@ -7062,13 +7069,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE70",
             "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Aqara",
-            "model": "Motion and Light Sensor P2",
-            "hw_version": "1.0.0.0",
-            "battery_type": "CR2450",
             "battery_quantity": 2
         }
     ]
