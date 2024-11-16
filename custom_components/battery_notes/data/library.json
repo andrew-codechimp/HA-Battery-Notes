@@ -6682,6 +6682,11 @@
         },
         {
             "manufacturer": "Xiaomi",
+            "model": "MiFlora Plant Sensor (HHCCJCY01)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Xiaomi",
             "model": "MiJia door & window contact sensor (MCCGQ01LM)",
             "battery_type": "CR1632"
         },
@@ -7047,11 +7052,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Xiaomi",
-            "model": "MiFlora Plant Sensor (HHCCJCY01)",
-            "battery_type": "CR2032"
         }
     ]
 }
