@@ -1692,6 +1692,11 @@
         },
         {
             "manufacturer": "eQ-3",
+            "model": "HM-PBI-4-FM",
+            "battery_type": "CR20321"
+        },
+        {
+            "manufacturer": "eQ-3",
             "model": "HM-RC-4-2",
             "battery_type": "AAA"
         },
@@ -7058,11 +7063,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "eQ-3",
-            "model": "HM-PBI-4-FM",
-            "battery_type": "CR20321"
         }
     ]
 }
