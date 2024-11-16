@@ -7036,6 +7036,12 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "eQ-3",
+            "model": "HM-Sec-Sir-WM",
+            "battery_type": "LR14",
+            "battery_quantity": 2
         }
     ]
 }
