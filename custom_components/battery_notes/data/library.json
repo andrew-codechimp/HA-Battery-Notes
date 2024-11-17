@@ -7070,6 +7070,11 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "verspringE",
+            "model": "HSP02 / SP103",
+            "battery_type": "CR2"
         }
     ]
 }
