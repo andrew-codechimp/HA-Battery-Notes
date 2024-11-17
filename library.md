@@ -1,4 +1,4 @@
-## 1295 Devices in library
+## 1296 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1144,6 +1144,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Universal Electronics Inc                       |URC4470BC0-X-R                                                             |2× CR123A                 |                   |                                      |
 |unk_manufacturer                                |lumi.remote.b28ac1                                                         |CR2450                    |                   |                                      |
 |Verisure                                        |Lockguard Smartlock                                                        |4× AA                     |                   |                                      |
+|verspringE                                      |HSP02 / SP103                                                              |CR2                       |                   |                                      |
 |VictorPest.com                                  |Rat Trap                                                                   |4× C                      |                   |                                      |
 |Vision Security                                 |ZD2102-5                                                                   |CR123A                    |                   |                                      |
 |Vision Security                                 |ZD2105                                                                     |CR2                       |                   |                                      |

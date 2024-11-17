@@ -6231,6 +6231,11 @@
             "battery_quantity": 4
         },
         {
+            "manufacturer": "verspringE",
+            "model": "HSP02 / SP103",
+            "battery_type": "CR2"
+        },
+        {
             "manufacturer": "VictorPest.com",
             "model": "Rat Trap",
             "battery_type": "C",
@@ -7070,11 +7075,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "verspringE",
-            "model": "HSP02 / SP103",
-            "battery_type": "CR2"
         }
     ]
 }
