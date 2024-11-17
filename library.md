@@ -1,4 +1,4 @@
-## 1296 Devices in library
+## 1297 Devices in library
 
 This file is auto generated, do not modify
 
@@ -915,6 +915,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |SmartThings                                     |Water sensor (3315-S)                                                      |CR2                       |                   |                                      |
 |SmartWave                                       |SmartWave Window Covering (10001)                                          |Rechargeable              |                   |                                      |
 |Smartwings                                      |Roller shade (WM25L-Z)                                                     |Rechargeable              |                   |                                      |
+|Smartwings                                      |WM25/L-Z                                                                   |Rechargeable              |                   |                                      |
 |Smoke detector                                  |SSHM-I1                                                                    |CR123A                    |                   |                                      |
 |Somfy                                           |IntelliTag                                                                 |AAA                       |                   |                                      |
 |Somfy                                           |Key Fob                                                                    |CR2032                    |                   |                                      |
