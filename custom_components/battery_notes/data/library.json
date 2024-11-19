@@ -418,6 +418,12 @@
             "battery_type": "PP3"
         },
         {
+            "manufacturer": "_TZE200_vvmbj46n",
+            "model": "TS0601",
+            "battery_type": "AAA",
+            "battery_quantity": 3
+        },
+        {
             "manufacturer": "_TZE200_yjjdcqsq",
             "model": "TS0601",
             "battery_type": "AAA",
@@ -7085,12 +7091,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "_TZE200_vvmbj46n",
-            "model": "TS0601",
-            "battery_type": "AAA",
-            "battery_quantity": 3
         }
     ]
 }
