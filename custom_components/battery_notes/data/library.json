@@ -6231,6 +6231,11 @@
         },
         {
             "manufacturer": "Universal Electronics Inc",
+            "model": "URC4460BC0-X-R",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Universal Electronics Inc",
             "model": "URC4470BC0-X-R",
             "battery_type": "CR123A",
             "battery_quantity": 2
@@ -7091,11 +7096,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Universal Electronics Inc",
-            "model": "URC4460BC0-X-R",
-            "battery_type": "CR2450"
         }
     ]
 }

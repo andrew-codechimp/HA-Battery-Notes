@@ -1,4 +1,4 @@
-## 1299 Devices in library
+## 1300 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1144,6 +1144,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |TUYATEC-yg5dcbfu                                |RH3052                                                                     |CR2032                    |                   |                                      |
 |Ultraloq                                        |U-BOLT-PRO-ZWAVE                                                           |4× AA                     |                   |                                      |
 |Universal Electronics Inc                       |Magnetic door & window contact sensor (XHS2-UE)                            |CR2450                    |                   |                                      |
+|Universal Electronics Inc                       |URC4460BC0-X-R                                                             |CR2450                    |                   |                                      |
 |Universal Electronics Inc                       |URC4470BC0-X-R                                                             |2× CR123A                 |                   |                                      |
 |unk_manufacturer                                |lumi.remote.b28ac1                                                         |CR2450                    |                   |                                      |
 |Verisure                                        |Lockguard Smartlock                                                        |4× AA                     |                   |                                      |
