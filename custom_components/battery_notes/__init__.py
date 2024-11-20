@@ -31,6 +31,7 @@ from .const import (
     CONF_ENABLE_AUTODISCOVERY,
     CONF_ENABLE_REPLACED,
     CONF_HIDE_BATTERY,
+    CONF_LIBRARY_URL,
     CONF_ROUND_BATTERY,
     CONF_SHOW_ALL_DEVICES,
     CONF_USER_LIBRARY,
@@ -39,6 +40,7 @@ from .const import (
     DATA_STORE,
     DEFAULT_BATTERY_INCREASE_THRESHOLD,
     DEFAULT_BATTERY_LOW_THRESHOLD,
+    DEFAULT_LIBRARY_URL,
     DOMAIN,
     DOMAIN_CONFIG,
     MIN_HA_VERSION,
@@ -75,6 +77,10 @@ CONFIG_SCHEMA = vol.Schema(
                         CONF_BATTERY_INCREASE_THRESHOLD,
                         default=DEFAULT_BATTERY_INCREASE_THRESHOLD,
                     ): cv.positive_int,
+                    vol.Optional(
+                        CONF_LIBRARY_URL,
+                        default=DEFAULT_LIBRARY_URL,
+                    ): cv.string,
                 },
             ),
         ),
@@ -111,6 +117,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         CONF_ROUND_BATTERY: False,
         CONF_DEFAULT_BATTERY_LOW_THRESHOLD: DEFAULT_BATTERY_LOW_THRESHOLD,
         CONF_BATTERY_INCREASE_THRESHOLD: DEFAULT_BATTERY_INCREASE_THRESHOLD,
+        CONF_LIBRARY_URL: DEFAULT_LIBRARY_URL,
     }
 
     hass.data[DOMAIN] = {

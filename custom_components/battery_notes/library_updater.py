@@ -20,6 +20,7 @@ from .const import (
     CONF_ENABLE_AUTODISCOVERY,
     CONF_LIBRARY_URL,
     DATA_LIBRARY_LAST_UPDATE,
+    DEFAULT_LIBRARY_URL,
     DOMAIN,
     DOMAIN_CONFIG,
 )
@@ -44,7 +45,14 @@ class LibraryUpdater:
     def __init__(self, hass: HomeAssistant):
         """Initialize the library updater."""
         self.hass = hass
-        self._client = LibraryUpdaterClient(session=async_get_clientsession(hass))
+
+        if DOMAIN_CONFIG in self.hass.data[DOMAIN]:
+            domain_config: dict = self.hass.data[DOMAIN][DOMAIN_CONFIG]
+            url = domain_config.get(CONF_LIBRARY_URL, DEFAULT_LIBRARY_URL)
+        else:
+            url = DEFAULT_LIBRARY_URL
+
+        self._client = LibraryUpdaterClient(library_url=url, session=async_get_clientsession(hass))
 
         # Fire the library check every 24 hours from now
         async_track_utc_time_change(
@@ -103,8 +111,7 @@ class LibraryUpdater:
 
         except LibraryUpdaterClientError:
             _LOGGER.warning(
-                "Unable to update library, this could be a GitHub or internet "
-                "connectivity issue, will retry later."
+                "Unable to update library, will retry later."
             )
 
     async def time_to_update_library(self) -> bool:
@@ -146,14 +153,17 @@ class LibraryUpdaterClient:
 
     def __init__(
         self,
+        library_url: str,
         session: aiohttp.ClientSession,
     ) -> None:
         """Client to get latest library file from GitHub."""
+        self._library_url = library_url
         self._session = session
 
     async def async_get_data(self) -> any:
-        """Get data from the API."""
-        return await self._api_wrapper(method="get", url=CONF_LIBRARY_URL)
+        """Get data from the hosted library."""
+        _LOGGER.debug(f"Updating library from {self._library_url}")
+        return await self._api_wrapper(method="get", url=self._library_url)
 
     async def _api_wrapper(
         self,
