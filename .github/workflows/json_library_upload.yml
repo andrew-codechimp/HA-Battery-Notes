@@ -21,7 +21,6 @@ jobs:
           r2-bucket: ${{ secrets.R2_BUCKET }}
           source-dir: ./custom_components/battery_notes/data/
           destination-dir: ./
-          keep-file-fresh: true
 
       - name: Purge cache for latest schema
         uses: jakejarvis/cloudflare-purge-action@master
