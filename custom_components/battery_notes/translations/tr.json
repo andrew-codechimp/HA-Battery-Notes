@@ -1,0 +1,200 @@
+{
+    "config": {
+        "step": {
+            "user": {
+                "description": "Yapılandırma ile ilgili yardıma ihtiyacınız varsa buraya bir göz atın: https://andrew-codechimp.github.io/HA-Battery-Notes/",
+                "data": {
+                    "association_type": "İlişkilendirme türü"
+                },
+                "menu_options": {
+                    "device": "Cihaz (önerilen)",
+                    "entity": "Varlık"
+                },
+                "title": "İlişkilendirme türünü seçin"
+            },
+            "device": {
+                "data": {
+                    "device_id": "Cihaz",
+                    "name": "İsim"
+                },
+                "data_description": {
+                    "name": "Boş bırakıldığında kaynak cihazın ismi alınır"
+                }
+            },
+            "entity": {
+                "data": {
+                    "source_entity_id": "Varlık",
+                    "name": "İsim"
+                },
+                "data_description": {
+                    "name": "Boş bırakıldığında isim kaynak varlıktan alınır"
+                }
+            },
+            "battery": {
+                "description": "Üretici firma: {manufacturer}\nModel: {model}\nModel Kodu: {model_id}\nDonanım sürümü: {hw_version}",
+                "data": {
+                    "battery_type": "Pil Türü",
+                    "battery_quantity": "Pil miktarı",
+                    "battery_low_threshold": "Düşük pil eşiği",
+                    "battery_low_template": "Düşük pil şablonu"
+                },
+                "data_description": {
+                    "battery_low_threshold": "0 genel varsayılan eşiği kullanacaktır",
+                    "battery_low_template": "Bir pilin zayıf olduğunu belirleyen şablon, zayıfsa true döndürmelidir\nYalnızca standart olmayan pil seviyeleri için gereklidir"
+                }
+            },
+            "manual": {
+                "description": "Bu cihaz kütüphanede manuel olarak işaretlenmiştir, varyantlar farklı pil türleri kullanır, bu nedenle kütüphanede ayarlanamaz.\nBir sonraki adım pil türünüzü ayarlamanıza izin verecektir ancak lütfen bir cihaz talebi göndermeyin.",
+                "title": "Cihaz manuel yapılandırması"
+            }
+        },
+        "abort": {
+            "already_configured": "Cihaz zaten yapılandırılmış"
+        },
+        "error": {
+            "unknown": "Bilinmeyen bir hata oluştu.",
+            "unconfigurable_entity": "Bu varlığı Battery Notes'a eklemek mümkün değildir."
+        }
+    },
+    "options": {
+        "step": {
+            "init": {
+                "description": "Üretici firma: {manufacturer}\nModel: {model}\nModel kodu: {model_id}\nDonanım sürümü: {hw_version}",
+                "data": {
+                    "name": "İsim",
+                    "battery_type": "Pil türü",
+                    "battery_quantity": "Pil miktarı",
+                    "battery_low_threshold": "Düşük pil eşiği",
+                    "battery_low_template": "Düşük pil şablonu"
+                },
+                "data_description": {
+                    "name": "Boş bırakıldığında kaynak cihazın ismi alınır",
+                    "battery_low_threshold": "0 genel varsayılan eşiği kullanacaktır",
+                    "battery_low_template": "Bir pilin zayıf olduğunu belirleyen şablon, zayıfsa true döndürmelidir\nYalnızca standart olmayan pil seviyeleri için gereklidir"
+                }
+            }
+        },
+        "error": {
+            "orphaned_battery_note": "İlişkili cihaz veya varlık bu Battery Notes için artık mevcut değildir.",
+            "unknown": "Bilinmeyen bir hata oluştu."
+        }
+    },
+    "entity": {
+        "binary_sensor": {
+            "battery_low": {
+                "name": "{device_name}Düşük Pil",
+                "state_attributes": {
+                    "battery_low_threshold": {
+                        "name": "Düşük pil eşiği"
+                    }
+                }
+            }
+        },
+        "button": {
+            "battery_replaced": {
+                "name": "{device_name}Pil Değiştirildi"
+            }
+        },
+        "sensor": {
+            "battery_plus": {
+                "name": "{device_name}Pil+",
+                "state_attributes": {
+                    "battery_type": {
+                        "name": "Pil türü"
+                    },
+                    "battery_quantity": {
+                        "name": "Pil miktarı"
+                    },
+                    "battery_type_and_quantity": {
+                        "name": "Pil türü ve miktarı"
+                    },
+                    "battery_last_replaced": {
+                        "name": "Son pil değişimi"
+                    },
+                    "battery_low": {
+                        "name": "Düşük pil"
+                    },
+                    "battery_low_threshold": {
+                        "name": "Düşük pil eşiği"
+                    },
+                    "battery_last_reported": {
+                        "name": "Son pil güncellemesi"
+                    },
+                    "battery_last_reported_level": {
+                        "name": "Pilin son bildirilen seviyesi"
+                    },
+                    "source_entity_id": {
+                        "name": "Kaynak Varlık Kimliği"
+                    },
+                    "device_id": {
+                        "name": "Cihaz Kimliği"
+                    },
+                    "device_name": {
+                        "name": "Cihaz ismi"
+                    }
+                }
+            },
+            "battery_type": {
+                "name": "{device_name}Pil Türü",
+                "state_attributes": {
+                    "battery_type": {
+                        "name": "Pil türü"
+                    },
+                    "battery_quantity": {
+                        "name": "Pil miktarı"
+                    }
+                }
+            },
+            "battery_last_replaced": {
+                "name": "{device_name}Pil Değiştirildi"
+            }
+        }
+    },
+    "services": {
+        "set_battery_replaced": {
+            "description": "En son pil değişimini ayarlayın.",
+            "fields": {
+                "device_id": {
+                    "description": "Pili değiştirilen cihaz.",
+                    "name": "Cihaz"
+                },
+                "entity_id": {
+                    "description": "Pili değiştirilen varlık (yalnızca Battery Notes ile ilişkili varlık için kullanılır).",
+                    "name": "Varlık"
+                },
+                "datetime_replaced": {
+                    "description": "Tarih değiştirildi.",
+                    "name": "Tarih"
+                }
+            },
+            "name": "Pil değiştirildi olarak ayarla"
+        },
+        "check_battery_last_reported": {
+            "description": "Pil seviyelerini bildirmeyen cihazlar için olayları arttırın.",
+            "fields": {
+                "days_last_reported": {
+                    "description": "Bir cihazın pil seviyesini en son bildirmesinden bu yana geçen gün sayısı.",
+                    "name": "Gün"
+                }
+            },
+            "name": "Pilin son bildirimini kontrol edin"
+        },
+        "check_battery_low": {
+            "description": "Pili zayıf olan cihazlar için olayları arttırın.",
+            "name": "Pil düşüklüğünü kontrol edin"
+        }
+    },
+    "issues": {
+        "missing_device": {
+            "title": "Battery Note'un Bilmediği Cihaz",
+            "fix_flow": {
+                "step": {
+                    "confirm": {
+                        "title": "Battery Note'un Bilmediği Cihaz",
+                        "description": "Battery Notes {name} için ilişkili cihaz veya varlık artık mevcut değildir, Battery Notes silinmelidir.\nBu Battery Note'u silmek için **Gönder** öğesini seçin."
+                    }
+                }
+            }
+        }
+    }
+}
