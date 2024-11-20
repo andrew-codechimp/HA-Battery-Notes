@@ -2,6 +2,10 @@ name: JSON Library Upload
 
 on:
   workflow_dispatch:
+  workflow_run:
+    workflows: ["JSON Library Sorter and Doc Gen"]
+    types:
+      - completed
 
 jobs:
   librarian:
@@ -12,7 +16,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Upload library
+      - name: Upload library to Cloudflare
         uses: ryand56/r2-upload-action@latest
         with:
           r2-account-id: ${{ secrets.R2_ACCOUNT_ID }}
@@ -22,8 +26,8 @@ jobs:
           source-dir: ./custom_components/battery_notes/data/
           destination-dir: ./
 
-      - name: Purge cache for latest schema
-        uses: jakejarvis/cloudflare-purge-action@master
+      - name: Cloudflare Purge Cache
+        uses: jakejarvis/cloudflare-purge-action@v0.3.0
         env:
           CLOUDFLARE_ZONE: ${{ secrets.CLOUDFLARE_ZONE }}
           CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
