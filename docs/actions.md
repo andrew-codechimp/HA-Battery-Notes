@@ -18,7 +18,7 @@ You must specify either a device_id or entity_id, entity_id will be used in pref
 
 For raising events for devices that haven't reported their battery level.  
 
-The action will raise a seperate [battery_not_reported](./events.md/#battery_not_reported) event for each device where its last reported date is older than the number of days specified.  
+The action will raise a seperate [battery_not_reported](./events.md/#battery-not-reported) event for each device where its last reported date is older than the number of days specified.  
 
 You can use this action to schedule checks on batteries that is convenient to you, e.g. when you wake up, once a week etc.  
 
@@ -32,7 +32,7 @@ See how to use this action in the [community contributions](./community.md)
 
 For raising events for devices that have a battery low status.  
 
-The action will raise a seperate [battery_threshold](./events.md/#battery_threshold) event for each device that have a battery low status.  
+The action will raise a seperate [battery_threshold](./events.md/#battery-threshold) event for each device that have a battery low status.  
 
 You can use this action as a reminder that is convenient to you, e.g. when you wake up, once a week etc.  The event has a boolean data item `reminder` to determine if the event was raised by this action or the device battery going to a low state.
 
