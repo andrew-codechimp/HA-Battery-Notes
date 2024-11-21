@@ -6686,6 +6686,11 @@
         },
         {
             "manufacturer": "Xiaomi",
+            "model": "MCCGQ02HL",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Xiaomi",
             "model": "MHO-C303",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -7102,11 +7107,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Xiaomi",
-            "model": "MCCGQ02HL",
-            "battery_type": "CR2032"
         }
     ]
 }
