@@ -27,6 +27,10 @@ sort:
 ### Battery Low Notification
 Raise a persistent notification when a battery is low, dismiss when it's not low
 
+!!! note
+
+    Battery Threshold events are only raised when the device has a Battery+ entity or a [Battery Low Template](./index.md/#battery_low_template) is added to the Battery Notes configuration.
+
 ```yaml
 alias: Battery Low Notification
 description: Battery Low Notification with auto dismiss
@@ -110,6 +114,10 @@ mode: single
 
 ### Battery Replaced
 Mark a battery as replaced when there is an increase in battery level.
+
+!!! note
+
+    Battery Increased events are only raised when the device has a Battery+ entity or a [Battery Low Template](./index.md/#battery_low_template) is added to the Battery Notes configuration.
 
 ```yaml
 alias: Battery Replaced
