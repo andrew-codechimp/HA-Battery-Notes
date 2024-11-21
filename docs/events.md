@@ -5,9 +5,13 @@ The following events are raised by the integration. These events can be used wit
 ## Battery Threshold
 `battery_notes_battery_threshold`
 
-This is fired when any device within Battery Notes has a battery level changed to either below or above the device specific or global threshold.
+This is fired when a device within Battery Notes has a battery level changed to either below or above the device specific or global threshold.
 
 You can use this to send notifications in your preferred method.  An example automation below displays a persistent notification.  
+
+!!! note
+
+    Battery Threshold events are only raised when the device has a Battery+ entity or a [Battery Low Template](./index.md/#battery_low_template) is added to the Battery Notes configuration.
 
 | Attribute | Type | Description |
 |-----------|------|-------------|
@@ -20,7 +24,7 @@ You can use this to send notifications in your preferred method.  An example aut
 | `battery_quantity` | `int` | Battery quantity. |
 | `battery_level` | `float` | Battery level % of the device. |
 | `previous_battery_level` | `float` | Previous battery level % of the device. |
-| `reminder` | `bool` | Returns true if the event was raised by an action, false if it's from a device event. |
+| `reminder` | `bool` | Returns true if the event was raised by an action, false if it's from a device event. |  
 
 ### Automation Example
 
@@ -74,10 +78,14 @@ mode: queued
 ## Battery Increased
 `battery_notes_battery_increased`
 
-This is fired when any device within Battery Notes has a battery level increased above the battery_increase_threshold (default 25%) if not changed within [configuration setting](./configuration.md).
+This is fired when a device within Battery Notes has a battery level increased above the battery_increase_threshold (default 25%) if not changed within [configuration setting](./configuration.md).
 
 It deliberately does not update the battery_replaced sensor allowing you to choose how you want to handle this.  The increase theshold allows for detecting/handling of partially charged batteries rather than just full batteries.  
 An example automation below shows how to update the battery_replaced.
+
+!!! note
+
+    Battery Increased events are only raised when the device has a Battery+ entity or a [Battery Low Template](./index.md/#battery_low_template) is added to the Battery Notes configuration.
 
 | Attribute | Type | Description |
 |-----------|------|-------------|
