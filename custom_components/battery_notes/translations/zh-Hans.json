@@ -2,196 +2,196 @@
     "config": {
         "step": {
             "user": {
-                "description": "If you need help with the configuration have a look here: https://andrew-codechimp.github.io/HA-Battery-Notes/",
+                "description": "若在设定过程中有任何疑问，请参考： https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
-                    "association_type": "Association type"
+                    "association_type": "关联类型"
                 },
                 "menu_options": {
-                    "device": "Device (recommended)",
-                    "entity": "Entity"
+                    "device": "装置（推荐）",
+                    "entity": "实体"
                 },
-                "title": "Choose your association type"
+                "title": "选择关联类型"
             },
             "device": {
                 "data": {
-                    "device_id": "Device",
-                    "name": "Name"
+                    "device_id": "装置",
+                    "name": "名称"
                 },
                 "data_description": {
-                    "name": "Leaving blank will take the name from the source device"
+                    "name": "若留空，将使用来源装置的名称"
                 }
             },
             "entity": {
                 "data": {
-                    "source_entity_id": "Entity",
-                    "name": "Name"
+                    "source_entity_id": "实体",
+                    "name": "名称"
                 },
                 "data_description": {
-                    "name": "Leaving blank will take the name from the source entity"
+                    "name": "若留空，将使用来源实体的名称"
                 }
             },
             "battery": {
-                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
+                "description": "制造商：{manufacturer}\n型号：{model}\n型号 ID：{model_id}\n硬件版本：{hw_version}",
                 "data": {
-                    "battery_type": "Battery type",
-                    "battery_quantity": "Battery quantity",
-                    "battery_low_threshold": "Battery low threshold",
-                    "battery_low_template": "Battery low template"
+                    "battery_type": "电池类型",
+                    "battery_quantity": "电池数量",
+                    "battery_low_threshold": "低电量阈值",
+                    "battery_low_template": "低电量模板"
                 },
                 "data_description": {
-                    "battery_low_threshold": "0 will use the global default threshold",
-                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels"
+                    "battery_low_threshold": "若为零，将使用全域默认阈值",
+                    "battery_low_template": "判断电池是否低电量的模板，若为低电量应回传 true\n仅在电池电量非标准时需要"
                 }
             },
             "manual": {
-                "description": "This device is marked in the library as manual, variants use different battery types so it cannot be set in the library.\nThe next step will allow you to set your battery type but please do not submit a device request.",
-                "title": "Device manual configuration"
+                "description": "此装置在数据库中被标记为手动设定，不同变体使用不同电池类型，因此无法在数据库中设定。\n下一步将让你设定电池类型，但请勿提交装置请求。",
+                "title": "装置手动设定"
             }
         },
         "abort": {
-            "already_configured": "Device is already configured"
+            "already_configured": "装置已设定过"
         },
         "error": {
-            "unknown": "Unknown error occurred.",
-            "unconfigurable_entity": "It is not possible to add this entity to Battery Notes."
+            "unknown": "发生未知错误。",
+            "unconfigurable_entity": "无法将此实体新增至 Battery Notes。"
         }
     },
     "options": {
         "step": {
             "init": {
-                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
+                "description": "制造商：{manufacturer}\n型号：{model}\n型号 ID：{model_id}\n硬件版本：{hw_version}",
                 "data": {
-                    "name": "Name",
-                    "battery_type": "Battery type",
-                    "battery_quantity": "Battery quantity",
-                    "battery_low_threshold": "Battery low threshold",
-                    "battery_low_template": "Battery low template"
+                    "name": "名称",
+                    "battery_type": "电池类型",
+                    "battery_quantity": "电池数量",
+                    "battery_low_threshold": "低电量阈值",
+                    "battery_low_template": "低电量模板"
                 },
                 "data_description": {
-                    "name": "Leaving blank will take the name from the source device",
-                    "battery_low_threshold": "0 will use the global default threshold",
-                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels"
+                    "name": "若留空，将使用来源装置的名称",
+                    "battery_low_threshold": "若为零，将使用全域默认阈值",
+                    "battery_low_template": "判断电池是否低电量的模板，若为低电量应回传 true\n仅在电池电量非标准时需要"
                 }
             }
         },
         "error": {
-            "orphaned_battery_note": "The associated device or entity no longer exists for this Battery Note.",
-            "unknown": "Unknown error occurred."
+            "orphaned_battery_note": "此 Battery Note 的关联装置或实体已不存在。",
+            "unknown": "发生未知错误。"
         }
     },
     "entity": {
         "binary_sensor": {
             "battery_low": {
-                "name": "{device_name}Battery low",
+                "name": "{device_name} 电池低电量",
                 "state_attributes": {
                     "battery_low_threshold": {
-                        "name": "Battery low threshold"
+                        "name": "电池低电量阈值"
                     }
                 }
             }
         },
         "button": {
             "battery_replaced": {
-                "name": "{device_name}Battery replaced"
+                "name": "{device_name} 电池已更换"
             }
         },
         "sensor": {
             "battery_plus": {
-                "name": "{device_name}Battery+",
+                "name": "{device_name} 电池 +",
                 "state_attributes": {
                     "battery_type": {
-                        "name": "Battery type"
+                        "name": "电池类型"
                     },
                     "battery_quantity": {
-                        "name": "Battery quantity"
+                        "name": "电池数量"
                     },
                     "battery_type_and_quantity": {
-                        "name": "Battery type and quantity"
+                        "name": "电池类型与数量"
                     },
                     "battery_last_replaced": {
-                        "name": "Battery last replaced"
+                        "name": "电池最后更换日期"
                     },
                     "battery_low": {
-                        "name": "Battery low"
+                        "name": "电池低电量"
                     },
                     "battery_low_threshold": {
-                        "name": "Battery low threshold"
+                        "name": "电池低电量阈值"
                     },
                     "battery_last_reported": {
-                        "name": "Battery last reported"
+                        "name": "电池最后回报时间"
                     },
                     "battery_last_reported_level": {
-                        "name": "Battery last reported level"
+                        "name": "电池最后回报电量"
                     },
                     "source_entity_id": {
-                        "name": "Source Entity Id"
+                        "name": "来源实体 ID"
                     },
                     "device_id": {
-                        "name": "Device Id"
+                        "name": "装置 ID"
                     },
                     "device_name": {
-                        "name": "Device name"
+                        "name": "装置名称"
                     }
                 }
             },
             "battery_type": {
-                "name": "{device_name}Battery type",
+                "name": "{device_name} 电池类型",
                 "state_attributes": {
                     "battery_type": {
-                        "name": "Battery type"
+                        "name": "电池类型"
                     },
                     "battery_quantity": {
-                        "name": "Battery quantity"
+                        "name": "电池数量"
                     }
                 }
             },
             "battery_last_replaced": {
-                "name": "{device_name}Battery last replaced"
+                "name": "{device_name} 电池最后更换日期"
             }
         }
     },
     "services": {
         "set_battery_replaced": {
-            "description": "Set the battery last replaced.",
+            "description": "设定电池最后更换日期。",
             "fields": {
                 "device_id": {
-                    "description": "Device that has had its battery replaced.",
-                    "name": "Device"
+                    "description": "已更换电池的装置。",
+                    "name": "装置"
                 },
                 "entity_id": {
-                    "description": "Entity that has had its battery replaced (only used for entity associated battery notes).",
-                    "name": "Entity"
+                    "description": "已更换电池的实体（仅用于关联至实体的 Battery Notes）。",
+                    "name": "实体"
                 },
                 "datetime_replaced": {
-                    "description": "Date replaced.",
-                    "name": "Date"
+                    "description": "更换日期。",
+                    "name": "日期"
                 }
             },
-            "name": "Set battery replaced"
+            "name": "将电池设定为已更换"
         },
         "check_battery_last_reported": {
-            "description": "Raise events for devices that haven't reported their battery level.",
+            "description": "为尚未回报电池电量的装置触发事件。",
             "fields": {
                 "days_last_reported": {
-                    "description": "Number of days since a device last reported its battery level.",
-                    "name": "Days"
+                    "description": "装置最后回报电池电量的天数。",
+                    "name": "天数"
                 }
             },
-            "name": "Check battery last reported"
+            "name": "检查电池最后回报"
         },
         "check_battery_low": {
-            "description": "Raise events for devices that have a low battery.",
-            "name": "Check battery low"
+            "description": "为低电量装置触发事件。",
+            "name": "检查电池低电量"
         }
     },
     "issues": {
         "missing_device": {
-            "title": "Orphaned Battery Note",
+            "title": "孤立的 Battery Note",
             "fix_flow": {
                 "step": {
                     "confirm": {
-                        "title": "Orphaned Battery Note",
-                        "description": "The associated device or entity no longer exists for the Battery Note entry {name}, the Battery Note should be deleted.\nSelect **Submit** to delete this Battery Note."
+                        "title": "孤立的 Battery Note",
+                        "description": "Battery Note 项目 {name} 的关联装置或实体已不存在，应删除此 Battery Note。\n选择**提交**以删除此 Battery Note。"
                     }
                 }
             }
