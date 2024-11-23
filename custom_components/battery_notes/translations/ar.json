@@ -4,18 +4,18 @@
             "user": {
                 "description": "If you need help with the configuration have a look here: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
-                    "association_type": "Association type"
+                    "association_type": "نوع الجمعية"
                 },
                 "menu_options": {
-                    "device": "Device (recommended)",
-                    "entity": "Entity"
+                    "device": "الجهاز (مستحسن)",
+                    "entity": "كيان"
                 },
                 "title": "Choose your association type"
             },
             "device": {
                 "data": {
-                    "device_id": "Device",
-                    "name": "Name"
+                    "device_id": "جهاز",
+                    "name": "اسم"
                 },
                 "data_description": {
                     "name": "Leaving blank will take the name from the source device"
@@ -23,8 +23,8 @@
             },
             "entity": {
                 "data": {
-                    "source_entity_id": "Entity",
-                    "name": "Name"
+                    "source_entity_id": "كيان",
+                    "name": "اسم"
                 },
                 "data_description": {
                     "name": "Leaving blank will take the name from the source entity"
@@ -33,8 +33,8 @@
             "battery": {
                 "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
                 "data": {
-                    "battery_type": "Battery type",
-                    "battery_quantity": "Battery quantity",
+                    "battery_type": "نوع البطارية",
+                    "battery_quantity": "كمية البطارية",
                     "battery_low_threshold": "Battery low threshold",
                     "battery_low_template": "Battery low template"
                 },
@@ -174,10 +174,10 @@
             "fields": {
                 "days_last_reported": {
                     "description": "Number of days since a device last reported its battery level.",
-                    "name": "Days"
+                    "name": "ايام"
                 }
             },
-            "name": "Check battery last reported"
+            "name": "تحقق من آخر تقرير للبطارية"
         },
         "check_battery_low": {
             "description": "Raise events for devices that have a low battery.",
