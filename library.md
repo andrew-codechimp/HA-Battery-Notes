@@ -1,4 +1,4 @@
-## 1304 Devices in library
+## 1305 Devices in library
 
 This file is auto generated, do not modify
 
@@ -301,6 +301,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |ECOWITT                                         |GW1101                                                                     |2× AA                     |                   |                                      |
 |Ecowitt                                         |GW1200                                                                     |MANUAL                    |                   |                                      |
 |Ecowitt                                         |GW2000A                                                                    |MANUAL                    |                   |                                      |
+|Ecowitt                                         |GW2001                                                                     |MANUAL                    |                   |                                      |
 |ECOWITT                                         |WH51                                                                       |AA                        |                   |                                      |
 |ECOWITT                                         |WN34L                                                                      |AA                        |                   |                                      |
 |Elexa Consumer Products Inc.                    |DMMS1                                                                      |CR123A                    |                   |                                      |
