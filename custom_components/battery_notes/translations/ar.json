@@ -2,15 +2,15 @@
     "config": {
         "step": {
             "user": {
-                "description": "If you need help with the configuration have a look here: https://andrew-codechimp.github.io/HA-Battery-Notes/",
+                "description": "إذا كنت بحاجة إلى مساعدة في التكوين، يمكنك الاطلاع على هذا الرابط: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
-                    "association_type": "نوع الجمعية"
+                    "association_type": "نوع الارتباط"
                 },
                 "menu_options": {
                     "device": "الجهاز (مستحسن)",
                     "entity": "كيان"
                 },
-                "title": "Choose your association type"
+                "title": "اختر نوع ارتباطك"
             },
             "device": {
                 "data": {
@@ -18,7 +18,7 @@
                     "name": "اسم"
                 },
                 "data_description": {
-                    "name": "Leaving blank will take the name from the source device"
+                    "name": "اتركه فارغًا سيأخذ الاسم من الجهاز المصدر."
                 }
             },
             "entity": {
@@ -27,171 +27,171 @@
                     "name": "اسم"
                 },
                 "data_description": {
-                    "name": "Leaving blank will take the name from the source entity"
+                    "name": "اتركه فارغًا سيأخذ الاسم من الكيان المصدر."
                 }
             },
             "battery": {
-                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
+                "description": "الصانع: {manufacturer}\nالطراز: {model}\nمعرف الطراز: {model_id}\nإصدار الجهاز: {hw_version}",
                 "data": {
                     "battery_type": "نوع البطارية",
-                    "battery_quantity": "كمية البطارية",
-                    "battery_low_threshold": "Battery low threshold",
-                    "battery_low_template": "Battery low template"
+                    "battery_quantity": "كَمّيَّة البطارية",
+                    "battery_low_threshold": "عتبة البطارية المنخفضة",
+                    "battery_low_template": "قالب البطارية المنخفضة"
                 },
                 "data_description": {
-                    "battery_low_threshold": "0 will use the global default threshold",
-                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels"
+                    "battery_low_threshold": "الصفر سيستخدم العتبة الافتراضية العالمية.",
+                    "battery_low_template": "القالب لتحديد إذا كانت البطارية منخفضة، يجب أن يُرجع \"صحيح\" إذا كانت منخفضة.\nمطلوب فقط للمستويات غير القياسية للبطارية."
                 }
             },
             "manual": {
-                "description": "This device is marked in the library as manual, variants use different battery types so it cannot be set in the library.\nThe next step will allow you to set your battery type but please do not submit a device request.",
-                "title": "Device manual configuration"
+                "description": "تم تحديد هذا الجهاز في المكتبة كجهاز يدوي، حيث تستخدم الإصدارات المختلفة أنواع بطاريات مختلفة ولا يمكن تعيينها في المكتبة.\nالخطوة التالية ستتيح لك تحديد نوع البطارية الخاص بك، ولكن يُرجى عدم تقديم طلب جهاز.",
+                "title": "التكوين اليدوي للجهاز\n\n\n\n"
             }
         },
         "abort": {
-            "already_configured": "Device is already configured"
+            "already_configured": "تم تكوين الجهاز بالفعل."
         },
         "error": {
-            "unknown": "Unknown error occurred.",
-            "unconfigurable_entity": "It is not possible to add this entity to Battery Notes."
+            "unknown": "حدث خطأ غير معروف.",
+            "unconfigurable_entity": "لا يمكن إضافة هذا الكيان إلى ملاحظات البطارية."
         }
     },
     "options": {
         "step": {
             "init": {
-                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
+                "description": "الصانع: {manufacturer}\nالطراز: {model}\nمعرف الطراز: {model_id}\nإصدار الجهاز: {hw_version}",
                 "data": {
-                    "name": "Name",
-                    "battery_type": "Battery type",
-                    "battery_quantity": "Battery quantity",
-                    "battery_low_threshold": "Battery low threshold",
-                    "battery_low_template": "Battery low template"
+                    "name": "اسم",
+                    "battery_type": "نوع البطارية",
+                    "battery_quantity": "كَمَيَّة البطارية",
+                    "battery_low_threshold": "عتبة البطارية المنخفضة",
+                    "battery_low_template": "قالب البطارية المنخفضة"
                 },
                 "data_description": {
-                    "name": "Leaving blank will take the name from the source device",
-                    "battery_low_threshold": "0 will use the global default threshold",
-                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels"
+                    "name": "تركه فارغًا سيأخذ الاسم من الجهاز المصدر.",
+                    "battery_low_threshold": "الصفر سيستخدم العتبة الافتراضية العالمية.",
+                    "battery_low_template": "القالب لتحديد إذا كانت البطارية منخفضة، يجب أن يُرجع \"صحيح\" إذا كانت منخفضة.\nمطلوب فقط للمستويات غير القياسية للبطارية."
                 }
             }
         },
         "error": {
-            "orphaned_battery_note": "The associated device or entity no longer exists for this Battery Note.",
-            "unknown": "Unknown error occurred."
+            "orphaned_battery_note": "الجهاز أو الكيان المرتبط لم يعد موجودًا لهذه الملاحظة الخاصة بالبطارية.",
+            "unknown": "حدث خطأ غير معروف."
         }
     },
     "entity": {
         "binary_sensor": {
             "battery_low": {
-                "name": "{device_name}Battery low",
+                "name": "بطارية منخفضة لـ {device_name}",
                 "state_attributes": {
                     "battery_low_threshold": {
-                        "name": "Battery low threshold"
+                        "name": "عتبة البطارية المنخفضة"
                     }
                 }
             }
         },
         "button": {
             "battery_replaced": {
-                "name": "{device_name}Battery replaced"
+                "name": "تم استبدال البطارية لـ {device_name}"
             }
         },
         "sensor": {
             "battery_plus": {
-                "name": "{device_name}Battery+",
+                "name": "بطارية {device_name}+",
                 "state_attributes": {
                     "battery_type": {
-                        "name": "Battery type"
+                        "name": "نوع البطارية"
                     },
                     "battery_quantity": {
-                        "name": "Battery quantity"
+                        "name": "كمية البطارية"
                     },
                     "battery_type_and_quantity": {
-                        "name": "Battery type and quantity"
+                        "name": "نوع وكمية البطارية"
                     },
                     "battery_last_replaced": {
-                        "name": "Battery last replaced"
+                        "name": "آخر استبدال للبطارية"
                     },
                     "battery_low": {
-                        "name": "Battery low"
+                        "name": "بطارية منخفضة"
                     },
                     "battery_low_threshold": {
-                        "name": "Battery low threshold"
+                        "name": "عتبة البطارية المنخفضة"
                     },
                     "battery_last_reported": {
-                        "name": "Battery last reported"
+                        "name": "آخر تقرير للبطارية"
                     },
                     "battery_last_reported_level": {
-                        "name": "Battery last reported level"
+                        "name": "آخر مستوى تم الإبلاغ عنه للبطارية"
                     },
                     "source_entity_id": {
-                        "name": "Source Entity Id"
+                        "name": "معرف الكيان المصدر"
                     },
                     "device_id": {
-                        "name": "Device Id"
+                        "name": "معرف الجهاز"
                     },
                     "device_name": {
-                        "name": "Device name"
+                        "name": "اسم الجهاز"
                     }
                 }
             },
             "battery_type": {
-                "name": "{device_name}Battery type",
+                "name": "نوع البطارية لـ {device_name}",
                 "state_attributes": {
                     "battery_type": {
-                        "name": "Battery type"
+                        "name": "نوع البطارية"
                     },
                     "battery_quantity": {
-                        "name": "Battery quantity"
+                        "name": "كمية البطارية"
                     }
                 }
             },
             "battery_last_replaced": {
-                "name": "{device_name}Battery last replaced"
+                "name": "آخر استبدال للبطارية لـ {device_name}"
             }
         }
     },
     "services": {
         "set_battery_replaced": {
-            "description": "Set the battery last replaced.",
+            "description": "حدد تاريخ آخر استبدال للبطارية.",
             "fields": {
                 "device_id": {
-                    "description": "Device that has had its battery replaced.",
-                    "name": "Device"
+                    "description": "الجهاز الذي تم استبدال بطاريته.",
+                    "name": "جهاز"
                 },
                 "entity_id": {
-                    "description": "Entity that has had its battery replaced (only used for entity associated battery notes).",
-                    "name": "Entity"
+                    "description": "الكيان الذي تم استبدال بطاريته (يُستخدم فقط لملاحظات البطارية المرتبطة بالكيانات).",
+                    "name": "الكيان"
                 },
                 "datetime_replaced": {
-                    "description": "Date replaced.",
-                    "name": "Date"
+                    "description": "تاريخ الاستبدال",
+                    "name": "تاريخ"
                 }
             },
-            "name": "Set battery replaced"
+            "name": "حدد تاريخ استبدال البطارية"
         },
         "check_battery_last_reported": {
-            "description": "Raise events for devices that haven't reported their battery level.",
+            "description": "رفع الأحداث للأجهزة التي لم تبلغ عن مستوى بطاريتها.",
             "fields": {
                 "days_last_reported": {
-                    "description": "Number of days since a device last reported its battery level.",
-                    "name": "ايام"
+                    "description": "عدد الأيام منذ أن أبلغ الجهاز عن مستوى بطاريته آخر مرة.",
+                    "name": "أيام"
                 }
             },
             "name": "تحقق من آخر تقرير للبطارية"
         },
         "check_battery_low": {
-            "description": "Raise events for devices that have a low battery.",
-            "name": "Check battery low"
+            "description": "رفع الأحداث للأجهزة التي لديها بطارية منخفضة.",
+            "name": "التحقق من البطارية منخفضة"
         }
     },
     "issues": {
         "missing_device": {
-            "title": "Orphaned Battery Note",
+            "title": "ملاحظة بطارية يتيمة",
             "fix_flow": {
                 "step": {
                     "confirm": {
-                        "title": "Orphaned Battery Note",
-                        "description": "The associated device or entity no longer exists for the Battery Note entry {name}, the Battery Note should be deleted.\nSelect **Submit** to delete this Battery Note."
+                        "title": "ملاحظة بطارية يتيمة",
+                        "description": "الجهاز أو الكيان المرتبط لم يعد موجودًا في إدخال ملاحظة البطارية {name}، يجب حذف ملاحظة البطارية.\nاختر إرسال لحذف ملاحظة البطارية هذه."
                     }
                 }
             }
