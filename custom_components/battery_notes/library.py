@@ -34,7 +34,7 @@ LIBRARY_MISSING: Final[str] = "##MISSING##"
 class Library:  # pylint: disable=too-few-public-methods
     """Hold all known battery types."""
 
-    _devices = []
+    _devices: list = []
 
     def __init__(self, hass: HomeAssistant) -> None:
         """Init."""

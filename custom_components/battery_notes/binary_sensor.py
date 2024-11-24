@@ -77,7 +77,7 @@ from .entity import (
 _LOGGER = logging.getLogger(__name__)
 
 
-@dataclass
+@dataclass(frozen=True, kw_only=True)
 class BatteryNotesBinarySensorEntityDescription(
     BatteryNotesEntityDescription,
     BinarySensorEntityDescription,
@@ -123,7 +123,7 @@ async def async_setup_entry(
 
     device_id = config_entry.data.get(CONF_DEVICE_ID)
 
-    async def async_registry_updated(event: Event) -> None:
+    async def async_registry_updated(event: Event[er.EventEntityRegistryUpdatedData]) -> None:
         """Handle entity registry update."""
         data = event.data
         if data["action"] == "remove":
@@ -176,8 +176,6 @@ async def async_setup_entry(
         entity_category=EntityCategory.DIAGNOSTIC,
         device_class=BinarySensorDeviceClass.BATTERY,
     )
-
-    device: BatteryNotesDevice = hass.data[DOMAIN][DATA].devices[config_entry.entry_id]
 
     if coordinator.battery_low_template is not None:
         async_add_entities(
@@ -314,6 +312,7 @@ class BatteryNotesBatteryLowTemplateSensor(
     """Represents a low battery threshold binary sensor."""
 
     _attr_should_poll = False
+    _self_ref_update_count = 0
 
     def __init__(
         self,
@@ -587,6 +586,8 @@ class BatteryNotesBatteryLowSensor(
         """Handle updated data from the coordinator."""
 
         if (
+            not self.coordinator.wrapped_battery
+            or
             (
                 wrapped_battery_state := self.hass.states.get(
                     self.coordinator.wrapped_battery.entity_id
@@ -616,7 +617,7 @@ class BatteryNotesBatteryLowSensor(
         )
 
     @property
-    def extra_state_attributes(self) -> dict[str, str] | None:
+    def extra_state_attributes(self) -> dict[str, Any] | None:
         """Return the state attributes of battery low."""
 
         attrs = {

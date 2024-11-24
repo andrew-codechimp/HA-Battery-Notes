@@ -136,7 +136,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     hass.data[DOMAIN][DATA_LIBRARY_UPDATER] = library_updater
 
     if domain_config.get(CONF_ENABLE_AUTODISCOVERY):
-        discovery_manager = DiscoveryManager(hass, config)
+        discovery_manager = DiscoveryManager(hass, domain_config)
         await discovery_manager.start_discovery()
     else:
         _LOGGER.debug("Auto discovery disabled")
@@ -181,7 +181,7 @@ async def async_remove_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> 
         return
 
     device: BatteryNotesDevice = hass.data[DOMAIN][DATA].devices[config_entry.entry_id]
-    if not device:
+    if not device or not device.coordinator.device_id:
         return
 
     data = {ATTR_REMOVE: True}
@@ -221,7 +221,7 @@ async def async_migrate_entry(hass: HomeAssistant, config_entry: ConfigEntry):
         # Version 1 had a single config for qty & type, split them
         _LOGGER.debug("Migrating config entry from version %s", config_entry.version)
 
-        matches: re.Match = re.search(
+        matches = re.search(
             r"^(\d+)(?=x)(?:x\s)(\w+$)|([\s\S]+)", config_entry.data[CONF_BATTERY_TYPE]
         )
         if matches:

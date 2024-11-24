@@ -48,25 +48,25 @@ _LOGGER = logging.getLogger(__name__)
 class BatteryNotesCoordinator(DataUpdateCoordinator):
     """Define an object to hold Battery Notes device."""
 
-    device_id: str = None
-    source_entity_id: str = None
+    device_id: str | None = None
+    source_entity_id: str | None = None
     device_name: str
     battery_type: str
     battery_quantity: int
     battery_low_threshold: int
     battery_low_template: str | None
-    wrapped_battery: RegistryEntry
-    _current_battery_level: str = None
+    wrapped_battery: RegistryEntry | None = None
+    _current_battery_level: str | None = None
     enable_replaced: bool = True
     _round_battery: bool = False
-    _previous_battery_low: bool = None
-    _previous_battery_level: str = None
+    _previous_battery_low: bool | None = None
+    _previous_battery_level: str | None = None
     _battery_low_template_state: bool = False
-    _previous_battery_low_template_state: bool = None
-    _source_entity_name: str = None
+    _previous_battery_low_template_state: bool | None = None
+    _source_entity_name: str | None = None
 
     def __init__(
-        self, hass, store: BatteryNotesStorage, wrapped_battery: RegistryEntry
+        self, hass, store: BatteryNotesStorage, wrapped_battery: RegistryEntry | None
     ):
         """Initialize."""
         self.store = store
@@ -242,13 +242,13 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
         return None
 
     @last_replaced.setter
-    def last_replaced(self, value):
+    def last_replaced(self, value: datetime):
         """Set the last replaced datetime and store it."""
         entry = {LAST_REPLACED: value}
 
         if self.source_entity_id:
             self.async_update_entity_config(entity_id=self.source_entity_id, data=entry)
-        else:
+        elif self.device_id:
             self.async_update_device_config(device_id=self.device_id, data=entry)
 
     @property

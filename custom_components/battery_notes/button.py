@@ -58,7 +58,7 @@ from .entity import (
 _LOGGER = logging.getLogger(__name__)
 
 
-@dataclass
+@dataclass(frozen=True, kw_only=True)
 class BatteryNotesButtonEntityDescription(
     BatteryNotesEntityDescription,
     ButtonEntityDescription,
@@ -104,7 +104,7 @@ async def async_setup_entry(
 
     device_id = config_entry.data.get(CONF_DEVICE_ID, None)
 
-    async def async_registry_updated(event: Event) -> None:
+    async def async_registry_updated(event: Event[er.EventEntityRegistryUpdatedData]) -> None:
         """Handle entity registry update."""
         data = event.data
         if data["action"] == "remove":

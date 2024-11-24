@@ -515,11 +515,12 @@ class OptionsFlowHandler(OptionsFlow):
                 errors["base"] = "orphaned_battery_note"
                 return errors
 
+        title: Any = ""
         if CONF_NAME in user_input:
             title = user_input.get(CONF_NAME)
-        elif source_entity_id:
+        elif source_entity_id and entity_entry:
             title = entity_entry.name or entity_entry.original_name
-        else:
+        elif device_entry:
             title = device_entry.name_by_user or device_entry.name
 
         self._process_user_input(user_input, schema)

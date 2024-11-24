@@ -60,12 +60,12 @@ class LibraryUpdater:
         )
 
     @callback
-    async def timer_update(self, time):
+    async def timer_update(self, now: datetime):
         """Need to update the library."""
         if await self.time_to_update_library() is False:
             return
 
-        await self.get_library_updates(time)
+        await self.get_library_updates(now)
 
         if DOMAIN_CONFIG not in self.hass.data[DOMAIN]:
             return
@@ -73,17 +73,17 @@ class LibraryUpdater:
         domain_config: dict = self.hass.data[DOMAIN][DOMAIN_CONFIG]
 
         if domain_config.get(CONF_ENABLE_AUTODISCOVERY):
-            discovery_manager = DiscoveryManager(self.hass, self.hass.config)
+            discovery_manager = DiscoveryManager(self.hass, domain_config)
             await discovery_manager.start_discovery()
         else:
             _LOGGER.debug("Auto discovery disabled")
 
     @callback
-    async def get_library_updates(self, time):
+    async def get_library_updates(self, now: datetime):
         # pylint: disable=unused-argument
         """Make a call to GitHub to get the latest library.json."""
 
-        def _update_library_json(library_file: str, content: str) -> dict[str, Any]:
+        def _update_library_json(library_file: str, content: str) -> None:
             with open(library_file, mode="w", encoding="utf-8") as file:
                 file.write(content)
                 file.close()
@@ -160,8 +160,8 @@ class LibraryUpdaterClient:
         self._library_url = library_url
         self._session = session
 
-    async def async_get_data(self) -> any:
-        """Get data from the hosted library."""
+    async def async_get_data(self) -> Any:
+        """Get data from the API."""
         _LOGGER.debug(f"Updating library from {self._library_url}")
         return await self._api_wrapper(method="get", url=self._library_url)
 
@@ -169,7 +169,7 @@ class LibraryUpdaterClient:
         self,
         method: str,
         url: str,
-    ) -> any:
+    ) -> Any:
         """Get information from the API."""
         try:
             async with async_timeout.timeout(10):

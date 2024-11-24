@@ -2,21 +2,26 @@
 
 from __future__ import annotations
 
+from typing import cast
+
 import voluptuous as vol
 from homeassistant import data_entry_flow
 from homeassistant.components.repairs import RepairsFlow
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers import issue_registry as ir
 
+REQUIRED_KEYS = ("entry_id", "device_id", "source_entity_id")
 
 class MissingDeviceRepairFlow(RepairsFlow):
     """Handler for an issue fixing flow."""
 
     def __init__(self, data: dict[str, str | int | float | None] | None) -> None:
         """Initialize."""
-        self.entry_id = data["entry_id"]
-        self.device_id = data["device_id"]
-        self.source_entity_id = data["source_entity_id"]
+        if not data or any(key not in data for key in REQUIRED_KEYS):
+            raise ValueError("Missing data")
+        self.entry_id = cast(str, data["entry_id"])
+        self.device_id = cast(str, data["device_id"])
+        self.source_entity_id = cast(str, data["source_entity_id"])
 
     async def async_step_init(
         self, user_input: dict[str, str] | None = None

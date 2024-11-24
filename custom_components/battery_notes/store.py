@@ -6,7 +6,7 @@ import logging
 from collections import OrderedDict
 from collections.abc import MutableMapping
 from datetime import datetime
-from typing import cast
+from typing import Any, cast
 
 import attr
 from homeassistant.core import HomeAssistant, callback
@@ -121,7 +121,7 @@ class BatteryNotesStorage:
         self.devices = {}
 
     @callback
-    def async_get_device(self, device_id) -> DeviceEntry:
+    def async_get_device(self, device_id)-> dict[str, Any] | None:
         """Get an existing DeviceEntry by id."""
         res = self.devices.get(device_id)
         return attr.asdict(res) if res else None
@@ -135,17 +135,17 @@ class BatteryNotesStorage:
         return res
 
     @callback
-    def async_create_device(self, device_id: str, data: dict) -> DeviceEntry:
+    def async_create_device(self, device_id: str, data: dict) -> DeviceEntry | None:
         """Create a new DeviceEntry."""
         if device_id in self.devices:
-            return False
+            return None
         new_device = DeviceEntry(**data, device_id=device_id)
         self.devices[device_id] = new_device
         self.async_schedule_save()
         return new_device
 
     @callback
-    def async_delete_device(self, device_id: str) -> None:
+    def async_delete_device(self, device_id: str) -> bool:
         """Delete DeviceEntry."""
         if device_id in self.devices:
             del self.devices[device_id]
@@ -162,31 +162,31 @@ class BatteryNotesStorage:
         return new
 
     @callback
-    def async_get_entity(self, entity_id) -> DeviceEntry:
+    def async_get_entity(self, entity_id) -> dict[str, Any] | None:
         """Get an existing EntityEntry by id."""
         res = self.entities.get(entity_id)
         return attr.asdict(res) if res else None
 
     @callback
     def async_get_entities(self):
-        """Get an existing EntityEntry by id."""
+        """Get all entities."""
         res = {}
         for key, val in self.entities.items():
             res[key] = attr.asdict(val)
         return res
 
     @callback
-    def async_create_entity(self, entity_id: str, data: dict) -> EntityEntry:
+    def async_create_entity(self, entity_id: str, data: dict) -> EntityEntry | None:
         """Create a new EntityEntry."""
         if entity_id in self.entities:
-            return False
+            return None
         new_entity = EntityEntry(**data, entity_id=entity_id)
         self.entities[entity_id] = new_entity
         self.async_schedule_save()
         return new_entity
 
     @callback
-    def async_delete_entity(self, entity_id: str) -> None:
+    def async_delete_entity(self, entity_id: str) -> bool:
         """Delete EntityEntry."""
         if entity_id in self.entities:
             del self.entities[entity_id]

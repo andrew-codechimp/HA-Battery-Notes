@@ -2,6 +2,7 @@
 
 import logging
 from datetime import datetime
+from typing import cast
 
 from homeassistant.components.sensor import DOMAIN as SENSOR_DOMAIN
 from homeassistant.components.sensor import (
@@ -41,11 +42,11 @@ _LOGGER = logging.getLogger(__name__)
 class BatteryNotesDevice:
     """Manages a Battery Note device."""
 
-    config: ConfigEntry = None
-    store: BatteryNotesStorage = None
-    coordinator: BatteryNotesCoordinator = None
-    wrapped_battery: RegistryEntry = None
-    device_name: str = None
+    config: ConfigEntry
+    store: BatteryNotesStorage
+    coordinator: BatteryNotesCoordinator
+    wrapped_battery: RegistryEntry | None = None
+    device_name: str | None = None
 
     def __init__(self, hass: HomeAssistant, config: ConfigEntry) -> None:
         """Initialize the device."""
@@ -205,9 +206,9 @@ class BatteryNotesDevice:
         self.coordinator.device_id = device_id
         self.coordinator.source_entity_id = source_entity_id
         self.coordinator.device_name = self.device_name
-        self.coordinator.battery_type = config.data.get(CONF_BATTERY_TYPE)
+        self.coordinator.battery_type = cast(str, config.data.get(CONF_BATTERY_TYPE))
         try:
-            self.coordinator.battery_quantity = int(
+            self.coordinator.battery_quantity = cast(int,
                 config.data.get(CONF_BATTERY_QUANTITY)
             )
         except ValueError:
@@ -255,7 +256,7 @@ class BatteryNotesDevice:
                 last_replaced,
             )
 
-            self.coordinator.last_replaced = last_replaced
+            self.coordinator.last_replaced = datetime.fromisoformat(last_replaced) if last_replaced else None
 
         # If there is not a last_reported set to now
         if not self.coordinator.last_reported:
