@@ -162,7 +162,8 @@ class LibraryUpdaterClient:
 
     async def async_get_data(self) -> Any:
         """Get data from the API."""
-        return await self._api_wrapper(method="get", url=CONF_LIBRARY_URL)
+        _LOGGER.debug(f"Updating library from {self._library_url}")
+        return await self._api_wrapper(method="get", url=self._library_url)
 
     async def _api_wrapper(
         self,
