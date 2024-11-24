@@ -7123,8 +7123,7 @@
         {
             "manufacturer": "Ecowitt",
             "model": "GW2001",
-            "battery_type": "AA",
-            "battery_quantity": 2
+            "battery_type": "MANUAL"
         }
     ]
 }
