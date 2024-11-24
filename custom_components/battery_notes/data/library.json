@@ -2788,6 +2788,11 @@
         },
         {
             "manufacturer": "Hunter Douglas",
+            "model": "Duette by Hunter Douglas",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Hunter Douglas",
             "model": "Vertical Slats, Left Stack",
             "battery_type": "Rechargeable"
         },
@@ -7124,11 +7129,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Hunter Douglas",
-            "model": "Duette by Hunter Douglas",
-            "battery_type": "Rechargeable"
         }
     ]
 }
