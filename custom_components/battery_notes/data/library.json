@@ -7143,6 +7143,12 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Nedis",
+            "model": "Nedis Smart Climate Sensor Zigbee 3.0 (ZBSC30WT)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
