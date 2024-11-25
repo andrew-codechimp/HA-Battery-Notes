@@ -26,7 +26,7 @@ See how to use this entity in the [community contributions](./community.md)
 | `source_entity_id` | `string` | The entity_id the battery note is associated with |
 
 ### Adding a battery percentage
-If your device does not have a battery percentage but does have a battery voltage or other indicative sensor you can create a helper to add a calculated percentage and Battery Notes will create the Battery+ sensor from this by creating the sensor as follows.  
+If your device does not have a battery percentage but does have a battery voltage or other indicative sensor you can create a helper to add a calculated percentage. Battery Notes will create the Battery+ sensor from this. You can create the helper as follows   
 
 - Within Settings > Devices & Services > Helpers press Create Helper
 - Select a Template helper
@@ -40,14 +40,13 @@ Example of low sensor, returning either 100% or 10%
 - Unit of measurement should be %
 - Device class should be battery
 - State class should be measurement
-- Device should be the device you want the template associated with, 
+- Device should be the device you want the template associated with 
+- Save the helper and reload the Battery Notes integration, after which you will have a Battery+ sensor for this device
 
 !!! warning
 
     Battery Notes will not find this template sensor and add a Battery+ sensor without being associated with the device.
 
-
-Once you have created this helper and reloaded the battery notes integration you will have a Battery+ sensor for this device.  
 
 ## Battery Type
 `sensor.{{device_name}}_battery_type`
