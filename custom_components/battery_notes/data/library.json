@@ -1595,14 +1595,12 @@
         {
             "manufacturer": "Ecowitt",
             "model": "GW1100A",
-            "battery_type": "AA",
-            "battery_quantity": 2
+            "battery_type": "MANUAL"
         },
         {
             "manufacturer": "ECOWITT",
             "model": "GW1101",
-            "battery_type": "AA",
-            "battery_quantity": 2
+            "battery_type": "MANUAL"
         },
         {
             "manufacturer": "Ecowitt",
