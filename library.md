@@ -1,4 +1,4 @@
-## 1310 Devices in library
+## 1311 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1186,6 +1186,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Woox                                            |Smart smoke alarm (R7049)                                                  |2× AAA                    |                   |                                      |
 |WyzeLabs                                        |WVOD1                                                                      |Rechargeable              |                   |                                      |
 |WyzeLabs                                        |YD.LO1                                                                     |4× AA                     |                   |                                      |
+|X-Sense                                         |XC04-WX                                                                    |CR123A                    |                   |                                      |
 |X-Sense                                         |XS01-M                                                                     |CR123A                    |                   |                                      |
 |Xiaomi                                          |Aqara curtain driver E1 (ZNCLBL01LM)                                       |Rechargeable              |                   |                                      |
 |Xiaomi                                          |Aqara D1 double key wireless wall switch (WXKG07LM)                        |CR2032                    |                   |                                      |

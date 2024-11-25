@@ -6457,6 +6457,11 @@
         },
         {
             "manufacturer": "X-Sense",
+            "model": "XC04-WX",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "X-Sense",
             "model": "XS01-M",
             "battery_type": "CR123A"
         },
@@ -7149,11 +7154,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "X-Sense",
-            "model": "XC04-WX",
-            "battery_type": "CR123A"
         }
     ]
 }
