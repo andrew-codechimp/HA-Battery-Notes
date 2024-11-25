@@ -5,7 +5,7 @@ You'll get the following entities for each device you have added to battery note
 ## Battery+
 `sensor.{{device_name}}_battery_plus`
 
-An enhanced battery sensor that duplicates the normal battery but with additional attributes specific to battery notes.  
+An enhanced battery sensor that duplicates the normal battery but with additional attributes specific to battery notes, Battery+ sensors are only added device type battery notes that have a battery percentage sensor.  
 Use the battery+ sensor on dashboards with secondary information fields/templates etc to display battery notes specific details along with the battery level.  
 The original battery can optionally be hidden by adding a [configuration setting](./configuration.md).
 
@@ -24,6 +24,25 @@ See how to use this entity in the [community contributions](./community.md)
 | `device_id` | `string` | The device_id of the device |
 | `device_name` | `string` | The name of the device |
 | `source_entity_id` | `string` | The entity_id the battery note is associated with |
+
+### Adding a battery percentage
+If your device does not have a battery percentage but does have a battery voltage or other indicative sensor you can create a helper to add a calculated percentage and Battery Notes will create the Battery+ sensor from this by creating the sensor as follows.  
+
+- Within Settings > Devices & Services > Helpers press Create Helper
+- Select a Template helper
+- Select Template a sensor
+- Give the template a name of MyDevice Battery (ensuring MyDevice exactly matches the name of the device will drop the device name from the Device sensors view and just show battery)
+- The state template should reference the sensor and return a percentage  
+Example of voltage sensor with a maximum capacity of 3 volts   
+```{{ (states('sensor.my_sensor_voltage')|float(0) / 3 * 100) | round(0) }}```  
+Example of low sensor, returning either 100% or 10%  
+```{{ 10 if states('binary_sensor.my_sensor_low')  == true else 100 }}```  
+- Unit of measurement should be %
+- Device class should be battery
+- State class should be measurement
+- Device should be the device you want the template associated with
+
+Once you have created this helper and restarted the battery notes integration you will have a Battery+ sensor for this device.  
 
 ## Battery Type
 `sensor.{{device_name}}_battery_type`
