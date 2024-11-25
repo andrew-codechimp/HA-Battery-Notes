@@ -259,6 +259,11 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "_TZ3000_saiqcn0y",
+            "model": "TS0201",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "_TZ3000_sj7jbgks",
             "model": "TS0043",
             "battery_type": "CR2032"
@@ -7129,11 +7134,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "_TZ3000_saiqcn0y",
-            "model": "TS0201",
-            "battery_type": "CR2450"
         }
     ]
 }
