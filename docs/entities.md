@@ -40,13 +40,10 @@ Example of low sensor, returning either 100% or 10%
 - Unit of measurement should be %
 - Device class should be battery
 - State class should be measurement
-- Device should be the device you want the template associated with 
-- Save the helper and reload the Battery Notes integration, after which you will have a Battery+ sensor for this device
-
-!!! warning
-
-    Battery Notes will not find this template sensor and add a Battery+ sensor without being associated with the device.
-
+- Device should be the device you want the template associated with (this is important otherwise Battery Notes will not find the helper)
+- Save the helper 
+- Within Settings > Devices & Services > Integrations > Battery Notes find the device you added the template to and click on the 3 dots and select Reload
+- You will now have a Battery+ sensor for this device
 
 ## Battery Type
 `sensor.{{device_name}}_battery_type`
