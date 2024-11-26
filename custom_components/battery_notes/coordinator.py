@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import logging
 from datetime import datetime
+from typing import cast
 
 from homeassistant.const import (
     STATE_UNAVAILABLE,
@@ -45,7 +46,7 @@ from .store import BatteryNotesStorage
 _LOGGER = logging.getLogger(__name__)
 
 
-class BatteryNotesCoordinator(DataUpdateCoordinator):
+class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
     """Define an object to hold Battery Notes device."""
 
     device_id: str | None = None
@@ -88,6 +89,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
             if self.source_entity_id:
                 entity_registry = er.async_get(self.hass)
                 registry_entry = entity_registry.async_get(self.source_entity_id)
+                assert(registry_entry)
                 self._source_entity_name = (
                     registry_entry.name or registry_entry.original_name
                 )
@@ -214,7 +216,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
 
         if self._current_battery_level not in [STATE_UNAVAILABLE, STATE_UNKNOWN]:
             self.last_reported = datetime.utcnow()
-            self.last_reported_level = self._current_battery_level
+            self.last_reported_level = cast(float, self._current_battery_level)
             self._previous_battery_low = self.battery_low
             self._previous_battery_level = self._current_battery_level
 
@@ -278,6 +280,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
         if self.source_entity_id:
             self.async_update_entity_config(entity_id=self.source_entity_id, data=entry)
         else:
+            assert(self.device_id)
             self.async_update_device_config(device_id=self.device_id, data=entry)
 
     @property
@@ -297,13 +300,14 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
         return None
 
     @last_reported_level.setter
-    def last_reported_level(self, value):
+    def last_reported_level(self, value: float):
         """Set the last reported level and store it."""
         entry = {"battery_last_reported_level": value}
 
         if self.source_entity_id:
             self.async_update_entity_config(entity_id=self.source_entity_id, data=entry)
         else:
+            assert(self.device_id)
             self.async_update_device_config(device_id=self.device_id, data=entry)
 
     @property
