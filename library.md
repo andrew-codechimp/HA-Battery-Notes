@@ -1,4 +1,4 @@
-## 1312 Devices in library
+## 1313 Devices in library
 
 This file is auto generated, do not modify
 
@@ -585,6 +585,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |iRobot                                          |i715640                                                                    |Rechargeable              |                   |                                      |
 |iRobot                                          |R675020                                                                    |Rechargeable              |                   |                                      |
 |Konke                                           |3AFE28010402000D                                                           |CR2450                    |                   |                                      |
+|Konke                                           |Temperature and humidity sensor                                            |CR2450                    |2AJZ4KPFT          |                                      |
 |Kwikset                                         |910                                                                        |4× AA                     |                   |                                      |
 |Kwikset                                         |912                                                                        |4× AA                     |                   |                                      |
 |Kwikset                                         |914                                                                        |4× AA                     |                   |                                      |
