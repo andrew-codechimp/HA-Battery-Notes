@@ -1,4 +1,4 @@
-## 1311 Devices in library
+## 1312 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1264,6 +1264,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Xiaomi                                          |Wireless remote switch (double rocker), 2018 model (WXKG02LM_rev2)         |CR2032                    |                   |                                      |
 |Xiaomi                                          |WSDCGQ01LM                                                                 |CR2032                    |                   |                                      |
 |Xiaomi                                          |WXKG13LM                                                                   |CR2032                    |                   |                                      |
+|Xiaomi                                          |XMOSB01XS                                                                  |CR2450                    |                   |                                      |
 |Xiaomi                                          |XMTZC01HM/XMTZC04HM                                                        |CR2032                    |                   |                                      |
 |Xiaomi                                          |XMTZC02HM/XMTZC05HM/NUN4049CN                                              |4× AAA                    |                   |                                      |
 |Xiaomi                                          |XMWSDJ04MMC                                                                |CR2450                    |                   |                                      |

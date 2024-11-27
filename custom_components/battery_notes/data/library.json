@@ -6862,6 +6862,11 @@
         },
         {
             "manufacturer": "Xiaomi",
+            "model": "XMOSB01XS",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Xiaomi",
             "model": "XMTZC01HM/XMTZC04HM",
             "battery_type": "CR2032"
         },
@@ -7154,11 +7159,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Xiaomi",
-            "model": "XMOSB01XS",
-            "battery_type": "CR2450"
         }
     ]
 }
