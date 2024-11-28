@@ -45,6 +45,11 @@ Example of low sensor, returning either 100% or 10%
 - Within Settings > Devices & Services > Integrations > Battery Notes find the device you added the template to and click on the 3 dots and select Reload
 - You will now have a Battery+ sensor for this device
 
+!!! info
+
+    You must create the template via a helper for it to be associated with the device.  YAML templates do not have the ability to be associated.
+
+
 ## Battery Type
 `sensor.{{device_name}}_battery_type`
 
