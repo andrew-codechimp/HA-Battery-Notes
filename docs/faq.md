@@ -13,9 +13,6 @@ It will pull the latest devices that have been merged into the main branch, if y
 * How do I remove a battery note on a device?  
 Go into the Settings -> Integrations -> Battery Notes, use the menu on the right of a device and select Delete, this will only delete the battery note, not the whole device.
 
-* Why does the device icon change?  
-Unfortunately where there are multiple integrations associated with a device Home Assistant seems to choose an icon at random, I have no control over this.
-
 * Can I edit a battery note?  
 Go into Settings -> Integrations -> Battery Notes and click Configure on the device you want to edit.
 

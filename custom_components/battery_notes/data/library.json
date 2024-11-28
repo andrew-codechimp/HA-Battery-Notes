@@ -3168,6 +3168,12 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "Konke",
+            "model": "Temperature and humidity sensor",
+            "model_id": "2AJZ4KPFT",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "Kwikset",
             "model": "910",
             "battery_type": "AA",
@@ -6859,6 +6865,11 @@
             "manufacturer": "Xiaomi",
             "model": "WXKG13LM",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "XMOSB01XS",
+            "battery_type": "CR2450"
         },
         {
             "manufacturer": "Xiaomi",
