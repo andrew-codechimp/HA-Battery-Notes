@@ -1,4 +1,4 @@
-## 1313 Devices in library
+## 1314 Devices in library
 
 This file is auto generated, do not modify
 
@@ -467,6 +467,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Govee                                           |H5072/H5075                                                                |2× AAA                    |                   |                                      |
 |Govee                                           |H5074                                                                      |CR2477                    |                   |                                      |
 |Govee                                           |H5075                                                                      |2× AAA                    |                   |                                      |
+|Govee                                           |H5100                                                                      |AAA                       |                   |                                      |
 |Govee                                           |H5101/H5102/H5177                                                          |AAA                       |                   |                                      |
 |Govee                                           |H5102                                                                      |AAA                       |                   |                                      |
 |Govee                                           |H5104                                                                      |2× AAA                    |                   |                                      |
