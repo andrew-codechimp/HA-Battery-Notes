@@ -75,7 +75,7 @@
             }
         },
         "error": {
-            "orphaned_battery_note": "The associated device or entity no longer exists for this Battery Note.",
+            "orphaned_battery_note": "Das zugeordnete Gerät für diesen Eintrag in \"Battery Notes\" ist nicht mehr verfügbar",
             "unknown": "Ein unbekannter Fehler ist aufgetreten."
         }
     },
@@ -124,7 +124,7 @@
                         "name": "Letzter gemeldeter Batteriestand"
                     },
                     "source_entity_id": {
-                        "name": ""
+                        "name": "Quellentitäts-ID"
                     },
                     "device_id": {
                         "name": "Geräte-ID"
@@ -186,12 +186,12 @@
     },
     "issues": {
         "missing_device": {
-            "title": "Orphaned Battery Note",
+            "title": "Fehlerhafter Eintrag in \"Battery Notes\"",
             "fix_flow": {
                 "step": {
                     "confirm": {
-                        "title": "Orphaned Battery Note",
-                        "description": "The associated device or entity no longer exists for the Battery Note entry {name}, the Battery Note should be deleted.\nSelect **Submit** to delete this Battery Note."
+                        "title": "Fehlerhafter Eintrag in \"Battery Notes\"",
+                        "description": "Das zugehörige Gerät oder die Entität des Eintrags {name} in \"Battery Notes\" ist nicht mehr vorhanden, der Eintrag sollte gelöscht werden.\nWählen Sie **Absenden** um diesen Eintrag zu löschen."
                     }
                 }
             }
