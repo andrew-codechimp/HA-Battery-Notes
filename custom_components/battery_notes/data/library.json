@@ -2817,7 +2817,7 @@
         {
             "manufacturer": "Husqvarna AB",
             "model": "TBD",
-            "battery_type": "9V"
+            "battery_type": "PP3"
         },
         {
             "manufacturer": "iCasa",
@@ -4886,7 +4886,7 @@
         {
             "manufacturer": "SmartLabs, Inc",
             "model": "2844-222 (0x10, 0x16)",
-            "battery_type": "9V"
+            "battery_type": "PP3"
         },
         {
             "manufacturer": "SmartLabs, Inc",
