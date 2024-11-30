@@ -52,17 +52,11 @@ class LibraryUpdater:
         else:
             url = DEFAULT_LIBRARY_URL
 
-        self._client = LibraryUpdaterClient(
-            library_url=url, session=async_get_clientsession(hass)
-        )
+        self._client = LibraryUpdaterClient(library_url=url, session=async_get_clientsession(hass))
 
         # Fire the library check every 24 hours from now
         async_track_utc_time_change(
-            hass,
-            self.timer_update,
-            hour=datetime.now().hour,
-            minute=datetime.now().minute,
-            second=1,
+            hass, self.timer_update, hour=datetime.now().hour, minute=1, second=1
         )
 
     @callback
@@ -116,7 +110,9 @@ class LibraryUpdater:
                 _LOGGER.error("Library file is invalid, not updated")
 
         except LibraryUpdaterClientError:
-            _LOGGER.warning("Unable to update library, will retry later.")
+            _LOGGER.warning(
+                "Unable to update library, will retry later."
+            )
 
     async def time_to_update_library(self) -> bool:
         """Check when last updated and if OK to do a new library update."""
