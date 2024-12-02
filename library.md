@@ -1,4 +1,4 @@
-## 1314 Devices in library
+## 1315 Devices in library
 
 This file is auto generated, do not modify
 
@@ -900,6 +900,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Simplisafe                                      |Smoke                                                                      |CR123A                    |                   |                                      |
 |Sinopé                                          |LM4110ZB                                                                   |3× AA                     |                   |                                      |
 |Siterwell                                       |Radiator valve with thermostat (GS361A-H04)                                |2× AA                     |                   |                                      |
+|SMaBiT (Bitron Video)                           |4 button Zigbee remote control (AV2010/23)                                 |CR2032                    |                   |                                      |
 |SMaBiT (Bitron Video)                           |Compact magnetic contact sensor (AV2010/21A)                               |CR2                       |                   |                                      |
 |smarthjemmet.dk                                 |[Multi switch from Smarthjemmet.dk](https://smarthjemmet.dk) (MULTI-ZIG-SW)|CR2032                    |                   |                                      |
 |SmartLabs, Inc                                  |2844-222 (0x10, 0x16)                                                      |PP3                       |                   |                                      |

@@ -4875,6 +4875,11 @@
         },
         {
             "manufacturer": "SMaBiT (Bitron Video)",
+            "model": "4 button Zigbee remote control (AV2010/23)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "SMaBiT (Bitron Video)",
             "model": "Compact magnetic contact sensor (AV2010/21A)",
             "battery_type": "CR2"
         },
@@ -7170,11 +7175,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "SMaBiT (Bitron Video)",
-            "model": "4 button Zigbee remote control (AV2010/23)",
-            "battery_type": "CR2032"
         }
     ]
 }
