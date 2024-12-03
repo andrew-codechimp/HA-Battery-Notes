@@ -7,8 +7,8 @@
                     "association_type": "Association type"
                 },
                 "menu_options": {
-                    "device": "Device (recommended)",
-                    "entity": "Entity"
+                    "device": "Laite (suositeltu)",
+                    "entity": "Entiteetti"
                 },
                 "title": "Choose your association type"
             },
@@ -23,11 +23,11 @@
             },
             "entity": {
                 "data": {
-                    "source_entity_id": "Entity",
+                    "source_entity_id": "Entiteetti",
                     "name": "Nimi"
                 },
                 "data_description": {
-                    "name": "Leaving blank will take the name from the source entity"
+                    "name": "Tyhjäksi jättäminen ottaa nimen lähde entiteetistä"
                 }
             },
             "battery": {
@@ -160,7 +160,7 @@
                 },
                 "entity_id": {
                     "description": "Entity that has had its battery replaced.",
-                    "name": "Entity"
+                    "name": "Entiteetti"
                 },
                 "datetime_replaced": {
                     "description": "Päivä, jolloin vaihdettu.",

@@ -2537,6 +2537,11 @@
         },
         {
             "manufacturer": "Govee",
+            "model": "H5100",
+            "battery_type": "AAA"
+        },
+        {
+            "manufacturer": "Govee",
             "model": "H5101/H5102/H5177",
             "battery_type": "AAA"
         },
@@ -2812,7 +2817,7 @@
         {
             "manufacturer": "Husqvarna AB",
             "model": "TBD",
-            "battery_type": "9V"
+            "battery_type": "PP3"
         },
         {
             "manufacturer": "iCasa",
@@ -4870,6 +4875,11 @@
         },
         {
             "manufacturer": "SMaBiT (Bitron Video)",
+            "model": "4 button Zigbee remote control (AV2010/23)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "SMaBiT (Bitron Video)",
             "model": "Compact magnetic contact sensor (AV2010/21A)",
             "battery_type": "CR2"
         },
@@ -4881,7 +4891,7 @@
         {
             "manufacturer": "SmartLabs, Inc",
             "model": "2844-222 (0x10, 0x16)",
-            "battery_type": "9V"
+            "battery_type": "PP3"
         },
         {
             "manufacturer": "SmartLabs, Inc",

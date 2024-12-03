@@ -1,4 +1,4 @@
-## 1313 Devices in library
+## 1315 Devices in library
 
 This file is auto generated, do not modify
 
@@ -467,6 +467,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Govee                                           |H5072/H5075                                                                |2× AAA                    |                   |                                      |
 |Govee                                           |H5074                                                                      |CR2477                    |                   |                                      |
 |Govee                                           |H5075                                                                      |2× AAA                    |                   |                                      |
+|Govee                                           |H5100                                                                      |AAA                       |                   |                                      |
 |Govee                                           |H5101/H5102/H5177                                                          |AAA                       |                   |                                      |
 |Govee                                           |H5102                                                                      |AAA                       |                   |                                      |
 |Govee                                           |H5104                                                                      |2× AAA                    |                   |                                      |
@@ -517,7 +518,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Hunter Douglas                                  |Duette by Hunter Douglas                                                   |Rechargeable              |                   |                                      |
 |Hunter Douglas                                  |Vertical Slats, Left Stack                                                 |Rechargeable              |                   |                                      |
 |Hunter Douglas                                  |Vertical Slats, Right Stack                                                |Rechargeable              |                   |                                      |
-|Husqvarna AB                                    |TBD                                                                        |9V                        |                   |                                      |
+|Husqvarna AB                                    |TBD                                                                        |PP3                       |                   |                                      |
 |iCasa                                           |Zigbee 3.0 Keypad Pulse 8S (ICZB-KPD18S)                                   |CR2450                    |                   |                                      |
 |ID Lock AS                                      |ID-150                                                                     |8× AA                     |                   |                                      |
 |ID-RF                                           |CWS-3101                                                                   |CR2032                    |                   |                                      |
@@ -899,9 +900,10 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Simplisafe                                      |Smoke                                                                      |CR123A                    |                   |                                      |
 |Sinopé                                          |LM4110ZB                                                                   |3× AA                     |                   |                                      |
 |Siterwell                                       |Radiator valve with thermostat (GS361A-H04)                                |2× AA                     |                   |                                      |
+|SMaBiT (Bitron Video)                           |4 button Zigbee remote control (AV2010/23)                                 |CR2032                    |                   |                                      |
 |SMaBiT (Bitron Video)                           |Compact magnetic contact sensor (AV2010/21A)                               |CR2                       |                   |                                      |
 |smarthjemmet.dk                                 |[Multi switch from Smarthjemmet.dk](https://smarthjemmet.dk) (MULTI-ZIG-SW)|CR2032                    |                   |                                      |
-|SmartLabs, Inc                                  |2844-222 (0x10, 0x16)                                                      |9V                        |                   |                                      |
+|SmartLabs, Inc                                  |2844-222 (0x10, 0x16)                                                      |PP3                       |                   |                                      |
 |SmartLabs, Inc                                  |2845-222 (0x10, 0x11)                                                      |AAA                       |                   |                                      |
 |SmartLabs_Inc                                   |2842_222_0x10_0x01                                                         |PP3                       |                   |                                      |
 |smartlife                                       |T & H Sensor (lf36y5nwb8jkxwgg)                                            |2× AAA                    |                   |                                      |

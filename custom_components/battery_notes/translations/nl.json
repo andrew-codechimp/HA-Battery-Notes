@@ -75,7 +75,7 @@
             }
         },
         "error": {
-            "orphaned_battery_note": "The associated device or entity no longer exists for this Battery Note.",
+            "orphaned_battery_note": "Het gekoppelde apparaat of entiteit bestaat niet meer voor deze Battery Note.",
             "unknown": "Onbekende fout opgetreden."
         }
     },
