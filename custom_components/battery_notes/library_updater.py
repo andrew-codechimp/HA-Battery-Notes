@@ -56,7 +56,7 @@ class LibraryUpdater:
 
         # Fire the library check every 24 hours from now
         async_track_utc_time_change(
-            hass, self.timer_update, hour=datetime.now().hour, minute=datetime.now().minute, second=1
+            hass, self.timer_update, hour=datetime.now().hour, minute=datetime.now().minute, second=datetime.now().second
         )
 
     @callback
