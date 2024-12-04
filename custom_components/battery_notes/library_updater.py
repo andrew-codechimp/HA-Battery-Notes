@@ -30,7 +30,6 @@ _LOGGER = logging.getLogger(__name__)
 
 BUILT_IN_DATA_DIRECTORY = os.path.join(os.path.dirname(__file__), "data")
 
-
 class LibraryUpdaterClientError(Exception):
     """Exception to indicate a general API error."""
 
@@ -54,9 +53,10 @@ class LibraryUpdater:
 
         self._client = LibraryUpdaterClient(library_url=url, session=async_get_clientsession(hass))
 
-        # Fire the library check every 24 hours from now
+        # Fire the library check every 24 hours from just before now
+        refresh_time = datetime.now() - timedelta(hours=0, minutes=1)
         async_track_utc_time_change(
-            hass, self.timer_update, hour=datetime.now().hour, minute=datetime.now().minute, second=datetime.now().second, local=True
+            hass, self.timer_update, hour=refresh_time.hour, minute=refresh_time.minute, second=refresh_time.second, local=True
         )
 
     @callback
