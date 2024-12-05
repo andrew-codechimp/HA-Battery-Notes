@@ -1272,6 +1272,12 @@
             "battery_type": "Irreplaceable"
         },
         {
+            "manufacturer": "BOSCH",
+            "model": "TWINGUARD",
+            "battery_type": "AA",
+            "battery_quantity": 6
+        },
+        {
             "manufacturer": "Bosch",
             "model": "Twinguard (8750001213)",
             "battery_type": "AA",
@@ -7175,12 +7181,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "BOSCH",
-            "model": "TWINGUARD",
-            "battery_type": "AA",
-            "battery_quantity": 6
         }
     ]
 }

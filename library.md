@@ -1,4 +1,4 @@
-## 1315 Devices in library
+## 1316 Devices in library
 
 This file is auto generated, do not modify
 
@@ -239,6 +239,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Bosch                                           |Radiator Thermostat II                                                     |2× AA                     |                   |                                      |
 |Bosch                                           |Radiator thermostat II (BTH-RA)                                            |2× AA                     |                   |                                      |
 |Bosch                                           |Smoke alarm detector (BSD-2)                                               |Irreplaceable             |                   |                                      |
+|BOSCH                                           |TWINGUARD                                                                  |6× AA                     |                   |                                      |
 |Bosch                                           |Twinguard (8750001213)                                                     |6× AA                     |                   |                                      |
 |BRK Brands, Inc.                                |ZCOMBO                                                                     |2× AA                     |                   |                                      |
 |BRK Brands, Inc.                                |ZSMOKE                                                                     |2× AA                     |                   |                                      |
