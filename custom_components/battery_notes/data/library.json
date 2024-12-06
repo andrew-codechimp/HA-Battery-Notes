@@ -1243,6 +1243,13 @@
             "battery_type": "CR123"
         },
         {
+            "manufacturer": "BOSCH",
+            "model": "DWCII",
+            "model_id": "12309",
+            "hw_version": "2.0",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "Bosch",
             "model": "ISW-ZPR1-WP13",
             "battery_type": "AA",
@@ -7189,13 +7196,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "BOSCH",
-            "model": "DWCII",
-            "model_id": "12309",
-            "hw_version": "2.0",
-            "battery_type": "CR123A"
         }
     ]
 }

@@ -1,4 +1,4 @@
-## 1317 Devices in library
+## 1318 Devices in library
 
 This file is auto generated, do not modify
 
@@ -234,6 +234,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Blueforcer                                      |AWTRIX Light                                                               |Rechargeable              |                   |                                      |
 |BlueMaestro                                     |Tempo Disc THD                                                             |CR2032                    |                   |                                      |
 |Bosch                                           |Door/window contact II (BSEN-C2)                                           |CR123                     |                   |                                      |
+|BOSCH                                           |DWCII                                                                      |CR123A                    |              12309|                                     2|
 |Bosch                                           |ISW-ZPR1-WP13                                                              |4× AA                     |                   |                                      |
 |Bosch                                           |Motion sensor (ISW-ZPR1-WP13)                                              |4× AA                     |                   |                                      |
 |Bosch                                           |Radiator Thermostat II                                                     |2× AA                     |                   |                                      |
