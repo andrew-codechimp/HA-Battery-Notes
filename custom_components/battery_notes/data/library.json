@@ -7189,6 +7189,13 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "BOSCH",
+            "model": "DWCII",
+            "model_id": "12309",
+            "hw_version": "2.0",
+            "battery_type": "CR123A"
         }
     ]
 }
