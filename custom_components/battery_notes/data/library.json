@@ -7181,6 +7181,14 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "BOSCH",
+            "model": "Radiator Thermostat II +M",
+            "model_id": "12306",
+            "hw_version": "1.2.0",
+            "battery_type": "AA",
+            "battery_quantity": 2
         }
     ]
 }
