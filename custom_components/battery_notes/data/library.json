@@ -6709,7 +6709,7 @@
         {
             "manufacturer": "Xiaomi",
             "model": "BTHome sensor",
-            "battery_type": "CR2032"
+            "battery_type": "MANUAL"
         },
         {
             "manufacturer": "Xiaomi",
@@ -7196,6 +7196,11 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Shelly",
+            "model": "BTHome sensor",
+            "battery_type": "MANUAL"
         }
     ]
 }
