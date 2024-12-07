@@ -2,7 +2,15 @@
 
 Integration to add battery notes to a device or entity, with automatic discovery via a growing [battery library](library.md) for devices.  
 Track the battery type, when the battery was replaced, when a battery is low based on device or global thresholds and also when a battery hasn't been reported for a while.  
-Battery low, replaced and not reported are all via events and actions, you have the option of creating your own automations for these or using the predefined ones in [community](./community.md).  
+
+**Dashboard cards usage**
+
+A battery+ sensor provides useful attributes for easy use in dashboards, the standard battery can optionally be hidden.  
+
+**Notifications and automations**
+
+Battery low, replaced and not reported are all exposed via events and actions, using these you can create your own automations to generate notifications or other actions, there are some predefined ones in [community](https://andrew-codechimp.github.io/HA-Battery-Notes/community).  
+
 
 *Please :star: this repo on [GitHub](https://github.com/andrew-codechimp/HA-Battery-Notes) if you find it useful*  
 *If you want to show your support please*
