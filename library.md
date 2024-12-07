@@ -1,4 +1,4 @@
-## 1320 Devices in library
+## 1321 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1322,6 +1322,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Zooz                                            |ZSE40                                                                      |2× AAA                    |                   |                                      |
 |Zooz                                            |ZSE40 700                                                                  |CR123A                    |                   |                                      |
 |Zooz                                            |ZSE41                                                                      |CR2032                    |                   |                                      |
+|Zooz                                            |ZSE41 Open Close Sensor                                                    |Zooz ZSE41                |                   |                                      |
 |Zooz                                            |ZSE42                                                                      |MANUAL                    |                   |                                      |
 |Zooz                                            |ZSE43                                                                      |CR2032                    |                   |                                      |
 |Zooz                                            |ZSE44                                                                      |CR2450                    |                   |                                      |
