@@ -7207,6 +7207,11 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Zooz",
+            "model": "ZSE41 Open Close Sensor",
+            "battery_type": "Zooz ZSE41"
         }
     ]
 }
