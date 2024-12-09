@@ -1,6 +1,6 @@
 {
     "name": "BN Integration",
-    "image": "mcr.microsoft.com/devcontainers/python:3.12",
+    "image": "mcr.microsoft.com/devcontainers/python:dev-3.13",
     "features": {
         "ghcr.io/devcontainers/features/github-cli:1": {
             "installDirectlyFromGitHubRelease": true,

@@ -351,9 +351,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             if source_entity_id:
                 entity_registry = er.async_get(self.hass)
                 entity_entry = entity_registry.async_get(source_entity_id)
-                source_entity_domain, source_object_id = split_entity_id(
-                    source_entity_id
-                )
+                _, source_object_id = split_entity_id(source_entity_id)
                 entity_unique_id = (
                     entity_entry.unique_id or entity_entry.entity_id or source_object_id
                 )
@@ -428,14 +426,12 @@ class OptionsFlowHandler(OptionsFlow):
 
     def __init__(self) -> None:
         """Initialize options flow."""
-        self.current_config: dict = dict(self.config_entry.data)
-        self.source_device_id: str = self.current_config.get(CONF_DEVICE_ID)  # type: ignore
-        self.name: str = self.current_config.get(CONF_NAME)
-        self.battery_type: str = self.current_config.get(CONF_BATTERY_TYPE)
-        self.battery_quantity: int = self.current_config.get(CONF_BATTERY_QUANTITY)
-        self.battery_low_template: str = self.current_config.get(
-            CONF_BATTERY_LOW_TEMPLATE
-        )
+        self.current_config: dict
+        self.source_device_id: str
+        self.name: str
+        self.battery_type: str
+        self.battery_quantity: int
+        self.battery_low_template: str
 
     async def async_step_init(
         self,
@@ -444,6 +440,11 @@ class OptionsFlowHandler(OptionsFlow):
         """Handle options flow."""
         errors = {}
         self.current_config = dict(self.config_entry.data)
+        self.source_device_id = self.current_config.get(CONF_DEVICE_ID)  # type: ignore
+        self.name = self.current_config.get(CONF_NAME)
+        self.battery_type = self.current_config.get(CONF_BATTERY_TYPE)
+        self.battery_quantity = self.current_config.get(CONF_BATTERY_QUANTITY)
+        self.battery_low_template = self.current_config.get(CONF_BATTERY_LOW_TEMPLATE)
 
         if self.source_device_id:
             device_registry = dr.async_get(self.hass)
