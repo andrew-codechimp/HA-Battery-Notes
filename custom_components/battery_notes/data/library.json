@@ -1256,6 +1256,11 @@
             "battery_quantity": 4
         },
         {
+            "manufacturer": "BOSCH",
+            "model": "MD",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "Bosch",
             "model": "Motion sensor (ISW-ZPR1-WP13)",
             "battery_type": "AA",
@@ -7212,11 +7217,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "BOSCH",
-            "model": "MD",
-            "battery_type": "CR123A"
         }
     ]
 }
