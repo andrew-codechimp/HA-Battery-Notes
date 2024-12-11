@@ -5478,6 +5478,12 @@
         },
         {
             "manufacturer": "Third Reality",
+            "model": "Temperature and humidity sensor lite (3RTHS0224Z)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Third Reality",
             "model": "Water sensor (3RWS18BZ)",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -7216,12 +7222,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE70",
             "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Third Reality",
-            "model": "Temperature and humidity sensor lite (3RTHS0224Z)",
-            "battery_type": "AAA",
             "battery_quantity": 2
         }
     ]
