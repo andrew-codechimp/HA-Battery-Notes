@@ -1,4 +1,4 @@
-## 1323 Devices in library
+## 1324 Devices in library
 
 This file is auto generated, do not modify
 
@@ -663,6 +663,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Lutron Electronics Co., Inc                     |PJ2-3BRL-GXX-X01 (Pico3ButtonRaiseLower)                                   |CR2032                    |                   |                                      |
 |Merkury                                         |SS003                                                                      |CR2                       |                   |                                      |
 |Meross                                          |ms100                                                                      |CR2477                    |                   |                                      |
+|Mi                                              |MS009                                                                      |CR2540                    |                   |                                      |
 |Mi light sensor                                 |GZCGQ01LM                                                                  |CR2450                    |                   |                                      |
 |MiaoMiaoCe                                      |MHO-C401N-z                                                                |CR2032                    |                   |                                      |
 |Minoston                                        |MR40Z                                                                      |2× CR2032                 |                   |                                      |

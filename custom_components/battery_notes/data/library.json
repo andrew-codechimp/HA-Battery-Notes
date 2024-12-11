@@ -3591,6 +3591,11 @@
             "battery_type": "CR2477"
         },
         {
+            "manufacturer": "Mi",
+            "model": "MS009",
+            "battery_type": "CR2540"
+        },
+        {
             "manufacturer": "Mi light sensor",
             "model": "GZCGQ01LM",
             "battery_type": "CR2450"
@@ -7223,11 +7228,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Mi",
-            "model": "MS009",
-            "battery_type": "CR2540"
         }
     ]
 }
