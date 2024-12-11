@@ -7223,6 +7223,11 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Mi",
+            "model": "MS009",
+            "battery_type": "CR2540"
         }
     ]
 }
