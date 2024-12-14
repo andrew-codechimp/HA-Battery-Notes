@@ -1,4 +1,4 @@
-## 1324 Devices in library
+## 1325 Devices in library
 
 This file is auto generated, do not modify
 
@@ -548,6 +548,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |IKEA                                            |TRADFRI remote control (E1524/E1810)                                       |CR2032                    |                   |                                      |
 |IKEA                                            |TRADFRI shortcut button (E1812)                                            |CR2450                    |                   |                                      |
 |IKEA                                            |TRADFRI wireless dimmer (ICTC-G-1)                                         |CR2032                    |                   |                                      |
+|IKEA                                            |TREDANSEN                                                                  |BRAUNIT                   |E2103              |                                      |
 |Ikea                                            |TREDANSEN cellular blind (E2103)                                           |Rechargeable              |                   |                                      |
 |IKEA                                            |VALLHORN wireless motion sensor (E2134)                                    |2× AAA                    |                   |                                      |
 |IKEA                                            |Water leakage detection sensor (E2202)                                     |AAA                       |                   |                                      |
