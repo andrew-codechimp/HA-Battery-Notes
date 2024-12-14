@@ -7228,6 +7228,12 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "IKEA",
+            "model": "TREDANSEN",
+            "model_id": "E2103",
+            "battery_type": "BRAUNIT"
         }
     ]
 }
