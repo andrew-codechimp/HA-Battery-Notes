@@ -978,6 +978,11 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "Wireless remote switch D1 (double rocker) (WXKG07LM)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "Wireless remote switch H1 (double rocker) (WXKG15LM)",
             "battery_type": "CR2450"
         },
@@ -7247,11 +7252,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Aqara",
-            "model": "Wireless remote switch D1 (double rocker) (WXKG07LM)",
-            "battery_type": "CR2032"
         }
     ]
 }
