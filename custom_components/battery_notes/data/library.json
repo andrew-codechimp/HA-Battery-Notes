@@ -1304,6 +1304,13 @@
             "battery_quantity": 6
         },
         {
+            "manufacturer": "Bosch",
+            "model": "Room thermostat II",
+            "model_id": "RBSH-RTH0-BAT-ZB-EU",
+            "battery_type": "AAA",
+            "battery_quantity": 4
+        },
+        {
             "manufacturer": "BRK Brands, Inc.",
             "model": "ZCOMBO",
             "battery_type": "AA",
