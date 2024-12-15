@@ -1,4 +1,4 @@
-## 1326 Devices in library
+## 1327 Devices in library
 
 This file is auto generated, do not modify
 
@@ -612,6 +612,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Leedarson                                       |4-Key Remote Controller (6ARCZABZH)                                        |CR2450                    |                   |                                      |
 |Lidl                                            |HG06335/HG07310                                                            |CR123A                    |                   |                                      |
 |Lidl                                            |HG06336                                                                    |2× AAA                    |                   |                                      |
+|Lidl                                            |Parkside smart watering timer (PSBZS A1)                                   |2× AA                     |                   |                                      |
 |Lidl                                            |Silvercrest radiator valve with thermostat (368308_2010)                   |2× AA                     |                   |                                      |
 |Lidl                                            |Silvercrest smart button (HG08164)                                         |CR2032                    |                   |                                      |
 |Lidl                                            |Silvercrest smart motion sensor (HG06335/HG07310)                          |MANUAL                    |                   |                                      |

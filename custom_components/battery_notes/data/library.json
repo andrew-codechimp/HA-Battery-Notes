@@ -3330,6 +3330,12 @@
         },
         {
             "manufacturer": "Lidl",
+            "model": "Parkside smart watering timer (PSBZS A1)",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Lidl",
             "model": "Silvercrest radiator valve with thermostat (368308_2010)",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -7240,12 +7246,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE70",
             "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Lidl",
-            "model": "Parkside smart watering timer (PSBZS A1)",
-            "battery_type": "AA",
             "battery_quantity": 2
         }
     ]
