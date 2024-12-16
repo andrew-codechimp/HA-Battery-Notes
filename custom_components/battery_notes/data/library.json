@@ -7258,6 +7258,11 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Heiman",
+            "model": "SmokeSensor-EF-3.0",
+            "battery_type": "CR123A"
         }
     ]
 }
