@@ -1,4 +1,4 @@
-## 1332 Devices in library
+## 1333 Devices in library
 
 This file is auto generated, do not modify
 
@@ -463,6 +463,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Gerda                                           |Tedee Pro                                                                  |Rechargeable              |                   |                                      |
 |GiEX                                            |Water irrigation valve (QT06_1)                                            |4× AA                     |                   |                                      |
 |GiEX                                            |Water irrigation valve (QT06_2)                                            |4× AA                     |                   |                                      |
+|GiEX                                            |Water valve (GX02)                                                         |4× AA                     |                   |                                      |
 |Google                                          |A12                                                                        |3× AA                     |                   |                                      |
 |Google                                          |KR1                                                                        |CR2                       |                   |                                      |
 |Google                                          |Pixel 2                                                                    |Rechargeable              |                   |                                      |
