@@ -1,4 +1,4 @@
-## 1331 Devices in library
+## 1332 Devices in library
 
 This file is auto generated, do not modify
 
@@ -597,6 +597,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Konke                                           |3AFE28010402000D                                                           |CR2450                    |                   |                                      |
 |Konke                                           |Temperature and humidity sensor                                            |CR2450                    |2AJZ4KPFT          |                                      |
 |Kwikset                                         |910                                                                        |4× AA                     |                   |                                      |
+|Kwikset                                         |910 SmartCode traditional electronic deadbolt (99100-006)                  |4× AA                     |                   |                                      |
 |Kwikset                                         |912                                                                        |4× AA                     |                   |                                      |
 |Kwikset                                         |914                                                                        |4× AA                     |                   |                                      |
 |Kwikset                                         |914C                                                                       |4× AA                     |                   |                                      |

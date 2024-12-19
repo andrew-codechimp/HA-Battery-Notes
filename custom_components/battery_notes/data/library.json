@@ -3242,6 +3242,12 @@
         },
         {
             "manufacturer": "Kwikset",
+            "model": "910 SmartCode traditional electronic deadbolt (99100-006)",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Kwikset",
             "model": "912",
             "battery_type": "AA",
             "battery_quantity": 4
@@ -7270,12 +7276,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Kwikset",
-            "model": "910 SmartCode traditional electronic deadbolt (99100-006)",
-            "battery_type": "AA",
-            "battery_quantity": 4
         }
     ]
 }
