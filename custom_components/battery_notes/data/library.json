@@ -7263,6 +7263,13 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "SDL-D01",
+            "hw_version": "1.0.0",
+            "battery_type": "AA",
+            "battery_quantity": 4
         }
     ]
 }
