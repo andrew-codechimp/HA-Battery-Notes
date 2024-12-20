@@ -1,4 +1,4 @@
-## 1333 Devices in library
+## 1334 Devices in library
 
 This file is auto generated, do not modify
 
@@ -525,6 +525,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Hunter Douglas                                  |Bottom Up                                                                  |12× AA                    |                   |                                      |
 |Hunter Douglas                                  |Duette                                                                     |12× AA                    |                   |                                      |
 |Hunter Douglas                                  |Duette by Hunter Douglas                                                   |Rechargeable              |                   |                                      |
+|Hunter Douglas                                  |Silhouette                                                                 |12× AA                    |                   |                                      |
 |Hunter Douglas                                  |Vertical Slats, Left Stack                                                 |Rechargeable              |                   |                                      |
 |Hunter Douglas                                  |Vertical Slats, Right Stack                                                |Rechargeable              |                   |                                      |
 |Husqvarna AB                                    |TBD                                                                        |PP3                       |                   |                                      |

@@ -2862,6 +2862,12 @@
         },
         {
             "manufacturer": "Hunter Douglas",
+            "model": "Silhouette",
+            "battery_type": "AA",
+            "battery_quantity": 12
+        },
+        {
+            "manufacturer": "Hunter Douglas",
             "model": "Vertical Slats, Left Stack",
             "battery_type": "Rechargeable"
         },
@@ -7282,12 +7288,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Hunter Douglas",
-            "model": "Silhouette",
-            "battery_type": "AA",
-            "battery_quantity": 12
         }
     ]
 }
