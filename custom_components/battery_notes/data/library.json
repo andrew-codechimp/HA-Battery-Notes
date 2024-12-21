@@ -7288,6 +7288,12 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Hunter Douglas",
+            "model": "Designer Roller",
+            "battery_type": "AA",
+            "battery_quantity": 12
         }
     ]
 }
