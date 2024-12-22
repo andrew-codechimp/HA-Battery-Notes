@@ -1,4 +1,4 @@
-## 1336 Devices in library
+## 1337 Devices in library
 
 This file is auto generated, do not modify
 
@@ -985,6 +985,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Sure Petcare                                    |Felaqua                                                                    |4× C                      |                   |                                      |
 |Sure Petcare                                    |Pet flap                                                                   |4× C                      |                   |                                      |
 |Sure Petcare                                    |Feeder\*                                                                   |4× C                      |                   |                                      |
+|switchbot                                       |Leak Detector                                                              |2× AAA                    |                   |                                      |
 |SwitchBot                                       |Meter                                                                      |2× AAA                    |                   |                                      |
 |SwitchBot                                       |MeterPlus                                                                  |2× AAA                    |                   |                                      |
 |SwitchBot                                       |W1101500                                                                   |2× AAA                    |                   |                                      |
