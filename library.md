@@ -1,4 +1,4 @@
-## 1335 Devices in library
+## 1336 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1203,6 +1203,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Wink Inc.                                       |D/W SENSOR                                                                 |CR14250                   |                   |                                      |
 |Wink Inc.                                       |Motion Sensor                                                              |CR123A                    |                   |                                      |
 |Wink Inc.                                       |Siren                                                                      |2× CR123A                 |                   |                                      |
+|Withings                                        |Smart Body Analyzer                                                        |4× AAA                    |                   |                                      |
 |Woox                                            |Smart garden irrigation control (R7060)                                    |4× AA                     |                   |                                      |
 |Woox                                            |Smart siren (R7051)                                                        |Rechargeable              |                   |                                      |
 |Woox                                            |Smart smoke alarm (R7049)                                                  |2× AAA                    |                   |                                      |
