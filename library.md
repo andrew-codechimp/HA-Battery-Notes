@@ -1,4 +1,4 @@
-## 1337 Devices in library
+## 1338 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1162,6 +1162,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tuya                                            |X-Sense Wi-Fi Smoke Alarm (skivkhveqwmqw4gs)                               |CR123A                    |                   |                                      |
 |TuYa                                            |ZG-204ZL                                                                   |CR2450                    |                   |                                      |
 |TuYa                                            |Zigbee 3.0 temperature humidity sensor with display (TS0201_1)             |2× AA                     |                   |                                      |
+|Tuya                                            |Zigbee 4 button remote - 12 scene (TS0044_1) by Tuya                       |2× AAA                    |TS0044_1           |                                      |
 |TuYa                                            |Zigbee fingerbot plus (TS0001_fingerbot)                                   |CR2                       |                   |                                      |
 |Tuya                                            |Zigbee infrared remote (unsupported)                                       |2× AAA                    |                   |                                      |
 |TuYa                                            |Zigbee water leak sensor (TS0207_water_leak_detector_2)                    |CR2032                    |                   |                                      |

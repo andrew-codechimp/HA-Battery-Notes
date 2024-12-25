@@ -6338,6 +6338,13 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Tuya",
+            "model": "Zigbee 4 button remote - 12 scene (TS0044_1) by Tuya",
+            "model_id": "TS0044_1",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "TuYa",
             "model": "Zigbee fingerbot plus (TS0001_fingerbot)",
             "battery_type": "CR2"
@@ -7305,13 +7312,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE70",
             "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Zigbee 4 button remote - 12 scene (TS0044_1) by Tuya",
-            "model_id": "TS0044_1",
-            "battery_type": "AAA",
             "battery_quantity": 2
         }
     ]
