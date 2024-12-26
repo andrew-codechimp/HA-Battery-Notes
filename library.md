@@ -1,4 +1,4 @@
-## 1339 Devices in library
+## 1340 Devices in library
 
 This file is auto generated, do not modify
 
@@ -444,6 +444,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Fibargroup                                      |Motion Sensor (FGMS001)                                                    |CR123A                    |                   |                                      |
 |Fibargroup                                      |Motion_Sensor_FGMS001                                                      |CR123A                    |                   |                                      |
 |First Alert                                     |1044807                                                                    |2× AA                     |                   |                                      |
+|First Alert                                     |Smoke Alarm                                                                |2× AA                     |                   |                                      |
 |First Alert (BRK Brands Inc)                    |ZCOMBO                                                                     |2× AA                     |                   |                                      |
 |Flair                                           |Smart Vent                                                                 |2× C                      |                   |                                      |
 |Flair                                           |Wireless Puck                                                              |2× AAA                    |                   |                                      |
