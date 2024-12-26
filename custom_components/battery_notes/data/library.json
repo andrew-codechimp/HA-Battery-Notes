@@ -1546,6 +1546,12 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "Dome",
+            "model": "Siren",
+            "battery_type": "CR123A",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Doogee",
             "model": "S98 Pro",
             "battery_type": "Rechargeable"
@@ -7311,12 +7317,6 @@
         {
             "manufacturer": "Zooz",
             "model": "ZSE70",
-            "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Dome",
-            "model": "Siren",
             "battery_type": "CR123A",
             "battery_quantity": 2
         }
