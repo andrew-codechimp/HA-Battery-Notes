@@ -2886,8 +2886,7 @@
         {
             "manufacturer": "Hunter Douglas",
             "model": "Silhouette",
-            "battery_type": "AA",
-            "battery_quantity": 12
+            "battery_type": "MANUAL"
         },
         {
             "manufacturer": "Hunter Douglas",
