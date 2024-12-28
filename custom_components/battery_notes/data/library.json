@@ -1335,6 +1335,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "by Philio Technology Corp",
+            "model": "PSP05",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "Centralite",
             "model": "3157100",
             "battery_type": "AA",
@@ -7325,11 +7330,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "by Philio Technology Corp",
-            "model": "PSP05",
-            "battery_type": "CR123A"
         }
     ]
 }

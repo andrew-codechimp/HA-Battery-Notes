@@ -1,4 +1,4 @@
-## 1340 Devices in library
+## 1341 Devices in library
 
 This file is auto generated, do not modify
 
@@ -249,6 +249,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Bosch                                           |Twinguard (8750001213)                                                     |6× AA                     |                   |                                      |
 |BRK Brands, Inc.                                |ZCOMBO                                                                     |2× AA                     |                   |                                      |
 |BRK Brands, Inc.                                |ZSMOKE                                                                     |2× AA                     |                   |                                      |
+|by Philio Technology Corp                       |PSP05                                                                      |CR123A                    |                   |                                      |
 |Centralite                                      |3157100                                                                    |4× AA                     |                   |                                      |
 |CentraLite                                      |3315                                                                       |CR2                       |                   |                                      |
 |CentraLite                                      |3315-L                                                                     |CR2                       |                   |                                      |
