@@ -5521,6 +5521,11 @@
             "battery_type": "AAA"
         },
         {
+            "manufacturer": "ThermoPro",
+            "model": "TP357S",
+            "battery_type": "AAA"
+        },
+        {
             "manufacturer": "Third Reality",
             "model": "3RSB015BZ",
             "battery_type": "AA",
@@ -7329,11 +7334,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "ThermoPro",
-            "model": "TP357S",
-            "battery_type": "AAA"
         }
     ]
 }

@@ -1,4 +1,4 @@
-## 1341 Devices in library
+## 1342 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1017,6 +1017,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |ThermoBeacon                                    |21                                                                         |CR2477                    |                   |                                      |
 |ThermoBeacon                                    |27                                                                         |CR2477                    |                   |                                      |
 |ThermoPro                                       |TP357                                                                      |AAA                       |                   |                                      |
+|ThermoPro                                       |TP357S                                                                     |AAA                       |                   |                                      |
 |Third Reality                                   |3RSB015BZ                                                                  |4× AA                     |                   |                                      |
 |Third Reality                                   |Door sensor (3RDS17BZ)                                                     |2× AAA                    |                   |                                      |
 |Third Reality                                   |Garage door tilt sensor (3RDTS01056Z)                                      |2× AAA                    |                   |                                      |
