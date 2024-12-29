@@ -7329,6 +7329,11 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "ThermoPro",
+            "model": "TP357S",
+            "battery_type": "AAA"
         }
     ]
 }
