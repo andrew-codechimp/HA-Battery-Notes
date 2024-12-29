@@ -1,4 +1,4 @@
-## 1343 Devices in library
+## 1344 Devices in library
 
 This file is auto generated, do not modify
 
@@ -174,6 +174,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Aqara                                           |Opple wireless switch (triple band) (WXCJKG13LM)                           |CR2032                    |                   |                                      |
 |Aqara                                           |PETC1-M01                                                                  |3× LR20                   |                   |                                      |
 |Aqara                                           |Roller shade driver E1                                                     |Rechargeable              |ZNJLBL01LM         |                                      |
+|Aqara                                           |Roller shade driver E1 (ZNJLBL01LM)                                        |Rechargeable              |                   |                                      |
 |Aqara                                           |RTCGQ11LM                                                                  |CR2450                    |                   |                                      |
 |Aqara                                           |SDL-D01                                                                    |4× AA                     |                   |1.0.0                                 |
 |Aqara                                           |Smart radiator thermostat E1 (SRTS-A01)                                    |2× AA                     |                   |                                      |

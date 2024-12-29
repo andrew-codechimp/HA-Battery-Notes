@@ -915,6 +915,11 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "Roller shade driver E1 (ZNJLBL01LM)",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "RTCGQ11LM",
             "battery_type": "CR2450"
         },
@@ -7340,11 +7345,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Aqara",
-            "model": "Roller shade driver E1 (ZNJLBL01LM)",
-            "battery_type": "Rechargeable"
         }
     ]
 }
