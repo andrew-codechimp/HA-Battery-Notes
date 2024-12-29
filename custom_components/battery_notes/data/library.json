@@ -2559,6 +2559,12 @@
         },
         {
             "manufacturer": "Google",
+            "model": "Nest Protect",
+            "battery_type": "AA",
+            "battery_quantity": 6
+        },
+        {
+            "manufacturer": "Google",
             "model": "Pixel 2",
             "battery_type": "Rechargeable"
         },
@@ -7345,12 +7351,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Google",
-            "model": "Nest Protect",
-            "battery_type": "AA",
-            "battery_quantity": 6
         }
     ]
 }

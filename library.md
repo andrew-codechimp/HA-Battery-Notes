@@ -1,4 +1,4 @@
-## 1344 Devices in library
+## 1345 Devices in library
 
 This file is auto generated, do not modify
 
@@ -470,6 +470,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |GiEX                                            |Water valve (GX02)                                                         |4× AA                     |                   |                                      |
 |Google                                          |A12                                                                        |3× AA                     |                   |                                      |
 |Google                                          |KR1                                                                        |CR2                       |                   |                                      |
+|Google                                          |Nest Protect                                                               |6× AA                     |                   |                                      |
 |Google                                          |Pixel 2                                                                    |Rechargeable              |                   |                                      |
 |Google                                          |Pixel 6a                                                                   |Rechargeable              |                   |                                      |
 |Google                                          |Topaz-2.33                                                                 |6× AA                     |                   |Battery                               |
