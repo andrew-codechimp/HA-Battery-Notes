@@ -7367,6 +7367,13 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "IKEA",
+            "model": "SYMFONISK sound remote, gen 1",
+            "model_id": "E1744",
+            "hw_version": "24.4.5",
+            "battery_type": "CR2032"
         }
     ]
 }
