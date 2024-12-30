@@ -7361,6 +7361,12 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Trust",
+            "model": "Wireless contact sensor",
+            "model_id": "ZCTS-808",
+            "battery_type": "CR2032"
         }
     ]
 }
