@@ -7356,6 +7356,11 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "SJWS01LM",
+            "battery_type": "CR2032"
         }
     ]
 }
