@@ -7023,6 +7023,11 @@
         },
         {
             "manufacturer": "Xiaomi",
+            "model": "SJWS01LM",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Xiaomi",
             "model": "SRTS-A01",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -7356,11 +7361,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Xiaomi",
-            "model": "SJWS01LM",
-            "battery_type": "CR2032"
         }
     ]
 }

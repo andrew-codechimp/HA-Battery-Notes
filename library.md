@@ -1,4 +1,4 @@
-## 1346 Devices in library
+## 1347 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1291,6 +1291,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Xiaomi                                          |MiJia wireless switch (WXKG01LM)                                           |CR2032                    |                   |                                      |
 |Xiaomi                                          |MJYD02YL                                                                   |3× AA                     |                   |                                      |
 |Xiaomi                                          |RTCGQ01LM                                                                  |CR2450                    |                   |                                      |
+|Xiaomi                                          |SJWS01LM                                                                   |CR2032                    |                   |                                      |
 |Xiaomi                                          |SRTS-A01                                                                   |2× AA                     |                   |                                      |
 |Xiaomi                                          |Temperature & humidity sensor (LYWSD03MMC)                                 |CR2032                    |                   |                                      |
 |Xiaomi                                          |Temperature/Humidity sensor                                                |CR2032                    |                   |                                      |
