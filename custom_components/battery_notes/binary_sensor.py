@@ -579,7 +579,7 @@ class BatteryNotesBatteryLowSensor(
 
         await super().async_added_to_hass()
 
-        await self.coordinator.async_config_entry_first_refresh()
+        await self.coordinator.async_refresh()
 
     @callback
     def _handle_coordinator_update(self) -> None:

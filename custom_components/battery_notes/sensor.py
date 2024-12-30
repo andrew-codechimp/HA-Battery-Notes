@@ -244,8 +244,6 @@ async def async_setup_entry(
 
     async_add_entities(entities)
 
-    await coordinator.async_config_entry_first_refresh()
-
 
 async def async_setup_platform(
     hass: HomeAssistant,
@@ -510,7 +508,7 @@ class BatteryNotesBatteryPlusSensor(
             self.coordinator.async_add_listener(self._handle_coordinator_update)
         )
 
-        await self.coordinator.async_config_entry_first_refresh()
+        await self.coordinator.async_refresh()
 
     @callback
     def _handle_coordinator_update(self) -> None:
