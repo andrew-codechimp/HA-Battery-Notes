@@ -1,4 +1,4 @@
-## 1347 Devices in library
+## 1348 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1048,6 +1048,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Trust                                           |COSensor-EM                                                                |CR123A                    |                   |                                      |
 |Trust                                           |Smoke detector (ZSDR-850)                                                  |CR123A                    |                   |                                      |
 |Trust                                           |SmokeSensor-EM                                                             |CR123A                    |                   |                                      |
+|Trust                                           |Wireless contact sensor                                                    |CR2032                    |ZCTS-808           |                                      |
 |Trust                                           |ZYCT-202                                                                   |CR2450                    |                   |                                      |
 |TS0001                                          |_TZ3210_j4pdtz9v                                                           |CR2                       |                   |                                      |
 |TS0041                                          |_TZ3000_itb0omhv                                                           |CR2032                    |                   |                                      |
