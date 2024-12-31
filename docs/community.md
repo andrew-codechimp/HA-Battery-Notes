@@ -34,28 +34,29 @@ Raise a persistent notification when a battery is low, dismiss when it's not low
 ```yaml
 alias: Battery Low Notification
 description: Battery Low Notification with auto dismiss
-trigger:
-  - platform: event
+mode: queued
+triggers:
+  - trigger: event
     event_type: battery_notes_battery_threshold
     event_data:
       battery_low: true
     id: low
     alias: Battery went low
-  - platform: event
+  - trigger: event
     event_type: battery_notes_battery_threshold
     event_data:
       battery_low: false
     id: high
     alias: Battery went high
-condition: []
-action:
+conditions: []
+actions:
   - choose:
       - conditions:
           - condition: trigger
             id:
               - low
         sequence:
-          - service: persistent_notification.create
+          - action: persistent_notification.create
             data:
               title: |
                 {{ trigger.event.data.device_name }} Battery Low
@@ -70,10 +71,10 @@ action:
             id:
               - high
         sequence:
-          - service: persistent_notification.dismiss
+          - action: persistent_notification.dismiss
             data:
               notification_id: "{{ trigger.event.data.device_id }}-{{ trigger.event.data.source_entity_id }}"
-mode: queued
+
 ```
 
 ### Check Battery Low daily reminder
@@ -83,13 +84,14 @@ To be used in conjunction with a [Battery Low Notification](community.md/#batter
 ```yaml
 alias: Daily Battery Low Check
 description: Check whether a battery is low
-trigger:
-  - platform: time
-    at: "09:00:00"
-condition: []
-action:
-  - service: battery_notes.check_battery_low
 mode: single
+triggers:
+  - trigger: time
+    at: "09:00:00"
+conditions: []
+actions:
+  - action: battery_notes.check_battery_low
+
 ```
 
 ### Check Battery Low weekly reminder
@@ -100,16 +102,16 @@ To be used in conjunction with a [Battery Low Notification](community.md/#batter
 ```yaml
 alias: Battery Low Check
 description: Check whether a battery is low
-trigger:
-  - platform: state
+mode: single
+triggers:
+  - trigger: state
     entity_id:
       - schedule.maintenance
     to: "on"
-condition: []
-action:
-  - service: battery_notes.check_battery_low
+conditions: []
+actions:
+  - action: battery_notes.check_battery_low
     data: {}
-mode: single
 ```
 
 ### Battery Replaced
@@ -122,16 +124,16 @@ Mark a battery as replaced when there is an increase in battery level.
 ```yaml
 alias: Battery Replaced
 description: Battery Replaced
-trigger:
-  - platform: event
+mode: queued
+triggers:
+  - trigger: event
     event_type: battery_notes_battery_increased
-condition: []
-action:
-  - service: battery_notes.set_battery_replaced
+conditions: []
+actions:
+  - action: battery_notes.set_battery_replaced
     data:
       device_id: "{{ trigger.event.data.device_id }}"
       source_entity_id: "{{ trigger.event.data.source_entity_id }}"
-mode: queued
 ```
 
 Send a notification when there is an increase in battery level.
@@ -139,18 +141,18 @@ Send a notification when there is an increase in battery level.
 ```yaml
 alias: Battery Increased Notification
 description: Battery Increased Notification
-trigger:
-  - platform: event
+mode: queued
+triggers:
+  - trigger: event
     event_type: battery_notes_battery_increased
-condition: []
-action:
-  - service: persistent_notification.create
+conditions: []
+actions:
+  - action: persistent_notification.create
     data:
       title: |
         {{ trigger.event.data.device_name }} Battery Increased
       message: >
         The device has increased its battery level, you probably want to mark it as replaced
-mode: queued
 ```
 
 ### Check Battery Last Reported Daily
@@ -160,15 +162,15 @@ To be used in conjunction with a Battery Not Reported automation.
 ```yaml
 alias: Daily Battery Not Reported Check
 description: Check whether a battery has reported
-trigger:
+mode: single
+triggers:
   - platform: time
     at: "09:00:00"
-condition: []
-action:
-  - service: battery_notes.check_battery_last_reported
+conditions: []
+actions:
+  - action: battery_notes.check_battery_last_reported
     data:
       days_last_reported: 2
-mode: single
 ```
 
 ### Battery Not Reported
@@ -179,12 +181,14 @@ Note this cannot be run manually as it examines event triggers, use it with the 
 ```yaml
 alias: Battery Not Reported
 description: Battery not reported
-trigger:
-  - platform: event
+mode: queued
+max: 30
+triggers:
+  - trigger: event
     event_type: battery_notes_battery_not_reported
-condition: []
-action:
-  - service: persistent_notification.create
+conditions: []
+actions:
+  - action: persistent_notification.create
     data:
       title: |
         {{ trigger.event.data.device_name }} Battery Not Reported
@@ -195,8 +199,7 @@ action:
         trigger.event.data.battery_last_reported_level }}% {{ '\n' -}} You need
         {{ trigger.event.data.battery_quantity }}× {{
         trigger.event.data.battery_type }}
-mode: queued
-max: 30
+
 ```
 
 ## Automation Tips
@@ -204,8 +207,8 @@ max: 30
 To call the battery replaced action from an entity trigger you will need the device_id, here's an easy way to get this
 
 ```yaml
-action:
-  - service: battery_notes.set_battery_replaced
+actions:
+  - action: battery_notes.set_battery_replaced
     data:
       device_id: "{{ device_id(trigger.entity_id) }}"
 ```

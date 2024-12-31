@@ -21,16 +21,16 @@ blueprint:
       selector:
         action:
 
-trigger:
-  - platform: event
+triggers:
+  - trigger: event
     event_type: battery_notes_battery_increased
 
-condition:
+conditions:
   - alias: User pick
     condition: !input additional_conditions
 
-action:
-  - service: battery_notes.set_battery_replaced
+actions:
+  - action: battery_notes.set_battery_replaced
     data:
       device_id: "{{ trigger.event.data.device_id }}"
       source_entity_id: "{{ trigger.event.data.source_entity_id }}"

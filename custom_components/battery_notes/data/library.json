@@ -915,8 +915,20 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "Roller shade driver E1 (ZNJLBL01LM)",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "RTCGQ11LM",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "SDL-D01",
+            "hw_version": "1.0.0",
+            "battery_type": "AA",
+            "battery_quantity": 4
         },
         {
             "manufacturer": "Aqara",
@@ -968,12 +980,22 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "Wireless mini switch T1 (WXKG13LM)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "Wireless remote switch (double rocker), 2018 model (WXKG02LM_rev2)",
             "battery_type": "CR2032"
         },
         {
             "manufacturer": "Aqara",
             "model": "Wireless remote switch (single rocker), 2018 model (WXKG03LM_rev2)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "Wireless remote switch D1 (double rocker) (WXKG07LM)",
             "battery_type": "CR2032"
         },
         {
@@ -1243,10 +1265,22 @@
             "battery_type": "CR123"
         },
         {
+            "manufacturer": "BOSCH",
+            "model": "DWCII",
+            "model_id": "12309",
+            "hw_version": "2.0",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "Bosch",
             "model": "ISW-ZPR1-WP13",
             "battery_type": "AA",
             "battery_quantity": 4
+        },
+        {
+            "manufacturer": "BOSCH",
+            "model": "MD",
+            "battery_type": "CR123A"
         },
         {
             "manufacturer": "Bosch",
@@ -1267,9 +1301,30 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "BOSCH",
+            "model": "Radiator Thermostat II +M",
+            "model_id": "12306",
+            "hw_version": "1.2.0",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Bosch",
+            "model": "Room thermostat II",
+            "model_id": "RBSH-RTH0-BAT-ZB-EU",
+            "battery_type": "AAA",
+            "battery_quantity": 4
+        },
+        {
             "manufacturer": "Bosch",
             "model": "Smoke alarm detector (BSD-2)",
             "battery_type": "Irreplaceable"
+        },
+        {
+            "manufacturer": "BOSCH",
+            "model": "TWINGUARD",
+            "battery_type": "AA",
+            "battery_quantity": 6
         },
         {
             "manufacturer": "Bosch",
@@ -1288,6 +1343,11 @@
             "model": "ZSMOKE",
             "battery_type": "AA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "by Philio Technology Corp",
+            "model": "PSP05",
+            "battery_type": "CR123A"
         },
         {
             "manufacturer": "Centralite",
@@ -1499,6 +1559,12 @@
             "manufacturer": "Devolo",
             "model": "MT2756",
             "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Dome",
+            "model": "Siren",
+            "battery_type": "CR123A",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "Doogee",
@@ -2363,6 +2429,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "First Alert",
+            "model": "Smoke Alarm",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "First Alert (BRK Brands Inc)",
             "model": "ZCOMBO",
             "battery_type": "AA",
@@ -2474,6 +2546,12 @@
             "battery_quantity": 4
         },
         {
+            "manufacturer": "GiEX",
+            "model": "Water valve (GX02)",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
             "manufacturer": "Google",
             "model": "A12",
             "battery_type": "AA",
@@ -2483,6 +2561,12 @@
             "manufacturer": "Google",
             "model": "KR1",
             "battery_type": "CR2"
+        },
+        {
+            "manufacturer": "Google",
+            "model": "Nest Protect",
+            "battery_type": "AA",
+            "battery_quantity": 6
         },
         {
             "manufacturer": "Google",
@@ -2673,6 +2757,11 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "Heiman",
+            "model": "SmokeSensor-EF-3.0",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "HEIMAN",
             "model": "Water leakage sensor (HS1WL/HS3WL)",
             "battery_type": "AAA",
@@ -2795,6 +2884,12 @@
         },
         {
             "manufacturer": "Hunter Douglas",
+            "model": "Designer Roller",
+            "battery_type": "AA",
+            "battery_quantity": 12
+        },
+        {
+            "manufacturer": "Hunter Douglas",
             "model": "Duette",
             "battery_type": "AA",
             "battery_quantity": 12
@@ -2803,6 +2898,11 @@
             "manufacturer": "Hunter Douglas",
             "model": "Duette by Hunter Douglas",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Hunter Douglas",
+            "model": "Silhouette",
+            "battery_type": "MANUAL"
         },
         {
             "manufacturer": "Hunter Douglas",
@@ -2904,6 +3004,13 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "IKEA",
+            "model": "SYMFONISK sound remote, gen 1",
+            "model_id": "E1744",
+            "hw_version": "24.4.5",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "Ikea",
             "model": "SYMFONISK Sound remote, gen 2",
             "model_id": "E2123",
@@ -2946,12 +3053,18 @@
         {
             "manufacturer": "IKEA",
             "model": "TRADFRI shortcut button (E1812)",
-            "battery_type": "CR2450"
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "IKEA",
             "model": "TRADFRI wireless dimmer (ICTC-G-1)",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "IKEA",
+            "model": "TREDANSEN",
+            "model_id": "E2103",
+            "battery_type": "BRAUNIT"
         },
         {
             "manufacturer": "Ikea",
@@ -3186,6 +3299,12 @@
         },
         {
             "manufacturer": "Kwikset",
+            "model": "910 SmartCode traditional electronic deadbolt (99100-006)",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Kwikset",
             "model": "912",
             "battery_type": "AA",
             "battery_quantity": 4
@@ -3291,6 +3410,12 @@
         },
         {
             "manufacturer": "Lidl",
+            "model": "Parkside smart watering timer (PSBZS A1)",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Lidl",
             "model": "Silvercrest radiator valve with thermostat (368308_2010)",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -3304,6 +3429,12 @@
             "manufacturer": "Lidl",
             "model": "Silvercrest smart motion sensor (HG06335/HG07310)",
             "battery_type": "MANUAL"
+        },
+        {
+            "manufacturer": "Lidl",
+            "model": "Silvercrest smart window and door sensor (HG06336)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "LifeControl",
@@ -3540,6 +3671,12 @@
         },
         {
             "manufacturer": "Lutron Electronics Co., Inc",
+            "model": "None (Shade)",
+            "battery_type": "D",
+            "battery_quantity": 8
+        },
+        {
+            "manufacturer": "Lutron Electronics Co., Inc",
             "model": "PJ2-3BRL-GXX-F01 (Pico3ButtonRaiseLower)",
             "battery_type": "CR2032"
         },
@@ -3557,6 +3694,11 @@
             "manufacturer": "Meross",
             "model": "ms100",
             "battery_type": "CR2477"
+        },
+        {
+            "manufacturer": "Mi",
+            "model": "MS009",
+            "battery_type": "CR2540"
         },
         {
             "manufacturer": "Mi light sensor",
@@ -4421,6 +4563,30 @@
             "battery_type": "CR2477"
         },
         {
+            "manufacturer": "SAF Tehnika",
+            "model": "ARANET2",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "SAF Tehnika",
+            "model": "ARANET4",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "SAF Tehnika",
+            "model": "ARANET_RADIATION",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "SAF Tehnika",
+            "model": "ARANET_RADON",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Samjin",
             "model": "button",
             "battery_type": "CR2"
@@ -4596,6 +4762,11 @@
             "manufacturer": "Shelly",
             "model": "BLU Door/Window",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Shelly",
+            "model": "BTHome sensor",
+            "battery_type": "MANUAL"
         },
         {
             "manufacturer": "Shelly",
@@ -5230,6 +5401,12 @@
             "model_match_method": "startswith"
         },
         {
+            "manufacturer": "switchbot",
+            "model": "Leak Detector",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "SwitchBot",
             "model": "Meter",
             "battery_type": "AAA",
@@ -5391,6 +5568,11 @@
             "battery_type": "AAA"
         },
         {
+            "manufacturer": "ThermoPro",
+            "model": "TP357S",
+            "battery_type": "AAA"
+        },
+        {
             "manufacturer": "Third Reality",
             "model": "3RSB015BZ",
             "battery_type": "AA",
@@ -5436,6 +5618,12 @@
             "manufacturer": "Third Reality",
             "model": "Temperature and Humidity Sensor Lite",
             "model_id": "3RTHS0224Z",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Third Reality",
+            "model": "Temperature and humidity sensor lite (3RTHS0224Z)",
             "battery_type": "AAA",
             "battery_quantity": 2
         },
@@ -5542,6 +5730,12 @@
             "manufacturer": "Trust",
             "model": "SmokeSensor-EM",
             "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Trust",
+            "model": "Wireless contact sensor",
+            "model_id": "ZCTS-808",
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "Trust",
@@ -6082,6 +6276,12 @@
             "battery_type": "CR2430"
         },
         {
+            "manufacturer": "Tuya",
+            "model": "TS0044_1",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "TuYa",
             "model": "TS0201_1",
             "battery_type": "AA",
@@ -6215,6 +6415,13 @@
             "manufacturer": "TuYa",
             "model": "Zigbee 3.0 temperature humidity sensor with display (TS0201_1)",
             "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Zigbee 4 button remote - 12 scene (TS0044_1) by Tuya",
+            "model_id": "TS0044_1",
+            "battery_type": "AAA",
             "battery_quantity": 2
         },
         {
@@ -6442,6 +6649,12 @@
             "model": "Siren",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Withings",
+            "model": "Smart Body Analyzer",
+            "battery_type": "AAA",
+            "battery_quantity": 4
         },
         {
             "manufacturer": "Woox",
@@ -6688,7 +6901,12 @@
         {
             "manufacturer": "Xiaomi",
             "model": "BTHome sensor",
-            "battery_type": "CR2032"
+            "battery_type": "MANUAL"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "CGDK2",
+            "battery_type": "CR2430"
         },
         {
             "manufacturer": "Xiaomi",
@@ -6844,6 +7062,11 @@
             "manufacturer": "Xiaomi",
             "model": "RTCGQ01LM",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "SJWS01LM",
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "Xiaomi",
@@ -7154,6 +7377,11 @@
             "manufacturer": "Zooz",
             "model": "ZSE41",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Zooz",
+            "model": "ZSE41 Open Close Sensor",
+            "battery_type": "Zooz ZSE41"
         },
         {
             "manufacturer": "Zooz",

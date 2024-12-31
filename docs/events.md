@@ -33,28 +33,29 @@ See others in the [community contributions](./community.md)
 ```yaml
 alias: Battery Low Notification
 description: Battery Low Notification with auto dismiss
-trigger:
-  - platform: event
+mode: queued
+triggers:
+  - trigger: event
     event_type: battery_notes_battery_threshold
     event_data:
       battery_low: true
     id: low
     alias: Battery went low
-  - platform: event
+  - trigger: event
     event_type: battery_notes_battery_threshold
     event_data:
       battery_low: false
     id: high
     alias: Battery went high
-condition: []
-action:
+conditions: []
+actions:
   - choose:
       - conditions:
           - condition: trigger
             id:
               - low
         sequence:
-          - service: persistent_notification.create
+          - action: persistent_notification.create
             data:
               title: |
                 {{ trigger.event.data.device_name }} Battery Low
@@ -69,10 +70,9 @@ action:
             id:
               - high
         sequence:
-          - service: persistent_notification.dismiss
+          - action: persistent_notification.dismiss
             data:
               notification_id: "{{ trigger.event.data.device_id }}-{{ trigger.event.data.source_entity_id }}"
-mode: queued
 ```
 
 ## Battery Increased
@@ -106,16 +106,17 @@ See others in the [community contributions](./community.md)
 ```yaml
 alias: Battery Replaced
 description: Battery Replaced
-trigger:
-  - platform: event
+mode: queued
+triggers:
+  - trigger: event
     event_type: battery_notes_battery_increased
-condition: []
-action:
-  - service: battery_notes.set_battery_replaced
+conditions: []
+actions:
+  - action: battery_notes.set_battery_replaced
     data:
       device_id: "{{ trigger.event.data.device_id }}"
       source_entity_id: "{{ trigger.event.data.source_entity_id }}"
-mode: queued
+
 ```
 
 ## Battery Not Reported
@@ -146,12 +147,14 @@ Note this cannot be run manually as it examines event triggers.
 ```yaml
 alias: Battery Not Reported
 description: Battery not reported
-trigger:
-  - platform: event
+mode: queued
+max: 30
+triggers:
+  - trigger: event
     event_type: battery_notes_battery_not_reported
-condition: []
-action:
-  - service: persistent_notification.create
+conditions: []
+actions:
+  - action: persistent_notification.create
     data:
       title: |
         {{ trigger.event.data.device_name }} Battery Not Reported
@@ -162,8 +165,6 @@ action:
         trigger.event.data.battery_last_reported_level }}% {{ '\n' -}} You need
         {{ trigger.event.data.battery_quantity }}× {{
         trigger.event.data.battery_type }}
-mode: queued
-max: 30
 ```
 
 ## Battery Replaced
@@ -189,17 +190,17 @@ Note this cannot be run manually as it examines event triggers.
 ```yaml
 alias: Battery Replaced
 description: Battery replaced
-trigger:
-  - platform: event
+mode: queued
+max: 30
+triggers:
+  - trigger: event
     event_type: battery_notes_battery_replaced
-condition: []
-action:
-  - service: persistent_notification.create
+conditions: []
+actions:
+  - action: persistent_notification.create
     data:
       title: |
         {{ trigger.event.data.device_name }} Battery Replaced
       message: >
         You just used {{trigger.event.data.battery_type_and_quantity }} batteries
-mode: queued
-max: 30
 ```

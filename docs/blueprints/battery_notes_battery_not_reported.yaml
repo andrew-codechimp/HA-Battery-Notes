@@ -37,22 +37,22 @@ blueprint:
 variables:
   not_reported_notification: !input not_reported_notification
   excluded_devices: !input excluded_devices
-trigger:
-- platform: event
+triggers:
+- trigger: event
   event_type: battery_notes_battery_not_reported
   alias: Battery not reported
-condition:
+conditions:
   - condition: template
     value_template: |-
       {{ trigger.event.data.device_id not in excluded_devices}}
   - alias: User pick
     condition: !input additional_conditions
-action:
+actions:
 - if:
   - condition: template
     value_template: '{{ not_reported_notification }}'
   then:
-  - service: persistent_notification.create
+  - action: persistent_notification.create
     data:
       title: '{{ trigger.event.data.device_name }} Battery Not Reported'
       message: 'The device has not reported its battery level for {{ trigger.event.data.battery_last_reported_days

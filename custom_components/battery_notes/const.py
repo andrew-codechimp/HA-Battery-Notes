@@ -11,7 +11,7 @@ from homeassistant.helpers import config_validation as cv
 
 LOGGER: Logger = getLogger(__package__)
 
-MIN_HA_VERSION = "2024.10"
+MIN_HA_VERSION = "2024.12"
 
 manifestfile = Path(__file__).parent / "manifest.json"
 with open(file=manifestfile, encoding="UTF-8") as json_file:

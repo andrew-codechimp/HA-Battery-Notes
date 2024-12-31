@@ -1,4 +1,4 @@
-## 1315 Devices in library
+## 1354 Devices in library
 
 This file is auto generated, do not modify
 
@@ -174,7 +174,9 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Aqara                                           |Opple wireless switch (triple band) (WXCJKG13LM)                           |CR2032                    |                   |                                      |
 |Aqara                                           |PETC1-M01                                                                  |3× LR20                   |                   |                                      |
 |Aqara                                           |Roller shade driver E1                                                     |Rechargeable              |ZNJLBL01LM         |                                      |
+|Aqara                                           |Roller shade driver E1 (ZNJLBL01LM)                                        |Rechargeable              |                   |                                      |
 |Aqara                                           |RTCGQ11LM                                                                  |CR2450                    |                   |                                      |
+|Aqara                                           |SDL-D01                                                                    |4× AA                     |                   |1.0.0                                 |
 |Aqara                                           |Smart radiator thermostat E1 (SRTS-A01)                                    |2× AA                     |                   |                                      |
 |Aqara                                           |Smart smoke detector (JY-GZ-01AQ)                                          |CR17450                   |                   |                                      |
 |Aqara                                           |SRTS-A01                                                                   |2× AA                     |                   |                                      |
@@ -184,8 +186,10 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Aqara                                           |Water leak sensor (SJCGQ11LM)                                              |CR2032                    |                   |                                      |
 |Aqara                                           |Water leak sensor T1 (SJCGQ12LM)                                           |CR2032                    |                   |                                      |
 |Aqara                                           |Wireless mini switch (WXKG11LM)                                            |CR2032                    |                   |                                      |
+|Aqara                                           |Wireless mini switch T1 (WXKG13LM)                                         |CR2032                    |                   |                                      |
 |Aqara                                           |Wireless remote switch (double rocker), 2018 model (WXKG02LM_rev2)         |CR2032                    |                   |                                      |
 |Aqara                                           |Wireless remote switch (single rocker), 2018 model (WXKG03LM_rev2)         |CR2032                    |                   |                                      |
+|Aqara                                           |Wireless remote switch D1 (double rocker) (WXKG07LM)                       |CR2032                    |                   |                                      |
 |Aqara                                           |Wireless remote switch H1 (double rocker) (WXKG15LM)                       |CR2450                    |                   |                                      |
 |Aqara                                           |WSDCGQ11LM                                                                 |CR2032                    |                   |                                      |
 |Aqara                                           |zigbee DJT11LM (lumi.vibration.aq1)                                        |CR2032                    |                   |                                      |
@@ -234,14 +238,20 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Blueforcer                                      |AWTRIX Light                                                               |Rechargeable              |                   |                                      |
 |BlueMaestro                                     |Tempo Disc THD                                                             |CR2032                    |                   |                                      |
 |Bosch                                           |Door/window contact II (BSEN-C2)                                           |CR123                     |                   |                                      |
+|BOSCH                                           |DWCII                                                                      |CR123A                    |              12309|                                     2|
 |Bosch                                           |ISW-ZPR1-WP13                                                              |4× AA                     |                   |                                      |
+|BOSCH                                           |MD                                                                         |CR123A                    |                   |                                      |
 |Bosch                                           |Motion sensor (ISW-ZPR1-WP13)                                              |4× AA                     |                   |                                      |
 |Bosch                                           |Radiator Thermostat II                                                     |2× AA                     |                   |                                      |
 |Bosch                                           |Radiator thermostat II (BTH-RA)                                            |2× AA                     |                   |                                      |
+|BOSCH                                           |Radiator Thermostat II +M                                                  |2× AA                     |              12306|1.2.0                                 |
+|Bosch                                           |Room thermostat II                                                         |4× AAA                    |RBSH-RTH0-BAT-ZB-EU|                                      |
 |Bosch                                           |Smoke alarm detector (BSD-2)                                               |Irreplaceable             |                   |                                      |
+|BOSCH                                           |TWINGUARD                                                                  |6× AA                     |                   |                                      |
 |Bosch                                           |Twinguard (8750001213)                                                     |6× AA                     |                   |                                      |
 |BRK Brands, Inc.                                |ZCOMBO                                                                     |2× AA                     |                   |                                      |
 |BRK Brands, Inc.                                |ZSMOKE                                                                     |2× AA                     |                   |                                      |
+|by Philio Technology Corp                       |PSP05                                                                      |CR123A                    |                   |                                      |
 |Centralite                                      |3157100                                                                    |4× AA                     |                   |                                      |
 |CentraLite                                      |3315                                                                       |CR2                       |                   |                                      |
 |CentraLite                                      |3315-L                                                                     |CR2                       |                   |                                      |
@@ -281,6 +291,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Devolo                                          |MT02648                                                                    |CR123A                    |                   |                                      |
 |Devolo                                          |MT2652                                                                     |CR2032                    |                   |                                      |
 |Devolo                                          |MT2756                                                                     |CR123A                    |                   |                                      |
+|Dome                                            |Siren                                                                      |2× CR123A                 |                   |                                      |
 |Doogee                                          |S98 Pro                                                                    |Rechargeable              |                   |                                      |
 |Drayton Wiser                                   |iTRV                                                                       |2× AA                     |                   |                                      |
 |Drayton Wiser                                   |RoomStat                                                                   |2× AA                     |                   |                                      |
@@ -436,6 +447,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Fibargroup                                      |Motion Sensor (FGMS001)                                                    |CR123A                    |                   |                                      |
 |Fibargroup                                      |Motion_Sensor_FGMS001                                                      |CR123A                    |                   |                                      |
 |First Alert                                     |1044807                                                                    |2× AA                     |                   |                                      |
+|First Alert                                     |Smoke Alarm                                                                |2× AA                     |                   |                                      |
 |First Alert (BRK Brands Inc)                    |ZCOMBO                                                                     |2× AA                     |                   |                                      |
 |Flair                                           |Smart Vent                                                                 |2× C                      |                   |                                      |
 |Flair                                           |Wireless Puck                                                              |2× AAA                    |                   |                                      |
@@ -456,8 +468,10 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Gerda                                           |Tedee Pro                                                                  |Rechargeable              |                   |                                      |
 |GiEX                                            |Water irrigation valve (QT06_1)                                            |4× AA                     |                   |                                      |
 |GiEX                                            |Water irrigation valve (QT06_2)                                            |4× AA                     |                   |                                      |
+|GiEX                                            |Water valve (GX02)                                                         |4× AA                     |                   |                                      |
 |Google                                          |A12                                                                        |3× AA                     |                   |                                      |
 |Google                                          |KR1                                                                        |CR2                       |                   |                                      |
+|Google                                          |Nest Protect                                                               |6× AA                     |                   |                                      |
 |Google                                          |Pixel 2                                                                    |Rechargeable              |                   |                                      |
 |Google                                          |Pixel 6a                                                                   |Rechargeable              |                   |                                      |
 |Google                                          |Topaz-2.33                                                                 |6× AA                     |                   |Battery                               |
@@ -493,6 +507,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |HEIMAN                                          |Smart motion sensor (HS3MS)                                                |CR123A                    |                   |                                      |
 |HEIMAN                                          |Smoke detector (HS1SA)                                                     |CR123A                    |                   |                                      |
 |HEIMAN                                          |Smoke detector (HS3SA/HS1SA)                                               |CR123A                    |                   |                                      |
+|Heiman                                          |SmokeSensor-EF-3.0                                                         |CR123A                    |                   |                                      |
 |HEIMAN                                          |Water leakage sensor (HS1WL/HS3WL)                                         |2× AAA                    |                   |                                      |
 |HHCC Plant Technology Co. Ltd                   |HHCCJCY10                                                                  |CR2032                    |                   |                                      |
 |Hive                                            |Heating thermostat remote control (SLT3B)                                  |4× AA                     |                   |                                      |
@@ -514,8 +529,10 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Honeywell                                       |TH6320ZW2007                                                               |3× AA                     |                   |                                      |
 |Honeywell                                       |zigbee JTYJ-GD-01LM/BW (lumi.sensor_smoke)                                 |2× CR123A                 |                   |                                      |
 |Hunter Douglas                                  |Bottom Up                                                                  |12× AA                    |                   |                                      |
+|Hunter Douglas                                  |Designer Roller                                                            |12× AA                    |                   |                                      |
 |Hunter Douglas                                  |Duette                                                                     |12× AA                    |                   |                                      |
 |Hunter Douglas                                  |Duette by Hunter Douglas                                                   |Rechargeable              |                   |                                      |
+|Hunter Douglas                                  |Silhouette                                                                 |MANUAL                    |                   |                                      |
 |Hunter Douglas                                  |Vertical Slats, Left Stack                                                 |Rechargeable              |                   |                                      |
 |Hunter Douglas                                  |Vertical Slats, Right Stack                                                |Rechargeable              |                   |                                      |
 |Husqvarna AB                                    |TBD                                                                        |PP3                       |                   |                                      |
@@ -535,6 +552,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |IKEA                                            |STYRBAR remote control (E2001/E2002)                                       |2× AAA                    |                   |                                      |
 |IKEA                                            |SYMFONISK sound controller (E1744)                                         |CR2032                    |                   |                                      |
 |IKEA                                            |SYMFONISK sound remote gen2 (E2123)                                        |2× AAA                    |                   |                                      |
+|IKEA                                            |SYMFONISK sound remote, gen 1                                              |CR2032                    |E1744              |24.4.5                                |
 |Ikea                                            |SYMFONISK Sound remote, gen 2                                              |2× AAA                    |E2123              |                                      |
 |IKEA                                            |SYMFONISK sound remote, gen 2 (E2123)                                      |2× AAA                    |                   |                                      |
 |IKEA                                            |TRADFRI motion sensor                                                      |2× CR2032                 |                   |                                      |
@@ -542,8 +560,9 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |IKEA                                            |TRADFRI ON/OFF switch (E1743)                                              |CR2032                    |                   |                                      |
 |IKEA                                            |TRADFRI open/close remote (E1766)                                          |CR2032                    |                   |                                      |
 |IKEA                                            |TRADFRI remote control (E1524/E1810)                                       |CR2032                    |                   |                                      |
-|IKEA                                            |TRADFRI shortcut button (E1812)                                            |CR2450                    |                   |                                      |
+|IKEA                                            |TRADFRI shortcut button (E1812)                                            |CR2032                    |                   |                                      |
 |IKEA                                            |TRADFRI wireless dimmer (ICTC-G-1)                                         |CR2032                    |                   |                                      |
+|IKEA                                            |TREDANSEN                                                                  |BRAUNIT                   |E2103              |                                      |
 |Ikea                                            |TREDANSEN cellular blind (E2103)                                           |Rechargeable              |                   |                                      |
 |IKEA                                            |VALLHORN wireless motion sensor (E2134)                                    |2× AAA                    |                   |                                      |
 |IKEA                                            |Water leakage detection sensor (E2202)                                     |AAA                       |                   |                                      |
@@ -588,6 +607,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Konke                                           |3AFE28010402000D                                                           |CR2450                    |                   |                                      |
 |Konke                                           |Temperature and humidity sensor                                            |CR2450                    |2AJZ4KPFT          |                                      |
 |Kwikset                                         |910                                                                        |4× AA                     |                   |                                      |
+|Kwikset                                         |910 SmartCode traditional electronic deadbolt (99100-006)                  |4× AA                     |                   |                                      |
 |Kwikset                                         |912                                                                        |4× AA                     |                   |                                      |
 |Kwikset                                         |914                                                                        |4× AA                     |                   |                                      |
 |Kwikset                                         |914C                                                                       |4× AA                     |                   |                                      |
@@ -606,9 +626,11 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Leedarson                                       |4-Key Remote Controller (6ARCZABZH)                                        |CR2450                    |                   |                                      |
 |Lidl                                            |HG06335/HG07310                                                            |CR123A                    |                   |                                      |
 |Lidl                                            |HG06336                                                                    |2× AAA                    |                   |                                      |
+|Lidl                                            |Parkside smart watering timer (PSBZS A1)                                   |2× AA                     |                   |                                      |
 |Lidl                                            |Silvercrest radiator valve with thermostat (368308_2010)                   |2× AA                     |                   |                                      |
 |Lidl                                            |Silvercrest smart button (HG08164)                                         |CR2032                    |                   |                                      |
 |Lidl                                            |Silvercrest smart motion sensor (HG06335/HG07310)                          |MANUAL                    |                   |                                      |
+|Lidl                                            |Silvercrest smart window and door sensor (HG06336)                         |2× AAA                    |                   |                                      |
 |LifeControl                                     |Door sensor (MCLH-04)                                                      |CR123A                    |                   |                                      |
 |LifeControl                                     |MCLH-05                                                                    |AA                        |                   |                                      |
 |LifeControl                                     |MCLH-07                                                                    |CR123A                    |                   |                                      |
@@ -654,10 +676,12 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |LUMI                                            |lumi.weather                                                               |CR2032                    |                   |                                      |
 |Lutron                                          |Z3-1BRL                                                                    |CR2032                    |                   |                                      |
 |Lutron Electronics Co., Inc                     |CSX-YJ-XX (SerenaHoneycombShade)                                           |6× D                      |                   |                                      |
+|Lutron Electronics Co., Inc                     |None (Shade)                                                               |8× D                      |                   |                                      |
 |Lutron Electronics Co., Inc                     |PJ2-3BRL-GXX-F01 (Pico3ButtonRaiseLower)                                   |CR2032                    |                   |                                      |
 |Lutron Electronics Co., Inc                     |PJ2-3BRL-GXX-X01 (Pico3ButtonRaiseLower)                                   |CR2032                    |                   |                                      |
 |Merkury                                         |SS003                                                                      |CR2                       |                   |                                      |
 |Meross                                          |ms100                                                                      |CR2477                    |                   |                                      |
+|Mi                                              |MS009                                                                      |CR2540                    |                   |                                      |
 |Mi light sensor                                 |GZCGQ01LM                                                                  |CR2450                    |                   |                                      |
 |MiaoMiaoCe                                      |MHO-C401N-z                                                                |CR2032                    |                   |                                      |
 |Minoston                                        |MR40Z                                                                      |2× CR2032                 |                   |                                      |
@@ -815,6 +839,10 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |rtl_433                                         |WT450-TH                                                                   |AA                        |                   |                                      |
 |Ruuvi                                           |Ruuvitag                                                                   |CR2477T                   |                   |                                      |
 |Ruuvi Innovations Ltd.                          |RuuviTag                                                                   |CR2477                    |                   |                                      |
+|SAF Tehnika                                     |ARANET2                                                                    |2× AA                     |                   |                                      |
+|SAF Tehnika                                     |ARANET4                                                                    |2× AA                     |                   |                                      |
+|SAF Tehnika                                     |ARANET_RADIATION                                                           |2× AA                     |                   |                                      |
+|SAF Tehnika                                     |ARANET_RADON                                                               |2× AA                     |                   |                                      |
 |Samjin                                          |button                                                                     |CR2                       |                   |                                      |
 |Samjin                                          |motion                                                                     |CR2                       |                   |                                      |
 |Samjin                                          |multi                                                                      |CR2450                    |                   |                                      |
@@ -849,6 +877,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Shelly                                          |BLU Button1                                                                |CR2032                    |                   |                                      |
 |Shelly                                          |BLU Door Window Sensor                                                     |CR2032                    |                   |                                      |
 |Shelly                                          |BLU Door/Window                                                            |CR2032                    |                   |                                      |
+|Shelly                                          |BTHome sensor                                                              |MANUAL                    |                   |                                      |
 |Shelly                                          |gen1 (SHHT-1)                                                              |CR123A                    |                   |                                      |
 |Shelly                                          |Shelly Button1                                                             |Rechargeable              |                   |                                      |
 |Shelly                                          |Shelly Door/Window 2                                                       |2× CR123A                 |                   |                                      |
@@ -967,6 +996,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Sure Petcare                                    |Felaqua                                                                    |4× C                      |                   |                                      |
 |Sure Petcare                                    |Pet flap                                                                   |4× C                      |                   |                                      |
 |Sure Petcare                                    |Feeder\*                                                                   |4× C                      |                   |                                      |
+|switchbot                                       |Leak Detector                                                              |2× AAA                    |                   |                                      |
 |SwitchBot                                       |Meter                                                                      |2× AAA                    |                   |                                      |
 |SwitchBot                                       |MeterPlus                                                                  |2× AAA                    |                   |                                      |
 |SwitchBot                                       |W1101500                                                                   |2× AAA                    |                   |                                      |
@@ -995,6 +1025,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |ThermoBeacon                                    |21                                                                         |CR2477                    |                   |                                      |
 |ThermoBeacon                                    |27                                                                         |CR2477                    |                   |                                      |
 |ThermoPro                                       |TP357                                                                      |AAA                       |                   |                                      |
+|ThermoPro                                       |TP357S                                                                     |AAA                       |                   |                                      |
 |Third Reality                                   |3RSB015BZ                                                                  |4× AA                     |                   |                                      |
 |Third Reality                                   |Door sensor (3RDS17BZ)                                                     |2× AAA                    |                   |                                      |
 |Third Reality                                   |Garage door tilt sensor (3RDTS01056Z)                                      |2× AAA                    |                   |                                      |
@@ -1003,6 +1034,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Third Reality                                   |Smart switch Gen3 (3RSS009Z)                                               |2× AAA                    |                   |                                      |
 |Third Reality                                   |Temperature and humidity sensor (3RTHS24BZ)                                |2× AAA                    |                   |                                      |
 |Third Reality                                   |Temperature and Humidity Sensor Lite                                       |2× AAA                    |3RTHS0224Z         |                                      |
+|Third Reality                                   |Temperature and humidity sensor lite (3RTHS0224Z)                          |2× AAA                    |                   |                                      |
 |Third Reality                                   |Water sensor (3RWS18BZ)                                                    |2× AAA                    |                   |                                      |
 |Third Reality                                   |Wireless motion sensor (3RMS16BZ)                                          |2× AAA                    |                   |                                      |
 |Third Reality                                   |Zigbee vibration sensor (3RVS01031Z)                                       |2× AAA                    |                   |                                      |
@@ -1021,6 +1053,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Trust                                           |COSensor-EM                                                                |CR123A                    |                   |                                      |
 |Trust                                           |Smoke detector (ZSDR-850)                                                  |CR123A                    |                   |                                      |
 |Trust                                           |SmokeSensor-EM                                                             |CR123A                    |                   |                                      |
+|Trust                                           |Wireless contact sensor                                                    |CR2032                    |ZCTS-808           |                                      |
 |Trust                                           |ZYCT-202                                                                   |CR2450                    |                   |                                      |
 |TS0001                                          |_TZ3210_j4pdtz9v                                                           |CR2                       |                   |                                      |
 |TS0041                                          |_TZ3000_itb0omhv                                                           |CR2032                    |                   |                                      |
@@ -1117,6 +1150,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |TuYa                                            |TS0042                                                                     |CR2032                    |                   |                                      |
 |Tuya                                            |TS0043                                                                     |CR2032                    |                   |                                      |
 |TuYa                                            |TS0044_1                                                                   |CR2430                    |                   |                                      |
+|Tuya                                            |TS0044_1                                                                   |2× AAA                    |                   |                                      |
 |TuYa                                            |TS0201_1                                                                   |2× AA                     |                   |                                      |
 |TuYa                                            |TS0202_1                                                                   |CR123A                    |                   |                                      |
 |TuYa                                            |TS0203                                                                     |CR2032                    |                   |                                      |
@@ -1142,6 +1176,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tuya                                            |X-Sense Wi-Fi Smoke Alarm (skivkhveqwmqw4gs)                               |CR123A                    |                   |                                      |
 |TuYa                                            |ZG-204ZL                                                                   |CR2450                    |                   |                                      |
 |TuYa                                            |Zigbee 3.0 temperature humidity sensor with display (TS0201_1)             |2× AA                     |                   |                                      |
+|Tuya                                            |Zigbee 4 button remote - 12 scene (TS0044_1) by Tuya                       |2× AAA                    |TS0044_1           |                                      |
 |TuYa                                            |Zigbee fingerbot plus (TS0001_fingerbot)                                   |CR2                       |                   |                                      |
 |Tuya                                            |Zigbee infrared remote (unsupported)                                       |2× AAA                    |                   |                                      |
 |TuYa                                            |Zigbee water leak sensor (TS0207_water_leak_detector_2)                    |CR2032                    |                   |                                      |
@@ -1184,6 +1219,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Wink Inc.                                       |D/W SENSOR                                                                 |CR14250                   |                   |                                      |
 |Wink Inc.                                       |Motion Sensor                                                              |CR123A                    |                   |                                      |
 |Wink Inc.                                       |Siren                                                                      |2× CR123A                 |                   |                                      |
+|Withings                                        |Smart Body Analyzer                                                        |4× AAA                    |                   |                                      |
 |Woox                                            |Smart garden irrigation control (R7060)                                    |4× AA                     |                   |                                      |
 |Woox                                            |Smart siren (R7051)                                                        |Rechargeable              |                   |                                      |
 |Woox                                            |Smart smoke alarm (R7049)                                                  |2× AAA                    |                   |                                      |
@@ -1230,7 +1266,8 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Xiaomi                                          |ble SJWS01LM                                                               |CR2032                    |                   |                                      |
 |Xiaomi                                          |ble XMPIR02SXS                                                             |CR2450                    |                   |                                      |
 |Xiaomi                                          |ble XMWSDJ04MMC                                                            |CR2450                    |                   |                                      |
-|Xiaomi                                          |BTHome sensor                                                              |CR2032                    |                   |                                      |
+|Xiaomi                                          |BTHome sensor                                                              |MANUAL                    |                   |                                      |
+|Xiaomi                                          |CGDK2                                                                      |CR2430                    |                   |                                      |
 |Xiaomi                                          |DJT11LM                                                                    |CR2032                    |                   |                                      |
 |Xiaomi                                          |GZCGQ01LM                                                                  |CR2450                    |                   |                                      |
 |Xiaomi                                          |HHCCJCY01                                                                  |CR2032                    |                   |                                      |
@@ -1261,6 +1298,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Xiaomi                                          |MiJia wireless switch (WXKG01LM)                                           |CR2032                    |                   |                                      |
 |Xiaomi                                          |MJYD02YL                                                                   |3× AA                     |                   |                                      |
 |Xiaomi                                          |RTCGQ01LM                                                                  |CR2450                    |                   |                                      |
+|Xiaomi                                          |SJWS01LM                                                                   |CR2032                    |                   |                                      |
 |Xiaomi                                          |SRTS-A01                                                                   |2× AA                     |                   |                                      |
 |Xiaomi                                          |Temperature & humidity sensor (LYWSD03MMC)                                 |CR2032                    |                   |                                      |
 |Xiaomi                                          |Temperature/Humidity sensor                                                |CR2032                    |                   |                                      |
@@ -1317,6 +1355,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Zooz                                            |ZSE40                                                                      |2× AAA                    |                   |                                      |
 |Zooz                                            |ZSE40 700                                                                  |CR123A                    |                   |                                      |
 |Zooz                                            |ZSE41                                                                      |CR2032                    |                   |                                      |
+|Zooz                                            |ZSE41 Open Close Sensor                                                    |Zooz ZSE41                |                   |                                      |
 |Zooz                                            |ZSE42                                                                      |MANUAL                    |                   |                                      |
 |Zooz                                            |ZSE43                                                                      |CR2032                    |                   |                                      |
 |Zooz                                            |ZSE44                                                                      |CR2450                    |                   |                                      |

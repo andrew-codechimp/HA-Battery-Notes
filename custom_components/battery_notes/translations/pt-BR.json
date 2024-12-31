@@ -1,0 +1,200 @@
+{
+    "config": {
+        "step": {
+            "user": {
+                "description": "If you need help with the configuration have a look here: https://andrew-codechimp.github.io/HA-Battery-Notes/",
+                "data": {
+                    "association_type": "Association type"
+                },
+                "menu_options": {
+                    "device": "Device (recommended)",
+                    "entity": "Entity"
+                },
+                "title": "Choose your association type"
+            },
+            "device": {
+                "data": {
+                    "device_id": "Device",
+                    "name": "Name"
+                },
+                "data_description": {
+                    "name": "Leaving blank will take the name from the source device"
+                }
+            },
+            "entity": {
+                "data": {
+                    "source_entity_id": "Entity",
+                    "name": "Name"
+                },
+                "data_description": {
+                    "name": "Leaving blank will take the name from the source entity"
+                }
+            },
+            "battery": {
+                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
+                "data": {
+                    "battery_type": "Battery type",
+                    "battery_quantity": "Battery quantity",
+                    "battery_low_threshold": "Battery low threshold",
+                    "battery_low_template": "Battery low template"
+                },
+                "data_description": {
+                    "battery_low_threshold": "0 will use the global default threshold",
+                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels"
+                }
+            },
+            "manual": {
+                "description": "This device is marked in the library as manual, variants use different battery types so it cannot be set in the library.\nThe next step will allow you to set your battery type but please do not submit a device request.",
+                "title": "Device manual configuration"
+            }
+        },
+        "abort": {
+            "already_configured": "Device is already configured"
+        },
+        "error": {
+            "unknown": "Unknown error occurred.",
+            "unconfigurable_entity": "It is not possible to add this entity to Battery Notes."
+        }
+    },
+    "options": {
+        "step": {
+            "init": {
+                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
+                "data": {
+                    "name": "Name",
+                    "battery_type": "Battery type",
+                    "battery_quantity": "Battery quantity",
+                    "battery_low_threshold": "Battery low threshold",
+                    "battery_low_template": "Battery low template"
+                },
+                "data_description": {
+                    "name": "Leaving blank will take the name from the source device",
+                    "battery_low_threshold": "0 will use the global default threshold",
+                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels"
+                }
+            }
+        },
+        "error": {
+            "orphaned_battery_note": "The associated device or entity no longer exists for this Battery Note.",
+            "unknown": "Unknown error occurred."
+        }
+    },
+    "entity": {
+        "binary_sensor": {
+            "battery_low": {
+                "name": "{device_name}Battery low",
+                "state_attributes": {
+                    "battery_low_threshold": {
+                        "name": "Battery low threshold"
+                    }
+                }
+            }
+        },
+        "button": {
+            "battery_replaced": {
+                "name": "{device_name}Battery replaced"
+            }
+        },
+        "sensor": {
+            "battery_plus": {
+                "name": "{device_name}Battery+",
+                "state_attributes": {
+                    "battery_type": {
+                        "name": "Battery type"
+                    },
+                    "battery_quantity": {
+                        "name": "Battery quantity"
+                    },
+                    "battery_type_and_quantity": {
+                        "name": "Battery type and quantity"
+                    },
+                    "battery_last_replaced": {
+                        "name": "Battery last replaced"
+                    },
+                    "battery_low": {
+                        "name": "Battery low"
+                    },
+                    "battery_low_threshold": {
+                        "name": "Battery low threshold"
+                    },
+                    "battery_last_reported": {
+                        "name": "Battery last reported"
+                    },
+                    "battery_last_reported_level": {
+                        "name": "Battery last reported level"
+                    },
+                    "source_entity_id": {
+                        "name": "Source Entity Id"
+                    },
+                    "device_id": {
+                        "name": "Device Id"
+                    },
+                    "device_name": {
+                        "name": "Device name"
+                    }
+                }
+            },
+            "battery_type": {
+                "name": "{device_name}Battery type",
+                "state_attributes": {
+                    "battery_type": {
+                        "name": "Battery type"
+                    },
+                    "battery_quantity": {
+                        "name": "Battery quantity"
+                    }
+                }
+            },
+            "battery_last_replaced": {
+                "name": "{device_name}Battery last replaced"
+            }
+        }
+    },
+    "services": {
+        "set_battery_replaced": {
+            "description": "Set the battery last replaced.",
+            "fields": {
+                "device_id": {
+                    "description": "Device that has had its battery replaced.",
+                    "name": "Device"
+                },
+                "entity_id": {
+                    "description": "Entity that has had its battery replaced (only used for entity associated battery notes).",
+                    "name": "Entity"
+                },
+                "datetime_replaced": {
+                    "description": "Date replaced.",
+                    "name": "Date"
+                }
+            },
+            "name": "Set battery replaced"
+        },
+        "check_battery_last_reported": {
+            "description": "Raise events for devices that haven't reported their battery level.",
+            "fields": {
+                "days_last_reported": {
+                    "description": "Number of days since a device last reported its battery level.",
+                    "name": "Days"
+                }
+            },
+            "name": "Check battery last reported"
+        },
+        "check_battery_low": {
+            "description": "Raise events for devices that have a low battery.",
+            "name": "Check battery low"
+        }
+    },
+    "issues": {
+        "missing_device": {
+            "title": "Orphaned Battery Note",
+            "fix_flow": {
+                "step": {
+                    "confirm": {
+                        "title": "Orphaned Battery Note",
+                        "description": "The associated device or entity no longer exists for the Battery Note entry {name}, the Battery Note should be deleted.\nSelect **Submit** to delete this Battery Note."
+                    }
+                }
+            }
+        }
+    }
+}
