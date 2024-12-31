@@ -2727,6 +2727,12 @@
             "battery_quantity": 3
         },
         {
+            "manufacturer": "Heatit",
+            "model": "Z-TEMP3",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "HEIMAN",
             "model": "HS2WD-E",
             "battery_type": "LP103454 3.7v 700mah"
@@ -7402,12 +7408,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE70",
             "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Heatit",
-            "model": "Z-TEMP3",
-            "battery_type": "AAA",
             "battery_quantity": 2
         }
     ]

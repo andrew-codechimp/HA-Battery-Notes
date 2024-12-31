@@ -1,4 +1,4 @@
-## 1354 Devices in library
+## 1355 Devices in library
 
 This file is auto generated, do not modify
 
@@ -501,6 +501,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |HANK Electronics Ltd.                           |HKZW-DWS01                                                                 |2× AAA                    |                   |                                      |
 |Heatit                                          |Z-PH WALL CONTROLLER                                                       |CR2450                    |                   |                                      |
 |Heatit                                          |Z-Temp2                                                                    |3× AA                     |                   |                                      |
+|Heatit                                          |Z-TEMP3                                                                    |2× AAA                    |                   |                                      |
 |HEIMAN                                          |HS2WD-E                                                                    |LP103454 3.7v 700mah      |                   |                                      |
 |HEIMAN                                          |Smart carbon monoxide sensor (HS1CA-E)                                     |CR123A                    |                   |                                      |
 |HEIMAN                                          |Smart carbon monoxide sensor (HS1CA-M)                                     |CR123A                    |                   |                                      |
