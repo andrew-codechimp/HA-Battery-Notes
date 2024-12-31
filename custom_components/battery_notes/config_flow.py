@@ -143,7 +143,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
     async def async_step_user(
         self,
         user_input: dict | None = None,
-    ) -> config_entries.FlowResult:
+    ) -> ConfigFlowResult:
         # pylint: disable=unused-argument
         """Handle a flow initialized by the user."""
 
@@ -235,7 +235,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
     async def async_step_entity(
         self,
         user_input: dict | None = None,
-    ) -> config_entries.FlowResult:
+    ) -> ConfigFlowResult:
         """Handle a flow for a device or discovery."""
         errors: dict[str, str] = {}
         device_battery_details = None
@@ -267,7 +267,11 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                     device_registry = dr.async_get(self.hass)
                     device_entry = device_registry.async_get(entity_entry.device_id)
 
-                    if device_entry and device_entry.manufacturer and device_entry.model:
+                    if (
+                        device_entry
+                        and device_entry.manufacturer
+                        and device_entry.model
+                    ):
                         _LOGGER.debug(
                             "Looking up device %s %s %s %s",
                             device_entry.manufacturer,
@@ -285,11 +289,14 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
 
                         library = await Library.factory(self.hass)
 
-                        device_battery_details = await library.get_device_battery_details(
-                            self.model_info
+                        device_battery_details = (
+                            await library.get_device_battery_details(self.model_info)
                         )
 
-                        if device_battery_details and not device_battery_details.is_manual:
+                        if (
+                            device_battery_details
+                            and not device_battery_details.is_manual
+                        ):
                             _LOGGER.debug(
                                 "Found device %s %s %s %s",
                                 device_entry.manufacturer,
@@ -334,7 +341,9 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             errors=errors,
         )
 
-    async def async_step_battery(self, user_input: dict[str, Any] | None = None):
+    async def async_step_battery(
+        self, user_input: dict[str, Any] | None = None
+    ) -> ConfigFlowResult:
         """Second step in config flow to add the battery type."""
         errors: dict[str, str] = {}
         if user_input is not None:
@@ -374,7 +383,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             elif source_entity_id and entity_entry:
                 title = entity_entry.name or entity_entry.original_name
             else:
-                assert(device_entry)
+                assert device_entry
                 title = device_entry.name_by_user or device_entry.name
 
             return self.async_create_entry(
@@ -387,8 +396,12 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             description_placeholders={
                 "manufacturer": self.model_info.manufacturer if self.model_info else "",
                 "model": self.model_info.model if self.model_info else "",
-                "model_id": self.model_info.model_id if self.model_info else "",
-                "hw_version": self.model_info.hw_version if self.model_info else "",
+                "model_id": (
+                    str(self.model_info.model_id or "") if self.model_info else ""
+                ),
+                "hw_version": (
+                    str(self.model_info.hw_version or "") if self.model_info else ""
+                ),
             },
             data_schema=vol.Schema(
                 {
@@ -432,28 +445,27 @@ class OptionsFlowHandler(OptionsFlow):
 
     def __init__(self) -> None:
         """Initialize options flow."""
-        self.config_entry = config_entry
-        self.current_config: dict = dict(config_entry.data)
-        self.source_device_id: str = str(self.current_config.get(CONF_DEVICE_ID))
-        self.name: str = str(self.current_config.get(CONF_NAME))
-        self.battery_type: str = str(self.current_config.get(CONF_BATTERY_TYPE))
-        self.battery_quantity: int = cast(int, self.current_config.get(CONF_BATTERY_QUANTITY))
-        self.battery_low_template: str = str(self.current_config.get(
-            CONF_BATTERY_LOW_TEMPLATE
-        ))
+        self.current_config: dict
+        self.source_device_id: str
+        self.name: str
+        self.battery_type: str
+        self.battery_quantity: int
+        self.battery_low_template: str
 
     async def async_step_init(
         self,
         user_input: dict[str, Any] | None = None,
-    ) -> FlowResult:
+    ) -> ConfigFlowResult:
         """Handle options flow."""
         errors = {}
         self.current_config = dict(self.config_entry.data)
         self.source_device_id = self.current_config.get(CONF_DEVICE_ID)  # type: ignore
-        self.name = self.current_config.get(CONF_NAME)
-        self.battery_type = self.current_config.get(CONF_BATTERY_TYPE)
-        self.battery_quantity = self.current_config.get(CONF_BATTERY_QUANTITY)
-        self.battery_low_template = self.current_config.get(CONF_BATTERY_LOW_TEMPLATE)
+        self.name = str(self.current_config.get(CONF_NAME) or "")
+        self.battery_type = str(self.current_config.get(CONF_BATTERY_TYPE) or "")
+        self.battery_quantity = int(self.current_config.get(CONF_BATTERY_QUANTITY) or 1)
+        self.battery_low_template = str(
+            self.current_config.get(CONF_BATTERY_LOW_TEMPLATE) or ""
+        )
 
         if self.source_device_id:
             device_registry = dr.async_get(self.hass)
@@ -494,8 +506,12 @@ class OptionsFlowHandler(OptionsFlow):
             description_placeholders={
                 "manufacturer": self.model_info.manufacturer if self.model_info else "",
                 "model": self.model_info.model if self.model_info else "",
-                "model_id": self.model_info.model_id if self.model_info else "",
-                "hw_version": self.model_info.hw_version if self.model_info else "",
+                "model_id": (
+                    str(self.model_info.model_id or "") if self.model_info else ""
+                ),
+                "hw_version": (
+                    str(self.model_info.hw_version or "") if self.model_info else ""
+                ),
             },
             data_schema=schema,
             errors=errors,
