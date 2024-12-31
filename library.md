@@ -1,4 +1,4 @@
-## 1353 Devices in library
+## 1354 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1267,6 +1267,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Xiaomi                                          |ble XMPIR02SXS                                                             |CR2450                    |                   |                                      |
 |Xiaomi                                          |ble XMWSDJ04MMC                                                            |CR2450                    |                   |                                      |
 |Xiaomi                                          |BTHome sensor                                                              |MANUAL                    |                   |                                      |
+|Xiaomi                                          |CGDK2                                                                      |CR2430                    |                   |                                      |
 |Xiaomi                                          |DJT11LM                                                                    |CR2032                    |                   |                                      |
 |Xiaomi                                          |GZCGQ01LM                                                                  |CR2450                    |                   |                                      |
 |Xiaomi                                          |HHCCJCY01                                                                  |CR2032                    |                   |                                      |

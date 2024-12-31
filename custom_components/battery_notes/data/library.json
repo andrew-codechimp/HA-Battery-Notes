@@ -6905,6 +6905,11 @@
         },
         {
             "manufacturer": "Xiaomi",
+            "model": "CGDK2",
+            "battery_type": "CR2430"
+        },
+        {
+            "manufacturer": "Xiaomi",
             "model": "DJT11LM",
             "battery_type": "CR2032"
         },
@@ -7398,11 +7403,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Xiaomi",
-            "model": "CGDK2",
-            "battery_type": "CR2430"
         }
     ]
 }
