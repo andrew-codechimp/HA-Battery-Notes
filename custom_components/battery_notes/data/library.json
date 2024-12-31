@@ -4575,6 +4575,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "SAF Tehnika",
+            "model": "ARANET_RADON",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Samjin",
             "model": "button",
             "battery_type": "CR2"
@@ -7385,12 +7391,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE70",
             "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "SAF Tehnika",
-            "model": "ARANET_RADON",
-            "battery_type": "AA",
             "battery_quantity": 2
         }
     ]
