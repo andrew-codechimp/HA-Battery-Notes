@@ -4570,18 +4570,6 @@
         },
         {
             "manufacturer": "SAF Tehnika",
-            "model": "Aranet2 HOME",
-            "battery_type": "AA",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "SAF Tehnika",
-            "model": "Aranet4 HOME",
-            "battery_type": "AA",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "SAF Tehnika",
             "model": "Aranet Radiation",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -4589,6 +4577,18 @@
         {
             "manufacturer": "SAF Tehnika",
             "model": "Aranet Radon Plus",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "SAF Tehnika",
+            "model": "Aranet2 HOME",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "SAF Tehnika",
+            "model": "Aranet4 HOME",
             "battery_type": "AA",
             "battery_quantity": 2
         },
