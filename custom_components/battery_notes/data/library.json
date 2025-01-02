@@ -7416,6 +7416,11 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "eQ-3",
+            "model": "HM-PB-2-WM55-2",
+            "battery_type": "CR2032"
         }
     ]
 }
