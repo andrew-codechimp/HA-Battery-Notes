@@ -1,4 +1,4 @@
-## 1355 Devices in library
+## 1356 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1132,6 +1132,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |TuYa                                            |Temperature & humidity LCD sensor (ZG-227ZL)                               |CR2032                    |                   |                                      |
 |TuYa                                            |Temperature & humidity sensor (IH-K009)                                    |CR2450                    |                   |                                      |
 |TuYa                                            |Temperature & humidity sensor (WSD500A)                                    |2× AAA                    |                   |                                      |
+|Tuya                                            |Temperature & humidity sensor with clock (JM-TRH-ZGB-V1)                   |3× AAA                    |_TZE200_vvmbj46n   |                                      |
 |TuYa                                            |Temperature & humidity sensor with display (TS0201)                        |2× AAA                    |                   |                                      |
 |Tuya                                            |Temperature & humidity sensor with display (TS0201)                        |2× AAA                    |                   |                                      |
 |Tuya                                            |Temperature and humidity sensor                                            |2× AAA                    |ZG-227Z            |                                      |
