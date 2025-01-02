@@ -1877,6 +1877,11 @@
         },
         {
             "manufacturer": "eQ-3",
+            "model": "HM-SwI-3-FM",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "eQ-3",
             "model": "HM-TC-IT-WM-W-EU",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -7426,11 +7431,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "eQ-3",
-            "model": "HM-SwI-3-FM",
-            "battery_type": "CR2032"
         }
     ]
 }
