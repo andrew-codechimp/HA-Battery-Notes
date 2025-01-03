@@ -6405,6 +6405,13 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Tuya",
+            "model": "Water leak sensor",
+            "model_id": "upgcbody",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "TuYa",
             "model": "Water valve (TS0049)",
             "battery_type": "AA",
@@ -7453,13 +7460,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE70",
             "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Water leak sensor",
-            "model_id": "upgcbody",
-            "battery_type": "AAA",
             "battery_quantity": 2
         }
     ]

@@ -1,4 +1,4 @@
-## 1363 Devices in library
+## 1364 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1173,6 +1173,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |TuYa                                            |TV02-Zigbee                                                                |2× AA                     |                   |                                      |
 |Tuya                                            |Vibration sensor (TS0210)                                                  |2× AAA                    |                   |                                      |
 |TuYa                                            |Water leak detector (TS0207_water_leak_detector)                           |CR2032                    |                   |                                      |
+|Tuya                                            |Water leak sensor                                                          |2× AAA                    |upgcbody           |                                      |
 |TuYa                                            |Water valve (TS0049)                                                       |4× AA                     |                   |                                      |
 |Tuya                                            |WiFi Temperature & Humidity Sensor (q29ebws5adwye1l8)                      |2× AAA                    |                   |                                      |
 |TuYa                                            |Wireless switch with 1 button (TS0041)                                     |CR2032                    |                   |                                      |
