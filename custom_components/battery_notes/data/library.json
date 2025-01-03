@@ -4904,6 +4904,11 @@
         },
         {
             "manufacturer": "Shenzhen Neo Electronics Co., Ltd.",
+            "model": "NAS-PD03Z",
+            "battery_type": "CR132A"
+        },
+        {
+            "manufacturer": "Shenzhen Neo Electronics Co., Ltd.",
             "model": "NAS-WS01Z",
             "battery_type": "CR2"
         },
@@ -7443,11 +7448,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Shenzhen Neo Electronics Co., Ltd.",
-            "model": "NAS-PD03Z",
-            "battery_type": "CR132A"
         }
     ]
 }
