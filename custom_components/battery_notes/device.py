@@ -4,10 +4,10 @@ import logging
 from datetime import datetime
 from typing import cast
 
+from homeassistant.components.binary_sensor import DOMAIN as BINARY_SENSOR_DOMAIN
+from homeassistant.components.binary_sensor import BinarySensorDeviceClass
 from homeassistant.components.sensor import DOMAIN as SENSOR_DOMAIN
-from homeassistant.components.sensor import (
-    SensorDeviceClass,
-)
+from homeassistant.components.sensor import SensorDeviceClass
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import (
     CONF_DEVICE_ID,
@@ -46,6 +46,7 @@ class BatteryNotesDevice:
     store: BatteryNotesStorage
     coordinator: BatteryNotesCoordinator
     wrapped_battery: RegistryEntry | None = None
+    wrapped_battery_low: RegistryEntry | None = None
     device_name: str | None = None
 
     def __init__(self, hass: HomeAssistant, config: ConfigEntry) -> None:
@@ -107,8 +108,8 @@ class BatteryNotesDevice:
                     severity=ir.IssueSeverity.WARNING,
                     translation_key="missing_device",
                     translation_placeholders={
-                            "name": config.title,
-                        },
+                        "name": config.title,
+                    },
                 )
 
                 _LOGGER.warning(
@@ -148,7 +149,11 @@ class BatteryNotesDevice:
             for entity in entity_registry.entities.values():
                 if not entity.device_id or entity.device_id != device_id:
                     continue
-                if not entity.domain or entity.domain != SENSOR_DOMAIN:
+                if (
+                    not entity.domain
+                    or entity.domain != SENSOR_DOMAIN
+                    or entity.domain != BINARY_SENSOR_DOMAIN
+                ):
                     continue
                 if not entity.platform or entity.platform == DOMAIN:
                     continue
@@ -157,13 +162,21 @@ class BatteryNotesDevice:
                     continue
 
                 device_class = entity.device_class or entity.original_device_class
-                if device_class != SensorDeviceClass.BATTERY:
-                    continue
 
-                if entity.unit_of_measurement != PERCENTAGE:
-                    continue
+                if entity.domain == SENSOR_DOMAIN:
+                    if device_class != SensorDeviceClass.BATTERY:
+                        continue
+                    if entity.unit_of_measurement != PERCENTAGE:
+                        continue
+                    self.wrapped_battery = entity_registry.async_get(entity.entity_id)
 
-                self.wrapped_battery = entity_registry.async_get(entity.entity_id)
+                if entity.domain == BINARY_SENSOR_DOMAIN:
+                    if device_class != BinarySensorDeviceClass.BATTERY:
+                        continue
+                    self.wrapped_battery_low = entity_registry.async_get(
+                        entity.entity_id
+                    )
+
                 break
 
             device_entry = device_registry.async_get(device_id)
@@ -187,8 +200,8 @@ class BatteryNotesDevice:
                     severity=ir.IssueSeverity.WARNING,
                     translation_key="missing_device",
                     translation_placeholders={
-                            "name": config.title,
-                        },
+                        "name": config.title,
+                    },
                 )
 
                 _LOGGER.warning(
@@ -208,8 +221,8 @@ class BatteryNotesDevice:
         self.coordinator.device_name = self.device_name
         self.coordinator.battery_type = cast(str, config.data.get(CONF_BATTERY_TYPE))
         try:
-            self.coordinator.battery_quantity = cast(int,
-                config.data.get(CONF_BATTERY_QUANTITY)
+            self.coordinator.battery_quantity = cast(
+                int, config.data.get(CONF_BATTERY_QUANTITY)
             )
         except ValueError:
             self.coordinator.battery_quantity = 1
@@ -256,7 +269,9 @@ class BatteryNotesDevice:
                 last_replaced,
             )
 
-            self.coordinator.last_replaced = datetime.fromisoformat(last_replaced) if last_replaced else None
+            self.coordinator.last_replaced = (
+                datetime.fromisoformat(last_replaced) if last_replaced else None
+            )
 
         # If there is not a last_reported set to now
         if not self.coordinator.last_reported:

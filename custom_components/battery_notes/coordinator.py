@@ -56,6 +56,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
     battery_low_threshold: int
     battery_low_template: str | None
     wrapped_battery: RegistryEntry | None = None
+    wrapped_battery_low: RegistryEntry | None = None
     _current_battery_level: str | None = None
     enable_replaced: bool = True
     _round_battery: bool = False
@@ -66,11 +67,16 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
     _source_entity_name: str | None = None
 
     def __init__(
-        self, hass, store: BatteryNotesStorage, wrapped_battery: RegistryEntry | None
+        self,
+        hass,
+        store: BatteryNotesStorage,
+        wrapped_battery: RegistryEntry | None,
+        wrapped_battery_low: RegistryEntry | None,
     ):
         """Initialize."""
         self.store = store
         self.wrapped_battery = wrapped_battery
+        self.wrapped_battery_low = wrapped_battery_low
 
         if DOMAIN_CONFIG in hass.data[DOMAIN]:
             domain_config: dict = hass.data[DOMAIN][DOMAIN_CONFIG]
@@ -312,10 +318,14 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
         if self.battery_low_template:
             return self.battery_low_template_state
         else:
-            if validate_is_float(self.current_battery_level):
-                return bool(
-                    float(self.current_battery_level) < self.battery_low_threshold
-                )
+            if self.wrapped_battery:
+                if validate_is_float(self.current_battery_level):
+                    return bool(
+                        float(self.current_battery_level) < self.battery_low_threshold
+                    )
+            elif self.wrapped_battery_low:
+                # TODO: check how to do this properly, should be a property set via something watching the wrapped battery low
+                return self.wrapped_battery_low.state == "on"
 
         return False
 
