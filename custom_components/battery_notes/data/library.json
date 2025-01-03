@@ -2663,6 +2663,11 @@
         },
         {
             "manufacturer": "Govee",
+            "model": "H5105",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Govee",
             "model": "H5121",
             "battery_type": "CR2450"
         },
@@ -7474,11 +7479,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Govee",
-            "model": "H5105",
-            "battery_type": "CR2450"
         }
     ]
 }
