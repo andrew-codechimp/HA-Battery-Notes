@@ -6395,6 +6395,12 @@
         },
         {
             "manufacturer": "Tuya",
+            "model": "Vibration sensor",
+            "model_id": "lzdjjfss",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Tuya",
             "model": "Vibration sensor (TS0210)",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -7461,12 +7467,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Vibration sensor",
-            "model_id": "lzdjjfss",
-            "battery_type": "CR2450"
         }
     ]
 }
