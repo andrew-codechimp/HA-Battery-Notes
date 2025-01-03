@@ -359,6 +359,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "_TZE200_bjawzodf",
+            "model": "TS0601",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "_TZE200_c88teujp",
             "model": "TS0601",
             "battery_type": "AA",
@@ -7483,12 +7489,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE70",
             "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "_TZE200_bjawzodf",
-            "model": "TS0601",
-            "battery_type": "AAA",
             "battery_quantity": 2
         }
     ]
