@@ -7454,6 +7454,13 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Water leak sensor",
+            "model_id": "upgcbody",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
