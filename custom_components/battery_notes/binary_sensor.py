@@ -68,6 +68,9 @@ from . import PLATFORMS
 from .common import validate_is_float
 from .const import (
     ATTR_BATTERY_LOW_THRESHOLD,
+    ATTR_BATTERY_QUANTITY,
+    ATTR_BATTERY_TYPE,
+    ATTR_BATTERY_TYPE_AND_QUANTITY,
     CONF_HIDE_BATTERY,
     CONF_SOURCE_ENTITY_ID,
     DATA,
@@ -333,6 +336,13 @@ class BatteryNotesBatteryLowTemplateSensor(
 
     _attr_should_poll = False
     _self_ref_update_count = 0
+    _unrecorded_attributes = frozenset(
+        {
+            ATTR_BATTERY_QUANTITY,
+            ATTR_BATTERY_TYPE,
+            ATTR_BATTERY_TYPE_AND_QUANTITY,
+        }
+    )
 
     def __init__(
         self,
@@ -533,6 +543,22 @@ class BatteryNotesBatteryLowTemplateSensor(
         )
 
     @property
+    def extra_state_attributes(self) -> dict[str, Any] | None:
+        """Return the state attributes of the battery type."""
+
+        # Battery related attributes
+        attrs = {
+            ATTR_BATTERY_QUANTITY: self.coordinator.battery_quantity,
+            ATTR_BATTERY_TYPE: self.coordinator.battery_type,
+            ATTR_BATTERY_TYPE_AND_QUANTITY: self.coordinator.battery_type_and_quantity,
+        }
+
+        super_attrs = super().extra_state_attributes
+        if super_attrs:
+            attrs.update(super_attrs)
+        return attrs
+
+    @property
     def is_on(self) -> bool | None:
         """Return true if sensor is on."""
         return self._state
@@ -544,7 +570,14 @@ class BatteryNotesBatteryLowSensor(
     """Represents a low battery threshold binary sensor from a device percentage."""
 
     _attr_should_poll = False
-    _unrecorded_attributes = frozenset({ATTR_BATTERY_LOW_THRESHOLD})
+    _unrecorded_attributes = frozenset(
+        {
+            ATTR_BATTERY_LOW_THRESHOLD,
+            ATTR_BATTERY_QUANTITY,
+            ATTR_BATTERY_TYPE,
+            ATTR_BATTERY_TYPE_AND_QUANTITY,
+        }
+    )
 
     def __init__(
         self,
@@ -640,6 +673,9 @@ class BatteryNotesBatteryLowSensor(
         """Return the state attributes of battery low."""
 
         attrs = {
+            ATTR_BATTERY_QUANTITY: self.coordinator.battery_quantity,
+            ATTR_BATTERY_TYPE: self.coordinator.battery_type,
+            ATTR_BATTERY_TYPE_AND_QUANTITY: self.coordinator.battery_type_and_quantity,
             ATTR_BATTERY_LOW_THRESHOLD: self.coordinator.battery_low_threshold,
         }
 
@@ -655,6 +691,14 @@ class BatteryNotesBatteryBinaryLowSensor(
     """Represents a low battery binary sensor from a binary sensor."""
 
     _attr_should_poll = False
+
+    _unrecorded_attributes = frozenset(
+        {
+            ATTR_BATTERY_QUANTITY,
+            ATTR_BATTERY_TYPE,
+            ATTR_BATTERY_TYPE_AND_QUANTITY,
+        }
+    )
 
     def __init__(
         self,
@@ -930,6 +974,24 @@ class BatteryNotesBatteryBinaryLowSensor(
             self.entity_id,
             state,
         )
+
+    @property
+    def extra_state_attributes(self) -> dict[str, Any] | None:
+        """Return the state attributes of the battery type."""
+
+        # Battery related attributes
+        attrs = {
+            ATTR_BATTERY_QUANTITY: self.coordinator.battery_quantity,
+            ATTR_BATTERY_TYPE: self.coordinator.battery_type,
+            ATTR_BATTERY_TYPE_AND_QUANTITY: self.coordinator.battery_type_and_quantity,
+        }
+
+        super_attrs = super().extra_state_attributes
+        if super_attrs:
+            attrs.update(super_attrs)
+        if self._wrapped_attributes:
+            attrs.update(self._wrapped_attributes)
+        return attrs
 
     @property
     def is_on(self) -> bool | None:
