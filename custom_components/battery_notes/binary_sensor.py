@@ -772,26 +772,20 @@ class BatteryNotesBatteryBinaryLowSensor(
                 STATE_UNAVAILABLE,
                 STATE_UNKNOWN,
             ]
-            or not validate_is_on_or_off(
-                wrapped_battery_low_state.state
-            )  # TODO: Fix this
+            or wrapped_battery_low_state.state not in ["on", "off"]  # TODO: Check this
         ):
-            self._attr_native_value = None
+            self._attr_is_on = None
             self._attr_available = False
             self.async_write_ha_state()
             return
 
-        self.coordinator.current_battery_level = wrapped_battery_low_state.state
+        self.coordinator.battery_low_binary_state = wrapped_battery_low_state.state
 
         await self.coordinator.async_request_refresh()
 
         self._attr_available = True
-        self._attr_native_value = (
-            self.coordinator.rounded_battery_level
-        )  # TODO: Change this
-        self._wrapped_attributes = (
-            wrapped_battery_low_state.attributes
-        )  # TODO: Change this
+        self._attr_is_on = self.coordinator.battery_low_binary_state == "on"
+        self._wrapped_attributes = wrapped_battery_low_state.attributes
 
         self.async_write_ha_state()
 
@@ -937,16 +931,14 @@ class BatteryNotesBatteryBinaryLowSensor(
                 STATE_UNAVAILABLE,
                 STATE_UNKNOWN,
             ]
-            or not validate_is_on_or_off(
-                wrapped_battery_low_state.state
-            )  # TODO: Fix this
+            or wrapped_battery_low_state.state not in ["on", "off"]  # TODO: Check this
         ):
             self._attr_is_on = None
             self._attr_available = False
             self.async_write_ha_state()
             return
 
-        self._attr_is_on = self.coordinator.battery_low
+        self._attr_is_on = self.coordinator.battery_low_binary_state == "on"
 
         self.async_write_ha_state()
 
