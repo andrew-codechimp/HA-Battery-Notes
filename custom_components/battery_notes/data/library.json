@@ -7448,6 +7448,13 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Luminance Motion sensor",
+            "model_id": "3towulqd",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
