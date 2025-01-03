@@ -1,4 +1,4 @@
-## 1362 Devices in library
+## 1363 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1109,6 +1109,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tuya                                            |PIR (b5g40alm)                                                             |CR2450                    |                   |                                      |
 |Tuya                                            |PIR 24Ghz human presence sensor                                            |2× AAA                    |ZG-204ZM           |                                      |
 |Tuya                                            |PIR 24Ghz human presence sensor (ZG-204ZM)                                 |2× AAA                    |                   |                                      |
+|Tuya                                            |PIR motion sensor                                                          |CR2450                    |IDkXwcvanigdiTj3   |                                      |
 |TuYa                                            |PIR sensor (RH3040)                                                        |3× AAA                    |                   |                                      |
 |Tuya                                            |PIR Sensor (tuadvwloutnzat2p)                                              |3× AAA                    |                   |                                      |
 |Tuya                                            |PIR Sensor (XFD2nSDKxFlGV5sV)                                              |3× AAA                    |                   |                                      |

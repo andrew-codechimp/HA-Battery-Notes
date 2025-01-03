@@ -6039,6 +6039,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Tuya",
+            "model": "PIR motion sensor",
+            "model_id": "IDkXwcvanigdiTj3",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "TuYa",
             "model": "PIR sensor (RH3040)",
             "battery_type": "AAA",
@@ -7448,12 +7454,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "PIR motion sensor",
-            "model_id": "IDkXwcvanigdiTj3",
-            "battery_type": "CR2450"
         }
     ]
 }
