@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import logging
-from collections.abc import Callable
+from collections.abc import Callable, Mapping
 from dataclasses import dataclass
 from typing import Any
 
@@ -42,6 +42,9 @@ from homeassistant.helpers import (
 )
 from homeassistant.helpers.entity import DeviceInfo, Entity, EntityCategory
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
+from homeassistant.helpers.entity_registry import (
+    EVENT_ENTITY_REGISTRY_UPDATED,
+)
 from homeassistant.helpers.event import (
     EventStateChangedData,
     TrackTemplate,
@@ -701,6 +704,8 @@ class BatteryNotesBatteryBinaryLowSensor(
                 identifiers=device_entry.identifiers,
             )
 
+        self._state: bool | None = None
+
     @callback
     async def async_state_changed_listener(
         self, event: Event[EventStateChangedData] | None = None
@@ -902,3 +907,27 @@ class BatteryNotesBatteryBinaryLowSensor(
             self.coordinator.wrapped_battery_low.entity_id,
             self.coordinator.battery_low,
         )
+
+    @callback
+    def _update_state(self, result):
+        state = (
+            None
+            if isinstance(result, TemplateError)
+            else template.result_as_boolean(result)
+        )
+
+        if state == self._state:
+            return
+
+        self._state = state
+        self.coordinator.battery_low_binary_state = state
+        _LOGGER.debug(
+            "%s binary sensor battery_low set to: %s via binary sensor",
+            self.entity_id,
+            state,
+        )
+
+    @property
+    def is_on(self) -> bool | None:
+        """Return true if sensor is on."""
+        return self._state
