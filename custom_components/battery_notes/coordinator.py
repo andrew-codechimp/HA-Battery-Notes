@@ -369,15 +369,13 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
         """Check if battery low against threshold."""
         if self.battery_low_template:
             return self.battery_low_template_state
-        else:
-            if self.wrapped_battery:
-                if validate_is_float(self.current_battery_level):
-                    return bool(
-                        float(self.current_battery_level) < self.battery_low_threshold
-                    )
-            elif self.wrapped_battery_low:
-                # TODO: check how to do this properly, should be a property set via something watching the wrapped battery low
-                return self.wrapped_battery_low.state == "on"
+        elif self.wrapped_battery:
+            if validate_is_float(self.current_battery_level):
+                return bool(
+                    float(self.current_battery_level) < self.battery_low_threshold
+                )
+        elif self.wrapped_battery_low:
+            return self.battery_low_binary_state
 
         return False
 

@@ -728,7 +728,9 @@ class BatteryNotesBatteryBinaryLowSensor(
                 STATE_UNAVAILABLE,
                 STATE_UNKNOWN,
             ]
-            or not validate_is_on_or_off(wrapped_battery_low_state.state)
+            or not validate_is_on_or_off(
+                wrapped_battery_low_state.state
+            )  # TODO: Fix this
         ):
             self._attr_native_value = None
             self._attr_available = False
@@ -891,7 +893,9 @@ class BatteryNotesBatteryBinaryLowSensor(
                 STATE_UNAVAILABLE,
                 STATE_UNKNOWN,
             ]
-            or not validate_is_on_or_off(wrapped_battery_low_state.state)
+            or not validate_is_on_or_off(
+                wrapped_battery_low_state.state
+            )  # TODO: Fix this
         ):
             self._attr_is_on = None
             self._attr_available = False
