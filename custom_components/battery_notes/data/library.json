@@ -2601,6 +2601,11 @@
         },
         {
             "manufacturer": "Google",
+            "model": "Pixel 9 Pro XL",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Google",
             "model": "Topaz-2.33",
             "hw_version": "Battery",
             "battery_type": "AA",
@@ -7479,11 +7484,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Google",
-            "model": "Pixel 9 Pro XL",
-            "battery_type": "Rechargeable"
         }
     ]
 }
