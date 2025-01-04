@@ -180,10 +180,6 @@ class BatteryNotesDevice:
                     if self.wrapped_battery:
                         break
 
-            #TODO: Remove debug
-            print(f"wrapped_battery: {self.wrapped_battery}")
-            print(f"wrapped_battery_low: {self.wrapped_battery_low}")
-
             device_entry = device_registry.async_get(device_id)
             if device_entry:
                 self.device_name = (
