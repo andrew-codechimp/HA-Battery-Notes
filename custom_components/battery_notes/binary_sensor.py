@@ -750,12 +750,12 @@ class BatteryNotesBatteryBinaryLowSensor(
             self.async_write_ha_state()
             return
 
-        self.coordinator.battery_low_binary_state = wrapped_battery_low_state.state
+        self.coordinator.battery_low_binary_state = wrapped_battery_low_state.state == "on"
 
         await self.coordinator.async_request_refresh()
 
         self._attr_available = True
-        self._attr_is_on = self.coordinator.battery_low_binary_state == "on"
+        self._attr_is_on = self.coordinator.battery_low_binary_state
         self._wrapped_attributes = wrapped_battery_low_state.attributes
 
         self.async_write_ha_state()

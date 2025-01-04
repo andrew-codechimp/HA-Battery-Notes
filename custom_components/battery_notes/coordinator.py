@@ -125,6 +125,8 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
                     ATTR_BATTERY_TYPE_AND_QUANTITY: self.battery_type_and_quantity,
                     ATTR_BATTERY_TYPE: self.battery_type,
                     ATTR_BATTERY_QUANTITY: self.battery_quantity,
+                    ATTR_BATTERY_LEVEL: 0,
+                    ATTR_PREVIOUS_BATTERY_LEVEL: 100,
                     ATTR_BATTERY_THRESHOLD_REMINDER: False,
                 },
             )
@@ -147,6 +149,8 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
                         ATTR_BATTERY_TYPE_AND_QUANTITY: self.battery_type_and_quantity,
                         ATTR_BATTERY_TYPE: self.battery_type,
                         ATTR_BATTERY_QUANTITY: self.battery_quantity,
+                        ATTR_BATTERY_LEVEL: 100,
+                        ATTR_PREVIOUS_BATTERY_LEVEL: 0,
                     },
                 )
 
@@ -174,6 +178,8 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
                     ATTR_BATTERY_TYPE_AND_QUANTITY: self.battery_type_and_quantity,
                     ATTR_BATTERY_TYPE: self.battery_type,
                     ATTR_BATTERY_QUANTITY: self.battery_quantity,
+                    ATTR_BATTERY_LEVEL: 0,
+                    ATTR_PREVIOUS_BATTERY_LEVEL: 100,
                     ATTR_BATTERY_THRESHOLD_REMINDER: False,
                 },
             )
@@ -197,6 +203,8 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
                         ATTR_BATTERY_TYPE_AND_QUANTITY: self.battery_type_and_quantity,
                         ATTR_BATTERY_TYPE: self.battery_type,
                         ATTR_BATTERY_QUANTITY: self.battery_quantity,
+                        ATTR_BATTERY_LEVEL: 100,
+                        ATTR_PREVIOUS_BATTERY_LEVEL: 0,
                     },
                 )
 
