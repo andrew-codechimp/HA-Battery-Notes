@@ -328,21 +328,40 @@ class _TemplateAttribute:
         self.on_update(validated)
         return
 
-
-class BatteryNotesBatteryLowTemplateSensor(
-    BinarySensorEntity, CoordinatorEntity[BatteryNotesCoordinator], RestoreEntity
-):
-    """Represents a low battery threshold binary sensor from a template."""
-
-    _attr_should_poll = False
-    _self_ref_update_count = 0
+class BatteryNotesBatteryLowBaseSensor(BinarySensorEntity):
+    """Low battery binary sensor base."""
     _unrecorded_attributes = frozenset(
         {
+            ATTR_BATTERY_LOW_THRESHOLD,
             ATTR_BATTERY_QUANTITY,
             ATTR_BATTERY_TYPE,
             ATTR_BATTERY_TYPE_AND_QUANTITY,
         }
     )
+
+    @property
+    def extra_state_attributes(self) -> dict[str, Any] | None:
+        """Return the state attributes of the battery type."""
+
+        # Battery related attributes
+        attrs = {
+            ATTR_BATTERY_QUANTITY: self.coordinator.battery_quantity,
+            ATTR_BATTERY_TYPE: self.coordinator.battery_type,
+            ATTR_BATTERY_TYPE_AND_QUANTITY: self.coordinator.battery_type_and_quantity,
+        }
+
+        super_attrs = super().extra_state_attributes
+        if super_attrs:
+            attrs.update(super_attrs)
+        return attrs
+
+class BatteryNotesBatteryLowTemplateSensor(
+    BatteryNotesBatteryLowBaseSensor, CoordinatorEntity[BatteryNotesCoordinator], RestoreEntity
+):
+    """Represents a low battery threshold binary sensor from a template."""
+
+    _attr_should_poll = False
+    _self_ref_update_count = 0
 
     def __init__(
         self,
@@ -543,41 +562,17 @@ class BatteryNotesBatteryLowTemplateSensor(
         )
 
     @property
-    def extra_state_attributes(self) -> dict[str, Any] | None:
-        """Return the state attributes of the battery type."""
-
-        # Battery related attributes
-        attrs = {
-            ATTR_BATTERY_QUANTITY: self.coordinator.battery_quantity,
-            ATTR_BATTERY_TYPE: self.coordinator.battery_type,
-            ATTR_BATTERY_TYPE_AND_QUANTITY: self.coordinator.battery_type_and_quantity,
-        }
-
-        super_attrs = super().extra_state_attributes
-        if super_attrs:
-            attrs.update(super_attrs)
-        return attrs
-
-    @property
     def is_on(self) -> bool | None:
         """Return true if sensor is on."""
         return self._state
 
 
 class BatteryNotesBatteryLowSensor(
-    BinarySensorEntity, CoordinatorEntity[BatteryNotesCoordinator]
+    BatteryNotesBatteryLowBaseSensor, CoordinatorEntity[BatteryNotesCoordinator]
 ):
     """Represents a low battery threshold binary sensor from a device percentage."""
 
     _attr_should_poll = False
-    _unrecorded_attributes = frozenset(
-        {
-            ATTR_BATTERY_LOW_THRESHOLD,
-            ATTR_BATTERY_QUANTITY,
-            ATTR_BATTERY_TYPE,
-            ATTR_BATTERY_TYPE_AND_QUANTITY,
-        }
-    )
 
     def __init__(
         self,
@@ -668,37 +663,13 @@ class BatteryNotesBatteryLowSensor(
             self.coordinator.battery_low,
         )
 
-    @property
-    def extra_state_attributes(self) -> dict[str, Any] | None:
-        """Return the state attributes of battery low."""
-
-        attrs = {
-            ATTR_BATTERY_QUANTITY: self.coordinator.battery_quantity,
-            ATTR_BATTERY_TYPE: self.coordinator.battery_type,
-            ATTR_BATTERY_TYPE_AND_QUANTITY: self.coordinator.battery_type_and_quantity,
-            ATTR_BATTERY_LOW_THRESHOLD: self.coordinator.battery_low_threshold,
-        }
-
-        super_attrs = super().extra_state_attributes
-        if super_attrs:
-            attrs.update(super_attrs)
-        return attrs
-
 
 class BatteryNotesBatteryBinaryLowSensor(
-    BinarySensorEntity, CoordinatorEntity[BatteryNotesCoordinator]
+    BatteryNotesBatteryLowBaseSensor, CoordinatorEntity[BatteryNotesCoordinator]
 ):
     """Represents a low battery binary sensor from a binary sensor."""
 
     _attr_should_poll = False
-
-    _unrecorded_attributes = frozenset(
-        {
-            ATTR_BATTERY_QUANTITY,
-            ATTR_BATTERY_TYPE,
-            ATTR_BATTERY_TYPE_AND_QUANTITY,
-        }
-    )
 
     def __init__(
         self,
@@ -772,7 +743,7 @@ class BatteryNotesBatteryBinaryLowSensor(
                 STATE_UNAVAILABLE,
                 STATE_UNKNOWN,
             ]
-            or wrapped_battery_low_state.state not in ["on", "off"]  # TODO: Check this
+            or wrapped_battery_low_state.state not in ["on", "off"]
         ):
             self._attr_is_on = None
             self._attr_available = False
@@ -854,18 +825,18 @@ class BatteryNotesBatteryBinaryLowSensor(
             """Handle child updates."""
             await self.async_state_changed_listener(event)
 
-        if self.coordinator.wrapped_battery:
+        if self.coordinator.wrapped_battery_low:
             self.async_on_remove(
                 async_track_state_change_event(
                     self.hass,
-                    [self.coordinator.wrapped_battery.entity_id],
+                    [self.coordinator.wrapped_battery_low.entity_id],
                     _async_state_changed_listener,
                 )
             )
 
             await self._register_entity_id_change_listener(
                 self.entity_id,
-                self.coordinator.wrapped_battery.entity_id,
+                self.coordinator.wrapped_battery_low.entity_id,
             )
 
         # Call once on adding
@@ -875,15 +846,15 @@ class BatteryNotesBatteryBinaryLowSensor(
         registry = er.async_get(self.hass)
         if (
             registry.async_get(self.entity_id) is not None
-            and self.coordinator.wrapped_battery
+            and self.coordinator.wrapped_battery_low
         ):
             registry.async_update_entity_options(
                 self.entity_id,
                 DOMAIN,
-                {"entity_id": self.coordinator.wrapped_battery.entity_id},
+                {"entity_id": self.coordinator.wrapped_battery_low.entity_id},
             )
 
-        if not self.coordinator.wrapped_battery:
+        if not self.coordinator.wrapped_battery_low:
             return
 
         if DOMAIN_CONFIG in self.hass.data[DOMAIN]:
@@ -891,7 +862,7 @@ class BatteryNotesBatteryBinaryLowSensor(
             hide_battery = domain_config.get(CONF_HIDE_BATTERY, False)
             if hide_battery:
                 if (
-                    self.coordinator.wrapped_battery
+                    self.coordinator.wrapped_battery_low
                     and not self.coordinator.wrapped_battery_low.hidden
                 ):
                     registry.async_update_entity(
@@ -900,7 +871,7 @@ class BatteryNotesBatteryBinaryLowSensor(
                     )
             else:
                 if (
-                    self.coordinator.wrapped_battery
+                    self.coordinator.wrapped_battery_low
                     and self.coordinator.wrapped_battery_low.hidden_by
                     == er.RegistryEntryHider.INTEGRATION
                 ):
@@ -948,44 +919,7 @@ class BatteryNotesBatteryBinaryLowSensor(
             self.coordinator.battery_low,
         )
 
-    @callback
-    def _update_state(self, result):
-        state = (
-            None
-            if isinstance(result, TemplateError)
-            else template.result_as_boolean(result)
-        )
-
-        if state == self._state:
-            return
-
-        self._state = state
-        self.coordinator.battery_low_binary_state = state
-        _LOGGER.debug(
-            "%s binary sensor battery_low set to: %s via binary sensor",
-            self.entity_id,
-            state,
-        )
-
-    @property
-    def extra_state_attributes(self) -> dict[str, Any] | None:
-        """Return the state attributes of the battery type."""
-
-        # Battery related attributes
-        attrs = {
-            ATTR_BATTERY_QUANTITY: self.coordinator.battery_quantity,
-            ATTR_BATTERY_TYPE: self.coordinator.battery_type,
-            ATTR_BATTERY_TYPE_AND_QUANTITY: self.coordinator.battery_type_and_quantity,
-        }
-
-        super_attrs = super().extra_state_attributes
-        if super_attrs:
-            attrs.update(super_attrs)
-        if self._wrapped_attributes:
-            attrs.update(self._wrapped_attributes)
-        return attrs
-
     @property
     def is_on(self) -> bool | None:
         """Return true if sensor is on."""
-        return self._state
+        return self._attr_is_on

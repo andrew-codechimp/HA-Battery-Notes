@@ -147,12 +147,12 @@ class BatteryNotesDevice:
                 self.device_name = self.config.title
         else:
             for entity in entity_registry.entities.values():
+
                 if not entity.device_id or entity.device_id != device_id:
                     continue
                 if (
                     not entity.domain
-                    or entity.domain != SENSOR_DOMAIN
-                    or entity.domain != BINARY_SENSOR_DOMAIN
+                    or entity.domain not in [SENSOR_DOMAIN, BINARY_SENSOR_DOMAIN]
                 ):
                     continue
                 if not entity.platform or entity.platform == DOMAIN:
@@ -169,6 +169,7 @@ class BatteryNotesDevice:
                     if entity.unit_of_measurement != PERCENTAGE:
                         continue
                     self.wrapped_battery = entity_registry.async_get(entity.entity_id)
+                    break
 
                 if entity.domain == BINARY_SENSOR_DOMAIN:
                     if device_class != BinarySensorDeviceClass.BATTERY:
@@ -176,8 +177,12 @@ class BatteryNotesDevice:
                     self.wrapped_battery_low = entity_registry.async_get(
                         entity.entity_id
                     )
+                    if self.wrapped_battery:
+                        break
 
-                break
+            #TODO: Remove debug
+            print(f"wrapped_battery: {self.wrapped_battery}")
+            print(f"wrapped_battery_low: {self.wrapped_battery_low}")
 
             device_entry = device_registry.async_get(device_id)
             if device_entry:
@@ -213,7 +218,7 @@ class BatteryNotesDevice:
 
         self.store = self.hass.data[DOMAIN][DATA_STORE]
         self.coordinator = BatteryNotesCoordinator(
-            self.hass, self.store, self.wrapped_battery
+            self.hass, self.store, self.wrapped_battery, self.wrapped_battery_low
         )
 
         self.coordinator.device_id = device_id
