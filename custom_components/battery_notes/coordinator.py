@@ -96,6 +96,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator):
             if self.source_entity_id:
                 entity_registry = er.async_get(self.hass)
                 registry_entry = entity_registry.async_get(self.source_entity_id)
+                assert(registry_entry)
                 self._source_entity_name = (
                     registry_entry.name or registry_entry.original_name
                 )

@@ -328,7 +328,7 @@ class _TemplateAttribute:
         self.on_update(validated)
         return
 
-class BatteryNotesBatteryLowBaseSensor(BinarySensorEntity):
+class BatteryNotesBatteryLowBaseSensor(BinarySensorEntity, CoordinatorEntity[BatteryNotesCoordinator]):
     """Low battery binary sensor base."""
     _unrecorded_attributes = frozenset(
         {
@@ -356,7 +356,7 @@ class BatteryNotesBatteryLowBaseSensor(BinarySensorEntity):
         return attrs
 
 class BatteryNotesBatteryLowTemplateSensor(
-    BatteryNotesBatteryLowBaseSensor, CoordinatorEntity[BatteryNotesCoordinator], RestoreEntity
+    BatteryNotesBatteryLowBaseSensor, RestoreEntity
 ):
     """Represents a low battery threshold binary sensor from a template."""
 
@@ -567,9 +567,7 @@ class BatteryNotesBatteryLowTemplateSensor(
         return self._state
 
 
-class BatteryNotesBatteryLowSensor(
-    BatteryNotesBatteryLowBaseSensor, CoordinatorEntity[BatteryNotesCoordinator]
-):
+class BatteryNotesBatteryLowSensor(BatteryNotesBatteryLowBaseSensor):
     """Represents a low battery threshold binary sensor from a device percentage."""
 
     _attr_should_poll = False
@@ -664,9 +662,7 @@ class BatteryNotesBatteryLowSensor(
         )
 
 
-class BatteryNotesBatteryBinaryLowSensor(
-    BatteryNotesBatteryLowBaseSensor, CoordinatorEntity[BatteryNotesCoordinator]
-):
+class BatteryNotesBatteryBinaryLowSensor(BatteryNotesBatteryLowBaseSensor):
     """Represents a low battery binary sensor from a binary sensor."""
 
     _attr_should_poll = False
@@ -768,10 +764,14 @@ class BatteryNotesBatteryBinaryLowSensor(
         """Listen for battery entity_id changes and update battery_plus."""
 
         @callback
-        async def _entity_rename_listener(event: Event) -> None:
+        async def _entity_rename_listener(event: Event[er.EventEntityRegistryUpdatedData]) -> None:
             """Handle renaming of the entity."""
-            old_entity_id = event.data["old_entity_id"]
-            new_entity_id = event.data[CONF_SOURCE_ENTITY_ID]
+            new_entity_id = event.data["entity_id"]
+            old_entity_id = event.data.get("old_entity_id", None)
+
+            if not old_entity_id:
+                return
+
             _LOGGER.debug(
                 "Entity id has been changed, updating battery notes plus entity registry. old_id=%s, new_id=%s",
                 old_entity_id,
