@@ -57,6 +57,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
     battery_low_threshold: int
     battery_low_template: str | None
     wrapped_battery: RegistryEntry | None = None
+    wrapped_battery_low: RegistryEntry | None = None
     _current_battery_level: str | None = None
     enable_replaced: bool = True
     _round_battery: bool = False
@@ -64,14 +65,21 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
     _previous_battery_level: str | None = None
     _battery_low_template_state: bool = False
     _previous_battery_low_template_state: bool | None = None
+    _battery_low_binary_state: bool = False
+    _previous_battery_low_binary_state: bool | None = None
     _source_entity_name: str | None = None
 
     def __init__(
-        self, hass, store: BatteryNotesStorage, wrapped_battery: RegistryEntry | None
+        self,
+        hass,
+        store: BatteryNotesStorage,
+        wrapped_battery: RegistryEntry | None,
+        wrapped_battery_low: RegistryEntry | None,
     ):
         """Initialize."""
         self.store = store
         self.wrapped_battery = wrapped_battery
+        self.wrapped_battery_low = wrapped_battery_low
 
         if DOMAIN_CONFIG in hass.data[DOMAIN]:
             domain_config: dict = hass.data[DOMAIN][DOMAIN_CONFIG]
@@ -119,6 +127,8 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
                     ATTR_BATTERY_TYPE_AND_QUANTITY: self.battery_type_and_quantity,
                     ATTR_BATTERY_TYPE: self.battery_type,
                     ATTR_BATTERY_QUANTITY: self.battery_quantity,
+                    ATTR_BATTERY_LEVEL: 0,
+                    ATTR_PREVIOUS_BATTERY_LEVEL: 100,
                     ATTR_BATTERY_THRESHOLD_REMINDER: False,
                 },
             )
@@ -141,12 +151,68 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
                         ATTR_BATTERY_TYPE_AND_QUANTITY: self.battery_type_and_quantity,
                         ATTR_BATTERY_TYPE: self.battery_type,
                         ATTR_BATTERY_QUANTITY: self.battery_quantity,
+                        ATTR_BATTERY_LEVEL: 100,
+                        ATTR_PREVIOUS_BATTERY_LEVEL: 0,
                     },
                 )
 
                 _LOGGER.debug("battery_increased event fired via template")
 
         self._previous_battery_low_template_state = value
+
+    @property
+    def battery_low_binary_state(self):
+        """Get the current battery low status from a binary sensor."""
+        return self._battery_low_binary_state
+
+    @battery_low_binary_state.setter
+    def battery_low_binary_state(self, value):
+        """Set the current battery low status from a binary sensor and fire events if valid."""
+        self._battery_low_binary_state = value
+        if self._previous_battery_low_binary_state is not None:
+            self.hass.bus.async_fire(
+                EVENT_BATTERY_THRESHOLD,
+                {
+                    ATTR_DEVICE_ID: self.device_id or "",
+                    ATTR_SOURCE_ENTITY_ID: self.source_entity_id or "",
+                    ATTR_DEVICE_NAME: self.device_name,
+                    ATTR_BATTERY_LOW: self.battery_low,
+                    ATTR_BATTERY_TYPE_AND_QUANTITY: self.battery_type_and_quantity,
+                    ATTR_BATTERY_TYPE: self.battery_type,
+                    ATTR_BATTERY_QUANTITY: self.battery_quantity,
+                    ATTR_BATTERY_LEVEL: 0,
+                    ATTR_PREVIOUS_BATTERY_LEVEL: 100,
+                    ATTR_BATTERY_THRESHOLD_REMINDER: False,
+                },
+            )
+
+            _LOGGER.debug(
+                "battery_threshold event fired Low: %s via binary sensor",
+                self.battery_low,
+            )
+
+            if (
+                self._previous_battery_low_binary_state
+                and not self._battery_low_binary_state
+            ):
+                self.hass.bus.async_fire(
+                    EVENT_BATTERY_INCREASED,
+                    {
+                        ATTR_DEVICE_ID: self.device_id or "",
+                        ATTR_SOURCE_ENTITY_ID: self.source_entity_id or "",
+                        ATTR_DEVICE_NAME: self.device_name,
+                        ATTR_BATTERY_LOW: self.battery_low,
+                        ATTR_BATTERY_TYPE_AND_QUANTITY: self.battery_type_and_quantity,
+                        ATTR_BATTERY_TYPE: self.battery_type,
+                        ATTR_BATTERY_QUANTITY: self.battery_quantity,
+                        ATTR_BATTERY_LEVEL: 100,
+                        ATTR_PREVIOUS_BATTERY_LEVEL: 0,
+                    },
+                )
+
+                _LOGGER.debug("battery_increased event fired via binary sensor")
+
+        self._previous_battery_low_binary_state = value
 
     @property
     def current_battery_level(self):
@@ -315,11 +381,13 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
         """Check if battery low against threshold."""
         if self.battery_low_template:
             return self.battery_low_template_state
-        else:
+        elif self.wrapped_battery:
             if validate_is_float(self.current_battery_level):
                 return bool(
                     float(self.current_battery_level) < self.battery_low_threshold
                 )
+        elif self.wrapped_battery_low:
+            return self.battery_low_binary_state
 
         return False
 

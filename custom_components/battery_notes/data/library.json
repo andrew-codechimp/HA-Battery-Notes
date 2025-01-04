@@ -1783,6 +1783,11 @@
         },
         {
             "manufacturer": "eQ-3",
+            "model": "HM-PB-2-WM55-2",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "eQ-3",
             "model": "HM-PB-6-WM55",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -1855,7 +1860,18 @@
         },
         {
             "manufacturer": "eQ-3",
+            "model": "HM-Sec-TiS",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "eQ-3",
             "model": "HM-Sen-MDIR-O-2",
+            "battery_type": "AA",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "eQ-3",
+            "model": "HM-Sen-MDIR-SM",
             "battery_type": "AA",
             "battery_quantity": 3
         },
@@ -1864,6 +1880,11 @@
             "model": "HM-Sen-MDIR-WM55",
             "battery_type": "AAA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "eQ-3",
+            "model": "HM-SwI-3-FM",
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "eQ-3",
@@ -2642,6 +2663,11 @@
         },
         {
             "manufacturer": "Govee",
+            "model": "H5105",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Govee",
             "model": "H5121",
             "battery_type": "CR2450"
         },
@@ -2725,6 +2751,12 @@
             "model": "Z-Temp2",
             "battery_type": "AA",
             "battery_quantity": 3
+        },
+        {
+            "manufacturer": "Heatit",
+            "model": "Z-TEMP3",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "HEIMAN",
@@ -4564,25 +4596,25 @@
         },
         {
             "manufacturer": "SAF Tehnika",
-            "model": "ARANET2",
+            "model": "Aranet Radiation",
             "battery_type": "AA",
             "battery_quantity": 2
         },
         {
             "manufacturer": "SAF Tehnika",
-            "model": "ARANET4",
+            "model": "Aranet Radon Plus",
             "battery_type": "AA",
             "battery_quantity": 2
         },
         {
             "manufacturer": "SAF Tehnika",
-            "model": "ARANET_RADIATION",
+            "model": "Aranet2 HOME",
             "battery_type": "AA",
             "battery_quantity": 2
         },
         {
             "manufacturer": "SAF Tehnika",
-            "model": "ARANET_RADON",
+            "model": "Aranet4 HOME",
             "battery_type": "AA",
             "battery_quantity": 2
         },
@@ -4874,6 +4906,11 @@
             "manufacturer": "Shenzhen Neo Electronics Co., Ltd.",
             "model": "NAS-PD02Z",
             "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Shenzhen Neo Electronics Co., Ltd.",
+            "model": "NAS-PD03Z",
+            "battery_type": "CR132A"
         },
         {
             "manufacturer": "Shenzhen Neo Electronics Co., Ltd.",
@@ -5923,6 +5960,13 @@
         },
         {
             "manufacturer": "Tuya",
+            "model": "Luminance Motion sensor",
+            "model_id": "3towulqd",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tuya",
             "model": "Luminance Motion sensor (3towulqd)",
             "battery_type": "CR2450"
         },
@@ -6005,6 +6049,12 @@
             "model": "PIR 24Ghz human presence sensor (ZG-204ZM)",
             "battery_type": "AAA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "PIR motion sensor",
+            "model_id": "IDkXwcvanigdiTj3",
+            "battery_type": "CR2450"
         },
         {
             "manufacturer": "TuYa",
@@ -6165,6 +6215,13 @@
             "model": "Temperature & humidity sensor (WSD500A)",
             "battery_type": "AAA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Temperature & humidity sensor with clock (JM-TRH-ZGB-V1)",
+            "model_id": "_TZE200_vvmbj46n",
+            "battery_type": "AAA",
+            "battery_quantity": 3
         },
         {
             "manufacturer": "TuYa",
@@ -6350,6 +6407,12 @@
         },
         {
             "manufacturer": "Tuya",
+            "model": "Vibration sensor",
+            "model_id": "lzdjjfss",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Tuya",
             "model": "Vibration sensor (TS0210)",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -6358,6 +6421,13 @@
             "manufacturer": "TuYa",
             "model": "Water leak detector (TS0207_water_leak_detector)",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Water leak sensor",
+            "model_id": "upgcbody",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "TuYa",
@@ -6649,6 +6719,12 @@
             "model": "Siren",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Withings",
+            "model": "Body+",
+            "battery_type": "AAA",
+            "battery_quantity": 4
         },
         {
             "manufacturer": "Withings",

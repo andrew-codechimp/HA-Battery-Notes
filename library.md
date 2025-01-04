@@ -1,4 +1,4 @@
-## 1354 Devices in library
+## 1367 Devices in library
 
 This file is auto generated, do not modify
 
@@ -332,6 +332,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |eQ-3                                            |HM-ES-TX-WM                                                                |4× AA                     |                   |                                      |
 |eQ-3                                            |HM-OU-CFM-TW                                                               |2× Baby C                 |                   |                                      |
 |eQ-3                                            |HM-PB-2-WM55                                                               |2× AAA                    |                   |                                      |
+|eQ-3                                            |HM-PB-2-WM55-2                                                             |CR2032                    |                   |                                      |
 |eQ-3                                            |HM-PB-6-WM55                                                               |2× AAA                    |                   |                                      |
 |eQ-3                                            |HM-PBI-4-FM                                                                |CR20321                   |                   |                                      |
 |eQ-3                                            |HM-RC-4-2                                                                  |AAA                       |                   |                                      |
@@ -345,8 +346,11 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |eQ-3                                            |HM-Sec-SD                                                                  |3× AA                     |                   |                                      |
 |eQ-3                                            |HM-Sec-SD-2                                                                |Irreplaceable             |                   |                                      |
 |eQ-3                                            |HM-Sec-Sir-WM                                                              |2× LR14                   |                   |                                      |
+|eQ-3                                            |HM-Sec-TiS                                                                 |CR2032                    |                   |                                      |
 |eQ-3                                            |HM-Sen-MDIR-O-2                                                            |3× AA                     |                   |                                      |
+|eQ-3                                            |HM-Sen-MDIR-SM                                                             |3× AA                     |                   |                                      |
 |eQ-3                                            |HM-Sen-MDIR-WM55                                                           |2× AAA                    |                   |                                      |
+|eQ-3                                            |HM-SwI-3-FM                                                                |CR2032                    |                   |                                      |
 |eQ-3                                            |HM-TC-IT-WM-W-EU                                                           |2× AAA                    |                   |                                      |
 |eQ-3                                            |HM-WDS10-TH-O                                                              |2× AA                     |                   |                                      |
 |eQ-3                                            |HM-WDS30-OT2-SM                                                            |2× AA                     |                   |                                      |
@@ -485,6 +489,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Govee                                           |H5101/H5102/H5177                                                          |AAA                       |                   |                                      |
 |Govee                                           |H5102                                                                      |AAA                       |                   |                                      |
 |Govee                                           |H5104                                                                      |2× AAA                    |                   |                                      |
+|Govee                                           |H5105                                                                      |CR2450                    |                   |                                      |
 |Govee                                           |H5121                                                                      |CR2450                    |                   |                                      |
 |Govee                                           |H5122                                                                      |CR2032                    |                   |                                      |
 |Govee                                           |H5123                                                                      |CR1632                    |                   |                                      |
@@ -501,6 +506,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |HANK Electronics Ltd.                           |HKZW-DWS01                                                                 |2× AAA                    |                   |                                      |
 |Heatit                                          |Z-PH WALL CONTROLLER                                                       |CR2450                    |                   |                                      |
 |Heatit                                          |Z-Temp2                                                                    |3× AA                     |                   |                                      |
+|Heatit                                          |Z-TEMP3                                                                    |2× AAA                    |                   |                                      |
 |HEIMAN                                          |HS2WD-E                                                                    |LP103454 3.7v 700mah      |                   |                                      |
 |HEIMAN                                          |Smart carbon monoxide sensor (HS1CA-E)                                     |CR123A                    |                   |                                      |
 |HEIMAN                                          |Smart carbon monoxide sensor (HS1CA-M)                                     |CR123A                    |                   |                                      |
@@ -839,10 +845,10 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |rtl_433                                         |WT450-TH                                                                   |AA                        |                   |                                      |
 |Ruuvi                                           |Ruuvitag                                                                   |CR2477T                   |                   |                                      |
 |Ruuvi Innovations Ltd.                          |RuuviTag                                                                   |CR2477                    |                   |                                      |
-|SAF Tehnika                                     |ARANET2                                                                    |2× AA                     |                   |                                      |
-|SAF Tehnika                                     |ARANET4                                                                    |2× AA                     |                   |                                      |
-|SAF Tehnika                                     |ARANET_RADIATION                                                           |2× AA                     |                   |                                      |
-|SAF Tehnika                                     |ARANET_RADON                                                               |2× AA                     |                   |                                      |
+|SAF Tehnika                                     |Aranet Radiation                                                           |2× AA                     |                   |                                      |
+|SAF Tehnika                                     |Aranet Radon Plus                                                          |2× AA                     |                   |                                      |
+|SAF Tehnika                                     |Aranet2 HOME                                                               |2× AA                     |                   |                                      |
+|SAF Tehnika                                     |Aranet4 HOME                                                               |2× AA                     |                   |                                      |
 |Samjin                                          |button                                                                     |CR2                       |                   |                                      |
 |Samjin                                          |motion                                                                     |CR2                       |                   |                                      |
 |Samjin                                          |multi                                                                      |CR2450                    |                   |                                      |
@@ -898,6 +904,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Shenzhen Neo Electronics Co., Ltd.              |NAS-DS01Z                                                                  |CR2                       |                   |                                      |
 |Shenzhen Neo Electronics Co., Ltd.              |NAS-PD01Z                                                                  |CR123A                    |                   |                                      |
 |Shenzhen Neo Electronics Co., Ltd.              |NAS-PD02Z                                                                  |CR123A                    |                   |                                      |
+|Shenzhen Neo Electronics Co., Ltd.              |NAS-PD03Z                                                                  |CR132A                    |                   |                                      |
 |Shenzhen Neo Electronics Co., Ltd.              |NAS-WS01Z                                                                  |CR2                       |                   |                                      |
 |SIEGENIA                                        |Smart window handle                                                        |2× AAA                    |                   |                                      |
 |Signify Netherlands B.V.                        |Hue dimmer switch (RWL020)                                                 |CR2450                    |                   |                                      |
@@ -1088,6 +1095,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tuya                                            |kscbebaf3s1eogvt                                                           |2× AAA                    |                   |                                      |
 |TuYa                                            |LCZ030                                                                     |2× AA                     |                   |                                      |
 |TuYa                                            |Luminance door sensor (ZG-102ZL)                                           |CR2032                    |                   |                                      |
+|Tuya                                            |Luminance Motion sensor                                                    |2× AAA                    |3towulqd           |                                      |
 |Tuya                                            |Luminance Motion sensor (3towulqd)                                         |CR2450                    |                   |                                      |
 |TuYa                                            |Luminance motion sensor (ZG-204ZL)                                         |CR2450                    |                   |                                      |
 |Tuya                                            |Motion Sensor                                                              |2× AAA                    |rjzon9kyxpoeksj3   |                                      |
@@ -1103,6 +1111,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tuya                                            |PIR (b5g40alm)                                                             |CR2450                    |                   |                                      |
 |Tuya                                            |PIR 24Ghz human presence sensor                                            |2× AAA                    |ZG-204ZM           |                                      |
 |Tuya                                            |PIR 24Ghz human presence sensor (ZG-204ZM)                                 |2× AAA                    |                   |                                      |
+|Tuya                                            |PIR motion sensor                                                          |CR2450                    |IDkXwcvanigdiTj3   |                                      |
 |TuYa                                            |PIR sensor (RH3040)                                                        |3× AAA                    |                   |                                      |
 |Tuya                                            |PIR Sensor (tuadvwloutnzat2p)                                              |3× AAA                    |                   |                                      |
 |Tuya                                            |PIR Sensor (XFD2nSDKxFlGV5sV)                                              |3× AAA                    |                   |                                      |
@@ -1131,6 +1140,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |TuYa                                            |Temperature & humidity LCD sensor (ZG-227ZL)                               |CR2032                    |                   |                                      |
 |TuYa                                            |Temperature & humidity sensor (IH-K009)                                    |CR2450                    |                   |                                      |
 |TuYa                                            |Temperature & humidity sensor (WSD500A)                                    |2× AAA                    |                   |                                      |
+|Tuya                                            |Temperature & humidity sensor with clock (JM-TRH-ZGB-V1)                   |3× AAA                    |_TZE200_vvmbj46n   |                                      |
 |TuYa                                            |Temperature & humidity sensor with display (TS0201)                        |2× AAA                    |                   |                                      |
 |Tuya                                            |Temperature & humidity sensor with display (TS0201)                        |2× AAA                    |                   |                                      |
 |Tuya                                            |Temperature and humidity sensor                                            |2× AAA                    |ZG-227Z            |                                      |
@@ -1163,8 +1173,10 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tuya                                            |TS0601_temperature_humidity_sensor_1                                       |2× AA                     |                   |                                      |
 |Tuya                                            |TT001ZAV20                                                                 |CR2032                    |                   |                                      |
 |TuYa                                            |TV02-Zigbee                                                                |2× AA                     |                   |                                      |
+|Tuya                                            |Vibration sensor                                                           |CR2450                    |lzdjjfss           |                                      |
 |Tuya                                            |Vibration sensor (TS0210)                                                  |2× AAA                    |                   |                                      |
 |TuYa                                            |Water leak detector (TS0207_water_leak_detector)                           |CR2032                    |                   |                                      |
+|Tuya                                            |Water leak sensor                                                          |2× AAA                    |upgcbody           |                                      |
 |TuYa                                            |Water valve (TS0049)                                                       |4× AA                     |                   |                                      |
 |Tuya                                            |WiFi Temperature & Humidity Sensor (q29ebws5adwye1l8)                      |2× AAA                    |                   |                                      |
 |TuYa                                            |Wireless switch with 1 button (TS0041)                                     |CR2032                    |                   |                                      |
@@ -1219,6 +1231,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Wink Inc.                                       |D/W SENSOR                                                                 |CR14250                   |                   |                                      |
 |Wink Inc.                                       |Motion Sensor                                                              |CR123A                    |                   |                                      |
 |Wink Inc.                                       |Siren                                                                      |2× CR123A                 |                   |                                      |
+|Withings                                        |Body+                                                                      |4× AAA                    |                   |                                      |
 |Withings                                        |Smart Body Analyzer                                                        |4× AAA                    |                   |                                      |
 |Woox                                            |Smart garden irrigation control (R7060)                                    |4× AA                     |                   |                                      |
 |Woox                                            |Smart siren (R7051)                                                        |Rechargeable              |                   |                                      |
