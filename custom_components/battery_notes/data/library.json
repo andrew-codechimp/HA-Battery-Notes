@@ -280,6 +280,12 @@
             "battery_type": "CR2430"
         },
         {
+            "manufacturer": "_TZ3000_ww9i3e0y",
+            "model": "TS0207",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "_TZ3000_xr3htd96",
             "model": "TS0201",
             "battery_type": "AAA",
@@ -7489,12 +7495,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE70",
             "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "_TZ3000_ww9i3e0y",
-            "model": "TS0207",
-            "battery_type": "AA",
             "battery_quantity": 2
         }
     ]
