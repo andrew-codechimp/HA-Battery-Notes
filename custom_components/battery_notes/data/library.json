@@ -6042,6 +6042,13 @@
         },
         {
             "manufacturer": "Tuya",
+            "model": "Motion sensor",
+            "model_id": "809WZT",
+            "hw_version": "1",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Tuya",
             "model": "Motion Sensor",
             "model_id": "rjzon9kyxpoeksj3",
             "battery_type": "AAA",
@@ -7571,13 +7578,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Motion sensor",
-            "model_id": "809WZT",
-            "hw_version": "1",
-            "battery_type": "CR2450"
         }
     ]
 }
