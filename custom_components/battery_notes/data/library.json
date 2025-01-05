@@ -894,6 +894,13 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "Motion sensor",
+            "model_id": "RTCGQ11LM",
+            "hw_version": "1",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "Motion sensor (RTCGQ11LM)",
             "battery_type": "CR2450"
         },
@@ -7593,13 +7600,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Aqara",
-            "model": "Motion sensor",
-            "model_id": "RTCGQ11LM",
-            "hw_version": "1",
-            "battery_type": "CR2450"
         }
     ]
 }
