@@ -7496,6 +7496,13 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "Opple wireless switch (double band)",
+            "model_id": "WXCJKG12LM",
+            "hw_version": "1",
+            "battery_type": "CR2032"
         }
     ]
 }
