@@ -2876,6 +2876,12 @@
         },
         {
             "manufacturer": "Homematic",
+            "model": "HM-WDS30-T-O",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Homematic",
             "model": "HmIP-DSD-PCB",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -7507,12 +7513,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE70",
             "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Homematic",
-            "model": "HM-WDS30-T-O",
-            "battery_type": "AAA",
             "battery_quantity": 2
         }
     ]
