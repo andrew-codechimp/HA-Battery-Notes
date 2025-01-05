@@ -2853,6 +2853,12 @@
         },
         {
             "manufacturer": "Hive",
+            "model": "Motion Sensor",
+            "model_id": "MOT003",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Hive",
             "model": "Radiator valve (UK7004240)",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -7525,12 +7531,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Hive",
-            "model": "Motion Sensor",
-            "model_id": "MOT003",
-            "battery_type": "CR123A"
         }
     ]
 }
