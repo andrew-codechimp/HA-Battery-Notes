@@ -1,4 +1,4 @@
-## 1379 Devices in library
+## 1380 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1093,6 +1093,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tuya                                            |_TZ3000_upgcbody                                                           |2× AAA                    |                   |                                      |
 |TuYa                                            |Aegislink Wi-Fi Combination Alarm (cfet7ouwznslditf)                       |CR123A                    |                   |                                      |
 |Tuya                                            |b5g40alm                                                                   |CR2450                    |                   |                                      |
+|Tuya                                            |Button scene switch                                                        |CR2032                    |SH-SC07            |                                     1|
 |TuYa                                            |Button scene switch (SH-SC07)                                              |CR2450                    |                   |                                      |
 |Tuya                                            |Contact Sensor (ikfjwqdbpnh154b9)                                          |2× AAA                    |                   |                                      |
 |Tuya                                            |dagu44fhznig1omo                                                           |2× AAA                    |                   |                                      |

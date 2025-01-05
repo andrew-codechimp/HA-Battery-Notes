@@ -5952,6 +5952,13 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "Tuya",
+            "model": "Button scene switch",
+            "model_id": "SH-SC07",
+            "hw_version": "1",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "TuYa",
             "model": "Button scene switch (SH-SC07)",
             "battery_type": "CR2450"
@@ -7550,13 +7557,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Button scene switch",
-            "model_id": "SH-SC07",
-            "hw_version": "1",
-            "battery_type": "CR2032"
         }
     ]
 }
