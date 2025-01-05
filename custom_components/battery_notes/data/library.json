@@ -7563,6 +7563,13 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Motion sensor",
+            "model_id": "IH012-RT01",
+            "hw_version": "1",
+            "battery_type": "CR2450"
         }
     ]
 }
