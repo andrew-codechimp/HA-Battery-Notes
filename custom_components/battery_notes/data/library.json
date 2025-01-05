@@ -7514,6 +7514,11 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Homematic",
+            "model": "HM-Sec-Win",
+            "battery_type": "HM-Sec-Win-BaP"
         }
     ]
 }
