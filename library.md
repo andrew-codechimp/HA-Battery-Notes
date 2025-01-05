@@ -1,4 +1,4 @@
-## 1376 Devices in library
+## 1377 Devices in library
 
 This file is auto generated, do not modify
 
@@ -522,6 +522,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Heiman                                          |SmokeSensor-EF-3.0                                                         |CR123A                    |                   |                                      |
 |HEIMAN                                          |Water leakage sensor (HS1WL/HS3WL)                                         |2× AAA                    |                   |                                      |
 |HHCC Plant Technology Co. Ltd                   |HHCCJCY10                                                                  |CR2032                    |                   |                                      |
+|Hive                                            |Door/window sensor                                                         |CR123A                    |DWS003             |                                      |
 |Hive                                            |Heating thermostat remote control (SLT3B)                                  |4× AA                     |                   |                                      |
 |Hive                                            |Heating thermostat remote control (SLT3C)                                  |4× AA                     |                   |                                      |
 |Hive                                            |Motion Sensor                                                              |CR123A                    |MOT003             |                                      |

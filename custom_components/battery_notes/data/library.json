@@ -2841,6 +2841,12 @@
         },
         {
             "manufacturer": "Hive",
+            "model": "Door/window sensor",
+            "model_id": "DWS003",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Hive",
             "model": "Heating thermostat remote control (SLT3B)",
             "battery_type": "AA",
             "battery_quantity": 4
@@ -7531,12 +7537,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Hive",
-            "model": "Door/window sensor",
-            "model_id": "DWS003",
-            "battery_type": "CR123A"
         }
     ]
 }
