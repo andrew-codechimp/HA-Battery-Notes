@@ -7585,6 +7585,14 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Zigbee water flood sensor + 1m probe cable",
+            "model_id": "TS0207_water_leak_detector_1",
+            "hw_version": "1",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
