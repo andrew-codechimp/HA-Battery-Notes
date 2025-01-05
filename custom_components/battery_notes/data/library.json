@@ -7149,6 +7149,12 @@
         },
         {
             "manufacturer": "Xiaomi",
+            "model": "Mi wireless switch",
+            "model_id": "WXKG01LM",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Xiaomi",
             "model": "Mi wireless switch (WXKG01LM)",
             "battery_type": "CR2032"
         },
@@ -7544,12 +7550,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Xiaomi",
-            "model": "Mi wireless switch",
-            "model_id": "WXKG01LM",
-            "battery_type": "CR2032"
         }
     ]
 }

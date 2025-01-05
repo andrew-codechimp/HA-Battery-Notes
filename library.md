@@ -1,4 +1,4 @@
-## 1378 Devices in library
+## 1379 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1311,6 +1311,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Xiaomi                                          |Mi motion sensor (RTCGQ01LM)                                               |CR2450                    |                   |                                      |
 |Xiaomi                                          |Mi Scale V1                                                                |CR2032                    |                   |                                      |
 |Xiaomi                                          |Mi temperature and humidity sensor (WSDCGQ01LM)                            |CR2032                    |                   |                                      |
+|Xiaomi                                          |Mi wireless switch                                                         |CR2032                    |WXKG01LM           |                                      |
 |Xiaomi                                          |Mi wireless switch (WXKG01LM)                                              |CR2032                    |                   |                                      |
 |Xiaomi                                          |Mi/Aqara smart home cube (MFKZQ01LM)                                       |CR2450                    |                   |                                      |
 |Xiaomi                                          |MiFlora Plant Sensor (HHCCJCY01)                                           |CR2032                    |                   |                                      |
