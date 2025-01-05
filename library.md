@@ -1,4 +1,4 @@
-## 1380 Devices in library
+## 1381 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1307,6 +1307,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Xiaomi                                          |MCCGQ02HL                                                                  |CR2032                    |                   |                                      |
 |Xiaomi                                          |MHO-C303                                                                   |2× AAA                    |                   |                                      |
 |Xiaomi                                          |MHO-C401                                                                   |CR2032                    |                   |                                      |
+|Xiaomi                                          |Mi door and window sensor                                                  |CR1632                    |MCCGQ01LM          |                                      |
 |Xiaomi                                          |Mi door and window sensor (MCCGQ01LM)                                      |CR1632                    |                   |                                      |
 |Xiaomi                                          |Mi light sensor (GZCGQ01LM)                                                |CR2450                    |                   |                                      |
 |Xiaomi                                          |Mi motion sensor (RTCGQ01LM)                                               |CR2450                    |                   |                                      |
