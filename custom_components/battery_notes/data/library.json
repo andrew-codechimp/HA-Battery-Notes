@@ -3384,6 +3384,12 @@
         },
         {
             "manufacturer": "Konke",
+            "model": "Multi-function button",
+            "model_id": "2AJZ4KPKEY",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Konke",
             "model": "Temperature and humidity sensor",
             "model_id": "2AJZ4KPFT",
             "battery_type": "CR2450"
@@ -7600,12 +7606,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Konke",
-            "model": "Multi-function button",
-            "model_id": "2AJZ4KPKEY",
-            "battery_type": "CR2450"
         }
     ]
 }
