@@ -4757,6 +4757,11 @@
         },
         {
             "manufacturer": "samsung",
+            "model": "SM-R860",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "samsung",
             "model": "SM-S901U1",
             "battery_type": "Rechargeable"
         },
@@ -7669,11 +7674,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "samsung",
-            "model": "SM-R860",
-            "battery_type": "Rechargeable"
         }
     ]
 }
