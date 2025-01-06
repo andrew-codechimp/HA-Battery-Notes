@@ -1,4 +1,4 @@
-## 1400 Devices in library
+## 1401 Devices in library
 
 This file is auto generated, do not modify
 
@@ -184,6 +184,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Aqara                                           |Smart radiator thermostat E1 (SRTS-A01)                                    |2× AA                     |                            |                                      |
 |Aqara                                           |Smart smoke detector (JY-GZ-01AQ)                                          |CR17450                   |                            |                                      |
 |Aqara                                           |SRTS-A01                                                                   |2× AA                     |                            |                                      |
+|Aqara                                           |Temperature and humidity sensor                                            |CR2032                    |WSDCGQ11LM                  |                                    30|
 |Aqara                                           |Temperature and humidity sensor (WSDCGQ11LM)                               |CR2032                    |                            |                                      |
 |Aqara                                           |TVOC air quality monitor (VOCKQJK11LM)                                     |2× CR2450                 |                            |                                      |
 |Aqara                                           |Vibration sensor (DJT11LM)                                                 |CR2032                    |                            |                                      |

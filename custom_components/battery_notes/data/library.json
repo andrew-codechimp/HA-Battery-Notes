@@ -975,6 +975,13 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "Temperature and humidity sensor",
+            "model_id": "WSDCGQ11LM",
+            "hw_version": "30",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "Temperature and humidity sensor (WSDCGQ11LM)",
             "battery_type": "CR2032"
         },
@@ -7693,13 +7700,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Aqara",
-            "model": "Temperature and humidity sensor",
-            "model_id": "WSDCGQ11LM",
-            "hw_version": "30",
-            "battery_type": "CR2032"
         }
     ]
 }
