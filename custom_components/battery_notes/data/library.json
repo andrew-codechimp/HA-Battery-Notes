@@ -7650,6 +7650,13 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "IKEA",
+            "model": "TRADFRI wireless dimmer",
+            "model_id": "ICTC-G-1",
+            "hw_version": "30",
+            "battery_type": "CR2032"
         }
     ]
 }
