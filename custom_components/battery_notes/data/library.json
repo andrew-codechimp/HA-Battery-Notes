@@ -7621,6 +7621,13 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "Mijia Honeywell smoke detector",
+            "model_id": "JTYJ-GD-01LM/BW",
+            "hw_version": "16",
+            "battery_type": "CR123A"
         }
     ]
 }
