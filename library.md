@@ -1,4 +1,4 @@
-## 1389 Devices in library
+## 1390 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1326,6 +1326,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Xiaomi                                          |Mi/Aqara smart home cube (MFKZQ01LM)                                       |CR2450                    |                            |                                      |
 |Xiaomi                                          |MiFlora Plant Sensor (HHCCJCY01)                                           |CR2032                    |                            |                                      |
 |Xiaomi                                          |MiJia door & window contact sensor (MCCGQ01LM)                             |CR1632                    |                            |                                      |
+|Xiaomi                                          |Mijia Honeywell smoke detector                                             |CR123A                    |JTYJ-GD-01LM/BW             |                                    16|
 |Xiaomi                                          |MiJia Honeywell smoke detector (JTYJ-GD-01LM/BW)                           |2× CR123A                 |                            |                                      |
 |Xiaomi                                          |MiJia human body movement sensor (RTCGQ01LM)                               |CR2450                    |                            |                                      |
 |Xiaomi                                          |MiJia light intensity sensor (GZCGQ01LM)                                   |CR2450                    |                            |                                      |
