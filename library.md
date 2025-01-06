@@ -1,4 +1,4 @@
-## 1403 Devices in library
+## 1404 Devices in library
 
 This file is auto generated, do not modify
 
@@ -290,6 +290,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Develco                                         |Fire detector with siren (HESZB-120)                                       |CR123A                    |                            |                                      |
 |Develco                                         |Keypad (KEYZB-110)                                                         |4× AA                     |                            |                                      |
 |Develco                                         |KEYZB-110                                                                  |4× AA                     |                            |                                      |
+|Develco                                         |Smoke detector with siren                                                  |CR123                     |SMSZB-120                   |5.0.2                                 |
 |Develco                                         |Smoke detector with siren (SMSZB-120)                                      |CR123                     |                            |                                      |
 |Develco Products A/S                            |AQSZB-110                                                                  |2× AA                     |                            |                                      |
 |Devolo                                          |MT02647                                                                    |CR123A                    |                            |                                      |
