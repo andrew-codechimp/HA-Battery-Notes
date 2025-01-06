@@ -1,4 +1,4 @@
-## 1394 Devices in library
+## 1395 Devices in library
 
 This file is auto generated, do not modify
 
@@ -575,6 +575,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |IKEA                                            |SYMFONISK sound remote, gen 2 (E2123)                                      |2× AAA                    |                            |                                      |
 |IKEA                                            |TRADFRI motion sensor                                                      |2× CR2032                 |                            |                                      |
 |IKEA                                            |TRADFRI motion sensor (E1525/E1745)                                        |2× CR2032                 |                            |                                      |
+|IKEA                                            |TRADFRI on/off switch                                                      |CR2032                    |E1743                       |                                     1|
 |IKEA                                            |TRADFRI ON/OFF switch (E1743)                                              |CR2032                    |                            |                                      |
 |IKEA                                            |TRADFRI open/close remote (E1766)                                          |CR2032                    |                            |                                      |
 |IKEA                                            |TRADFRI remote control (E1524/E1810)                                       |CR2032                    |                            |                                      |

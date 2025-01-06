@@ -3141,6 +3141,13 @@
         },
         {
             "manufacturer": "IKEA",
+            "model": "TRADFRI on/off switch",
+            "model_id": "E1743",
+            "hw_version": "1",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "IKEA",
             "model": "TRADFRI ON/OFF switch (E1743)",
             "battery_type": "CR2032"
         },
@@ -7657,13 +7664,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "IKEA",
-            "model": "TRADFRI on/off switch",
-            "model_id": "E1743",
-            "hw_version": "1",
-            "battery_type": "CR2032"
         }
     ]
 }
