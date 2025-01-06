@@ -5591,6 +5591,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Switchbot",
+            "model": "W070160X",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "SwitchBot",
             "model": "W1101500",
             "battery_type": "AAA",
@@ -7735,11 +7740,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Switchbot",
-            "model": "W070160X",
-            "battery_type": "Rechargeable"
         }
     ]
 }
