@@ -1,4 +1,4 @@
-## 1399 Devices in library
+## 1400 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1117,6 +1117,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |TuYa                                            |LCZ030                                                                     |2× AA                     |                            |                                      |
 |TuYa                                            |Luminance door sensor (ZG-102ZL)                                           |CR2032                    |                            |                                      |
 |Tuya                                            |Luminance Motion sensor                                                    |2× AAA                    |3towulqd                    |                                      |
+|Tuya                                            |Luminance motion sensor                                                    |CR2450                    |ZG-204ZL                    |                                     1|
 |Tuya                                            |Luminance Motion sensor (3towulqd)                                         |CR2450                    |                            |                                      |
 |TuYa                                            |Luminance motion sensor (ZG-204ZL)                                         |CR2450                    |                            |                                      |
 |Tuya                                            |Motion sensor                                                              |CR2450                    |809WZT                      |                                     1|
