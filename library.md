@@ -1,4 +1,4 @@
-## 1397 Devices in library
+## 1398 Devices in library
 
 This file is auto generated, do not modify
 
@@ -869,6 +869,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Samjin                                          |multi                                                                      |CR2450                    |                            |                                      |
 |Samjin                                          |water                                                                      |CR2                       |                            |                                      |
 |Samsung                                         |SM-A525F                                                                   |Rechargeable              |                            |                                      |
+|samsung                                         |SM-G770F                                                                   |Rechargeable              |                            |                                      |
 |samsung                                         |SM-G955U                                                                   |Rechargeable              |                            |                                      |
 |samsung                                         |SM-G975F                                                                   |Rechargeable              |                            |                                      |
 |Samsung                                         |SM-G991B                                                                   |Rechargeable              |                            |                                      |
