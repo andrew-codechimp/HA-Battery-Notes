@@ -1,4 +1,4 @@
-## 1392 Devices in library
+## 1393 Devices in library
 
 This file is auto generated, do not modify
 
@@ -565,6 +565,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Ikea                                            |KADRILJ roller blind (E1926)                                               |Rechargeable              |                            |                                      |
 |IKEA                                            |PARASOLL door/window Sensor (E2013)                                        |AAA                       |                            |                                      |
 |IKEA                                            |RODRET wireless dimmer/power switch (E2201)                                |AAA                       |                            |                                      |
+|IKEA                                            |SOMRIG shortcut button                                                     |AAA                       |E2213                       |                                     1|
 |IKEA                                            |SOMRIG shortcut button (E2213)                                             |AAA                       |                            |                                      |
 |IKEA                                            |STYRBAR remote control (E2001/E2002)                                       |2× AAA                    |                            |                                      |
 |IKEA                                            |SYMFONISK sound controller (E1744)                                         |CR2032                    |                            |                                      |

@@ -3080,6 +3080,13 @@
         },
         {
             "manufacturer": "IKEA",
+            "model": "SOMRIG shortcut button",
+            "model_id": "E2213",
+            "hw_version": "1",
+            "battery_type": "AAA"
+        },
+        {
+            "manufacturer": "IKEA",
             "model": "SOMRIG shortcut button (E2213)",
             "battery_type": "AAA"
         },
@@ -7643,13 +7650,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "IKEA",
-            "model": "SOMRIG shortcut button",
-            "model_id": "E2213",
-            "hw_version": "1",
-            "battery_type": "AAA"
         }
     ]
 }
