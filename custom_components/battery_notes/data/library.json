@@ -7700,6 +7700,13 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "Mi light sensor",
+            "model_id": "GZCGQ01LM",
+            "hw_version": "1",
+            "battery_type": "CR2450"
         }
     ]
 }
