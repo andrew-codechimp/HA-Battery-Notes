@@ -1,4 +1,4 @@
-## 1408 Devices in library
+## 1409 Devices in library
 
 This file is auto generated, do not modify
 
@@ -92,6 +92,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |_TZE204_myd45weu                                |TS0601                                                                     |2× AA                     |                            |                                      |
 |_TZE204_t1blo2bj                                |TS0601                                                                     |2× CR123A                 |                            |                                      |
 |_TZE204_yjjdcqsq                                |TS0601                                                                     |2× AAA                    |                            |                                      |
+|_TZE284_aao3yzhs                                |TS0601                                                                     |2× AAA                    |                            |                                      |
 |ABUS Security-Center GmbH Co. KG                |SHRM10000                                                                  |CR123A                    |                            |                                      |
 |Adaprox                                         |TS0001_fingerbot_1                                                         |CR2                       |                            |                                      |
 |Adaprox                                         |Zigbee fingerbot plus (TS0001_fingerbot_1)                                 |CR2                       |                            |                                      |
