@@ -988,6 +988,12 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "Smart smoke detector",
+            "model_id": "JY-GZ-01AQ",
+            "battery_type": "CR17450"
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "Smart smoke detector (JY-GZ-01AQ)",
             "battery_type": "CR17450"
         },
@@ -7758,12 +7764,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Aqara",
-            "model": "Smart smoke detector",
-            "model_id": "JY-GZ-01AQ",
-            "battery_type": "CR17450"
         }
     ]
 }
