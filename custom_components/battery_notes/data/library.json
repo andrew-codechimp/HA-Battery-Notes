@@ -645,6 +645,12 @@
         },
         {
             "manufacturer": "Airthings",
+            "model": "Wave",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Airthings",
             "model": "Wave Plus",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -7751,12 +7757,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE70",
             "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Airthings",
-            "model": "Wave",
-            "battery_type": "AA",
             "battery_quantity": 2
         }
     ]
