@@ -2414,6 +2414,13 @@
         },
         {
             "manufacturer": "eWeLink",
+            "model": "Contact sensor",
+            "model_id": "SNZB-04",
+            "hw_version": "0",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "eWeLink",
             "model": "DS01",
             "battery_type": "CR2032"
         },
@@ -7789,13 +7796,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "eWeLink",
-            "model": "Contact sensor",
-            "model_id": "SNZB-04",
-            "hw_version": "0",
-            "battery_type": "CR2032"
         }
     ]
 }
