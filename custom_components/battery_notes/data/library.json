@@ -7827,6 +7827,12 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "Water leak sensor",
+            "model_id": "SJCGQ11LM",
+            "battery_type": "CR2032"
         }
     ]
 }
