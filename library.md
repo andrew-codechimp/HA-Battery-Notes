@@ -1,4 +1,4 @@
-## 1417 Devices in library
+## 1418 Devices in library
 
 This file is auto generated, do not modify
 
@@ -165,6 +165,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Aqara                                           |AS008                                                                      |CR2032                    |                            |                                      |
 |Aqara                                           |AS010                                                                      |CR2032                    |                            |                                      |
 |Aqara                                           |Cube (MFKZQ01LM)                                                           |CR2450                    |                            |                                      |
+|Aqara                                           |Door and window sensor                                                     |CR1632                    |MCCGQ11LM                   |                                     2|
 |Aqara                                           |Door and window sensor (MCCGQ11LM)                                         |CR1632                    |                            |                                      |
 |Aqara                                           |Door and window sensor E1 (MCCGQ14LM)                                      |CR1632                    |                            |                                      |
 |Aqara                                           |Door and window sensor T1 (MCCGQ12LM)                                      |CR2032                    |                            |                                      |
