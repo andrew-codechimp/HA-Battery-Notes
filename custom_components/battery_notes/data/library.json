@@ -7804,6 +7804,13 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "Door and window sensor",
+            "model_id": "MCCGQ11LM",
+            "hw_version": "2",
+            "battery_type": "CR1632"
         }
     ]
 }
