@@ -1315,6 +1315,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "AVM",
+            "model": "FRITZ!Smart Control 350",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Blueforcer",
             "model": "AWTRIX 3",
             "battery_type": "Rechargeable"
@@ -7770,12 +7776,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE70",
             "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "AVM",
-            "model": "FRITZ!Smart Control 350",
-            "battery_type": "AAA",
             "battery_quantity": 2
         }
     ]

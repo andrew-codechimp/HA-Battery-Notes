@@ -1,4 +1,4 @@
-## 1412 Devices in library
+## 1413 Devices in library
 
 This file is auto generated, do not modify
 
@@ -245,6 +245,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |AVM                                             |FRITZ!DECT 350                                                             |2× AAA                    |                            |                                      |
 |AVM                                             |FRITZ!DECT 400                                                             |CR123A                    |                            |                                      |
 |AVM                                             |FRITZ!DECT 440                                                             |2× AAA                    |                            |                                      |
+|AVM                                             |FRITZ!Smart Control 350                                                    |2× AAA                    |                            |                                      |
 |Blueforcer                                      |AWTRIX 3                                                                   |Rechargeable              |                            |                                      |
 |Blueforcer                                      |AWTRIX Light                                                               |Rechargeable              |                            |                                      |
 |BlueMaestro                                     |Tempo Disc THD                                                             |CR2032                    |                            |                                      |
