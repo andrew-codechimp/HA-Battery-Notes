@@ -1,4 +1,4 @@
-## 1414 Devices in library
+## 1415 Devices in library
 
 This file is auto generated, do not modify
 
@@ -246,6 +246,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |AVM                                             |FRITZ!DECT 400                                                             |CR123A                    |                            |                                      |
 |AVM                                             |FRITZ!DECT 440                                                             |2× AAA                    |                            |                                      |
 |AVM                                             |FRITZ!Smart Control 350                                                    |2× AAA                    |                            |                                      |
+|AVM                                             |FRITZ!Smart Control 440                                                    |2× AAA                    |                            |                                      |
 |AVM                                             |FRITZ!Smart Thermo 302                                                     |2× AA                     |                            |                                      |
 |Blueforcer                                      |AWTRIX 3                                                                   |Rechargeable              |                            |                                      |
 |Blueforcer                                      |AWTRIX Light                                                               |Rechargeable              |                            |                                      |
