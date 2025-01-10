@@ -1,4 +1,4 @@
-## 1422 Devices in library
+## 1423 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1122,6 +1122,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tuya                                            |b5g40alm                                                                   |CR2450                    |                            |                                      |
 |Tuya                                            |Button scene switch                                                        |CR2450                    |SH-SC07                     |                                     1|
 |TuYa                                            |Button scene switch (SH-SC07)                                              |CR2450                    |                            |                                      |
+|Tuya                                            |Contact sensor                                                             |2× AAA                    |WL-19DWZ                    |                                     0|
 |Tuya                                            |Contact Sensor (ikfjwqdbpnh154b9)                                          |2× AAA                    |                            |                                      |
 |Tuya                                            |dagu44fhznig1omo                                                           |2× AAA                    |                            |                                      |
 |TuYa                                            |Door and window sensor (TM001-ZA/TM081)                                    |CR2032                    |                            |                                      |

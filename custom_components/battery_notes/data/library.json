@@ -6137,6 +6137,14 @@
         },
         {
             "manufacturer": "Tuya",
+            "model": "Contact sensor",
+            "model_id": "WL-19DWZ",
+            "hw_version": "0",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tuya",
             "model": "Contact Sensor (ikfjwqdbpnh154b9)",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -7837,14 +7845,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE70",
             "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Contact sensor",
-            "model_id": "WL-19DWZ",
-            "hw_version": "0",
-            "battery_type": "AAA",
             "battery_quantity": 2
         }
     ]
