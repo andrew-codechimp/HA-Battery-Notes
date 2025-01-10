@@ -1039,6 +1039,11 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "Temperature and humidity sensor T1 (WSDCGQ12LM)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "TVOC air quality monitor (VOCKQJK11LM)",
             "battery_type": "CR2450",
             "battery_quantity": 2
@@ -7833,11 +7838,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Aqara",
-            "model": "Temperature and humidity sensor T1 (WSDCGQ12LM)",
-            "battery_type": "CR2032"
         }
     ]
 }
