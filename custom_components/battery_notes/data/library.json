@@ -4209,6 +4209,13 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Nous",
+            "model": "Temperature and humidity sensor with clock",
+            "model_id": "SZ-T04",
+            "battery_type": "AAA",
+            "battery_quantity": 3
+        },
+        {
             "manufacturer": "NUKI",
             "model": "Nuki Door Sensor",
             "battery_type": "LS14250"
@@ -7891,13 +7898,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Nous",
-            "model": "Temperature and humidity sensor with clock",
-            "model_id": "SZ-T04",
-            "battery_type": "AAA",
-            "battery_quantity": 3
         }
     ]
 }
