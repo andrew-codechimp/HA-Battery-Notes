@@ -5568,6 +5568,11 @@
         },
         {
             "manufacturer": "Sonoff",
+            "model": "SNZB-04P",
+            "battery_type": "CR2477"
+        },
+        {
+            "manufacturer": "Sonoff",
             "model": "SNZB-05P",
             "battery_type": "CR2477"
         },
@@ -7864,11 +7869,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Sonoff",
-            "model": "SNZB-04P",
-            "battery_type": "CR2477"
         }
     ]
 }
