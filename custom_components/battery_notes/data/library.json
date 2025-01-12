@@ -5556,6 +5556,11 @@
             "battery_type": "CR2477"
         },
         {
+            "manufacturer": "Sonoff",
+            "model": "SNZB-03",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "SONOFF",
             "model": "SNZB-04",
             "battery_type": "AAA",
@@ -7859,11 +7864,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Sonoff",
-            "model": "SNZB-03",
-            "battery_type": "CR2032"
         }
     ]
 }
