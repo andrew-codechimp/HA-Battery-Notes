@@ -369,6 +369,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "_TZE200_bh3n6gk8",
+            "model": "TS0601",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "_TZE200_bjawzodf",
             "model": "TS0601",
             "battery_type": "AAA",
@@ -7874,11 +7879,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "_TZE200_bh3n6gk8",
-            "model": "TS0601",
-            "battery_type": "CR2450"
         }
     ]
 }
