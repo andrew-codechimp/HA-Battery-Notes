@@ -1,4 +1,4 @@
-## 1432 Devices in library
+## 1433 Devices in library
 
 This file is auto generated, do not modify
 
@@ -421,6 +421,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |eQ-3                                            |HmIP-WRCD                                                                  |2× AAA                    |                            |                                      |
 |eQ-3                                            |HmIP-WTH-1                                                                 |2× AAA                    |                            |                                      |
 |eQ-3                                            |HmIP-WTH-2                                                                 |2× AAA                    |                            |                                      |
+|eQ-3                                            |Homematic IP Temperatur- und Luftfeuchtigkeitssensor                       |2× AA                     |HmIP-STHO                   |                                      |
 |eQ-3                                            |M-WDS40-TH-I                                                               |2× AA                     |                            |                                      |
 |eQ-3                                            |MAX! Eco Switch                                                            |2× AAA                    |                            |                                      |
 |eQ-3                                            |MAX! Radiator Thermostat                                                   |2× AA                     |                            |                                      |
