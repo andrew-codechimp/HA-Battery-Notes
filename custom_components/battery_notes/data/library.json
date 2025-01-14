@@ -4030,6 +4030,11 @@
         },
         {
             "manufacturer": "Moes",
+            "model": "Light sensor (ZSS-QT-LS-C)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Moes",
             "model": "Smart door and window sensor (ZSS-JM-GWM-C-MS)",
             "model_id": "_TZ3000_decxrtwa",
             "battery_type": "CR2032"
@@ -7924,11 +7929,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Moes",
-            "model": "Light sensor (ZSS-QT-LS-C)",
-            "battery_type": "CR2032"
         }
     ]
 }
