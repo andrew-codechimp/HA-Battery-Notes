@@ -4592,6 +4592,11 @@
             "battery_type": "18650"
         },
         {
+            "manufacturer": "PLAID SYSTEMS",
+            "model": "Spruce temperature and moisture sensor (PS-SPRZMS-SLP3)",
+            "battery_type": "CR123"
+        },
+        {
             "manufacturer": "plant",
             "model": "by smart",
             "battery_type": "Rechargeable"
@@ -7919,11 +7924,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "PLAID SYSTEMS",
-            "model": "Spruce temperature and moisture sensor (PS-SPRZMS-SLP3)",
-            "battery_type": "CR123"
         }
     ]
 }

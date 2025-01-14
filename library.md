@@ -1,4 +1,4 @@
-## 1435 Devices in library
+## 1436 Devices in library
 
 This file is auto generated, do not modify
 
@@ -838,6 +838,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |PLab                                            |Home Buttons                                                               |Rechargeable              |                            |                                   2.3|
 |PLab                                            |Home Buttons Mini                                                          |2× AA                     |                            |                                   1.1|
 |PLab                                            |HomeButtons                                                                |18650                     |                            |                                      |
+|PLAID SYSTEMS                                   |Spruce temperature and moisture sensor (PS-SPRZMS-SLP3)                    |CR123                     |                            |                                      |
 |plant                                           |by smart                                                                   |Rechargeable              |                            |                                      |
 |Plugwise                                        |168-01                                                                     |CR2032                    |                            |                                      |
 |Plugwise                                        |Lisa                                                                       |2× AAA                    |                            |                                      |
