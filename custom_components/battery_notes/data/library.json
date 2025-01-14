@@ -7919,6 +7919,11 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "PLAID SYSTEMS",
+            "model": "Spruce temperature and moisture sensor (PS-SPRZMS-SLP3)",
+            "battery_type": "CR123"
         }
     ]
 }
