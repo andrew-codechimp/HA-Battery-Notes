@@ -1,4 +1,4 @@
-## 1434 Devices in library
+## 1435 Devices in library
 
 This file is auto generated, do not modify
 
@@ -190,6 +190,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Aqara                                           |Roller shade driver E1 (ZNJLBL01LM)                                        |Rechargeable              |                            |                                      |
 |Aqara                                           |RTCGQ11LM                                                                  |CR2450                    |                            |                                      |
 |Aqara                                           |SDL-D01                                                                    |4× AA                     |                            |1.0.0                                 |
+|Aqara                                           |Smart Lock U200                                                            |Rechargeable              |                       10242|1.0.0.0                               |
 |Aqara                                           |Smart radiator thermostat E1 (SRTS-A01)                                    |2× AA                     |                            |                                      |
 |Aqara                                           |Smart smoke detector                                                       |CR17450                   |JY-GZ-01AQ                  |                                      |
 |Aqara                                           |Smart smoke detector                                                       |CR17450                   |JY-GZ-01AQ                  |                                     1|
