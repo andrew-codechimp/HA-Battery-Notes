@@ -2527,6 +2527,11 @@
         },
         {
             "manufacturer": "eWeLink",
+            "model": "SNZB-03P",
+            "battery_type": "CR2477"
+        },
+        {
+            "manufacturer": "eWeLink",
             "model": "SNZB-04",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -7948,11 +7953,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "eWeLink",
-            "model": "SNZB-03P",
-            "battery_type": "CR2477"
         }
     ]
 }
