@@ -7948,6 +7948,11 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "eWeLink",
+            "model": "SNZB-03P",
+            "battery_type": "CR2477"
         }
     ]
 }
