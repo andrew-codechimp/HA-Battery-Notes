@@ -1,4 +1,4 @@
-## 1438 Devices in library
+## 1439 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1189,6 +1189,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tuya                                            |Smoke Detector (lsjnzox4skgduemo)                                          |PP3                       |                            |                                      |
 |Tuya                                            |Smoke sensor                                                               |2× AAA                    |TS0205_smoke_2              |                                      |
 |Tuya                                            |Smoke sensor                                                               |2× AAA                    |TS0205_smoke_2              |                                     1|
+|Tuya                                            |Smoke sensor                                                               |CR2                       |TS0601_smoke_4              |                                     1|
 |TuYa                                            |Smoke sensor (TS0205)                                                      |CR123                     |                            |                                      |
 |TuYa                                            |Smoke sensor (TS0205_smoke_2)                                              |2× AAA                    |                            |                                      |
 |TuYa                                            |Smoke sensor (TS0601_smoke_1)                                              |2× AAA                    |                            |                                      |
