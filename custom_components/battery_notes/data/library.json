@@ -6632,6 +6632,13 @@
         {
             "manufacturer": "Tuya",
             "model": "Temperature and humidity sensor",
+            "model_id": "ZG-227Z",
+            "hw_version": "1",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Temperature and humidity sensor",
             "model_id": "ZTH02",
             "hw_version": "1",
             "battery_type": "CR2032"
@@ -7929,13 +7936,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Temperature and humidity sensor",
-            "model_id": "ZG-227Z",
-            "hw_version": "1",
-            "battery_type": "CR2032"
         }
     ]
 }
