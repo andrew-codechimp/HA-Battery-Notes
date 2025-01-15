@@ -6597,6 +6597,11 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "Tuya",
+            "model": "Temperature & humidity sensor (TT001ZAV20)",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "TuYa",
             "model": "Temperature & humidity sensor (WSD500A)",
             "battery_type": "AAA",
@@ -7943,11 +7948,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Temperature & humidity sensor (TT001ZAV20)",
-            "battery_type": "CR2450"
         }
     ]
 }
