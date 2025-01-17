@@ -4328,6 +4328,11 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "OnePlus",
+            "model": "CPH2451",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Onesti Products AS",
             "model": "Zigbee module for Nimly Doorlock series (Nimly)",
             "battery_type": "AA",
@@ -7962,11 +7967,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "OnePlus",
-            "model": "CPH2451",
-            "battery_type": "Rechargeable"
         }
     ]
 }
