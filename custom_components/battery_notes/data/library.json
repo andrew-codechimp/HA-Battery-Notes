@@ -2809,7 +2809,16 @@
         {
             "manufacturer": "Google",
             "model": "Topaz-2.7",
-            "battery_type": "MANUAL"
+            "hw_version": "Battery",
+            "battery_type": "AA",
+            "battery_quantity": 6
+        },
+        {
+            "manufacturer": "Google",
+            "model": "Topaz-2.7",
+            "hw_version": "Wired",
+            "battery_type": "AA",
+            "battery_quantity": 3
         },
         {
             "manufacturer": "Google",
