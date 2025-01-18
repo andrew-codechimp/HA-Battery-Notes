@@ -7998,6 +7998,14 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "SONOFF",
+            "model": "Zigbee smart water valve",
+            "model_id": "SWV",
+            "hw_version": "16",
+            "battery_type": "AA",
+            "battery_quantity": 4
         }
     ]
 }
