@@ -7998,6 +7998,12 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "SONOFF",
+            "model": "Wireless Button",
+            "model_id": "SNZB-01P",
+            "battery_type": "CR2477"
         }
     ]
 }
