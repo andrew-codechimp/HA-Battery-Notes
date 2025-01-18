@@ -5722,6 +5722,12 @@
             "battery_quantity": 3
         },
         {
+            "manufacturer": "Sonoff",
+            "model": "Zigbee water sensor",
+            "model_id": "SNZB-05P",
+            "battery_type": "CR2477"
+        },
+        {
             "manufacturer": "Sonos",
             "model": "Move",
             "battery_type": "Rechargeable"
@@ -7992,12 +7998,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Sonoff",
-            "model": "Zigbee water sensor",
-            "model_id": "SNZB-05P",
-            "battery_type": "CR2477"
         }
     ]
 }

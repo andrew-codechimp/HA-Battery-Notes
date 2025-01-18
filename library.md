@@ -1,4 +1,4 @@
-## 1447 Devices in library
+## 1448 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1048,6 +1048,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |SONOFF                                          |ZBCurtain                                                                  |Rechargeable              |                            |                                      |
 |SONOFF                                          |Zigbee PIR sensor (SNZB-03P)                                               |CR2477                    |                            |                                      |
 |SONOFF                                          |Zigbee thermostatic radiator valve (TRVZB)                                 |3× AA                     |                            |                                      |
+|Sonoff                                          |Zigbee water sensor                                                        |CR2477                    |SNZB-05P                    |                                      |
 |Sonos                                           |Move                                                                       |Rechargeable              |                            |                                      |
 |Sonos                                           |Roam                                                                       |Rechargeable              |                            |                                      |
 |Sourcing & Creation                             |EB-SB-1B                                                                   |CR2032                    |                            |                                      |
