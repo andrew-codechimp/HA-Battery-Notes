@@ -7998,6 +7998,13 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Sonoff",
+            "model": "Temperature and humidity sensor",
+            "model_id": "SNZB-02",
+            "hw_version": "1",
+            "battery_type": "CR2450"
         }
     ]
 }
