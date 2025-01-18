@@ -6962,6 +6962,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Tuya",
+            "model": "Zigbee fingerbot plus",
+            "model_id": "TS0001",
+            "battery_type": "CR2"
+        },
+        {
             "manufacturer": "TuYa",
             "model": "Zigbee fingerbot plus (TS0001_fingerbot)",
             "battery_type": "CR2"
@@ -7980,12 +7986,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Zigbee fingerbot plus",
-            "model_id": "TS0001",
-            "battery_type": "CR2"
         }
     ]
 }
