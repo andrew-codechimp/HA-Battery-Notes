@@ -5666,6 +5666,12 @@
             "battery_type": "CR2477"
         },
         {
+            "manufacturer": "Sonoff",
+            "model": "Temperature and humidity sensor with screen",
+            "model_id": "SNZB-02D",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "SONOFF",
             "model": "Temperature and humidity sensor with screen (SNZB-02D)",
             "battery_type": "CR2450"
@@ -7967,12 +7973,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Sonoff",
-            "model": "Temperature and humidity sensor with screen",
-            "model_id": "SNZB-02D",
-            "battery_type": "CR2450"
         }
     ]
 }
