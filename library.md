@@ -1,4 +1,4 @@
-## 1467 Devices in library
+## 1468 Devices in library
 
 This file is auto generated, do not modify
 
@@ -197,6 +197,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Aqara                                           |Smart smoke detector                                                       |CR17450                   |JY-GZ-01AQ                  |                                     1|
 |Aqara                                           |Smart smoke detector (JY-GZ-01AQ)                                          |CR17450                   |                            |                                      |
 |Aqara                                           |SRTS-A01                                                                   |2× AA                     |                            |                                      |
+|Aqara                                           |SVD-C02                                                                    |6× AA                     |                            |                                  1.10|
 |Aqara                                           |Temperature and humidity sensor                                            |CR2032                    |WSDCGQ11LM                  |                                    30|
 |Aqara                                           |Temperature and humidity sensor (WSDCGQ11LM)                               |CR2032                    |                            |                                      |
 |Aqara                                           |Temperature and humidity sensor T1 (WSDCGQ12LM)                            |CR2032                    |                            |                                      |

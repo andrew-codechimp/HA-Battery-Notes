@@ -1058,6 +1058,13 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "SVD-C02",
+            "hw_version": "1.1",
+            "battery_type": "AA",
+            "battery_quantity": 6
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "Temperature and humidity sensor",
             "model_id": "WSDCGQ11LM",
             "hw_version": "30",
@@ -8118,13 +8125,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Aqara",
-            "model": "SVD-C02",
-            "hw_version": "1.1",
-            "battery_type": "AA",
-            "battery_quantity": 6
         }
     ]
 }
