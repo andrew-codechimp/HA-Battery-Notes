@@ -2328,6 +2328,12 @@
         },
         {
             "manufacturer": "eQ-3",
+            "model": "HmIP-STHO-A",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "eQ-3",
             "model": "HmIP-STV",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -8155,12 +8161,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE70",
             "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "eQ-3",
-            "model": "HmIP-STHO-A",
-            "battery_type": "AA",
             "battery_quantity": 2
         }
     ]
