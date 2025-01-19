@@ -5021,6 +5021,11 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "samsung",
+            "model": "SM-X200",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Saswell",
             "model": "Thermostatic radiator valve (SEA801-Zigbee/SEA802-Zigbee)",
             "battery_type": "AA",
@@ -8037,11 +8042,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "samsung",
-            "model": "SM-X200",
-            "battery_type": "Rechargeable"
         }
     ]
 }
