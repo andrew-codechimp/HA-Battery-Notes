@@ -1,4 +1,4 @@
-## 1449 Devices in library
+## 1450 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1047,6 +1047,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |SONOFF                                          |Wireless button (SNZB-01)                                                  |CR2450                    |                            |                                      |
 |SONOFF                                          |Wireless button (SNZB-01P)                                                 |CR2477                    |                            |                                      |
 |SONOFF                                          |ZBCurtain                                                                  |Rechargeable              |                            |                                      |
+|SONOFF                                          |Zigbee PIR sensor                                                          |CR2477                    |SBZB-03P                    |                                      |
 |SONOFF                                          |Zigbee PIR sensor (SNZB-03P)                                               |CR2477                    |                            |                                      |
 |SONOFF                                          |Zigbee thermostatic radiator valve (TRVZB)                                 |3× AA                     |                            |                                      |
 |Sonoff                                          |Zigbee water sensor                                                        |CR2477                    |SNZB-05P                    |                                      |

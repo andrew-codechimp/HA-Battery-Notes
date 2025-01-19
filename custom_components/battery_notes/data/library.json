@@ -5719,6 +5719,12 @@
         },
         {
             "manufacturer": "SONOFF",
+            "model": "Zigbee PIR sensor",
+            "model_id": "SBZB-03P",
+            "battery_type": "CR2477"
+        },
+        {
+            "manufacturer": "SONOFF",
             "model": "Zigbee PIR sensor (SNZB-03P)",
             "battery_type": "CR2477"
         },
@@ -8005,12 +8011,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "SONOFF",
-            "model": "Zigbee PIR sensor",
-            "model_id": "SBZB-03P",
-            "battery_type": "CR2477"
         }
     ]
 }
