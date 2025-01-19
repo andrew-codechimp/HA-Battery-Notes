@@ -8089,6 +8089,13 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "SVD-C02",
+            "hw_version": "1.1",
+            "battery_type": "AA",
+            "battery_quantity": 6
         }
     ]
 }
