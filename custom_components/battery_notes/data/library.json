@@ -1528,6 +1528,12 @@
             "battery_quantity": 6
         },
         {
+            "manufacturer": "BOSCH",
+            "model": "WLS",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "BRK Brands, Inc.",
             "model": "ZCOMBO",
             "battery_type": "AA",
@@ -8105,12 +8111,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE70",
             "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "BOSCH",
-            "model": "WLS",
-            "battery_type": "AAA",
             "battery_quantity": 2
         }
     ]
