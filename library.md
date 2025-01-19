@@ -1,4 +1,4 @@
-## 1466 Devices in library
+## 1467 Devices in library
 
 This file is auto generated, do not modify
 
@@ -281,6 +281,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |BOSCH                                           |TWINGUARD                                                                  |6× AA                     |                            |                                      |
 |Bosch                                           |Twinguard (8750001213)                                                     |6× AA                     |                            |                                      |
 |BOSCH                                           |WLS                                                                        |2× AAA                    |                            |                                      |
+|BOSCH                                           |WRC2                                                                       |2× AAA                    |                            |                                      |
 |BRK Brands, Inc.                                |ZCOMBO                                                                     |2× AA                     |                            |                                      |
 |BRK Brands, Inc.                                |ZSMOKE                                                                     |2× AA                     |                            |                                      |
 |by Philio Technology Corp                       |PSP05                                                                      |CR123A                    |                            |                                      |
