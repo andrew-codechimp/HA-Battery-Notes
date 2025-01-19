@@ -1,4 +1,4 @@
-## 1453 Devices in library
+## 1454 Devices in library
 
 This file is auto generated, do not modify
 
@@ -906,6 +906,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |samsung                                         |SM-G955U                                                                   |Rechargeable              |                            |                                      |
 |samsung                                         |SM-G975F                                                                   |Rechargeable              |                            |                                      |
 |Samsung                                         |SM-G991B                                                                   |Rechargeable              |                            |                                      |
+|samsung                                         |SM-G996B                                                                   |Rechargeable              |                            |                                      |
 |samsung                                         |SM-G998U                                                                   |Rechargeable              |                            |                                      |
 |samsung                                         |SM-R860                                                                    |Rechargeable              |                            |                                      |
 |samsung                                         |SM-S901U1                                                                  |Rechargeable              |                            |                                      |
