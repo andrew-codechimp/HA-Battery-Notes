@@ -8168,6 +8168,13 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Varta",
+            "model": "Zigbee Temp\u00e9rature Humidit\u00e9",
+            "model_id": "WSD500A",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
