@@ -1385,6 +1385,13 @@
         },
         {
             "manufacturer": "AVM",
+            "model": "FRITZ!Smart Thermo 301",
+            "hw_version": "5.21",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "AVM",
             "model": "FRITZ!Smart Thermo 302",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -8048,13 +8055,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE70",
             "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "AVM",
-            "model": "FRITZ!Smart Thermo 301",
-            "hw_version": "5.21",
-            "battery_type": "AA",
             "battery_quantity": 2
         }
     ]
