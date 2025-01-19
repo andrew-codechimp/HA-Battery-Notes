@@ -8084,6 +8084,12 @@
             "model": "TRV",
             "battery_type": "AA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "BOSCH",
+            "model": "SWD",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
