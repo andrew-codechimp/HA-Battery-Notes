@@ -1096,6 +1096,13 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "U200",
+            "model_id": "Aqara Smart Lock U200 (10242)",
+            "hw_version": "1.0.0.0",
+            "battery_type": "Rechargable"
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "Vibration sensor (DJT11LM)",
             "battery_type": "CR2032"
         },
@@ -8131,13 +8138,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Aqara",
-            "model": "U200",
-            "model_id": "Aqara Smart Lock U200 (10242)",
-            "hw_version": "1.0.0.0",
-            "battery_type": "Rechargable"
         }
     ]
 }
