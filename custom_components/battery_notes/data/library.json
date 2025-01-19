@@ -8162,6 +8162,12 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Philips",
+            "model": "Hue dimmer switch",
+            "model_id": "324131092621",
+            "battery_type": "CR2450"
         }
     ]
 }
