@@ -7244,6 +7244,13 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "Varta",
+            "model": "Zigbee Temp\u00e9rature Humidit\u00e9",
+            "model_id": "WSD500A",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Verisure",
             "model": "Lockguard Smartlock",
             "battery_type": "AA",
@@ -8167,13 +8174,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE70",
             "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Varta",
-            "model": "Zigbee Temp\u00e9rature Humidit\u00e9",
-            "model_id": "WSD500A",
-            "battery_type": "AAA",
             "battery_quantity": 2
         }
     ]
