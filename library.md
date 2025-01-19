@@ -1,4 +1,4 @@
-## 1463 Devices in library
+## 1464 Devices in library
 
 This file is auto generated, do not modify
 
@@ -273,6 +273,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |BOSCH                                           |Radiator Thermostat II +M                                                  |2× AA                     |                       12306|1.2.0                                 |
 |Bosch                                           |Room thermostat II                                                         |4× AAA                    |RBSH-RTH0-BAT-ZB-EU         |                                      |
 |Bosch                                           |Smoke alarm detector (BSD-2)                                               |Irreplaceable             |                            |                                      |
+|BOSCH                                           |SMOKE_DETECTOR2                                                            |CR17450                   |                            |                                      |
 |BOSCH                                           |SWD2                                                                       |CR123A                    |                            |                                      |
 |BOSCH                                           |TRV                                                                        |2× AA                     |                            |                                      |
 |BOSCH                                           |TRV_GEN2                                                                   |2× AA                     |                            |                                      |

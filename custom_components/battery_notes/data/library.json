@@ -1489,6 +1489,11 @@
         },
         {
             "manufacturer": "BOSCH",
+            "model": "SMOKE_DETECTOR2",
+            "battery_type": "CR17450"
+        },
+        {
+            "manufacturer": "BOSCH",
             "model": "SWD2",
             "battery_type": "CR123A"
         },
@@ -8095,11 +8100,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "BOSCH",
-            "model": "SMOKE_DETECTOR2",
-            "battery_type": "CR17450"
         }
     ]
 }
