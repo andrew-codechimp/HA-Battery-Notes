@@ -5736,6 +5736,14 @@
         },
         {
             "manufacturer": "SONOFF",
+            "model": "Zigbee smart water valve",
+            "model_id": "SWV",
+            "hw_version": "16",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "SONOFF",
             "model": "Zigbee thermostatic radiator valve",
             "model_id": "TRVZB",
             "battery_type": "AA",
@@ -8024,14 +8032,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "SONOFF",
-            "model": "Zigbee smart water valve",
-            "model_id": "SWV",
-            "hw_version": "16",
-            "battery_type": "AA",
-            "battery_quantity": 4
         }
     ]
 }
