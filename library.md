@@ -1,4 +1,4 @@
-## 1457 Devices in library
+## 1458 Devices in library
 
 This file is auto generated, do not modify
 
@@ -200,6 +200,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Aqara                                           |Temperature and humidity sensor                                            |CR2032                    |WSDCGQ11LM                  |                                    30|
 |Aqara                                           |Temperature and humidity sensor (WSDCGQ11LM)                               |CR2032                    |                            |                                      |
 |Aqara                                           |Temperature and humidity sensor T1 (WSDCGQ12LM)                            |CR2032                    |                            |                                      |
+|Aqara                                           |TVOC air quality monitor                                                   |2× CR2450                 |VOCKQJK11LM                 |2020www                               |
 |Aqara                                           |TVOC air quality monitor (VOCKQJK11LM)                                     |2× CR2450                 |                            |                                      |
 |Aqara                                           |Vibration sensor (DJT11LM)                                                 |CR2032                    |                            |                                      |
 |Aqara                                           |Water leak sensor                                                          |CR2032                    |SJCGQ11LM                   |                                      |
