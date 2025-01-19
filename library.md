@@ -1,4 +1,4 @@
-## 1462 Devices in library
+## 1463 Devices in library
 
 This file is auto generated, do not modify
 
@@ -275,6 +275,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Bosch                                           |Smoke alarm detector (BSD-2)                                               |Irreplaceable             |                            |                                      |
 |BOSCH                                           |SWD2                                                                       |CR123A                    |                            |                                      |
 |BOSCH                                           |TRV                                                                        |2× AA                     |                            |                                      |
+|BOSCH                                           |TRV_GEN2                                                                   |2× AA                     |                            |                                      |
 |BOSCH                                           |TWINGUARD                                                                  |6× AA                     |                            |                                      |
 |Bosch                                           |Twinguard (8750001213)                                                     |6× AA                     |                            |                                      |
 |BRK Brands, Inc.                                |ZCOMBO                                                                     |2× AA                     |                            |                                      |
