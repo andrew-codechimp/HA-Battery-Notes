@@ -8089,6 +8089,12 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "BOSCH",
+            "model": "TRV_GEN2",
+            "battery_type": "AA",
+            "battery_quantity": 2
         }
     ]
 }
