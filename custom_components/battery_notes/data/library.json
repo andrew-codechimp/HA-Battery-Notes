@@ -5881,6 +5881,13 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "SwitchBot",
+            "model": "Smart Lock Pro",
+            "hw_version": "V2.3",
+            "battery_type": "Recharchable",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Switchbot",
             "model": "W070160X",
             "battery_type": "Rechargeable"
@@ -8070,13 +8077,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE70",
             "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "SwitchBot",
-            "model": "Smart Lock Pro",
-            "hw_version": "V2.3",
-            "battery_type": "Recharchable",
             "battery_quantity": 2
         }
     ]
