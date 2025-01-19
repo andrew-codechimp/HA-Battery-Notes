@@ -1,4 +1,4 @@
-## 1455 Devices in library
+## 1456 Devices in library
 
 This file is auto generated, do not modify
 
@@ -257,6 +257,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |AVM                                             |FRITZ!Smart Control 350                                                    |2× AAA                    |                            |                                      |
 |AVM                                             |FRITZ!Smart Control 440                                                    |2× AAA                    |                            |                                      |
 |AVM                                             |FRITZ!Smart Thermo 302                                                     |2× AA                     |                            |                                      |
+|AVM                                             |FRITZ!Smart Thermo 302                                                     |3× AA                     |                            |                                  5.26|
 |Blueforcer                                      |AWTRIX 3                                                                   |Rechargeable              |                            |                                      |
 |Blueforcer                                      |AWTRIX Light                                                               |Rechargeable              |                            |                                      |
 |BlueMaestro                                     |Tempo Disc THD                                                             |CR2032                    |                            |                                      |
@@ -441,10 +442,10 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Eurotronic                                      |Spirit Zigbee wireless heater thermostat (SPZB0001)                        |2× AA                     |                            |                                      |
 |Eurotronics                                     |Spirit                                                                     |2× AA                     |                            |                                      |
 |Eve                                             |Thermo                                                                     |2× AA                     |                            |                                      |
-|Eve                                             |Weather                                                                    |CR2450                    |20EBS9901                   |                                   1.1|
+|Eve                                             |Weather                                                                    |CR2450                    |20EBS9901                   |                                  1.10|
 |Eve Systems                                     |Eve Door 20EBN9901                                                         |LS14250                   |                            |                                      |
 |Eve Systems                                     |Eve Motion 20EBY9901                                                       |2× AAA                    |                            |                                      |
-|Eve Systems                                     |Eve Thermo 20EBP1701                                                       |2× AA                     |                          79|                                   1.1|
+|Eve Systems                                     |Eve Thermo 20EBP1701                                                       |2× AA                     |                          79|                                  1.10|
 |Eve Systems                                     |Thermo 20EBP1701                                                           |2× AA                     |                            |                                      |
 |Everspring                                      |AC301                                                                      |2× AA                     |                            |                                      |
 |Everspring                                      |SE812                                                                      |4× LR14                   |                            |                                      |
@@ -840,8 +841,8 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Philips                                         |SML001                                                                     |2× AAA                    |                            |                                      |
 |Philips                                         |SML002                                                                     |2× AA                     |                            |                                      |
 |Philips Hue                                     |SML001                                                                     |2× AAA                    |                            |                                      |
-|PLab                                            |Home Buttons                                                               |Rechargeable              |                            |                                   2.3|
-|PLab                                            |Home Buttons Mini                                                          |2× AA                     |                            |                                   1.1|
+|PLab                                            |Home Buttons                                                               |Rechargeable              |                            |                                  2.30|
+|PLab                                            |Home Buttons Mini                                                          |2× AA                     |                            |                                  1.10|
 |PLab                                            |HomeButtons                                                                |18650                     |                            |                                      |
 |PLAID SYSTEMS                                   |Spruce temperature and moisture sensor (PS-SPRZMS-SLP3)                    |CR123                     |                            |                                      |
 |plant                                           |by smart                                                                   |Rechargeable              |                            |                                      |

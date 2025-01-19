@@ -1390,6 +1390,13 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "AVM",
+            "model": "FRITZ!Smart Thermo 302",
+            "hw_version": "5.26",
+            "battery_type": "AA",
+            "battery_quantity": 3
+        },
+        {
             "manufacturer": "Blueforcer",
             "model": "AWTRIX 3",
             "battery_type": "Rechargeable"
@@ -8042,13 +8049,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "AVM",
-            "model": "FRITZ!Smart Thermo 302",
-            "hw_version": "5.26",
-            "battery_type": "AA",
-            "battery_quantity": 3
         }
     ]
 }
