@@ -8056,6 +8056,14 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "TVOC air quality monitor",
+            "model_id": "VOCKQJK11LM",
+            "hw_version": "2020www",
+            "battery_type": "CR2450",
+            "battery_quantity": 2
         }
     ]
 }
