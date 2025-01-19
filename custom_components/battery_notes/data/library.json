@@ -3354,6 +3354,13 @@
         },
         {
             "manufacturer": "IKEA",
+            "model": "TRADFRI remote control",
+            "model_id": "E1524/E1810",
+            "hw_version": "1",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "IKEA",
             "model": "TRADFRI remote control (E1524/E1810)",
             "battery_type": "CR2032"
         },
@@ -8064,13 +8071,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "IKEA",
-            "model": "TRADFRI remote control",
-            "model_id": "E1524/E1810",
-            "hw_version": "1",
-            "battery_type": "CR2032"
         }
     ]
 }
