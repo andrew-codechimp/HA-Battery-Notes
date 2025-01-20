@@ -2061,6 +2061,12 @@
         },
         {
             "manufacturer": "eQ-3",
+            "model": "HM-Sec-Key",
+            "battery_type": "AA",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "eQ-3",
             "model": "HM-Sec-MDIR-2",
             "battery_type": "AA",
             "battery_quantity": 3
@@ -2311,6 +2317,18 @@
         },
         {
             "manufacturer": "eQ-3",
+            "model": "HmIP-SMO-A",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "eQ-3",
+            "model": "HmIP-SMO-A-2",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "eQ-3",
             "model": "HmIP-SPI",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -2330,6 +2348,12 @@
             "manufacturer": "eQ-3",
             "model": "HmIP-STHD",
             "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "eQ-3",
+            "model": "HmIP-STHO",
+            "battery_type": "AA",
             "battery_quantity": 2
         },
         {
@@ -2429,30 +2453,6 @@
         {
             "manufacturer": "eQ-3",
             "model": "HmIP-WTH-B-2",
-            "battery_type": "AA",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "eQ-3",
-            "model": "HM-Sec-Key",
-            "battery_type": "AA",
-            "battery_quantity": 3
-        },
-        {
-            "manufacturer": "eQ-3",
-            "model": "HmIP-SMO-A",
-            "battery_type": "AA",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "eQ-3",
-            "model": "HmIP-SMO-A-2",
-            "battery_type": "AA",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "eQ-3",
-            "model": "HmIP-STHO",
             "battery_type": "AA",
             "battery_quantity": 2
         },
