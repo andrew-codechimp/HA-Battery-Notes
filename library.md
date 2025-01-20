@@ -1,4 +1,4 @@
-## 1483 Devices in library
+## 1484 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1004,6 +1004,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Signify Netherlands B.V.                        |SML002                                                                     |2× AA                     |                             |                                      |
 |Signify Netherlands B.V.                        |SML003                                                                     |2× AAA                    |                             |                                      |
 |Signify Netherlands B.V.                        |SML004                                                                     |2× AA                     |                             |                                      |
+|SilverCrest                                     |Window and Door Sensor                                                     |2× AAA                    |TY0203                       |                                      |
 |Simplisafe                                      |Alarm control panel                                                        |4× AA                     |                             |                                      |
 |Simplisafe                                      |Entry                                                                      |CR2032                    |                             |                                      |
 |SimpliSafe                                      |Keypad                                                                     |4× AA                     |                             |                                      |

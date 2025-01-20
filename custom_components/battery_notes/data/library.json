@@ -5508,6 +5508,13 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "SilverCrest",
+            "model": "Window and Door Sensor",
+            "model_id": "TY0203",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Simplisafe",
             "model": "Alarm control panel",
             "battery_type": "AA",
@@ -8216,13 +8223,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE70",
             "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "SilverCrest",
-            "model": "Window and Door Sensor",
-            "model_id": "TY0203",
-            "battery_type": "AAA",
             "battery_quantity": 2
         }
     ]
