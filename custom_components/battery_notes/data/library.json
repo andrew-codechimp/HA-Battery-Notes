@@ -8224,6 +8224,13 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Legrand",
+            "model": "Wireless double remote switch",
+            "model_id": "067774",
+            "hw_version": "V3",
+            "battery_type": "CR2032"
         }
     ]
 }
