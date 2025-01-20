@@ -6287,6 +6287,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Tractive GmbH",
+            "model": "TRNJA4",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Trust",
             "model": "COSensor-EM",
             "battery_type": "CR123A"
@@ -8181,11 +8186,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Tractive GmbH",
-            "model": "TRNJA4",
-            "battery_type": "Rechargeable"
         }
     ]
 }
