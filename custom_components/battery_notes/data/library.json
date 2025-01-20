@@ -2441,6 +2441,13 @@
         },
         {
             "manufacturer": "eQ-3",
+            "model": "Homematic IP Bewegungsmelder",
+            "model_id": "HmIP-SMO-A-2",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "eQ-3",
             "model": "Homematic IP Temperatur- und Luftfeuchtigkeitssensor",
             "model_id": "HmIP-STHO",
             "battery_type": "AA",
@@ -8190,13 +8197,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE70",
             "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "eQ-3",
-            "model": "Homematic IP Bewegungsmelder",
-            "model_id": "HmIP-SMO-A-2",
-            "battery_type": "AA",
             "battery_quantity": 2
         }
     ]
