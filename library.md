@@ -1,4 +1,4 @@
-## 1481 Devices in library
+## 1482 Devices in library
 
 This file is auto generated, do not modify
 
@@ -441,6 +441,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |eQ-3                                            |HmIP-WTH-1                                                                 |2× AAA                    |                             |                                      |
 |eQ-3                                            |HmIP-WTH-2                                                                 |2× AAA                    |                             |                                      |
 |eQ-3                                            |HmIP-WTH-B-2                                                               |2× AA                     |                             |                                      |
+|eQ-3                                            |Homematic Funk-Türschlossantrieb KeyMatic                                  |3× AA                     |HM-Sec-Key                   |                                      |
 |eQ-3                                            |Homematic IP Bewegungsmelder                                               |2× AA                     |HmIP-SMO-A                   |                                      |
 |eQ-3                                            |Homematic IP Bewegungsmelder                                               |2× AA                     |HmIP-SMO-A-2                 |                                      |
 |eQ-3                                            |Homematic IP Temperatur- und Luftfeuchtigkeitssensor                       |2× AA                     |HmIP-STHO                    |                                      |

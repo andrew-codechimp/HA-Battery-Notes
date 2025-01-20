@@ -2434,6 +2434,13 @@
         },
         {
             "manufacturer": "eQ-3",
+            "model": "Homematic Funk-T\u00fcrschlossantrieb KeyMatic",
+            "model_id": "HM-Sec-Key",
+            "battery_type": "AA",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "eQ-3",
             "model": "Homematic IP Bewegungsmelder",
             "model_id": "HmIP-SMO-A",
             "battery_type": "AA",
@@ -8203,13 +8210,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "eQ-3",
-            "model": "Homematic Funk-T\u00fcrschlossantrieb KeyMatic",
-            "model_id": "HM-Sec-Key",
-            "battery_type": "AA",
-            "battery_quantity": 3
         }
     ]
 }
