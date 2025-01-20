@@ -112,7 +112,7 @@
                         "name": "Batterie zuletzt ersetzt"
                     },
                     "battery_low": {
-                        "name": "Akku fast leer"
+                        "name": "Niedriger Batteriestand"
                     },
                     "battery_low_threshold": {
                         "name": "Schwelle für niedrigen Batteriestand"
