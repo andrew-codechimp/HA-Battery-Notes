@@ -3833,6 +3833,13 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "Legrand",
+            "model": "Wireless double remote switch",
+            "model_id": "067774",
+            "hw_version": "V3",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "Lidl",
             "model": "HG06335/HG07310",
             "battery_type": "CR123A"
@@ -8220,13 +8227,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Legrand",
-            "model": "Wireless double remote switch",
-            "model_id": "067774",
-            "hw_version": "V3",
-            "battery_type": "CR2032"
         }
     ]
 }

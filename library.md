@@ -1,4 +1,4 @@
-## 1484 Devices in library
+## 1485 Devices in library
 
 This file is auto generated, do not modify
 
@@ -694,6 +694,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Kwikset                                         |SMARTCODE_DEADBOLT_10T                                                     |4× AA                     |                             |                                      |
 |LDS                                             |ZBT-CCTSwitch-D0001                                                        |CR2450                    |                             |                                      |
 |Leedarson                                       |4-Key Remote Controller (6ARCZABZH)                                        |CR2450                    |                             |                                      |
+|Legrand                                         |Wireless double remote switch                                              |CR2032                    |                        67774|V3                                    |
 |Lidl                                            |HG06335/HG07310                                                            |CR123A                    |                             |                                      |
 |Lidl                                            |HG06336                                                                    |2× AAA                    |                             |                                      |
 |Lidl                                            |Parkside smart watering timer (PSBZS A1)                                   |2× AA                     |                             |                                      |
