@@ -1,4 +1,4 @@
-## 1488 Devices in library
+## 1489 Devices in library
 
 This file is auto generated, do not modify
 
@@ -440,6 +440,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |eQ-3                                            |HMIP-SWDO-PL                                                               |2× AAA                    |                             |                                      |
 |eQ-3                                            |HmIP-SWO-B                                                                 |3× AA                     |                             |                                      |
 |eQ-3                                            |HmIP-SWO-PR                                                                |3× AA                     |                             |                                      |
+|eQ-3                                            |HmIP-WGC                                                                   |2× AA                     |                             |                                      |
 |eQ-3                                            |HMIP-WRC2                                                                  |2× AAA                    |                             |                                      |
 |eQ-3                                            |HmIP-WRC6                                                                  |2× AAA                    |                             |                                      |
 |eQ-3                                            |HmIP-WRCD                                                                  |2× AAA                    |                             |                                      |
