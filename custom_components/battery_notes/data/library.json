@@ -2194,6 +2194,11 @@
         },
         {
             "manufacturer": "eQ-3",
+            "model": "HmIP-DLS",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "eQ-3",
             "model": "HmIP-ESI",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -8241,11 +8246,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "eQ-3",
-            "model": "HmIP-DLS",
-            "battery_type": "CR2032"
         }
     ]
 }
