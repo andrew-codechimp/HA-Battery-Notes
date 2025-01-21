@@ -8234,6 +8234,13 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "WX1 Tap Timer (unsupported)",
+            "model_id": "(zrsgzc8jktsricjj)",
+            "battery_type": "AA",
+            "battery_quantity": 4
         }
     ]
 }
