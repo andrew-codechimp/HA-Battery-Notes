@@ -1,4 +1,4 @@
-## 1490 Devices in library
+## 1491 Devices in library
 
 This file is auto generated, do not modify
 
@@ -204,6 +204,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Aqara                                           |TVOC air quality monitor                                                   |2× CR2450                 |VOCKQJK11LM                  |2020www                               |
 |Aqara                                           |TVOC air quality monitor (VOCKQJK11LM)                                     |2× CR2450                 |                             |                                      |
 |Aqara                                           |U200                                                                       |Rechargable               |Aqara Smart Lock U200 (10242)|1.0.0.0                               |
+|Aqara                                           |Vibration Sensor                                                           |CR2032                    |DJT11LM                      |                                     3|
 |Aqara                                           |Vibration sensor (DJT11LM)                                                 |CR2032                    |                             |                                      |
 |Aqara                                           |Water leak sensor                                                          |CR2032                    |SJCGQ11LM                    |                                      |
 |Aqara                                           |Water leak sensor (SJCGQ11LM)                                              |CR2032                    |                             |                                      |

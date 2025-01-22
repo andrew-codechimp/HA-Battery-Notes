@@ -1103,6 +1103,13 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "Vibration Sensor",
+            "model_id": "DJT11LM",
+            "hw_version": "3",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "Vibration sensor (DJT11LM)",
             "battery_type": "CR2032"
         },
@@ -8257,13 +8264,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Aqara",
-            "model": "Vibration Sensor",
-            "model_id": "DJT11LM",
-            "hw_version": "3",
-            "battery_type": "CR2032"
         }
     ]
 }
