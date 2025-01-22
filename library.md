@@ -1,4 +1,4 @@
-## 1506 Devices in library
+## 1507 Devices in library
 
 This file is auto generated, do not modify
 
@@ -437,6 +437,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |eQ-3                                            |HmIP-STV                                                                   |2× AAA                    |                             |                                      |
 |eQ-3                                            |HmIP-SWD                                                                   |2× AAA                    |                             |                                      |
 |eQ-3                                            |HmIP-SWDM                                                                  |2× AAA                    |                             |                                      |
+|eQ-3                                            |HmIP-SWDM-2                                                                |2× AAA                    |                             |                                      |
 |eQ-3                                            |HmIP-SWDM-B2                                                               |2× AAA                    |                             |                                      |
 |eQ-3                                            |HMIP-SWDO                                                                  |AAA                       |                             |                                      |
 |eQ-3                                            |HmIP-SWDO-2                                                                |AAA                       |                             |                                      |
