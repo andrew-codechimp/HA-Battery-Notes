@@ -3,21 +3,22 @@
 ## Dashboards
 
 ### Battery State Card
+
 Using the excellent [Battery State Card](https://github.com/maxwroc/battery-state-card) by maxwroc you can easily display devices with their batteries required where the devices battery threshold indicates it's low and show be replaced.
 
 ```yaml
 type: custom:battery-state-card
-secondary_info: '{attributes.battery_type_and_quantity}'
+secondary_info: "{attributes.battery_type_and_quantity}"
 round: 0
 filter:
   include:
     - name: entity_id
-      value: '*_battery_plus'
+      value: "*_battery_plus"
   exclude:
     - name: attributes.battery_low
       value: false
 bulk_rename:
-  - from: "Battery+"      
+  - from: "Battery+"
 sort:
   - state
 ```
@@ -25,6 +26,7 @@ sort:
 ## Automations
 
 ### Battery Low Notification
+
 Raise a persistent notification when a battery is low, dismiss when it's not low
 
 !!! note
@@ -74,10 +76,10 @@ actions:
           - action: persistent_notification.dismiss
             data:
               notification_id: "{{ trigger.event.data.device_id }}-{{ trigger.event.data.source_entity_id }}"
-
 ```
 
 ### Check Battery Low daily reminder
+
 Call the check battery low action every day to raise events for those that are still low.  
 To be used in conjunction with a [Battery Low Notification](community.md/#battery-low-notification) or similar.
 
@@ -91,13 +93,13 @@ triggers:
 conditions: []
 actions:
   - action: battery_notes.check_battery_low
-
 ```
 
 ### Check Battery Low weekly reminder
+
 Weekly reminders are a little trickier, you will need to create a [Schedule Helper](https://www.home-assistant.io/integrations/schedule/) for when you want the battery check to occur then use this automation for when the helper is on.  
 Below I am referencing a schedule helper called maintenance which I have set to come on weekly.  
-To be used in conjunction with a [Battery Low Notification](community.md/#battery-low-notification) or similar.  
+To be used in conjunction with a [Battery Low Notification](community.md/#battery-low-notification) or similar.
 
 ```yaml
 alias: Battery Low Check
@@ -115,6 +117,7 @@ actions:
 ```
 
 ### Battery Replaced
+
 Mark a battery as replaced when there is an increase in battery level.
 
 !!! note
@@ -156,6 +159,7 @@ actions:
 ```
 
 ### Check Battery Last Reported Daily
+
 Call the check battery last reported action every day to raise events for those not reported in the last two days.  
 To be used in conjunction with a Battery Not Reported automation.
 
@@ -174,6 +178,7 @@ actions:
 ```
 
 ### Battery Not Reported
+
 Respond to events raised by the check_battery_last_reported action and create notifications.
 
 Note this cannot be run manually as it examines event triggers, use it with the [Check Battery Last Reported Daily](community.md/#check-battery-last-reported-daily) or similar.
@@ -199,7 +204,6 @@ actions:
         trigger.event.data.battery_last_reported_level }}% {{ '\n' -}} You need
         {{ trigger.event.data.battery_quantity }}× {{
         trigger.event.data.battery_type }}
-
 ```
 
 ## Automation Tips
@@ -212,30 +216,6 @@ actions:
     data:
       device_id: "{{ device_id(trigger.entity_id) }}"
 ```
-
-## Blueprints
-
-[Blueprints](https://www.home-assistant.io/docs/automation/using_blueprints/) are an excellent way to get you up and running with the integration quickly. They can also be used as a guide for setting up new automations which you can tailor to your needs. 
-
-### Battery Threshold
-[Install blueprint](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fraw.githubusercontent.com%2Fandrew-codechimp%2FHA-Battery-Notes%2Fmain%2Fdocs%2Fblueprints%2Fbattery_notes_battery_threshold.yaml) | [Source](https://raw.githubusercontent.com/andrew-codechimp/HA-Battery-Notes/main/docs/blueprints/battery_notes_battery_threshold.yaml)
-
-This blueprint will allow notifications to be raised and/or custom actions to be performed when the battery threshold is met.
-It is extended from the example Battery Low Notification automation yaml above for those who'd prefer an easy way to get started.
-
-
-### Battery Replaced
-[Install blueprint](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fraw.githubusercontent.com%2Fandrew-codechimp%2FHA-Battery-Notes%2Fmain%2Fdocs%2Fblueprints%2Fbattery_notes_battery_replaced.yaml) | [Source](https://raw.githubusercontent.com/andrew-codechimp/HA-Battery-Notes/main/docs/blueprints/battery_notes_battery_replaced.yaml)
-
-This blueprint will automatically update the battery replaced sensor and custom actions to be performed when the battery increases.
-It is extended from the example Battery Replaced automation yaml above for those who'd prefer an easy way to get started.
-
-### Battery Not Reported
-[Install blueprint](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fraw.githubusercontent.com%2Fandrew-codechimp%2FHA-Battery-Notes%2Fmain%2Fdocs%2Fblueprints%2Fbattery_notes_battery_not_reported.yaml) | [Source](https://raw.githubusercontent.com/andrew-codechimp/HA-Battery-Notes/main/docs/blueprints/battery_notes_battery_not_reported.yaml)
-
-This blueprint will allow notifications to be raised and/or custom actions to be performed when the battery not reported event is fired.  
-It is extended from the example Battery Not Reported automation yaml above for those who'd prefer an easy way to get started.  
-You must trigger the check_battery_not_reported action via an automation to raise events, see [Check Battery Last Reported Daily](community.md/#check-battery-last-reported-daily) above.
 
 ### Get a markdown summary of your battery quantities
 
@@ -264,6 +244,10 @@ The overview video is available on YouTube [here](https://youtu.be/D403Vy2VaFA)
  | {{ bt[0] }} | {{ [bt][0][1] }} |
 {% endfor %}
 ```
+
+## Blueprints
+
+A collection of Blueprints are available [here](./blueprints.md).
 
 ## Contributing
 
