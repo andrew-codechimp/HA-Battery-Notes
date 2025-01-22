@@ -8334,6 +8334,12 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Omlet",
+            "model": "Autodoor",
+            "battery_type": "AA",
+            "battery_quantity": 4
         }
     ]
 }
