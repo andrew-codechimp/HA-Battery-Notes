@@ -2447,6 +2447,12 @@
         },
         {
             "manufacturer": "eQ-3",
+            "model": "HmIP-SWSD",
+            "battery_type": "FDK CR17450E-N (3V)",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "eQ-3",
             "model": "HmIP-WGC",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -8344,12 +8350,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE70",
             "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "eQ-3",
-            "model": "HmIP-SWSD",
-            "battery_type": "FDK CR17450E-N (3V)",
             "battery_quantity": 2
         }
     ]
