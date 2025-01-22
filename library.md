@@ -1,4 +1,4 @@
-## 1502 Devices in library
+## 1503 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1131,6 +1131,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tado                                            |VA02                                                                       |2× AA                     |                             |                                      |
 |tado° GmbH                                      |Smart Thermostat X                                                         |3× AAA                    |RU04                         |                                      |
 |Tedee                                           |Tedee GO                                                                   |3× CR123A                 |                             |                                      |
+|Tedee                                           |Tedee PRO                                                                  |Rechargeable              |                             |                                      |
 |ThermoBeacon                                    |16                                                                         |CR2477                    |                             |                                      |
 |ThermoBeacon                                    |21                                                                         |CR2477                    |                             |                                      |
 |ThermoBeacon                                    |27                                                                         |CR2477                    |                             |                                      |
