@@ -237,5 +237,34 @@ This blueprint will allow notifications to be raised and/or custom actions to be
 It is extended from the example Battery Not Reported automation yaml above for those who'd prefer an easy way to get started.  
 You must trigger the check_battery_not_reported action via an automation to raise events, see [Check Battery Last Reported Daily](community.md/#check-battery-last-reported-daily) above.
 
-## Contributing  
+### Get a markdown summary of your battery quantities
+
+This is from the excellent German blog [Smart Live](https://smart-live.net/battery-notes-batteriemanagement-mit-home-assistant/)
+The overview video is available on YouTube [here](https://youtu.be/D403Vy2VaFA)
+
+```yaml
+{% set ns_batteries = namespace(batteries={}) %}
+{% for entity_id in integration_entities('battery_notes') if entity_id is search('_battery_type$', ignorecase=False) -%}
+ {% set battery_type = states[entity_id].state %}
+ {% set battery_split = battery_type.split('×') %}
+ {% if battery_split | length > 1 %}
+ {% set battery_type = battery_split[-1] | trim %}
+ {% set battery_count = battery_split[0] | int(1) %}
+ {% else %}
+ {% set battery_count = 1 %}
+ {% endif %}
+ {% if battery_type not in ns_batteries.batteries %}
+ {% set ns_batteries.batteries = dict(ns_batteries.batteries, **{battery_type: battery_count}) %}
+ {% else %}
+ {% set ns_batteries.batteries = dict(ns_batteries.batteries, **{battery_type: ns_batteries.batteries[battery_type] + battery_count}) %}
+ {% endif %}
+{% endfor %}  | Type | Count |
+| :-- | --: |
+{% for bt in ns_batteries.batteries | dictsort(False, 'value') | reverse -%}
+ | {{ bt[0] }} | {{ [bt][0][1] }} |
+{% endfor %}
+```
+
+## Contributing
+
 If you want to contribute then [fork the repository](https://github.com/andrew-codechimp/HA-Battery-Notes), edit this page which is in the docs folder and submit a pull request.
