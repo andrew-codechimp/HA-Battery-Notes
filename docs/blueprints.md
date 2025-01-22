@@ -24,4 +24,5 @@ This blueprint will allow notifications to be raised and/or custom actions to be
 It is extended from the [community Battery Not Reported automation yaml](community.md/#battery-not-reported) for those who'd prefer an easy way to get started.
 
 !!! info
-You must trigger the check_battery_not_reported action via an automation to raise events, see [Check Battery Last Reported Daily](community.md/#check-battery-last-reported-daily).
+
+    You must trigger the check_battery_not_reported action via an automation to raise events, see [Check Battery Last Reported Daily](community.md/#check-battery-last-reported-daily).
