@@ -239,7 +239,7 @@ You must trigger the check_battery_not_reported action via an automation to rais
 
 ### Get a markdown summary of your battery quantities
 
-This is from the excellent German blog [Smart Live](https://smart-live.net/battery-notes-batteriemanagement-mit-home-assistant/)
+This is from the excellent German blog [Smart Live](https://smart-live.net/battery-notes-batteriemanagement-mit-home-assistant/)  
 The overview video is available on YouTube [here](https://youtu.be/D403Vy2VaFA)
 
 ```yaml
