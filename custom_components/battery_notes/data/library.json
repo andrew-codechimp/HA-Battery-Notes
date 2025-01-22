@@ -6784,6 +6784,12 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "Tuya",
+            "model": "Security Camera",
+            "model_id": "ggleaxvadac3z3mc",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "TuYa",
             "model": "Security remote control (TS0215A_remote)",
             "battery_type": "CR2032"
@@ -8311,12 +8317,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Security Camera",
-            "model_id": "ggleaxvadac3z3mc",
-            "battery_type": "Rechargeable"
         }
     ]
 }

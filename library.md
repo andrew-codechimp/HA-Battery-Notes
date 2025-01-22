@@ -1,4 +1,4 @@
-## 1498 Devices in library
+## 1499 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1229,6 +1229,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tuya                                            |R459                                                                       |2× AAA                    |                             |                                      |
 |TuYa                                            |Radiator valve with thermostat (TS0601_thermostat)                         |2× AA                     |                             |                                      |
 |TuYa                                            |RSH-HS06_1                                                                 |CR2450                    |                             |                                      |
+|Tuya                                            |Security Camera                                                            |Rechargeable              |ggleaxvadac3z3mc             |                                      |
 |TuYa                                            |Security remote control (TS0215A_remote)                                   |CR2032                    |                             |                                      |
 |Tuya                                            |SGS01 (gvygg3m8)                                                           |2× AAA                    |                             |                                      |
 |TuYa                                            |Smart button (IH-K663)                                                     |CR2032                    |                             |                                      |
