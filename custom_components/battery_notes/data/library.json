@@ -2202,6 +2202,11 @@
         },
         {
             "manufacturer": "eQ-3",
+            "model": "HmIP-ASIR-O",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "eQ-3",
             "model": "HmIP-DLD",
             "battery_type": "AA",
             "battery_quantity": 4
@@ -8351,11 +8356,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "eQ-3",
-            "model": "HmIP-ASIR-O",
-            "battery_type": "Rechargeable"
         }
     ]
 }
