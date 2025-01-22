@@ -4132,6 +4132,11 @@
         },
         {
             "manufacturer": "Lutron",
+            "model": "Lutron Aurora (Z3-1BRL)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Lutron",
             "model": "Z3-1BRL",
             "battery_type": "CR2032"
         },
@@ -8293,11 +8298,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Lutron",
-            "model": "Lutron Aurora (Z3-1BRL)",
-            "battery_type": "CR2032"
         }
     ]
 }

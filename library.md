@@ -1,4 +1,4 @@
-## 1495 Devices in library
+## 1496 Devices in library
 
 This file is auto generated, do not modify
 
@@ -750,6 +750,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |LUMI                                            |lumi.sensor_wleak.aq1                                                      |CR2032                    |                             |                                      |
 |LUMI                                            |lumi.vibration.aq1                                                         |CR2032                    |                             |                                      |
 |LUMI                                            |lumi.weather                                                               |CR2032                    |                             |                                      |
+|Lutron                                          |Lutron Aurora (Z3-1BRL)                                                    |CR2032                    |                             |                                      |
 |Lutron                                          |Z3-1BRL                                                                    |CR2032                    |                             |                                      |
 |Lutron Electronics Co., Inc                     |CSX-YJ-XX (SerenaHoneycombShade)                                           |6× D                      |                             |                                      |
 |Lutron Electronics Co., Inc                     |None (Shade)                                                               |8× D                      |                             |                                      |
