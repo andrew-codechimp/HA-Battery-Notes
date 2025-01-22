@@ -6852,6 +6852,14 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Tuya",
+            "model": "Soil Sensor",
+            "model_id": "TS0601_soil",
+            "hw_version": "1",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "TuYa",
             "model": "Soil sensor (TS0601_soil)",
             "battery_type": "AA",
@@ -8271,14 +8279,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE70",
             "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Soil Sensor",
-            "model_id": "TS0601_soil",
-            "hw_version": "1",
-            "battery_type": "AA",
             "battery_quantity": 2
         }
     ]
