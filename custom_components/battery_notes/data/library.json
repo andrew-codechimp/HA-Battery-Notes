@@ -4653,6 +4653,13 @@
         },
         {
             "manufacturer": "OSRAM",
+            "model": "SMART+ Motion Sensor",
+            "model_id": "AC01353010G",
+            "hw_version": "1",
+            "battery_type": "CR2"
+        },
+        {
+            "manufacturer": "OSRAM",
             "model": "SMART+ Motion Sensor (AC01353010G)",
             "battery_type": "CR2"
         },
