@@ -8300,7 +8300,7 @@
             "battery_quantity": 2
         },
         {
-            "manufacturer": "OSRAM (Z2M)",
+            "manufacturer": "OSRAM",
             "model": "SMART+ Motion Sensor",
             "model_id": "AC01353010G",
             "hw_version": "1",
