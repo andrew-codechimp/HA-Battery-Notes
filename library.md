@@ -1,4 +1,4 @@
-## 1500 Devices in library
+## 1501 Devices in library
 
 This file is auto generated, do not modify
 
@@ -850,6 +850,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |OSRAM                                           |Switch 4x EU-LIGHTIFY                                                      |CR2450                    |                             |                                      |
 |OWON                                            |Temperature sensor                                                         |2× AAA                    |THS317-ET                    |                                      |
 |OWON                                            |THS317-ET                                                                  |2× AAA                    |                             |                                      |
+|Panasonic                                       |VR220                                                                      |Rechargeable              |                             |                                      |
 |Paulmann                                        |Smart switch 4 buttons white (501.34)                                      |CR2450                    |                             |                                      |
 |Perenio                                         |PECWS01                                                                    |CR2032                    |                             |                                      |
 |Philio Technology Corp                          |PAT02-B                                                                    |CR123A                    |                             |                                      |

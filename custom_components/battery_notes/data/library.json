@@ -4680,6 +4680,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Panasonic",
+            "model": "VR220",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Paulmann",
             "model": "Smart switch 4 buttons white (501.34)",
             "battery_type": "CR2450"
@@ -8322,11 +8327,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Panasonic",
-            "model": "VR220",
-            "battery_type": "Rechargeable"
         }
     ]
 }
