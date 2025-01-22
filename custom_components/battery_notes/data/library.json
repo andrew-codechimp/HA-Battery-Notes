@@ -908,6 +908,13 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "Light Sensor T1",
+            "model_id": "GZCGQ11LM",
+            "hw_version": "1",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "Light sensor T1 (GZCGQ11LM)",
             "battery_type": "CR2450"
         },
@@ -8280,13 +8287,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Aqara",
-            "model": "Light Sensor T1",
-            "model_id": "GZCGQ11LM",
-            "hw_version": "1",
-            "battery_type": "CR2450"
         }
     ]
 }
