@@ -2300,6 +2300,12 @@
         },
         {
             "manufacturer": "eQ-3",
+            "model": "HmIP-SAM",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "eQ-3",
             "model": "HmIP-SCI",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -2886,6 +2892,11 @@
             "manufacturer": "Fyta",
             "model": "Plant",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Gardena",
+            "model": "GARDENA smart Mower",
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "GE",
@@ -4676,6 +4687,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Panasonic",
+            "model": "VR220",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Paulmann",
             "model": "Smart switch 4 buttons white (501.34)",
             "battery_type": "CR2450"
@@ -4715,6 +4731,13 @@
             "manufacturer": "Philips",
             "model": "Hue dimmer switch (929002398602)",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Philips",
+            "model": "Hue motion outdoor sensor",
+            "model_id": "9290019758",
+            "battery_type": "AA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "Philips",
@@ -6776,6 +6799,12 @@
             "manufacturer": "TuYa",
             "model": "RSH-HS06_1",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Security Camera",
+            "model_id": "ggleaxvadac3z3mc",
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "TuYa",
