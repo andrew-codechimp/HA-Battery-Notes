@@ -2894,6 +2894,11 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Gardena",
+            "model": "GARDENA smart Mower",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "GE",
             "model": "Hinge PIN Door Sensor, 500S",
             "battery_type": "CR123A"
@@ -8317,11 +8322,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Gardena",
-            "model": "GARDENA smart Mower",
-            "battery_type": "Rechargeable"
         }
     ]
 }
