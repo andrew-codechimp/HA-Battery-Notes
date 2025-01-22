@@ -6,14 +6,14 @@
 
 [Install blueprint](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fraw.githubusercontent.com%2Fandrew-codechimp%2FHA-Battery-Notes%2Fmain%2Fdocs%2Fblueprints%2Fbattery_notes_battery_threshold.yaml) | [Source](https://raw.githubusercontent.com/andrew-codechimp/HA-Battery-Notes/main/docs/blueprints/battery_notes_battery_threshold.yaml)
 
-This blueprint will allow notifications to be raised and/or custom actions to be performed when the battery threshold is met.
+This blueprint will allow notifications to be raised and/or custom actions to be performed when the battery threshold is met.  
 It is extended from the [community Battery Low Notification automation yaml](community.md/#battery-low-notification) for those who'd prefer an easy way to get started.
 
 ### Battery Replaced
 
 [Install blueprint](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fraw.githubusercontent.com%2Fandrew-codechimp%2FHA-Battery-Notes%2Fmain%2Fdocs%2Fblueprints%2Fbattery_notes_battery_replaced.yaml) | [Source](https://raw.githubusercontent.com/andrew-codechimp/HA-Battery-Notes/main/docs/blueprints/battery_notes_battery_replaced.yaml)
 
-This blueprint will automatically update the battery replaced sensor and custom actions to be performed when the battery increases.
+This blueprint will automatically update the battery replaced sensor and custom actions to be performed when the battery increases.  
 It is extended from the [community Battery Replaced automation yaml](community.md/#battery-replaced) for those who'd prefer an easy way to get started.
 
 ### Battery Not Reported
