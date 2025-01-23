@@ -217,9 +217,10 @@ class BatteryNotesDevice:
             self.hass, self.store, self.wrapped_battery, self.wrapped_battery_low
         )
 
+        assert(self.device_name)
         self.coordinator.device_id = device_id
-        self.coordinator.source_entity_id = source_entity_id
         self.coordinator.device_name = self.device_name
+        self.coordinator.source_entity_id = source_entity_id
         self.coordinator.battery_type = cast(str, config.data.get(CONF_BATTERY_TYPE))
         try:
             self.coordinator.battery_quantity = cast(
