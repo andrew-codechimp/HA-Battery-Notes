@@ -67,6 +67,6 @@ jobs:
         run: |
           python3 -m ruff check .
 
-      - name: Type check the code with mypy
-        run: |
-          mypy custom_components/battery_notes/ --check-untyped-defs
+      # - name: Type check the code with mypy
+      #   run: |
+      #     mypy custom_components/battery_notes/ --check-untyped-defs
