@@ -7863,6 +7863,12 @@
         },
         {
             "manufacturer": "Xiaomi",
+            "model": "lumi.sensor_magnet",
+            "model_id": "MCCGQ01LM",
+            "battery_type": "CR1632"
+        },
+        {
+            "manufacturer": "Xiaomi",
             "model": "LYWSD02",
             "battery_type": "CR2032",
             "battery_quantity": 2
@@ -8367,12 +8373,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Xiaomi",
-            "model": "lumi.sensor_magnet",
-            "model_id": "MCCGQ01LM",
-            "battery_type": "CR1632"
         }
     ]
 }
