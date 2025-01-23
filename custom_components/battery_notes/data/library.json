@@ -7970,6 +7970,11 @@
         },
         {
             "manufacturer": "Xiaomi",
+            "model": "miaomiaoce.sensor_ht.t2",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Xiaomi",
             "model": "MiFlora Plant Sensor (HHCCJCY01)",
             "battery_type": "CR2032"
         },
@@ -8362,11 +8367,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Xiaomi",
-            "model": "miaomiaoce.sensor_ht.t2",
-            "battery_type": "CR2032"
         }
     ]
 }
