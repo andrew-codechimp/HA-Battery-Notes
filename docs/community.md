@@ -183,7 +183,7 @@ Respond to events raised by the check_battery_last_reported action and create no
 
 !!! info
 
-   Note this cannot be run manually as it examines event triggers, use it with the [Check Battery Last Reported Daily](community.md/#check-battery-last-reported-daily) or similar.
+    Note this cannot be run manually as it examines event triggers, use it with the [Check Battery Last Reported Daily](community.md/#check-battery-last-reported-daily) or similar.
 
 ```yaml
 alias: Battery Not Reported
