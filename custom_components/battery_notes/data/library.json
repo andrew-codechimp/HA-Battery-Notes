@@ -4429,6 +4429,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Nexturn",
+            "model": "Leak_Sensor",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "Nortek Security & Control LLC",
             "model": "NGD00Z-4",
             "battery_type": "CR2032"
@@ -8373,11 +8378,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Nexturn",
-            "model": "Leak_Sensor",
-            "battery_type": "CR123A"
         }
     ]
 }
