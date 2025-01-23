@@ -73,7 +73,10 @@ A button to set the battery_last_replaced entity to now.
 ## Battery Low
 `binary_sensor.{{device_name}}_battery_plus_low`
 
-A boolean sensor indicating if the battery is low, true when the battery is below the device or global threshold.
+A boolean sensor indicating if the battery is low, true when the battery is below the device or global threshold.  
+If the device has a battery percentage then this will be automatically created.  
+If the device does not have a battery percentage but does have a battery low boolean that is a battery class then this will be automatically created and listen for changes on the original battery low sensor, raising events when the battery is low or high.  
+If you have specified a manual template then this will be created, reflecting the state of the template, raising events when the battery is low or high.
 
 | Attribute | Type | Description |
 |-----------|------|-------------|
