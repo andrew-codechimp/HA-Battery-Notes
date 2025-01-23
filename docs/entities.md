@@ -71,10 +71,13 @@ The last time the battery of the device was replaced.
 A button to set the battery_last_replaced entity to now.
 
 ## Battery Low
-`sensor.{{device_name}}_battery_plus_low`
+`binary_sensor.{{device_name}}_battery_plus_low`
 
 A boolean sensor indicating if the battery is low, true when the battery is below the device or global threshold.
 
 | Attribute | Type | Description |
 |-----------|------|-------------|
-| `battery_low_threshold` | `int` | The device or global threshold for when the battery is low. |
+| `battery_low_threshold` | `int` | The device or global threshold for when the battery is low |
+| `battery_quantity` | `int` | The quantity of batteries |
+| `battery_type` | `string` | The type of batteries |
+| `battery_type_and_quantity` | `string` | The type of batteries with the quantity if more than 1 |

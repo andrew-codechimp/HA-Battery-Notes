@@ -328,8 +328,12 @@ class _TemplateAttribute:
         self.on_update(validated)
         return
 
-class BatteryNotesBatteryLowBaseSensor(BinarySensorEntity, CoordinatorEntity[BatteryNotesCoordinator]):
+
+class BatteryNotesBatteryLowBaseSensor(
+    BinarySensorEntity, CoordinatorEntity[BatteryNotesCoordinator]
+):
     """Low battery binary sensor base."""
+
     _unrecorded_attributes = frozenset(
         {
             ATTR_BATTERY_LOW_THRESHOLD,
@@ -345,6 +349,7 @@ class BatteryNotesBatteryLowBaseSensor(BinarySensorEntity, CoordinatorEntity[Bat
 
         # Battery related attributes
         attrs = {
+            ATTR_BATTERY_LOW_THRESHOLD: self.coordinator.battery_low_threshold,
             ATTR_BATTERY_QUANTITY: self.coordinator.battery_quantity,
             ATTR_BATTERY_TYPE: self.coordinator.battery_type,
             ATTR_BATTERY_TYPE_AND_QUANTITY: self.coordinator.battery_type_and_quantity,
@@ -354,6 +359,7 @@ class BatteryNotesBatteryLowBaseSensor(BinarySensorEntity, CoordinatorEntity[Bat
         if super_attrs:
             attrs.update(super_attrs)
         return attrs
+
 
 class BatteryNotesBatteryLowTemplateSensor(
     BatteryNotesBatteryLowBaseSensor, RestoreEntity
@@ -746,7 +752,9 @@ class BatteryNotesBatteryBinaryLowSensor(BatteryNotesBatteryLowBaseSensor):
             self.async_write_ha_state()
             return
 
-        self.coordinator.battery_low_binary_state = wrapped_battery_low_state.state == "on"
+        self.coordinator.battery_low_binary_state = (
+            wrapped_battery_low_state.state == "on"
+        )
 
         await self.coordinator.async_request_refresh()
 
@@ -764,7 +772,9 @@ class BatteryNotesBatteryBinaryLowSensor(BatteryNotesBatteryLowBaseSensor):
         """Listen for battery entity_id changes and update battery_plus."""
 
         @callback
-        async def _entity_rename_listener(event: Event[er.EventEntityRegistryUpdatedData]) -> None:
+        async def _entity_rename_listener(
+            event: Event[er.EventEntityRegistryUpdatedData],
+        ) -> None:
             """Handle renaming of the entity."""
             new_entity_id = event.data["entity_id"]
             old_entity_id = event.data.get("old_entity_id", None)
