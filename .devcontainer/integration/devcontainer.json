@@ -13,7 +13,14 @@
         "ghcr.io/devcontainers-contrib/features/poetry:2": {
             "version": "latest"
         },
-        "ghcr.io/devcontainers/features/rust:1": {}
+        "ghcr.io/devcontainers/features/rust:1": {},
+        "ghcr.io/devcontainers-extra/features/apt-packages:1": {
+            "packages": [
+                "ffmpeg",
+                "libturbojpeg0",
+                "libpcap-dev"
+            ]
+        }
     },
     "postCreateCommand": "scripts/setup",
     "runArgs": [

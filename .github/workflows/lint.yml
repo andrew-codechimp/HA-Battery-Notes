@@ -59,6 +59,14 @@ jobs:
         run: |
           if [ -f requirements.txt ]; then uv pip install -r requirements.txt; fi
 
+      - name: Install dev dependencies
+        run: |
+          pip install mypy
+
       - name: Analyse the code with ruff
         run: |
           python3 -m ruff check .
+
+      - name: Type check the code with mypy
+        run: |
+          mypy custom_components/battery_notes/ --check-untyped-defs
