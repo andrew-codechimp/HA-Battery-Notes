@@ -10,6 +10,7 @@ from homeassistant.const import (
     STATE_UNAVAILABLE,
     STATE_UNKNOWN,
 )
+from homeassistant.helpers import device_registry as dr
 from homeassistant.helpers import entity_registry as er
 from homeassistant.helpers.entity_registry import RegistryEntry
 from homeassistant.helpers.update_coordinator import (
@@ -96,11 +97,20 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
 
             if self.source_entity_id:
                 entity_registry = er.async_get(self.hass)
+                device_registry = dr.async_get(self.hass)
                 registry_entry = entity_registry.async_get(self.source_entity_id)
+                device_entry = device_registry.async_get(self.device_id) if self.device_id else None
                 assert(registry_entry)
-                self._source_entity_name = (
-                    registry_entry.name or registry_entry.original_name
-                )
+
+                if registry_entry.name is None and registry_entry.has_entity_name and device_entry:
+                    self._source_entity_name = (
+                        registry_entry.name or registry_entry.original_name or device_entry.name_by_user or device_entry.name or self.source_entity_id
+                    )
+                else:
+                    self._source_entity_name = (
+                        registry_entry.name or registry_entry.original_name or self.source_entity_id
+                    )
+
 
         return self._source_entity_name
 
