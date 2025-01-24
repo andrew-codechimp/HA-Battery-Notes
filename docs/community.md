@@ -265,20 +265,20 @@ cards:
   - type: markdown
     content: |-
       {% set search_term = states('input_text.battery_search') | upper %}
-                {% if search_term != "" %}
-                  {% set devices = states | selectattr('attributes.battery_type', 'defined') 
-                                           | selectattr('entity_id', 'search', '_battery_plus$') | list %}
-                  {% set matching_devices = devices | selectattr('attributes.battery_type', 'string') 
-                                                     | selectattr('attributes.battery_type', 'eq', search_term) 
-                                                     | map(attribute='name') | unique | list %}
-                  {% if matching_devices | length > 0 %}
-                    {{ matching_devices | join('\n') }}
-                  {% else %}
-                    No devices with such battery type
-                  {% endif %}
-                {% else %}
-                  Search result
-                {% endif %}
+      {% if search_term != "" %}
+        {% set devices = states | selectattr('attributes.battery_type', 'defined') 
+                                  | selectattr('entity_id', 'search', '_battery_plus$') | list %}
+        {% set matching_devices = devices | selectattr('attributes.battery_type', 'string') 
+                                            | selectattr('attributes.battery_type', 'eq', search_term) 
+                                            | map(attribute='name') | unique | list %}
+        {% if matching_devices | length > 0 %}
+          {{ matching_devices | join('\n') }}
+        {% else %}
+          No devices with such battery type
+        {% endif %}
+      {% else %}
+        Search result
+      {% endif %}
 ```
 
 ![search example](./assets/screenshot-battery-search.png)
