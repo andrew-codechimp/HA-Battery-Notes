@@ -247,6 +247,42 @@ The overview video is available on YouTube [here](https://youtu.be/D403Vy2VaFA)
 {% endfor %}
 ```
 
+### Search for devices with a particular battery
+
+Again from the excellent [Smart Live](https://smart-live.net/battery-notes-batteriemanagement-mit-home-assistant/)  
+This requires creating a helper of type text called `Battery search` with a max length of 20, which you can then reference in the below yaml on a dashboard.  
+
+```yaml
+type: vertical-stack
+cards:
+  - type: entities
+    entities:
+      - entity: input_text.battery_search
+        name: Search by battery type
+        icon: mdi:magnify
+        secondary_info: none
+    state_color: false
+  - type: markdown
+    content: |-
+      {% set search_term = states('input_text.battery_search') | upper %}
+                {% if search_term != "" %}
+                  {% set devices = states | selectattr('attributes.battery_type', 'defined') 
+                                           | selectattr('entity_id', 'search', '_battery_plus$') | list %}
+                  {% set matching_devices = devices | selectattr('attributes.battery_type', 'string') 
+                                                     | selectattr('attributes.battery_type', 'eq', search_term) 
+                                                     | map(attribute='name') | unique | list %}
+                  {% if matching_devices | length > 0 %}
+                    {{ matching_devices | join('\n') }}
+                  {% else %}
+                    No devices with such battery type
+                  {% endif %}
+                {% else %}
+                  Search result
+                {% endif %}
+```
+
+![search example](./assets/screenshot-battery-search.png)
+
 ## Blueprints
 
 A collection of Blueprints are available [here](./blueprints.md).
