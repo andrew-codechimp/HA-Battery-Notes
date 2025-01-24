@@ -71,7 +71,7 @@ cards:
       {% set search_term = states('input_text.battery_search') | upper %}
       {% if search_term != "" %}
         {% set devices = states | selectattr('attributes.battery_type', 'defined') 
-                                  | selectattr('entity_id', 'search', '_battery_plus$') | list %}
+                                  | selectattr('entity_id', 'search', '_battery_type$') | list %}
         {% set matching_devices = devices | selectattr('attributes.battery_type', 'string') 
                                             | selectattr('attributes.battery_type', 'eq', search_term) 
                                             | map(attribute='name') | unique | list %}
