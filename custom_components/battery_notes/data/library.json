@@ -8383,6 +8383,12 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "<unknown>",
+            "model": "Viking 02035,02038",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
