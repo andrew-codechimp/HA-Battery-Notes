@@ -111,6 +111,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
                         registry_entry.name or registry_entry.original_name or self.source_entity_id
                     )
 
+            assert(self._source_entity_name)
 
         return self._source_entity_name
 
