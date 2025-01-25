@@ -5069,6 +5069,12 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "Roborock",
+            "model": "roborock.vacuum.s5e",
+            "model_id": "roborock.vacuum.s5e",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "rtl_433",
             "model": "Acurite-515",
             "battery_type": "AA",
@@ -8434,12 +8440,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Roborock",
-            "model": "roborock.vacuum.s5e",
-            "model_id": "roborock.vacuum.s5e",
-            "battery_type": "Rechargeable"
         }
     ]
 }
