@@ -8362,6 +8362,11 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "ZONKO",
+            "model": "K150",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Zooz",
             "model": "Q Sensor",
             "battery_type": "CR123A",
@@ -8452,11 +8457,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "ZONKO",
-            "model": "K150",
-            "battery_type": "Rechargeable"
         }
     ]
 }
