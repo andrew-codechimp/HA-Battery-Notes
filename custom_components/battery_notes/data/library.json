@@ -6696,6 +6696,13 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Tuya",
+            "model": "Luminance door sensor",
+            "model_id": "ZG-102ZL",
+            "hw_version": "1",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "TuYa",
             "model": "Luminance door sensor (ZG-102ZL)",
             "battery_type": "CR2032"
@@ -8440,13 +8447,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Luminance door sensor",
-            "model_id": "ZG-102ZL",
-            "hw_version": "1",
-            "battery_type": "CR2032"
         }
     ]
 }
