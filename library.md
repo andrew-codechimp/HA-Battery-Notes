@@ -1,4 +1,4 @@
-## 1516 Devices in library
+## 1517 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1347,6 +1347,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Universal Electronics Inc                       |URC4460BC0-X-R                                                             |CR2450                    |                             |                                      |
 |Universal Electronics Inc                       |URC4470BC0-X-R                                                             |2× CR123A                 |                             |                                      |
 |unk_manufacturer                                |lumi.remote.b28ac1                                                         |CR2450                    |                             |                                      |
+|uya                                             |Temperature & humidity sensor                                              |CR2450                    |RSH-HS06_1                   |                                     1|
 |Varta                                           |Zigbee Température Humidité                                                |2× AAA                    |WSD500A                      |                                      |
 |Verisure                                        |Lockguard Smartlock                                                        |4× AA                     |                             |                                      |
 |verspringE                                      |HSP02 / SP103                                                              |CR2                       |                             |                                      |

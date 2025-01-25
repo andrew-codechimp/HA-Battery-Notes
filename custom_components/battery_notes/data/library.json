@@ -7473,6 +7473,13 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "uya",
+            "model": "Temperature & humidity sensor",
+            "model_id": "RSH-HS06_1",
+            "hw_version": "1",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "Varta",
             "model": "Zigbee Temp\u00e9rature Humidit\u00e9",
             "model_id": "WSD500A",
@@ -8415,13 +8422,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "uya",
-            "model": "Temperature & humidity sensor",
-            "model_id": "RSH-HS06_1",
-            "hw_version": "1",
-            "battery_type": "CR2450"
         }
     ]
 }
