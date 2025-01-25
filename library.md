@@ -1,4 +1,4 @@
-## 1524 Devices in library
+## 1525 Devices in library
 
 This file is auto generated, do not modify
 
@@ -369,6 +369,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Elro                                            |TEMPERATURE_SENSOR                                                         |2× AA                     |                             |                                      |
 |Ember                                           |Ember Mug 2 (14oz)                                                         |Rechargeable              |                             |                                    10|
 |eQ-3                                            |HM-CC-RT-DN                                                                |2× AA                     |                             |                                      |
+|eQ-3                                            |HM-CC-TC                                                                   |2× AA                     |                             |                                      |
 |eQ-3                                            |HM-Dis-EP-WM55                                                             |2× AAA                    |                             |                                      |
 |eQ-3                                            |HM-ES-TX-WM                                                                |4× AA                     |                             |                                      |
 |eQ-3                                            |HM-OU-CFM-TW                                                               |2× Baby C                 |                             |                                      |
