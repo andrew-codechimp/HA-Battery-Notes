@@ -5209,6 +5209,11 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "Samsung",
+            "model": "SM-A528B",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "samsung",
             "model": "SM-G770F",
             "battery_type": "Rechargeable"
@@ -8410,11 +8415,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Samsung",
-            "model": "SM-A528B",
-            "battery_type": "Rechargeable"
         }
     ]
 }
