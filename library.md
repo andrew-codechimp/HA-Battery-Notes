@@ -1,4 +1,4 @@
-## 1511 Devices in library
+## 1512 Devices in library
 
 This file is auto generated, do not modify
 
@@ -373,6 +373,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |eQ-3                                            |HM-PB-2-FM                                                                 |2× AAA                    |                             |                                      |
 |eQ-3                                            |HM-PB-2-WM55                                                               |2× AAA                    |                             |                                      |
 |eQ-3                                            |HM-PB-2-WM55-2                                                             |2× AAA                    |                             |                                      |
+|eQ-3                                            |HM-PB-4Dis-WM-2                                                            |3× AAA                    |                             |                                      |
 |eQ-3                                            |HM-PB-6-WM55                                                               |2× AAA                    |                             |                                      |
 |eQ-3                                            |HM-PBI-4-FM                                                                |CR20321                   |                             |                                      |
 |eQ-3                                            |HM-RC-4-2                                                                  |AAA                       |                             |                                      |
