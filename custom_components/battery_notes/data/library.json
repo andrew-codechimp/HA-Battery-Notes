@@ -5690,6 +5690,14 @@
         },
         {
             "manufacturer": "Siterwell",
+            "model": "Radiator valve with thermostat",
+            "model_id": "GS361A-H04",
+            "hw_version": "1",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Siterwell",
             "model": "Radiator valve with thermostat (GS361A-H04)",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -8456,14 +8464,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE70",
             "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Siterwell",
-            "model": "Radiator valve with thermostat",
-            "model_id": "GS361A-H04",
-            "hw_version": "1",
-            "battery_type": "AA",
             "battery_quantity": 2
         }
     ]
