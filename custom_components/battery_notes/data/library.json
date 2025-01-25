@@ -8389,6 +8389,13 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "Motion Sensor P1",
+            "model_id": "Aqara Motion Sensor P1",
+            "hw_version": "1.0",
+            "battery_type": "CR2450"
         }
     ]
 }
