@@ -1,4 +1,4 @@
-## 1521 Devices in library
+## 1522 Devices in library
 
 This file is auto generated, do not modify
 
@@ -137,6 +137,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Allegion                                        |BE469                                                                      |4× AA                     |                             |                                      |
 |Allegion                                        |BE469ZP                                                                    |4× AA                     |                             |                                      |
 |Allegion                                        |CKPD FE599                                                                 |4× AA                     |                             |                                      |
+|Amazon                                          |KFMAWI                                                                     |Rechargeable              |                             |                                      |
 |Amazon                                          |KFONWI                                                                     |Rechargeable              |                             |                                      |
 |Amazon                                          |KFRAWI                                                                     |Rechargeable              |                             |                                      |
 |American Power Conversion                       |Back-UPS ES 600M1                                                          |Rechargeable              |                             |                                      |

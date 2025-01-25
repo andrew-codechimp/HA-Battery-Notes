@@ -719,6 +719,11 @@
         },
         {
             "manufacturer": "Amazon",
+            "model": "KFMAWI",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Amazon",
             "model": "KFONWI",
             "battery_type": "Rechargeable"
         },
@@ -8447,11 +8452,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Amazon",
-            "model": "KFMAWI",
-            "battery_type": "Rechargeable"
         }
     ]
 }
