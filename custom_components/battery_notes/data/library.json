@@ -2266,6 +2266,12 @@
         },
         {
             "manufacturer": "eQ-3",
+            "model": "HmIP-eTRV-3",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "eQ-3",
             "model": "HMIP-eTRV-B",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -8475,12 +8481,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE70",
             "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "eQ-3",
-            "model": "HmIP-eTRV-3",
-            "battery_type": "AA",
             "battery_quantity": 2
         }
     ]
