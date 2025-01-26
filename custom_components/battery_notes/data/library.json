@@ -6134,6 +6134,11 @@
             "model_match_method": "startswith"
         },
         {
+            "manufacturer": "SwitchBot",
+            "model": "Bot",
+            "battery_type": "CR2"
+        },
+        {
             "manufacturer": "switchbot",
             "model": "Leak Detector",
             "battery_type": "AAA",
@@ -8471,11 +8476,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "SwitchBot",
-            "model": "Bot",
-            "battery_type": "CR2"
         }
     ]
 }
