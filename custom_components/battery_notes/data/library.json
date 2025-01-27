@@ -8210,6 +8210,12 @@
         {
             "manufacturer": "Xiaomi",
             "model": "XMTZC01HM/XMTZC04HM",
+            "battery_type": "AAA",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "XMTZC01HM/XMTZC04HM",
             "battery_type": "CR2032"
         },
         {
