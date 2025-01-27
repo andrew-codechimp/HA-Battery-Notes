@@ -8081,12 +8081,6 @@
         },
         {
             "manufacturer": "Xiaomi",
-            "model": "XMTZC01HM/XMTZC04HM",
-            "battery_type": "AAA",
-            "battery_quantity": 3
-        },
-        {
-            "manufacturer": "Xiaomi",
             "model": "Mi temperature and humidity sensor (WSDCGQ01LM)",
             "battery_type": "CR2032"
         },
@@ -8212,6 +8206,12 @@
             "manufacturer": "Xiaomi",
             "model": "XMOSB01XS",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "XMTZC01HM/XMTZC04HM",
+            "battery_type": "AAA",
+            "battery_quantity": 3
         },
         {
             "manufacturer": "Xiaomi",
