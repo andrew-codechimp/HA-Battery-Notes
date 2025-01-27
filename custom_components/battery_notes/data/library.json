@@ -8482,6 +8482,12 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "_TYST11_kfvq6avy",
+            "model": "fvq6avy",
+            "battery_type": "AA",
+            "battery_quantity": 2
         }
     ]
 }
