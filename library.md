@@ -1,4 +1,4 @@
-## 1533 Devices in library
+## 1534 Devices in library
 
 This file is auto generated, do not modify
 
@@ -389,6 +389,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |eQ-3                                            |HM-SCI-3-FM                                                                |CR2032                    |                             |                                      |
 |eQ-3                                            |HM-Sec-Key                                                                 |3× AA                     |                             |                                      |
 |eQ-3                                            |HM-Sec-MDIR-2                                                              |3× AA                     |                             |                                      |
+|eQ-3                                            |HM-Sec-MDIR-3                                                              |3× AA                     |                             |                                      |
 |eQ-3                                            |HM-Sec-RHS                                                                 |2× LR44                   |                             |                                      |
 |eQ-3                                            |HM-Sec-SC-2                                                                |2× LR44                   |                             |                                      |
 |eQ-3                                            |HM-Sec-SCo                                                                 |AAA                       |                             |                                      |
