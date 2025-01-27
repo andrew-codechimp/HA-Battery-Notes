@@ -8081,6 +8081,13 @@
         },
         {
             "manufacturer": "Xiaomi",
+            "model": "Mi Smart Scale 2",
+            "model_id": "XMTZC01HM/XMTZC04HM",
+            "battery_type": "AAA",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "Xiaomi",
             "model": "Mi temperature and humidity sensor (WSDCGQ01LM)",
             "battery_type": "CR2032"
         },
@@ -8511,13 +8518,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Xiaomi",
-            "model": "Mi Smart Scale 2",
-            "model_id": "XMTZC01HM/XMTZC04HM",
-            "battery_type": "AAA",
-            "battery_quantity": 3
         }
     ]
 }
