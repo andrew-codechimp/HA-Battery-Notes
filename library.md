@@ -1,4 +1,4 @@
-## 1528 Devices in library
+## 1529 Devices in library
 
 This file is auto generated, do not modify
 
@@ -6,6 +6,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 
 |                  Manufacturer                  |                                   Model                                   |       Battery Type       |     Model ID (optional)     |        HW Version (optional)         |
 |------------------------------------------------|---------------------------------------------------------------------------|--------------------------|-----------------------------|--------------------------------------|
+|_TYST11_jeaxp72v                                |eaxp72v                                                                    |2× AA                     |                             |                                      |
 |_TYZB01_7qf81wty                                |TS1001                                                                     |2× AAA                    |                             |                                      |
 |_TYZB01_hww2py6b                                |TS1001                                                                     |CR2450                    |                             |                                      |
 |_TYZB01_tob46aoq                                |TS0205                                                                     |CR123A                    |                             |0x00000044                            |
