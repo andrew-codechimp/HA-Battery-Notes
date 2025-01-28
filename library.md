@@ -1,4 +1,4 @@
-## 1535 Devices in library
+## 1536 Devices in library
 
 This file is auto generated, do not modify
 
@@ -740,6 +740,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |LUMI                                            |lumi.airmonitor.acn01                                                      |2× CR2450                 |                             |                                      |
 |LUMI                                            |lumi.airrtc.agl001                                                         |2× AA                     |                             |                                      |
 |LUMI                                            |lumi.curtain.acn002                                                        |Rechargeable              |                             |                                      |
+|LUMI                                            |lumi.curtain.agl001                                                        |Rechargeable              |                             |                                      |
 |LUMI                                            |lumi.flood.agl02                                                           |CR2032                    |                             |                                      |
 |LUMI                                            |lumi.magnet.acn001                                                         |CR1632                    |                             |                                      |
 |LUMI                                            |lumi.magnet.agl02                                                          |CR1632                    |                             |                                      |

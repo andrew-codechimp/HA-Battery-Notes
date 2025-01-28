@@ -4094,6 +4094,11 @@
         },
         {
             "manufacturer": "LUMI",
+            "model": "lumi.curtain.agl001",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "LUMI",
             "model": "lumi.flood.agl02",
             "battery_type": "CR2032"
         },
@@ -8529,11 +8534,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "LUMI",
-            "model": "lumi.curtain.agl001",
-            "battery_type": "Rechargeable"
         }
     ]
 }
