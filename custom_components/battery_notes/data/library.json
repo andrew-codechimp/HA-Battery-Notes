@@ -4003,6 +4003,14 @@
         },
         {
             "manufacturer": "Lidl",
+            "model": "Silvercrest smart window and door sensor",
+            "model_id": "HG06336",
+            "hw_version": "1",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Lidl",
             "model": "Silvercrest smart window and door sensor (HG06336)",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -8533,14 +8541,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE70",
             "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Lidl",
-            "model": "Silvercrest smart window and door sensor",
-            "model_id": "HG06336",
-            "hw_version": "1",
-            "battery_type": "AAA",
             "battery_quantity": 2
         }
     ]

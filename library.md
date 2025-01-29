@@ -1,4 +1,4 @@
-## 1536 Devices in library
+## 1537 Devices in library
 
 This file is auto generated, do not modify
 
@@ -723,6 +723,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Lidl                                            |Silvercrest radiator valve with thermostat (368308_2010)                   |2× AA                     |                             |                                      |
 |Lidl                                            |Silvercrest smart button (HG08164)                                         |CR2032                    |                             |                                      |
 |Lidl                                            |Silvercrest smart motion sensor (HG06335/HG07310)                          |MANUAL                    |                             |                                      |
+|Lidl                                            |Silvercrest smart window and door sensor                                   |2× AAA                    |HG06336                      |                                     1|
 |Lidl                                            |Silvercrest smart window and door sensor (HG06336)                         |2× AAA                    |                             |                                      |
 |LifeControl                                     |Door sensor (MCLH-04)                                                      |CR123A                    |                             |                                      |
 |LifeControl                                     |MCLH-05                                                                    |AA                        |                             |                                      |
