@@ -1,4 +1,4 @@
-## 1537 Devices in library
+## 1538 Devices in library
 
 This file is auto generated, do not modify
 
@@ -649,6 +649,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |IKEA                                            |TRADFRI open/close remote (E1766)                                          |CR2032                    |                             |                                      |
 |IKEA                                            |TRADFRI remote control                                                     |CR2032                    |E1524/E1810                  |                                     1|
 |IKEA                                            |TRADFRI remote control (E1524/E1810)                                       |CR2032                    |                             |                                      |
+|IKEA                                            |TRADFRI shortcut button                                                    |CR2032                    |E1812                        |                                     1|
 |IKEA                                            |TRADFRI shortcut button (E1812)                                            |CR2032                    |                             |                                      |
 |IKEA                                            |TRADFRI wireless dimmer                                                    |CR2032                    |ICTC-G-1                     |                                    30|
 |IKEA                                            |TRADFRI wireless dimmer (ICTC-G-1)                                         |CR2032                    |                             |                                      |

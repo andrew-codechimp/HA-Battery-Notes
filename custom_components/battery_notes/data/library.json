@@ -3595,6 +3595,13 @@
         },
         {
             "manufacturer": "IKEA",
+            "model": "TRADFRI shortcut button",
+            "model_id": "E1812",
+            "hw_version": "1",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "IKEA",
             "model": "TRADFRI shortcut button (E1812)",
             "battery_type": "CR2032"
         },
@@ -8542,13 +8549,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "IKEA",
-            "model": "TRADFRI shortcut button",
-            "model_id": "E1812",
-            "hw_version": "1",
-            "battery_type": "CR2032"
         }
     ]
 }
