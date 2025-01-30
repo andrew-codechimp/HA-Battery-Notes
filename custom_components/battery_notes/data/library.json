@@ -8555,6 +8555,13 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "IKEA",
+            "model": "FYRTUR roller blind, block-out",
+            "model_id": "E1757",
+            "hw_version": "1",
+            "battery_type": "IKEA BRAUNIT"
         }
     ]
 }
