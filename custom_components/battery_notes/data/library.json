@@ -8555,6 +8555,13 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "IKEA",
+            "model": "KADRILJ roller blind",
+            "model_id": "E1926",
+            "hw_version": "1",
+            "battery_type": "IKEA BRAUNIT"
         }
     ]
 }
