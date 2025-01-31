@@ -8569,6 +8569,13 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Schneider Electric",
+            "model": "LK FUGA wiser wireless battery 4 button switch",
+            "model_id": "550D6001",
+            "hw_version": "1",
+            "battery_type": "CR2032"
         }
     ]
 }
