@@ -1,4 +1,4 @@
-## 1543 Devices in library
+## 1544 Devices in library
 
 This file is auto generated, do not modify
 
@@ -631,6 +631,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |IKEA                                            |BADRING water leakage sensor (E2202)                                       |AAA                       |                             |                                      |
 |IKEA                                            |E2102                                                                      |Rechargeable              |                             |                                      |
 |IKEA                                            |FYRTUR roller blind (E1757)                                                |Rechargeable              |                             |                                      |
+|IKEA                                            |FYRTUR roller blind, block-out                                             |IKEA BRAUNIT              |E1757                        |                                     1|
 |Ikea                                            |FYRTUR roller blind, block-out (E1757)                                     |Rechargeable              |                             |                                      |
 |IKEA                                            |FYRTUR roller blind, block-out (E1757)                                     |IKEA BRAUNIT              |E1757                        |                                     1|
 |IKEA                                            |KADRILJ roller blind                                                       |IKEA BRAUNIT              |E1926                        |                                     1|
