@@ -1,4 +1,4 @@
-## 1544 Devices in library
+## 1545 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1196,6 +1196,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tractive GmbH                                   |TG5                                                                        |Rechargeable              |                             |                                      |
 |Tractive GmbH                                   |TRNJA4                                                                     |Rechargeable              |                             |                                      |
 |Trust                                           |COSensor-EM                                                                |CR123A                    |                             |                                      |
+|Trust                                           |Smoke detector                                                             |CR123A                    |ZSDR-850                     |                                    16|
 |Trust                                           |Smoke detector (ZSDR-850)                                                  |CR123A                    |                             |                                      |
 |Trust                                           |SmokeSensor-EM                                                             |CR123A                    |                             |                                      |
 |Trust                                           |Wireless contact sensor                                                    |CR2032                    |ZCTS-808                     |                                      |
