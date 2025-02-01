@@ -8590,6 +8590,13 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Trust",
+            "model": "Smoke detector",
+            "model_id": "ZSDR-850",
+            "hw_version": "16",
+            "battery_type": "CR123A"
         }
     ]
 }
