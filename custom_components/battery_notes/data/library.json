@@ -8597,6 +8597,14 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Neo",
+            "model": "NAS-AB02B2",
+            "model_id": "TS0601",
+            "hw_version": "1",
+            "battery_type": "CR123A-3V",
+            "battery_quantity": 2
         }
     ]
 }
