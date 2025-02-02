@@ -1,4 +1,4 @@
-## 1545 Devices in library
+## 1546 Devices in library
 
 This file is auto generated, do not modify
 
@@ -810,6 +810,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Namron AS                                       |4512762                                                                    |CR2350                    |                             |                                      |
 |Nedis                                           |Nedis Smart Climate Sensor Zigbee 3.0 (ZBSC30WT)                           |2× AAA                    |                             |                                      |
 |Neo                                             |Alarm (NAS-AB02B2)                                                         |CR123A Lithium            |                             |                                      |
+|Neo                                             |NAS-AB02B2                                                                 |2× CR123A-3V              |TS0601                       |                                     1|
 |Neo                                             |NAS-AB06B2                                                                 |18650                     |                             |                                      |
 |Neo                                             |NAS-PD07                                                                   |2× CR123A                 |                             |                                      |
 |Neo                                             |Outdoor solar alarm (NAS-AB06B2)                                           |18650                     |                             |                                      |
