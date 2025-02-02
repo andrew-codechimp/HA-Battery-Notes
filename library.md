@@ -1,4 +1,4 @@
-## 1546 Devices in library
+## 1547 Devices in library
 
 This file is auto generated, do not modify
 
@@ -487,6 +487,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Eve Systems                                     |Eve Thermo 20EBP1701                                                       |2× AA                     |                           79|                                  1.10|
 |Eve Systems                                     |Thermo 20EBP1701                                                           |2× AA                     |                             |                                      |
 |Everspring                                      |AC301                                                                      |2× AA                     |                             |                                      |
+|Everspring                                      |HSP02 / SP103                                                              |3× AA                     |                             |                                      |
 |Everspring                                      |SE812                                                                      |4× LR14                   |                             |                                      |
 |Everspring                                      |SM103                                                                      |3× AAA                    |                             |                                      |
 |Everspring                                      |ST812                                                                      |3× AA                     |                             |                                      |

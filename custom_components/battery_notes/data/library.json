@@ -2703,6 +2703,12 @@
         },
         {
             "manufacturer": "Everspring",
+            "model": "HSP02 / SP103",
+            "battery_type": "AA",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "Everspring",
             "model": "SE812",
             "battery_type": "LR14",
             "battery_quantity": 4
@@ -8605,12 +8611,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Everspring",
-            "model": "HSP02 / SP103",
-            "battery_type": "AA",
-            "battery_quantity": 3
         }
     ]
 }
