@@ -8639,6 +8639,13 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "HOBEIAN",
+            "model": "Water leak sensor",
+            "model_id": "ZG-222ZA",
+            "hw_version": "1",
+            "battery_type": "CR2032"
         }
     ]
 }
