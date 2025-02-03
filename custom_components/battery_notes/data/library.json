@@ -4435,6 +4435,14 @@
         },
         {
             "manufacturer": "Moes",
+            "model": "Universal smart IR remote control",
+            "model_id": "UFO-R11",
+            "hw_version": "1",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Moes",
             "model": "Universal smart IR remote control (UFO-R11)",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -8652,14 +8660,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE70",
             "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Moes",
-            "model": "Universal smart IR remote control",
-            "model_id": "UFO-R11",
-            "hw_version": "1",
-            "battery_type": "AAA",
             "battery_quantity": 2
         }
     ]
