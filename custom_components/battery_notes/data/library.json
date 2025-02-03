@@ -7362,6 +7362,14 @@
         },
         {
             "manufacturer": "Tuya",
+            "model": "Temperature and humidity sensor with clock",
+            "model_id": "TH01Z",
+            "hw_version": "1",
+            "battery_type": "AAA",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "Tuya",
             "model": "TH01Z",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -8684,14 +8692,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Temperature and humidity sensor with clock",
-            "model_id": "TH01Z",
-            "hw_version": "1",
-            "battery_type": "AAA",
-            "battery_quantity": 3
         }
     ]
 }
