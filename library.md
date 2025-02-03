@@ -1,4 +1,4 @@
-## 1556 Devices in library
+## 1557 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1355,6 +1355,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tuya                                            |Wireless switch with 1 button                                              |CR2032                    |TS0041                       |                                     1|
 |TuYa                                            |Wireless switch with 1 button (TS0041)                                     |CR2032                    |                             |                                      |
 |TuYa                                            |Wireless switch with 2 buttons (TS0042)                                    |CR2032                    |                             |                                      |
+|Tuya                                            |Wireless switch with 4 buttons                                             |23A                       |TS0044                       |                                     1|
 |TuYa                                            |Wireless switch with 4 buttons (TS0044)                                    |CR2430                    |                             |                                      |
 |TuYa                                            |Wireless switch with 4 buttons (TS0044) by TuYa                            |CR2032                    |                             |                                      |
 |TuYa                                            |Wireless switch with 4 buttons (TS004F)                                    |CR2032                    |                             |                                      |
