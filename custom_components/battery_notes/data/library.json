@@ -8708,6 +8708,12 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Shelly",
+            "model": "Shelly BLU Motion",
+            "model_id": "SBMO-003Z",
+            "battery_type": "CR2477"
         }
     ]
 }
