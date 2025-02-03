@@ -1,4 +1,4 @@
-## 1547 Devices in library
+## 1548 Devices in library
 
 This file is auto generated, do not modify
 
@@ -744,6 +744,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |LK                                              |A001082                                                                    |2× AAA                    |                             |                                      |
 |Loginovo                                        |Smart button (ZG-101ZL)                                                    |CR2032                    |                             |                                      |
 |Loginovo                                        |ZG-101ZL                                                                   |CR2032                    |                             |                                      |
+|Loginovo                                        |ZG-101ZL                                                                   |CR2032                    |                             |                                     1|
 |Loratap                                         |GDC311ZBQ1                                                                 |CR2032                    |                             |                                      |
 |LUMI                                            |lumi.airmonitor.acn01                                                      |2× CR2450                 |                             |                                      |
 |LUMI                                            |lumi.airrtc.agl001                                                         |2× AA                     |                             |                                      |
