@@ -8669,6 +8669,14 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Third Reality",
+            "model": "Water sensor",
+            "model_id": "3RWS18BZ",
+            "hw_version": "0",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
