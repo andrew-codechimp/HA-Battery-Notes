@@ -4440,6 +4440,13 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Moes",
+            "model": "Zigbee water leak sensor",
+            "model_id": "ZSS-QY-WL-C-MS",
+            "hw_version": "1",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "Mopeka IOT",
             "model": "M1015",
             "battery_type": "AAA Lithium"
@@ -8646,13 +8653,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Moes",
-            "model": "Zigbee water leak sensor",
-            "model_id": "ZSS-QY-WL-C-MS",
-            "hw_version": "1",
-            "battery_type": "CR2032"
         }
     ]
 }
