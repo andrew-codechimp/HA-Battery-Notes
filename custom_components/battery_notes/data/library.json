@@ -4377,6 +4377,13 @@
         },
         {
             "manufacturer": "Moes",
+            "model": "Door/window magnetic sensor",
+            "model_id": "ZSS-X-GWM-C",
+            "hw_version": "1",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Moes",
             "model": "Door/window magnetic sensor (ZSS-X-GWM-C)",
             "battery_type": "CR2032"
         },
@@ -8617,13 +8624,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Moes",
-            "model": "Door/window magnetic sensor",
-            "model_id": "ZSS-X-GWM-C",
-            "hw_version": "1",
-            "battery_type": "CR2032"
         }
     ]
 }
