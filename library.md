@@ -1,4 +1,4 @@
-## 1560 Devices in library
+## 1561 Devices in library
 
 This file is auto generated, do not modify
 
@@ -782,6 +782,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Lutron                                          |Z3-1BRL                                                                    |CR2032                    |                             |                                      |
 |Lutron Electronics Co., Inc                     |CSX-YJ-XX (SerenaHoneycombShade)                                           |6× D                      |                             |                                      |
 |Lutron Electronics Co., Inc                     |None (Shade)                                                               |8× D                      |                             |                                      |
+|Lutron Electronics Co., Inc                     |PJ2-1P-GXX (PaddleSwitchPico)                                              |CR2032                    |                             |                                      |
 |Lutron Electronics Co., Inc                     |PJ2-3BRL-GXX-F01 (Pico3ButtonRaiseLower)                                   |CR2032                    |                             |                                      |
 |Lutron Electronics Co., Inc                     |PJ2-3BRL-GXX-X01 (Pico3ButtonRaiseLower)                                   |CR2032                    |                             |                                      |
 |Merkury                                         |SS003                                                                      |CR2                       |                             |                                      |

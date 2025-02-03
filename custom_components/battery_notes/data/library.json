@@ -4325,6 +4325,11 @@
         },
         {
             "manufacturer": "Lutron Electronics Co., Inc",
+            "model": "PJ2-1P-GXX (PaddleSwitchPico)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Lutron Electronics Co., Inc",
             "model": "PJ2-3BRL-GXX-F01 (Pico3ButtonRaiseLower)",
             "battery_type": "CR2032"
         },
@@ -8703,11 +8708,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Lutron Electronics Co., Inc",
-            "model": "PJ2-1P-GXX (PaddleSwitchPico)",
-            "battery_type": "CR2032"
         }
     ]
 }
