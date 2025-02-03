@@ -6533,6 +6533,14 @@
         },
         {
             "manufacturer": "Third Reality",
+            "model": "Wireless motion sensor",
+            "model_id": "3RMS16BZ",
+            "hw_version": "0",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Third Reality",
             "model": "Wireless motion sensor (3RMS16BZ)",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -8623,14 +8631,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE70",
             "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Third Reality",
-            "model": "Wireless motion sensor",
-            "model_id": "3RMS16BZ",
-            "hw_version": "0",
-            "battery_type": "AAA",
             "battery_quantity": 2
         }
     ]
