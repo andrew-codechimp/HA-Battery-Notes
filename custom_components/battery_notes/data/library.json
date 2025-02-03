@@ -7689,6 +7689,14 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Universal Electronics Inc",
+            "model": "Xfinity security keypad",
+            "model_id": "XHK1-UE",
+            "hw_version": "1",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
             "manufacturer": "unk_manufacturer",
             "model": "lumi.remote.b28ac1",
             "battery_type": "CR2450"
@@ -8661,14 +8669,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Universal Electronics Inc",
-            "model": "Xfinity security keypad",
-            "model_id": "XHK1-UE",
-            "hw_version": "1",
-            "battery_type": "AA",
-            "battery_quantity": 4
         }
     ]
 }
