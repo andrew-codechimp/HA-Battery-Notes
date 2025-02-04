@@ -3419,6 +3419,16 @@
         },
         {
             "manufacturer": "Hunter Douglas",
+            "model": "AC Roller",
+            "battery_type": "MANUAL"
+        },
+        {
+            "manufacturer": "Hunter Douglas",
+            "model": "Banded Shades",
+            "battery_type": "MANUAL"
+        },
+        {
+            "manufacturer": "Hunter Douglas",
             "model": "Bottom Up",
             "battery_type": "MANUAL"
         },
@@ -3430,27 +3440,99 @@
         {
             "manufacturer": "Hunter Douglas",
             "model": "Duette",
-            "battery_type": "MANUAL"
-        },
-        {
-            "manufacturer": "Hunter Douglas",
-            "model": "Duette by Hunter Douglas",
-            "battery_type": "MANUAL"
+            "battery_type": "MANUAL",
+            "model_match_method": "startswith"
         },
         {
             "manufacturer": "Hunter Douglas",
             "model": "Silhouette",
+            "battery_type": "MANUAL",
+            "model_match_method": "startswith"
+        },
+        {
+            "manufacturer": "Hunter Douglas",
+            "model": "Vertical Slats",
+            "battery_type": "MANUAL",
+            "model_match_method": "startswith"
+        },
+        {
+            "manufacturer": "Hunter Douglas",
+            "model": "Vignette",
+            "battery_type": "MANUAL",
+            "model_match_method": "startswith"
+        },
+        {
+            "manufacturer": "Hunter Douglas",
+            "model": "Curtain",
+            "battery_type": "MANUAL",
+            "model_match_method": "startswith"
+        },
+        {
+            "manufacturer": "Hunter Douglas",
+            "model": "Facette",
             "battery_type": "MANUAL"
         },
         {
             "manufacturer": "Hunter Douglas",
-            "model": "Vertical Slats, Left Stack",
+            "model": "Designer Roller",
             "battery_type": "MANUAL"
         },
         {
             "manufacturer": "Hunter Douglas",
-            "model": "Vertical Slats, Right Stack",
+            "model": "Duolite Lift",
             "battery_type": "MANUAL"
+        },
+        {
+            "manufacturer": "Hunter Douglas",
+            "model": "M25T Roller Blind",
+            "battery_type": "MANUAL"
+        },
+        {
+            "manufacturer": "Hunter Douglas",
+            "model": "Palm Beach Shutters",
+            "battery_type": "MANUAL"
+        },
+        {
+            "manufacturer": "Hunter Douglas",
+            "model": "Pirouette",
+            "battery_type": "MANUAL"
+        },
+        {
+            "manufacturer": "Hunter Douglas",
+            "model": "Pleated, Top Down Bottom Up",
+            "battery_type": "MANUAL"
+        },
+        {
+            "manufacturer": "Hunter Douglas",
+            "model": "Provenance Woven Wood",
+            "battery_type": "MANUAL"
+        },
+        {
+            "manufacturer": "Hunter Douglas",
+            "model": "Roman",
+            "battery_type": "MANUAL"
+        },
+        {
+            "manufacturer": "Hunter Douglas",
+            "model": "Skyline Panel",
+            "battery_type": "MANUAL",
+            "model_match_method": "startswith"
+        },
+        {
+            "manufacturer": "Hunter Douglas",
+            "model": "Top Down",
+            "battery_type": "MANUAL"
+        },
+        {
+            "manufacturer": "Hunter Douglas",
+            "model": "Twist",
+            "battery_type": "MANUAL"
+        },
+        {
+            "manufacturer": "Hunter Douglas",
+            "model": "Venetian",
+            "battery_type": "MANUAL",
+            "model_match_method": "startswith"
         },
         {
             "manufacturer": "Husqvarna AB",
