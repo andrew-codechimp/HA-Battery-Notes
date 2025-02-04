@@ -4123,17 +4123,17 @@
         },
         {
             "manufacturer": "Loginovo",
+            "model": "Smart button",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Loginovo",
             "model": "Smart button (ZG-101ZL)",
             "battery_type": "CR2032"
         },
         {
             "manufacturer": "Loginovo",
             "model": "ZG-101ZL",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Loginovo",
-            "model": "Smart button",
             "battery_type": "CR2032"
         },
         {
