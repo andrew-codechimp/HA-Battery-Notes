@@ -1,4 +1,4 @@
-## 1577 Devices in library
+## 1576 Devices in library
 
 This file is auto generated, do not modify
 
@@ -620,7 +620,6 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Hunter Douglas                                  |AC Roller                                                                  |MANUAL                    |                             |                                      |
 |Hunter Douglas                                  |Banded Shades                                                              |MANUAL                    |                             |                                      |
 |Hunter Douglas                                  |Bottom Up                                                                  |MANUAL                    |                             |                                      |
-|Hunter Douglas                                  |Designer Roller                                                            |MANUAL                    |                             |                                      |
 |Hunter Douglas                                  |Designer Roller                                                            |MANUAL                    |                             |                                      |
 |Hunter Douglas                                  |Duolite Lift                                                               |MANUAL                    |                             |                                      |
 |Hunter Douglas                                  |Facette                                                                    |MANUAL                    |                             |                                      |
