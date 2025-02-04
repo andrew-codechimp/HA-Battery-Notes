@@ -1,4 +1,4 @@
-## 1562 Devices in library
+## 1577 Devices in library
 
 This file is auto generated, do not modify
 
@@ -617,13 +617,28 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Honeywell                                       |TH6320ZW                                                                   |3× AA                     |                             |                                      |
 |Honeywell                                       |TH6320ZW2007                                                               |3× AA                     |                             |                                      |
 |Honeywell                                       |zigbee JTYJ-GD-01LM/BW (lumi.sensor_smoke)                                 |2× CR123A                 |                             |                                      |
+|Hunter Douglas                                  |AC Roller                                                                  |MANUAL                    |                             |                                      |
+|Hunter Douglas                                  |Banded Shades                                                              |MANUAL                    |                             |                                      |
 |Hunter Douglas                                  |Bottom Up                                                                  |MANUAL                    |                             |                                      |
 |Hunter Douglas                                  |Designer Roller                                                            |MANUAL                    |                             |                                      |
-|Hunter Douglas                                  |Duette                                                                     |MANUAL                    |                             |                                      |
-|Hunter Douglas                                  |Duette by Hunter Douglas                                                   |MANUAL                    |                             |                                      |
-|Hunter Douglas                                  |Silhouette                                                                 |MANUAL                    |                             |                                      |
-|Hunter Douglas                                  |Vertical Slats, Left Stack                                                 |MANUAL                    |                             |                                      |
-|Hunter Douglas                                  |Vertical Slats, Right Stack                                                |MANUAL                    |                             |                                      |
+|Hunter Douglas                                  |Designer Roller                                                            |MANUAL                    |                             |                                      |
+|Hunter Douglas                                  |Duolite Lift                                                               |MANUAL                    |                             |                                      |
+|Hunter Douglas                                  |Facette                                                                    |MANUAL                    |                             |                                      |
+|Hunter Douglas                                  |M25T Roller Blind                                                          |MANUAL                    |                             |                                      |
+|Hunter Douglas                                  |Palm Beach Shutters                                                        |MANUAL                    |                             |                                      |
+|Hunter Douglas                                  |Pirouette                                                                  |MANUAL                    |                             |                                      |
+|Hunter Douglas                                  |Pleated, Top Down Bottom Up                                                |MANUAL                    |                             |                                      |
+|Hunter Douglas                                  |Provenance Woven Wood                                                      |MANUAL                    |                             |                                      |
+|Hunter Douglas                                  |Roman                                                                      |MANUAL                    |                             |                                      |
+|Hunter Douglas                                  |Top Down                                                                   |MANUAL                    |                             |                                      |
+|Hunter Douglas                                  |Twist                                                                      |MANUAL                    |                             |                                      |
+|Hunter Douglas                                  |Curtain\*                                                                  |MANUAL                    |                             |                                      |
+|Hunter Douglas                                  |Duette\*                                                                   |MANUAL                    |                             |                                      |
+|Hunter Douglas                                  |Silhouette\*                                                               |MANUAL                    |                             |                                      |
+|Hunter Douglas                                  |Skyline Panel\*                                                            |MANUAL                    |                             |                                      |
+|Hunter Douglas                                  |Venetian\*                                                                 |MANUAL                    |                             |                                      |
+|Hunter Douglas                                  |Vertical Slats\*                                                           |MANUAL                    |                             |                                      |
+|Hunter Douglas                                  |Vignette\*                                                                 |MANUAL                    |                             |                                      |
 |Husqvarna AB                                    |TBD                                                                        |PP3                       |                             |                                      |
 |iCasa                                           |Zigbee 3.0 Keypad Pulse 8S (ICZB-KPD18S)                                   |CR2450                    |                             |                                      |
 |ID Lock AS                                      |ID-150                                                                     |8× AA                     |                             |                                      |

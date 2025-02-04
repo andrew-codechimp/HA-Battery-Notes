@@ -3439,47 +3439,17 @@
         },
         {
             "manufacturer": "Hunter Douglas",
-            "model": "Duette",
-            "battery_type": "MANUAL",
-            "model_match_method": "startswith"
-        },
-        {
-            "manufacturer": "Hunter Douglas",
-            "model": "Silhouette",
-            "battery_type": "MANUAL",
-            "model_match_method": "startswith"
-        },
-        {
-            "manufacturer": "Hunter Douglas",
-            "model": "Vertical Slats",
-            "battery_type": "MANUAL",
-            "model_match_method": "startswith"
-        },
-        {
-            "manufacturer": "Hunter Douglas",
-            "model": "Vignette",
-            "battery_type": "MANUAL",
-            "model_match_method": "startswith"
-        },
-        {
-            "manufacturer": "Hunter Douglas",
-            "model": "Curtain",
-            "battery_type": "MANUAL",
-            "model_match_method": "startswith"
-        },
-        {
-            "manufacturer": "Hunter Douglas",
-            "model": "Facette",
-            "battery_type": "MANUAL"
-        },
-        {
-            "manufacturer": "Hunter Douglas",
             "model": "Designer Roller",
             "battery_type": "MANUAL"
         },
         {
             "manufacturer": "Hunter Douglas",
             "model": "Duolite Lift",
+            "battery_type": "MANUAL"
+        },
+        {
+            "manufacturer": "Hunter Douglas",
+            "model": "Facette",
             "battery_type": "MANUAL"
         },
         {
@@ -3514,12 +3484,6 @@
         },
         {
             "manufacturer": "Hunter Douglas",
-            "model": "Skyline Panel",
-            "battery_type": "MANUAL",
-            "model_match_method": "startswith"
-        },
-        {
-            "manufacturer": "Hunter Douglas",
             "model": "Top Down",
             "battery_type": "MANUAL"
         },
@@ -3530,7 +3494,43 @@
         },
         {
             "manufacturer": "Hunter Douglas",
+            "model": "Curtain",
+            "battery_type": "MANUAL",
+            "model_match_method": "startswith"
+        },
+        {
+            "manufacturer": "Hunter Douglas",
+            "model": "Duette",
+            "battery_type": "MANUAL",
+            "model_match_method": "startswith"
+        },
+        {
+            "manufacturer": "Hunter Douglas",
+            "model": "Silhouette",
+            "battery_type": "MANUAL",
+            "model_match_method": "startswith"
+        },
+        {
+            "manufacturer": "Hunter Douglas",
+            "model": "Skyline Panel",
+            "battery_type": "MANUAL",
+            "model_match_method": "startswith"
+        },
+        {
+            "manufacturer": "Hunter Douglas",
             "model": "Venetian",
+            "battery_type": "MANUAL",
+            "model_match_method": "startswith"
+        },
+        {
+            "manufacturer": "Hunter Douglas",
+            "model": "Vertical Slats",
+            "battery_type": "MANUAL",
+            "model_match_method": "startswith"
+        },
+        {
+            "manufacturer": "Hunter Douglas",
+            "model": "Vignette",
             "battery_type": "MANUAL",
             "model_match_method": "startswith"
         },
