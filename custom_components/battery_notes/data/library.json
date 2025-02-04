@@ -756,6 +756,11 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "Amazon",
+            "model": "KFTUW",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "American Power Conversion",
             "model": "Back-UPS ES 600M1",
             "battery_type": "Rechargeable"
@@ -8788,11 +8793,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Amazon",
-            "model": "KFTUW",
-            "battery_type": "Rechargeable"
         }
     ]
 }
