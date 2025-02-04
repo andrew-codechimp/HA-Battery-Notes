@@ -3439,11 +3439,6 @@
         },
         {
             "manufacturer": "Hunter Douglas",
-            "model": "Designer Roller",
-            "battery_type": "MANUAL"
-        },
-        {
-            "manufacturer": "Hunter Douglas",
             "model": "Duolite Lift",
             "battery_type": "MANUAL"
         },
