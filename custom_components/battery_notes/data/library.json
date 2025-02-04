@@ -3420,14 +3420,12 @@
         {
             "manufacturer": "Hunter Douglas",
             "model": "Bottom Up",
-            "battery_type": "AA",
-            "battery_quantity": 12
+            "battery_type": "MANUAL"
         },
         {
             "manufacturer": "Hunter Douglas",
             "model": "Designer Roller",
-            "battery_type": "AA",
-            "battery_quantity": 12
+            "battery_type": "MANUAL"
         },
         {
             "manufacturer": "Hunter Douglas",
@@ -3447,12 +3445,12 @@
         {
             "manufacturer": "Hunter Douglas",
             "model": "Vertical Slats, Left Stack",
-            "battery_type": "Rechargeable"
+            "battery_type": "MANUAL"
         },
         {
             "manufacturer": "Hunter Douglas",
             "model": "Vertical Slats, Right Stack",
-            "battery_type": "Rechargeable"
+            "battery_type": "MANUAL"
         },
         {
             "manufacturer": "Husqvarna AB",
