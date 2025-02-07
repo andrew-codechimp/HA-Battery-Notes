@@ -51,7 +51,6 @@ class Filter():
 
     def __init__(
         self,
-        name: str,
         window_size: int | timedelta,
         entity: str,
     ) -> None:
@@ -66,8 +65,6 @@ class Filter():
         else:
             self.states = deque(maxlen=0)
             self.window_unit = WINDOW_SIZE_UNIT_TIME
-        self.states = deque(maxlen=0)
-        self._name = name
         self._entity = entity
         self._skip_processing = False
         self._window_size = window_size
@@ -113,7 +110,7 @@ class FilterTimeThrottle(Filter):
     One sample per time period.
     """
 
-    def __init__(self, *, window_size: timedelta):
+    def __init__(self, window_size: timedelta):
         super().__init__(
             window_size,
         )
@@ -139,7 +136,6 @@ class OutlierFilter(Filter):
 
     def __init__(
         self,
-        *,
         window_size: int,
         radius: float,
     ) -> None:
@@ -157,7 +153,6 @@ class OutlierFilter(Filter):
     def _filter_state(self, new_state: FilterState) -> FilterState:
         """Implement the outlier filter."""
 
-        # We can cast safely here thanks to self._only_numbers = True
         previous_state_values = [cast(float, s.state) for s in self.states]
         new_state_value = cast(float, new_state.state)
 

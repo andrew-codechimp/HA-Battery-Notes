@@ -41,6 +41,7 @@ from .const import (
     LAST_REPORTED,
     LAST_REPORTED_LEVEL,
 )
+from .filters import OutlierFilter
 from .store import BatteryNotesStorage
 
 _LOGGER = logging.getLogger(__name__)
@@ -58,6 +59,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
     battery_low_template: str | None
     wrapped_battery: RegistryEntry | None = None
     wrapped_battery_low: RegistryEntry | None = None
+    filter_outliers: bool = False
     _current_battery_level: str | None = None
     enable_replaced: bool = True
     _round_battery: bool = False
@@ -222,7 +224,21 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
     @current_battery_level.setter
     def current_battery_level(self, value):
         """Set the current battery level and fire events if valid."""
+
         self._current_battery_level = value
+        if self._current_battery_level not in [STATE_UNAVAILABLE, STATE_UNKNOWN]:
+            if self.filter_outliers:
+                outlier_filter = OutlierFilter(window_size=5, radius=30)
+                outlier_filter.filter_state(self._current_battery_level)
+
+                _LOGGER.debug(
+                    "Outlier (%s=%s) -> %s",
+                    self.source_entity_id or "",
+                    value,
+                    "skip" if outlier_filter.skip_processing else outlier_filter.filter_state(value),
+                )
+                if outlier_filter.skip_processing:
+                    return
 
         if (
             self._previous_battery_level is not None

@@ -353,9 +353,6 @@ class BatteryNotesBatteryPlusSensor(
         # pylint: disable=unused-argument
         """Handle child updates."""
 
-        state = event.data["new_state"]
-        state.last_updated
-
         if not self.coordinator.wrapped_battery:
             return
 

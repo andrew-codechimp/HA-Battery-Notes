@@ -25,6 +25,7 @@ from .const import (
     CONF_BATTERY_QUANTITY,
     CONF_BATTERY_TYPE,
     CONF_DEFAULT_BATTERY_LOW_THRESHOLD,
+    CONF_FILTER_OUTLIERS,
     CONF_SOURCE_ENTITY_ID,
     DATA,
     DATA_STORE,
@@ -222,6 +223,7 @@ class BatteryNotesDevice:
         self.coordinator.device_name = self.device_name
         self.coordinator.source_entity_id = source_entity_id
         self.coordinator.battery_type = cast(str, config.data.get(CONF_BATTERY_TYPE))
+        self.coordinator.filter_outliers = cast(bool, self.config.data.get(CONF_FILTER_OUTLIERS))
         try:
             self.coordinator.battery_quantity = cast(
                 int, config.data.get(CONF_BATTERY_QUANTITY)
