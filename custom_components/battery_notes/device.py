@@ -215,7 +215,8 @@ class BatteryNotesDevice:
 
         self.store = self.hass.data[DOMAIN][DATA_STORE]
         self.coordinator = BatteryNotesCoordinator(
-            self.hass, self.store, self.wrapped_battery, self.wrapped_battery_low, cast(bool, self.config.data.get(CONF_FILTER_OUTLIERS))
+            self.hass, self.store, self.wrapped_battery, self.wrapped_battery_low,
+            cast(bool, self.config.data.get(CONF_FILTER_OUTLIERS, False))
         )
 
         assert(self.device_name)
