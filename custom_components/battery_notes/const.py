@@ -91,6 +91,9 @@ ATTR_BATTERY_LAST_REPORTED_LEVEL = "battery_last_reported_level"
 ATTR_PREVIOUS_BATTERY_LEVEL = "previous_battery_level"
 ATTR_BATTERY_THRESHOLD_REMINDER = "reminder"
 
+WINDOW_SIZE_UNIT_NUMBER_EVENTS = 1
+WINDOW_SIZE_UNIT_TIME = 2
+
 SERVICE_BATTERY_REPLACED_SCHEMA = vol.Schema(
     {
         vol.Optional(ATTR_DEVICE_ID): cv.string,
