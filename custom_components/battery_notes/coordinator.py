@@ -241,7 +241,6 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
                     "skip" if self._outlier_filter.skip_processing else self._outlier_filter.filter_state(value),
                 )
                 if self._outlier_filter.skip_processing:
-                    _LOGGER.debug("Skip processing")
                     return
 
         self._current_battery_level = value
