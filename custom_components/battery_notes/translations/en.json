@@ -42,7 +42,7 @@
                 "data_description": {
                     "battery_low_threshold": "0 will use the global default threshold",
                     "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels",
-                    "filter_outliers": "Filter out large battery changes to reduce falsely firing events on devices that erronously report levels occasionally"
+                    "filter_outliers": "Filter out large battery level changes, reducing falsely firing events on devices that erronously report levels occasionally"
                 }
             },
             "manual": {
@@ -74,7 +74,7 @@
                     "name": "Leaving blank will take the name from the source device",
                     "battery_low_threshold": "0 will use the global default threshold",
                     "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels",
-                    "filter_outliers": "Filter out large battery changes to reduce falsely firing events on devices that erronously report levels occasionally"
+                    "filter_outliers": "Filter out large battery level changes, reducing falsely firing events on devices that erronously report levels occasionally"
                 }
             }
         },
