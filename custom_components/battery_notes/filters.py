@@ -92,32 +92,8 @@ class Filter():
         new_state = filtered.state
         return new_state
 
-class FilterTimeThrottle(Filter):
-    """Time Throttle Filter.
-
-    One sample per time period.
-    """
-
-    def __init__(self, window_size: timedelta):
-        super().__init__(
-            window_size,
-        )
-        self._time_window = window_size
-        self._last_emitted_at: datetime | None = None
-
-    def _filter_state(self, new_state: FilterState) -> FilterState:
-        """Implement the filter."""
-        window_start = new_state.timestamp - self._time_window
-        if not self._last_emitted_at or self._last_emitted_at <= window_start:
-            self._last_emitted_at = new_state.timestamp
-            self._skip_processing = False
-        else:
-            self._skip_processing = True
-
-        return new_state
-
 class OutlierFilter(Filter):
-    """BASIC outlier filter.
+    """Outlier filter.
 
     Determines if new state is in a band around the median.
     """
