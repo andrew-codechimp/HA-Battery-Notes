@@ -41,7 +41,7 @@ from .const import (
     LAST_REPORTED,
     LAST_REPORTED_LEVEL,
 )
-from .filters import OutlierFilter
+from .filters import FilterState, OutlierFilter
 from .store import BatteryNotesStorage
 
 _LOGGER = logging.getLogger(__name__)
@@ -229,7 +229,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
         if self._current_battery_level not in [STATE_UNAVAILABLE, STATE_UNKNOWN]:
             if self.filter_outliers:
                 outlier_filter = OutlierFilter(window_size=5, radius=30)
-                outlier_filter.filter_state(self._current_battery_level)
+                outlier_filter.filter_state(float(value))
 
                 _LOGGER.debug(
                     "Outlier (%s=%s) -> %s",

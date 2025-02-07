@@ -13,29 +13,19 @@ from .const import WINDOW_SIZE_UNIT_NUMBER_EVENTS, WINDOW_SIZE_UNIT_TIME
 
 _LOGGER = logging.getLogger(__name__)
 
-@dataclass
-class _State:
-    """Simplified State class.
-
-    The standard State class only accepts string in `state`,
-    and we are only interested in two properties.
-    """
-
-    last_updated: datetime
-    state: str | float | int
 
 class FilterState:
     """State abstraction for filter usage."""
 
     state: str | float | int
 
-    def __init__(self, state: _State) -> None:
+    def __init__(self, state: str | float | int) -> None:
         """Initialize with HA State object."""
-        self.timestamp = state.last_updated
+        self.timestamp = datetime.utcnow()
         try:
-            self.state = float(state.state)
+            self.state = float(state)
         except ValueError:
-            self.state = state.state
+            self.state = state
 
     def __str__(self) -> str:
         """Return state as the string representation of FilterState."""
@@ -52,7 +42,6 @@ class Filter():
     def __init__(
         self,
         window_size: int | timedelta,
-        entity: str,
     ) -> None:
         """Initialize common attributes.
 
@@ -65,7 +54,6 @@ class Filter():
         else:
             self.states = deque(maxlen=0)
             self.window_unit = WINDOW_SIZE_UNIT_TIME
-        self._entity = entity
         self._skip_processing = False
         self._window_size = window_size
         self._store_raw = False
@@ -89,7 +77,7 @@ class Filter():
         """Implement filter."""
         raise NotImplementedError
 
-    def filter_state(self, new_state: _State) -> _State:
+    def filter_state(self, new_state: int | float | str) -> int | float | str:
         """Implement a common interface for filters."""
         fstate = FilterState(new_state)
         if not isinstance(fstate.state, Number):
@@ -98,10 +86,10 @@ class Filter():
         filtered = self._filter_state(fstate)
 
         if self._store_raw:
-            self.states.append(copy(FilterState(new_state)))
+            self.states.append(FilterState(new_state))
         else:
-            self.states.append(copy(filtered))
-        new_state.state = filtered.state
+            self.states.append(filtered)
+        new_state = filtered.state
         return new_state
 
 class FilterTimeThrottle(Filter):
@@ -166,7 +154,6 @@ class OutlierFilter(Filter):
             _LOGGER.debug(
                 "Outlier nr. %s in %s: %s",
                 self._stats_internal["erasures"],
-                self._entity,
                 new_state,
             )
             new_state.state = median
