@@ -59,7 +59,6 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
     battery_low_template: str | None
     wrapped_battery: RegistryEntry | None = None
     wrapped_battery_low: RegistryEntry | None = None
-    filter_outliers: bool = False
     _current_battery_level: str | None = None
     enable_replaced: bool = True
     _round_battery: bool = False
@@ -70,6 +69,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
     _battery_low_binary_state: bool = False
     _previous_battery_low_binary_state: bool | None = None
     _source_entity_name: str | None = None
+    _outlier_filter: OutlierFilter | None = None
 
     def __init__(
         self,
@@ -77,6 +77,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
         store: BatteryNotesStorage,
         wrapped_battery: RegistryEntry | None,
         wrapped_battery_low: RegistryEntry | None,
+        filter_outliers: bool,
     ):
         """Initialize."""
         self.store = store
@@ -89,6 +90,10 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
             self._round_battery = domain_config.get(CONF_ROUND_BATTERY, False)
 
         super().__init__(hass, _LOGGER, name=DOMAIN)
+
+        if filter_outliers:
+            self._outlier_filter = OutlierFilter(window_size=5, radius=70)
+            _LOGGER.debug("Outlier filter enabled")
 
     @property
     def source_entity_name(self):
@@ -226,18 +231,18 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
         """Set the current battery level and fire events if valid."""
 
         self._current_battery_level = value
-        if self._current_battery_level not in [STATE_UNAVAILABLE, STATE_UNKNOWN]:
-            if self.filter_outliers:
-                outlier_filter = OutlierFilter(window_size=5, radius=30)
-                outlier_filter.filter_state(float(value))
+        if self._outlier_filter:
+            if self._current_battery_level not in [STATE_UNAVAILABLE, STATE_UNKNOWN]:
+                self._outlier_filter.filter_state(float(value))
 
                 _LOGGER.debug(
                     "Outlier (%s=%s) -> %s",
-                    self.source_entity_id or "",
+                    self.device_id or self.source_entity_id or "",
                     value,
-                    "skip" if outlier_filter.skip_processing else outlier_filter.filter_state(value),
+                    "skip" if self._outlier_filter.skip_processing else self._outlier_filter.filter_state(value),
                 )
-                if outlier_filter.skip_processing:
+                if self._outlier_filter.skip_processing:
+                    _LOGGER.debug("Skip processing")
                     return
 
         if (

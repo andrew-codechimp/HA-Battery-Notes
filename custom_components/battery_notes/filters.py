@@ -143,6 +143,7 @@ class OutlierFilter(Filter):
 
         previous_state_values = [cast(float, s.state) for s in self.states]
         new_state_value = cast(float, new_state.state)
+        self._skip_processing = False
 
         median = statistics.median(previous_state_values) if self.states else 0
         if (
@@ -152,9 +153,9 @@ class OutlierFilter(Filter):
             self._stats_internal["erasures"] += 1
 
             _LOGGER.debug(
-                "Outlier nr. %s in %s: %s",
+                "Outlier nr. %s: %s",
                 self._stats_internal["erasures"],
                 new_state,
             )
-            new_state.state = median
+            self._skip_processing = True
         return new_state
