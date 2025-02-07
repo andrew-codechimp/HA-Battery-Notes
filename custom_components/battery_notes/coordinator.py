@@ -92,7 +92,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
         super().__init__(hass, _LOGGER, name=DOMAIN)
 
         if filter_outliers:
-            self._outlier_filter = OutlierFilter(window_size=3, radius=70)
+            self._outlier_filter = OutlierFilter(window_size=3, radius=80)
             _LOGGER.debug("Outlier filter enabled")
 
     @property
