@@ -8794,6 +8794,12 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "IKEA",
+            "model": "TREDANSEN cellular blind, block-out (E2103)",
+            "model_id": "E2103",
+            "battery_type": "BRAUNIT"
         }
     ]
 }
