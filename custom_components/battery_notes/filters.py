@@ -1,10 +1,8 @@
 """Filters for battery_notes."""
 
-import copy
 import logging
 import statistics
 from collections import Counter, deque
-from dataclasses import dataclass
 from datetime import datetime, timedelta
 from numbers import Number
 from typing import cast
