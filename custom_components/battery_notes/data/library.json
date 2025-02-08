@@ -4979,14 +4979,14 @@
         },
         {
             "manufacturer": "OSRAM",
-            "model": "Smart+ switch mini (AC0251100NJ/AC0251600NJ/AC0251700NJ)",
+            "model": "Smart+ switch mini",
+            "model_id": "AC0251100NJ/AC0251600NJ/AC0251700NJ",
+            "hw_version": "1",
             "battery_type": "CR2450"
         },
         {
             "manufacturer": "OSRAM",
-            "model": "Smart+ switch mini",
-            "model_id": "AC0251100NJ/AC0251600NJ/AC0251700NJ",
-            "hw_version": "1",
+            "model": "Smart+ switch mini (AC0251100NJ/AC0251600NJ/AC0251700NJ)",
             "battery_type": "CR2450"
         },
         {
@@ -5074,14 +5074,14 @@
         },
         {
             "manufacturer": "Philips",
-            "model": "Hue motion sensor (9290012607)",
+            "model": "Hue motion sensor",
+            "model_id": "9290012607",
             "battery_type": "AAA",
             "battery_quantity": 2
         },
         {
             "manufacturer": "Philips",
-            "model": "Hue motion sensor",
-            "model_id": "9290012607",
+            "model": "Hue motion sensor (9290012607)",
             "battery_type": "AAA",
             "battery_quantity": 2
         },
