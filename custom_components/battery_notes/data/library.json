@@ -8831,6 +8831,12 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Ecowitt",
+            "model": "WH90",
+            "battery_type": "AA Lithium",
+            "battery_quantity": 2
         }
     ]
 }
