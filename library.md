@@ -1,4 +1,4 @@
-## 1582 Devices in library
+## 1583 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1413,6 +1413,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Verisure                                        |Lockguard Smartlock                                                        |4× AA                     |                                   |                                      |
 |verspringE                                      |HSP02 / SP103                                                              |CR2                       |                                   |                                      |
 |VictorPest.com                                  |Rat Trap                                                                   |4× C                      |                                   |                                      |
+|Viking                                          |Viking 02035,02038                                                         |2× AAA                    |                                   |                                      |
 |Vision Security                                 |ZD2102-5                                                                   |CR123A                    |                                   |                                      |
 |Vision Security                                 |ZD2105                                                                     |CR2                       |                                   |                                      |
 |Vision Security                                 |ZD2201                                                                     |2× AAA                    |                                   |                                      |

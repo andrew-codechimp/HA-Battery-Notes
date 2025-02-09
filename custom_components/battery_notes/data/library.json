@@ -7884,6 +7884,12 @@
             "battery_quantity": 4
         },
         {
+            "manufacturer": "Viking",
+            "model": "Viking 02035,02038",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Vision Security",
             "model": "ZD2102-5",
             "battery_type": "CR123A"
@@ -8824,12 +8830,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE70",
             "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Viking",
-            "model": "Viking 02035,02038",
-            "battery_type": "AAA",
             "battery_quantity": 2
         }
     ]
