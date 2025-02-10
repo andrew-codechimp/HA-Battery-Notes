@@ -8856,6 +8856,11 @@
             "manufacturer": "Sensative AB",
             "model": "Strips-MaZw (11-01-011)",
             "battery_type": "Irreplaceable"
+        },
+        {
+            "manufacturer": "<unknown>",
+            "model": "Google Pixel Watch 2",
+            "battery_type": "Rechargeable"
         }
     ]
 }
