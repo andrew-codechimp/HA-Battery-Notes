@@ -8851,6 +8851,11 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Sensative AB",
+            "model": "Strips-MaZw (11-01-011)",
+            "battery_type": "Irreplaceable"
         }
     ]
 }
