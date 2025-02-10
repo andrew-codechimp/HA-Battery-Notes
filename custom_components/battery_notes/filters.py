@@ -121,15 +121,19 @@ class OutlierFilter(Filter):
 
         median = statistics.median(previous_state_values) if self.states else 0
         if (
+            previous_state_values and new_state_value < previous_state_values[-1]
+        ) or (
             len(self.states) == self.states.maxlen
             and abs(new_state_value - median) > self._radius
         ):
-            self._stats_internal["erasures"] += 1
-
-            _LOGGER.debug(
-                "Outlier nr. %s: %s",
-                self._stats_internal["erasures"],
-                new_state,
-            )
             self._skip_processing = True
+
+            if len(self.states) == self.states.maxlen:
+                self._stats_internal["erasures"] += 1
+                _LOGGER.debug(
+                    "Outlier nr. %s: %s",
+                    self._stats_internal["erasures"],
+                    new_state,
+                )
+            return new_state
         return new_state
