@@ -1,4 +1,4 @@
-## 1585 Devices in library
+## 1586 Devices in library
 
 This file is auto generated, do not modify
 
@@ -314,6 +314,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |CentraLite                                      |Contact Sensor-A                                                           |CR2                       |                                   |                                      |
 |Computime                                       |SLT3                                                                       |4× AA                     |                                   |                                      |
 |Computime                                       |SS909ZB                                                                    |CR2                       |                                   |                                      |
+|Cowboy                                          |Cruiser                                                                    |Rechargeable              |                                   |                                      |
 |CPS                                             |CP1500AVRLCDa                                                              |Rechargeable              |                                   |                                      |
 |CPS                                             |CP1500PFCLCD                                                               |2× 12V9AH-SLA             |                                   |                                      |
 |CPS                                             |CP1500PFCLCDa                                                              |RB1290X2                  |                                   |                                      |

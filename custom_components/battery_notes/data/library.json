@@ -1720,6 +1720,11 @@
             "battery_type": "CR2"
         },
         {
+            "manufacturer": "Cowboy",
+            "model": "Cruiser",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "CPS",
             "model": "CP1500AVRLCDa",
             "battery_type": "Rechargeable"
@@ -8841,11 +8846,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Cowboy",
-            "model": "Cruiser",
-            "battery_type": "Rechargeable"
         }
     ]
 }
