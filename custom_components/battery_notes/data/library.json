@@ -8856,6 +8856,11 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "Xiaomi temperature & humidity sensor with custom firmware (LYWSD03MMC) av Custom devices (DiY)",
+            "battery_type": "CR2032"
         }
     ]
 }
