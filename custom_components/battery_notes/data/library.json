@@ -8025,6 +8025,11 @@
             "battery_quantity": 4
         },
         {
+            "manufacturer": "Withings",
+            "model": "Thermo",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Woox",
             "model": "Smart garden irrigation control (R7060)",
             "battery_type": "AA",
@@ -8831,11 +8836,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Withings",
-            "model": "Thermo",
-            "battery_type": "Rechargeable"
         }
     ]
 }
