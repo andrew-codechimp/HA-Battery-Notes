@@ -5357,6 +5357,11 @@
         },
         {
             "manufacturer": "Roborock",
+            "model": "roborock.vacuum.a27",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Roborock",
             "model": "roborock.vacuum.s5e",
             "model_id": "roborock.vacuum.s5e",
             "battery_type": "Rechargeable"
@@ -8846,11 +8851,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Roborock",
-            "model": "roborock.vacuum.a27",
-            "battery_type": "Rechargeable"
         }
     ]
 }
