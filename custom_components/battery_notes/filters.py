@@ -120,9 +120,11 @@ class LowOutlierFilter(Filter):
         self._skip_processing = False
 
         median = statistics.median(previous_state_values) if self.states else 0
+
+        if previous_state_values and new_state_value > previous_state_values[-1]:
+            return new_state
+
         if (
-            previous_state_values and new_state_value < previous_state_values[-1]
-        ) or (
             len(self.states) == self.states.maxlen
             and abs(new_state_value - median) > self._radius
         ):
@@ -135,5 +137,5 @@ class LowOutlierFilter(Filter):
                     self._stats_internal["erasures"],
                     new_state,
                 )
-            return new_state
+
         return new_state
