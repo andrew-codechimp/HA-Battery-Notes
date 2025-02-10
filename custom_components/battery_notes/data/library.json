@@ -8020,6 +8020,11 @@
         },
         {
             "manufacturer": "Withings",
+            "model": "BPM Core",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Withings",
             "model": "Smart Body Analyzer",
             "battery_type": "AAA",
             "battery_quantity": 4
