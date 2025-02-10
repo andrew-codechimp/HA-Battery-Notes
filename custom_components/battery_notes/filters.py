@@ -90,10 +90,10 @@ class Filter():
         new_state = filtered.state
         return new_state
 
-class OutlierFilter(Filter):
-    """Outlier filter.
+class LowOutlierFilter(Filter):
+    """Low Outlier filter.
 
-    Determines if new state is in a band around the median.
+    Determines if new state is in a band around the median, or higher.
     """
 
     def __init__(

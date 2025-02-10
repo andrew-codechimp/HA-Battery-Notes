@@ -41,7 +41,7 @@ from .const import (
     LAST_REPORTED,
     LAST_REPORTED_LEVEL,
 )
-from .filters import OutlierFilter
+from .filters import LowOutlierFilter
 from .store import BatteryNotesStorage
 
 _LOGGER = logging.getLogger(__name__)
@@ -69,7 +69,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
     _battery_low_binary_state: bool = False
     _previous_battery_low_binary_state: bool | None = None
     _source_entity_name: str | None = None
-    _outlier_filter: OutlierFilter | None = None
+    _outlier_filter: LowOutlierFilter | None = None
 
     def __init__(
         self,
@@ -92,7 +92,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
         super().__init__(hass, _LOGGER, name=DOMAIN)
 
         if filter_outliers:
-            self._outlier_filter = OutlierFilter(window_size=3, radius=80)
+            self._outlier_filter = LowOutlierFilter(window_size=3, radius=80)
             _LOGGER.debug("Outlier filter enabled")
 
     @property
