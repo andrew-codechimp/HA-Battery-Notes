@@ -1,4 +1,4 @@
-## 1589 Devices in library
+## 1590 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1202,6 +1202,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |ThermoPro                                       |TP357                                                                                         |AAA                       |                                   |                                      |
 |ThermoPro                                       |TP357S                                                                                        |AAA                       |                                   |                                      |
 |Third Reality                                   |3RSB015BZ                                                                                     |4× AA                     |                                   |                                      |
+|Third Reality                                   |3RTHS0224Z                                                                                    |2× AAA                    |                                   |                                      |
 |Third Reality                                   |Door sensor (3RDS17BZ)                                                                        |2× AAA                    |                                   |                                      |
 |Third Reality                                   |Garage door tilt sensor (3RDTS01056Z)                                                         |2× AAA                    |                                   |                                      |
 |Third Reality                                   |Garage door tilt sensor (3RDTS01056Z)                                                         |2× AAA                    |                                   |                                      |
