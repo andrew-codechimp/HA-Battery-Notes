@@ -1486,6 +1486,11 @@
             "battery_quantity": 3
         },
         {
+            "manufacturer": "b-parasite",
+            "model": "Plant sensor",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "Blueforcer",
             "model": "AWTRIX 3",
             "battery_type": "Rechargeable"
@@ -8867,11 +8872,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "b-parasite",
-            "model": "Plant sensor",
-            "battery_type": "CR2032"
         }
     ]
 }
