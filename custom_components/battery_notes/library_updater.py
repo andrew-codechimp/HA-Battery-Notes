@@ -72,7 +72,6 @@ class LibraryUpdater:
         if await self.time_to_update_library() is False:
             return
 
-        await self.get_schema_updates(now)
         await self.get_library_updates(now)
 
         if DOMAIN_CONFIG not in self.hass.data[DOMAIN]:
