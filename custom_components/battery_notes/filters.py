@@ -119,7 +119,12 @@ class LowOutlierFilter(Filter):
         new_state_value = cast(float, new_state.state)
         self._skip_processing = False
 
-        if previous_state_values and new_state_value > previous_state_values[-1]:
+        if previous_state_values and new_state_value >= previous_state_values[-1]:
+            _LOGGER.debug(
+                    "New value higher than last previous state, allowing. %s >= %s",
+                    new_state,
+                    previous_state_values[-1]
+                )
             return new_state
 
         median = statistics.median(previous_state_values) if self.states else 0

@@ -235,7 +235,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
                 self._outlier_filter.filter_state(float(value))
 
                 _LOGGER.debug(
-                    "Outlier (%s=%s) -> %s",
+                    "Checking outlier (%s=%s) -> %s",
                     self.device_id or self.source_entity_id or "",
                     value,
                     "skip" if self._outlier_filter.skip_processing else self._outlier_filter.filter_state(value),
