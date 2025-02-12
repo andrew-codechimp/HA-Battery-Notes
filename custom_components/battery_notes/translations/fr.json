@@ -37,12 +37,12 @@
                     "battery_quantity": "Nombre de batteries",
                     "battery_low_threshold": "Seuil de batterie faible",
                     "battery_low_template": "Modèle de batterie faible",
-                    "filter_outliers": ""
+                    "filter_outliers": "Filter outliers"
                 },
                 "data_description": {
                     "battery_low_threshold": "0 gardera le seuil par defaut",
                     "battery_low_template": "Modèle pour déterminer si une batterie est faible, devrait retourner vrai si faible\nNécessaire uniquement pour les niveaux de batterie non standard",
-                    "filter_outliers": ""
+                    "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
                 }
             },
             "manual": {
@@ -68,18 +68,18 @@
                     "battery_quantity": "Nombre de batteries",
                     "battery_low_threshold": "Seuil de batterie faible",
                     "battery_low_template": "Modèle de batterie faible",
-                    "filter_outliers": ""
+                    "filter_outliers": "Filter outliers"
                 },
                 "data_description": {
                     "name": "Laisser vide gardera le seuil par defaut",
                     "battery_low_threshold": "0 gardera le seuil par defaut",
                     "battery_low_template": "Modèle pour déterminer si une batterie est faible, devrait retourner vrai si faible\nNécessaire uniquement pour les niveaux de batterie non standard",
-                    "filter_outliers": ""
+                    "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
                 }
             }
         },
         "error": {
-            "orphaned_battery_note": "",
+            "orphaned_battery_note": "The associated device or entity no longer exists for this Battery Note.",
             "unknown": "Erreur inconnue."
         }
     },
@@ -190,12 +190,12 @@
     },
     "issues": {
         "missing_device": {
-            "title": "",
+            "title": "Orphaned Battery Note",
             "fix_flow": {
                 "step": {
                     "confirm": {
-                        "title": "",
-                        "description": ""
+                        "title": "Orphaned Battery Note",
+                        "description": "The associated device or entity no longer exists for the Battery Note entry {name}, the Battery Note should be deleted.\nSelect **Submit** to delete this Battery Note."
                     }
                 }
             }

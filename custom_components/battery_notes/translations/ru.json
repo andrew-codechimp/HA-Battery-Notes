@@ -37,12 +37,12 @@
                     "battery_quantity": "Количество батарей",
                     "battery_low_threshold": "Порог низкого заряда батареи",
                     "battery_low_template": "Шаблон низкого заряда батареи",
-                    "filter_outliers": ""
+                    "filter_outliers": "Filter outliers"
                 },
                 "data_description": {
                     "battery_low_threshold": "0 будет использовать общий порог по умолчанию",
                     "battery_low_template": "Шаблон низкого заряда батареи. В случае низкого заряда должен возвращать true.\nТребуется только для нестандартных уровней заряда батареи.",
-                    "filter_outliers": ""
+                    "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
                 }
             },
             "manual": {
@@ -68,13 +68,13 @@
                     "battery_quantity": "Количество батарей",
                     "battery_low_threshold": "Порог низкого заряда батареи",
                     "battery_low_template": "Шаблон низкого заряда батареи",
-                    "filter_outliers": ""
+                    "filter_outliers": "Filter outliers"
                 },
                 "data_description": {
                     "name": "Если оставить пустым, то название будет взято с исходного устройства",
                     "battery_low_threshold": "0 будет использовать общий порог по умолчанию",
                     "battery_low_template": "Шаблон низкого заряда батареи. В случае низкого заряда должен возвращать true.\nТребуется только для нестандартных уровней заряда батареи.",
-                    "filter_outliers": ""
+                    "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
                 }
             }
         },
