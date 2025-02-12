@@ -36,11 +36,13 @@
                     "battery_type": "Τύπος μπαταρίας",
                     "battery_quantity": "Αριθμός μπαταριών",
                     "battery_low_threshold": "Ελάχιστο όριο μπαταρίας",
-                    "battery_low_template": "Template χαμηλής στάθμης μπαταρίας"
+                    "battery_low_template": "Template χαμηλής στάθμης μπαταρίας",
+                    "filter_outliers": "Filter outliers"
                 },
                 "data_description": {
                     "battery_low_threshold": "0 θα χρησιμοποιηθεί το καθολικό προεπιλεγμένο ελάχιστο όριο",
-                    "battery_low_template": "Template για τον προσδιορισμό μιας μπαταρίας είναι χαμηλή, θα πρέπει να επιστρέψει true εάν είναι χαμηλή\nΧρειάζεται μόνο για μη τυπικές στάθμες μπαταρίας"
+                    "battery_low_template": "Template για τον προσδιορισμό μιας μπαταρίας είναι χαμηλή, θα πρέπει να επιστρέψει true εάν είναι χαμηλή\nΧρειάζεται μόνο για μη τυπικές στάθμες μπαταρίας",
+                    "filter_outliers": "Filter out large battery level changes, reducing falsely firing events on devices that erronously report levels occasionally"
                 }
             },
             "manual": {
@@ -65,12 +67,14 @@
                     "battery_type": "Τύπος μπαταρίας",
                     "battery_quantity": "Αριθμός μπαταριών",
                     "battery_low_threshold": "Ελάχιστο όριο μπαταρίας",
-                    "battery_low_template": "Template χαμηλής στάθμης μπαταρίας"
+                    "battery_low_template": "Template χαμηλής στάθμης μπαταρίας",
+                    "filter_outliers": "Filter outliers"
                 },
                 "data_description": {
                     "name": "Αφήνοντάς το κενό θα πάρει το όνομα από τη συσκευή προέλευσης",
                     "battery_low_threshold": "0 θα χρησιμοποιηθεί το καθολικό προεπιλεγμένο ελάχιστο όριο",
-                    "battery_low_template": "Template για τον προσδιορισμό μιας μπαταρίας είναι χαμηλή, θα πρέπει να επιστρέψει true εάν είναι χαμηλή\nΧρειάζεται μόνο για μη τυπικές στάθμες μπαταρίας"
+                    "battery_low_template": "Template για τον προσδιορισμό μιας μπαταρίας είναι χαμηλή, θα πρέπει να επιστρέψει true εάν είναι χαμηλή\nΧρειάζεται μόνο για μη τυπικές στάθμες μπαταρίας",
+                    "filter_outliers": "Filter out large battery level changes, reducing falsely firing events on devices that erronously report levels occasionally"
                 }
             }
         },

@@ -36,11 +36,13 @@
                     "battery_type": "Pil Türü",
                     "battery_quantity": "Pil miktarı",
                     "battery_low_threshold": "Düşük pil eşiği",
-                    "battery_low_template": "Düşük pil şablonu"
+                    "battery_low_template": "Düşük pil şablonu",
+                    "filter_outliers": "Filter outliers"
                 },
                 "data_description": {
                     "battery_low_threshold": "0 genel varsayılan eşiği kullanacaktır",
-                    "battery_low_template": "Bir pilin zayıf olduğunu belirleyen şablon, zayıfsa true döndürmelidir\nYalnızca standart olmayan pil seviyeleri için gereklidir"
+                    "battery_low_template": "Bir pilin zayıf olduğunu belirleyen şablon, zayıfsa true döndürmelidir\nYalnızca standart olmayan pil seviyeleri için gereklidir",
+                    "filter_outliers": "Filter out large battery level changes, reducing falsely firing events on devices that erronously report levels occasionally"
                 }
             },
             "manual": {
@@ -65,12 +67,14 @@
                     "battery_type": "Pil türü",
                     "battery_quantity": "Pil miktarı",
                     "battery_low_threshold": "Düşük pil eşiği",
-                    "battery_low_template": "Düşük pil şablonu"
+                    "battery_low_template": "Düşük pil şablonu",
+                    "filter_outliers": "Filter outliers"
                 },
                 "data_description": {
                     "name": "Boş bırakıldığında kaynak cihazın ismi alınır",
                     "battery_low_threshold": "0 genel varsayılan eşiği kullanacaktır",
-                    "battery_low_template": "Bir pilin zayıf olduğunu belirleyen şablon, zayıfsa true döndürmelidir\nYalnızca standart olmayan pil seviyeleri için gereklidir"
+                    "battery_low_template": "Bir pilin zayıf olduğunu belirleyen şablon, zayıfsa true döndürmelidir\nYalnızca standart olmayan pil seviyeleri için gereklidir",
+                    "filter_outliers": "Filter out large battery level changes, reducing falsely firing events on devices that erronously report levels occasionally"
                 }
             }
         },

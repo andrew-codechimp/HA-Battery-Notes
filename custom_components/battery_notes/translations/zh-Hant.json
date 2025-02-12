@@ -36,11 +36,13 @@
                     "battery_type": "電池類型",
                     "battery_quantity": "電池數量",
                     "battery_low_threshold": "低電量閾值",
-                    "battery_low_template": "低電量模板"
+                    "battery_low_template": "低電量模板",
+                    "filter_outliers": "Filter outliers"
                 },
                 "data_description": {
                     "battery_low_threshold": "若為零，將使用全域預設閾值",
-                    "battery_low_template": "判斷電池是否低電量的模板，若為低電量應回傳 true\n僅在電池電量非標準時需要"
+                    "battery_low_template": "判斷電池是否低電量的模板，若為低電量應回傳 true\n僅在電池電量非標準時需要",
+                    "filter_outliers": "Filter out large battery level changes, reducing falsely firing events on devices that erronously report levels occasionally"
                 }
             },
             "manual": {
@@ -65,12 +67,14 @@
                     "battery_type": "電池類型",
                     "battery_quantity": "電池數量",
                     "battery_low_threshold": "低電量閾值",
-                    "battery_low_template": "低電量模板"
+                    "battery_low_template": "低電量模板",
+                    "filter_outliers": "Filter outliers"
                 },
                 "data_description": {
                     "name": "若留空，將使用來源裝置的名稱",
                     "battery_low_threshold": "若為零，將使用全域預設閾值",
-                    "battery_low_template": "判斷電池是否低電量的模板，若為低電量應回傳 true\n僅在電池電量非標準時需要"
+                    "battery_low_template": "判斷電池是否低電量的模板，若為低電量應回傳 true\n僅在電池電量非標準時需要",
+                    "filter_outliers": "Filter out large battery level changes, reducing falsely firing events on devices that erronously report levels occasionally"
                 }
             }
         },

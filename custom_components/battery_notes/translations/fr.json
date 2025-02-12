@@ -36,11 +36,13 @@
                     "battery_type": "Type de batterie",
                     "battery_quantity": "Nombre de batteries",
                     "battery_low_threshold": "Seuil de batterie faible",
-                    "battery_low_template": "Modèle de batterie faible"
+                    "battery_low_template": "Modèle de batterie faible",
+                    "filter_outliers": "Filter outliers"
                 },
                 "data_description": {
                     "battery_low_threshold": "0 gardera le seuil par defaut",
-                    "battery_low_template": "Modèle pour déterminer si une batterie est faible, devrait retourner vrai si faible\nNécessaire uniquement pour les niveaux de batterie non standard"
+                    "battery_low_template": "Modèle pour déterminer si une batterie est faible, devrait retourner vrai si faible\nNécessaire uniquement pour les niveaux de batterie non standard",
+                    "filter_outliers": "Filter out large battery level changes, reducing falsely firing events on devices that erronously report levels occasionally"
                 }
             },
             "manual": {
@@ -65,12 +67,14 @@
                     "battery_type": "Type de batterie",
                     "battery_quantity": "Nombre de batteries",
                     "battery_low_threshold": "Seuil de batterie faible",
-                    "battery_low_template": "Modèle de batterie faible"
+                    "battery_low_template": "Modèle de batterie faible",
+                    "filter_outliers": "Filter outliers"
                 },
                 "data_description": {
                     "name": "Laisser vide gardera le seuil par defaut",
                     "battery_low_threshold": "0 gardera le seuil par defaut",
-                    "battery_low_template": "Modèle pour déterminer si une batterie est faible, devrait retourner vrai si faible\nNécessaire uniquement pour les niveaux de batterie non standard"
+                    "battery_low_template": "Modèle pour déterminer si une batterie est faible, devrait retourner vrai si faible\nNécessaire uniquement pour les niveaux de batterie non standard",
+                    "filter_outliers": "Filter out large battery level changes, reducing falsely firing events on devices that erronously report levels occasionally"
                 }
             }
         },

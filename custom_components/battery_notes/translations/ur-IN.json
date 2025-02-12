@@ -36,11 +36,13 @@
                     "battery_type": "بیٹری کی قسم",
                     "battery_quantity": "بیٹری کی مقدار",
                     "battery_low_threshold": "بیٹری کی کم حد",
-                    "battery_low_template": "کم بیٹری ٹیمپلیٹ"
+                    "battery_low_template": "کم بیٹری ٹیمپلیٹ",
+                    "filter_outliers": "Filter outliers"
                 },
                 "data_description": {
                     "battery_low_threshold": "0 عالمی ڈیفالٹ حد استعمال کرے گا۔",
-                    "battery_low_template": "بیٹری کم ہونے کا تعین کرنے کے لیے ٹیمپلیٹ، کم ہونے کی صورت میں درست ہونا چاہیے\nصرف غیر معیاری بیٹری کی سطح کے لیے ضروری ہے"
+                    "battery_low_template": "بیٹری کم ہونے کا تعین کرنے کے لیے ٹیمپلیٹ، کم ہونے کی صورت میں درست ہونا چاہیے\nصرف غیر معیاری بیٹری کی سطح کے لیے ضروری ہے",
+                    "filter_outliers": "Filter out large battery level changes, reducing falsely firing events on devices that erronously report levels occasionally"
                 }
             },
             "manual": {
@@ -65,12 +67,14 @@
                     "battery_type": "بیٹری کی قسم",
                     "battery_quantity": "بیٹری کی مقدار",
                     "battery_low_threshold": "بیٹری کی کم حد",
-                    "battery_low_template": " کم بیٹری ٹیمپلیٹ "
+                    "battery_low_template": " کم بیٹری ٹیمپلیٹ ",
+                    "filter_outliers": "Filter outliers"
                 },
                 "data_description": {
                     "name": "خالی چھوڑنے سے نام ماخذ آلہ سے لیا جائے گا۔",
                     "battery_low_threshold": "0 عالمی ڈیفالٹ حد استعمال کرے گا۔",
-                    "battery_low_template": "بیٹری کم ہونے کا تعین کرنے کے لیے ٹیمپلیٹ، کم ہونے کی صورت میں درست ہونا چاہیے\nصرف غیر معیاری بیٹری کی سطح کے لیے ضروری ہے"
+                    "battery_low_template": "بیٹری کم ہونے کا تعین کرنے کے لیے ٹیمپلیٹ، کم ہونے کی صورت میں درست ہونا چاہیے\nصرف غیر معیاری بیٹری کی سطح کے لیے ضروری ہے",
+                    "filter_outliers": "Filter out large battery level changes, reducing falsely firing events on devices that erronously report levels occasionally"
                 }
             }
         },

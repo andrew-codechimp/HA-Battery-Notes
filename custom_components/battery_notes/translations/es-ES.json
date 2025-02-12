@@ -36,11 +36,13 @@
                     "battery_type": "Tipo de batería",
                     "battery_quantity": "Cantidad de batería",
                     "battery_low_threshold": "Umbral bajo de batería",
-                    "battery_low_template": "Plantilla de batería baja"
+                    "battery_low_template": "Plantilla de batería baja",
+                    "filter_outliers": "Filter outliers"
                 },
                 "data_description": {
                     "battery_low_threshold": "0 usará el umbral global por defecto",
-                    "battery_low_template": "Plantilla para determinar que una batería es baja, debe devolver verdadero si es baja\nSolo necesario para niveles de batería no estándar"
+                    "battery_low_template": "Plantilla para determinar que una batería es baja, debe devolver verdadero si es baja\nSolo necesario para niveles de batería no estándar",
+                    "filter_outliers": "Filter out large battery level changes, reducing falsely firing events on devices that erronously report levels occasionally"
                 }
             },
             "manual": {
@@ -65,12 +67,14 @@
                     "battery_type": "Tipo de batería",
                     "battery_quantity": "Cantidad de batería",
                     "battery_low_threshold": "Umbral bajo de batería",
-                    "battery_low_template": "Plantilla de batería baja"
+                    "battery_low_template": "Plantilla de batería baja",
+                    "filter_outliers": "Filter outliers"
                 },
                 "data_description": {
                     "name": "Dejar en blanco utilizará el nombre del dispositivo de serie",
                     "battery_low_threshold": "0 usará el umbral global por defecto",
-                    "battery_low_template": "Plantilla para determinar que una batería es baja, debe devolver verdadero si es baja\nSolo necesario para niveles de batería no estándar"
+                    "battery_low_template": "Plantilla para determinar que una batería es baja, debe devolver verdadero si es baja\nSolo necesario para niveles de batería no estándar",
+                    "filter_outliers": "Filter out large battery level changes, reducing falsely firing events on devices that erronously report levels occasionally"
                 }
             }
         },

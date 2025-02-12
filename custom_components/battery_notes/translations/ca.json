@@ -36,11 +36,13 @@
                     "battery_type": "Tipus de bateria",
                     "battery_quantity": "Quantitat de bateries",
                     "battery_low_threshold": "Llindar baix de la bateria",
-                    "battery_low_template": "Plantilla de bateria baixa"
+                    "battery_low_template": "Plantilla de bateria baixa",
+                    "filter_outliers": "Filter outliers"
                 },
                 "data_description": {
                     "battery_low_threshold": "0 utilitzarà el llindar predeterminat global",
-                    "battery_low_template": "La plantilla per determinar que la bateria és baixa, hauria de tornar correcte si és baixa\nNomés és necessari per a nivells de bateria no estàndard"
+                    "battery_low_template": "La plantilla per determinar que la bateria és baixa, hauria de tornar correcte si és baixa\nNomés és necessari per a nivells de bateria no estàndard",
+                    "filter_outliers": "Filter out large battery level changes, reducing falsely firing events on devices that erronously report levels occasionally"
                 }
             },
             "manual": {
@@ -65,12 +67,14 @@
                     "battery_type": "Tipus de bateria",
                     "battery_quantity": "Quantitat de bateries",
                     "battery_low_threshold": "Llindar baix de la bateria",
-                    "battery_low_template": "Plantilla de bateria baixa"
+                    "battery_low_template": "Plantilla de bateria baixa",
+                    "filter_outliers": "Filter outliers"
                 },
                 "data_description": {
                     "name": "Si ho deixes en blanc, agafarà el nom del dispositiu d'origen",
                     "battery_low_threshold": "0 utilitzarà el llindar predeterminat global",
-                    "battery_low_template": "La plantilla per determinar que la bateria és baixa, hauria de tornar correcte si és baixa\nNomés és necessari per a nivells de bateria no estàndard"
+                    "battery_low_template": "La plantilla per determinar que la bateria és baixa, hauria de tornar correcte si és baixa\nNomés és necessari per a nivells de bateria no estàndard",
+                    "filter_outliers": "Filter out large battery level changes, reducing falsely firing events on devices that erronously report levels occasionally"
                 }
             }
         },
