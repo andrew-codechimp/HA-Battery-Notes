@@ -22,6 +22,7 @@ from .const import (
     CONF_LIBRARY_URL,
     CONF_SCHEMA_URL,
     DATA_LIBRARY_LAST_UPDATE,
+    DATA_SCHEMA_LAST_UPDATE,
     DEFAULT_LIBRARY_URL,
     DEFAULT_SCHEMA_URL,
     DOMAIN,
@@ -141,7 +142,7 @@ class LibraryUpdater:
                 _update_schema_json, json_path, content
             )
 
-            self.hass.data[DOMAIN][DATA_LIBRARY_LAST_UPDATE] = datetime.now()
+            self.hass.data[DOMAIN][DATA_SCHEMA_LAST_UPDATE] = datetime.now()
 
             _LOGGER.debug("Updated schema")
 
