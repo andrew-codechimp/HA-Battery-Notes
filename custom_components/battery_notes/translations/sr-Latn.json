@@ -31,21 +31,23 @@
                 }
             },
             "battery": {
-                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
+                "description": "",
                 "data": {
                     "battery_type": "Tip baterije",
                     "battery_quantity": "Broj baterija",
                     "battery_low_threshold": "Nizak prag napunjenosti baterije",
-                    "battery_low_template": "Šablon ptazne baterije"
+                    "battery_low_template": "Šablon ptazne baterije",
+                    "filter_outliers": ""
                 },
                 "data_description": {
                     "battery_low_threshold": "0 će koristiti globalni podrazumevani prag",
-                    "battery_low_template": "Šablon za određivanje da je baterija prazna, treba da vrati true ako je nizak nivo\nPotrebno samo za nestandardne nivoe baterije"
+                    "battery_low_template": "Šablon za određivanje da je baterija prazna, treba da vrati true ako je nizak nivo\nPotrebno samo za nestandardne nivoe baterije",
+                    "filter_outliers": ""
                 }
             },
             "manual": {
-                "description": "This device is marked in the library as manual, variants use different battery types so it cannot be set in the library.\nThe next step will allow you to set your battery type but please do not submit a device request.",
-                "title": "Device manual configuration"
+                "description": "",
+                "title": ""
             }
         },
         "abort": {
@@ -53,29 +55,31 @@
         },
         "error": {
             "unknown": "Nepoznata greška se dogodila.",
-            "unconfigurable_entity": "It is not possible to add this entity to Battery Notes."
+            "unconfigurable_entity": ""
         }
     },
     "options": {
         "step": {
             "init": {
-                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
+                "description": "",
                 "data": {
                     "name": "Naziv",
                     "battery_type": "Tip baterije",
                     "battery_quantity": "Broj baterija",
                     "battery_low_threshold": "Nizak prag napunjenosti baterije",
-                    "battery_low_template": "Šablon prazne baterije"
+                    "battery_low_template": "Šablon prazne baterije",
+                    "filter_outliers": ""
                 },
                 "data_description": {
                     "name": "Ako ostavite prazno, naziv će preuzeti sa izvornog uređaja",
                     "battery_low_threshold": "0 će koristiti globalni podrazumevani prag",
-                    "battery_low_template": "Šablon za određivanje da je baterija prazna, treba da vrati true ako je nizak nivo\nPotrebno samo za nestandardne nivoe baterije"
+                    "battery_low_template": "Šablon za određivanje da je baterija prazna, treba da vrati true ako je nizak nivo\nPotrebno samo za nestandardne nivoe baterije",
+                    "filter_outliers": ""
                 }
             }
         },
         "error": {
-            "orphaned_battery_note": "The associated device or entity no longer exists for this Battery Note.",
+            "orphaned_battery_note": "",
             "unknown": "Nepoznata greška se dogodila!"
         }
     },
@@ -186,12 +190,12 @@
     },
     "issues": {
         "missing_device": {
-            "title": "Orphaned Battery Note",
+            "title": "",
             "fix_flow": {
                 "step": {
                     "confirm": {
-                        "title": "Orphaned Battery Note",
-                        "description": "The associated device or entity no longer exists for the Battery Note entry {name}, the Battery Note should be deleted.\nSelect **Submit** to delete this Battery Note."
+                        "title": "",
+                        "description": ""
                     }
                 }
             }
