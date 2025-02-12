@@ -72,6 +72,7 @@ class LibraryUpdater:
         if await self.time_to_update_library() is False:
             return
 
+        await self.get_schema_updates(now)
         await self.get_library_updates(now)
 
         if DOMAIN_CONFIG not in self.hass.data[DOMAIN]:
@@ -88,7 +89,7 @@ class LibraryUpdater:
     @callback
     async def get_library_updates(self, now: datetime):
         # pylint: disable=unused-argument
-        """Make a call to GitHub to get the latest library.json."""
+        """Make a call to get the latest library.json."""
 
         def _update_library_json(library_file: str, content: str) -> None:
             os.makedirs(os.path.dirname(library_file), exist_ok=True)
@@ -117,6 +118,37 @@ class LibraryUpdater:
         except LibraryUpdaterClientError:
             _LOGGER.warning(
                 "Unable to update library, will retry later."
+            )
+
+    @callback
+    async def get_schema_updates(self, now: datetime):
+        # pylint: disable=unused-argument
+        """Make a call to get the latest schema.json."""
+
+        def _update_schema_json(schema_file: str, content: str) -> None:
+            os.makedirs(os.path.dirname(schema_file), exist_ok=True)
+            with open(schema_file, mode="w", encoding="utf-8") as file:
+                file.write(content)
+                file.close()
+
+        try:
+            _LOGGER.debug("Getting schema updates")
+
+            content = await self._client.async_get_schema()
+
+            json_path = self.hass.config.path(STORAGE_DIR, "battery_notes", "schema.json")
+
+            await self.hass.async_add_executor_job(
+                _update_schema_json, json_path, content
+            )
+
+            self.hass.data[DOMAIN][DATA_LIBRARY_LAST_UPDATE] = datetime.now()
+
+            _LOGGER.debug("Updated schema")
+
+        except LibraryUpdaterClientError:
+            _LOGGER.warning(
+                "Unable to update schema, will retry later."
             )
 
     async def time_to_update_library(self) -> bool:
