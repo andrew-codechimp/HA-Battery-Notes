@@ -51,6 +51,14 @@ Be aware that Home Assistant shows friendly alternatives for some sensors, so wh
 ```
 Once you have got your template correct you can copy/paste it into the battery notes configuration section for that device and it will use that for detecting the battery is low and raising the battery notes event.
 
+## My Shelly device is not showing a Battery+
+There seems to have been an issue with the Shelly integration at some point where the battery entity was not created properly and therefore Battery Notes cannot find it. To fix this do the following:  
+* Remove the battery note from the Shelly device
+* Remove the Shelly device from the Shelly integration
+* Re-Add the Shelly device
+* Add the battery note to the device
+
+
 ## How do I install pre-release versions via HACS  
 Within Home Assistant go to Settings -> Integrations -> HACS  
 Select Services  

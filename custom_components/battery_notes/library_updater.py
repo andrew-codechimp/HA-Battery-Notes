@@ -62,7 +62,7 @@ class LibraryUpdater:
     @callback
     async def timer_update(self, now: datetime):
         """Need to update the library."""
-        if await self.time_to_update_library() is False:
+        if await self.time_to_update_library(23) is False:
             return
 
         await self.get_library_updates(now)
@@ -114,7 +114,7 @@ class LibraryUpdater:
                 "Unable to update library, will retry later."
             )
 
-    async def time_to_update_library(self) -> bool:
+    async def time_to_update_library(self, hours: int) -> bool:
         """Check when last updated and if OK to do a new library update."""
         try:
             if DATA_LIBRARY_LAST_UPDATE in self.hass.data[DOMAIN]:
@@ -124,7 +124,7 @@ class LibraryUpdater:
 
                 time_difference_in_hours = time_since_last_update / timedelta(hours=1)
 
-                if time_difference_in_hours < 23:
+                if time_difference_in_hours < hours:
                     _LOGGER.debug("Skipping library update, too recent")
                     return False
 
