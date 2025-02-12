@@ -20,8 +20,10 @@ from homeassistant.helpers.storage import STORAGE_DIR
 from .const import (
     CONF_ENABLE_AUTODISCOVERY,
     CONF_LIBRARY_URL,
+    CONF_SCHEMA_URL,
     DATA_LIBRARY_LAST_UPDATE,
     DEFAULT_LIBRARY_URL,
+    DEFAULT_SCHEMA_URL,
     DOMAIN,
     DOMAIN_CONFIG,
 )
@@ -46,11 +48,17 @@ class LibraryUpdater:
 
         if DOMAIN_CONFIG in self.hass.data[DOMAIN]:
             domain_config: dict = self.hass.data[DOMAIN][DOMAIN_CONFIG]
-            url = domain_config.get(CONF_LIBRARY_URL, DEFAULT_LIBRARY_URL)
+            library_url = domain_config.get(CONF_LIBRARY_URL, DEFAULT_LIBRARY_URL)
         else:
-            url = DEFAULT_LIBRARY_URL
+            library_url = DEFAULT_LIBRARY_URL
 
-        self._client = LibraryUpdaterClient(library_url=url, session=async_get_clientsession(hass))
+        if DOMAIN_CONFIG in self.hass.data[DOMAIN]:
+            domain_config: dict = self.hass.data[DOMAIN][DOMAIN_CONFIG]
+            schema_url = domain_config.get(CONF_SCHEMA_URL, DEFAULT_SCHEMA_URL)
+        else:
+            schema_url = DEFAULT_SCHEMA_URL
+
+        self._client = LibraryUpdaterClient(library_url=library_url, schema_url=schema_url, session=async_get_clientsession(hass))
 
         # Fire the library check every 24 hours from just before now
         refresh_time = datetime.now() - timedelta(hours=0, minutes=1)
@@ -151,16 +159,23 @@ class LibraryUpdaterClient:
     def __init__(
         self,
         library_url: str,
+        schema_url: str,
         session: aiohttp.ClientSession,
     ) -> None:
         """Client to get latest library file from GitHub."""
         self._library_url = library_url
+        self._schema_url = schema_url
         self._session = session
 
     async def async_get_data(self) -> Any:
         """Get data from the API."""
         _LOGGER.debug(f"Updating library from {self._library_url}")
         return await self._api_wrapper(method="get", url=self._library_url)
+
+    async def async_get_schema(self) -> Any:
+        """Get schema from the API."""
+        _LOGGER.debug(f"Updating schema from {self._schema_url}")
+        return await self._api_wrapper(method="get", url=self._schema_url)
 
     async def _api_wrapper(
         self,
