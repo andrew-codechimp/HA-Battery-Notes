@@ -15,6 +15,7 @@ from homeassistant.core import HomeAssistant, callback
 from homeassistant.exceptions import ConfigEntryNotReady
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.event import async_track_utc_time_change
+from homeassistant.helpers.storage import STORAGE_DIR
 
 from .const import (
     CONF_ENABLE_AUTODISCOVERY,
@@ -27,8 +28,6 @@ from .const import (
 from .discovery import DiscoveryManager
 
 _LOGGER = logging.getLogger(__name__)
-
-BUILT_IN_DATA_DIRECTORY = os.path.join(os.path.dirname(__file__), "data")
 
 class LibraryUpdaterClientError(Exception):
     """Exception to indicate a general API error."""
@@ -84,6 +83,7 @@ class LibraryUpdater:
         """Make a call to GitHub to get the latest library.json."""
 
         def _update_library_json(library_file: str, content: str) -> None:
+            os.makedirs(os.path.dirname(library_file), exist_ok=True)
             with open(library_file, mode="w", encoding="utf-8") as file:
                 file.write(content)
                 file.close()
@@ -94,10 +94,7 @@ class LibraryUpdater:
             content = await self._client.async_get_data()
 
             if self.validate_json(content):
-                json_path = os.path.join(
-                    BUILT_IN_DATA_DIRECTORY,
-                    "library.json",
-                )
+                json_path = self.hass.config.path(STORAGE_DIR, "battery_notes", "library.json")
 
                 await self.hass.async_add_executor_job(
                     _update_library_json, json_path, content

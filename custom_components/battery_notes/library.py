@@ -4,10 +4,10 @@ from __future__ import annotations
 
 import json
 import logging
-import os
 from typing import Any, Final, NamedTuple, cast
 
 from homeassistant.core import HomeAssistant
+from homeassistant.helpers.storage import STORAGE_DIR
 
 from .const import (
     CONF_USER_LIBRARY,
@@ -15,8 +15,6 @@ from .const import (
     DOMAIN,
     DOMAIN_CONFIG,
 )
-
-BUILT_IN_DATA_DIRECTORY = os.path.join(os.path.dirname(__file__), "data")
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -57,10 +55,7 @@ class Library:  # pylint: disable=too-few-public-methods
                 CONF_USER_LIBRARY
             )
             if user_library_filename != "":
-                json_user_path = os.path.join(
-                    BUILT_IN_DATA_DIRECTORY,
-                    user_library_filename,
-                )
+                json_user_path = self.hass.config.path(STORAGE_DIR, "battery_notes", user_library_filename)
                 _LOGGER.debug("Using user library file at %s", json_user_path)
 
                 try:
@@ -74,16 +69,15 @@ class Library:  # pylint: disable=too-few-public-methods
                     )
 
                 except FileNotFoundError:
+                    #TODO: try to move the user library to new location
+
                     _LOGGER.error(
                         "User library file not found at %s",
                         json_user_path,
                     )
 
         # Default Library
-        json_default_path = os.path.join(
-            BUILT_IN_DATA_DIRECTORY,
-            "library.json",
-        )
+        json_default_path = self.hass.config.path(STORAGE_DIR, "battery_notes", "library.json")
 
         _LOGGER.debug("Using library file at %s", json_default_path)
 
@@ -98,8 +92,8 @@ class Library:  # pylint: disable=too-few-public-methods
 
         except FileNotFoundError:
             _LOGGER.error(
-                "library.json file not found in directory %s",
-                BUILT_IN_DATA_DIRECTORY,
+                "library.json file not found at %s",
+                json_default_path,
             )
 
     @staticmethod
