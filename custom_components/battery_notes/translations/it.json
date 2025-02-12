@@ -36,13 +36,11 @@
                     "battery_type": "Tipo di batteria",
                     "battery_quantity": "Quantità batteria",
                     "battery_low_threshold": "Livello batteria bassa",
-                    "battery_low_template": "Modello batteria bassa",
-                    "filter_outliers": "Filter outliers"
+                    "battery_low_template": "Modello batteria bassa"
                 },
                 "data_description": {
                     "battery_low_threshold": "0 utilizzerà la soglia globale predefinita",
-                    "battery_low_template": "Modello per determinare se una batteria è scarica, dovrebbe restituire vero se scarica. \nNecessario solo per livelli di batteria non standard",
-                    "filter_outliers": "Filter out large battery level changes, reducing falsely firing events on devices that erronously report levels occasionally"
+                    "battery_low_template": "Modello per determinare se una batteria è scarica, dovrebbe restituire vero se scarica. \nNecessario solo per livelli di batteria non standard"
                 }
             },
             "manual": {
@@ -67,14 +65,12 @@
                     "battery_type": "Tipo di batteria",
                     "battery_quantity": "Quantità batteria",
                     "battery_low_threshold": "Livello batteria bassa",
-                    "battery_low_template": "Modello batteria bassa",
-                    "filter_outliers": "Filter outliers"
+                    "battery_low_template": "Modello batteria bassa"
                 },
                 "data_description": {
                     "name": "Lasciando vuoto prenderà il nome dal dispositivo di origine",
                     "battery_low_threshold": "0 utilizzerà la soglia globale predefinita",
-                    "battery_low_template": "Modello per determinare se una batteria è scarica, dovrebbe restituire vero se scarica. \nNecessario solo per livelli di batteria non standard",
-                    "filter_outliers": "Filter out large battery level changes, reducing falsely firing events on devices that erronously report levels occasionally"
+                    "battery_low_template": "Modello per determinare se una batteria è scarica, dovrebbe restituire vero se scarica. \nNecessario solo per livelli di batteria non standard"
                 }
             }
         },

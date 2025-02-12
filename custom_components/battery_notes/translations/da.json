@@ -36,13 +36,11 @@
                     "battery_type": "Batteri type",
                     "battery_quantity": "Antal batterier",
                     "battery_low_threshold": "Lavt batteri niveau",
-                    "battery_low_template": "Batteri lav skabelon",
-                    "filter_outliers": "Filter outliers"
+                    "battery_low_template": "Batteri lav skabelon"
                 },
                 "data_description": {
                     "battery_low_threshold": "0 vil bruge den globale standardtærskel",
-                    "battery_low_template": "Skabelon til at bestemme om et batteri er lavt, skal returnere sand, hvis lavt.\nKun nødvendigt for ikke-standard batteriniveauer",
-                    "filter_outliers": "Filter out large battery level changes, reducing falsely firing events on devices that erronously report levels occasionally"
+                    "battery_low_template": "Skabelon til at bestemme om et batteri er lavt, skal returnere sand, hvis lavt.\nKun nødvendigt for ikke-standard batteriniveauer"
                 }
             },
             "manual": {
@@ -67,14 +65,12 @@
                     "battery_type": "Batteri type",
                     "battery_quantity": "Antal batterier",
                     "battery_low_threshold": "Lavt batteri niveau",
-                    "battery_low_template": "Batteri lav skabelon",
-                    "filter_outliers": "Filter outliers"
+                    "battery_low_template": "Batteri lav skabelon"
                 },
                 "data_description": {
                     "name": "Hvis du lader dette felt være tomt, hentes navnet fra kildeenheden",
                     "battery_low_threshold": "0 vil bruge den globale standardtærskel",
-                    "battery_low_template": "Skabelon til at bestemme om et batteri er lavt, skal returnere sand, hvis lavt\nKun nødvendigt for ikke-standard batteriniveauer",
-                    "filter_outliers": "Filter out large battery level changes, reducing falsely firing events on devices that erronously report levels occasionally"
+                    "battery_low_template": "Skabelon til at bestemme om et batteri er lavt, skal returnere sand, hvis lavt\nKun nødvendigt for ikke-standard batteriniveauer"
                 }
             }
         },

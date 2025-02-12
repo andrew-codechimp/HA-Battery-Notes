@@ -36,13 +36,11 @@
                     "battery_type": "Battery type",
                     "battery_quantity": "Battery quantity",
                     "battery_low_threshold": "Battery low threshold",
-                    "battery_low_template": "Battery low template",
-                    "filter_outliers": "Filter outliers"
+                    "battery_low_template": "Battery low template"
                 },
                 "data_description": {
                     "battery_low_threshold": "0 will use the global default threshold",
-                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels",
-                    "filter_outliers": "Filter out large battery level changes, reducing falsely firing events on devices that erronously report levels occasionally"
+                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels"
                 }
             },
             "manual": {
@@ -67,14 +65,12 @@
                     "battery_type": "Battery type",
                     "battery_quantity": "Battery quantity",
                     "battery_low_threshold": "Battery low threshold",
-                    "battery_low_template": "Battery low template",
-                    "filter_outliers": "Filter outliers"
+                    "battery_low_template": "Battery low template"
                 },
                 "data_description": {
                     "name": "Leaving blank will take the name from the source device",
                     "battery_low_threshold": "0 will use the global default threshold",
-                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels",
-                    "filter_outliers": "Filter out large battery level changes, reducing falsely firing events on devices that erronously report levels occasionally"
+                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels"
                 }
             }
         },

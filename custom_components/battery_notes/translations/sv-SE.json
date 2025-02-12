@@ -36,13 +36,11 @@
                     "battery_type": "Batterityp",
                     "battery_quantity": "Antal batterier",
                     "battery_low_threshold": "Tröskelvärde lågt batteri",
-                    "battery_low_template": "Batteri lågt template",
-                    "filter_outliers": "Filter outliers"
+                    "battery_low_template": "Batteri lågt template"
                 },
                 "data_description": {
                     "battery_low_threshold": "0 kommer att använda det globala standardtröskelvärdet",
-                    "battery_low_template": "Template för att bestämma om batteriet är lågt, borde returnera true om lågt.\nEndast nödvändigt för icke-standard batterinivåer. ",
-                    "filter_outliers": "Filter out large battery level changes, reducing falsely firing events on devices that erronously report levels occasionally"
+                    "battery_low_template": "Template för att bestämma om batteriet är lågt, borde returnera true om lågt.\nEndast nödvändigt för icke-standard batterinivåer."
                 }
             },
             "manual": {
@@ -67,14 +65,12 @@
                     "battery_type": "Batterityp",
                     "battery_quantity": "Antal batterier",
                     "battery_low_threshold": "Batteri lågt tröskelvärde",
-                    "battery_low_template": "Batteri lågt template",
-                    "filter_outliers": "Filter outliers"
+                    "battery_low_template": "Batteri lågt template"
                 },
                 "data_description": {
                     "name": "Genom att lämna blankt tas namnet från källenheten. ",
                     "battery_low_threshold": "0 kommer att använda den globala standardtröskelvärdet. ",
-                    "battery_low_template": "Template för att bestämma om batteriet är lågt. Ska returnera true om lågt. Behövs endast för icke-standard batterinivåer. ",
-                    "filter_outliers": "Filter out large battery level changes, reducing falsely firing events on devices that erronously report levels occasionally"
+                    "battery_low_template": "Template för att bestämma om batteriet är lågt. Ska returnera true om lågt. Behövs endast för icke-standard batterinivåer. "
                 }
             }
         },

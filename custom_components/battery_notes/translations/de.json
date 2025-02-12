@@ -36,13 +36,11 @@
                     "battery_type": "Batterieart",
                     "battery_quantity": "Batteriemenge",
                     "battery_low_threshold": "Schwelle für niedrigen Batteriestand",
-                    "battery_low_template": "Vorlage für niedrigen Batteriestand",
-                    "filter_outliers": "Filter outliers"
+                    "battery_low_template": "Vorlage für niedrigen Batteriestand"
                 },
                 "data_description": {
                     "battery_low_threshold": "0 verwendet den globalen Standardschwellenwert",
-                    "battery_low_template": "Vorlage um zu bestimmen, ob eine Batterie schwach ist; sollte \"wahr\" (true) rückmelden, wenn schwach.\nNur für nicht-Standard Batteriewerte benötigt.",
-                    "filter_outliers": "Filter out large battery level changes, reducing falsely firing events on devices that erronously report levels occasionally"
+                    "battery_low_template": "Vorlage um zu bestimmen, ob eine Batterie schwach ist; sollte \"wahr\" (true) rückmelden, wenn schwach.\nNur für nicht-Standard Batteriewerte benötigt."
                 }
             },
             "manual": {
@@ -67,14 +65,12 @@
                     "battery_type": "Batterieart",
                     "battery_quantity": "Batteriemenge",
                     "battery_low_threshold": "Schwelle für niedrigen Batteriestand",
-                    "battery_low_template": "Vorlage für niedrigen Batteriestand",
-                    "filter_outliers": "Filter outliers"
+                    "battery_low_template": "Vorlage für niedrigen Batteriestand"
                 },
                 "data_description": {
                     "name": "Wenn du nichts eingibst, wird der Name vom Quellgerät übernommen",
                     "battery_low_threshold": "0 verwendet den globalen Standardschwellenwert",
-                    "battery_low_template": "Vorlage um zu bestimmen, ob eine Batterie schwach ist; sollte \"wahr\" (true) rückmelden, wenn schwach.\nNur für nicht-Standard Batteriewerte benötigt.",
-                    "filter_outliers": "Filter out large battery level changes, reducing falsely firing events on devices that erronously report levels occasionally"
+                    "battery_low_template": "Vorlage um zu bestimmen, ob eine Batterie schwach ist; sollte \"wahr\" (true) rückmelden, wenn schwach.\nNur für nicht-Standard Batteriewerte benötigt."
                 }
             }
         },

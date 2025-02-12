@@ -36,13 +36,11 @@
                     "battery_type": "Batterij type",
                     "battery_quantity": "Aantal batterijen",
                     "battery_low_threshold": "Drempelwaarde batterij bijna leeg",
-                    "battery_low_template": "Sjabloon batterij bijna leeg",
-                    "filter_outliers": "Filter outliers"
+                    "battery_low_template": "Sjabloon batterij bijna leeg"
                 },
                 "data_description": {
                     "battery_low_threshold": "0 zal de globale standaard drempelwaarde gebruiken",
-                    "battery_low_template": "Sjabloon om te bepalen dat een batterij bijna leeg is, zal 'waar' teruggeven als bijna leeg\nAlleen nodig voor niet-standaard batterijniveaus",
-                    "filter_outliers": "Filter out large battery level changes, reducing falsely firing events on devices that erronously report levels occasionally"
+                    "battery_low_template": "Sjabloon om te bepalen dat een batterij bijna leeg is, zal 'waar' teruggeven als bijna leeg\nAlleen nodig voor niet-standaard batterijniveaus"
                 }
             },
             "manual": {
@@ -67,14 +65,12 @@
                     "battery_type": "Batterij type",
                     "battery_quantity": "Aantal batterijen",
                     "battery_low_threshold": "Drempelwaarde batterij bijna leeg",
-                    "battery_low_template": "Sjabloon batterij bijna leeg",
-                    "filter_outliers": "Filter outliers"
+                    "battery_low_template": "Sjabloon batterij bijna leeg"
                 },
                 "data_description": {
                     "name": "Indien dit leeg gelaten wordt dan wordt de naam van het bronapparaat overgenomen",
                     "battery_low_threshold": "0 zal de globale standaard drempelwaarde gebruiken",
-                    "battery_low_template": "Sjabloon om te bepalen dat een batterij bijna leeg is, zal 'waar' teruggeven als bijna leeg\nAlleen nodig voor niet-standaard batterijniveaus",
-                    "filter_outliers": "Filter out large battery level changes, reducing falsely firing events on devices that erronously report levels occasionally"
+                    "battery_low_template": "Sjabloon om te bepalen dat een batterij bijna leeg is, zal 'waar' teruggeven als bijna leeg\nAlleen nodig voor niet-standaard batterijniveaus"
                 }
             }
         },

@@ -36,13 +36,11 @@
                     "battery_type": "Tipo de bateria",
                     "battery_quantity": "Quantidade de baterias",
                     "battery_low_threshold": "Nivel de bateria baixa",
-                    "battery_low_template": "Template de bateria baixa",
-                    "filter_outliers": "Filter outliers"
+                    "battery_low_template": "Template de bateria baixa"
                 },
                 "data_description": {
                     "battery_low_threshold": "0 irá ser usado como valor por defeito para definir o descarregada",
-                    "battery_low_template": "Template para determinar que a bateria está baixa, deve devolver true se estiver baixa\nÉ somente necessário para níveis de bateria non-standard",
-                    "filter_outliers": "Filter out large battery level changes, reducing falsely firing events on devices that erronously report levels occasionally"
+                    "battery_low_template": "Template para determinar que a bateria está baixa, deve devolver true se estiver baixa\nÉ somente necessário para níveis de bateria non-standard"
                 }
             },
             "manual": {
@@ -67,14 +65,12 @@
                     "battery_type": "Tipo de bateria",
                     "battery_quantity": "Quantidade de baterias",
                     "battery_low_threshold": "Nivel de bateria baixa",
-                    "battery_low_template": "Template de bateria baixa",
-                    "filter_outliers": "Filter outliers"
+                    "battery_low_template": "Template de bateria baixa"
                 },
                 "data_description": {
                     "name": "Deixar em branco fará com que tenha mesmo o nome que o dispositivo de origem",
                     "battery_low_threshold": "0 irá ser usado como valor por defeito para definir o descarregada",
-                    "battery_low_template": "Template para determinar que a bateria está baixa, deve devolver true se estiver baixa\nÉ somente necessário para níveis de bateria non-standard",
-                    "filter_outliers": "Filter out large battery level changes, reducing falsely firing events on devices that erronously report levels occasionally"
+                    "battery_low_template": "Template para determinar que a bateria está baixa, deve devolver true se estiver baixa\nÉ somente necessário para níveis de bateria non-standard"
                 }
             }
         },

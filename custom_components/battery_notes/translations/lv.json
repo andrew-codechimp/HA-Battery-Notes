@@ -36,13 +36,11 @@
                     "battery_type": "Baterijas tips",
                     "battery_quantity": "Bateriju daudzums",
                     "battery_low_threshold": "Zema baterijas līmeņa slieksnis",
-                    "battery_low_template": "Zema baterijas līmeņa šablons",
-                    "filter_outliers": "Filter outliers"
+                    "battery_low_template": "Zema baterijas līmeņa šablons"
                 },
                 "data_description": {
                     "battery_low_threshold": "Norādiet 0, lai izmantotu noklusēto slieksni",
-                    "battery_low_template": "Šablons lai noteiktu zemu baterijas līmeni, kam jāatgriež patiesa vērtība, līmenis ir zems\nNepieciešams tikai nestandarta bateriju līmeņiem",
-                    "filter_outliers": "Filter out large battery level changes, reducing falsely firing events on devices that erronously report levels occasionally"
+                    "battery_low_template": "Šablons lai noteiktu zemu baterijas līmeni, kam jāatgriež patiesa vērtība, līmenis ir zems\nNepieciešams tikai nestandarta bateriju līmeņiem"
                 }
             },
             "manual": {
@@ -67,14 +65,12 @@
                     "battery_type": "Baterijas tips",
                     "battery_quantity": "Bateriju daudzums",
                     "battery_low_threshold": "Zema baterijas līmeņa slieksnis",
-                    "battery_low_template": "Zema baterijas līmeņa šablons",
-                    "filter_outliers": "Filter outliers"
+                    "battery_low_template": "Zema baterijas līmeņa šablons"
                 },
                 "data_description": {
                     "name": "Atstājot tukšu tiks ņemts nosaukums no pamata ierīces",
                     "battery_low_threshold": "Norādiet 0, lai izmantotu noklusēto slieksni",
-                    "battery_low_template": "Šablons lai noteiktu zemu baterijas līmeni, kam jāatgriež patiesa vērtība, līmenis ir zems\nNepieciešams tikai nestandarta bateriju līmeņiem",
-                    "filter_outliers": "Filter out large battery level changes, reducing falsely firing events on devices that erronously report levels occasionally"
+                    "battery_low_template": "Šablons lai noteiktu zemu baterijas līmeni, kam jāatgriež patiesa vērtība, līmenis ir zems\nNepieciešams tikai nestandarta bateriju līmeņiem"
                 }
             }
         },

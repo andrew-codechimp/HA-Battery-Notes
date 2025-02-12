@@ -36,13 +36,11 @@
                     "battery_type": "Тип батареї",
                     "battery_quantity": "Кількість батарей",
                     "battery_low_threshold": "Нижній поріг батареї",
-                    "battery_low_template": "Шаблон низького заряду батареї",
-                    "filter_outliers": "Filter outliers"
+                    "battery_low_template": "Шаблон низького заряду батареї"
                 },
                 "data_description": {
                     "battery_low_threshold": "0 буде використовувати глобальний поріг за замовчуванням",
-                    "battery_low_template": "Шаблон для визначення, коли заряд батареї низький - в такому випадку має повернути \"true\"\nПотрібен тільки для нестандартних рівнів батареї",
-                    "filter_outliers": "Filter out large battery level changes, reducing falsely firing events on devices that erronously report levels occasionally"
+                    "battery_low_template": "Шаблон для визначення, коли заряд батареї низький - в такому випадку має повернути \"true\"\nПотрібен тільки для нестандартних рівнів батареї"
                 }
             },
             "manual": {
@@ -67,14 +65,12 @@
                     "battery_type": "Тип батареї",
                     "battery_quantity": "Кількість батарей",
                     "battery_low_threshold": "Нижній поріг батареї",
-                    "battery_low_template": "Шаблон низького заряду батареї",
-                    "filter_outliers": "Filter outliers"
+                    "battery_low_template": "Шаблон низького заряду батареї"
                 },
                 "data_description": {
                     "name": "Залишаючи незаповненим, буде взяте ім'я з основного пристрою",
                     "battery_low_threshold": "0 буде використовувати глобальний поріг за замовчуванням",
-                    "battery_low_template": "Шаблон для визначення, коли заряд батареї низький - в такому випадку має повернути \"true\"\nПотрібен тільки для нестандартних рівнів батареї",
-                    "filter_outliers": "Filter out large battery level changes, reducing falsely firing events on devices that erronously report levels occasionally"
+                    "battery_low_template": "Шаблон для визначення, коли заряд батареї низький - в такому випадку має повернути \"true\"\nПотрібен тільки для нестандартних рівнів батареї"
                 }
             }
         },

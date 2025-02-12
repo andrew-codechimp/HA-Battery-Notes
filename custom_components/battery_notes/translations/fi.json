@@ -36,13 +36,11 @@
                     "battery_type": "Akun tyyppi",
                     "battery_quantity": "Akkujen määrä",
                     "battery_low_threshold": "Akun alhainen raja",
-                    "battery_low_template": "Battery low template",
-                    "filter_outliers": "Filter outliers"
+                    "battery_low_template": "Battery low template"
                 },
                 "data_description": {
                     "battery_low_threshold": "0 käyttää yleistä oletusarvoa",
-                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels",
-                    "filter_outliers": "Filter out large battery level changes, reducing falsely firing events on devices that erronously report levels occasionally"
+                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels"
                 }
             },
             "manual": {
@@ -67,14 +65,12 @@
                     "battery_type": "Akun tyyppi",
                     "battery_quantity": "Akkujen määrä",
                     "battery_low_threshold": "Akun alhainen raja",
-                    "battery_low_template": "Battery low template",
-                    "filter_outliers": "Filter outliers"
+                    "battery_low_template": "Battery low template"
                 },
                 "data_description": {
                     "name": "Tyhjäksi jättäminen ottaa nimen lähdelaitteesta",
                     "battery_low_threshold": "0 käyttää yleistä oletusarvoa",
-                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels",
-                    "filter_outliers": "Filter out large battery level changes, reducing falsely firing events on devices that erronously report levels occasionally"
+                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels"
                 }
             }
         },
