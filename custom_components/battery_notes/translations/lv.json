@@ -36,11 +36,13 @@
                     "battery_type": "Baterijas tips",
                     "battery_quantity": "Bateriju daudzums",
                     "battery_low_threshold": "Zema baterijas līmeņa slieksnis",
-                    "battery_low_template": "Zema baterijas līmeņa šablons"
+                    "battery_low_template": "Zema baterijas līmeņa šablons",
+                    "filter_outliers": ""
                 },
                 "data_description": {
                     "battery_low_threshold": "Norādiet 0, lai izmantotu noklusēto slieksni",
-                    "battery_low_template": "Šablons lai noteiktu zemu baterijas līmeni, kam jāatgriež patiesa vērtība, līmenis ir zems\nNepieciešams tikai nestandarta bateriju līmeņiem"
+                    "battery_low_template": "Šablons lai noteiktu zemu baterijas līmeni, kam jāatgriež patiesa vērtība, līmenis ir zems\nNepieciešams tikai nestandarta bateriju līmeņiem",
+                    "filter_outliers": ""
                 }
             },
             "manual": {
@@ -65,17 +67,19 @@
                     "battery_type": "Baterijas tips",
                     "battery_quantity": "Bateriju daudzums",
                     "battery_low_threshold": "Zema baterijas līmeņa slieksnis",
-                    "battery_low_template": "Zema baterijas līmeņa šablons"
+                    "battery_low_template": "Zema baterijas līmeņa šablons",
+                    "filter_outliers": ""
                 },
                 "data_description": {
                     "name": "Atstājot tukšu tiks ņemts nosaukums no pamata ierīces",
                     "battery_low_threshold": "Norādiet 0, lai izmantotu noklusēto slieksni",
-                    "battery_low_template": "Šablons lai noteiktu zemu baterijas līmeni, kam jāatgriež patiesa vērtība, līmenis ir zems\nNepieciešams tikai nestandarta bateriju līmeņiem"
+                    "battery_low_template": "Šablons lai noteiktu zemu baterijas līmeni, kam jāatgriež patiesa vērtība, līmenis ir zems\nNepieciešams tikai nestandarta bateriju līmeņiem",
+                    "filter_outliers": ""
                 }
             }
         },
         "error": {
-            "orphaned_battery_note": "The associated device or entity no longer exists for this Battery Note.",
+            "orphaned_battery_note": "",
             "unknown": "Notika nezināma kļūda."
         }
     },
@@ -186,12 +190,12 @@
     },
     "issues": {
         "missing_device": {
-            "title": "Orphaned Battery Note",
+            "title": "",
             "fix_flow": {
                 "step": {
                     "confirm": {
-                        "title": "Orphaned Battery Note",
-                        "description": "The associated device or entity no longer exists for the Battery Note entry {name}, the Battery Note should be deleted.\nSelect **Submit** to delete this Battery Note."
+                        "title": "",
+                        "description": ""
                     }
                 }
             }

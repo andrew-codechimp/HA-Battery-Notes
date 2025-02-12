@@ -4,13 +4,13 @@
             "user": {
                 "description": "اگر آپ کو ترتیب میں مدد کی ضرورت ہو تو یہاں ایک نظر ڈالیں: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
-                    "association_type": "Association type"
+                    "association_type": ""
                 },
                 "menu_options": {
-                    "device": "Device (recommended)",
-                    "entity": "Entity"
+                    "device": "",
+                    "entity": ""
                 },
-                "title": "Choose your association type"
+                "title": ""
             },
             "device": {
                 "data": {
@@ -23,29 +23,31 @@
             },
             "entity": {
                 "data": {
-                    "source_entity_id": "Entity",
+                    "source_entity_id": "",
                     "name": "نام"
                 },
                 "data_description": {
-                    "name": "Leaving blank will take the name from the source entity"
+                    "name": ""
                 }
             },
             "battery": {
-                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
+                "description": "",
                 "data": {
                     "battery_type": "بیٹری کی قسم",
                     "battery_quantity": "بیٹری کی مقدار",
                     "battery_low_threshold": "بیٹری کی کم حد",
-                    "battery_low_template": "کم بیٹری ٹیمپلیٹ"
+                    "battery_low_template": "کم بیٹری ٹیمپلیٹ",
+                    "filter_outliers": ""
                 },
                 "data_description": {
                     "battery_low_threshold": "0 عالمی ڈیفالٹ حد استعمال کرے گا۔",
-                    "battery_low_template": "بیٹری کم ہونے کا تعین کرنے کے لیے ٹیمپلیٹ، کم ہونے کی صورت میں درست ہونا چاہیے\nصرف غیر معیاری بیٹری کی سطح کے لیے ضروری ہے"
+                    "battery_low_template": "بیٹری کم ہونے کا تعین کرنے کے لیے ٹیمپلیٹ، کم ہونے کی صورت میں درست ہونا چاہیے\nصرف غیر معیاری بیٹری کی سطح کے لیے ضروری ہے",
+                    "filter_outliers": ""
                 }
             },
             "manual": {
-                "description": "This device is marked in the library as manual, variants use different battery types so it cannot be set in the library.\nThe next step will allow you to set your battery type but please do not submit a device request.",
-                "title": "Device manual configuration"
+                "description": "",
+                "title": ""
             }
         },
         "abort": {
@@ -53,29 +55,31 @@
         },
         "error": {
             "unknown": "نامعلوم خرابی پیش آگئی.",
-            "unconfigurable_entity": "It is not possible to add this entity to Battery Notes."
+            "unconfigurable_entity": ""
         }
     },
     "options": {
         "step": {
             "init": {
-                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
+                "description": "",
                 "data": {
                     "name": "نام",
                     "battery_type": "بیٹری کی قسم",
                     "battery_quantity": "بیٹری کی مقدار",
                     "battery_low_threshold": "بیٹری کی کم حد",
-                    "battery_low_template": " کم بیٹری ٹیمپلیٹ "
+                    "battery_low_template": " کم بیٹری ٹیمپلیٹ ",
+                    "filter_outliers": ""
                 },
                 "data_description": {
                     "name": "خالی چھوڑنے سے نام ماخذ آلہ سے لیا جائے گا۔",
                     "battery_low_threshold": "0 عالمی ڈیفالٹ حد استعمال کرے گا۔",
-                    "battery_low_template": "بیٹری کم ہونے کا تعین کرنے کے لیے ٹیمپلیٹ، کم ہونے کی صورت میں درست ہونا چاہیے\nصرف غیر معیاری بیٹری کی سطح کے لیے ضروری ہے"
+                    "battery_low_template": "بیٹری کم ہونے کا تعین کرنے کے لیے ٹیمپلیٹ، کم ہونے کی صورت میں درست ہونا چاہیے\nصرف غیر معیاری بیٹری کی سطح کے لیے ضروری ہے",
+                    "filter_outliers": ""
                 }
             }
         },
         "error": {
-            "orphaned_battery_note": "The associated device or entity no longer exists for this Battery Note.",
+            "orphaned_battery_note": "",
             "unknown": "نامعلوم خرابی پیش آگئی."
         }
     },
@@ -124,13 +128,13 @@
                         "name": "بیٹری کی آخری اطلاع دی گئی سطح"
                     },
                     "source_entity_id": {
-                        "name": "Source Entity Id"
+                        "name": ""
                     },
                     "device_id": {
-                        "name": "Device Id"
+                        "name": ""
                     },
                     "device_name": {
-                        "name": "Device name"
+                        "name": ""
                     }
                 }
             },
@@ -160,7 +164,7 @@
                 },
                 "entity_id": {
                     "description": "Entity that has had its battery replaced.",
-                    "name": "Entity"
+                    "name": ""
                 },
                 "datetime_replaced": {
                     "description": "تاریخ تبدیل کر دی گئی۔.",
@@ -186,12 +190,12 @@
     },
     "issues": {
         "missing_device": {
-            "title": "Orphaned Battery Note",
+            "title": "",
             "fix_flow": {
                 "step": {
                     "confirm": {
-                        "title": "Orphaned Battery Note",
-                        "description": "The associated device or entity no longer exists for the Battery Note entry {name}, the Battery Note should be deleted.\nSelect **Submit** to delete this Battery Note."
+                        "title": "",
+                        "description": ""
                     }
                 }
             }
