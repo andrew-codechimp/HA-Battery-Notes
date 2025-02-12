@@ -168,8 +168,9 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                 library_updater: LibraryUpdater = self.hass.data[DOMAIN][
                     DATA_LIBRARY_UPDATER
                 ]
-                await library_updater.get_schema_updates(dt_util.utcnow())
-                await library_updater.get_library_updates(dt_util.utcnow())
+                if await library_updater.time_to_update_library(1):
+                    await library_updater.get_schema_updates(dt_util.utcnow())
+                    await library_updater.get_library_updates(dt_util.utcnow())
 
             device_registry = dr.async_get(self.hass)
             device_entry = device_registry.async_get(device_id)
@@ -262,8 +263,9 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                         library_updater: LibraryUpdater = self.hass.data[DOMAIN][
                             DATA_LIBRARY_UPDATER
                         ]
-                        await library_updater.get_schema_updates(dt_util.utcnow())
-                        await library_updater.get_library_updates(dt_util.utcnow())
+                        if await library_updater.time_to_update_library(1):
+	                        await library_updater.get_schema_updates(dt_util.utcnow())
+    	                    await library_updater.get_library_updates(dt_util.utcnow())
 
                     device_registry = dr.async_get(self.hass)
                     device_entry = device_registry.async_get(entity_entry.device_id)
