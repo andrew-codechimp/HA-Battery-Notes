@@ -25,6 +25,7 @@ from .const import (
     CONF_BATTERY_QUANTITY,
     CONF_BATTERY_TYPE,
     CONF_DEFAULT_BATTERY_LOW_THRESHOLD,
+    CONF_FILTER_OUTLIERS,
     CONF_SOURCE_ENTITY_ID,
     DATA,
     DATA_STORE,
@@ -214,7 +215,8 @@ class BatteryNotesDevice:
 
         self.store = self.hass.data[DOMAIN][DATA_STORE]
         self.coordinator = BatteryNotesCoordinator(
-            self.hass, self.store, self.wrapped_battery, self.wrapped_battery_low
+            self.hass, self.store, self.wrapped_battery, self.wrapped_battery_low,
+            cast(bool, self.config.data.get(CONF_FILTER_OUTLIERS, False))
         )
 
         assert(self.device_name)

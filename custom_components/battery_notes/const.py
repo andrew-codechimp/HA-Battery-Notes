@@ -51,6 +51,7 @@ CONF_BATTERY_INCREASE_THRESHOLD = "battery_increase_threshold"
 CONF_HIDE_BATTERY = "hide_battery"
 CONF_ROUND_BATTERY = "round_battery"
 CONF_BATTERY_LOW_TEMPLATE = "battery_low_template"
+CONF_FILTER_OUTLIERS = "filter_outliers"
 
 DATA_CONFIGURED_ENTITIES = "configured_entities"
 DATA_DISCOVERED_ENTITIES = "discovered_entities"
@@ -90,6 +91,9 @@ ATTR_BATTERY_LAST_REPORTED_DAYS = "battery_last_reported_days"
 ATTR_BATTERY_LAST_REPORTED_LEVEL = "battery_last_reported_level"
 ATTR_PREVIOUS_BATTERY_LEVEL = "previous_battery_level"
 ATTR_BATTERY_THRESHOLD_REMINDER = "reminder"
+
+WINDOW_SIZE_UNIT_NUMBER_EVENTS = 1
+WINDOW_SIZE_UNIT_TIME = 2
 
 SERVICE_BATTERY_REPLACED_SCHEMA = vol.Schema(
     {

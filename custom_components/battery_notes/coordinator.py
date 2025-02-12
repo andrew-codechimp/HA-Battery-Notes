@@ -41,6 +41,7 @@ from .const import (
     LAST_REPORTED,
     LAST_REPORTED_LEVEL,
 )
+from .filters import LowOutlierFilter
 from .store import BatteryNotesStorage
 
 _LOGGER = logging.getLogger(__name__)
@@ -68,6 +69,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
     _battery_low_binary_state: bool = False
     _previous_battery_low_binary_state: bool | None = None
     _source_entity_name: str | None = None
+    _outlier_filter: LowOutlierFilter | None = None
 
     def __init__(
         self,
@@ -75,6 +77,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
         store: BatteryNotesStorage,
         wrapped_battery: RegistryEntry | None,
         wrapped_battery_low: RegistryEntry | None,
+        filter_outliers: bool,
     ):
         """Initialize."""
         self.store = store
@@ -87,6 +90,10 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
             self._round_battery = domain_config.get(CONF_ROUND_BATTERY, False)
 
         super().__init__(hass, _LOGGER, name=DOMAIN)
+
+        if filter_outliers:
+            self._outlier_filter = LowOutlierFilter(window_size=3, radius=80)
+            _LOGGER.debug("Outlier filter enabled")
 
     @property
     def source_entity_name(self):
@@ -222,8 +229,21 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
     @current_battery_level.setter
     def current_battery_level(self, value):
         """Set the current battery level and fire events if valid."""
-        self._current_battery_level = value
 
+        if self._outlier_filter:
+            if value not in [STATE_UNAVAILABLE, STATE_UNKNOWN]:
+                self._outlier_filter.filter_state(float(value))
+
+                _LOGGER.debug(
+                    "Checking outlier (%s=%s) -> %s",
+                    self.device_id or self.source_entity_id or "",
+                    value,
+                    "skip" if self._outlier_filter.skip_processing else self._outlier_filter.filter_state(value),
+                )
+                if self._outlier_filter.skip_processing:
+                    return
+
+        self._current_battery_level = value
         if (
             self._previous_battery_level is not None
             and self.battery_low_template is None
