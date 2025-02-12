@@ -4,13 +4,13 @@
             "user": {
                 "description": "Hvis du har brug for hjælp til konfigurationen, så kig her: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
-                    "association_type": "Association type"
+                    "association_type": ""
                 },
                 "menu_options": {
                     "device": "Enhed (anbefales)",
                     "entity": "Enhed"
                 },
-                "title": "Choose your association type"
+                "title": ""
             },
             "device": {
                 "data": {
@@ -36,15 +36,17 @@
                     "battery_type": "Batteri type",
                     "battery_quantity": "Antal batterier",
                     "battery_low_threshold": "Lavt batteri niveau",
-                    "battery_low_template": "Batteri lav skabelon"
+                    "battery_low_template": "Batteri lav skabelon",
+                    "filter_outliers": ""
                 },
                 "data_description": {
                     "battery_low_threshold": "0 vil bruge den globale standardtærskel",
-                    "battery_low_template": "Skabelon til at bestemme om et batteri er lavt, skal returnere sand, hvis lavt.\nKun nødvendigt for ikke-standard batteriniveauer"
+                    "battery_low_template": "Skabelon til at bestemme om et batteri er lavt, skal returnere sand, hvis lavt.\nKun nødvendigt for ikke-standard batteriniveauer",
+                    "filter_outliers": ""
                 }
             },
             "manual": {
-                "description": "This device is marked in the library as manual, variants use different battery types so it cannot be set in the library.\nThe next step will allow you to set your battery type but please do not submit a device request.",
+                "description": "",
                 "title": "Manuel konfiguration enheden"
             }
         },
@@ -65,12 +67,14 @@
                     "battery_type": "Batteri type",
                     "battery_quantity": "Antal batterier",
                     "battery_low_threshold": "Lavt batteri niveau",
-                    "battery_low_template": "Batteri lav skabelon"
+                    "battery_low_template": "Batteri lav skabelon",
+                    "filter_outliers": ""
                 },
                 "data_description": {
                     "name": "Hvis du lader dette felt være tomt, hentes navnet fra kildeenheden",
                     "battery_low_threshold": "0 vil bruge den globale standardtærskel",
-                    "battery_low_template": "Skabelon til at bestemme om et batteri er lavt, skal returnere sand, hvis lavt\nKun nødvendigt for ikke-standard batteriniveauer"
+                    "battery_low_template": "Skabelon til at bestemme om et batteri er lavt, skal returnere sand, hvis lavt\nKun nødvendigt for ikke-standard batteriniveauer",
+                    "filter_outliers": ""
                 }
             }
         },
@@ -180,18 +184,18 @@
             "name": "Batteri sidst rapporteret"
         },
         "check_battery_low": {
-            "description": "Raise events for devices that have a low battery.",
-            "name": "Check battery low"
+            "description": "",
+            "name": ""
         }
     },
     "issues": {
         "missing_device": {
-            "title": "Orphaned Battery Note",
+            "title": "",
             "fix_flow": {
                 "step": {
                     "confirm": {
-                        "title": "Orphaned Battery Note",
-                        "description": "The associated device or entity no longer exists for the Battery Note entry {name}, the Battery Note should be deleted.\nSelect **Submit** to delete this Battery Note."
+                        "title": "",
+                        "description": ""
                     }
                 }
             }
