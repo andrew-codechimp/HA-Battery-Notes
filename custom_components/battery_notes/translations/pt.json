@@ -37,12 +37,12 @@
                     "battery_quantity": "Quantidade de baterias",
                     "battery_low_threshold": "Nivel de bateria baixa",
                     "battery_low_template": "Template de bateria baixa",
-                    "filter_outliers": ""
+                    "filter_outliers": "Filter outliers"
                 },
                 "data_description": {
                     "battery_low_threshold": "0 irá ser usado como valor por defeito para definir o descarregada",
                     "battery_low_template": "Template para determinar que a bateria está baixa, deve devolver true se estiver baixa\nÉ somente necessário para níveis de bateria non-standard",
-                    "filter_outliers": ""
+                    "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
                 }
             },
             "manual": {
@@ -68,13 +68,13 @@
                     "battery_quantity": "Quantidade de baterias",
                     "battery_low_threshold": "Nivel de bateria baixa",
                     "battery_low_template": "Template de bateria baixa",
-                    "filter_outliers": ""
+                    "filter_outliers": "Filter outliers"
                 },
                 "data_description": {
                     "name": "Deixar em branco fará com que tenha mesmo o nome que o dispositivo de origem",
                     "battery_low_threshold": "0 irá ser usado como valor por defeito para definir o descarregada",
                     "battery_low_template": "Template para determinar que a bateria está baixa, deve devolver true se estiver baixa\nÉ somente necessário para níveis de bateria non-standard",
-                    "filter_outliers": ""
+                    "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
                 }
             }
         },

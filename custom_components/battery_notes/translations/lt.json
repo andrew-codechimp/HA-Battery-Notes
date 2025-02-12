@@ -4,13 +4,13 @@
             "user": {
                 "description": "Daugiau pagalbos apie konfigūraciją rasite čia: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
-                    "association_type": ""
+                    "association_type": "Association type"
                 },
                 "menu_options": {
-                    "device": "",
-                    "entity": ""
+                    "device": "Device (recommended)",
+                    "entity": "Entity"
                 },
-                "title": ""
+                "title": "Choose your association type"
             },
             "device": {
                 "data": {
@@ -18,36 +18,36 @@
                     "name": "Pavadinimas"
                 },
                 "data_description": {
-                    "name": ""
+                    "name": "Leaving blank will take the name from the source device"
                 }
             },
             "entity": {
                 "data": {
-                    "source_entity_id": "",
+                    "source_entity_id": "Entity",
                     "name": "Pavadinimas"
                 },
                 "data_description": {
-                    "name": ""
+                    "name": "Leaving blank will take the name from the source entity"
                 }
             },
             "battery": {
-                "description": "",
+                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
                 "data": {
                     "battery_type": "Baterijos tipas",
                     "battery_quantity": "Baterijų kiekis",
-                    "battery_low_threshold": "",
-                    "battery_low_template": "",
-                    "filter_outliers": ""
+                    "battery_low_threshold": "Battery low threshold",
+                    "battery_low_template": "Battery low template",
+                    "filter_outliers": "Filter outliers"
                 },
                 "data_description": {
                     "battery_low_threshold": "Įrašius 0 bus naudojama numatytoji vertė",
-                    "battery_low_template": "",
-                    "filter_outliers": ""
+                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels",
+                    "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
                 }
             },
             "manual": {
-                "description": "",
-                "title": ""
+                "description": "This device is marked in the library as manual, variants use different battery types so it cannot be set in the library.\nThe next step will allow you to set your battery type but please do not submit a device request.",
+                "title": "Device manual configuration"
             }
         },
         "abort": {
@@ -55,31 +55,31 @@
         },
         "error": {
             "unknown": "Įvyko nežinoma klaida.",
-            "unconfigurable_entity": ""
+            "unconfigurable_entity": "It is not possible to add this entity to Battery Notes."
         }
     },
     "options": {
         "step": {
             "init": {
-                "description": "",
+                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
                 "data": {
                     "name": "Pavadinimas",
                     "battery_type": "Baterijos tipas",
                     "battery_quantity": "Baterijų kiekis",
-                    "battery_low_threshold": "",
-                    "battery_low_template": "",
-                    "filter_outliers": ""
+                    "battery_low_threshold": "Battery low threshold",
+                    "battery_low_template": "Battery low template",
+                    "filter_outliers": "Filter outliers"
                 },
                 "data_description": {
-                    "name": "",
+                    "name": "Leaving blank will take the name from the source device",
                     "battery_low_threshold": "Įrašius 0 bus naudojama numatytoji vertė",
-                    "battery_low_template": "",
-                    "filter_outliers": ""
+                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels",
+                    "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
                 }
             }
         },
         "error": {
-            "orphaned_battery_note": "",
+            "orphaned_battery_note": "The associated device or entity no longer exists for this Battery Note.",
             "unknown": "Įvyko nežinoma klaida."
         }
     },
@@ -89,7 +89,7 @@
                 "name": "{device_name}Baterija senka",
                 "state_attributes": {
                     "battery_low_threshold": {
-                        "name": ""
+                        "name": "Battery low threshold"
                     }
                 }
             }
@@ -119,22 +119,22 @@
                         "name": "Baterija senka"
                     },
                     "battery_low_threshold": {
-                        "name": ""
+                        "name": "Battery low threshold"
                     },
                     "battery_last_reported": {
-                        "name": ""
+                        "name": "Battery last reported"
                     },
                     "battery_last_reported_level": {
-                        "name": ""
+                        "name": "Battery last reported level"
                     },
                     "source_entity_id": {
-                        "name": ""
+                        "name": "Source Entity Id"
                     },
                     "device_id": {
-                        "name": ""
+                        "name": "Device Id"
                     },
                     "device_name": {
-                        "name": ""
+                        "name": "Device name"
                     }
                 }
             },
@@ -156,46 +156,46 @@
     },
     "services": {
         "set_battery_replaced": {
-            "description": "",
+            "description": "Set the battery last replaced.",
             "fields": {
                 "device_id": {
-                    "description": "",
+                    "description": "Device that has had its battery replaced.",
                     "name": "Prietaisas"
                 },
                 "entity_id": {
                     "description": "Entity that has had its battery replaced.",
-                    "name": ""
+                    "name": "Entity"
                 },
                 "datetime_replaced": {
-                    "description": "",
+                    "description": "Date replaced.",
                     "name": "Data"
                 }
             },
-            "name": ""
+            "name": "Set battery replaced"
         },
         "check_battery_last_reported": {
-            "description": "",
+            "description": "Raise events for devices that haven't reported their battery level.",
             "fields": {
                 "days_last_reported": {
-                    "description": "",
+                    "description": "Number of days since a device last reported its battery level.",
                     "name": "Dienos"
                 }
             },
-            "name": ""
+            "name": "Check battery last reported"
         },
         "check_battery_low": {
-            "description": "",
-            "name": ""
+            "description": "Raise events for devices that have a low battery.",
+            "name": "Check battery low"
         }
     },
     "issues": {
         "missing_device": {
-            "title": "",
+            "title": "Orphaned Battery Note",
             "fix_flow": {
                 "step": {
                     "confirm": {
-                        "title": "",
-                        "description": ""
+                        "title": "Orphaned Battery Note",
+                        "description": "The associated device or entity no longer exists for the Battery Note entry {name}, the Battery Note should be deleted.\nSelect **Submit** to delete this Battery Note."
                     }
                 }
             }
