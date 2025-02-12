@@ -36,11 +36,13 @@
                     "battery_type": "Elemtípus",
                     "battery_quantity": "Elem darabszám",
                     "battery_low_threshold": "Alacsony elemszint küszöbérték",
-                    "battery_low_template": "Alacsony elemszint sablon"
+                    "battery_low_template": "Alacsony elemszint sablon",
+                    "filter_outliers": "Filter outliers"
                 },
                 "data_description": {
                     "battery_low_threshold": "0 érték esetén a központi beállítást fogja használni",
-                    "battery_low_template": "A sablon igaz értéket kell adjon, ha az elem nemsokára lemerül\nCsak nem szokványos töltöttségi szint esetén kell megadni"
+                    "battery_low_template": "A sablon igaz értéket kell adjon, ha az elem nemsokára lemerül\nCsak nem szokványos töltöttségi szint esetén kell megadni",
+                    "filter_outliers": "Filter out large battery level changes, reducing falsely firing events on devices that erronously report levels occasionally"
                 }
             },
             "manual": {
@@ -65,12 +67,14 @@
                     "battery_type": "Elemtípus",
                     "battery_quantity": "Elem darabszám",
                     "battery_low_threshold": "Alacsony elemszint küszöbérték",
-                    "battery_low_template": "Alacsony elemszint sablon"
+                    "battery_low_template": "Alacsony elemszint sablon",
+                    "filter_outliers": "Filter outliers"
                 },
                 "data_description": {
                     "name": "Üresen hagyva a forráseszköz nevét kapja",
                     "battery_low_threshold": "0 érték esetén a központi beállítást fogja használni",
-                    "battery_low_template": "A sablon igaz értéket kell adjon, ha az elem nemsokára lemerül\nCsak nem szokványos töltöttségi szint esetén kell megadni"
+                    "battery_low_template": "A sablon igaz értéket kell adjon, ha az elem nemsokára lemerül\nCsak nem szokványos töltöttségi szint esetén kell megadni",
+                    "filter_outliers": "Filter out large battery level changes, reducing falsely firing events on devices that erronously report levels occasionally"
                 }
             }
         },
