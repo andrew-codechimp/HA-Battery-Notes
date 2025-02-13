@@ -8879,6 +8879,12 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Philips",
+            "model": "Hue Tap dial switch",
+            "model_id": "8719514440937/8719514440999",
+            "battery_type": "CR2032"
         }
     ]
 }
