@@ -1847,6 +1847,13 @@
         },
         {
             "manufacturer": "Develco",
+            "model": "Motion sensor",
+            "model_id": "MOSZB-140",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Develco",
             "model": "Smoke detector with siren",
             "model_id": "SMSZB-120",
             "hw_version": "5.0.2",
@@ -8903,13 +8910,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE70",
             "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Develco",
-            "model": "Motion sensor",
-            "model_id": "MOSZB-140",
-            "battery_type": "AA",
             "battery_quantity": 2
         }
     ]
