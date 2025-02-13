@@ -3655,6 +3655,12 @@
         },
         {
             "manufacturer": "IKEA",
+            "model": "PARASOLL door/window sensor",
+            "model_id": "E2013",
+            "battery_type": "AAA"
+        },
+        {
+            "manufacturer": "IKEA",
             "model": "PARASOLL door/window Sensor (E2013)",
             "battery_type": "AAA"
         },
@@ -8898,12 +8904,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "IKEA",
-            "model": "PARASOLL door/window sensor",
-            "model_id": "E2013",
-            "battery_type": "AAA"
         }
     ]
 }
