@@ -8872,6 +8872,13 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Datek",
+            "model": "Eva water leak sensor",
+            "model_id": "HSE2919E",
+            "battery_type": "CR2450",
+            "battery_quantity": 2
         }
     ]
 }
