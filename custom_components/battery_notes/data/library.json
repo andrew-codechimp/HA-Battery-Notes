@@ -8872,6 +8872,13 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Develco",
+            "model": "Motion sensor",
+            "model_id": "MOSZB-140",
+            "battery_type": "AA",
+            "battery_quantity": 2
         }
     ]
 }
