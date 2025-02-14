@@ -15,7 +15,7 @@ body:
 
         The title above is not used and can be just a friendly description of the device. Manufacturer and Model should be exactly what is displayed on the Device screen within Home Assistant.
         If your device has a Model ID or HW Version then these must be included.  
-        If your device has a blank Manufacturer or Model are blank these cannot be added to the library, please don't try, but you can still add a battery note manually.
+        If your device has a blank Manufacturer or Model these cannot be added to the library, please don't try, but you can still add a battery note manually.
 
   - type: input
     id: manufacturer
