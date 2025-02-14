@@ -13,7 +13,7 @@ body:
         To see your devices, click here:  
         [![Open your Home Assistant instance and show your devices.](https://my.home-assistant.io/badges/devices.svg)](https://my.home-assistant.io/redirect/devices/)  
 
-        Note: The title above is not used and can be just a friendly description of the device. Manufacturer and Model should be exactly what is displayed on the Device screen within Home Assistant.
+        The title above is not used and can be just a friendly description of the device. Manufacturer and Model should be exactly what is displayed on the Device screen within Home Assistant.
         If your device has a Model ID or HW Version then these must be included.  
         If your device has a blank Manufacturer or Model are blank these cannot be added to the library, please don't try, but you can still add a battery note manually.
 
