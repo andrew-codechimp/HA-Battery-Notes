@@ -8911,6 +8911,12 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "Vibration Sensor",
+            "model_id": "DJT11LM",
+            "battery_type": "CR2032"
         }
     ]
 }
