@@ -472,6 +472,12 @@
             "battery_type": "PP3"
         },
         {
+            "manufacturer": "_TZE200_uebojraa",
+            "model": "TS0601_smoke_4",
+            "model_id": "TS0601",
+            "battery_type": "CR2"
+        },
+        {
             "manufacturer": "_TZE200_vvmbj46n",
             "model": "TS0601",
             "battery_type": "AAA",
@@ -8917,12 +8923,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "_TZE200_uebojraa",
-            "model": "TS0601_smoke_4",
-            "model_id": "TS0601",
-            "battery_type": "CR2"
         }
     ]
 }
