@@ -1,4 +1,4 @@
-## 1599 Devices in library
+## 1600 Devices in library
 
 This file is auto generated, do not modify
 
@@ -323,6 +323,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |CPS                                             |CP1500PFCLCD                                                                                  |2× 12V9AH-SLA             |                                   |                                      |
 |CPS                                             |CP1500PFCLCDa                                                                                 |RB1290X2                  |                                   |                                      |
 |Custom devices (DiY)                            |Plant watering sensor zFlora_S (zFlora_S)                                                     |CR2450                    |                                   |                                      |
+|Custom devices (DiY)                            |Xiaomi temperature & humidity sensor with custom firmware                                     |CR2032                    |LYWSD03MMC                         |                                      |
 |Custom devices (DiY)                            |Xiaomi temperature & humidity sensor with custom firmware (LYWSD03MMC)                        |CR2032                    |                                   |                                      |
 |Danalock                                        |BT/ZB smartlock (V3-BTZB/V3-BTZBE)                                                            |4× CR123A                 |                                   |                                      |
 |Danalock                                        |V3-BTZBE                                                                                      |4× CR123A                 |                                   |                                      |
