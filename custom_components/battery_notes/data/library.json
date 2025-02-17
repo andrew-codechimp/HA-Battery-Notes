@@ -8929,6 +8929,12 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Homematic",
+            "model": "HM-Sec-MDIR",
+            "battery_type": "AA",
+            "battery_quantity": 3
         }
     ]
 }
