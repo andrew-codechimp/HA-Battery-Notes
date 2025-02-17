@@ -1,4 +1,4 @@
-## 1600 Devices in library
+## 1601 Devices in library
 
 This file is auto generated, do not modify
 
@@ -614,6 +614,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |HOBEIAN                                         |Water leak sensor                                                                             |CR2032                    |ZG-222ZA                           |                                     1|
 |Homematic                                       |HM-CC-RT-DN                                                                                   |2× AA                     |MEQ0789539                         |                                      |
 |Homematic                                       |HM-RC-4-3                                                                                     |AAA                       |                                   |                                      |
+|Homematic                                       |HM-Sec-MDIR                                                                                   |3× AA                     |                                   |                                      |
 |Homematic                                       |HM-Sec-SCo                                                                                    |AAA                       |                                   |                                      |
 |Homematic                                       |HM-Sec-Win                                                                                    |HM-Sec-Win-BaP            |                                   |                                      |
 |Homematic                                       |HM-WDS30-T-O                                                                                  |2× AAA                    |                                   |                                      |
