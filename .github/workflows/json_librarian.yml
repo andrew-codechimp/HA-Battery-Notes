@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'custom_components/battery_notes/data/library.json'
+      - 'library/library.json'
       - '.github/workflows/json_librarian.yml'
       - '.github/workflows/scripts/library_doc/**'
 
