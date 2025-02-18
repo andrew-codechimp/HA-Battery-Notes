@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import logging
+import os
 from typing import Any, Final, NamedTuple, cast
 
 from homeassistant.core import HomeAssistant
@@ -69,12 +70,21 @@ class Library:  # pylint: disable=too-few-public-methods
                     )
 
                 except FileNotFoundError:
-                    #TODO: try to move the user library to new location
+                    # Try to move the user library to new location
+                    try:
+                        legacy_data_directory = os.path.join(os.path.dirname(__file__), "data")
+                        legacy_json_user_path = os.path.join(legacy_data_directory, user_library_filename)
+                        os.rename(legacy_json_user_path, json_user_path)
 
-                    _LOGGER.error(
-                        "User library file not found at %s",
-                        json_user_path,
-                    )
+                        _LOGGER.debug(
+                            "User library moved to %s",
+                            json_user_path,
+                        )
+                    except FileNotFoundError:
+                        _LOGGER.error(
+                            "User library file not found at %s",
+                            json_user_path,
+                        )
 
         # Default Library
         json_default_path = self.hass.config.path(STORAGE_DIR, "battery_notes", "library.json")

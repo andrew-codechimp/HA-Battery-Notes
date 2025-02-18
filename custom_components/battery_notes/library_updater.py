@@ -50,13 +50,9 @@ class LibraryUpdater:
         if DOMAIN_CONFIG in self.hass.data[DOMAIN]:
             domain_config: dict = self.hass.data[DOMAIN][DOMAIN_CONFIG]
             library_url = domain_config.get(CONF_LIBRARY_URL, DEFAULT_LIBRARY_URL)
-        else:
-            library_url = DEFAULT_LIBRARY_URL
-
-        if DOMAIN_CONFIG in self.hass.data[DOMAIN]:
-            domain_config: dict = self.hass.data[DOMAIN][DOMAIN_CONFIG]
             schema_url = domain_config.get(CONF_SCHEMA_URL, DEFAULT_SCHEMA_URL)
         else:
+            library_url = DEFAULT_LIBRARY_URL
             schema_url = DEFAULT_SCHEMA_URL
 
         self._client = LibraryUpdaterClient(library_url=library_url, schema_url=schema_url, session=async_get_clientsession(hass))
