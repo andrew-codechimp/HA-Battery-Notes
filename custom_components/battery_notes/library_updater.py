@@ -1,4 +1,4 @@
-"""Sample API Client."""
+"""Library updater."""
 
 from __future__ import annotations
 
