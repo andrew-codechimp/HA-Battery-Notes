@@ -472,6 +472,12 @@
             "battery_type": "PP3"
         },
         {
+            "manufacturer": "_TZE200_uebojraa",
+            "model": "TS0601_smoke_4",
+            "model_id": "TS0601",
+            "battery_type": "CR2"
+        },
+        {
             "manufacturer": "_TZE200_vvmbj46n",
             "model": "TS0601",
             "battery_type": "AAA",
@@ -1158,6 +1164,12 @@
             "manufacturer": "Aqara",
             "model": "Vibration Sensor",
             "model_id": "DJT11LM",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "Vibration Sensor",
+            "model_id": "DJT11LM",
             "hw_version": "3",
             "battery_type": "CR2032"
         },
@@ -1185,6 +1197,12 @@
         {
             "manufacturer": "Aqara",
             "model": "Wireless mini switch (WXKG11LM)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "Wireless mini switch T1",
+            "model_id": "WXKG13LM",
             "battery_type": "CR2032"
         },
         {
@@ -1752,6 +1770,12 @@
         },
         {
             "manufacturer": "Custom devices (DiY)",
+            "model": "Xiaomi temperature & humidity sensor with custom firmware",
+            "model_id": "LYWSD03MMC",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Custom devices (DiY)",
             "model": "Xiaomi temperature & humidity sensor with custom firmware (LYWSD03MMC)",
             "battery_type": "CR2032"
         },
@@ -1810,6 +1834,13 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Datek",
+            "model": "Eva water leak sensor",
+            "model_id": "HSE2919E",
+            "battery_type": "CR2450",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Develco",
             "model": "AQSZB-110",
             "battery_type": "AA",
@@ -1831,6 +1862,13 @@
             "model": "KEYZB-110",
             "battery_type": "AA",
             "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Develco",
+            "model": "Motion sensor",
+            "model_id": "MOSZB-140",
+            "battery_type": "AA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "Develco",
@@ -3366,6 +3404,12 @@
         },
         {
             "manufacturer": "Homematic",
+            "model": "HM-Sec-MDIR",
+            "battery_type": "AA",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "Homematic",
             "model": "HM-Sec-SCo",
             "battery_type": "AAA"
         },
@@ -3639,6 +3683,12 @@
             "model_id": "E1926",
             "hw_version": "1",
             "battery_type": "IKEA BRAUNIT"
+        },
+        {
+            "manufacturer": "IKEA",
+            "model": "PARASOLL door/window sensor",
+            "model_id": "E2013",
+            "battery_type": "AAA"
         },
         {
             "manufacturer": "IKEA",
@@ -4857,6 +4907,13 @@
         },
         {
             "manufacturer": "Onesti Products AS",
+            "model": "Zigbee module for EasyAccess code touch series",
+            "model_id": "easyCodeTouch_v1",
+            "battery_type": "AA",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "Onesti Products AS",
             "model": "Zigbee module for Nimly Doorlock series (Nimly)",
             "battery_type": "AA",
             "battery_quantity": 3
@@ -5104,6 +5161,12 @@
         {
             "manufacturer": "Philips",
             "model": "Hue smart button (8718699693985)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Philips",
+            "model": "Hue Tap dial switch",
+            "model_id": "8719514440937/8719514440999",
             "battery_type": "CR2032"
         },
         {

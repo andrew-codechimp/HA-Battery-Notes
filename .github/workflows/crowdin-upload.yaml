@@ -3,7 +3,7 @@ name: Crowdin upload
 on:
   push:
     paths:
-      - 'custom_components/battery_notes/translations/*'
+      - "custom_components/battery_notes/translations/*"
     branches:
       - "main"
   workflow_dispatch:
@@ -20,7 +20,7 @@ jobs:
         uses: crowdin/github-action@v2
         with:
           upload_sources: true
-          upload_translations: true
+          upload_translations: false
           download_translations: false
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}

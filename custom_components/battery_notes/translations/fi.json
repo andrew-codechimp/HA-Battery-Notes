@@ -4,13 +4,13 @@
             "user": {
                 "description": "Jos tarvitset apua asetuksissa, katso täältä: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
-                    "association_type": ""
+                    "association_type": "Association type"
                 },
                 "menu_options": {
                     "device": "Laite (suositeltu)",
                     "entity": "Entiteetti"
                 },
-                "title": ""
+                "title": "Choose your association type"
             },
             "device": {
                 "data": {
@@ -31,23 +31,23 @@
                 }
             },
             "battery": {
-                "description": "",
+                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
                 "data": {
                     "battery_type": "Akun tyyppi",
                     "battery_quantity": "Akkujen määrä",
                     "battery_low_threshold": "Akun alhainen raja",
-                    "battery_low_template": "",
-                    "filter_outliers": ""
+                    "battery_low_template": "Battery low template",
+                    "filter_outliers": "Filter outliers"
                 },
                 "data_description": {
                     "battery_low_threshold": "0 käyttää yleistä oletusarvoa",
-                    "battery_low_template": "",
-                    "filter_outliers": ""
+                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels",
+                    "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
                 }
             },
             "manual": {
-                "description": "",
-                "title": ""
+                "description": "This device is marked in the library as manual, variants use different battery types so it cannot be set in the library.\nThe next step will allow you to set your battery type but please do not submit a device request.",
+                "title": "Device manual configuration"
             }
         },
         "abort": {
@@ -55,31 +55,31 @@
         },
         "error": {
             "unknown": "Tuntematon virhe.",
-            "unconfigurable_entity": ""
+            "unconfigurable_entity": "It is not possible to add this entity to Battery Notes."
         }
     },
     "options": {
         "step": {
             "init": {
-                "description": "",
+                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
                 "data": {
                     "name": "Nimi",
                     "battery_type": "Akun tyyppi",
                     "battery_quantity": "Akkujen määrä",
                     "battery_low_threshold": "Akun alhainen raja",
-                    "battery_low_template": "",
-                    "filter_outliers": ""
+                    "battery_low_template": "Battery low template",
+                    "filter_outliers": "Filter outliers"
                 },
                 "data_description": {
                     "name": "Tyhjäksi jättäminen ottaa nimen lähdelaitteesta",
                     "battery_low_threshold": "0 käyttää yleistä oletusarvoa",
-                    "battery_low_template": "",
-                    "filter_outliers": ""
+                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels",
+                    "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
                 }
             }
         },
         "error": {
-            "orphaned_battery_note": "",
+            "orphaned_battery_note": "The associated device or entity no longer exists for this Battery Note.",
             "unknown": "Tuntematon virhe."
         }
     },
@@ -128,10 +128,10 @@
                         "name": "Akku viimeksi raportoitu taso"
                     },
                     "source_entity_id": {
-                        "name": ""
+                        "name": "Source Entity Id"
                     },
                     "device_id": {
-                        "name": ""
+                        "name": "Device Id"
                     },
                     "device_name": {
                         "name": "Laitteen nimi"
@@ -174,28 +174,28 @@
             "name": "Aseta akku vaihdetuksi"
         },
         "check_battery_last_reported": {
-            "description": "",
+            "description": "Raise events for devices that haven't reported their battery level.",
             "fields": {
                 "days_last_reported": {
-                    "description": "",
+                    "description": "Number of days since a device last reported its battery level.",
                     "name": "Päivät"
                 }
             },
-            "name": ""
+            "name": "Check battery last reported"
         },
         "check_battery_low": {
-            "description": "",
-            "name": ""
+            "description": "Raise events for devices that have a low battery.",
+            "name": "Check battery low"
         }
     },
     "issues": {
         "missing_device": {
-            "title": "",
+            "title": "Orphaned Battery Note",
             "fix_flow": {
                 "step": {
                     "confirm": {
-                        "title": "",
-                        "description": ""
+                        "title": "Orphaned Battery Note",
+                        "description": "The associated device or entity no longer exists for the Battery Note entry {name}, the Battery Note should be deleted.\nSelect **Submit** to delete this Battery Note."
                     }
                 }
             }

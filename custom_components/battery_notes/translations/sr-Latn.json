@@ -31,23 +31,23 @@
                 }
             },
             "battery": {
-                "description": "",
+                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
                 "data": {
                     "battery_type": "Tip baterije",
                     "battery_quantity": "Broj baterija",
                     "battery_low_threshold": "Nizak prag napunjenosti baterije",
                     "battery_low_template": "Šablon ptazne baterije",
-                    "filter_outliers": ""
+                    "filter_outliers": "Filter outliers"
                 },
                 "data_description": {
                     "battery_low_threshold": "0 će koristiti globalni podrazumevani prag",
                     "battery_low_template": "Šablon za određivanje da je baterija prazna, treba da vrati true ako je nizak nivo\nPotrebno samo za nestandardne nivoe baterije",
-                    "filter_outliers": ""
+                    "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
                 }
             },
             "manual": {
-                "description": "",
-                "title": ""
+                "description": "This device is marked in the library as manual, variants use different battery types so it cannot be set in the library.\nThe next step will allow you to set your battery type but please do not submit a device request.",
+                "title": "Device manual configuration"
             }
         },
         "abort": {
@@ -55,31 +55,31 @@
         },
         "error": {
             "unknown": "Nepoznata greška se dogodila.",
-            "unconfigurable_entity": ""
+            "unconfigurable_entity": "It is not possible to add this entity to Battery Notes."
         }
     },
     "options": {
         "step": {
             "init": {
-                "description": "",
+                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
                 "data": {
                     "name": "Naziv",
                     "battery_type": "Tip baterije",
                     "battery_quantity": "Broj baterija",
                     "battery_low_threshold": "Nizak prag napunjenosti baterije",
                     "battery_low_template": "Šablon prazne baterije",
-                    "filter_outliers": ""
+                    "filter_outliers": "Filter outliers"
                 },
                 "data_description": {
                     "name": "Ako ostavite prazno, naziv će preuzeti sa izvornog uređaja",
                     "battery_low_threshold": "0 će koristiti globalni podrazumevani prag",
                     "battery_low_template": "Šablon za određivanje da je baterija prazna, treba da vrati true ako je nizak nivo\nPotrebno samo za nestandardne nivoe baterije",
-                    "filter_outliers": ""
+                    "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
                 }
             }
         },
         "error": {
-            "orphaned_battery_note": "",
+            "orphaned_battery_note": "The associated device or entity no longer exists for this Battery Note.",
             "unknown": "Nepoznata greška se dogodila!"
         }
     },
@@ -190,12 +190,12 @@
     },
     "issues": {
         "missing_device": {
-            "title": "",
+            "title": "Orphaned Battery Note",
             "fix_flow": {
                 "step": {
                     "confirm": {
-                        "title": "",
-                        "description": ""
+                        "title": "Orphaned Battery Note",
+                        "description": "The associated device or entity no longer exists for the Battery Note entry {name}, the Battery Note should be deleted.\nSelect **Submit** to delete this Battery Note."
                     }
                 }
             }
