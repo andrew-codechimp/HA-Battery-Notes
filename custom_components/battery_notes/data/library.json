@@ -3324,6 +3324,12 @@
         },
         {
             "manufacturer": "HEIMAN",
+            "model": "Smoke detector",
+            "model_id": "HS1SA",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "HEIMAN",
             "model": "Smoke detector (HS1SA)",
             "battery_type": "CR123A"
         },
@@ -8949,12 +8955,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "HEIMAN",
-            "model": "Smoke detector",
-            "model_id": "HS1SA",
-            "battery_type": "CR123A"
         }
     ]
 }
