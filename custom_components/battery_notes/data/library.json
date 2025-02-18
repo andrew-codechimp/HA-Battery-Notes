@@ -4398,6 +4398,11 @@
         },
         {
             "manufacturer": "LUMI",
+            "model": "lumi.remote.cagl02",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "LUMI",
             "model": "lumi.sen_ill.agl01",
             "battery_type": "CR2450"
         },
@@ -8971,11 +8976,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "LUMI",
-            "model": "lumi.remote.cagl02",
-            "battery_type": "CR2450"
         }
     ]
 }
