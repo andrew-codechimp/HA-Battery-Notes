@@ -8,18 +8,20 @@ on:
     branches:
       - "main"
     paths-ignore:
-      - 'custom_components/battery_notes/data/**'
+      - 'library/**'
       - 'docs/**'
-      - 'README.md'
-      - 'library.md'
-      - 'mkdocs.yml'
+      - '*.md'
+      - '*.yml'
+      - 'LICENSE'
   pull_request:
     branches:
       - "main"
     paths-ignore:
-      - 'custom_components/battery_notes/data/**'
-      - 'README.md'
-      - 'library.md'
+      - 'library/**'
+      - 'docs/**'
+      - '*.md'
+      - '*.yml'
+      - 'LICENSE'
 
 jobs:
   hassfest: # https://developers.home-assistant.io/blog/2020/04/16/hassfest

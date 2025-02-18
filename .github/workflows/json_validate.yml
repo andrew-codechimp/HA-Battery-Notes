@@ -4,13 +4,11 @@ on:
   workflow_dispatch:
   push:
     paths:
-    - 'custom_components/battery_notes/schema.json'
-    - 'custom_components/battery_notes/data/**'
+    - 'library/**'
     - '.github/workflows/json*.yml'
   pull_request:
     paths:
-    - 'custom_components/battery_notes/schema.json'
-    - 'custom_components/battery_notes/data/**'
+    - 'library/**'
     - '.github/workflows/json*.yml'
 
 jobs:
@@ -21,6 +19,6 @@ jobs:
       - name: Validate JSON
         uses: dsanders11/json-schema-validate-action@v1.2.0
         with:
-          schema: custom_components/battery_notes/schema.json
-          files: custom_components/battery_notes/data/library.json
-          
+          schema: library/schema.json
+          files: library/library.json
+
