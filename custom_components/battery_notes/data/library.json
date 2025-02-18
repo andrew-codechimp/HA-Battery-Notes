@@ -8942,6 +8942,13 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Temperature & humidity sensor with display",
+            "model_id": "TS0201",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
