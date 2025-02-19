@@ -8982,6 +8982,11 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Qingping",
+            "model": "GCP22C",
+            "battery_type": "Rechargeable"
         }
     ]
 }
