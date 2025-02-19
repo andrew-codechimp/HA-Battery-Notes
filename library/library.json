@@ -80,6 +80,11 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "_TZ3000_6km7djcm",
+            "model": "TS0041",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "_TZ3000_6ygjfyll",
             "model": "TS0202",
             "battery_type": "CR2450"
@@ -210,6 +215,11 @@
             "manufacturer": "_TZ3000_kstbkt6a",
             "model": "TS0207",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "_TZ3000_lbtpiody",
+            "model": "TS0201",
+            "battery_type": "CR2"
         },
         {
             "manufacturer": "_TZ3000_lf56vpxj",
@@ -453,6 +463,12 @@
             "manufacturer": "_TZE200_myd45weu",
             "model": "TS0601",
             "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "_TZE200_nnrfa68v",
+            "model": "TS0601",
+            "battery_type": "AAA",
             "battery_quantity": 2
         },
         {
@@ -1078,6 +1094,13 @@
             "model_id": "10242",
             "hw_version": "1.0.0.0",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "Smart radiator thermostat E1",
+            "model_id": "SRTS-A01",
+            "battery_type": "AA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "Aqara",
@@ -3279,6 +3302,12 @@
         },
         {
             "manufacturer": "HEIMAN",
+            "model": "Smoke detector",
+            "model_id": "HS1SA",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "HEIMAN",
             "model": "Smoke detector (HS1SA)",
             "battery_type": "CR123A"
         },
@@ -4319,6 +4348,11 @@
         },
         {
             "manufacturer": "LUMI",
+            "model": "lumi.remote.cagl02",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "LUMI",
             "model": "lumi.sen_ill.agl01",
             "battery_type": "CR2450"
         },
@@ -4604,6 +4638,12 @@
         {
             "manufacturer": "Namron",
             "model": "Zigbee 4 channel switch K8 (black) (4512721)",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Namron",
+            "model": "Zigbee 8 channel switch white",
+            "model_id": "4512772",
             "battery_type": "CR2450"
         },
         {
@@ -7418,6 +7458,13 @@
             "model_id": "_TZE200_vvmbj46n",
             "battery_type": "AAA",
             "battery_quantity": 3
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Temperature & humidity sensor with display",
+            "model_id": "TS0201",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "TuYa",
