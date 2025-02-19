@@ -8976,6 +8976,12 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Namron",
+            "model": "Zigbee 8 channel switch white",
+            "model_id": "4512772",
+            "battery_type": "CR2450"
         }
     ]
 }
