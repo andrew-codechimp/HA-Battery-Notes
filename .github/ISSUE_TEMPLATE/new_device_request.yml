@@ -1,6 +1,6 @@
 name: New Device
 description: Submit a new device to the library so that others don't have to configure it themselves.
-title: "[Device]: New Device Request"
+title: "[Device]:"
 labels: ["new-device"]
 body:
   - type: markdown
