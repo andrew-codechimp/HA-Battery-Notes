@@ -1,4 +1,4 @@
-## 1608 Devices in library
+## 1609 Devices in library
 
 This file is auto generated, do not modify
 
@@ -848,6 +848,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |MultiSensor                                     |MultiSensor 6 (ZW100)                                                                         |2× CR123A                 |                                   |                                      |
 |Müller Licht                                    |Tint remote control (MLI-404011/MLI-404049)                                                   |2× AAA                    |                                   |                                      |
 |Namron                                          |Zigbee 4 channel switch K8 (black) (4512721)                                                  |CR2450                    |                                   |                                      |
+|Namron                                          |Zigbee 8 channel switch white                                                                 |CR2450                    |                            4512772|                                      |
 |Namron AS                                       |4512762                                                                                       |CR2350                    |                                   |                                      |
 |Nedis                                           |Nedis Smart Climate Sensor Zigbee 3.0 (ZBSC30WT)                                              |2× AAA                    |                                   |                                      |
 |Neo                                             |Alarm                                                                                         |CR123A                    |NAS-AB02B2                         |                                     1|
