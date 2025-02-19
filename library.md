@@ -1,4 +1,4 @@
-## 1609 Devices in library
+## 1610 Devices in library
 
 This file is auto generated, do not modify
 
@@ -965,6 +965,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Popp & Co                                       |POPE700168                                                                                    |2× AAA                    |                                   |                                      |
 |Powermax                                        |MCT-426                                                                                       |CR123A                    |                                   |                                      |
 |Qingping                                        |CGG1                                                                                          |CR2430                    |                                   |                                      |
+|Qingping                                        |GCP22C                                                                                        |Rechargeable              |                                   |                                      |
 |Qingping Technology (Beijing) Co., Ltd.         |CGG1T                                                                                         |CR2430                    |                                   |                                      |
 |Radio Thermostat Company of America (RTC)       |CT100                                                                                         |4× AA                     |                                   |                                      |
 |raspiaudio                                      |muse-luxe                                                                                     |Rechargeable              |                                   |                                      |
