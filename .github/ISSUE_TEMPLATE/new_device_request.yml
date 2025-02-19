@@ -1,20 +1,21 @@
 name: New Device
 description: Submit a new device to the library so that others don't have to configure it themselves.
-title: "[Device]: "
+title: "[Device]: New Device Request"
 labels: ["new-device"]
 body:
   - type: markdown
     attributes:
       value: |
         The battery library is a JSON document at [custom_components/battery_notes/data/library.json](https://github.com/andrew-codechimp/HA-Battery-Notes/blob/main/custom_components/battery_notes/data/library.json)
-        To contribute, submit your device details via this form and the relevant code changes will be proposed on your behalf.  
+        To contribute, submit your device details via this form and the relevant code changes will be proposed on your behalf.
 
         If you add a device manually in Battery Notes you will be able to see the details required at the top of the battery details panel, which is also available in the configure panel for the device within the Battery Notes integration once you have added it.
-        To see your devices, click here:  
-        [![Open your Home Assistant instance and show your devices.](https://my.home-assistant.io/badges/devices.svg)](https://my.home-assistant.io/redirect/devices/)  
+        To see your devices, click here:
 
-        The title above is not used and can be just a friendly description of the device. Manufacturer and Model should be exactly what is displayed on the Device screen within Home Assistant.
-        If your device has a Model ID or HW Version then these must be included.  
+        [![Open your Home Assistant instance and show your devices.](https://my.home-assistant.io/badges/devices.svg)](https://my.home-assistant.io/redirect/devices/)
+
+        The title above is not used and will be updated automatically. Manufacturer and Model should be exactly what is displayed on the Device screen within Home Assistant.
+        If your device has a Model ID or HW Version then these must be included.
         If your device has a blank Manufacturer or Model these cannot be added to the library, please don't try, but you can still add a battery note manually.
 
   - type: input
