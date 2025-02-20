@@ -5551,6 +5551,12 @@
         },
         {
             "manufacturer": "rtl_433",
+            "model": "Thermopro-TX2",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "rtl_433",
             "model": "Vauno-EN8822C",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -8986,12 +8992,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE70",
             "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "rtl_433",
-            "model": "Thermopro-TX2",
-            "battery_type": "AAA",
             "battery_quantity": 2
         }
     ]
