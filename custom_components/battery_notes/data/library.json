@@ -5430,6 +5430,11 @@
         },
         {
             "manufacturer": "Ring",
+            "model": "Flood & Freeze Sensor",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Ring",
             "model": "Glass Break Sensor",
             "battery_type": "AA",
             "battery_quantity": 3
@@ -9000,11 +9005,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Ring",
-            "model": "Flood & Freeze Sensor",
-            "battery_type": "CR123A"
         }
     ]
 }

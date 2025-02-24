@@ -1,4 +1,4 @@
-## 1612 Devices in library
+## 1613 Devices in library
 
 This file is auto generated, do not modify
 
@@ -980,6 +980,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Ring                                            |Doorbell (2nd Gen)                                                                            |Rechargeable              |                                   |                                      |
 |Ring                                            |Doorbell 2                                                                                    |Rechargeable              |                                   |                                      |
 |Ring                                            |Doorbell 3                                                                                    |Rechargeable 5AT3S3 (Ring)|                                   |                                      |
+|Ring                                            |Flood & Freeze Sensor                                                                         |CR123A                    |                                   |                                      |
 |Ring                                            |Glass Break Sensor                                                                            |3× AA                     |                                   |                                      |
 |Ring                                            |Intercom                                                                                      |Rechargeable              |                                   |                                      |
 |Ring                                            |Motion Sensor                                                                                 |2× AA                     |                                   |                                      |
