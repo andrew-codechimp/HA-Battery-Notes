@@ -14,6 +14,7 @@ from homeassistant.helpers import entity_registry as er
 from homeassistant.util import dt as dt_util
 
 from .const import (
+    ATTR_BATTERY_LAST_REPLACED,
     ATTR_BATTERY_LAST_REPORTED,
     ATTR_BATTERY_LAST_REPORTED_DAYS,
     ATTR_BATTERY_LAST_REPORTED_LEVEL,
@@ -194,6 +195,7 @@ def setup_services(hass: HomeAssistant) -> None:
                             ATTR_BATTERY_LAST_REPORTED: device.coordinator.last_reported,
                             ATTR_BATTERY_LAST_REPORTED_DAYS: time_since_lastreported.days,
                             ATTR_BATTERY_LAST_REPORTED_LEVEL: device.coordinator.last_reported_level,
+                            ATTR_BATTERY_LAST_REPLACED: device.coordinator.last_replaced,
                         },
                     )
 
@@ -223,6 +225,7 @@ def setup_services(hass: HomeAssistant) -> None:
                         ATTR_BATTERY_QUANTITY: device.coordinator.battery_quantity,
                         ATTR_BATTERY_LEVEL: device.coordinator.rounded_battery_level,
                         ATTR_PREVIOUS_BATTERY_LEVEL: device.coordinator.rounded_previous_battery_level,
+                        ATTR_BATTERY_LAST_REPLACED: device.coordinator.last_replaced,
                         ATTR_BATTERY_THRESHOLD_REMINDER: True,
                     },
                 )
