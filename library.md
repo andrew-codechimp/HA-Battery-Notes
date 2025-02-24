@@ -1,4 +1,4 @@
-## 1613 Devices in library
+## 1614 Devices in library
 
 This file is auto generated, do not modify
 
@@ -986,6 +986,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Ring                                            |Motion Sensor                                                                                 |2× AA                     |                                   |                                      |
 |Ring                                            |Peephole Cam                                                                                  |Rechargeable              |                                   |                                      |
 |Ring                                            |Security Keypad                                                                               |Rechargeable              |                                   |                                      |
+|Ring                                            |Smoke & CO Listener                                                                           |CR123A                    |                                   |                                      |
 |Ring                                            |Spotlight Cam Plus                                                                            |Rechargeable              |                                   |                                      |
 |Ring                                            |Stick Up Cam (3rd Gen)                                                                        |Rechargeable              |                                   |                                      |
 |ROBB smarrt                                     |ROB_200-024-0                                                                                 |CR2032                    |                                   |                                      |

@@ -5462,6 +5462,11 @@
         },
         {
             "manufacturer": "Ring",
+            "model": "Smoke & CO Listener",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Ring",
             "model": "Spotlight Cam Plus",
             "battery_type": "Rechargeable"
         },
@@ -9005,11 +9010,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Ring",
-            "model": "Smoke & CO Listener",
-            "battery_type": "CR123A"
         }
     ]
 }
