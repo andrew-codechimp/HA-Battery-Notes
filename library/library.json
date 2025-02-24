@@ -3121,6 +3121,13 @@
         },
         {
             "manufacturer": "Google",
+            "model": "Topaz-2.34",
+            "hw_version": "Battery",
+            "battery_type": "AA",
+            "battery_quantity": 6
+        },
+        {
+            "manufacturer": "Google",
             "model": "Topaz-2.7",
             "hw_version": "Battery",
             "battery_type": "AA",
@@ -5283,6 +5290,11 @@
             "battery_type": "CR2430"
         },
         {
+            "manufacturer": "Qingping",
+            "model": "GCP22C",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Qingping Technology (Beijing) Co., Ltd.",
             "model": "CGG1T",
             "battery_type": "CR2430"
@@ -5355,6 +5367,11 @@
         },
         {
             "manufacturer": "Ring",
+            "model": "Flood & Freeze Sensor",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Ring",
             "model": "Glass Break Sensor",
             "battery_type": "AA",
             "battery_quantity": 3
@@ -5379,6 +5396,11 @@
             "manufacturer": "Ring",
             "model": "Security Keypad",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Ring",
+            "model": "Smoke & CO Listener",
+            "battery_type": "CR123A"
         },
         {
             "manufacturer": "Ring",
@@ -5478,6 +5500,12 @@
         {
             "manufacturer": "rtl_433",
             "model": "Oregon-THGR122N",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "rtl_433",
+            "model": "Thermopro-TX2",
             "battery_type": "AAA",
             "battery_quantity": 2
         },

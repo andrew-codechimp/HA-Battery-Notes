@@ -19,6 +19,7 @@ from homeassistant.helpers.update_coordinator import (
 
 from .common import validate_is_float
 from .const import (
+    ATTR_BATTERY_LAST_REPLACED,
     ATTR_BATTERY_LEVEL,
     ATTR_BATTERY_LOW,
     ATTR_BATTERY_QUANTITY,
@@ -147,6 +148,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
                     ATTR_BATTERY_QUANTITY: self.battery_quantity,
                     ATTR_BATTERY_LEVEL: 0,
                     ATTR_PREVIOUS_BATTERY_LEVEL: 100,
+                    ATTR_BATTERY_LAST_REPLACED: self.last_replaced,
                     ATTR_BATTERY_THRESHOLD_REMINDER: False,
                 },
             )
@@ -171,6 +173,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
                         ATTR_BATTERY_QUANTITY: self.battery_quantity,
                         ATTR_BATTERY_LEVEL: 100,
                         ATTR_PREVIOUS_BATTERY_LEVEL: 0,
+                        ATTR_BATTERY_LAST_REPLACED: self.last_replaced,
                     },
                 )
 
@@ -200,6 +203,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
                     ATTR_BATTERY_QUANTITY: self.battery_quantity,
                     ATTR_BATTERY_LEVEL: 0,
                     ATTR_PREVIOUS_BATTERY_LEVEL: 100,
+                    ATTR_BATTERY_LAST_REPLACED: self.last_replaced,
                     ATTR_BATTERY_THRESHOLD_REMINDER: False,
                 },
             )
@@ -225,6 +229,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
                         ATTR_BATTERY_QUANTITY: self.battery_quantity,
                         ATTR_BATTERY_LEVEL: 100,
                         ATTR_PREVIOUS_BATTERY_LEVEL: 0,
+                        ATTR_BATTERY_LAST_REPLACED: self.last_replaced,
                     },
                 )
 
@@ -273,6 +278,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
                         ATTR_BATTERY_QUANTITY: self.battery_quantity,
                         ATTR_BATTERY_LEVEL: self.rounded_battery_level,
                         ATTR_PREVIOUS_BATTERY_LEVEL: self.rounded_previous_battery_level,
+                        ATTR_BATTERY_LAST_REPLACED: self.last_replaced,
                         ATTR_BATTERY_THRESHOLD_REMINDER: False,
                     },
                 )
@@ -306,6 +312,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
                             ATTR_BATTERY_QUANTITY: self.battery_quantity,
                             ATTR_BATTERY_LEVEL: self.rounded_battery_level,
                             ATTR_PREVIOUS_BATTERY_LEVEL: self.rounded_previous_battery_level,
+                            ATTR_BATTERY_LAST_REPLACED: self.last_replaced,
                         },
                     )
 
