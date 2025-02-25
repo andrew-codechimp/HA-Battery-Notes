@@ -1,4 +1,4 @@
-## 1614 Devices in library
+## 1615 Devices in library
 
 This file is auto generated, do not modify
 
@@ -998,6 +998,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |rtl_433                                         |Acurite-Tower                                                                                 |2× AA                     |                                   |                                      |
 |rtl_433                                         |Efergy-e2CT                                                                                   |3× AAA                    |                                   |                                      |
 |rtl_433                                         |Fineoffset-WH24                                                                               |3× AA                     |                                   |                                      |
+|rtl_433                                         |Fineoffset-WH32                                                                               |2× AA                     |                                   |                                      |
 |rtl_433                                         |Fineoffset-WH51                                                                               |AA                        |                                   |                                      |
 |rtl_433                                         |Fineoffset-WH65B                                                                              |2× AA                     |                                   |                                      |
 |rtl_433                                         |Hideki-Rain                                                                                   |2× AA                     |                                   |                                      |
