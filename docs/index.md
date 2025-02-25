@@ -59,6 +59,9 @@ Example templates
 
     If a template is specified then the battery percentage will be ignored when evaluating threshold and increased events. 
 
+## Filter Outliers
+This is for advanced use when a device occasionally erroneously reports a very low battery level occasionally before going back to it's true value, which causes battery low events to be raised.  
+If you switch this on for a device then that devices battery low events will be delayed until it has three consistently low states.
 
 ## Community Contributions
 
