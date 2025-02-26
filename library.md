@@ -1,4 +1,4 @@
-## 1616 Devices in library
+## 1617 Devices in library
 
 This file is auto generated, do not modify
 
@@ -122,6 +122,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |AEON Labs                                       |ZW130                                                                                         |Rechargeable              |                                   |                                      |
 |Aeotec                                          |ZWA011                                                                                        |CR14250                   |                                   |                                      |
 |Aeotec Ltd.                                     |MultiSensor 7                                                                                 |2× CR123A                 |ZWA024                             |                                      |
+|Aeotec Ltd.                                     |TriSensor 8                                                                                   |CR123A                    |ZWA045                             |                                      |
 |Aeotec Ltd.                                     |ZW187                                                                                         |CR2                       |                                   |                                      |
 |Aeotec Ltd.                                     |ZWA003                                                                                        |LIR2450                   |                                   |                                      |
 |Aeotec Ltd.                                     |ZWA004                                                                                        |Rechargeable              |                                   |                                      |
