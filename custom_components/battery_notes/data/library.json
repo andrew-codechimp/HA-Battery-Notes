@@ -9022,6 +9022,12 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Aeotec Ltd.",
+            "model": "TriSensor 8",
+            "model_id": "ZWA045",
+            "battery_type": "CR123A"
         }
     ]
 }
