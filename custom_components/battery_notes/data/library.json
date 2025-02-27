@@ -6955,6 +6955,12 @@
         },
         {
             "manufacturer": "TP-Link",
+            "model": "T310",
+            "hw_version": "1.0",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "TP-Link",
             "model": "T315",
             "hw_version": "1.0",
             "battery_type": "AAA",
@@ -9034,12 +9040,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "TP-Link",
-            "model": "T310",
-            "hw_version": "1.0",
-            "battery_type": "CR2450"
         }
     ]
 }
