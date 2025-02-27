@@ -2912,6 +2912,11 @@
         },
         {
             "manufacturer": "EZVIZ",
+            "model": "DB2 Pro",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "EZVIZ",
             "model": "DP2",
             "battery_type": "Rechargeable"
         },
@@ -9073,11 +9078,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "EZVIZ",
-            "model": "DB2 Pro",
-            "battery_type": "Rechargeable"
         }
     ]
 }
