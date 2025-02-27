@@ -1,4 +1,4 @@
-## 1617 Devices in library
+## 1618 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1254,6 +1254,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Third Reality, Inc                              |3RWS18BZ                                                                                      |2× AAA                    |                                   |                                      |
 |Tile                                            |T1101                                                                                         |CR2032                    |                                   |                                      |
 |Tile                                            |T1301N                                                                                        |CR2032                    |                                   |                                      |
+|TP-Link                                         |S200B                                                                                         |CR2032                    |                                   |                                     1|
 |TP-Link                                         |T315                                                                                          |2× AAA                    |                                   |                                     1|
 |Tractive GmbH                                   |TG5                                                                                           |Rechargeable              |                                   |                                      |
 |Tractive GmbH                                   |TRNJA4                                                                                        |Rechargeable              |                                   |                                      |
