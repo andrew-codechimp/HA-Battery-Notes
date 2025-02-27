@@ -20,6 +20,7 @@ from .const import (
     ATTR_BATTERY_LAST_REPORTED_LEVEL,
     ATTR_BATTERY_LEVEL,
     ATTR_BATTERY_LOW,
+    ATTR_BATTERY_LOW_THRESHOLD,
     ATTR_BATTERY_QUANTITY,
     ATTR_BATTERY_THRESHOLD_REMINDER,
     ATTR_BATTERY_TYPE,
@@ -220,6 +221,7 @@ def setup_services(hass: HomeAssistant) -> None:
                         ATTR_SOURCE_ENTITY_ID: device.coordinator.source_entity_id
                         or "",
                         ATTR_BATTERY_LOW: device.coordinator.battery_low,
+                        ATTR_BATTERY_LOW_THRESHOLD: device.coordinator.battery_low_threshold,
                         ATTR_BATTERY_TYPE_AND_QUANTITY: device.coordinator.battery_type_and_quantity,
                         ATTR_BATTERY_TYPE: device.coordinator.battery_type,
                         ATTR_BATTERY_QUANTITY: device.coordinator.battery_quantity,
