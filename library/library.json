@@ -632,6 +632,12 @@
         },
         {
             "manufacturer": "Aeotec Ltd.",
+            "model": "TriSensor 8",
+            "model_id": "ZWA045",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Aeotec Ltd.",
             "model": "ZW187",
             "battery_type": "CR2"
         },
@@ -2603,6 +2609,12 @@
         {
             "manufacturer": "eQ-3",
             "model": "HmIP-WRCD",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "eQ-3",
+            "model": "HmIP-WTH",
             "battery_type": "AAA",
             "battery_quantity": 2
         },
@@ -5465,6 +5477,12 @@
         },
         {
             "manufacturer": "rtl_433",
+            "model": "Fineoffset-WH32",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "rtl_433",
             "model": "Fineoffset-WH51",
             "battery_type": "AA"
         },
@@ -6865,6 +6883,51 @@
             "manufacturer": "Tile",
             "model": "T1301N",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "TP-Link",
+            "model": "S200B",
+            "hw_version": "1.0",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "TP-Link",
+            "model": "S210",
+            "hw_version": "1.0",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "TP-Link",
+            "model": "S220",
+            "hw_version": "1.0",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "TP-Link",
+            "model": "T100",
+            "hw_version": "1.0",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "TP-Link",
+            "model": "T110",
+            "hw_version": "1.0",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "TP-Link",
+            "model": "T300",
+            "hw_version": "1.0",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "TP-Link",
+            "model": "T310",
+            "hw_version": "1.0",
+            "battery_type": "CR2450"
         },
         {
             "manufacturer": "TP-Link",
