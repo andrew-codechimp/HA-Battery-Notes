@@ -1,4 +1,4 @@
-## 1623 Devices in library
+## 1624 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1257,6 +1257,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |TP-Link                                         |S200B                                                                                         |CR2032                    |                                   |                                     1|
 |TP-Link                                         |S210                                                                                          |2× AAA                    |                                   |                                     1|
 |TP-Link                                         |S220                                                                                          |2× AAA                    |                                   |                                     1|
+|TP-Link                                         |T100                                                                                          |CR2450                    |                                   |                                     1|
 |TP-Link                                         |T110                                                                                          |CR2032                    |                                   |                                     1|
 |TP-Link                                         |T300                                                                                          |2× AAA                    |                                   |                                     1|
 |TP-Link                                         |T310                                                                                          |CR2450                    |                                   |                                     1|
