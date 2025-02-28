@@ -37,12 +37,12 @@
                     "battery_quantity": "Batteriemenge",
                     "battery_low_threshold": "Schwelle für niedrigen Batteriestand",
                     "battery_low_template": "Vorlage für niedrigen Batteriestand",
-                    "filter_outliers": "Filter outliers"
+                    "filter_outliers": "Ausreißer filtern"
                 },
                 "data_description": {
                     "battery_low_threshold": "0 verwendet den globalen Standardschwellenwert",
                     "battery_low_template": "Vorlage um zu bestimmen, ob eine Batterie schwach ist; sollte \"wahr\" (true) rückmelden, wenn schwach.\nNur für nicht-Standard Batteriewerte benötigt.",
-                    "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                    "filter_outliers": "Filtere größere Sprünge des Ladestandes der Batterie bei Geräten, die ihren Ladestand nur sporadisch mitteilen, um fehlerhafte Auslösungen zu verhindern"
                 }
             },
             "manual": {
@@ -68,13 +68,13 @@
                     "battery_quantity": "Batteriemenge",
                     "battery_low_threshold": "Schwelle für niedrigen Batteriestand",
                     "battery_low_template": "Vorlage für niedrigen Batteriestand",
-                    "filter_outliers": "Filter outliers"
+                    "filter_outliers": "Ausreißer filtern"
                 },
                 "data_description": {
                     "name": "Wenn du nichts eingibst, wird der Name vom Quellgerät übernommen",
                     "battery_low_threshold": "0 verwendet den globalen Standardschwellenwert",
                     "battery_low_template": "Vorlage um zu bestimmen, ob eine Batterie schwach ist; sollte \"wahr\" (true) rückmelden, wenn schwach.\nNur für nicht-Standard Batteriewerte benötigt.",
-                    "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                    "filter_outliers": "Filtere größere Sprünge des Ladestandes der Batterie bei Geräten, die ihren Ladestand nur sporadisch mitteilen, um fehlerhafte Auslösungen zu verhindern"
                 }
             }
         },
