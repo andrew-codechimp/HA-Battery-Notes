@@ -1231,6 +1231,12 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "Wireless mini switch",
+            "model_id": "WXKG11LM",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "Wireless mini switch (WXKG11LM)",
             "battery_type": "CR2032"
         },
@@ -9084,12 +9090,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Aqara",
-            "model": "Wireless mini switch",
-            "model_id": "WXKG11LM",
-            "battery_type": "CR2032"
         }
     ]
 }

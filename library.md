@@ -1,4 +1,4 @@
-## 1626 Devices in library
+## 1627 Devices in library
 
 This file is auto generated, do not modify
 
@@ -226,6 +226,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Aqara                                           |Water leak sensor                                                                             |CR2032                    |SJCGQ11LM                          |                                      |
 |Aqara                                           |Water leak sensor (SJCGQ11LM)                                                                 |CR2032                    |                                   |                                      |
 |Aqara                                           |Water leak sensor T1 (SJCGQ12LM)                                                              |CR2032                    |                                   |                                      |
+|Aqara                                           |Wireless mini switch                                                                          |CR2032                    |WXKG11LM                           |                                      |
 |Aqara                                           |Wireless mini switch (WXKG11LM)                                                               |CR2032                    |                                   |                                      |
 |Aqara                                           |Wireless mini switch T1                                                                       |CR2032                    |WXKG13LM                           |                                      |
 |Aqara                                           |Wireless mini switch T1 (WXKG13LM)                                                            |CR2032                    |                                   |                                      |
