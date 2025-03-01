@@ -9078,6 +9078,12 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "Cube T1 Pro",
+            "model_id": "CTP-R01",
+            "battery_type": "CR2450"
         }
     ]
 }
