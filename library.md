@@ -1,4 +1,4 @@
-## 1627 Devices in library
+## 1628 Devices in library
 
 This file is auto generated, do not modify
 
@@ -349,6 +349,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Develco                                         |Motion sensor                                                                                 |2× AA                     |MOSZB-140                          |                                      |
 |Develco                                         |Smoke detector with siren                                                                     |CR123                     |SMSZB-120                          |5.0.2                                 |
 |Develco                                         |Smoke detector with siren (SMSZB-120)                                                         |CR123                     |                                   |                                      |
+|Develco                                         |Window sensor                                                                                 |2× AAA                    |WISZB-120                          |3.1.1                                 |
 |Develco Products A/S                            |AQSZB-110                                                                                     |2× AA                     |                                   |                                      |
 |Devolo                                          |MT02647                                                                                       |CR123A                    |                                   |                                      |
 |Devolo                                          |MT02648                                                                                       |CR123A                    |                                   |                                      |

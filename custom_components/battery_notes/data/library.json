@@ -1924,6 +1924,14 @@
             "battery_type": "CR123"
         },
         {
+            "manufacturer": "Develco",
+            "model": "Window sensor",
+            "model_id": "WISZB-120",
+            "hw_version": "3.1.1",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Develco Products A/S",
             "model": "AQSZB-110",
             "battery_type": "AA",
@@ -9089,14 +9097,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE70",
             "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Develco",
-            "model": "Window sensor",
-            "model_id": "WISZB-120",
-            "hw_version": "3.1.1",
-            "battery_type": "AAA",
             "battery_quantity": 2
         }
     ]
