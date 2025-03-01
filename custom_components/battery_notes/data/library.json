@@ -940,6 +940,12 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "Cube T1 Pro",
+            "model_id": "CTP-R01",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "Door and window sensor",
             "model_id": "MCCGQ11LM",
             "hw_version": "2",
@@ -9078,12 +9084,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Aqara",
-            "model": "Cube T1 Pro",
-            "model_id": "CTP-R01",
-            "battery_type": "CR2450"
         }
     ]
 }
