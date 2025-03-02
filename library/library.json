@@ -934,6 +934,12 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "Cube T1 Pro",
+            "model_id": "CTP-R01",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "Door and window sensor",
             "model_id": "MCCGQ11LM",
             "hw_version": "2",
@@ -1209,6 +1215,12 @@
         {
             "manufacturer": "Aqara",
             "model": "Water leak sensor T1 (SJCGQ12LM)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "Wireless mini switch",
+            "model_id": "WXKG11LM",
             "battery_type": "CR2032"
         },
         {
@@ -1874,6 +1886,14 @@
             "battery_type": "CR123"
         },
         {
+            "manufacturer": "Develco",
+            "model": "Window sensor",
+            "model_id": "WISZB-120",
+            "hw_version": "3.1.1",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Develco Products A/S",
             "model": "AQSZB-110",
             "battery_type": "AA",
@@ -2153,7 +2173,7 @@
         {
             "manufacturer": "eQ-3",
             "model": "HM-PBI-4-FM",
-            "battery_type": "CR20321"
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "eQ-3",
@@ -2871,6 +2891,11 @@
             "model": "EZMotion Express",
             "battery_type": "AAA",
             "battery_quantity": 3
+        },
+        {
+            "manufacturer": "EZVIZ",
+            "model": "DB2 Pro",
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "EZVIZ",

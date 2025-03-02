@@ -136,6 +136,10 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
         if (
             self._previous_battery_low_template_state is not None
             and self.battery_low_template
+            and value not in [
+                STATE_UNAVAILABLE,
+                STATE_UNKNOWN,
+            ]
         ):
             self.hass.bus.async_fire(
                 EVENT_BATTERY_THRESHOLD,
@@ -162,6 +166,10 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
             if (
                 self._previous_battery_low_template_state
                 and not self._battery_low_template_state
+                and value not in [
+                    STATE_UNAVAILABLE,
+                    STATE_UNKNOWN,
+                ]
             ):
                 self.hass.bus.async_fire(
                     EVENT_BATTERY_INCREASED,
@@ -182,7 +190,13 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
 
                 _LOGGER.debug("battery_increased event fired via template")
 
-        self._previous_battery_low_template_state = value
+        if value not in [
+            STATE_UNAVAILABLE,
+            STATE_UNKNOWN,
+            ]:
+            self._previous_battery_low_template_state = value
+        else:
+            self._previous_battery_low_template_state = None
 
     @property
     def battery_low_binary_state(self):
