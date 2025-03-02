@@ -912,7 +912,7 @@ class BatteryNotesBatteryBinaryLowSensor(BatteryNotesBatteryLowBaseSensor):
                 STATE_UNAVAILABLE,
                 STATE_UNKNOWN,
             ]
-            or wrapped_battery_low_state.state not in ["on", "off"]  # TODO: Check this
+            or wrapped_battery_low_state.state not in ["on", "off"]
         ):
             self._attr_is_on = None
             self._attr_available = False
