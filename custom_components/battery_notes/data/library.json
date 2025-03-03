@@ -9116,6 +9116,13 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "_TZE200_d0yu2xgi",
+            "model": "Temperature & humidity sensor and alarm (NAS-AB02B0)",
+            "model_id": "NAS-AB02B0",
+            "battery_type": "CR123A + USB",
+            "battery_quantity": 2
         }
     ]
 }
