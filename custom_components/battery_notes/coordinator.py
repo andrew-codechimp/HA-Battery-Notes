@@ -190,13 +190,8 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
 
                 _LOGGER.debug("battery_increased event fired via template")
 
-        if value not in [
-            STATE_UNAVAILABLE,
-            STATE_UNKNOWN,
-            ]:
-            self._previous_battery_low_template_state = value
-        else:
-            self._previous_battery_low_template_state = None
+
+        self._previous_battery_low_template_state = value
 
     @property
     def battery_low_binary_state(self):
