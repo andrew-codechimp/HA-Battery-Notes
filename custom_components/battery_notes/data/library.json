@@ -9105,6 +9105,12 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "HEIMAN",
+            "model": "Remote dimmer and color control (HS2WDSR-E)",
+            "model_id": "HS2WDSR-E",
+            "battery_type": "CR2450"
         }
     ]
 }
