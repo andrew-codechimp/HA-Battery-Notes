@@ -638,15 +638,13 @@
         },
         {
             "manufacturer": "Aeotec Ltd.",
-            "model": "MultiSensor 7",
-            "model_id": "ZWA024",
+            "model": "ZWA024",
             "battery_type": "CR123A",
             "battery_quantity": 2
         },
         {
             "manufacturer": "Aeotec Ltd.",
-            "model": "TriSensor 8",
-            "model_id": "ZWA045",
+            "model": "ZWA045",
             "battery_type": "CR123A"
         },
         {
