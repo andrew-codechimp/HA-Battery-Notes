@@ -202,7 +202,11 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
     def battery_low_binary_state(self, value):
         """Set the current battery low status from a binary sensor and fire events if valid."""
         self._battery_low_binary_state = value
-        if self._previous_battery_low_binary_state is not None:
+        if (self._previous_battery_low_binary_state is not None
+            and value not in [
+                STATE_UNAVAILABLE,
+                STATE_UNKNOWN,
+            ]):
             self.hass.bus.async_fire(
                 EVENT_BATTERY_THRESHOLD,
                 {
@@ -229,6 +233,10 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
             if (
                 self._previous_battery_low_binary_state
                 and not self._battery_low_binary_state
+                and value not in [
+                    STATE_UNAVAILABLE,
+                    STATE_UNKNOWN,
+                ]
             ):
                 self.hass.bus.async_fire(
                     EVENT_BATTERY_INCREASED,
