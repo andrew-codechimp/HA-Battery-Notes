@@ -638,17 +638,6 @@
         },
         {
             "manufacturer": "Aeotec Ltd.",
-            "model": "ZWA024",
-            "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Aeotec Ltd.",
-            "model": "ZWA045",
-            "battery_type": "CR123A"
-        },
-        {
-            "manufacturer": "Aeotec Ltd.",
             "model": "ZW187",
             "battery_type": "CR2"
         },
@@ -694,8 +683,19 @@
         },
         {
             "manufacturer": "Aeotec Ltd.",
+            "model": "ZWA024",
+            "battery_type": "CR123A",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Aeotec Ltd.",
             "model": "ZWA039",
             "battery_type": "CR2477"
+        },
+        {
+            "manufacturer": "Aeotec Ltd.",
+            "model": "ZWA045",
+            "battery_type": "CR123A"
         },
         {
             "manufacturer": "Airthings",
