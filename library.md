@@ -1,4 +1,4 @@
-## 1631 Devices in library
+## 1632 Devices in library
 
 This file is auto generated, do not modify
 
@@ -86,6 +86,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |_TZE200_c88teujp                                |TS0601                                                                                        |2× AA                     |                                   |                                      |
 |_TZE200_ckud7u2l                                |TS0601                                                                                        |2× AA                     |                                   |                                      |
 |_TZE200_cwnjrr72                                |TS0601                                                                                        |2× AA                     |                                   |                                      |
+|_TZE200_d0yu2xgi                                |Temperature & humidity sensor and alarm (NAS-AB02B0)                                          |2× CR123A + USB           |NAS-AB02B0                         |                                      |
 |_TZE200_hhrtiq0x                                |TS0601                                                                                        |2× AA                     |                                   |                                      |
 |_TZE200_hue3yfsn                                |TS0601                                                                                        |2× AA                     |                                   |                                      |
 |_TZE200_iba1ckek                                |TS0601                                                                                        |CR2450                    |                                   |                                      |
