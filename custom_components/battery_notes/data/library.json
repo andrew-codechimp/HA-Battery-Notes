@@ -9128,6 +9128,14 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Neo",
+            "model": "Temperature & humidity sensor and alarm",
+            "model_id": "NAS-AB02B0",
+            "hw_version": "1",
+            "battery_type": "CR123A",
+            "battery_quantity": 2
         }
     ]
 }
