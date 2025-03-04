@@ -1,4 +1,4 @@
-## 1632 Devices in library
+## 1633 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1270,6 +1270,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |TP-Link                                         |T300                                                                                          |2× AAA                    |                                   |                                     1|
 |TP-Link                                         |T310                                                                                          |CR2450                    |                                   |                                     1|
 |TP-Link                                         |T315                                                                                          |2× AAA                    |                                   |                                     1|
+|TP-Link                                         |Tapo T110                                                                                     |CR2032                    |                                   |                                      |
 |Tractive GmbH                                   |TG5                                                                                           |Rechargeable              |                                   |                                      |
 |Tractive GmbH                                   |TRNJA4                                                                                        |Rechargeable              |                                   |                                      |
 |Trust                                           |COSensor-EM                                                                                   |CR123A                    |                                   |                                      |

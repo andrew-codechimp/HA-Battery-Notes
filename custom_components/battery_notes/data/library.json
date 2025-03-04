@@ -7050,6 +7050,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "TP-Link",
+            "model": "Tapo T110",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "Tractive GmbH",
             "model": "TG5",
             "battery_type": "Rechargeable"
@@ -9123,11 +9128,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "TP-Link",
-            "model": "Tapo T110",
-            "battery_type": "CR2032"
         }
     ]
 }
