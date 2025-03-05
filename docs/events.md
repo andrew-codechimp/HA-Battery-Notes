@@ -19,6 +19,7 @@ You can use this to send notifications in your preferred method.  An example aut
 | `source_entity_id` | `string` | The entity id of the sensor associated with the battery note. |
 | `device_name` | `string` | The device name (or associated sensor name if no device). |
 | `battery_low` | `bool` | Returns true if the battery has gone below the threshold, false when the battery has returned above the threshold. **Your automations will almost certainly want to examine this value and set/clear notifications or other indicators.** |
+| `battery_low_threshold` | `string` | Battery low threshold (or global if 0). |
 | `battery_type_and_quantity` | `string` | Battery type & quantity. |
 | `battery_type` | `string` | Battery type. |
 | `battery_quantity` | `int` | Battery quantity. |
@@ -94,6 +95,7 @@ An example automation below shows how to update the battery_replaced.
 | `source_entity_id` | `string` | The entity id of the sensor associated with the battery note. |
 | `device_name` | `string` | The device name (or associated sensor name if no device). |
 | `battery_low` | `bool` | Returns true if the battery has gone below the threshold, false when the battery has returned above the threshold. |
+| `battery_low_threshold` | `string` | Battery low threshold (or global if 0). |
 | `battery_type_and_quantity` | `string` | Battery type & quantity. |
 | `battery_type` | `string` | Battery type. |
 | `battery_quantity` | `int` | Battery quantity. |
