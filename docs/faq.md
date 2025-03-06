@@ -52,7 +52,7 @@ battery_notes:
 
 This is usually because the device does not have a battery percentage, you can create one if your device has a voltage, low indicator or similar by following [these instructions](entities.md/#adding-a-battery-percentage)
 
-## My device has is not picking up the proper battery percentage for Battery+
+## My device is not picking up the proper battery percentage for Battery+
 
 If your device has a different percentage, perhaps a max charge indicator Battery Notes cannot identify the correct battery percentage to monitor. You can either hide the entity you want Battery+ to ignore or you can remove the Battery Notes device, then re-add as an Entity Association Type manually and choose the correct battery percentage.
 
