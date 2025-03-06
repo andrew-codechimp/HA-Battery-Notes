@@ -6180,6 +6180,11 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Simplisafe",
+            "model": "Glass break",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "SimpliSafe",
             "model": "Keypad",
             "battery_type": "AA",
@@ -9153,11 +9158,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Simplisafe",
-            "model": "Glass break",
-            "battery_type": "CR123A"
         }
     ]
 }

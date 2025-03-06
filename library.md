@@ -1,4 +1,4 @@
-## 1637 Devices in library
+## 1638 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1117,6 +1117,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |SilverCrest                                     |Window and Door Sensor                                                                        |2× AAA                    |TY0203                             |                                      |
 |Simplisafe                                      |Alarm control panel                                                                           |4× AA                     |                                   |                                      |
 |Simplisafe                                      |Entry                                                                                         |CR2032                    |                                   |                                      |
+|Simplisafe                                      |Glass break                                                                                   |CR123A                    |                                   |                                      |
 |SimpliSafe                                      |Keypad                                                                                        |4× AA                     |                                   |                                      |
 |Simplisafe                                      |Leak                                                                                          |CR2032                    |                                   |                                      |
 |SimpliSafe                                      |Motion                                                                                        |CR123A                    |                                   |                                      |
