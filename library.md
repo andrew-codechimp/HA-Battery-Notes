@@ -1,4 +1,4 @@
-## 1638 Devices in library
+## 1639 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1121,6 +1121,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |SimpliSafe                                      |Keypad                                                                                        |4× AA                     |                                   |                                      |
 |Simplisafe                                      |Leak                                                                                          |CR2032                    |                                   |                                      |
 |SimpliSafe                                      |Motion                                                                                        |CR123A                    |                                   |                                      |
+|Simplisafe                                      |Panic button                                                                                  |CR2032                    |                                   |                                      |
 |SimpliSafe                                      |Siren                                                                                         |4× AA                     |                                   |                                      |
 |Simplisafe                                      |Smoke                                                                                         |CR123A                    |                                   |                                      |
 |Simplisafe                                      |Smoke and carbon monoxide                                                                     |CR123A                    |                                   |                                      |

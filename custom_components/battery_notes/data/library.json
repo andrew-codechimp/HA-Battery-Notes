@@ -6201,6 +6201,11 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "Simplisafe",
+            "model": "Panic button",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "SimpliSafe",
             "model": "Siren",
             "battery_type": "AA",
@@ -9158,11 +9163,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Simplisafe",
-            "model": "Panic button",
-            "battery_type": "CR2032"
         }
     ]
 }
