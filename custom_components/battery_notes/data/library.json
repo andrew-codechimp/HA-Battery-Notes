@@ -6207,6 +6207,11 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "Simplisafe",
+            "model": "Smoke and carbon monoxide",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "Sinop\u00e9",
             "model": "LM4110ZB",
             "battery_type": "AA",
@@ -9148,11 +9153,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Simplisafe",
-            "model": "Smoke and carbon monoxide",
-            "battery_type": "CR123A"
         }
     ]
 }

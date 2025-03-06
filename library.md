@@ -1,4 +1,4 @@
-## 1636 Devices in library
+## 1637 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1122,6 +1122,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |SimpliSafe                                      |Motion                                                                                        |CR123A                    |                                   |                                      |
 |SimpliSafe                                      |Siren                                                                                         |4× AA                     |                                   |                                      |
 |Simplisafe                                      |Smoke                                                                                         |CR123A                    |                                   |                                      |
+|Simplisafe                                      |Smoke and carbon monoxide                                                                     |CR123A                    |                                   |                                      |
 |Sinopé                                          |LM4110ZB                                                                                      |3× AA                     |                                   |                                      |
 |Siterwell                                       |Radiator valve with thermostat                                                                |2× AA                     |GS361A-H04                         |                                     1|
 |Siterwell                                       |Radiator valve with thermostat (GS361A-H04)                                                   |2× AA                     |                                   |                                      |
