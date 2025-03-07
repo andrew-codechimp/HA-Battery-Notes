@@ -9163,6 +9163,13 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Lidl",
+            "model": "Silvercrest smart button",
+            "model_id": "HG08164",
+            "hw_version": "1",
+            "battery_type": "CR2032"
         }
     ]
 }
