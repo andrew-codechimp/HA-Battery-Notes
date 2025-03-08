@@ -1,4 +1,4 @@
-## 1640 Devices in library
+## 1641 Devices in library
 
 This file is auto generated, do not modify
 
@@ -847,6 +847,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Moes                                            |Light sensor (ZSS-QT-LS-C)                                                                    |CR2032                    |                                   |                                      |
 |Moes                                            |Smart door and window sensor (ZSS-JM-GWM-C-MS)                                                |CR2032                    |_TZ3000_decxrtwa                   |                                      |
 |Moes                                            |Smoke sensor (ZSS-HM-SSD01)                                                                   |CR123A                    |                                   |                                      |
+|Moes                                            |Thermostat radiator valve                                                                     |2× AA                     |TV01-ZB                            |                                      |
 |Moes                                            |Thermostat radiator valve (TV01-ZB)                                                           |2× AA                     |                                   |                                      |
 |Moes                                            |Thermostat radiator valve (ZTRV-ZX-TV01-MS)                                                   |2× AA                     |                                   |                                      |
 |Moes                                            |Thermostatic radiator valve (BRT-100-TRV)                                                     |2× AA                     |                                   |                                      |
