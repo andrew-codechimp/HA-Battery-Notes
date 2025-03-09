@@ -9210,6 +9210,13 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Third Reality",
+            "model": "Zigbee vibration sensor",
+            "model_id": "3RVS01031Z",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
