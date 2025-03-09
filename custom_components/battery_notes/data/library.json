@@ -6383,6 +6383,12 @@
         },
         {
             "manufacturer": "SmartThings",
+            "model": "Multipurpose sensor (2016 model)",
+            "model_id": "F-MLT-US-2",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "SmartThings",
             "model": "Multipurpose sensor (2016 model) (F-MLT-US-2)",
             "model_id": "F-MLT-US-2",
             "battery_type": "CR2450"
@@ -9210,12 +9216,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "SmartThings",
-            "model": "Multipurpose sensor (2016 model)",
-            "model_id": "F-MLT-US-2",
-            "battery_type": "CR2450"
         }
     ]
 }
