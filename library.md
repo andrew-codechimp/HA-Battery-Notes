@@ -1,4 +1,4 @@
-## 1641 Devices in library
+## 1642 Devices in library
 
 This file is auto generated, do not modify
 
@@ -706,6 +706,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |IKEA                                            |TRADFRI wireless dimmer (ICTC-G-1)                                                            |CR2032                    |                                   |                                      |
 |IKEA                                            |TREDANSEN                                                                                     |BRAUNIT                   |E2103                              |                                      |
 |Ikea                                            |TREDANSEN cellular blind (E2103)                                                              |Rechargeable              |                                   |                                      |
+|IKEA                                            |TREDANSEN cellular blind, block-out                                                           |Rechargeable              |E2103                              |                                     1|
 |IKEA                                            |TREDANSEN cellular blind, block-out (E2103)                                                   |BRAUNIT                   |E2103                              |                                      |
 |IKEA                                            |VALLHORN wireless motion sensor                                                               |2× AAA                    |E2134                              |                                     1|
 |IKEA                                            |VALLHORN wireless motion sensor (E2134)                                                       |2× AAA                    |                                   |                                      |
