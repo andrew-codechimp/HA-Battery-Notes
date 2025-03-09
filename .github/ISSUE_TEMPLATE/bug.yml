@@ -18,8 +18,6 @@ body:
       options:
         - label: I have added `battery_notes:` to my configuration.yaml and restarted.
           required: true
-        - label: I am using the latest version of Battery Notes (if using the latest beta please mention this in the issue description).
-          required: true
         - label: I have read the [FAQ's](https://andrew-codechimp.github.io/HA-Battery-Notes/faq).
           required: true
         - label: I have enabled debug logging for my installation.
@@ -34,6 +32,12 @@ body:
     attributes:
       label: "Describe the issue"
       description: "A clear and concise description of what the issue is."
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: "Battery Notes Version"
+      description: "Available from Settings/Devices & Services/Integrations/Battery Notes."
     validations:
       required: true
   - type: textarea
