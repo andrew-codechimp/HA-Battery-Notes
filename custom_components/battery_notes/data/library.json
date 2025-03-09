@@ -6325,6 +6325,12 @@
         },
         {
             "manufacturer": "SmartThings",
+            "model": "Button",
+            "model_id": "IM6001-BTP01",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "SmartThings",
             "model": "Button (IM6001-BTP01)",
             "battery_type": "CR2450"
         },
@@ -9204,12 +9210,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "SmartThings",
-            "model": "Button",
-            "model_id": "IM6001-BTP01",
-            "battery_type": "CR2450"
         }
     ]
 }

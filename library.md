@@ -1,4 +1,4 @@
-## 1645 Devices in library
+## 1646 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1142,6 +1142,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |SmartLabs_Inc                                   |2842_222_0x10_0x01                                                                            |PP3                       |                                   |                                      |
 |smartlife                                       |T & H Sensor (lf36y5nwb8jkxwgg)                                                               |2× AAA                    |                                   |                                      |
 |SmartThings                                     |3305-S                                                                                        |123A                      |                                   |                                      |
+|SmartThings                                     |Button                                                                                        |CR2450                    |IM6001-BTP01                       |                                      |
 |SmartThings                                     |Button (IM6001-BTP01)                                                                         |CR2450                    |                                   |                                      |
 |SmartThings                                     |F-MLT-US-2                                                                                    |CR2450                    |IL06_1                             |R860_#71                              |
 |Smartthings                                     |GP-U999SJVLEAA                                                                                |CR2450                    |                                   |                                      |
