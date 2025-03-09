@@ -1,4 +1,4 @@
-## 1642 Devices in library
+## 1643 Devices in library
 
 This file is auto generated, do not modify
 
@@ -389,6 +389,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Elexa Consumer Products Inc.                    |DMWD1                                                                                         |CR123A                    |                                   |                                      |
 |Elexa Consumer Products Inc.                    |DMWS1                                                                                         |CR2                       |                                   |                                      |
 |Elgato                                          |Eve Motion 20EAK9901                                                                          |2× AA                     |                                   |                                      |
+|Elgato                                          |Eve Thermo 20EAR1701                                                                          |2× AA                     |                                   |1.0.0                                 |
 |Elro                                            |CO alarm                                                                                      |2× AA                     |                                   |                                      |
 |Elro                                            |Fire alarm                                                                                    |2× AA                     |                                   |                                      |
 |Elro                                            |Heat alarm                                                                                    |2× AA                     |                                   |                                      |

@@ -2137,6 +2137,13 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Elgato",
+            "model": "Eve Thermo 20EAR1701",
+            "hw_version": "1.0.0",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Elro",
             "model": "CO alarm",
             "battery_type": "AA",
@@ -9183,13 +9190,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE70",
             "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Elgato",
-            "model": "Eve Thermo 20EAR1701",
-            "hw_version": "1.0.0",
-            "battery_type": "AA",
             "battery_quantity": 2
         }
     ]
