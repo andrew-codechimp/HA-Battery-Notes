@@ -1,4 +1,4 @@
-## 1644 Devices in library
+## 1645 Devices in library
 
 This file is auto generated, do not modify
 
@@ -699,6 +699,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |IKEA                                            |TRADFRI motion sensor (E1525/E1745)                                                           |2× CR2032                 |                                   |                                      |
 |IKEA                                            |TRADFRI on/off switch                                                                         |CR2032                    |E1743                              |                                     1|
 |IKEA                                            |TRADFRI ON/OFF switch (E1743)                                                                 |CR2032                    |                                   |                                      |
+|IKEA                                            |TRADFRI open/close remote                                                                     |CR2032                    |E1766                              |                                     1|
 |IKEA                                            |TRADFRI open/close remote (E1766)                                                             |CR2032                    |                                   |                                      |
 |IKEA                                            |TRADFRI remote control                                                                        |CR2032                    |E1524/E1810                        |                                     1|
 |IKEA                                            |TRADFRI remote control (E1524/E1810)                                                          |CR2032                    |                                   |                                      |
