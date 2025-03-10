@@ -9223,6 +9223,13 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "_TZ3000_rr1cqjwu",
+            "model": "TS0207_water_leak_detector",
+            "model_id": "TS0207",
+            "hw_version": "0122052017",
+            "battery_type": "CR2032"
         }
     ]
 }
