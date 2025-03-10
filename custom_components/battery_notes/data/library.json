@@ -9230,6 +9230,12 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Visonic",
+            "model": "Magnetic door & window contact sensor",
+            "model_id": "MCT-340 E",
+            "battery_type": "CR2032"
         }
     ]
 }
