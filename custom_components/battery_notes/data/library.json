@@ -568,6 +568,12 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "Acurite",
+            "model": "Acurite-5n1",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
             "manufacturer": "Adaprox",
             "model": "TS0001_fingerbot_1",
             "battery_type": "CR2"
@@ -9236,12 +9242,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Acurite",
-            "model": "Acurite-5n1",
-            "battery_type": "AA",
-            "battery_quantity": 4
         }
     ]
 }
