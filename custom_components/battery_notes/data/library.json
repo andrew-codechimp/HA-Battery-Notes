@@ -6903,6 +6903,13 @@
             "battery_quantity": 3
         },
         {
+            "manufacturer": "tado\u00b0 GmbH",
+            "model": "Wireless Temperature Sensor X (3)",
+            "hw_version": "SU04",
+            "battery_type": "LR03",
+            "battery_quantity": 3
+        },
+        {
             "manufacturer": "Tedee",
             "model": "Tedee GO",
             "battery_type": "CR123A",
@@ -9249,13 +9256,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "tado\u00b0 GmbH",
-            "model": "Wireless Temperature Sensor X (3)",
-            "hw_version": "SU04",
-            "battery_type": "LR03",
-            "battery_quantity": 3
         }
     ]
 }
