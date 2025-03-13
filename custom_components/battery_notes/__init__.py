@@ -138,7 +138,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
 
     library_updater = LibraryUpdater(hass)
 
-    await library_updater.get_schema_updates(dt_util.utcnow())
+    await library_updater.copy_schema()
     await library_updater.get_library_updates(dt_util.utcnow())
 
     hass.data[DOMAIN][DATA_LIBRARY_UPDATER] = library_updater

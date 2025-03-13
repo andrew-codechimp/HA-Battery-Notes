@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import logging
 import os
+import shutil
 import socket
 from datetime import datetime, timedelta
 from typing import Any
@@ -116,36 +117,12 @@ class LibraryUpdater:
                 "Unable to update library, will retry later."
             )
 
-    @callback
-    async def get_schema_updates(self, now: datetime):
-        # pylint: disable=unused-argument
-        """Make a call to get the latest schema.json."""
+    async def copy_schema(self):
+        """Copy schema file to storage to be relative to downloaded library."""
 
-        def _update_schema_json(schema_file: str, content: str) -> None:
-            os.makedirs(os.path.dirname(schema_file), exist_ok=True)
-            with open(schema_file, mode="w", encoding="utf-8") as file:
-                file.write(content)
-                file.close()
-
-        try:
-            _LOGGER.debug("Getting schema updates")
-
-            content = await self._client.async_get_schema()
-
-            json_path = self.hass.config.path(STORAGE_DIR, "battery_notes", "schema.json")
-
-            await self.hass.async_add_executor_job(
-                _update_schema_json, json_path, content
-            )
-
-            self.hass.data[DOMAIN][DATA_SCHEMA_LAST_UPDATE] = datetime.now()
-
-            _LOGGER.debug("Updated schema")
-
-        except LibraryUpdaterClientError:
-            _LOGGER.warning(
-                "Unable to update schema, will retry later."
-            )
+        install_schema_path = os.path.join(os.path.dirname(__file__), "schema.json")
+        storage_schema_path = self.hass.config.path(STORAGE_DIR, "battery_notes", "schema.json")
+        shutil.copyfile(install_schema_path, storage_schema_path)
 
     async def time_to_update_library(self, hours: int) -> bool:
         """Check when last updated and if OK to do a new library update."""
@@ -199,11 +176,6 @@ class LibraryUpdaterClient:
         """Get data from the API."""
         _LOGGER.debug(f"Updating library from {self._library_url}")
         return await self._api_wrapper(method="get", url=self._library_url)
-
-    async def async_get_schema(self) -> Any:
-        """Get schema from the API."""
-        _LOGGER.debug(f"Updating schema from {self._schema_url}")
-        return await self._api_wrapper(method="get", url=self._schema_url)
 
     async def _api_wrapper(
         self,
