@@ -190,12 +190,12 @@
     },
     "issues": {
         "missing_device": {
-            "title": "Orphaned Battery Note",
+            "title": "Verouderd Battery Note",
             "fix_flow": {
                 "step": {
                     "confirm": {
-                        "title": "Orphaned Battery Note",
-                        "description": "The associated device or entity no longer exists for the Battery Note entry {name}, the Battery Note should be deleted.\nSelect **Submit** to delete this Battery Note."
+                        "title": "Verouderd Battery Note",
+                        "description": "Het bijbehorende apparaat of entiteit bestaat niet langer voor de Battery Note {name}, de Battery Note moet worden verwijderd.\nSelecteer **Verzenden** om deze Battery Note te verwijderen."
                     }
                 }
             }

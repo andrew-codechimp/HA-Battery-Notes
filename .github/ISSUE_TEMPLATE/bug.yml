@@ -6,19 +6,11 @@ body:
   - type: markdown
     attributes:
       value: Before you open a new issue, search through the existing issues to see if others have had the same problem.
-  - type: textarea
-    attributes:
-      label: "System Health details"
-      description: "Paste the data from the System Health card in Home Assistant (https://www.home-assistant.io/more-info/system-health)"
-    validations:
-      required: true
   - type: checkboxes
     attributes:
       label: Checklist
       options:
         - label: I have added `battery_notes:` to my configuration.yaml and restarted.
-          required: true
-        - label: I am using the latest version of Battery Notes (if using the latest beta please mention this in the issue description).
           required: true
         - label: I have read the [FAQ's](https://andrew-codechimp.github.io/HA-Battery-Notes/faq).
           required: true
@@ -30,6 +22,12 @@ body:
           required: true
         - label: This issue is not a duplicate issue of any [previous issues](https://github.com/andrew-codechimp/ha-battery-notes/issues?q=is%3Aissue+label%3A%22Bug%22+)..
           required: true
+  - type: input
+    attributes:
+      label: "Battery Notes Version"
+      description: "Available from Settings/Devices & Services/Integrations/Battery Notes (you should be running the latest or pre-release)."
+    validations:
+      required: true
   - type: textarea
     attributes:
       label: "Describe the issue"
@@ -49,12 +47,17 @@ body:
       required: true
   - type: textarea
     attributes:
+      label: "System Health details"
+      description: "Paste the data from the System Health card in Home Assistant (https://www.home-assistant.io/more-info/system-health)"
+    validations:
+      required: true
+  - type: textarea
+    attributes:
       label: "Debug logs"
       description: "To enable debug logs check this https://www.home-assistant.io/integrations/logger/, this **needs** to include _everything_ from startup of Home Assistant to the point where you encounter the issue."
       render: text
     validations:
       required: false
-
   - type: textarea
     attributes:
       label: "Diagnostics dump"
