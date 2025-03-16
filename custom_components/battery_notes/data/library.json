@@ -2292,6 +2292,12 @@
         },
         {
             "manufacturer": "eQ-3",
+            "model": "HM-Sec-MDIR",
+            "battery_type": "LR6",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "eQ-3",
             "model": "HM-Sec-MDIR-2",
             "battery_type": "AA",
             "battery_quantity": 3
@@ -9264,12 +9270,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "eQ-3",
-            "model": "HM-Sec-MDIR",
-            "battery_type": "LR6",
-            "battery_quantity": 3
         }
     ]
 }
