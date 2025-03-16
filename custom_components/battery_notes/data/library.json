@@ -7338,7 +7338,7 @@
             "model": "Button scene switch",
             "model_id": "SH-SC07",
             "hw_version": "1",
-            "battery_type": "CR2450"
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "TuYa",
