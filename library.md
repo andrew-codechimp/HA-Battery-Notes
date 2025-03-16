@@ -1,4 +1,4 @@
-## 1653 Devices in library
+## 1654 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1343,6 +1343,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tuya                                            |Motion sensor                                                                                 |CR2450                    |809WZT                             |                                     1|
 |Tuya                                            |Motion sensor                                                                                 |CR2450                    |IH012-RT01                         |                                     1|
 |Tuya                                            |Motion Sensor                                                                                 |2× AAA                    |rjzon9kyxpoeksj3                   |                                      |
+|Tuya                                            |Motion sensor                                                                                 |2× AAA                    |ZP01                               |                                     1|
 |TuYa                                            |Motion sensor (809WZT)                                                                        |CR2450                    |                                   |                                      |
 |TuYa                                            |Motion sensor (IH012-RT01)                                                                    |CR2450                    |                                   |                                      |
 |Tuya                                            |Motion Sensor (rjzon9kyxpoeksj3)                                                              |2× AAA                    |                                   |                                      |
