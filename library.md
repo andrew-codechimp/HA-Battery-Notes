@@ -1,4 +1,4 @@
-## 1656 Devices in library
+## 1657 Devices in library
 
 This file is auto generated, do not modify
 
@@ -689,6 +689,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |IKEA                                            |KADRILJ roller blind (E1926)                                                                  |IKEA BRAUNIT              |E1926                              |                                     1|
 |IKEA                                            |PARASOLL door/window sensor                                                                   |AAA                       |E2013                              |                                      |
 |IKEA                                            |PARASOLL door/window Sensor (E2013)                                                           |AAA                       |                                   |                                      |
+|IKEA                                            |RODRET wireless dimmer/power switch                                                           |AAA                       |E2201                              |                                     1|
 |IKEA                                            |RODRET wireless dimmer/power switch (E2201)                                                   |AAA                       |                                   |                                      |
 |IKEA                                            |SOMRIG shortcut button                                                                        |AAA                       |E2213                              |                                     1|
 |IKEA                                            |SOMRIG shortcut button (E2213)                                                                |AAA                       |                                   |                                      |
