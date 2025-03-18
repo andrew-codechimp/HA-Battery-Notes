@@ -4372,6 +4372,13 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "LIDL",
+            "model": "Silvercrest smart motion sensor",
+            "model_id": "HG06335/HG07310",
+            "hw_version": "1",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "Lidl",
             "model": "Silvercrest smart motion sensor (HG06335/HG07310)",
             "battery_type": "MANUAL"
@@ -9284,13 +9291,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "LIDL",
-            "model": "Silvercrest smart motion sensor",
-            "model_id": "HG06335/HG07310",
-            "hw_version": "1",
-            "battery_type": "CR123A"
         }
     ]
 }
