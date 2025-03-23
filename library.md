@@ -1,4 +1,4 @@
-## 1662 Devices in library
+## 1663 Devices in library
 
 This file is auto generated, do not modify
 
@@ -524,6 +524,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |eWeLink                                         |66666                                                                                         |CR2450                    |                                   |                                      |
 |eWeLink                                         |Contact sensor                                                                                |CR2032                    |SNZB-04                            |                                     0|
 |eWeLink                                         |DS01                                                                                          |CR2032                    |                                   |                                      |
+|eWeLink                                         |Motion sensor                                                                                 |CR2450                    |SNZB-03                            |                                     0|
 |eWeLink                                         |MS01                                                                                          |CR2450                    |                                   |                                      |
 |eWeLink                                         |SNZB-01P                                                                                      |CR2477                    |                                   |                                      |
 |eWelink                                         |SNZB-02                                                                                       |CR2450                    |                                   |                                      |
