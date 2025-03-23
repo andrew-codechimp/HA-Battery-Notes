@@ -9314,6 +9314,13 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "eWeLink",
+            "model": "Motion sensor",
+            "model_id": "SNZB-03",
+            "hw_version": "0",
+            "battery_type": "CR2450"
         }
     ]
 }
