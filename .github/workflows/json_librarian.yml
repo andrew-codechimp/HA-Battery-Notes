@@ -3,10 +3,12 @@ name: JSON Library Sorter and Doc Gen
 on:
   workflow_dispatch:
   push:
+    branches:
+      - "main"
     paths:
-      - 'library/library.json'
-      - '.github/workflows/json_librarian.yml'
-      - '.github/workflows/scripts/library_doc/**'
+      - "library/library.json"
+      - ".github/workflows/json_librarian.yml"
+      - ".github/workflows/scripts/library_doc/**"
 
 jobs:
   librarian:

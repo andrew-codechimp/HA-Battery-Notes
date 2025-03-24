@@ -3,13 +3,17 @@ name: Validate JSONs
 on:
   workflow_dispatch:
   push:
+    branches:
+      - "main"
     paths:
-    - 'library/**'
-    - '.github/workflows/json*.yml'
+      - "library/**"
+      - ".github/workflows/json*.yml"
   pull_request:
+    branches:
+      - "main"
     paths:
-    - 'library/**'
-    - '.github/workflows/json*.yml'
+      - "library/**"
+      - ".github/workflows/json*.yml"
 
 jobs:
   verify-json-validation:
@@ -21,4 +25,3 @@ jobs:
         with:
           schema: library/schema.json
           files: library/library.json
-
