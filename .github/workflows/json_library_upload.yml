@@ -3,8 +3,10 @@ name: JSON Library Upload
 on:
   workflow_dispatch:
   push:
+    branches:
+      - "main"
     paths:
-      - 'library/schema.json'
+      - "library/schema.json"
   workflow_run:
     workflows: ["JSON Library Sorter and Doc Gen"]
     types:
