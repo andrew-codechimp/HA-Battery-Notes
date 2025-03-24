@@ -74,6 +74,7 @@ class Library:  # pylint: disable=too-few-public-methods
                     try:
                         legacy_data_directory = os.path.join(os.path.dirname(__file__), "data")
                         legacy_json_user_path = os.path.join(legacy_data_directory, user_library_filename)
+                        os.makedirs(os.path.dirname(json_user_path), exist_ok=True)
                         os.rename(legacy_json_user_path, json_user_path)
 
                         _LOGGER.debug(
