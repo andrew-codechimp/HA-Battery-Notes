@@ -3,15 +3,19 @@ name: Validate JSONs
 on:
   workflow_dispatch:
   push:
+    branches:
+      - "main"
     paths:
-    - 'custom_components/battery_notes/schema.json'
-    - 'custom_components/battery_notes/data/**'
-    - '.github/workflows/json*.yml'
+      - "custom_components/battery_notes/schema.json"
+      - "custom_components/battery_notes/data/**"
+      - ".github/workflows/json*.yml"
   pull_request:
+    branches:
+      - "main"
     paths:
-    - 'custom_components/battery_notes/schema.json'
-    - 'custom_components/battery_notes/data/**'
-    - '.github/workflows/json*.yml'
+      - "custom_components/battery_notes/schema.json"
+      - "custom_components/battery_notes/data/**"
+      - ".github/workflows/json*.yml"
 
 jobs:
   verify-json-validation:
@@ -23,4 +27,3 @@ jobs:
         with:
           schema: custom_components/battery_notes/schema.json
           files: custom_components/battery_notes/data/library.json
-          
