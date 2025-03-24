@@ -14,7 +14,7 @@ Upon submission using the form above GitHub will attempt to make the required co
 
 ## Submit Definition via Pull Request
 
-Fork the repository, add your device details to the JSON document `custom_components/battery_notes/data/library.json`, and then submit a pull request. Do not enable GitHub Actions (disabled by default) as this will mess with the pull request and are unnecessary for a library submission.
+Fork the repository, add your device details to the JSON document `library/library.json`, and then submit a pull request. Do not enable GitHub Actions (disabled by default) as this will mess with the pull request and are unnecessary for a library submission.
 
 * The easiest way to get the correct device information is to add the device manually, on the battery type panel you will see a summary at the top of the details required to add to the library.  This is also available if you go into configure of the device in battery notes.
 * The manufacturer and model should be exactly what is displayed on the Device screen within Home Assistant. If the Device screen has a Model ID or Hardware Version then this should be included.

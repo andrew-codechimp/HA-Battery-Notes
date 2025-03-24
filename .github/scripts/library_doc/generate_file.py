@@ -12,7 +12,7 @@ def generate_device_list():
 
     # Load the existing JSON library file
     with open(
-        "custom_components/battery_notes/data/library.json", encoding="UTF-8"
+        "library/library.json", encoding="UTF-8"
     ) as f:
         devices_json = json.loads(f.read())
         devices = devices_json.get("devices")

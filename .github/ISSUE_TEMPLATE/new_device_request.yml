@@ -6,7 +6,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        The battery library is a JSON document at [custom_components/battery_notes/data/library.json](https://github.com/andrew-codechimp/HA-Battery-Notes/blob/main/custom_components/battery_notes/data/library.json)
+        The battery library is a JSON document at [library/library.json](https://github.com/andrew-codechimp/HA-Battery-Notes/blob/main/library/library.json)
         To contribute, submit your device details via this form and the relevant code changes will be proposed on your behalf.
 
         If you add a device manually in Battery Notes you will be able to see the details required at the top of the battery details panel, which is also available in the configure panel for the device within the Battery Notes integration once you have added it.

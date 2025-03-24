@@ -32,13 +32,13 @@ jobs:
             import json
 
             # Load the existing JSON library file
-            with open("custom_components/battery_notes/data/library.json", "r", encoding="UTF-8") as f:
+            with open("library/library.json", "r", encoding="UTF-8") as f:
                 devices_json = json.loads(f.read())
                 devices = devices_json.get("devices")
 
             # Sort the devices by manufacturer and model
             devices.sort(key=lambda k: (k["manufacturer"].lower(), k.get("model_match_method", "").lower(), k["model"].lower(), k.get("model_id", "").lower(), k.get("hw_version", "").lower()))
-            with open("custom_components/battery_notes/data/library.json", "w", encoding="UTF-8") as f:
+            with open("library/library.json", "w", encoding="UTF-8") as f:
                 f.write(json.dumps(devices_json, indent=4))
 
       - name: Install library doc generator dependencies
