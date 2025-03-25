@@ -122,7 +122,12 @@ class LibraryUpdater:
         install_schema_path = os.path.join(os.path.dirname(__file__), "schema.json")
         storage_schema_path = self.hass.config.path(STORAGE_DIR, "battery_notes", "schema.json")
         os.makedirs(os.path.dirname(storage_schema_path), exist_ok=True)
-        shutil.copyfile(install_schema_path, storage_schema_path)
+        os.copy_file_range
+        await self.hass.async_add_executor_job(
+            shutil.copyfile,
+            install_schema_path,
+            storage_schema_path,
+        )
 
     async def time_to_update_library(self, hours: int) -> bool:
         """Check when last updated and if OK to do a new library update."""
