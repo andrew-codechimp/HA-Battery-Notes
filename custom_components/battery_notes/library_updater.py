@@ -122,7 +122,6 @@ class LibraryUpdater:
         install_schema_path = os.path.join(os.path.dirname(__file__), "schema.json")
         storage_schema_path = self.hass.config.path(STORAGE_DIR, "battery_notes", "schema.json")
         os.makedirs(os.path.dirname(storage_schema_path), exist_ok=True)
-        os.copy_file_range
         await self.hass.async_add_executor_job(
             shutil.copyfile,
             install_schema_path,
