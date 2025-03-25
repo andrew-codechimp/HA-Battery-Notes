@@ -24,10 +24,10 @@ homeassistant = "2025.1.0"
 python = ">=3.13,<3.14"
 
 [tool.poetry.group.dev.dependencies]
-pre-commit = "4.1.0"
+pre-commit = "4.2.0"
 pre-commit-hooks = "5.0.0"
-pylint = "3.3.4"
-ruff = "0.11.0"
+pylint = "3.3.6"
+ruff = "0.11.2"
 
 [tool.poetry.urls]
 "Bug Tracker" = "https://github.com/andrew-codechimp/HA-Battery-Notes/issues"
