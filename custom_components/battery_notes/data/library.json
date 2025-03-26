@@ -4762,6 +4762,13 @@
         },
         {
             "manufacturer": "Moes",
+            "model": "Smart temperature and humidity meter with display",
+            "model_id": "ZSS-ZK-THL",
+            "hw_version": "1",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Moes",
             "model": "Smoke sensor (ZSS-HM-SSD01)",
             "battery_type": "CR123A"
         },
@@ -9332,13 +9339,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Moes",
-            "model": "Smart temperature and humidity meter with display",
-            "model_id": "ZSS-ZK-THL",
-            "hw_version": "1",
-            "battery_type": "CR2032"
         }
     ]
 }
