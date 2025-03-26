@@ -1,4 +1,4 @@
-## 1663 Devices in library
+## 1664 Devices in library
 
 This file is auto generated, do not modify
 
@@ -182,6 +182,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Aqara                                           |AS006                                                                                         |CR1632                    |                                   |                                      |
 |Aqara                                           |AS008                                                                                         |CR2032                    |                                   |                                      |
 |Aqara                                           |AS010                                                                                         |CR2032                    |                                   |                                      |
+|Aqara                                           |Cube                                                                                          |CR2450                    |MFKZQ01LM                          |                                      |
 |Aqara                                           |Cube (MFKZQ01LM)                                                                              |CR2450                    |                                   |                                      |
 |Aqara                                           |Cube T1 Pro                                                                                   |CR2450                    |CTP-R01                            |                                      |
 |Aqara                                           |Door and window sensor                                                                        |CR1632                    |MCCGQ11LM                          |                                     2|

@@ -967,6 +967,12 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "Cube",
+            "model_id": "MFKZQ01LM",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "Cube (MFKZQ01LM)",
             "battery_type": "CR2450"
         },
@@ -9321,12 +9327,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Aqara",
-            "model": "Cube",
-            "model_id": "MFKZQ01LM",
-            "battery_type": "CR2450"
         }
     ]
 }
