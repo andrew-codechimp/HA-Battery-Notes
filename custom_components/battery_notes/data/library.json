@@ -6956,6 +6956,13 @@
         },
         {
             "manufacturer": "tado\u00b0 GmbH",
+            "model": "Smart Radiator Thermostat X",
+            "model_id": "1",
+            "hw_version": "VA04",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "tado\u00b0 GmbH",
             "model": "Smart Radiator Thermostat X (1)",
             "hw_version": "VA04",
             "battery_type": "LR6",
@@ -9345,13 +9352,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "tado\u00b0 GmbH",
-            "model": "Smart Radiator Thermostat X",
-            "model_id": "1",
-            "hw_version": "VA04",
-            "battery_type": "Rechargeable"
         }
     ]
 }
