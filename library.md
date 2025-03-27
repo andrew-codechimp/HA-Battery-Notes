@@ -1,4 +1,4 @@
-## 1668 Devices in library
+## 1667 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1255,7 +1255,6 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tado                                            |VA01                                                                                          |2× AA                     |                                   |                                      |
 |Tado                                            |VA02                                                                                          |2× AA                     |                                   |                                      |
 |tado° GmbH                                      |Smart Radiator Thermostat X                                                                   |Rechargeable              |                                  1|VA04                                  |
-|tado° GmbH                                      |Smart Radiator Thermostat X (1)                                                               |2× LR6                    |                                   |VA04                                  |
 |tado° GmbH                                      |Smart Thermostat X                                                                            |3× AAA                    |RU04                               |                                      |
 |tado° GmbH                                      |Wireless Temperature Sensor X (3)                                                             |3× LR03                   |                                   |SU04                                  |
 |Tedee                                           |Tedee GO                                                                                      |3× CR123A                 |                                   |                                      |
