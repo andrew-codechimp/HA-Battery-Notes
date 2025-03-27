@@ -389,7 +389,7 @@ class BatteryNotesBatteryPlusSensor(
 
     @callback
     async def async_state_reported_listener(
-        self, event: Event[EventStateChangedData] | None = None
+        self, event: Event[EventStateReportedData] | None = None
     ) -> None:
         # pylint: disable=unused-argument
         """Handle child updates."""
