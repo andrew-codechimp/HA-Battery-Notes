@@ -1,4 +1,4 @@
-## 1668 Devices in library
+## 1669 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1175,6 +1175,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |SmartThings                                     |Water leak sensor (2018 model) (IM6001-WLP01)                                                 |CR2                       |                                   |                                      |
 |SmartThings                                     |Water sensor (3315-S)                                                                         |CR2                       |                                   |                                      |
 |SmartWave                                       |SmartWave Window Covering (10001)                                                             |Rechargeable              |                                   |                                      |
+|SmartWings                                      |Roller shade                                                                                  |Rechargeable              |WM25L-Z                            |                                      |
 |Smartwings                                      |Roller shade (WM25L-Z)                                                                        |Rechargeable              |                                   |                                      |
 |Smartwings                                      |WM25/L-Z                                                                                      |Rechargeable              |                                   |                                      |
 |Smoke detector                                  |SSHM-I1                                                                                       |CR123A                    |                                   |                                      |

@@ -6509,6 +6509,12 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "SmartWings",
+            "model": "Roller shade",
+            "model_id": "WM25L-Z",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Smartwings",
             "model": "Roller shade (WM25L-Z)",
             "battery_type": "Rechargeable"
@@ -9351,12 +9357,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "SmartWings",
-            "model": "Roller shade",
-            "model_id": "WM25L-Z",
-            "battery_type": "Rechargeable"
         }
     ]
 }
