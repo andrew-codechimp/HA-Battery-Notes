@@ -5313,6 +5313,12 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "PETLIBRO",
+            "model": "PLAF301",
+            "battery_type": "D",
+            "battery_quantity": 3
+        },
+        {
             "manufacturer": "Philio Technology Corp",
             "model": "PAT02-B",
             "battery_type": "CR123A"
@@ -9339,12 +9345,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "PETLIBRO",
-            "model": "PLAF301",
-            "battery_type": "D",
-            "battery_quantity": 3
         }
     ]
 }
