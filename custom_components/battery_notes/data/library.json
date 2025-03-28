@@ -7884,6 +7884,12 @@
         },
         {
             "manufacturer": "Tuya",
+            "model": "Temperature & humidity sensor TS0601",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tuya",
             "model": "Temperature & humidity sensor with clock (JM-TRH-ZGB-V1)",
             "model_id": "_TZE200_vvmbj46n",
             "battery_type": "AAA",
@@ -9362,12 +9368,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE70",
             "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Temperature & humidity sensor TS0601",
-            "battery_type": "AAA",
             "battery_quantity": 2
         }
     ]
