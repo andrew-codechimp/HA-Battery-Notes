@@ -7081,6 +7081,13 @@
         },
         {
             "manufacturer": "Third Reality",
+            "model": "Soil sensor",
+            "model_id": "3RSM0147Z",
+            "hw_version": "0",
+            "battery_type": "AA"
+        },
+        {
+            "manufacturer": "Third Reality",
             "model": "Temperature and humidity sensor (3RTHS24BZ)",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -9369,13 +9376,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Third Reality",
-            "model": "Soil sensor",
-            "model_id": "3RSM0147Z",
-            "hw_version": "0",
-            "battery_type": "AA"
         }
     ]
 }
