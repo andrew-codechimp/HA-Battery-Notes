@@ -37,12 +37,12 @@
                     "battery_quantity": "Liczba baterii",
                     "battery_low_threshold": "Próg niskiego poziomu baterii",
                     "battery_low_template": "Szablon niskiego poziomu baterii",
-                    "filter_outliers": "Filter outliers"
+                    "filter_outliers": "Filtr wartości odstających"
                 },
                 "data_description": {
                     "battery_low_threshold": "0 użyje globalnego progu domyślnego",
                     "battery_low_template": "Szablon do określenia czy poziom naładowania baterii jest niski, powinien zwrócić wartość true, jeśli poziom jest niski.\nJest wymagany tylko dla niestandardowych raportów poziomu baterii",
-                    "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                    "filter_outliers": "Filtruj duże spadki poziomu baterii, zmniejszając fałszywe wyzwalanie zdarzeń na urządzeniach, które sporadycznie zgłaszają poziomy baterii"
                 }
             },
             "manual": {
@@ -68,13 +68,13 @@
                     "battery_quantity": "Liczba baterii",
                     "battery_low_threshold": "Próg niskiego poziomu baterii",
                     "battery_low_template": "Szablon niskiego poziomu baterii",
-                    "filter_outliers": "Filter outliers"
+                    "filter_outliers": "Filtr wartości odstających"
                 },
                 "data_description": {
                     "name": "Pozostawienie pustego pola spowoduje pobranie nazwy z urządzenia źródłowego",
                     "battery_low_threshold": "0 użyje globalnego progu domyślnego",
                     "battery_low_template": "Szablon do określenia czy poziom naładowania baterii jest niski, powinien zwrócić wartość true, jeśli poziom jest niski.\nJest wymagany tylko dla niestandardowych raportów poziomu baterii",
-                    "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                    "filter_outliers": "Filtruj duże spadki poziomu baterii, zmniejszając fałszywe wyzwalanie zdarzeń na urządzeniach, które sporadycznie zgłaszają poziomy baterii"
                 }
             }
         },
