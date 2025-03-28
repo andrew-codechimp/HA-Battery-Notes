@@ -2782,6 +2782,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "eQ3",
+            "model": "HmIP-STE2-PCB",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Eufy Security",
             "model": "T8113",
             "battery_type": "Rechargeable"
@@ -9356,12 +9362,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE70",
             "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "eQ3",
-            "model": "HmIP-STE2-PCB",
-            "battery_type": "AA",
             "battery_quantity": 2
         }
     ]
