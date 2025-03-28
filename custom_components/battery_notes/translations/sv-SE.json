@@ -2,7 +2,7 @@
     "config": {
         "step": {
             "user": {
-                "description": "Om du behöver hjälp med konfigurationen? Ta en titt här: https://andrew-codechimp.github.io/HA-Battery-Notes/",
+                "description": "Om du behöver hjälp med konfigurationen ta en titt här: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
                     "association_type": "Associationstyp"
                 },
@@ -37,12 +37,12 @@
                     "battery_quantity": "Antal batterier",
                     "battery_low_threshold": "Tröskelvärde lågt batteri",
                     "battery_low_template": "Batteri lågt template",
-                    "filter_outliers": "Filter outliers"
+                    "filter_outliers": "Filtrera avvikande"
                 },
                 "data_description": {
                     "battery_low_threshold": "0 kommer att använda det globala standardtröskelvärdet",
                     "battery_low_template": "Template för att bestämma om batteriet är lågt, borde returnera true om lågt.\nEndast nödvändigt för icke-standard batterinivåer.",
-                    "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                    "filter_outliers": "Filtrera bort stora batterinivåfall för att minska falska händelser på enheter som ibland rapporterar nivåer felaktigt"
                 }
             },
             "manual": {
@@ -68,13 +68,13 @@
                     "battery_quantity": "Antal batterier",
                     "battery_low_threshold": "Batteri lågt tröskelvärde",
                     "battery_low_template": "Batteri lågt template",
-                    "filter_outliers": "Filter outliers"
+                    "filter_outliers": "Filtrera avvikande värden"
                 },
                 "data_description": {
                     "name": "Genom att lämna blankt tas namnet från källenheten. ",
                     "battery_low_threshold": "0 kommer att använda den globala standardtröskelvärdet. ",
                     "battery_low_template": "Template för att bestämma om batteriet är lågt. Ska returnera true om lågt. Behövs endast för icke-standard batterinivåer. ",
-                    "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                    "filter_outliers": "Filtrera bort stora batterinivåfall för att minska falska händelser på enheter som ibland rapporterar nivåer felaktigt"
                 }
             }
         },
