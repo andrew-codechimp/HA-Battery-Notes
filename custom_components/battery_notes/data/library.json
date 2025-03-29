@@ -1652,6 +1652,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "BOSCH",
+            "model": "RBSH-TRV0-ZB-EU",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Bosch",
             "model": "Room thermostat II",
             "model_id": "RBSH-RTH0-BAT-ZB-EU",
@@ -9375,12 +9381,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE70",
             "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "BOSCH",
-            "model": "RBSH-TRV0-ZB-EU",
-            "battery_type": "AA",
             "battery_quantity": 2
         }
     ]
