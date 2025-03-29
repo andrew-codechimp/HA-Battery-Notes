@@ -1,4 +1,4 @@
-## 1673 Devices in library
+## 1674 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1090,6 +1090,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Shelly                                          |BLU Button1                                                                                   |CR2032                    |                                   |                                      |
 |Shelly                                          |BLU Door Window Sensor                                                                        |CR2032                    |                                   |                                      |
 |Shelly                                          |BLU Door/Window                                                                               |CR2032                    |                                   |                                      |
+|Shelly                                          |Blu Motion                                                                                    |CR2477                    |                                   |                                      |
 |Shelly                                          |BTHome sensor                                                                                 |MANUAL                    |                                   |                                      |
 |Shelly                                          |gen1 (SHHT-1)                                                                                 |CR123A                    |                                   |                                      |
 |Shelly                                          |Shelly BLU Motion                                                                             |CR2477                    |SBMO-003Z                          |                                      |

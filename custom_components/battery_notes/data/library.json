@@ -6053,6 +6053,11 @@
         },
         {
             "manufacturer": "Shelly",
+            "model": "Blu Motion",
+            "battery_type": "CR2477"
+        },
+        {
+            "manufacturer": "Shelly",
             "model": "BTHome sensor",
             "battery_type": "MANUAL"
         },
@@ -9382,11 +9387,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Shelly",
-            "model": "Blu Motion",
-            "battery_type": "CR2477"
         }
     ]
 }
