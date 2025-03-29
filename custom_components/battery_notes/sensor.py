@@ -406,6 +406,10 @@ class BatteryNotesBatteryPlusSensor(
 
         await self.coordinator.async_request_refresh()
 
+        self._attr_available = True
+
+        self.async_write_ha_state()
+
     async def _register_entity_id_change_listener(
         self,
         entity_id: str,
