@@ -397,6 +397,29 @@ class BatteryNotesBatteryPlusSensor(
         if not self.coordinator.wrapped_battery:
             return
 
+        if (
+            (
+                wrapped_battery_state := self.hass.states.get(
+                    self.coordinator.wrapped_battery.entity_id
+                )
+            )
+            is None
+            or wrapped_battery_state.state
+            in [
+                STATE_UNAVAILABLE,
+                STATE_UNKNOWN,
+            ]
+            or not validate_is_float(wrapped_battery_state.state)
+        ):
+            self._attr_native_value = None
+            self._attr_available = False
+            self.async_write_ha_state()
+            return
+
+        self.coordinator.current_battery_level = wrapped_battery_state.state
+
+        await self.coordinator.async_request_refresh()
+
         self.coordinator.last_reported = datetime.utcnow()
 
         _LOGGER.debug(
@@ -407,6 +430,8 @@ class BatteryNotesBatteryPlusSensor(
         await self.coordinator.async_request_refresh()
 
         self._attr_available = True
+        self._attr_native_value = self.coordinator.rounded_battery_level
+        self._wrapped_attributes = wrapped_battery_state.attributes
 
         self.async_write_ha_state()
 
