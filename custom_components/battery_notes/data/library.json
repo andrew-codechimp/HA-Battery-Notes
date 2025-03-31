@@ -9394,6 +9394,14 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "TVOC",
+            "model_id": "AS029",
+            "hw_version": "0029",
+            "battery_type": "CR2450",
+            "battery_quantity": 2
         }
     ]
 }
