@@ -1,4 +1,4 @@
-## 1674 Devices in library
+## 1675 Devices in library
 
 This file is auto generated, do not modify
 
@@ -753,6 +753,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Iris                                            |Contact and temperature sensor (3320-L)                                                       |CR2                       |                                   |                                      |
 |Iris                                            |Contact and temperature sensor (IL06_1)                                                       |CR2                       |                                   |                                      |
 |Iris                                            |iL07-01                                                                                       |CR123                     |                                   |                                      |
+|Iris                                            |Motion and temperature sensor                                                                 |CR2                       |3326-L                             |                                     1|
 |Iris                                            |Motion and temperature sensor (3326-L)                                                        |CR2                       |                                   |                                      |
 |Iris                                            |Motion Sensor (iL07_1)                                                                        |CR123A                    |                                   |                                      |
 |Iris                                            |Smart button (3460-L)                                                                         |CR2450                    |                                   |                                      |

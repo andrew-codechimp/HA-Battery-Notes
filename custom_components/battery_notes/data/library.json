@@ -4198,6 +4198,13 @@
         },
         {
             "manufacturer": "Iris",
+            "model": "Motion and temperature sensor",
+            "model_id": "3326-L",
+            "hw_version": "1",
+            "battery_type": "CR2"
+        },
+        {
+            "manufacturer": "Iris",
             "model": "Motion and temperature sensor (3326-L)",
             "battery_type": "CR2"
         },
@@ -9387,13 +9394,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Iris",
-            "model": "Motion and temperature sensor",
-            "model_id": "3326-L",
-            "hw_version": "1",
-            "battery_type": "CR2"
         }
     ]
 }
