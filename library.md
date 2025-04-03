@@ -1,4 +1,4 @@
-## 1678 Devices in library
+## 1679 Devices in library
 
 This file is auto generated, do not modify
 
@@ -973,6 +973,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Philips                                         |Hue motion sensor                                                                             |2× AAA                    |                         9290012607|                                      |
 |Philips                                         |Hue motion sensor (9290012607)                                                                |2× AAA                    |                                   |                                      |
 |Philips                                         |Hue motion sensor (9290030675)                                                                |2× AAA                    |                                   |                                      |
+|Philips                                         |Hue smart button                                                                              |CR2032                    |                      8718699693985|                                     1|
 |Philips                                         |Hue smart button (8718699693985)                                                              |CR2032                    |                                   |                                      |
 |Philips                                         |Hue Tap dial switch                                                                           |CR2032                    |8719514440937/8719514440999        |                                      |
 |Philips                                         |Hue Tap dial switch (8719514440937/8719514440999)                                             |CR2032                    |                                   |                                      |
