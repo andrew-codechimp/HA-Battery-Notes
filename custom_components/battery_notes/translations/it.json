@@ -37,12 +37,12 @@
                     "battery_quantity": "Quantità batteria",
                     "battery_low_threshold": "Livello batteria bassa",
                     "battery_low_template": "Modello batteria bassa",
-                    "filter_outliers": "Filter outliers"
+                    "filter_outliers": "Filtra anomali"
                 },
                 "data_description": {
                     "battery_low_threshold": "0 utilizzerà la soglia globale predefinita",
                     "battery_low_template": "Modello per determinare se una batteria è scarica, dovrebbe restituire vero se scarica. \nNecessario solo per livelli di batteria non standard",
-                    "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                    "filter_outliers": "Filtra grossi cali batteria, riducendo falsi eventi su dispositivi che restituiscono occasionalmente livelli erronei"
                 }
             },
             "manual": {
@@ -68,18 +68,18 @@
                     "battery_quantity": "Quantità batteria",
                     "battery_low_threshold": "Livello batteria bassa",
                     "battery_low_template": "Modello batteria bassa",
-                    "filter_outliers": "Filter outliers"
+                    "filter_outliers": "Filtra anomali"
                 },
                 "data_description": {
                     "name": "Lasciando vuoto prenderà il nome dal dispositivo di origine",
                     "battery_low_threshold": "0 utilizzerà la soglia globale predefinita",
                     "battery_low_template": "Modello per determinare se una batteria è scarica, dovrebbe restituire vero se scarica. \nNecessario solo per livelli di batteria non standard",
-                    "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                    "filter_outliers": "Filtra grossi cali batteria, riducendo falsi eventi su dispositivi che restituiscono occasionalmente livelli erronei"
                 }
             }
         },
         "error": {
-            "orphaned_battery_note": "The associated device or entity no longer exists for this Battery Note.",
+            "orphaned_battery_note": "L'entità o dispositivo associato non esiste più per questo Battery Note.",
             "unknown": "Errore sconosciuto."
         }
     },
@@ -190,12 +190,12 @@
     },
     "issues": {
         "missing_device": {
-            "title": "Orphaned Battery Note",
+            "title": "Battery Note orfano",
             "fix_flow": {
                 "step": {
                     "confirm": {
-                        "title": "Orphaned Battery Note",
-                        "description": "The associated device or entity no longer exists for the Battery Note entry {name}, the Battery Note should be deleted.\nSelect **Submit** to delete this Battery Note."
+                        "title": "Battery Note orfano",
+                        "description": "Il dispositivo o entità associato all'elemento {name} di Battery Note non esiste più e deve essere cancellato.\nSeleziona **Invia** per eliminare questo Battery Note."
                     }
                 }
             }
