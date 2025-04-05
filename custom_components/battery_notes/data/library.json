@@ -9420,6 +9420,12 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "Aqara Wireless Remote Switch H1 (Double Rocker)",
+            "model_id": "WXKG15LM",
+            "battery_type": "CR2450"
         }
     ]
 }
