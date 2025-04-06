@@ -946,6 +946,12 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "Aqara Wireless Remote Switch H1 (Double Rocker)",
+            "model_id": "WXKG15LM",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "aqara.lock.bzacn4 ZNMS16LM",
             "battery_type": "AA",
             "battery_quantity": 6
@@ -9420,12 +9426,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Aqara",
-            "model": "Aqara Wireless Remote Switch H1 (Double Rocker)",
-            "model_id": "WXKG15LM",
-            "battery_type": "CR2450"
         }
     ]
 }
