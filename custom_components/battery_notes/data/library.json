@@ -9432,6 +9432,14 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "IKEA",
+            "model": "STYRBAR remote control",
+            "model_id": "E2001/E2002",
+            "hw_version": "1",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
