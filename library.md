@@ -1,4 +1,4 @@
-## 1681 Devices in library
+## 1682 Devices in library
 
 This file is auto generated, do not modify
 
@@ -702,6 +702,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |IKEA                                            |RODRET wireless dimmer/power switch (E2201)                                                   |AAA                       |                                   |                                      |
 |IKEA                                            |SOMRIG shortcut button                                                                        |AAA                       |E2213                              |                                     1|
 |IKEA                                            |SOMRIG shortcut button (E2213)                                                                |AAA                       |                                   |                                      |
+|IKEA                                            |STYRBAR remote control                                                                        |2× AAA                    |E2001/E2002                        |                                     1|
 |IKEA                                            |STYRBAR remote control (E2001/E2002)                                                          |2× AAA                    |                                   |                                      |
 |IKEA                                            |SYMFONISK sound controller (E1744)                                                            |CR2032                    |                                   |                                      |
 |IKEA                                            |SYMFONISK sound remote gen2 (E2123)                                                           |2× AAA                    |                                   |                                      |
