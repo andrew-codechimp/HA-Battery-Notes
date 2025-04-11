@@ -6244,6 +6244,11 @@
             "battery_type": "CR2"
         },
         {
+            "manufacturer": "Shenzhen Neo Electronics Co., Ltd.",
+            "model": "NAS_PD02Z-2",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "SIEGENIA",
             "model": "Smart window handle",
             "battery_type": "AAA",
@@ -9440,11 +9445,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Shenzhen Neo Electronics Co., Ltd.",
-            "model": "NAS_PD02Z-2",
-            "battery_type": "CR123A"
         }
     ]
 }

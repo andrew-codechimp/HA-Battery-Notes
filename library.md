@@ -1,4 +1,4 @@
-## 1682 Devices in library
+## 1683 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1124,6 +1124,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Shenzhen Neo Electronics Co., Ltd.              |NAS-PD03Z                                                                                     |CR132A                    |                                   |                                      |
 |Shenzhen Neo Electronics Co., Ltd.              |NAS-PD07Z                                                                                     |2× CR123A                 |                                   |                                      |
 |Shenzhen Neo Electronics Co., Ltd.              |NAS-WS01Z                                                                                     |CR2                       |                                   |                                      |
+|Shenzhen Neo Electronics Co., Ltd.              |NAS_PD02Z-2                                                                                   |CR123A                    |                                   |                                      |
 |SIEGENIA                                        |Smart window handle                                                                           |2× AAA                    |                                   |                                      |
 |Signify Netherlands B.V.                        |Hue dimmer switch (RWL020)                                                                    |CR2450                    |                                   |                                      |
 |Signify Netherlands B.V.                        |Hue dimmer switch (RWL021)                                                                    |CR2450                    |                                   |                                      |
