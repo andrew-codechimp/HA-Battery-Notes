@@ -2,6 +2,11 @@ name: JSON Library Upload
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - "main"
+    paths:
+      - "library/schema.json"
   workflow_run:
     workflows: ["JSON Library Sorter and Doc Gen"]
     types:
@@ -23,7 +28,7 @@ jobs:
           r2-access-key-id: ${{ secrets.R2_ACCESS_KEY_ID }}
           r2-secret-access-key: ${{ secrets.R2_SECRET_ACCESS_KEY }}
           r2-bucket: ${{ secrets.R2_BUCKET }}
-          source-dir: ./custom_components/battery_notes/data/
+          source-dir: ./library
           destination-dir: ./
 
       - name: Cloudflare Purge Cache
@@ -31,4 +36,4 @@ jobs:
         env:
           CLOUDFLARE_ZONE: ${{ secrets.CLOUDFLARE_ZONE }}
           CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
-          PURGE_URLS: '["https://battery-notes-data.codechimp.org/library.json"]'
+          PURGE_URLS: '["https://battery-notes-data.codechimp.org/library.json", "https://battery-notes-data.codechimp.org/schema.json"]'

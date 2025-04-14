@@ -42,8 +42,10 @@ from homeassistant.helpers.entity_registry import (
 )
 from homeassistant.helpers.event import (
     EventStateChangedData,
+    EventStateReportedData,
     async_track_entity_registry_updated_event,
     async_track_state_change_event,
+    async_track_state_report_event,
 )
 from homeassistant.helpers.reload import async_setup_reload_service
 from homeassistant.helpers.typing import StateType
@@ -385,6 +387,54 @@ class BatteryNotesBatteryPlusSensor(
 
         self.async_write_ha_state()
 
+    @callback
+    async def async_state_reported_listener(
+        self, event: Event[EventStateReportedData] | None = None
+    ) -> None:
+        # pylint: disable=unused-argument
+        """Handle child updates."""
+
+        if not self.coordinator.wrapped_battery:
+            return
+
+        if (
+            (
+                wrapped_battery_state := self.hass.states.get(
+                    self.coordinator.wrapped_battery.entity_id
+                )
+            )
+            is None
+            or wrapped_battery_state.state
+            in [
+                STATE_UNAVAILABLE,
+                STATE_UNKNOWN,
+            ]
+            or not validate_is_float(wrapped_battery_state.state)
+        ):
+            self._attr_native_value = None
+            self._attr_available = False
+            self.async_write_ha_state()
+            return
+
+        self.coordinator.current_battery_level = wrapped_battery_state.state
+
+        await self.coordinator.async_request_refresh()
+
+        self.coordinator.last_reported = datetime.utcnow()
+
+        _LOGGER.debug(
+            "Entity id %s has been reported.",
+            self.coordinator.wrapped_battery.entity_id,
+        )
+
+        await self.coordinator.async_request_refresh()
+
+        self._attr_available = True
+        self._attr_native_value = self.coordinator.rounded_battery_level
+        self._wrapped_attributes = wrapped_battery_state.attributes
+
+        self.async_write_ha_state()
+
     async def _register_entity_id_change_listener(
         self,
         entity_id: str,
@@ -425,6 +475,14 @@ class BatteryNotesBatteryPlusSensor(
                     )
                 )
 
+                self.async_on_remove(
+                    async_track_state_report_event(
+                        self.hass,
+                        [self.coordinator.wrapped_battery.entity_id],
+                        self.async_state_reported_listener,
+                    )
+                )
+
         @callback
         def _filter_entity_id(event_data: Mapping[str, Any]) -> bool:
             """Only dispatch the listener for update events concerning the source entity."""
@@ -451,12 +509,27 @@ class BatteryNotesBatteryPlusSensor(
             """Handle child updates."""
             await self.async_state_changed_listener(event)
 
+        @callback
+        async def _async_state_reported_listener(
+            event: Event[EventStateReportedData] | None = None,
+        ) -> None:
+            """Handle child updates."""
+            await self.async_state_reported_listener(event)
+
         if self.coordinator.wrapped_battery:
             self.async_on_remove(
                 async_track_state_change_event(
                     self.hass,
                     [self.coordinator.wrapped_battery.entity_id],
                     _async_state_changed_listener,
+                )
+            )
+
+            self.async_on_remove(
+                async_track_state_report_event(
+                    self.hass,
+                    [self.coordinator.wrapped_battery.entity_id],
+                    _async_state_reported_listener,
                 )
             )
 

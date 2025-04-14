@@ -263,6 +263,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                         library_updater: LibraryUpdater = self.hass.data[DOMAIN][
                             DATA_LIBRARY_UPDATER
                         ]
+
                         if await library_updater.time_to_update_library(1):
                             await library_updater.get_library_updates(dt_util.utcnow())
 

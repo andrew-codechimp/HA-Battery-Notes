@@ -1,0 +1,71 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "https://github.com/andrew-codechimp/HA-Battery-Notes.schema.json",
+    "title": "Battery Notes Library",
+    "description": "Library of battery types for devices",
+    "type": "object",
+    "properties": {
+        "$schema": {
+            "description": "Schema reference",
+            "type": "string"
+        },
+        "version": {
+            "description": "Version of the library schema",
+            "type": "integer"
+        },
+        "devices": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "additionalProperties": true,
+                "required": [
+                    "manufacturer",
+                    "model",
+                    "battery_type"
+                ],
+                "properties": {
+                    "manufacturer": {
+                        "type": "string",
+                        "description": "The manufacturer of the device as it appears in Home Assistant."
+                    },
+                    "model": {
+                        "type": "string",
+                        "description": "The model of the device as it appears in Home Assistant."
+                    },
+                    "model_id": {
+                        "type": "string",
+                        "description": "The model id of the device as it appears in Home Assistant. Only required where a model id is specified."
+                    },
+                    "hw_version": {
+                        "type": "string",
+                        "description": "The hardware version of the device as it appears in Home Assistant. Only required where there are multiple versions of a model."
+                    },
+                    "battery_type": {
+                        "type": "string",
+                        "description": "The type of battery for the device. Should be the most common naming for general batteries, and the IEC naming for battery cells according to Wikipedia."
+                    },
+                    "battery_quantity": {
+                        "type": "integer",
+                        "exclusiveMinimum": 1,
+                        "description": "The number of batteries required by the device. If a device only has one battery this property should be omitted."
+                    },
+                    "model_match_method": {
+                        "type": "string",
+                        "description": "The matching method for model, default exact.",
+                        "enum": [
+                            "startswith",
+                            "endswith",
+                            "contains"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "$schema",
+        "version",
+        "devices"
+    ]
+}

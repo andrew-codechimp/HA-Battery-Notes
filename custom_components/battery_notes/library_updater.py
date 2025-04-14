@@ -1,10 +1,11 @@
-"""Sample API Client."""
+"""Library updater."""
 
 from __future__ import annotations
 
 import json
 import logging
 import os
+import shutil
 import socket
 from datetime import datetime, timedelta
 from typing import Any
@@ -15,20 +16,21 @@ from homeassistant.core import HomeAssistant, callback
 from homeassistant.exceptions import ConfigEntryNotReady
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.event import async_track_utc_time_change
+from homeassistant.helpers.storage import STORAGE_DIR
 
 from .const import (
     CONF_ENABLE_AUTODISCOVERY,
     CONF_LIBRARY_URL,
+    CONF_SCHEMA_URL,
     DATA_LIBRARY_LAST_UPDATE,
     DEFAULT_LIBRARY_URL,
+    DEFAULT_SCHEMA_URL,
     DOMAIN,
     DOMAIN_CONFIG,
 )
 from .discovery import DiscoveryManager
 
 _LOGGER = logging.getLogger(__name__)
-
-BUILT_IN_DATA_DIRECTORY = os.path.join(os.path.dirname(__file__), "data")
 
 class LibraryUpdaterClientError(Exception):
     """Exception to indicate a general API error."""
@@ -47,11 +49,13 @@ class LibraryUpdater:
 
         if DOMAIN_CONFIG in self.hass.data[DOMAIN]:
             domain_config: dict = self.hass.data[DOMAIN][DOMAIN_CONFIG]
-            url = domain_config.get(CONF_LIBRARY_URL, DEFAULT_LIBRARY_URL)
+            library_url = domain_config.get(CONF_LIBRARY_URL, DEFAULT_LIBRARY_URL)
+            schema_url = domain_config.get(CONF_SCHEMA_URL, DEFAULT_SCHEMA_URL)
         else:
-            url = DEFAULT_LIBRARY_URL
+            library_url = DEFAULT_LIBRARY_URL
+            schema_url = DEFAULT_SCHEMA_URL
 
-        self._client = LibraryUpdaterClient(library_url=url, session=async_get_clientsession(hass))
+        self._client = LibraryUpdaterClient(library_url=library_url, schema_url=schema_url, session=async_get_clientsession(hass))
 
         # Fire the library check every 24 hours from just before now
         refresh_time = datetime.now() - timedelta(hours=0, minutes=1)
@@ -81,9 +85,10 @@ class LibraryUpdater:
     @callback
     async def get_library_updates(self, now: datetime):
         # pylint: disable=unused-argument
-        """Make a call to GitHub to get the latest library.json."""
+        """Make a call to get the latest library.json."""
 
         def _update_library_json(library_file: str, content: str) -> None:
+            os.makedirs(os.path.dirname(library_file), exist_ok=True)
             with open(library_file, mode="w", encoding="utf-8") as file:
                 file.write(content)
                 file.close()
@@ -94,10 +99,7 @@ class LibraryUpdater:
             content = await self._client.async_get_data()
 
             if self.validate_json(content):
-                json_path = os.path.join(
-                    BUILT_IN_DATA_DIRECTORY,
-                    "library.json",
-                )
+                json_path = self.hass.config.path(STORAGE_DIR, "battery_notes", "library.json")
 
                 await self.hass.async_add_executor_job(
                     _update_library_json, json_path, content
@@ -113,6 +115,18 @@ class LibraryUpdater:
             _LOGGER.warning(
                 "Unable to update library, will retry later."
             )
+
+    async def copy_schema(self):
+        """Copy schema file to storage to be relative to downloaded library."""
+
+        install_schema_path = os.path.join(os.path.dirname(__file__), "schema.json")
+        storage_schema_path = self.hass.config.path(STORAGE_DIR, "battery_notes", "schema.json")
+        os.makedirs(os.path.dirname(storage_schema_path), exist_ok=True)
+        await self.hass.async_add_executor_job(
+            shutil.copyfile,
+            install_schema_path,
+            storage_schema_path,
+        )
 
     async def time_to_update_library(self, hours: int) -> bool:
         """Check when last updated and if OK to do a new library update."""
@@ -154,10 +168,12 @@ class LibraryUpdaterClient:
     def __init__(
         self,
         library_url: str,
+        schema_url: str,
         session: aiohttp.ClientSession,
     ) -> None:
         """Client to get latest library file from GitHub."""
         self._library_url = library_url
+        self._schema_url = schema_url
         self._session = session
 
     async def async_get_data(self) -> Any:

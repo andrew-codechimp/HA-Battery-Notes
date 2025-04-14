@@ -11,7 +11,7 @@ from homeassistant.helpers import config_validation as cv
 
 LOGGER: Logger = getLogger(__package__)
 
-MIN_HA_VERSION = "2024.12"
+MIN_HA_VERSION = "2024.12.0"
 
 manifestfile = Path(__file__).parent / "manifest.json"
 with open(file=manifestfile, encoding="UTF-8") as json_file:
@@ -31,6 +31,7 @@ DOMAIN_CONFIG = "config"
 DEFAULT_BATTERY_LOW_THRESHOLD = 10
 DEFAULT_BATTERY_INCREASE_THRESHOLD = 25
 DEFAULT_LIBRARY_URL = "https://battery-notes-data.codechimp.org/library.json"
+DEFAULT_SCHEMA_URL = "https://battery-notes-data.codechimp.org/schema.json"
 
 CONF_SOURCE_ENTITY_ID = "source_entity_id"
 CONF_BATTERY_TYPE = "battery_type"
@@ -44,6 +45,7 @@ CONF_MODEL_ID = "model_id"
 CONF_MANUFACTURER = "manufacturer"
 CONF_DEVICE_NAME = "device_name"
 CONF_LIBRARY_URL = "library_url"
+CONF_SCHEMA_URL = "schema_url"
 CONF_SHOW_ALL_DEVICES = "show_all_devices"
 CONF_ENABLE_REPLACED = "enable_replaced"
 CONF_DEFAULT_BATTERY_LOW_THRESHOLD = "default_battery_low_threshold"

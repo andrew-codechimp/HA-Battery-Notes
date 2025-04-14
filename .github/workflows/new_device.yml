@@ -36,7 +36,7 @@ jobs:
             import json
 
             # Load the existing JSON library file
-            with open("custom_components/battery_notes/data/library.json",'r') as f:
+            with open("library/library.json",'r') as f:
               devices_json = json.loads(f.read())
               devices = devices_json.get('devices')
 
@@ -78,7 +78,7 @@ jobs:
             else:
               set_output("mode", "adds")
 
-            with open("custom_components/battery_notes/data/library.json", "w") as f:
+            with open("library/library.json", "w") as f:
               f.write(json.dumps(devices_json, indent=4))
 
       - name: Rename Issue
@@ -94,8 +94,8 @@ jobs:
       - name: Validate JSON
         uses: docker://orrosenblatt/validate-json-action:latest
         env:
-          INPUT_SCHEMA: custom_components/battery_notes/schema.json
-          INPUT_JSONS: custom_components/battery_notes/data/library.json
+          INPUT_SCHEMA: library/schema.json
+          INPUT_JSONS: library/library.json
 
       - name: Create pull request
         uses: peter-evans/create-pull-request@v7
@@ -120,10 +120,10 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BODY: >
-            Thanks for the contribution. We're auto-closing this issue. If it's a new device, a pull request will be created that will be reviewed and merged.  
+            Thanks for the contribution. We're auto-closing this issue. If it's a new device, a pull request will be created that will be reviewed and merged.
 
 
-            If Battery Notes is useful to you please  
+            If Battery Notes is useful to you please
 
-            
+
             [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png)](https://www.buymeacoffee.com/codechimp)

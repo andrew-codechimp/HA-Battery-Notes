@@ -8,6 +8,7 @@ import os
 from typing import Any, Final, NamedTuple, cast
 
 from homeassistant.core import HomeAssistant
+from homeassistant.helpers.storage import STORAGE_DIR
 
 from .const import (
     CONF_USER_LIBRARY,
@@ -15,8 +16,6 @@ from .const import (
     DOMAIN,
     DOMAIN_CONFIG,
 )
-
-BUILT_IN_DATA_DIRECTORY = os.path.join(os.path.dirname(__file__), "data")
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -57,10 +56,7 @@ class Library:  # pylint: disable=too-few-public-methods
                 CONF_USER_LIBRARY
             )
             if user_library_filename != "":
-                json_user_path = os.path.join(
-                    BUILT_IN_DATA_DIRECTORY,
-                    user_library_filename,
-                )
+                json_user_path = self.hass.config.path(STORAGE_DIR, "battery_notes", user_library_filename)
                 _LOGGER.debug("Using user library file at %s", json_user_path)
 
                 try:
@@ -74,16 +70,25 @@ class Library:  # pylint: disable=too-few-public-methods
                     )
 
                 except FileNotFoundError:
-                    _LOGGER.error(
-                        "User library file not found at %s",
-                        json_user_path,
-                    )
+                    # Try to move the user library to new location
+                    try:
+                        legacy_data_directory = os.path.join(os.path.dirname(__file__), "data")
+                        legacy_json_user_path = os.path.join(legacy_data_directory, user_library_filename)
+                        os.makedirs(os.path.dirname(json_user_path), exist_ok=True)
+                        os.rename(legacy_json_user_path, json_user_path)
+
+                        _LOGGER.debug(
+                            "User library moved to %s",
+                            json_user_path,
+                        )
+                    except FileNotFoundError:
+                        _LOGGER.error(
+                            "User library file not found at %s",
+                            json_user_path,
+                        )
 
         # Default Library
-        json_default_path = os.path.join(
-            BUILT_IN_DATA_DIRECTORY,
-            "library.json",
-        )
+        json_default_path = self.hass.config.path(STORAGE_DIR, "battery_notes", "library.json")
 
         _LOGGER.debug("Using library file at %s", json_default_path)
 
@@ -98,8 +103,8 @@ class Library:  # pylint: disable=too-few-public-methods
 
         except FileNotFoundError:
             _LOGGER.error(
-                "library.json file not found in directory %s",
-                BUILT_IN_DATA_DIRECTORY,
+                "library.json file not found at %s",
+                json_default_path,
             )
 
     @staticmethod

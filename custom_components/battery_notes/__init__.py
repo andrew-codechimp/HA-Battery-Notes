@@ -33,6 +33,7 @@ from .const import (
     CONF_HIDE_BATTERY,
     CONF_LIBRARY_URL,
     CONF_ROUND_BATTERY,
+    CONF_SCHEMA_URL,
     CONF_SHOW_ALL_DEVICES,
     CONF_USER_LIBRARY,
     DATA,
@@ -41,6 +42,7 @@ from .const import (
     DEFAULT_BATTERY_INCREASE_THRESHOLD,
     DEFAULT_BATTERY_LOW_THRESHOLD,
     DEFAULT_LIBRARY_URL,
+    DEFAULT_SCHEMA_URL,
     DOMAIN,
     DOMAIN_CONFIG,
     MIN_HA_VERSION,
@@ -81,6 +83,10 @@ CONFIG_SCHEMA = vol.Schema(
                         CONF_LIBRARY_URL,
                         default=DEFAULT_LIBRARY_URL,
                     ): cv.string,
+                    vol.Optional(
+                        CONF_SCHEMA_URL,
+                        default=DEFAULT_SCHEMA_URL,
+                    ): cv.string,
                 },
             ),
         ),
@@ -118,6 +124,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         CONF_DEFAULT_BATTERY_LOW_THRESHOLD: DEFAULT_BATTERY_LOW_THRESHOLD,
         CONF_BATTERY_INCREASE_THRESHOLD: DEFAULT_BATTERY_INCREASE_THRESHOLD,
         CONF_LIBRARY_URL: DEFAULT_LIBRARY_URL,
+        CONF_SCHEMA_URL: DEFAULT_SCHEMA_URL,
     }
 
     hass.data[DOMAIN] = {
@@ -131,6 +138,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
 
     library_updater = LibraryUpdater(hass)
 
+    await library_updater.copy_schema()
     await library_updater.get_library_updates(dt_util.utcnow())
 
     hass.data[DOMAIN][DATA_LIBRARY_UPDATER] = library_updater

@@ -3,7 +3,6 @@
     "filename": "battery_notes.zip",
     "hide_default_branch": true,
     "homeassistant": "2024.12.0",
-    "render_readme": true,
     "zip_release": true,
     "persistent_directory": "data"
 }
