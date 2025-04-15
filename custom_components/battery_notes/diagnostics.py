@@ -14,12 +14,13 @@ from homeassistant.helpers import (
     entity_registry as er,
 )
 
+from . import BatteryNotesConfigEntry
 from .common import get_device_model_id
 from .const import CONF_SOURCE_ENTITY_ID
 
 
 async def async_get_config_entry_diagnostics(
-    hass: HomeAssistant, config_entry: ConfigEntry
+    hass: HomeAssistant, config_entry: BatteryNotesConfigEntry
 ) -> dict[str, Any]:
     """Return diagnostics for a config entry."""
 

@@ -6,17 +6,25 @@ import logging
 from datetime import datetime
 from typing import cast
 
+from homeassistant.components.binary_sensor import DOMAIN as BINARY_SENSOR_DOMAIN
+from homeassistant.components.binary_sensor import BinarySensorDeviceClass
+from homeassistant.components.sensor import DOMAIN as SENSOR_DOMAIN
+from homeassistant.components.sensor import SensorDeviceClass
 from homeassistant.const import (
+    CONF_DEVICE_ID,
+    PERCENTAGE,
     STATE_UNAVAILABLE,
     STATE_UNKNOWN,
 )
+from homeassistant.core import CALLBACK_TYPE, HomeAssistant
 from homeassistant.helpers import device_registry as dr
 from homeassistant.helpers import entity_registry as er
+from homeassistant.helpers import issue_registry as ir
 from homeassistant.helpers.entity_registry import RegistryEntry
-from homeassistant.helpers.update_coordinator import (
-    DataUpdateCoordinator,
-)
+from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
+from homeassistant.util import dt as dt_util
 
+from . import BatteryNotesConfigEntry
 from .common import validate_is_float
 from .const import (
     ATTR_BATTERY_LAST_REPLACED,
@@ -32,12 +40,13 @@ from .const import (
     ATTR_PREVIOUS_BATTERY_LEVEL,
     ATTR_REMOVE,
     ATTR_SOURCE_ENTITY_ID,
-    CONF_BATTERY_INCREASE_THRESHOLD,
-    CONF_ENABLE_REPLACED,
-    CONF_ROUND_BATTERY,
-    DEFAULT_BATTERY_INCREASE_THRESHOLD,
+    CONF_BATTERY_LOW_TEMPLATE,
+    CONF_BATTERY_LOW_THRESHOLD,
+    CONF_BATTERY_QUANTITY,
+    CONF_BATTERY_TYPE,
+    CONF_FILTER_OUTLIERS,
+    CONF_SOURCE_ENTITY_ID,
     DOMAIN,
-    DOMAIN_CONFIG,
     EVENT_BATTERY_INCREASED,
     EVENT_BATTERY_THRESHOLD,
     LAST_REPLACED,
@@ -45,9 +54,9 @@ from .const import (
     LAST_REPORTED_LEVEL,
 )
 from .filters import LowOutlierFilter
-from .store import BatteryNotesStorage
 
 _LOGGER = logging.getLogger(__name__)
+
 
 
 class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
@@ -63,8 +72,6 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
     wrapped_battery: RegistryEntry | None = None
     wrapped_battery_low: RegistryEntry | None = None
     _current_battery_level: str | None = None
-    enable_replaced: bool = True
-    _round_battery: bool = False
     _previous_battery_low: bool | None = None
     _previous_battery_level: str | None = None
     _battery_low_template_state: bool = False
@@ -76,27 +83,225 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
 
     def __init__(
         self,
-        hass,
-        store: BatteryNotesStorage,
-        wrapped_battery: RegistryEntry | None,
-        wrapped_battery_low: RegistryEntry | None,
-        filter_outliers: bool,
+        hass: HomeAssistant,
+        config_entry: BatteryNotesConfigEntry,
     ):
         """Initialize."""
-        self.store = store
-        self.wrapped_battery = wrapped_battery
-        self.wrapped_battery_low = wrapped_battery_low
-
-        if DOMAIN_CONFIG in hass.data[DOMAIN]:
-            domain_config: dict = hass.data[DOMAIN][DOMAIN_CONFIG]
-            self.enable_replaced = domain_config.get(CONF_ENABLE_REPLACED, True)
-            self._round_battery = domain_config.get(CONF_ROUND_BATTERY, False)
-
         super().__init__(hass, _LOGGER, name=DOMAIN)
 
-        if filter_outliers:
+        self.reset_jobs: list[CALLBACK_TYPE] = []
+
+        self.config_entry = config_entry
+
+        self.device_id = config_entry.data.get(CONF_DEVICE_ID, None)
+        self.source_entity_id = config_entry.data.get(CONF_SOURCE_ENTITY_ID, None)
+
+        self._link_device()
+
+        assert(self.device_name)
+
+        self.battery_type = cast(str, self.config_entry.data.get(CONF_BATTERY_TYPE))
+        try:
+            self.battery_quantity = cast(
+                int, self.config_entry.data.get(CONF_BATTERY_QUANTITY)
+            )
+        except ValueError:
+            self.battery_quantity = 1
+
+        self.battery_low_threshold = int(
+            self.config_entry.data.get(CONF_BATTERY_LOW_THRESHOLD, 0)
+        )
+
+        if self.battery_low_threshold == 0:
+            self.battery_low_threshold = self.config_entry.runtime_data.domain_config.default_battery_low_threshold
+
+        self.battery_low_template = self.config_entry.data.get(
+            CONF_BATTERY_LOW_TEMPLATE
+        )
+
+        if config_entry.data.get(CONF_FILTER_OUTLIERS, False):
             self._outlier_filter = LowOutlierFilter(window_size=3, radius=80)
             _LOGGER.debug("Outlier filter enabled")
+
+        if self.wrapped_battery:
+            _LOGGER.debug(
+                "%s low threshold set at %d",
+                self.wrapped_battery.entity_id,
+                self.battery_low_threshold,
+            )
+
+        # If there is not a last replaced, set to device created date if not epoch
+        device_registry = dr.async_get(self.hass)
+        entity_registry = er.async_get(self.hass)
+        if not self.last_replaced:
+            last_replaced = None
+            if self.device_id:
+                device_entry = device_registry.async_get(self.device_id)
+
+                if device_entry and device_entry.created_at.year > 1970:
+                    last_replaced = device_entry.created_at.strftime(
+                        "%Y-%m-%dT%H:%M:%S:%f"
+                    )
+            else:
+                entity = entity_registry.async_get(self.source_entity_id)
+                if entity and entity.created_at.year > 1970:
+                    last_replaced = entity.created_at.strftime("%Y-%m-%dT%H:%M:%S:%f")
+
+            _LOGGER.debug(
+                "Defaulting %s battery last replaced to %s",
+                self.source_entity_id or self.device_id,
+                last_replaced,
+            )
+
+            self.last_replaced = (
+                datetime.fromisoformat(last_replaced) if last_replaced else None
+            )
+
+        # If there is not a last_reported set to now
+        if not self.last_reported:
+            last_reported = datetime.utcnow()
+            _LOGGER.debug(
+                "Defaulting %s battery last reported to %s",
+                self.source_entity_id or self.device_id,
+                last_reported,
+            )
+            self.last_reported = last_reported
+
+    def _link_device(self) -> bool:
+        """Get the device name."""
+        device_registry = dr.async_get(self.hass)
+        entity_registry = er.async_get(self.hass)
+
+        if self.source_entity_id:
+            entity = entity_registry.async_get(self.source_entity_id)
+
+            if not entity:
+                ir.async_create_issue(
+                    self.hass,
+                    DOMAIN,
+                    f"missing_device_{self.config_entry.entry_id}",
+                    data={
+                        "entry_id": self.config_entry.entry_id,
+                        "device_id": self.device_id,
+                        "source_entity_id": self.source_entity_id,
+                    },
+                    is_fixable=True,
+                    severity=ir.IssueSeverity.WARNING,
+                    translation_key="missing_device",
+                    translation_placeholders={
+                        "name": self.config_entry.title,
+                    },
+                )
+
+                _LOGGER.warning(
+                    "%s is orphaned, unable to find entity %s",
+                    self.config_entry.entry_id,
+                    self.source_entity_id,
+                )
+                return False
+
+            device_class = entity.device_class or entity.original_device_class
+            if (
+                device_class == SensorDeviceClass.BATTERY
+                and entity.unit_of_measurement == PERCENTAGE
+            ):
+                self.wrapped_battery = entity
+            else:
+                _LOGGER.debug(
+                    "%s is not a battery entity device_class: %s unit_of_measurement: %s",
+                    self.source_entity_id,
+                    device_class,
+                    entity.unit_of_measurement,
+                )
+
+            if entity.device_id:
+                device_entry = device_registry.async_get(entity.device_id)
+                if device_entry:
+                    self.device_name = (
+                        device_entry.name_by_user
+                        or device_entry.name
+                        or self.config_entry.title
+                    )
+                else:
+                    self.device_name = self.config_entry.title
+            else:
+                self.device_name = self.config_entry.title
+        else:
+            for entity in entity_registry.entities.values():
+
+                if not entity.device_id or entity.device_id != self.device_id:
+                    continue
+                if (
+                    not entity.domain
+                    or entity.domain not in [SENSOR_DOMAIN, BINARY_SENSOR_DOMAIN]
+                ):
+                    continue
+                if not entity.platform or entity.platform == DOMAIN:
+                    continue
+
+                if entity.disabled:
+                    continue
+
+                device_class = entity.device_class or entity.original_device_class
+
+                if entity.domain == SENSOR_DOMAIN:
+                    if device_class != SensorDeviceClass.BATTERY:
+                        continue
+                    if entity.unit_of_measurement != PERCENTAGE:
+                        continue
+                    self.wrapped_battery = entity_registry.async_get(entity.entity_id)
+                    break
+
+                if entity.domain == BINARY_SENSOR_DOMAIN:
+                    if device_class != BinarySensorDeviceClass.BATTERY:
+                        continue
+                    self.wrapped_battery_low = entity_registry.async_get(
+                        entity.entity_id
+                    )
+                    if self.wrapped_battery:
+                        break
+
+            device_entry = device_registry.async_get(self.device_id)
+            if device_entry:
+                self.device_name = (
+                    device_entry.name_by_user or device_entry.name or self.config_entry.title
+                )
+            else:
+                self.device_name = self.config_entry.title
+
+                ir.async_create_issue(
+                    self.hass,
+                    DOMAIN,
+                    f"missing_device_{self.config_entry.entry_id}",
+                    data={
+                        "entry_id": self.config_entry.entry_id,
+                        "device_id": self.device_id,
+                        "source_entity_id": self.source_entity_id,
+                    },
+                    is_fixable=True,
+                    severity=ir.IssueSeverity.WARNING,
+                    translation_key="missing_device",
+                    translation_placeholders={
+                        "name": self.config_entry.title,
+                    },
+                )
+
+                _LOGGER.warning(
+                    "%s is orphaned, unable to find device %s",
+                    self.config_entry.entry_id,
+                    self.device_id,
+                )
+                return False
+
+        return True
+
+    @property
+    def fake_device(self) -> bool:
+        """Return if an actual device registry entry."""
+        if self.config_entry.data.get(CONF_SOURCE_ENTITY_ID, None):
+            if self.config_entry.data.get(CONF_DEVICE_ID, None) is None:
+                return True
+        return False
 
     @property
     def source_entity_name(self):
@@ -309,12 +514,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
                 _LOGGER.debug("battery_threshold event fired Low: %s", self.battery_low)
 
             # Battery increased event
-            increase_threshold = DEFAULT_BATTERY_INCREASE_THRESHOLD
-            if DOMAIN_CONFIG in self.hass.data[DOMAIN]:
-                domain_config: dict = self.hass.data[DOMAIN][DOMAIN_CONFIG]
-                increase_threshold = domain_config.get(
-                    CONF_BATTERY_INCREASE_THRESHOLD, DEFAULT_BATTERY_INCREASE_THRESHOLD
-                )
+            increase_threshold = self.config_entry.runtime_data.domain_config.battery_increased_threshod
 
             if self._current_battery_level not in [STATE_UNAVAILABLE, STATE_UNKNOWN]:
                 if (
@@ -343,7 +543,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
                     _LOGGER.debug("battery_increased event fired")
 
         if self._current_battery_level not in [STATE_UNAVAILABLE, STATE_UNKNOWN]:
-            self.last_reported = datetime.utcnow()
+            self.last_reported = dt_util.utcnow().replace(tzinfo=None)
             self.last_reported_level = cast(float, self._current_battery_level)
             self._previous_battery_low = self.battery_low
             self._previous_battery_level = self._current_battery_level
@@ -359,9 +559,9 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
     def last_replaced(self) -> datetime | None:
         """Get the last replaced datetime."""
         if self.source_entity_id:
-            entry = self.store.async_get_entity(self.source_entity_id)
+            entry = self.config_entry.runtime_data.store.async_get_entity(self.source_entity_id)
         else:
-            entry = self.store.async_get_device(self.device_id)
+            entry = self.config_entry.runtime_data.store.async_get_device(self.device_id)
 
         if entry:
             if LAST_REPLACED in entry and entry[LAST_REPLACED] is not None:
@@ -386,9 +586,9 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
         """Get the last reported datetime."""
 
         if self.source_entity_id:
-            entry = self.store.async_get_entity(self.source_entity_id)
+            entry = self.config_entry.runtime_data.store.async_get_entity(self.source_entity_id)
         else:
-            entry = self.store.async_get_device(self.device_id)
+            entry = self.config_entry.runtime_data.store.async_get_device(self.device_id)
 
         if entry:
             if LAST_REPORTED in entry:
@@ -416,9 +616,9 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
         """Get the last reported level."""
 
         if self.source_entity_id:
-            entry = self.store.async_get_entity(self.source_entity_id)
+            entry = self.config_entry.runtime_data.store.async_get_entity(self.source_entity_id)
         else:
-            entry = self.store.async_get_device(self.device_id)
+            entry = self.config_entry.runtime_data.store.async_get_device(self.device_id)
 
         if entry:
             if LAST_REPORTED_LEVEL in entry:
@@ -466,7 +666,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
     def _rounded_level(self, value) -> float:
         """Round the level, if preferred."""
         if validate_is_float(value):
-            return round(float(value), None if self._round_battery else 1)
+            return round(float(value), None if self.config_entry.runtime_data.domain_config.round_battery else 1)
         else:
             return value
 
@@ -480,18 +680,18 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
         """Conditional create, update or remove device from store."""
 
         if ATTR_REMOVE in data:
-            self.store.async_delete_device(device_id)
-        elif self.store.async_get_device(device_id):
-            self.store.async_update_device(device_id, data)
+            self.config_entry.runtime_data.store.async_delete_device(device_id)
+        elif self.config_entry.runtime_data.store.async_get_device(device_id):
+            self.config_entry.runtime_data.store.async_update_device(device_id, data)
         else:
-            self.store.async_create_device(device_id, data)
+            self.config_entry.runtime_data.store.async_create_device(device_id, data)
 
     def async_update_entity_config(self, entity_id: str, data: dict):
         """Conditional create, update or remove entity from store."""
 
         if ATTR_REMOVE in data:
-            self.store.async_delete_entity(entity_id)
-        elif self.store.async_get_entity(entity_id):
-            self.store.async_update_entity(entity_id, data)
+            self.config_entry.runtime_data.store.async_delete_entity(entity_id)
+        elif self.config_entry.runtime_data.store.async_get_entity(entity_id):
+            self.config_entry.runtime_data.store.async_update_entity(entity_id, data)
         else:
-            self.store.async_create_entity(entity_id, data)
+            self.config_entry.runtime_data.store.async_create_entity(entity_id, data)

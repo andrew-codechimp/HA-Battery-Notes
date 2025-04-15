@@ -34,7 +34,7 @@ from homeassistant.helpers.event import (
 )
 from homeassistant.helpers.reload import async_setup_reload_service
 
-from . import PLATFORMS
+from . import PLATFORMS, BatteryNotesConfigEntry
 from .const import (
     ATTR_BATTERY_QUANTITY,
     ATTR_BATTERY_TYPE,
@@ -78,7 +78,7 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
 
 
 @callback
-def async_add_to_device(hass: HomeAssistant, entry: ConfigEntry) -> str | None:
+def async_add_to_device(hass: HomeAssistant, entry: BatteryNotesConfigEntry) -> str | None:
     """Add our config entry to the device."""
     device_registry = dr.async_get(hass)
 
@@ -95,7 +95,7 @@ def async_add_to_device(hass: HomeAssistant, entry: ConfigEntry) -> str | None:
 
 async def async_setup_entry(
     hass: HomeAssistant,
-    config_entry: ConfigEntry,
+    config_entry: BatteryNotesConfigEntry,
     async_add_entities: AddEntitiesCallback,
 ) -> None:
     """Initialize Battery Type config entry."""
@@ -132,7 +132,7 @@ async def async_setup_entry(
                 device_id, remove_config_entry_id=config_entry.entry_id
             )
 
-    coordinator = hass.data[DOMAIN][DATA].devices[config_entry.entry_id].coordinator
+    coordinator = config_entry.runtime_data.coordinator
 
     config_entry.async_on_unload(
         async_track_entity_registry_updated_event(
@@ -140,25 +140,18 @@ async def async_setup_entry(
         )
     )
 
-    device: BatteryNotesDevice = hass.data[DOMAIN][DATA].devices[config_entry.entry_id]
-
-    if not device.fake_device:
+    if not coordinator.fake_device:
         device_id = async_add_to_device(hass, config_entry)
 
         if not device_id:
             return
-
-    enable_replaced = True
-    if DOMAIN_CONFIG in hass.data[DOMAIN]:
-        domain_config: dict = hass.data[DOMAIN][DOMAIN_CONFIG]
-        enable_replaced = domain_config.get(CONF_ENABLE_REPLACED, True)
 
     description = BatteryNotesButtonEntityDescription(
         unique_id_suffix="_battery_replaced_button",
         key="battery_replaced",
         translation_key="battery_replaced",
         entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=enable_replaced,
+        entity_registry_enabled_default=config_entry.runtime_data.domain_config.enable_replaced,
     )
 
     async_add_entities(

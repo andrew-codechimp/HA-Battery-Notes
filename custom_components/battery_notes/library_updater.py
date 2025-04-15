@@ -18,11 +18,11 @@ from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.event import async_track_utc_time_change
 from homeassistant.helpers.storage import STORAGE_DIR
 
+from . import MY_KEY
 from .const import (
     CONF_ENABLE_AUTODISCOVERY,
     CONF_LIBRARY_URL,
     CONF_SCHEMA_URL,
-    DATA_LIBRARY_LAST_UPDATE,
     DEFAULT_LIBRARY_URL,
     DEFAULT_SCHEMA_URL,
     DOMAIN,
@@ -105,7 +105,7 @@ class LibraryUpdater:
                     _update_library_json, json_path, content
                 )
 
-                self.hass.data[DOMAIN][DATA_LIBRARY_LAST_UPDATE] = datetime.now()
+                self.hass.data[MY_KEY].library_last_update = datetime.now()
 
                 _LOGGER.debug("Updated library")
             else:
@@ -131,9 +131,9 @@ class LibraryUpdater:
     async def time_to_update_library(self, hours: int) -> bool:
         """Check when last updated and if OK to do a new library update."""
         try:
-            if DATA_LIBRARY_LAST_UPDATE in self.hass.data[DOMAIN]:
+            if library_last_update := self.hass.data[MY_KEY].library_last_update:
                 time_since_last_update = (
-                    datetime.now() - self.hass.data[DOMAIN][DATA_LIBRARY_LAST_UPDATE]
+                    datetime.now() - library_last_update
                 )
 
                 time_difference_in_hours = time_since_last_update / timedelta(hours=1)
