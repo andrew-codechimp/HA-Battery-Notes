@@ -14,7 +14,6 @@ from homeassistant.components.binary_sensor import (
     BinarySensorEntity,
     BinarySensorEntityDescription,
 )
-from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import (
     CONF_DEVICE_ID,
     CONF_NAME,
@@ -71,14 +70,10 @@ from .const import (
     ATTR_BATTERY_QUANTITY,
     ATTR_BATTERY_TYPE,
     ATTR_BATTERY_TYPE_AND_QUANTITY,
-    CONF_HIDE_BATTERY,
     CONF_SOURCE_ENTITY_ID,
-    DATA,
     DOMAIN,
-    DOMAIN_CONFIG,
 )
 from .coordinator import BatteryNotesCoordinator
-from .device import BatteryNotesDevice
 from .entity import (
     BatteryNotesEntityDescription,
 )

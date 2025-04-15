@@ -12,7 +12,6 @@ from homeassistant.components.button import (
     ButtonEntity,
     ButtonEntityDescription,
 )
-from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import (
     CONF_DEVICE_ID,
     CONF_NAME,
@@ -42,15 +41,11 @@ from .const import (
     ATTR_DEVICE_ID,
     ATTR_DEVICE_NAME,
     ATTR_SOURCE_ENTITY_ID,
-    CONF_ENABLE_REPLACED,
     CONF_SOURCE_ENTITY_ID,
-    DATA,
     DOMAIN,
-    DOMAIN_CONFIG,
     EVENT_BATTERY_REPLACED,
 )
 from .coordinator import BatteryNotesCoordinator
-from .device import BatteryNotesDevice
 from .entity import (
     BatteryNotesEntityDescription,
 )

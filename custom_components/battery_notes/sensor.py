@@ -69,18 +69,12 @@ from .const import (
     ATTR_SOURCE_ENTITY_ID,
     CONF_BATTERY_QUANTITY,
     CONF_BATTERY_TYPE,
-    CONF_ENABLE_REPLACED,
-    CONF_HIDE_BATTERY,
-    CONF_ROUND_BATTERY,
     CONF_SOURCE_ENTITY_ID,
-    DATA,
     DOMAIN,
-    DOMAIN_CONFIG,
     LAST_REPLACED,
     PLATFORMS,
 )
 from .coordinator import BatteryNotesCoordinator
-from .device import BatteryNotesDevice
 from .entity import (
     BatteryNotesEntityDescription,
 )
