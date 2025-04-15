@@ -18,15 +18,8 @@ from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.event import async_track_utc_time_change
 from homeassistant.helpers.storage import STORAGE_DIR
 
-from . import MY_KEY
 from .const import (
-    CONF_ENABLE_AUTODISCOVERY,
-    CONF_LIBRARY_URL,
-    CONF_SCHEMA_URL,
-    DEFAULT_LIBRARY_URL,
-    DEFAULT_SCHEMA_URL,
-    DOMAIN,
-    DOMAIN_CONFIG,
+    MY_KEY,
 )
 from .discovery import DiscoveryManager
 
@@ -47,13 +40,10 @@ class LibraryUpdater:
         """Initialize the library updater."""
         self.hass = hass
 
-        if DOMAIN_CONFIG in self.hass.data[DOMAIN]:
-            domain_config: dict = self.hass.data[DOMAIN][DOMAIN_CONFIG]
-            library_url = domain_config.get(CONF_LIBRARY_URL, DEFAULT_LIBRARY_URL)
-            schema_url = domain_config.get(CONF_SCHEMA_URL, DEFAULT_SCHEMA_URL)
-        else:
-            library_url = DEFAULT_LIBRARY_URL
-            schema_url = DEFAULT_SCHEMA_URL
+        domain_config = self.hass.data[MY_KEY]
+
+        library_url = domain_config.library_url
+        schema_url = domain_config.schema_url
 
         self._client = LibraryUpdaterClient(library_url=library_url, schema_url=schema_url, session=async_get_clientsession(hass))
 
@@ -71,12 +61,9 @@ class LibraryUpdater:
 
         await self.get_library_updates(now)
 
-        if DOMAIN_CONFIG not in self.hass.data[DOMAIN]:
-            return
+        domain_config = self.hass.data[MY_KEY]
 
-        domain_config: dict = self.hass.data[DOMAIN][DOMAIN_CONFIG]
-
-        if domain_config.get(CONF_ENABLE_AUTODISCOVERY):
+        if domain_config.enable_autodiscovery:
             discovery_manager = DiscoveryManager(self.hass, domain_config)
             await discovery_manager.start_discovery()
         else:

@@ -13,9 +13,9 @@ from homeassistant.helpers import (
     entity_registry as er,
 )
 
-from . import BatteryNotesConfigEntry
 from .common import get_device_model_id
 from .const import CONF_SOURCE_ENTITY_ID
+from .coordinator import BatteryNotesConfigEntry
 
 
 async def async_get_config_entry_diagnostics(

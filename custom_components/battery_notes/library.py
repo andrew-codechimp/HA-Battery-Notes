@@ -10,10 +10,10 @@ from typing import Any, Final, NamedTuple, cast
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.storage import STORAGE_DIR
 
-from . import MY_KEY
 from .const import (
     DATA_LIBRARY,
     DOMAIN,
+    MY_KEY,
 )
 
 _LOGGER = logging.getLogger(__name__)

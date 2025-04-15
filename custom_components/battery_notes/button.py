@@ -33,7 +33,7 @@ from homeassistant.helpers.event import (
 )
 from homeassistant.helpers.reload import async_setup_reload_service
 
-from . import PLATFORMS, BatteryNotesConfigEntry
+from . import PLATFORMS
 from .const import (
     ATTR_BATTERY_QUANTITY,
     ATTR_BATTERY_TYPE,
@@ -45,7 +45,7 @@ from .const import (
     DOMAIN,
     EVENT_BATTERY_REPLACED,
 )
-from .coordinator import BatteryNotesCoordinator
+from .coordinator import BatteryNotesConfigEntry, BatteryNotesCoordinator
 from .entity import (
     BatteryNotesEntityDescription,
 )

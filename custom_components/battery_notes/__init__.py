@@ -8,12 +8,9 @@ from __future__ import annotations
 
 import logging
 import re
-from dataclasses import dataclass
-from datetime import datetime
 
 import voluptuous as vol
 from awesomeversion.awesomeversion import AwesomeVersion
-from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import __version__ as HA_VERSION  # noqa: N812
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers import config_validation as cv
@@ -21,7 +18,6 @@ from homeassistant.helpers import entity_registry as er
 from homeassistant.helpers import issue_registry as ir
 from homeassistant.helpers.typing import ConfigType
 from homeassistant.util import dt as dt_util
-from homeassistant.util.hass_dict import HassKey
 
 from .config_flow import CONFIG_VERSION
 from .const import (
@@ -44,14 +40,18 @@ from .const import (
     DEFAULT_SCHEMA_URL,
     DOMAIN,
     MIN_HA_VERSION,
+    MY_KEY,
     PLATFORMS,
 )
-from .coordinator import BatteryNotesCoordinator
+from .coordinator import (
+    BatteryNotesConfigEntry,
+    BatteryNotesCoordinator,
+    BatteryNotesDomainConfig,
+)
 from .discovery import DiscoveryManager
 from .library_updater import LibraryUpdater
 from .services import setup_services
 from .store import (
-    BatteryNotesStorage,
     async_get_registry,
 )
 
@@ -90,35 +90,6 @@ CONFIG_SCHEMA = vol.Schema(
     },
     extra=vol.ALLOW_EXTRA,
 )
-
-@dataclass
-class BatteryNotesDomainConfig:
-    """Class for sharing config data within the BatteryNotes integration."""
-    enable_autodiscovery: bool = True
-    show_all_devices: bool = False
-    enable_replaced: bool = True
-    hide_battery: bool = False
-    round_battery: bool = False
-    default_battery_low_threshold: int = DEFAULT_BATTERY_LOW_THRESHOLD
-    battery_increased_threshod: int = DEFAULT_BATTERY_INCREASE_THRESHOLD
-    library_url: str = DEFAULT_LIBRARY_URL
-    schema_url: str = DEFAULT_SCHEMA_URL
-    library_updater: LibraryUpdater | None
-    library_last_update: datetime | None = None
-    user_library: str = ""
-    coordinator: BatteryNotesCoordinator | None
-
-type BatteryNotesConfigEntry = ConfigEntry[BatteryNotesData]
-
-MY_KEY: HassKey["BatteryNotesDomainConfig"] = HassKey(DOMAIN)
-
-@dataclass
-class BatteryNotesData:
-    """Class for sharing data within the BatteryNotes integration."""
-
-    domain_config: BatteryNotesDomainConfig
-    store: BatteryNotesStorage
-    coordinator: BatteryNotesCoordinator
 
 
 async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import logging
+from dataclasses import dataclass
 from datetime import datetime
 from typing import cast
 
@@ -10,6 +11,7 @@ from homeassistant.components.binary_sensor import DOMAIN as BINARY_SENSOR_DOMAI
 from homeassistant.components.binary_sensor import BinarySensorDeviceClass
 from homeassistant.components.sensor import DOMAIN as SENSOR_DOMAIN
 from homeassistant.components.sensor import SensorDeviceClass
+from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import (
     CONF_DEVICE_ID,
     PERCENTAGE,
@@ -24,7 +26,6 @@ from homeassistant.helpers.entity_registry import RegistryEntry
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
 from homeassistant.util import dt as dt_util
 
-from . import BatteryNotesConfigEntry
 from .common import validate_is_float
 from .const import (
     ATTR_BATTERY_LAST_REPLACED,
@@ -46,17 +47,33 @@ from .const import (
     CONF_BATTERY_TYPE,
     CONF_FILTER_OUTLIERS,
     CONF_SOURCE_ENTITY_ID,
+    DEFAULT_BATTERY_INCREASE_THRESHOLD,
+    DEFAULT_BATTERY_LOW_THRESHOLD,
+    DEFAULT_LIBRARY_URL,
+    DEFAULT_SCHEMA_URL,
     DOMAIN,
     EVENT_BATTERY_INCREASED,
     EVENT_BATTERY_THRESHOLD,
     LAST_REPLACED,
     LAST_REPORTED,
     LAST_REPORTED_LEVEL,
+    BatteryNotesDomainConfig,
 )
 from .filters import LowOutlierFilter
+from .library_updater import LibraryUpdater
+from .store import BatteryNotesStorage
 
 _LOGGER = logging.getLogger(__name__)
 
+type BatteryNotesConfigEntry = ConfigEntry[BatteryNotesData]
+
+@dataclass
+class BatteryNotesData:
+    """Class for sharing data within the BatteryNotes integration."""
+
+    domain_config: BatteryNotesDomainConfig
+    store: BatteryNotesStorage
+    coordinator: BatteryNotesCoordinator
 
 
 class BatteryNotesCoordinator(DataUpdateCoordinator[None]):

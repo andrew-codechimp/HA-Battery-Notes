@@ -1,6 +1,8 @@
 """Constants for battery_notes."""
 
 import json
+from dataclasses import dataclass
+from datetime import datetime
 from logging import Logger, getLogger
 from pathlib import Path
 from typing import Final
@@ -8,6 +10,9 @@ from typing import Final
 import voluptuous as vol
 from homeassistant.const import Platform
 from homeassistant.helpers import config_validation as cv
+from homeassistant.util.hass_dict import HassKey
+
+from .library_updater import LibraryUpdater
 
 LOGGER: Logger = getLogger(__package__)
 
@@ -112,3 +117,21 @@ PLATFORMS: Final = [
     Platform.SENSOR,
     Platform.BINARY_SENSOR,
 ]
+
+@dataclass
+class BatteryNotesDomainConfig:
+    """Class for sharing config data within the BatteryNotes integration."""
+    enable_autodiscovery: bool = True
+    show_all_devices: bool = False
+    enable_replaced: bool = True
+    hide_battery: bool = False
+    round_battery: bool = False
+    default_battery_low_threshold: int = DEFAULT_BATTERY_LOW_THRESHOLD
+    battery_increased_threshod: int = DEFAULT_BATTERY_INCREASE_THRESHOLD
+    library_url: str = DEFAULT_LIBRARY_URL
+    schema_url: str = DEFAULT_SCHEMA_URL
+    library_updater: LibraryUpdater | None
+    library_last_update: datetime | None = None
+    user_library: str = ""
+
+MY_KEY: HassKey[BatteryNotesDomainConfig] = HassKey(DOMAIN)

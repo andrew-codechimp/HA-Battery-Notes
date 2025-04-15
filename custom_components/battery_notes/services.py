@@ -13,7 +13,6 @@ from homeassistant.helpers import device_registry as dr
 from homeassistant.helpers import entity_registry as er
 from homeassistant.util import dt as dt_util
 
-from . import BatteryNotesConfigEntry
 from .const import (
     ATTR_BATTERY_LAST_REPLACED,
     ATTR_BATTERY_LAST_REPORTED,
@@ -42,6 +41,7 @@ from .const import (
     SERVICE_DATA_DATE_TIME_REPLACED,
     SERVICE_DATA_DAYS_LAST_REPORTED,
 )
+from .coordinator import BatteryNotesConfigEntry
 
 _LOGGER = logging.getLogger(__name__)
 

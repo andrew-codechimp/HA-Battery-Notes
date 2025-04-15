@@ -63,7 +63,7 @@ from homeassistant.helpers.update_coordinator import (
     CoordinatorEntity,
 )
 
-from . import MY_KEY, PLATFORMS, BatteryNotesConfigEntry
+from . import PLATFORMS
 from .common import validate_is_float
 from .const import (
     ATTR_BATTERY_LOW_THRESHOLD,
@@ -72,8 +72,12 @@ from .const import (
     ATTR_BATTERY_TYPE_AND_QUANTITY,
     CONF_SOURCE_ENTITY_ID,
     DOMAIN,
+    MY_KEY,
 )
-from .coordinator import BatteryNotesCoordinator
+from .coordinator import (
+    BatteryNotesConfigEntry,
+    BatteryNotesCoordinator,
+)
 from .entity import (
     BatteryNotesEntityDescription,
 )
