@@ -37,12 +37,12 @@
                     "battery_quantity": "Nombre de batteries",
                     "battery_low_threshold": "Seuil de batterie faible",
                     "battery_low_template": "Modèle de batterie faible",
-                    "filter_outliers": "Filter outliers"
+                    "filter_outliers": "Filtrer les valeurs aberrantes"
                 },
                 "data_description": {
                     "battery_low_threshold": "0 gardera le seuil par defaut",
                     "battery_low_template": "Modèle pour déterminer si une batterie est faible, devrait retourner vrai si faible\nNécessaire uniquement pour les niveaux de batterie non standard",
-                    "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                    "filter_outliers": "Filtrer les baisses importantes du niveau de batterie, pour réduire les événements faussement déclenchés par les appareils qui signalent occasionnellement des niveaux erronés"
                 }
             },
             "manual": {
@@ -68,13 +68,13 @@
                     "battery_quantity": "Nombre de batteries",
                     "battery_low_threshold": "Seuil de batterie faible",
                     "battery_low_template": "Modèle de batterie faible",
-                    "filter_outliers": "Filter outliers"
+                    "filter_outliers": "Filtrer les valeurs aberrantes"
                 },
                 "data_description": {
                     "name": "Laisser vide gardera le seuil par defaut",
                     "battery_low_threshold": "0 gardera le seuil par defaut",
                     "battery_low_template": "Modèle pour déterminer si une batterie est faible, devrait retourner vrai si faible\nNécessaire uniquement pour les niveaux de batterie non standard",
-                    "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                    "filter_outliers": "Filtrer les baisses importantes du niveau de batterie, pour réduire les événements faussement déclenchés par les appareils qui signalent occasionnellement des niveaux erronés"
                 }
             }
         },
