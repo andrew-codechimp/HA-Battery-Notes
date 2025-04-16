@@ -70,7 +70,6 @@ from .const import (
     CONF_BATTERY_TYPE,
     CONF_SOURCE_ENTITY_ID,
     DOMAIN,
-    LAST_REPLACED,
     PLATFORMS,
 )
 from .coordinator import MY_KEY, BatteryNotesConfigEntry, BatteryNotesCoordinator
