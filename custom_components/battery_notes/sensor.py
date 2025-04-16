@@ -71,10 +71,9 @@ from .const import (
     CONF_SOURCE_ENTITY_ID,
     DOMAIN,
     LAST_REPLACED,
-    MY_KEY,
     PLATFORMS,
 )
-from .coordinator import BatteryNotesConfigEntry, BatteryNotesCoordinator
+from .coordinator import MY_KEY, BatteryNotesConfigEntry, BatteryNotesCoordinator
 from .entity import (
     BatteryNotesEntityDescription,
 )
@@ -781,38 +780,21 @@ class BatteryNotesLastReplacedSensor(
 
     def _set_native_value(self, log_on_error=True):
         # pylint: disable=unused-argument
-        if self._source_entity_id:
-            entry = self.coordinator.store.async_get_entity(self._source_entity_id)
-        else:
-            entry = self.coordinator.store.async_get_device(self._device_id)
 
-        if entry:
-            if LAST_REPLACED in entry and entry[LAST_REPLACED] is not None:
-                last_replaced_date = datetime.fromisoformat(
-                    str(entry[LAST_REPLACED]) + "+00:00"
-                )
-                self._native_value = last_replaced_date
+        if last_replaced := self.coordinator.last_replaced:
+            self._native_value = last_replaced
 
-                return True
+            return True
         return False
 
     @callback
     def _handle_coordinator_update(self) -> None:
         """Handle updated data from the coordinator."""
 
-        if self.coordinator.source_entity_id:
-            entry = self.coordinator.store.async_get_entity(self._source_entity_id)
-        else:
-            entry = self.coordinator.store.async_get_device(self._device_id)
+        if last_replaced := self.coordinator.last_replaced:
+            self._native_value = last_replaced
 
-        if entry:
-            if LAST_REPLACED in entry and entry[LAST_REPLACED] is not None:
-                last_replaced_date = datetime.fromisoformat(
-                    str(entry[LAST_REPLACED]) + "+00:00"
-                )
-                self._native_value = last_replaced_date
-
-                self.async_write_ha_state()
+            self.async_write_ha_state()
 
     @property
     def native_value(self) -> datetime | None:

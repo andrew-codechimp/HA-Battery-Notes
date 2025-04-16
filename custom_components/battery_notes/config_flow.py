@@ -162,15 +162,9 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
 
             device_id = user_input[CONF_DEVICE_ID]
 
-            if (
-                DOMAIN in self.hass.data
-                and DATA_LIBRARY_UPDATER in self.hass.data[DOMAIN]
-            ):
-                library_updater: LibraryUpdater = self.hass.data[DOMAIN][
-                    DATA_LIBRARY_UPDATER
-                ]
-                if await library_updater.time_to_update_library(1):
-                    await library_updater.get_library_updates(dt_util.utcnow())
+            library_updater = LibraryUpdater(self.hass)
+            if await library_updater.time_to_update_library(1):
+                await library_updater.get_library_updates(dt_util.utcnow())
 
             device_registry = dr.async_get(self.hass)
             device_entry = device_registry.async_get(device_id)

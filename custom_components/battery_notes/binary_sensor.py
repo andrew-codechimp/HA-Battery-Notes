@@ -72,9 +72,9 @@ from .const import (
     ATTR_BATTERY_TYPE_AND_QUANTITY,
     CONF_SOURCE_ENTITY_ID,
     DOMAIN,
-    MY_KEY,
 )
 from .coordinator import (
+    MY_KEY,
     BatteryNotesConfigEntry,
     BatteryNotesCoordinator,
 )

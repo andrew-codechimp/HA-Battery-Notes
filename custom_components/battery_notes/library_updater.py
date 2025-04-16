@@ -18,9 +18,7 @@ from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.event import async_track_utc_time_change
 from homeassistant.helpers.storage import STORAGE_DIR
 
-from .const import (
-    MY_KEY,
-)
+from .coordinator import MY_KEY
 from .discovery import DiscoveryManager
 
 _LOGGER = logging.getLogger(__name__)

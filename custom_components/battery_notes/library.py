@@ -13,8 +13,8 @@ from homeassistant.helpers.storage import STORAGE_DIR
 from .const import (
     DATA_LIBRARY,
     DOMAIN,
-    MY_KEY,
 )
+from .coordinator import MY_KEY
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -105,15 +105,13 @@ class Library:  # pylint: disable=too-few-public-methods
     async def factory(hass: HomeAssistant) -> Library:
         """Return the library or create."""
 
-        if DOMAIN not in hass.data:
-            hass.data[DOMAIN] = {}
-
-        if DATA_LIBRARY in hass.data[DOMAIN]:
-            return hass.data[DOMAIN][DATA_LIBRARY]  # type: ignore
+        domain_config = hass.data[MY_KEY]
+        if domain_config.library:
+            return domain_config.library
 
         library = Library(hass)
         await library.load_libraries()
-        hass.data[DOMAIN][DATA_LIBRARY] = library
+        domain_config.library = library
         return library
 
     async def get_device_battery_details(

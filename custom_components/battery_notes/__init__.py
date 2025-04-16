@@ -40,12 +40,13 @@ from .const import (
     DEFAULT_SCHEMA_URL,
     DOMAIN,
     MIN_HA_VERSION,
-    MY_KEY,
     PLATFORMS,
 )
 from .coordinator import (
+    MY_KEY,
     BatteryNotesConfigEntry,
     BatteryNotesCoordinator,
+    BatteryNotesData,
     BatteryNotesDomainConfig,
 )
 from .discovery import DiscoveryManager
@@ -104,9 +105,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         _LOGGER.critical(msg)
         return False
 
-    library_updater = LibraryUpdater(hass)
-    await library_updater.copy_schema()
-    await library_updater.get_library_updates(dt_util.utcnow())
+    store = await async_get_registry(hass)
 
     domain_config = BatteryNotesDomainConfig(
         enable_autodiscovery=config.get(DOMAIN, {}).get(CONF_ENABLE_AUTODISCOVERY, True),
@@ -122,11 +121,15 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         ),
         library_url=config.get(DOMAIN, {}).get(CONF_LIBRARY_URL, DEFAULT_LIBRARY_URL),
         schema_url=config.get(DOMAIN, {}).get(CONF_SCHEMA_URL, DEFAULT_SCHEMA_URL),
-        library_updater=library_updater,
         user_library=config.get(DOMAIN, {}).get(CONF_USER_LIBRARY, ""),
+        store=store,
     )
 
     hass.data[MY_KEY] = domain_config
+
+    library_updater = LibraryUpdater(hass)
+    await library_updater.copy_schema()
+    await library_updater.get_library_updates(dt_util.utcnow())
 
     if domain_config.enable_autodiscovery:
         discovery_manager = DiscoveryManager(hass, domain_config)
@@ -143,9 +146,14 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
 async def async_setup_entry(hass: HomeAssistant, config_entry: BatteryNotesConfigEntry) -> bool:
     """Set up a config entry."""
 
-    config_entry.runtime_data.domain_config = hass.data[MY_KEY]
-    config_entry.runtime_data.store = await async_get_registry(hass, config_entry)
-    config_entry.runtime_data.coordinator = BatteryNotesCoordinator(hass, config_entry)
+    data = hass.data[MY_KEY]
+    config_entry.runtime_data = BatteryNotesData(
+        domain_config=data,
+        store=data.store,
+    )
+
+    coordinator = BatteryNotesCoordinator(hass, config_entry)
+    config_entry.runtime_data.coordinator = coordinator
 
     await hass.config_entries.async_forward_entry_setups(config_entry, PLATFORMS)
 
