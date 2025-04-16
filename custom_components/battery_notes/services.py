@@ -77,7 +77,8 @@ def setup_services(hass: HomeAssistant) -> None:
             config_entry: BatteryNotesConfigEntry
             for config_entry in hass.config_entries.async_loaded_entries(DOMAIN):
                 coordinator = config_entry.runtime_data.coordinator
-                if coordinator.source_entity_id == source_entity_id:
+                assert(coordinator)
+                if coordinator.source_entity_id and coordinator.source_entity_id == source_entity_id:
 
                     coordinator.last_replaced =datetime_replaced
                     await coordinator.async_request_refresh()
@@ -120,9 +121,9 @@ def setup_services(hass: HomeAssistant) -> None:
                 )
                 return None
 
-            config_entry: BatteryNotesConfigEntry
             for config_entry in hass.config_entries.async_loaded_entries(DOMAIN):
                 coordinator = config_entry.runtime_data.coordinator
+                assert(coordinator)
                 if coordinator.device_id == device_id:
                     coordinator.last_replaced = datetime_replaced
                     await coordinator.async_request_refresh()
@@ -168,6 +169,7 @@ def setup_services(hass: HomeAssistant) -> None:
         config_entry: BatteryNotesConfigEntry
         for config_entry in hass.config_entries.async_loaded_entries(DOMAIN):
             coordinator = config_entry.runtime_data.coordinator
+            assert(coordinator)
 
             if coordinator.wrapped_battery and coordinator.last_reported:
                 time_since_lastreported = (
@@ -206,6 +208,7 @@ def setup_services(hass: HomeAssistant) -> None:
         config_entry: BatteryNotesConfigEntry
         for config_entry in hass.config_entries.async_loaded_entries(DOMAIN):
             coordinator = config_entry.runtime_data.coordinator
+            assert(coordinator)
 
             if coordinator.battery_low is True:
                 hass.bus.async_fire(

@@ -96,6 +96,7 @@ class BatteryNotesData:
 class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
     """Define an object to hold Battery Notes device."""
 
+    config_entry: BatteryNotesConfigEntry
     device_id: str | None = None
     source_entity_id: str | None = None
     device_name: str
@@ -176,7 +177,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
                     last_replaced = device_entry.created_at.strftime(
                         "%Y-%m-%dT%H:%M:%S:%f"
                     )
-            else:
+            elif self.source_entity_id:
                 entity = entity_registry.async_get(self.source_entity_id)
                 if entity and entity.created_at.year > 1970:
                     last_replaced = entity.created_at.strftime("%Y-%m-%dT%H:%M:%S:%f")
@@ -295,7 +296,9 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
                     if self.wrapped_battery:
                         break
 
-            device_entry = device_registry.async_get(self.device_id)
+            device_entry = None
+            if self.device_id:
+                device_entry = device_registry.async_get(self.device_id)
             if device_entry:
                 self.device_name = (
                     device_entry.name_by_user or device_entry.name or self.config_entry.title

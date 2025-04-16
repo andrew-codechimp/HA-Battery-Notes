@@ -101,18 +101,18 @@ class Library:  # pylint: disable=too-few-public-methods
                 json_default_path,
             )
 
-    @staticmethod
-    async def factory(hass: HomeAssistant) -> Library:
-        """Return the library or create."""
+    # @staticmethod
+    # async def factory(hass: HomeAssistant) -> Library:
+    #     """Return the library or create."""
 
-        domain_config = hass.data[MY_KEY]
-        if domain_config.library:
-            return domain_config.library
+    #     domain_config = hass.data[MY_KEY]
+    #     if domain_config.library:
+    #         return domain_config.library
 
-        library = Library(hass)
-        await library.load_libraries()
-        domain_config.library = library
-        return library
+    #     library = Library(hass)
+    #     await library.load_libraries()
+    #     domain_config.library = library
+    #     return library
 
     async def get_device_battery_details(
         self,

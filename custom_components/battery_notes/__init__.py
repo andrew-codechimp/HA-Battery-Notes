@@ -147,6 +147,7 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: BatteryNotesConfi
     """Set up a config entry."""
 
     data = hass.data[MY_KEY]
+    assert(data.store)
     config_entry.runtime_data = BatteryNotesData(
         domain_config=data,
         store=data.store,
@@ -174,9 +175,7 @@ async def async_remove_entry(hass: HomeAssistant, config_entry: BatteryNotesConf
     # Remove any issues raised
     ir.async_delete_issue(hass, DOMAIN, f"missing_device_{config_entry.entry_id}")
 
-    config_entry.runtime_data.coordinator.async_update_device_config
-
-    if not config_entry.runtime_data.coordinator.device_id:
+    if not config_entry.runtime_data.coordinator or not config_entry.runtime_data.coordinator.device_id:
         return
 
     data = {ATTR_REMOVE: True}
@@ -201,7 +200,7 @@ async def async_remove_entry(hass: HomeAssistant, config_entry: BatteryNotesConf
 
     if wrapped_battery_entity_entry.hidden_by == er.RegistryEntryHider.INTEGRATION:
         entity_registry.async_update_entity(
-            config_entry.runtime_data.wrapped_battery.entity_id, hidden_by=None
+            config_entry.runtime_data.coordinator.wrapped_battery.entity_id, hidden_by=None
         )
         _LOGGER.debug(
             "Unhidden Original Battery for device%s", config_entry.runtime_data.coordinator.device_id

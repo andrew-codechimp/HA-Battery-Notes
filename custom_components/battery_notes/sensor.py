@@ -164,6 +164,7 @@ async def async_setup_entry(
     )
 
     coordinator = config_entry.runtime_data.coordinator
+    assert(coordinator)
 
     if not coordinator.fake_device:
         device_id = async_add_to_device(hass, config_entry)

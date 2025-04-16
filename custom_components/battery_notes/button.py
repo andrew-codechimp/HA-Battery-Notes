@@ -128,6 +128,7 @@ async def async_setup_entry(
             )
 
     coordinator = config_entry.runtime_data.coordinator
+    assert(coordinator)
 
     config_entry.async_on_unload(
         async_track_entity_registry_updated_event(

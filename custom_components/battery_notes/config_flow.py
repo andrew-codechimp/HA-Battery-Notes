@@ -185,7 +185,8 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                     device_entry.hw_version,
                 )
 
-                library = await Library.factory(self.hass)
+                library = Library(self.hass)
+                await library.load_libraries()
 
                 # Set defaults if not found in library
                 self.data[CONF_BATTERY_QUANTITY] = 1
@@ -284,7 +285,8 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                             device_entry.hw_version,
                         )
 
-                        library = await Library.factory(self.hass)
+                        library = Library(self.hass)
+                        await library.load_libraries()
 
                         device_battery_details = (
                             await library.get_device_battery_details(self.model_info)
