@@ -761,6 +761,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Airzone",
+            "model": "thinkradio",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "Alarm.com",
             "model": "n/a",
             "battery_type": "CR123A"
@@ -9445,11 +9450,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Airzone",
-            "model": "thinkradio",
-            "battery_type": "CR2032"
         }
     ]
 }

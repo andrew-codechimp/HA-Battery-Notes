@@ -1,4 +1,4 @@
-## 1683 Devices in library
+## 1684 Devices in library
 
 This file is auto generated, do not modify
 
@@ -144,6 +144,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Airthings                                       |Wave Plus                                                                                     |2× AA                     |                                   |                                      |
 |Airthings AS                                    |Wave Plus                                                                                     |2× AA                     |                                   |                                      |
 |Airthings AS                                    |Wave Radon                                                                                    |2× AA                     |                                   |                                      |
+|Airzone                                         |thinkradio                                                                                    |CR2032                    |                                   |                                      |
 |Alarm.com                                       |n/a                                                                                           |CR123A                    |                                   |                                      |
 |Aldi                                            |MEGOS switch and dimming light remote control (141L100RC)                                     |CR2450                    |                                   |                                      |
 |Alecto                                          |Smoke detector (SMART-SMOKE10)                                                                |2× AA                     |                                   |                                      |
