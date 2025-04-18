@@ -6666,6 +6666,13 @@
             "battery_type": "CR2477"
         },
         {
+            "manufacturer": "SONOFF",
+            "model": "Contact sensor",
+            "model_id": "SNZB-04P",
+            "hw_version": "0",
+            "battery_type": "CR2477"
+        },
+        {
             "manufacturer": "Sonoff",
             "model": "Contact sensor (SNZB-04)",
             "battery_type": "CR2032"
@@ -9455,13 +9462,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "SONOFF",
-            "model": "Contact sensor",
-            "model_id": "SNZB-04P",
-            "hw_version": "0",
-            "battery_type": "CR2477"
         }
     ]
 }
