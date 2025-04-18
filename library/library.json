@@ -7559,6 +7559,14 @@
             "manufacturer": "Tuya",
             "model": "Door sensor",
             "model_id": "TS0203",
+            "hw_version": "0",
+            "battery_type": "CR1632",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Door sensor",
+            "model_id": "TS0203",
             "hw_version": "1",
             "battery_type": "CR2032"
         },
@@ -9461,14 +9469,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE70",
             "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Door sensor",
-            "model_id": "TS0203",
-            "hw_version": "0",
-            "battery_type": "CR1632",
             "battery_quantity": 2
         }
     ]
