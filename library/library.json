@@ -875,6 +875,11 @@
             "battery_type": "APCRBCV204"
         },
         {
+            "manufacturer": "ApolloAutomation",
+            "model": "PLT-1B",
+            "battery_type": "18650"
+        },
+        {
             "manufacturer": "Apple",
             "model": "iPad14,3",
             "battery_type": "Rechargeable"
@@ -9450,11 +9455,6 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "ApolloAutomation",
-            "model": "PLT-1B",
-            "battery_type": "18650"
         }
     ]
 }
