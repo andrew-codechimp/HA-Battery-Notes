@@ -1,4 +1,4 @@
-## 1688 Devices in library
+## 1689 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1017,6 +1017,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Ring                                            |4AK1SZ                                                                                        |Rechargeable              |                                   |                                      |
 |Ring                                            |4SD2SZ-0EN0                                                                                   |2× CR2032                 |                                   |                                      |
 |Ring                                            |4SP1SZ                                                                                        |2× AA                     |                                   |                                      |
+|Ring                                            |B0923BK77S                                                                                    |2× AA                     |                                   |                                      |
 |Ring                                            |Contact Sensor                                                                                |2× CR2032                 |                                   |                                      |
 |Ring                                            |Doorbell (2nd Gen)                                                                            |Rechargeable              |                                   |                                      |
 |Ring                                            |Doorbell 2                                                                                    |Rechargeable              |                                   |                                      |

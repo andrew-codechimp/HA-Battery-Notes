@@ -5673,6 +5673,12 @@
         },
         {
             "manufacturer": "Ring",
+            "model": "B0923BK77S",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Ring",
             "model": "Contact Sensor",
             "battery_type": "CR2032",
             "battery_quantity": 2
@@ -9476,12 +9482,6 @@
             "manufacturer": "Zooz",
             "model": "ZSE70",
             "battery_type": "CR123A",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Ring",
-            "model": "B0923BK77S",
-            "battery_type": "AA",
             "battery_quantity": 2
         }
     ]
