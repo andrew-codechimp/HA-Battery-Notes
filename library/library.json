@@ -761,6 +761,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Airzone",
+            "model": "thinkradio",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "Alarm.com",
             "model": "n/a",
             "battery_type": "CR123A"
@@ -868,6 +873,11 @@
             "manufacturer": "APC",
             "model": "SRV 2K I -AR",
             "battery_type": "APCRBCV204"
+        },
+        {
+            "manufacturer": "ApolloAutomation",
+            "model": "PLT-1B",
+            "battery_type": "18650"
         },
         {
             "manufacturer": "Apple",
@@ -5470,6 +5480,13 @@
         },
         {
             "manufacturer": "Philips",
+            "model": "Hue wall switch module",
+            "model_id": "929003017102",
+            "hw_version": "1",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Philips",
             "model": "Hue wall switch module (929003017102)",
             "battery_type": "CR2450"
         },
@@ -5651,6 +5668,12 @@
         {
             "manufacturer": "Ring",
             "model": "4SP1SZ",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Ring",
+            "model": "B0923BK77S",
             "battery_type": "AA",
             "battery_quantity": 2
         },
@@ -6656,6 +6679,13 @@
             "battery_type": "CR2477"
         },
         {
+            "manufacturer": "SONOFF",
+            "model": "Contact sensor",
+            "model_id": "SNZB-04P",
+            "hw_version": "0",
+            "battery_type": "CR2477"
+        },
+        {
             "manufacturer": "Sonoff",
             "model": "Contact sensor (SNZB-04)",
             "battery_type": "CR2032"
@@ -7536,6 +7566,14 @@
             "model_id": "19DZT",
             "hw_version": "1",
             "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Door sensor",
+            "model_id": "TS0203",
+            "hw_version": "0",
+            "battery_type": "CR1632",
             "battery_quantity": 2
         },
         {
