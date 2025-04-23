@@ -9483,6 +9483,11 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "ZVIDAR",
+            "model": "Z-CM-V01",
+            "battery_type": "Rechargeable"
         }
     ]
 }
