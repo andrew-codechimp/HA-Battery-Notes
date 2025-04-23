@@ -1,4 +1,4 @@
-## 1689 Devices in library
+## 1690 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1695,3 +1695,4 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Zooz                                            |ZSE43                                                                                         |CR2032                    |                                   |                                      |
 |Zooz                                            |ZSE44                                                                                         |CR2450                    |                                   |                                      |
 |Zooz                                            |ZSE70                                                                                         |2× CR123A                 |                                   |                                      |
+|ZVIDAR                                          |Z-CM-V01                                                                                      |Rechargeable              |                                   |                                      |
