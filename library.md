@@ -1,4 +1,4 @@
-## 1690 Devices in library
+## 1691 Devices in library
 
 This file is auto generated, do not modify
 
@@ -507,6 +507,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |eQ-3                                            |MAX! Radiator Thermostat                                                                      |2× AA                     |                                   |                                      |
 |eQ-3                                            |MAX! Wall Thermostat                                                                          |2× AAA                    |                                   |                                      |
 |eQ-3                                            |MAX! Window Sensor                                                                            |2× AAA                    |                                   |                                      |
+|eQ-3                                            |motion sensor                                                                                 |3× AA                     |HM-Sen-MDIR-O                      |                                  1.60|
 |eQ3                                             |HmIP-STE2-PCB                                                                                 |2× AA                     |                                   |                                      |
 |Eufy Security                                   |T8113                                                                                         |Rechargeable              |                                   |                                      |
 |Eufy Security                                   |T8113-V                                                                                       |Rechargeable              |                                   |                                      |
