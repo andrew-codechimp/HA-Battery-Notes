@@ -9505,9 +9505,9 @@
             "battery_type": "Rechargeable"
         },
         {
-            "manufacturer": "Radio remote control 12 buttons",
+            "manufacturer": "eQ-3",
             "model": "HM-RC-12-B",
-            "model_id": "eQ-3",
+            "model_id": "HM-RC-12-B",
             "hw_version": "1.1",
             "battery_type": "AAA",
             "battery_quantity": 3
