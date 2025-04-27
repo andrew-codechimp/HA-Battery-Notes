@@ -2853,7 +2853,7 @@
         },
         {
             "manufacturer": "eQ-3",
-            "model": "motion sensor",
+            "model": "HM-Sen-MDIR-O",
             "model_id": "HM-Sen-MDIR-O",
             "hw_version": "1.6",
             "battery_type": "AA",
