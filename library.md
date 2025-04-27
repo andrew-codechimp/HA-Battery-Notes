@@ -1,4 +1,4 @@
-## 1693 Devices in library
+## 1694 Devices in library
 
 This file is auto generated, do not modify
 
@@ -417,6 +417,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |eQ-3                                            |HM-PB-4Dis-WM-2                                                                               |3× AAA                    |                                   |                                      |
 |eQ-3                                            |HM-PB-6-WM55                                                                                  |2× AAA                    |                                   |                                      |
 |eQ-3                                            |HM-PBI-4-FM                                                                                   |CR2032                    |                                   |                                      |
+|eQ-3                                            |HM-RC-12-B                                                                                    |3× AAA                    |HM-RC-12-B                         |                                  1.10|
 |eQ-3                                            |HM-RC-4-2                                                                                     |AAA                       |                                   |                                      |
 |eQ-3                                            |HM-RC-8                                                                                       |2× AAA                    |                                   |                                      |
 |eQ-3                                            |HM-RC-Key4-2                                                                                  |AAA                       |                                   |                                      |
