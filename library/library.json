@@ -9507,6 +9507,7 @@
         {
             "manufacturer": "eQ-3",
             "model": "HmIP-eTRV-E-S",
+            "model_id": "HmIP-eTRV-E-S",
             "hw_version": "1.4.8",
             "battery_type": "AA",
             "battery_quantity": 2
