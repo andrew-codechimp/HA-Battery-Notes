@@ -7836,6 +7836,13 @@
         },
         {
             "manufacturer": "Tuya",
+            "model": "SGS01",
+            "model_id": "gvygg3m8",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tuya",
             "model": "SGS01 (gvygg3m8)",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -9496,13 +9503,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "SGS01",
-            "model_id": "gvygg3m8",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
