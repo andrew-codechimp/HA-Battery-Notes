@@ -2410,6 +2410,14 @@
         },
         {
             "manufacturer": "eQ-3",
+            "model": "HM-Sen-MDIR-O",
+            "model_id": "HM-Sen-MDIR-O",
+            "hw_version": "1.6",
+            "battery_type": "AA",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "eQ-3",
             "model": "HM-Sen-MDIR-O-2",
             "battery_type": "AA",
             "battery_quantity": 3
@@ -2850,14 +2858,6 @@
             "model": "MAX! Window Sensor",
             "battery_type": "AAA",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "eQ-3",
-            "model": "HM-Sen-MDIR-O",
-            "model_id": "HM-Sen-MDIR-O",
-            "hw_version": "1.6",
-            "battery_type": "AA",
-            "battery_quantity": 3
         },
         {
             "manufacturer": "eQ3",
