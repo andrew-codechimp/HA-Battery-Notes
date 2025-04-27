@@ -2284,6 +2284,13 @@
         },
         {
             "manufacturer": "eQ-3",
+            "model": "HM-PB-4-WM",
+            "model_id": "HM-PB-4-WM",
+            "hw_version": "1.2",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "eQ-3",
             "model": "HM-PB-4Dis-WM-2",
             "battery_type": "AAA",
             "battery_quantity": 3
@@ -9503,13 +9510,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "eQ-3",
-            "model": "HM-PB-4-WM",
-            "model_id": "HM-PB-4-WM",
-            "hw_version": "1.2",
-            "battery_type": "CR2032"
         }
     ]
 }
