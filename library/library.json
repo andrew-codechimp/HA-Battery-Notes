@@ -3059,7 +3059,7 @@
         {
             "manufacturer": "eWeLink",
             "model": "SNZB-04",
-            "battery_type": "AAA",
+            "battery_type": "LR03",
             "battery_quantity": 2
         },
         {
