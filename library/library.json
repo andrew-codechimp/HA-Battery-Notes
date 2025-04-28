@@ -9531,6 +9531,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Heiman",
+            "model": "Carbon monoxide alarm",
+            "model_id": "HS1CA-E",
+            "battery_type": "CR123A"
         }
     ]
 }
