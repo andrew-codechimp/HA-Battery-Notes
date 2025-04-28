@@ -1,4 +1,4 @@
-## 1695 Devices in library
+## 1696 Devices in library
 
 This file is auto generated, do not modify
 
@@ -516,6 +516,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Eufy Security                                   |T8113-V                                                                                       |Rechargeable              |                                   |                                      |
 |Eufy Security                                   |T8114                                                                                         |Rechargeable              |                                   |                                      |
 |Eufy Security                                   |T8114-Z                                                                                       |Rechargeable              |                                   |                                      |
+|Eufy Security                                   |T8142-R                                                                                       |Rechargeable              |                                   |                                      |
 |Eufy Security                                   |T8160                                                                                         |Rechargeable              |                                   |                                      |
 |Eufy Security                                   |T8210                                                                                         |Rechargeable              |                                   |                                      |
 |Eufy Security                                   |T8210C                                                                                        |Rechargeable              |                                   |                                      |
