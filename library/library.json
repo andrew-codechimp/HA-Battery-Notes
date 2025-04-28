@@ -3516,6 +3516,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Heiman",
+            "model": "Carbon monoxide alarm",
+            "model_id": "HS1CA-E",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "HEIMAN",
             "model": "HS2WD-E",
             "battery_type": "LP103454 3.7v 700mah"
@@ -9531,12 +9537,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Heiman",
-            "model": "Carbon monoxide alarm",
-            "model_id": "HS1CA-E",
-            "battery_type": "CR123A"
         }
     ]
 }

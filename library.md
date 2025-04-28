@@ -1,4 +1,4 @@
-## 1696 Devices in library
+## 1697 Devices in library
 
 This file is auto generated, do not modify
 
@@ -630,6 +630,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Heatit                                          |Z-PH WALL CONTROLLER                                                                          |CR2450                    |                                   |                                      |
 |Heatit                                          |Z-Temp2                                                                                       |3× AA                     |                                   |                                      |
 |Heatit                                          |Z-TEMP3                                                                                       |2× AAA                    |                                   |                                      |
+|Heiman                                          |Carbon monoxide alarm                                                                         |CR123A                    |HS1CA-E                            |                                      |
 |HEIMAN                                          |HS2WD-E                                                                                       |LP103454 3.7v 700mah      |                                   |                                      |
 |HEIMAN                                          |Remote dimmer and color control                                                               |CR2450                    |HS2WDSR-E                          |                                    16|
 |HEIMAN                                          |Remote dimmer and color control (HS2WDSR-E)                                                   |CR2450                    |HS2WDSR-E                          |                                      |
