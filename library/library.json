@@ -9542,6 +9542,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Google",
+            "model": "Google Pixel Watch",
+            "battery_type": "Rechargeable"
         }
     ]
 }
