@@ -3316,6 +3316,11 @@
         },
         {
             "manufacturer": "Google",
+            "model": "Google Pixel Watch",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Google",
             "model": "KR1",
             "battery_type": "CR2"
         },
@@ -9541,11 +9546,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Google",
-            "model": "Google Pixel Watch",
             "battery_type": "Rechargeable"
         }
     ]
