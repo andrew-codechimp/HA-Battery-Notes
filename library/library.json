@@ -9547,6 +9547,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Sonoff",
+            "model": "SWV",
+            "battery_type": "AA",
+            "battery_quantity": 4
         }
     ]
 }
