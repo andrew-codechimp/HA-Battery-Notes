@@ -1,4 +1,4 @@
-## 1702 Devices in library
+## 1703 Devices in library
 
 This file is auto generated, do not modify
 
@@ -243,6 +243,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Aqara                                           |Wireless remote switch (double rocker), 2018 model (WXKG02LM_rev2)                            |CR2032                    |                                   |                                      |
 |Aqara                                           |Wireless remote switch (single rocker), 2018 model (WXKG03LM_rev2)                            |CR2032                    |                                   |                                      |
 |Aqara                                           |Wireless remote switch D1 (double rocker) (WXKG07LM)                                          |CR2032                    |                                   |                                      |
+|Aqara                                           |Wireless remote switch E1 (double rocker)                                                     |CR2032                    |WXKG17LM                           |                                      |
 |Aqara                                           |Wireless remote switch E1 (single rocker)                                                     |CR2032                    |WXKG16LM                           |                                     0|
 |Aqara                                           |Wireless remote switch H1 (double rocker) (WXKG15LM)                                          |CR2450                    |                                   |                                      |
 |Aqara                                           |WSDCGQ11LM                                                                                    |CR2032                    |                                   |                                      |
