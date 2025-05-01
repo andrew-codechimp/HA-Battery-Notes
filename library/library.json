@@ -9565,6 +9565,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "Wireless remote switch E1 (double rocker)",
+            "model_id": "WXKG17LM",
+            "battery_type": "CR2032"
         }
     ]
 }
