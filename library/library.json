@@ -9571,6 +9571,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Worx",
+            "model": "Landroid S390 (WR100SI)",
+            "battery_type": "Rechargeable"
         }
     ]
 }
