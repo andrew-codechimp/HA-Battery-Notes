@@ -1330,6 +1330,19 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "Wireless remote switch E1 (double rocker)",
+            "model_id": "WXKG17LM",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "Wireless remote switch E1 (single rocker)",
+            "model_id": "WXKG16LM",
+            "hw_version": "0",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "Wireless remote switch H1 (double rocker) (WXKG15LM)",
             "battery_type": "CR2450"
         },
@@ -2284,6 +2297,13 @@
         },
         {
             "manufacturer": "eQ-3",
+            "model": "HM-PB-4-WM",
+            "model_id": "HM-PB-4-WM",
+            "hw_version": "1.2",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "eQ-3",
             "model": "HM-PB-4Dis-WM-2",
             "battery_type": "AAA",
             "battery_quantity": 3
@@ -2298,6 +2318,14 @@
             "manufacturer": "eQ-3",
             "model": "HM-PBI-4-FM",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "eQ-3",
+            "model": "HM-RC-12-B",
+            "model_id": "HM-RC-12-B",
+            "hw_version": "1.1",
+            "battery_type": "AAA",
+            "battery_quantity": 3
         },
         {
             "manufacturer": "eQ-3",
@@ -2392,6 +2420,14 @@
             "manufacturer": "eQ-3",
             "model": "HM-Sec-Win",
             "battery_type": "HM-Sec-Win-BaP"
+        },
+        {
+            "manufacturer": "eQ-3",
+            "model": "HM-Sen-MDIR-O",
+            "model_id": "HM-Sen-MDIR-O",
+            "hw_version": "1.6",
+            "battery_type": "AA",
+            "battery_quantity": 3
         },
         {
             "manufacturer": "eQ-3",
@@ -2555,6 +2591,14 @@
         {
             "manufacturer": "eQ-3",
             "model": "HMIP-eTRV-E",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "eQ-3",
+            "model": "HmIP-eTRV-E-S",
+            "model_id": "HmIP-eTRV-E-S",
+            "hw_version": "1.4.8",
             "battery_type": "AA",
             "battery_quantity": 2
         },
@@ -2852,6 +2896,11 @@
         {
             "manufacturer": "Eufy Security",
             "model": "T8114-Z",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Eufy Security",
+            "model": "T8142-R",
             "battery_type": "Rechargeable"
         },
         {
@@ -3280,6 +3329,11 @@
         },
         {
             "manufacturer": "Google",
+            "model": "Google Pixel Watch",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Google",
             "model": "KR1",
             "battery_type": "CR2"
         },
@@ -3297,6 +3351,11 @@
         {
             "manufacturer": "Google",
             "model": "Pixel 6a",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Google",
+            "model": "Pixel 7 Pro",
             "battery_type": "Rechargeable"
         },
         {
@@ -3478,6 +3537,12 @@
             "model": "Z-TEMP3",
             "battery_type": "AAA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Heiman",
+            "model": "Carbon monoxide alarm",
+            "model_id": "HS1CA-E",
+            "battery_type": "CR123A"
         },
         {
             "manufacturer": "HEIMAN",
@@ -6762,6 +6827,12 @@
         },
         {
             "manufacturer": "Sonoff",
+            "model": "SWV",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Sonoff",
             "model": "Temperature and humidity sensor",
             "model_id": "SNZB-02",
             "hw_version": "1",
@@ -7274,6 +7345,11 @@
             "model": "3RSB22BZ",
             "battery_type": "AAA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Third Reality, Inc",
+            "model": "3RSM0147Z",
+            "battery_type": "AA"
         },
         {
             "manufacturer": "Third Reality, Inc",
@@ -7825,6 +7901,13 @@
             "manufacturer": "TuYa",
             "model": "Security remote control (TS0215A_remote)",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "SGS01",
+            "model_id": "gvygg3m8",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "Tuya",
@@ -8689,6 +8772,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Worx",
+            "model": "Landroid S390 (WR100SI)",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "WyzeLabs",
             "model": "WVOD1",
             "battery_type": "Rechargeable"
@@ -9483,6 +9571,11 @@
             "model": "ZSE70",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "ZVIDAR",
+            "model": "Z-CM-V01",
+            "battery_type": "Rechargeable"
         }
     ]
 }
