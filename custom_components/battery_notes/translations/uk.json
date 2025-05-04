@@ -37,12 +37,12 @@
                     "battery_quantity": "Кількість батарей",
                     "battery_low_threshold": "Нижній поріг батареї",
                     "battery_low_template": "Шаблон низького заряду батареї",
-                    "filter_outliers": "Filter outliers"
+                    "filter_outliers": "Відсіяти сторонні елементи"
                 },
                 "data_description": {
                     "battery_low_threshold": "0 буде використовувати глобальний поріг за замовчуванням",
                     "battery_low_template": "Шаблон для визначення, коли заряд батареї низький - в такому випадку має повернути \"true\"\nПотрібен тільки для нестандартних рівнів батареї",
-                    "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                    "filter_outliers": "Відфільтровуйте великі падіння рівня заряду акумулятора, зменшуючи кількість помилкових спрацьовувань на пристроях, які час від часу помилково повідомляють про рівень заряду"
                 }
             },
             "manual": {
@@ -68,18 +68,18 @@
                     "battery_quantity": "Кількість батарей",
                     "battery_low_threshold": "Нижній поріг батареї",
                     "battery_low_template": "Шаблон низького заряду батареї",
-                    "filter_outliers": "Filter outliers"
+                    "filter_outliers": "Відсіяти сторонні елементи"
                 },
                 "data_description": {
                     "name": "Залишаючи незаповненим, буде взяте ім'я з основного пристрою",
                     "battery_low_threshold": "0 буде використовувати глобальний поріг за замовчуванням",
                     "battery_low_template": "Шаблон для визначення, коли заряд батареї низький - в такому випадку має повернути \"true\"\nПотрібен тільки для нестандартних рівнів батареї",
-                    "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                    "filter_outliers": "Відфільтровуйте великі падіння рівня заряду акумулятора, зменшуючи кількість помилкових спрацьовувань на пристроях, які час від часу помилково повідомляють про рівень заряду"
                 }
             }
         },
         "error": {
-            "orphaned_battery_note": "The associated device or entity no longer exists for this Battery Note.",
+            "orphaned_battery_note": "Пов'язаний пристрій або об'єкт більше не існує для Battery Note",
             "unknown": "Сталася невідома помилка."
         }
     },
@@ -190,12 +190,12 @@
     },
     "issues": {
         "missing_device": {
-            "title": "Orphaned Battery Note",
+            "title": "Запис без відповідного сенсора",
             "fix_flow": {
                 "step": {
                     "confirm": {
-                        "title": "Orphaned Battery Note",
-                        "description": "The associated device or entity no longer exists for the Battery Note entry {name}, the Battery Note should be deleted.\nSelect **Submit** to delete this Battery Note."
+                        "title": "Запис без відповідного сенсора",
+                        "description": "Пов'язаний пристрій або об'єкт більше не існує для Battery Note {name}, запис слід видалити.\nНатисніть **Передати**, щоб видалити запис."
                     }
                 }
             }
