@@ -8772,6 +8772,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Worx",
+            "model": "Landroid S390 (WR100SI)",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "WyzeLabs",
             "model": "WVOD1",
             "battery_type": "Rechargeable"
@@ -9570,11 +9575,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Worx",
-            "model": "Landroid S390 (WR100SI)",
             "battery_type": "Rechargeable"
         }
     ]
