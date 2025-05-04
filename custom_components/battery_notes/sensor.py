@@ -53,7 +53,7 @@ from homeassistant.helpers.update_coordinator import (
     CoordinatorEntity,
 )
 
-from .common import validate_is_float
+from .common import utcnow_no_timezone, validate_is_float
 from .const import (
     ATTR_BATTERY_LAST_REPLACED,
     ATTR_BATTERY_LAST_REPORTED,
@@ -403,7 +403,7 @@ class BatteryNotesBatteryPlusSensor(
 
         await self.coordinator.async_request_refresh()
 
-        self.coordinator.last_reported = datetime.utcnow()
+        self.coordinator.last_reported = utcnow_no_timezone()
 
         _LOGGER.debug(
             "Entity id %s has been reported.",

@@ -34,6 +34,7 @@ from homeassistant.helpers.event import (
 from homeassistant.helpers.reload import async_setup_reload_service
 
 from . import PLATFORMS
+from .common import utcnow_no_timezone
 from .const import (
     ATTR_BATTERY_QUANTITY,
     ATTR_BATTERY_TYPE,
@@ -240,7 +241,7 @@ class BatteryNotesButton(ButtonEntity):
 
     async def async_press(self) -> None:
         """Press the button."""
-        self.coordinator.last_replaced = datetime.utcnow()
+        self.coordinator.last_replaced = utcnow_no_timezone()
 
         self.hass.bus.async_fire(
             EVENT_BATTERY_REPLACED,

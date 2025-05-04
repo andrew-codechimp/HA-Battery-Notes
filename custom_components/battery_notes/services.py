@@ -13,6 +13,7 @@ from homeassistant.helpers import device_registry as dr
 from homeassistant.helpers import entity_registry as er
 from homeassistant.util import dt as dt_util
 
+from .common import utcnow_no_timezone
 from .const import (
     ATTR_BATTERY_LAST_REPLACED,
     ATTR_BATTERY_LAST_REPORTED,
@@ -59,7 +60,7 @@ def setup_services(hass: HomeAssistant) -> None:
                 tzinfo=None
             )
         else:
-            datetime_replaced = datetime.utcnow()
+            datetime_replaced = utcnow_no_timezone()
 
         entity_registry = er.async_get(hass)
         device_registry = dr.async_get(hass)
@@ -173,7 +174,7 @@ def setup_services(hass: HomeAssistant) -> None:
 
             if coordinator.wrapped_battery and coordinator.last_reported:
                 time_since_lastreported = (
-                    datetime.fromisoformat(str(datetime.utcnow()) + "+00:00")
+                    datetime.fromisoformat(str(utcnow_no_timezone()) + "+00:00")
                     - coordinator.last_reported
                 )
 

@@ -3,10 +3,11 @@
 import logging
 import statistics
 from collections import Counter, deque
-from datetime import datetime, timedelta
+from datetime import timedelta
 from numbers import Number
 from typing import cast
 
+from .common import utcnow_no_timezone
 from .const import WINDOW_SIZE_UNIT_NUMBER_EVENTS, WINDOW_SIZE_UNIT_TIME
 
 _LOGGER = logging.getLogger(__name__)
@@ -19,7 +20,7 @@ class FilterState:
 
     def __init__(self, state: str | float | int) -> None:
         """Initialize with HA State object."""
-        self.timestamp = datetime.utcnow()
+        self.timestamp = utcnow_no_timezone()
         try:
             self.state = float(state)
         except ValueError:

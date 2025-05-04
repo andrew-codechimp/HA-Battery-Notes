@@ -24,10 +24,9 @@ from homeassistant.helpers import entity_registry as er
 from homeassistant.helpers import issue_registry as ir
 from homeassistant.helpers.entity_registry import RegistryEntry
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
-from homeassistant.util import dt as dt_util
 from homeassistant.util.hass_dict import HassKey
 
-from .common import validate_is_float
+from .common import utcnow_no_timezone, validate_is_float
 from .const import (
     ATTR_BATTERY_LAST_REPLACED,
     ATTR_BATTERY_LEVEL,
@@ -194,7 +193,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
 
         # If there is not a last_reported set to now
         if not self.last_reported:
-            last_reported = datetime.utcnow()
+            last_reported = utcnow_no_timezone()
             _LOGGER.debug(
                 "Defaulting %s battery last reported to %s",
                 self.source_entity_id or self.device_id,
@@ -580,7 +579,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
                     _LOGGER.debug("battery_increased event fired")
 
         if self._current_battery_level not in [STATE_UNAVAILABLE, STATE_UNKNOWN]:
-            self.last_reported = dt_util.utcnow().replace(tzinfo=None)
+            self.last_reported = utcnow_no_timezone()
             self.last_reported_level = cast(float, self._current_battery_level)
             self._previous_battery_low = self.battery_low
             self._previous_battery_level = self._current_battery_level
