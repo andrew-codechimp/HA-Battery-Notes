@@ -585,6 +585,13 @@
         },
         {
             "manufacturer": "ADEO",
+            "model": "ENKI LEXMAN wireless smart door window sensor with vibration",
+            "model_id": "LDSENK08",
+            "hw_version": "2.02",
+            "battery_type": "CR2"
+        },
+        {
+            "manufacturer": "ADEO",
             "model": "LXEK-5",
             "battery_type": "CR2450"
         },
@@ -9576,13 +9583,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "ADEO",
-            "model": "ENKI LEXMAN wireless smart door window sensor with vibration",
-            "model_id": "LDSENK08",
-            "hw_version": "2.02",
-            "battery_type": "CR2"
         }
     ]
 }

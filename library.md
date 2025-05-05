@@ -1,4 +1,4 @@
-## 1704 Devices in library
+## 1705 Devices in library
 
 This file is auto generated, do not modify
 
@@ -111,6 +111,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Acurite                                         |Acurite-5n1                                                                                   |4× AA                     |                                   |                                      |
 |Adaprox                                         |TS0001_fingerbot_1                                                                            |CR2                       |                                   |                                      |
 |Adaprox                                         |Zigbee fingerbot plus (TS0001_fingerbot_1)                                                    |CR2                       |                                   |                                      |
+|ADEO                                            |ENKI LEXMAN wireless smart door window sensor with vibration                                  |CR2                       |LDSENK08                           |                                  2.02|
 |ADEO                                            |LXEK-5                                                                                        |CR2450                    |                                   |                                      |
 |ADEO                                            |RGB CTT LEXMAN ENKI remote control (HR-C99C-Z-C045)                                           |CR2450                    |                                   |                                      |
 |ADEO                                            |ZBEK-26                                                                                       |CR2450                    |                                   |                                      |
