@@ -9596,6 +9596,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "_TZ1800_ejwkn2h2",
+            "model": "TY0203",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
