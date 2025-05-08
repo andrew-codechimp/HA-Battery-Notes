@@ -32,6 +32,12 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "_TZ1800_ejwkn2h2",
+            "model": "TY0203",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "_TZ1800_fcdjzz3s",
             "model": "TY0202",
             "battery_type": "AAA",
@@ -9596,12 +9602,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "_TZ1800_ejwkn2h2",
-            "model": "TY0203",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
