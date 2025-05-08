@@ -37,12 +37,12 @@
                     "battery_quantity": "Množství baterií",
                     "battery_low_threshold": "Práh nízkého stavu baterie",
                     "battery_low_template": "Šablona nízkého stavu baterie",
-                    "filter_outliers": "Filter outliers"
+                    "filter_outliers": "Filtrovat odlehlé hodnoty"
                 },
                 "data_description": {
                     "battery_low_threshold": "0 se použije jako globální výchozí práh",
                     "battery_low_template": "Šablona pro zjištění, zda je baterie vybitá, měla by vracet hodnotu PRAVDA (true), pokud je vybitá.\nPotřebné pouze pro nestandardní úrovně nabití baterie",
-                    "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                    "filter_outliers": "Filtrovat velké ztráty úrovně baterie, což snižuje falešné spouštění událostí na zařízení, která občas chybně hlásí úrovně"
                 }
             },
             "manual": {
@@ -68,13 +68,13 @@
                     "battery_quantity": "Množství baterií",
                     "battery_low_threshold": "Práh nízkého stavu baterie",
                     "battery_low_template": "Šablona nízkého stavu baterie",
-                    "filter_outliers": "Filter outliers"
+                    "filter_outliers": "Filtrovat odlehlé hodnoty"
                 },
                 "data_description": {
                     "name": "Ponecháte-li prázdné, převezme název ze zdrojového zařízení",
                     "battery_low_threshold": "0 se použije jako globální výchozí práh",
                     "battery_low_template": "Šablona k určení zda je stav baterie nízký, měla by vrátit hodnotu pravda, pokud je nízký\nJe potřeba pouze pro nestandardní úroveně baterie",
-                    "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                    "filter_outliers": "Filtrovat velké ztráty úrovně baterie, což snižuje falešné spouštění událostí na zařízení, která občas chybně hlásí úrovně"
                 }
             }
         },
