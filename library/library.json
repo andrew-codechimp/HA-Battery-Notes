@@ -6954,6 +6954,12 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "Sonos",
+            "model": "Roam 2",
+            "model_id": "S54",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Sourcing & Creation",
             "model": "EB-SB-1B",
             "battery_type": "CR2032"
@@ -9600,12 +9606,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Sonos",
-            "model": "Roam 2",
-            "model_id": "S54",
             "battery_type": "Rechargeable"
         }
     ]
