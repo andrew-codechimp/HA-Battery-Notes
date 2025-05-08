@@ -37,12 +37,12 @@
                     "battery_quantity": "Quantitat de bateries",
                     "battery_low_threshold": "Llindar baix de la bateria",
                     "battery_low_template": "Plantilla de bateria baixa",
-                    "filter_outliers": "Filter outliers"
+                    "filter_outliers": "iltrar valors atípics"
                 },
                 "data_description": {
                     "battery_low_threshold": "0 utilitzarà el llindar predeterminat global",
                     "battery_low_template": "La plantilla per determinar que la bateria és baixa, hauria de tornar correcte si és baixa\nNomés és necessari per a nivells de bateria no estàndard",
-                    "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                    "filter_outliers": "Filtra les grans caigudes del nivell de bateria, reduint els esdeveniments que es disparen falsament en els dispositius que informen erròniament dels nivells de manera ocasional."
                 }
             },
             "manual": {
@@ -68,13 +68,13 @@
                     "battery_quantity": "Quantitat de bateries",
                     "battery_low_threshold": "Llindar baix de la bateria",
                     "battery_low_template": "Plantilla de bateria baixa",
-                    "filter_outliers": "Filter outliers"
+                    "filter_outliers": "iltrar valors atípics"
                 },
                 "data_description": {
                     "name": "Si ho deixes en blanc, agafarà el nom del dispositiu d'origen",
                     "battery_low_threshold": "0 utilitzarà el llindar predeterminat global",
                     "battery_low_template": "La plantilla per determinar que la bateria és baixa, hauria de tornar correcte si és baixa\nNomés és necessari per a nivells de bateria no estàndard",
-                    "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                    "filter_outliers": "Filtra les grans caigudes del nivell de bateria, reduint els esdeveniments que es disparen falsament en els dispositius que informen erròniament dels nivells de manera ocasional."
                 }
             }
         },
@@ -195,7 +195,7 @@
                 "step": {
                     "confirm": {
                         "title": "Battery Note orfe",
-                        "description": "El dispositiu o l'entitat associada ja no existeix per a l'entrada de Battery Note {nom}, la Battery Note s'hauria de suprimir.\nSeleccioneu **Envia** per suprimir aquesta Battery Note."
+                        "description": "El dispositiu o l'entitat associada ja no existeix per a l'entrada de Battery Note {name}, la Battery Note s'hauria de suprimir.\nSeleccioneu **Envia** per suprimir aquesta Battery Note."
                     }
                 }
             }
