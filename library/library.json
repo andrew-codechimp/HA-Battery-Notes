@@ -34,8 +34,7 @@
         {
             "manufacturer": "_TZ1800_fcdjzz3s",
             "model": "TY0202",
-            "battery_type": "AAA",
-            "battery_quantity": 2
+            "battery_type": "CR123A"
         },
         {
             "manufacturer": "_TZ2000_a476raq2",
