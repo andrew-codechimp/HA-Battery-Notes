@@ -9601,6 +9601,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Sonos",
+            "model": "Roam 2",
+            "model_id": "S54",
+            "battery_type": "Rechargeable"
         }
     ]
 }
