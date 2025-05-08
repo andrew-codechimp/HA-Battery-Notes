@@ -7706,6 +7706,11 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Tuya",
+            "model": "Fingerbot Plus (6jcvqwh0)",
+            "battery_type": "CR2"
+        },
+        {
             "manufacturer": "TuYa",
             "model": "IH012-RT01",
             "battery_type": "CR2450"
@@ -9607,11 +9612,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Fingerbot Plus (6jcvqwh0)",
-            "battery_type": "CR2"
         }
     ]
 }
