@@ -1,4 +1,4 @@
-## 1710 Devices in library
+## 1711 Devices in library
 
 This file is auto generated, do not modify
 
@@ -187,6 +187,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Aqara                                           |AS006                                                                                         |CR1632                    |                                   |                                      |
 |Aqara                                           |AS008                                                                                         |CR2032                    |                                   |                                      |
 |Aqara                                           |AS010                                                                                         |CR2032                    |                                   |                                      |
+|Aqara                                           |Climate Sensor W100                                                                           |2× CR2450                 |                                   |0.0.1.2                               |
 |Aqara                                           |Cube                                                                                          |CR2450                    |MFKZQ01LM                          |                                      |
 |Aqara                                           |Cube (MFKZQ01LM)                                                                              |CR2450                    |                                   |                                      |
 |Aqara                                           |Cube T1 Pro                                                                                   |CR2450                    |CTP-R01                            |                                      |

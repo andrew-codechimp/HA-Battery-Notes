@@ -995,6 +995,13 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "Climate Sensor W100",
+            "hw_version": "0.0.1.2",
+            "battery_type": "CR2450",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "Cube",
             "model_id": "MFKZQ01LM",
             "battery_type": "CR2450"
@@ -9612,13 +9619,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Aqara",
-            "model": "Climate Sensor W100",
-            "hw_version": "0.0.1.2",
-            "battery_type": "CR2450",
-            "battery_quantity": 2
         }
     ]
 }
