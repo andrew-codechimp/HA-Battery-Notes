@@ -951,6 +951,14 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "Aqara Climate Sensor W100",
+            "model_id": "8196",
+            "hw_version": "0.0.1.2",
+            "battery_type": "CR2450",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "Aqara Door and Window Sensor P2",
             "battery_type": "CR123A"
         },
@@ -992,14 +1000,6 @@
             "manufacturer": "Aqara",
             "model": "AS010",
             "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Aqara",
-            "model": "Aqara Climate Sensor W100",
-            "model_id": "8196",
-            "hw_version": "0.0.1.2",
-            "battery_type": "CR2450",
-            "battery_quantity": 2
         },
         {
             "manufacturer": "Aqara",
