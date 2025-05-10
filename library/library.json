@@ -4618,6 +4618,13 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "LinkTap",
+            "model": "TP-2NS",
+            "model_id": "D1315C2D004B1200",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
             "manufacturer": "LK",
             "model": "A001082",
             "battery_type": "AAA",
@@ -9620,13 +9627,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "LinkTap",
-            "model": "TP-2NS",
-            "model_id": "D1315C2D004B1200",
-            "battery_type": "AA",
-            "battery_quantity": 4
         }
     ]
 }

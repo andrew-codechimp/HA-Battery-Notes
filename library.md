@@ -1,4 +1,4 @@
-## 1711 Devices in library
+## 1712 Devices in library
 
 This file is auto generated, do not modify
 
@@ -824,6 +824,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Linkind                                         |PIR motion sensor, wireless motion detector (ZS1100400-IN-V1A02)                              |CR2450                    |                                   |                                      |
 |Linkind                                         |Security keypad battery (ZS130000078)                                                         |2× CR123A                 |                                   |                                      |
 |Linkind                                         |Water leak sensor (LS21001)                                                                   |2× AAA                    |                                   |                                      |
+|LinkTap                                         |TP-2NS                                                                                        |4× AA                     |D1315C2D004B1200                   |                                      |
 |LK                                              |A001082                                                                                       |2× AAA                    |                                   |                                      |
 |Loginovo                                        |Smart button                                                                                  |CR2032                    |                                   |                                      |
 |Loginovo                                        |Smart button (ZG-101ZL)                                                                       |CR2032                    |                                   |                                      |
