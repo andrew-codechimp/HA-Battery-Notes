@@ -995,7 +995,8 @@
         },
         {
             "manufacturer": "Aqara",
-            "model": "Climate Sensor W100",
+            "model": "Aqara Climate Sensor W100",
+            "model_id": "8196",
             "hw_version": "0.0.1.2",
             "battery_type": "CR2450",
             "battery_quantity": 2
