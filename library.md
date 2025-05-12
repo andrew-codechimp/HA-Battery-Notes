@@ -1,4 +1,4 @@
-## 1713 Devices in library
+## 1714 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1424,6 +1424,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tuya                                            |SGS01 (gvygg3m8)                                                                              |2× AAA                    |                                   |                                      |
 |TuYa                                            |Smart button (IH-K663)                                                                        |CR2032                    |                                   |                                      |
 |TuYa                                            |Smart button (MINI-ZSB)                                                                       |CR2032                    |                                   |                                      |
+|Tuya                                            |Smart Door Sensor                                                                             |2× AAA                    |5w9vch3u0jfuyleg                   |                                      |
 |TuYa                                            |Smart knob (ERS-10TZBVK-AA)                                                                   |CR2032                    |                                   |                                      |
 |Tuya                                            |Smart pet feeder AL                                                                           |4× AA                     |xaw628wk93zqlr80                   |                                      |
 |Tuya                                            |Smoke Alarm                                                                                   |PP3                       |                                   |                                      |
