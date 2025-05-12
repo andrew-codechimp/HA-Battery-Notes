@@ -2,7 +2,7 @@
     "config": {
         "step": {
             "user": {
-                "description": "If you need help with the configuration have a look here: https://andrew-codechimp.github.io/HA-Battery-Notes/",
+                "description": "Hvis du trenger hjelp med konfigurasjonen, kan du se her: https://andrew-codechimp.github.io/HA-Battery-Notes/",
                 "data": {
                     "association_type": "Association type"
                 },
@@ -18,7 +18,7 @@
                     "name": "Navn"
                 },
                 "data_description": {
-                    "name": "Leaving blank will take the name from the source device"
+                    "name": "Lar du det stå tomt, vil ta navnet fra kildeenheten bli brukt"
                 }
             },
             "entity": {
@@ -31,12 +31,12 @@
                 }
             },
             "battery": {
-                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
+                "description": "Produsent: {manufacturer}\nModel: {model}\nModell-ID: {model_id}\nMaskinvareversjon: {hw_version}",
                 "data": {
-                    "battery_type": "Battery type",
-                    "battery_quantity": "Battery quantity",
-                    "battery_low_threshold": "Battery low threshold",
-                    "battery_low_template": "Battery low template",
+                    "battery_type": "Batteritype",
+                    "battery_quantity": "Antall batterier",
+                    "battery_low_threshold": "Lavt batterinivå-terskel",
+                    "battery_low_template": "Mal for lavt batterinivå",
                     "filter_outliers": "Filter outliers"
                 },
                 "data_description": {
@@ -47,27 +47,27 @@
             },
             "manual": {
                 "description": "This device is marked in the library as manual, variants use different battery types so it cannot be set in the library.\nThe next step will allow you to set your battery type but please do not submit a device request.",
-                "title": "Device manual configuration"
+                "title": "Manuell konfigurasjon for enhet"
             }
         },
         "abort": {
-            "already_configured": "Device is already configured"
+            "already_configured": "Enheten er allerede konfigurert"
         },
         "error": {
-            "unknown": "Unknown error occurred.",
-            "unconfigurable_entity": "It is not possible to add this entity to Battery Notes."
+            "unknown": "En ukjent feil har oppstått.",
+            "unconfigurable_entity": "Det er ikke mulig å legge denne enheten til batterinotater."
         }
     },
     "options": {
         "step": {
             "init": {
-                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
+                "description": "Produsent: {manufacturer}\nModel: {model}\nModell-ID: {model_id}\nMaskinvareversjon: {hw_version}",
                 "data": {
                     "name": "Navn",
-                    "battery_type": "Battery type",
-                    "battery_quantity": "Battery quantity",
-                    "battery_low_threshold": "Battery low threshold",
-                    "battery_low_template": "Battery low template",
+                    "battery_type": "Batteritype",
+                    "battery_quantity": "Antall batterier",
+                    "battery_low_threshold": "Lavt batterinivå-terskel",
+                    "battery_low_template": "Mal for lavt batterinivå",
                     "filter_outliers": "Filter outliers"
                 },
                 "data_description": {

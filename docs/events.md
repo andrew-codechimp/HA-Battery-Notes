@@ -207,5 +207,5 @@ actions:
       title: |
         {{ trigger.event.data.device_name }} Battery Replaced
       message: >
-        You just used {{trigger.event.data.battery_type_and_quantity }} batteries
+        You just used {{ trigger.event.data.battery_type_and_quantity }} batteries
 ```

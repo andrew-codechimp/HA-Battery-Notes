@@ -32,10 +32,15 @@
             "battery_type": "CR123A"
         },
         {
-            "manufacturer": "_TZ1800_fcdjzz3s",
-            "model": "TY0202",
+            "manufacturer": "_TZ1800_ejwkn2h2",
+            "model": "TY0203",
             "battery_type": "AAA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "_TZ1800_fcdjzz3s",
+            "model": "TY0202",
+            "battery_type": "CR123A"
         },
         {
             "manufacturer": "_TZ2000_a476raq2",
@@ -585,6 +590,13 @@
         },
         {
             "manufacturer": "ADEO",
+            "model": "ENKI LEXMAN wireless smart door window sensor with vibration",
+            "model_id": "LDSENK08",
+            "hw_version": "2.02",
+            "battery_type": "CR2"
+        },
+        {
+            "manufacturer": "ADEO",
             "model": "LXEK-5",
             "battery_type": "CR2450"
         },
@@ -936,6 +948,14 @@
             "model": "MacBook",
             "battery_type": "Rechargeable",
             "model_match_method": "startswith"
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "Aqara Climate Sensor W100",
+            "model_id": "8196",
+            "hw_version": "0.0.1.2",
+            "battery_type": "CR2450",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "Aqara",
@@ -2690,6 +2710,12 @@
         },
         {
             "manufacturer": "eQ-3",
+            "model": "HmIP-STE2-PCB",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "eQ-3",
             "model": "HmIP-STH",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -2834,6 +2860,13 @@
             "manufacturer": "eQ-3",
             "model": "HmIP-WTH-A",
             "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "eQ-3",
+            "model": "HmIP-WTH-B",
+            "model_id": "HmIP-WTH-B",
+            "battery_type": "AA",
             "battery_quantity": 2
         },
         {
@@ -4589,6 +4622,13 @@
             "model": "Water leak sensor (LS21001)",
             "battery_type": "AAA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "LinkTap",
+            "model": "TP-2NS",
+            "model_id": "D1315C2D004B1200",
+            "battery_type": "AA",
+            "battery_quantity": 4
         },
         {
             "manufacturer": "LK",
@@ -6935,6 +6975,12 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "Sonos",
+            "model": "Roam 2",
+            "model_id": "S54",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Sourcing & Creation",
             "model": "EB-SB-1B",
             "battery_type": "CR2032"
@@ -7679,6 +7725,11 @@
             "manufacturer": "TuYa",
             "model": "Door sensor (ZG-102Z)",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Fingerbot Plus (6jcvqwh0)",
+            "battery_type": "CR2"
         },
         {
             "manufacturer": "TuYa",
@@ -9196,6 +9247,12 @@
             "manufacturer": "Xiaomi",
             "model": "MiJia wireless switch (WXKG01LM)",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "MJTZC01YM",
+            "battery_type": "AAA",
+            "battery_quantity": 3
         },
         {
             "manufacturer": "Xiaomi",
