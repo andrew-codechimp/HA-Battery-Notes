@@ -5221,6 +5221,13 @@
         },
         {
             "manufacturer": "Nous",
+            "model": "Temperature & humidity LCD sensor",
+            "model_id": "E6",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Nous",
             "model": "Temperature and humidity sensor with clock",
             "model_id": "SZ-T04",
             "battery_type": "AAA",
@@ -9669,13 +9676,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Nous",
-            "model": "Temperature & humidity LCD sensor",
-            "model_id": "E6",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }

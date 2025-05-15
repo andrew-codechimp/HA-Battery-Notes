@@ -1,4 +1,4 @@
-## 1719 Devices in library
+## 1720 Devices in library
 
 This file is auto generated, do not modify
 
@@ -933,6 +933,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Nortek Security & Control LLC                   |WAPIRZ-1                                                                                      |CR123a                    |                                   |                                      |
 |Nortek Security and Control                     |F-ADT-WTR-1                                                                                   |CR123A                    |                                   |                                      |
 |NorthQ                                          |NQ-9121                                                                                       |2× AA                     |                                   |                                      |
+|Nous                                            |Temperature & humidity LCD sensor                                                             |2× AAA                    |E6                                 |                                      |
 |Nous                                            |Temperature and humidity sensor with clock                                                    |3× AAA                    |SZ-T04                             |                                      |
 |NUKI                                            |Nuki Door Sensor                                                                              |LS14250                   |                                   |                                      |
 |Nuki                                            |Nuki Opener                                                                                   |4× AAA                    |                                   |                                      |
