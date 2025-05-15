@@ -1,4 +1,4 @@
-## 1718 Devices in library
+## 1719 Devices in library
 
 This file is auto generated, do not modify
 
@@ -596,6 +596,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Fyta                                            |Plant                                                                                         |CR2032                    |                                   |                                      |
 |Gardena                                         |GARDENA smart Mower                                                                           |Rechargeable              |                                   |                                      |
 |Gardena                                         |GARDENA smart Sensor                                                                          |2× AA                     |                                   |                                      |
+|Gardena                                         |GARDENA smart Water Control                                                                   |3× AA                     |                                   |                                      |
 |GE                                              |Hinge PIN Door Sensor, 500S                                                                   |CR123A                    |                                   |                                      |
 |GE                                              |Hinge Pin Smart Door Sensor                                                                   |CR2                       |                              32563|                                      |
 |GE/Enbrighten                                   |32563 / ZW6301                                                                                |CR2                       |                                   |                                      |
