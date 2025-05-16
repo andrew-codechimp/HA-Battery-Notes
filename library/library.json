@@ -1656,6 +1656,11 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Bird Buddy, Inc.",
+            "model": "Bird Buddy",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Blueforcer",
             "model": "AWTRIX 3",
             "battery_type": "Rechargeable"
@@ -9675,11 +9680,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Bird Buddy, Inc.",
-            "model": "Bird Buddy",
             "battery_type": "Rechargeable"
         }
     ]

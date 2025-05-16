@@ -1,4 +1,4 @@
-## 1720 Devices in library
+## 1721 Devices in library
 
 This file is auto generated, do not modify
 
@@ -300,6 +300,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |AVM                                             |FRITZ!Smart Thermo 302                                                                        |3× AA                     |                                   |                                      |
 |AVM                                             |FRITZ!Smart Thermo 302                                                                        |3× AA                     |                                   |                                  5.26|
 |b-parasite                                      |Plant sensor                                                                                  |CR2032                    |                                   |                                      |
+|Bird Buddy, Inc.                                |Bird Buddy                                                                                    |Rechargeable              |                                   |                                      |
 |Blueforcer                                      |AWTRIX 3                                                                                      |Rechargeable              |                                   |                                      |
 |Blueforcer                                      |AWTRIX Light                                                                                  |Rechargeable              |                                   |                                      |
 |BlueMaestro                                     |Tempo Disc THD                                                                                |CR2032                    |                                   |                                      |
