@@ -8392,6 +8392,13 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Tuya",
+            "model": "TS0210",
+            "model_id": "_TYZB01_3zv6oleo",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "tuya",
             "model": "TS0601",
             "battery_type": "MANUAL"
@@ -9681,13 +9688,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "TS0210",
-            "model_id": "_TYZB01_3zv6oleo",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
