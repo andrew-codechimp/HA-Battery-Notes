@@ -7785,6 +7785,13 @@
         },
         {
             "manufacturer": "Tuya",
+            "model": "Light sensor",
+            "model_id": "TS0222_light",
+            "hw_version": "1",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Tuya",
             "model": "Luminance door sensor",
             "model_id": "ZG-102ZL",
             "hw_version": "1",
@@ -9688,13 +9695,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Light sensor",
-            "model_id": "TS0222_light",
-            "hw_version": "1",
-            "battery_type": "CR2032"
         }
     ]
 }
