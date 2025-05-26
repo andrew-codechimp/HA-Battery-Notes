@@ -1,4 +1,4 @@
-## 1723 Devices in library
+## 1724 Devices in library
 
 This file is auto generated, do not modify
 
@@ -145,6 +145,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Airthings                                       |View Plus                                                                                     |6× AA                     |                                   |                                      |
 |Airthings                                       |View Radon                                                                                    |6× AA                     |                                   |                                      |
 |Airthings                                       |Wave                                                                                          |2× AA                     |                                   |                                      |
+|Airthings                                       |Wave Enhance                                                                                  |2× AA                     |                                   |                                      |
 |Airthings                                       |Wave Plus                                                                                     |2× AA                     |                                   |                                      |
 |Airthings AS                                    |Wave Plus                                                                                     |2× AA                     |                                   |                                      |
 |Airthings AS                                    |Wave Radon                                                                                    |2× AA                     |                                   |                                      |
