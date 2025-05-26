@@ -8206,6 +8206,13 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Tuya",
+            "model": "Temperature & humidity sensor with display",
+            "model_id": "TS0201",
+            "hw_version": "1",
+            "battery_type": "2450"
+        },
+        {
             "manufacturer": "TuYa",
             "model": "Temperature & humidity sensor with display (TS0201)",
             "battery_type": "AAA",
@@ -9701,13 +9708,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Temperature & humidity sensor with display",
-            "model_id": "TS0201",
-            "hw_version": "1",
-            "battery_type": "2450"
         }
     ]
 }
