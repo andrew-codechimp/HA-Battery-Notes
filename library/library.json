@@ -308,8 +308,19 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "_TZ3000_tzvbimpq",
+            "model": "TS0042",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "_TZ3000_upgcbody",
             "model": "TS0207",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "_TZ3000_v1w2k9dd",
+            "model": "TS0201",
             "battery_type": "AAA",
             "battery_quantity": 2
         },
@@ -751,6 +762,12 @@
         {
             "manufacturer": "Airthings",
             "model": "Wave",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Airthings",
+            "model": "Wave Enhance",
             "battery_type": "AA",
             "battery_quantity": 2
         },
@@ -1645,6 +1662,11 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Bird Buddy, Inc.",
+            "model": "Bird Buddy",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Blueforcer",
             "model": "AWTRIX 3",
             "battery_type": "Rechargeable"
@@ -2529,7 +2551,7 @@
             "manufacturer": "eQ-3",
             "model": "HmIP-DLD",
             "battery_type": "AA",
-            "battery_quantity": 4
+            "battery_quantity": 3
         },
         {
             "manufacturer": "eQ-3",
@@ -3314,6 +3336,18 @@
             "manufacturer": "Gardena",
             "model": "GARDENA smart Mower",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Gardena",
+            "model": "GARDENA smart Sensor",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Gardena",
+            "model": "GARDENA smart Water Control",
+            "battery_type": "AA",
+            "battery_quantity": 3
         },
         {
             "manufacturer": "GE",
@@ -5194,6 +5228,13 @@
             "manufacturer": "NorthQ",
             "model": "NQ-9121",
             "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Nous",
+            "model": "Temperature & humidity LCD sensor",
+            "model_id": "E6",
+            "battery_type": "AAA",
             "battery_quantity": 2
         },
         {
@@ -7750,6 +7791,13 @@
         },
         {
             "manufacturer": "Tuya",
+            "model": "Light sensor",
+            "model_id": "TS0222_light",
+            "hw_version": "1",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Tuya",
             "model": "Luminance door sensor",
             "model_id": "ZG-102ZL",
             "hw_version": "1",
@@ -7977,6 +8025,13 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Tuya",
+            "model": "Smart Door Sensor",
+            "model_id": "5w9vch3u0jfuyleg",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "TuYa",
             "model": "Smart knob (ERS-10TZBVK-AA)",
             "battery_type": "CR2032"
@@ -8149,6 +8204,13 @@
             "model_id": "TS0201",
             "battery_type": "AAA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Temperature & humidity sensor with display",
+            "model_id": "TS0201",
+            "hw_version": "1",
+            "battery_type": "2450"
         },
         {
             "manufacturer": "TuYa",
@@ -8346,6 +8408,13 @@
         {
             "manufacturer": "tuya",
             "model": "TS0210",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "TS0210",
+            "model_id": "_TYZB01_3zv6oleo",
             "battery_type": "AAA",
             "battery_quantity": 2
         },
@@ -8774,6 +8843,12 @@
             "model": "Siren",
             "battery_type": "CR123A",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Withings",
+            "model": "Body Comp",
+            "battery_type": "AAA",
+            "battery_quantity": 4
         },
         {
             "manufacturer": "Withings",
