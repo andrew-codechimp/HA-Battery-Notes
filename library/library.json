@@ -9708,6 +9708,14 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Amazon",
+            "model": "Contact Sensor Gen2",
+            "model_id": "4SD2SZ-0EN0 by Ring Connected via 800 Series Long Range USB Controller Firmware: 1.40.6",
+            "hw_version": "Gen 2",
+            "battery_type": "CR2032",
+            "battery_quantity": 2
         }
     ]
 }
