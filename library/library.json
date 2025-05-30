@@ -7127,6 +7127,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "switchbot",
+            "model": "Roller Shade",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "SwitchBot",
             "model": "Smart Lock Pro",
             "hw_version": "V2.3",
@@ -9737,11 +9742,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "switchbot",
-            "model": "Roller Shade",
             "battery_type": "Rechargeable"
         }
     ]

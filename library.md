@@ -1,4 +1,4 @@
-## 1730 Devices in library
+## 1731 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1280,6 +1280,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |switchbot                                       |Leak Detector                                                                                 |2× AAA                    |                                   |                                      |
 |SwitchBot                                       |Meter                                                                                         |2× AAA                    |                                   |                                      |
 |SwitchBot                                       |MeterPlus                                                                                     |2× AAA                    |                                   |                                      |
+|switchbot                                       |Roller Shade                                                                                  |Rechargeable              |                                   |                                      |
 |SwitchBot                                       |Smart Lock Pro                                                                                |2× Recharchable           |                                   |V2.3                                  |
 |Switchbot                                       |W070160X                                                                                      |Rechargeable              |                                   |                                      |
 |SwitchBot                                       |W1101500                                                                                      |2× AAA                    |                                   |                                      |
