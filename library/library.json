@@ -773,6 +773,12 @@
         },
         {
             "manufacturer": "Airthings",
+            "model": "Wave Mini",
+            "battery_type": "AA",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "Airthings",
             "model": "Wave Plus",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -9708,12 +9714,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Airthings",
-            "model": "Wave Mini",
-            "battery_type": "AA",
-            "battery_quantity": 3
         }
     ]
 }
