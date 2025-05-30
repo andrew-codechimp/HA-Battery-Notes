@@ -9738,6 +9738,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "switchbot",
+            "model": "Roller Shade",
+            "battery_type": "Rechargeable"
         }
     ]
 }
