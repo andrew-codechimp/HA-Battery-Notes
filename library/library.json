@@ -8520,6 +8520,13 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Tuya",
+            "model": "Water valve",
+            "model_id": "_TZ3210_0jxeoadc",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
             "manufacturer": "TuYa",
             "model": "Water valve (TS0049)",
             "battery_type": "AA",
@@ -9743,13 +9750,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Water valve",
-            "model_id": "_TZ3210_0jxeoadc",
-            "battery_type": "AA",
-            "battery_quantity": 4
         }
     ]
 }
