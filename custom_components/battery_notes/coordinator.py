@@ -9,8 +9,8 @@ from typing import cast
 
 from homeassistant.components.binary_sensor import DOMAIN as BINARY_SENSOR_DOMAIN
 from homeassistant.components.binary_sensor import BinarySensorDeviceClass
-from homeassistant.components.sensor import DOMAIN as SENSOR_DOMAIN
-from homeassistant.components.sensor import SensorDeviceClass
+from homeassistant.components.sensor.const import DOMAIN as SENSOR_DOMAIN
+from homeassistant.components.sensor.const import SensorDeviceClass
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import (
     CONF_DEVICE_ID,
@@ -187,9 +187,8 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
                 last_replaced,
             )
 
-            self.last_replaced = (
-                datetime.fromisoformat(last_replaced) if last_replaced else None
-            )
+            if last_replaced:
+                self.last_replaced = datetime.fromisoformat(last_replaced)
 
         # If there is not a last_reported set to now
         if not self.last_reported:
@@ -680,7 +679,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
         if self.battery_low_template:
             return self.battery_low_template_state
         elif self.wrapped_battery:
-            if validate_is_float(self.current_battery_level):
+            if self.current_battery_level is not None and validate_is_float(self.current_battery_level):
                 return bool(
                     float(self.current_battery_level) < self.battery_low_threshold
                 )

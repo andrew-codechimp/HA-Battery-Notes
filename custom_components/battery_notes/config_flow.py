@@ -10,7 +10,7 @@ import homeassistant.helpers.device_registry as dr
 import homeassistant.helpers.entity_registry as er
 import voluptuous as vol
 from homeassistant import config_entries
-from homeassistant.components.sensor import SensorDeviceClass
+from homeassistant.components.sensor.const import SensorDeviceClass
 from homeassistant.config_entries import (
     ConfigEntry,
     ConfigFlowResult,
@@ -37,12 +37,11 @@ from .const import (
     CONF_MANUFACTURER,
     CONF_MODEL,
     CONF_MODEL_ID,
-    CONF_SHOW_ALL_DEVICES,
     CONF_SOURCE_ENTITY_ID,
     DATA_LIBRARY_UPDATER,
     DOMAIN,
-    DOMAIN_CONFIG,
 )
+from .coordinator import MY_KEY
 from .library import Library, ModelInfo
 from .library_updater import LibraryUpdater
 
@@ -216,9 +215,8 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
 
         schema = DEVICE_SCHEMA
         # If show_all_devices = is specified and true, don't filter
-        if DOMAIN in self.hass.data and DOMAIN_CONFIG in self.hass.data[DOMAIN]:
-            domain_config: dict = self.hass.data[DOMAIN][DOMAIN_CONFIG]
-            if domain_config.get(CONF_SHOW_ALL_DEVICES, False):
+        domain_config = self.hass.data[MY_KEY]
+        if domain_config.show_all_devices:
                 schema = DEVICE_SCHEMA_ALL
 
         return self.async_show_form(
@@ -359,6 +357,9 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             source_entity_id = self.data.get(CONF_SOURCE_ENTITY_ID, None)
             device_id = self.data.get(CONF_DEVICE_ID, None)
 
+            entity_entry = None
+            device_entry = None
+
             if source_entity_id:
                 entity_registry = er.async_get(self.hass)
                 entity_entry = entity_registry.async_get(source_entity_id)
@@ -372,6 +373,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                 unique_id = f"bn_{entity_unique_id}"
             else:
                 device_registry = dr.async_get(self.hass)
+                assert device_id
                 device_entry = device_registry.async_get(device_id)
                 unique_id = f"bn_{device_id}"
 
@@ -539,6 +541,7 @@ class OptionsFlowHandler(OptionsFlow):
 
         source_entity_id = self.config_entry.data.get(CONF_SOURCE_ENTITY_ID, None)
 
+        entity_entry: er.RegistryEntry | None = None
         if source_entity_id:
             entity_registry = er.async_get(self.hass)
             entity_entry = entity_registry.async_get(source_entity_id)

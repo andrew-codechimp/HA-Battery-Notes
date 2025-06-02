@@ -12,11 +12,10 @@ import voluptuous as vol
 from homeassistant.components.sensor import (
     PLATFORM_SCHEMA,
     RestoreSensor,
-    SensorDeviceClass,
     SensorEntity,
     SensorEntityDescription,
-    SensorStateClass,
 )
+from homeassistant.components.sensor.const import SensorDeviceClass, SensorStateClass
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import (
     CONF_DEVICE_ID,
@@ -24,8 +23,15 @@ from homeassistant.const import (
     PERCENTAGE,
     STATE_UNAVAILABLE,
     STATE_UNKNOWN,
+    EntityCategory,
 )
-from homeassistant.core import Event, HomeAssistant, callback, split_entity_id
+from homeassistant.core import (
+    Event,
+    EventStateReportedData,
+    HomeAssistant,
+    callback,
+    split_entity_id,
+)
 from homeassistant.helpers import (
     config_validation as cv,
 )
@@ -35,14 +41,13 @@ from homeassistant.helpers import (
 from homeassistant.helpers import (
     entity_registry as er,
 )
-from homeassistant.helpers.entity import DeviceInfo, EntityCategory
+from homeassistant.helpers.device_registry import DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.entity_registry import (
     EVENT_ENTITY_REGISTRY_UPDATED,
 )
 from homeassistant.helpers.event import (
     EventStateChangedData,
-    EventStateReportedData,
     async_track_entity_registry_updated_event,
     async_track_state_change_event,
     async_track_state_report_event,
@@ -52,6 +57,7 @@ from homeassistant.helpers.typing import StateType
 from homeassistant.helpers.update_coordinator import (
     CoordinatorEntity,
 )
+from propcache.api import cached_property
 
 from .common import utcnow_no_timezone, validate_is_float
 from .const import (
@@ -241,7 +247,7 @@ async def async_setup_platform(
 
 
 class BatteryNotesBatteryPlusSensor(
-    RestoreSensor, SensorEntity, CoordinatorEntity[BatteryNotesCoordinator]
+    SensorEntity, CoordinatorEntity[BatteryNotesCoordinator]
 ):
     """Represents a battery plus type sensor."""
 
@@ -574,7 +580,7 @@ class BatteryNotesBatteryPlusSensor(
 
         self.async_write_ha_state()
 
-    @property
+    @cached_property
     def extra_state_attributes(self) -> dict[str, Any] | None:
         """Return the state attributes of the battery type."""
 
@@ -604,7 +610,7 @@ class BatteryNotesBatteryPlusSensor(
             attrs.update(self._wrapped_attributes)
         return attrs
 
-    @property
+    @cached_property
     def native_value(self) -> StateType | Any | datetime:
         """Return the value reported by the sensor."""
         return self._attr_native_value
