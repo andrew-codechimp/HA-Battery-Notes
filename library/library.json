@@ -749,7 +749,19 @@
         },
         {
             "manufacturer": "Airthings",
+            "model": "Raven Radon",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Airthings",
             "model": "View Plus",
+            "battery_type": "AA",
+            "battery_quantity": 6
+        },
+        {
+            "manufacturer": "Airthings",
+            "model": "View Pollution",
             "battery_type": "AA",
             "battery_quantity": 6
         },
@@ -773,9 +785,33 @@
         },
         {
             "manufacturer": "Airthings",
+            "model": "Wave Mini",
+            "battery_type": "AA",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "Airthings",
             "model": "Wave Plus",
             "battery_type": "AA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Airthings AS",
+            "model": "Wave Enhance",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Airthings AS",
+            "model": "Wave Gen 1",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Airthings AS",
+            "model": "Wave Mini",
+            "battery_type": "AA",
+            "battery_quantity": 3
         },
         {
             "manufacturer": "Airthings AS",
@@ -7097,6 +7133,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "switchbot",
+            "model": "Roller Shade",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "SwitchBot",
             "model": "Smart Lock Pro",
             "hw_version": "V2.3",
@@ -8483,6 +8524,13 @@
             "model_id": "upgcbody",
             "battery_type": "AAA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Water valve",
+            "model_id": "_TZ3210_0jxeoadc",
+            "battery_type": "AA",
+            "battery_quantity": 4
         },
         {
             "manufacturer": "TuYa",
