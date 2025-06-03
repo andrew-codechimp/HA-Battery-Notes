@@ -93,11 +93,11 @@ HACS will now show updates available for pre-releases if there are any
 
 ## How do I uninstall Battery Notes
 
-Within Home Assistant go to Settings -> Integrations -> Battery Notes
-For each Battery Note click on the three dots and select Delete
-Go to HACS from your sidebar
-Click on the three dots next to Battery Notes and select Remove
-Edit your configuration.yaml file and remove the battery_notes section and any options indented directly under it.
+Within Home Assistant go to Settings -> Integrations -> Battery Notes  
+For each Battery Note click on the three dots and select Delete  
+Go to HACS from your sidebar  
+Click on the three dots next to Battery Notes and select Remove  
+Edit your configuration.yaml file and remove the battery_notes section and any options indented directly under it  
 Restart Home Assistant
 
 ## How can I show my support?
