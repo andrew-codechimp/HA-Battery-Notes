@@ -1,4 +1,4 @@
-## 1733 Devices in library
+## 1734 Devices in library
 
 This file is auto generated, do not modify
 
@@ -901,6 +901,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Moes                                            |Thermostat radiator valve                                                                     |2× AA                     |TV01-ZB                            |                                      |
 |Moes                                            |Thermostat radiator valve (TV01-ZB)                                                           |2× AA                     |                                   |                                      |
 |Moes                                            |Thermostat radiator valve (ZTRV-ZX-TV01-MS)                                                   |2× AA                     |                                   |                                      |
+|Moes                                            |Thermostatic radiator valve                                                                   |2× AA                     |BRT-100-TRV                        |                                     1|
 |Moes                                            |Thermostatic radiator valve (BRT-100-TRV)                                                     |2× AA                     |                                   |                                      |
 |Moes                                            |Universal smart IR remote control                                                             |2× AAA                    |UFO-R11                            |                                     1|
 |Moes                                            |Universal smart IR remote control (UFO-R11)                                                   |2× AAA                    |                                   |                                      |
