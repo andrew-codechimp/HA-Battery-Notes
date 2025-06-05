@@ -1372,6 +1372,12 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "Wireless mini switch (with gyroscope)",
+            "model_id": "WXKG12LM",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "Wireless mini switch (WXKG11LM)",
             "battery_type": "CR2032"
         },
@@ -9769,12 +9775,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Aqara",
-            "model": "Wireless mini switch (with gyroscope)",
-            "model_id": "WXKG12LM",
-            "battery_type": "CR2032"
         }
     ]
 }
