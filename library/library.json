@@ -3625,6 +3625,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "HANK Electronics, Ltd.",
+            "model": "HKZW-MS02",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "Heatit",
             "model": "Z-PH WALL CONTROLLER",
             "battery_type": "CR2450"
@@ -9764,11 +9769,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "HANK Electronics, Ltd.",
-            "model": "HKZW-MS02",
-            "battery_type": "CR123A"
         }
     ]
 }

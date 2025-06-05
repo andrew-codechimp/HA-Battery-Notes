@@ -1,4 +1,4 @@
-## 1734 Devices in library
+## 1735 Devices in library
 
 This file is auto generated, do not modify
 
@@ -648,6 +648,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |GS                                              |Water leakage sensor (SWHM-I1)                                                                |2× AAA                    |                                   |                                      |
 |HAB Home Intelligence LLC                       |iblinds V3                                                                                    |Rechargeable              |                                   |                                      |
 |HANK Electronics Ltd.                           |HKZW-DWS01                                                                                    |2× AAA                    |                                   |                                      |
+|HANK Electronics, Ltd.                          |HKZW-MS02                                                                                     |CR123A                    |                                   |                                      |
 |Heatit                                          |Z-PH WALL CONTROLLER                                                                          |CR2450                    |                                   |                                      |
 |Heatit                                          |Z-Temp2                                                                                       |3× AA                     |                                   |                                      |
 |Heatit                                          |Z-TEMP3                                                                                       |2× AAA                    |                                   |                                      |
