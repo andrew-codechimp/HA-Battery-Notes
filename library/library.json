@@ -9780,6 +9780,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Withings",
+            "model": "Thermo",
+            "model_id": "XNASCT01",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
