@@ -1,4 +1,4 @@
-## 1737 Devices in library
+## 1738 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1588,6 +1588,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Withings                                        |BPM Core                                                                                      |Rechargeable              |                                   |                                      |
 |Withings                                        |Smart Body Analyzer                                                                           |4× AAA                    |                                   |                                      |
 |Withings                                        |Thermo                                                                                        |Rechargeable              |                                   |                                      |
+|Withings                                        |Thermo                                                                                        |2× AAA                    |XNASCT01                           |                                      |
 |Woox                                            |Smart garden irrigation control                                                               |2× AA                     |R7060                              |                                     1|
 |Woox                                            |Smart garden irrigation control (R7060)                                                       |4× AA                     |                                   |                                      |
 |Woox                                            |Smart siren (R7051)                                                                           |Rechargeable              |                                   |                                      |
