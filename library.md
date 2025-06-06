@@ -1,4 +1,4 @@
-## 1736 Devices in library
+## 1737 Devices in library
 
 This file is auto generated, do not modify
 
@@ -626,6 +626,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Google                                          |Topaz-2.7                                                                                     |6× AA                     |                                   |Battery                               |
 |Google                                          |Topaz-2.7                                                                                     |3× AA                     |                                   |Wired                                 |
 |Google                                          |Topaz-2.9                                                                                     |6× AA                     |                                   |                                      |
+|Google Nest                                     |Doorbell                                                                                      |Rechargeable              |                                   |                                      |
 |Govee                                           |H5054                                                                                         |2× AAA                    |                                   |                                      |
 |Govee                                           |H5072/H5075                                                                                   |2× AAA                    |                                   |                                      |
 |Govee                                           |H5074                                                                                         |CR2477                    |                                   |                                      |

@@ -3507,6 +3507,11 @@
             "battery_quantity": 6
         },
         {
+            "manufacturer": "Google Nest",
+            "model": "Doorbell",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Govee",
             "model": "H5054",
             "battery_type": "AAA",
@@ -9774,11 +9779,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Google Nest",
-            "model": "Doorbell",
             "battery_type": "Rechargeable"
         }
     ]
