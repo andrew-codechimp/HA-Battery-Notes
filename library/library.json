@@ -9792,6 +9792,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Ring",
+            "model": "Doorbell 4",
+            "battery_type": "Ring Li-Ion 6800mAH"
         }
     ]
 }
