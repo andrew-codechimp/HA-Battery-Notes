@@ -1,4 +1,4 @@
-## 1740 Devices in library
+## 1741 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1598,6 +1598,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Worx                                            |Landroid S390 (WR100SI)                                                                       |Rechargeable              |                                   |                                      |
 |WyzeLabs                                        |WVOD1                                                                                         |Rechargeable              |                                   |                                      |
 |WyzeLabs                                        |YD.LO1                                                                                        |4× AA                     |                                   |                                      |
+|X-Sense                                         |SMA51                                                                                         |CR2                       |                                   |                                      |
 |X-Sense                                         |XC04-WX                                                                                       |CR123A                    |                                   |                                      |
 |X-Sense                                         |XS01-M                                                                                        |CR123A                    |                                   |                                      |
 |X-SENSE                                         |XS0B-MR                                                                                       |CR123A                    |                                   |                                      |

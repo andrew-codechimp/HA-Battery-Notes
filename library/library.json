@@ -9004,6 +9004,11 @@
         },
         {
             "manufacturer": "X-Sense",
+            "model": "SMA51",
+            "battery_type": "CR2"
+        },
+        {
+            "manufacturer": "X-Sense",
             "model": "XC04-WX",
             "battery_type": "CR123A"
         },
@@ -9797,11 +9802,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "X-Sense",
-            "model": "SMA51",
-            "battery_type": "CR2"
         }
     ]
 }
