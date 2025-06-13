@@ -1,4 +1,4 @@
-## 1741 Devices in library
+## 1742 Devices in library
 
 This file is auto generated, do not modify
 
@@ -675,6 +675,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Hive                                            |Motion Sensor                                                                                 |CR123A                    |MOT003                             |                                      |
 |Hive                                            |Radiator valve (UK7004240)                                                                    |2× AA                     |                                   |                                      |
 |Hive                                            |TRV003                                                                                        |2× AA                     |                                   |                                      |
+|HOBEIAN                                         |Soil moisture sensor                                                                          |2× AAA                    |ZG-303Z                            |                             122052017|
 |HOBEIAN                                         |Water leak sensor                                                                             |CR2032                    |ZG-222ZA                           |                                     1|
 |Homematic                                       |HM-CC-RT-DN                                                                                   |2× AA                     |MEQ0789539                         |                                      |
 |Homematic                                       |HM-RC-4-3                                                                                     |AAA                       |                                   |                                      |

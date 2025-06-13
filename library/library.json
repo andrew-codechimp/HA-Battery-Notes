@@ -3777,6 +3777,14 @@
         },
         {
             "manufacturer": "HOBEIAN",
+            "model": "Soil moisture sensor",
+            "model_id": "ZG-303Z",
+            "hw_version": "0122052017",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "HOBEIAN",
             "model": "Water leak sensor",
             "model_id": "ZG-222ZA",
             "hw_version": "1",
@@ -9802,14 +9810,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "HOBEIAN",
-            "model": "Soil moisture sensor",
-            "model_id": "ZG-303Z",
-            "hw_version": "0122052017",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
