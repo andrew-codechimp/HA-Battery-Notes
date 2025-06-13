@@ -9802,6 +9802,14 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "HOBEIAN",
+            "model": "Soil moisture sensor",
+            "model_id": "ZG-303Z",
+            "hw_version": "0122052017",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
