@@ -1,6 +1,6 @@
 """Common functions for battery_notes."""
 
-import datetime
+from datetime import datetime
 
 from homeassistant.helpers.device_registry import DeviceEntry
 from homeassistant.util import dt as dt_util

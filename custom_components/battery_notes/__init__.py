@@ -51,7 +51,7 @@ from .coordinator import (
 )
 from .discovery import DiscoveryManager
 from .library_updater import LibraryUpdater
-from .services import setup_services
+from .services import async_setup_services
 from .store import (
     async_get_registry,
 )
@@ -138,7 +138,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         _LOGGER.debug("Auto discovery disabled")
 
     # Register custom services
-    setup_services(hass)
+    async_setup_services(hass)
 
     return True
 
