@@ -2687,6 +2687,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "eq-3",
+            "model": "HmIP-FCI1",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "eQ-3",
             "model": "HmIP-KRC4",
             "battery_type": "AAA"
@@ -9831,11 +9836,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "eq-3",
-            "model": "HmIP-FCI1",
-            "battery_type": "CR2032"
         }
     ]
 }
