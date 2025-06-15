@@ -1,4 +1,4 @@
-## 1744 Devices in library
+## 1745 Devices in library
 
 This file is auto generated, do not modify
 
@@ -565,6 +565,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |eWeLink                                         |SNZB-03                                                                                       |CR2450                    |                                   |                                      |
 |eWeLink                                         |SNZB-03P                                                                                      |CR2477                    |                                   |                                      |
 |eWeLink                                         |SNZB-04                                                                                       |2× AAA                    |                                   |                                      |
+|eWeLink                                         |SNZB-04                                                                                       |CR2032                    |000-ZD08-1220                      |V1.4                                  |
 |eWeLink                                         |SNZB-04P                                                                                      |CR2477                    |                                   |                                      |
 |eWeLink                                         |TH01                                                                                          |CR2450                    |                                   |                                      |
 |eWeLink                                         |WB01                                                                                          |CR2450                    |                                   |                                      |

@@ -3174,6 +3174,13 @@
         },
         {
             "manufacturer": "eWeLink",
+            "model": "SNZB-04",
+            "model_id": "000-ZD08-1220",
+            "hw_version": "V1.4",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "eWeLink",
             "model": "SNZB-04P",
             "battery_type": "CR2477"
         },
@@ -9824,13 +9831,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "eWeLink",
-            "model": "SNZB-04",
-            "model_id": "000-ZD08-1220",
-            "hw_version": "V1.4",
-            "battery_type": "CR2032"
         }
     ]
 }
