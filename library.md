@@ -1,4 +1,4 @@
-## 1748 Devices in library
+## 1749 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1057,6 +1057,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Ring                                            |4SD1S7-0EN0 / 4SDAE9-0EU0                                                                     |CR123A                    |                                   |                                      |
 |Ring                                            |4SD2SZ-0EN0                                                                                   |2× CR2032                 |                                   |                                      |
 |Ring                                            |4SF1S8-0EN0                                                                                   |CR123A                    |                                   |                                      |
+|Ring                                            |4SP1S7-0EN0 / 4SPAE9-0EU0                                                                     |CR123A                    |                                   |                                      |
 |Ring                                            |4SP1SZ                                                                                        |2× AA                     |                                   |                                      |
 |Ring                                            |B0923BK77S                                                                                    |2× AA                     |                                   |                                      |
 |Ring                                            |Contact Sensor                                                                                |2× CR2032                 |                                   |                                      |
