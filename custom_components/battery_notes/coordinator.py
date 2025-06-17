@@ -146,8 +146,9 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
             self.config_entry.data.get(CONF_BATTERY_LOW_THRESHOLD, 0)
         )
 
-        if self.battery_low_threshold == 0:
-            self.battery_low_threshold = self.config_entry.runtime_data.domain_config.default_battery_low_threshold
+        if hasattr(self.config_entry, "runtime_data"):
+            if self.battery_low_threshold == 0:
+                self.battery_low_threshold = self.config_entry.runtime_data.domain_config.default_battery_low_threshold
 
         self.battery_low_template = self.config_entry.data.get(
             CONF_BATTERY_LOW_TEMPLATE
@@ -594,6 +595,9 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
     @property
     def last_replaced(self) -> datetime | None:
         """Get the last replaced datetime."""
+        if not hasattr(self.config_entry, "runtime_data"):
+            return None
+
         if self.source_entity_id:
             entry = self.config_entry.runtime_data.store.async_get_entity(self.source_entity_id)
         else:
@@ -610,6 +614,9 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
     @last_replaced.setter
     def last_replaced(self, value: datetime):
         """Set the last replaced datetime and store it."""
+        if not hasattr(self.config_entry, "runtime_data"):
+            return
+
         entry = {LAST_REPLACED: value}
 
         if self.source_entity_id:
@@ -620,6 +627,9 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
     @property
     def last_reported(self) -> datetime | None:
         """Get the last reported datetime."""
+
+        if not hasattr(self.config_entry, "runtime_data"):
+            return None
 
         if self.source_entity_id:
             entry = self.config_entry.runtime_data.store.async_get_entity(self.source_entity_id)
@@ -639,6 +649,10 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
     @last_reported.setter
     def last_reported(self, value):
         """Set the last reported datetime and store it."""
+
+        if not hasattr(self.config_entry, "runtime_data"):
+            return
+
         entry = {LAST_REPORTED: value}
 
         if self.source_entity_id:
@@ -650,6 +664,8 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
     @property
     def last_reported_level(self) -> float | None:
         """Get the last reported level."""
+        if not hasattr(self.config_entry, "runtime_data"):
+            return None
 
         if self.source_entity_id:
             entry = self.config_entry.runtime_data.store.async_get_entity(self.source_entity_id)
@@ -715,6 +731,9 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
     def async_update_device_config(self, device_id: str, data: dict):
         """Conditional create, update or remove device from store."""
 
+        if not hasattr(self.config_entry, "runtime_data"):
+            return
+
         if ATTR_REMOVE in data:
             self.config_entry.runtime_data.store.async_delete_device(device_id)
         elif self.config_entry.runtime_data.store.async_get_device(device_id):
@@ -724,6 +743,9 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
 
     def async_update_entity_config(self, entity_id: str, data: dict):
         """Conditional create, update or remove entity from store."""
+
+        if not hasattr(self.config_entry, "runtime_data"):
+            return
 
         if ATTR_REMOVE in data:
             self.config_entry.runtime_data.store.async_delete_entity(entity_id)

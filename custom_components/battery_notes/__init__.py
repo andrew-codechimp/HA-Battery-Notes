@@ -175,35 +175,34 @@ async def async_remove_entry(hass: HomeAssistant, config_entry: BatteryNotesConf
     # Remove any issues raised
     ir.async_delete_issue(hass, DOMAIN, f"missing_device_{config_entry.entry_id}")
 
-    if not config_entry.runtime_data.coordinator or not config_entry.runtime_data.coordinator.device_id:
-        return
+    store = await async_get_registry(hass)
+    coordinator = BatteryNotesCoordinator(hass, config_entry)
 
-    data = {ATTR_REMOVE: True}
+    if coordinator.source_entity_id:
+        store.async_delete_entity(coordinator.source_entity_id)
+    else:
+        store.async_delete_device(coordinator.device_id)
 
-    config_entry.runtime_data.coordinator.async_update_device_config(
-        device_id=config_entry.runtime_data.coordinator.device_id, data=data
-    )
-
-    _LOGGER.debug("Removed Device %s", config_entry.runtime_data.coordinator.device_id)
+    _LOGGER.debug("Removed battery note %s", config_entry.entry_id)
 
     # Unhide the battery
     entity_registry = er.async_get(hass)
-    if not config_entry.runtime_data.coordinator.wrapped_battery:
+    if not coordinator.wrapped_battery:
         return
 
     if not (
         wrapped_battery_entity_entry := entity_registry.async_get(
-            config_entry.runtime_data.coordinator.wrapped_battery.entity_id
+            coordinator.wrapped_battery.entity_id
         )
     ):
         return
 
     if wrapped_battery_entity_entry.hidden_by == er.RegistryEntryHider.INTEGRATION:
         entity_registry.async_update_entity(
-            config_entry.runtime_data.coordinator.wrapped_battery.entity_id, hidden_by=None
+            coordinator.wrapped_battery.entity_id, hidden_by=None
         )
         _LOGGER.debug(
-            "Unhidden Original Battery for device%s", config_entry.runtime_data.coordinator.device_id
+            "Unhidden Original Battery for device%s", coordinator.device_id
         )
 
 
