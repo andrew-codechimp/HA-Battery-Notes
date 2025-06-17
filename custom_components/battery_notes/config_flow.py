@@ -38,7 +38,6 @@ from .const import (
     CONF_MODEL,
     CONF_MODEL_ID,
     CONF_SOURCE_ENTITY_ID,
-    DATA_LIBRARY_UPDATER,
     DOMAIN,
 )
 from .coordinator import MY_KEY

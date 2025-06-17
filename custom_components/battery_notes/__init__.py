@@ -21,7 +21,6 @@ from homeassistant.util import dt as dt_util
 
 from .config_flow import CONFIG_VERSION
 from .const import (
-    ATTR_REMOVE,
     CONF_BATTERY_INCREASE_THRESHOLD,
     CONF_BATTERY_QUANTITY,
     CONF_BATTERY_TYPE,
