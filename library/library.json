@@ -9836,6 +9836,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Ring",
+            "model": "4SP1S7-0EN0 / 4SPAE9-0EU0",
+            "battery_type": "CR123A"
         }
     ]
 }
