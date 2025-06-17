@@ -5912,6 +5912,11 @@
         },
         {
             "manufacturer": "Ring",
+            "model": "4SF1S8-0EN0",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Ring",
             "model": "4SP1SZ",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -9836,11 +9841,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Ring",
-            "model": "4SF1S8-0EN0",
-            "battery_type": "CR123A"
         }
     ]
 }
