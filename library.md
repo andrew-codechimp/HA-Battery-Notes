@@ -1,4 +1,4 @@
-## 1749 Devices in library
+## 1750 Devices in library
 
 This file is auto generated, do not modify
 
@@ -793,6 +793,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Innr                                            |Remote control (RC 210)                                                                       |CR2032                    |                                   |                                      |
 |iNode                                           |iNode Energy Meter                                                                            |CR2032                    |                                   |                                      |
 |Inovelli                                        |LZW60                                                                                         |CR123A                    |                                   |                                      |
+|IOmeter GmbH                                    |IOmeter                                                                                       |2× AA                     |                                   |                                      |
 |Iris                                            |3326-L                                                                                        |CR2                       |                                   |                                      |
 |Iris                                            |Contact and temperature sensor (3320-L)                                                       |CR2                       |                                   |                                      |
 |Iris                                            |Contact and temperature sensor (IL06_1)                                                       |CR2                       |                                   |                                      |
