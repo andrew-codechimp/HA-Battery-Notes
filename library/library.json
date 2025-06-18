@@ -9857,6 +9857,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Temperature & humidity LCD sensor",
+            "model_id": "ZG-227ZL",
+            "hw_version": "1",
+            "battery_type": "CR2032"
         }
     ]
 }
