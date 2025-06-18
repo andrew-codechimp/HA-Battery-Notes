@@ -8274,6 +8274,13 @@
             "battery_quantity": 3
         },
         {
+            "manufacturer": "Tuya",
+            "model": "Temperature & humidity LCD sensor",
+            "model_id": "ZG-227ZL",
+            "hw_version": "1",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "TuYa",
             "model": "Temperature & humidity LCD sensor (ZG-227ZL)",
             "battery_type": "CR2032"
@@ -9857,13 +9864,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Temperature & humidity LCD sensor",
-            "model_id": "ZG-227ZL",
-            "hw_version": "1",
-            "battery_type": "CR2032"
         }
     ]
 }
