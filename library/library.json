@@ -9869,6 +9869,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "COOLO",
+            "model": "TS0601",
+            "model_id": "CS-201Z",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
