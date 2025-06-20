@@ -1,4 +1,4 @@
-## 1753 Devices in library
+## 1754 Devices in library
 
 This file is auto generated, do not modify
 
@@ -353,6 +353,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |CentraLite                                      |Contact Sensor-A                                                                              |CR2                       |                                   |                                      |
 |Computime                                       |SLT3                                                                                          |4× AA                     |                                   |                                      |
 |Computime                                       |SS909ZB                                                                                       |CR2                       |                                   |                                      |
+|COOLO                                           |TS0601                                                                                        |2× AAA                    |CS-201Z                            |                                      |
 |Cowboy                                          |Cruiser                                                                                       |Rechargeable              |                                   |                                      |
 |CPS                                             |CP1500AVRLCDa                                                                                 |Rechargeable              |                                   |                                      |
 |CPS                                             |CP1500PFCLCD                                                                                  |2× 12V9AH-SLA             |                                   |                                      |
