@@ -516,6 +516,13 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "_TZE200_npj9bug3",
+            "model": "TS0601",
+            "model_id": "CS-201Z",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "_TZE200_p3dbf6qs",
             "model": "TS0601",
             "battery_type": "AA",
@@ -9869,13 +9876,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "_TZE200_npj9bug3",
-            "model": "TS0601",
-            "model_id": "CS-201Z",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }

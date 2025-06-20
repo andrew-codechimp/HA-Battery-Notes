@@ -1,4 +1,4 @@
-## 1752 Devices in library
+## 1753 Devices in library
 
 This file is auto generated, do not modify
 
@@ -99,6 +99,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |_TZE200_locansqn                                |TS0601                                                                                        |3× AAA                    |                                   |                                      |
 |_TZE200_myd45weu                                |TS0601                                                                                        |2× AA                     |                                   |                                      |
 |_TZE200_nnrfa68v                                |TS0601                                                                                        |2× AAA                    |                                   |                                      |
+|_TZE200_npj9bug3                                |TS0601                                                                                        |2× AAA                    |CS-201Z                            |                                      |
 |_TZE200_p3dbf6qs                                |TS0601                                                                                        |2× AA                     |                                   |                                      |
 |_TZE200_pay2byax                                |TS0601                                                                                        |CR2032                    |                                   |                                      |
 |_TZE200_rccxox8p                                |TS0601                                                                                        |PP3                       |                                   |                                      |
