@@ -3832,6 +3832,13 @@
         },
         {
             "manufacturer": "HOBEIAN",
+            "model": "Temperature and humidity sensor (ZG-227Z)",
+            "hw_version": "1",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "HOBEIAN",
             "model": "Water leak sensor",
             "model_id": "ZG-222ZA",
             "hw_version": "1",
@@ -9897,13 +9904,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "HOBEIAN",
-            "model": "Temperature and humidity sensor (ZG-227Z)",
-            "hw_version": "1",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
