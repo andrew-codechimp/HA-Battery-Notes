@@ -7064,6 +7064,13 @@
             "battery_quantity": 4
         },
         {
+            "manufacturer": "SONOFF",
+            "model": "SWV",
+            "hw_version": "16",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
             "manufacturer": "Sonoff",
             "model": "Temperature and humidity sensor",
             "model_id": "SNZB-02",
@@ -9890,13 +9897,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "SONOFF",
-            "model": "SWV",
-            "hw_version": "16",
-            "battery_type": "AA",
-            "battery_quantity": 4
         }
     ]
 }
