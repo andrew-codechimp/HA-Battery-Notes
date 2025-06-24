@@ -9904,6 +9904,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Blink",
+            "model": "<unknown>",
+            "battery_type": "AA Lithium",
+            "battery_quantity": 2
         }
     ]
 }
