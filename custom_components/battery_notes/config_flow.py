@@ -24,7 +24,6 @@ from homeassistant.const import (
 from homeassistant.core import callback, split_entity_id
 from homeassistant.helpers import selector
 from homeassistant.helpers.typing import DiscoveryInfoType
-from homeassistant.util import dt as dt_util
 
 from .common import get_device_model_id
 from .const import (
