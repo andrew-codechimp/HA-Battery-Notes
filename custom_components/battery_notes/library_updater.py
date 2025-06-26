@@ -57,7 +57,7 @@ class LibraryUpdater:
         if await self.time_to_update_library(23) is False:
             return
 
-        await self.get_library_updates(now)
+        await self.get_library_updates()
 
         domain_config = self.hass.data[MY_KEY]
 
@@ -68,7 +68,7 @@ class LibraryUpdater:
             _LOGGER.debug("Auto discovery disabled")
 
     @callback
-    async def get_library_updates(self, now: datetime):
+    async def get_library_updates(self, startup: bool = False) -> None:
         # pylint: disable=unused-argument
         """Make a call to get the latest library.json."""
 
@@ -97,9 +97,10 @@ class LibraryUpdater:
                 _LOGGER.error("Library file is invalid, not updated")
 
         except LibraryUpdaterClientError:
-            _LOGGER.warning(
-                "Unable to update library, will retry later."
-            )
+            if not startup:
+                _LOGGER.warning(
+                    "Unable to update library, will retry later."
+                )
 
     async def copy_schema(self):
         """Copy schema file to storage to be relative to downloaded library."""

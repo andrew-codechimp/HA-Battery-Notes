@@ -128,7 +128,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
 
     library_updater = LibraryUpdater(hass)
     await library_updater.copy_schema()
-    await library_updater.get_library_updates(dt_util.utcnow())
+    await library_updater.get_library_updates(startup=True)
 
     if domain_config.enable_autodiscovery:
         discovery_manager = DiscoveryManager(hass, domain_config)
@@ -180,7 +180,8 @@ async def async_remove_entry(hass: HomeAssistant, config_entry: BatteryNotesConf
     if coordinator.source_entity_id:
         store.async_delete_entity(coordinator.source_entity_id)
     else:
-        store.async_delete_device(coordinator.device_id)
+        if coordinator.device_id:
+            store.async_delete_device(coordinator.device_id)
 
     _LOGGER.debug("Removed battery note %s", config_entry.entry_id)
 
