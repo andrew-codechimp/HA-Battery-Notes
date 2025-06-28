@@ -3824,6 +3824,13 @@
         },
         {
             "manufacturer": "HOBEIAN",
+            "model": "Door/window sensor",
+            "model_id": "(ZG-102ZA)",
+            "hw_version": "1",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "HOBEIAN",
             "model": "Soil moisture sensor",
             "model_id": "ZG-303Z",
             "hw_version": "0122052017",
@@ -9904,13 +9911,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "HOBEIAN",
-            "model": "Door/window sensor",
-            "model_id": "(ZG-102ZA)",
-            "hw_version": "1",
-            "battery_type": "CR2032"
         }
     ]
 }
