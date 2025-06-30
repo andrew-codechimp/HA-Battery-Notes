@@ -593,6 +593,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "_TZE284_nhgdf6qr",
+            "model": "TS0601",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "ABUS Security-Center GmbH Co. KG",
             "model": "SHRM10000",
             "battery_type": "CR123A"
@@ -9920,12 +9926,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "_TZE284_nhgdf6qr",
-            "model": "TS0601",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
