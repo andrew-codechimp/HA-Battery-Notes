@@ -1,4 +1,4 @@
-## 1760 Devices in library
+## 1761 Devices in library
 
 This file is auto generated, do not modify
 
@@ -621,6 +621,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |GIEX                                            |Soil Moisture Sensor                                                                          |2× AAA                    |GX04                               |                                      |
 |GiEX                                            |Water irrigation valve (QT06_1)                                                               |4× AA                     |                                   |                                      |
 |GiEX                                            |Water irrigation valve (QT06_2)                                                               |4× AA                     |                                   |                                      |
+|GiEX                                            |Water valve                                                                                   |4× AA                     |GX02                               |                                     1|
 |GiEX                                            |Water valve (GX02)                                                                            |4× AA                     |                                   |                                      |
 |Google                                          |A12                                                                                           |3× AA                     |                                   |                                      |
 |Google                                          |Google Pixel Watch                                                                            |Rechargeable              |                                   |                                      |
