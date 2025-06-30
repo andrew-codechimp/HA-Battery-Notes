@@ -9926,6 +9926,14 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "GiEX",
+            "model": "Water valve",
+            "model_id": "GX02",
+            "hw_version": "1",
+            "battery_type": "AA",
+            "battery_quantity": 4
         }
     ]
 }
