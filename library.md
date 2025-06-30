@@ -1,4 +1,4 @@
-## 1761 Devices in library
+## 1762 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1488,6 +1488,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tuya                                            |Temperature & humidity sensor                                                                 |CR2450                    |IH-K009                            |                                     1|
 |Tuya                                            |Temperature & humidity sensor                                                                 |CR2450                    |RSH-HS06_1                         |                                     1|
 |Tuya                                            |Temperature & humidity sensor                                                                 |2× AAA                    |WSD500A                            |                                      |
+|Tuya                                            |Temperature & humidity sensor                                                                 |2× AAA                    |WSD500A                            |                                     1|
 |TuYa                                            |Temperature & humidity sensor (IH-K009)                                                       |CR2450                    |                                   |                                      |
 |Tuya                                            |Temperature & humidity sensor (TT001ZAV20)                                                    |CR2450                    |                                   |                                      |
 |TuYa                                            |Temperature & humidity sensor (WSD500A)                                                       |2× AAA                    |                                   |                                      |
