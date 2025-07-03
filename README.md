@@ -2,7 +2,7 @@
 
 [![GitHub Release][releases-shield]][releases]
 [![GitHub Activity][commits-shield]][commits]
-[![Downloads][download-latest-shield]](releases)
+[![Downloads][download-latest-shield]]()
 [![HACS Installs][hacs-installs-shield]]()
 [![License][license-shield]](LICENSE)
 [![hacs][hacsbadge]][hacs]
