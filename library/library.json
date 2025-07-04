@@ -5765,6 +5765,13 @@
         },
         {
             "manufacturer": "Philips",
+            "model": "Hue Secure contact sensor",
+            "model_id": "9290035639",
+            "hw_version": "1",
+            "battery_type": "CR2"
+        },
+        {
+            "manufacturer": "Philips",
             "model": "Hue smart button",
             "model_id": "8718699693985",
             "hw_version": "1",
@@ -9949,13 +9956,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Philips",
-            "model": "Hue Secure contact sensor",
-            "model_id": "9290035639",
-            "hw_version": "1",
-            "battery_type": "CR2"
         }
     ]
 }
