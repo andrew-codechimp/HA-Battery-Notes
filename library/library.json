@@ -8871,6 +8871,11 @@
             "battery_quantity": 3
         },
         {
+            "manufacturer": "Tuya / eWeLink",
+            "model": "Zigbee water sensor (SNZB-05)",
+            "battery_type": "AAA"
+        },
+        {
             "manufacturer": "Tuya / Moes",
             "model": "Wireless switch with 3 buttons (TS0043)",
             "battery_type": "CR2430"
@@ -9977,11 +9982,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Tuya / eWeLink",
-            "model": "Zigbee water sensor (SNZB-05)",
-            "battery_type": "AAA"
         }
     ]
 }
