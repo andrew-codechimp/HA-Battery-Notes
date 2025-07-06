@@ -9956,6 +9956,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "OWON",
+            "model": "Motion sensor (PIR313-E)",
+            "battery_type": "AA",
+            "battery_quantity": 2
         }
     ]
 }
