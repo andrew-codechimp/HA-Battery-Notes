@@ -703,6 +703,11 @@
         },
         {
             "manufacturer": "Aeotec",
+            "model": "Multipurpose sensor (2018 model) (IM6001-MPP01)",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Aeotec",
             "model": "ZWA011",
             "battery_type": "CR14250"
         },
@@ -9956,11 +9961,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Aeotec",
-            "model": "Multipurpose sensor (2018 model) (IM6001-MPP01)",
-            "battery_type": "CR2450"
         }
     ]
 }
