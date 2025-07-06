@@ -9961,6 +9961,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Tuya / eWeLink",
+            "model": "Zigbee water sensor (SNZB-05)",
+            "battery_type": "AAA"
         }
     ]
 }
