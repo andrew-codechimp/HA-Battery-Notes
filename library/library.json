@@ -9972,6 +9972,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Heiman",
+            "model": "Smart air quality monitor (HS3AQ)",
+            "battery_type": "Rechargeable"
         }
     ]
 }
