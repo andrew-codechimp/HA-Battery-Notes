@@ -3761,6 +3761,11 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "Heiman",
+            "model": "Smart air quality monitor (HS3AQ)",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "HEIMAN",
             "model": "Smart carbon monoxide sensor (HS1CA-E)",
             "battery_type": "CR123A"
@@ -9971,11 +9976,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Heiman",
-            "model": "Smart air quality monitor (HS3AQ)",
             "battery_type": "Rechargeable"
         }
     ]
