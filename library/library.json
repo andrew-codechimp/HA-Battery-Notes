@@ -8360,6 +8360,11 @@
         },
         {
             "manufacturer": "Tuya",
+            "model": "Solar rain sensor (RB-SRAIN01)",
+            "battery_type": "Solar"
+        },
+        {
+            "manufacturer": "Tuya",
             "model": "T & H Sensor",
             "model_id": "lf36y5nwb8jkxwgg",
             "hw_version": "TH01CB3S",
@@ -9988,11 +9993,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Solar rain sensor (RB-SRAIN01)",
-            "battery_type": "Solar"
         }
     ]
 }
