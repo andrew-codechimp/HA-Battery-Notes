@@ -9967,6 +9967,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Tuya / Moes",
+            "model": "Wireless switch with 3 buttons (TS0043)",
+            "battery_type": "CR2430"
         }
     ]
 }
