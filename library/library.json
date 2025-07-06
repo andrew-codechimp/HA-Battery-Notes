@@ -2289,7 +2289,15 @@
         {
             "manufacturer": "Ecowitt",
             "model": "GW2000A",
-            "battery_type": "MANUAL"
+            "battery_type": "AA",
+            "checklist": {
+                "selected": [
+                    "I have checked the Model and Model ID are correct by adding the device to Battery Notes manually, or configuring an existing one, and copied the details presented.",
+                    "This submission has at least the Manufactuer and Model specified, devices without a manufactuer or model cannot be added to the library."
+                ],
+                "unselected": []
+            },
+            "battery_quantity": 2
         },
         {
             "manufacturer": "Ecowitt",
