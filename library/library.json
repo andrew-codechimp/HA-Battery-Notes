@@ -1779,6 +1779,11 @@
         },
         {
             "manufacturer": "Bosch",
+            "model": "Outdoor siren (BSIR-EZ)",
+            "battery_type": "Solar"
+        },
+        {
+            "manufacturer": "Bosch",
             "model": "Radiator Thermostat II",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -9993,11 +9998,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Bosch",
-            "model": "Outdoor siren (BSIR-EZ)",
-            "battery_type": "Solar"
         }
     ]
 }

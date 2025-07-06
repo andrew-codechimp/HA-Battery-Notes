@@ -1,4 +1,4 @@
-## 1771 Devices in library
+## 1772 Devices in library
 
 This file is auto generated, do not modify
 
@@ -321,6 +321,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Bosch                                           |ISW-ZPR1-WP13                                                                                 |4× AA                     |                                   |                                      |
 |BOSCH                                           |MD                                                                                            |CR123A                    |                                   |                                      |
 |Bosch                                           |Motion sensor (ISW-ZPR1-WP13)                                                                 |4× AA                     |                                   |                                      |
+|Bosch                                           |Outdoor siren (BSIR-EZ)                                                                       |Solar                     |                                   |                                      |
 |Bosch                                           |Radiator Thermostat II                                                                        |2× AA                     |                                   |                                      |
 |Bosch                                           |Radiator thermostat II (BTH-RA)                                                               |2× AA                     |                                   |                                      |
 |BOSCH                                           |Radiator Thermostat II +M                                                                     |2× AA                     |                              12306|1.2.0                                 |
