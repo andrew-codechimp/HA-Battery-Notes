@@ -3762,13 +3762,13 @@
             "manufacturer": "HEIMAN",
             "model": "Remote dimmer and color control",
             "model_id": "HS2WDSR-E",
-            "hw_version": "16",
             "battery_type": "CR2450"
         },
         {
             "manufacturer": "HEIMAN",
             "model": "Remote dimmer and color control",
             "model_id": "HS2WDSR-E",
+            "hw_version": "16",
             "battery_type": "CR2450"
         },
         {
