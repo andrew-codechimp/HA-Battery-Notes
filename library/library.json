@@ -382,7 +382,7 @@
         },
         {
             "manufacturer": "_TZ3210_ncw88jfq",
-            "model": "Temperature & humidity sensor with display (TS0201)",
+            "model": "Temperature & humidity sensor with display",
             "model_id": "TS0201",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -470,7 +470,7 @@
         },
         {
             "manufacturer": "_TZE200_d0yu2xgi",
-            "model": "Temperature & humidity sensor and alarm (NAS-AB02B0)",
+            "model": "Temperature & humidity sensor and alarm",
             "model_id": "NAS-AB02B0",
             "battery_type": "CR123A + USB",
             "battery_quantity": 2
@@ -3767,7 +3767,7 @@
         },
         {
             "manufacturer": "HEIMAN",
-            "model": "Remote dimmer and color control (HS2WDSR-E)",
+            "model": "Remote dimmer and color control",
             "model_id": "HS2WDSR-E",
             "battery_type": "CR2450"
         },
