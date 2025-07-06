@@ -7545,7 +7545,8 @@
         },
         {
             "manufacturer": "Third Reality",
-            "model": "Garage door tilt sensor (3RDTS01056Z)",
+            "model": "Garage door tilt sensor",
+            "model_id": "3RDTS01056Z",
             "battery_type": "AAA",
             "battery_quantity": 2
         },
