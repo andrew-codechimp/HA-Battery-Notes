@@ -72,12 +72,3 @@ body:
       placeholder: ex. 1
     validations:
       required: true
-
-  - type: checkboxes
-    attributes:
-      label: Checklist
-      options:
-        - label: I have checked the Model and Model ID are correct by adding the device to Battery Notes manually, or configuring an existing one, and copied the details presented.
-          required: true
-        - label: This submission has at least the Manufactuer and Model specified, devices without a manufactuer or model cannot be added to the library.
-          required: true
