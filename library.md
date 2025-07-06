@@ -1,4 +1,4 @@
-## 1769 Devices in library
+## 1770 Devices in library
 
 This file is auto generated, do not modify
 
@@ -384,6 +384,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Develco                                         |Smoke detector with siren (SMSZB-120)                                                         |CR123                     |                                   |                                      |
 |Develco                                         |Window sensor                                                                                 |2× AAA                    |WISZB-120                          |3.1.1                                 |
 |Develco Products A/S                            |AQSZB-110                                                                                     |2× AA                     |                                   |                                      |
+|Develco/Frient                                  |Air quality sensor (AQSZB-110)                                                                |2× AA                     |                                   |                                      |
 |Devolo                                          |MT02647                                                                                       |CR123A                    |                                   |                                      |
 |Devolo                                          |MT02648                                                                                       |CR123A                    |                                   |                                      |
 |Devolo                                          |MT2652                                                                                        |CR2032                    |                                   |                                      |
