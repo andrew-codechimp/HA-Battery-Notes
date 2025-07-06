@@ -5667,6 +5667,12 @@
         },
         {
             "manufacturer": "OWON",
+            "model": "Motion sensor (PIR313-E)",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "OWON",
             "model": "Temperature sensor",
             "model_id": "THS317-ET",
             "battery_type": "AAA",
@@ -9961,12 +9967,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "OWON",
-            "model": "Motion sensor (PIR313-E)",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }

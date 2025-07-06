@@ -1,4 +1,4 @@
-## 1765 Devices in library
+## 1766 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1009,6 +1009,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |OSRAM                                           |Smart+ switch mini                                                                            |CR2450                    |AC0251100NJ/AC0251600NJ/AC0251700NJ|                                     1|
 |OSRAM                                           |Smart+ switch mini (AC0251100NJ/AC0251600NJ/AC0251700NJ)                                      |CR2450                    |                                   |                                      |
 |OSRAM                                           |Switch 4x EU-LIGHTIFY                                                                         |CR2450                    |                                   |                                      |
+|OWON                                            |Motion sensor (PIR313-E)                                                                      |2× AA                     |                                   |                                      |
 |OWON                                            |Temperature sensor                                                                            |2× AAA                    |THS317-ET                          |                                      |
 |OWON                                            |THS317-ET                                                                                     |2× AAA                    |                                   |                                      |
 |Panasonic                                       |VR220                                                                                         |Rechargeable              |                                   |                                      |
