@@ -8866,6 +8866,11 @@
             "battery_quantity": 3
         },
         {
+            "manufacturer": "Tuya / Moes",
+            "model": "Wireless switch with 3 buttons (TS0043)",
+            "battery_type": "CR2430"
+        },
+        {
             "manufacturer": "TUYATEC-1wzznw9a",
             "model": "RH3052",
             "battery_type": "CR2032"
@@ -9967,11 +9972,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Tuya / Moes",
-            "model": "Wireless switch with 3 buttons (TS0043)",
-            "battery_type": "CR2430"
         }
     ]
 }
