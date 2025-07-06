@@ -9972,6 +9972,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Solar rain sensor (RB-SRAIN01)",
+            "battery_type": "Solar"
         }
     ]
 }
