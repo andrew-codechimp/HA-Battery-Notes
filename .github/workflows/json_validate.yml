@@ -21,7 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Validate JSON
-        uses: dsanders11/json-schema-validate-action@v1.3.0
+        uses: dsanders11/json-schema-validate-action@v1.4.0
         with:
           schema: library/schema.json
           files: library/library.json
