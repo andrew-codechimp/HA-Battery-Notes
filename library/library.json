@@ -9999,6 +9999,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "HOBEIAN",
+            "model": "Vibration sensor",
+            "model_id": "ZG-102ZM",
+            "hw_version": "1",
+            "battery_type": "CR2032"
         }
     ]
 }
