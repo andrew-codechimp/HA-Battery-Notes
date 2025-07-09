@@ -3889,6 +3889,13 @@
         },
         {
             "manufacturer": "HOBEIAN",
+            "model": "Vibration sensor",
+            "model_id": "ZG-102ZM",
+            "hw_version": "1",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "HOBEIAN",
             "model": "Water leak sensor",
             "model_id": "ZG-222ZA",
             "hw_version": "1",
@@ -9999,13 +10006,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "HOBEIAN",
-            "model": "Vibration sensor",
-            "model_id": "ZG-102ZM",
-            "hw_version": "1",
-            "battery_type": "CR2032"
         }
     ]
 }
