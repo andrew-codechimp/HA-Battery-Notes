@@ -703,7 +703,8 @@
         },
         {
             "manufacturer": "Aeotec",
-            "model": "Multipurpose sensor (2018 model) (IM6001-MPP01)",
+            "model": "Multipurpose sensor (2018 model)",
+            "model_id": "IM6001-MPP01"
             "battery_type": "CR2450"
         },
         {
@@ -1779,7 +1780,8 @@
         },
         {
             "manufacturer": "Bosch",
-            "model": "Outdoor siren (BSIR-EZ)",
+            "model": "Outdoor siren",
+            "model_id": "BSIR-EZ"
             "battery_type": "Solar"
         },
         {
@@ -2149,7 +2151,8 @@
         },
         {
             "manufacturer": "Develco/Frient",
-            "model": "Air quality sensor (AQSZB-110)",
+            "model": "Air quality sensor",
+            "model_id": "AQSZB-110"
             "battery_type": "AA",
             "battery_quantity": 2
         },
@@ -3773,7 +3776,8 @@
         },
         {
             "manufacturer": "Heiman",
-            "model": "Smart air quality monitor (HS3AQ)",
+            "model": "Smart air quality monitor",
+            "model_id": "HS3AQ"
             "battery_type": "Rechargeable"
         },
         {
@@ -5307,7 +5311,8 @@
         },
         {
             "manufacturer": "Neo",
-            "model": "Outdoor solar alarm (NAS-AB06B2)",
+            "model": "Outdoor solar alarm",
+            "model_id": "NAS-AB06B2"
             "battery_type": "Solar"
         },
         {
@@ -5368,7 +5373,7 @@
         },
         {
             "manufacturer": "Netatmo",
-            "model": "Smart Rain Gauge",
+            "model": "Smart  Gauge",
             "battery_type": "AAA",
             "battery_quantity": 2
         },
@@ -5690,7 +5695,8 @@
         },
         {
             "manufacturer": "OWON",
-            "model": "Motion sensor (PIR313-E)",
+            "model": "Motion sensor",
+            "model_id": "PIR313-E"
             "battery_type": "AA",
             "battery_quantity": 2
         },
@@ -6184,7 +6190,7 @@
         },
         {
             "manufacturer": "rtl_433",
-            "model": "Hideki-Rain",
+            "model": "Hideki-",
             "battery_type": "AA",
             "battery_quantity": 2
         },
@@ -8373,7 +8379,8 @@
         },
         {
             "manufacturer": "Tuya",
-            "model": "Solar rain sensor (RB-SRAIN01)",
+            "model": "Solar  sensor",
+            "model_id": "RB-S01",
             "battery_type": "Solar"
         },
         {
@@ -8895,13 +8902,15 @@
             "battery_quantity": 3
         },
         {
-            "manufacturer": "Tuya / eWeLink",
-            "model": "Zigbee water sensor (SNZB-05)",
+            "manufacturer": "eWeLink",
+            "model": "Zigbee water sensor",
+            "model_id": "SNZB-05"
             "battery_type": "AAA"
         },
         {
             "manufacturer": "Tuya / Moes",
-            "model": "Wireless switch with 3 buttons (TS0043)",
+            "model": "Wireless switch with 3 buttons",
+            "model_id": "TS0043"
             "battery_type": "CR2430"
         },
         {
