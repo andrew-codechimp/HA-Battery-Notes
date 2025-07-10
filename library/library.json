@@ -3254,6 +3254,12 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "eWeLink",
+            "model": "Zigbee water sensor",
+            "model_id": "SNZB-05",
+            "battery_type": "AAA"
+        },
+        {
             "manufacturer": "Express Controls",
             "model": "EZMotion Express",
             "battery_type": "AAA",
@@ -8798,6 +8804,12 @@
         },
         {
             "manufacturer": "Tuya",
+            "model": "Wireless switch with 3 buttons",
+            "model_id": "TS0043",
+            "battery_type": "CR2430"
+        },
+        {
+            "manufacturer": "Tuya",
             "model": "Wireless switch with 4 buttons",
             "model_id": "TS0044",
             "hw_version": "1",
@@ -8900,18 +8912,6 @@
             "model": "ZTH08-E",
             "battery_type": "AAA",
             "battery_quantity": 3
-        },
-        {
-            "manufacturer": "eWeLink",
-            "model": "Zigbee water sensor",
-            "model_id": "SNZB-05",
-            "battery_type": "AAA"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Wireless switch with 3 buttons",
-            "model_id": "TS0043",
-            "battery_type": "CR2430"
         },
         {
             "manufacturer": "TUYATEC-1wzznw9a",
