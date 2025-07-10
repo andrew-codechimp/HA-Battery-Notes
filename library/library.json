@@ -704,7 +704,7 @@
         {
             "manufacturer": "Aeotec",
             "model": "Multipurpose sensor (2018 model)",
-            "model_id": "IM6001-MPP01"
+            "model_id": "IM6001-MPP01",
             "battery_type": "CR2450"
         },
         {
@@ -1781,7 +1781,7 @@
         {
             "manufacturer": "Bosch",
             "model": "Outdoor siren",
-            "model_id": "BSIR-EZ"
+            "model_id": "BSIR-EZ",
             "battery_type": "Solar"
         },
         {
@@ -2152,7 +2152,7 @@
         {
             "manufacturer": "Develco/Frient",
             "model": "Air quality sensor",
-            "model_id": "AQSZB-110"
+            "model_id": "AQSZB-110",
             "battery_type": "AA",
             "battery_quantity": 2
         },
@@ -3777,7 +3777,7 @@
         {
             "manufacturer": "Heiman",
             "model": "Smart air quality monitor",
-            "model_id": "HS3AQ"
+            "model_id": "HS3AQ",
             "battery_type": "Rechargeable"
         },
         {
@@ -5312,7 +5312,7 @@
         {
             "manufacturer": "Neo",
             "model": "Outdoor solar alarm",
-            "model_id": "NAS-AB06B2"
+            "model_id": "NAS-AB06B2",
             "battery_type": "Solar"
         },
         {
@@ -5696,7 +5696,7 @@
         {
             "manufacturer": "OWON",
             "model": "Motion sensor",
-            "model_id": "PIR313-E"
+            "model_id": "PIR313-E",
             "battery_type": "AA",
             "battery_quantity": 2
         },
@@ -8904,13 +8904,13 @@
         {
             "manufacturer": "eWeLink",
             "model": "Zigbee water sensor",
-            "model_id": "SNZB-05"
+            "model_id": "SNZB-05",
             "battery_type": "AAA"
         },
         {
-            "manufacturer": "Tuya / Moes",
+            "manufacturer": "Tuya",
             "model": "Wireless switch with 3 buttons",
-            "model_id": "TS0043"
+            "model_id": "TS0043",
             "battery_type": "CR2430"
         },
         {
