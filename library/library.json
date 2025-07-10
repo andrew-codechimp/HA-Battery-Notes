@@ -6190,7 +6190,7 @@
         },
         {
             "manufacturer": "rtl_433",
-            "model": "Hideki-",
+            "model": "Hideki-Rain",
             "battery_type": "AA",
             "battery_quantity": 2
         },
@@ -8379,8 +8379,8 @@
         },
         {
             "manufacturer": "Tuya",
-            "model": "Solar  sensor",
-            "model_id": "RB-S01",
+            "model": "Solar Rain sensor",
+            "model_id": "RB-SRAIN01",
             "battery_type": "Solar"
         },
         {
