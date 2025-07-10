@@ -96,9 +96,9 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
 
     if AwesomeVersion(HA_VERSION) < AwesomeVersion(MIN_HA_VERSION):  # pragma: no cover
         msg = (
-            "This integration requires at least HomeAssistant version "
+            "This integration requires at least Home Assistant version "
             f" {MIN_HA_VERSION}, you are running version {HA_VERSION}."
-            " Please upgrade HomeAssistant to continue use this integration."
+            " Please upgrade Home Assistant to continue using this integration."
         )
         _LOGGER.critical(msg)
         return False
@@ -106,7 +106,9 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     store = await async_get_registry(hass)
 
     domain_config = BatteryNotesDomainConfig(
-        enable_autodiscovery=config.get(DOMAIN, {}).get(CONF_ENABLE_AUTODISCOVERY, True),
+        enable_autodiscovery=config.get(DOMAIN, {}).get(
+            CONF_ENABLE_AUTODISCOVERY, True
+        ),
         show_all_devices=config.get(DOMAIN, {}).get(CONF_SHOW_ALL_DEVICES, False),
         enable_replaced=config.get(DOMAIN, {}).get(CONF_ENABLE_REPLACED, True),
         hide_battery=config.get(DOMAIN, {}).get(CONF_HIDE_BATTERY, False),
@@ -141,11 +143,13 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     return True
 
 
-async def async_setup_entry(hass: HomeAssistant, config_entry: BatteryNotesConfigEntry) -> bool:
+async def async_setup_entry(
+    hass: HomeAssistant, config_entry: BatteryNotesConfigEntry
+) -> bool:
     """Set up a config entry."""
 
     data = hass.data[MY_KEY]
-    assert(data.store)
+    assert data.store
     config_entry.runtime_data = BatteryNotesData(
         domain_config=data,
         store=data.store,
@@ -161,13 +165,17 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: BatteryNotesConfi
     return True
 
 
-async def async_unload_entry(hass: HomeAssistant, config_entry: BatteryNotesConfigEntry) -> bool:
+async def async_unload_entry(
+    hass: HomeAssistant, config_entry: BatteryNotesConfigEntry
+) -> bool:
     """Unload a config entry."""
 
     return await hass.config_entries.async_unload_platforms(config_entry, PLATFORMS)
 
 
-async def async_remove_entry(hass: HomeAssistant, config_entry: BatteryNotesConfigEntry) -> None:
+async def async_remove_entry(
+    hass: HomeAssistant, config_entry: BatteryNotesConfigEntry
+) -> None:
     """Device removed, tidy up store."""
 
     # Remove any issues raised
@@ -200,12 +208,12 @@ async def async_remove_entry(hass: HomeAssistant, config_entry: BatteryNotesConf
         entity_registry.async_update_entity(
             coordinator.wrapped_battery.entity_id, hidden_by=None
         )
-        _LOGGER.debug(
-            "Unhidden Original Battery for device%s", coordinator.device_id
-        )
+        _LOGGER.debug("Unhidden Original Battery for device%s", coordinator.device_id)
 
 
-async def async_migrate_entry(hass: HomeAssistant, config_entry: BatteryNotesConfigEntry):
+async def async_migrate_entry(
+    hass: HomeAssistant, config_entry: BatteryNotesConfigEntry
+):
     """Migrate old config."""
     new_version = CONFIG_VERSION
 
@@ -254,6 +262,8 @@ async def update_listener(
 
 
 @callback
-async def async_update_options(hass: HomeAssistant, entry: BatteryNotesConfigEntry) -> None:
+async def async_update_options(
+    hass: HomeAssistant, entry: BatteryNotesConfigEntry
+) -> None:
     """Update options."""
     await hass.config_entries.async_reload(entry.entry_id)
