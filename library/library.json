@@ -10015,6 +10015,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Schneider Electric",
+            "model": "Wiser window/door sensor",
+            "model_id": "CCT591011_AS",
+            "hw_version": "0",
+            "battery_type": "CR2450"
         }
     ]
 }
