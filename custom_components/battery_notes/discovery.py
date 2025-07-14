@@ -10,7 +10,6 @@ from homeassistant.config_entries import SOURCE_INTEGRATION_DISCOVERY
 from homeassistant.const import CONF_DEVICE_ID
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers import discovery_flow
-from homeassistant.helpers.typing import ConfigType
 
 from .common import get_device_model_id
 from .const import (
@@ -22,6 +21,7 @@ from .const import (
     CONF_MODEL_ID,
     DOMAIN,
 )
+from .coordinator import BatteryNotesDomainConfig
 from .library import DeviceBatteryDetails, Library, ModelInfo
 
 _LOGGER = logging.getLogger(__name__)
@@ -77,7 +77,7 @@ class DiscoveryManager:
     so the user can add them to their HA instance.
     """
 
-    def __init__(self, hass: HomeAssistant, ha_config: ConfigType) -> None:
+    def __init__(self, hass: HomeAssistant, ha_config: BatteryNotesDomainConfig) -> None:
         """Init."""
         self.hass = hass
         self.ha_config = ha_config
@@ -87,7 +87,8 @@ class DiscoveryManager:
         _LOGGER.debug("Start auto discovering devices")
         device_registry = dr.async_get(self.hass)
 
-        library = await Library.factory(self.hass)
+        library = Library(self.hass)
+        await library.load_libraries()
 
         if library.loaded():
             for device_entry in list(device_registry.devices.values()):

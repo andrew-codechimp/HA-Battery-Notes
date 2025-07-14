@@ -10,7 +10,7 @@ import homeassistant.helpers.device_registry as dr
 import homeassistant.helpers.entity_registry as er
 import voluptuous as vol
 from homeassistant import config_entries
-from homeassistant.components.sensor import SensorDeviceClass
+from homeassistant.components.sensor.const import SensorDeviceClass
 from homeassistant.config_entries import (
     ConfigEntry,
     ConfigFlowResult,
@@ -24,7 +24,6 @@ from homeassistant.const import (
 from homeassistant.core import callback, split_entity_id
 from homeassistant.helpers import selector
 from homeassistant.helpers.typing import DiscoveryInfoType
-from homeassistant.util import dt as dt_util
 
 from .common import get_device_model_id
 from .const import (
@@ -37,12 +36,10 @@ from .const import (
     CONF_MANUFACTURER,
     CONF_MODEL,
     CONF_MODEL_ID,
-    CONF_SHOW_ALL_DEVICES,
     CONF_SOURCE_ENTITY_ID,
-    DATA_LIBRARY_UPDATER,
     DOMAIN,
-    DOMAIN_CONFIG,
 )
+from .coordinator import MY_KEY
 from .library import Library, ModelInfo
 from .library_updater import LibraryUpdater
 
@@ -162,15 +159,9 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
 
             device_id = user_input[CONF_DEVICE_ID]
 
-            if (
-                DOMAIN in self.hass.data
-                and DATA_LIBRARY_UPDATER in self.hass.data[DOMAIN]
-            ):
-                library_updater: LibraryUpdater = self.hass.data[DOMAIN][
-                    DATA_LIBRARY_UPDATER
-                ]
-                if await library_updater.time_to_update_library(1):
-                    await library_updater.get_library_updates(dt_util.utcnow())
+            library_updater = LibraryUpdater(self.hass)
+            if await library_updater.time_to_update_library(1):
+                await library_updater.get_library_updates()
 
             device_registry = dr.async_get(self.hass)
             device_entry = device_registry.async_get(device_id)
@@ -191,7 +182,8 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                     device_entry.hw_version,
                 )
 
-                library = await Library.factory(self.hass)
+                library = Library(self.hass)
+                await library.load_libraries()
 
                 # Set defaults if not found in library
                 self.data[CONF_BATTERY_QUANTITY] = 1
@@ -221,9 +213,8 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
 
         schema = DEVICE_SCHEMA
         # If show_all_devices = is specified and true, don't filter
-        if DOMAIN in self.hass.data and DOMAIN_CONFIG in self.hass.data[DOMAIN]:
-            domain_config: dict = self.hass.data[DOMAIN][DOMAIN_CONFIG]
-            if domain_config.get(CONF_SHOW_ALL_DEVICES, False):
+        domain_config = self.hass.data[MY_KEY]
+        if domain_config.show_all_devices:
                 schema = DEVICE_SCHEMA_ALL
 
         return self.async_show_form(
@@ -256,16 +247,9 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                 if entity_entry.device_id:
                     self.data[CONF_DEVICE_ID] = entity_entry.device_id
 
-                    if (
-                        DOMAIN in self.hass.data
-                        and DATA_LIBRARY_UPDATER in self.hass.data[DOMAIN]
-                    ):
-                        library_updater: LibraryUpdater = self.hass.data[DOMAIN][
-                            DATA_LIBRARY_UPDATER
-                        ]
-
-                        if await library_updater.time_to_update_library(1):
-                            await library_updater.get_library_updates(dt_util.utcnow())
+                    library_updater = LibraryUpdater(self.hass)
+                    if await library_updater.time_to_update_library(1):
+                        await library_updater.get_library_updates()
 
                     device_registry = dr.async_get(self.hass)
                     device_entry = device_registry.async_get(entity_entry.device_id)
@@ -290,7 +274,8 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                             device_entry.hw_version,
                         )
 
-                        library = await Library.factory(self.hass)
+                        library = Library(self.hass)
+                        await library.load_libraries()
 
                         device_battery_details = (
                             await library.get_device_battery_details(self.model_info)
@@ -363,6 +348,9 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             source_entity_id = self.data.get(CONF_SOURCE_ENTITY_ID, None)
             device_id = self.data.get(CONF_DEVICE_ID, None)
 
+            entity_entry = None
+            device_entry = None
+
             if source_entity_id:
                 entity_registry = er.async_get(self.hass)
                 entity_entry = entity_registry.async_get(source_entity_id)
@@ -376,6 +364,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                 unique_id = f"bn_{entity_unique_id}"
             else:
                 device_registry = dr.async_get(self.hass)
+                assert device_id
                 device_entry = device_registry.async_get(device_id)
                 unique_id = f"bn_{device_id}"
 
@@ -543,6 +532,7 @@ class OptionsFlowHandler(OptionsFlow):
 
         source_entity_id = self.config_entry.data.get(CONF_SOURCE_ENTITY_ID, None)
 
+        entity_entry: er.RegistryEntry | None = None
         if source_entity_id:
             entity_registry = er.async_get(self.hass)
             entity_entry = entity_registry.async_get(source_entity_id)

@@ -53,7 +53,7 @@ from homeassistant.helpers.update_coordinator import (
     CoordinatorEntity,
 )
 
-from .common import validate_is_float
+from .common import utcnow_no_timezone, validate_is_float
 from .const import (
     ATTR_BATTERY_LAST_REPLACED,
     ATTR_BATTERY_LAST_REPORTED,
@@ -68,18 +68,11 @@ from .const import (
     ATTR_SOURCE_ENTITY_ID,
     CONF_BATTERY_QUANTITY,
     CONF_BATTERY_TYPE,
-    CONF_ENABLE_REPLACED,
-    CONF_HIDE_BATTERY,
-    CONF_ROUND_BATTERY,
     CONF_SOURCE_ENTITY_ID,
-    DATA,
     DOMAIN,
-    DOMAIN_CONFIG,
-    LAST_REPLACED,
     PLATFORMS,
 )
-from .coordinator import BatteryNotesCoordinator
-from .device import BatteryNotesDevice
+from .coordinator import MY_KEY, BatteryNotesConfigEntry, BatteryNotesCoordinator
 from .entity import (
     BatteryNotesEntityDescription,
 )
@@ -109,7 +102,7 @@ _LOGGER = logging.getLogger(__name__)
 
 
 @callback
-def async_add_to_device(hass: HomeAssistant, entry: ConfigEntry) -> str | None:
+def async_add_to_device(hass: HomeAssistant, entry: BatteryNotesConfigEntry) -> str | None:
     """Add our config entry to the device."""
     device_registry = dr.async_get(hass)
 
@@ -126,7 +119,7 @@ def async_add_to_device(hass: HomeAssistant, entry: ConfigEntry) -> str | None:
 
 async def async_setup_entry(
     hass: HomeAssistant,
-    config_entry: ConfigEntry,
+    config_entry: BatteryNotesConfigEntry,
     async_add_entities: AddEntitiesCallback,
 ) -> None:
     """Initialize Battery Type config entry."""
@@ -169,32 +162,25 @@ async def async_setup_entry(
         )
     )
 
-    device: BatteryNotesDevice = hass.data[DOMAIN][DATA].devices[config_entry.entry_id]
+    coordinator = config_entry.runtime_data.coordinator
+    assert(coordinator)
 
-    if not device.fake_device:
+    if not coordinator.fake_device:
         device_id = async_add_to_device(hass, config_entry)
 
         if not device_id:
             return
 
-    coordinator = device.coordinator
-
     await coordinator.async_refresh()
 
-    enable_replaced = True
-    round_battery = False
-
-    if DOMAIN_CONFIG in hass.data[DOMAIN]:
-        domain_config: dict = hass.data[DOMAIN][DOMAIN_CONFIG]
-        enable_replaced = domain_config.get(CONF_ENABLE_REPLACED, True)
-        round_battery = domain_config.get(CONF_ROUND_BATTERY, False)
+    domain_config = hass.data[MY_KEY]
 
     battery_plus_sensor_entity_description = BatteryNotesSensorEntityDescription(
         unique_id_suffix="_battery_plus",
         key="battery_plus",
         translation_key="battery_plus",
         device_class=SensorDeviceClass.BATTERY,
-        suggested_display_precision=0 if round_battery else 1,
+        suggested_display_precision=0 if domain_config.round_battery else 1,
     )
 
     type_sensor_entity_description = BatteryNotesSensorEntityDescription(
@@ -210,7 +196,7 @@ async def async_setup_entry(
         translation_key="battery_last_replaced",
         entity_category=EntityCategory.DIAGNOSTIC,
         device_class=SensorDeviceClass.TIMESTAMP,
-        entity_registry_enabled_default=enable_replaced,
+        entity_registry_enabled_default=domain_config.enable_replaced,
     )
 
     entities = [
@@ -230,7 +216,7 @@ async def async_setup_entry(
         ),
     ]
 
-    if device.wrapped_battery is not None:
+    if coordinator.wrapped_battery is not None:
         entities.append(
             BatteryNotesBatteryPlusSensor(
                 hass,
@@ -238,9 +224,8 @@ async def async_setup_entry(
                 coordinator,
                 battery_plus_sensor_entity_description,
                 f"{config_entry.entry_id}{battery_plus_sensor_entity_description.unique_id_suffix}",
-                device,
-                enable_replaced,
-                round_battery,
+                domain_config.enable_replaced,
+                domain_config.round_battery,
             )
         )
 
@@ -285,7 +270,6 @@ class BatteryNotesBatteryPlusSensor(
         coordinator: BatteryNotesCoordinator,
         description: BatteryNotesSensorEntityDescription,
         unique_id: str,
-        device: BatteryNotesDevice,
         enable_replaced: bool,
         round_battery: bool,
     ) -> None:
@@ -322,7 +306,6 @@ class BatteryNotesBatteryPlusSensor(
 
         self.entity_description = description
         self._attr_unique_id = unique_id
-        self.device = device
         self.enable_replaced = enable_replaced
         self.round_battery = round_battery
 
@@ -338,7 +321,7 @@ class BatteryNotesBatteryPlusSensor(
             )
 
         entity_category = (
-            device.wrapped_battery.entity_category if device.wrapped_battery else None
+            coordinator.wrapped_battery.entity_category if coordinator.wrapped_battery else None
         )
 
         self._attr_entity_category = entity_category
@@ -420,7 +403,7 @@ class BatteryNotesBatteryPlusSensor(
 
         await self.coordinator.async_request_refresh()
 
-        self.coordinator.last_reported = datetime.utcnow()
+        self.coordinator.last_reported = utcnow_no_timezone()
 
         _LOGGER.debug(
             "Entity id %s has been reported.",
@@ -556,27 +539,26 @@ class BatteryNotesBatteryPlusSensor(
         if not self.coordinator.wrapped_battery:
             return
 
-        if DOMAIN_CONFIG in self.hass.data[DOMAIN]:
-            domain_config: dict = self.hass.data[DOMAIN][DOMAIN_CONFIG]
-            hide_battery = domain_config.get(CONF_HIDE_BATTERY, False)
-            if hide_battery:
-                if (
-                    self.coordinator.wrapped_battery
-                    and not self.coordinator.wrapped_battery.hidden
-                ):
-                    registry.async_update_entity(
-                        self.coordinator.wrapped_battery.entity_id,
-                        hidden_by=er.RegistryEntryHider.INTEGRATION,
-                    )
-            else:
-                if (
-                    self.coordinator.wrapped_battery
-                    and self.coordinator.wrapped_battery.hidden_by
-                    == er.RegistryEntryHider.INTEGRATION
-                ):
-                    registry.async_update_entity(
-                        self.coordinator.wrapped_battery.entity_id, hidden_by=None
-                    )
+        domain_config = self.hass.data[MY_KEY]
+
+        if domain_config.hide_battery:
+            if (
+                self.coordinator.wrapped_battery
+                and not self.coordinator.wrapped_battery.hidden
+            ):
+                registry.async_update_entity(
+                    self.coordinator.wrapped_battery.entity_id,
+                    hidden_by=er.RegistryEntryHider.INTEGRATION,
+                )
+        else:
+            if (
+                self.coordinator.wrapped_battery
+                and self.coordinator.wrapped_battery.hidden_by
+                == er.RegistryEntryHider.INTEGRATION
+            ):
+                registry.async_update_entity(
+                    self.coordinator.wrapped_battery.entity_id, hidden_by=None
+                )
 
         self.async_on_remove(
             self.coordinator.async_add_listener(self._handle_coordinator_update)
@@ -798,38 +780,21 @@ class BatteryNotesLastReplacedSensor(
 
     def _set_native_value(self, log_on_error=True):
         # pylint: disable=unused-argument
-        if self._source_entity_id:
-            entry = self.coordinator.store.async_get_entity(self._source_entity_id)
-        else:
-            entry = self.coordinator.store.async_get_device(self._device_id)
 
-        if entry:
-            if LAST_REPLACED in entry and entry[LAST_REPLACED] is not None:
-                last_replaced_date = datetime.fromisoformat(
-                    str(entry[LAST_REPLACED]) + "+00:00"
-                )
-                self._native_value = last_replaced_date
+        if last_replaced := self.coordinator.last_replaced:
+            self._native_value = last_replaced
 
-                return True
+            return True
         return False
 
     @callback
     def _handle_coordinator_update(self) -> None:
         """Handle updated data from the coordinator."""
 
-        if self.coordinator.source_entity_id:
-            entry = self.coordinator.store.async_get_entity(self._source_entity_id)
-        else:
-            entry = self.coordinator.store.async_get_device(self._device_id)
+        if last_replaced := self.coordinator.last_replaced:
+            self._native_value = last_replaced
 
-        if entry:
-            if LAST_REPLACED in entry and entry[LAST_REPLACED] is not None:
-                last_replaced_date = datetime.fromisoformat(
-                    str(entry[LAST_REPLACED]) + "+00:00"
-                )
-                self._native_value = last_replaced_date
-
-                self.async_write_ha_state()
+            self.async_write_ha_state()
 
     @property
     def native_value(self) -> datetime | None:

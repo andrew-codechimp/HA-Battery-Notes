@@ -4,7 +4,6 @@ from __future__ import annotations
 
 from typing import Any
 
-from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_DEVICE_ID
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers import (
@@ -16,10 +15,11 @@ from homeassistant.helpers import (
 
 from .common import get_device_model_id
 from .const import CONF_SOURCE_ENTITY_ID
+from .coordinator import BatteryNotesConfigEntry
 
 
 async def async_get_config_entry_diagnostics(
-    hass: HomeAssistant, config_entry: ConfigEntry
+    hass: HomeAssistant, config_entry: BatteryNotesConfigEntry
 ) -> dict[str, Any]:
     """Return diagnostics for a config entry."""
 

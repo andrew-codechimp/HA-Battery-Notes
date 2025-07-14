@@ -18,16 +18,7 @@ from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.event import async_track_utc_time_change
 from homeassistant.helpers.storage import STORAGE_DIR
 
-from .const import (
-    CONF_ENABLE_AUTODISCOVERY,
-    CONF_LIBRARY_URL,
-    CONF_SCHEMA_URL,
-    DATA_LIBRARY_LAST_UPDATE,
-    DEFAULT_LIBRARY_URL,
-    DEFAULT_SCHEMA_URL,
-    DOMAIN,
-    DOMAIN_CONFIG,
-)
+from .coordinator import MY_KEY
 from .discovery import DiscoveryManager
 
 _LOGGER = logging.getLogger(__name__)
@@ -47,13 +38,10 @@ class LibraryUpdater:
         """Initialize the library updater."""
         self.hass = hass
 
-        if DOMAIN_CONFIG in self.hass.data[DOMAIN]:
-            domain_config: dict = self.hass.data[DOMAIN][DOMAIN_CONFIG]
-            library_url = domain_config.get(CONF_LIBRARY_URL, DEFAULT_LIBRARY_URL)
-            schema_url = domain_config.get(CONF_SCHEMA_URL, DEFAULT_SCHEMA_URL)
-        else:
-            library_url = DEFAULT_LIBRARY_URL
-            schema_url = DEFAULT_SCHEMA_URL
+        domain_config = self.hass.data[MY_KEY]
+
+        library_url = domain_config.library_url
+        schema_url = domain_config.schema_url
 
         self._client = LibraryUpdaterClient(library_url=library_url, schema_url=schema_url, session=async_get_clientsession(hass))
 
@@ -69,21 +57,18 @@ class LibraryUpdater:
         if await self.time_to_update_library(23) is False:
             return
 
-        await self.get_library_updates(now)
+        await self.get_library_updates()
 
-        if DOMAIN_CONFIG not in self.hass.data[DOMAIN]:
-            return
+        domain_config = self.hass.data[MY_KEY]
 
-        domain_config: dict = self.hass.data[DOMAIN][DOMAIN_CONFIG]
-
-        if domain_config.get(CONF_ENABLE_AUTODISCOVERY):
+        if domain_config.enable_autodiscovery:
             discovery_manager = DiscoveryManager(self.hass, domain_config)
             await discovery_manager.start_discovery()
         else:
             _LOGGER.debug("Auto discovery disabled")
 
     @callback
-    async def get_library_updates(self, now: datetime):
+    async def get_library_updates(self, startup: bool = False) -> None:
         # pylint: disable=unused-argument
         """Make a call to get the latest library.json."""
 
@@ -105,16 +90,17 @@ class LibraryUpdater:
                     _update_library_json, json_path, content
                 )
 
-                self.hass.data[DOMAIN][DATA_LIBRARY_LAST_UPDATE] = datetime.now()
+                self.hass.data[MY_KEY].library_last_update = datetime.now()
 
                 _LOGGER.debug("Updated library")
             else:
                 _LOGGER.error("Library file is invalid, not updated")
 
         except LibraryUpdaterClientError:
-            _LOGGER.warning(
-                "Unable to update library, will retry later."
-            )
+            if not startup:
+                _LOGGER.warning(
+                    "Unable to update library, will retry later."
+                )
 
     async def copy_schema(self):
         """Copy schema file to storage to be relative to downloaded library."""
@@ -131,9 +117,9 @@ class LibraryUpdater:
     async def time_to_update_library(self, hours: int) -> bool:
         """Check when last updated and if OK to do a new library update."""
         try:
-            if DATA_LIBRARY_LAST_UPDATE in self.hass.data[DOMAIN]:
+            if library_last_update := self.hass.data[MY_KEY].library_last_update:
                 time_since_last_update = (
-                    datetime.now() - self.hass.data[DOMAIN][DATA_LIBRARY_LAST_UPDATE]
+                    datetime.now() - library_last_update
                 )
 
                 time_difference_in_hours = time_since_last_update / timedelta(hours=1)
