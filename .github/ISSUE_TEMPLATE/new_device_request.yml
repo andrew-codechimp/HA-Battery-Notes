@@ -14,8 +14,9 @@ body:
 
         [![Open your Home Assistant instance and show your devices.](https://my.home-assistant.io/badges/devices.svg)](https://my.home-assistant.io/redirect/devices/)
 
-        The title above is not used and will be updated automatically. Manufacturer and Model should be exactly what is displayed on the Device screen within Home Assistant.
-        If your device has a Model ID or HW Version then these must be included.
+        The title above is not used and will be updated automatically.  
+        Manufacturer and Model should be exactly what is displayed when you add a device to Battery Notes manually, depending on the integration a Model ID may be shown in brackets at the end of the model on the device screen, ensure that this is entered separately.  
+        If your device has a Model ID or HW Version then these must be included.  
         If your device has a blank Manufacturer or Model these cannot be added to the library, please don't try, but you can still add a battery note manually.
 
   - type: input
@@ -31,7 +32,7 @@ body:
     id: model
     attributes:
       label: Model
-      description: The model should be exactly what is displayed on the Devices screen within Home Assistant.
+      description: The model should be exactly what is displayed on the devices screen within Home Assistant, the element in brackets is the Model ID and should not be included.
       placeholder: ex. Hue dimmer switch
     validations:
       required: true
@@ -40,7 +41,7 @@ body:
     id: model_id
     attributes:
       label: Model ID
-      description: If the device has a Model ID in the Devices screen within Home Assistant it must be included.
+      description: If the device has a Model ID in the Devices screen, which is in brackets after the model, it must be included.
       placeholder: ex. 324131092621
     validations:
       required: false

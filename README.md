@@ -2,23 +2,24 @@
 
 [![GitHub Release][releases-shield]][releases]
 [![GitHub Activity][commits-shield]][commits]
-[![Downloads][download-latest-shield]](Downloads)
+[![Downloads][download-latest-shield]]()
+[![HACS Installs][hacs-installs-shield]]()
 [![License][license-shield]](LICENSE)
 [![hacs][hacsbadge]][hacs]
 
 Integration to add battery notes to a device or entity, with automatic discovery via a growing [battery library](library.md) for devices.  
-Track the battery type, when the battery was replaced, when a battery is low based on device or global thresholds and also when a battery hasn't been reported for a while.  
+Track the battery type, when the battery was replaced, when a battery is low based on device or global thresholds and also when a battery hasn't been reported for a while.
 
 **Dashboard cards usage**
 
-A battery+ sensor provides useful attributes for easy use in dashboards, the standard battery can optionally be hidden.  
+A battery+ sensor provides useful attributes for easy use in dashboards, the standard battery can optionally be hidden.
 
 **Notifications and automations**
 
-Battery low, replaced and not reported are all exposed via events and actions, using these you can create your own automations to generate notifications or other actions, there are some predefined ones in [community](https://andrew-codechimp.github.io/HA-Battery-Notes/community).  
+Battery low, replaced and not reported are all exposed via events and actions, using these you can create your own automations to generate notifications or other actions, there are some predefined ones in [community](https://andrew-codechimp.github.io/HA-Battery-Notes/community).
 
-*Please :star: this repo if you find it useful*  
-*If you want to show your support please*
+_Please :star: this repo if you find it useful_  
+_If you want to show your support please_
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png)](https://www.buymeacoffee.com/codechimp)
 
@@ -30,7 +31,8 @@ Battery low, replaced and not reported are all exposed via events and actions, u
 
 **Important**
 
-Once you have installed battery notes using either HACS or manually as per the instructions below you must add the following entry to your `configuration.yaml`, then restart Home Assistant.  This will enable discovery of your devices.  
+Once you have installed battery notes using either HACS or manually as per the instructions below you must add the following entry to your `configuration.yaml`, then restart Home Assistant. This will enable discovery of your devices.
+
 ```
 battery_notes:
 ```
@@ -44,19 +46,21 @@ If you need to add a device that is not automatically discovered from the librar
 Or
 Search for `Battery Notes` in HACS and install it under the "Integrations" category.
 
-
 ### Manual Installation
+
 <details>
 <summary>More Details</summary>
 
-* You should take the battery_notes.zip file from the latest [published release](https://github.com/andrew-codechimp/ha-battery-notes/releases).  
-* To install, place the contents of `custom_components` into the `<config directory>/custom_components` folder of your Home Assistant installation.  
-* Add the following entry to your `configuration.yaml`  
+- You should take the battery_notes.zip file from the latest [published release](https://github.com/andrew-codechimp/ha-battery-notes/releases).
+- To install, place the contents of `custom_components` into the `<config directory>/custom_components` folder of your Home Assistant installation.
+- Add the following entry to your `configuration.yaml`
+
 ```
 battery_notes:
 ```
-* Restart Home Assistant
-* In the HA UI go to Settings -> Integrations click "+" and search for "Battery Notes"
+
+- Restart Home Assistant
+- In the HA UI go to Settings -> Integrations click "+" and search for "Battery Notes"
 </details>
 
 ## Docs
@@ -88,6 +92,7 @@ Huge thanks to @bmos for creating the issue form & automations for adding new de
 Thanks to everyone who has submitted devices to the library.
 
 <!---->
+
 [battery_notes]: https://github.com/andrew-codechimp/HA-Battery-Notes
 [commits-shield]: https://img.shields.io/github/commit-activity/y/andrew-codechimp/HA-Battery-Notes.svg?style=for-the-badge
 [commits]: https://github.com/andrew-codechimp/HA-Battery-Notes/commits/main
@@ -102,3 +107,4 @@ Thanks to everyone who has submitted devices to the library.
 [releases-shield]: https://img.shields.io/github/release/andrew-codechimp/HA-Battery-Notes.svg?style=for-the-badge
 [releases]: https://github.com/andrew-codechimp/HA-Battery-Notes/releases
 [download-latest-shield]: https://img.shields.io/github/downloads/andrew-codechimp/ha-battery-notes/latest/total?style=for-the-badge
+[hacs-installs-shield]: https://img.shields.io/endpoint.svg?url=https%3A%2F%2Flauwbier.nl%2Fhacs%2Fbattery_notes&style=for-the-badge

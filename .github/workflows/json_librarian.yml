@@ -52,4 +52,4 @@ jobs:
           python3 ${{ github.workspace }}/.github/scripts/library_doc/generate_file.py
 
       - name: Commit any changes
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v6

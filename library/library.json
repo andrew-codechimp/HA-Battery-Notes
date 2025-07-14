@@ -101,6 +101,13 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "_TZ3000_6zvw8ham",
+            "model": "TS0203",
+            "model_id": "TS0203",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "_TZ3000_7d8yme6f",
             "model": "TS0203",
             "battery_type": "CR2032"
@@ -375,7 +382,7 @@
         },
         {
             "manufacturer": "_TZ3210_ncw88jfq",
-            "model": "Temperature & humidity sensor with display (TS0201)",
+            "model": "Temperature & humidity sensor with display",
             "model_id": "TS0201",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -463,7 +470,7 @@
         },
         {
             "manufacturer": "_TZE200_d0yu2xgi",
-            "model": "Temperature & humidity sensor and alarm (NAS-AB02B0)",
+            "model": "Temperature & humidity sensor and alarm",
             "model_id": "NAS-AB02B0",
             "battery_type": "CR123A + USB",
             "battery_quantity": 2
@@ -512,6 +519,13 @@
         {
             "manufacturer": "_TZE200_nnrfa68v",
             "model": "TS0601",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "_TZE200_npj9bug3",
+            "model": "TS0601",
+            "model_id": "CS-201Z",
             "battery_type": "AAA",
             "battery_quantity": 2
         },
@@ -574,6 +588,12 @@
         },
         {
             "manufacturer": "_TZE284_aao3yzhs",
+            "model": "TS0601",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "_TZE284_nhgdf6qr",
             "model": "TS0601",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -680,6 +700,12 @@
             "manufacturer": "AEON Labs",
             "model": "ZW130",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Aeotec",
+            "model": "Multipurpose sensor (2018 model)",
+            "model_id": "IM6001-MPP01",
+            "battery_type": "CR2450"
         },
         {
             "manufacturer": "Aeotec",
@@ -1372,6 +1398,12 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "Wireless mini switch (with gyroscope)",
+            "model_id": "WXKG12LM",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "Wireless mini switch (WXKG11LM)",
             "battery_type": "CR2032"
         },
@@ -1748,6 +1780,12 @@
         },
         {
             "manufacturer": "Bosch",
+            "model": "Outdoor siren",
+            "model_id": "BSIR-EZ",
+            "battery_type": "Solar"
+        },
+        {
+            "manufacturer": "Bosch",
             "model": "Radiator Thermostat II",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -1943,6 +1981,21 @@
             "battery_type": "CR2"
         },
         {
+            "manufacturer": "COOLO",
+            "model": "Soil moisture sensor",
+            "model_id": "CS-201Z",
+            "hw_version": "1",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "COOLO",
+            "model": "TS0601",
+            "model_id": "CS-201Z",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Cowboy",
             "model": "Cruiser",
             "battery_type": "Rechargeable"
@@ -2093,6 +2146,13 @@
         {
             "manufacturer": "Develco Products A/S",
             "model": "AQSZB-110",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Develco/Frient",
+            "model": "Air quality sensor",
+            "model_id": "AQSZB-110",
             "battery_type": "AA",
             "battery_quantity": 2
         },
@@ -2681,6 +2741,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "eq-3",
+            "model": "HmIP-FCI1",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "eQ-3",
             "model": "HmIP-KRC4",
             "battery_type": "AAA"
@@ -3168,6 +3233,13 @@
         },
         {
             "manufacturer": "eWeLink",
+            "model": "SNZB-04",
+            "model_id": "000-ZD08-1220",
+            "hw_version": "V1.4",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "eWeLink",
             "model": "SNZB-04P",
             "battery_type": "CR2477"
         },
@@ -3180,6 +3252,12 @@
             "manufacturer": "eWeLink",
             "model": "WB01",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "eWeLink",
+            "model": "Zigbee water sensor",
+            "model_id": "SNZB-05",
+            "battery_type": "AAA"
         },
         {
             "manufacturer": "Express Controls",
@@ -3407,6 +3485,20 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "GIEX",
+            "model": "GX04",
+            "model_id": "TS0601",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "GIEX",
+            "model": "Soil Moisture Sensor",
+            "model_id": "GX04",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "GiEX",
             "model": "Water irrigation valve (QT06_1)",
             "battery_type": "AA",
@@ -3415,6 +3507,14 @@
         {
             "manufacturer": "GiEX",
             "model": "Water irrigation valve (QT06_2)",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "GiEX",
+            "model": "Water valve",
+            "model_id": "GX02",
+            "hw_version": "1",
             "battery_type": "AA",
             "battery_quantity": 4
         },
@@ -3499,6 +3599,11 @@
             "model": "Topaz-2.9",
             "battery_type": "AA",
             "battery_quantity": 6
+        },
+        {
+            "manufacturer": "Google Nest",
+            "model": "Doorbell",
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "Govee",
@@ -3625,6 +3730,16 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "HANK Electronics Ltd.",
+            "model": "SCN04",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "HANK Electronics, Ltd.",
+            "model": "HKZW-MS02",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "Heatit",
             "model": "Z-PH WALL CONTROLLER",
             "battery_type": "CR2450"
@@ -3656,14 +3771,20 @@
             "manufacturer": "HEIMAN",
             "model": "Remote dimmer and color control",
             "model_id": "HS2WDSR-E",
-            "hw_version": "16",
             "battery_type": "CR2450"
         },
         {
             "manufacturer": "HEIMAN",
-            "model": "Remote dimmer and color control (HS2WDSR-E)",
+            "model": "Remote dimmer and color control",
             "model_id": "HS2WDSR-E",
+            "hw_version": "16",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Heiman",
+            "model": "Smart air quality monitor",
+            "model_id": "HS3AQ",
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "HEIMAN",
@@ -3753,6 +3874,35 @@
             "model": "TRV003",
             "battery_type": "AA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "HOBEIAN",
+            "model": "Door/window sensor",
+            "model_id": "(ZG-102ZA)",
+            "hw_version": "1",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "HOBEIAN",
+            "model": "Soil moisture sensor",
+            "model_id": "ZG-303Z",
+            "hw_version": "0122052017",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "HOBEIAN",
+            "model": "Temperature and humidity sensor (ZG-227Z)",
+            "hw_version": "1",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "HOBEIAN",
+            "model": "Vibration sensor",
+            "model_id": "ZG-102ZM",
+            "hw_version": "1",
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "HOBEIAN",
@@ -4392,6 +4542,12 @@
             "manufacturer": "Inovelli",
             "model": "LZW60",
             "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "IOmeter GmbH",
+            "model": "IOmeter",
+            "battery_type": "AA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "Iris",
@@ -5036,6 +5192,14 @@
         },
         {
             "manufacturer": "Moes",
+            "model": "Thermostatic radiator valve",
+            "model_id": "BRT-100-TRV",
+            "hw_version": "1",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Moes",
             "model": "Thermostatic radiator valve (BRT-100-TRV)",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -5153,8 +5317,9 @@
         },
         {
             "manufacturer": "Neo",
-            "model": "Outdoor solar alarm (NAS-AB06B2)",
-            "battery_type": "18650"
+            "model": "Outdoor solar alarm",
+            "model_id": "NAS-AB06B2",
+            "battery_type": "Solar"
         },
         {
             "manufacturer": "Neo",
@@ -5536,6 +5701,13 @@
         },
         {
             "manufacturer": "OWON",
+            "model": "Motion sensor",
+            "model_id": "PIR313-E",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "OWON",
             "model": "Temperature sensor",
             "model_id": "THS317-ET",
             "battery_type": "AAA",
@@ -5636,6 +5808,13 @@
             "model": "Hue motion sensor (9290030675)",
             "battery_type": "AAA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Philips",
+            "model": "Hue Secure contact sensor",
+            "model_id": "9290035639",
+            "hw_version": "1",
+            "battery_type": "CR2"
         },
         {
             "manufacturer": "Philips",
@@ -5843,9 +6022,24 @@
         },
         {
             "manufacturer": "Ring",
+            "model": "4SD1S7-0EN0 / 4SDAE9-0EU0",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Ring",
             "model": "4SD2SZ-0EN0",
             "battery_type": "CR2032",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Ring",
+            "model": "4SF1S8-0EN0",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Ring",
+            "model": "4SP1S7-0EN0 / 4SPAE9-0EU0",
+            "battery_type": "CR123A"
         },
         {
             "manufacturer": "Ring",
@@ -5879,6 +6073,11 @@
             "manufacturer": "Ring",
             "model": "Doorbell 3",
             "battery_type": "Rechargeable 5AT3S3 (Ring)"
+        },
+        {
+            "manufacturer": "Ring",
+            "model": "Doorbell 4",
+            "battery_type": "Ring Li-Ion 6800mAH"
         },
         {
             "manufacturer": "Ring",
@@ -6237,9 +6436,23 @@
         },
         {
             "manufacturer": "Schneider Electric",
+            "model": "Temperature & humidity sensor",
+            "model_id": "550B1024",
+            "hw_version": "0",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Schneider Electric",
             "model": "Wiser radiator thermostat (WV704R0A0902)",
             "battery_type": "AA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Schneider Electric",
+            "model": "Wiser window/door sensor",
+            "model_id": "CCT591011_AS",
+            "hw_version": "0",
+            "battery_type": "CR2450"
         },
         {
             "manufacturer": "Secure Meters (UK) Ltd.",
@@ -6754,7 +6967,7 @@
         },
         {
             "manufacturer": "SmartThings",
-            "model": "Multipurpose sensor (2016 model) (F-MLT-US-2)",
+            "model": "Multipurpose sensor (2016 model)",
             "model_id": "F-MLT-US-2",
             "battery_type": "CR2450"
         },
@@ -6918,6 +7131,11 @@
         },
         {
             "manufacturer": "SONOFF",
+            "model": "SNZB-02LD",
+            "battery_type": "CR2477"
+        },
+        {
+            "manufacturer": "SONOFF",
             "model": "SNZB-02P",
             "battery_type": "CR2477"
         },
@@ -6945,6 +7163,13 @@
         {
             "manufacturer": "Sonoff",
             "model": "SWV",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "SONOFF",
+            "model": "SWV",
+            "hw_version": "16",
             "battery_type": "AA",
             "battery_quantity": 4
         },
@@ -7347,7 +7572,8 @@
         },
         {
             "manufacturer": "Third Reality",
-            "model": "Garage door tilt sensor (3RDTS01056Z)",
+            "model": "Garage door tilt sensor",
+            "model_id": "3RDTS01056Z",
             "battery_type": "AAA",
             "battery_quantity": 2
         },
@@ -7383,6 +7609,13 @@
             "model_id": "3RSM0147Z",
             "hw_version": "0",
             "battery_type": "AA"
+        },
+        {
+            "manufacturer": "Third Reality",
+            "model": "Temperature and humidity sensor",
+            "model_id": "3RTHS24BZ",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "Third Reality",
@@ -8166,6 +8399,12 @@
         },
         {
             "manufacturer": "Tuya",
+            "model": "Solar Rain sensor",
+            "model_id": "RB-SRAIN01",
+            "battery_type": "Solar"
+        },
+        {
+            "manufacturer": "Tuya",
             "model": "T & H Sensor",
             "model_id": "lf36y5nwb8jkxwgg",
             "hw_version": "TH01CB3S",
@@ -8183,6 +8422,13 @@
             "model": "T & H Sensor (xlk3mtpjo1zkmdvh)",
             "battery_type": "AAA",
             "battery_quantity": 3
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Temperature & humidity LCD sensor",
+            "model_id": "ZG-227ZL",
+            "hw_version": "1",
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "TuYa",
@@ -8207,6 +8453,14 @@
             "manufacturer": "Tuya",
             "model": "Temperature & humidity sensor",
             "model_id": "WSD500A",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Temperature & humidity sensor",
+            "model_id": "WSD500A",
+            "hw_version": "1",
             "battery_type": "AAA",
             "battery_quantity": 2
         },
@@ -8251,7 +8505,8 @@
             "model": "Temperature & humidity sensor with display",
             "model_id": "TS0201",
             "hw_version": "1",
-            "battery_type": "2450"
+            "battery_type": "AAA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "TuYa",
@@ -8528,7 +8783,7 @@
         {
             "manufacturer": "Tuya",
             "model": "Water valve",
-            "model_id": "_TZ3210_0jxeoadc",
+            "model_id": "TS0049",
             "battery_type": "AA",
             "battery_quantity": 4
         },
@@ -8560,6 +8815,12 @@
             "manufacturer": "TuYa",
             "model": "Wireless switch with 2 buttons (TS0042)",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Wireless switch with 3 buttons",
+            "model_id": "TS0043",
+            "battery_type": "CR2430"
         },
         {
             "manufacturer": "Tuya",
@@ -8921,6 +9182,13 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "Withings",
+            "model": "Thermo",
+            "model_id": "XNASCT01",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Woox",
             "model": "Smart garden irrigation control",
             "model_id": "R7060",
@@ -8960,6 +9228,11 @@
             "model": "YD.LO1",
             "battery_type": "AA",
             "battery_quantity": 4
+        },
+        {
+            "manufacturer": "X-Sense",
+            "model": "SMA51",
+            "battery_type": "CR2"
         },
         {
             "manufacturer": "X-Sense",
