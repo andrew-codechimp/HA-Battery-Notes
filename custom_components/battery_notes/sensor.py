@@ -312,13 +312,8 @@ class BatteryNotesBatteryPlusSensor(
         self._device_id = coordinator.device_id
         self._source_entity_id = coordinator.source_entity_id
 
-        if coordinator.device_id and (
-            device_entry := device_registry.async_get(coordinator.device_id)
-        ):
-            self._attr_device_info = DeviceInfo(
-                connections=device_entry.connections,
-                identifiers=device_entry.identifiers,
-            )
+        if coordinator.device_id and (device := device_registry.async_get(coordinator.device_id)):
+            self.device_entry = device
 
         entity_category = (
             coordinator.wrapped_battery.entity_category if coordinator.wrapped_battery else None
@@ -666,13 +661,8 @@ class BatteryNotesTypeSensor(RestoreSensor, SensorEntity):
         self._device_id = coordinator.device_id
         self._source_entity_id = coordinator.source_entity_id
 
-        if coordinator.device_id and (
-            device_entry := device_registry.async_get(coordinator.device_id)
-        ):
-            self._attr_device_info = DeviceInfo(
-                connections=device_entry.connections,
-                identifiers=device_entry.identifiers,
-            )
+        if coordinator.device_id and (device := device_registry.async_get(coordinator.device_id)):
+            self.device_entry = device
 
         self._battery_type = coordinator.battery_type
         self._battery_quantity = coordinator.battery_quantity
@@ -771,13 +761,9 @@ class BatteryNotesLastReplacedSensor(
 
         device_registry = dr.async_get(hass)
 
-        if coordinator.device_id and (
-            device_entry := device_registry.async_get(coordinator.device_id)
-        ):
-            self._attr_device_info = DeviceInfo(
-                connections=device_entry.connections,
-                identifiers=device_entry.identifiers,
-            )
+        if coordinator.device_id and (device := device_registry.async_get(coordinator.device_id)):
+            self.device_entry = device
+
 
     async def async_added_to_hass(self) -> None:
         """Handle added to Hass."""

@@ -384,13 +384,8 @@ class BatteryNotesBatteryLowTemplateSensor(
 
         super().__init__(coordinator=coordinator)
 
-        if coordinator.device_id and (
-            device_entry := device_registry.async_get(coordinator.device_id)
-        ):
-            self._attr_device_info = DeviceInfo(
-                connections=device_entry.connections,
-                identifiers=device_entry.identifiers,
-            )
+        if coordinator.device_id and (device := device_registry.async_get(coordinator.device_id)):
+            self.device_entry = device
 
         self._attr_has_entity_name = True
 
@@ -614,13 +609,9 @@ class BatteryNotesBatteryLowSensor(BatteryNotesBatteryLowBaseSensor):
 
         super().__init__(coordinator=coordinator)
 
-        if coordinator.device_id and (
-            device_entry := device_registry.async_get(coordinator.device_id)
-        ):
-            self._attr_device_info = DeviceInfo(
-                connections=device_entry.connections,
-                identifiers=device_entry.identifiers,
-            )
+        if coordinator.device_id and (device := device_registry.async_get(coordinator.device_id)):
+            self.device_entry = device
+
 
     async def async_added_to_hass(self) -> None:
         """Handle added to Hass."""
@@ -709,13 +700,8 @@ class BatteryNotesBatteryBinaryLowSensor(BatteryNotesBatteryLowBaseSensor):
 
         super().__init__(coordinator=coordinator)
 
-        if coordinator.device_id and (
-            device_entry := device_registry.async_get(coordinator.device_id)
-        ):
-            self._attr_device_info = DeviceInfo(
-                connections=device_entry.connections,
-                identifiers=device_entry.identifiers,
-            )
+        if coordinator.device_id and (device := device_registry.async_get(coordinator.device_id)):
+            self.device_entry = device
 
         self._state: bool | None = None
 
