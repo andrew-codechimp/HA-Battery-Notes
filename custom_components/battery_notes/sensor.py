@@ -355,6 +355,11 @@ class BatteryNotesBatteryPlusSensor(
             ]
             or not validate_is_float(wrapped_battery_state.state)
         ):
+            _LOGGER.debug("Sensor.py -> wrapped_battery_state: %s", wrapped_battery_state)
+            if wrapped_battery_state:
+                _LOGGER.debug("Sensor.py -> wrapped_battery_state.state: <%s>", wrapped_battery_state.state)
+                _LOGGER.debug("Sensor.py -> validate_is_float: <%s>", validate_is_float(wrapped_battery_state.state))
+
             self._attr_native_value = None
             self._attr_available = False
             self.async_write_ha_state()
