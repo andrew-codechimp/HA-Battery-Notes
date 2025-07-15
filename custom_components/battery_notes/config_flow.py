@@ -46,6 +46,7 @@ from .library_updater import LibraryUpdater
 _LOGGER = logging.getLogger(__name__)
 
 CONFIG_VERSION = 2
+CONFIG_MINOR_VERSION = 2
 
 DEVICE_SCHEMA_ALL = vol.Schema(
     {
@@ -106,6 +107,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
     """Config flow for BatteryNotes."""
 
     VERSION = CONFIG_VERSION
+    MINOR_VERSION = CONFIG_MINOR_VERSION
 
     data: dict
     model_info: ModelInfo | None = None

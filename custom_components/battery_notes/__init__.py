@@ -11,11 +11,16 @@ import re
 
 import voluptuous as vol
 from awesomeversion.awesomeversion import AwesomeVersion
+from homeassistant.const import CONF_DEVICE_ID
 from homeassistant.const import __version__ as HA_VERSION  # noqa: N812
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers import config_validation as cv
 from homeassistant.helpers import entity_registry as er
 from homeassistant.helpers import issue_registry as ir
+from homeassistant.helpers.helper_integration import (
+    async_handle_source_entity_changes,
+    async_remove_helper_config_entry_from_source_device,
+)
 from homeassistant.helpers.typing import ConfigType
 
 from .config_flow import CONFIG_VERSION
@@ -31,6 +36,7 @@ from .const import (
     CONF_ROUND_BATTERY,
     CONF_SCHEMA_URL,
     CONF_SHOW_ALL_DEVICES,
+    CONF_SOURCE_ENTITY_ID,
     CONF_USER_LIBRARY,
     DEFAULT_BATTERY_INCREASE_THRESHOLD,
     DEFAULT_BATTERY_LOW_THRESHOLD,
@@ -89,6 +95,18 @@ CONFIG_SCHEMA = vol.Schema(
     },
     extra=vol.ALLOW_EXTRA,
 )
+
+@callback
+def async_get_source_entity_device_id(
+    hass: HomeAssistant, entity_id: str
+) -> str | None:
+    """Get the entity device id."""
+    registry = er.async_get(hass)
+
+    if not (source_entity := registry.async_get(entity_id)):
+        return None
+
+    return source_entity.device_id
 
 
 async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
@@ -246,6 +264,31 @@ async def async_migrate_entry(
             config_entry.entry_id,
             new_version,
         )
+
+    if config_entry.version == 2:
+        data = {**config_entry.data}
+        if config_entry.minor_version < 2:
+            # Remove the battery notes config entry from the source device
+            if not(source_device_id := data.get(CONF_DEVICE_ID, None)):
+                source_device_id = async_get_source_entity_device_id(
+                    hass, data[CONF_SOURCE_ENTITY_ID]
+                )
+
+            if source_device_id:
+                async_remove_helper_config_entry_from_source_device(
+                    hass,
+                    helper_config_entry_id=config_entry.entry_id,
+                    source_device_id=source_device_id,
+                )
+        hass.config_entries.async_update_entry(
+            config_entry, data=data, minor_version=2
+        )
+
+    _LOGGER.info(
+        "Migration to version %s.%s successful",
+        config_entry.version,
+        config_entry.minor_version,
+    )
 
     return True
 
