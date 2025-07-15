@@ -6979,6 +6979,12 @@
         },
         {
             "manufacturer": "SmartThings",
+            "model": "Multipurpose sensor (2018 model)",
+            "model_id": "IM6001-MPP01",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "SmartThings",
             "model": "Multipurpose sensor (2018 model) (IM6001-MPP01)",
             "battery_type": "CR2450"
         },
@@ -10035,12 +10041,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "SmartThings",
-            "model": "Multipurpose sensor (2018 model)",
-            "model_id": "IM6001-MPP01",
-            "battery_type": "CR2450"
         }
     ]
 }
