@@ -6011,6 +6011,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Reolink",
+            "model": "Reolink Video Doorbell",
+            "hw_version": "DB_560MIXDB32M35DBB14MP",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "RGB Genie",
             "model": "Zigbee 3.0 remote control (ZB-5001)",
             "battery_type": "CR2032"
@@ -10028,12 +10034,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Reolink",
-            "model": "Reolink Video Doorbell",
-            "hw_version": "DB_560MIXDB32M35DBB14MP",
             "battery_type": "Rechargeable"
         }
     ]
