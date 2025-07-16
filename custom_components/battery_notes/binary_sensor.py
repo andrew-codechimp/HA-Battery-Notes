@@ -104,22 +104,6 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
 )
 
 
-@callback
-def async_add_to_device(hass: HomeAssistant, entry: BatteryNotesConfigEntry) -> str | None:
-    """Add our config entry to the device."""
-    device_registry = dr.async_get(hass)
-
-    device_id = entry.data.get(CONF_DEVICE_ID)
-
-    if device_id:
-        if device_registry.async_get(device_id):
-            device_registry.async_update_device(
-                device_id, add_config_entry_id=entry.entry_id
-            )
-            return device_id
-    return None
-
-
 async def async_setup_entry(
     hass: HomeAssistant,
     config_entry: BatteryNotesConfigEntry,
@@ -169,12 +153,6 @@ async def async_setup_entry(
             hass, config_entry.entry_id, async_registry_updated
         )
     )
-
-    if coordinator.is_device:
-        device_id = async_add_to_device(hass, config_entry)
-
-        if not device_id:
-            return
 
     description = BatteryNotesBinarySensorEntityDescription(
         unique_id_suffix="_battery_low",
