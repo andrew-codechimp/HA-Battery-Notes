@@ -23,7 +23,6 @@ from homeassistant.helpers.helper_integration import (
 )
 from homeassistant.helpers.typing import ConfigType
 
-from .config_flow import CONFIG_VERSION
 from .const import (
     CONF_BATTERY_INCREASE_THRESHOLD,
     CONF_BATTERY_QUANTITY,
@@ -233,7 +232,6 @@ async def async_migrate_entry(
     hass: HomeAssistant, config_entry: BatteryNotesConfigEntry
 ):
     """Migrate old config."""
-    new_version = CONFIG_VERSION
 
     if config_entry.version == 1:
         # Version 1 had a single config for qty & type, split them
@@ -256,13 +254,7 @@ async def async_migrate_entry(
         new_data[CONF_BATTERY_QUANTITY] = _qty
 
         hass.config_entries.async_update_entry(
-            config_entry, version=new_version, title=config_entry.title, data=new_data
-        )
-
-        _LOGGER.info(
-            "Entry %s successfully migrated to version %s.",
-            config_entry.entry_id,
-            new_version,
+            config_entry, version=2, title=config_entry.title, data=new_data
         )
 
     if config_entry.version == 2:
