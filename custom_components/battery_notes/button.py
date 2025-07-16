@@ -15,7 +15,7 @@ from homeassistant.const import (
     CONF_DEVICE_ID,
     CONF_NAME,
 )
-from homeassistant.core import Event, HomeAssistant, callback, split_entity_id
+from homeassistant.core import Event, HomeAssistant, split_entity_id
 from homeassistant.helpers import (
     config_validation as cv,
 )
