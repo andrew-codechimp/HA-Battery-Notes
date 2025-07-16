@@ -332,10 +332,10 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
         return True
 
     @property
-    def fake_device(self) -> bool:
+    def real_device(self) -> bool:
         """Return if an actual device registry entry."""
         if self.config_entry.data.get(CONF_SOURCE_ENTITY_ID, None):
-            if self.config_entry.data.get(CONF_DEVICE_ID, None) is None:
+            if self.config_entry.data.get(CONF_DEVICE_ID, None):
                 return True
         return False
 
