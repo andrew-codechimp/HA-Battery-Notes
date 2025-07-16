@@ -134,7 +134,6 @@ async def async_setup_entry(
                 coordinator,
                 description,
                 f"{config_entry.entry_id}{description.unique_id_suffix}",
-                device_id,
             )
         ]
     )
@@ -161,7 +160,6 @@ class BatteryNotesButton(ButtonEntity):
         coordinator: BatteryNotesCoordinator,
         description: BatteryNotesButtonEntityDescription,
         unique_id: str,
-        device_id: str | None,
     ) -> None:
         """Create a battery replaced button."""
 
@@ -198,7 +196,7 @@ class BatteryNotesButton(ButtonEntity):
         self._attr_unique_id = unique_id
         self._source_entity_id = coordinator.source_entity_id
 
-        if device_id and (device := device_registry.async_get(device_id)):
+        if coordinator.device_id and (device := device_registry.async_get(coordinator.device_id)):
             self.device_entry = device
 
     async def async_added_to_hass(self) -> None:
