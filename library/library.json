@@ -2101,6 +2101,13 @@
         },
         {
             "manufacturer": "Develco",
+            "model": "Fire detector with siren",
+            "model_id": "HESZB-120",
+            "hw_version": "5.0.2",
+            "battery_type": "CR123"
+        },
+        {
+            "manufacturer": "Develco",
             "model": "Fire detector with siren (HESZB-120)",
             "battery_type": "CR123A"
         },
@@ -10041,13 +10048,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Develco",
-            "model": "Fire detector with siren",
-            "model_id": "HESZB-120",
-            "hw_version": "5.0.2",
-            "battery_type": "CR123"
         }
     ]
 }
