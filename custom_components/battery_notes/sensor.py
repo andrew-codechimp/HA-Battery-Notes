@@ -101,22 +101,6 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
 _LOGGER = logging.getLogger(__name__)
 
 
-@callback
-def async_add_to_device(hass: HomeAssistant, entry: BatteryNotesConfigEntry) -> str | None:
-    """Add our config entry to the device."""
-    device_registry = dr.async_get(hass)
-
-    device_id = entry.data.get(CONF_DEVICE_ID)
-
-    if device_id:
-        if device_registry.async_get(device_id):
-            device_registry.async_update_device(
-                device_id, add_config_entry_id=entry.entry_id
-            )
-            return device_id
-    return None
-
-
 async def async_setup_entry(
     hass: HomeAssistant,
     config_entry: BatteryNotesConfigEntry,
@@ -164,12 +148,6 @@ async def async_setup_entry(
 
     coordinator = config_entry.runtime_data.coordinator
     assert(coordinator)
-
-    if coordinator.is_device:
-        device_id = async_add_to_device(hass, config_entry)
-
-        if not device_id:
-            return
 
     await coordinator.async_refresh()
 
@@ -309,7 +287,6 @@ class BatteryNotesBatteryPlusSensor(
         self.enable_replaced = enable_replaced
         self.round_battery = round_battery
 
-        self._device_id = coordinator.device_id
         self._source_entity_id = coordinator.source_entity_id
 
         if coordinator.device_id and (device := device_registry.async_get(coordinator.device_id)):
@@ -658,7 +635,6 @@ class BatteryNotesTypeSensor(RestoreSensor, SensorEntity):
 
         self.entity_description = description
         self._attr_unique_id = unique_id
-        self._device_id = coordinator.device_id
         self._source_entity_id = coordinator.source_entity_id
 
         if coordinator.device_id and (device := device_registry.async_get(coordinator.device_id)):
@@ -752,7 +728,6 @@ class BatteryNotesLastReplacedSensor(
 
         self._attr_device_class = description.device_class
         self._attr_unique_id = unique_id
-        self._device_id = coordinator.device_id
         self._source_entity_id = coordinator.source_entity_id
         self.entity_description = description
         self._native_value: datetime | None = None
