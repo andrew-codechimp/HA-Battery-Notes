@@ -161,7 +161,7 @@ class BatteryNotesButton(ButtonEntity):
         coordinator: BatteryNotesCoordinator,
         description: BatteryNotesButtonEntityDescription,
         unique_id: str,
-        device_id: str,
+        device_id: str | None,
     ) -> None:
         """Create a battery replaced button."""
 
@@ -196,7 +196,6 @@ class BatteryNotesButton(ButtonEntity):
 
         self.entity_description = description
         self._attr_unique_id = unique_id
-        self._device_id = device_id
         self._source_entity_id = coordinator.source_entity_id
 
         if device_id and (device := device_registry.async_get(device_id)):
