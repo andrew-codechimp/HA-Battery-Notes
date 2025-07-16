@@ -170,7 +170,7 @@ async def async_setup_entry(
         )
     )
 
-    if coordinator.real_device:
+    if coordinator.is_device:
         device_id = async_add_to_device(hass, config_entry)
 
         if not device_id:
