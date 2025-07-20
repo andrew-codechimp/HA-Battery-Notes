@@ -6290,12 +6290,12 @@
         {
             "manufacturer": "Samjin",
             "model": "button",
-            "battery_type": "CR2"
+            "battery_type": "CR2450"
         },
         {
             "manufacturer": "Samjin",
             "model": "motion",
-            "battery_type": "CR2"
+            "battery_type": "CR2450"
         },
         {
             "manufacturer": "Samjin",
@@ -6305,7 +6305,7 @@
         {
             "manufacturer": "Samjin",
             "model": "water",
-            "battery_type": "CR2"
+            "battery_type": "CR2450"
         },
         {
             "manufacturer": "Samsung",
