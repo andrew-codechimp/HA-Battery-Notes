@@ -364,7 +364,8 @@ class BatteryNotesBatteryLowBaseSensor(
         if self.enable_replaced is None:
             domain_config = self.coordinator.hass.data[MY_KEY]
             self.enable_replaced = domain_config.enable_replaced
-        else:
+
+        if self.enable_replaced is not None:
             attrs[ATTR_BATTERY_LAST_REPLACED] = self.coordinator.last_replaced
 
         # Other attributes that should follow battery, attribute list is unsorted
