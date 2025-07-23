@@ -334,6 +334,17 @@ class BatteryNotesBatteryLowBaseSensor(
 ):
     """Low battery binary sensor base."""
 
+    def __init__(
+        self,
+        hass: HomeAssistant,
+        coordinator: BatteryNotesCoordinator,
+    ):
+        """Initialize the low battery binary sensor."""
+
+        super().__init__(coordinator=coordinator)
+
+        self.enable_replaced = hass.data[MY_KEY].enable_replaced
+
     _unrecorded_attributes = frozenset(
         {
             ATTR_BATTERY_LOW_THRESHOLD,
@@ -347,8 +358,6 @@ class BatteryNotesBatteryLowBaseSensor(
         }
     )
 
-    enable_replaced: bool | None = None
-
     @property
     def extra_state_attributes(self) -> dict[str, Any] | None:
         """Return the state attributes of the battery type."""
@@ -360,10 +369,6 @@ class BatteryNotesBatteryLowBaseSensor(
             ATTR_BATTERY_TYPE: self.coordinator.battery_type,
             ATTR_BATTERY_TYPE_AND_QUANTITY: self.coordinator.battery_type_and_quantity,
         }
-
-        if self.enable_replaced is None:
-            domain_config = self.coordinator.hass.data[MY_KEY]
-            self.enable_replaced = domain_config.enable_replaced
 
         if self.enable_replaced:
             attrs[ATTR_BATTERY_LAST_REPLACED] = self.coordinator.last_replaced
@@ -404,7 +409,7 @@ class BatteryNotesBatteryLowTemplateSensor(
         self._attr_unique_id = unique_id
         self._template_attrs: dict[Template, list[_TemplateAttribute]] = {}
 
-        super().__init__(coordinator=coordinator)
+        super().__init__(hass=hass, coordinator=coordinator)
 
         if coordinator.device_id and (
             device_entry := device_registry.async_get(coordinator.device_id)
@@ -634,7 +639,7 @@ class BatteryNotesBatteryLowSensor(BatteryNotesBatteryLowBaseSensor):
         self.entity_description = description
         self._attr_unique_id = unique_id
 
-        super().__init__(coordinator=coordinator)
+        super().__init__(hass=hass, coordinator=coordinator)
 
         if coordinator.device_id and (
             device_entry := device_registry.async_get(coordinator.device_id)
@@ -729,7 +734,7 @@ class BatteryNotesBatteryBinaryLowSensor(BatteryNotesBatteryLowBaseSensor):
         self.entity_description = description
         self._attr_unique_id = unique_id
 
-        super().__init__(coordinator=coordinator)
+        super().__init__(hass=hass, coordinator=coordinator)
 
         if coordinator.device_id and (
             device_entry := device_registry.async_get(coordinator.device_id)
