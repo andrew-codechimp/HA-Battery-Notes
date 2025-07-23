@@ -84,3 +84,7 @@ If you have specified a manual template then this will be created, reflecting th
 | `battery_quantity` | `int` | The quantity of batteries |
 | `battery_type` | `string` | The type of batteries |
 | `battery_type_and_quantity` | `string` | The type of batteries with the quantity if more than 1 |
+| `battery_last_replaced` | `string` | The date and time the battery was last replaced |
+| `device_id` | `string` | The device_id of the device |
+| `device_name` | `string` | The name of the device |
+| `source_entity_id` | `string` | The entity_id the battery note is associated with |
