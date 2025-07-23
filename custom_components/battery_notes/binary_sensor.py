@@ -66,10 +66,14 @@ from homeassistant.helpers.update_coordinator import (
 from . import PLATFORMS
 from .common import validate_is_float
 from .const import (
+    ATTR_BATTERY_LAST_REPLACED,
     ATTR_BATTERY_LOW_THRESHOLD,
     ATTR_BATTERY_QUANTITY,
     ATTR_BATTERY_TYPE,
     ATTR_BATTERY_TYPE_AND_QUANTITY,
+    ATTR_DEVICE_ID,
+    ATTR_DEVICE_NAME,
+    ATTR_SOURCE_ENTITY_ID,
     CONF_SOURCE_ENTITY_ID,
     DOMAIN,
 )
@@ -336,8 +340,14 @@ class BatteryNotesBatteryLowBaseSensor(
             ATTR_BATTERY_QUANTITY,
             ATTR_BATTERY_TYPE,
             ATTR_BATTERY_TYPE_AND_QUANTITY,
+            ATTR_BATTERY_LAST_REPLACED,
+            ATTR_DEVICE_ID,
+            ATTR_SOURCE_ENTITY_ID,
+            ATTR_DEVICE_NAME,
         }
     )
+
+    enable_replaced: bool | None = None
 
     @property
     def extra_state_attributes(self) -> dict[str, Any] | None:
@@ -350,6 +360,18 @@ class BatteryNotesBatteryLowBaseSensor(
             ATTR_BATTERY_TYPE: self.coordinator.battery_type,
             ATTR_BATTERY_TYPE_AND_QUANTITY: self.coordinator.battery_type_and_quantity,
         }
+
+        if self.enable_replaced is None:
+            domain_config = self.coordinator.hass.data[MY_KEY]
+            self.enable_replaced = domain_config.enable_replaced
+
+        if self.enable_replaced:
+            attrs[ATTR_BATTERY_LAST_REPLACED] = self.coordinator.last_replaced
+
+        # Other attributes that should follow battery, attribute list is unsorted
+        attrs[ATTR_DEVICE_ID] = self.coordinator.device_id or ""
+        attrs[ATTR_SOURCE_ENTITY_ID] = self.coordinator.source_entity_id or ""
+        attrs[ATTR_DEVICE_NAME] = self.coordinator.device_name
 
         super_attrs = super().extra_state_attributes
         if super_attrs:
