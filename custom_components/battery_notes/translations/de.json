@@ -195,7 +195,7 @@
                 "step": {
                     "confirm": {
                         "title": "Fehlerhafter Eintrag in \"Battery Notes\"",
-                        "description": "Das zugehörige Gerät oder die Entität des Eintrags {name} in \"Battery Notes\" ist nicht mehr vorhanden, der Eintrag sollte gelöscht werden.\nWählen Sie **OK** um diesen Eintrag zu löschen."
+                        "description": "Das zugehörige Gerät oder die Entität des Eintrags {name} in \"Battery Notes\" ist nicht mehr vorhanden, der Eintrag sollte gelöscht werden.\nWählen Sie **Absenden** um diesen Eintrag zu löschen."
                     }
                 }
             }
