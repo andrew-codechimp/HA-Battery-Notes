@@ -18,7 +18,7 @@ from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.event import async_track_utc_time_change
 from homeassistant.helpers.storage import STORAGE_DIR
 
-from .coordinator import MY_KEY
+from .coordinator import MY_KEY, BatteryNotesDomainConfig
 from .discovery import DiscoveryManager
 
 _LOGGER = logging.getLogger(__name__)
@@ -38,7 +38,9 @@ class LibraryUpdater:
         """Initialize the library updater."""
         self.hass = hass
 
-        domain_config = self.hass.data[MY_KEY]
+        domain_config = self.hass.data.get(MY_KEY)
+        if not domain_config:
+            domain_config = BatteryNotesDomainConfig()
 
         library_url = domain_config.library_url
         schema_url = domain_config.schema_url
@@ -61,7 +63,7 @@ class LibraryUpdater:
 
         domain_config = self.hass.data[MY_KEY]
 
-        if domain_config.enable_autodiscovery:
+        if domain_config and domain_config.enable_autodiscovery:
             discovery_manager = DiscoveryManager(self.hass, domain_config)
             await discovery_manager.start_discovery()
         else:
@@ -90,7 +92,9 @@ class LibraryUpdater:
                     _update_library_json, json_path, content
                 )
 
-                self.hass.data[MY_KEY].library_last_update = datetime.now()
+                domain_config = self.hass.data.get(MY_KEY)
+                if domain_config:
+                    self.hass.data[MY_KEY].library_last_update = datetime.now()
 
                 _LOGGER.debug("Updated library")
             else:
@@ -117,6 +121,10 @@ class LibraryUpdater:
     async def time_to_update_library(self, hours: int) -> bool:
         """Check when last updated and if OK to do a new library update."""
         try:
+            domain_config = self.hass.data.get(MY_KEY)
+            if not domain_config:
+                return True
+
             if library_last_update := self.hass.data[MY_KEY].library_last_update:
                 time_since_last_update = (
                     datetime.now() - library_last_update

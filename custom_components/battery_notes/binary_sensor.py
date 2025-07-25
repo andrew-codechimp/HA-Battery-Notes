@@ -66,10 +66,14 @@ from homeassistant.helpers.update_coordinator import (
 from . import PLATFORMS
 from .common import validate_is_float
 from .const import (
+    ATTR_BATTERY_LAST_REPLACED,
     ATTR_BATTERY_LOW_THRESHOLD,
     ATTR_BATTERY_QUANTITY,
     ATTR_BATTERY_TYPE,
     ATTR_BATTERY_TYPE_AND_QUANTITY,
+    ATTR_DEVICE_ID,
+    ATTR_DEVICE_NAME,
+    ATTR_SOURCE_ENTITY_ID,
     CONF_SOURCE_ENTITY_ID,
     DOMAIN,
 )
@@ -308,12 +312,27 @@ class BatteryNotesBatteryLowBaseSensor(
 ):
     """Low battery binary sensor base."""
 
+    def __init__(
+        self,
+        hass: HomeAssistant,
+        coordinator: BatteryNotesCoordinator,
+    ):
+        """Initialize the low battery binary sensor."""
+
+        super().__init__(coordinator=coordinator)
+
+        self.enable_replaced = hass.data[MY_KEY].enable_replaced
+
     _unrecorded_attributes = frozenset(
         {
             ATTR_BATTERY_LOW_THRESHOLD,
             ATTR_BATTERY_QUANTITY,
             ATTR_BATTERY_TYPE,
             ATTR_BATTERY_TYPE_AND_QUANTITY,
+            ATTR_BATTERY_LAST_REPLACED,
+            ATTR_DEVICE_ID,
+            ATTR_SOURCE_ENTITY_ID,
+            ATTR_DEVICE_NAME,
         }
     )
 
@@ -328,6 +347,14 @@ class BatteryNotesBatteryLowBaseSensor(
             ATTR_BATTERY_TYPE: self.coordinator.battery_type,
             ATTR_BATTERY_TYPE_AND_QUANTITY: self.coordinator.battery_type_and_quantity,
         }
+
+        if self.enable_replaced:
+            attrs[ATTR_BATTERY_LAST_REPLACED] = self.coordinator.last_replaced
+
+        # Other attributes that should follow battery, attribute list is unsorted
+        attrs[ATTR_DEVICE_ID] = self.coordinator.device_id or ""
+        attrs[ATTR_SOURCE_ENTITY_ID] = self.coordinator.source_entity_id or ""
+        attrs[ATTR_DEVICE_NAME] = self.coordinator.device_name
 
         super_attrs = super().extra_state_attributes
         if super_attrs:
@@ -360,7 +387,7 @@ class BatteryNotesBatteryLowTemplateSensor(
         self._attr_unique_id = unique_id
         self._template_attrs: dict[Template, list[_TemplateAttribute]] = {}
 
-        super().__init__(coordinator=coordinator)
+        super().__init__(hass=hass, coordinator=coordinator)
 
         if coordinator.device_id and (device := device_registry.async_get(coordinator.device_id)):
             self.device_entry = device
@@ -585,7 +612,7 @@ class BatteryNotesBatteryLowSensor(BatteryNotesBatteryLowBaseSensor):
         self.entity_description = description
         self._attr_unique_id = unique_id
 
-        super().__init__(coordinator=coordinator)
+        super().__init__(hass=hass, coordinator=coordinator)
 
         if coordinator.device_id and (device := device_registry.async_get(coordinator.device_id)):
             self.device_entry = device
@@ -676,7 +703,7 @@ class BatteryNotesBatteryBinaryLowSensor(BatteryNotesBatteryLowBaseSensor):
         self.entity_description = description
         self._attr_unique_id = unique_id
 
-        super().__init__(coordinator=coordinator)
+        super().__init__(hass=hass, coordinator=coordinator)
 
         if coordinator.device_id and (device := device_registry.async_get(coordinator.device_id)):
             self.device_entry = device

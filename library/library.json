@@ -2101,6 +2101,13 @@
         },
         {
             "manufacturer": "Develco",
+            "model": "Fire detector with siren",
+            "model_id": "HESZB-120",
+            "hw_version": "5.0.2",
+            "battery_type": "CR123"
+        },
+        {
+            "manufacturer": "Develco",
             "model": "Fire detector with siren (HESZB-120)",
             "battery_type": "CR123A"
         },
@@ -3114,6 +3121,13 @@
             "model": "Eve Motion 20EBY9901",
             "battery_type": "AAA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Eve Systems",
+            "model": "Eve MotionBlinds 20CAA9901",
+            "model_id": "85",
+            "hw_version": "1.1",
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "Eve Systems",
@@ -6283,12 +6297,12 @@
         {
             "manufacturer": "Samjin",
             "model": "button",
-            "battery_type": "CR2"
+            "battery_type": "CR2450"
         },
         {
             "manufacturer": "Samjin",
             "model": "motion",
-            "battery_type": "CR2"
+            "battery_type": "CR2450"
         },
         {
             "manufacturer": "Samjin",
@@ -6298,7 +6312,7 @@
         {
             "manufacturer": "Samjin",
             "model": "water",
-            "battery_type": "CR2"
+            "battery_type": "CR2450"
         },
         {
             "manufacturer": "Samsung",
@@ -6979,6 +6993,12 @@
         },
         {
             "manufacturer": "SmartThings",
+            "model": "Multipurpose sensor (2018 model)",
+            "model_id": "IM6001-MPP01",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "SmartThings",
             "model": "Multipurpose sensor (2018 model) (IM6001-MPP01)",
             "battery_type": "CR2450"
         },
@@ -7372,7 +7392,7 @@
             "manufacturer": "SwitchBot",
             "model": "Smart Lock Pro",
             "hw_version": "V2.3",
-            "battery_type": "Recharchable",
+            "battery_type": "Rechargeable",
             "battery_quantity": 2
         },
         {
