@@ -43,9 +43,8 @@ class Library:  # pylint: disable=too-few-public-methods
                 return cast(dict[str, Any], json.load(file))
 
         # User Library
-        domain_config = self.hass.data[MY_KEY]
-
-        if domain_config.user_library != "":
+        domain_config = self.hass.data.get(MY_KEY)
+        if domain_config and domain_config.user_library != "":
             json_user_path = self.hass.config.path(STORAGE_DIR, "battery_notes", domain_config.user_library)
             _LOGGER.debug("Using user library file at %s", json_user_path)
 

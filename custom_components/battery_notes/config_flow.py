@@ -213,9 +213,9 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
 
         schema = DEVICE_SCHEMA
         # If show_all_devices = is specified and true, don't filter
-        domain_config = self.hass.data[MY_KEY]
-        if domain_config.show_all_devices:
-                schema = DEVICE_SCHEMA_ALL
+        domain_config = self.hass.data.get(MY_KEY)
+        if domain_config and domain_config.show_all_devices:
+            schema = DEVICE_SCHEMA_ALL
 
         return self.async_show_form(
             step_id="device",
