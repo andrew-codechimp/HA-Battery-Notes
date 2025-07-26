@@ -21,7 +21,7 @@ version = "0.0.0"
 
 [tool.poetry.dependencies]
 homeassistant = "2025.7.0"
-python = ">=3.13,<3.14"
+python = ">=3.13.2,<3.14"
 
 [tool.poetry.group.dev.dependencies]
 pre-commit = "4.2.0"
