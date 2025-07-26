@@ -1,4 +1,4 @@
-## 1781 Devices in library
+## 1782 Devices in library
 
 This file is auto generated, do not modify
 
@@ -694,6 +694,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Hive                                            |TRV003                                                                                        |2× AA                     |                                   |                                      |
 |HOBEIAN                                         |Door/window sensor                                                                            |CR2032                    |(ZG-102ZA)                         |                                     1|
 |HOBEIAN                                         |Soil moisture sensor                                                                          |2× AAA                    |ZG-303Z                            |                             122052017|
+|HOBEIAN                                         |Temperature and humidity sensor                                                               |2× AAA                    |ZG-227Z                            |                                     1|
 |HOBEIAN                                         |Temperature and humidity sensor (ZG-227Z)                                                     |2× AA                     |                                   |                                     1|
 |HOBEIAN                                         |Vibration sensor                                                                              |CR2032                    |ZG-102ZM                           |                                     1|
 |HOBEIAN                                         |Water leak sensor                                                                             |CR2032                    |ZG-222ZA                           |                                     1|
