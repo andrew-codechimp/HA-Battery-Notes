@@ -273,17 +273,18 @@ async def async_migrate_entry(
                 "No existing V3 config entry found, creating a new one for migration"
             )
 
-            # TODO: Grab these from the configuration.yaml
+            domain_config = hass.data[MY_KEY]
+
             options = {
-                CONF_ENABLE_AUTODISCOVERY: True,
-                CONF_SHOW_ALL_DEVICES: False,
-                CONF_ENABLE_REPLACED: True,
-                CONF_HIDE_BATTERY: False,
-                CONF_ROUND_BATTERY: False,
-                CONF_DEFAULT_BATTERY_LOW_THRESHOLD: DEFAULT_BATTERY_LOW_THRESHOLD,
-                CONF_BATTERY_INCREASE_THRESHOLD: DEFAULT_BATTERY_INCREASE_THRESHOLD,
-                CONF_LIBRARY_URL: DEFAULT_LIBRARY_URL,
-                CONF_SCHEMA_URL: DEFAULT_SCHEMA_URL,
+                CONF_ENABLE_AUTODISCOVERY: domain_config.enable_autodiscovery,
+                CONF_SHOW_ALL_DEVICES: domain_config.show_all_devices,
+                CONF_ENABLE_REPLACED: domain_config.enable_replaced,
+                CONF_HIDE_BATTERY: domain_config.hide_battery,
+                CONF_ROUND_BATTERY: domain_config.round_battery,
+                CONF_DEFAULT_BATTERY_LOW_THRESHOLD: domain_config.default_battery_low_threshold,
+                CONF_BATTERY_INCREASE_THRESHOLD: domain_config.battery_increased_threshod,
+                CONF_LIBRARY_URL: domain_config.library_url,
+                CONF_SCHEMA_URL: domain_config.schema_url,
             }
 
             _migrate_base_entry = ConfigEntry(
@@ -297,7 +298,8 @@ async def async_migrate_entry(
 
         assert _migrate_base_entry is not None, "Base entry should not be None"
 
-        # Change this config entry into a sub entry, add it to the base entry
+        # TODO: Change this config entry into a sub entry, add it to the base entry
+
         _LOGGER.debug(
             "Migrating config entry %s from version %s to version %s",
             config_entry.entry_id,

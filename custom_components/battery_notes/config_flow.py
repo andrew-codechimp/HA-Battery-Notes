@@ -14,7 +14,9 @@ from homeassistant.components.sensor.const import SensorDeviceClass
 from homeassistant.config_entries import (
     ConfigEntry,
     ConfigFlowResult,
+    ConfigSubentryFlow,
     OptionsFlow,
+    SubentryFlowResult,
 )
 from homeassistant.const import (
     CONF_DEVICE_ID,
@@ -116,6 +118,16 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
         # pylint: disable=unused-argument
         """Get the options flow for this handler."""
         return OptionsFlowHandler()
+
+    @classmethod
+    @callback
+    def async_get_supported_subentry_types(
+        cls, config_entry: ConfigEntry
+    ) -> dict[str, type[ConfigSubentryFlow]]:
+        """Return subentries supported by this integration."""
+        return {
+            "battery_note": BatteryNotesSubentryFlowHandler,
+        }
 
     async def async_step_integration_discovery(
         self,
@@ -432,6 +444,23 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             ),
             errors=errors,
         )
+
+class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
+    """Flow for managing Battery Notes subentries."""
+
+    options: dict[str, Any]
+
+    @property
+    def _is_new(self) -> bool:
+        """Return if this is a new subentry."""
+        return self.source == "user"
+
+    async def async_step_user(
+        self, user_input: dict[str, Any] | None = None
+    ) -> SubentryFlowResult:
+        """Add a subentry."""
+
+        return await self.async_step_init()
 
 
 class OptionsFlowHandler(OptionsFlow):

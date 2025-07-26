@@ -1574,7 +1574,7 @@ files = [
 
 [[package]]
 name = "homeassistant"
-version = "2025.4.0"
+version = "2025.7.0"
 description = "Open-source home automation platform running on Python 3."
 optional = false
 python-versions = ">=3.13.0"
