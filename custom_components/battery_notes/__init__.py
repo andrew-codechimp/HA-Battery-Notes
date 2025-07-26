@@ -11,6 +11,7 @@ import re
 
 import voluptuous as vol
 from awesomeversion.awesomeversion import AwesomeVersion
+from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import __version__ as HA_VERSION  # noqa: N812
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers import config_validation as cv
@@ -90,6 +91,7 @@ CONFIG_SCHEMA = vol.Schema(
     extra=vol.ALLOW_EXTRA,
 )
 
+_migrate_base_entry: ConfigEntry = None
 
 async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     """Integration setup."""
@@ -246,6 +248,40 @@ async def async_migrate_entry(
             config_entry.entry_id,
             new_version,
         )
+
+    if config_entry.version < 3:
+        # Get the current config entries, see if one is at V3 and hold onto it as the base
+        if not _migrate_base_entry:
+            _LOGGER.debug("No base entry, looking for existing V3 entries")
+
+            existing_entries = hass.config_entries.async_entries(DOMAIN)
+            for entry in existing_entries:
+                if entry.version == 3 and entry.unique_id == DOMAIN:
+                    # We have a V3 entry, so we can use this as the base
+                    _LOGGER.debug(
+                        "Found existing V3 config entry %s, using it as the base for migration",
+                        entry.entry_id,
+                    )
+                    _migrate_base_entry = entry
+                    break
+        # If no V3 then create one and hold onto it as the base
+        if not _migrate_base_entry:
+            _LOGGER.debug(
+                "No existing V3 config entry found, creating a new one for migration"
+            )
+            _migrate_base_entry = ConfigEntry(domain=DOMAIN, title=config_entry.title,data=config_entry.data,version=3, unique_id=DOMAIN)
+            hass.config_entries.async_add(_migrate_base_entry)
+
+        assert _migrate_base_entry is not None, "Base entry should not be None"
+
+        # Change this config entry into a sub entry, add it to the base entry
+        _LOGGER.debug(
+            "Migrating config entry %s from version %s to version %s",
+            config_entry.entry_id,
+            config_entry.version,
+            new_version,
+        )
+
 
     return True
 

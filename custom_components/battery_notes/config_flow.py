@@ -45,7 +45,7 @@ from .library_updater import LibraryUpdater
 
 _LOGGER = logging.getLogger(__name__)
 
-CONFIG_VERSION = 2
+CONFIG_VERSION = 3
 
 DEVICE_SCHEMA_ALL = vol.Schema(
     {
