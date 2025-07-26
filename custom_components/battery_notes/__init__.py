@@ -41,6 +41,9 @@ from .const import (
     MIN_HA_VERSION,
     PLATFORMS,
 )
+from .const import (
+    NAME as INTEGRATION_NAME,
+)
 from .coordinator import (
     MY_KEY,
     BatteryNotesConfigEntry,
@@ -269,7 +272,27 @@ async def async_migrate_entry(
             _LOGGER.debug(
                 "No existing V3 config entry found, creating a new one for migration"
             )
-            _migrate_base_entry = ConfigEntry(domain=DOMAIN, title=config_entry.title,data=config_entry.data,version=3, unique_id=DOMAIN)
+
+            # TODO: Grab these from the configuration.yaml
+            options = {
+                CONF_ENABLE_AUTODISCOVERY: True,
+                CONF_SHOW_ALL_DEVICES: False,
+                CONF_ENABLE_REPLACED: True,
+                CONF_HIDE_BATTERY: False,
+                CONF_ROUND_BATTERY: False,
+                CONF_DEFAULT_BATTERY_LOW_THRESHOLD: DEFAULT_BATTERY_LOW_THRESHOLD,
+                CONF_BATTERY_INCREASE_THRESHOLD: DEFAULT_BATTERY_INCREASE_THRESHOLD,
+                CONF_LIBRARY_URL: DEFAULT_LIBRARY_URL,
+                CONF_SCHEMA_URL: DEFAULT_SCHEMA_URL,
+            }
+
+            _migrate_base_entry = ConfigEntry(
+                domain=DOMAIN,
+                title=INTEGRATION_NAME,
+                version=3,
+                unique_id=DOMAIN,
+                optons=options,
+                )
             hass.config_entries.async_add(_migrate_base_entry)
 
         assert _migrate_base_entry is not None, "Base entry should not be None"
