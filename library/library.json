@@ -5177,6 +5177,13 @@
         },
         {
             "manufacturer": "Moes",
+            "model": "Smart button",
+            "model_id": "ERS-10TZBVB-AA",
+            "hw_version": "1",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Moes",
             "model": "Smart door and window sensor (ZSS-JM-GWM-C-MS)",
             "model_id": "_TZ3000_decxrtwa",
             "battery_type": "CR2032"
@@ -10078,13 +10085,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Moes",
-            "model": "Smart button",
-            "model_id": "ERS-10TZBVB-AA",
-            "hw_version": "1",
-            "battery_type": "CR2032"
         }
     ]
 }

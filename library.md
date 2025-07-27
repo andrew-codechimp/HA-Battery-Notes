@@ -1,4 +1,4 @@
-## 1782 Devices in library
+## 1783 Devices in library
 
 This file is auto generated, do not modify
 
@@ -922,6 +922,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Moes                                            |Door/window magnetic sensor (ZSS-X-GWM-C)                                                     |CR2032                    |                                   |                                      |
 |Moes                                            |kvwjujy9                                                                                      |CR2032                    |                                   |                                      |
 |Moes                                            |Light sensor (ZSS-QT-LS-C)                                                                    |CR2032                    |                                   |                                      |
+|Moes                                            |Smart button                                                                                  |CR2032                    |ERS-10TZBVB-AA                     |                                     1|
 |Moes                                            |Smart door and window sensor (ZSS-JM-GWM-C-MS)                                                |CR2032                    |_TZ3000_decxrtwa                   |                                      |
 |Moes                                            |Smart temperature and humidity meter with display                                             |CR2032                    |ZSS-ZK-THL                         |                                     1|
 |Moes                                            |Smoke sensor (ZSS-HM-SSD01)                                                                   |CR123A                    |                                   |                                      |
