@@ -248,17 +248,6 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
                     entity.unit_of_measurement,
                 )
 
-            if entity.device_id:
-                device_entry = device_registry.async_get(entity.device_id)
-                if device_entry:
-                    self.device_name = (
-                        device_entry.name_by_user
-                        or device_entry.name
-                        or self.config_entry.title
-                    )
-                else:
-                    self.device_name = self.config_entry.title
-            else:
                 self.device_name = self.config_entry.title
         else:
             for entity in entity_registry.entities.values():
