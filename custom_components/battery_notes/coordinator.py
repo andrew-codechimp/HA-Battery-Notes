@@ -248,7 +248,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
                     entity.unit_of_measurement,
                 )
 
-                self.device_name = self.config_entry.title
+            self.device_name = self.config_entry.title
         else:
             for entity in entity_registry.entities.values():
 
