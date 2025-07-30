@@ -5776,6 +5776,12 @@
         },
         {
             "manufacturer": "PETLIBRO",
+            "model": "PLAF203",
+            "battery_type": "D",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "PETLIBRO",
             "model": "PLAF301",
             "battery_type": "D",
             "battery_quantity": 3
@@ -10102,12 +10108,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "PETLIBRO",
-            "model": "PLAF203",
-            "battery_type": "D",
-            "battery_quantity": 3
         }
     ]
 }
