@@ -10108,6 +10108,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "PETLIBRO",
+            "model": "PLAF108",
+            "hw_version": "1.0.0",
+            "battery_type": "Rechargeable"
         }
     ]
 }
