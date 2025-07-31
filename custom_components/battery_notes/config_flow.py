@@ -14,6 +14,8 @@ from homeassistant.components.sensor.const import SensorDeviceClass
 from homeassistant.config_entries import (
     ConfigEntry,
     ConfigFlowResult,
+    ConfigSubentry,
+    ConfigSubentryData,
     ConfigSubentryFlow,
     OptionsFlow,
     SubentryFlowResult,
@@ -146,6 +148,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             "model": discovery_info[CONF_MODEL],
             "model_id": discovery_info[CONF_MODEL_ID],
         }
+
 
         return await self.async_step_device(discovery_info)
 
@@ -391,10 +394,34 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                 assert device_entry
                 title = device_entry.name_by_user or device_entry.name
 
-            return self.async_create_entry(
-                title=str(title),
-                data=self.data,
-            )
+            # return self.async_create_entry(
+            #     title=str(title),
+            #     data=self.data,
+            # )
+
+
+            config_entry = self.hass.config_entries.async_entries(domain=DOMAIN)[0]
+            # Create a subentry
+            subentry = ConfigSubentry()
+            await self.hass.config_entries.async_add_subentry(config_entry, subentry)
+
+
+            # config_flow_result: ConfigFlowResult = await self.async_step_user(
+            #     discovered_data
+            # )
+
+            # subentries: list[ConfigSubentryData] = []
+
+            # subentry: ConfigSubentryData = ConfigSubentryData(
+            #     data={CONF_CHAT_ID: chat_id},
+            #     subentry_type=CONF_ALLOWED_CHAT_IDS,
+            #     title=f"{chat_name} ({chat_id})",
+            #     unique_id=str(chat_id),
+            # )
+            # subentries.append(subentry)
+
+
+            return self.async_abort(reason="created_sub_entry")
 
         return self.async_show_form(
             step_id="battery",
