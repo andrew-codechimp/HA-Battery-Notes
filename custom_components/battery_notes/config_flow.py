@@ -43,6 +43,7 @@ from .const import (
     CONF_SOURCE_ENTITY_ID,
     DOMAIN,
 )
+from .const import NAME as APP_NAME
 from .coordinator import MY_KEY
 from .library import Library, ModelInfo
 from .library_updater import LibraryUpdater
@@ -159,7 +160,20 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
         # pylint: disable=unused-argument
         """Handle a flow initialized by the user."""
 
-        return self.async_show_menu(step_id="user", menu_options=["device", "entity"])
+        return self.async_create_entry(
+            title=APP_NAME,
+            data={},
+            options={},
+        )
+
+    # async def async_step_user(
+    #     self,
+    #     user_input: dict | None = None,
+    # ) -> ConfigFlowResult:
+    #     # pylint: disable=unused-argument
+    #     """Handle a flow initialized by the user."""
+
+    #     return self.async_show_menu(step_id="user", menu_options=["device", "entity"])
 
     async def async_step_device(
         self,
@@ -475,7 +489,8 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
 class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
     """Flow for managing Battery Notes subentries."""
 
-    options: dict[str, Any]
+    data: dict[str, Any]
+    model_info: ModelInfo | None = None
 
     @property
     def _is_new(self) -> bool:
@@ -487,8 +502,245 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
     ) -> SubentryFlowResult:
         """Add a subentry."""
 
-        return await self.async_step_init()
+        return self.async_show_menu(step_id="user", menu_options=["device", "entity"])
 
+    async def async_step_device(
+        self,
+        user_input: dict | None = None,
+    ) -> ConfigFlowResult:
+        """Handle a flow for a device or discovery."""
+        errors: dict[str, str] = {}
+        device_battery_details = None
+
+        if user_input is not None:
+            self.data = user_input
+
+            device_id = user_input[CONF_DEVICE_ID]
+
+            library_updater = LibraryUpdater(self.hass)
+            if await library_updater.time_to_update_library(1):
+                await library_updater.get_library_updates()
+
+            device_registry = dr.async_get(self.hass)
+            device_entry = device_registry.async_get(device_id)
+
+            if device_entry and device_entry.manufacturer and device_entry.model:
+                _LOGGER.debug(
+                    "Looking up device %s %s %s %s",
+                    device_entry.manufacturer,
+                    device_entry.model,
+                    get_device_model_id(device_entry) or "",
+                    device_entry.hw_version,
+                )
+
+                self.model_info = ModelInfo(
+                    device_entry.manufacturer,
+                    device_entry.model,
+                    get_device_model_id(device_entry),
+                    device_entry.hw_version,
+                )
+
+                library = Library(self.hass)
+                await library.load_libraries()
+
+                # Set defaults if not found in library
+                self.data[CONF_BATTERY_QUANTITY] = 1
+
+                device_battery_details = await library.get_device_battery_details(
+                    self.model_info
+                )
+
+                if device_battery_details and not device_battery_details.is_manual:
+                    _LOGGER.debug(
+                        "Found device %s %s %s %s",
+                        device_entry.manufacturer,
+                        device_entry.model,
+                        get_device_model_id(device_entry) or "",
+                        device_entry.hw_version,
+                    )
+                    self.data[CONF_BATTERY_TYPE] = device_battery_details.battery_type
+
+                    self.data[CONF_BATTERY_QUANTITY] = (
+                        device_battery_details.battery_quantity
+                    )
+
+                if device_battery_details and device_battery_details.is_manual:
+                    return await self.async_step_manual()
+
+            return await self.async_step_battery()
+
+        schema = DEVICE_SCHEMA
+        # If show_all_devices = is specified and true, don't filter
+        domain_config = self.hass.data.get(MY_KEY)
+        if domain_config and domain_config.show_all_devices:
+            schema = DEVICE_SCHEMA_ALL
+
+        return self.async_show_form(
+            step_id="device",
+            data_schema=schema,
+            errors=errors,
+            last_step=False,
+        )
+
+    async def async_step_entity(
+        self,
+        user_input: dict | None = None,
+    ) -> ConfigFlowResult:
+        """Handle a flow for a device or discovery."""
+        errors: dict[str, str] = {}
+        device_battery_details = None
+
+        if user_input is not None:
+            self.data = user_input
+
+            source_entity_id = user_input[CONF_SOURCE_ENTITY_ID]
+            self.data[CONF_SOURCE_ENTITY_ID] = source_entity_id
+            entity_registry = er.async_get(self.hass)
+            entity_entry = entity_registry.async_get(source_entity_id)
+
+            # Default battery quantity if not found in library lookup
+            self.data[CONF_BATTERY_QUANTITY] = 1
+
+            if entity_entry:
+                if entity_entry.device_id:
+                    self.data[CONF_DEVICE_ID] = entity_entry.device_id
+
+                    library_updater = LibraryUpdater(self.hass)
+                    if await library_updater.time_to_update_library(1):
+                        await library_updater.get_library_updates()
+
+                    device_registry = dr.async_get(self.hass)
+                    device_entry = device_registry.async_get(entity_entry.device_id)
+
+                    if (
+                        device_entry
+                        and device_entry.manufacturer
+                        and device_entry.model
+                    ):
+                        _LOGGER.debug(
+                            "Looking up device %s %s %s %s",
+                            device_entry.manufacturer,
+                            device_entry.model,
+                            get_device_model_id(device_entry) or "",
+                            device_entry.hw_version,
+                        )
+
+                        self.model_info = ModelInfo(
+                            device_entry.manufacturer,
+                            device_entry.model,
+                            get_device_model_id(device_entry),
+                            device_entry.hw_version,
+                        )
+
+                        library = Library(self.hass)
+                        await library.load_libraries()
+
+                        device_battery_details = (
+                            await library.get_device_battery_details(self.model_info)
+                        )
+
+                        if (
+                            device_battery_details
+                            and not device_battery_details.is_manual
+                        ):
+                            _LOGGER.debug(
+                                "Found device %s %s %s %s",
+                                device_entry.manufacturer,
+                                device_entry.model,
+                                get_device_model_id(device_entry) or "",
+                                device_entry.hw_version,
+                            )
+                            self.data[CONF_BATTERY_TYPE] = (
+                                device_battery_details.battery_type
+                            )
+
+                            self.data[CONF_BATTERY_QUANTITY] = (
+                                device_battery_details.battery_quantity
+                            )
+
+                        if device_battery_details and device_battery_details.is_manual:
+                            return await self.async_step_manual()
+                return await self.async_step_battery()
+            else:
+                # No entity_registry entry, must be a config.yaml entity which we can't support
+                errors["base"] = "unconfigurable_entity"
+
+        schema = ENTITY_SCHEMA_ALL
+
+        return self.async_show_form(
+            step_id="entity",
+            data_schema=schema,
+            errors=errors,
+            last_step=False,
+        )
+
+    async def async_step_manual(self, user_input: dict[str, Any] | None = None):
+        """Second step in config flow to add the battery type."""
+        errors: dict[str, str] = {}
+        if user_input is not None:
+            return await self.async_step_battery()
+
+        return self.async_show_form(
+            step_id="manual",
+            data_schema=None,
+            last_step=False,
+            errors=errors,
+        )
+
+    async def async_step_battery(
+        self, user_input: dict[str, Any] | None = None
+    ) -> ConfigFlowResult:
+        """Second step in config flow to add the battery type."""
+        errors: dict[str, str] = {}
+        if user_input is not None:
+            self.data[CONF_BATTERY_TYPE] = user_input[CONF_BATTERY_TYPE]
+            self.data[CONF_BATTERY_QUANTITY] = int(user_input[CONF_BATTERY_QUANTITY])
+            self.data[CONF_BATTERY_LOW_THRESHOLD] = int(
+                user_input[CONF_BATTERY_LOW_THRESHOLD]
+            )
+            self.data[CONF_BATTERY_LOW_TEMPLATE] = user_input.get(
+                CONF_BATTERY_LOW_TEMPLATE, None
+            )
+            self.data[CONF_FILTER_OUTLIERS] = user_input.get(CONF_FILTER_OUTLIERS, False)
+
+            source_entity_id = self.data.get(CONF_SOURCE_ENTITY_ID, None)
+            device_id = self.data.get(CONF_DEVICE_ID, None)
+
+            entity_entry = None
+            device_entry = None
+
+            if source_entity_id:
+                entity_registry = er.async_get(self.hass)
+                entity_entry = entity_registry.async_get(source_entity_id)
+                source_entity_domain, source_object_id = split_entity_id(
+                    source_entity_id
+                )
+                if entity_entry:
+                    entity_unique_id = entity_entry.unique_id or entity_entry.entity_id
+                else:
+                    entity_unique_id = source_object_id
+                unique_id = f"bn_{entity_unique_id}"
+            else:
+                device_registry = dr.async_get(self.hass)
+                assert device_id
+                device_entry = device_registry.async_get(device_id)
+                unique_id = f"bn_{device_id}"
+
+            await self.async_set_unique_id(unique_id)
+            self._abort_if_unique_id_configured()
+
+            if CONF_NAME in self.data:
+                title = self.data.get(CONF_NAME)
+            elif source_entity_id and entity_entry:
+                title = entity_entry.name or entity_entry.original_name
+            else:
+                assert device_entry
+                title = device_entry.name_by_user or device_entry.name
+
+            return self.async_create_entry(
+                title=str(title),
+                data=self.data,
+            )
 
 class OptionsFlowHandler(OptionsFlow):
     """Handle an option flow for BatteryNotes."""

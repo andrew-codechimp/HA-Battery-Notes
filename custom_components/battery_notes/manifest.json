@@ -6,8 +6,8 @@
   ],
   "config_flow": true,
   "documentation": "https://andrew-codechimp.github.io/HA-Battery-Notes/",
-  "integration_type": "hub",
+  "integration_type": "service",
   "iot_class": "calculated",
   "issue_tracker": "https://github.com/andrew-codechimp/ha-battery-notes/issues",
-  "version": "2.0.0-dev"
+  "version": "3.0.0-dev"
 }
