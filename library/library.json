@@ -1151,6 +1151,11 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "lumi.sensor_magnet.v2",
+            "battery_type": "CR1632"
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "MCCGQ11LM",
             "battery_type": "CR2032"
         },
@@ -1566,6 +1571,12 @@
             "model": "AK-R1",
             "battery_type": "AAA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "August Home Inc.",
+            "model": "ASL-03",
+            "battery_type": "AA",
+            "battery_quantity": 4
         },
         {
             "manufacturer": "August Home Inc.",
@@ -3906,6 +3917,14 @@
         },
         {
             "manufacturer": "HOBEIAN",
+            "model": "Temperature and humidity sensor",
+            "model_id": "ZG-227Z",
+            "hw_version": "1",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "HOBEIAN",
             "model": "Temperature and humidity sensor (ZG-227Z)",
             "hw_version": "1",
             "battery_type": "AA",
@@ -5169,6 +5188,13 @@
         },
         {
             "manufacturer": "Moes",
+            "model": "Smart button",
+            "model_id": "ERS-10TZBVB-AA",
+            "hw_version": "1",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Moes",
             "model": "Smart door and window sensor (ZSS-JM-GWM-C-MS)",
             "model_id": "_TZ3000_decxrtwa",
             "battery_type": "CR2032"
@@ -5747,6 +5773,18 @@
             "manufacturer": "Perenio",
             "model": "PECWS01",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "PETLIBRO",
+            "model": "PLAF108",
+            "hw_version": "1.0.0",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "PETLIBRO",
+            "model": "PLAF203",
+            "battery_type": "D",
+            "battery_quantity": 3
         },
         {
             "manufacturer": "PETLIBRO",
@@ -7758,6 +7796,12 @@
         },
         {
             "manufacturer": "Third Reality, Inc",
+            "model": "3RWK0148Z",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Third Reality, Inc",
             "model": "3RWS18BZ",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -8778,6 +8822,13 @@
             "manufacturer": "Tuya",
             "model": "Vibration sensor",
             "model_id": "lzdjjfss",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Vibration sensor",
+            "model_id": "TS0210",
+            "hw_version": "1",
             "battery_type": "CR2450"
         },
         {

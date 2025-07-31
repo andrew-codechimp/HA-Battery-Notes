@@ -121,7 +121,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
         config_entry: BatteryNotesConfigEntry,
     ):
         """Initialize."""
-        super().__init__(hass, _LOGGER, name=DOMAIN)
+        super().__init__(hass, _LOGGER, config_entry=config_entry, name=DOMAIN)
 
         self.reset_jobs: list[CALLBACK_TYPE] = []
 
