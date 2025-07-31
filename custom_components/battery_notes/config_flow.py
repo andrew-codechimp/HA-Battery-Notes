@@ -166,15 +166,6 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             options={},
         )
 
-    # async def async_step_user(
-    #     self,
-    #     user_input: dict | None = None,
-    # ) -> ConfigFlowResult:
-    #     # pylint: disable=unused-argument
-    #     """Handle a flow initialized by the user."""
-
-    #     return self.async_show_menu(step_id="user", menu_options=["device", "entity"])
-
     async def async_step_device(
         self,
         user_input: dict | None = None,
@@ -253,111 +244,6 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             last_step=False,
         )
 
-    async def async_step_entity(
-        self,
-        user_input: dict | None = None,
-    ) -> ConfigFlowResult:
-        """Handle a flow for a device or discovery."""
-        errors: dict[str, str] = {}
-        device_battery_details = None
-
-        if user_input is not None:
-            self.data = user_input
-
-            source_entity_id = user_input[CONF_SOURCE_ENTITY_ID]
-            self.data[CONF_SOURCE_ENTITY_ID] = source_entity_id
-            entity_registry = er.async_get(self.hass)
-            entity_entry = entity_registry.async_get(source_entity_id)
-
-            # Default battery quantity if not found in library lookup
-            self.data[CONF_BATTERY_QUANTITY] = 1
-
-            if entity_entry:
-                if entity_entry.device_id:
-                    self.data[CONF_DEVICE_ID] = entity_entry.device_id
-
-                    library_updater = LibraryUpdater(self.hass)
-                    if await library_updater.time_to_update_library(1):
-                        await library_updater.get_library_updates()
-
-                    device_registry = dr.async_get(self.hass)
-                    device_entry = device_registry.async_get(entity_entry.device_id)
-
-                    if (
-                        device_entry
-                        and device_entry.manufacturer
-                        and device_entry.model
-                    ):
-                        _LOGGER.debug(
-                            "Looking up device %s %s %s %s",
-                            device_entry.manufacturer,
-                            device_entry.model,
-                            get_device_model_id(device_entry) or "",
-                            device_entry.hw_version,
-                        )
-
-                        self.model_info = ModelInfo(
-                            device_entry.manufacturer,
-                            device_entry.model,
-                            get_device_model_id(device_entry),
-                            device_entry.hw_version,
-                        )
-
-                        library = Library(self.hass)
-                        await library.load_libraries()
-
-                        device_battery_details = (
-                            await library.get_device_battery_details(self.model_info)
-                        )
-
-                        if (
-                            device_battery_details
-                            and not device_battery_details.is_manual
-                        ):
-                            _LOGGER.debug(
-                                "Found device %s %s %s %s",
-                                device_entry.manufacturer,
-                                device_entry.model,
-                                get_device_model_id(device_entry) or "",
-                                device_entry.hw_version,
-                            )
-                            self.data[CONF_BATTERY_TYPE] = (
-                                device_battery_details.battery_type
-                            )
-
-                            self.data[CONF_BATTERY_QUANTITY] = (
-                                device_battery_details.battery_quantity
-                            )
-
-                        if device_battery_details and device_battery_details.is_manual:
-                            return await self.async_step_manual()
-                return await self.async_step_battery()
-            else:
-                # No entity_registry entry, must be a config.yaml entity which we can't support
-                errors["base"] = "unconfigurable_entity"
-
-        schema = ENTITY_SCHEMA_ALL
-
-        return self.async_show_form(
-            step_id="entity",
-            data_schema=schema,
-            errors=errors,
-            last_step=False,
-        )
-
-    async def async_step_manual(self, user_input: dict[str, Any] | None = None):
-        """Second step in config flow to add the battery type."""
-        errors: dict[str, str] = {}
-        if user_input is not None:
-            return await self.async_step_battery()
-
-        return self.async_show_form(
-            step_id="manual",
-            data_schema=None,
-            last_step=False,
-            errors=errors,
-        )
-
     async def async_step_battery(
         self, user_input: dict[str, Any] | None = None
     ) -> ConfigFlowResult:
@@ -416,24 +302,13 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
 
             config_entry = self.hass.config_entries.async_entries(domain=DOMAIN)[0]
             # Create a subentry
-            subentry = ConfigSubentry()
+            subentry = ConfigSubentry(subentry_type="battery_note", data=self.data, title=str(title), unique_id=unique_id)
             await self.hass.config_entries.async_add_subentry(config_entry, subentry)
 
 
             # config_flow_result: ConfigFlowResult = await self.async_step_user(
             #     discovered_data
             # )
-
-            # subentries: list[ConfigSubentryData] = []
-
-            # subentry: ConfigSubentryData = ConfigSubentryData(
-            #     data={CONF_CHAT_ID: chat_id},
-            #     subentry_type=CONF_ALLOWED_CHAT_IDS,
-            #     title=f"{chat_name} ({chat_id})",
-            #     unique_id=str(chat_id),
-            # )
-            # subentries.append(subentry)
-
 
             return self.async_abort(reason="created_sub_entry")
 
