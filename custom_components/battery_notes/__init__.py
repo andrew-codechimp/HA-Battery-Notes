@@ -136,11 +136,11 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     await library_updater.copy_schema()
     await library_updater.get_library_updates(startup=True)
 
-    if domain_config.enable_autodiscovery:
-        discovery_manager = DiscoveryManager(hass, domain_config)
-        await discovery_manager.start_discovery()
-    else:
-        _LOGGER.debug("Auto discovery disabled")
+    # if domain_config.enable_autodiscovery:
+    #     discovery_manager = DiscoveryManager(hass, domain_config)
+    #     await discovery_manager.start_discovery()
+    # else:
+    #     _LOGGER.debug("Auto discovery disabled")
 
     # Register custom services
     async_setup_services(hass)
@@ -160,11 +160,11 @@ async def async_setup_entry(
         store=data.store,
     )
 
-    for subentry in config_entry.subentries.values():
-        if subentry.subentry_type == "battery_note":
-            #TODO: Change coordinator to take subentry data
-            coordinator = BatteryNotesCoordinator(hass, config_entry)
-            config_entry.runtime_data.coordinator = coordinator
+    # for subentry in config_entry.subentries.values():
+    #     if subentry.subentry_type == "battery_note":
+    #         #TODO: Change coordinator to take subentry data
+    #         coordinator = BatteryNotesCoordinator(hass, config_entry)
+    #         config_entry.runtime_data.coordinator = coordinator
 
     await hass.config_entries.async_forward_entry_setups(config_entry, PLATFORMS)
 

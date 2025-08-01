@@ -26,21 +26,37 @@ from homeassistant.const import (
     Platform,
 )
 from homeassistant.core import callback, split_entity_id
+from homeassistant.data_entry_flow import AbortFlow, section
 from homeassistant.helpers import selector
+from homeassistant.helpers.selector import (
+    SelectSelector,
+    SelectSelectorConfig,
+    TextSelector,
+    TextSelectorConfig,
+    TextSelectorType,
+)
 from homeassistant.helpers.typing import DiscoveryInfoType
 
 from .common import get_device_model_id
 from .const import (
+    CONF_BATTERY_INCREASE_THRESHOLD,
     CONF_BATTERY_LOW_TEMPLATE,
     CONF_BATTERY_LOW_THRESHOLD,
     CONF_BATTERY_QUANTITY,
     CONF_BATTERY_TYPE,
+    CONF_DEFAULT_BATTERY_LOW_THRESHOLD,
     CONF_DEVICE_NAME,
+    CONF_ENABLE_AUTODISCOVERY,
+    CONF_ENABLE_REPLACED,
     CONF_FILTER_OUTLIERS,
+    CONF_HIDE_BATTERY,
     CONF_MANUFACTURER,
     CONF_MODEL,
     CONF_MODEL_ID,
+    CONF_ROUND_BATTERY,
+    CONF_SHOW_ALL_DEVICES,
     CONF_SOURCE_ENTITY_ID,
+    CONF_USER_LIBRARY,
     DOMAIN,
 )
 from .const import NAME as APP_NAME
@@ -160,11 +176,21 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
         # pylint: disable=unused-argument
         """Handle a flow initialized by the user."""
 
-        return self.async_create_entry(
-            title=APP_NAME,
-            data={},
-            options={},
+        if self._async_current_entries():
+            return self.async_abort(reason="already_configured")
+
+        if user_input is not None:
+            return self.async_create_entry(
+                title=APP_NAME,
+                data={},
+                options={},
+            )
+
+        self._set_confirm_only()
+        return self.async_show_form(
+            step_id="user",
         )
+
 
     async def async_step_device(
         self,
@@ -617,20 +643,184 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
                 data=self.data,
             )
 
+#TODO: Change this to be sub entry options flow
+# class OptionsFlowHandler(OptionsFlow):
+#     """Handle an option flow for BatteryNotes."""
+
+#     model_info: ModelInfo | None = None
+
+#     def __init__(self) -> None:
+#         """Initialize options flow."""
+#         self.current_config: dict
+#         self.source_device_id: str
+#         self.name: str
+#         self.battery_type: str
+#         self.battery_quantity: int
+#         self.battery_low_template: str
+#         self.filter_outliers: bool
+
+#     async def async_step_init(
+#         self,
+#         user_input: dict[str, Any] | None = None,
+#     ) -> ConfigFlowResult:
+#         """Handle options flow."""
+#         errors = {}
+#         self.current_config = dict(self.config_entry.data)
+#         self.source_device_id = self.current_config.get(CONF_DEVICE_ID)  # type: ignore
+#         self.name = str(self.current_config.get(CONF_NAME) or "")
+#         self.battery_type = str(self.current_config.get(CONF_BATTERY_TYPE) or "")
+#         self.battery_quantity = int(self.current_config.get(CONF_BATTERY_QUANTITY) or 1)
+#         self.battery_low_template = str(
+#             self.current_config.get(CONF_BATTERY_LOW_TEMPLATE) or ""
+#         )
+#         self.filter_outliers = bool(
+#             self.current_config.get(CONF_FILTER_OUTLIERS) or False
+#         )
+
+#         if self.source_device_id:
+#             device_registry = dr.async_get(self.hass)
+#             device_entry = device_registry.async_get(self.source_device_id)
+
+#             if not device_entry:
+#                 errors["base"] = "orphaned_battery_note"
+#             else:
+#                 if device_entry and device_entry.manufacturer and device_entry.model:
+#                     _LOGGER.debug(
+#                         "Looking up device %s %s %s %s",
+#                         device_entry.manufacturer,
+#                         device_entry.model,
+#                         get_device_model_id(device_entry) or "",
+#                         device_entry.hw_version,
+#                     )
+
+#                     self.model_info = ModelInfo(
+#                         device_entry.manufacturer,
+#                         device_entry.model,
+#                         get_device_model_id(device_entry),
+#                         device_entry.hw_version,
+#                     )
+
+#         schema = self.build_options_schema()
+#         if user_input is not None:
+#             user_input[CONF_BATTERY_QUANTITY] = int(user_input[CONF_BATTERY_QUANTITY])
+#             user_input[CONF_BATTERY_LOW_THRESHOLD] = int(
+#                 user_input[CONF_BATTERY_LOW_THRESHOLD]
+#             )
+#             # user_input[CONF_BATTERY_LOW_TEMPLATE] = user_input.get(CONF_BATTERY_LOW_TEMPLATE, None)
+#             errors = await self.save_options(user_input, schema)
+#             if not errors:
+#                 return self.async_create_entry(title="", data={})
+
+#         return self.async_show_form(
+#             step_id="init",
+#             description_placeholders={
+#                 "manufacturer": self.model_info.manufacturer if self.model_info else "",
+#                 "model": self.model_info.model if self.model_info else "",
+#                 "model_id": (
+#                     str(self.model_info.model_id or "") if self.model_info else ""
+#                 ),
+#                 "hw_version": (
+#                     str(self.model_info.hw_version or "") if self.model_info else ""
+#                 ),
+#             },
+#             data_schema=schema,
+#             errors=errors,
+#         )
+
+#     async def save_options(
+#         self,
+#         user_input: dict[str, Any],
+#         schema: vol.Schema,
+#     ) -> dict:
+#         """Save options, and return errors when validation fails."""
+#         errors = {}
+
+#         device_registry = dr.async_get(self.hass)
+#         device_entry = device_registry.async_get(
+#             str(self.config_entry.data.get(CONF_DEVICE_ID))
+#         )
+
+#         source_entity_id = self.config_entry.data.get(CONF_SOURCE_ENTITY_ID, None)
+
+#         entity_entry: er.RegistryEntry | None = None
+#         if source_entity_id:
+#             entity_registry = er.async_get(self.hass)
+#             entity_entry = entity_registry.async_get(source_entity_id)
+#             if not entity_entry:
+#                 errors["base"] = "orphaned_battery_note"
+#                 return errors
+#         else:
+#             if not device_entry:
+#                 errors["base"] = "orphaned_battery_note"
+#                 return errors
+
+#         title: Any = ""
+#         if CONF_NAME in user_input:
+#             title = user_input.get(CONF_NAME)
+#         elif source_entity_id and entity_entry:
+#             title = entity_entry.name or entity_entry.original_name
+#         elif device_entry:
+#             title = device_entry.name_by_user or device_entry.name
+
+#         self._process_user_input(user_input, schema)
+#         self.hass.config_entries.async_update_entry(
+#             self.config_entry,
+#             title=title,
+#             data=self.current_config,
+#         )
+#         return {}
+
+#     def _process_user_input(
+#         self,
+#         user_input: dict[str, Any],
+#         schema: vol.Schema,
+#     ) -> None:
+#         """Process the provided user input against the schema."""
+#         for key in schema.schema:
+#             if isinstance(key, vol.Marker):
+#                 key = key.schema
+#             if key in user_input:
+#                 self.current_config[key] = user_input.get(key)
+#             elif key in self.current_config:
+#                 self.current_config.pop(key)
+
+#     def build_options_schema(self) -> vol.Schema:
+#         """Build the options schema."""
+#         data_schema = vol.Schema(
+#             {
+#                 vol.Optional(CONF_NAME): selector.TextSelector(
+#                     selector.TextSelectorConfig(type=selector.TextSelectorType.TEXT),
+#                 ),
+#                 vol.Required(CONF_BATTERY_TYPE): selector.TextSelector(
+#                     selector.TextSelectorConfig(type=selector.TextSelectorType.TEXT),
+#                 ),
+#                 vol.Required(CONF_BATTERY_QUANTITY): selector.NumberSelector(
+#                     selector.NumberSelectorConfig(
+#                         min=1, max=100, mode=selector.NumberSelectorMode.BOX
+#                     ),
+#                 ),
+#                 vol.Required(CONF_BATTERY_LOW_THRESHOLD): selector.NumberSelector(
+#                     selector.NumberSelectorConfig(
+#                         min=0, max=99, mode=selector.NumberSelectorMode.BOX
+#                     ),
+#                 ),
+#                 vol.Optional(CONF_BATTERY_LOW_TEMPLATE): selector.TemplateSelector(),
+#                 vol.Optional(CONF_FILTER_OUTLIERS): selector.BooleanSelector(),
+#             }
+#         )
+
+#         return _fill_schema_defaults(
+#             data_schema,
+#             self.current_config,
+#         )
+
 class OptionsFlowHandler(OptionsFlow):
     """Handle an option flow for BatteryNotes."""
-
-    model_info: ModelInfo | None = None
 
     def __init__(self) -> None:
         """Initialize options flow."""
         self.current_config: dict
-        self.source_device_id: str
         self.name: str
-        self.battery_type: str
-        self.battery_quantity: int
-        self.battery_low_template: str
-        self.filter_outliers: bool
 
     async def async_step_init(
         self,
@@ -650,52 +840,19 @@ class OptionsFlowHandler(OptionsFlow):
             self.current_config.get(CONF_FILTER_OUTLIERS) or False
         )
 
-        if self.source_device_id:
-            device_registry = dr.async_get(self.hass)
-            device_entry = device_registry.async_get(self.source_device_id)
-
-            if not device_entry:
-                errors["base"] = "orphaned_battery_note"
-            else:
-                if device_entry and device_entry.manufacturer and device_entry.model:
-                    _LOGGER.debug(
-                        "Looking up device %s %s %s %s",
-                        device_entry.manufacturer,
-                        device_entry.model,
-                        get_device_model_id(device_entry) or "",
-                        device_entry.hw_version,
-                    )
-
-                    self.model_info = ModelInfo(
-                        device_entry.manufacturer,
-                        device_entry.model,
-                        get_device_model_id(device_entry),
-                        device_entry.hw_version,
-                    )
-
         schema = self.build_options_schema()
-        if user_input is not None:
-            user_input[CONF_BATTERY_QUANTITY] = int(user_input[CONF_BATTERY_QUANTITY])
-            user_input[CONF_BATTERY_LOW_THRESHOLD] = int(
-                user_input[CONF_BATTERY_LOW_THRESHOLD]
-            )
-            # user_input[CONF_BATTERY_LOW_TEMPLATE] = user_input.get(CONF_BATTERY_LOW_TEMPLATE, None)
-            errors = await self.save_options(user_input, schema)
-            if not errors:
-                return self.async_create_entry(title="", data={})
+        # if user_input is not None:
+        #     user_input[CONF_BATTERY_QUANTITY] = int(user_input[CONF_BATTERY_QUANTITY])
+        #     user_input[CONF_BATTERY_LOW_THRESHOLD] = int(
+        #         user_input[CONF_BATTERY_LOW_THRESHOLD]
+        #     )
+        #     # user_input[CONF_BATTERY_LOW_TEMPLATE] = user_input.get(CONF_BATTERY_LOW_TEMPLATE, None)
+        #     errors = await self.save_options(user_input, schema)
+        #     if not errors:
+        #         return self.async_create_entry(title="", data={})
 
         return self.async_show_form(
             step_id="init",
-            description_placeholders={
-                "manufacturer": self.model_info.manufacturer if self.model_info else "",
-                "model": self.model_info.model if self.model_info else "",
-                "model_id": (
-                    str(self.model_info.model_id or "") if self.model_info else ""
-                ),
-                "hw_version": (
-                    str(self.model_info.hw_version or "") if self.model_info else ""
-                ),
-            },
             data_schema=schema,
             errors=errors,
         )
@@ -761,27 +918,36 @@ class OptionsFlowHandler(OptionsFlow):
         """Build the options schema."""
         data_schema = vol.Schema(
             {
-                vol.Optional(CONF_NAME): selector.TextSelector(
-                    selector.TextSelectorConfig(type=selector.TextSelectorType.TEXT),
-                ),
-                vol.Required(CONF_BATTERY_TYPE): selector.TextSelector(
-                    selector.TextSelectorConfig(type=selector.TextSelectorType.TEXT),
-                ),
-                vol.Required(CONF_BATTERY_QUANTITY): selector.NumberSelector(
-                    selector.NumberSelectorConfig(
-                        min=1, max=100, mode=selector.NumberSelectorMode.BOX
-                    ),
-                ),
-                vol.Required(CONF_BATTERY_LOW_THRESHOLD): selector.NumberSelector(
+                vol.Required(CONF_SHOW_ALL_DEVICES): selector.BooleanSelector(),
+                vol.Required(CONF_HIDE_BATTERY): selector.BooleanSelector(),
+                vol.Required(CONF_ROUND_BATTERY): selector.BooleanSelector(),
+                vol.Required(CONF_DEFAULT_BATTERY_LOW_THRESHOLD): selector.NumberSelector(
                     selector.NumberSelectorConfig(
                         min=0, max=99, mode=selector.NumberSelectorMode.BOX
                     ),
                 ),
-                vol.Optional(CONF_BATTERY_LOW_TEMPLATE): selector.TemplateSelector(),
-                vol.Optional(CONF_FILTER_OUTLIERS): selector.BooleanSelector(),
+                vol.Required(CONF_BATTERY_INCREASE_THRESHOLD): selector.NumberSelector(
+                    selector.NumberSelectorConfig(
+                        min=0, max=99, mode=selector.NumberSelectorMode.BOX
+                    ),
+                ),
+
+                vol.Required("advanced_settings"): section(
+                    vol.Schema(
+                        {
+                            vol.Required("autodiscovery"): selector.BooleanSelector(),
+                            vol.Required("enable_replaced"): selector.BooleanSelector(),
+                            vol.Optional("user_library"): selector.TextSelector(),
+                        }
+                    ),
+                    {"collapsed": True},
+                )
             }
         )
 
+        return data_schema
+
+        #TODO: Fix fill schema
         return _fill_schema_defaults(
             data_schema,
             self.current_config,
