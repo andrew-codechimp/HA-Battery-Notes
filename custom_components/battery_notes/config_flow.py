@@ -723,9 +723,6 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
                 device_entry = device_registry.async_get(device_id)
                 unique_id = f"bn_{device_id}"
 
-            await self.async_set_unique_id(unique_id)
-            self._abort_if_unique_id_configured()
-
             if CONF_NAME in self.data:
                 title = self.data.get(CONF_NAME)
             elif source_entity_id and entity_entry:
@@ -734,10 +731,57 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
                 assert device_entry
                 title = device_entry.name_by_user or device_entry.name
 
-            return self.async_create_entry(
-                title=str(title),
-                data=self.data,
-            )
+            return self.async_create_entry(title=str(title), data=self.data, unique_id=unique_id)
+
+        return self.async_show_form(
+            step_id="battery",
+            description_placeholders={
+                "manufacturer": self.model_info.manufacturer if self.model_info else "",
+                "model": self.model_info.model if self.model_info else "",
+                "model_id": (
+                    str(self.model_info.model_id or "") if self.model_info else ""
+                ),
+                "hw_version": (
+                    str(self.model_info.hw_version or "") if self.model_info else ""
+                ),
+            },
+            data_schema=vol.Schema(
+                {
+                    vol.Required(
+                        CONF_BATTERY_TYPE,
+                        default=self.data.get(CONF_BATTERY_TYPE),
+                    ): selector.TextSelector(
+                        selector.TextSelectorConfig(
+                            type=selector.TextSelectorType.TEXT
+                        ),
+                    ),
+                    vol.Required(
+                        CONF_BATTERY_QUANTITY,
+                        default=int(self.data.get(CONF_BATTERY_QUANTITY, 1)),
+                    ): selector.NumberSelector(
+                        selector.NumberSelectorConfig(
+                            min=1, max=100, mode=selector.NumberSelectorMode.BOX
+                        ),
+                    ),
+                    vol.Required(
+                        CONF_BATTERY_LOW_THRESHOLD,
+                        default=int(self.data.get(CONF_BATTERY_LOW_THRESHOLD, 0)),
+                    ): selector.NumberSelector(
+                        selector.NumberSelectorConfig(
+                            min=0, max=99, mode=selector.NumberSelectorMode.BOX
+                        ),
+                    ),
+                    vol.Optional(
+                        CONF_BATTERY_LOW_TEMPLATE
+                    ): selector.TemplateSelector(),
+                    vol.Optional(
+                        CONF_FILTER_OUTLIERS,
+                        default=False): selector.BooleanSelector(),
+                }
+            ),
+            errors=errors,
+        )
+
 
 #TODO: Change this to be sub entry options flow
 # class OptionsFlowHandler(OptionsFlow):
