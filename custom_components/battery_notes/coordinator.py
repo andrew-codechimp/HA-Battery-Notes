@@ -49,8 +49,6 @@ from .const import (
     CONF_SOURCE_ENTITY_ID,
     DEFAULT_BATTERY_INCREASE_THRESHOLD,
     DEFAULT_BATTERY_LOW_THRESHOLD,
-    DEFAULT_LIBRARY_URL,
-    DEFAULT_SCHEMA_URL,
     DOMAIN,
     EVENT_BATTERY_INCREASED,
     EVENT_BATTERY_THRESHOLD,
@@ -73,8 +71,6 @@ class BatteryNotesDomainConfig:
     round_battery: bool = False
     default_battery_low_threshold: int = DEFAULT_BATTERY_LOW_THRESHOLD
     battery_increased_threshod: int = DEFAULT_BATTERY_INCREASE_THRESHOLD
-    library_url: str = DEFAULT_LIBRARY_URL
-    schema_url: str = DEFAULT_SCHEMA_URL
     library_last_update: datetime | None = None
     user_library: str = ""
     store: BatteryNotesStorage | None = None

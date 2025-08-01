@@ -33,15 +33,11 @@ from .const import (
     CONF_ENABLE_AUTODISCOVERY,
     CONF_ENABLE_REPLACED,
     CONF_HIDE_BATTERY,
-    CONF_LIBRARY_URL,
     CONF_ROUND_BATTERY,
-    CONF_SCHEMA_URL,
     CONF_SHOW_ALL_DEVICES,
     CONF_USER_LIBRARY,
     DEFAULT_BATTERY_INCREASE_THRESHOLD,
     DEFAULT_BATTERY_LOW_THRESHOLD,
-    DEFAULT_LIBRARY_URL,
-    DEFAULT_SCHEMA_URL,
     DOMAIN,
     MIN_HA_VERSION,
     PLATFORMS,
@@ -84,14 +80,6 @@ CONFIG_SCHEMA = vol.Schema(
                         CONF_BATTERY_INCREASE_THRESHOLD,
                         default=DEFAULT_BATTERY_INCREASE_THRESHOLD,
                     ): cv.positive_int,
-                    vol.Optional(
-                        CONF_LIBRARY_URL,
-                        default=DEFAULT_LIBRARY_URL,
-                    ): cv.string,
-                    vol.Optional(
-                        CONF_SCHEMA_URL,
-                        default=DEFAULT_SCHEMA_URL,
-                    ): cv.string,
                 },
             ),
         ),
@@ -116,8 +104,6 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     store = await async_get_registry(hass)
 
     domain_config = BatteryNotesDomainConfig(
-        library_url=DEFAULT_LIBRARY_URL,
-        schema_url=DEFAULT_SCHEMA_URL,
         user_library=config.get(DOMAIN, {}).get(CONF_USER_LIBRARY, ""),
         store=store,
     )
@@ -307,6 +293,7 @@ async def async_migrate_entry(
 
             domain_config = hass.data[MY_KEY]
 
+            #TODO: change this to run config flow import
             options = {
                 CONF_ENABLE_AUTODISCOVERY: domain_config.enable_autodiscovery,
                 CONF_SHOW_ALL_DEVICES: domain_config.show_all_devices,
@@ -315,8 +302,6 @@ async def async_migrate_entry(
                 CONF_ROUND_BATTERY: domain_config.round_battery,
                 CONF_DEFAULT_BATTERY_LOW_THRESHOLD: domain_config.default_battery_low_threshold,
                 CONF_BATTERY_INCREASE_THRESHOLD: domain_config.battery_increased_threshod,
-                CONF_LIBRARY_URL: domain_config.library_url,
-                CONF_SCHEMA_URL: domain_config.schema_url,
             }
 
             _migrate_base_entry = ConfigEntry(
