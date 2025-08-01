@@ -153,12 +153,6 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     await library_updater.copy_schema()
     await library_updater.get_library_updates(startup=True)
 
-    # if domain_config.enable_autodiscovery:
-    #     discovery_manager = DiscoveryManager(hass, domain_config)
-    #     await discovery_manager.start_discovery()
-    # else:
-    #     _LOGGER.debug("Auto discovery disabled")
-
     # Register custom services
     async_setup_services(hass)
 
@@ -197,6 +191,12 @@ async def async_setup_entry(
     await hass.config_entries.async_forward_entry_setups(config_entry, PLATFORMS)
 
     config_entry.async_on_unload(config_entry.add_update_listener(update_listener))
+
+    if domain_config.enable_autodiscovery:
+        discovery_manager = DiscoveryManager(hass, domain_config)
+        await discovery_manager.start_discovery()
+    else:
+        _LOGGER.debug("Auto discovery disabled")
 
     return True
 
