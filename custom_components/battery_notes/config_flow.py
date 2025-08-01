@@ -723,6 +723,9 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
                 device_entry = device_registry.async_get(device_id)
                 unique_id = f"bn_{device_id}"
 
+            #TODO: Check if unique_id already exists
+            # self.async_abort(reason="already_configured")
+
             if CONF_NAME in self.data:
                 title = self.data.get(CONF_NAME)
             elif source_entity_id and entity_entry:
@@ -782,6 +785,15 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
             errors=errors,
         )
 
+    async def async_step_reconfigure(
+        self, user_input: dict[str, Any] | None = None
+    ) -> SubentryFlowResult:
+        """User flow to modify an existing location."""
+        # Retrieve the parent config entry for reference.
+        # config_entry = self._get_reconfigure_entry()
+        # # Retrieve the specific subentry targeted for update.
+        # config_subentry = self._get_reconfigure_subentry()
+        # ...
 
 #TODO: Change this to be sub entry options flow
 # class OptionsFlowHandler(OptionsFlow):
