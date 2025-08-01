@@ -39,6 +39,7 @@ from homeassistant.helpers.typing import DiscoveryInfoType
 
 from .common import get_device_model_id
 from .const import (
+    CONF_ADVANCED_SETTINGS,
     CONF_BATTERY_INCREASE_THRESHOLD,
     CONF_BATTERY_LOW_TEMPLATE,
     CONF_BATTERY_LOW_THRESHOLD,
@@ -57,6 +58,8 @@ from .const import (
     CONF_SHOW_ALL_DEVICES,
     CONF_SOURCE_ENTITY_ID,
     CONF_USER_LIBRARY,
+    DEFAULT_BATTERY_INCREASE_THRESHOLD,
+    DEFAULT_BATTERY_LOW_THRESHOLD,
     DOMAIN,
 )
 from .const import NAME as APP_NAME
@@ -67,6 +70,35 @@ from .library_updater import LibraryUpdater
 _LOGGER = logging.getLogger(__name__)
 
 CONFIG_VERSION = 3
+
+OPTIONS_SCHEMA = vol.Schema(
+    {
+        vol.Required(CONF_SHOW_ALL_DEVICES): selector.BooleanSelector(),
+        vol.Required(CONF_HIDE_BATTERY): selector.BooleanSelector(),
+        vol.Required(CONF_ROUND_BATTERY): selector.BooleanSelector(),
+        vol.Required(CONF_DEFAULT_BATTERY_LOW_THRESHOLD): selector.NumberSelector(
+            selector.NumberSelectorConfig(
+                min=0, max=99, mode=selector.NumberSelectorMode.BOX
+            ),
+        ),
+        vol.Required(CONF_BATTERY_INCREASE_THRESHOLD): selector.NumberSelector(
+            selector.NumberSelectorConfig(
+                min=0, max=99, mode=selector.NumberSelectorMode.BOX
+            ),
+        ),
+
+        vol.Required(CONF_ADVANCED_SETTINGS): section(
+            vol.Schema(
+                {
+                    vol.Required(CONF_ENABLE_AUTODISCOVERY): selector.BooleanSelector(),
+                    vol.Required(CONF_ENABLE_REPLACED): selector.BooleanSelector(),
+                    vol.Optional(CONF_USER_LIBRARY): selector.TextSelector(),
+                }
+            ),
+            {"collapsed": True},
+        )
+    }
+)
 
 DEVICE_SCHEMA_ALL = vol.Schema(
     {
@@ -183,7 +215,18 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             return self.async_create_entry(
                 title=APP_NAME,
                 data={},
-                options={},
+                options={
+                    CONF_SHOW_ALL_DEVICES: False,
+                    CONF_HIDE_BATTERY: False,
+                    CONF_ROUND_BATTERY: False,
+                    CONF_DEFAULT_BATTERY_LOW_THRESHOLD: DEFAULT_BATTERY_LOW_THRESHOLD,
+                    CONF_BATTERY_INCREASE_THRESHOLD: DEFAULT_BATTERY_INCREASE_THRESHOLD,
+                    CONF_ADVANCED_SETTINGS: {
+                        CONF_ENABLE_AUTODISCOVERY: True,
+                        CONF_ENABLE_REPLACED: True,
+                        CONF_USER_LIBRARY: "",
+                    }
+                }
             )
 
         self._set_confirm_only()
@@ -815,162 +858,20 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
 #         )
 
 class OptionsFlowHandler(OptionsFlow):
-    """Handle an option flow for BatteryNotes."""
-
-    def __init__(self) -> None:
-        """Initialize options flow."""
-        self.current_config: dict
-        self.name: str
+    """Options flow."""
 
     async def async_step_init(
-        self,
-        user_input: dict[str, Any] | None = None,
+        self, user_input: dict[str, Any] | None = None
     ) -> ConfigFlowResult:
-        """Handle options flow."""
-        errors = {}
-        self.current_config = dict(self.config_entry.data)
-        self.source_device_id = self.current_config.get(CONF_DEVICE_ID)  # type: ignore
-        self.name = str(self.current_config.get(CONF_NAME) or "")
-        self.battery_type = str(self.current_config.get(CONF_BATTERY_TYPE) or "")
-        self.battery_quantity = int(self.current_config.get(CONF_BATTERY_QUANTITY) or 1)
-        self.battery_low_template = str(
-            self.current_config.get(CONF_BATTERY_LOW_TEMPLATE) or ""
-        )
-        self.filter_outliers = bool(
-            self.current_config.get(CONF_FILTER_OUTLIERS) or False
-        )
+        """Manage the options."""
 
-        schema = self.build_options_schema()
-        # if user_input is not None:
-        #     user_input[CONF_BATTERY_QUANTITY] = int(user_input[CONF_BATTERY_QUANTITY])
-        #     user_input[CONF_BATTERY_LOW_THRESHOLD] = int(
-        #         user_input[CONF_BATTERY_LOW_THRESHOLD]
-        #     )
-        #     # user_input[CONF_BATTERY_LOW_TEMPLATE] = user_input.get(CONF_BATTERY_LOW_TEMPLATE, None)
-        #     errors = await self.save_options(user_input, schema)
-        #     if not errors:
-        #         return self.async_create_entry(title="", data={})
+        if user_input is not None:
+            return self.async_create_entry(data=user_input)
 
         return self.async_show_form(
             step_id="init",
-            data_schema=schema,
-            errors=errors,
+            data_schema=self.add_suggested_values_to_schema(
+                OPTIONS_SCHEMA,
+                self.config_entry.options,
+            ),
         )
-
-    async def save_options(
-        self,
-        user_input: dict[str, Any],
-        schema: vol.Schema,
-    ) -> dict:
-        """Save options, and return errors when validation fails."""
-        errors = {}
-
-        device_registry = dr.async_get(self.hass)
-        device_entry = device_registry.async_get(
-            str(self.config_entry.data.get(CONF_DEVICE_ID))
-        )
-
-        source_entity_id = self.config_entry.data.get(CONF_SOURCE_ENTITY_ID, None)
-
-        entity_entry: er.RegistryEntry | None = None
-        if source_entity_id:
-            entity_registry = er.async_get(self.hass)
-            entity_entry = entity_registry.async_get(source_entity_id)
-            if not entity_entry:
-                errors["base"] = "orphaned_battery_note"
-                return errors
-        else:
-            if not device_entry:
-                errors["base"] = "orphaned_battery_note"
-                return errors
-
-        title: Any = ""
-        if CONF_NAME in user_input:
-            title = user_input.get(CONF_NAME)
-        elif source_entity_id and entity_entry:
-            title = entity_entry.name or entity_entry.original_name
-        elif device_entry:
-            title = device_entry.name_by_user or device_entry.name
-
-        self._process_user_input(user_input, schema)
-        self.hass.config_entries.async_update_entry(
-            self.config_entry,
-            title=title,
-            data=self.current_config,
-        )
-        return {}
-
-    def _process_user_input(
-        self,
-        user_input: dict[str, Any],
-        schema: vol.Schema,
-    ) -> None:
-        """Process the provided user input against the schema."""
-        for key in schema.schema:
-            if isinstance(key, vol.Marker):
-                key = key.schema
-            if key in user_input:
-                self.current_config[key] = user_input.get(key)
-            elif key in self.current_config:
-                self.current_config.pop(key)
-
-    def build_options_schema(self) -> vol.Schema:
-        """Build the options schema."""
-        data_schema = vol.Schema(
-            {
-                vol.Required(CONF_SHOW_ALL_DEVICES): selector.BooleanSelector(),
-                vol.Required(CONF_HIDE_BATTERY): selector.BooleanSelector(),
-                vol.Required(CONF_ROUND_BATTERY): selector.BooleanSelector(),
-                vol.Required(CONF_DEFAULT_BATTERY_LOW_THRESHOLD): selector.NumberSelector(
-                    selector.NumberSelectorConfig(
-                        min=0, max=99, mode=selector.NumberSelectorMode.BOX
-                    ),
-                ),
-                vol.Required(CONF_BATTERY_INCREASE_THRESHOLD): selector.NumberSelector(
-                    selector.NumberSelectorConfig(
-                        min=0, max=99, mode=selector.NumberSelectorMode.BOX
-                    ),
-                ),
-
-                vol.Required("advanced_settings"): section(
-                    vol.Schema(
-                        {
-                            vol.Required("autodiscovery"): selector.BooleanSelector(),
-                            vol.Required("enable_replaced"): selector.BooleanSelector(),
-                            vol.Optional("user_library"): selector.TextSelector(),
-                        }
-                    ),
-                    {"collapsed": True},
-                )
-            }
-        )
-
-        return data_schema
-
-        #TODO: Fix fill schema
-        return _fill_schema_defaults(
-            data_schema,
-            self.current_config,
-        )
-
-
-def _fill_schema_defaults(
-    data_schema: vol.Schema,
-    options: dict[str, str],
-) -> vol.Schema:
-    """Make a copy of the schema with suggested values set to saved options."""
-    schema = {}
-    for key, val in data_schema.schema.items():
-        new_key = key
-        if key in options and isinstance(key, vol.Marker):
-            if (
-                isinstance(key, vol.Optional)
-                and callable(key.default)
-                and key.default()
-            ):
-                new_key = vol.Optional(key.schema, default=options.get(key))  # type: ignore
-            else:
-                new_key = copy.copy(key)
-                new_key.description = {"suggested_value": options.get(key)}  # type: ignore
-        schema[new_key] = val
-    return vol.Schema(schema)

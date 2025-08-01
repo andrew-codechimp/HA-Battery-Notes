@@ -100,12 +100,12 @@
                     "advanced_settings": {
                         "name": "Advanced settings",
                         "data": {
-                            "autodiscovery": "Auto discovery",
+                            "enable_autodiscovery": "Auto discovery",
                             "enable_replaced": "Enable battery replaced",
                             "user_library": "User library"
                         },
                         "data_description": {
-                            "autodiscovery": "Auto discovery of devices that are in the library.",
+                            "enable_autodiscovery": "Auto discovery of devices that are in the library.",
                             "enable_replaced": "Enable the battery replaced button on each battery note.",
                             "user_library": "If specified then a user library file will be searched prior to the main library, the user library must be in the same format as the library and placed in `config/.storage/battery_notes`."
                         }

@@ -54,6 +54,7 @@ CONF_HIDE_BATTERY = "hide_battery"
 CONF_ROUND_BATTERY = "round_battery"
 CONF_BATTERY_LOW_TEMPLATE = "battery_low_template"
 CONF_FILTER_OUTLIERS = "filter_outliers"
+CONF_ADVANCED_SETTINGS = "advanced_settings"
 
 DATA_CONFIGURED_ENTITIES = "configured_entities"
 DATA_DISCOVERED_ENTITIES = "discovered_entities"
