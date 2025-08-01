@@ -791,7 +791,7 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
     async def async_step_reconfigure(
         self, user_input: dict[str, Any] | None = None
     ) -> SubentryFlowResult:
-        """User flow to modify an existing location."""
+        """User flow to modify an existing battery note."""
         # Retrieve the parent config entry for reference.
         config_entry = self._get_entry()
         # # Retrieve the specific subentry targeted for update.
