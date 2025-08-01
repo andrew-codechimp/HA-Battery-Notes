@@ -406,8 +406,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             config_entry = self.hass.config_entries.async_entries(domain=DOMAIN)[0]
             # Create a subentry
             subentry = ConfigSubentry(subentry_type="battery_note", data=self.data, title=str(title), unique_id=unique_id)
-            await self.hass.config_entries.async_add_subentry(config_entry, subentry)
-
+            self.hass.config_entries.async_add_subentry(config_entry, subentry)
 
             # config_flow_result: ConfigFlowResult = await self.async_step_user(
             #     discovered_data
