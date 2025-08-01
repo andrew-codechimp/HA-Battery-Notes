@@ -28,6 +28,7 @@ from homeassistant.const import (
 from homeassistant.core import callback, split_entity_id
 from homeassistant.data_entry_flow import AbortFlow, section
 from homeassistant.helpers import selector
+from homeassistant.helpers.issue_registry import IssueSeverity, async_create_issue
 from homeassistant.helpers.selector import (
     SelectSelector,
     SelectSelectorConfig,
@@ -61,6 +62,7 @@ from .const import (
     DEFAULT_BATTERY_INCREASE_THRESHOLD,
     DEFAULT_BATTERY_LOW_THRESHOLD,
     DOMAIN,
+    ISSUE_DEPRECATED_YAML,
 )
 from .const import NAME as APP_NAME
 from .coordinator import MY_KEY
@@ -201,6 +203,34 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
 
         return await self.async_step_device(discovery_info)
 
+    # triggered by async_setup() from __init__.py
+    async def async_step_import(self, import_data: dict[str, Any]) -> ConfigFlowResult:
+        """Handle import of config entry from configuration.yaml."""
+
+        try:
+            config_flow_result: ConfigFlowResult = await self.async_step_user(
+                import_data
+            )
+        except AbortFlow:
+            # this happens if the config entry is already imported
+
+            async_create_issue(
+                self.hass,
+                DOMAIN,
+                ISSUE_DEPRECATED_YAML,
+                is_fixable=False,
+                issue_domain=DOMAIN,
+                severity=IssueSeverity.WARNING,
+                translation_key=ISSUE_DEPRECATED_YAML,
+                translation_placeholders={
+                    "domain": DOMAIN,
+                    "integration_title": APP_NAME,
+                },
+            )
+            raise
+        else:
+            return config_flow_result
+
     async def async_step_user(
         self,
         user_input: dict | None = None,
@@ -212,10 +242,9 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             return self.async_abort(reason="already_configured")
 
         if user_input is not None:
-            return self.async_create_entry(
-                title=APP_NAME,
-                data={},
-                options={
+            if len(user_input) == 0:
+                # Init defaults
+                options = {
                     CONF_SHOW_ALL_DEVICES: False,
                     CONF_HIDE_BATTERY: False,
                     CONF_ROUND_BATTERY: False,
@@ -227,6 +256,14 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                         CONF_USER_LIBRARY: "",
                     }
                 }
+            else:
+                # From import
+                options = user_input
+
+            return self.async_create_entry(
+                title=APP_NAME,
+                data={},
+                options=options
             )
 
         self._set_confirm_only()

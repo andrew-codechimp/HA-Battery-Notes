@@ -8,10 +8,14 @@ from __future__ import annotations
 
 import logging
 import re
+from typing import Any
 
 import voluptuous as vol
 from awesomeversion.awesomeversion import AwesomeVersion
-from homeassistant.config_entries import ConfigEntry
+from homeassistant.config_entries import SOURCE_IMPORT, ConfigEntry
+from homeassistant.const import (
+    CONF_SOURCE,
+)
 from homeassistant.const import __version__ as HA_VERSION  # noqa: N812
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers import config_validation as cv
@@ -21,6 +25,7 @@ from homeassistant.helpers.typing import ConfigType
 
 from .config_flow import CONFIG_VERSION
 from .const import (
+    CONF_ADVANCED_SETTINGS,
     CONF_BATTERY_INCREASE_THRESHOLD,
     CONF_BATTERY_QUANTITY,
     CONF_BATTERY_TYPE,
@@ -111,24 +116,36 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     store = await async_get_registry(hass)
 
     domain_config = BatteryNotesDomainConfig(
-        enable_autodiscovery=config.get(DOMAIN, {}).get(
-            CONF_ENABLE_AUTODISCOVERY, True
-        ),
-        show_all_devices=config.get(DOMAIN, {}).get(CONF_SHOW_ALL_DEVICES, False),
-        enable_replaced=config.get(DOMAIN, {}).get(CONF_ENABLE_REPLACED, True),
-        hide_battery=config.get(DOMAIN, {}).get(CONF_HIDE_BATTERY, False),
-        round_battery=config.get(DOMAIN, {}).get(CONF_ROUND_BATTERY, False),
-        default_battery_low_threshold=config.get(DOMAIN, {}).get(
-            CONF_DEFAULT_BATTERY_LOW_THRESHOLD, DEFAULT_BATTERY_LOW_THRESHOLD
-        ),
-        battery_increased_threshod=config.get(DOMAIN, {}).get(
-            CONF_BATTERY_INCREASE_THRESHOLD, DEFAULT_BATTERY_INCREASE_THRESHOLD
-        ),
-        library_url=config.get(DOMAIN, {}).get(CONF_LIBRARY_URL, DEFAULT_LIBRARY_URL),
-        schema_url=config.get(DOMAIN, {}).get(CONF_SCHEMA_URL, DEFAULT_SCHEMA_URL),
+        library_url=DEFAULT_LIBRARY_URL,
+        schema_url=DEFAULT_SCHEMA_URL,
         user_library=config.get(DOMAIN, {}).get(CONF_USER_LIBRARY, ""),
         store=store,
     )
+
+    yaml_domain_config: list[dict[str, Any]] | None = config.get(DOMAIN)
+    if yaml_domain_config:
+        hass.async_create_task(
+            hass.config_entries.flow.async_init(
+                DOMAIN,
+                context={CONF_SOURCE: SOURCE_IMPORT},
+                data={
+                    CONF_SHOW_ALL_DEVICES: yaml_domain_config.get(CONF_SHOW_ALL_DEVICES, False),
+                    CONF_HIDE_BATTERY: yaml_domain_config.get(CONF_HIDE_BATTERY, False),
+                    CONF_ROUND_BATTERY: yaml_domain_config.get(CONF_ROUND_BATTERY, False),
+                    CONF_DEFAULT_BATTERY_LOW_THRESHOLD: yaml_domain_config.get(
+                        CONF_DEFAULT_BATTERY_LOW_THRESHOLD, DEFAULT_BATTERY_LOW_THRESHOLD
+                    ),
+                    CONF_BATTERY_INCREASE_THRESHOLD: yaml_domain_config.get(
+                        CONF_BATTERY_INCREASE_THRESHOLD, DEFAULT_BATTERY_INCREASE_THRESHOLD
+                    ),
+                    CONF_ADVANCED_SETTINGS: {
+                        CONF_ENABLE_AUTODISCOVERY: yaml_domain_config.get(CONF_ENABLE_AUTODISCOVERY, True),
+                        CONF_ENABLE_REPLACED: yaml_domain_config.get(CONF_ENABLE_REPLACED, True),
+                        CONF_USER_LIBRARY: yaml_domain_config.get(CONF_USER_LIBRARY, ""),
+                    },
+                }
+            )
+        )
 
     hass.data[MY_KEY] = domain_config
 
@@ -153,11 +170,22 @@ async def async_setup_entry(
 ) -> bool:
     """Set up a config entry."""
 
-    data = hass.data[MY_KEY]
-    assert data.store
+    domain_config = hass.data[MY_KEY]
+    assert domain_config.store
+
+    domain_config.show_all_devices = config_entry.options[CONF_SHOW_ALL_DEVICES]
+    domain_config.hide_battery = config_entry.options[CONF_HIDE_BATTERY]
+    domain_config.round_battery = config_entry.options[CONF_ROUND_BATTERY]
+    domain_config.default_battery_low_threshold = config_entry.options[CONF_DEFAULT_BATTERY_LOW_THRESHOLD]
+    domain_config.battery_increased_threshod = config_entry.options[CONF_BATTERY_INCREASE_THRESHOLD]
+
+    domain_config.enable_autodiscovery = config_entry.options[CONF_ADVANCED_SETTINGS][CONF_ENABLE_AUTODISCOVERY]
+    domain_config.enable_replaced = config_entry.options[CONF_ADVANCED_SETTINGS][CONF_ENABLE_REPLACED]
+    domain_config.user_library = config_entry.options[CONF_ADVANCED_SETTINGS][CONF_USER_LIBRARY]
+
     config_entry.runtime_data = BatteryNotesData(
-        domain_config=data,
-        store=data.store,
+        domain_config=domain_config,
+        store=domain_config.store,
     )
 
     # for subentry in config_entry.subentries.values():
