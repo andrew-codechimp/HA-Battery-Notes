@@ -723,8 +723,12 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
                 device_entry = device_registry.async_get(device_id)
                 unique_id = f"bn_{device_id}"
 
-            #TODO: Check if unique_id already exists
-            # self.async_abort(reason="already_configured")
+            # Check if unique_id already exists
+            config_entry = self._get_entry()
+            for existing_subentry in config_entry.subentries.values():
+                if existing_subentry.unique_id == unique_id:
+                    _LOGGER.debug("Subentry with unique_id %s already exists", unique_id)
+                    return self.async_abort(reason="already_configured")
 
             if CONF_NAME in self.data:
                 title = self.data.get(CONF_NAME)
