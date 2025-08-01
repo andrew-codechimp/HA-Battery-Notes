@@ -13,6 +13,7 @@ from homeassistant import config_entries
 from homeassistant.components.sensor.const import SensorDeviceClass
 from homeassistant.config_entries import (
     ConfigEntry,
+    ConfigFlow,
     ConfigFlowResult,
     ConfigSubentry,
     ConfigSubentryData,
@@ -26,7 +27,7 @@ from homeassistant.const import (
     Platform,
 )
 from homeassistant.core import callback, split_entity_id
-from homeassistant.data_entry_flow import AbortFlow, section
+from homeassistant.data_entry_flow import AbortFlow, FlowResultType, section
 from homeassistant.helpers import selector
 from homeassistant.helpers.issue_registry import IssueSeverity, async_create_issue
 from homeassistant.helpers.selector import (
@@ -207,29 +208,25 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
     async def async_step_import(self, import_data: dict[str, Any]) -> ConfigFlowResult:
         """Handle import of config entry from configuration.yaml."""
 
-        try:
-            config_flow_result: ConfigFlowResult = await self.async_step_user(
-                import_data
-            )
-        except AbortFlow:
-            # this happens if the config entry is already imported
+        config_flow_result: ConfigFlowResult = await self.async_step_user(
+            import_data
+        )
 
-            async_create_issue(
-                self.hass,
-                DOMAIN,
-                ISSUE_DEPRECATED_YAML,
-                is_fixable=False,
-                issue_domain=DOMAIN,
-                severity=IssueSeverity.WARNING,
-                translation_key=ISSUE_DEPRECATED_YAML,
-                translation_placeholders={
-                    "domain": DOMAIN,
-                    "integration_title": APP_NAME,
-                },
-            )
-            raise
-        else:
-            return config_flow_result
+        async_create_issue(
+            self.hass,
+            DOMAIN,
+            ISSUE_DEPRECATED_YAML,
+            is_fixable=False,
+            issue_domain=DOMAIN,
+            severity=IssueSeverity.WARNING,
+            translation_key=ISSUE_DEPRECATED_YAML,
+            translation_placeholders={
+                "domain": DOMAIN,
+                "integration_title": APP_NAME,
+            },
+        )
+
+        return config_flow_result
 
     async def async_step_user(
         self,
