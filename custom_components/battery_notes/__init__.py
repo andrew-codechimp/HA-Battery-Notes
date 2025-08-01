@@ -182,11 +182,12 @@ async def async_setup_entry(
         store=domain_config.store,
     )
 
-    # for subentry in config_entry.subentries.values():
-    #     if subentry.subentry_type == "battery_note":
-    #         #TODO: Change coordinator to take subentry data
-    #         coordinator = BatteryNotesCoordinator(hass, config_entry)
-    #         config_entry.runtime_data.coordinator = coordinator
+    for subentry in config_entry.subentries.values():
+        if subentry.subentry_type == "battery_note":
+            #TODO: Change coordinator to take subentry data
+            coordinator = BatteryNotesCoordinator(hass, config_entry)
+            config_entry.runtime_data.coordinator = coordinator
+            config_entry.runtime_data.subentry_coordinators[subentry.subentry_id] = coordinator
 
     await hass.config_entries.async_forward_entry_setups(config_entry, PLATFORMS)
 

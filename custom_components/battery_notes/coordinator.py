@@ -90,6 +90,7 @@ class BatteryNotesData:
     domain_config: BatteryNotesDomainConfig
     store: BatteryNotesStorage
     coordinator: BatteryNotesCoordinator | None = None
+    subentry_coordinators: dict[str, BatteryNotesCoordinator] = None
 
 
 class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
