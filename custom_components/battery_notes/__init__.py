@@ -88,6 +88,7 @@ CONFIG_SCHEMA = vol.Schema(
 )
 
 _migrate_base_entry: ConfigEntry = None
+_yaml_domain_config: list[dict[str, Any]] | None = None
 
 async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     """Integration setup."""
@@ -291,18 +292,36 @@ async def async_migrate_entry(
                 "No existing V3 config entry found, creating a new one for migration"
             )
 
-            domain_config = hass.data[MY_KEY]
-
-            #TODO: change this to run config flow import
-            options = {
-                CONF_ENABLE_AUTODISCOVERY: domain_config.enable_autodiscovery,
-                CONF_SHOW_ALL_DEVICES: domain_config.show_all_devices,
-                CONF_ENABLE_REPLACED: domain_config.enable_replaced,
-                CONF_HIDE_BATTERY: domain_config.hide_battery,
-                CONF_ROUND_BATTERY: domain_config.round_battery,
-                CONF_DEFAULT_BATTERY_LOW_THRESHOLD: domain_config.default_battery_low_threshold,
-                CONF_BATTERY_INCREASE_THRESHOLD: domain_config.battery_increased_threshod,
-            }
+            if _yaml_domain_config:
+                options={
+                    CONF_SHOW_ALL_DEVICES: _yaml_domain_config.get(CONF_SHOW_ALL_DEVICES, False),
+                    CONF_HIDE_BATTERY: _yaml_domain_config.get(CONF_HIDE_BATTERY, False),
+                    CONF_ROUND_BATTERY: _yaml_domain_config.get(CONF_ROUND_BATTERY, False),
+                    CONF_DEFAULT_BATTERY_LOW_THRESHOLD: _yaml_domain_config.get(
+                        CONF_DEFAULT_BATTERY_LOW_THRESHOLD, DEFAULT_BATTERY_LOW_THRESHOLD
+                    ),
+                    CONF_BATTERY_INCREASE_THRESHOLD: _yaml_domain_config.get(
+                        CONF_BATTERY_INCREASE_THRESHOLD, DEFAULT_BATTERY_INCREASE_THRESHOLD
+                    ),
+                    CONF_ADVANCED_SETTINGS: {
+                        CONF_ENABLE_AUTODISCOVERY: _yaml_domain_config.get(CONF_ENABLE_AUTODISCOVERY, True),
+                        CONF_ENABLE_REPLACED: _yaml_domain_config.get(CONF_ENABLE_REPLACED, True),
+                        CONF_USER_LIBRARY: _yaml_domain_config.get(CONF_USER_LIBRARY, ""),
+                    },
+                }
+            else:
+                options={
+                    CONF_SHOW_ALL_DEVICES: False,
+                    CONF_HIDE_BATTERY: False,
+                    CONF_ROUND_BATTERY: False,
+                    CONF_DEFAULT_BATTERY_LOW_THRESHOLD: DEFAULT_BATTERY_LOW_THRESHOLD,
+                    CONF_BATTERY_INCREASE_THRESHOLD: DEFAULT_BATTERY_INCREASE_THRESHOLD,
+                    CONF_ADVANCED_SETTINGS: {
+                        CONF_ENABLE_AUTODISCOVERY: True,
+                        CONF_ENABLE_REPLACED: True,
+                        CONF_USER_LIBRARY: "",
+                    },
+                }
 
             _migrate_base_entry = ConfigEntry(
                 domain=DOMAIN,
