@@ -1,4 +1,4 @@
-## 1791 Devices in library
+## 1792 Devices in library
 
 This file is auto generated, do not modify
 
@@ -590,6 +590,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |EZVIZ                                           |DB2 Pro                                                                                       |Rechargeable              |                                   |                                      |
 |EZVIZ                                           |DP2                                                                                           |Rechargeable              |                                   |                                      |
 |Fairphone                                       |FP5                                                                                           |Rechargeable              |                                   |                                      |
+|Fakro                                           |ZRH12                                                                                         |2× AAA                    |                                   |                                      |
 |Fantem                                          |4 in 1 multi sensor (ZB003-X)                                                                 |2× CR123A                 |                                   |                                      |
 |Feasycom                                        |FeasyBeacon FSC-BP108                                                                         |CR3032                    |                                   |                                      |
 |Fibargroup                                      |FGCD001                                                                                       |CR123A                    |                                   |                                      |
