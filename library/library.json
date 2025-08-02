@@ -2662,6 +2662,12 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "EQ-3",
+            "model": "HmIP-DBB",
+            "hw_version": "1.0.44",
+            "battery_type": "AAA"
+        },
+        {
             "manufacturer": "eQ-3",
             "model": "HmIP-DLD",
             "battery_type": "AA",
@@ -10114,12 +10120,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "EQ-3",
-            "model": "HmIP-DBB",
-            "hw_version": "1.0.44",
-            "battery_type": "AAA"
         }
     ]
 }
