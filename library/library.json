@@ -3790,6 +3790,12 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "HARMAN International Industries",
+            "model": "JBL BAR 1000",
+            "hw_version": "MT8518",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Heatit",
             "model": "Z-PH WALL CONTROLLER",
             "battery_type": "CR2450"
@@ -10138,12 +10144,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "HARMAN International Industries",
-            "model": "JBL BAR 1000",
-            "hw_version": "MT8518",
             "battery_type": "Rechargeable"
         }
     ]
