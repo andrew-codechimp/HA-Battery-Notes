@@ -805,7 +805,7 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
             self.data[CONF_BATTERY_LOW_THRESHOLD] = int(
                 user_input[CONF_BATTERY_LOW_THRESHOLD]
             )
-            if user_input[CONF_BATTERY_LOW_TEMPLATE] == "":
+            if user_input.get(CONF_BATTERY_LOW_TEMPLATE, "") == "":
                 self.data[CONF_BATTERY_LOW_TEMPLATE] = None
             else:
                 self.data[CONF_BATTERY_LOW_TEMPLATE] = user_input[CONF_BATTERY_LOW_TEMPLATE]
@@ -858,28 +858,53 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
                         device_entry.hw_version,
                     )
 
-        data_schema = vol.Schema(
-            {
-                vol.Optional(CONF_NAME, default=config_entry.title): selector.TextSelector(
-                    selector.TextSelectorConfig(type=selector.TextSelectorType.TEXT),
-                ),
-                vol.Required(CONF_BATTERY_TYPE, default=self.data[CONF_BATTERY_TYPE]): selector.TextSelector(
-                    selector.TextSelectorConfig(type=selector.TextSelectorType.TEXT),
-                ),
-                vol.Required(CONF_BATTERY_QUANTITY, default=self.data[CONF_BATTERY_QUANTITY]): selector.NumberSelector(
-                    selector.NumberSelectorConfig(
-                        min=1, max=100, mode=selector.NumberSelectorMode.BOX
+        if self.data.get(CONF_BATTERY_LOW_TEMPLATE, None) is None:
+            data_schema = vol.Schema(
+                {
+                    vol.Optional(CONF_NAME, default=config_entry.title): selector.TextSelector(
+                        selector.TextSelectorConfig(type=selector.TextSelectorType.TEXT),
                     ),
-                ),
-                vol.Required(CONF_BATTERY_LOW_THRESHOLD, default=self.data[CONF_BATTERY_LOW_THRESHOLD]): selector.NumberSelector(
-                    selector.NumberSelectorConfig(
-                        min=0, max=99, mode=selector.NumberSelectorMode.BOX
+                    vol.Required(CONF_BATTERY_TYPE, default=self.data[CONF_BATTERY_TYPE]): selector.TextSelector(
+                        selector.TextSelectorConfig(type=selector.TextSelectorType.TEXT),
                     ),
-                ),
-                vol.Optional(CONF_BATTERY_LOW_TEMPLATE, default=self.data.get(CONF_BATTERY_LOW_TEMPLATE, "")): selector.TemplateSelector(),
-                vol.Optional(CONF_FILTER_OUTLIERS, default=self.data.get(CONF_FILTER_OUTLIERS, False)): selector.BooleanSelector(),
-            }
-        )
+                    vol.Required(CONF_BATTERY_QUANTITY, default=self.data[CONF_BATTERY_QUANTITY]): selector.NumberSelector(
+                        selector.NumberSelectorConfig(
+                            min=1, max=100, mode=selector.NumberSelectorMode.BOX
+                        ),
+                    ),
+                    vol.Required(CONF_BATTERY_LOW_THRESHOLD, default=self.data[CONF_BATTERY_LOW_THRESHOLD]): selector.NumberSelector(
+                        selector.NumberSelectorConfig(
+                            min=0, max=99, mode=selector.NumberSelectorMode.BOX
+                        ),
+                    ),
+                    vol.Optional(CONF_BATTERY_LOW_TEMPLATE): selector.TemplateSelector(),
+                    vol.Optional(CONF_FILTER_OUTLIERS, default=self.data.get(CONF_FILTER_OUTLIERS, False)): selector.BooleanSelector(),
+                }
+            )
+        else:
+            data_schema = vol.Schema(
+                {
+                    vol.Optional(CONF_NAME, default=config_entry.title): selector.TextSelector(
+                        selector.TextSelectorConfig(type=selector.TextSelectorType.TEXT),
+                    ),
+                    vol.Required(CONF_BATTERY_TYPE, default=self.data[CONF_BATTERY_TYPE]): selector.TextSelector(
+                        selector.TextSelectorConfig(type=selector.TextSelectorType.TEXT),
+                    ),
+                    vol.Required(CONF_BATTERY_QUANTITY, default=self.data[CONF_BATTERY_QUANTITY]): selector.NumberSelector(
+                        selector.NumberSelectorConfig(
+                            min=1, max=100, mode=selector.NumberSelectorMode.BOX
+                        ),
+                    ),
+                    vol.Required(CONF_BATTERY_LOW_THRESHOLD, default=self.data[CONF_BATTERY_LOW_THRESHOLD]): selector.NumberSelector(
+                        selector.NumberSelectorConfig(
+                            min=0, max=99, mode=selector.NumberSelectorMode.BOX
+                        ),
+                    ),
+                    vol.Optional(CONF_BATTERY_LOW_TEMPLATE, default=self.data.get(CONF_BATTERY_LOW_TEMPLATE, None)): selector.TemplateSelector(),
+                    vol.Optional(CONF_FILTER_OUTLIERS, default=self.data.get(CONF_FILTER_OUTLIERS, False)): selector.BooleanSelector(),
+                }
+            )
+
 
         return self.async_show_form(
             step_id="reconfigure",
