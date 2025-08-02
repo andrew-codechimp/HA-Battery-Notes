@@ -10145,6 +10145,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Google",
+            "model": "Pixel 6",
+            "battery_type": "Rechargeable"
         }
     ]
 }
