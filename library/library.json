@@ -10150,6 +10150,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Fakro",
+            "model": "ARZ Z-Wave Solar",
+            "battery_type": "Rechargeable"
         }
     ]
 }
