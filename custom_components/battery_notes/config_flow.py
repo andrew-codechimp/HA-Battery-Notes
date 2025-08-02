@@ -13,6 +13,7 @@ from homeassistant import config_entries
 from homeassistant.components.sensor.const import SensorDeviceClass
 from homeassistant.config_entries import (
     ConfigEntry,
+    ConfigEntryState,
     ConfigFlow,
     ConfigFlowResult,
     ConfigSubentry,
@@ -688,6 +689,7 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
     ) -> ConfigFlowResult:
         """Second step in config flow to add the battery type."""
         errors: dict[str, str] = {}
+
         if user_input is not None:
             self.data[CONF_BATTERY_TYPE] = user_input[CONF_BATTERY_TYPE]
             self.data[CONF_BATTERY_QUANTITY] = int(user_input[CONF_BATTERY_QUANTITY])
@@ -730,7 +732,7 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
                     return self.async_abort(reason="already_configured")
 
             if CONF_NAME in self.data:
-                title = self.data.get(CONF_NAME)
+                title = self.data.pop(CONF_NAME)
             elif source_entity_id and entity_entry:
                 title = entity_entry.name or entity_entry.original_name
             else:
@@ -792,11 +794,108 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
         self, user_input: dict[str, Any] | None = None
     ) -> SubentryFlowResult:
         """User flow to modify an existing battery note."""
-        # Retrieve the parent config entry for reference.
+        errors: dict[str, str] = {}
+
         config_entry = self._get_entry()
-        # # Retrieve the specific subentry targeted for update.
         config_subentry = self._get_reconfigure_subentry()
-        # ...
+
+        if user_input is not None:
+            self.data[CONF_BATTERY_TYPE] = user_input[CONF_BATTERY_TYPE]
+            self.data[CONF_BATTERY_QUANTITY] = int(user_input[CONF_BATTERY_QUANTITY])
+            self.data[CONF_BATTERY_LOW_THRESHOLD] = int(
+                user_input[CONF_BATTERY_LOW_THRESHOLD]
+            )
+            if user_input[CONF_BATTERY_LOW_TEMPLATE] == "":
+                self.data[CONF_BATTERY_LOW_TEMPLATE] = None
+            else:
+                self.data[CONF_BATTERY_LOW_TEMPLATE] = user_input[CONF_BATTERY_LOW_TEMPLATE]
+            self.data[CONF_FILTER_OUTLIERS] = user_input.get(CONF_FILTER_OUTLIERS, False)
+
+            # Update the subentry with new data
+            # config_subentry.data.update(self.data)
+            # config_subentry.title = self.data.get(CONF_NAME, config_subentry.title)
+
+            # Save the updated subentry
+            new_title = user_input.pop(CONF_NAME)
+
+            # self.hass.config_entries.async_update_subentry(
+            #     entry=config_entry,
+            #     subentry=config_subentry,
+            #     data=user_input,
+            #     title=new_title)
+
+            return self.async_update_and_abort(
+                self._get_entry(),
+                self._get_reconfigure_subentry(),
+                title=new_title,
+                data=self.data,
+            )
+
+        self.data = config_subentry.data.copy()
+
+        self.source_device_id = self.data.get(CONF_DEVICE_ID)
+
+        if self.source_device_id:
+            device_registry = dr.async_get(self.hass)
+            device_entry = device_registry.async_get(self.source_device_id)
+
+            if not device_entry:
+                errors["base"] = "orphaned_battery_note"
+            else:
+                if device_entry and device_entry.manufacturer and device_entry.model:
+                    _LOGGER.debug(
+                        "Looking up device %s %s %s %s",
+                        device_entry.manufacturer,
+                        device_entry.model,
+                        get_device_model_id(device_entry) or "",
+                        device_entry.hw_version,
+                    )
+
+                    self.model_info = ModelInfo(
+                        device_entry.manufacturer,
+                        device_entry.model,
+                        get_device_model_id(device_entry),
+                        device_entry.hw_version,
+                    )
+
+        data_schema = vol.Schema(
+            {
+                vol.Optional(CONF_NAME, default=config_entry.title): selector.TextSelector(
+                    selector.TextSelectorConfig(type=selector.TextSelectorType.TEXT),
+                ),
+                vol.Required(CONF_BATTERY_TYPE, default=self.data[CONF_BATTERY_TYPE]): selector.TextSelector(
+                    selector.TextSelectorConfig(type=selector.TextSelectorType.TEXT),
+                ),
+                vol.Required(CONF_BATTERY_QUANTITY, default=self.data[CONF_BATTERY_QUANTITY]): selector.NumberSelector(
+                    selector.NumberSelectorConfig(
+                        min=1, max=100, mode=selector.NumberSelectorMode.BOX
+                    ),
+                ),
+                vol.Required(CONF_BATTERY_LOW_THRESHOLD, default=self.data[CONF_BATTERY_LOW_THRESHOLD]): selector.NumberSelector(
+                    selector.NumberSelectorConfig(
+                        min=0, max=99, mode=selector.NumberSelectorMode.BOX
+                    ),
+                ),
+                vol.Optional(CONF_BATTERY_LOW_TEMPLATE, default=self.data.get(CONF_BATTERY_LOW_TEMPLATE, "")): selector.TemplateSelector(),
+                vol.Optional(CONF_FILTER_OUTLIERS, default=self.data.get(CONF_FILTER_OUTLIERS, False)): selector.BooleanSelector(),
+            }
+        )
+
+        return self.async_show_form(
+            step_id="reconfigure",
+            description_placeholders={
+                "manufacturer": self.model_info.manufacturer if self.model_info else "",
+                "model": self.model_info.model if self.model_info else "",
+                "model_id": (
+                    str(self.model_info.model_id or "") if self.model_info else ""
+                ),
+                "hw_version": (
+                    str(self.model_info.hw_version or "") if self.model_info else ""
+                ),
+            },
+            data_schema=data_schema,
+            errors=errors,
+        )
 
 #TODO: Change this to be sub entry options flow
 # class OptionsFlowHandler(OptionsFlow):
@@ -969,3 +1068,23 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
 #             self.current_config,
 #         )
 
+def _fill_schema_defaults(
+    data_schema: vol.Schema,
+    options: dict[str, Any],
+) -> vol.Schema:
+    """Make a copy of the schema with suggested values set to saved options."""
+    schema = {}
+    for key, val in data_schema.schema.items():
+        new_key = key
+        if key in options and isinstance(key, vol.Marker):
+            if (
+                isinstance(key, vol.Optional)
+                and callable(key.default)
+                and key.default()
+            ):
+                new_key = vol.Optional(key.schema, default=options.get(key))  # type: ignore
+            else:
+                new_key = copy.copy(key)
+                new_key.description = {"suggested_value": options.get(key)}  # type: ignore
+        schema[new_key] = val
+    return vol.Schema(schema)
