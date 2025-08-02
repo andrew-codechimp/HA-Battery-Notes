@@ -3603,6 +3603,11 @@
         },
         {
             "manufacturer": "Google",
+            "model": "Pixel 6",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Google",
             "model": "Pixel 6a",
             "battery_type": "Rechargeable"
         },
@@ -10144,11 +10149,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Google",
-            "model": "Pixel 6",
             "battery_type": "Rechargeable"
         }
     ]
