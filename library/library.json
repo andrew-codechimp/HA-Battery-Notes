@@ -2791,6 +2791,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "EQ-3",
+            "model": "HmIP-RCB1",
+            "hw_version": "1.2.4",
+            "battery_type": "AAA"
+        },
+        {
             "manufacturer": "eQ-3",
             "model": "HmIP-SAM",
             "battery_type": "AA",
@@ -10127,12 +10133,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "EQ-3",
-            "model": "HmIP-RCB1",
-            "hw_version": "1.2.4",
-            "battery_type": "AAA"
         }
     ]
 }
