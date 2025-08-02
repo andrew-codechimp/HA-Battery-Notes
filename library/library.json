@@ -2962,6 +2962,13 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "EQ-3",
+            "model": "HmIP-WKP",
+            "hw_version": "1.0.12",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "eQ-3",
             "model": "HMIP-WRC2",
             "battery_type": "AAA",
@@ -10120,13 +10127,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "EQ-3",
-            "model": "HmIP-WKP",
-            "hw_version": "1.0.12",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
