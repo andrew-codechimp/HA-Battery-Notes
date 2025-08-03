@@ -17,7 +17,7 @@ from homeassistant.components.sensor import (
     SensorEntityDescription,
     SensorStateClass,
 )
-from homeassistant.config_entries import ConfigEntry
+from homeassistant.config_entries import ConfigEntry, ConfigSubentry
 from homeassistant.const import (
     CONF_DEVICE_ID,
     CONF_NAME,
@@ -34,6 +34,10 @@ from homeassistant.helpers import (
 )
 from homeassistant.helpers import (
     entity_registry as er,
+)
+from homeassistant.helpers.device import (
+    async_entity_id_to_device_id,
+    async_remove_stale_devices_links_keep_entity_device,
 )
 from homeassistant.helpers.entity import DeviceInfo, EntityCategory
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
@@ -102,11 +106,11 @@ _LOGGER = logging.getLogger(__name__)
 
 
 @callback
-def async_add_to_device(hass: HomeAssistant, entry: BatteryNotesConfigEntry) -> str | None:
+def async_add_to_device(hass: HomeAssistant, entry: BatteryNotesConfigEntry, subentry: ConfigSubentry) -> str | None:
     """Add our config entry to the device."""
     device_registry = dr.async_get(hass)
 
-    device_id = entry.data.get(CONF_DEVICE_ID)
+    device_id = subentry.data.get(CONF_DEVICE_ID)
 
     if device_id:
         if device_registry.async_get(device_id):
@@ -129,112 +133,125 @@ async def async_setup_entry(
     for subentry in config_entry.subentries.values():
         if subentry.subentry_type != "battery_note":
             continue
+        await _setup_battery_note_subentry(hass, config_entry, subentry, async_add_entities)
 
-        device_id = subentry.data.get(CONF_DEVICE_ID, None)
+async def _setup_battery_note_subentry(
+    hass: HomeAssistant,
+    config_entry: BatteryNotesConfigEntry,
+    subentry: ConfigSubentry,
+    async_add_entities: AddEntitiesCallback,
+) -> None:
+    """Set up a battery_note subentry."""
+    entity_registry = er.async_get(hass)
+    device_registry = dr.async_get(hass)
 
-        coordinator = config_entry.runtime_data.subentry_coordinators.get(subentry.subentry_id)
-        assert(coordinator)
+    device_id = subentry.data.get(CONF_DEVICE_ID, None)
 
-        if not coordinator.fake_device:
-            device_id = async_add_to_device(hass, config_entry)
+    coordinator = config_entry.runtime_data.subentry_coordinators.get(subentry.subentry_id)
+    assert(coordinator)
 
-            if not device_id:
-                return
+    if not coordinator.fake_device:
+        device_id = async_add_to_device(hass, config_entry, subentry)
 
-        await coordinator.async_refresh()
+        if not device_id:
+            return
 
-        domain_config = hass.data[MY_KEY]
+    await coordinator.async_refresh()
 
-        battery_plus_sensor_entity_description = BatteryNotesSensorEntityDescription(
-            unique_id_suffix="_battery_plus",
-            key="battery_plus",
-            translation_key="battery_plus",
-            device_class=SensorDeviceClass.BATTERY,
-            suggested_display_precision=0 if domain_config.round_battery else 1,
-        )
+    domain_config = hass.data[MY_KEY]
 
-        type_sensor_entity_description = BatteryNotesSensorEntityDescription(
-            unique_id_suffix="",  # battery_type has uniqueId set to entityId in V1, never add a suffix
-            key="battery_type",
-            translation_key="battery_type",
-            entity_category=EntityCategory.DIAGNOSTIC,
-        )
+    battery_plus_sensor_entity_description = BatteryNotesSensorEntityDescription(
+        unique_id_suffix="_battery_plus",
+        key="battery_plus",
+        translation_key="battery_plus",
+        device_class=SensorDeviceClass.BATTERY,
+        suggested_display_precision=0 if domain_config.round_battery else 1,
+    )
 
-        last_replaced_sensor_entity_description = BatteryNotesSensorEntityDescription(
-            unique_id_suffix="_battery_last_replaced",
-            key="battery_last_replaced",
-            translation_key="battery_last_replaced",
-            entity_category=EntityCategory.DIAGNOSTIC,
-            device_class=SensorDeviceClass.TIMESTAMP,
-            entity_registry_enabled_default=domain_config.enable_replaced,
-        )
+    type_sensor_entity_description = BatteryNotesSensorEntityDescription(
+        unique_id_suffix="",  # battery_type has uniqueId set to entityId in V1, never add a suffix
+        key="battery_type",
+        translation_key="battery_type",
+        entity_category=EntityCategory.DIAGNOSTIC,
+    )
 
-        entities = [
-            BatteryNotesTypeSensor(
+    last_replaced_sensor_entity_description = BatteryNotesSensorEntityDescription(
+        unique_id_suffix="_battery_last_replaced",
+        key="battery_last_replaced",
+        translation_key="battery_last_replaced",
+        entity_category=EntityCategory.DIAGNOSTIC,
+        device_class=SensorDeviceClass.TIMESTAMP,
+        entity_registry_enabled_default=domain_config.enable_replaced,
+    )
+
+    entities = []
+    # entities = [
+    #     BatteryNotesTypeSensor(
+    #         hass,
+    #         config_entry,
+    #         coordinator,
+    #         type_sensor_entity_description,
+    #         f"{config_entry.entry_id}{type_sensor_entity_description.unique_id_suffix}",
+    #     ),
+    #     BatteryNotesLastReplacedSensor(
+    #         hass,
+    #         config_entry,
+    #         coordinator,
+    #         last_replaced_sensor_entity_description,
+    #         f"{config_entry.entry_id}{last_replaced_sensor_entity_description.unique_id_suffix}",
+    #     ),
+    # ]
+
+    if coordinator.wrapped_battery is not None:
+        entities.append(
+            BatteryNotesBatteryPlusSensor(
                 hass,
                 config_entry,
+                subentry,
                 coordinator,
-                type_sensor_entity_description,
-                f"{config_entry.entry_id}{type_sensor_entity_description.unique_id_suffix}",
-            ),
-            BatteryNotesLastReplacedSensor(
-                hass,
-                config_entry,
-                coordinator,
-                last_replaced_sensor_entity_description,
-                f"{config_entry.entry_id}{last_replaced_sensor_entity_description.unique_id_suffix}",
-            ),
-        ]
-
-        if coordinator.wrapped_battery is not None:
-            entities.append(
-                BatteryNotesBatteryPlusSensor(
-                    hass,
-                    config_entry,
-                    coordinator,
-                    battery_plus_sensor_entity_description,
-                    f"{config_entry.entry_id}{battery_plus_sensor_entity_description.unique_id_suffix}",
-                    domain_config.enable_replaced,
-                    domain_config.round_battery,
-                )
-            )
-
-        async def async_registry_updated(event: Event[er.EventEntityRegistryUpdatedData]) -> None:
-            """Handle entity registry update."""
-            data = event.data
-            if data["action"] == "remove":
-                await hass.config_entries.async_remove(config_entry.entry_id)
-
-            if data["action"] != "update":
-                return
-
-            if "entity_id" in data["changes"]:
-                # Entity_id replaced, reload the config entry
-                await hass.config_entries.async_reload(config_entry.entry_id)
-
-            if device_id and "device_id" in data["changes"]:
-                # If the tracked battery note is no longer in the device, remove our config entry
-                # from the device
-                if (
-                    not (entity_entry := entity_registry.async_get(data["entity_id"]))
-                    or not device_registry.async_get(device_id)
-                    or entity_entry.device_id == device_id
-                ):
-                    # No need to do any cleanup
-                    return
-
-                device_registry.async_update_device(
-                    device_id, remove_config_entry_id=config_entry.entry_id
-                )
-
-        config_entry.async_on_unload(
-            async_track_entity_registry_updated_event(
-                #TODO: This doesnt look right, should be entity_id
-                hass, config_entry.entry_id, async_registry_updated
+                battery_plus_sensor_entity_description,
+                f"{config_entry.entry_id}{battery_plus_sensor_entity_description.unique_id_suffix}",
+                domain_config.enable_replaced,
+                domain_config.round_battery,
             )
         )
 
-        async_add_entities(entities)
+    async def async_registry_updated(event: Event[er.EventEntityRegistryUpdatedData]) -> None:
+        """Handle entity registry update."""
+        data = event.data
+        if data["action"] == "remove":
+            await hass.config_entries.async_remove(config_entry.entry_id)
+
+        if data["action"] != "update":
+            return
+
+        if "entity_id" in data["changes"]:
+            # Entity_id replaced, reload the config entry
+            await hass.config_entries.async_reload(config_entry.entry_id)
+
+        if device_id and "device_id" in data["changes"]:
+            # If the tracked battery note is no longer in the device, remove our config entry
+            # from the device
+            if (
+                not (entity_entry := entity_registry.async_get(data["entity_id"]))
+                or not device_registry.async_get(device_id)
+                or entity_entry.device_id == device_id
+            ):
+                # No need to do any cleanup
+                return
+
+            device_registry.async_update_device(
+                device_id, remove_config_entry_id=config_entry.entry_id
+            )
+
+    config_entry.async_on_unload(
+        async_track_entity_registry_updated_event(
+            #TODO: This doesnt look right, should be entity_id
+            hass, config_entry.entry_id, async_registry_updated
+        )
+    )
+
+    async_add_entities(entities)
 
 
 async def async_setup_platform(
@@ -272,6 +289,7 @@ class BatteryNotesBatteryPlusSensor(
         self,
         hass: HomeAssistant,
         config_entry: ConfigEntry,
+        subentry: ConfigSubentry,
         coordinator: BatteryNotesCoordinator,
         description: BatteryNotesSensorEntityDescription,
         unique_id: str,
@@ -284,7 +302,10 @@ class BatteryNotesBatteryPlusSensor(
         device_registry = dr.async_get(hass)
 
         self.config_entry = config_entry
+        self.subentry = subentry
         self.coordinator = coordinator
+
+        self.subentry_id = subentry.subentry_id
 
         self._attr_has_entity_name = True
 
@@ -317,13 +338,26 @@ class BatteryNotesBatteryPlusSensor(
         self._device_id = coordinator.device_id
         self._source_entity_id = coordinator.source_entity_id
 
-        if coordinator.device_id and (
-            device_entry := device_registry.async_get(coordinator.device_id)
-        ):
-            self._attr_device_info = DeviceInfo(
-                connections=device_entry.connections,
-                identifiers=device_entry.identifiers,
+        # if coordinator.device_id and (
+        #     device_entry := device_registry.async_get(coordinator.device_id)
+        # ):
+        #     self._attr_device_info = DeviceInfo(
+        #         connections=device_entry.connections,
+        #         identifiers=device_entry.identifiers,
+        #     )
+
+        if self.coordinator.device_id:
+            #TODO: Get this working, by getting any entity of the device and using it
+            self.device_entry = async_entity_id_to_device_id(
+                hass,
+                coordinator.source_entity_id,
             )
+        else:
+            self.device_entry = async_entity_id_to_device_id(
+                hass,
+                coordinator.source_entity_id,
+            )
+
 
         entity_category = (
             coordinator.wrapped_battery.entity_category if coordinator.wrapped_battery else None

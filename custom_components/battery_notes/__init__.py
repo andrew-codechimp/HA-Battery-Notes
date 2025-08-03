@@ -12,7 +12,7 @@ from typing import Any, Final
 
 import voluptuous as vol
 from awesomeversion.awesomeversion import AwesomeVersion
-from homeassistant.config_entries import SOURCE_IMPORT, ConfigEntry
+from homeassistant.config_entries import SOURCE_IMPORT, ConfigEntry, ConfigSubentry
 from homeassistant.const import (
     CONF_SOURCE,
     Platform,
@@ -175,7 +175,6 @@ async def async_setup_entry(
     for subentry in config_entry.subentries.values():
         if subentry.subentry_type == "battery_note":
             coordinator = BatteryNotesCoordinator(hass, config_entry, subentry)
-            config_entry.runtime_data.coordinator = coordinator
             config_entry.runtime_data.subentry_coordinators[subentry.subentry_id] = coordinator
 
     #TODO: Change back to real platforms once all completed
