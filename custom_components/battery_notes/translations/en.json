@@ -22,7 +22,8 @@
             }
         },
         "abort": {
-            "already_configured": "Integration is already configured"
+            "already_configured": "Integration is already configured",
+            "created_sub_entry": "Battery Note created successfully"
         },
         "error": {
             "unknown": "Unknown error occurred."

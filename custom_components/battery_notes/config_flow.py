@@ -192,8 +192,13 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
         _LOGGER.debug("Starting discovery flow: %s", discovery_info)
 
         unique_id = f"bn_{discovery_info[CONF_DEVICE_ID]}"
-        await self.async_set_unique_id(unique_id)
-        self._abort_if_unique_id_configured()
+
+        # Check if unique_id already exists as sub entry
+        config_entry = self.hass.config_entries.async_entries(domain=DOMAIN)[0]
+        for existing_subentry in config_entry.subentries.values():
+            if existing_subentry.unique_id == unique_id:
+                _LOGGER.debug("Subentry with unique_id %s already exists", unique_id)
+                return self.async_abort(reason="already_configured")
 
         self.context["title_placeholders"] = {
             "name": discovery_info[CONF_DEVICE_NAME],
