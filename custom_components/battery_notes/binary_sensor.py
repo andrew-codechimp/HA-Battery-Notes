@@ -133,7 +133,6 @@ async def async_setup_entry(
     entity_registry = er.async_get(hass)
     device_registry = dr.async_get(hass)
 
-    device_id = config_entry.data.get(CONF_DEVICE_ID)
 
     async def async_registry_updated(
         event: Event[er.EventEntityRegistryUpdatedData],
@@ -165,11 +164,13 @@ async def async_setup_entry(
                 device_id, remove_config_entry_id=config_entry.entry_id
             )
 
+    device_id = config_entry.data.get(CONF_DEVICE_ID)
     coordinator = config_entry.runtime_data.coordinator
     assert(coordinator)
 
     config_entry.async_on_unload(
         async_track_entity_registry_updated_event(
+            #TODO: This doesnt look right, should be entity_id
             hass, config_entry.entry_id, async_registry_updated
         )
     )

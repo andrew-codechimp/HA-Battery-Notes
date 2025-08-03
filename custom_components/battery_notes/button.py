@@ -132,6 +132,7 @@ async def async_setup_entry(
 
     config_entry.async_on_unload(
         async_track_entity_registry_updated_event(
+            #TODO: This doesnt look right, should be entity_id
             hass, config_entry.entry_id, async_registry_updated
         )
     )

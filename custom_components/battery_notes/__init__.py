@@ -8,13 +8,14 @@ from __future__ import annotations
 
 import logging
 import re
-from typing import Any
+from typing import Any, Final
 
 import voluptuous as vol
 from awesomeversion.awesomeversion import AwesomeVersion
 from homeassistant.config_entries import SOURCE_IMPORT, ConfigEntry
 from homeassistant.const import (
     CONF_SOURCE,
+    Platform,
 )
 from homeassistant.const import __version__ as HA_VERSION  # noqa: N812
 from homeassistant.core import HomeAssistant, callback
@@ -169,17 +170,22 @@ async def async_setup_entry(
         store=domain_config.store,
     )
 
-    #TODO: Get this working
-    # for subentry in config_entry.subentries.values():
-    #     if subentry.subentry_type == "battery_note":
-    #         #TODO: Change coordinator to take subentry data
-    #         coordinator = BatteryNotesCoordinator(hass, config_entry, subentry)
-    #         config_entry.runtime_data.coordinator = coordinator
-    #         config_entry.runtime_data.subentry_coordinators[subentry.subentry_id] = coordinator
+    # TODO: Get this working
+    config_entry.runtime_data.subentry_coordinators = {}
+    for subentry in config_entry.subentries.values():
+        if subentry.subentry_type == "battery_note":
+            coordinator = BatteryNotesCoordinator(hass, config_entry, subentry)
+            config_entry.runtime_data.coordinator = coordinator
+            config_entry.runtime_data.subentry_coordinators[subentry.subentry_id] = coordinator
 
+    #TODO: Change back to real platforms once all completed
+    TEMP_PLATFORMS: Final = [
+        Platform.SENSOR,
+    ]
+    await hass.config_entries.async_forward_entry_setups(config_entry, TEMP_PLATFORMS)
     # await hass.config_entries.async_forward_entry_setups(config_entry, PLATFORMS)
 
-    # config_entry.async_on_unload(config_entry.add_update_listener(update_listener))
+    config_entry.async_on_unload(config_entry.add_update_listener(update_listener))
 
     if domain_config.enable_autodiscovery:
         discovery_manager = DiscoveryManager(hass, domain_config)

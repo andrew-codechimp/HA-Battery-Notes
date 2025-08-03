@@ -126,110 +126,115 @@ async def async_setup_entry(
     entity_registry = er.async_get(hass)
     device_registry = dr.async_get(hass)
 
-    device_id = config_entry.data.get(CONF_DEVICE_ID, None)
+    for subentry in config_entry.subentries.values():
+        if subentry.subentry_type != "battery_note":
+            continue
 
-    async def async_registry_updated(event: Event[er.EventEntityRegistryUpdatedData]) -> None:
-        """Handle entity registry update."""
-        data = event.data
-        if data["action"] == "remove":
-            await hass.config_entries.async_remove(config_entry.entry_id)
+        device_id = subentry.data.get(CONF_DEVICE_ID, None)
 
-        if data["action"] != "update":
-            return
+        coordinator = config_entry.runtime_data.subentry_coordinators.get(subentry.subentry_id)
+        assert(coordinator)
 
-        if "entity_id" in data["changes"]:
-            # Entity_id replaced, reload the config entry
-            await hass.config_entries.async_reload(config_entry.entry_id)
+        if not coordinator.fake_device:
+            device_id = async_add_to_device(hass, config_entry)
 
-        if device_id and "device_id" in data["changes"]:
-            # If the tracked battery note is no longer in the device, remove our config entry
-            # from the device
-            if (
-                not (entity_entry := entity_registry.async_get(data["entity_id"]))
-                or not device_registry.async_get(device_id)
-                or entity_entry.device_id == device_id
-            ):
-                # No need to do any cleanup
+            if not device_id:
                 return
 
-            device_registry.async_update_device(
-                device_id, remove_config_entry_id=config_entry.entry_id
-            )
+        await coordinator.async_refresh()
 
-    config_entry.async_on_unload(
-        async_track_entity_registry_updated_event(
-            hass, config_entry.entry_id, async_registry_updated
+        domain_config = hass.data[MY_KEY]
+
+        battery_plus_sensor_entity_description = BatteryNotesSensorEntityDescription(
+            unique_id_suffix="_battery_plus",
+            key="battery_plus",
+            translation_key="battery_plus",
+            device_class=SensorDeviceClass.BATTERY,
+            suggested_display_precision=0 if domain_config.round_battery else 1,
         )
-    )
 
-    coordinator = config_entry.runtime_data.coordinator
-    assert(coordinator)
+        type_sensor_entity_description = BatteryNotesSensorEntityDescription(
+            unique_id_suffix="",  # battery_type has uniqueId set to entityId in V1, never add a suffix
+            key="battery_type",
+            translation_key="battery_type",
+            entity_category=EntityCategory.DIAGNOSTIC,
+        )
 
-    if not coordinator.fake_device:
-        device_id = async_add_to_device(hass, config_entry)
+        last_replaced_sensor_entity_description = BatteryNotesSensorEntityDescription(
+            unique_id_suffix="_battery_last_replaced",
+            key="battery_last_replaced",
+            translation_key="battery_last_replaced",
+            entity_category=EntityCategory.DIAGNOSTIC,
+            device_class=SensorDeviceClass.TIMESTAMP,
+            entity_registry_enabled_default=domain_config.enable_replaced,
+        )
 
-        if not device_id:
-            return
-
-    await coordinator.async_refresh()
-
-    domain_config = hass.data[MY_KEY]
-
-    battery_plus_sensor_entity_description = BatteryNotesSensorEntityDescription(
-        unique_id_suffix="_battery_plus",
-        key="battery_plus",
-        translation_key="battery_plus",
-        device_class=SensorDeviceClass.BATTERY,
-        suggested_display_precision=0 if domain_config.round_battery else 1,
-    )
-
-    type_sensor_entity_description = BatteryNotesSensorEntityDescription(
-        unique_id_suffix="",  # battery_type has uniqueId set to entityId in V1, never add a suffix
-        key="battery_type",
-        translation_key="battery_type",
-        entity_category=EntityCategory.DIAGNOSTIC,
-    )
-
-    last_replaced_sensor_entity_description = BatteryNotesSensorEntityDescription(
-        unique_id_suffix="_battery_last_replaced",
-        key="battery_last_replaced",
-        translation_key="battery_last_replaced",
-        entity_category=EntityCategory.DIAGNOSTIC,
-        device_class=SensorDeviceClass.TIMESTAMP,
-        entity_registry_enabled_default=domain_config.enable_replaced,
-    )
-
-    entities = [
-        BatteryNotesTypeSensor(
-            hass,
-            config_entry,
-            coordinator,
-            type_sensor_entity_description,
-            f"{config_entry.entry_id}{type_sensor_entity_description.unique_id_suffix}",
-        ),
-        BatteryNotesLastReplacedSensor(
-            hass,
-            config_entry,
-            coordinator,
-            last_replaced_sensor_entity_description,
-            f"{config_entry.entry_id}{last_replaced_sensor_entity_description.unique_id_suffix}",
-        ),
-    ]
-
-    if coordinator.wrapped_battery is not None:
-        entities.append(
-            BatteryNotesBatteryPlusSensor(
+        entities = [
+            BatteryNotesTypeSensor(
                 hass,
                 config_entry,
                 coordinator,
-                battery_plus_sensor_entity_description,
-                f"{config_entry.entry_id}{battery_plus_sensor_entity_description.unique_id_suffix}",
-                domain_config.enable_replaced,
-                domain_config.round_battery,
+                type_sensor_entity_description,
+                f"{config_entry.entry_id}{type_sensor_entity_description.unique_id_suffix}",
+            ),
+            BatteryNotesLastReplacedSensor(
+                hass,
+                config_entry,
+                coordinator,
+                last_replaced_sensor_entity_description,
+                f"{config_entry.entry_id}{last_replaced_sensor_entity_description.unique_id_suffix}",
+            ),
+        ]
+
+        if coordinator.wrapped_battery is not None:
+            entities.append(
+                BatteryNotesBatteryPlusSensor(
+                    hass,
+                    config_entry,
+                    coordinator,
+                    battery_plus_sensor_entity_description,
+                    f"{config_entry.entry_id}{battery_plus_sensor_entity_description.unique_id_suffix}",
+                    domain_config.enable_replaced,
+                    domain_config.round_battery,
+                )
+            )
+
+        async def async_registry_updated(event: Event[er.EventEntityRegistryUpdatedData]) -> None:
+            """Handle entity registry update."""
+            data = event.data
+            if data["action"] == "remove":
+                await hass.config_entries.async_remove(config_entry.entry_id)
+
+            if data["action"] != "update":
+                return
+
+            if "entity_id" in data["changes"]:
+                # Entity_id replaced, reload the config entry
+                await hass.config_entries.async_reload(config_entry.entry_id)
+
+            if device_id and "device_id" in data["changes"]:
+                # If the tracked battery note is no longer in the device, remove our config entry
+                # from the device
+                if (
+                    not (entity_entry := entity_registry.async_get(data["entity_id"]))
+                    or not device_registry.async_get(device_id)
+                    or entity_entry.device_id == device_id
+                ):
+                    # No need to do any cleanup
+                    return
+
+                device_registry.async_update_device(
+                    device_id, remove_config_entry_id=config_entry.entry_id
+                )
+
+        config_entry.async_on_unload(
+            async_track_entity_registry_updated_event(
+                #TODO: This doesnt look right, should be entity_id
+                hass, config_entry.entry_id, async_registry_updated
             )
         )
 
-    async_add_entities(entities)
+        async_add_entities(entities)
 
 
 async def async_setup_platform(

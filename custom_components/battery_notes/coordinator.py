@@ -86,7 +86,7 @@ class BatteryNotesData:
     domain_config: BatteryNotesDomainConfig
     store: BatteryNotesStorage
     coordinator: BatteryNotesCoordinator | None = None
-    subentry_coordinators: dict[str, BatteryNotesCoordinator] = None
+    subentry_coordinators: dict[str, BatteryNotesCoordinator] | None = None
 
 
 class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
@@ -126,34 +126,34 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
         self.config_entry = config_entry
         self.subentry = subentry
 
-        self.device_id = config_entry.data.get(CONF_DEVICE_ID, None)
-        self.source_entity_id = config_entry.data.get(CONF_SOURCE_ENTITY_ID, None)
+        self.device_id = self.subentry.data.get(CONF_DEVICE_ID, None)
+        self.source_entity_id = self.subentry.data.get(CONF_SOURCE_ENTITY_ID, None)
 
         self._link_device()
 
         assert(self.device_name)
 
-        self.battery_type = cast(str, self.config_entry.data.get(CONF_BATTERY_TYPE))
+        self.battery_type = cast(str, self.subentry.data.get(CONF_BATTERY_TYPE))
         try:
             self.battery_quantity = cast(
-                int, self.config_entry.data.get(CONF_BATTERY_QUANTITY)
+                int, self.subentry.data.get(CONF_BATTERY_QUANTITY)
             )
         except ValueError:
             self.battery_quantity = 1
 
         self.battery_low_threshold = int(
-            self.config_entry.data.get(CONF_BATTERY_LOW_THRESHOLD, 0)
+            self.subentry.data.get(CONF_BATTERY_LOW_THRESHOLD, 0)
         )
 
         if hasattr(self.config_entry, "runtime_data"):
             if self.battery_low_threshold == 0:
                 self.battery_low_threshold = self.config_entry.runtime_data.domain_config.default_battery_low_threshold
 
-        self.battery_low_template = self.config_entry.data.get(
+        self.battery_low_template = self.subentry.data.get(
             CONF_BATTERY_LOW_TEMPLATE
         )
 
-        if config_entry.data.get(CONF_FILTER_OUTLIERS, False):
+        if self.subentry.data.get(CONF_FILTER_OUTLIERS, False):
             self._outlier_filter = LowOutlierFilter(window_size=3, radius=80)
             _LOGGER.debug("Outlier filter enabled")
 
@@ -212,9 +212,9 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
                 ir.async_create_issue(
                     self.hass,
                     DOMAIN,
-                    f"missing_device_{self.config_entry.entry_id}",
+                    f"missing_device_{self.subentry.subentry_id}",
                     data={
-                        "entry_id": self.config_entry.entry_id,
+                        "entry_id": self.subentry.subentry_id,
                         "device_id": self.device_id,
                         "source_entity_id": self.source_entity_id,
                     },
@@ -222,13 +222,13 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
                     severity=ir.IssueSeverity.WARNING,
                     translation_key="missing_device",
                     translation_placeholders={
-                        "name": self.config_entry.title,
+                        "name": self.subentry.title,
                     },
                 )
 
                 _LOGGER.warning(
                     "%s is orphaned, unable to find entity %s",
-                    self.config_entry.entry_id,
+                    self.subentry.subentry_id,
                     self.source_entity_id,
                 )
                 return False
@@ -253,12 +253,12 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
                     self.device_name = (
                         device_entry.name_by_user
                         or device_entry.name
-                        or self.config_entry.title
+                        or self.subentry.title
                     )
                 else:
-                    self.device_name = self.config_entry.title
+                    self.device_name = self.subentry.title
             else:
-                self.device_name = self.config_entry.title
+                self.device_name = self.subentry.title
         else:
             for entity in entity_registry.entities.values():
 
@@ -299,17 +299,17 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
                 device_entry = device_registry.async_get(self.device_id)
             if device_entry:
                 self.device_name = (
-                    device_entry.name_by_user or device_entry.name or self.config_entry.title
+                    device_entry.name_by_user or device_entry.name or self.subentry.title
                 )
             else:
-                self.device_name = self.config_entry.title
+                self.device_name = self.subentry.title
 
                 ir.async_create_issue(
                     self.hass,
                     DOMAIN,
-                    f"missing_device_{self.config_entry.entry_id}",
+                    f"missing_device_{self.subentry.subentry_id}",
                     data={
-                        "entry_id": self.config_entry.entry_id,
+                        "entry_id": self.subentry.subentry_id,
                         "device_id": self.device_id,
                         "source_entity_id": self.source_entity_id,
                     },
@@ -317,13 +317,13 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
                     severity=ir.IssueSeverity.WARNING,
                     translation_key="missing_device",
                     translation_placeholders={
-                        "name": self.config_entry.title,
+                        "name": self.subentry.title,
                     },
                 )
 
                 _LOGGER.warning(
                     "%s is orphaned, unable to find device %s",
-                    self.config_entry.entry_id,
+                    self.subentry.subentry_id,
                     self.device_id,
                 )
                 return False
@@ -333,8 +333,8 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
     @property
     def fake_device(self) -> bool:
         """Return if an actual device registry entry."""
-        if self.config_entry.data.get(CONF_SOURCE_ENTITY_ID, None):
-            if self.config_entry.data.get(CONF_DEVICE_ID, None) is None:
+        if self.subentry.data.get(CONF_SOURCE_ENTITY_ID, None):
+            if self.subentry.data.get(CONF_DEVICE_ID, None) is None:
                 return True
         return False
 
