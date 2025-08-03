@@ -11,7 +11,7 @@ from homeassistant.components.binary_sensor import DOMAIN as BINARY_SENSOR_DOMAI
 from homeassistant.components.binary_sensor import BinarySensorDeviceClass
 from homeassistant.components.sensor import DOMAIN as SENSOR_DOMAIN
 from homeassistant.components.sensor import SensorDeviceClass
-from homeassistant.config_entries import ConfigEntry
+from homeassistant.config_entries import ConfigEntry, ConfigSubentry
 from homeassistant.const import (
     CONF_DEVICE_ID,
     PERCENTAGE,
@@ -116,6 +116,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
         self,
         hass: HomeAssistant,
         config_entry: BatteryNotesConfigEntry,
+        subentry: ConfigSubentry
     ):
         """Initialize."""
         super().__init__(hass, _LOGGER, config_entry=config_entry, name=DOMAIN)
@@ -123,6 +124,7 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
         self.reset_jobs: list[CALLBACK_TYPE] = []
 
         self.config_entry = config_entry
+        self.subentry = subentry
 
         self.device_id = config_entry.data.get(CONF_DEVICE_ID, None)
         self.source_entity_id = config_entry.data.get(CONF_SOURCE_ENTITY_ID, None)

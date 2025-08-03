@@ -173,7 +173,7 @@ async def async_setup_entry(
     # for subentry in config_entry.subentries.values():
     #     if subentry.subentry_type == "battery_note":
     #         #TODO: Change coordinator to take subentry data
-    #         coordinator = BatteryNotesCoordinator(hass, config_entry)
+    #         coordinator = BatteryNotesCoordinator(hass, config_entry, subentry)
     #         config_entry.runtime_data.coordinator = coordinator
     #         config_entry.runtime_data.subentry_coordinators[subentry.subentry_id] = coordinator
 
