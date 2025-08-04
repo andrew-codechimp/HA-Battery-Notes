@@ -342,18 +342,18 @@ class BatteryNotesTypeSensor(RestoreSensor, SensorEntity):
         self._attr_unique_id = unique_id
 
         # TODO: Replace this with new method of attached to device
-        # if coordinator.device_id and (
-        #     device_entry := device_registry.async_get(coordinator.device_id)
-        # ):
-        #     self._attr_device_info = DeviceInfo(
-        #         connections=device_entry.connections,
-        #         identifiers=device_entry.identifiers,
-        #     )
         if coordinator.device_id and (
-            device_registry.async_get(coordinator.device_id)
+            device_entry := device_registry.async_get(coordinator.device_id)
         ):
-            self.device_entry = dr.async_get(hass).async_get(coordinator.device_id)
-        #TODO: If not a device_id but source_entity_id is attached to a device, use that and add
+            self._attr_device_info = DeviceInfo(
+                connections=device_entry.connections,
+                identifiers=device_entry.identifiers,
+            )
+        # if coordinator.device_id and (
+        #     device_registry.async_get(coordinator.device_id)
+        # ):
+        #     self.device_entry = dr.async_get(hass).async_get(coordinator.device_id)
+        # #TODO: If not a device_id but source_entity_id is attached to a device, use that and add
 
         self._battery_type = coordinator.battery_type
         self._battery_quantity = coordinator.battery_quantity
