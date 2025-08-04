@@ -36,6 +36,8 @@ from homeassistant.helpers import (
     entity_registry as er,
 )
 from homeassistant.helpers.device import (
+    #TODO: Add this when move to 2025.8
+    # async_entity_id_to_device,
     async_entity_id_to_device_id,
     async_remove_stale_devices_links_keep_entity_device,
 )
@@ -105,20 +107,20 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
 _LOGGER = logging.getLogger(__name__)
 
 
-@callback
-def async_add_to_device(hass: HomeAssistant, entry: BatteryNotesConfigEntry, subentry: ConfigSubentry) -> str | None:
-    """Add our config entry to the device."""
-    device_registry = dr.async_get(hass)
+# @callback
+# def async_add_to_device(hass: HomeAssistant, entry: BatteryNotesConfigEntry, subentry: ConfigSubentry) -> str | None:
+#     """Add our config entry to the device."""
+#     device_registry = dr.async_get(hass)
 
-    device_id = subentry.data.get(CONF_DEVICE_ID)
+#     device_id = subentry.data.get(CONF_DEVICE_ID)
 
-    if device_id:
-        if device_registry.async_get(device_id):
-            device_registry.async_update_device(
-                device_id, add_config_entry_id=entry.entry_id
-            )
-            return device_id
-    return None
+#     if device_id:
+#         if device_registry.async_get(device_id):
+#             device_registry.async_update_device(
+#                 device_id, add_config_entry_id=entry.entry_id
+#             )
+#             return device_id
+#     return None
 
 
 async def async_setup_entry(
@@ -150,11 +152,10 @@ async def _setup_battery_note_subentry(
     coordinator = config_entry.runtime_data.subentry_coordinators.get(subentry.subentry_id)
     assert(coordinator)
 
-    if not coordinator.fake_device:
-        device_id = async_add_to_device(hass, config_entry, subentry)
-
-        if not device_id:
-            return
+    # if not coordinator.fake_device:
+    #     device_id = async_add_to_device(hass, config_entry, subentry)
+    #     if not device_id:
+    #         return
 
     await coordinator.async_refresh()
 
@@ -189,6 +190,7 @@ async def _setup_battery_note_subentry(
         BatteryNotesTypeSensor(
             hass,
             config_entry,
+            subentry,
             coordinator,
             type_sensor_entity_description,
             f"{config_entry.entry_id}{type_sensor_entity_description.unique_id_suffix}",
@@ -273,6 +275,7 @@ class BatteryNotesTypeSensor(RestoreSensor, SensorEntity):
         self,
         hass,
         config_entry: ConfigEntry,
+        subentry: ConfigSubentry,
         coordinator: BatteryNotesCoordinator,
         description: BatteryNotesSensorEntityDescription,
         unique_id: str,
@@ -313,13 +316,19 @@ class BatteryNotesTypeSensor(RestoreSensor, SensorEntity):
         self._device_id = coordinator.device_id
         self._source_entity_id = coordinator.source_entity_id
 
+        # TODO: Replace this with new method of attached to device
+        # if coordinator.device_id and (
+        #     device_entry := device_registry.async_get(coordinator.device_id)
+        # ):
+        #     self._attr_device_info = DeviceInfo(
+        #         connections=device_entry.connections,
+        #         identifiers=device_entry.identifiers,
+        #     )
         if coordinator.device_id and (
-            device_entry := device_registry.async_get(coordinator.device_id)
+            device_registry.async_get(coordinator.device_id)
         ):
-            self._attr_device_info = DeviceInfo(
-                connections=device_entry.connections,
-                identifiers=device_entry.identifiers,
-            )
+            self.device_entry = dr.async_get(hass).async_get(coordinator.device_id)
+        #TODO: If not a device_id but source_entity_id is attached to a device, use that and add
 
         self._battery_type = coordinator.battery_type
         self._battery_quantity = coordinator.battery_quantity
