@@ -13,10 +13,7 @@ from typing import Any, Final
 import voluptuous as vol
 from awesomeversion.awesomeversion import AwesomeVersion
 from homeassistant.config_entries import SOURCE_IMPORT, ConfigEntry, ConfigSubentry
-from homeassistant.const import (
-    CONF_SOURCE,
-    Platform,
-)
+from homeassistant.const import CONF_SOURCE
 from homeassistant.const import __version__ as HA_VERSION  # noqa: N812
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers import config_validation as cv
@@ -177,12 +174,7 @@ async def async_setup_entry(
             coordinator = BatteryNotesCoordinator(hass, config_entry, subentry)
             config_entry.runtime_data.subentry_coordinators[subentry.subentry_id] = coordinator
 
-    #TODO: Change back to real platforms once all completed
-    TEMP_PLATFORMS: Final = [
-        Platform.SENSOR,
-    ]
-    await hass.config_entries.async_forward_entry_setups(config_entry, TEMP_PLATFORMS)
-    # await hass.config_entries.async_forward_entry_setups(config_entry, PLATFORMS)
+    await hass.config_entries.async_forward_entry_setups(config_entry, PLATFORMS)
 
     config_entry.async_on_unload(config_entry.add_update_listener(update_listener))
 
