@@ -1043,6 +1043,12 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "Aqara Door and Window Sensor T1",
+            "hw_version": "1",
+            "battery_type": "CR1632"
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "Aqara Smart Lock U300",
             "battery_type": "AA",
             "battery_quantity": 4
@@ -10155,12 +10161,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Aqara",
-            "model": "Aqara Door and Window Sensor T1",
-            "hw_version": "1",
-            "battery_type": "CR1632"
         }
     ]
 }
