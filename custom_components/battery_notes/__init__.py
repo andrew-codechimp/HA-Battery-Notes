@@ -8,7 +8,6 @@ from __future__ import annotations
 
 import logging
 import re
-from typing import Any, Final
 
 import voluptuous as vol
 from awesomeversion.awesomeversion import AwesomeVersion
