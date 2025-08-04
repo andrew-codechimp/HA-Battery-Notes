@@ -10155,6 +10155,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "Aqara Door and Window Sensor T1",
+            "hw_version": "1",
+            "battery_type": "CR1632"
         }
     ]
 }
