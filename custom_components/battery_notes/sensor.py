@@ -42,7 +42,10 @@ from homeassistant.helpers.device import (
     async_remove_stale_devices_links_keep_entity_device,
 )
 from homeassistant.helpers.entity import DeviceInfo, EntityCategory
-from homeassistant.helpers.entity_platform import AddEntitiesCallback
+from homeassistant.helpers.entity_platform import (
+    AddConfigEntryEntitiesCallback,
+    AddEntitiesCallback,
+)
 from homeassistant.helpers.entity_registry import (
     EVENT_ENTITY_REGISTRY_UPDATED,
 )
@@ -126,7 +129,7 @@ _LOGGER = logging.getLogger(__name__)
 async def async_setup_entry(
     hass: HomeAssistant,
     config_entry: BatteryNotesConfigEntry,
-    async_add_entities: AddEntitiesCallback,
+    async_add_entities: AddConfigEntryEntitiesCallback,
 ) -> None:
     """Initialize Battery Type config entry."""
     entity_registry = er.async_get(hass)
@@ -135,13 +138,38 @@ async def async_setup_entry(
     for subentry in config_entry.subentries.values():
         if subentry.subentry_type != "battery_note":
             continue
-        await _setup_battery_note_subentry(hass, config_entry, subentry, async_add_entities)
+
+        device_id = subentry.data.get(CONF_DEVICE_ID, None)
+        coordinator = config_entry.runtime_data.subentry_coordinators.get(subentry.subentry_id)
+        assert(coordinator)
+
+        type_sensor_entity_description = BatteryNotesSensorEntityDescription(
+            unique_id_suffix="",  # battery_type has uniqueId set to entityId in V1, never add a suffix
+            key="battery_type",
+            translation_key="battery_type",
+            entity_category=EntityCategory.DIAGNOSTIC,
+        )
+
+        entities = [
+            BatteryNotesTypeSensor(
+                hass,
+                config_entry,
+                subentry,
+                coordinator,
+                type_sensor_entity_description,
+                f"{config_entry.entry_id}{subentry.unique_id}{type_sensor_entity_description.unique_id_suffix}",
+            ),
+        ]
+
+        async_add_entities(entities, config_subentry_id=subentry.subentry_id,)
+
+        # await _setup_battery_note_subentry(hass, config_entry, subentry, async_add_entities)
 
 async def _setup_battery_note_subentry(
     hass: HomeAssistant,
     config_entry: BatteryNotesConfigEntry,
     subentry: ConfigSubentry,
-    async_add_entities: AddEntitiesCallback,
+    async_add_entities: AddConfigEntryEntitiesCallback,
 ) -> None:
     """Set up a battery_note subentry."""
     entity_registry = er.async_get(hass)
@@ -185,7 +213,6 @@ async def _setup_battery_note_subentry(
         entity_registry_enabled_default=domain_config.enable_replaced,
     )
 
-    entities = []
     entities = [
         BatteryNotesTypeSensor(
             hass,
@@ -253,7 +280,7 @@ async def _setup_battery_note_subentry(
         )
     )
 
-    async_add_entities(entities)
+    async_add_entities(entities, config_subentry_id=subentry.subentry_id,)
 
 
 async def async_setup_platform(
@@ -313,8 +340,6 @@ class BatteryNotesTypeSensor(RestoreSensor, SensorEntity):
 
         self.entity_description = description
         self._attr_unique_id = unique_id
-        self._device_id = coordinator.device_id
-        self._source_entity_id = coordinator.source_entity_id
 
         # TODO: Replace this with new method of attached to device
         # if coordinator.device_id and (
@@ -340,6 +365,7 @@ class BatteryNotesTypeSensor(RestoreSensor, SensorEntity):
         if state:
             self._attr_native_value = state.native_value
 
+        #TODO: Investigate why this is needed
         # Update entity options
         registry = er.async_get(self.hass)
         if registry.async_get(self.entity_id) is not None:
