@@ -1067,6 +1067,12 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "Aqara Wireless Mini Switch",
+            "hw_version": "0",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "Aqara Wireless Remote Switch H1 (Double Rocker)",
             "model_id": "WXKG15LM",
             "battery_type": "CR2450"
@@ -10167,12 +10173,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Aqara",
-            "model": "Aqara Wireless Mini Switch",
-            "hw_version": "0",
-            "battery_type": "CR2032"
         }
     ]
 }
