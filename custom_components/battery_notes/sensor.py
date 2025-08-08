@@ -305,7 +305,7 @@ async def async_setup_platform(
     await async_setup_reload_service(hass, DOMAIN, PLATFORMS)
 
 
-class BatteryNotesTypeSensor(RestoreSensor, SensorEntity):
+class BatteryNotesTypeSensor(RestoreSensor):
     """Represents a battery note type sensor."""
 
     _attr_should_poll = False
@@ -355,17 +355,20 @@ class BatteryNotesTypeSensor(RestoreSensor, SensorEntity):
         self.entity_description = description
         self._attr_unique_id = unique_id
 
-        # TODO: Replace this with new method of attached to device
-        # if coordinator.device_id and (
-        #     device_entry := device_registry.async_get(coordinator.device_id)
-        # ):
-        #     self._attr_device_info = DeviceInfo(
-        #         connections=device_entry.connections,
-        #         identifiers=device_entry.identifiers,
-        #     )
+        # If a device_id then attach to that device
         if coordinator.device_id and (device_registry.async_get(coordinator.device_id)):
             self.device_entry = device_registry.async_get(coordinator.device_id)
-        # TODO: If not a device_id but source_entity_id is attached to a device, use that and add
+
+        # If not a device_id but source_entity_id is attached to a device, use that and add
+        elif coordinator.source_entity_id:
+            device_id = async_entity_id_to_device_id(
+                hass, coordinator.source_entity_id
+            )
+            if device_id and (device_entry := device_registry.async_get(device_id)):
+                self.device_entry = device_entry
+        else:
+            # TODO: If not a device at all then do something else (this note becomes the device or leave hanging?)
+            self.device_entry = None
 
         self._battery_type = coordinator.battery_type
         self._battery_quantity = coordinator.battery_quantity
