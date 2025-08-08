@@ -17,7 +17,7 @@ from homeassistant.components.sensor import (
     SensorEntityDescription,
     SensorStateClass,
 )
-from homeassistant.config_entries import ConfigEntry, ConfigSubentry
+from homeassistant.config_entries import ConfigSubentry
 from homeassistant.const import (
     CONF_DEVICE_ID,
     CONF_NAME,
@@ -30,36 +30,21 @@ from homeassistant.helpers import (
     config_validation as cv,
 )
 from homeassistant.helpers import (
-    device_registry as dr,
-)
-from homeassistant.helpers import (
     entity_registry as er,
 )
-from homeassistant.helpers.device import (
-    async_entity_id_to_device,
-    async_entity_id_to_device_id,
-    async_remove_stale_devices_links_keep_entity_device,
-)
-from homeassistant.helpers.entity import DeviceInfo, EntityCategory
-from homeassistant.helpers.entity_platform import (
-    AddConfigEntryEntitiesCallback,
-    AddEntitiesCallback,
-)
+from homeassistant.helpers.entity import EntityCategory
+from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
 from homeassistant.helpers.entity_registry import (
     EVENT_ENTITY_REGISTRY_UPDATED,
 )
 from homeassistant.helpers.event import (
     EventStateChangedData,
     EventStateReportedData,
-    async_track_entity_registry_updated_event,
     async_track_state_change_event,
     async_track_state_report_event,
 )
 from homeassistant.helpers.reload import async_setup_reload_service
 from homeassistant.helpers.typing import StateType
-from homeassistant.helpers.update_coordinator import (
-    CoordinatorEntity,
-)
 
 from .common import utcnow_no_timezone, validate_is_float
 from .const import (
@@ -116,14 +101,10 @@ async def async_setup_entry(
 ) -> None:
     """Initialize Battery Type config entry."""
 
-    entity_registry = er.async_get(hass)
-    device_registry = dr.async_get(hass)
-
     for subentry in config_entry.subentries.values():
         if subentry.subentry_type != "battery_note":
             continue
 
-        device_id = subentry.data.get(CONF_DEVICE_ID, None)
         coordinator = config_entry.runtime_data.subentry_coordinators.get(
             subentry.subentry_id
         )
@@ -175,7 +156,6 @@ async def async_setup_entry(
             ),
         ]
 
-
         if coordinator.wrapped_battery is not None:
             entities.append(
                 BatteryNotesBatteryPlusSensor(
@@ -195,45 +175,6 @@ async def async_setup_entry(
             entities,
             config_subentry_id=subentry.subentry_id,
         )
-
-    async def async_registry_updated(
-        event: Event[er.EventEntityRegistryUpdatedData],
-    ) -> None:
-        """Handle entity registry update."""
-        data = event.data
-        if data["action"] == "remove":
-            await hass.config_entries.async_remove(config_entry.entry_id)
-
-        if data["action"] != "update":
-            return
-
-        if "entity_id" in data["changes"]:
-            # Entity_id replaced, reload the config entry
-            await hass.config_entries.async_reload(config_entry.entry_id)
-
-        if device_id and "device_id" in data["changes"]:
-            # If the tracked battery note is no longer in the device, remove our config entry
-            # from the device
-            if (
-                not (entity_entry := entity_registry.async_get(data["entity_id"]))
-                or not device_registry.async_get(device_id)
-                or entity_entry.device_id == device_id
-            ):
-                # No need to do any cleanup
-                return
-
-            device_registry.async_update_device(
-                device_id, remove_config_entry_id=config_entry.entry_id
-            )
-
-    config_entry.async_on_unload(
-        async_track_entity_registry_updated_event(
-            # TODO: This doesnt look right, should be entity_id
-            hass,
-            config_entry.entry_id,
-            async_registry_updated,
-        )
-    )
 
 
 async def async_setup_platform(
@@ -454,8 +395,6 @@ class BatteryNotesBatteryPlusSensor(
     ) -> None:
         """Initialize the sensor."""
         super().__init__(hass=hass, entity_description=entity_description, coordinator=coordinator)
-
-        device_registry = dr.async_get(hass)
 
         self.config_entry = config_entry
         self.coordinator = coordinator
