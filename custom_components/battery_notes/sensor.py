@@ -78,12 +78,13 @@ from .const import (
     CONF_BATTERY_QUANTITY,
     CONF_BATTERY_TYPE,
     CONF_ENABLE_REPLACED,
+    CONF_ROUND_BATTERY,
     CONF_SOURCE_ENTITY_ID,
     DOMAIN,
     PLATFORMS,
 )
 from .coordinator import MY_KEY, BatteryNotesConfigEntry, BatteryNotesCoordinator
-from .entity import BatteryNoteEntity, BatteryNotesEntityDescription
+from .entity import BatteryNotesEntity, BatteryNotesEntityDescription
 
 
 @dataclass(frozen=True, kw_only=True)
@@ -108,29 +109,13 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
 
 _LOGGER = logging.getLogger(__name__)
 
-
-# @callback
-# def async_add_to_device(hass: HomeAssistant, entry: BatteryNotesConfigEntry, subentry: ConfigSubentry) -> str | None:
-#     """Add our config entry to the device."""
-#     device_registry = dr.async_get(hass)
-
-#     device_id = subentry.data.get(CONF_DEVICE_ID)
-
-#     if device_id:
-#         if device_registry.async_get(device_id):
-#             device_registry.async_update_device(
-#                 device_id, add_config_entry_id=entry.entry_id
-#             )
-#             return device_id
-#     return None
-
-
 async def async_setup_entry(
     hass: HomeAssistant,
     config_entry: BatteryNotesConfigEntry,
     async_add_entities: AddConfigEntryEntitiesCallback,
 ) -> None:
     """Initialize Battery Type config entry."""
+
     entity_registry = er.async_get(hass)
     device_registry = dr.async_get(hass)
 
@@ -160,11 +145,21 @@ async def async_setup_entry(
             entity_registry_enabled_default=config_entry.options[CONF_ADVANCED_SETTINGS].get(CONF_ENABLE_REPLACED, True),
         )
 
+        battery_plus_sensor_entity_description = BatteryNotesSensorEntityDescription(
+            unique_id_suffix="_battery_plus",
+            key="battery_plus",
+            translation_key="battery_plus",
+            device_class=SensorDeviceClass.BATTERY,
+            suggested_display_precision=0 if config_entry.options[CONF_ADVANCED_SETTINGS].get(CONF_ROUND_BATTERY, True) else 1,
+            require_device= True,
+        )
+
         entities = [
             BatteryNotesTypeSensor(
                 hass,
                 config_entry,
                 subentry,
+                type_sensor_entity_description,
                 coordinator,
                 type_sensor_entity_description,
                 f"{config_entry.entry_id}{subentry.unique_id}{type_sensor_entity_description.unique_id_suffix}",
@@ -173,101 +168,33 @@ async def async_setup_entry(
                 hass,
                 config_entry,
                 subentry,
+                last_replaced_sensor_entity_description,
                 coordinator,
                 last_replaced_sensor_entity_description,
                 f"{config_entry.entry_id}{subentry.unique_id}{last_replaced_sensor_entity_description.unique_id_suffix}",
             ),
         ]
 
+
+        if coordinator.wrapped_battery is not None:
+            entities.append(
+                BatteryNotesBatteryPlusSensor(
+                    hass,
+                    config_entry,
+                    subentry,
+                    battery_plus_sensor_entity_description,
+                    coordinator,
+                    battery_plus_sensor_entity_description,
+                    f"{config_entry.entry_id}{battery_plus_sensor_entity_description.unique_id_suffix}",
+                    config_entry.options[CONF_ADVANCED_SETTINGS].get(CONF_ENABLE_REPLACED, True),
+                    config_entry.options[CONF_ADVANCED_SETTINGS].get(CONF_ROUND_BATTERY, False),
+                )
+            )
+
         async_add_entities(
             entities,
             config_subentry_id=subentry.subentry_id,
         )
-
-        # await _setup_battery_note_subentry(hass, config_entry, subentry, async_add_entities)
-
-
-async def _setup_battery_note_subentry(
-    hass: HomeAssistant,
-    config_entry: BatteryNotesConfigEntry,
-    subentry: ConfigSubentry,
-    async_add_entities: AddConfigEntryEntitiesCallback,
-) -> None:
-    """Set up a battery_note subentry."""
-    entity_registry = er.async_get(hass)
-    device_registry = dr.async_get(hass)
-
-    device_id = subentry.data.get(CONF_DEVICE_ID, None)
-
-    coordinator = config_entry.runtime_data.subentry_coordinators.get(
-        subentry.subentry_id
-    )
-    assert coordinator
-
-    # if not coordinator.fake_device:
-    #     device_id = async_add_to_device(hass, config_entry, subentry)
-    #     if not device_id:
-    #         return
-
-    await coordinator.async_refresh()
-
-    domain_config = hass.data[MY_KEY]
-
-    battery_plus_sensor_entity_description = BatteryNotesSensorEntityDescription(
-        unique_id_suffix="_battery_plus",
-        key="battery_plus",
-        translation_key="battery_plus",
-        device_class=SensorDeviceClass.BATTERY,
-        suggested_display_precision=0 if domain_config.round_battery else 1,
-    )
-
-    type_sensor_entity_description = BatteryNotesSensorEntityDescription(
-        unique_id_suffix="",  # battery_type has uniqueId set to entityId in V1, never add a suffix
-        key="battery_type",
-        translation_key="battery_type",
-        entity_category=EntityCategory.DIAGNOSTIC,
-    )
-
-    last_replaced_sensor_entity_description = BatteryNotesSensorEntityDescription(
-        unique_id_suffix="_battery_last_replaced",
-        key="battery_last_replaced",
-        translation_key="battery_last_replaced",
-        entity_category=EntityCategory.DIAGNOSTIC,
-        device_class=SensorDeviceClass.TIMESTAMP,
-        entity_registry_enabled_default=domain_config.enable_replaced,
-    )
-
-    entities = [
-        BatteryNotesTypeSensor(
-            hass,
-            config_entry,
-            subentry,
-            coordinator,
-            type_sensor_entity_description,
-            f"{config_entry.entry_id}{type_sensor_entity_description.unique_id_suffix}",
-        ),
-        BatteryNotesLastReplacedSensor(
-            hass,
-            config_entry,
-            coordinator,
-            last_replaced_sensor_entity_description,
-            f"{config_entry.entry_id}{last_replaced_sensor_entity_description.unique_id_suffix}",
-        ),
-    ]
-
-    # if coordinator.wrapped_battery is not None:
-    #     entities.append(
-    #         BatteryNotesBatteryPlusSensor(
-    #             hass,
-    #             config_entry,
-    #             subentry,
-    #             coordinator,
-    #             battery_plus_sensor_entity_description,
-    #             f"{config_entry.entry_id}{battery_plus_sensor_entity_description.unique_id_suffix}",
-    #             domain_config.enable_replaced,
-    #             domain_config.round_battery,
-    #         )
-    #     )
 
     async def async_registry_updated(
         event: Event[er.EventEntityRegistryUpdatedData],
@@ -308,11 +235,6 @@ async def _setup_battery_note_subentry(
         )
     )
 
-    async_add_entities(
-        entities,
-        config_subentry_id=subentry.subentry_id,
-    )
-
 
 async def async_setup_platform(
     hass: HomeAssistant,
@@ -322,7 +244,7 @@ async def async_setup_platform(
     await async_setup_reload_service(hass, DOMAIN, PLATFORMS)
 
 
-class BatteryNotesTypeSensor(BatteryNoteEntity, RestoreSensor):
+class BatteryNotesTypeSensor(BatteryNotesEntity, RestoreSensor):
     """Represents a battery note type sensor."""
 
     _attr_should_poll = False
@@ -334,13 +256,14 @@ class BatteryNotesTypeSensor(BatteryNoteEntity, RestoreSensor):
         hass,
         config_entry: BatteryNotesConfigEntry,
         subentry: ConfigSubentry,
+        entity_description: BatteryNotesEntityDescription,
         coordinator: BatteryNotesCoordinator,
         description: BatteryNotesSensorEntityDescription,
         unique_id: str,
     ) -> None:
         # pylint: disable=unused-argument
         """Initialize the sensor."""
-        super().__init__(hass=hass,coordinator=coordinator)
+        super().__init__(hass=hass, entity_description=entity_description, coordinator=coordinator)
 
         self.coordinator = coordinator
 
@@ -412,7 +335,7 @@ class BatteryNotesTypeSensor(BatteryNoteEntity, RestoreSensor):
         return attrs
 
 class BatteryNotesLastReplacedSensor(
-    BatteryNoteEntity, SensorEntity
+    BatteryNotesEntity, SensorEntity
 ):
     """Represents a battery note sensor."""
 
@@ -424,13 +347,14 @@ class BatteryNotesLastReplacedSensor(
         hass,
         config_entry: BatteryNotesConfigEntry,
         subentry: ConfigSubentry,
+        entity_description: BatteryNotesEntityDescription,
         coordinator: BatteryNotesCoordinator,
         description: BatteryNotesSensorEntityDescription,
         unique_id: str,
     ) -> None:
         # pylint: disable=unused-argument
         """Initialize the sensor."""
-        super().__init__(hass=hass, coordinator=coordinator)
+        super().__init__(hass=hass, entity_description=entity_description, coordinator=coordinator)
 
         self.coordinator = coordinator
 
@@ -466,16 +390,6 @@ class BatteryNotesLastReplacedSensor(
 
         self._set_native_value(log_on_error=False)
 
-        device_registry = dr.async_get(hass)
-
-        # if coordinator.device_id and (
-        #     device_entry := device_registry.async_get(coordinator.device_id)
-        # ):
-        #     self._attr_device_info = DeviceInfo(
-        #         connections=device_entry.connections,
-        #         identifiers=device_entry.identifiers,
-        #     )
-
     async def async_added_to_hass(self) -> None:
         """Handle added to Hass."""
         await super().async_added_to_hass()
@@ -504,7 +418,7 @@ class BatteryNotesLastReplacedSensor(
         return self._native_value
 
 class BatteryNotesBatteryPlusSensor(
-    RestoreSensor, SensorEntity, CoordinatorEntity[BatteryNotesCoordinator]
+    BatteryNotesEntity, RestoreSensor
 ):
     """Represents a battery plus type sensor."""
 
@@ -529,7 +443,9 @@ class BatteryNotesBatteryPlusSensor(
     def __init__(
         self,
         hass: HomeAssistant,
-        config_entry: ConfigEntry,
+        config_entry: BatteryNotesConfigEntry,
+        subentry: ConfigSubentry,
+        entity_description: BatteryNotesEntityDescription,
         coordinator: BatteryNotesCoordinator,
         description: BatteryNotesSensorEntityDescription,
         unique_id: str,
@@ -537,7 +453,7 @@ class BatteryNotesBatteryPlusSensor(
         round_battery: bool,
     ) -> None:
         """Initialize the sensor."""
-        super().__init__(coordinator)
+        super().__init__(hass=hass, entity_description=entity_description, coordinator=coordinator)
 
         device_registry = dr.async_get(hass)
 
@@ -575,13 +491,13 @@ class BatteryNotesBatteryPlusSensor(
         self._device_id = coordinator.device_id
         self._source_entity_id = coordinator.source_entity_id
 
-        if coordinator.device_id and (
-            device_entry := device_registry.async_get(coordinator.device_id)
-        ):
-            self._attr_device_info = DeviceInfo(
-                connections=device_entry.connections,
-                identifiers=device_entry.identifiers,
-            )
+        # if coordinator.device_id and (
+        #     device_entry := device_registry.async_get(coordinator.device_id)
+        # ):
+        #     self._attr_device_info = DeviceInfo(
+        #         connections=device_entry.connections,
+        #         identifiers=device_entry.identifiers,
+        #     )
 
         entity_category = (
             coordinator.wrapped_battery.entity_category

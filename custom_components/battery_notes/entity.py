@@ -19,6 +19,7 @@ class BatteryNotesRequiredKeysMixin:
     """Mixin for required keys."""
 
     unique_id_suffix: str
+    require_device: bool = False
 
 
 @dataclass(frozen=True, kw_only=True)
@@ -26,12 +27,16 @@ class BatteryNotesEntityDescription(EntityDescription, BatteryNotesRequiredKeysM
     """Generic Battery Notes entity description."""
 
 
-class BatteryNoteEntity(CoordinatorEntity[BatteryNotesCoordinator]):
+class BatteryNotesEntity(CoordinatorEntity[BatteryNotesCoordinator]):
     """Base class for Battery Notes entities."""
+
+    coordinator: BatteryNotesCoordinator
+    entity_description: BatteryNotesEntityDescription
 
     def __init__(
         self,
         hass: HomeAssistant,
+        entity_description: BatteryNotesEntityDescription,
         coordinator: BatteryNotesCoordinator,
     ) -> None:
         """Initialize the base entity."""
@@ -39,7 +44,9 @@ class BatteryNoteEntity(CoordinatorEntity[BatteryNotesCoordinator]):
 
         device_registry = dr.async_get(hass)
 
+        self.entity_description = entity_description
         self.coordinator = coordinator
+
         self._attr_has_entity_name = True
 
         # Set up entity naming and translation placeholders
@@ -72,7 +79,7 @@ class BatteryNoteEntity(CoordinatorEntity[BatteryNotesCoordinator]):
     #         )
 
     def _setup_device_association(
-        self, hass: "HomeAssistant", device_registry: dr.DeviceRegistry
+        self, hass: HomeAssistant, device_registry: dr.DeviceRegistry
     ) -> None:
         """Set up device association."""
         if self.coordinator.device_id and (
@@ -80,7 +87,7 @@ class BatteryNoteEntity(CoordinatorEntity[BatteryNotesCoordinator]):
         ):
             # Attach to the device_id
             self.device_entry = device_registry.async_get(self.coordinator.device_id)
-        elif self.coordinator.source_entity_id:
+        elif self.entity_description.require_device is False and self.coordinator.source_entity_id:
             device_id = async_entity_id_to_device_id(
                 hass, self.coordinator.source_entity_id
             )
