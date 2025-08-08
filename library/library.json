@@ -1043,6 +1043,12 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "Aqara Door and Window Sensor T1",
+            "hw_version": "1",
+            "battery_type": "CR1632"
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "Aqara Smart Lock U300",
             "battery_type": "AA",
             "battery_quantity": 4
@@ -1052,6 +1058,18 @@
             "model": "Aqara Smart Lock U50",
             "battery_type": "AA",
             "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "Aqara Temp/Humidity Sensor",
+            "hw_version": "1",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "Aqara Wireless Mini Switch",
+            "hw_version": "0",
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "Aqara",
@@ -2662,6 +2680,12 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "EQ-3",
+            "model": "HmIP-DBB",
+            "hw_version": "1.0.44",
+            "battery_type": "AAA"
+        },
+        {
             "manufacturer": "eQ-3",
             "model": "HmIP-DLD",
             "battery_type": "AA",
@@ -2783,6 +2807,12 @@
             "model": "HmIP-RC8",
             "battery_type": "AAA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "EQ-3",
+            "model": "HmIP-RCB1",
+            "hw_version": "1.2.4",
+            "battery_type": "AAA"
         },
         {
             "manufacturer": "eQ-3",
@@ -2953,6 +2983,13 @@
             "manufacturer": "eQ-3",
             "model": "HmIP-WGC",
             "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "EQ-3",
+            "model": "HmIP-WKP",
+            "hw_version": "1.0.12",
+            "battery_type": "AAA",
             "battery_quantity": 2
         },
         {
@@ -3306,6 +3343,17 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "Fakro",
+            "model": "ARZ Z-Wave Solar",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Fakro",
+            "model": "ZRH12",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Fantem",
             "model": "4 in 1 multi sensor (ZB003-X)",
             "battery_type": "CR123A",
@@ -3578,6 +3626,11 @@
         },
         {
             "manufacturer": "Google",
+            "model": "Pixel 6",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Google",
             "model": "Pixel 6a",
             "battery_type": "Rechargeable"
         },
@@ -3763,6 +3816,12 @@
             "manufacturer": "HANK Electronics, Ltd.",
             "model": "HKZW-MS02",
             "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "HARMAN International Industries",
+            "model": "JBL BAR 1000",
+            "hw_version": "MT8518",
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "Heatit",

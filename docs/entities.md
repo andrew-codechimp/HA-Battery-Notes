@@ -35,8 +35,8 @@ If your device does not have a battery percentage but does have a battery voltag
 - The state template should reference the sensor and return a percentage  
 Example of voltage sensor with a maximum capacity of 3 volts   
 ```{{ (states('sensor.my_sensor_voltage')|float(0) / 3 * 100) | round(0) }}```  
-Example of low sensor, returning either 100% or 10%  
-```{{ 10 if states('binary_sensor.my_sensor_low')  == true else 100 }}```  
+Example of low sensor, returning either 100% or 9%  
+```{{ 9 if states('binary_sensor.my_sensor_low') == true else 100 }}```  
 - Unit of measurement should be %
 - Device class should be battery
 - State class should be measurement
