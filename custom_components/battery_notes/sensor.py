@@ -151,7 +151,7 @@ async def async_setup_entry(
             translation_key="battery_plus",
             device_class=SensorDeviceClass.BATTERY,
             suggested_display_precision=0 if config_entry.options[CONF_ADVANCED_SETTINGS].get(CONF_ROUND_BATTERY, True) else 1,
-            require_device= True,
+            require_device=True,
         )
 
         entities = [
