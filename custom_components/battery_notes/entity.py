@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import TYPE_CHECKING
 
 from homeassistant.core import HomeAssistant, split_entity_id
 from homeassistant.helpers import device_registry as dr

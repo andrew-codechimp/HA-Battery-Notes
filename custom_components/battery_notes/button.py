@@ -15,7 +15,7 @@ from homeassistant.const import (
     CONF_DEVICE_ID,
     CONF_NAME,
 )
-from homeassistant.core import Event, HomeAssistant, callback, split_entity_id
+from homeassistant.core import HomeAssistant, callback, split_entity_id
 from homeassistant.helpers import (
     config_validation as cv,
 )
@@ -27,9 +27,6 @@ from homeassistant.helpers import (
 )
 from homeassistant.helpers.entity import DeviceInfo, EntityCategory
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
-from homeassistant.helpers.event import (
-    async_track_entity_registry_updated_event,
-)
 from homeassistant.helpers.reload import async_setup_reload_service
 
 from . import PLATFORMS
@@ -94,48 +91,11 @@ async def async_setup_entry(
     async_add_entities: AddEntitiesCallback,
 ) -> None:
     """Initialize Battery Type config entry."""
-    entity_registry = er.async_get(hass)
-    device_registry = dr.async_get(hass)
 
     device_id = config_entry.data.get(CONF_DEVICE_ID, None)
 
-    async def async_registry_updated(event: Event[er.EventEntityRegistryUpdatedData]) -> None:
-        """Handle entity registry update."""
-        data = event.data
-        if data["action"] == "remove":
-            await hass.config_entries.async_remove(config_entry.entry_id)
-
-        if data["action"] != "update":
-            return
-
-        if "entity_id" in data["changes"]:
-            # Entity_id changed, reload the config entry
-            await hass.config_entries.async_reload(config_entry.entry_id)
-
-        if device_id and "device_id" in data["changes"]:
-            # If the tracked battery note is no longer in the device, remove our config entry
-            # from the device
-            if (
-                not (entity_entry := entity_registry.async_get(data["entity_id"]))
-                or not device_registry.async_get(device_id)
-                or entity_entry.device_id == device_id
-            ):
-                # No need to do any cleanup
-                return
-
-            device_registry.async_update_device(
-                device_id, remove_config_entry_id=config_entry.entry_id
-            )
-
     coordinator = config_entry.runtime_data.coordinator
     assert(coordinator)
-
-    config_entry.async_on_unload(
-        async_track_entity_registry_updated_event(
-            #TODO: This doesnt look right, should be entity_id
-            hass, config_entry.entry_id, async_registry_updated
-        )
-    )
 
     if not coordinator.fake_device:
         device_id = async_add_to_device(hass, config_entry)
