@@ -74,16 +74,16 @@ from .const import (
     ATTR_DEVICE_ID,
     ATTR_DEVICE_NAME,
     ATTR_SOURCE_ENTITY_ID,
+    CONF_ADVANCED_SETTINGS,
     CONF_BATTERY_QUANTITY,
     CONF_BATTERY_TYPE,
+    CONF_ENABLE_REPLACED,
     CONF_SOURCE_ENTITY_ID,
     DOMAIN,
     PLATFORMS,
 )
 from .coordinator import MY_KEY, BatteryNotesConfigEntry, BatteryNotesCoordinator
-from .entity import (
-    BatteryNotesEntityDescription,
-)
+from .entity import BatteryNoteEntity, BatteryNotesEntityDescription
 
 
 @dataclass(frozen=True, kw_only=True)
@@ -151,6 +151,15 @@ async def async_setup_entry(
             entity_category=EntityCategory.DIAGNOSTIC,
         )
 
+        last_replaced_sensor_entity_description = BatteryNotesSensorEntityDescription(
+            unique_id_suffix="_battery_last_replaced",
+            key="battery_last_replaced",
+            translation_key="battery_last_replaced",
+            entity_category=EntityCategory.DIAGNOSTIC,
+            device_class=SensorDeviceClass.TIMESTAMP,
+            entity_registry_enabled_default=config_entry.options[CONF_ADVANCED_SETTINGS].get(CONF_ENABLE_REPLACED, True),
+        )
+
         entities = [
             BatteryNotesTypeSensor(
                 hass,
@@ -159,6 +168,14 @@ async def async_setup_entry(
                 coordinator,
                 type_sensor_entity_description,
                 f"{config_entry.entry_id}{subentry.unique_id}{type_sensor_entity_description.unique_id_suffix}",
+            ),
+            BatteryNotesLastReplacedSensor(
+                hass,
+                config_entry,
+                subentry,
+                coordinator,
+                last_replaced_sensor_entity_description,
+                f"{config_entry.entry_id}{subentry.unique_id}{last_replaced_sensor_entity_description.unique_id_suffix}",
             ),
         ]
 
@@ -229,13 +246,13 @@ async def _setup_battery_note_subentry(
             type_sensor_entity_description,
             f"{config_entry.entry_id}{type_sensor_entity_description.unique_id_suffix}",
         ),
-        # BatteryNotesLastReplacedSensor(
-        #     hass,
-        #     config_entry,
-        #     coordinator,
-        #     last_replaced_sensor_entity_description,
-        #     f"{config_entry.entry_id}{last_replaced_sensor_entity_description.unique_id_suffix}",
-        # ),
+        BatteryNotesLastReplacedSensor(
+            hass,
+            config_entry,
+            coordinator,
+            last_replaced_sensor_entity_description,
+            f"{config_entry.entry_id}{last_replaced_sensor_entity_description.unique_id_suffix}",
+        ),
     ]
 
     # if coordinator.wrapped_battery is not None:
@@ -305,7 +322,7 @@ async def async_setup_platform(
     await async_setup_reload_service(hass, DOMAIN, PLATFORMS)
 
 
-class BatteryNotesTypeSensor(RestoreSensor):
+class BatteryNotesTypeSensor(BatteryNoteEntity, RestoreSensor):
     """Represents a battery note type sensor."""
 
     _attr_should_poll = False
@@ -315,7 +332,7 @@ class BatteryNotesTypeSensor(RestoreSensor):
     def __init__(
         self,
         hass,
-        config_entry: ConfigEntry,
+        config_entry: BatteryNotesConfigEntry,
         subentry: ConfigSubentry,
         coordinator: BatteryNotesCoordinator,
         description: BatteryNotesSensorEntityDescription,
@@ -323,9 +340,7 @@ class BatteryNotesTypeSensor(RestoreSensor):
     ) -> None:
         # pylint: disable=unused-argument
         """Initialize the sensor."""
-        super().__init__()
-
-        device_registry = dr.async_get(hass)
+        super().__init__(hass=hass,coordinator=coordinator)
 
         self.coordinator = coordinator
 
@@ -354,21 +369,6 @@ class BatteryNotesTypeSensor(RestoreSensor):
 
         self.entity_description = description
         self._attr_unique_id = unique_id
-
-        # If a device_id then attach to that device
-        if coordinator.device_id and (device_registry.async_get(coordinator.device_id)):
-            self.device_entry = device_registry.async_get(coordinator.device_id)
-
-        # If not a device_id but source_entity_id is attached to a device, use that and add
-        elif coordinator.source_entity_id:
-            device_id = async_entity_id_to_device_id(
-                hass, coordinator.source_entity_id
-            )
-            if device_id and (device_entry := device_registry.async_get(device_id)):
-                self.device_entry = device_entry
-        else:
-            # TODO: If not a device at all then do something else (this note becomes the device or leave hanging?)
-            self.device_entry = None
 
         self._battery_type = coordinator.battery_type
         self._battery_quantity = coordinator.battery_quantity
@@ -411,6 +411,97 @@ class BatteryNotesTypeSensor(RestoreSensor):
             attrs.update(super_attrs)
         return attrs
 
+class BatteryNotesLastReplacedSensor(
+    BatteryNoteEntity, SensorEntity
+):
+    """Represents a battery note sensor."""
+
+    _attr_should_poll = False
+    entity_description: BatteryNotesSensorEntityDescription
+
+    def __init__(
+        self,
+        hass,
+        config_entry: BatteryNotesConfigEntry,
+        subentry: ConfigSubentry,
+        coordinator: BatteryNotesCoordinator,
+        description: BatteryNotesSensorEntityDescription,
+        unique_id: str,
+    ) -> None:
+        # pylint: disable=unused-argument
+        """Initialize the sensor."""
+        super().__init__(hass=hass, coordinator=coordinator)
+
+        self.coordinator = coordinator
+
+        self._attr_has_entity_name = True
+
+        if coordinator.source_entity_id and not coordinator.device_id:
+            self._attr_translation_placeholders = {
+                "device_name": coordinator.device_name + " "
+            }
+            self.entity_id = (
+                f"sensor.{coordinator.device_name.lower()}_{description.key}"
+            )
+        elif coordinator.source_entity_id and coordinator.device_id:
+            source_entity_domain, source_object_id = split_entity_id(
+                coordinator.source_entity_id
+            )
+            self._attr_translation_placeholders = {
+                "device_name": coordinator.source_entity_name + " "
+            }
+            self.entity_id = f"sensor.{source_object_id}_{description.key}"
+        else:
+            self._attr_translation_placeholders = {"device_name": ""}
+            self.entity_id = (
+                f"sensor.{coordinator.device_name.lower()}_{description.key}"
+            )
+
+        self._attr_device_class = description.device_class
+        self._attr_unique_id = unique_id
+        self._device_id = coordinator.device_id
+        self._source_entity_id = coordinator.source_entity_id
+        self.entity_description = description
+        self._native_value: datetime | None = None
+
+        self._set_native_value(log_on_error=False)
+
+        device_registry = dr.async_get(hass)
+
+        # if coordinator.device_id and (
+        #     device_entry := device_registry.async_get(coordinator.device_id)
+        # ):
+        #     self._attr_device_info = DeviceInfo(
+        #         connections=device_entry.connections,
+        #         identifiers=device_entry.identifiers,
+        #     )
+
+    async def async_added_to_hass(self) -> None:
+        """Handle added to Hass."""
+        await super().async_added_to_hass()
+
+    def _set_native_value(self, log_on_error=True):
+        # pylint: disable=unused-argument
+
+        if last_replaced := self.coordinator.last_replaced:
+            self._native_value = last_replaced
+
+            return True
+        return False
+
+    @callback
+    def _handle_coordinator_update(self) -> None:
+        """Handle updated data from the coordinator."""
+
+        if last_replaced := self.coordinator.last_replaced:
+            self._native_value = last_replaced
+
+            self.async_write_ha_state()
+
+    @property
+    def native_value(self) -> datetime | None:
+        """Return the native value of the sensor."""
+        return self._native_value
 
 class BatteryNotesBatteryPlusSensor(
     RestoreSensor, SensorEntity, CoordinatorEntity[BatteryNotesCoordinator]
@@ -798,94 +889,3 @@ class BatteryNotesBatteryPlusSensor(
         """Return the value reported by the sensor."""
         return self._attr_native_value
 
-
-class BatteryNotesLastReplacedSensor(
-    SensorEntity, CoordinatorEntity[BatteryNotesCoordinator]
-):
-    """Represents a battery note sensor."""
-
-    _attr_should_poll = False
-    entity_description: BatteryNotesSensorEntityDescription
-
-    def __init__(
-        self,
-        hass,
-        config_entry: ConfigEntry,
-        coordinator: BatteryNotesCoordinator,
-        description: BatteryNotesSensorEntityDescription,
-        unique_id: str,
-    ) -> None:
-        # pylint: disable=unused-argument
-        """Initialize the sensor."""
-        super().__init__(coordinator)
-
-        self.coordinator = coordinator
-
-        self._attr_has_entity_name = True
-
-        if coordinator.source_entity_id and not coordinator.device_id:
-            self._attr_translation_placeholders = {
-                "device_name": coordinator.device_name + " "
-            }
-            self.entity_id = (
-                f"sensor.{coordinator.device_name.lower()}_{description.key}"
-            )
-        elif coordinator.source_entity_id and coordinator.device_id:
-            source_entity_domain, source_object_id = split_entity_id(
-                coordinator.source_entity_id
-            )
-            self._attr_translation_placeholders = {
-                "device_name": coordinator.source_entity_name + " "
-            }
-            self.entity_id = f"sensor.{source_object_id}_{description.key}"
-        else:
-            self._attr_translation_placeholders = {"device_name": ""}
-            self.entity_id = (
-                f"sensor.{coordinator.device_name.lower()}_{description.key}"
-            )
-
-        self._attr_device_class = description.device_class
-        self._attr_unique_id = unique_id
-        self._device_id = coordinator.device_id
-        self._source_entity_id = coordinator.source_entity_id
-        self.entity_description = description
-        self._native_value: datetime | None = None
-
-        self._set_native_value(log_on_error=False)
-
-        device_registry = dr.async_get(hass)
-
-        if coordinator.device_id and (
-            device_entry := device_registry.async_get(coordinator.device_id)
-        ):
-            self._attr_device_info = DeviceInfo(
-                connections=device_entry.connections,
-                identifiers=device_entry.identifiers,
-            )
-
-    async def async_added_to_hass(self) -> None:
-        """Handle added to Hass."""
-        await super().async_added_to_hass()
-
-    def _set_native_value(self, log_on_error=True):
-        # pylint: disable=unused-argument
-
-        if last_replaced := self.coordinator.last_replaced:
-            self._native_value = last_replaced
-
-            return True
-        return False
-
-    @callback
-    def _handle_coordinator_update(self) -> None:
-        """Handle updated data from the coordinator."""
-
-        if last_replaced := self.coordinator.last_replaced:
-            self._native_value = last_replaced
-
-            self.async_write_ha_state()
-
-    @property
-    def native_value(self) -> datetime | None:
-        """Return the native value of the sensor."""
-        return self._native_value
