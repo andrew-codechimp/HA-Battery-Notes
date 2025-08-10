@@ -18,6 +18,7 @@ class BatteryNotesRequiredKeysMixin:
     """Mixin for required keys."""
 
     unique_id_suffix: str
+    entity_type: str
     require_device: bool = False
 
 
@@ -49,35 +50,35 @@ class BatteryNotesEntity(CoordinatorEntity[BatteryNotesCoordinator]):
         self._attr_has_entity_name = True
 
         # Set up entity naming and translation placeholders
-        # self._setup_entity_naming(description)
+        self._set_entity_id(entity_description)
 
         # Set up device association
-        self._setup_device_association(hass, device_registry)
+        self._associate_device(hass, device_registry)
 
-    # def _setup_entity_naming(self, description: BatteryNotesEntityDescription) -> None:
-    #     """Set up entity naming and translation placeholders."""
-    #     if self.coordinator.source_entity_id and not self.coordinator.device_id:
-    #         self._attr_translation_placeholders = {
-    #             "device_name": self.coordinator.device_name + " "
-    #         }
-    #         self.entity_id = (
-    #             f"sensor.{self.coordinator.device_name.lower()}_{description.key}"
-    #         )
-    #     elif self.coordinator.source_entity_id and self.coordinator.device_id:
-    #         source_entity_domain, source_object_id = split_entity_id(
-    #             self.coordinator.source_entity_id
-    #         )
-    #         self._attr_translation_placeholders = {
-    #             "device_name": self.coordinator.source_entity_name + " "
-    #         }
-    #         self.entity_id = f"sensor.{source_object_id}_{description.key}"
-    #     else:
-    #         self._attr_translation_placeholders = {"device_name": ""}
-    #         self.entity_id = (
-    #             f"sensor.{self.coordinator.device_name.lower()}_{description.key}"
-    #         )
+    def _set_entity_id(self, entity_description: BatteryNotesEntityDescription) -> None:
+        """Set up entity naming and translation placeholders."""
+        if self.coordinator.source_entity_id and not self.coordinator.device_id:
+            self._attr_translation_placeholders = {
+                "device_name": self.coordinator.device_name + " "
+            }
+            self.entity_id = (
+                f"{entity_description.entity_type}.{self.coordinator.device_name.lower()}_{entity_description.key}"
+            )
+        elif self.coordinator.source_entity_id and self.coordinator.device_id:
+            source_entity_domain, source_object_id = split_entity_id(
+                self.coordinator.source_entity_id
+            )
+            self._attr_translation_placeholders = {
+                "device_name": self.coordinator.source_entity_name + " "
+            }
+            self.entity_id = f"{entity_description.entity_type}.{source_object_id}_{entity_description.key}"
+        else:
+            self._attr_translation_placeholders = {"device_name": ""}
+            self.entity_id = (
+                f"{entity_description.entity_type}.{self.coordinator.device_name.lower()}_{entity_description.key}"
+            )
 
-    def _setup_device_association(
+    def _associate_device(
         self, hass: HomeAssistant, device_registry: dr.DeviceRegistry
     ) -> None:
         """Set up device association."""

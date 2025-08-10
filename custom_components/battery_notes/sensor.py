@@ -25,7 +25,7 @@ from homeassistant.const import (
     STATE_UNAVAILABLE,
     STATE_UNKNOWN,
 )
-from homeassistant.core import Event, HomeAssistant, callback, split_entity_id
+from homeassistant.core import Event, HomeAssistant, callback
 from homeassistant.helpers import (
     config_validation as cv,
 )
@@ -115,6 +115,7 @@ async def async_setup_entry(
             key="battery_type",
             translation_key="battery_type",
             entity_category=EntityCategory.DIAGNOSTIC,
+            entity_type="sensor",
         )
 
         last_replaced_sensor_entity_description = BatteryNotesSensorEntityDescription(
@@ -124,6 +125,7 @@ async def async_setup_entry(
             entity_category=EntityCategory.DIAGNOSTIC,
             device_class=SensorDeviceClass.TIMESTAMP,
             entity_registry_enabled_default=config_entry.options[CONF_ADVANCED_SETTINGS].get(CONF_ENABLE_REPLACED, True),
+            entity_type="sensor",
         )
 
         battery_plus_sensor_entity_description = BatteryNotesSensorEntityDescription(
@@ -132,6 +134,7 @@ async def async_setup_entry(
             translation_key="battery_plus",
             device_class=SensorDeviceClass.BATTERY,
             suggested_display_precision=0 if config_entry.options[CONF_ADVANCED_SETTINGS].get(CONF_ROUND_BATTERY, True) else 1,
+            entity_type="sensor",
             require_device=True,
         )
 
@@ -206,30 +209,7 @@ class BatteryNotesTypeSensor(BatteryNotesEntity, RestoreSensor):
         """Initialize the sensor."""
         super().__init__(hass=hass, entity_description=entity_description, coordinator=coordinator)
 
-        self.coordinator = coordinator
-
         self._attr_has_entity_name = True
-
-        if coordinator.source_entity_id and not coordinator.device_id:
-            self._attr_translation_placeholders = {
-                "device_name": coordinator.device_name + " "
-            }
-            self.entity_id = (
-                f"sensor.{coordinator.device_name.lower()}_{description.key}"
-            )
-        elif coordinator.source_entity_id and coordinator.device_id:
-            source_entity_domain, source_object_id = split_entity_id(
-                coordinator.source_entity_id
-            )
-            self._attr_translation_placeholders = {
-                "device_name": coordinator.source_entity_name + " "
-            }
-            self.entity_id = f"sensor.{source_object_id}_{description.key}"
-        else:
-            self._attr_translation_placeholders = {"device_name": ""}
-            self.entity_id = (
-                f"sensor.{coordinator.device_name.lower()}_{description.key}"
-            )
 
         self.entity_description = description
         self._attr_unique_id = unique_id
@@ -297,30 +277,7 @@ class BatteryNotesLastReplacedSensor(
         """Initialize the sensor."""
         super().__init__(hass=hass, entity_description=entity_description, coordinator=coordinator)
 
-        self.coordinator = coordinator
-
         self._attr_has_entity_name = True
-
-        if coordinator.source_entity_id and not coordinator.device_id:
-            self._attr_translation_placeholders = {
-                "device_name": coordinator.device_name + " "
-            }
-            self.entity_id = (
-                f"sensor.{coordinator.device_name.lower()}_{description.key}"
-            )
-        elif coordinator.source_entity_id and coordinator.device_id:
-            source_entity_domain, source_object_id = split_entity_id(
-                coordinator.source_entity_id
-            )
-            self._attr_translation_placeholders = {
-                "device_name": coordinator.source_entity_name + " "
-            }
-            self.entity_id = f"sensor.{source_object_id}_{description.key}"
-        else:
-            self._attr_translation_placeholders = {"device_name": ""}
-            self.entity_id = (
-                f"sensor.{coordinator.device_name.lower()}_{description.key}"
-            )
 
         self._attr_device_class = description.device_class
         self._attr_unique_id = unique_id
@@ -397,30 +354,8 @@ class BatteryNotesBatteryPlusSensor(
         super().__init__(hass=hass, entity_description=entity_description, coordinator=coordinator)
 
         self.config_entry = config_entry
-        self.coordinator = coordinator
 
         self._attr_has_entity_name = True
-
-        if coordinator.source_entity_id and not coordinator.device_id:
-            self._attr_translation_placeholders = {
-                "device_name": coordinator.device_name + " "
-            }
-            self.entity_id = (
-                f"sensor.{coordinator.device_name.lower()}_{description.key}"
-            )
-        elif coordinator.source_entity_id and coordinator.device_id:
-            source_entity_domain, source_object_id = split_entity_id(
-                coordinator.source_entity_id
-            )
-            self._attr_translation_placeholders = {
-                "device_name": coordinator.source_entity_name + " "
-            }
-            self.entity_id = f"sensor.{source_object_id}_{description.key}"
-        else:
-            self._attr_translation_placeholders = {"device_name": ""}
-            self.entity_id = (
-                f"sensor.{coordinator.device_name.lower()}_{description.key}"
-            )
 
         self.entity_description = description
         self._attr_unique_id = unique_id
@@ -429,14 +364,6 @@ class BatteryNotesBatteryPlusSensor(
 
         self._device_id = coordinator.device_id
         self._source_entity_id = coordinator.source_entity_id
-
-        # if coordinator.device_id and (
-        #     device_entry := device_registry.async_get(coordinator.device_id)
-        # ):
-        #     self._attr_device_info = DeviceInfo(
-        #         connections=device_entry.connections,
-        #         identifiers=device_entry.identifiers,
-        #     )
 
         entity_category = (
             coordinator.wrapped_battery.entity_category
