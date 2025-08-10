@@ -127,7 +127,7 @@
                     "show_all_devices": "Show all devices in the device dropdown, otherwise only those with batteries will be shown.",
                     "hide_battery": "Hide the standard battery when adding Battery+.",
                     "round_battery": "Round battery+ to whole percentages.",
-                    "default_battery_low_threshold": "The default threshold where a devices battery_low entity is set to true and the battery_notes_battery_threshold event is fired, can be overriden per device in device configuration.",
+                    "default_battery_low_threshold": "The default threshold where a devices battery_low entity is set to true and the battery_notes_battery_threshold event is fired if the battery is below this threshold, can be overriden per device in device configuration.",
                     "battery_increase_threshold": "The threshold where the battery_notes_battery_increased event is fired, use this event for battery replaced automations. The threshold is the difference in increase between previous and current battery level."
                 },
                 "sections": {
