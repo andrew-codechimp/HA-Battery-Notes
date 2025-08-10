@@ -842,7 +842,7 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
         if self.data.get(CONF_BATTERY_LOW_TEMPLATE, None) is None:
             data_schema = vol.Schema(
                 {
-                    vol.Optional(CONF_NAME, default=config_entry.title): selector.TextSelector(
+                    vol.Optional(CONF_NAME, default=config_subentry.title): selector.TextSelector(
                         selector.TextSelectorConfig(type=selector.TextSelectorType.TEXT),
                     ),
                     vol.Required(CONF_BATTERY_TYPE, default=self.data[CONF_BATTERY_TYPE]): selector.TextSelector(
@@ -865,7 +865,7 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
         else:
             data_schema = vol.Schema(
                 {
-                    vol.Optional(CONF_NAME, default=config_entry.title): selector.TextSelector(
+                    vol.Optional(CONF_NAME, default=config_subentry.title): selector.TextSelector(
                         selector.TextSelectorConfig(type=selector.TextSelectorType.TEXT),
                     ),
                     vol.Required(CONF_BATTERY_TYPE, default=self.data[CONF_BATTERY_TYPE]): selector.TextSelector(

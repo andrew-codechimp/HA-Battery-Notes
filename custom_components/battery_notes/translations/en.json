@@ -104,6 +104,7 @@
                 }
             },
             "abort": {
+                "reconfigure_successful": "Re-configuration was successful",
                 "already_configured": "Device is already configured"
             },
             "error": {
