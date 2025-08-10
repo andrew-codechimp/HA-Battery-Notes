@@ -10180,6 +10180,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "NEO",
+            "model": "NAS-AB02B2",
+            "model_id": "_TZE200_t1blo2bj",
+            "battery_type": "CR123A",
+            "battery_quantity": 2
         }
     ]
 }
