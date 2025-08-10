@@ -366,7 +366,7 @@ async def update_listener(
                 subentry,
             )
 
-            # TODO: Remove the stuff in async_remove_entry
+            # TODO: Remove the stuff in async_remove_entry here
 
             if subentry in config_entry.runtime_data.subentry_coordinators:
                 del config_entry.runtime_data.subentry_coordinators[subentry]
