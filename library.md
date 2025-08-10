@@ -1,4 +1,4 @@
-## 1798 Devices in library
+## 1799 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1566,6 +1566,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |tuya                                            |TS0601                                                                                        |MANUAL                    |                                   |                                      |
 |TuYa                                            |TS0601_smoke_1                                                                                |2× AAA                    |                                   |                                      |
 |Tuya                                            |TS0601_smoke_6                                                                                |2× AAA                    |                                   |                                      |
+|TUYA                                            |TS0601_smoke_6                                                                                |2× AA                     |_TZE200_ntcy3xu1                   |                                      |
 |Tuya                                            |TS0601_temperature_humidity_sensor_1                                                          |2× AA                     |                                   |                                      |
 |Tuya                                            |TT001ZAV20                                                                                    |CR2032                    |                                   |                                      |
 |TuYa                                            |TV02-Zigbee                                                                                   |2× AA                     |                                   |                                      |
