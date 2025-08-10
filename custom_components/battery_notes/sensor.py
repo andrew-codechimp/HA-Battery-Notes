@@ -145,7 +145,6 @@ async def async_setup_entry(
                 subentry,
                 type_sensor_entity_description,
                 coordinator,
-                type_sensor_entity_description,
                 f"{config_entry.entry_id}{subentry.unique_id}{type_sensor_entity_description.unique_id_suffix}",
             ),
             BatteryNotesLastReplacedSensor(
@@ -167,7 +166,6 @@ async def async_setup_entry(
                     subentry,
                     battery_plus_sensor_entity_description,
                     coordinator,
-                    battery_plus_sensor_entity_description,
                     f"{config_entry.entry_id}{battery_plus_sensor_entity_description.unique_id_suffix}",
                     config_entry.options[CONF_ADVANCED_SETTINGS].get(CONF_ENABLE_REPLACED, True),
                     config_entry.options[CONF_ADVANCED_SETTINGS].get(CONF_ROUND_BATTERY, False),
@@ -202,16 +200,12 @@ class BatteryNotesTypeSensor(BatteryNotesEntity, RestoreSensor):
         subentry: ConfigSubentry,
         entity_description: BatteryNotesEntityDescription,
         coordinator: BatteryNotesCoordinator,
-        description: BatteryNotesSensorEntityDescription,
         unique_id: str,
     ) -> None:
         # pylint: disable=unused-argument
         """Initialize the sensor."""
         super().__init__(hass=hass, entity_description=entity_description, coordinator=coordinator)
 
-        self._attr_has_entity_name = True
-
-        self.entity_description = description
         self._attr_unique_id = unique_id
 
         self._battery_type = coordinator.battery_type
@@ -277,13 +271,10 @@ class BatteryNotesLastReplacedSensor(
         """Initialize the sensor."""
         super().__init__(hass=hass, entity_description=entity_description, coordinator=coordinator)
 
-        self._attr_has_entity_name = True
-
         self._attr_device_class = description.device_class
         self._attr_unique_id = unique_id
         self._device_id = coordinator.device_id
         self._source_entity_id = coordinator.source_entity_id
-        self.entity_description = description
         self._native_value: datetime | None = None
 
         self._set_native_value(log_on_error=False)
@@ -345,7 +336,6 @@ class BatteryNotesBatteryPlusSensor(
         subentry: ConfigSubentry,
         entity_description: BatteryNotesEntityDescription,
         coordinator: BatteryNotesCoordinator,
-        description: BatteryNotesSensorEntityDescription,
         unique_id: str,
         enable_replaced: bool,
         round_battery: bool,
@@ -355,9 +345,6 @@ class BatteryNotesBatteryPlusSensor(
 
         self.config_entry = config_entry
 
-        self._attr_has_entity_name = True
-
-        self.entity_description = description
         self._attr_unique_id = unique_id
         self.enable_replaced = enable_replaced
         self.round_battery = round_battery

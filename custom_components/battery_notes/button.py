@@ -25,8 +25,8 @@ from homeassistant.helpers import (
 from homeassistant.helpers import (
     entity_registry as er,
 )
-from homeassistant.helpers.entity import DeviceInfo, EntityCategory
-from homeassistant.helpers.entity_platform import AddEntitiesCallback
+from homeassistant.helpers.entity import EntityCategory
+from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
 from homeassistant.helpers.reload import async_setup_reload_service
 
 from . import PLATFORMS
@@ -43,9 +43,7 @@ from .const import (
     EVENT_BATTERY_REPLACED,
 )
 from .coordinator import BatteryNotesConfigEntry, BatteryNotesCoordinator
-from .entity import (
-    BatteryNotesEntityDescription,
-)
+from .entity import BatteryNotesEntity, BatteryNotesEntityDescription
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -88,40 +86,39 @@ def async_add_to_device(hass: HomeAssistant, entry: BatteryNotesConfigEntry) -> 
 async def async_setup_entry(
     hass: HomeAssistant,
     config_entry: BatteryNotesConfigEntry,
-    async_add_entities: AddEntitiesCallback,
+    async_add_entities: AddConfigEntryEntitiesCallback,
 ) -> None:
     """Initialize Battery Type config entry."""
 
-    device_id = config_entry.data.get(CONF_DEVICE_ID, None)
+    for subentry in config_entry.subentries.values():
+        if subentry.subentry_type != "battery_note":
+            continue
 
-    coordinator = config_entry.runtime_data.coordinator
-    assert(coordinator)
+        coordinator = config_entry.runtime_data.subentry_coordinators.get(
+            subentry.subentry_id
+        )
+        assert coordinator
 
-    if not coordinator.fake_device:
-        device_id = async_add_to_device(hass, config_entry)
+        description = BatteryNotesButtonEntityDescription(
+            unique_id_suffix="_battery_replaced_button",
+            key="battery_replaced",
+            translation_key="battery_replaced",
+            entity_category=EntityCategory.DIAGNOSTIC,
+            entity_registry_enabled_default=config_entry.runtime_data.domain_config.enable_replaced,
+            entity_type="button",
+        )
 
-        if not device_id:
-            return
-
-    description = BatteryNotesButtonEntityDescription(
-        unique_id_suffix="_battery_replaced_button",
-        key="battery_replaced",
-        translation_key="battery_replaced",
-        entity_category=EntityCategory.DIAGNOSTIC,
-        entity_registry_enabled_default=config_entry.runtime_data.domain_config.enable_replaced,
-    )
-
-    async_add_entities(
-        [
-            BatteryNotesButton(
-                hass,
-                coordinator,
-                description,
-                f"{config_entry.entry_id}{description.unique_id_suffix}",
-                device_id,
-            )
-        ]
-    )
+        async_add_entities(
+            [
+                BatteryNotesButton(
+                    hass,
+                    coordinator,
+                    description,
+                    f"{config_entry.entry_id}{subentry.unique_id}{description.unique_id_suffix}",
+                )
+            ],
+            config_subentry_id=subentry.subentry_id,
+        )
 
 
 async def async_setup_platform(
@@ -132,7 +129,7 @@ async def async_setup_platform(
     await async_setup_reload_service(hass, DOMAIN, PLATFORMS)
 
 
-class BatteryNotesButton(ButtonEntity):
+class BatteryNotesButton(BatteryNotesEntity, ButtonEntity):
     """Represents a battery replaced button."""
 
     _attr_should_poll = False
@@ -143,26 +140,19 @@ class BatteryNotesButton(ButtonEntity):
         self,
         hass: HomeAssistant,
         coordinator: BatteryNotesCoordinator,
-        description: BatteryNotesButtonEntityDescription,
+        entity_description: BatteryNotesButtonEntityDescription,
         unique_id: str,
-        device_id: str,
     ) -> None:
         """Create a battery replaced button."""
 
-        super().__init__()
-
-        device_registry = dr.async_get(hass)
-
-        self.coordinator = coordinator
-
-        self._attr_has_entity_name = True
+        super().__init__(hass=hass, entity_description=entity_description, coordinator=coordinator)
 
         if coordinator.source_entity_id and not coordinator.device_id:
             self._attr_translation_placeholders = {
                 "device_name": coordinator.device_name + " "
             }
             self.entity_id = (
-                f"button.{coordinator.device_name.lower()}_{description.key}"
+                f"button.{coordinator.device_name.lower()}_{entity_description.key}"
             )
         elif coordinator.source_entity_id and coordinator.device_id:
             source_entity_domain, source_object_id = split_entity_id(
@@ -171,23 +161,15 @@ class BatteryNotesButton(ButtonEntity):
             self._attr_translation_placeholders = {
                 "device_name": coordinator.source_entity_name + " "
             }
-            self.entity_id = f"button.{source_object_id}_{description.key}"
+            self.entity_id = f"button.{source_object_id}_{entity_description.key}"
         else:
             self._attr_translation_placeholders = {"device_name": ""}
             self.entity_id = (
-                f"button.{coordinator.device_name.lower()}_{description.key}"
+                f"button.{coordinator.device_name.lower()}_{entity_description.key}"
             )
 
-        self.entity_description = description
         self._attr_unique_id = unique_id
-        self._device_id = device_id
         self._source_entity_id = coordinator.source_entity_id
-
-        if device_id and (device := device_registry.async_get(device_id)):
-            self._attr_device_info = DeviceInfo(
-                connections=device.connections,
-                identifiers=device.identifiers,
-            )
 
     async def async_added_to_hass(self) -> None:
         """Handle added to Hass."""
