@@ -330,12 +330,22 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
         return True
 
     @property
+    def unique_id(self) -> str:
+        """Return a unique ID for the coordinator."""
+        return f"{self.config_entry.entry_id}_{self.subentry.subentry_id}"
+
+    @property
     def fake_device(self) -> bool:
         """Return if an actual device registry entry."""
         if self.subentry.data.get(CONF_SOURCE_ENTITY_ID, None):
             if self.subentry.data.get(CONF_DEVICE_ID, None) is None:
                 return True
         return False
+
+    @property
+    def filter_outliers(self) -> bool:
+        """Return if outlier filtering is enabled."""
+        return self.subentry.data.get(CONF_FILTER_OUTLIERS, False)
 
     @property
     def source_entity_name(self):

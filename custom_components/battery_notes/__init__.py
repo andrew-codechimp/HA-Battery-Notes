@@ -17,8 +17,10 @@ from homeassistant.const import CONF_SOURCE
 from homeassistant.const import __version__ as HA_VERSION  # noqa: N812
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers import config_validation as cv
+from homeassistant.helpers import device_registry as dr
 from homeassistant.helpers import entity_registry as er
 from homeassistant.helpers import issue_registry as ir
+from homeassistant.helpers.device_registry import DeviceEntryType
 from homeassistant.helpers.typing import ConfigType
 
 from .config_flow import CONFIG_VERSION
@@ -37,12 +39,11 @@ from .const import (
     DEFAULT_BATTERY_INCREASE_THRESHOLD,
     DEFAULT_BATTERY_LOW_THRESHOLD,
     DOMAIN,
+    MANUFACTURER,
     MIN_HA_VERSION,
     PLATFORMS,
 )
-from .const import (
-    NAME as INTEGRATION_NAME,
-)
+from .const import NAME as INTEGRATION_NAME
 from .coordinator import (
     MY_KEY,
     BatteryNotesConfigEntry,
@@ -171,8 +172,21 @@ async def async_setup_entry(
     config_entry.runtime_data.subentry_coordinators = {}
     for subentry in config_entry.subentries.values():
         if subentry.subentry_type == "battery_note":
+
             coordinator = BatteryNotesCoordinator(hass, config_entry, subentry)
             config_entry.runtime_data.subentry_coordinators[subentry.subentry_id] = coordinator
+
+            assert subentry.unique_id
+            device_registry = dr.async_get(hass)
+            device_registry.async_get_or_create(
+                config_entry_id=config_entry.entry_id,
+                config_subentry_id= subentry.subentry_id,
+                identifiers={(DOMAIN, coordinator.unique_id)},
+                entry_type=DeviceEntryType.SERVICE,
+                manufacturer=MANUFACTURER,
+                name=subentry.title
+            )
+
 
     await hass.config_entries.async_forward_entry_setups(config_entry, PLATFORMS)
 

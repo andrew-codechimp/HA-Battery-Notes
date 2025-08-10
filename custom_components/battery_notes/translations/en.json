@@ -186,6 +186,9 @@
                         "name": "Battery low threshold"
                     }
                 }
+            },
+            "battery_outliers_filtered": {
+                "name": "Battery outliers filtered"
             }
         },
         "button": {
