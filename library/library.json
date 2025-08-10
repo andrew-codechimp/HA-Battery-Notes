@@ -10173,6 +10173,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "TUYA",
+            "model": "TS0601_smoke_6",
+            "model_id": "_TZE200_ntcy3xu1",
+            "battery_type": "AA",
+            "battery_quantity": 2
         }
     ]
 }
