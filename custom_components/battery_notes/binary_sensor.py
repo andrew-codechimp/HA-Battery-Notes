@@ -39,7 +39,7 @@ from homeassistant.helpers import (
 from homeassistant.helpers import (
     template,
 )
-from homeassistant.helpers.entity import DeviceInfo, Entity, EntityCategory
+from homeassistant.helpers.entity import Entity, EntityCategory
 from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
 from homeassistant.helpers.entity_registry import (
     EVENT_ENTITY_REGISTRY_UPDATED,
@@ -48,7 +48,6 @@ from homeassistant.helpers.event import (
     EventStateChangedData,
     TrackTemplate,
     TrackTemplateResult,
-    async_track_entity_registry_updated_event,
     async_track_state_change_event,
     async_track_template_result,
 )
@@ -57,9 +56,6 @@ from homeassistant.helpers.start import async_at_start
 from homeassistant.helpers.template import (
     Template,
     TemplateStateFromEntityId,
-)
-from homeassistant.helpers.update_coordinator import (
-    CoordinatorEntity,
 )
 
 from .common import validate_is_float

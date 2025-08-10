@@ -14,9 +14,6 @@ from homeassistant.const import (
 )
 from homeassistant.core import HomeAssistant, callback, split_entity_id
 from homeassistant.helpers import (
-    config_validation as cv,
-)
-from homeassistant.helpers import (
     device_registry as dr,
 )
 from homeassistant.helpers import (
