@@ -79,6 +79,7 @@ async def async_setup_entry(
         if subentry.subentry_type != "battery_note":
             continue
 
+        assert config_entry.runtime_data.subentry_coordinators
         coordinator = config_entry.runtime_data.subentry_coordinators.get(
             subentry.subentry_id
         )
@@ -110,6 +111,7 @@ class BatteryNotesButton(BatteryNotesEntity, ButtonEntity):
     """Represents a battery replaced button."""
 
     _attr_should_poll = False
+    entity_description: BatteryNotesButtonEntityDescription
 
     def __init__(
         self,

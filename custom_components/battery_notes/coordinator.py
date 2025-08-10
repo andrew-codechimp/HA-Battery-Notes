@@ -88,7 +88,6 @@ class BatteryNotesData:
     coordinator: BatteryNotesCoordinator | None = None
     subentry_coordinators: dict[str, BatteryNotesCoordinator] | None = None
 
-
 class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
     """Define an object to hold Battery Notes device."""
 

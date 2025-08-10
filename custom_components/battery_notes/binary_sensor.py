@@ -131,6 +131,7 @@ async def async_setup_entry(
         if subentry.subentry_type != "battery_note":
             continue
 
+        assert config_entry.runtime_data.subentry_coordinators
         coordinator = config_entry.runtime_data.subentry_coordinators.get(
             subentry.subentry_id
         )
@@ -145,43 +146,42 @@ async def async_setup_entry(
             entity_type="binary_sensor",
         )
 
+        entities: list[BatteryNotesBatteryLowTemplateSensor | BatteryNotesBatteryLowSensor | BatteryNotesBatteryBinaryLowSensor] = []
+
         if coordinator.battery_low_template is not None:
-            async_add_entities(
-                [
-                    BatteryNotesBatteryLowTemplateSensor(
-                        hass,
-                        coordinator,
-                        description,
-                        f"{config_entry.entry_id}{subentry.unique_id}{description.unique_id_suffix}",
-                        coordinator.battery_low_template,
-                    )
-                ],
-                config_subentry_id=subentry.subentry_id,
+            entities = [
+            BatteryNotesBatteryLowTemplateSensor(
+                hass,
+                coordinator,
+                description,
+                f"{config_entry.entry_id}{subentry.unique_id}{description.unique_id_suffix}",
+                coordinator.battery_low_template,
             )
+            ]
 
         elif coordinator.wrapped_battery is not None:
-            async_add_entities(
-                [
-                    BatteryNotesBatteryLowSensor(
-                        hass,
-                        coordinator,
-                        description,
-                        f"{config_entry.entry_id}{subentry.unique_id}{description.unique_id_suffix}",
-                    )
-                ],
-                config_subentry_id=subentry.subentry_id,
+            entities = [
+            BatteryNotesBatteryLowSensor(
+                hass,
+                coordinator,
+                description,
+                f"{config_entry.entry_id}{subentry.unique_id}{description.unique_id_suffix}",
             )
+            ]
 
         elif coordinator.wrapped_battery_low is not None:
+            entities = [
+            BatteryNotesBatteryBinaryLowSensor(
+                hass,
+                coordinator,
+                description,
+                f"{config_entry.entry_id}{subentry.unique_id}{description.unique_id_suffix}",
+            )
+            ]
+
+        if entities:
             async_add_entities(
-                [
-                    BatteryNotesBatteryBinaryLowSensor(
-                        hass,
-                        coordinator,
-                        description,
-                        f"{config_entry.entry_id}{subentry.unique_id}{description.unique_id_suffix}",
-                    )
-                ],
+                entities,
                 config_subentry_id=subentry.subentry_id,
             )
 
@@ -284,6 +284,8 @@ class BatteryNotesBatteryLowBaseSensor(
     BatteryNotesEntity, BinarySensorEntity
 ):
     """Low battery binary sensor base."""
+
+    entity_description: BatteryNotesBinarySensorEntityDescription
 
     def __init__(
         self,

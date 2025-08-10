@@ -103,6 +103,7 @@ async def async_setup_entry(
         if subentry.subentry_type != "battery_note":
             continue
 
+        assert config_entry.runtime_data.subentry_coordinators
         coordinator = config_entry.runtime_data.subentry_coordinators.get(
             subentry.subentry_id
         )
@@ -318,6 +319,8 @@ class BatteryNotesBatteryPlusSensor(
             ATTR_DEVICE_NAME,
         }
     )
+
+    entity_description: BatteryNotesSensorEntityDescription
 
     def __init__(
         self,

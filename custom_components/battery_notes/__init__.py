@@ -85,7 +85,7 @@ CONFIG_SCHEMA = vol.Schema(
     extra=vol.ALLOW_EXTRA,
 )
 
-_migrate_base_entry: ConfigEntry = None
+_migrate_base_entry: ConfigEntry | None = None
 _yaml_domain_config: list[dict[str, Any]] | None = None
 
 async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
@@ -199,6 +199,8 @@ async def async_remove_entry(
     hass: HomeAssistant, config_entry: BatteryNotesConfigEntry
 ) -> None:
     """Device removed, tidy up store."""
+
+    # TODO: Make this sub config entry aware
 
     # Remove any issues raised
     ir.async_delete_issue(hass, DOMAIN, f"missing_device_{config_entry.entry_id}")
@@ -326,9 +328,9 @@ async def async_migrate_entry(
                 title=INTEGRATION_NAME,
                 version=3,
                 unique_id=DOMAIN,
-                optons=options,
+                options=options,
                 )
-            hass.config_entries.async_add(_migrate_base_entry)
+            await hass.config_entries.async_add(_migrate_base_entry)
 
         assert _migrate_base_entry is not None, "Base entry should not be None"
 

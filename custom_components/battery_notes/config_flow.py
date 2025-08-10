@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import logging
+from types import MappingProxyType
 from typing import Any
 
 import homeassistant.helpers.device_registry as dr
@@ -196,7 +197,6 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             "model_id": discovery_info[CONF_MODEL_ID],
         }
 
-
         return await self.async_step_device(discovery_info)
 
     # triggered by async_setup() from __init__.py
@@ -324,9 +324,6 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                         device_battery_details.battery_quantity
                     )
 
-                if device_battery_details and device_battery_details.is_manual:
-                    return await self.async_step_manual()
-
             return await self.async_step_battery()
 
         schema = DEVICE_SCHEMA
@@ -393,9 +390,8 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                 title = device_entry.name_by_user or device_entry.name
 
             config_entry = self.hass.config_entries.async_entries(domain=DOMAIN)[0]
-
             # Create a subentry
-            subentry = ConfigSubentry(subentry_type="battery_note", data=self.data, title=str(title), unique_id=unique_id)
+            subentry = ConfigSubentry(subentry_type="battery_note", data=MappingProxyType(self.data), title=str(title), unique_id=unique_id)
             self.hass.config_entries.async_add_subentry(config_entry, subentry)
 
             return self.async_abort(reason="created_sub_entry")
@@ -489,7 +485,7 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
     async def async_step_device(
         self,
         user_input: dict | None = None,
-    ) -> ConfigFlowResult:
+    ) -> SubentryFlowResult:
         """Handle a flow for a device or discovery."""
         errors: dict[str, str] = {}
         device_battery_details = None
@@ -567,7 +563,7 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
     async def async_step_entity(
         self,
         user_input: dict | None = None,
-    ) -> ConfigFlowResult:
+    ) -> SubentryFlowResult:
         """Handle a flow for a device or discovery."""
         errors: dict[str, str] = {}
         device_battery_details = None
@@ -656,7 +652,7 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
             last_step=False,
         )
 
-    async def async_step_manual(self, user_input: dict[str, Any] | None = None):
+    async def async_step_manual(self, user_input: dict[str, Any] | None = None) -> SubentryFlowResult:
         """Second step in config flow to add the battery type."""
         errors: dict[str, str] = {}
         if user_input is not None:
@@ -671,7 +667,7 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
 
     async def async_step_battery(
         self, user_input: dict[str, Any] | None = None
-    ) -> ConfigFlowResult:
+    ) -> SubentryFlowResult:
         """Second step in config flow to add the battery type."""
         errors: dict[str, str] = {}
 
