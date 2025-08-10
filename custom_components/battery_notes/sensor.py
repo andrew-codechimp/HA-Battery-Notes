@@ -209,8 +209,7 @@ class BatteryNotesTypeSensor(BatteryNotesEntity, RestoreSensor):
         if state:
             self._attr_native_value = state.native_value
 
-        # TODO: Investigate why this is needed
-        # Update entity options
+        # Update entity options, this is needed for legacy v1 support
         registry = er.async_get(self.hass)
         if registry.async_get(self.entity_id) is not None:
             registry.async_update_entity_options(
