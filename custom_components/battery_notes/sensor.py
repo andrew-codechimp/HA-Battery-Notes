@@ -43,7 +43,6 @@ from homeassistant.helpers.event import (
     async_track_state_change_event,
     async_track_state_report_event,
 )
-from homeassistant.helpers.reload import async_setup_reload_service
 from homeassistant.helpers.typing import StateType
 
 from .common import utcnow_no_timezone, validate_is_float
@@ -66,7 +65,6 @@ from .const import (
     CONF_ROUND_BATTERY,
     CONF_SOURCE_ENTITY_ID,
     DOMAIN,
-    PLATFORMS,
 )
 from .coordinator import MY_KEY, BatteryNotesConfigEntry, BatteryNotesCoordinator
 from .entity import BatteryNotesEntity, BatteryNotesEntityDescription
@@ -176,14 +174,6 @@ async def async_setup_entry(
             entities,
             config_subentry_id=subentry.subentry_id,
         )
-
-
-async def async_setup_platform(
-    hass: HomeAssistant,
-) -> None:
-    """Set up the battery note sensor."""
-
-    await async_setup_reload_service(hass, DOMAIN, PLATFORMS)
 
 
 class BatteryNotesTypeSensor(BatteryNotesEntity, RestoreSensor):

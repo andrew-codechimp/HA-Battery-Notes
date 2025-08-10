@@ -5,15 +5,12 @@ from __future__ import annotations
 import logging
 from dataclasses import dataclass
 
-import voluptuous as vol
 from homeassistant.components.button import (
-    PLATFORM_SCHEMA,
     ButtonEntity,
     ButtonEntityDescription,
 )
 from homeassistant.const import (
     CONF_DEVICE_ID,
-    CONF_NAME,
 )
 from homeassistant.core import HomeAssistant, callback, split_entity_id
 from homeassistant.helpers import (
@@ -27,9 +24,7 @@ from homeassistant.helpers import (
 )
 from homeassistant.helpers.entity import EntityCategory
 from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
-from homeassistant.helpers.reload import async_setup_reload_service
 
-from . import PLATFORMS
 from .common import utcnow_no_timezone
 from .const import (
     ATTR_BATTERY_QUANTITY,
@@ -38,7 +33,6 @@ from .const import (
     ATTR_DEVICE_ID,
     ATTR_DEVICE_NAME,
     ATTR_SOURCE_ENTITY_ID,
-    CONF_SOURCE_ENTITY_ID,
     DOMAIN,
     EVENT_BATTERY_REPLACED,
 )
@@ -56,15 +50,6 @@ class BatteryNotesButtonEntityDescription(
     """Describes Battery Notes button entity."""
 
     unique_id_suffix: str
-
-
-PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
-    {
-        vol.Optional(CONF_NAME): cv.string,
-        vol.Optional(CONF_DEVICE_ID): cv.string,
-        vol.Optional(CONF_SOURCE_ENTITY_ID): cv.string,
-    }
-)
 
 
 @callback
@@ -121,20 +106,10 @@ async def async_setup_entry(
         )
 
 
-async def async_setup_platform(
-    hass: HomeAssistant,
-) -> None:
-    """Set up the battery note sensor."""
-
-    await async_setup_reload_service(hass, DOMAIN, PLATFORMS)
-
-
 class BatteryNotesButton(BatteryNotesEntity, ButtonEntity):
     """Represents a battery replaced button."""
 
     _attr_should_poll = False
-
-    entity_description: BatteryNotesButtonEntityDescription
 
     def __init__(
         self,
