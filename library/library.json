@@ -5181,6 +5181,12 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Mammotion",
+            "model": "LubaVAWD5000",
+            "model_id": "Luba2AWD10000H",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Merkury",
             "model": "SS003",
             "battery_type": "CR2"
@@ -10191,12 +10197,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Mammotion",
-            "model": "LubaVAWD5000",
-            "model_id": "Luba2AWD10000H",
             "battery_type": "Rechargeable"
         }
     ]
