@@ -10198,6 +10198,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Apple",
+            "model": "Apple Watch Series 8",
+            "battery_type": "Rechargable"
         }
     ]
 }
