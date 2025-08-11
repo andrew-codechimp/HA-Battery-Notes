@@ -972,6 +972,11 @@
         },
         {
             "manufacturer": "Apple",
+            "model": "Apple Watch Series 8",
+            "battery_type": "Rechargable"
+        },
+        {
+            "manufacturer": "Apple",
             "model": "iPad14,3",
             "battery_type": "Rechargeable"
         },
@@ -10198,11 +10203,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Apple",
-            "model": "Apple Watch Series 8",
-            "battery_type": "Rechargable"
         }
     ]
 }

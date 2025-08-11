@@ -1,4 +1,4 @@
-## 1802 Devices in library
+## 1803 Devices in library
 
 This file is auto generated, do not modify
 
@@ -181,6 +181,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |APC                                             |Back-UPS XS 1500M                                                                             |Rechargeable              |                                   |                                      |
 |APC                                             |SRV 2K I -AR                                                                                  |APCRBCV204                |                                   |                                      |
 |ApolloAutomation                                |PLT-1B                                                                                        |18650                     |                                   |                                      |
+|Apple                                           |Apple Watch Series 8                                                                          |Rechargable               |                                   |                                      |
 |Apple                                           |iPad14,3                                                                                      |Rechargeable              |                                   |                                      |
 |Apple                                           |iPad6,11                                                                                      |Rechargeable              |                                   |                                      |
 |Apple                                           |iPad8,1                                                                                       |Rechargeable              |                                   |                                      |
