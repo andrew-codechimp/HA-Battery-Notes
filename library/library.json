@@ -10187,6 +10187,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "lumi.sensor_motion.v2",
+            "battery_type": "CR2450"
         }
     ]
 }
