@@ -1,4 +1,4 @@
-## 1803 Devices in library
+## 1804 Devices in library
 
 This file is auto generated, do not modify
 
@@ -837,6 +837,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |iRobot                                          |c975840                                                                                       |Rechargeable              |                                   |                                      |
 |iRobot                                          |i715640                                                                                       |Rechargeable              |                                   |                                      |
 |iRobot                                          |R675020                                                                                       |Rechargeable              |                                   |                                      |
+|iRobot                                          |R980020                                                                                       |Rechargeable              |                                   |                                     2|
 |Konke                                           |3AFE28010402000D                                                                              |CR2450                    |                                   |                                      |
 |Konke                                           |Multi-function button                                                                         |CR2450                    |2AJZ4KPKEY                         |                                      |
 |Konke                                           |Temperature and humidity sensor                                                               |CR2450                    |2AJZ4KPFT                          |                                      |

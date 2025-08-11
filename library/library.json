@@ -4714,6 +4714,12 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "iRobot",
+            "model": "R980020",
+            "hw_version": "2",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Konke",
             "model": "3AFE28010402000D",
             "battery_type": "CR2450"
@@ -10202,12 +10208,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "iRobot",
-            "model": "R980020",
-            "hw_version": "2",
             "battery_type": "Rechargeable"
         }
     ]
