@@ -10192,6 +10192,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Mammotion",
+            "model": "LubaVAWD5000",
+            "model_id": "Luba2AWD10000H",
+            "battery_type": "Rechargeable"
         }
     ]
 }
