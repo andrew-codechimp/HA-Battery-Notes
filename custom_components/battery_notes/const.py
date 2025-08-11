@@ -109,7 +109,7 @@ SERVICE_CHECK_BATTERY_LAST_REPORTED_SCHEMA = vol.Schema(
 )
 
 PLATFORMS: Final = [
+    Platform.BINARY_SENSOR,
     Platform.BUTTON,
     Platform.SENSOR,
-    Platform.BINARY_SENSOR,
 ]
