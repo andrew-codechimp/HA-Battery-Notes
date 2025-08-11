@@ -1,4 +1,4 @@
-## 1800 Devices in library
+## 1801 Devices in library
 
 This file is auto generated, do not modify
 
@@ -217,6 +217,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Aqara                                           |Light sensor T1 (GZCGQ11LM)                                                                   |CR2450                    |                                   |                                      |
 |Aqara                                           |lumi.sen_ill.agl01                                                                            |CR2450                    |                                   |                                      |
 |Aqara                                           |lumi.sensor_magnet.v2                                                                         |CR1632                    |                                   |                                      |
+|Aqara                                           |lumi.sensor_motion.v2                                                                         |CR2450                    |                                   |                                      |
 |Aqara                                           |MCCGQ11LM                                                                                     |CR2032                    |                                   |                                      |
 |Aqara                                           |MCCGQ14LM                                                                                     |CR1632                    |                                   |                                      |
 |Aqara                                           |Motion and Light Sensor P2                                                                    |2× CR2450                 |                                   |1.0.0.0                               |
