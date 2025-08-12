@@ -25,7 +25,7 @@ jobs:
       - name: Set up python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
 
       - name: Update JSON file
         id: update-json
@@ -52,6 +52,10 @@ jobs:
               del new_device["model_id"]
             if new_device.get("hw_version", "MISSING").strip() == "":
               del new_device["hw_version"]
+
+            # Fix common typo in battery type
+            if new_device.get("battery_type", "").lower() == "rechargable":
+              new_device["battery_type"] = "Rechargeable"
 
             # Check for duplicates and replace old entry with new one
             duplicate_found = False
