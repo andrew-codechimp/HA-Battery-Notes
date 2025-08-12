@@ -217,7 +217,6 @@ async def async_remove_entry(
         if subentry not in config_entry.subentries:
             await async_remove_subentry(hass, config_entry, subentry, remove_store_entries=False)
 
-
 async def async_migrate_entry(
     hass: HomeAssistant, config_entry: BatteryNotesConfigEntry
 ):

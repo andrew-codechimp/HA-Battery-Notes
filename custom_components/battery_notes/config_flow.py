@@ -184,7 +184,33 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
         unique_id = f"bn_{discovery_info[CONF_DEVICE_ID]}"
 
         # Check if unique_id already exists as sub entry
-        config_entry = self.hass.config_entries.async_entries(domain=DOMAIN)[0]
+        config_entries = self.hass.config_entries.async_entries(domain=DOMAIN)
+        if not config_entries:
+            _LOGGER.debug("No existing single config entry found, creating new one")
+
+            # Init defaults
+            options = {
+                CONF_SHOW_ALL_DEVICES: False,
+                CONF_HIDE_BATTERY: False,
+                CONF_ROUND_BATTERY: False,
+                CONF_DEFAULT_BATTERY_LOW_THRESHOLD: DEFAULT_BATTERY_LOW_THRESHOLD,
+                CONF_BATTERY_INCREASE_THRESHOLD: DEFAULT_BATTERY_INCREASE_THRESHOLD,
+                CONF_ADVANCED_SETTINGS: {
+                    CONF_ENABLE_AUTODISCOVERY: True,
+                    CONF_ENABLE_REPLACED: True,
+                    CONF_USER_LIBRARY: "",
+                }
+            }
+
+            self.async_create_entry(
+                title=APP_NAME,
+                data={},
+                options=options
+            )
+
+            config_entries = self.hass.config_entries.async_entries(domain=DOMAIN)
+
+        config_entry = config_entries[0]
         for existing_subentry in config_entry.subentries.values():
             if existing_subentry.unique_id == unique_id:
                 _LOGGER.debug("Subentry with unique_id %s already exists", unique_id)
@@ -792,6 +818,7 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
                 self.data[CONF_BATTERY_LOW_TEMPLATE] = user_input[CONF_BATTERY_LOW_TEMPLATE]
             self.data[CONF_FILTER_OUTLIERS] = user_input.get(CONF_FILTER_OUTLIERS, False)
 
+            # TODO: Review and remove this
             # Update the subentry with new data
             # config_subentry.data.update(self.data)
             # config_subentry.title = self.data.get(CONF_NAME, config_subentry.title)
