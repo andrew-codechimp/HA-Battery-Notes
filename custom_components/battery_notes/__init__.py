@@ -231,17 +231,17 @@ async def async_migrate_entry(
             r"^(\d+)(?=x)(?:x\s)(\w+$)|([\s\S]+)", config_entry.data[CONF_BATTERY_TYPE]
         )
         if matches:
-            _qty = matches.group(1) if matches.group(1) is not None else "1"
-            _type = (
+            qty = matches.group(1) if matches.group(1) is not None else "1"
+            type = (
                 matches.group(2) if matches.group(2) is not None else matches.group(3)
             )
         else:
-            _qty = 1
-            _type = config_entry.data[CONF_BATTERY_TYPE]
+            qty = 1
+            type = config_entry.data[CONF_BATTERY_TYPE]
 
         new_data = {**config_entry.data}
-        new_data[CONF_BATTERY_TYPE] = _type
-        new_data[CONF_BATTERY_QUANTITY] = _qty
+        new_data[CONF_BATTERY_TYPE] = type
+        new_data[CONF_BATTERY_QUANTITY] = qty
 
         hass.config_entries.async_update_entry(
             config_entry, version=2, title=config_entry.title, data=new_data
