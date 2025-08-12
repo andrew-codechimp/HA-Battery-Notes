@@ -112,19 +112,19 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
                 DOMAIN,
                 context={CONF_SOURCE: SOURCE_IMPORT},
                 data={
-                    CONF_SHOW_ALL_DEVICES: yaml_domain_config.get(CONF_SHOW_ALL_DEVICES, False),
-                    CONF_HIDE_BATTERY: yaml_domain_config.get(CONF_HIDE_BATTERY, False),
-                    CONF_ROUND_BATTERY: yaml_domain_config.get(CONF_ROUND_BATTERY, False),
-                    CONF_DEFAULT_BATTERY_LOW_THRESHOLD: yaml_domain_config.get(
+                    CONF_SHOW_ALL_DEVICES: yaml_domain_config[0].get(CONF_SHOW_ALL_DEVICES, False),
+                    CONF_HIDE_BATTERY: yaml_domain_config[0].get(CONF_HIDE_BATTERY, False),
+                    CONF_ROUND_BATTERY: yaml_domain_config[0].get(CONF_ROUND_BATTERY, False),
+                    CONF_DEFAULT_BATTERY_LOW_THRESHOLD: yaml_domain_config[0].get(
                         CONF_DEFAULT_BATTERY_LOW_THRESHOLD, DEFAULT_BATTERY_LOW_THRESHOLD
                     ),
-                    CONF_BATTERY_INCREASE_THRESHOLD: yaml_domain_config.get(
+                    CONF_BATTERY_INCREASE_THRESHOLD: yaml_domain_config[0].get(
                         CONF_BATTERY_INCREASE_THRESHOLD, DEFAULT_BATTERY_INCREASE_THRESHOLD
                     ),
                     CONF_ADVANCED_SETTINGS: {
-                        CONF_ENABLE_AUTODISCOVERY: yaml_domain_config.get(CONF_ENABLE_AUTODISCOVERY, True),
-                        CONF_ENABLE_REPLACED: yaml_domain_config.get(CONF_ENABLE_REPLACED, True),
-                        CONF_USER_LIBRARY: yaml_domain_config.get(CONF_USER_LIBRARY, ""),
+                        CONF_ENABLE_AUTODISCOVERY: yaml_domain_config[0].get(CONF_ENABLE_AUTODISCOVERY, True),
+                        CONF_ENABLE_REPLACED: yaml_domain_config[0].get(CONF_ENABLE_REPLACED, True),
+                        CONF_USER_LIBRARY: yaml_domain_config[0].get(CONF_USER_LIBRARY, ""),
                     },
                 }
             )
@@ -276,19 +276,19 @@ async def async_migrate_entry(
 
             if _yaml_domain_config:
                 options={
-                    CONF_SHOW_ALL_DEVICES: _yaml_domain_config.get(CONF_SHOW_ALL_DEVICES, False),
-                    CONF_HIDE_BATTERY: _yaml_domain_config.get(CONF_HIDE_BATTERY, False),
-                    CONF_ROUND_BATTERY: _yaml_domain_config.get(CONF_ROUND_BATTERY, False),
-                    CONF_DEFAULT_BATTERY_LOW_THRESHOLD: _yaml_domain_config.get(
+                    CONF_SHOW_ALL_DEVICES: _yaml_domain_config[0].get(CONF_SHOW_ALL_DEVICES, False),
+                    CONF_HIDE_BATTERY: _yaml_domain_config[0].get(CONF_HIDE_BATTERY, False),
+                    CONF_ROUND_BATTERY: _yaml_domain_config[0].get(CONF_ROUND_BATTERY, False),
+                    CONF_DEFAULT_BATTERY_LOW_THRESHOLD: _yaml_domain_config[0].get(
                         CONF_DEFAULT_BATTERY_LOW_THRESHOLD, DEFAULT_BATTERY_LOW_THRESHOLD
                     ),
-                    CONF_BATTERY_INCREASE_THRESHOLD: _yaml_domain_config.get(
+                    CONF_BATTERY_INCREASE_THRESHOLD: _yaml_domain_config[0].get(
                         CONF_BATTERY_INCREASE_THRESHOLD, DEFAULT_BATTERY_INCREASE_THRESHOLD
                     ),
                     CONF_ADVANCED_SETTINGS: {
-                        CONF_ENABLE_AUTODISCOVERY: _yaml_domain_config.get(CONF_ENABLE_AUTODISCOVERY, True),
-                        CONF_ENABLE_REPLACED: _yaml_domain_config.get(CONF_ENABLE_REPLACED, True),
-                        CONF_USER_LIBRARY: _yaml_domain_config.get(CONF_USER_LIBRARY, ""),
+                        CONF_ENABLE_AUTODISCOVERY: _yaml_domain_config[0].get(CONF_ENABLE_AUTODISCOVERY, True),
+                        CONF_ENABLE_REPLACED: _yaml_domain_config[0].get(CONF_ENABLE_REPLACED, True),
+                        CONF_USER_LIBRARY: _yaml_domain_config[0].get(CONF_USER_LIBRARY, ""),
                     },
                 }
             else:
@@ -316,15 +316,18 @@ async def async_migrate_entry(
 
         assert _migrate_base_entry is not None, "Base entry should not be None"
 
-        # TODO: Change this config entry into a sub entry, add it to the base entry
+        # Update the base entry with the new subentry
+        subentry = ConfigSubentry(subentry_type="battery_note", data=config_entry.data, title=config_entry.title, unique_id=config_entry.unique_id)
+        hass.config_entries.async_add_subentry(config_entry, subentry)
 
-        _LOGGER.debug(
-            "Migrating config entry %s from version %s to version %s",
+        # Remove the old config entry
+        await hass.config_entries.async_remove(config_entry.entry_id)
+
+        _LOGGER.info(
+            "Entry %s successfully migrated to subentry of %s.",
             config_entry.entry_id,
-            config_entry.version,
-            new_version,
+            _migrate_base_entry.entry_id,
         )
-
 
     return True
 
