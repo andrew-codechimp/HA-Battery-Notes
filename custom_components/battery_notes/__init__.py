@@ -244,13 +244,13 @@ async def async_migrate_entry(
         new_data[CONF_BATTERY_QUANTITY] = _qty
 
         hass.config_entries.async_update_entry(
-            config_entry, version=new_version, title=config_entry.title, data=new_data
+            config_entry, version=2, title=config_entry.title, data=new_data
         )
 
         _LOGGER.info(
             "Entry %s successfully migrated to version %s.",
             config_entry.entry_id,
-            new_version,
+            2,
         )
 
     if config_entry.version < 3:
