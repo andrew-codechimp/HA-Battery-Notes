@@ -104,26 +104,27 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         store=store,
     )
 
-    yaml_domain_config: list[dict[str, Any]] | None = config.get(DOMAIN)
-    if yaml_domain_config:
+    global _yaml_domain_config
+    _yaml_domain_config = config.get(DOMAIN)
+    if _yaml_domain_config:
         hass.async_create_task(
             hass.config_entries.flow.async_init(
                 DOMAIN,
                 context={CONF_SOURCE: SOURCE_IMPORT},
                 data={
-                    CONF_SHOW_ALL_DEVICES: yaml_domain_config[0].get(CONF_SHOW_ALL_DEVICES, False),
-                    CONF_HIDE_BATTERY: yaml_domain_config[0].get(CONF_HIDE_BATTERY, False),
-                    CONF_ROUND_BATTERY: yaml_domain_config[0].get(CONF_ROUND_BATTERY, False),
-                    CONF_DEFAULT_BATTERY_LOW_THRESHOLD: yaml_domain_config[0].get(
+                    CONF_SHOW_ALL_DEVICES: _yaml_domain_config[0].get(CONF_SHOW_ALL_DEVICES, False),
+                    CONF_HIDE_BATTERY: _yaml_domain_config[0].get(CONF_HIDE_BATTERY, False),
+                    CONF_ROUND_BATTERY: _yaml_domain_config[0].get(CONF_ROUND_BATTERY, False),
+                    CONF_DEFAULT_BATTERY_LOW_THRESHOLD: _yaml_domain_config[0].get(
                         CONF_DEFAULT_BATTERY_LOW_THRESHOLD, DEFAULT_BATTERY_LOW_THRESHOLD
                     ),
-                    CONF_BATTERY_INCREASE_THRESHOLD: yaml_domain_config[0].get(
+                    CONF_BATTERY_INCREASE_THRESHOLD: _yaml_domain_config[0].get(
                         CONF_BATTERY_INCREASE_THRESHOLD, DEFAULT_BATTERY_INCREASE_THRESHOLD
                     ),
                     CONF_ADVANCED_SETTINGS: {
-                        CONF_ENABLE_AUTODISCOVERY: yaml_domain_config[0].get(CONF_ENABLE_AUTODISCOVERY, True),
-                        CONF_ENABLE_REPLACED: yaml_domain_config[0].get(CONF_ENABLE_REPLACED, True),
-                        CONF_USER_LIBRARY: yaml_domain_config[0].get(CONF_USER_LIBRARY, ""),
+                        CONF_ENABLE_AUTODISCOVERY: _yaml_domain_config[0].get(CONF_ENABLE_AUTODISCOVERY, True),
+                        CONF_ENABLE_REPLACED: _yaml_domain_config[0].get(CONF_ENABLE_REPLACED, True),
+                        CONF_USER_LIBRARY: _yaml_domain_config[0].get(CONF_USER_LIBRARY, ""),
                     },
                 }
             )
@@ -253,6 +254,7 @@ async def async_migrate_entry(
 
     if config_entry.version < 3:
         # Get the current config entries, see if one is at V3 and hold onto it as the base
+        global _migrate_base_entry
         if not _migrate_base_entry:
             _LOGGER.debug("No base entry, looking for existing V3 entries")
 
@@ -272,6 +274,7 @@ async def async_migrate_entry(
                 "No existing V3 config entry found, creating a new one for migration"
             )
 
+            global _yaml_domain_config
             if _yaml_domain_config:
                 options={
                     CONF_SHOW_ALL_DEVICES: _yaml_domain_config[0].get(CONF_SHOW_ALL_DEVICES, False),
