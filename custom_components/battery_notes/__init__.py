@@ -13,11 +13,12 @@ from typing import Any
 import voluptuous as vol
 from awesomeversion.awesomeversion import AwesomeVersion
 from homeassistant.config_entries import SOURCE_IMPORT, ConfigEntry, ConfigSubentry
-from homeassistant.const import CONF_SOURCE
+from homeassistant.const import CONF_DEVICE_ID, CONF_SOURCE
 from homeassistant.const import __version__ as HA_VERSION  # noqa: N812
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers import config_validation as cv
 from homeassistant.helpers import entity_registry as er
+from homeassistant.helpers import helper_integration
 from homeassistant.helpers import issue_registry as ir
 from homeassistant.helpers.typing import ConfigType
 
@@ -320,6 +321,11 @@ async def async_migrate_entry(
         # Update the base entry with the new subentry
         subentry = ConfigSubentry(subentry_type="battery_note", data=config_entry.data, title=config_entry.title, unique_id=config_entry.unique_id)
         hass.config_entries.async_add_subentry(config_entry, subentry)
+
+        source_device_id = config_entry.data.get(CONF_DEVICE_ID, None)
+
+        if source_device_id:
+            helper_integration.async_remove_helper_config_entry_from_source_device(hass, config_entry.entry_id, source_device_id)
 
         # Remove the old config entry
         await hass.config_entries.async_remove(config_entry.entry_id)
