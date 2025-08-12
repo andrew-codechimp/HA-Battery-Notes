@@ -972,6 +972,11 @@
         },
         {
             "manufacturer": "Apple",
+            "model": "Apple Watch Series 8",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Apple",
             "model": "iPad14,3",
             "battery_type": "Rechargeable"
         },
@@ -1171,6 +1176,11 @@
             "manufacturer": "Aqara",
             "model": "lumi.sensor_magnet.v2",
             "battery_type": "CR1632"
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "lumi.sensor_motion.v2",
+            "battery_type": "CR2450"
         },
         {
             "manufacturer": "Aqara",
@@ -4704,6 +4714,12 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "iRobot",
+            "model": "R980020",
+            "hw_version": "2",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Konke",
             "model": "3AFE28010402000D",
             "battery_type": "CR2450"
@@ -5176,6 +5192,12 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Mammotion",
+            "model": "LubaVAWD5000",
+            "model_id": "Luba2AWD10000H",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Merkury",
             "model": "SS003",
             "battery_type": "CR2"
@@ -5394,6 +5416,13 @@
             "manufacturer": "Neo",
             "model": "Alarm (NAS-AB02B2)",
             "battery_type": "CR123A Lithium"
+        },
+        {
+            "manufacturer": "NEO",
+            "model": "NAS-AB02B2",
+            "model_id": "_TZE200_t1blo2bj",
+            "battery_type": "CR123A",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "Neo",
@@ -6608,6 +6637,11 @@
             "manufacturer": "Sensative AB",
             "model": "Strips-MaZw (11-01-011)",
             "battery_type": "Irreplaceable"
+        },
+        {
+            "manufacturer": "SensorPush",
+            "model": "HT1",
+            "battery_type": "CR2477"
         },
         {
             "manufacturer": "SensorPush",
@@ -8858,6 +8892,13 @@
             "manufacturer": "Tuya",
             "model": "TS0601_smoke_6",
             "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "TUYA",
+            "model": "TS0601_smoke_6",
+            "model_id": "_TZE200_ntcy3xu1",
+            "battery_type": "AA",
             "battery_quantity": 2
         },
         {
