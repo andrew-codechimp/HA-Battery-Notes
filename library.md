@@ -1,4 +1,4 @@
-## 1804 Devices in library
+## 1805 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1182,6 +1182,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Sengled                                         |Smart window and door sensor (E1D-G73WNA)                                                     |CR1632                    |                                   |                                      |
 |Sensative AB                                    |11-01-011                                                                                     |Irreplaceable             |                                   |                                      |
 |Sensative AB                                    |Strips-MaZw (11-01-011)                                                                       |Irreplaceable             |                                   |                                      |
+|SensorPush                                      |HT1                                                                                           |CR2477                    |                                   |                                      |
 |SensorPush                                      |HTP.xw                                                                                        |CR2477                    |                                   |                                      |
 |Sercomm Corp.                                   |Tripper                                                                                       |CR2032                    |                                   |                                      |
 |Sercomm Corp.                                   |XHS2-SE                                                                                       |CR2450                    |                                   |                                      |

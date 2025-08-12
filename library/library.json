@@ -6640,6 +6640,11 @@
         },
         {
             "manufacturer": "SensorPush",
+            "model": "HT1",
+            "battery_type": "CR2477"
+        },
+        {
+            "manufacturer": "SensorPush",
             "model": "HTP.xw",
             "battery_type": "CR2477"
         },
@@ -10209,11 +10214,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "SensorPush",
-            "model": "HT1",
-            "battery_type": "CR2477"
         }
     ]
 }
