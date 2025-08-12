@@ -343,9 +343,6 @@ async def update_listener(
 
     for subentry in config_entry.runtime_data.loaded_subentries.values():
         if subentry not in config_entry.subentries:
-
-            # TODO: Remove the stuff in async_remove_entry here
-
             coordinator = config_entry.runtime_data.subentry_coordinators.get(subentry.subentry_id)
 
             # Remove any issues raised
