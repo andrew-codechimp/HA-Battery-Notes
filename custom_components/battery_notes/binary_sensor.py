@@ -133,14 +133,14 @@ async def async_setup_entry(
         )
         assert coordinator
 
-        battery_filtered_entity_description = BatteryNotesBinarySensorEntityDescription(
-            unique_id_suffix="_battery_outliers_filtered",
-            key="_battery_outliers_filtered",
-            translation_key="battery_outliers_filtered",
-            entity_category=EntityCategory.DIAGNOSTIC,
-            entity_type="binary_sensor",
-            attach_to_source_device=False,
-        )
+        # battery_filtered_entity_description = BatteryNotesBinarySensorEntityDescription(
+        #     unique_id_suffix="_battery_outliers_filtered",
+        #     key="_battery_outliers_filtered",
+        #     translation_key="battery_outliers_filtered",
+        #     entity_category=EntityCategory.DIAGNOSTIC,
+        #     entity_type="binary_sensor",
+        #     attach_to_source_device=False,
+        # )
 
         battery_low_entity_description = BatteryNotesBinarySensorEntityDescription(
             unique_id_suffix="_battery_low",
@@ -151,16 +151,16 @@ async def async_setup_entry(
             entity_type="binary_sensor",
         )
 
-        entities: list[BatteryNotesBatteryLowTemplateSensor | BatteryNotesBatteryLowSensor | BatteryNotesBatteryBinaryLowSensor] = []
+        entities = []
 
-        entities = [
-            BatteryNotesFilteredSensor(
-                hass,
-                coordinator,
-                battery_filtered_entity_description,
-                f"{config_entry.entry_id}{subentry.unique_id}{battery_filtered_entity_description.unique_id_suffix}",
-            )
-        ]
+        # entities = [
+        #     BatteryNotesFilteredSensor(
+        #         hass,
+        #         coordinator,
+        #         battery_filtered_entity_description,
+        #         f"{config_entry.entry_id}{subentry.unique_id}{battery_filtered_entity_description.unique_id_suffix}",
+        #     )
+        # ]
 
         if coordinator.battery_low_template is not None:
             entities.append(
@@ -199,27 +199,27 @@ async def async_setup_entry(
                 config_subentry_id=subentry.subentry_id,
             )
 
-class BatteryNotesFilteredSensor(BatteryNotesEntity, BinarySensorEntity):
-    """Represents a filtered battery sensor."""
+# class BatteryNotesFilteredSensor(BatteryNotesEntity, BinarySensorEntity):
+#     """Represents a filtered battery sensor."""
 
-    entity_description: BatteryNotesBinarySensorEntityDescription
+#     entity_description: BatteryNotesBinarySensorEntityDescription
 
-    def __init__(
-        self,
-        hass: HomeAssistant,
-        coordinator: BatteryNotesCoordinator,
-        entity_description: BatteryNotesBinarySensorEntityDescription,
-        unique_id: str,
-    ) -> None:
-        """Create a filtered battery sensor."""
-        super().__init__(hass, entity_description=entity_description, coordinator=coordinator)
+#     def __init__(
+#         self,
+#         hass: HomeAssistant,
+#         coordinator: BatteryNotesCoordinator,
+#         entity_description: BatteryNotesBinarySensorEntityDescription,
+#         unique_id: str,
+#     ) -> None:
+#         """Create a filtered battery sensor."""
+#         super().__init__(hass, entity_description=entity_description, coordinator=coordinator)
 
-        self._attr_unique_id = unique_id
+#         self._attr_unique_id = unique_id
 
-    @property
-    def is_on(self) -> bool | None:
-        """Return true if sensor is on."""
-        return self.coordinator.filter_outliers
+#     @property
+#     def is_on(self) -> bool | None:
+#         """Return true if sensor is on."""
+#         return self.coordinator.filter_outliers
 
 
 class _TemplateAttribute:
