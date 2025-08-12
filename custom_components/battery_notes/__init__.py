@@ -17,10 +17,8 @@ from homeassistant.const import CONF_SOURCE
 from homeassistant.const import __version__ as HA_VERSION  # noqa: N812
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers import config_validation as cv
-from homeassistant.helpers import device_registry as dr
 from homeassistant.helpers import entity_registry as er
 from homeassistant.helpers import issue_registry as ir
-from homeassistant.helpers.device_registry import DeviceEntryType
 from homeassistant.helpers.typing import ConfigType
 
 from .config_flow import CONFIG_VERSION
@@ -39,7 +37,6 @@ from .const import (
     DEFAULT_BATTERY_INCREASE_THRESHOLD,
     DEFAULT_BATTERY_LOW_THRESHOLD,
     DOMAIN,
-    MANUFACTURER,
     MIN_HA_VERSION,
     PLATFORMS,
 )
