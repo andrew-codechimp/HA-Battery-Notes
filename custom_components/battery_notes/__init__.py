@@ -256,6 +256,7 @@ async def async_migrate_entry(
     if config_entry.version < 3:
         # Get the current config entries, see if one is at V3 and hold onto it as the base
         global _migrate_base_entry
+
         if not _migrate_base_entry:
             _LOGGER.debug("No base entry, looking for existing V3 entries")
 
