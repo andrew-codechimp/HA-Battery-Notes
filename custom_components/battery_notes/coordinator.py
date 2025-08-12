@@ -85,7 +85,7 @@ class BatteryNotesData:
 
     domain_config: BatteryNotesDomainConfig
     store: BatteryNotesStorage
-    subentries: dict[str, ConfigSubentry]
+    loaded_subentries: dict[str, ConfigSubentry]
     subentry_coordinators: dict[str, BatteryNotesCoordinator] | None = None
 
 class BatteryNotesCoordinator(DataUpdateCoordinator[None]):

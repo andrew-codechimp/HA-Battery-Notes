@@ -166,7 +166,7 @@ async def async_setup_entry(
     config_entry.runtime_data = BatteryNotesData(
         domain_config=domain_config,
         store=domain_config.store,
-        subentries=config_entry.subentries.copy(),
+        loaded_subentries=config_entry.subentries.copy(),
     )
 
     config_entry.runtime_data.subentry_coordinators = {}
@@ -214,43 +214,9 @@ async def async_unload_entry(
 async def async_remove_entry(
     hass: HomeAssistant, config_entry: BatteryNotesConfigEntry
 ) -> None:
-    """Device removed, tidy up store."""
+    """Battery Notes integration removed."""
 
-    # TODO: Make this sub config entry aware
-    # Instead of remove_entry, we should listen for the config_entry being updated and compare old/new
-    # sub entries, then remove any that are no longer present
-
-    # Remove any issues raised
-    ir.async_delete_issue(hass, DOMAIN, f"missing_device_{config_entry.entry_id}")
-
-    store = await async_get_registry(hass)
-    coordinator = BatteryNotesCoordinator(hass, config_entry)
-
-    if coordinator.source_entity_id:
-        store.async_delete_entity(coordinator.source_entity_id)
-    else:
-        if coordinator.device_id:
-            store.async_delete_device(coordinator.device_id)
-
-    _LOGGER.debug("Removed battery note %s", config_entry.entry_id)
-
-    # Unhide the battery
-    entity_registry = er.async_get(hass)
-    if not coordinator.wrapped_battery:
-        return
-
-    if not (
-        wrapped_battery_entity_entry := entity_registry.async_get(
-            coordinator.wrapped_battery.entity_id
-        )
-    ):
-        return
-
-    if wrapped_battery_entity_entry.hidden_by == er.RegistryEntryHider.INTEGRATION:
-        entity_registry.async_update_entity(
-            coordinator.wrapped_battery.entity_id, hidden_by=None
-        )
-        _LOGGER.debug("Unhidden Original Battery for device%s", coordinator.device_id)
+    # TODO: Decide what we want to delete, could be all of store
 
 
 async def async_migrate_entry(
@@ -370,24 +336,50 @@ async def update_listener(
 ) -> None:
     """Update the device and related entities.
 
-    Triggered when the device is renamed on the frontend.
+    Triggered when the device is renamed on the frontend, or when sub entries are updated.
 
     Look at sub entries and remove any that are no longer present.
     """
 
-    for subentry in config_entry.runtime_data.subentries:
+    for subentry in config_entry.runtime_data.loaded_subentries.values():
         if subentry not in config_entry.subentries:
-            _LOGGER.debug(
-                "Sub entry %s no longer present, removing it from runtime data",
-                subentry,
-            )
 
             # TODO: Remove the stuff in async_remove_entry here
 
-            if subentry in config_entry.runtime_data.subentry_coordinators:
-                del config_entry.runtime_data.subentry_coordinators[subentry]
+            coordinator = config_entry.runtime_data.subentry_coordinators.get(subentry.subentry_id)
 
-    config_entry.runtime_data.subentries = config_entry.subentries.copy()
+            # Remove any issues raised
+            ir.async_delete_issue(hass, DOMAIN, f"missing_device_{subentry.subentry_id}")
+
+            # Delete the store entries
+            store = coordinator.config_entry.runtime_data.store
+
+            if coordinator.source_entity_id:
+                store.async_delete_entity(coordinator.source_entity_id)
+            else:
+                if coordinator.device_id:
+                    store.async_delete_device(coordinator.device_id)
+
+            # Unhide the battery
+            entity_registry = er.async_get(hass)
+            if not coordinator.wrapped_battery:
+                return
+
+            if (
+                wrapped_battery_entity_entry := entity_registry.async_get(
+                    coordinator.wrapped_battery.entity_id
+                )
+            ):
+                if wrapped_battery_entity_entry.hidden_by == er.RegistryEntryHider.INTEGRATION:
+                    entity_registry.async_update_entity(
+                        coordinator.wrapped_battery.entity_id, hidden_by=None
+                    )
+                    _LOGGER.debug("Unhidden Original Battery for device%s", coordinator.device_id)
+
+            config_entry.runtime_data.subentry_coordinators.pop(subentry, None)
+
+    # Update the config entry with the new sub entries
+    config_entry.runtime_data.loaded_subentries = config_entry.subentries.copy()
 
     await hass.config_entries.async_reload(config_entry.entry_id)
 
