@@ -12,7 +12,7 @@ from typing import Any
 
 import voluptuous as vol
 from awesomeversion.awesomeversion import AwesomeVersion
-from homeassistant.config_entries import SOURCE_IMPORT, ConfigEntry
+from homeassistant.config_entries import SOURCE_IMPORT, ConfigEntry, ConfigSubentry
 from homeassistant.const import CONF_SOURCE
 from homeassistant.const import __version__ as HA_VERSION  # noqa: N812
 from homeassistant.core import HomeAssistant, callback
@@ -216,7 +216,9 @@ async def async_remove_entry(
 ) -> None:
     """Battery Notes integration removed."""
 
-    # TODO: Decide what we want to delete, could be all of store
+    for subentry in config_entry.subentries.values():
+        if subentry not in config_entry.subentries:
+            await async_remove_subentry(hass, config_entry, subentry, remove_store_entries=False)
 
 
 async def async_migrate_entry(
@@ -343,43 +345,53 @@ async def update_listener(
 
     for subentry in config_entry.runtime_data.loaded_subentries.values():
         if subentry not in config_entry.subentries:
-            coordinator = config_entry.runtime_data.subentry_coordinators.get(subentry.subentry_id)
-
-            # Remove any issues raised
-            ir.async_delete_issue(hass, DOMAIN, f"missing_device_{subentry.subentry_id}")
-
-            # Delete the store entries
-            store = coordinator.config_entry.runtime_data.store
-
-            if coordinator.source_entity_id:
-                store.async_delete_entity(coordinator.source_entity_id)
-            else:
-                if coordinator.device_id:
-                    store.async_delete_device(coordinator.device_id)
-
-            # Unhide the battery
-            entity_registry = er.async_get(hass)
-            if not coordinator.wrapped_battery:
-                return
-
-            if (
-                wrapped_battery_entity_entry := entity_registry.async_get(
-                    coordinator.wrapped_battery.entity_id
-                )
-            ):
-                if wrapped_battery_entity_entry.hidden_by == er.RegistryEntryHider.INTEGRATION:
-                    entity_registry.async_update_entity(
-                        coordinator.wrapped_battery.entity_id, hidden_by=None
-                    )
-                    _LOGGER.debug("Unhidden Original Battery for device%s", coordinator.device_id)
-
-            config_entry.runtime_data.subentry_coordinators.pop(subentry, None)
+            await async_remove_subentry(hass, config_entry, subentry, remove_store_entries=False)
 
     # Update the config entry with the new sub entries
     config_entry.runtime_data.loaded_subentries = config_entry.subentries.copy()
 
     await hass.config_entries.async_reload(config_entry.entry_id)
 
+
+async def async_remove_subentry(
+    hass: HomeAssistant,
+    config_entry: BatteryNotesConfigEntry,
+    subentry: ConfigSubentry,
+    remove_store_entries: bool,
+) -> None:
+    """Remove a sub entry."""
+    _LOGGER.debug("Removing sub entry %s from config entry %s", subentry.subentry_id, config_entry.entry_id)
+
+    coordinator = config_entry.runtime_data.subentry_coordinators.get(subentry.subentry_id)
+
+    # Remove any issues raised
+    ir.async_delete_issue(hass, DOMAIN, f"missing_device_{subentry.subentry_id}")
+
+    # Remove store entries
+    if remove_store_entries:
+        store = coordinator.config_entry.runtime_data.store
+
+        if coordinator.source_entity_id:
+            store.async_delete_entity(coordinator.source_entity_id)
+        else:
+            if coordinator.device_id:
+                store.async_delete_device(coordinator.device_id)
+
+    # Unhide the battery
+    entity_registry = er.async_get(hass)
+
+    if (
+        wrapped_battery_entity_entry := entity_registry.async_get(
+            coordinator.wrapped_battery.entity_id
+        )
+    ):
+        if wrapped_battery_entity_entry.hidden_by == er.RegistryEntryHider.INTEGRATION:
+            entity_registry.async_update_entity(
+                coordinator.wrapped_battery.entity_id, hidden_by=None
+            )
+            _LOGGER.debug("Unhidden Original Battery for device%s", coordinator.device_id)
+
+    config_entry.runtime_data.subentry_coordinators.pop(subentry, None)
 
 @callback
 async def async_update_options(
