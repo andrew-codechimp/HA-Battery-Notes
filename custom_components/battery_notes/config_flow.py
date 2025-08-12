@@ -803,7 +803,6 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
         """User flow to modify an existing battery note."""
         errors: dict[str, str] = {}
 
-        config_entry = self._get_entry()
         config_subentry = self._get_reconfigure_subentry()
 
         if user_input is not None:
@@ -818,19 +817,8 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
                 self.data[CONF_BATTERY_LOW_TEMPLATE] = user_input[CONF_BATTERY_LOW_TEMPLATE]
             self.data[CONF_FILTER_OUTLIERS] = user_input.get(CONF_FILTER_OUTLIERS, False)
 
-            # TODO: Review and remove this
-            # Update the subentry with new data
-            # config_subentry.data.update(self.data)
-            # config_subentry.title = self.data.get(CONF_NAME, config_subentry.title)
-
             # Save the updated subentry
             new_title = user_input.pop(CONF_NAME)
-
-            # self.hass.config_entries.async_update_subentry(
-            #     entry=config_entry,
-            #     subentry=config_subentry,
-            #     data=user_input,
-            #     title=new_title)
 
             return self.async_update_and_abort(
                 self._get_entry(),
