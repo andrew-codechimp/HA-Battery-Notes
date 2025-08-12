@@ -221,7 +221,6 @@ async def async_migrate_entry(
     hass: HomeAssistant, config_entry: BatteryNotesConfigEntry
 ):
     """Migrate old config."""
-    new_version = CONFIG_VERSION
 
     if config_entry.version == 1:
         # Version 1 had a single config for qty & type, split them
