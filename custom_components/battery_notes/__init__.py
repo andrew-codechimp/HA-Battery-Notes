@@ -8,21 +8,19 @@ from __future__ import annotations
 
 import logging
 import re
-from typing import Any
 
 import voluptuous as vol
 from awesomeversion.awesomeversion import AwesomeVersion
 from homeassistant.config_entries import ConfigEntry, ConfigSubentry
 from homeassistant.const import CONF_DEVICE_ID
 from homeassistant.const import __version__ as HA_VERSION  # noqa: N812
-from homeassistant.core import HomeAssistant, callback
+from homeassistant.core import HomeAssistant
 from homeassistant.helpers import config_validation as cv
 from homeassistant.helpers import entity_registry as er
 from homeassistant.helpers import helper_integration
 from homeassistant.helpers import issue_registry as ir
 from homeassistant.helpers.device import (
     async_entity_id_to_device_id,
-    async_remove_stale_devices_links_keep_entity_device,
 )
 from homeassistant.helpers.issue_registry import IssueSeverity, async_create_issue
 from homeassistant.helpers.typing import ConfigType
@@ -241,19 +239,19 @@ async def async_migrate_integration(hass: HomeAssistant, config: ConfigType) -> 
         if not migrate_base_entry:
             if yaml_domain_config:
                 options={
-                    CONF_SHOW_ALL_DEVICES: yaml_domain_config[0].get(CONF_SHOW_ALL_DEVICES, False),
-                    CONF_HIDE_BATTERY: yaml_domain_config[0].get(CONF_HIDE_BATTERY, False),
-                    CONF_ROUND_BATTERY: yaml_domain_config[0].get(CONF_ROUND_BATTERY, False),
-                    CONF_DEFAULT_BATTERY_LOW_THRESHOLD: yaml_domain_config[0].get(
+                    CONF_SHOW_ALL_DEVICES: yaml_domain_config.get(CONF_SHOW_ALL_DEVICES, False),
+                    CONF_HIDE_BATTERY: yaml_domain_config.get(CONF_HIDE_BATTERY, False),
+                    CONF_ROUND_BATTERY: yaml_domain_config.get(CONF_ROUND_BATTERY, False),
+                    CONF_DEFAULT_BATTERY_LOW_THRESHOLD: yaml_domain_config.get(
                         CONF_DEFAULT_BATTERY_LOW_THRESHOLD, DEFAULT_BATTERY_LOW_THRESHOLD
                     ),
-                    CONF_BATTERY_INCREASE_THRESHOLD: yaml_domain_config[0].get(
+                    CONF_BATTERY_INCREASE_THRESHOLD: yaml_domain_config.get(
                         CONF_BATTERY_INCREASE_THRESHOLD, DEFAULT_BATTERY_INCREASE_THRESHOLD
                     ),
                     CONF_ADVANCED_SETTINGS: {
-                        CONF_ENABLE_AUTODISCOVERY: yaml_domain_config[0].get(CONF_ENABLE_AUTODISCOVERY, True),
-                        CONF_ENABLE_REPLACED: yaml_domain_config[0].get(CONF_ENABLE_REPLACED, True),
-                        CONF_USER_LIBRARY: yaml_domain_config[0].get(CONF_USER_LIBRARY, ""),
+                        CONF_ENABLE_AUTODISCOVERY: yaml_domain_config.get(CONF_ENABLE_AUTODISCOVERY, True),
+                        CONF_ENABLE_REPLACED: yaml_domain_config.get(CONF_ENABLE_REPLACED, True),
+                        CONF_USER_LIBRARY: yaml_domain_config.get(CONF_USER_LIBRARY, ""),
                     },
                 }
             else:
