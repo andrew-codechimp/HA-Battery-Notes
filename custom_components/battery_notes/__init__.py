@@ -369,7 +369,9 @@ async def _async_remove_subentry(
     """Remove a sub entry."""
     _LOGGER.debug("Removing sub entry %s from config entry %s", subentry.subentry_id, config_entry.entry_id)
 
+    assert config_entry.runtime_data.subentry_coordinators
     coordinator = config_entry.runtime_data.subentry_coordinators.get(subentry.subentry_id)
+    assert coordinator
 
     # Remove any issues raised
     ir.async_delete_issue(hass, DOMAIN, f"missing_device_{subentry.subentry_id}")
@@ -387,15 +389,16 @@ async def _async_remove_subentry(
     # Unhide the battery
     entity_registry = er.async_get(hass)
 
-    if (
-        wrapped_battery_entity_entry := entity_registry.async_get(
-            coordinator.wrapped_battery.entity_id
-        )
-    ):
-        if wrapped_battery_entity_entry.hidden_by == er.RegistryEntryHider.INTEGRATION:
-            entity_registry.async_update_entity(
-                coordinator.wrapped_battery.entity_id, hidden_by=None
+    if coordinator.wrapped_battery:
+        if (
+            wrapped_battery_entity_entry := entity_registry.async_get(
+                coordinator.wrapped_battery.entity_id
             )
-            _LOGGER.debug("Unhidden Original Battery for device%s", coordinator.device_id)
+        ):
+            if wrapped_battery_entity_entry.hidden_by == er.RegistryEntryHider.INTEGRATION:
+                entity_registry.async_update_entity(
+                    coordinator.wrapped_battery.entity_id, hidden_by=None
+                )
+                _LOGGER.debug("Unhidden Original Battery for device%s", coordinator.device_id)
 
-    config_entry.runtime_data.subentry_coordinators.pop(subentry, None)
+    config_entry.runtime_data.subentry_coordinators.pop(subentry.subentry_id)

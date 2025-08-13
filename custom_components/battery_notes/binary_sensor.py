@@ -151,7 +151,7 @@ async def async_setup_entry(
             entity_type="binary_sensor",
         )
 
-        entities = []
+        entities: list[BatteryNotesBatteryLowTemplateSensor | BatteryNotesBatteryLowSensor | BatteryNotesBatteryBinaryLowSensor] = []
 
         # entities = [
         #     BatteryNotesFilteredSensor(

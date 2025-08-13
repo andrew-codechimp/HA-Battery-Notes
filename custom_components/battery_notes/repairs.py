@@ -36,8 +36,8 @@ class MissingDeviceRepairFlow(RepairsFlow):
     ) -> data_entry_flow.FlowResult:
         """Handle the confirm step of a fix flow."""
         if user_input is not None:
-            entry = self.hass.config_entries.async_get_entry(self.entry_id)
-            self.hass.config_entries.async_remove_subentry(entry, self.subentry_id)
+            if (entry:= self.hass.config_entries.async_get_entry(self.entry_id)):
+                self.hass.config_entries.async_remove_subentry(entry, self.subentry_id)
 
             return self.async_create_entry(data={})
 
