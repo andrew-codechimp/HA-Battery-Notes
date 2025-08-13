@@ -3592,12 +3592,6 @@
         },
         {
             "manufacturer": "Google",
-            "model": "Pixel",
-            "battery_type": "Rechargeable",
-            "model_match_method": "startswith"
-        },
-        {
-            "manufacturer": "Google",
             "model": "Topaz-2.33",
             "hw_version": "Battery",
             "battery_type": "AA",
@@ -3629,6 +3623,12 @@
             "model": "Topaz-2.9",
             "battery_type": "AA",
             "battery_quantity": 6
+        },
+        {
+            "manufacturer": "Google",
+            "model": "Pixel",
+            "battery_type": "Rechargeable",
+            "model_match_method": "startswith"
         },
         {
             "manufacturer": "Google Nest",
