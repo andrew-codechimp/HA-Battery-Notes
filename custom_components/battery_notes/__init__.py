@@ -12,14 +12,19 @@ from typing import Any
 
 import voluptuous as vol
 from awesomeversion.awesomeversion import AwesomeVersion
-from homeassistant.config_entries import SOURCE_IMPORT, ConfigEntry, ConfigSubentry
-from homeassistant.const import CONF_DEVICE_ID, CONF_SOURCE
+from homeassistant.config_entries import ConfigEntry, ConfigSubentry
+from homeassistant.const import CONF_DEVICE_ID
 from homeassistant.const import __version__ as HA_VERSION  # noqa: N812
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers import config_validation as cv
 from homeassistant.helpers import entity_registry as er
 from homeassistant.helpers import helper_integration
 from homeassistant.helpers import issue_registry as ir
+from homeassistant.helpers.device import (
+    async_entity_id_to_device_id,
+    async_remove_stale_devices_links_keep_entity_device,
+)
+from homeassistant.helpers.issue_registry import IssueSeverity, async_create_issue
 from homeassistant.helpers.typing import ConfigType
 
 from .const import (
@@ -37,6 +42,7 @@ from .const import (
     DEFAULT_BATTERY_INCREASE_THRESHOLD,
     DEFAULT_BATTERY_LOW_THRESHOLD,
     DOMAIN,
+    ISSUE_DEPRECATED_YAML,
     MIN_HA_VERSION,
     PLATFORMS,
 )
@@ -83,9 +89,6 @@ CONFIG_SCHEMA = vol.Schema(
     extra=vol.ALLOW_EXTRA,
 )
 
-_migrate_base_entry: ConfigEntry | None = None
-_yaml_domain_config: list[dict[str, Any]] | None = None
-
 async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     """Integration setup."""
 
@@ -98,38 +101,13 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         _LOGGER.critical(msg)
         return False
 
+    await async_migrate_integration(hass, config)
+
     store = await async_get_registry(hass)
 
     domain_config = BatteryNotesDomainConfig(
-        user_library=config.get(DOMAIN, {}).get(CONF_USER_LIBRARY, ""),
         store=store,
     )
-
-    global _yaml_domain_config
-    _yaml_domain_config = config.get(DOMAIN)
-    if _yaml_domain_config:
-        hass.async_create_task(
-            hass.config_entries.flow.async_init(
-                DOMAIN,
-                context={CONF_SOURCE: SOURCE_IMPORT},
-                data={
-                    CONF_SHOW_ALL_DEVICES: _yaml_domain_config[0].get(CONF_SHOW_ALL_DEVICES, False),
-                    CONF_HIDE_BATTERY: _yaml_domain_config[0].get(CONF_HIDE_BATTERY, False),
-                    CONF_ROUND_BATTERY: _yaml_domain_config[0].get(CONF_ROUND_BATTERY, False),
-                    CONF_DEFAULT_BATTERY_LOW_THRESHOLD: _yaml_domain_config[0].get(
-                        CONF_DEFAULT_BATTERY_LOW_THRESHOLD, DEFAULT_BATTERY_LOW_THRESHOLD
-                    ),
-                    CONF_BATTERY_INCREASE_THRESHOLD: _yaml_domain_config[0].get(
-                        CONF_BATTERY_INCREASE_THRESHOLD, DEFAULT_BATTERY_INCREASE_THRESHOLD
-                    ),
-                    CONF_ADVANCED_SETTINGS: {
-                        CONF_ENABLE_AUTODISCOVERY: _yaml_domain_config[0].get(CONF_ENABLE_AUTODISCOVERY, True),
-                        CONF_ENABLE_REPLACED: _yaml_domain_config[0].get(CONF_ENABLE_REPLACED, True),
-                        CONF_USER_LIBRARY: _yaml_domain_config[0].get(CONF_USER_LIBRARY, ""),
-                    },
-                }
-            )
-        )
 
     hass.data[MY_KEY] = domain_config
 
@@ -218,6 +196,110 @@ async def async_remove_entry(
         if subentry not in config_entry.subentries:
             await async_remove_subentry(hass, config_entry, subentry, remove_store_entries=False)
 
+async def async_migrate_integration(hass: HomeAssistant, config: ConfigType) -> None:
+    """Migrate integration entry structure."""
+
+    migrate_base_entry: ConfigEntry | None = None
+
+    entries = hass.config_entries.async_entries(DOMAIN)
+    if not any(entry.version < 3 for entry in entries):
+        return
+
+    for entry in entries:
+        if entry.version == 3 and entry.unique_id == DOMAIN:
+            # We have a V3 entry, so we can use this as the base
+            migrate_base_entry = entry
+            break
+
+    for entry in entries:
+        subentry = ConfigSubentry(
+            data=entry.data,
+            subentry_type="battery_note",
+            title=entry.title,
+            unique_id=entry.unique_id,
+        )
+
+        if not migrate_base_entry:
+            yaml_domain_config = config.get(DOMAIN)
+            if yaml_domain_config:
+                options={
+                    CONF_SHOW_ALL_DEVICES: yaml_domain_config[0].get(CONF_SHOW_ALL_DEVICES, False),
+                    CONF_HIDE_BATTERY: yaml_domain_config[0].get(CONF_HIDE_BATTERY, False),
+                    CONF_ROUND_BATTERY: yaml_domain_config[0].get(CONF_ROUND_BATTERY, False),
+                    CONF_DEFAULT_BATTERY_LOW_THRESHOLD: yaml_domain_config[0].get(
+                        CONF_DEFAULT_BATTERY_LOW_THRESHOLD, DEFAULT_BATTERY_LOW_THRESHOLD
+                    ),
+                    CONF_BATTERY_INCREASE_THRESHOLD: yaml_domain_config[0].get(
+                        CONF_BATTERY_INCREASE_THRESHOLD, DEFAULT_BATTERY_INCREASE_THRESHOLD
+                    ),
+                    CONF_ADVANCED_SETTINGS: {
+                        CONF_ENABLE_AUTODISCOVERY: yaml_domain_config[0].get(CONF_ENABLE_AUTODISCOVERY, True),
+                        CONF_ENABLE_REPLACED: yaml_domain_config[0].get(CONF_ENABLE_REPLACED, True),
+                        CONF_USER_LIBRARY: yaml_domain_config[0].get(CONF_USER_LIBRARY, ""),
+                    },
+                }
+            else:
+                options={
+                    CONF_SHOW_ALL_DEVICES: False,
+                    CONF_HIDE_BATTERY: False,
+                    CONF_ROUND_BATTERY: False,
+                    CONF_DEFAULT_BATTERY_LOW_THRESHOLD: DEFAULT_BATTERY_LOW_THRESHOLD,
+                    CONF_BATTERY_INCREASE_THRESHOLD: DEFAULT_BATTERY_INCREASE_THRESHOLD,
+                    CONF_ADVANCED_SETTINGS: {
+                        CONF_ENABLE_AUTODISCOVERY: True,
+                        CONF_ENABLE_REPLACED: True,
+                        CONF_USER_LIBRARY: "",
+                    },
+                }
+
+            hass.config_entries.async_update_entry(
+                entry,
+                version=3,
+                title=INTEGRATION_NAME,
+                data={},
+                options=options,
+                unique_id=DOMAIN,
+            )
+
+            async_create_issue(
+                hass,
+                DOMAIN,
+                ISSUE_DEPRECATED_YAML,
+                is_fixable=False,
+                issue_domain=DOMAIN,
+                severity=IssueSeverity.WARNING,
+                translation_key=ISSUE_DEPRECATED_YAML,
+                translation_placeholders={
+                    "domain": DOMAIN,
+                    "integration_title": INTEGRATION_NAME,
+                },
+            )
+
+            migrate_base_entry = entry
+
+        hass.config_entries.async_add_subentry(migrate_base_entry, subentry)
+
+        source_device_id = subentry.data.get(CONF_DEVICE_ID, None)
+        source_entity_id = subentry.data.get("source_entity_id", None)
+        if source_entity_id:
+            source_device_id = async_entity_id_to_device_id(
+                hass, source_entity_id
+            )
+
+        if source_device_id:
+            helper_integration.async_remove_helper_config_entry_from_source_device(hass=hass, helper_config_entry_id=entry.entry_id, source_device_id=source_device_id)
+
+        # Remove the old config entry
+        if entry.entry_id != migrate_base_entry.entry_id:
+            await hass.config_entries.async_remove(entry.entry_id)
+
+        _LOGGER.info(
+            "Entry %s successfully migrated to subentry of %s.",
+            entry.entry_id,
+            migrate_base_entry.entry_id,
+        )
+
+
 async def async_migrate_entry(
     hass: HomeAssistant, config_entry: BatteryNotesConfigEntry
 ):
@@ -251,89 +333,6 @@ async def async_migrate_entry(
             "Entry %s successfully migrated to version %s.",
             config_entry.entry_id,
             2,
-        )
-
-    if config_entry.version < 3:
-        # Get the current config entries, see if one is at V3 and hold onto it as the base
-        global _migrate_base_entry
-
-        if not _migrate_base_entry:
-            _LOGGER.debug("No base entry, looking for existing V3 entries")
-
-            existing_entries = hass.config_entries.async_entries(DOMAIN)
-            for entry in existing_entries:
-                if entry.version == 3 and entry.unique_id == DOMAIN:
-                    # We have a V3 entry, so we can use this as the base
-                    _LOGGER.debug(
-                        "Found existing V3 config entry %s, using it as the base for migration",
-                        entry.entry_id,
-                    )
-                    _migrate_base_entry = entry
-                    break
-        # If no V3 then create one and hold onto it as the base
-        if not _migrate_base_entry:
-            _LOGGER.debug(
-                "No existing V3 config entry found, creating a new one for migration"
-            )
-
-            global _yaml_domain_config
-            if _yaml_domain_config:
-                options={
-                    CONF_SHOW_ALL_DEVICES: _yaml_domain_config[0].get(CONF_SHOW_ALL_DEVICES, False),
-                    CONF_HIDE_BATTERY: _yaml_domain_config[0].get(CONF_HIDE_BATTERY, False),
-                    CONF_ROUND_BATTERY: _yaml_domain_config[0].get(CONF_ROUND_BATTERY, False),
-                    CONF_DEFAULT_BATTERY_LOW_THRESHOLD: _yaml_domain_config[0].get(
-                        CONF_DEFAULT_BATTERY_LOW_THRESHOLD, DEFAULT_BATTERY_LOW_THRESHOLD
-                    ),
-                    CONF_BATTERY_INCREASE_THRESHOLD: _yaml_domain_config[0].get(
-                        CONF_BATTERY_INCREASE_THRESHOLD, DEFAULT_BATTERY_INCREASE_THRESHOLD
-                    ),
-                    CONF_ADVANCED_SETTINGS: {
-                        CONF_ENABLE_AUTODISCOVERY: _yaml_domain_config[0].get(CONF_ENABLE_AUTODISCOVERY, True),
-                        CONF_ENABLE_REPLACED: _yaml_domain_config[0].get(CONF_ENABLE_REPLACED, True),
-                        CONF_USER_LIBRARY: _yaml_domain_config[0].get(CONF_USER_LIBRARY, ""),
-                    },
-                }
-            else:
-                options={
-                    CONF_SHOW_ALL_DEVICES: False,
-                    CONF_HIDE_BATTERY: False,
-                    CONF_ROUND_BATTERY: False,
-                    CONF_DEFAULT_BATTERY_LOW_THRESHOLD: DEFAULT_BATTERY_LOW_THRESHOLD,
-                    CONF_BATTERY_INCREASE_THRESHOLD: DEFAULT_BATTERY_INCREASE_THRESHOLD,
-                    CONF_ADVANCED_SETTINGS: {
-                        CONF_ENABLE_AUTODISCOVERY: True,
-                        CONF_ENABLE_REPLACED: True,
-                        CONF_USER_LIBRARY: "",
-                    },
-                }
-
-            # Convert the first entry to the base entry then immediately add the subentry
-            hass.config_entries.async_update_entry(
-                config_entry, version=3, title=INTEGRATION_NAME, data={}, options=options
-            )
-
-            _migrate_base_entry = config_entry
-
-        assert _migrate_base_entry is not None, "Base entry should not be None"
-
-        # Update the base entry with the new subentry
-        subentry = ConfigSubentry(subentry_type="battery_note", data=config_entry.data, title=config_entry.title, unique_id=config_entry.unique_id)
-        hass.config_entries.async_add_subentry(_migrate_base_entry, subentry)
-
-        source_device_id = config_entry.data.get(CONF_DEVICE_ID, None)
-
-        if source_device_id:
-            helper_integration.async_remove_helper_config_entry_from_source_device(hass=hass, helper_config_entry_id=config_entry.entry_id, source_device_id=source_device_id)
-
-        # Remove the old config entry
-        if config_entry.entry_id != _migrate_base_entry.entry_id:
-            hass.config_entries.async_remove(config_entry.entry_id)
-
-        _LOGGER.info(
-            "Entry %s successfully migrated to subentry of %s.",
-            config_entry.entry_id,
-            _migrate_base_entry.entry_id,
         )
 
     return True

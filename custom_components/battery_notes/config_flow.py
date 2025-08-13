@@ -225,30 +225,6 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
 
         return await self.async_step_device(discovery_info)
 
-    # triggered by async_setup() from __init__.py
-    async def async_step_import(self, import_data: dict[str, Any]) -> ConfigFlowResult:
-        """Handle import of config entry from configuration.yaml."""
-
-        config_flow_result: ConfigFlowResult = await self.async_step_user(
-            import_data
-        )
-
-        async_create_issue(
-            self.hass,
-            DOMAIN,
-            ISSUE_DEPRECATED_YAML,
-            is_fixable=False,
-            issue_domain=DOMAIN,
-            severity=IssueSeverity.WARNING,
-            translation_key=ISSUE_DEPRECATED_YAML,
-            translation_placeholders={
-                "domain": DOMAIN,
-                "integration_title": INTEGRATION_NAME,
-            },
-        )
-
-        return config_flow_result
-
     async def async_step_user(
         self,
         user_input: dict | None = None,
@@ -260,23 +236,19 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             return self.async_abort(reason="already_configured")
 
         if user_input is not None:
-            if len(user_input) == 0:
-                # Init defaults
-                options = {
-                    CONF_SHOW_ALL_DEVICES: False,
-                    CONF_HIDE_BATTERY: False,
-                    CONF_ROUND_BATTERY: False,
-                    CONF_DEFAULT_BATTERY_LOW_THRESHOLD: DEFAULT_BATTERY_LOW_THRESHOLD,
-                    CONF_BATTERY_INCREASE_THRESHOLD: DEFAULT_BATTERY_INCREASE_THRESHOLD,
-                    CONF_ADVANCED_SETTINGS: {
-                        CONF_ENABLE_AUTODISCOVERY: True,
-                        CONF_ENABLE_REPLACED: True,
-                        CONF_USER_LIBRARY: "",
-                    }
+            # Init defaults
+            options = {
+                CONF_SHOW_ALL_DEVICES: False,
+                CONF_HIDE_BATTERY: False,
+                CONF_ROUND_BATTERY: False,
+                CONF_DEFAULT_BATTERY_LOW_THRESHOLD: DEFAULT_BATTERY_LOW_THRESHOLD,
+                CONF_BATTERY_INCREASE_THRESHOLD: DEFAULT_BATTERY_INCREASE_THRESHOLD,
+                CONF_ADVANCED_SETTINGS: {
+                    CONF_ENABLE_AUTODISCOVERY: True,
+                    CONF_ENABLE_REPLACED: True,
+                    CONF_USER_LIBRARY: "",
                 }
-            else:
-                # From import
-                options = user_input
+            }
 
             return self.async_create_entry(
                 title=INTEGRATION_NAME,
