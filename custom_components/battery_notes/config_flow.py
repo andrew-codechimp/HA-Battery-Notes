@@ -222,6 +222,8 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             "model_id": discovery_info[CONF_MODEL_ID],
         }
 
+        await self.async_set_unique_id(unique_id)
+
         return await self.async_step_device(discovery_info)
 
     async def async_step_user(
