@@ -70,6 +70,7 @@ from .const import (
     ATTR_SOURCE_ENTITY_ID,
     CONF_SOURCE_ENTITY_ID,
     DOMAIN,
+    SUBENTRY_BATTERY_NOTE,
 )
 from .coordinator import (
     MY_KEY,
@@ -124,7 +125,7 @@ async def async_setup_entry(
     """Initialize Battery Type config entry."""
 
     for subentry in config_entry.subentries.values():
-        if subentry.subentry_type != "battery_note":
+        if subentry.subentry_type != SUBENTRY_BATTERY_NOTE:
             continue
 
         assert config_entry.runtime_data.subentry_coordinators

@@ -53,6 +53,7 @@ from .const import (
     DEFAULT_BATTERY_INCREASE_THRESHOLD,
     DEFAULT_BATTERY_LOW_THRESHOLD,
     DOMAIN,
+    SUBENTRY_BATTERY_NOTE,
 )
 from .const import NAME as INTEGRATION_NAME
 from .coordinator import MY_KEY
@@ -169,7 +170,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
     ) -> dict[str, type[ConfigSubentryFlow]]:
         """Return subentries supported by this integration."""
         return {
-            "battery_note": BatteryNotesSubentryFlowHandler,
+            SUBENTRY_BATTERY_NOTE: BatteryNotesSubentryFlowHandler,
         }
 
     async def async_step_integration_discovery(
@@ -387,7 +388,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
 
             config_entry = self.hass.config_entries.async_entries(domain=DOMAIN)[0]
             # Create a subentry
-            subentry = ConfigSubentry(subentry_type="battery_note", data=MappingProxyType(self.data), title=str(title), unique_id=unique_id)
+            subentry = ConfigSubentry(subentry_type=SUBENTRY_BATTERY_NOTE, data=MappingProxyType(self.data), title=str(title), unique_id=unique_id)
             self.hass.config_entries.async_add_subentry(config_entry, subentry)
 
             return self.async_abort(reason="created_sub_entry")

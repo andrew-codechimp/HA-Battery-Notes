@@ -43,6 +43,7 @@ from .const import (
     ISSUE_DEPRECATED_YAML,
     MIN_HA_VERSION,
     PLATFORMS,
+    SUBENTRY_BATTERY_NOTE,
 )
 from .const import NAME as INTEGRATION_NAME
 from .coordinator import (
@@ -145,7 +146,7 @@ async def async_setup_entry(
 
     config_entry.runtime_data.subentry_coordinators = {}
     for subentry in config_entry.subentries.values():
-        if subentry.subentry_type == "battery_note":
+        if subentry.subentry_type == SUBENTRY_BATTERY_NOTE:
 
             coordinator = BatteryNotesSubentryCoordinator(hass, config_entry, subentry)
             config_entry.runtime_data.subentry_coordinators[subentry.subentry_id] = coordinator
@@ -231,7 +232,7 @@ async def async_migrate_integration(hass: HomeAssistant, config: ConfigType) -> 
 
         subentry = ConfigSubentry(
             data=entry.data,
-            subentry_type="battery_note",
+            subentry_type=SUBENTRY_BATTERY_NOTE,
             title=entry.title,
             unique_id=entry.unique_id,
         )

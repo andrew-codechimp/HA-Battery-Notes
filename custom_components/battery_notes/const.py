@@ -113,3 +113,5 @@ PLATFORMS: Final = [
     Platform.BUTTON,
     Platform.SENSOR,
 ]
+
+SUBENTRY_BATTERY_NOTE = "battery_note"
