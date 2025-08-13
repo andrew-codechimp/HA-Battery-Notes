@@ -194,7 +194,7 @@ async def async_remove_entry(
 
     for subentry in config_entry.subentries.values():
         if subentry not in config_entry.subentries:
-            await async_remove_subentry(hass, config_entry, subentry, remove_store_entries=False)
+            await _async_remove_subentry(hass, config_entry, subentry, remove_store_entries=False)
 
 async def async_migrate_integration(hass: HomeAssistant, config: ConfigType) -> None:
     """Migrate integration entry structure."""
@@ -354,7 +354,7 @@ async def _async_update_listener(
 
     for subentry in config_entry.runtime_data.loaded_subentries.values():
         if subentry.subentry_id not in config_entry.subentries:
-            await async_remove_subentry(hass, config_entry, subentry, remove_store_entries=False)
+            await _async_remove_subentry(hass, config_entry, subentry, remove_store_entries=False)
 
     # Update the config entry with the new sub entries
     config_entry.runtime_data.loaded_subentries = config_entry.subentries.copy()
@@ -362,7 +362,7 @@ async def _async_update_listener(
     await hass.config_entries.async_reload(config_entry.entry_id)
 
 
-async def async_remove_subentry(
+async def _async_remove_subentry(
     hass: HomeAssistant,
     config_entry: BatteryNotesConfigEntry,
     subentry: ConfigSubentry,
@@ -401,10 +401,3 @@ async def async_remove_subentry(
             _LOGGER.debug("Unhidden Original Battery for device%s", coordinator.device_id)
 
     config_entry.runtime_data.subentry_coordinators.pop(subentry, None)
-
-@callback
-async def async_update_options(
-    hass: HomeAssistant, entry: BatteryNotesConfigEntry
-) -> None:
-    """Update options."""
-    await hass.config_entries.async_reload(entry.entry_id)
