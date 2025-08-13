@@ -387,9 +387,8 @@ async def _async_remove_subentry(
                 store.async_delete_device(coordinator.device_id)
 
     # Unhide the battery
-    entity_registry = er.async_get(hass)
-
     if coordinator.wrapped_battery:
+        entity_registry = er.async_get(hass)
         if (
             wrapped_battery_entity_entry := entity_registry.async_get(
                 coordinator.wrapped_battery.entity_id
