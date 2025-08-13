@@ -27,7 +27,6 @@ from homeassistant.const import (
 from homeassistant.core import callback, split_entity_id
 from homeassistant.data_entry_flow import section
 from homeassistant.helpers import selector
-from homeassistant.helpers.issue_registry import IssueSeverity, async_create_issue
 from homeassistant.helpers.typing import DiscoveryInfoType
 
 from .common import get_device_model_id
@@ -54,7 +53,6 @@ from .const import (
     DEFAULT_BATTERY_INCREASE_THRESHOLD,
     DEFAULT_BATTERY_LOW_THRESHOLD,
     DOMAIN,
-    ISSUE_DEPRECATED_YAML,
 )
 from .const import NAME as INTEGRATION_NAME
 from .coordinator import MY_KEY

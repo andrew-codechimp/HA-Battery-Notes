@@ -168,7 +168,7 @@ async def async_setup_entry(
 
     await hass.config_entries.async_forward_entry_setups(config_entry, PLATFORMS)
 
-    config_entry.async_on_unload(config_entry.add_update_listener(update_listener))
+    config_entry.async_on_unload(config_entry.add_update_listener(_async_update_listener))
 
     if domain_config.enable_autodiscovery:
         discovery_manager = DiscoveryManager(hass, domain_config)
@@ -201,6 +201,22 @@ async def async_migrate_integration(hass: HomeAssistant, config: ConfigType) -> 
 
     migrate_base_entry: ConfigEntry | None = None
 
+    yaml_domain_config = config.get(DOMAIN)
+    if yaml_domain_config is not None:
+        async_create_issue(
+            hass,
+            DOMAIN,
+            ISSUE_DEPRECATED_YAML,
+            is_fixable=False,
+            issue_domain=DOMAIN,
+            severity=IssueSeverity.WARNING,
+            translation_key=ISSUE_DEPRECATED_YAML,
+            translation_placeholders={
+                "domain": DOMAIN,
+                "integration_title": INTEGRATION_NAME,
+            },
+        )
+
     entries = hass.config_entries.async_entries(DOMAIN)
     if not any(entry.version < 3 for entry in entries):
         return
@@ -212,6 +228,9 @@ async def async_migrate_integration(hass: HomeAssistant, config: ConfigType) -> 
             break
 
     for entry in entries:
+        if entry.version >= 3:
+            continue
+
         subentry = ConfigSubentry(
             data=entry.data,
             subentry_type="battery_note",
@@ -220,7 +239,6 @@ async def async_migrate_integration(hass: HomeAssistant, config: ConfigType) -> 
         )
 
         if not migrate_base_entry:
-            yaml_domain_config = config.get(DOMAIN)
             if yaml_domain_config:
                 options={
                     CONF_SHOW_ALL_DEVICES: yaml_domain_config[0].get(CONF_SHOW_ALL_DEVICES, False),
@@ -259,20 +277,6 @@ async def async_migrate_integration(hass: HomeAssistant, config: ConfigType) -> 
                 data={},
                 options=options,
                 unique_id=DOMAIN,
-            )
-
-            async_create_issue(
-                hass,
-                DOMAIN,
-                ISSUE_DEPRECATED_YAML,
-                is_fixable=False,
-                issue_domain=DOMAIN,
-                severity=IssueSeverity.WARNING,
-                translation_key=ISSUE_DEPRECATED_YAML,
-                translation_placeholders={
-                    "domain": DOMAIN,
-                    "integration_title": INTEGRATION_NAME,
-                },
             )
 
             migrate_base_entry = entry
@@ -338,7 +342,7 @@ async def async_migrate_entry(
     return True
 
 
-async def update_listener(
+async def _async_update_listener(
     hass: HomeAssistant, config_entry: BatteryNotesConfigEntry
 ) -> None:
     """Update the device and related entities.
@@ -349,7 +353,7 @@ async def update_listener(
     """
 
     for subentry in config_entry.runtime_data.loaded_subentries.values():
-        if subentry not in config_entry.subentries:
+        if subentry.subentry_id not in config_entry.subentries:
             await async_remove_subentry(hass, config_entry, subentry, remove_store_entries=False)
 
     # Update the config entry with the new sub entries
