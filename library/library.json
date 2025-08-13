@@ -10214,6 +10214,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Sure Petcare",
+            "model": "Sure Petcare Pet Door",
+            "battery_type": "C",
+            "battery_quantity": 4
         }
     ]
 }
