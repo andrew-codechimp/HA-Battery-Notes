@@ -308,28 +308,27 @@ async def async_migrate_entry(
                     },
                 }
 
-            _migrate_base_entry = ConfigEntry(
-                domain=DOMAIN,
-                title=INTEGRATION_NAME,
-                version=3,
-                unique_id=DOMAIN,
-                options=options,
-                )
-            await hass.config_entries.async_add(_migrate_base_entry)
+            # Convert the first entry to the base entry then immediately add the subentry
+            hass.config_entries.async_update_entry(
+                config_entry, version=3, title=INTEGRATION_NAME, data={}, options=options
+            )
+
+            _migrate_base_entry = config_entry
 
         assert _migrate_base_entry is not None, "Base entry should not be None"
 
         # Update the base entry with the new subentry
         subentry = ConfigSubentry(subentry_type="battery_note", data=config_entry.data, title=config_entry.title, unique_id=config_entry.unique_id)
-        hass.config_entries.async_add_subentry(config_entry, subentry)
+        hass.config_entries.async_add_subentry(_migrate_base_entry, subentry)
 
         source_device_id = config_entry.data.get(CONF_DEVICE_ID, None)
 
         if source_device_id:
-            helper_integration.async_remove_helper_config_entry_from_source_device(hass, config_entry.entry_id, source_device_id)
+            helper_integration.async_remove_helper_config_entry_from_source_device(hass=hass, helper_config_entry_id=config_entry.entry_id, source_device_id=source_device_id)
 
         # Remove the old config entry
-        await hass.config_entries.async_remove(config_entry.entry_id)
+        if config_entry.entry_id != _migrate_base_entry.entry_id:
+            hass.config_entries.async_remove(config_entry.entry_id)
 
         _LOGGER.info(
             "Entry %s successfully migrated to subentry of %s.",

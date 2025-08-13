@@ -16,5 +16,6 @@ config/*
 !config/configuration.yaml
 .DS_Store
 config/configuration.yaml
+backup/*
 
 custom_components/battery_notes/frontend/node_modules

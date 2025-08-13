@@ -56,7 +56,7 @@ from .const import (
     DOMAIN,
     ISSUE_DEPRECATED_YAML,
 )
-from .const import NAME as APP_NAME
+from .const import NAME as INTEGRATION_NAME
 from .coordinator import MY_KEY
 from .library import Library, ModelInfo
 from .library_updater import LibraryUpdater
@@ -203,7 +203,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             }
 
             self.async_create_entry(
-                title=APP_NAME,
+                title=INTEGRATION_NAME,
                 data={},
                 options=options
             )
@@ -243,7 +243,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             translation_key=ISSUE_DEPRECATED_YAML,
             translation_placeholders={
                 "domain": DOMAIN,
-                "integration_title": APP_NAME,
+                "integration_title": INTEGRATION_NAME,
             },
         )
 
@@ -279,7 +279,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                 options = user_input
 
             return self.async_create_entry(
-                title=APP_NAME,
+                title=INTEGRATION_NAME,
                 data={},
                 options=options
             )
