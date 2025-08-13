@@ -972,48 +972,9 @@
         },
         {
             "manufacturer": "Apple",
-            "model": "Apple Watch Series 8",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Apple",
-            "model": "iPad14,3",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Apple",
-            "model": "iPad6,11",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Apple",
-            "model": "iPad8,1",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Apple",
-            "model": "iPhone11,2",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Apple",
-            "model": "iPhone14,2",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Apple",
-            "model": "iPhone14,7",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Apple",
-            "model": "iPhone16,2",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Apple",
-            "model": "MacBookPro18,1",
-            "battery_type": "Rechargeable"
+            "model": "Apple Watch",
+            "battery_type": "Rechargeable",
+            "model_match_method": "startswith"
         },
         {
             "manufacturer": "Apple",
@@ -3631,28 +3592,9 @@
         },
         {
             "manufacturer": "Google",
-            "model": "Pixel 2",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Google",
-            "model": "Pixel 6",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Google",
-            "model": "Pixel 6a",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Google",
-            "model": "Pixel 7 Pro",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Google",
-            "model": "Pixel 9 Pro XL",
-            "battery_type": "Rechargeable"
+            "model": "Pixel",
+            "battery_type": "Rechargeable",
+            "model_match_method": "startswith"
         },
         {
             "manufacturer": "Google",
@@ -6442,108 +6384,9 @@
         },
         {
             "manufacturer": "Samsung",
-            "model": "SM-A525F",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Samsung",
-            "model": "SM-A528B",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Samsung",
-            "model": "SM-A546B",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Samsung",
-            "model": "SM-A556B",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "samsung",
-            "model": "SM-G770F",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "samsung",
-            "model": "SM-G955U",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "samsung",
-            "model": "SM-G975F",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Samsung",
-            "model": "SM-G991B",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "samsung",
-            "model": "SM-G996B",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "samsung",
-            "model": "SM-G998U",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Samsung",
-            "model": "SM-L310",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "samsung",
-            "model": "SM-R860",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "samsung",
-            "model": "SM-S901U1",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "samsung",
-            "model": "SM-S918B",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "samsung",
-            "model": "SM-S918U",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Samsung",
-            "model": "SM-T225",
-            "battery_type": "HQ-3565S"
-        },
-        {
-            "manufacturer": "Samsung",
-            "model": "SM-T500",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Samsung",
-            "model": "SM-T510",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Samsung",
-            "model": "SM-T580",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Samsung",
-            "model": "SM-T825",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "samsung",
-            "model": "SM-X200",
-            "battery_type": "Rechargeable"
+            "model": "SM-",
+            "battery_type": "Rechargeable",
+            "model_match_method": "startswith"
         },
         {
             "manufacturer": "Saswell",
