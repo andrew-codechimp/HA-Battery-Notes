@@ -10,6 +10,7 @@ from homeassistant.core import (
     ServiceResponse,
     callback,
 )
+from homeassistant.exceptions import HomeAssistantError
 from homeassistant.helpers import device_registry as dr
 from homeassistant.helpers import entity_registry as er
 from homeassistant.util import dt as dt_util
@@ -139,17 +140,21 @@ async def _async_battery_replaced(call: ServiceCall) -> ServiceResponse:
                     return None
 
         if not entity_found:
-            _LOGGER.error("Entity %s not configured in Battery Notes", source_entity_id)
-            return None
+            raise HomeAssistantError(
+                translation_domain=DOMAIN,
+                translation_key="not_configured_in_battery_notes",
+                translation_placeholders={"source": source_entity_id},
+            )
+        return None
 
     else:
         device_entry = device_registry.async_get(device_id)
         if not device_entry:
-            _LOGGER.error(
-                "Device %s not found",
-                device_id,
+            raise HomeAssistantError(
+                translation_domain=DOMAIN,
+                translation_key="not_configured_in_battery_notes",
+                translation_placeholders={"source": device_id},
             )
-            return None
 
         # Check if device_id exists in any sub config entry
         device_found = False
@@ -192,13 +197,12 @@ async def _async_battery_replaced(call: ServiceCall) -> ServiceResponse:
                     return None
 
             if not device_found:
-                _LOGGER.error(
-                    "Device %s not configured in Battery Notes",
-                    device_id,
+                raise HomeAssistantError(
+                    translation_domain=DOMAIN,
+                    translation_key="not_configured_in_battery_notes",
+                    translation_placeholders={"source": device_id},
                 )
-                return None
         return None
-    return None
 
 
 async def _async_battery_last_reported(call: ServiceCall) -> ServiceResponse:
