@@ -20,6 +20,7 @@ class MissingDeviceRepairFlow(RepairsFlow):
         if not data or any(key not in data for key in REQUIRED_KEYS):
             raise ValueError("Missing data")
         self.entry_id = cast(str, data["entry_id"])
+        self.subentry_id = cast(str, data["subentry_id"])
         self.device_id = cast(str, data["device_id"])
         self.source_entity_id = cast(str, data["source_entity_id"])
 
@@ -35,9 +36,10 @@ class MissingDeviceRepairFlow(RepairsFlow):
     ) -> data_entry_flow.FlowResult:
         """Handle the confirm step of a fix flow."""
         if user_input is not None:
-            await self.hass.config_entries.async_remove(self.entry_id)
+            entry = self.hass.config_entries.async_get_entry(self.entry_id)
+            self.hass.config_entries.async_remove_subentry(entry, self.subentry_id)
 
-            return self.async_create_entry(title="", data={})
+            return self.async_create_entry(data={})
 
         issue_registry = ir.async_get(self.hass)
         description_placeholders = None
@@ -59,5 +61,6 @@ async def async_create_fix_flow(
     """Create flow."""
     if issue_id.startswith("missing_device_"):
         assert data
+
         return MissingDeviceRepairFlow(data)
     raise ValueError(f"unknown repair {issue_id}")

@@ -213,7 +213,8 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                     DOMAIN,
                     f"missing_device_{self.subentry.subentry_id}",
                     data={
-                        "entry_id": self.subentry.subentry_id,
+                        "entry_id": self.config_entry.entry_id,
+                        "subentry_id": self.subentry.subentry_id,
                         "device_id": self.device_id,
                         "source_entity_id": self.source_entity_id,
                     },
