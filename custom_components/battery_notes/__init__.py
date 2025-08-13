@@ -192,7 +192,7 @@ async def async_remove_entry(
     """Battery Notes integration removed."""
 
     for subentry in config_entry.subentries.values():
-        if subentry not in config_entry.subentries:
+        if subentry.subentry_id not in config_entry.subentries:
             await _async_remove_subentry(hass, config_entry, subentry, remove_store_entries=False)
 
 async def async_migrate_integration(hass: HomeAssistant, config: ConfigType) -> None:
