@@ -74,7 +74,7 @@ from .const import (
 from .coordinator import (
     MY_KEY,
     BatteryNotesConfigEntry,
-    BatteryNotesCoordinator,
+    BatteryNotesSubentryCoordinator,
 )
 from .entity import BatteryNotesEntity, BatteryNotesEntityDescription
 
@@ -327,7 +327,7 @@ class BatteryNotesBatteryLowBaseSensor(
     def __init__(
         self,
         hass: HomeAssistant,
-        coordinator: BatteryNotesCoordinator,
+        coordinator: BatteryNotesSubentryCoordinator,
         entity_description: BatteryNotesBinarySensorEntityDescription,
     ):
         """Initialize the low battery binary sensor."""
@@ -386,7 +386,7 @@ class BatteryNotesBatteryLowTemplateSensor(
     def __init__(
         self,
         hass: HomeAssistant,
-        coordinator: BatteryNotesCoordinator,
+        coordinator: BatteryNotesSubentryCoordinator,
         entity_description: BatteryNotesBinarySensorEntityDescription,
         unique_id: str,
         template: str,
@@ -581,7 +581,7 @@ class BatteryNotesBatteryLowSensor(BatteryNotesBatteryLowBaseSensor):
     def __init__(
         self,
         hass: HomeAssistant,
-        coordinator: BatteryNotesCoordinator,
+        coordinator: BatteryNotesSubentryCoordinator,
         entity_description: BatteryNotesBinarySensorEntityDescription,
         unique_id: str,
     ) -> None:
@@ -661,7 +661,7 @@ class BatteryNotesBatteryBinaryLowSensor(BatteryNotesBatteryLowBaseSensor):
     def __init__(
         self,
         hass: HomeAssistant,
-        coordinator: BatteryNotesCoordinator,
+        coordinator: BatteryNotesSubentryCoordinator,
         entity_description: BatteryNotesBinarySensorEntityDescription,
         unique_id: str,
     ) -> None:

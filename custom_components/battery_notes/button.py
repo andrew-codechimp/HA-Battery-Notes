@@ -33,7 +33,7 @@ from .const import (
     DOMAIN,
     EVENT_BATTERY_REPLACED,
 )
-from .coordinator import BatteryNotesConfigEntry, BatteryNotesCoordinator
+from .coordinator import BatteryNotesConfigEntry, BatteryNotesSubentryCoordinator
 from .entity import BatteryNotesEntity, BatteryNotesEntityDescription
 
 _LOGGER = logging.getLogger(__name__)
@@ -113,7 +113,7 @@ class BatteryNotesButton(BatteryNotesEntity, ButtonEntity):
     def __init__(
         self,
         hass: HomeAssistant,
-        coordinator: BatteryNotesCoordinator,
+        coordinator: BatteryNotesSubentryCoordinator,
         entity_description: BatteryNotesButtonEntityDescription,
         unique_id: str,
     ) -> None:

@@ -44,9 +44,9 @@ from .const import NAME as INTEGRATION_NAME
 from .coordinator import (
     MY_KEY,
     BatteryNotesConfigEntry,
-    BatteryNotesCoordinator,
     BatteryNotesData,
     BatteryNotesDomainConfig,
+    BatteryNotesSubentryCoordinator,
 )
 from .discovery import DiscoveryManager
 from .library_updater import LibraryUpdater
@@ -171,7 +171,7 @@ async def async_setup_entry(
     for subentry in config_entry.subentries.values():
         if subentry.subentry_type == "battery_note":
 
-            coordinator = BatteryNotesCoordinator(hass, config_entry, subentry)
+            coordinator = BatteryNotesSubentryCoordinator(hass, config_entry, subentry)
             config_entry.runtime_data.subentry_coordinators[subentry.subentry_id] = coordinator
 
             assert subentry.unique_id

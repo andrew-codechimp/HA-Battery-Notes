@@ -66,7 +66,11 @@ from .const import (
     CONF_SOURCE_ENTITY_ID,
     DOMAIN,
 )
-from .coordinator import MY_KEY, BatteryNotesConfigEntry, BatteryNotesCoordinator
+from .coordinator import (
+    MY_KEY,
+    BatteryNotesConfigEntry,
+    BatteryNotesSubentryCoordinator,
+)
 from .entity import BatteryNotesEntity, BatteryNotesEntityDescription
 
 
@@ -190,7 +194,7 @@ class BatteryNotesTypeSensor(BatteryNotesEntity, RestoreSensor):
         config_entry: BatteryNotesConfigEntry,
         subentry: ConfigSubentry,
         entity_description: BatteryNotesEntityDescription,
-        coordinator: BatteryNotesCoordinator,
+        coordinator: BatteryNotesSubentryCoordinator,
         unique_id: str,
     ) -> None:
         # pylint: disable=unused-argument
@@ -253,7 +257,7 @@ class BatteryNotesLastReplacedSensor(
         config_entry: BatteryNotesConfigEntry,
         subentry: ConfigSubentry,
         entity_description: BatteryNotesEntityDescription,
-        coordinator: BatteryNotesCoordinator,
+        coordinator: BatteryNotesSubentryCoordinator,
         description: BatteryNotesSensorEntityDescription,
         unique_id: str,
     ) -> None:
@@ -327,7 +331,7 @@ class BatteryNotesBatteryPlusSensor(
         config_entry: BatteryNotesConfigEntry,
         subentry: ConfigSubentry,
         entity_description: BatteryNotesEntityDescription,
-        coordinator: BatteryNotesCoordinator,
+        coordinator: BatteryNotesSubentryCoordinator,
         unique_id: str,
         enable_replaced: bool,
         round_battery: bool,

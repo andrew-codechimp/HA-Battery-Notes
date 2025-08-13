@@ -12,7 +12,7 @@ from homeassistant.helpers.entity import EntityDescription
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
 from .const import DOMAIN
-from .coordinator import BatteryNotesCoordinator
+from .coordinator import BatteryNotesSubentryCoordinator
 
 
 @dataclass(frozen=True, kw_only=True)
@@ -30,17 +30,17 @@ class BatteryNotesEntityDescription(EntityDescription, BatteryNotesRequiredKeysM
     """Generic Battery Notes entity description."""
 
 
-class BatteryNotesEntity(CoordinatorEntity[BatteryNotesCoordinator]):
+class BatteryNotesEntity(CoordinatorEntity[BatteryNotesSubentryCoordinator]):
     """Base class for Battery Notes entities."""
 
-    coordinator: BatteryNotesCoordinator
+    coordinator: BatteryNotesSubentryCoordinator
     entity_description: BatteryNotesEntityDescription
 
     def __init__(
         self,
         hass: HomeAssistant,
         entity_description: BatteryNotesEntityDescription,
-        coordinator: BatteryNotesCoordinator,
+        coordinator: BatteryNotesSubentryCoordinator,
     ) -> None:
         """Initialize the base entity."""
         super().__init__(coordinator)
