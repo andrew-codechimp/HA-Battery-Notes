@@ -83,6 +83,13 @@ async def async_setup_entry(
         )
         assert coordinator
 
+        if coordinator.orphaned:
+            _LOGGER.debug(
+                "Skipping button creation for orphaned entry: %s",
+                subentry.title,
+            )
+            continue
+
         description = BatteryNotesButtonEntityDescription(
             unique_id_suffix="_battery_replaced_button",
             key="battery_replaced",

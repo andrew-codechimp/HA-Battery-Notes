@@ -114,6 +114,13 @@ async def async_setup_entry(
         )
         assert coordinator
 
+        if coordinator.orphaned:
+            _LOGGER.debug(
+                "Skipping sensor creation for orphaned subentry: %s",
+                subentry.title,
+            )
+            continue
+
         type_sensor_entity_description = BatteryNotesSensorEntityDescription(
             unique_id_suffix="",  # battery_type has uniqueId set to entityId in V1, never add a suffix
             key="battery_type",

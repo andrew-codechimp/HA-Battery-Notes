@@ -101,6 +101,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
     battery_low_template: str | None
     wrapped_battery: RegistryEntry | None = None
     wrapped_battery_low: RegistryEntry | None = None
+    orphaned: bool = False
     _current_battery_level: str | None = None
     _previous_battery_low: bool | None = None
     _previous_battery_level: str | None = None
@@ -128,7 +129,9 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
         self.device_id = self.subentry.data.get(CONF_DEVICE_ID, None)
         self.source_entity_id = self.subentry.data.get(CONF_SOURCE_ENTITY_ID, None)
 
-        self._link_device()
+        if not self._link_device():
+            self.orphaned = True
+            return
 
         assert(self.device_name)
 
@@ -359,18 +362,16 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                 device_registry = dr.async_get(self.hass)
                 registry_entry = entity_registry.async_get(self.source_entity_id)
                 device_entry = device_registry.async_get(self.device_id) if self.device_id else None
-                assert(registry_entry)
 
-                if registry_entry.name is None and registry_entry.has_entity_name and device_entry:
-                    self._source_entity_name = (
-                        registry_entry.name or registry_entry.original_name or device_entry.name_by_user or device_entry.name or self.source_entity_id
-                    )
-                else:
-                    self._source_entity_name = (
-                        registry_entry.name or registry_entry.original_name or self.source_entity_id
-                    )
-
-            assert(self._source_entity_name)
+                if registry_entry:
+                    if registry_entry and registry_entry.name is None and registry_entry.has_entity_name and device_entry:
+                        self._source_entity_name = (
+                            registry_entry.name or registry_entry.original_name or device_entry.name_by_user or device_entry.name or self.source_entity_id
+                        )
+                    else:
+                        self._source_entity_name = (
+                            registry_entry.name or registry_entry.original_name or self.source_entity_id
+                        )
 
         return self._source_entity_name
 

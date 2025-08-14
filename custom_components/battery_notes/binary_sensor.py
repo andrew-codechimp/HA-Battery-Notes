@@ -134,6 +134,13 @@ async def async_setup_entry(
         )
         assert coordinator
 
+        if coordinator.orphaned:
+            _LOGGER.debug(
+                "Skipping binary_sensor creation for orphaned subentry: %s",
+                subentry.title,
+            )
+            continue
+
         # battery_filtered_entity_description = BatteryNotesBinarySensorEntityDescription(
         #     unique_id_suffix="_battery_outliers_filtered",
         #     key="_battery_outliers_filtered",
