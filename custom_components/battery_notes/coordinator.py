@@ -129,7 +129,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
         self.device_id = self.subentry.data.get(CONF_DEVICE_ID, None)
         self.source_entity_id = self.subentry.data.get(CONF_SOURCE_ENTITY_ID, None)
 
-        if not self._link_device():
+        if not self._link_to_source():
             self.is_orphaned = True
             return
 
@@ -202,8 +202,8 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
             )
             self.last_reported = last_reported
 
-    def _link_device(self) -> bool:
-        """Get the device name."""
+    def _link_to_source(self) -> bool:
+        """Get the source device or entity, determine name and associate our wrapped battery if available."""
         device_registry = dr.async_get(self.hass)
         entity_registry = er.async_get(self.hass)
 
