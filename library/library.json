@@ -1145,6 +1145,11 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "lumi.sensor_switch.v2",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "MCCGQ11LM",
             "battery_type": "CR2032"
         },
@@ -10063,11 +10068,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Aqara",
-            "model": "lumi.sensor_switch.v2",
-            "battery_type": "CR2032"
         }
     ]
 }
