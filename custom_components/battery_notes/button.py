@@ -83,7 +83,7 @@ async def async_setup_entry(
         )
         assert coordinator
 
-        if coordinator.orphaned:
+        if coordinator.is_orphaned:
             _LOGGER.debug(
                 "Skipping button creation for orphaned entry: %s",
                 subentry.title,

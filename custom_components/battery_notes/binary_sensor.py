@@ -134,7 +134,7 @@ async def async_setup_entry(
         )
         assert coordinator
 
-        if coordinator.orphaned:
+        if coordinator.is_orphaned:
             _LOGGER.debug(
                 "Skipping binary_sensor creation for orphaned subentry: %s",
                 subentry.title,

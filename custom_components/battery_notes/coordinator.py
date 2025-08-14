@@ -101,7 +101,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
     battery_low_template: str | None
     wrapped_battery: RegistryEntry | None = None
     wrapped_battery_low: RegistryEntry | None = None
-    orphaned: bool = False
+    is_orphaned: bool = False
     _current_battery_level: str | None = None
     _previous_battery_low: bool | None = None
     _previous_battery_level: str | None = None
@@ -130,7 +130,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
         self.source_entity_id = self.subentry.data.get(CONF_SOURCE_ENTITY_ID, None)
 
         if not self._link_device():
-            self.orphaned = True
+            self.is_orphaned = True
             return
 
         assert(self.device_name)
@@ -337,14 +337,6 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
     def unique_id(self) -> str:
         """Return a unique ID for the coordinator."""
         return f"{self.config_entry.entry_id}_{self.subentry.subentry_id}"
-
-    @property
-    def fake_device(self) -> bool:
-        """Return if an actual device registry entry."""
-        if self.subentry.data.get(CONF_SOURCE_ENTITY_ID, None):
-            if self.subentry.data.get(CONF_DEVICE_ID, None) is None:
-                return True
-        return False
 
     @property
     def filter_outliers(self) -> bool:
