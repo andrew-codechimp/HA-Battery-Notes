@@ -8990,6 +8990,11 @@
             "battery_quantity": 4
         },
         {
+            "manufacturer": "Unfolded Circle",
+            "model": "Remote 3",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Universal Electronics Inc",
             "model": "Magnetic door & window contact sensor (XHS2-UE)",
             "battery_type": "CR2450"
@@ -10067,11 +10072,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Unfolded Circle",
-            "model": "Remote 3",
             "battery_type": "Rechargeable"
         }
     ]

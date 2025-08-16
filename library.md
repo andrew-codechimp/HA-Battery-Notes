@@ -1,4 +1,4 @@
-## 1775 Devices in library
+## 1776 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1583,6 +1583,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |TUYATEC-xrvzm3yI                                |RH3001                                                                                        |CR2032                    |                                   |                                      |
 |TUYATEC-yg5dcbfu                                |RH3052                                                                                        |CR2032                    |                                   |                                      |
 |Ultraloq                                        |U-BOLT-PRO-ZWAVE                                                                              |4× AA                     |                                   |                                      |
+|Unfolded Circle                                 |Remote 3                                                                                      |Rechargeable              |                                   |                                      |
 |Universal Electronics Inc                       |Magnetic door & window contact sensor (XHS2-UE)                                               |CR2450                    |                                   |                                      |
 |Universal Electronics Inc                       |URC4460BC0-X-R                                                                                |CR2450                    |                                   |                                      |
 |Universal Electronics Inc                       |URC4470BC0-X-R                                                                                |2× CR123A                 |                                   |                                      |
