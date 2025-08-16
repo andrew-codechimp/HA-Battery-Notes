@@ -12,9 +12,12 @@ import re
 import voluptuous as vol
 from awesomeversion.awesomeversion import AwesomeVersion
 from homeassistant.config_entries import ConfigEntry, ConfigSubentry
-from homeassistant.const import CONF_DEVICE_ID
+from homeassistant.const import (
+    CONF_DEVICE_ID,
+    EVENT_HOMEASSISTANT_STARTED,
+)
 from homeassistant.const import __version__ as HA_VERSION  # noqa: N812
-from homeassistant.core import HomeAssistant
+from homeassistant.core import Event, HomeAssistant, callback
 from homeassistant.helpers import config_validation as cv
 from homeassistant.helpers import entity_registry as er
 from homeassistant.helpers import helper_integration
@@ -110,10 +113,6 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
 
     hass.data[MY_KEY] = domain_config
 
-    library_updater = LibraryUpdater(hass)
-    await library_updater.copy_schema()
-    await library_updater.get_library_updates(startup=True)
-
     # Register custom services
     async_setup_services(hass)
 
@@ -137,6 +136,10 @@ async def async_setup_entry(
     domain_config.enable_autodiscovery = config_entry.options[CONF_ADVANCED_SETTINGS][CONF_ENABLE_AUTODISCOVERY]
     domain_config.enable_replaced = config_entry.options[CONF_ADVANCED_SETTINGS][CONF_ENABLE_REPLACED]
     domain_config.user_library = config_entry.options[CONF_ADVANCED_SETTINGS][CONF_USER_LIBRARY]
+
+    library_updater = LibraryUpdater(hass)
+    await library_updater.copy_schema()
+    await library_updater.get_library_updates(startup=True)
 
     config_entry.runtime_data = BatteryNotesData(
         domain_config=domain_config,
@@ -169,9 +172,28 @@ async def async_setup_entry(
 
     config_entry.async_on_unload(config_entry.add_update_listener(_async_update_listener))
 
-    if domain_config.enable_autodiscovery:
+    async def _discovery(_: Event) -> None:
         discovery_manager = DiscoveryManager(hass, domain_config)
         await discovery_manager.start_discovery()
+
+    @callback
+    def _unsubscribe_discovery() -> None:
+        """Unsubscribe the discovery listener."""
+        if discovery_unsub:
+            try:
+                discovery_unsub()
+            except ValueError:
+                _LOGGER.debug(
+                    "Failed to unsubscribe discovery listener, "
+                    "it might have already been removed or never registered.",
+                )
+
+    # Wait until Home Assistant is started, before doing discovery
+    if domain_config.enable_autodiscovery:
+        discovery_unsub = hass.bus.async_listen_once(
+            EVENT_HOMEASSISTANT_STARTED, _discovery
+        )
+        config_entry.async_on_unload(_unsubscribe_discovery)
     else:
         _LOGGER.debug("Auto discovery disabled")
 
