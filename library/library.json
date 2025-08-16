@@ -8970,6 +8970,12 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "TUYATEC-dgtxmihe",
+            "model": "PIR sensor",
+            "model_id": "RH3040",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "TUYATEC-r9hgssol",
             "model": "RH3001",
             "battery_type": "CR2450"
@@ -10079,12 +10085,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "TUYATEC-dgtxmihe",
-            "model": "PIR sensor",
-            "model_id": "RH3040",
-            "battery_type": "CR2450"
         }
     ]
 }
