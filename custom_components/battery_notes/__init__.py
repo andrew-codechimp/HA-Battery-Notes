@@ -246,6 +246,7 @@ async def async_migrate_integration(hass: HomeAssistant, config: ConfigType) -> 
         if entry.source == SOURCE_IGNORE:
             continue
 
+        # TODO: tidy up the entry data, we had lots from discovery
         subentry = ConfigSubentry(
             data=entry.data,
             subentry_type=SUBENTRY_BATTERY_NOTE,
