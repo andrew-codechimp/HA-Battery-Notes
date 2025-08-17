@@ -11,7 +11,7 @@ import re
 
 import voluptuous as vol
 from awesomeversion.awesomeversion import AwesomeVersion
-from homeassistant.config_entries import ConfigEntry, ConfigSubentry
+from homeassistant.config_entries import SOURCE_IGNORE, ConfigEntry, ConfigSubentry
 from homeassistant.const import (
     CONF_DEVICE_ID,
     EVENT_HOMEASSISTANT_STARTED,
@@ -227,7 +227,10 @@ async def async_migrate_integration(hass: HomeAssistant, config: ConfigType) -> 
             },
         )
 
-    entries = hass.config_entries.async_entries(DOMAIN)
+    entries = sorted(
+        hass.config_entries.async_entries(DOMAIN),
+        key=lambda e: e.disabled_by is not None,
+    )
     if not any(entry.version < 3 for entry in entries):
         return
 
@@ -239,6 +242,9 @@ async def async_migrate_integration(hass: HomeAssistant, config: ConfigType) -> 
 
     for entry in entries:
         if entry.version >= 3:
+            continue
+
+        if entry.source == SOURCE_IGNORE:
             continue
 
         subentry = ConfigSubentry(
