@@ -152,7 +152,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                 self.battery_low_threshold = self.config_entry.runtime_data.domain_config.default_battery_low_threshold
 
         self.battery_low_template = self.subentry.data.get(
-            CONF_BATTERY_LOW_TEMPLATE
+            CONF_BATTERY_LOW_TEMPLATE, None
         )
 
         if self.subentry.data.get(CONF_FILTER_OUTLIERS, False):
