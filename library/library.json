@@ -2771,6 +2771,12 @@
         },
         {
             "manufacturer": "eQ-3",
+            "model": "HmIP-FCI6",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "eQ-3",
             "model": "HmIP-KRC4",
             "battery_type": "AAA"
         },
@@ -10085,12 +10091,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "eQ-3",
-            "model": "HmIP-FCI6",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
