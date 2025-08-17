@@ -231,14 +231,9 @@ async def async_migrate_integration(hass: HomeAssistant, config: ConfigType) -> 
             },
         )
 
-    entries = sorted(
-        hass.config_entries.async_entries(DOMAIN),
-        key=lambda e: e.disabled_by is not None,
-    )
+    entries = hass.config_entries.async_entries(DOMAIN)
 
-    entries = filter(lambda e: e.source == SOURCE_USER, entries)
-
-    if not any(entry.version < 3 for entry in entries):
+    if not any(entry.version < 3 and entry.source == SOURCE_USER for entry in entries):
         return
 
     for entry in entries:
