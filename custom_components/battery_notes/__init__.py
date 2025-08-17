@@ -171,7 +171,7 @@ async def async_setup_entry(
     @callback
     def _unsubscribe_ha_started() -> None:
         """Unsubscribe the started listener."""
-        if after_start_unsub:
+        if after_start_unsub is not None:
             try:
                 after_start_unsub()
             except ValueError:
