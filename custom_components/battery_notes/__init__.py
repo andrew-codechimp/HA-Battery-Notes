@@ -152,18 +152,6 @@ async def async_setup_entry(
 
             assert subentry.unique_id
 
-            # Create a device, only needed if we want entities that are not added to the source device
-            # device_registry = dr.async_get(hass)
-            # device_registry.async_get_or_create(
-            #     config_entry_id=config_entry.entry_id,
-            #     config_subentry_id= subentry.subentry_id,
-            #     identifiers={(DOMAIN, coordinator.unique_id)},
-            #     entry_type=DeviceEntryType.SERVICE,
-            #     manufacturer=MANUFACTURER,
-            #     name=subentry.title
-            # )
-
-
     await hass.config_entries.async_forward_entry_setups(config_entry, PLATFORMS)
 
     config_entry.async_on_unload(config_entry.add_update_listener(_async_update_listener))

@@ -7,11 +7,9 @@ from dataclasses import dataclass
 from homeassistant.core import HomeAssistant, split_entity_id
 from homeassistant.helpers import device_registry as dr
 from homeassistant.helpers.device import async_entity_id_to_device_id
-from homeassistant.helpers.device_registry import DeviceInfo
 from homeassistant.helpers.entity import EntityDescription
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
-from .const import DOMAIN
 from .coordinator import BatteryNotesSubentryCoordinator
 
 
@@ -22,7 +20,6 @@ class BatteryNotesRequiredKeysMixin:
     unique_id_suffix: str
     entity_type: str
     require_device: bool = False
-    attach_to_source_device: bool = True
 
 
 @dataclass(frozen=True, kw_only=True)
@@ -56,14 +53,7 @@ class BatteryNotesEntity(CoordinatorEntity[BatteryNotesSubentryCoordinator]):
         self._set_entity_id(entity_description)
 
         # Set up device association
-        if entity_description.attach_to_source_device:
-            self._associate_device(hass, device_registry)
-        else:
-            self.device_entry = None
-            self._attr_device_info = DeviceInfo(
-                identifiers={(DOMAIN, coordinator.unique_id)},
-            )
-
+        self._associate_device(hass, device_registry)
 
     def _set_entity_id(self, entity_description: BatteryNotesEntityDescription) -> None:
         """Set up entity naming and translation placeholders."""

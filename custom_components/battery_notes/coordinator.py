@@ -339,11 +339,6 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
         return f"{self.config_entry.entry_id}_{self.subentry.subentry_id}"
 
     @property
-    def filter_outliers(self) -> bool:
-        """Return if outlier filtering is enabled."""
-        return self.subentry.data.get(CONF_FILTER_OUTLIERS, False)
-
-    @property
     def source_entity_name(self):
         """Get the current name of the source_entity_id."""
         if not self._source_entity_name:
