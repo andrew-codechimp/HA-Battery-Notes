@@ -19,6 +19,7 @@ from homeassistant.const import (
 from homeassistant.const import __version__ as HA_VERSION  # noqa: N812
 from homeassistant.core import Event, HomeAssistant, callback
 from homeassistant.helpers import config_validation as cv
+from homeassistant.helpers import device_registry as dr
 from homeassistant.helpers import entity_registry as er
 from homeassistant.helpers import helper_integration
 from homeassistant.helpers import issue_registry as ir
@@ -123,6 +124,9 @@ async def async_setup_entry(
     hass: HomeAssistant, config_entry: BatteryNotesConfigEntry
 ) -> bool:
     """Set up a config entry."""
+
+    if config_entry.source != SOURCE_USER:
+        return False
 
     domain_config = hass.data[MY_KEY]
     assert domain_config.store
@@ -231,6 +235,9 @@ async def async_migrate_integration(hass: HomeAssistant, config: ConfigType) -> 
         hass.config_entries.async_entries(DOMAIN),
         key=lambda e: e.disabled_by is not None,
     )
+
+    entries = filter(lambda e: e.source == SOURCE_USER, entries)
+
     if not any(entry.version < 3 for entry in entries):
         return
 
@@ -300,6 +307,11 @@ async def async_migrate_integration(hass: HomeAssistant, config: ConfigType) -> 
         hass.config_entries.async_add_subentry(migrate_base_entry, subentry)
 
         source_device_id = subentry.data.get(CONF_DEVICE_ID, None)
+        device_registry = dr.async_get(hass)
+        source_device = device_registry.async_get(source_device_id)
+        if source_device is None:
+            source_device_id = None
+
         source_entity_id = subentry.data.get("source_entity_id", None)
         if source_entity_id:
             source_device_id = async_entity_id_to_device_id(
