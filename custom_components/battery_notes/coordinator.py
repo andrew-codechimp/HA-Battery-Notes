@@ -135,10 +135,10 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
 
         assert(self.device_name)
 
-        self.battery_type = cast(str, self.subentry.data.get(CONF_BATTERY_TYPE))
+        self.battery_type = cast(str, self.subentry.data.get(CONF_BATTERY_TYPE, ""))
         try:
             self.battery_quantity = cast(
-                int, self.subentry.data.get(CONF_BATTERY_QUANTITY)
+                int, self.subentry.data.get(CONF_BATTERY_QUANTITY, 1)
             )
         except ValueError:
             self.battery_quantity = 1
