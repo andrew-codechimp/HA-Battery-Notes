@@ -316,8 +316,12 @@ async def async_migrate_integration(hass: HomeAssistant, config: ConfigType) -> 
 
 async def async_migrate_entry(
     hass: HomeAssistant, config_entry: BatteryNotesConfigEntry
-):
+) -> bool:
     """Migrate old config."""
+
+    if config_entry.version > 3:
+        # This means the user has downgraded from a future version
+        return False
 
     if config_entry.version == 1:
         # Version 1 had a single config for qty & type, split them
