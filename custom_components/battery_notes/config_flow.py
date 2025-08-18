@@ -392,8 +392,6 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             self.data.pop(CONF_MANUFACTURER, None)
             self.data.pop(CONF_MODEL, None)
             self.data.pop(CONF_MODEL_ID, None)
-            self.data.pop(CONF_BATTERY_TYPE, None)
-            self.data.pop(CONF_BATTERY_QUANTITY, None)
 
             config_entry = self.hass.config_entries.async_entries(domain=DOMAIN)[0]
             # Create a subentry
