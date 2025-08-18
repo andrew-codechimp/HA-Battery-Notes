@@ -144,7 +144,7 @@ class Library:  # pylint: disable=too-few-public-methods
         return DeviceBatteryDetails(
             manufacturer=matched_device[LIBRARY_MANUFACTURER],
             model=matched_device[LIBRARY_MODEL],
-            model_id=matched_device.get("model_id", ""),
+            model_id=matched_device.get(LIBRARY_MODEL_ID, ""),
             hw_version=matched_device.get(LIBRARY_HW_VERSION, ""),
             battery_type=matched_device[LIBRARY_BATTERY_TYPE],
             battery_quantity=matched_device.get(LIBRARY_BATTERY_QUANTITY, 1),
