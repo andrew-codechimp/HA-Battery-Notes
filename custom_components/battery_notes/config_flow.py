@@ -388,6 +388,13 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                 assert device_entry
                 title = device_entry.name_by_user or device_entry.name
 
+            # Remove discovery data from data
+            self.data.pop(CONF_MANUFACTURER, None)
+            self.data.pop(CONF_MODEL, None)
+            self.data.pop(CONF_MODEL_ID, None)
+            self.data.pop(CONF_BATTERY_TYPE, None)
+            self.data.pop(CONF_BATTERY_QUANTITY, None)
+
             config_entry = self.hass.config_entries.async_entries(domain=DOMAIN)[0]
             # Create a subentry
             subentry = ConfigSubentry(subentry_type=SUBENTRY_BATTERY_NOTE, data=MappingProxyType(self.data), title=str(title), unique_id=unique_id)
