@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import logging
 import re
+from collections.abc import Mapping
 from types import MappingProxyType
 
 import voluptuous as vol
@@ -263,10 +264,8 @@ async def async_migrate_integration(hass: HomeAssistant, config: ConfigType) -> 
         entry_data_dict.pop(CONF_MODEL, None)
         entry_data_dict.pop(CONF_MODEL_ID, None)
 
-        entry_data_dict = MappingProxyType(entry_data_dict)
-
         subentry = ConfigSubentry(
-            data=entry_data_dict,
+            data=MappingProxyType(entry_data_dict),
             subentry_type=SUBENTRY_BATTERY_NOTE,
             title=entry.title,
             unique_id=entry.unique_id,

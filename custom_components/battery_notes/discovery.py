@@ -6,7 +6,7 @@ import logging
 from typing import Any
 
 import homeassistant.helpers.device_registry as dr
-from homeassistant.config_entries import SOURCE_INTEGRATION_DISCOVERY
+from homeassistant.config_entries import SOURCE_IGNORE, SOURCE_INTEGRATION_DISCOVERY
 from homeassistant.const import CONF_DEVICE_ID
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers import discovery_flow
@@ -133,17 +133,15 @@ class DiscoveryManager:
         device_battery_details: DeviceBatteryDetails,
     ) -> None:
         """Dispatch the discovery flow for a given entity."""
-        existing_entries = [
-            entry
-            for entry in self.hass.config_entries.async_entries(DOMAIN)
-            if entry.unique_id == f"bn_{device_entry.id}"
-        ]
-        if existing_entries:
-            _LOGGER.debug(
-                "%s: Already setup, skipping new discovery",
-                f"bn_{device_entry.id}",
-            )
-            return
+        for config_entry in self.hass.config_entries.async_entries(DOMAIN):
+            if config_entry.source != SOURCE_IGNORE:
+                for subentry in config_entry.subentries.values():
+                    if subentry.data.get(CONF_DEVICE_ID, "") == device_entry.id:
+                        _LOGGER.debug(
+                            "%s: Already setup, skipping new discovery",
+                            f"bn_{device_entry.id}",
+                        )
+                        return
 
         discovery_data: dict[str, Any] = {
             CONF_DEVICE_ID: device_entry.id,
