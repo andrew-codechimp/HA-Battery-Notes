@@ -106,7 +106,7 @@ class Library:  # pylint: disable=too-few-public-methods
             return None
 
         # Test only
-        # device_to_find = ModelInfo("Espressif", "m5stack-atom", None, None)
+        # device_to_find = ModelInfo("Aqara", "Aqara Climate Sensor W100", "8196", None)
 
         # Get all devices matching manufacturer & model
         matching_devices = None
@@ -135,7 +135,7 @@ class Library:  # pylint: disable=too-few-public-methods
         if fully_matching_devices and len(fully_matching_devices) > 0:
             matching_devices = fully_matching_devices
 
-        if not matching_devices or len(matching_devices) == 0:
+        if not matching_devices or len(matching_devices) != 1:
             return None
 
         matched_device = matching_devices[0]
@@ -196,7 +196,7 @@ class Library:  # pylint: disable=too-few-public-methods
             if (
                 device.get(LIBRARY_HW_VERSION, LIBRARY_MISSING).casefold()
                 == str(model_info.hw_version).casefold()
-                and device.get(LIBRARY_MODEL_ID, LIBRARY_MISSING).casefold()
+                or device.get(LIBRARY_MODEL_ID, LIBRARY_MISSING).casefold()
                 == str(model_info.model_id).casefold()
             ):
                 return True
@@ -204,7 +204,7 @@ class Library:  # pylint: disable=too-few-public-methods
             if (
                 device.get(LIBRARY_HW_VERSION, LIBRARY_MISSING).casefold()
                 == str(model_info.hw_version).casefold()
-                or device.get(LIBRARY_MODEL_ID, LIBRARY_MISSING).casefold()
+                and device.get(LIBRARY_MODEL_ID, LIBRARY_MISSING).casefold()
                 == str(model_info.model_id).casefold()
             ):
                 return True
