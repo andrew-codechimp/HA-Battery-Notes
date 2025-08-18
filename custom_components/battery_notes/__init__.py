@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import logging
 import re
+from types import MappingProxyType
 
 import voluptuous as vol
 from awesomeversion.awesomeversion import AwesomeVersion
@@ -38,6 +39,9 @@ from .const import (
     CONF_ENABLE_AUTODISCOVERY,
     CONF_ENABLE_REPLACED,
     CONF_HIDE_BATTERY,
+    CONF_MANUFACTURER,
+    CONF_MODEL,
+    CONF_MODEL_ID,
     CONF_ROUND_BATTERY,
     CONF_SHOW_ALL_DEVICES,
     CONF_USER_LIBRARY,
@@ -253,8 +257,16 @@ async def async_migrate_integration(hass: HomeAssistant, config: ConfigType) -> 
 # {"created_at":"2025-07-26T09:48:49.716087+00:00","data":{"battery_low_threshold":0,"battery_quantity":1,"battery_type":"CR2032","device_id":"27cab4eab4f9640128e035a3e0e4ccff","filter_outliers":false},"disabled_by":null,"discovery_keys":{},"domain":"battery_notes","entry_id":"01K13256NM2E3ACHADFV9CX5RP","minor_version":1,"modified_at":"2025-08-02T16:02:41.411041+00:00","options":{},"pref_disable_new_entities":false,"pref_disable_polling":false,"source":"user","subentries":[],"title":"IKEA of Sweden TRADFRI on/off switch","unique_id":"bn_27cab4eab4f9640128e035a3e0e4ccff","version":2},
 # {"created_at":"2025-08-05T12:41:14.589333+00:00","data":{"battery_low_template":null,"battery_low_threshold":0,"battery_quantity":1,"battery_type":"Rechargeable","device_id":"1a6d01cd769c974a939b8c6dbdc3390e","device_name":"Andrew’s iPad","filter_outliers":false,"manufacturer":"Apple","model":"iPad8,1","model_id":[null]},"disabled_by":null,"discovery_keys":{},"domain":"battery_notes","entry_id":"01K1X4032X1QNMYNKM6WV7EY5N","minor_version":1,"modified_at":"2025-08-05T12:41:14.589344+00:00","options":{},"pref_disable_new_entities":false,"pref_disable_polling":false,"source":"integration_discovery","subentries":[],"title":"Andrew’s iPad","unique_id":"bn_1a6d01cd769c974a939b8c6dbdc3390e","version":2},
 
+        entry_data_dict = dict(entry.data)
+
+        entry_data_dict.pop(CONF_MANUFACTURER, None)
+        entry_data_dict.pop(CONF_MODEL, None)
+        entry_data_dict.pop(CONF_MODEL_ID, None)
+
+        entry_data_dict = MappingProxyType(entry_data_dict)
+
         subentry = ConfigSubentry(
-            data=entry.data,
+            data=entry_data_dict,
             subentry_type=SUBENTRY_BATTERY_NOTE,
             title=entry.title,
             unique_id=entry.unique_id,
