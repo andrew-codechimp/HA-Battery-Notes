@@ -107,6 +107,8 @@ class Library:  # pylint: disable=too-few-public-methods
 
         # Test only
         # device_to_find = ModelInfo("Aqara", "Aqara Climate Sensor W100", "8196", None)
+        # device_to_find = ModelInfo("Google", "Topaz-2.7", None, "Battery")
+        # device_to_find = ModelInfo("Google", "Topaz-2.7", None, "Wired")
 
         # Get all devices matching manufacturer & model
         matching_devices = None
