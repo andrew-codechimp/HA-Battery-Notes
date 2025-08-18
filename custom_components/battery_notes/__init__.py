@@ -382,6 +382,11 @@ async def async_migrate_entry(
             2,
         )
 
+    if config_entry.version == 2 and config_entry.source == SOURCE_IGNORE:
+        hass.config_entries.async_update_entry(
+            config_entry, version=3, title=config_entry.title
+        )
+
     return True
 
 
