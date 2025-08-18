@@ -177,7 +177,7 @@ async def async_setup_entry(
                     subentry,
                     battery_plus_sensor_entity_description,
                     coordinator,
-                    f"{config_entry.entry_id}{battery_plus_sensor_entity_description.unique_id_suffix}",
+                    f"{config_entry.entry_id}{subentry.unique_id}{battery_plus_sensor_entity_description.unique_id_suffix}",
                     config_entry.options[CONF_ADVANCED_SETTINGS].get(CONF_ENABLE_REPLACED, True),
                     config_entry.options[CONF_ADVANCED_SETTINGS].get(CONF_ROUND_BATTERY, False),
                 )
