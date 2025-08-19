@@ -3937,6 +3937,14 @@
         },
         {
             "manufacturer": "HOBEIAN",
+            "model": "Millimeter wave motion detection",
+            "model_id": "ZG-204ZV",
+            "hw_version": "1",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "HOBEIAN",
             "model": "Soil moisture sensor",
             "model_id": "ZG-303Z",
             "hw_version": "0122052017",
@@ -10091,14 +10099,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "HOBEIAN",
-            "model": "Millimeter wave motion detection",
-            "model_id": "ZG-204ZV",
-            "hw_version": "1",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
