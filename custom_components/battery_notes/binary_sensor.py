@@ -158,7 +158,7 @@ async def async_setup_entry(
                     hass,
                     coordinator,
                     battery_low_entity_description,
-                    f"{config_entry.entry_id}{subentry.unique_id}{battery_low_entity_description.unique_id_suffix}",
+                    f"{subentry.unique_id}{battery_low_entity_description.unique_id_suffix}",
                     coordinator.battery_low_template,
                 )
             )
@@ -169,7 +169,7 @@ async def async_setup_entry(
                     hass,
                     coordinator,
                     battery_low_entity_description,
-                    f"{config_entry.entry_id}{subentry.unique_id}{battery_low_entity_description.unique_id_suffix}",
+                    f"{subentry.unique_id}{battery_low_entity_description.unique_id_suffix}",
                 )
             )
 
@@ -179,7 +179,7 @@ async def async_setup_entry(
                     hass,
                     coordinator,
                     battery_low_entity_description,
-                    f"{config_entry.entry_id}{subentry.unique_id}{battery_low_entity_description.unique_id_suffix}",
+                    f"{subentry.unique_id}{battery_low_entity_description.unique_id_suffix}",
                 )
             )
 

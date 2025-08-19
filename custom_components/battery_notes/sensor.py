@@ -122,7 +122,7 @@ async def async_setup_entry(
             continue
 
         type_sensor_entity_description = BatteryNotesSensorEntityDescription(
-            unique_id_suffix="",  # battery_type has uniqueId set to entityId in V1, never add a suffix
+            unique_id_suffix="_battery_type",
             key="battery_type",
             translation_key="battery_type",
             entity_category=EntityCategory.DIAGNOSTIC,
@@ -156,7 +156,7 @@ async def async_setup_entry(
                 subentry,
                 type_sensor_entity_description,
                 coordinator,
-                f"{config_entry.entry_id}{subentry.unique_id}{type_sensor_entity_description.unique_id_suffix}",
+                f"{subentry.unique_id}{type_sensor_entity_description.unique_id_suffix}",
             ),
             BatteryNotesLastReplacedSensor(
                 hass,
@@ -165,7 +165,7 @@ async def async_setup_entry(
                 last_replaced_sensor_entity_description,
                 coordinator,
                 last_replaced_sensor_entity_description,
-                f"{config_entry.entry_id}{subentry.unique_id}{last_replaced_sensor_entity_description.unique_id_suffix}",
+                f"{subentry.unique_id}{last_replaced_sensor_entity_description.unique_id_suffix}",
             ),
         ]
 
@@ -177,7 +177,7 @@ async def async_setup_entry(
                     subentry,
                     battery_plus_sensor_entity_description,
                     coordinator,
-                    f"{config_entry.entry_id}{subentry.unique_id}{battery_plus_sensor_entity_description.unique_id_suffix}",
+                    f"{subentry.unique_id}{battery_plus_sensor_entity_description.unique_id_suffix}",
                     config_entry.options[CONF_ADVANCED_SETTINGS].get(CONF_ENABLE_REPLACED, True),
                     config_entry.options[CONF_ADVANCED_SETTINGS].get(CONF_ROUND_BATTERY, False),
                 )

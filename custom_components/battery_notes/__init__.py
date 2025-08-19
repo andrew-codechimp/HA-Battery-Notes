@@ -322,6 +322,30 @@ async def async_migrate_integration(hass: HomeAssistant, config: ConfigType) -> 
 
         hass.config_entries.async_add_subentry(migrate_base_entry, subentry)
 
+        # Update entities unique_id to be the subentry
+        entity_registry = er.async_get(hass)
+        for entity_entry in entity_registry.entities.values():
+            if entity_entry.config_entry_id == entry.entry_id:
+                # Update the unique_id to be the subentry unique_id
+
+                if "_" not in entity_entry.unique_id:
+                    new_unique_id = f"{subentry.unique_id}_battery_type"
+                else:
+                    new_unique_id = f"{subentry.unique_id}_{entity_entry.unique_id.split("_", 1)[1]}"
+
+                entity_disabled_by = entity_entry.disabled_by
+                if entity_disabled_by:
+                    entity_disabled_by = er.RegistryEntryDisabler.USER
+
+                entity_registry.async_update_entity(
+                                entity_entry.entity_id,
+                                config_entry_id=migrate_base_entry.entry_id,
+                                config_subentry_id=subentry.subentry_id,
+                                disabled_by=entity_disabled_by,
+                                new_unique_id=new_unique_id,
+                            )
+
+        # Remove the config entry from the device
         source_device_id = subentry.data.get(CONF_DEVICE_ID, None)
         device_registry = dr.async_get(hass)
         source_device = device_registry.async_get(source_device_id)

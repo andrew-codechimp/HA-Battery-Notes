@@ -105,7 +105,7 @@ async def async_setup_entry(
                     hass,
                     coordinator,
                     description,
-                    f"{config_entry.entry_id}{subentry.unique_id}{description.unique_id_suffix}",
+                    f"{subentry.unique_id}{description.unique_id_suffix}",
                 )
             ],
             config_subentry_id=subentry.subentry_id,
