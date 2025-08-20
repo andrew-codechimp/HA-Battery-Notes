@@ -258,6 +258,7 @@ async def async_migrate_integration(hass: HomeAssistant, config: ConfigType) -> 
             await hass.config_entries.async_remove(entry.entry_id)
             continue
 
+        # Tidy up data we accidentally added from discovery
         entry_data_dict = dict(entry.data)
         entry_data_dict.pop(CONF_MANUFACTURER, None)
         entry_data_dict.pop(CONF_MODEL, None)
