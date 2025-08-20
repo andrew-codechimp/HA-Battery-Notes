@@ -8,7 +8,6 @@ from __future__ import annotations
 
 import logging
 import re
-from collections.abc import Mapping
 from types import MappingProxyType
 
 import voluptuous as vol
@@ -251,21 +250,15 @@ async def async_migrate_integration(hass: HomeAssistant, config: ConfigType) -> 
         if entry.version >= 3:
             continue
 
-        if entry.disabled_by is not None:
-            continue
-
         if entry.source == SOURCE_IGNORE:
             continue
 
-        # TODO: tidy up the entry data, we had lots from discovery
-# ignored {"created_at":"2025-06-04T07:59:00.050540+00:00","data":{},"disabled_by":null,"discovery_keys":{},"domain":"battery_notes","entry_id":"01JWWZ6QEJHTWBKM054G230H6V","minor_version":1,"modified_at":"2025-06-04T07:59:00.050556+00:00","options":{},"pref_disable_new_entities":false,"pref_disable_polling":false,"source":"ignore","subentries":[],"title":"Andrew iPhone","unique_id":"bn_2c435f4055acc0bba193cf9f33e86a33","version":2},
-# ignored {"created_at":"2025-07-20T14:48:29.682036+00:00","data":{},"disabled_by":null,"discovery_keys":{},"domain":"battery_notes","entry_id":"01K0M4XK7H59AQ7QC42GEVY9WK","minor_version":1,"modified_at":"2025-07-20T14:48:29.682052+00:00","options":{},"pref_disable_new_entities":false,"pref_disable_polling":false,"source":"ignore","subentries":[],"title":"Andrew iPhone","unique_id":"bn_5cd3048fa97187702ced78372027b351","version":2},
-# user {"created_at":"2025-07-26T09:31:15.677923+00:00","data":{"battery_low_template":null,"battery_low_threshold":0,"battery_quantity":1,"battery_type":"PP3","device_id":"3b9a68e12840b196c2c7880f74f4a6d3","filter_outliers":false},"disabled_by":null,"discovery_keys":{},"domain":"battery_notes","entry_id":"01K13151AXRZNXS1DCZXVR98QN","minor_version":1,"modified_at":"2025-07-26T09:31:15.677935+00:00","options":{},"pref_disable_new_entities":false,"pref_disable_polling":false,"source":"user","subentries":[],"title":"Sun","unique_id":"bn_3b9a68e12840b196c2c7880f74f4a6d3","version":2},
-# user {"created_at":"2025-07-26T09:48:49.716087+00:00","data":{"battery_low_threshold":0,"battery_quantity":1,"battery_type":"CR2032","device_id":"27cab4eab4f9640128e035a3e0e4ccff","filter_outliers":false},"disabled_by":null,"discovery_keys":{},"domain":"battery_notes","entry_id":"01K13256NM2E3ACHADFV9CX5RP","minor_version":1,"modified_at":"2025-08-02T16:02:41.411041+00:00","options":{},"pref_disable_new_entities":false,"pref_disable_polling":false,"source":"user","subentries":[],"title":"IKEA of Sweden TRADFRI on/off switch","unique_id":"bn_27cab4eab4f9640128e035a3e0e4ccff","version":2},
-# discovery{"created_at":"2025-08-05T12:41:14.589333+00:00","data":{"battery_low_template":null,"battery_low_threshold":0,"battery_quantity":1,"battery_type":"Rechargeable","device_id":"1a6d01cd769c974a939b8c6dbdc3390e","device_name":"Andrew’s iPad","filter_outliers":false,"manufacturer":"Apple","model":"iPad8,1","model_id":[null]},"disabled_by":null,"discovery_keys":{},"domain":"battery_notes","entry_id":"01K1X4032X1QNMYNKM6WV7EY5N","minor_version":1,"modified_at":"2025-08-05T12:41:14.589344+00:00","options":{},"pref_disable_new_entities":false,"pref_disable_polling":false,"source":"integration_discovery","subentries":[],"title":"Andrew’s iPad","unique_id":"bn_1a6d01cd769c974a939b8c6dbdc3390e","version":2},
+        if entry.disabled_by is not None:
+            # We cannot migrate a disabled entry to a subentry, delete it instead
+            await hass.config_entries.async_remove(entry.entry_id)
+            continue
 
         entry_data_dict = dict(entry.data)
-
         entry_data_dict.pop(CONF_MANUFACTURER, None)
         entry_data_dict.pop(CONF_MODEL, None)
         entry_data_dict.pop(CONF_MODEL_ID, None)
