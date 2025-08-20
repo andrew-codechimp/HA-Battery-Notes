@@ -222,6 +222,8 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                     config_entry = entry
                     break
 
+        assert(config_entry is not None)
+
         for existing_subentry in config_entry.subentries.values():
             if existing_subentry.unique_id == unique_id:
                 _LOGGER.debug("Subentry with unique_id %s already exists", unique_id)
