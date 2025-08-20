@@ -12,6 +12,7 @@ import voluptuous as vol
 from homeassistant import config_entries
 from homeassistant.components.sensor.const import SensorDeviceClass
 from homeassistant.config_entries import (
+    SOURCE_IGNORE,
     ConfigEntry,
     ConfigFlowResult,
     ConfigSubentry,
@@ -182,9 +183,17 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
 
         unique_id = f"bn_{discovery_info[CONF_DEVICE_ID]}"
 
-        # Check if unique_id already exists as sub entry
-        config_entries = self.hass.config_entries.async_entries(domain=DOMAIN)
-        if not config_entries:
+        # Check if unique_id already exists as sub entry)
+        config_entries = self.hass.config_entries.async_entries(domain=DOMAIN, include_ignore=False, include_disabled=False),
+
+        config_entry: ConfigEntry | None = None
+        for entry in config_entries[0]:
+            if entry.title == INTEGRATION_NAME:
+                # We found the main config entry, use it
+                config_entry = entry
+                break
+
+        if not config_entry:
             _LOGGER.debug("No existing single config entry found, creating new one")
 
             # Init defaults
@@ -206,10 +215,13 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                 data={},
                 options=options
             )
+            config_entries = self.hass.config_entries.async_entries(domain=DOMAIN, include_ignore=False, include_disabled=False),
+            for entry in config_entries[0]:
+                if entry.title == INTEGRATION_NAME:
+                    # We found the main config entry, use it
+                    config_entry = entry
+                    break
 
-            config_entries = self.hass.config_entries.async_entries(domain=DOMAIN)
-
-        config_entry = config_entries[0]
         for existing_subentry in config_entry.subentries.values():
             if existing_subentry.unique_id == unique_id:
                 _LOGGER.debug("Subentry with unique_id %s already exists", unique_id)
