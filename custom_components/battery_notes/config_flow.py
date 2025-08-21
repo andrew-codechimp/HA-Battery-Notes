@@ -12,7 +12,6 @@ import voluptuous as vol
 from homeassistant import config_entries
 from homeassistant.components.sensor.const import SensorDeviceClass
 from homeassistant.config_entries import (
-    SOURCE_IGNORE,
     ConfigEntry,
     ConfigFlowResult,
     ConfigSubentry,

@@ -6,7 +6,7 @@ import logging
 from typing import Any
 
 import homeassistant.helpers.device_registry as dr
-from homeassistant.config_entries import SOURCE_IGNORE, SOURCE_INTEGRATION_DISCOVERY
+from homeassistant.config_entries import SOURCE_INTEGRATION_DISCOVERY
 from homeassistant.const import CONF_DEVICE_ID
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers import discovery_flow
