@@ -194,11 +194,21 @@ class Library:  # pylint: disable=too-few-public-methods
         self, device: dict[str, Any], model_info: ModelInfo
     ) -> bool:
         """Check if device match on hw_version or model_id."""
+        if model_info.hw_version is None and model_info.model_id is None:
+            if (
+                device.get(LIBRARY_HW_VERSION, LIBRARY_MISSING)
+                == LIBRARY_MISSING
+                and device.get(LIBRARY_MODEL_ID, LIBRARY_MISSING)
+                == LIBRARY_MISSING
+            ):
+                return True
+            return False
+
         if model_info.hw_version is None or model_info.model_id is None:
             if (
                 device.get(LIBRARY_HW_VERSION, LIBRARY_MISSING).casefold()
                 == str(model_info.hw_version).casefold()
-                or device.get(LIBRARY_MODEL_ID, LIBRARY_MISSING).casefold()
+                and device.get(LIBRARY_MODEL_ID, LIBRARY_MISSING).casefold()
                 == str(model_info.model_id).casefold()
             ):
                 return True
@@ -206,7 +216,7 @@ class Library:  # pylint: disable=too-few-public-methods
             if (
                 device.get(LIBRARY_HW_VERSION, LIBRARY_MISSING).casefold()
                 == str(model_info.hw_version).casefold()
-                and device.get(LIBRARY_MODEL_ID, LIBRARY_MISSING).casefold()
+                or device.get(LIBRARY_MODEL_ID, LIBRARY_MISSING).casefold()
                 == str(model_info.model_id).casefold()
             ):
                 return True

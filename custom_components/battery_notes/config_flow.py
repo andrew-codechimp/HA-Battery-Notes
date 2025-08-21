@@ -184,10 +184,10 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
         unique_id = f"bn_{discovery_info[CONF_DEVICE_ID]}"
 
         # Check if unique_id already exists as sub entry)
-        config_entries = self.hass.config_entries.async_entries(domain=DOMAIN, include_ignore=False, include_disabled=False),
+        config_entries = self.hass.config_entries.async_entries(domain=DOMAIN, include_ignore=False, include_disabled=False)
 
         config_entry: ConfigEntry | None = None
-        for entry in config_entries[0]:
+        for entry in config_entries:
             if entry.title == INTEGRATION_NAME:
                 # We found the main config entry, use it
                 config_entry = entry
