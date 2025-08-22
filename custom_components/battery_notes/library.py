@@ -137,7 +137,7 @@ class Library:  # pylint: disable=too-few-public-methods
         if fully_matching_devices and len(fully_matching_devices) > 0:
             matching_devices = fully_matching_devices
 
-        if not matching_devices or len(matching_devices) != 1:
+        if not matching_devices:
             return None
 
         matched_device = matching_devices[0]
