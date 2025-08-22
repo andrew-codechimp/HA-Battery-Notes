@@ -1,4 +1,4 @@
-## 1780 Devices in library
+## 1781 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1597,6 +1597,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Varta                                           |Zigbee Température Humidité                                                                   |2× AAA                    |WSD500A                            |                                      |
 |Verisure                                        |Lockguard Smartlock                                                                           |4× AA                     |                                   |                                      |
 |verspringE                                      |HSP02 / SP103                                                                                 |CR2                       |                                   |                                      |
+|Vesternet                                       |8 Button                                                                                      |CR2450                    |VES-ZW-WAL-009                     |                                      |
 |VictorPest.com                                  |Rat Trap                                                                                      |4× C                      |                                   |                                      |
 |Viking                                          |Viking 02035,02038                                                                            |2× AAA                    |                                   |                                      |
 |Vision Security                                 |ZD2102-5                                                                                      |CR123A                    |                                   |                                      |
