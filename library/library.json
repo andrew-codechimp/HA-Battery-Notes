@@ -10099,6 +10099,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Vesternet",
+            "model": "8 Button",
+            "model_id": "VES-ZW-WAL-009",
+            "battery_type": "CR2450"
         }
     ]
 }
