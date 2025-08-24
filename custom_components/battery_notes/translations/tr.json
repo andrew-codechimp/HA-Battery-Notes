@@ -108,7 +108,8 @@
             },
             "error": {
                 "unknown": "Bilinmeyen bir hata oluştu.",
-                "unconfigurable_entity": "Bu varlığı Battery Notes'a eklemek mümkün değildir."
+                "unconfigurable_entity": "Bu varlığı Battery Notes'a eklemek mümkün değildir.",
+                "orphaned_battery_note": "İlişkili cihaz veya varlık bu Battery Notes için artık mevcut değildir."
             }
         }
     },

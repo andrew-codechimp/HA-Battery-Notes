@@ -103,11 +103,13 @@
                 }
             },
             "abort": {
+                "reconfigure_successful": "Re-configuration was successful",
                 "already_configured": "Urządzenie jest już skonfigurowane"
             },
             "error": {
                 "unknown": "Wystąpił nieznany błąd.",
-                "unconfigurable_entity": "Nie można dodać tej encji do Battery Notes."
+                "unconfigurable_entity": "Nie można dodać tej encji do Battery Notes.",
+                "orphaned_battery_note": "Powiązane urządzenie lub encja już nie istnieje dla tej Notatki Baterii."
             }
         }
     },
