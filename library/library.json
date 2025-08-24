@@ -5314,6 +5314,11 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Moes",
+            "model": "ZSS-S01-TH",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "Mopeka IOT",
             "model": "M1015",
             "battery_type": "AAA Lithium"
@@ -10105,11 +10110,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Moes",
-            "model": "ZSS-S01-TH",
-            "battery_type": "CR2032"
         }
     ]
 }
