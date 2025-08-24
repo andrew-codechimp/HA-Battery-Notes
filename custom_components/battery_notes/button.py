@@ -137,7 +137,7 @@ class BatteryNotesButton(BatteryNotesEntity, ButtonEntity):
                 f"button.{coordinator.device_name.lower()}_{entity_description.key}"
             )
         elif coordinator.source_entity_id and coordinator.device_id:
-            source_entity_domain, source_object_id = split_entity_id(
+            _, source_object_id = split_entity_id(
                 coordinator.source_entity_id
             )
             self._attr_translation_placeholders = {

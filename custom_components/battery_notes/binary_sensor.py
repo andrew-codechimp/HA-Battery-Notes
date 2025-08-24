@@ -235,6 +235,7 @@ class _TemplateAttribute:
         last_result: str | None | TemplateError,
         result: str | TemplateError,
     ) -> None:
+        # pylint: disable=unused-argument
         """Handle a template result event callback."""
         if isinstance(result, TemplateError):
             _LOGGER.error(
@@ -374,7 +375,7 @@ class BatteryNotesBatteryLowTemplateSensor(
                 f"binary_sensor.{coordinator.device_name.lower()}_{entity_description.key}"
             )
         elif coordinator.source_entity_id and coordinator.device_id:
-            source_entity_domain, source_object_id = split_entity_id(
+            _, source_object_id = split_entity_id(
                 coordinator.source_entity_id
             )
             self._attr_translation_placeholders = {
@@ -564,7 +565,7 @@ class BatteryNotesBatteryLowSensor(BatteryNotesBatteryLowBaseSensor):
                 f"binary_sensor.{coordinator.device_name.lower()}_{entity_description.key}"
             )
         elif coordinator.source_entity_id and coordinator.device_id:
-            source_entity_domain, source_object_id = split_entity_id(
+            _, source_object_id = split_entity_id(
                 coordinator.source_entity_id
             )
             self._attr_translation_placeholders = {
@@ -644,7 +645,7 @@ class BatteryNotesBatteryBinaryLowSensor(BatteryNotesBatteryLowBaseSensor):
                 f"binary_sensor.{coordinator.device_name.lower()}_{entity_description.key}"
             )
         elif coordinator.source_entity_id and coordinator.device_id:
-            source_entity_domain, source_object_id = split_entity_id(
+            _, source_object_id = split_entity_id(
                 coordinator.source_entity_id
             )
             self._attr_translation_placeholders = {

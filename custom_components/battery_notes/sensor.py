@@ -344,6 +344,7 @@ class BatteryNotesBatteryPlusSensor(
         enable_replaced: bool,
         round_battery: bool,
     ) -> None:
+        # pylint: disable=unused-argument
         """Initialize the sensor."""
         super().__init__(hass=hass, entity_description=entity_description, coordinator=coordinator)
 
