@@ -291,7 +291,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                 device_entry = device_registry.async_get(self.device_id)
             if device_entry:
                 self.device_name = (
-                    device_entry.name_by_user or device_entry.name or self.subentry.title
+                    self.subentry.title or device_entry.name_by_user or device_entry.name
                 )
             else:
                 self.device_name = self.subentry.title
