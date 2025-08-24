@@ -48,6 +48,7 @@ from homeassistant.helpers.event import (
     EventStateChangedData,
     TrackTemplate,
     TrackTemplateResult,
+    TrackTemplateResultInfo,
     async_track_state_change_event,
     async_track_template_result,
 )
@@ -197,7 +198,7 @@ class _TemplateAttribute:
         self,
         entity: Entity,
         attribute: str,
-        template: Template,
+        tmpl: Template,
         validator: Callable[[Any], Any] | None = None,
         on_update: Callable[[Any], None] | None = None,
         none_on_template_error: bool | None = False,
@@ -205,7 +206,7 @@ class _TemplateAttribute:
         """Template attribute."""
         self._entity = entity
         self._attribute = attribute
-        self.template = template
+        self.template = tmpl
         self.validator = validator
         self.on_update = on_update
         self.async_update = None
@@ -231,7 +232,7 @@ class _TemplateAttribute:
     def handle_result(
         self,
         event: Event[EventStateChangedData] | None,
-        template: Template,
+        tmpl: Template,
         last_result: str | None | TemplateError,
         result: str | TemplateError,
     ) -> None:
@@ -358,7 +359,7 @@ class BatteryNotesBatteryLowTemplateSensor(
         coordinator: BatteryNotesSubentryCoordinator,
         entity_description: BatteryNotesBinarySensorEntityDescription,
         unique_id: str,
-        template: str,
+        tmpl: str,
     ) -> None:
         """Create a low battery binary sensor."""
 
@@ -366,6 +367,7 @@ class BatteryNotesBatteryLowTemplateSensor(
 
         self._attr_unique_id = unique_id
         self._template_attrs: dict[Template, list[_TemplateAttribute]] = {}
+        self._template_result_info: TrackTemplateResultInfo | None = None
 
         if coordinator.source_entity_id and not coordinator.device_id:
             self._attr_translation_placeholders = {
@@ -388,7 +390,7 @@ class BatteryNotesBatteryLowTemplateSensor(
                 f"binary_sensor.{coordinator.device_name.lower()}_{entity_description.key}"
             )
 
-        self._template = template
+        self._template = tmpl
         self._state: bool | None = None
 
     async def async_added_to_hass(self) -> None:
@@ -403,7 +405,7 @@ class BatteryNotesBatteryLowTemplateSensor(
     def add_template_attribute(
         self,
         attribute: str,
-        template: Template,
+        tmpl: Template,
         validator: Callable[[Any], Any] | None = None,
         on_update: Callable[[Any], None] | None = None,
         none_on_template_error: bool = False,
@@ -430,10 +432,10 @@ class BatteryNotesBatteryLowTemplateSensor(
         assert self.hass is not None, "hass cannot be None"
         template.hass = self.hass
         template_attribute = _TemplateAttribute(
-            self, attribute, template, validator, on_update, none_on_template_error
+            self, attribute, tmpl, validator, on_update, none_on_template_error
         )
-        self._template_attrs.setdefault(template, [])
-        self._template_attrs[template].append(template_attribute)
+        self._template_attrs.setdefault(tmpl, [])
+        self._template_attrs[tmpl].append(template_attribute)
 
     @callback
     def _async_setup_templates(self) -> None:
