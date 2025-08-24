@@ -13,14 +13,14 @@
       "nodeGypDependencies": true,
       "version": "lts"
     },
-    "ghcr.io/devcontainers/features/rust:1": {},
+    "ghcr.io/devcontainers/features/rust:1": { },
     "ghcr.io/devcontainers-extra/features/apt-packages:1": {
-      "packages": ["ffmpeg", "libturbojpeg0", "libpcap-dev"]
+      "packages": [ "ffmpeg", "libturbojpeg0", "libpcap-dev" ]
     }
   },
   "postCreateCommand": "scripts/setup",
-  "runArgs": ["--network=host"],
-  "forwardPorts": [8123],
+  "runArgs": [ "--network=host" ],
+  "forwardPorts": [ 8123 ],
   "portsAttributes": {
     "8123": {
       "label": "Home Assistant",
@@ -30,11 +30,17 @@
   "customizations": {
     "vscode": {
       "extensions": [
+        "charliermarsh.ruff",
         "ms-python.python",
+        "ms-python.pylint",
+        "ms-python.vscode-pylance",
         "github.vscode-pull-request-github",
         "ryanluker.vscode-coverage-gutters",
-        "ms-python.vscode-pylance",
-        "charliermarsh.ruff"
+        "visualstudioexptteam.vscodeintellicode",
+        "redhat.vscode-yaml",
+        "esbenp.prettier-vscode",
+        "GitHub.vscode-pull-request-github",
+        "GitHub.copilot"
       ],
       "settings": {
         "files.eol": "\n",
