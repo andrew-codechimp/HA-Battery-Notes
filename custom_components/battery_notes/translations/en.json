@@ -35,7 +35,6 @@
                 "user": "Add battery note"
             },
             "entry_type": "Battery note",
-
             "step": {
                 "user": {
                     "description": "If you need help with the configuration have a look here: https://andrew-codechimp.github.io/HA-Battery-Notes/",
