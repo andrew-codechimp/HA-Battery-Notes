@@ -133,7 +133,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
             self.is_orphaned = True
             return
 
-        assert(self.device_name)
+        assert self.device_name
 
         self.battery_type = cast(str, self.subentry.data.get(CONF_BATTERY_TYPE, ""))
         try:
@@ -643,7 +643,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
         if self.source_entity_id:
             self.async_update_entity_config(entity_id=self.source_entity_id, data=entry)
         else:
-            assert(self.device_id)
+            assert self.device_id
             self.async_update_device_config(device_id=self.device_id, data=entry)
 
     @property
@@ -672,7 +672,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
         if self.source_entity_id:
             self.async_update_entity_config(entity_id=self.source_entity_id, data=entry)
         else:
-            assert(self.device_id)
+            assert self.device_id
             self.async_update_device_config(device_id=self.device_id, data=entry)
 
     @property

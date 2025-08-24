@@ -217,7 +217,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                     config_entry = entry
                     break
 
-        assert(config_entry is not None)
+        assert config_entry
 
         for existing_subentry in config_entry.subentries.values():
             if existing_subentry.unique_id == unique_id:
