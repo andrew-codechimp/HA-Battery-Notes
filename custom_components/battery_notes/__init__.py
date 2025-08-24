@@ -13,10 +13,7 @@ from types import MappingProxyType
 import voluptuous as vol
 from awesomeversion.awesomeversion import AwesomeVersion
 from homeassistant.config_entries import SOURCE_IGNORE, ConfigEntry, ConfigSubentry
-from homeassistant.const import (
-    CONF_DEVICE_ID,
-    EVENT_HOMEASSISTANT_STARTED,
-)
+from homeassistant.const import CONF_DEVICE_ID, EVENT_HOMEASSISTANT_STARTED
 from homeassistant.const import __version__ as HA_VERSION  # noqa: N812
 from homeassistant.core import Event, HomeAssistant, callback
 from homeassistant.helpers import config_validation as cv
@@ -24,9 +21,7 @@ from homeassistant.helpers import device_registry as dr
 from homeassistant.helpers import entity_registry as er
 from homeassistant.helpers import helper_integration
 from homeassistant.helpers import issue_registry as ir
-from homeassistant.helpers.device import (
-    async_entity_id_to_device_id,
-)
+from homeassistant.helpers.device import async_entity_id_to_device_id
 from homeassistant.helpers.issue_registry import IssueSeverity, async_create_issue
 from homeassistant.helpers.typing import ConfigType
 
@@ -36,9 +31,11 @@ from .const import (
     CONF_BATTERY_QUANTITY,
     CONF_BATTERY_TYPE,
     CONF_DEFAULT_BATTERY_LOW_THRESHOLD,
+    CONF_DEVICE_NAME,
     CONF_ENABLE_AUTODISCOVERY,
     CONF_ENABLE_REPLACED,
     CONF_HIDE_BATTERY,
+    CONF_HW_VERSION,
     CONF_MANUFACTURER,
     CONF_MODEL,
     CONF_MODEL_ID,
@@ -64,9 +61,7 @@ from .coordinator import (
 from .discovery import DiscoveryManager
 from .library_updater import LibraryUpdater
 from .services import async_setup_services
-from .store import (
-    async_get_registry,
-)
+from .store import async_get_registry
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -260,9 +255,11 @@ async def async_migrate_integration(hass: HomeAssistant, config: ConfigType) -> 
 
         # Tidy up data we accidentally added from discovery
         entry_data_dict = dict(entry.data)
+        entry_data_dict.pop(CONF_DEVICE_NAME, None)
         entry_data_dict.pop(CONF_MANUFACTURER, None)
         entry_data_dict.pop(CONF_MODEL, None)
         entry_data_dict.pop(CONF_MODEL_ID, None)
+        entry_data_dict.pop(CONF_HW_VERSION, None)
 
         subentry = ConfigSubentry(
             data=MappingProxyType(entry_data_dict),

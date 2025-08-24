@@ -39,6 +39,7 @@ from .const import (
     CONF_ENABLE_REPLACED,
     CONF_FILTER_OUTLIERS,
     CONF_HIDE_BATTERY,
+    CONF_HW_VERSION,
     CONF_MANUFACTURER,
     CONF_MODEL,
     CONF_MODEL_ID,
@@ -229,6 +230,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             "manufacturer": discovery_info[CONF_MANUFACTURER],
             "model": discovery_info[CONF_MODEL],
             "model_id": discovery_info[CONF_MODEL_ID],
+            "hw_version": discovery_info[CONF_HW_VERSION],
         }
 
         await self.async_set_unique_id(unique_id)
@@ -406,9 +408,11 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                 title = device_entry.name_by_user or device_entry.name
 
             # Remove discovery data from data
+            self.data.pop(CONF_DEVICE_NAME, None)
             self.data.pop(CONF_MANUFACTURER, None)
             self.data.pop(CONF_MODEL, None)
             self.data.pop(CONF_MODEL_ID, None)
+            self.data.pop(CONF_HW_VERSION, None)
 
             config_entry = self.hass.config_entries.async_entries(domain=DOMAIN)[0]
             # Create a subentry
