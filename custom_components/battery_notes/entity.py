@@ -65,7 +65,7 @@ class BatteryNotesEntity(CoordinatorEntity[BatteryNotesSubentryCoordinator]):
                 f"{entity_description.entity_type}.{self.coordinator.device_name.lower()}_{entity_description.key}"
             )
         elif self.coordinator.source_entity_id and self.coordinator.device_id:
-            source_entity_domain, source_object_id = split_entity_id(
+            _, source_object_id = split_entity_id(
                 self.coordinator.source_entity_id
             )
             self._attr_translation_placeholders = {
