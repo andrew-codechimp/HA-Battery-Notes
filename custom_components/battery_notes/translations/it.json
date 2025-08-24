@@ -2,33 +2,8 @@
     "config": {
         "step": {
             "user": {
-                "description": "Se hai bisogno di aiuto per la configurazione, dai un'occhiata qui: https://andrew-codechimp.github.io/HA-Battery-Notes/",
-                "data": {
-                    "association_type": "Tipo di associazione"
-                },
-                "menu_options": {
-                    "device": "Dispositivo (consigliato)",
-                    "entity": "Entità"
-                },
-                "title": "Scegli il tipo di associazione"
-            },
-            "device": {
-                "data": {
-                    "device_id": "Dispositivo",
-                    "name": "Nome"
-                },
-                "data_description": {
-                    "name": "Lasciando vuoto prenderà il nome dal dispositivo di origine"
-                }
-            },
-            "entity": {
-                "data": {
-                    "source_entity_id": "Entità",
-                    "name": "Nome"
-                },
-                "data_description": {
-                    "name": "Lasciando vuoto prenderà il nome dall'entità di origine"
-                }
+                "description": "New Battery Notes will be discovered if they are in the library.\nTo add new Battery Notes manually go into the integration page, select Add Battery Note and follow the instructions.\nIf you need help with the configuration have a look here: https://andrew-codechimp.github.io/HA-Battery-Notes/",
+                "title": "Setup Battery Notes"
             },
             "battery": {
                 "description": "Produttore: {manufacturer}\nModello: {model}\nID Modello: {model_id}\nVersione hardware: {hw_version}",
@@ -44,21 +19,139 @@
                     "battery_low_template": "Modello per determinare se una batteria è scarica, dovrebbe restituire vero se scarica. \nNecessario solo per livelli di batteria non standard",
                     "filter_outliers": "Filtra grossi cali batteria, riducendo falsi eventi su dispositivi che restituiscono occasionalmente livelli erronei"
                 }
-            },
-            "manual": {
-                "description": "Questo dispositivo è contrassegnato nella libreria come manuale, le varianti usano diversi tipi di batteria per cui non può essere impostato nella libreria.\nIl passo successivo ti permetterà di scegliere il tipo di batteria, non inviare una richiesta di dispositivo per favore.",
-                "title": "Configurazione manuale del dispositivo"
             }
         },
         "abort": {
-            "already_configured": "Il dispositivo è già configurato"
+            "already_configured": "Integration is already configured",
+            "created_sub_entry": "Battery Note created successfully"
         },
         "error": {
-            "unknown": "Errore sconosciuto.",
-            "unconfigurable_entity": "Non è possibile aggiungere questa entità a Battery Notes."
+            "unknown": "Unknown error occurred."
+        }
+    },
+    "config_subentries": {
+        "battery_note": {
+            "initiate_flow": {
+                "user": "Add battery note"
+            },
+            "entry_type": "Battery note",
+            "step": {
+                "user": {
+                    "description": "Se hai bisogno di aiuto per la configurazione, dai un'occhiata qui: https://andrew-codechimp.github.io/HA-Battery-Notes/",
+                    "data": {
+                        "association_type": "Tipo di associazione"
+                    },
+                    "menu_options": {
+                        "device": "Dispositivo (consigliato)",
+                        "entity": "Entità"
+                    },
+                    "title": "Scegli il tipo di associazione"
+                },
+                "device": {
+                    "data": {
+                        "device_id": "Dispositivo",
+                        "name": "Nome"
+                    },
+                    "data_description": {
+                        "name": "Lasciando vuoto prenderà il nome dal dispositivo di origine"
+                    }
+                },
+                "entity": {
+                    "data": {
+                        "source_entity_id": "Entità",
+                        "name": "Nome"
+                    },
+                    "data_description": {
+                        "name": "Lasciando vuoto prenderà il nome dall'entità di origine"
+                    }
+                },
+                "battery": {
+                    "description": "Produttore: {manufacturer}\nModello: {model}\nID Modello: {model_id}\nVersione hardware: {hw_version}",
+                    "data": {
+                        "battery_type": "Tipo di batteria",
+                        "battery_quantity": "Quantità batteria",
+                        "battery_low_threshold": "Livello batteria bassa",
+                        "battery_low_template": "Modello batteria bassa",
+                        "filter_outliers": "Filtra anomali"
+                    },
+                    "data_description": {
+                        "battery_low_threshold": "0 utilizzerà la soglia globale predefinita",
+                        "battery_low_template": "Modello per determinare se una batteria è scarica, dovrebbe restituire vero se scarica. \nNecessario solo per livelli di batteria non standard",
+                        "filter_outliers": "Filtra grossi cali batteria, riducendo falsi eventi su dispositivi che restituiscono occasionalmente livelli erronei"
+                    }
+                },
+                "manual": {
+                    "description": "Questo dispositivo è contrassegnato nella libreria come manuale, le varianti usano diversi tipi di batteria per cui non può essere impostato nella libreria.\nIl passo successivo ti permetterà di scegliere il tipo di batteria, non inviare una richiesta di dispositivo per favore.",
+                    "title": "Configurazione manuale del dispositivo"
+                },
+                "reconfigure": {
+                    "description": "Produttore: {manufacturer}\nModello: {model}\nID Modello: {model_id}\nVersione hardware: {hw_version}",
+                    "data": {
+                        "name": "Nome",
+                        "battery_type": "Tipo di batteria",
+                        "battery_quantity": "Quantità batteria",
+                        "battery_low_threshold": "Livello batteria bassa",
+                        "battery_low_template": "Modello batteria bassa",
+                        "filter_outliers": "Filtra anomali"
+                    },
+                    "data_description": {
+                        "name": "Lasciando vuoto prenderà il nome dal dispositivo di origine",
+                        "battery_low_threshold": "0 utilizzerà la soglia globale predefinita",
+                        "battery_low_template": "Modello per determinare se una batteria è scarica, dovrebbe restituire vero se scarica. \nNecessario solo per livelli di batteria non standard",
+                        "filter_outliers": "Filtra grossi cali batteria, riducendo falsi eventi su dispositivi che restituiscono occasionalmente livelli erronei"
+                    }
+                }
+            },
+            "abort": {
+                "reconfigure_successful": "Re-configuration was successful",
+                "already_configured": "Il dispositivo è già configurato"
+            },
+            "error": {
+                "unknown": "Errore sconosciuto.",
+                "unconfigurable_entity": "Non è possibile aggiungere questa entità a Battery Notes.",
+                "orphaned_battery_note": "L'entità o dispositivo associato non esiste più per questo Battery Note."
+            }
         }
     },
     "options": {
+        "step": {
+            "init": {
+                "data": {
+                    "show_all_devices": "Show all devices",
+                    "hide_battery": "Hide battery",
+                    "round_battery": "Round battery",
+                    "default_battery_low_threshold": "Default battery low threshold",
+                    "battery_increase_threshold": "Battery increase threshold"
+                },
+                "data_description": {
+                    "show_all_devices": "Show all devices in the device dropdown, otherwise only those with batteries will be shown.",
+                    "hide_battery": "Hide the standard battery when adding Battery+.",
+                    "round_battery": "Round battery+ to whole percentages.",
+                    "default_battery_low_threshold": "The default threshold where a devices battery_low entity is set to true and the battery_notes_battery_threshold event is fired if the battery is below this threshold, can be overriden per device in device configuration.",
+                    "battery_increase_threshold": "The threshold where the battery_notes_battery_increased event is fired, use this event for battery replaced automations. The threshold is the difference in increase between previous and current battery level."
+                },
+                "sections": {
+                    "advanced_settings": {
+                        "name": "Advanced settings",
+                        "data": {
+                            "enable_autodiscovery": "Auto discovery",
+                            "enable_replaced": "Enable battery replaced",
+                            "user_library": "User library"
+                        },
+                        "data_description": {
+                            "enable_autodiscovery": "Auto discovery of devices that are in the library.",
+                            "enable_replaced": "Enable the battery replaced button on each battery note.",
+                            "user_library": "If specified then a user library file will be searched prior to the main library, the user library must be in the same format as the library and placed in `config/.storage/battery_notes`."
+                        }
+                    }
+                }
+            }
+        },
+        "error": {
+            "unknown": "Errore sconosciuto."
+        }
+    },
+    "battery_note_options": {
         "step": {
             "init": {
                 "description": "Produttore: {manufacturer}\nModello: {model}\nID Modello: {model_id}\nVersione hardware: {hw_version}",
@@ -199,6 +292,15 @@
                     }
                 }
             }
+        },
+        "deprecated_yaml": {
+            "title": "The {integration_title} YAML configuration is being removed",
+            "description": "Configuring {integration_title} using YAML is being removed.\n\nYour existing YAML configuration has been imported into the UI automatically.\n\nRemove the `{domain}` configuration from your configuration.yaml file and restart Home Assistant to fix this issue."
+        }
+    },
+    "exceptions": {
+        "not_configured_in_battery_notes": {
+            "message": "{source} is not configured in Battery Notes."
         }
     }
 }
