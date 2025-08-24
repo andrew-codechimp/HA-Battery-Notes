@@ -663,6 +663,7 @@ class BatteryNotesBatteryBinaryLowSensor(BatteryNotesBatteryLowBaseSensor):
         self._attr_unique_id = unique_id
 
         self._state: bool | None = None
+        self._wrapped_attributes: dict[str, Any] | None = None
 
     @callback
     async def async_state_changed_listener(
