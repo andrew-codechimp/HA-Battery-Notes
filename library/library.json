@@ -10105,6 +10105,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Moes",
+            "model": "ZSS-S01-TH",
+            "battery_type": "CR2032"
         }
     ]
 }
