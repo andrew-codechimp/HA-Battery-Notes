@@ -54,7 +54,7 @@ The overview video is available on YouTube [here](https://youtu.be/D403Vy2VaFA)
 ### Search for devices with a particular battery
 
 Again from the excellent [Smart Live](https://smart-live.net/battery-notes-batteriemanagement-mit-home-assistant/)  
-This requires creating a helper of type text called `Battery search` with a max length of 20, which you can then reference in the below yaml on a dashboard.  
+This requires creating a helper of type text called `Battery search` with a max length of 20, which you can then reference in the below yaml on a dashboard.
 
 ```yaml
 type: vertical-stack
@@ -68,13 +68,19 @@ cards:
     state_color: false
   - type: markdown
     content: |-
-      {% set search_term = states('input_text.battery_search') | upper %}
-      {% if search_term != "" %}
+      {% set search_term = states('input_text.battery_search') | upper | trim %}
+      {% if search_term != "" %}     
         {% set devices = states | selectattr('attributes.battery_type', 'defined') 
                                   | selectattr('entity_id', 'search', '_battery_type$') | list %}
-        {% set matching_devices = devices | selectattr('attributes.battery_type', 'string') 
-                                            | selectattr('attributes.battery_type', 'eq', search_term) 
-                                            | map(attribute='name') | unique | list %}
+        {% if search_term | count < 7 %}
+          {% set matching_devices = devices | selectattr('attributes.battery_type', 'string')
+                                              | selectattr('attributes.battery_type', 'eq', search_term) 
+                                              | map(attribute='name') | unique | list %}
+        {% else %}
+          {% set matching_devices = devices | selectattr('attributes.battery_type', 'string')
+                                              | selectattr('attributes.battery_type', 'search', search_term, ignorecase=true) 
+                                              | map(attribute='name') | unique | list %}  
+        {% endif %}
         {% if matching_devices | length > 0 %}
           {{ matching_devices | join('\n') }}
         {% else %}
