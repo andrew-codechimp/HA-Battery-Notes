@@ -19,11 +19,7 @@ from homeassistant.config_entries import (
     OptionsFlow,
     SubentryFlowResult,
 )
-from homeassistant.const import (
-    CONF_DEVICE_ID,
-    CONF_NAME,
-    Platform,
-)
+from homeassistant.const import CONF_DEVICE_ID, CONF_NAME, Platform
 from homeassistant.core import callback, split_entity_id
 from homeassistant.data_entry_flow import section
 from homeassistant.helpers import selector
@@ -394,9 +390,17 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             self._abort_if_unique_id_configured()
 
             if CONF_NAME in self.data:
-                title = self.data.get(CONF_NAME)
+                title = self.data.pop(CONF_NAME)
             elif source_entity_id and entity_entry:
-                title = entity_entry.name or entity_entry.original_name
+                if entity_entry.device_id:
+                    device_registry = dr.async_get(self.hass)
+                    device_entry = device_registry.async_get(entity_entry.device_id)
+                    if device_entry:
+                        title = f"{device_entry.name_by_user or device_entry.name} - {entity_entry.name or entity_entry.original_name}"
+                    else:
+                        title = entity_entry.name or entity_entry.original_name
+                else:
+                    title = entity_entry.name or entity_entry.original_name
             else:
                 assert device_entry
                 title = device_entry.name_by_user or device_entry.name
@@ -732,7 +736,15 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
             if CONF_NAME in self.data:
                 title = self.data.pop(CONF_NAME)
             elif source_entity_id and entity_entry:
-                title = entity_entry.name or entity_entry.original_name
+                if entity_entry.device_id:
+                    device_registry = dr.async_get(self.hass)
+                    device_entry = device_registry.async_get(entity_entry.device_id)
+                    if device_entry:
+                        title = f"{device_entry.name_by_user or device_entry.name} - {entity_entry.name or entity_entry.original_name}"
+                    else:
+                        title = entity_entry.name or entity_entry.original_name
+                else:
+                    title = entity_entry.name or entity_entry.original_name
             else:
                 assert device_entry
                 title = device_entry.name_by_user or device_entry.name
