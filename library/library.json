@@ -8085,6 +8085,13 @@
         },
         {
             "manufacturer": "Tuya",
+            "model": "Door/window sensor",
+            "model_id": "TS0203",
+            "hw_version": "1",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Tuya",
             "model": "Fingerbot Plus (6jcvqwh0)",
             "battery_type": "CR2"
         },
@@ -10110,13 +10117,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Door/window sensor",
-            "model_id": "TS0203",
-            "hw_version": "1",
-            "battery_type": "CR2032"
         }
     ]
 }
