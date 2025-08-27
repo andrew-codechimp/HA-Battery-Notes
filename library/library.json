@@ -1156,6 +1156,12 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "lumi.valve.agl001",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "MCCGQ11LM",
             "battery_type": "CR2032"
         },
@@ -10131,12 +10137,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Aqara",
-            "model": "lumi.valve.agl001",
-            "battery_type": "AA",
-            "battery_quantity": 4
         }
     ]
 }
