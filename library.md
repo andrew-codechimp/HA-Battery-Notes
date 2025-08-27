@@ -1,4 +1,4 @@
-## 1783 Devices in library
+## 1784 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1572,6 +1572,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tuya                                            |WX1 Tap Timer (unsupported)                                                                   |4× AA                     |(zrsgzc8jktsricjj)                 |                                      |
 |Tuya                                            |X-Sense Wi-Fi Smoke Alarm (skivkhveqwmqw4gs)                                                  |CR123A                    |                                   |                                      |
 |TuYa                                            |ZG-204ZL                                                                                      |CR2450                    |                                   |                                      |
+|Tuya                                            |ZG-204ZM                                                                                      |2× AAA                    |                                   |                                     1|
 |TuYa                                            |Zigbee 3.0 temperature humidity sensor with display (TS0201_1)                                |2× AA                     |                                   |                                      |
 |Tuya                                            |Zigbee 4 button remote - 12 scene (TS0044_1) by Tuya                                          |2× AAA                    |TS0044_1                           |                                      |
 |Tuya                                            |Zigbee fingerbot plus                                                                         |CR2                       |TS0001                             |                                      |
