@@ -10124,6 +10124,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Petlibro",
+            "model": "PLAF109",
+            "hw_version": "5.2.0",
+            "battery_type": "AA",
+            "battery_quantity": 3
         }
     ]
 }
