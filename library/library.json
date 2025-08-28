@@ -3829,6 +3829,12 @@
         },
         {
             "manufacturer": "HEIMAN",
+            "model": "HS-720ES-M",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "HEIMAN",
             "model": "HS1SA-M",
             "battery_type": "CR123A"
         },
@@ -10148,12 +10154,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "HEIMAN",
-            "model": "HS-720ES-M",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
