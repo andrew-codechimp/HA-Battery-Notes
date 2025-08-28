@@ -10137,6 +10137,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "HEIMAN",
+            "model": "HS1SA-M",
+            "battery_type": "CR123A"
         }
     ]
 }
