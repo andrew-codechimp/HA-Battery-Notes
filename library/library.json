@@ -2229,6 +2229,12 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "Dreametech",
+            "model": "X40 ULTRA COMPLETE",
+            "model_id": "dreame.vacuum.r2449a",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Eaton",
             "model": "Ellipse ECO 650",
             "battery_type": "Rechargeable"
@@ -10136,12 +10142,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Dreametech",
-            "model": "X40 ULTRA COMPLETE",
-            "model_id": "dreame.vacuum.r2449a",
             "battery_type": "Rechargeable"
         }
     ]
