@@ -10154,6 +10154,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Springs Window Fashions",
+            "model": "CRZB",
+            "battery_type": "Rechargeable"
         }
     ]
 }
