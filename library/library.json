@@ -3694,6 +3694,11 @@
         },
         {
             "manufacturer": "Govee",
+            "model": "H5101",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Govee",
             "model": "H5101/H5102/H5177",
             "battery_type": "AAA"
         },
@@ -10159,11 +10164,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Govee",
-            "model": "H5101",
-            "battery_type": "CR2450"
         }
     ]
 }
