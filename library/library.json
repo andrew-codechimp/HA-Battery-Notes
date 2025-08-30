@@ -7354,6 +7354,11 @@
         },
         {
             "manufacturer": "Springs Window Fashions",
+            "model": "CRZB",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Springs Window Fashions",
             "model": "CSZ1",
             "battery_type": "AA",
             "battery_quantity": 8
@@ -10153,11 +10158,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Springs Window Fashions",
-            "model": "CRZB",
             "battery_type": "Rechargeable"
         }
     ]
