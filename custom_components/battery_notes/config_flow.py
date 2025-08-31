@@ -170,6 +170,14 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             SUBENTRY_BATTERY_NOTE: BatteryNotesSubentryFlowHandler,
         }
 
+    def get_integration_entry(self) -> ConfigEntry | None:
+        """Return the main integration config entry, if it exists."""
+        existing_entries = self.hass.config_entries.async_entries(domain=DOMAIN, include_ignore=False, include_disabled=False)
+        for entry in existing_entries:
+            if entry.title == INTEGRATION_NAME:
+                return entry
+        return None
+
     async def async_step_integration_discovery(
         self,
         discovery_info: DiscoveryInfoType,
@@ -179,15 +187,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
 
         unique_id = f"bn_{discovery_info[CONF_DEVICE_ID]}"
 
-        # Check if unique_id already exists as sub entry)
-        config_entries = self.hass.config_entries.async_entries(domain=DOMAIN, include_ignore=False, include_disabled=False)
-
-        config_entry: ConfigEntry | None = None
-        for entry in config_entries:
-            if entry.title == INTEGRATION_NAME:
-                # We found the main config entry, use it
-                config_entry = entry
-                break
+        config_entry = self.get_integration_entry()
 
         if not config_entry:
             _LOGGER.debug("No existing single config entry found, creating new one")
@@ -211,12 +211,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                 data={},
                 options=options
             )
-            config_entries = self.hass.config_entries.async_entries(domain=DOMAIN, include_ignore=False, include_disabled=False),
-            for entry in config_entries[0]:
-                if entry.title == INTEGRATION_NAME:
-                    # We found the main config entry, use it
-                    config_entry = entry
-                    break
+            config_entry = self.get_integration_entry()
 
         assert config_entry
 
@@ -414,8 +409,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             self.data.pop(CONF_MODEL_ID, None)
             self.data.pop(CONF_HW_VERSION, None)
 
-            config_entry = self.hass.config_entries.async_entries(domain=DOMAIN)[0]
-            # Create a subentry
+            config_entry = self.get_integration_entry()
             subentry = ConfigSubentry(subentry_type=SUBENTRY_BATTERY_NOTE, data=MappingProxyType(self.data), title=str(title), unique_id=unique_id)
             self.hass.config_entries.async_add_subentry(config_entry, subentry)
 
