@@ -156,6 +156,7 @@ async def async_setup_entry(
 
     config_entry.async_on_unload(config_entry.add_update_listener(_async_update_listener))
 
+    @callback
     async def _after_start(_: Event) -> None:
         """After Home Assistant has started, update library and do discovery."""
         library_updater = LibraryUpdater(hass)
@@ -168,23 +169,10 @@ async def async_setup_entry(
         else:
             _LOGGER.debug("Auto discovery disabled")
 
-    @callback
-    def _unsubscribe_ha_started() -> None:
-        """Unsubscribe the started listener."""
-        if after_start_unsub is not None:
-            try:
-                after_start_unsub()
-            except ValueError:
-                _LOGGER.debug(
-                    "Failed to unsubscribe started listener, "
-                    "it might have already been removed or never registered.",
-                )
-
     # Wait until Home Assistant is started, before doing library and discovery
-    after_start_unsub = hass.bus.async_listen_once(
+    hass.bus.async_listen_once(
         EVENT_HOMEASSISTANT_STARTED, _after_start
     )
-    config_entry.async_on_unload(_unsubscribe_ha_started)
 
     return True
 
