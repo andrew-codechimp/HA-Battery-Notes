@@ -54,7 +54,7 @@ class LibraryUpdater:
         )
 
     @callback
-    async def timer_update(self, now: datetime):
+    async def timer_update(self):
         """Need to update the library."""
         if await self.time_to_update_library(23) is False:
             return
@@ -168,7 +168,7 @@ class LibraryUpdaterClient:
 
     async def async_get_data(self) -> Any:
         """Get data from the API."""
-        _LOGGER.debug(f"Updating library from {DEFAULT_LIBRARY_URL}")
+        _LOGGER.debug("Updating library from %s", DEFAULT_LIBRARY_URL)
         return await self._api_wrapper(method="get", url=DEFAULT_LIBRARY_URL)
 
     async def _api_wrapper(
