@@ -170,7 +170,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             SUBENTRY_BATTERY_NOTE: BatteryNotesSubentryFlowHandler,
         }
 
-    def get_integration_entry(self) -> ConfigEntry | None:
+    async def async_get_integration_entry(self) -> ConfigEntry | None:
         """Return the main integration config entry, if it exists."""
         existing_entries = self.hass.config_entries.async_entries(domain=DOMAIN, include_ignore=False, include_disabled=False)
         for entry in existing_entries:
@@ -187,7 +187,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
 
         unique_id = f"bn_{discovery_info[CONF_DEVICE_ID]}"
 
-        config_entry = self.get_integration_entry()
+        config_entry = await self.async_get_integration_entry()
 
         if not config_entry:
             _LOGGER.debug("No existing single config entry found, creating new one")
@@ -211,7 +211,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                 data={},
                 options=options
             )
-            config_entry = self.get_integration_entry()
+            config_entry = await self.async_get_integration_entry()
 
         assert config_entry
 
@@ -369,7 +369,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             if source_entity_id:
                 entity_registry = er.async_get(self.hass)
                 entity_entry = entity_registry.async_get(source_entity_id)
-                source_entity_domain, source_object_id = split_entity_id(
+                _, source_object_id = split_entity_id(
                     source_entity_id
                 )
                 if entity_entry:
@@ -409,7 +409,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             self.data.pop(CONF_MODEL_ID, None)
             self.data.pop(CONF_HW_VERSION, None)
 
-            config_entry = self.get_integration_entry()
+            config_entry = await self.async_get_integration_entry()
             subentry = ConfigSubentry(subentry_type=SUBENTRY_BATTERY_NOTE, data=MappingProxyType(self.data), title=str(title), unique_id=unique_id)
             self.hass.config_entries.async_add_subentry(config_entry, subentry)
 
@@ -495,7 +495,7 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
         return self.source == "user"
 
     async def async_step_user(
-        self, user_input: dict[str, Any] | None = None
+        self, user_input: dict[str, Any] | None = None  # pylint: disable=unused-argument
     ) -> SubentryFlowResult:
         """Add a subentry."""
 
@@ -673,6 +673,7 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
 
     async def async_step_manual(self, user_input: dict[str, Any] | None = None) -> SubentryFlowResult:
         """Second step in config flow to add the battery type."""
+        # pylint: disable=unused-argument
         errors: dict[str, str] = {}
         if user_input is not None:
             return await self.async_step_battery()
@@ -710,7 +711,7 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
             if source_entity_id:
                 entity_registry = er.async_get(self.hass)
                 entity_entry = entity_registry.async_get(source_entity_id)
-                source_entity_domain, source_object_id = split_entity_id(
+                _, source_object_id = split_entity_id(
                     source_entity_id
                 )
                 if entity_entry:
@@ -830,11 +831,11 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
 
         self.data = config_subentry.data.copy()
 
-        self.source_device_id = self.data.get(CONF_DEVICE_ID)
+        source_device_id = self.data.get(CONF_DEVICE_ID)
 
-        if self.source_device_id:
+        if source_device_id:
             device_registry = dr.async_get(self.hass)
-            device_entry = device_registry.async_get(self.source_device_id)
+            device_entry = device_registry.async_get(source_device_id)
 
             if not device_entry:
                 errors["base"] = "orphaned_battery_note"
