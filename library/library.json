@@ -3365,6 +3365,13 @@
             "battery_type": "CR3032"
         },
         {
+            "manufacturer": "Fibar Group",
+            "model": "CO sensor",
+            "model_id": "FGBHCD-001",
+            "hw_version": "0.2.0",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "Fibargroup",
             "model": "FGCD001",
             "battery_type": "CR123A"
@@ -10172,13 +10179,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Fibar Group",
-            "model": "CO sensor",
-            "model_id": "FGBHCD-001",
-            "hw_version": "0.2.0",
-            "battery_type": "CR123A"
         }
     ]
 }
