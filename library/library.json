@@ -8271,6 +8271,14 @@
         },
         {
             "manufacturer": "Tuya",
+            "model": "Optical smoke sensor (model YG500A on the PCB)",
+            "model_id": "TS0205_smoke_2",
+            "hw_version": "1",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tuya",
             "model": "Photoelectric smoke detector",
             "model_id": "PA-44Z",
             "hw_version": "1",
@@ -10164,14 +10172,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Optical smoke sensor (model YG500A on the PCB)",
-            "model_id": "TS0205_smoke_2",
-            "hw_version": "1",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }

@@ -1,4 +1,4 @@
-## 1791 Devices in library
+## 1792 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1464,6 +1464,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tuya                                            |Motion sensor (ZP01)                                                                          |2× AAA                    |                                   |                                      |
 |TuYa                                            |Motion sensor with scene switch (TS0202_2)                                                    |2× AAA                    |                                   |                                      |
 |Tuya                                            |NOTSEK smart Wifi Temperature Hygrometer                                                      |2× AA                     |hbluag8nbjwtkyqs                   |                                      |
+|Tuya                                            |Optical smoke sensor (model YG500A on the PCB)                                                |2× AAA                    |TS0205_smoke_2                     |                                     1|
 |Tuya                                            |Photoelectric smoke detector                                                                  |E                         |PA-44Z                             |                                     1|
 |TuYa                                            |Photoelectric smoke detector (PA-44Z)                                                         |PP3                       |                                   |                                      |
 |Tuya                                            |PIR (b5g40alm)                                                                                |CR2450                    |                                   |                                      |
