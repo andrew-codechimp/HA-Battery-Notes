@@ -240,6 +240,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
         """Handle a flow initialized by the user."""
 
         if self._async_current_entries():
+            _LOGGER.debug("An existing battery_notes config entry already exists")
             return self.async_abort(reason="already_configured")
 
         if user_input is not None:
