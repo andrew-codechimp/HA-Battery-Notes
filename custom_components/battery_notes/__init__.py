@@ -14,7 +14,7 @@ from types import MappingProxyType
 import voluptuous as vol
 from awesomeversion.awesomeversion import AwesomeVersion
 from homeassistant.config_entries import SOURCE_IGNORE, ConfigEntry, ConfigSubentry
-from homeassistant.const import CONF_DEVICE_ID, EVENT_HOMEASSISTANT_STARTED
+from homeassistant.const import CONF_DEVICE_ID
 from homeassistant.const import __version__ as HA_VERSION  # noqa: N812
 from homeassistant.core import HassJob, HomeAssistant, callback
 from homeassistant.helpers import config_validation as cv
@@ -26,7 +26,6 @@ from homeassistant.helpers.device import async_entity_id_to_device_id
 from homeassistant.helpers.event import async_call_later
 from homeassistant.helpers.issue_registry import IssueSeverity, async_create_issue
 from homeassistant.helpers.typing import ConfigType
-from homeassistant.util import dt as dt_util
 
 from .const import (
     CONF_ADVANCED_SETTINGS,
