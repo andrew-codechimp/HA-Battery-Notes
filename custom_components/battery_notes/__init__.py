@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import logging
 import re
+from datetime import datetime
 from types import MappingProxyType
 
 import voluptuous as vol
@@ -15,15 +16,17 @@ from awesomeversion.awesomeversion import AwesomeVersion
 from homeassistant.config_entries import SOURCE_IGNORE, ConfigEntry, ConfigSubentry
 from homeassistant.const import CONF_DEVICE_ID, EVENT_HOMEASSISTANT_STARTED
 from homeassistant.const import __version__ as HA_VERSION  # noqa: N812
-from homeassistant.core import Event, HomeAssistant, callback
+from homeassistant.core import HassJob, HomeAssistant, callback
 from homeassistant.helpers import config_validation as cv
 from homeassistant.helpers import device_registry as dr
 from homeassistant.helpers import entity_registry as er
 from homeassistant.helpers import helper_integration
 from homeassistant.helpers import issue_registry as ir
 from homeassistant.helpers.device import async_entity_id_to_device_id
+from homeassistant.helpers.event import async_call_later
 from homeassistant.helpers.issue_registry import IssueSeverity, async_create_issue
 from homeassistant.helpers.typing import ConfigType
+from homeassistant.util import dt as dt_util
 
 from .const import (
     CONF_ADVANCED_SETTINGS,
@@ -65,6 +68,7 @@ from .store import async_get_registry
 
 _LOGGER = logging.getLogger(__name__)
 
+DISCOVERY_DELAY = 10
 CONFIG_SCHEMA = vol.Schema(
     {
         DOMAIN: vol.All(
@@ -143,6 +147,8 @@ async def async_setup_entry(
         loaded_subentries=config_entry.subentries.copy(),
     )
 
+    discovery_manager = DiscoveryManager(hass, domain_config)
+
     config_entry.runtime_data.subentry_coordinators = {}
     for subentry in config_entry.subentries.values():
         if subentry.subentry_type == SUBENTRY_BATTERY_NOTE:
@@ -156,22 +162,24 @@ async def async_setup_entry(
 
     config_entry.async_on_unload(config_entry.add_update_listener(_async_update_listener))
 
+
     @callback
-    async def _after_start(_: Event) -> None:
-        """After Home Assistant has started, update library and do discovery."""
+    async def _async_delayed_discovery(now: datetime) -> None: #pylint: disable=unused-argument
+        """Update the library and do discovery."""
         library_updater = LibraryUpdater(hass)
         await library_updater.copy_schema()
-        await library_updater.get_library_updates(startup=True)
+        await library_updater.get_library_updates(startup=False)
 
         if domain_config.enable_autodiscovery:
-            discovery_manager = DiscoveryManager(hass, domain_config)
             await discovery_manager.start_discovery()
         else:
             _LOGGER.debug("Auto discovery disabled")
 
-    # Wait until Home Assistant is started, before doing library and discovery
-    hass.bus.async_listen_once(
-        EVENT_HOMEASSISTANT_STARTED, _after_start
+    # Let the system settle a bit before starting discovery
+    async_call_later(
+        hass,
+        DISCOVERY_DELAY,
+        HassJob(_async_delayed_discovery, "battery notes discovery", cancel_on_shutdown=True),
     )
 
     return True
