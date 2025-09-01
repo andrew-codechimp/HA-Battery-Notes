@@ -355,6 +355,7 @@ async def async_migrate_entry(
     hass: HomeAssistant, config_entry: BatteryNotesConfigEntry
 ) -> bool:
     """Migrate old config."""
+    _LOGGER.debug("Migrating configuration from version %s.%s", config_entry.version, config_entry.minor_version)
 
     if config_entry.version > 3:
         # This means the user has downgraded from a future version
@@ -362,8 +363,6 @@ async def async_migrate_entry(
 
     if config_entry.version == 1:
         # Version 1 had a single config for qty & type, split them
-        _LOGGER.debug("Migrating config entry from version %s", config_entry.version)
-
         matches = re.search(
             r"^(\d+)(?=x)(?:x\s)(\w+$)|([\s\S]+)", config_entry.data[CONF_BATTERY_TYPE]
         )

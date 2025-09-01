@@ -134,12 +134,23 @@ class DiscoveryManager:
         device_battery_details: DeviceBatteryDetails,
     ) -> None:
         """Dispatch the discovery flow for a given entity."""
+        unique_id = f"bn_{device_entry.id}"
+
+        # Iterate all the ignored devices and check if we have it already
+        for config_entry in self.hass.config_entries.async_entries(domain=DOMAIN, include_ignore=True, include_disabled=False):
+            if config_entry.unique_id == unique_id:
+                _LOGGER.debug(
+                    "%s: Ignored, skipping new discovery",
+                    unique_id,
+                )
+                return
+
         for config_entry in self.hass.config_entries.async_entries(domain=DOMAIN, include_ignore=False, include_disabled=False):
             for subentry in config_entry.subentries.values():
                 if subentry.data.get(CONF_DEVICE_ID, "") == device_entry.id:
                     _LOGGER.debug(
                         "%s: Already setup, skipping new discovery",
-                        f"bn_{device_entry.id}",
+                        unique_id,
                     )
                     return
 
