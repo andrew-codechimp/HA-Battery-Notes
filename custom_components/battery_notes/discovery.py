@@ -6,7 +6,7 @@ import logging
 from typing import Any
 
 import homeassistant.helpers.device_registry as dr
-from homeassistant.config_entries import SOURCE_INTEGRATION_DISCOVERY
+from homeassistant.config_entries import SOURCE_IGNORE, SOURCE_INTEGRATION_DISCOVERY
 from homeassistant.const import CONF_DEVICE_ID
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers import discovery_flow
@@ -138,7 +138,7 @@ class DiscoveryManager:
 
         # Iterate all the ignored devices and check if we have it already
         for config_entry in self.hass.config_entries.async_entries(domain=DOMAIN, include_ignore=True, include_disabled=False):
-            if config_entry.unique_id == unique_id:
+            if config_entry.source == SOURCE_IGNORE and config_entry.unique_id == unique_id:
                 _LOGGER.debug(
                     "%s: Ignored, skipping new discovery",
                     unique_id,
