@@ -7674,6 +7674,14 @@
         },
         {
             "manufacturer": "Third Reality",
+            "model": "Smart switch Gen3",
+            "model_id": "3RSS009Z",
+            "hw_version": "1",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Third Reality",
             "model": "Smart switch Gen3 (3RSS009Z)",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -10187,14 +10195,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Third Reality",
-            "model": "Smart switch Gen3",
-            "model_id": "3RSS009Z",
-            "hw_version": "1",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
