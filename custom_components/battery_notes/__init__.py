@@ -167,7 +167,7 @@ async def async_setup_entry(
         """Update the library and do discovery."""
         library_updater = LibraryUpdater(hass)
         await library_updater.copy_schema()
-        await library_updater.get_library_updates(startup=False)
+        await library_updater.get_library_updates(startup=True)
 
         if domain_config.enable_autodiscovery:
             await discovery_manager.start_discovery()
