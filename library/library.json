@@ -5271,6 +5271,13 @@
         },
         {
             "manufacturer": "Moes",
+            "model": "Roller blind/shades drive motor",
+            "model_id": "AM43-0.45/40-ES-EB",
+            "hw_version": "1",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Moes",
             "model": "Smart button",
             "model_id": "ERS-10TZBVB-AA",
             "hw_version": "1",
@@ -10194,13 +10201,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Moes",
-            "model": "Roller blind/shades drive motor",
-            "model_id": "AM43-0.45/40-ES-EB",
-            "hw_version": "1",
             "battery_type": "Rechargeable"
         }
     ]
