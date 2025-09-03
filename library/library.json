@@ -10202,6 +10202,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "X-Sense",
+            "model": "XC01-M",
+            "battery_type": "CR123A"
         }
     ]
 }
