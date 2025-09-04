@@ -20,7 +20,7 @@ repository = "https://github.com/andrew-codechimp/HA-Battery-Notes"
 version = "0.0.0"
 
 [tool.poetry.dependencies]
-homeassistant = "2025.8.0"
+homeassistant = "2025.9.0"
 python = ">=3.13.2,<3.14"
 
 [tool.poetry.group.dev.dependencies]
