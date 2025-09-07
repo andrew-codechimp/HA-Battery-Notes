@@ -871,7 +871,7 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
                             min=1, max=100, mode=selector.NumberSelectorMode.BOX
                         ),
                     ),
-                    vol.Required(CONF_BATTERY_LOW_THRESHOLD, default=self.data[CONF_BATTERY_LOW_THRESHOLD]): selector.NumberSelector(
+                    vol.Required(CONF_BATTERY_LOW_THRESHOLD, default=self.data.get(CONF_BATTERY_LOW_THRESHOLD, 0)): selector.NumberSelector(
                         selector.NumberSelectorConfig(
                             min=0, max=99, mode=selector.NumberSelectorMode.BOX
                         ),
@@ -894,7 +894,7 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
                             min=1, max=100, mode=selector.NumberSelectorMode.BOX
                         ),
                     ),
-                    vol.Required(CONF_BATTERY_LOW_THRESHOLD, default=self.data[CONF_BATTERY_LOW_THRESHOLD]): selector.NumberSelector(
+                    vol.Required(CONF_BATTERY_LOW_THRESHOLD, default=self.data.get(CONF_BATTERY_LOW_THRESHOLD, 0)): selector.NumberSelector(
                         selector.NumberSelectorConfig(
                             min=0, max=99, mode=selector.NumberSelectorMode.BOX
                         ),
