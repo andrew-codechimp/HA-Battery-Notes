@@ -23,30 +23,15 @@ Go into Settings -> Integrations -> Battery Notes and click Configure on the dev
 
 ## Why am I only able to see some of my devices when adding manually?
 
-By default Battery Notes filters the device list to only devices with a battery, if you want to add a battery note to a random device then you can disable this filtering by adding the following configuration to your `configuration.yaml` and restart Home Assistant to see all devices.
-
-```
-battery_notes:
-  show_all_devices: True
-```
+By default Battery Notes filters the device list to only devices with a battery, if you want to add a battery note to a random device then you can disable this filtering by turning on the Show all devices configuration setting.
 
 ## I only want to add notes to a few devices, can I disable auto discovery?
 
-If you want to disable this functionality you can add the following to your `configuration.yaml`, after a restart of Home Assistant you will not see discovered battery notes.
-
-```
-battery_notes:
-  enable_autodiscovery: False
-```
+If you want to disable this functionality you can turn off auto discovery in the configuration settings
 
 ## I don't want to track battery replacement, can I disable this?
 
-Yes, you can add the following to your `configuration.yaml`, after a restart of Home Assistant _new_ devices added to battery notes will have the battery replaced sensor and button disabled. Any devices you have previously added to Battery Notes you will have to disable/enable these sensors manually, which also means you can just enable specific sensors of important ones you want to track.
-
-```
-battery_notes:
-  enable_replaced: False
-```
+Yes, you can turn off enable replaced within configuration settings. _new_ devices added to battery notes will have the battery replaced sensor and button disabled. Any devices you have previously added to Battery Notes you will have to disable/enable these sensors manually, which also means you can just enable specific sensors of important ones you want to track.
 
 ## My device doesn't show a Battery+ sensor
 
@@ -94,10 +79,9 @@ HACS will now show updates available for pre-releases if there are any
 ## How do I uninstall Battery Notes
 
 Within Home Assistant go to Settings -> Integrations -> Battery Notes  
-For each Battery Note click on the three dots and select Delete  
+Click on the three dots for the top Battery Notes service and select Delete  
 Go to HACS from your sidebar  
 Click on the three dots next to Battery Notes and select Remove  
-Edit your configuration.yaml file and remove the battery_notes section and any options indented directly under it  
 Restart Home Assistant
 
 ## How can I show my support?
