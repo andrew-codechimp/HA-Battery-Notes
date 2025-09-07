@@ -1,4 +1,4 @@
-## 1798 Devices in library
+## 1799 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1041,6 +1041,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Panasonic                                       |VR220                                                                                         |Rechargeable              |                                   |                                      |
 |Paulmann                                        |Smart switch 4 buttons white (501.34)                                                         |CR2450                    |                                   |                                      |
 |Perenio                                         |PECWS01                                                                                       |CR2032                    |                                   |                                      |
+|Petkit                                          |Pura Air Smart Spray                                                                          |4× AA                     |                                   |                                      |
 |PETLIBRO                                        |PLAF108                                                                                       |Rechargeable              |                                   |1.0.0                                 |
 |Petlibro                                        |PLAF109                                                                                       |3× AA                     |                                   |5.2.0                                 |
 |PETLIBRO                                        |PLAF203                                                                                       |3× D                      |                                   |                                      |
