@@ -67,7 +67,7 @@ from .store import async_get_registry
 
 _LOGGER = logging.getLogger(__name__)
 
-DISCOVERY_DELAY = 10
+DISCOVERY_DELAY = 30  # seconds
 CONFIG_SCHEMA = vol.Schema(
     {
         DOMAIN: vol.All(
