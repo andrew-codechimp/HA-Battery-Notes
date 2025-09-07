@@ -18,6 +18,9 @@ from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.event import async_track_utc_time_change
 from homeassistant.helpers.storage import STORAGE_DIR
 
+from .const import (
+    DEFAULT_LIBRARY_URL,
+)
 from .coordinator import MY_KEY, BatteryNotesDomainConfig
 from .discovery import DiscoveryManager
 
@@ -42,10 +45,7 @@ class LibraryUpdater:
         if not domain_config:
             domain_config = BatteryNotesDomainConfig()
 
-        library_url = domain_config.library_url
-        schema_url = domain_config.schema_url
-
-        self._client = LibraryUpdaterClient(library_url=library_url, schema_url=schema_url, session=async_get_clientsession(hass))
+        self._client = LibraryUpdaterClient(session=async_get_clientsession(hass))
 
         # Fire the library check every 24 hours from just before now
         refresh_time = datetime.now() - timedelta(hours=0, minutes=1)
@@ -54,7 +54,7 @@ class LibraryUpdater:
         )
 
     @callback
-    async def timer_update(self, now: datetime):
+    async def timer_update(self):
         """Need to update the library."""
         if await self.time_to_update_library(23) is False:
             return
@@ -161,19 +161,15 @@ class LibraryUpdaterClient:
 
     def __init__(
         self,
-        library_url: str,
-        schema_url: str,
         session: aiohttp.ClientSession,
     ) -> None:
         """Client to get latest library file from GitHub."""
-        self._library_url = library_url
-        self._schema_url = schema_url
         self._session = session
 
     async def async_get_data(self) -> Any:
         """Get data from the API."""
-        _LOGGER.debug(f"Updating library from {self._library_url}")
-        return await self._api_wrapper(method="get", url=self._library_url)
+        _LOGGER.debug("Updating library from %s", DEFAULT_LIBRARY_URL)
+        return await self._api_wrapper(method="get", url=DEFAULT_LIBRARY_URL)
 
     async def _api_wrapper(
         self,

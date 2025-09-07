@@ -2,33 +2,8 @@
     "config": {
         "step": {
             "user": {
-                "description": "Si necessiteu ajuda amb la configuració, mireu aquí: https://andrew-codechimp.github.io/HA-Battery-Notes/",
-                "data": {
-                    "association_type": "Tipus d'associació"
-                },
-                "menu_options": {
-                    "device": "Dispositiu (recomanat)",
-                    "entity": "Entitat"
-                },
-                "title": "Tria el tipus d'associació"
-            },
-            "device": {
-                "data": {
-                    "device_id": "Dispositiu",
-                    "name": "Nom"
-                },
-                "data_description": {
-                    "name": "Si ho deixes en blanc, agafarà el nom del dispositiu d'origen"
-                }
-            },
-            "entity": {
-                "data": {
-                    "source_entity_id": "Entitat",
-                    "name": "Nom"
-                },
-                "data_description": {
-                    "name": "Si ho deixes en blanc, agafarà el nom de l'entitat d'origen"
-                }
+                "description": "New Battery Notes will be discovered if they are in the library.\nTo add new Battery Notes manually go into the integration page, select Add Battery Note and follow the instructions.\nIf you need help with the configuration have a look here: https://andrew-codechimp.github.io/HA-Battery-Notes/",
+                "title": "Setup Battery Notes"
             },
             "battery": {
                 "description": "Fabricant: {manufacturer}\nModel: {model}\nIdentificador del model: {model_id}\nVersió de maquinari: {hw_version}",
@@ -45,20 +20,138 @@
                     "filter_outliers": "Filtra les grans caigudes del nivell de bateria, reduint els esdeveniments que es disparen falsament en els dispositius que informen erròniament dels nivells de manera ocasional."
                 }
             },
-            "manual": {
-                "description": "Aquest dispositiu està marcat a la biblioteca com a manual, les variants utilitzen diferents tipus de bateries, de manera que no es pot configurar a la biblioteca.\nEl següent pas us permetrà configurar el tipus de bateria, però no envieu cap sol·licitud de dispositiu.",
-                "title": "Configuració manual del dispositiu"
+            "abort": {
+                "already_configured": "Integration is already configured",
+                "created_sub_entry": "Battery Note created successfully"
+            },
+            "error": {
+                "unknown": "S'ha produït un error desconegut"
             }
-        },
-        "abort": {
-            "already_configured": "El dispositiu ja està configurat"
-        },
-        "error": {
-            "unknown": "S'ha produït un error desconegut",
-            "unconfigurable_entity": "No es pot afegir aquesta entitat al Battery Notes "
+        }
+    },
+    "config_subentries": {
+        "battery_note": {
+            "initiate_flow": {
+                "user": "Add battery note"
+            },
+            "entry_type": "Battery note",
+            "step": {
+                "user": {
+                    "description": "Si necessiteu ajuda amb la configuració, mireu aquí: https://andrew-codechimp.github.io/HA-Battery-Notes/",
+                    "data": {
+                        "association_type": "Tipus d'associació"
+                    },
+                    "menu_options": {
+                        "device": "Dispositiu (recomanat)",
+                        "entity": "Entitat"
+                    },
+                    "title": "Tria el tipus d'associació"
+                },
+                "device": {
+                    "data": {
+                        "device_id": "Dispositiu",
+                        "name": "Nom"
+                    },
+                    "data_description": {
+                        "name": "Si ho deixes en blanc, agafarà el nom del dispositiu d'origen"
+                    }
+                },
+                "entity": {
+                    "data": {
+                        "source_entity_id": "Entitat",
+                        "name": "Nom"
+                    },
+                    "data_description": {
+                        "name": "Si ho deixes en blanc, agafarà el nom de l'entitat d'origen"
+                    }
+                },
+                "battery": {
+                    "description": "Fabricant: {manufacturer}\nModel: {model}\nIdentificador del model: {model_id}\nVersió de maquinari: {hw_version}",
+                    "data": {
+                        "battery_type": "Tipus de bateria",
+                        "battery_quantity": "Quantitat de bateries",
+                        "battery_low_threshold": "Llindar baix de la bateria",
+                        "battery_low_template": "Plantilla de bateria baixa",
+                        "filter_outliers": "iltrar valors atípics"
+                    },
+                    "data_description": {
+                        "battery_low_threshold": "0 utilitzarà el llindar predeterminat global",
+                        "battery_low_template": "La plantilla per determinar que la bateria és baixa, hauria de tornar correcte si és baixa\nNomés és necessari per a nivells de bateria no estàndard",
+                        "filter_outliers": "Filtra les grans caigudes del nivell de bateria, reduint els esdeveniments que es disparen falsament en els dispositius que informen erròniament dels nivells de manera ocasional."
+                    }
+                },
+                "manual": {
+                    "description": "Aquest dispositiu està marcat a la biblioteca com a manual, les variants utilitzen diferents tipus de bateries, de manera que no es pot configurar a la biblioteca.\nEl següent pas us permetrà configurar el tipus de bateria, però no envieu cap sol·licitud de dispositiu.",
+                    "title": "Configuració manual del dispositiu"
+                },
+                "reconfigure": {
+                    "description": "Fabricant: {manufacturer}\nModel: {model}\nIdentificador del model: {model_id}\nVersió de maquinari: {hw_version}",
+                    "data": {
+                        "name": "Nom",
+                        "battery_type": "Tipus de bateria",
+                        "battery_quantity": "Quantitat de bateries",
+                        "battery_low_threshold": "Llindar baix de la bateria",
+                        "battery_low_template": "Plantilla de bateria baixa",
+                        "filter_outliers": "iltrar valors atípics"
+                    },
+                    "data_description": {
+                        "name": "Si ho deixes en blanc, agafarà el nom del dispositiu d'origen",
+                        "battery_low_threshold": "0 utilitzarà el llindar predeterminat global",
+                        "battery_low_template": "La plantilla per determinar que la bateria és baixa, hauria de tornar correcte si és baixa\nNomés és necessari per a nivells de bateria no estàndard",
+                        "filter_outliers": "Filtra les grans caigudes del nivell de bateria, reduint els esdeveniments que es disparen falsament en els dispositius que informen erròniament dels nivells de manera ocasional."
+                    }
+                }
+            },
+            "abort": {
+                "reconfigure_successful": "Re-configuration was successful",
+                "already_configured": "El dispositiu ja està configurat"
+            },
+            "error": {
+                "unknown": "S'ha produït un error desconegut",
+                "unconfigurable_entity": "No es pot afegir aquesta entitat al Battery Notes ",
+                "orphaned_battery_note": "El dispositiu o l'entitat associada ja no existeix per a aquesta Battery Note."
+            }
         }
     },
     "options": {
+        "step": {
+            "init": {
+                "data": {
+                    "show_all_devices": "Show all devices",
+                    "hide_battery": "Hide battery",
+                    "round_battery": "Round battery",
+                    "default_battery_low_threshold": "Default battery low threshold",
+                    "battery_increase_threshold": "Battery increase threshold"
+                },
+                "data_description": {
+                    "show_all_devices": "Show all devices in the device dropdown, otherwise only those with batteries will be shown.",
+                    "hide_battery": "Hide the standard battery when adding Battery+.",
+                    "round_battery": "Round Battery+ to whole percentages.",
+                    "default_battery_low_threshold": "The default threshold where a devices battery_low entity is set to true and the battery_notes_battery_threshold event is fired if the battery is below this threshold, can be overriden per device in device configuration.",
+                    "battery_increase_threshold": "The threshold where the battery_notes_battery_increased event is fired, use this event for battery replaced automations. The threshold is the difference in increase between previous and current battery level."
+                },
+                "sections": {
+                    "advanced_settings": {
+                        "name": "Advanced settings",
+                        "data": {
+                            "enable_autodiscovery": "Auto discovery",
+                            "enable_replaced": "Enable battery replaced",
+                            "user_library": "User library"
+                        },
+                        "data_description": {
+                            "enable_autodiscovery": "Auto discovery of devices that are in the library.",
+                            "enable_replaced": "Enable the battery replaced button on each battery note.",
+                            "user_library": "If specified then a user library file will be searched prior to the main library, the user library must be in the same format as the library and placed in `config/.storage/battery_notes`."
+                        }
+                    }
+                }
+            }
+        },
+        "error": {
+            "unknown": "S'ha produït un error desconegut"
+        }
+    },
+    "battery_note_options": {
         "step": {
             "init": {
                 "description": "Fabricant: {manufacturer}\nModel: {model}\nIdentificador del model: {model_id}\nVersió de maquinari: {hw_version}",
@@ -79,8 +172,8 @@
             }
         },
         "error": {
-            "orphaned_battery_note": "El dispositiu o l'entitat associada ja no existeix per a aquesta Battery Note.",
-            "unknown": "S'ha produït un error desconegut"
+            "orphaned_battery_note": "The associated device or entity no longer exists for this Battery Note.",
+            "unknown": "Unknown error occurred."
         }
     },
     "entity": {
@@ -199,6 +292,15 @@
                     }
                 }
             }
+        },
+        "deprecated_yaml": {
+            "title": "The {integration_title} YAML configuration is being removed",
+            "description": "Configuring {integration_title} using YAML is being removed.\n\nYour existing YAML configuration has been imported into the UI automatically.\n\nRemove the `{domain}` configuration from your configuration.yaml file and restart Home Assistant to fix this issue."
+        }
+    },
+    "exceptions": {
+        "not_configured_in_battery_notes": {
+            "message": "{source} is not configured in Battery Notes."
         }
     }
 }

@@ -106,7 +106,9 @@ class Library:  # pylint: disable=too-few-public-methods
             return None
 
         # Test only
-        # device_to_find = ModelInfo("Espressif", "m5stack-atom", None, None)
+        # device_to_find = ModelInfo("Aqara", "Aqara Climate Sensor W100", "8196", None)
+        # device_to_find = ModelInfo("Google", "Topaz-2.7", None, "Battery")
+        # device_to_find = ModelInfo("Google", "Topaz-2.7", None, "Wired")
 
         # Get all devices matching manufacturer & model
         matching_devices = None
@@ -135,14 +137,14 @@ class Library:  # pylint: disable=too-few-public-methods
         if fully_matching_devices and len(fully_matching_devices) > 0:
             matching_devices = fully_matching_devices
 
-        if not matching_devices or len(matching_devices) == 0:
+        if not matching_devices:
             return None
 
         matched_device = matching_devices[0]
         return DeviceBatteryDetails(
             manufacturer=matched_device[LIBRARY_MANUFACTURER],
             model=matched_device[LIBRARY_MODEL],
-            model_id=matched_device.get("model_id", ""),
+            model_id=matched_device.get(LIBRARY_MODEL_ID, ""),
             hw_version=matched_device.get(LIBRARY_HW_VERSION, ""),
             battery_type=matched_device[LIBRARY_BATTERY_TYPE],
             battery_quantity=matched_device.get(LIBRARY_BATTERY_QUANTITY, 1),
@@ -192,6 +194,16 @@ class Library:  # pylint: disable=too-few-public-methods
         self, device: dict[str, Any], model_info: ModelInfo
     ) -> bool:
         """Check if device match on hw_version or model_id."""
+        if model_info.hw_version is None and model_info.model_id is None:
+            if (
+                device.get(LIBRARY_HW_VERSION, LIBRARY_MISSING)
+                == LIBRARY_MISSING
+                and device.get(LIBRARY_MODEL_ID, LIBRARY_MISSING)
+                == LIBRARY_MISSING
+            ):
+                return True
+            return False
+
         if model_info.hw_version is None or model_info.model_id is None:
             if (
                 device.get(LIBRARY_HW_VERSION, LIBRARY_MISSING).casefold()

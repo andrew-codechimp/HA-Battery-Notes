@@ -8,8 +8,6 @@ set_battery_replaced:
       required: false
       selector:
         device:
-          filter:
-            - integration: battery_notes
     source_entity_id:
       name: Entity
       description: "Entity that has had its battery replaced (only used for entity associated battery notes)."

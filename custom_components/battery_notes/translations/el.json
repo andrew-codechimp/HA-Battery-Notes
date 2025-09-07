@@ -2,33 +2,8 @@
     "config": {
         "step": {
             "user": {
-                "description": "Αν χρειάζεστε βοήθεια με τις ρυθμίσεις παραμέτρων ρίξτε μια ματιά εδώ: https://andrew-codechimp.github.io/HA-Battery-Notes/",
-                "data": {
-                    "association_type": "Τύπος συσχετισμού"
-                },
-                "menu_options": {
-                    "device": "Συσκευή (συνιστάται)",
-                    "entity": "Οντότητα"
-                },
-                "title": "Επιλέξτε τον τύπο συσχέτισης"
-            },
-            "device": {
-                "data": {
-                    "device_id": "Συσκευή",
-                    "name": "Ονομα"
-                },
-                "data_description": {
-                    "name": "Αφήνοντάς το κενό θα πάρει το όνομα από τη συσκευή προέλευσης"
-                }
-            },
-            "entity": {
-                "data": {
-                    "source_entity_id": "Οντότητα",
-                    "name": "Ονομα"
-                },
-                "data_description": {
-                    "name": "Αφήνοντάς το κενό θα πάρει το όνομα από την οντότητα προέλευσης"
-                }
+                "description": "New Battery Notes will be discovered if they are in the library.\nTo add new Battery Notes manually go into the integration page, select Add Battery Note and follow the instructions.\nIf you need help with the configuration have a look here: https://andrew-codechimp.github.io/HA-Battery-Notes/",
+                "title": "Setup Battery Notes"
             },
             "battery": {
                 "description": "Κατασκευαστής: {manufacturer}\nΜοντέλο: {model}\nID Μοντέλου: {model_id}\nΕκδοση υλικού: {hw_version}",
@@ -44,21 +19,139 @@
                     "battery_low_template": "Template για τον προσδιορισμό μιας μπαταρίας είναι χαμηλή, θα πρέπει να επιστρέψει true εάν είναι χαμηλή\nΧρειάζεται μόνο για μη τυπικές στάθμες μπαταρίας",
                     "filter_outliers": "Φιλτράρετε μεγάλες πτώσεις στάθμης μπαταρίας, περιορίζοντας την πυροδότηση ψευδών συμβάντων σε συσκευές που εσφαλμένα αναφέρουν επίπεδα περιστασιακά"
                 }
-            },
-            "manual": {
-                "description": "Αυτή η συσκευή επισημαίνεται στη βιβλιοθήκη ως χειροκίνητη, οι παραλλαγές χρησιμοποιούν διαφορετικούς τύπους μπαταρίας ώστε να μην μπορεί να οριστεί στη βιβλιοθήκη.\nΤο επόμενο βήμα θα σας επιτρέψει να ορίσετε τον τύπο μπαταρίας σας αλλά μην υποβάλετε αίτημα συσκευής.",
-                "title": "Χειροκίνητη διαμόρφωση συσκευής"
             }
         },
         "abort": {
-            "already_configured": "Η συσκευή έχει ήδη ρυθμιστεί"
+            "already_configured": "Integration is already configured",
+            "created_sub_entry": "Battery Note created successfully"
         },
         "error": {
-            "unknown": "Προέκυψε άγνωστο σφάλμα.",
-            "unconfigurable_entity": "Δεν είναι δυνατή η προσθήκη αυτής της οντότητας στο Battery Notes."
+            "unknown": "Προέκυψε άγνωστο σφάλμα."
+        }
+    },
+    "config_subentries": {
+        "battery_note": {
+            "initiate_flow": {
+                "user": "Add battery note"
+            },
+            "entry_type": "Battery note",
+            "step": {
+                "user": {
+                    "description": "Αν χρειάζεστε βοήθεια με τις ρυθμίσεις παραμέτρων ρίξτε μια ματιά εδώ: https://andrew-codechimp.github.io/HA-Battery-Notes/",
+                    "data": {
+                        "association_type": "Τύπος συσχετισμού"
+                    },
+                    "menu_options": {
+                        "device": "Συσκευή (συνιστάται)",
+                        "entity": "Οντότητα"
+                    },
+                    "title": "Επιλέξτε τον τύπο συσχέτισης"
+                },
+                "device": {
+                    "data": {
+                        "device_id": "Συσκευή",
+                        "name": "Ονομα"
+                    },
+                    "data_description": {
+                        "name": "Αφήνοντάς το κενό θα πάρει το όνομα από τη συσκευή προέλευσης"
+                    }
+                },
+                "entity": {
+                    "data": {
+                        "source_entity_id": "Οντότητα",
+                        "name": "Ονομα"
+                    },
+                    "data_description": {
+                        "name": "Αφήνοντάς το κενό θα πάρει το όνομα από την οντότητα προέλευσης"
+                    }
+                },
+                "battery": {
+                    "description": "Κατασκευαστής: {manufacturer}\nΜοντέλο: {model}\nID Μοντέλου: {model_id}\nΕκδοση υλικού: {hw_version}",
+                    "data": {
+                        "battery_type": "Τύπος μπαταρίας",
+                        "battery_quantity": "Αριθμός μπαταριών",
+                        "battery_low_threshold": "Ελάχιστο όριο μπαταρίας",
+                        "battery_low_template": "Template χαμηλής στάθμης μπαταρίας",
+                        "filter_outliers": "Φιλτράρισμα ακραίων τιμών"
+                    },
+                    "data_description": {
+                        "battery_low_threshold": "0 θα χρησιμοποιηθεί το καθολικό προεπιλεγμένο ελάχιστο όριο",
+                        "battery_low_template": "Template για τον προσδιορισμό μιας μπαταρίας είναι χαμηλή, θα πρέπει να επιστρέψει true εάν είναι χαμηλή\nΧρειάζεται μόνο για μη τυπικές στάθμες μπαταρίας",
+                        "filter_outliers": "Φιλτράρετε μεγάλες πτώσεις στάθμης μπαταρίας, περιορίζοντας την πυροδότηση ψευδών συμβάντων σε συσκευές που εσφαλμένα αναφέρουν επίπεδα περιστασιακά"
+                    }
+                },
+                "manual": {
+                    "description": "Αυτή η συσκευή επισημαίνεται στη βιβλιοθήκη ως χειροκίνητη, οι παραλλαγές χρησιμοποιούν διαφορετικούς τύπους μπαταρίας ώστε να μην μπορεί να οριστεί στη βιβλιοθήκη.\nΤο επόμενο βήμα θα σας επιτρέψει να ορίσετε τον τύπο μπαταρίας σας αλλά μην υποβάλετε αίτημα συσκευής.",
+                    "title": "Χειροκίνητη διαμόρφωση συσκευής"
+                },
+                "reconfigure": {
+                    "description": "Κατασκευαστής: {manufacturer}\nΜοντέλο: {model}\nID Μοντέλου: {model_id}\nΕκδοση υλικού: {hw_version}",
+                    "data": {
+                        "name": "Ονομα",
+                        "battery_type": "Τύπος μπαταρίας",
+                        "battery_quantity": "Αριθμός μπαταριών",
+                        "battery_low_threshold": "Ελάχιστο όριο μπαταρίας",
+                        "battery_low_template": "Template χαμηλής στάθμης μπαταρίας",
+                        "filter_outliers": "Φιλτράρισμα ακραίων τιμών"
+                    },
+                    "data_description": {
+                        "name": "Αφήνοντάς το κενό θα πάρει το όνομα από τη συσκευή προέλευσης",
+                        "battery_low_threshold": "0 θα χρησιμοποιηθεί το καθολικό προεπιλεγμένο ελάχιστο όριο",
+                        "battery_low_template": "Template για τον προσδιορισμό μιας μπαταρίας είναι χαμηλή, θα πρέπει να επιστρέψει true εάν είναι χαμηλή\nΧρειάζεται μόνο για μη τυπικές στάθμες μπαταρίας",
+                        "filter_outliers": "Φιλτράρετε μεγάλες πτώσεις στάθμης μπαταρίας, περιορίζοντας την πυροδότηση ψευδών συμβάντων σε συσκευές που εσφαλμένα αναφέρουν επίπεδα περιστασιακά"
+                    }
+                }
+            },
+            "abort": {
+                "reconfigure_successful": "Re-configuration was successful",
+                "already_configured": "Η συσκευή έχει ήδη ρυθμιστεί"
+            },
+            "error": {
+                "unknown": "Προέκυψε άγνωστο σφάλμα.",
+                "unconfigurable_entity": "Δεν είναι δυνατή η προσθήκη αυτής της οντότητας στο Battery Notes.",
+                "orphaned_battery_note": "Η συσχετιζόμενη συσκευή ή οντότητα δεν υπάρχει πλέον για αυτήν την Σημείωση μπαταρίας."
+            }
         }
     },
     "options": {
+        "step": {
+            "init": {
+                "data": {
+                    "show_all_devices": "Show all devices",
+                    "hide_battery": "Hide battery",
+                    "round_battery": "Round battery",
+                    "default_battery_low_threshold": "Default battery low threshold",
+                    "battery_increase_threshold": "Battery increase threshold"
+                },
+                "data_description": {
+                    "show_all_devices": "Show all devices in the device dropdown, otherwise only those with batteries will be shown.",
+                    "hide_battery": "Hide the standard battery when adding Battery+.",
+                    "round_battery": "Round Battery+ to whole percentages.",
+                    "default_battery_low_threshold": "The default threshold where a devices battery_low entity is set to true and the battery_notes_battery_threshold event is fired if the battery is below this threshold, can be overriden per device in device configuration.",
+                    "battery_increase_threshold": "The threshold where the battery_notes_battery_increased event is fired, use this event for battery replaced automations. The threshold is the difference in increase between previous and current battery level."
+                },
+                "sections": {
+                    "advanced_settings": {
+                        "name": "Advanced settings",
+                        "data": {
+                            "enable_autodiscovery": "Auto discovery",
+                            "enable_replaced": "Enable battery replaced",
+                            "user_library": "User library"
+                        },
+                        "data_description": {
+                            "enable_autodiscovery": "Auto discovery of devices that are in the library.",
+                            "enable_replaced": "Enable the battery replaced button on each battery note.",
+                            "user_library": "If specified then a user library file will be searched prior to the main library, the user library must be in the same format as the library and placed in `config/.storage/battery_notes`."
+                        }
+                    }
+                }
+            }
+        },
+        "error": {
+            "unknown": "Προέκυψε άγνωστο σφάλμα."
+        }
+    },
+    "battery_note_options": {
         "step": {
             "init": {
                 "description": "Κατασκευαστής: {manufacturer}\nΜοντέλο: {model}\nID Μοντέλου: {model_id}\nΕκδοση υλικού: {hw_version}",
@@ -199,6 +292,15 @@
                     }
                 }
             }
+        },
+        "deprecated_yaml": {
+            "title": "The {integration_title} YAML configuration is being removed",
+            "description": "Configuring {integration_title} using YAML is being removed.\n\nYour existing YAML configuration has been imported into the UI automatically.\n\nRemove the `{domain}` configuration from your configuration.yaml file and restart Home Assistant to fix this issue."
+        }
+    },
+    "exceptions": {
+        "not_configured_in_battery_notes": {
+            "message": "{source} is not configured in Battery Notes."
         }
     }
 }

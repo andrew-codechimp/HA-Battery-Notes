@@ -20,11 +20,12 @@ class MissingDeviceRepairFlow(RepairsFlow):
         if not data or any(key not in data for key in REQUIRED_KEYS):
             raise ValueError("Missing data")
         self.entry_id = cast(str, data["entry_id"])
+        self.subentry_id = cast(str, data["subentry_id"])
         self.device_id = cast(str, data["device_id"])
         self.source_entity_id = cast(str, data["source_entity_id"])
 
     async def async_step_init(
-        self, user_input: dict[str, str] | None = None
+        self, user_input: dict[str, str] | None = None #pylint: disable=unused-argument
     ) -> data_entry_flow.FlowResult:
         """Handle the first step of a fix flow."""
 
@@ -35,9 +36,10 @@ class MissingDeviceRepairFlow(RepairsFlow):
     ) -> data_entry_flow.FlowResult:
         """Handle the confirm step of a fix flow."""
         if user_input is not None:
-            await self.hass.config_entries.async_remove(self.entry_id)
+            if (entry:= self.hass.config_entries.async_get_entry(self.entry_id)):
+                self.hass.config_entries.async_remove_subentry(entry, self.subentry_id)
 
-            return self.async_create_entry(title="", data={})
+            return self.async_create_entry(data={})
 
         issue_registry = ir.async_get(self.hass)
         description_placeholders = None
@@ -52,12 +54,13 @@ class MissingDeviceRepairFlow(RepairsFlow):
 
 
 async def async_create_fix_flow(
-    hass: HomeAssistant,
+    hass: HomeAssistant, #pylint: disable=unused-argument
     issue_id: str,
     data: dict[str, str | int | float | None] | None,
 ) -> RepairsFlow:
     """Create flow."""
     if issue_id.startswith("missing_device_"):
         assert data
+
         return MissingDeviceRepairFlow(data)
     raise ValueError(f"unknown repair {issue_id}")
