@@ -10094,6 +10094,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Yookee",
+            "model": "Smart blind",
+            "model_id": "D10110_1",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Zbeacon",
             "model": "Temperature and humidity sensor",
             "model_id": "TH01",
@@ -10206,12 +10212,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Yookee",
-            "model": "Smart blind",
-            "model_id": "D10110_1",
             "battery_type": "Rechargeable"
         }
     ]
