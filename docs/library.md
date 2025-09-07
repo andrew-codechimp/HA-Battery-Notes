@@ -32,7 +32,7 @@ For the example image below, your JSON entry will look like this:
     "manufacturer": "Philips",
     "model": "Hue motion sensor",
     "model_id": "9290012607", < Optional, only add it if your device shows it.
-    "hw_version": "Some specific hardware detail", < Optional, only add it if your device shows it.
+    "hw_version": "1", < Optional, only add it if your device shows it.
     "battery_type": "AAA",
     "battery_quantity": 2,  < Only use if more than 1 battery
     "model_match_method": "startswith|endswith|contains" < Only use if you are creating a model with unique identifier (ex. trailing serial numbers)
