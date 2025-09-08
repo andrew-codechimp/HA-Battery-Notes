@@ -10219,6 +10219,14 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "iHseno",
+            "model": "Vibration sensor",
+            "model_id": "_TZ3000_lzdjjfss",
+            "hw_version": "1",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
