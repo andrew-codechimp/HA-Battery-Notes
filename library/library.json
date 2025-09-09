@@ -2291,6 +2291,11 @@
         },
         {
             "manufacturer": "Ecolink",
+            "model": "PIRZWAVE1",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Ecolink",
             "model": "TILT-ZWAVE2.5-ECO",
             "battery_type": "CR123A"
         },
@@ -10219,11 +10224,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Ecolink",
-            "model": "PIRZWAVE1",
-            "battery_type": "CR123A"
         }
     ]
 }
