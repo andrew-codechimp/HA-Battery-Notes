@@ -111,6 +111,7 @@ class Library:  # pylint: disable=too-few-public-methods
         # device_to_find = ModelInfo("Google", "Topaz-2.7", None, "Wired")
         # device_to_find = ModelInfo("Philips", "Hue dimmer switch (929002398602)", None, None)
         # device_to_find = ModelInfo("Philips", "Hue dimmer switch", "929002398602", None)
+        # device_to_find = ModelInfo("Philips", "Hue dimmer switch", "929002398602", "1")
 
 
         # Get all devices matching manufacturer & model
@@ -141,6 +142,9 @@ class Library:  # pylint: disable=too-few-public-methods
             matching_devices = fully_matching_devices
 
         if not matching_devices:
+            return None
+
+        if len(matching_devices) > 1:
             return None
 
         matched_device = matching_devices[0]
