@@ -1,4 +1,4 @@
-## 1804 Devices in library
+## 1805 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1743,6 +1743,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Xiaomi                                          |SJWS01LM                                                                                      |CR2032                    |                                   |                                      |
 |Xiaomi                                          |SRTS-A01                                                                                      |2× AA                     |                                   |                                      |
 |Xiaomi                                          |Temperature & humidity sensor (LYWSD03MMC)                                                    |CR2032                    |                                   |                                      |
+|Xiaomi                                          |Temperature and Humidity Monitor (pvxx/ZigbeeTLc)                                             |CR2032                    |LYWSD03MMC-z                       |                                     0|
 |Xiaomi                                          |temperature and humidity sensor                                                               |CR2032                    |WSDCGQ01LM                         |                                    30|
 |Xiaomi                                          |Temperature/Humidity sensor                                                                   |CR2032                    |                                   |                                      |
 |Xiaomi                                          |Wireless remote switch (double rocker), 2018 model (WXKG02LM_rev2)                            |CR2032                    |                                   |                                      |
