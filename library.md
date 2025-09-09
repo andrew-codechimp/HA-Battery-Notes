@@ -1,4 +1,4 @@
-## 1807 Devices in library
+## 1808 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1054,6 +1054,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Philio Technology Corp                          |PAT02-C                                                                                       |CR123A                    |                                   |                                      |
 |Philio Technology Corp                          |PST02A                                                                                        |CR123A                    |                                   |                                      |
 |Philips                                         |Hue dimmer switch                                                                             |CR2450                    |                       324131092621|                                      |
+|Philips                                         |Hue dimmer switch                                                                             |CR2450                    |                       324131092621|                                     1|
 |Philips                                         |Hue dimmer switch                                                                             |CR2032                    |                       929002398602|                                      |
 |Philips                                         |Hue dimmer switch                                                                             |CR2032                    |                       929002398602|                                     1|
 |Philips                                         |Hue dimmer switch (324131092621)                                                              |CR2450                    |                                   |                                      |
