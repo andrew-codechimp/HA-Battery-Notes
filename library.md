@@ -1,4 +1,4 @@
-## 1800 Devices in library
+## 1801 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1793,6 +1793,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Zooz                                            |ZEN34                                                                                         |2× CR2032                 |                                   |                                      |
 |Zooz                                            |ZEN37                                                                                         |LIR2032                   |                                   |                                      |
 |Zooz                                            |ZEN37 800LR                                                                                   |Rechargeable              |                                   |                                      |
+|Zooz                                            |ZSE09                                                                                         |CR123A                    |                                   |                                      |
 |Zooz                                            |ZSE11                                                                                         |2× CR123A                 |                                   |                                      |
 |Zooz                                            |ZSE18                                                                                         |CR123A                    |                                   |                                      |
 |Zooz                                            |ZSE19                                                                                         |4× C                      |                                   |                                      |
