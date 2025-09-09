@@ -10255,6 +10255,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Philips",
+            "model": "Hue dimmer switch",
+            "model_id": "929002398602",
+            "battery_type": "CR2032"
         }
     ]
 }
