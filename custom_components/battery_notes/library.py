@@ -161,47 +161,47 @@ class Library:  # pylint: disable=too-few-public-methods
         """Library loaded successfully."""
         return self._devices is not None
 
-    def device_basic_match(self, device: dict[str, Any], model_info: ModelInfo) -> bool:
+    def device_basic_match(self, device: dict[str, Any], device_to_find: ModelInfo) -> bool:
         """Check if device match on manufacturer and model."""
         if (
             str(device[LIBRARY_MANUFACTURER] or "").casefold()
-            != str(model_info.manufacturer or "").casefold()
+            != str(device_to_find.manufacturer or "").casefold()
         ):
             return False
 
         if LIBRARY_MODEL_MATCH_METHOD in device:
             if device[LIBRARY_MODEL_MATCH_METHOD] == "startswith":
                 if (
-                    str(model_info.model or "")
+                    str(device_to_find.model or "")
                     .casefold()
                     .startswith(str(device[LIBRARY_MODEL] or "").casefold())
                 ):
                     return True
             if device[LIBRARY_MODEL_MATCH_METHOD] == "endswith":
                 if (
-                    str(model_info.model or "")
+                    str(device_to_find.model or "")
                     .casefold()
                     .endswith(str(device[LIBRARY_MODEL] or "").casefold())
                 ):
                     return True
             if device[LIBRARY_MODEL_MATCH_METHOD] == "contains":
-                if str(model_info.model or "").casefold() in (
+                if str(device_to_find.model or "").casefold() in (
                     str(device[LIBRARY_MODEL] or "").casefold()
                 ):
                     return True
         else:
             if (
                 str(device[LIBRARY_MODEL] or "").casefold()
-                == str(model_info.model or "").casefold()
+                == str(device_to_find.model or "").casefold()
             ):
                 return True
         return False
 
     def device_partial_match(
-        self, device: dict[str, Any], model_info: ModelInfo
+        self, device: dict[str, Any], device_to_find: ModelInfo
     ) -> bool:
         """Check if device match on hw_version or model_id."""
-        if model_info.hw_version is None and model_info.model_id is None:
+        if device_to_find.hw_version is None and device_to_find.model_id is None:
             if (
                 device.get(LIBRARY_HW_VERSION, LIBRARY_MISSING)
                 == LIBRARY_MISSING
@@ -211,24 +211,24 @@ class Library:  # pylint: disable=too-few-public-methods
                 return True
             return False
 
-        if model_info.hw_version is None or model_info.model_id is None:
+        if device_to_find.hw_version is None or device_to_find.model_id is None:
             if (
                 device.get(LIBRARY_HW_VERSION, LIBRARY_MISSING).casefold()
-                == str(model_info.hw_version).casefold()
+                == str(device_to_find.hw_version).casefold()
                 or device.get(LIBRARY_MODEL_ID, LIBRARY_MISSING).casefold()
-                == str(model_info.model_id).casefold()
+                == str(device_to_find.model_id).casefold()
             ):
                 return True
 
         return False
 
-    def device_full_match(self, device: dict[str, Any], model_info: ModelInfo) -> bool:
+    def device_full_match(self, device: dict[str, Any], device_to_find: ModelInfo) -> bool:
         """Check if device match on hw_version and model_id."""
         if (
             device.get(LIBRARY_HW_VERSION, LIBRARY_MISSING).casefold()
-            == str(model_info.hw_version).casefold()
+            == str(device_to_find.hw_version).casefold()
             and device.get(LIBRARY_MODEL_ID, LIBRARY_MISSING).casefold()
-            == str(model_info.model_id).casefold()
+            == str(device_to_find.model_id).casefold()
         ):
             return True
         return False
