@@ -109,6 +109,9 @@ class Library:  # pylint: disable=too-few-public-methods
         # device_to_find = ModelInfo("Aqara", "Aqara Climate Sensor W100", "8196", None)
         # device_to_find = ModelInfo("Google", "Topaz-2.7", None, "Battery")
         # device_to_find = ModelInfo("Google", "Topaz-2.7", None, "Wired")
+        # device_to_find = ModelInfo("Philips", "Hue dimmer switch (929002398602)", None, None)
+        # device_to_find = ModelInfo("Philips", "Hue dimmer switch", "929002398602", None)
+
 
         # Get all devices matching manufacturer & model
         matching_devices = None
@@ -208,18 +211,11 @@ class Library:  # pylint: disable=too-few-public-methods
             if (
                 device.get(LIBRARY_HW_VERSION, LIBRARY_MISSING).casefold()
                 == str(model_info.hw_version).casefold()
-                and device.get(LIBRARY_MODEL_ID, LIBRARY_MISSING).casefold()
-                == str(model_info.model_id).casefold()
-            ):
-                return True
-        else:
-            if (
-                device.get(LIBRARY_HW_VERSION, LIBRARY_MISSING).casefold()
-                == str(model_info.hw_version).casefold()
                 or device.get(LIBRARY_MODEL_ID, LIBRARY_MISSING).casefold()
                 == str(model_info.model_id).casefold()
             ):
                 return True
+
         return False
 
     def device_full_match(self, device: dict[str, Any], model_info: ModelInfo) -> bool:
