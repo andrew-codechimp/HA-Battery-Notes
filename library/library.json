@@ -649,6 +649,12 @@
         },
         {
             "manufacturer": "AEON Labs",
+            "model": "DSB09",
+            "battery_type": "AAA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "AEON Labs",
             "model": "DSB29",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -10229,12 +10235,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "AEON Labs",
-            "model": "DSB09",
-            "battery_type": "AAA",
-            "battery_quantity": 4
         }
     ]
 }
