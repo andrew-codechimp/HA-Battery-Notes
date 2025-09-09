@@ -1,4 +1,4 @@
-## 1806 Devices in library
+## 1807 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1055,6 +1055,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Philio Technology Corp                          |PST02A                                                                                        |CR123A                    |                                   |                                      |
 |Philips                                         |Hue dimmer switch                                                                             |CR2450                    |                       324131092621|                                      |
 |Philips                                         |Hue dimmer switch                                                                             |CR2032                    |                       929002398602|                                      |
+|Philips                                         |Hue dimmer switch                                                                             |CR2032                    |                       929002398602|                                     1|
 |Philips                                         |Hue dimmer switch (324131092621)                                                              |CR2450                    |                                   |                                      |
 |Philips                                         |Hue dimmer switch (929002398602)                                                              |CR2032                    |                                   |                                      |
 |Philips                                         |Hue motion outdoor sensor                                                                     |2× AA                     |                         9290019758|                                      |
