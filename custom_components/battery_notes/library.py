@@ -193,10 +193,6 @@ class Library:  # pylint: disable=too-few-public-methods
             return None
 
         for device in self._devices:
-            # Ensure device is a dictionary
-            if not isinstance(device, dict):
-                continue
-
             # Check mandatory fields (case-insensitive)
             if (str(device.get(LIBRARY_MANUFACTURER, "")).casefold() !=
                 str(device_to_find.manufacturer).casefold()):
