@@ -148,6 +148,10 @@ class Library:  # pylint: disable=too-few-public-methods
             return None
 
         matched_device = matching_devices[0]
+
+        if not isinstance(matched_device, dict):
+            return None
+
         return DeviceBatteryDetails(
             manufacturer=matched_device[LIBRARY_MANUFACTURER],
             model=matched_device[LIBRARY_MODEL],
