@@ -517,6 +517,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "_TZE200_n8dljorx",
+            "model": "TS0601",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "_TZE200_nnrfa68v",
             "model": "TS0601",
             "battery_type": "AAA",
@@ -644,6 +649,12 @@
         {
             "manufacturer": "AEON Labs",
             "model": "DSB05",
+            "battery_type": "AAA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "AEON Labs",
+            "model": "DSB09",
             "battery_type": "AAA",
             "battery_quantity": 4
         },
@@ -1153,6 +1164,12 @@
             "manufacturer": "Aqara",
             "model": "lumi.sensor_switch.v2",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "lumi.valve.agl001",
+            "battery_type": "AA",
+            "battery_quantity": 4
         },
         {
             "manufacturer": "Aqara",
@@ -2223,6 +2240,12 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "Dreametech",
+            "model": "X40 ULTRA COMPLETE",
+            "model_id": "dreame.vacuum.r2449a",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Eaton",
             "model": "Ellipse ECO 650",
             "battery_type": "Rechargeable"
@@ -2275,6 +2298,11 @@
         {
             "manufacturer": "Ecolink",
             "model": "PIR Motion Sensor v2.5",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Ecolink",
+            "model": "PIRZWAVE1",
             "battery_type": "CR123A"
         },
         {
@@ -3353,6 +3381,13 @@
             "battery_type": "CR3032"
         },
         {
+            "manufacturer": "Fibar Group",
+            "model": "CO sensor",
+            "model_id": "FGBHCD-001",
+            "hw_version": "0.2.0",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "Fibargroup",
             "model": "FGCD001",
             "battery_type": "CR123A"
@@ -3682,6 +3717,11 @@
         },
         {
             "manufacturer": "Govee",
+            "model": "H5101",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Govee",
             "model": "H5101/H5102/H5177",
             "battery_type": "AAA"
         },
@@ -3813,6 +3853,17 @@
             "manufacturer": "Heiman",
             "model": "Carbon monoxide alarm",
             "model_id": "HS1CA-E",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "HEIMAN",
+            "model": "HS-720ES-M",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "HEIMAN",
+            "model": "HS1SA-M",
             "battery_type": "CR123A"
         },
         {
@@ -4214,6 +4265,14 @@
             "manufacturer": "ID-RF",
             "model": "Soft Remote",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "iHseno",
+            "model": "Vibration sensor",
+            "model_id": "_TZ3000_lzdjjfss",
+            "hw_version": "1",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "IKEA",
@@ -5236,6 +5295,13 @@
         },
         {
             "manufacturer": "Moes",
+            "model": "Roller blind/shades drive motor",
+            "model_id": "AM43-0.45/40-ES-EB",
+            "hw_version": "1",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Moes",
             "model": "Smart button",
             "model_id": "ERS-10TZBVB-AA",
             "hw_version": "1",
@@ -5835,10 +5901,23 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Petkit",
+            "model": "Pura Air Smart Spray",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
             "manufacturer": "PETLIBRO",
             "model": "PLAF108",
             "hw_version": "1.0.0",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Petlibro",
+            "model": "PLAF109",
+            "hw_version": "5.2.0",
+            "battery_type": "AA",
+            "battery_quantity": 3
         },
         {
             "manufacturer": "PETLIBRO",
@@ -5872,6 +5951,26 @@
             "model": "Hue dimmer switch",
             "model_id": "324131092621",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Philips",
+            "model": "Hue dimmer switch",
+            "model_id": "324131092621",
+            "hw_version": "1",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Philips",
+            "model": "Hue dimmer switch",
+            "model_id": "929002398602",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Philips",
+            "model": "Hue dimmer switch",
+            "model_id": "929002398602",
+            "hw_version": "1",
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "Philips",
@@ -7324,6 +7423,11 @@
         },
         {
             "manufacturer": "Springs Window Fashions",
+            "model": "CRZB",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Springs Window Fashions",
             "model": "CSZ1",
             "battery_type": "AA",
             "battery_quantity": 8
@@ -7622,6 +7726,14 @@
         {
             "manufacturer": "Third Reality",
             "model": "Smart button (3RSB22BZ)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Third Reality",
+            "model": "Smart switch Gen3",
+            "model_id": "3RSS009Z",
+            "hw_version": "1",
             "battery_type": "AAA",
             "battery_quantity": 2
         },
@@ -8114,6 +8226,14 @@
         },
         {
             "manufacturer": "Tuya",
+            "model": "Light intensity sensor",
+            "model_id": "TS0222",
+            "hw_version": "1",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tuya",
             "model": "Light sensor",
             "model_id": "TS0222_light",
             "hw_version": "1",
@@ -8227,6 +8347,14 @@
             "model": "NOTSEK smart Wifi Temperature Hygrometer",
             "model_id": "hbluag8nbjwtkyqs",
             "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Optical smoke sensor (model YG500A on the PCB)",
+            "model_id": "TS0205_smoke_2",
+            "hw_version": "1",
+            "battery_type": "AAA",
             "battery_quantity": 2
         },
         {
@@ -8930,6 +9058,13 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "Tuya",
+            "model": "ZG-204ZM",
+            "hw_version": "1",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "TuYa",
             "model": "Zigbee 3.0 temperature humidity sensor with display (TS0201_1)",
             "battery_type": "AA",
@@ -9313,6 +9448,11 @@
             "manufacturer": "X-Sense",
             "model": "SMA51",
             "battery_type": "CR2"
+        },
+        {
+            "manufacturer": "X-Sense",
+            "model": "XC01-M",
+            "battery_type": "CR123A"
         },
         {
             "manufacturer": "X-Sense",
@@ -9759,6 +9899,13 @@
         },
         {
             "manufacturer": "Xiaomi",
+            "model": "Temperature and Humidity Monitor (pvxx/ZigbeeTLc)",
+            "model_id": "LYWSD03MMC-z",
+            "hw_version": "0",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Xiaomi",
             "model": "temperature and humidity sensor",
             "model_id": "WSDCGQ01LM",
             "hw_version": "30",
@@ -10004,6 +10151,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Yookee",
+            "model": "Smart blind",
+            "model_id": "D10110_1",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Zbeacon",
             "model": "Temperature and humidity sensor",
             "model_id": "TH01",
@@ -10047,6 +10200,11 @@
             "manufacturer": "Zooz",
             "model": "ZEN37 800LR",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Zooz",
+            "model": "ZSE09",
+            "battery_type": "CR123A"
         },
         {
             "manufacturer": "Zooz",
