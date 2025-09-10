@@ -129,17 +129,3 @@ ignore_missing_imports = true
 
 [tool.ruff.lint.mccabe]
 max-complexity = 25
-
-[tool.pytest.ini_options]
-minversion = "6.0"
-addopts = ["--strict-markers", "--tb=short", "-v"]
-testpaths = ["tests"]
-python_files = ["test_*.py"]
-python_classes = ["Test*"]
-python_functions = ["test_*"]
-markers = ["asyncio: mark test as asyncio"]
-asyncio_mode = "auto"
-filterwarnings = [
-  "ignore::DeprecationWarning",
-  "ignore::PendingDeprecationWarning",
-]
