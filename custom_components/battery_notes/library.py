@@ -106,7 +106,7 @@ class Library:  # pylint: disable=too-few-public-methods
             return None
 
         # Test only
-        device_to_find = ModelInfo("Aqara", "Aqara Climate Sensor W100", "8196", None)
+        # device_to_find = ModelInfo("Aqara", "Aqara Climate Sensor W100", "8196", None)
         # device_to_find = ModelInfo("Google", "Topaz-2.7", None, "Battery")
         # device_to_find = ModelInfo("Google", "Topaz-2.7", None, "Wired")
         # device_to_find = ModelInfo("Philips", "Hue dimmer switch (929002398602)", None, None)
@@ -114,190 +114,124 @@ class Library:  # pylint: disable=too-few-public-methods
         # device_to_find = ModelInfo("Philips", "Hue dimmer switch", "929002398602", "1")
 
 
-        matched_device = self.find_exact_device_match(device_to_find)
-        if matched_device:
-            return DeviceBatteryDetails(
-                manufacturer=matched_device.manufacturer,
-                model=matched_device.model,
-                model_id=matched_device.model_id,
-                hw_version=matched_device.hw_version,
-                battery_type=matched_device.battery_type,
-                battery_quantity=matched_device.battery_quantity,
-            )
-        return None
+        # Get all devices matching manufacturer & model
+        matching_devices = None
+        partial_matching_devices = None
+        fully_matching_devices = None
 
-        # # Get all devices matching manufacturer & model
-        # matching_devices = None
-        # partial_matching_devices = None
-        # fully_matching_devices = None
+        matching_devices = [
+            x for x in self._devices if self.device_basic_match(x, device_to_find)
+        ]
 
-        # matching_devices = [
-        #     x for x in self._devices if self.device_basic_match(x, device_to_find)
-        # ]
+        if matching_devices and len(matching_devices) > 1:
+            partial_matching_devices = [
+                x
+                for x in matching_devices
+                if self.device_partial_match(x, device_to_find)
+            ]
 
-        # if matching_devices and len(matching_devices) > 1:
-        #     partial_matching_devices = [
-        #         x
-        #         for x in matching_devices
-        #         if self.device_partial_match(x, device_to_find)
-        #     ]
+        if partial_matching_devices and len(partial_matching_devices) > 0:
+            matching_devices = partial_matching_devices
 
-        # if partial_matching_devices and len(partial_matching_devices) > 0:
-        #     matching_devices = partial_matching_devices
+        if matching_devices and len(matching_devices) > 1:
+            fully_matching_devices = [
+                x for x in matching_devices if self.device_full_match(x, device_to_find)
+            ]
 
-        # if matching_devices and len(matching_devices) > 1:
-        #     fully_matching_devices = [
-        #         x for x in matching_devices if self.device_full_match(x, device_to_find)
-        #     ]
+        if fully_matching_devices and len(fully_matching_devices) > 0:
+            matching_devices = fully_matching_devices
 
-        # if fully_matching_devices and len(fully_matching_devices) > 0:
-        #     matching_devices = fully_matching_devices
+        if not matching_devices:
+            return None
 
-        # if not matching_devices:
-        #     return None
+        if len(matching_devices) > 1:
+            return None
 
-        # if len(matching_devices) > 1:
-        #     return None
-
-        # matched_device = matching_devices[0]
-        # return DeviceBatteryDetails(
-        #     manufacturer=matched_device[LIBRARY_MANUFACTURER],
-        #     model=matched_device[LIBRARY_MODEL],
-        #     model_id=matched_device.get(LIBRARY_MODEL_ID, ""),
-        #     hw_version=matched_device.get(LIBRARY_HW_VERSION, ""),
-        #     battery_type=matched_device[LIBRARY_BATTERY_TYPE],
-        #     battery_quantity=matched_device.get(LIBRARY_BATTERY_QUANTITY, 1),
-        # )
+        matched_device = matching_devices[0]
+        return DeviceBatteryDetails(
+            manufacturer=matched_device[LIBRARY_MANUFACTURER],
+            model=matched_device[LIBRARY_MODEL],
+            model_id=matched_device.get(LIBRARY_MODEL_ID, ""),
+            hw_version=matched_device.get(LIBRARY_HW_VERSION, ""),
+            battery_type=matched_device[LIBRARY_BATTERY_TYPE],
+            battery_quantity=matched_device.get(LIBRARY_BATTERY_QUANTITY, 1),
+        )
 
     def loaded(self) -> bool:
         """Library loaded successfully."""
         return self._devices is not None
 
-    def find_exact_device_match(self, device_to_find: ModelInfo) -> DeviceBatteryDetails | None:
-        """Find an exact match for the given ModelInfo.
+    def device_basic_match(self, device: dict[str, Any], device_to_find: ModelInfo) -> bool:
+        """Check if device match on manufacturer and model."""
+        if (
+            str(device[LIBRARY_MANUFACTURER] or "").casefold()
+            != str(device_to_find.manufacturer or "").casefold()
+        ):
+            return False
 
-        Manufacturer and Model are mandatory fields that must match exactly.
-        Model_id and hw_version are optional - if provided, they must match exactly.
-        Only returns a match if all mandatory and specified optional fields match.
+        if LIBRARY_MODEL_MATCH_METHOD in device:
+            if device[LIBRARY_MODEL_MATCH_METHOD] == "startswith":
+                if (
+                    str(device_to_find.model or "")
+                    .casefold()
+                    .startswith(str(device[LIBRARY_MODEL] or "").casefold())
+                ):
+                    return True
+            if device[LIBRARY_MODEL_MATCH_METHOD] == "endswith":
+                if (
+                    str(device_to_find.model or "")
+                    .casefold()
+                    .endswith(str(device[LIBRARY_MODEL] or "").casefold())
+                ):
+                    return True
+            if device[LIBRARY_MODEL_MATCH_METHOD] == "contains":
+                if str(device_to_find.model or "").casefold() in (
+                    str(device[LIBRARY_MODEL] or "").casefold()
+                ):
+                    return True
+        else:
+            if (
+                str(device[LIBRARY_MODEL] or "").casefold()
+                == str(device_to_find.model or "").casefold()
+            ):
+                return True
+        return False
 
-        Args:
-            device_to_find: ModelInfo object with device details to match
+    def device_partial_match(
+        self, device: dict[str, Any], device_to_find: ModelInfo
+    ) -> bool:
+        """Check if device match on hw_version or model_id."""
+        if device_to_find.hw_version is None and device_to_find.model_id is None:
+            if (
+                device.get(LIBRARY_HW_VERSION, LIBRARY_MISSING)
+                == LIBRARY_MISSING
+                and device.get(LIBRARY_MODEL_ID, LIBRARY_MISSING)
+                == LIBRARY_MISSING
+            ):
+                return True
+            return False
 
-        Returns:
-            DeviceBatteryDetails if exact match found, None otherwise
-        """
-        if self._devices is None:
-            return None
+        if device_to_find.hw_version is None or device_to_find.model_id is None:
+            if (
+                device.get(LIBRARY_HW_VERSION, LIBRARY_MISSING).casefold()
+                == str(device_to_find.hw_version).casefold()
+                or device.get(LIBRARY_MODEL_ID, LIBRARY_MISSING).casefold()
+                == str(device_to_find.model_id).casefold()
+            ):
+                return True
 
-        if not device_to_find.manufacturer or not device_to_find.model:
-            return None
+        return False
 
-        for device in self._devices:
-            # Check mandatory fields (case-insensitive)
-            if (str(device.get(LIBRARY_MANUFACTURER, "")).casefold() !=
-                str(device_to_find.manufacturer).casefold()):
-                continue
-
-            if (str(device.get(LIBRARY_MODEL, "")).casefold() !=
-                str(device_to_find.model).casefold()):
-                continue
-
-            # Check optional fields - if provided in device_to_find, they must match
-            if device_to_find.model_id is not None:
-                device_model_id = device.get(LIBRARY_MODEL_ID, "")
-                if (str(device_model_id).casefold() !=
-                    str(device_to_find.model_id).casefold()):
-                    continue
-
-            if device_to_find.hw_version is not None:
-                device_hw_version = device.get(LIBRARY_HW_VERSION, "")
-                if (str(device_hw_version).casefold() !=
-                    str(device_to_find.hw_version).casefold()):
-                    continue
-
-            # All mandatory and specified optional fields match
-            return DeviceBatteryDetails(
-                manufacturer=device[LIBRARY_MANUFACTURER],
-                model=device[LIBRARY_MODEL],
-                model_id=device.get(LIBRARY_MODEL_ID, ""),
-                hw_version=device.get(LIBRARY_HW_VERSION, ""),
-                battery_type=device[LIBRARY_BATTERY_TYPE],
-                battery_quantity=device.get(LIBRARY_BATTERY_QUANTITY, 1),
-            )
-
-        return None
-
-    # def device_basic_match(self, device: dict[str, Any], device_to_find: ModelInfo) -> bool:
-    #     """Check if device match on manufacturer and model."""
-    #     if (
-    #         str(device[LIBRARY_MANUFACTURER] or "").casefold()
-    #         != str(device_to_find.manufacturer or "").casefold()
-    #     ):
-    #         return False
-
-    #     if LIBRARY_MODEL_MATCH_METHOD in device:
-    #         if device[LIBRARY_MODEL_MATCH_METHOD] == "startswith":
-    #             if (
-    #                 str(device_to_find.model or "")
-    #                 .casefold()
-    #                 .startswith(str(device[LIBRARY_MODEL] or "").casefold())
-    #             ):
-    #                 return True
-    #         if device[LIBRARY_MODEL_MATCH_METHOD] == "endswith":
-    #             if (
-    #                 str(device_to_find.model or "")
-    #                 .casefold()
-    #                 .endswith(str(device[LIBRARY_MODEL] or "").casefold())
-    #             ):
-    #                 return True
-    #         if device[LIBRARY_MODEL_MATCH_METHOD] == "contains":
-    #             if str(device_to_find.model or "").casefold() in (
-    #                 str(device[LIBRARY_MODEL] or "").casefold()
-    #             ):
-    #                 return True
-    #     else:
-    #         if (
-    #             str(device[LIBRARY_MODEL] or "").casefold()
-    #             == str(device_to_find.model or "").casefold()
-    #         ):
-    #             return True
-    #     return False
-
-    # def device_partial_match(
-    #     self, device: dict[str, Any], device_to_find: ModelInfo
-    # ) -> bool:
-    #     """Check if device match on hw_version or model_id."""
-    #     if device_to_find.hw_version is None and device_to_find.model_id is None:
-    #         if (
-    #             device.get(LIBRARY_HW_VERSION, LIBRARY_MISSING)
-    #             == LIBRARY_MISSING
-    #             and device.get(LIBRARY_MODEL_ID, LIBRARY_MISSING)
-    #             == LIBRARY_MISSING
-    #         ):
-    #             return True
-    #         return False
-
-    #     if device_to_find.hw_version is None or device_to_find.model_id is None:
-    #         if (
-    #             device.get(LIBRARY_HW_VERSION, LIBRARY_MISSING).casefold()
-    #             == str(device_to_find.hw_version).casefold()
-    #             or device.get(LIBRARY_MODEL_ID, LIBRARY_MISSING).casefold()
-    #             == str(device_to_find.model_id).casefold()
-    #         ):
-    #             return True
-
-    #     return False
-
-    # def device_full_match(self, device: dict[str, Any], device_to_find: ModelInfo) -> bool:
-    #     """Check if device match on hw_version and model_id."""
-    #     if (
-    #         device.get(LIBRARY_HW_VERSION, LIBRARY_MISSING).casefold()
-    #         == str(device_to_find.hw_version).casefold()
-    #         and device.get(LIBRARY_MODEL_ID, LIBRARY_MISSING).casefold()
-    #         == str(device_to_find.model_id).casefold()
-    #     ):
-    #         return True
-    #     return False
+    def device_full_match(self, device: dict[str, Any], device_to_find: ModelInfo) -> bool:
+        """Check if device match on hw_version and model_id."""
+        if (
+            device.get(LIBRARY_HW_VERSION, LIBRARY_MISSING).casefold()
+            == str(device_to_find.hw_version).casefold()
+            and device.get(LIBRARY_MODEL_ID, LIBRARY_MISSING).casefold()
+            == str(device_to_find.model_id).casefold()
+        ):
+            return True
+        return False
 
 
 class DeviceBatteryDetails(NamedTuple):
