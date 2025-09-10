@@ -10281,6 +10281,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "eQ-3",
+            "model": "HmIP-WRCR",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
