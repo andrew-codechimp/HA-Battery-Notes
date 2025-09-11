@@ -1,4 +1,4 @@
-## 1810 Devices in library
+## 1811 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1548,6 +1548,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tuya                                            |Temperature and humidity sensor with clock                                                    |3× AAA                    |TH01Z                              |                                     1|
 |Tuya                                            |TH01Z                                                                                         |2× AAA                    |                                   |                                      |
 |Tuya                                            |TH05                                                                                          |CR2032                    |                                   |                                      |
+|Tuya                                            |TH06                                                                                          |2× AAA                    |utcevanfrq4gf3ml                   |                                      |
 |Tuya                                            |TH06 (utcevanfrq4gf3ml)                                                                       |2× AAA                    |                                   |                                      |
 |TuYa                                            |TH08                                                                                          |3× AAA                    |                                   |                                      |
 |Tuya                                            |Thermostat radiator valve                                                                     |2× AA                     |TV02-Zigbee                        |                                      |

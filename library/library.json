@@ -8799,6 +8799,13 @@
         },
         {
             "manufacturer": "Tuya",
+            "model": "TH06",
+            "model_id": "utcevanfrq4gf3ml",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tuya",
             "model": "TH06 (utcevanfrq4gf3ml)",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -10287,13 +10294,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "TH06",
-            "model_id": "utcevanfrq4gf3ml",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
