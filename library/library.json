@@ -8805,12 +8805,6 @@
             "battery_quantity": 2
         },
         {
-            "manufacturer": "Tuya",
-            "model": "TH06 (utcevanfrq4gf3ml)",
-            "battery_type": "AAA",
-            "battery_quantity": 2
-        },
-        {
             "manufacturer": "TuYa",
             "model": "TH08",
             "battery_type": "AAA",
