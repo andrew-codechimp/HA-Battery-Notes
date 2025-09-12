@@ -10294,6 +10294,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Ring",
+            "model": "Spotlight Cam Battery",
+            "battery_type": "Rechargeable",
+            "battery_quantity": 2
         }
     ]
 }
