@@ -1,4 +1,4 @@
-## 1815 Devices in library
+## 1816 Devices in library
 
 This file is auto generated, do not modify
 
@@ -283,6 +283,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Arlo                                            |Pro 2                                                                                         |Rechargeable              |                                   |                                      |
 |ATC                                             |ATC (Atc1441)                                                                                 |CR2032                    |                                   |                                      |
 |Aubess                                          |IH-K665                                                                                       |CR2032                    |                                   |                                      |
+|Aubess                                          |Water leak sensor                                                                             |CR2032                    |IH-K665                            |                                     1|
 |Aubess                                          |Water leak sensor (IH-K665)                                                                   |CR2032                    |                                   |                                      |
 |August                                          |AUG-SL03-C02-S03                                                                              |4× AA                     |                                   |                                      |
 |August                                          |TEST200228                                                                                    |4× AA                     |                                   |                                      |
