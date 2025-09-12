@@ -6859,6 +6859,12 @@
         },
         {
             "manufacturer": "Signify Netherlands B.V.",
+            "model": "Hue Smart button",
+            "model_id": "ROM001",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Signify Netherlands B.V.",
             "model": "Hue Smart button (ROM001)",
             "battery_type": "CR2032"
         },
@@ -10306,12 +10312,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Signify Netherlands B.V.",
-            "model": "Hue Smart button",
-            "model_id": "ROM001",
-            "battery_type": "CR2032"
         }
     ]
 }
