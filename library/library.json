@@ -10318,6 +10318,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Aubess",
+            "model": "Water leak sensor",
+            "model_id": "IH-K665",
+            "hw_version": "1",
+            "battery_type": "CR2032"
         }
     ]
 }
