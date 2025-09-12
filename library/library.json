@@ -6869,6 +6869,12 @@
         },
         {
             "manufacturer": "Signify Netherlands B.V.",
+            "model": "Hue wall switch module",
+            "model_id": "RDM001",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Signify Netherlands B.V.",
             "model": "Hue wall switch module (RDM001)",
             "battery_type": "CR2450"
         },
@@ -10300,12 +10306,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Signify Netherlands B.V.",
-            "model": "Hue wall switch module",
-            "model_id": "RDM001",
-            "battery_type": "CR2450"
         }
     ]
 }
