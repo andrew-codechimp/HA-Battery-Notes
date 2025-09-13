@@ -10332,6 +10332,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Paulmann",
+            "model": "Remote control Smart Home Zigbee 3.0 White",
+            "model_id": "501.41",
+            "hw_version": "64",
+            "battery_type": "CR2032"
         }
     ]
 }
