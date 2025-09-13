@@ -28,7 +28,7 @@ LIBRARY_MISSING: Final[str] = "##MISSING##"
 class Library:  # pylint: disable=too-few-public-methods
     """Hold all known battery types."""
 
-    _devices: list = []
+    _devices: dict[str, list] = {}
 
     def __init__(self, hass: HomeAssistant) -> None:
         """Init."""
@@ -53,7 +53,11 @@ class Library:  # pylint: disable=too-few-public-methods
                     _load_library_json, json_user_path
                 )
 
-                self._devices = user_json_data["devices"]
+                for device in user_json_data["devices"]:
+                    manufacturer = str(device[LIBRARY_MANUFACTURER]).casefold()
+                    if manufacturer not in self._devices:
+                        self._devices[manufacturer] = []
+                    self._devices[manufacturer].append(device)
                 _LOGGER.debug(
                     "Loaded %s user devices", len(user_json_data["devices"])
                 )
@@ -85,7 +89,11 @@ class Library:  # pylint: disable=too-few-public-methods
             default_json_data = await self.hass.async_add_executor_job(
                 _load_library_json, json_default_path
             )
-            self._devices.extend(default_json_data[LIBRARY_DEVICES])
+            for device in default_json_data["devices"]:
+                manufacturer = str(device[LIBRARY_MANUFACTURER]).casefold()
+                if manufacturer not in self._devices:
+                    self._devices[manufacturer] = []
+                self._devices[manufacturer].append(device)
             _LOGGER.debug(
                 "Loaded %s default devices", len(default_json_data[LIBRARY_DEVICES])
             )
@@ -119,8 +127,12 @@ class Library:  # pylint: disable=too-few-public-methods
         partial_matching_devices = None
         fully_matching_devices = None
 
+        manufacturer_devices = self._devices.get(device_to_find.manufacturer.casefold(), None)
+        if not manufacturer_devices:
+            return None
+
         matching_devices = [
-            x for x in self._devices if self.device_basic_match(x, device_to_find)
+            x for x in manufacturer_devices if self.device_basic_match(x, device_to_find)
         ]
 
         if matching_devices and len(matching_devices) > 1:
