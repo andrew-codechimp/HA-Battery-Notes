@@ -1562,6 +1562,13 @@
         },
         {
             "manufacturer": "Aubess",
+            "model": "Water leak sensor",
+            "model_id": "IH-K665",
+            "hw_version": "1",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Aubess",
             "model": "Water leak sensor (IH-K665)",
             "battery_type": "CR2032"
         },
@@ -2607,6 +2614,12 @@
         },
         {
             "manufacturer": "eQ-3",
+            "model": "HM-Sen-DB-PCB",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "eQ-3",
             "model": "HM-Sen-MDIR-O",
             "model_id": "HM-Sen-MDIR-O",
             "hw_version": "1.6",
@@ -3029,6 +3042,12 @@
         {
             "manufacturer": "eQ-3",
             "model": "HmIP-WRCD",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "eQ-3",
+            "model": "HmIP-WRCR",
             "battery_type": "AAA",
             "battery_quantity": 2
         },
@@ -6335,6 +6354,12 @@
         },
         {
             "manufacturer": "Ring",
+            "model": "Spotlight Cam Battery",
+            "battery_type": "Rechargeable",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Ring",
             "model": "Spotlight Cam Plus",
             "battery_type": "Rechargeable"
         },
@@ -6797,6 +6822,12 @@
         },
         {
             "manufacturer": "Signify Netherlands B.V.",
+            "model": "Hue dimmer switch",
+            "model_id": "RWL021",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Signify Netherlands B.V.",
             "model": "Hue dimmer switch (RWL020)",
             "battery_type": "CR2450"
         },
@@ -6841,6 +6872,12 @@
         },
         {
             "manufacturer": "Signify Netherlands B.V.",
+            "model": "Hue Smart button",
+            "model_id": "ROM001",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Signify Netherlands B.V.",
             "model": "Hue Smart button (ROM001)",
             "battery_type": "CR2032"
         },
@@ -6848,6 +6885,12 @@
             "manufacturer": "Signify Netherlands B.V.",
             "model": "Hue tap dial switch (RDM002)",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Signify Netherlands B.V.",
+            "model": "Hue wall switch module",
+            "model_id": "RDM001",
+            "battery_type": "CR2450"
         },
         {
             "manufacturer": "Signify Netherlands B.V.",
@@ -8790,6 +8833,13 @@
             "manufacturer": "Tuya",
             "model": "TH05",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "TH06",
+            "model_id": "utcevanfrq4gf3ml",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "TuYa",
