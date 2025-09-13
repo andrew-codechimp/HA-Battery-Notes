@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import logging
 import os
+from dataclasses import dataclass
 from typing import Any, Final, NamedTuple, cast
 
 from homeassistant.core import HomeAssistant
@@ -24,11 +25,35 @@ LIBRARY_BATTERY_TYPE: Final[str] =  "battery_type"
 LIBRARY_BATTERY_QUANTITY: Final[str] =  "battery_quantity"
 LIBRARY_MISSING: Final[str] = "##MISSING##"
 
+@dataclass(frozen=True,kw_only=True)
+class LibraryDevice:
+    """Class for keeping track of a library device."""
+
+    manufacturer: str
+    model: str
+    battery_type: str
+    model_match_method: str | None = None
+    model_id: str | None = None
+    battery_quantity: int = 1
+    hw_version: str | None = None
+
+    @classmethod
+    def from_json(cls, data: dict[str, Any]) -> LibraryDevice:
+        """Create LibraryDevice instance from JSON data."""
+        return cls(
+            manufacturer=data[LIBRARY_MANUFACTURER],
+            model=data[LIBRARY_MODEL],
+            model_match_method=data.get(LIBRARY_MODEL_MATCH_METHOD),
+            model_id=data.get(LIBRARY_MODEL_ID),
+            hw_version=data.get(LIBRARY_HW_VERSION),
+            battery_type=data[LIBRARY_BATTERY_TYPE],
+            battery_quantity=data.get(LIBRARY_BATTERY_QUANTITY, 1),
+        )
 
 class Library:  # pylint: disable=too-few-public-methods
     """Hold all known battery types."""
 
-    _devices: dict[str, list] = {}
+    _manufacturer_devices: dict[str, list[LibraryDevice]] = {}
 
     def __init__(self, hass: HomeAssistant) -> None:
         """Init."""
@@ -53,11 +78,12 @@ class Library:  # pylint: disable=too-few-public-methods
                     _load_library_json, json_user_path
                 )
 
-                for device in user_json_data["devices"]:
-                    manufacturer = str(device[LIBRARY_MANUFACTURER]).casefold()
-                    if manufacturer not in self._devices:
-                        self._devices[manufacturer] = []
-                    self._devices[manufacturer].append(device)
+                for json_device in user_json_data["devices"]:
+                    library_device = LibraryDevice.from_json(json_device)
+                    manufacturer = library_device.manufacturer.casefold()
+                    if manufacturer not in self._manufacturer_devices:
+                        self._manufacturer_devices[manufacturer] = []
+                    self._manufacturer_devices[manufacturer].append(library_device)
                 _LOGGER.debug(
                     "Loaded %s user devices", len(user_json_data["devices"])
                 )
@@ -89,11 +115,12 @@ class Library:  # pylint: disable=too-few-public-methods
             default_json_data = await self.hass.async_add_executor_job(
                 _load_library_json, json_default_path
             )
-            for device in default_json_data["devices"]:
-                manufacturer = str(device[LIBRARY_MANUFACTURER]).casefold()
-                if manufacturer not in self._devices:
-                    self._devices[manufacturer] = []
-                self._devices[manufacturer].append(device)
+            for json_device in default_json_data["devices"]:
+                library_device = LibraryDevice.from_json(json_device)
+                manufacturer = library_device.manufacturer.casefold()
+                if manufacturer not in self._manufacturer_devices:
+                    self._manufacturer_devices[manufacturer] = []
+                self._manufacturer_devices[manufacturer].append(library_device)
             _LOGGER.debug(
                 "Loaded %s default devices", len(default_json_data[LIBRARY_DEVICES])
             )
@@ -110,7 +137,7 @@ class Library:  # pylint: disable=too-few-public-methods
     ) -> DeviceBatteryDetails | None:
         """Create a battery details object from the JSON devices data."""
 
-        if self._devices is None:
+        if self._manufacturer_devices is None:
             return None
 
         # Test only
@@ -127,7 +154,7 @@ class Library:  # pylint: disable=too-few-public-methods
         partial_matching_devices = None
         fully_matching_devices = None
 
-        manufacturer_devices = self._devices.get(device_to_find.manufacturer.casefold(), None)
+        manufacturer_devices = self._manufacturer_devices.get(device_to_find.manufacturer.casefold(), None)
         if not manufacturer_devices:
             return None
 
@@ -161,89 +188,84 @@ class Library:  # pylint: disable=too-few-public-methods
 
         matched_device = matching_devices[0]
 
-        if not isinstance(matched_device, dict):
-            return None
-
         return DeviceBatteryDetails(
-            manufacturer=matched_device[LIBRARY_MANUFACTURER],
-            model=matched_device[LIBRARY_MODEL],
-            model_id=matched_device.get(LIBRARY_MODEL_ID, ""),
-            hw_version=matched_device.get(LIBRARY_HW_VERSION, ""),
-            battery_type=matched_device[LIBRARY_BATTERY_TYPE],
-            battery_quantity=matched_device.get(LIBRARY_BATTERY_QUANTITY, 1),
+            manufacturer=matched_device.manufacturer,
+            model=matched_device.model,
+            model_id=matched_device.model_id or "",
+            hw_version=matched_device.hw_version or "",
+            battery_type=matched_device.battery_type,
+            battery_quantity=matched_device.battery_quantity,
         )
 
     def loaded(self) -> bool:
         """Library loaded successfully."""
-        return self._devices is not None
+        return self._manufacturer_devices is not None
 
-    def device_basic_match(self, device: dict[str, Any], device_to_find: ModelInfo) -> bool:
+    def device_basic_match(self, library_device: LibraryDevice, device_to_find: ModelInfo) -> bool:
         """Check if device match on manufacturer and model."""
         if (
-            str(device[LIBRARY_MANUFACTURER] or "").casefold()
-            != str(device_to_find.manufacturer or "").casefold()
+            library_device.manufacturer.casefold()
+            != device_to_find.manufacturer.casefold()
         ):
             return False
 
-        if LIBRARY_MODEL_MATCH_METHOD in device:
-            if device[LIBRARY_MODEL_MATCH_METHOD] == "startswith":
+        if library_device.model_match_method:
+            if library_device.model_match_method == "startswith":
                 if (
                     str(device_to_find.model or "")
                     .casefold()
-                    .startswith(str(device[LIBRARY_MODEL] or "").casefold())
+                    .startswith(library_device.model.casefold())
                 ):
                     return True
-            if device[LIBRARY_MODEL_MATCH_METHOD] == "endswith":
+            if library_device.model_match_method == "endswith":
                 if (
                     str(device_to_find.model or "")
                     .casefold()
-                    .endswith(str(device[LIBRARY_MODEL] or "").casefold())
+                    .endswith(library_device.model.casefold())
                 ):
                     return True
-            if device[LIBRARY_MODEL_MATCH_METHOD] == "contains":
+            if library_device.model_match_method == "contains":
                 if str(device_to_find.model or "").casefold() in (
-                    str(device[LIBRARY_MODEL] or "").casefold()
+                    library_device.model.casefold()
                 ):
                     return True
         else:
             if (
-                str(device[LIBRARY_MODEL] or "").casefold()
+                library_device.model.casefold()
                 == str(device_to_find.model or "").casefold()
             ):
                 return True
         return False
 
     def device_partial_match(
-        self, device: dict[str, Any], device_to_find: ModelInfo
+        self, library_device: LibraryDevice, device_to_find: ModelInfo
     ) -> bool:
         """Check if device match on hw_version or model_id."""
         if device_to_find.hw_version is None and device_to_find.model_id is None:
             if (
-                device.get(LIBRARY_HW_VERSION, LIBRARY_MISSING)
-                == LIBRARY_MISSING
-                and device.get(LIBRARY_MODEL_ID, LIBRARY_MISSING)
-                == LIBRARY_MISSING
+                library_device.hw_version is None
+                and library_device.model_id is None
             ):
                 return True
             return False
 
         if device_to_find.hw_version is None or device_to_find.model_id is None:
             if (
-                device.get(LIBRARY_HW_VERSION, LIBRARY_MISSING).casefold()
+                (library_device.hw_version or "").casefold()
                 == str(device_to_find.hw_version).casefold()
-                or device.get(LIBRARY_MODEL_ID, LIBRARY_MISSING).casefold()
+                or (library_device.model_id or "").casefold()
                 == str(device_to_find.model_id).casefold()
             ):
                 return True
 
         return False
 
-    def device_full_match(self, device: dict[str, Any], device_to_find: ModelInfo) -> bool:
+    def device_full_match(self, library_device: LibraryDevice, device_to_find: ModelInfo) -> bool:
         """Check if device match on hw_version and model_id."""
         if (
-            device.get(LIBRARY_HW_VERSION, LIBRARY_MISSING).casefold()
+            (library_device.hw_version or "").casefold()
             == str(device_to_find.hw_version).casefold()
-            and device.get(LIBRARY_MODEL_ID, LIBRARY_MISSING).casefold()
+            and (library_device.model_id or "").casefold()
             == str(device_to_find.model_id).casefold()
         ):
             return True
