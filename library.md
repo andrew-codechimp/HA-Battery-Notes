@@ -1,4 +1,4 @@
-## 1816 Devices in library
+## 1817 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1186,6 +1186,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Shelly                                          |BTHome sensor                                                                                 |MANUAL                    |                                   |                                      |
 |Shelly                                          |gen1 (SHHT-1)                                                                                 |CR123A                    |                                   |                                      |
 |Shelly                                          |Shelly BLU Motion                                                                             |CR2477                    |SBMO-003Z                          |                                      |
+|Shelly                                          |Shelly BLU TRV                                                                                |2× AA                     |SBTR-001AEU                        |                                      |
 |Shelly                                          |Shelly Button1                                                                                |Rechargeable              |                                   |                                      |
 |Shelly                                          |Shelly Door/Window 2                                                                          |2× CR123A                 |                                   |                                      |
 |Shelly                                          |Shelly Flood                                                                                  |CR123A                    |                                   |                                      |

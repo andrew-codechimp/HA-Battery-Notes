@@ -6693,6 +6693,13 @@
         },
         {
             "manufacturer": "Shelly",
+            "model": "Shelly BLU TRV",
+            "model_id": "SBTR-001AEU",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Shelly",
             "model": "Shelly Button1",
             "battery_type": "Rechargeable"
         },
@@ -10325,13 +10332,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Shelly",
-            "model": "Shelly BLU TRV",
-            "model_id": "SBTR-001AEU",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
