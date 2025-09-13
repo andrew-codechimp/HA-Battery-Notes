@@ -5911,6 +5911,13 @@
         },
         {
             "manufacturer": "Paulmann",
+            "model": "Gent2 RGB remote control",
+            "model_id": "501.40",
+            "battery_type": "CR2032",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Paulmann",
             "model": "Remote control Smart Home Zigbee 3.0 White",
             "model_id": "501.41",
             "hw_version": "64",
@@ -10339,13 +10346,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Paulmann",
-            "model": "Gent2 RGB remote control",
-            "model_id": "501.40",
-            "battery_type": "CR2032",
-            "battery_quantity": 2
         }
     ]
 }
