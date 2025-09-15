@@ -54,7 +54,7 @@ from .const import (
 )
 from .const import NAME as INTEGRATION_NAME
 from .coordinator import MY_KEY
-from .library import Library, ModelInfo
+from .library import DATA_LIBRARY, ModelInfo
 from .library_updater import LibraryUpdater
 
 _LOGGER = logging.getLogger(__name__)
@@ -306,8 +306,9 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                     device_entry.hw_version,
                 )
 
-                library = Library(self.hass)
-                await library.load_libraries()
+                library = self.hass.data[DATA_LIBRARY]
+                if not library.is_loaded:
+                    await library.load_libraries()
 
                 # Set defaults if not found in library
                 self.data[CONF_BATTERY_QUANTITY] = 1
@@ -538,8 +539,9 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
                     device_entry.hw_version,
                 )
 
-                library = Library(self.hass)
-                await library.load_libraries()
+                library = self.hass.data[DATA_LIBRARY]
+                if not library.is_loaded:
+                    await library.load_libraries()
 
                 # Set defaults if not found in library
                 self.data[CONF_BATTERY_QUANTITY] = 1
@@ -630,8 +632,9 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
                             device_entry.hw_version,
                         )
 
-                        library = Library(self.hass)
-                        await library.load_libraries()
+                        library = self.hass.data[DATA_LIBRARY]
+                        if not library.is_loaded:
+                            await library.load_libraries()
 
                         device_battery_details = (
                             await library.get_device_battery_details(self.model_info)

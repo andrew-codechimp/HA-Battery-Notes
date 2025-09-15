@@ -10,7 +10,9 @@ from typing import Any, Final, NamedTuple, cast
 
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.storage import STORAGE_DIR
+from homeassistant.util.hass_dict import HassKey
 
+from .const import DOMAIN
 from .coordinator import MY_KEY
 
 _LOGGER = logging.getLogger(__name__)
@@ -24,6 +26,8 @@ LIBRARY_HW_VERSION: Final[str] =  "hw_version"
 LIBRARY_BATTERY_TYPE: Final[str] =  "battery_type"
 LIBRARY_BATTERY_QUANTITY: Final[str] =  "battery_quantity"
 LIBRARY_MISSING: Final[str] = "##MISSING##"
+
+DATA_LIBRARY: HassKey[Library] = HassKey(f"{DOMAIN}_library")
 
 @dataclass(frozen=True,kw_only=True)
 class LibraryDevice:
@@ -137,7 +141,7 @@ class Library:  # pylint: disable=too-few-public-methods
     ) -> DeviceBatteryDetails | None:
         """Create a battery details object from the JSON devices data."""
 
-        if self._manufacturer_devices is None:
+        if not bool(self._manufacturer_devices):
             return None
 
         # Test only
@@ -197,9 +201,10 @@ class Library:  # pylint: disable=too-few-public-methods
             battery_quantity=matched_device.battery_quantity,
         )
 
-    def loaded(self) -> bool:
+    @property
+    def is_loaded(self) -> bool:
         """Library loaded successfully."""
-        return self._manufacturer_devices is not None
+        return bool(self._manufacturer_devices)
 
     def device_basic_match(self, library_device: LibraryDevice, device_to_find: ModelInfo) -> bool:
         """Check if device match on manufacturer and model."""

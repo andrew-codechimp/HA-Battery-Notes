@@ -23,6 +23,7 @@ from .const import (
 )
 from .coordinator import MY_KEY, BatteryNotesDomainConfig
 from .discovery import DiscoveryManager
+from .library import DATA_LIBRARY
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -60,6 +61,8 @@ class LibraryUpdater:
             return
 
         await self.get_library_updates()
+
+        await self.hass.data[DATA_LIBRARY].load_libraries()
 
         domain_config = self.hass.data[MY_KEY]
 

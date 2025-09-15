@@ -23,7 +23,7 @@ from .const import (
     DOMAIN,
 )
 from .coordinator import BatteryNotesDomainConfig
-from .library import DeviceBatteryDetails, Library, ModelInfo
+from .library import DATA_LIBRARY, DeviceBatteryDetails, ModelInfo
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -88,10 +88,11 @@ class DiscoveryManager:
         _LOGGER.debug("Start auto discovering devices")
         device_registry = dr.async_get(self.hass)
 
-        library = Library(self.hass)
-        await library.load_libraries()
+        library = self.hass.data[DATA_LIBRARY]
+        if not library.is_loaded:
+            await library.load_libraries()
 
-        if library.loaded():
+        if library.is_loaded:
             for device_entry in list(device_registry.devices.values()):
                 if not self.should_process_device(device_entry):
                     continue

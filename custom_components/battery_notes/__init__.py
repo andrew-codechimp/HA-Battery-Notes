@@ -61,6 +61,7 @@ from .coordinator import (
     BatteryNotesSubentryCoordinator,
 )
 from .discovery import DiscoveryManager
+from .library import DATA_LIBRARY, Library
 from .library_updater import LibraryUpdater
 from .services import async_setup_services
 from .store import async_get_registry
@@ -115,6 +116,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     )
 
     hass.data[MY_KEY] = domain_config
+    hass.data[DATA_LIBRARY] = Library(hass)
 
     # Register custom services
     async_setup_services(hass)
