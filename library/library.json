@@ -4052,6 +4052,11 @@
         },
         {
             "manufacturer": "HOBEIAN",
+            "model": "ZG-102ZL",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "HOBEIAN",
             "model": "ZG-102ZM",
             "battery_type": "CR2032"
         },
@@ -10357,11 +10362,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "HOBEIAN",
-            "model": "ZG-102ZL",
-            "battery_type": "CR2032"
         }
     ]
 }
