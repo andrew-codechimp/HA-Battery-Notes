@@ -1,4 +1,4 @@
-## 1820 Devices in library
+## 1821 Devices in library
 
 This file is auto generated, do not modify
 
@@ -716,6 +716,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |HOBEIAN                                         |Temperature and humidity sensor (ZG-227Z)                                                     |2× AA                     |                                   |                                     1|
 |HOBEIAN                                         |Vibration sensor                                                                              |CR2032                    |ZG-102ZM                           |                                     1|
 |HOBEIAN                                         |Water leak sensor                                                                             |CR2032                    |ZG-222ZA                           |                                     1|
+|HOBEIAN                                         |ZG-102ZM                                                                                      |CR2032                    |                                   |                                      |
 |Homematic                                       |HM-CC-RT-DN                                                                                   |2× AA                     |MEQ0789539                         |                                      |
 |Homematic                                       |HM-RC-4-3                                                                                     |AAA                       |                                   |                                      |
 |Homematic                                       |HM-Sec-MDIR                                                                                   |3× AA                     |                                   |                                      |
