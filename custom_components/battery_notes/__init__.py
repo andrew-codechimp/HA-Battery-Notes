@@ -467,3 +467,15 @@ async def _async_remove_subentry(
                 _LOGGER.debug("Unhidden Original Battery for device%s", coordinator.device_id)
 
     config_entry.runtime_data.subentry_coordinators.pop(subentry.subentry_id)
+
+    entity_registry = er.async_get(hass)
+    entities_to_remove = [
+        entity_entry.entity_id
+        for entity_entry in entity_registry.entities.values()
+        if entity_entry.config_entry_id == config_entry.entry_id
+        and entity_entry.config_subentry_id == subentry.subentry_id
+    ]
+
+    for entity_id in entities_to_remove:
+        entity_registry.async_remove(entity_id)
+        _LOGGER.debug("Removed entity %s for subentry %s", entity_id, subentry.subentry_id)
