@@ -517,6 +517,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "_TZE200_n8dljorx",
+            "model": "TS0601",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "_TZE200_nnrfa68v",
             "model": "TS0601",
             "battery_type": "AAA",
@@ -644,6 +649,12 @@
         {
             "manufacturer": "AEON Labs",
             "model": "DSB05",
+            "battery_type": "AAA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "AEON Labs",
+            "model": "DSB09",
             "battery_type": "AAA",
             "battery_quantity": 4
         },
@@ -1551,6 +1562,13 @@
         },
         {
             "manufacturer": "Aubess",
+            "model": "Water leak sensor",
+            "model_id": "IH-K665",
+            "hw_version": "1",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Aubess",
             "model": "Water leak sensor (IH-K665)",
             "battery_type": "CR2032"
         },
@@ -2291,6 +2309,11 @@
         },
         {
             "manufacturer": "Ecolink",
+            "model": "PIRZWAVE1",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Ecolink",
             "model": "TILT-ZWAVE2.5-ECO",
             "battery_type": "CR123A"
         },
@@ -2588,6 +2611,12 @@
             "manufacturer": "eQ-3",
             "model": "HM-Sec-Win",
             "battery_type": "HM-Sec-Win-BaP"
+        },
+        {
+            "manufacturer": "eQ-3",
+            "model": "HM-Sen-DB-PCB",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "eQ-3",
@@ -3013,6 +3042,12 @@
         {
             "manufacturer": "eQ-3",
             "model": "HmIP-WRCD",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "eQ-3",
+            "model": "HmIP-WRCR",
             "battery_type": "AAA",
             "battery_quantity": 2
         },
@@ -4249,6 +4284,14 @@
             "manufacturer": "ID-RF",
             "model": "Soft Remote",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "iHseno",
+            "model": "Vibration sensor",
+            "model_id": "_TZ3000_lzdjjfss",
+            "hw_version": "1",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "IKEA",
@@ -5877,6 +5920,12 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Petkit",
+            "model": "Pura Air Smart Spray",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
             "manufacturer": "PETLIBRO",
             "model": "PLAF108",
             "hw_version": "1.0.0",
@@ -5921,6 +5970,26 @@
             "model": "Hue dimmer switch",
             "model_id": "324131092621",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Philips",
+            "model": "Hue dimmer switch",
+            "model_id": "324131092621",
+            "hw_version": "1",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Philips",
+            "model": "Hue dimmer switch",
+            "model_id": "929002398602",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Philips",
+            "model": "Hue dimmer switch",
+            "model_id": "929002398602",
+            "hw_version": "1",
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "Philips",
@@ -6282,6 +6351,12 @@
             "manufacturer": "Ring",
             "model": "Smoke & CO Listener",
             "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Ring",
+            "model": "Spotlight Cam Battery",
+            "battery_type": "Rechargeable",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "Ring",
@@ -6747,6 +6822,12 @@
         },
         {
             "manufacturer": "Signify Netherlands B.V.",
+            "model": "Hue dimmer switch",
+            "model_id": "RWL021",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Signify Netherlands B.V.",
             "model": "Hue dimmer switch (RWL020)",
             "battery_type": "CR2450"
         },
@@ -6791,6 +6872,12 @@
         },
         {
             "manufacturer": "Signify Netherlands B.V.",
+            "model": "Hue Smart button",
+            "model_id": "ROM001",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Signify Netherlands B.V.",
             "model": "Hue Smart button (ROM001)",
             "battery_type": "CR2032"
         },
@@ -6798,6 +6885,12 @@
             "manufacturer": "Signify Netherlands B.V.",
             "model": "Hue tap dial switch (RDM002)",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Signify Netherlands B.V.",
+            "model": "Hue wall switch module",
+            "model_id": "RDM001",
+            "battery_type": "CR2450"
         },
         {
             "manufacturer": "Signify Netherlands B.V.",
@@ -8742,6 +8835,13 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Tuya",
+            "model": "TH06",
+            "model_id": "utcevanfrq4gf3ml",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "TuYa",
             "model": "TH08",
             "battery_type": "AAA",
@@ -9849,6 +9949,13 @@
         },
         {
             "manufacturer": "Xiaomi",
+            "model": "Temperature and Humidity Monitor (pvxx/ZigbeeTLc)",
+            "model_id": "LYWSD03MMC-z",
+            "hw_version": "0",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Xiaomi",
             "model": "temperature and humidity sensor",
             "model_id": "WSDCGQ01LM",
             "hw_version": "30",
@@ -10143,6 +10250,11 @@
             "manufacturer": "Zooz",
             "model": "ZEN37 800LR",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Zooz",
+            "model": "ZSE09",
+            "battery_type": "CR123A"
         },
         {
             "manufacturer": "Zooz",

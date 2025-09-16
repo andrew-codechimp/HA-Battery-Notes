@@ -26,8 +26,6 @@ LAST_REPLACED = "battery_last_replaced"
 LAST_REPORTED = "battery_last_reported"
 LAST_REPORTED_LEVEL = "battery_last_reported_level"
 
-DOMAIN_CONFIG = "config"
-
 DEFAULT_BATTERY_LOW_THRESHOLD = 10
 DEFAULT_BATTERY_INCREASE_THRESHOLD = 25
 DEFAULT_LIBRARY_URL = "https://battery-notes-data.codechimp.org/library.json"
