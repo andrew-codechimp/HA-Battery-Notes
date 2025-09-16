@@ -213,7 +213,8 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             )
             config_entry = await self.async_get_integration_entry()
 
-        assert config_entry
+        if not config_entry:
+            return self.async_abort(reason="integration_not_added")
 
         for existing_subentry in config_entry.subentries.values():
             if existing_subentry.unique_id == unique_id:
@@ -280,6 +281,11 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
 
         if user_input is not None:
             self.data = user_input
+
+            config_entry = await self.async_get_integration_entry()
+
+            if not config_entry:
+                return self.async_abort(reason="integration_not_added")
 
             device_id = user_input[CONF_DEVICE_ID]
 
@@ -352,6 +358,11 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
         """Second step in config flow to add the battery type."""
         errors: dict[str, str] = {}
         if user_input is not None:
+            config_entry = await self.async_get_integration_entry()
+
+            if not config_entry:
+                return self.async_abort(reason="integration_not_added")
+
             self.data[CONF_BATTERY_TYPE] = user_input[CONF_BATTERY_TYPE]
             self.data[CONF_BATTERY_QUANTITY] = int(user_input[CONF_BATTERY_QUANTITY])
             self.data[CONF_BATTERY_LOW_THRESHOLD] = int(
@@ -410,34 +421,6 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             self.data.pop(CONF_MODEL, None)
             self.data.pop(CONF_MODEL_ID, None)
             self.data.pop(CONF_HW_VERSION, None)
-
-            config_entry = await self.async_get_integration_entry()
-
-            if not config_entry:
-                _LOGGER.debug("No existing single config entry found, creating new one")
-
-                # Init defaults
-                options = {
-                    CONF_SHOW_ALL_DEVICES: False,
-                    CONF_HIDE_BATTERY: False,
-                    CONF_ROUND_BATTERY: False,
-                    CONF_DEFAULT_BATTERY_LOW_THRESHOLD: DEFAULT_BATTERY_LOW_THRESHOLD,
-                    CONF_BATTERY_INCREASE_THRESHOLD: DEFAULT_BATTERY_INCREASE_THRESHOLD,
-                    CONF_ADVANCED_SETTINGS: {
-                        CONF_ENABLE_AUTODISCOVERY: True,
-                        CONF_ENABLE_REPLACED: True,
-                        CONF_USER_LIBRARY: "",
-                    }
-                }
-
-                self.async_create_entry(
-                    title=INTEGRATION_NAME,
-                    data={},
-                    options=options
-                )
-                config_entry = await self.async_get_integration_entry()
-
-            assert config_entry
 
             subentry = ConfigSubentry(subentry_type=SUBENTRY_BATTERY_NOTE, data=MappingProxyType(self.data), title=str(title), unique_id=unique_id)
             self.hass.config_entries.async_add_subentry(config_entry, subentry)

@@ -22,6 +22,7 @@
             },
             "abort": {
                 "already_configured": "Integration is already configured",
+                "integration_not_added": "Integration not added, please add the integration first",
                 "created_sub_entry": "Battery Note created successfully"
             },
             "error": {
