@@ -10362,6 +10362,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "HEIMAN",
+            "model": "Smoke sensor",
+            "model_id": "4099",
+            "hw_version": "0.0",
+            "battery_type": "CR123A"
         }
     ]
 }
