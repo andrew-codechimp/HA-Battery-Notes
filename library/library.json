@@ -8788,6 +8788,13 @@
         {
             "manufacturer": "Tuya",
             "model": "Temperature and humidity sensor",
+            "model_id": "SZTH02",
+            "hw_version": "1",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Temperature and humidity sensor",
             "model_id": "TH02Z",
             "hw_version": "1",
             "battery_type": "AAA",
@@ -10376,13 +10383,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Temperature and humidity sensor",
-            "model_id": "SZTH02",
-            "hw_version": "1",
-            "battery_type": "CR2032"
         }
     ]
 }
