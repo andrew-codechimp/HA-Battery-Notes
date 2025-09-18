@@ -55,7 +55,7 @@ class LibraryUpdater:
         )
 
     @callback
-    async def timer_update(self):
+    async def timer_update(self, now: datetime) -> None:  # pylint: disable=unused-argument
         """Need to update the library."""
         if await self.time_to_update_library(23) is False:
             return
