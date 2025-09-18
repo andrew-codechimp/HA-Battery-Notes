@@ -5689,6 +5689,11 @@
         },
         {
             "manufacturer": "Nuki",
+            "model": "Smart Lock Ultra",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Nuki",
             "model": "SmartLock",
             "battery_type": "MANUAL",
             "battery_quantity": 4
@@ -10396,11 +10401,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Nuki",
-            "model": "Smart Lock Ultra",
             "battery_type": "Rechargeable"
         }
     ]

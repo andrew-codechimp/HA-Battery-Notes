@@ -1,4 +1,4 @@
-## 1827 Devices in library
+## 1828 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1006,6 +1006,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Nuki                                            |Nuki Smart Lock                                                                               |4× AA                     |                                   |                                      |
 |Nuki                                            |Smart Lock 3.0 Pro                                                                            |Rechargeable              |                                   |                                      |
 |Nuki                                            |Smart Lock Pro                                                                                |Nuki Battery Pack         |                                   |                                      |
+|Nuki                                            |Smart Lock Ultra                                                                              |Rechargeable              |                                   |                                      |
 |Nuki                                            |SmartLock                                                                                     |4× MANUAL                 |                                   |                                      |
 |Nuki Home Solutions GmbH                        |Nuki opener                                                                                   |4× AAA                    |                                   |                                      |
 |Nuki Home Solutions GmbH                        |Nuki smart lock 1.0/2.0                                                                       |4× AA                     |                                   |                                      |
