@@ -1,4 +1,4 @@
-## 1828 Devices in library
+## 1829 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1207,6 +1207,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Shelly                                          |Shelly Plus Smoke                                                                             |CR123A                    |                                   |                                      |
 |Shelly                                          |Shelly Valve                                                                                  |Rechargeable              |                                   |                                      |
 |Shelly                                          |SNSN-0013A                                                                                    |4× AA                     |                                   |                                      |
+|Shelly Europe Ltd.                              |QNDW-002C                                                                                     |CR2032                    |                                   |                                      |
 |Shenzhen Heiman Technology Co., Ltd.            |HS1HT-Z                                                                                       |CR2450                    |                                   |                                      |
 |Shenzhen Heiman Technology Co., Ltd.            |HS1SA-Z                                                                                       |CR123A                    |                                   |                                      |
 |Shenzhen Heiman Technology Co., Ltd.            |Smoke Detector (HS1SA-Z)                                                                      |CR123A                    |                                   |                                      |

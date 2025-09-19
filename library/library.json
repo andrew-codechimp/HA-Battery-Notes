@@ -6817,6 +6817,11 @@
             "battery_quantity": 4
         },
         {
+            "manufacturer": "Shelly Europe Ltd.",
+            "model": "QNDW-002C",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "Shenzhen Heiman Technology Co., Ltd.",
             "model": "HS1HT-Z",
             "battery_type": "CR2450"
@@ -10402,11 +10407,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Shelly Europe Ltd.",
-            "model": "QNDW-002C",
-            "battery_type": "CR2032"
         }
     ]
 }
