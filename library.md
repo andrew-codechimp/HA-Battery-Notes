@@ -1,4 +1,4 @@
-## 1830 Devices in library
+## 1831 Devices in library
 
 This file is auto generated, do not modify
 
@@ -80,6 +80,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |_TZ3210_ncw88jfq                                |TS0201                                                                                        |2× AAA                    |TS0201                             |                                      |
 |_TZ3210_up3pngle                                |TS0205                                                                                        |2× AAA                    |                                   |                                      |
 |_TZ3290_ot6ewjvmejq5ekhl                        |TS1201                                                                                        |2× AAA                    |                                   |                                      |
+|_TZE200_2cs6g9i7                                |TS0601                                                                                        |2× AA                     |                                   |                                      |
 |_TZE200_2wg5qrjy                                |TS0601                                                                                        |2× AA                     |                                   |                                      |
 |_TZE200_3towulqd                                |TS0601                                                                                        |CR2450                    |                                   |                                      |
 |_TZE200_4eeyebrt                                |TS0601                                                                                        |2× AA                     |                                   |                                      |
