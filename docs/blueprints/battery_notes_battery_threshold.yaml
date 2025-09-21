@@ -25,15 +25,11 @@ blueprint:
       selector:
         device:
           multiple: true
-    include_devices_enabled:
-      name: Enable Include Devices Filter
-      description: Only trigger for specific devices when enabled.
-      default: false
-      selector:
-        boolean:
-    include_devices:
+          entity:
+            - integration: battery_notes
+    included_devices:
       name: Devices to include (Optional)
-      description: When enabled above, only these devices will trigger this automation.
+      description: If specified, only these devices will trigger this automation.
       default:
       selector:
         device:
@@ -63,8 +59,7 @@ variables:
   low_notification: !input low_notification
   high_notification: !input high_notification
   excluded_devices: !input excluded_devices
-  include_devices_enabled: !input include_devices_enabled
-  include_devices: !input include_devices
+  included_devices: !input included_devices
 
 triggers:
   - trigger: event
@@ -86,7 +81,7 @@ conditions:
       {{ trigger.event.data.device_id not in excluded_devices}}
   - condition: template
     value_template: |-
-      {{ not include_devices_enabled or trigger.event.data.device_id in include_devices }}
+      {{ included_devices | length == 0 or trigger.event.data.device_id in included_devices }}
   - alias: User pick
     condition: !input additional_conditions
 
