@@ -2094,6 +2094,14 @@
         },
         {
             "manufacturer": "Danfoss",
+            "model": "Ally thermostat",
+            "model_id": "014G2461",
+            "hw_version": "69",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Danfoss",
             "model": "Ally thermostat (014G2461)",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -10407,14 +10415,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Danfoss",
-            "model": "Ally thermostat",
-            "model_id": "014G2461",
-            "hw_version": "69",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
