@@ -407,6 +407,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "_TZE200_2cs6g9i7",
+            "model": "TS0601",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "_TZE200_2wg5qrjy",
             "model": "TS0601",
             "battery_type": "AA",
@@ -1026,6 +1032,13 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "Aqara Motion and Light Sensor P2",
+            "model_id": "8195",
+            "hw_version": "1.0.0.0",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "Aqara Smart Lock U100",
             "battery_type": "AA",
             "battery_quantity": 4
@@ -1346,6 +1359,13 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "Temperature and humidity sensor T1",
+            "model_id": "WSDCGQ12LM",
+            "hw_version": "1",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "Temperature and humidity sensor T1 (WSDCGQ12LM)",
             "battery_type": "CR2032"
         },
@@ -1405,6 +1425,12 @@
         {
             "manufacturer": "Aqara",
             "model": "Water leak sensor (SJCGQ11LM)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "Water leak sensor T1",
+            "model_id": "SJCGQ12LM",
             "battery_type": "CR2032"
         },
         {
@@ -2087,6 +2113,14 @@
         },
         {
             "manufacturer": "Danfoss",
+            "model": "Ally thermostat",
+            "model_id": "014G2461",
+            "hw_version": "69",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Danfoss",
             "model": "Ally thermostat (014G2461)",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -2195,6 +2229,13 @@
             "manufacturer": "Develco/Frient",
             "model": "Air quality sensor",
             "model_id": "AQSZB-110",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "devolo",
+            "model": "09356",
+            "model_id": "MT02650",
             "battery_type": "AA",
             "battery_quantity": 2
         },
@@ -3524,6 +3565,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "frient",
+            "model": "WISZB-131",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Frient",
             "model": "ZHEMI101",
             "battery_type": "AA",
@@ -3842,6 +3889,12 @@
         },
         {
             "manufacturer": "HANK Electronics, Ltd.",
+            "model": "HKZW-DWS01",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "HANK Electronics, Ltd.",
             "model": "HKZW-MS02",
             "battery_type": "CR123A"
         },
@@ -3947,6 +4000,13 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "HEIMAN",
+            "model": "Smoke sensor",
+            "model_id": "4099",
+            "hw_version": "0.0",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "Heiman",
             "model": "SmokeSensor-EF-3.0",
             "battery_type": "CR123A"
@@ -4048,6 +4108,16 @@
             "model": "Water leak sensor",
             "model_id": "ZG-222ZA",
             "hw_version": "1",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "HOBEIAN",
+            "model": "ZG-102ZL",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "HOBEIAN",
+            "model": "ZG-102ZM",
             "battery_type": "CR2032"
         },
         {
@@ -5659,6 +5729,11 @@
         },
         {
             "manufacturer": "Nuki",
+            "model": "Smart Lock Ultra",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Nuki",
             "model": "SmartLock",
             "battery_type": "MANUAL",
             "battery_quantity": 4
@@ -5908,6 +5983,20 @@
             "manufacturer": "Panasonic",
             "model": "VR220",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Paulmann",
+            "model": "Gent2 RGB remote control",
+            "model_id": "501.40",
+            "battery_type": "CR2032",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Paulmann",
+            "model": "Remote control Smart Home Zigbee 3.0 White",
+            "model_id": "501.41",
+            "hw_version": "64",
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "Paulmann",
@@ -6626,6 +6715,14 @@
             "battery_type": "CR1632"
         },
         {
+            "manufacturer": "Senoro",
+            "model": "Senoro window alarm",
+            "model_id": "Senoro.Win",
+            "hw_version": "1",
+            "battery_type": "CR2032",
+            "battery_quantity": 3
+        },
+        {
             "manufacturer": "Sensative AB",
             "model": "11-01-011",
             "battery_type": "Irreplaceable"
@@ -6693,6 +6790,13 @@
         },
         {
             "manufacturer": "Shelly",
+            "model": "Shelly BLU TRV",
+            "model_id": "SBTR-001AEU",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Shelly",
             "model": "Shelly Button1",
             "battery_type": "Rechargeable"
         },
@@ -6751,6 +6855,11 @@
             "model": "SNSN-0013A",
             "battery_type": "AA",
             "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Shelly Europe Ltd.",
+            "model": "QNDW-002C",
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "Shenzhen Heiman Technology Co., Ltd.",
@@ -8743,6 +8852,13 @@
         {
             "manufacturer": "Tuya",
             "model": "Temperature and humidity sensor",
+            "model_id": "SZTH02",
+            "hw_version": "1",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Temperature and humidity sensor",
             "model_id": "TH02Z",
             "hw_version": "1",
             "battery_type": "AAA",
@@ -9398,6 +9514,12 @@
         },
         {
             "manufacturer": "Weiser",
+            "model": "GED1455",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Weiser",
             "model": "GED1800",
             "battery_type": "AA",
             "battery_quantity": 4
@@ -9487,6 +9609,18 @@
             "manufacturer": "WyzeLabs",
             "model": "WVOD1",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "WyzeLabs",
+            "model": "Wyze Sense V1 Contact Sensor",
+            "hw_version": "V1",
+            "battery_type": "CR1632"
+        },
+        {
+            "manufacturer": "WyzeLabs",
+            "model": "Wyze Sense V1 Motion Sensor",
+            "hw_version": "V1",
+            "battery_type": "CR2450"
         },
         {
             "manufacturer": "WyzeLabs",
