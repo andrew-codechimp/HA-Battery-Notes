@@ -10452,6 +10452,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "devolo",
+            "model": "09356",
+            "model_id": "MT02650",
+            "battery_type": "AA",
+            "battery_quantity": 2
         }
     ]
 }
