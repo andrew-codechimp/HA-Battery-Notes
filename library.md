@@ -1,4 +1,4 @@
-## 1831 Devices in library
+## 1832 Devices in library
 
 This file is auto generated, do not modify
 
@@ -628,6 +628,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Flo by Moen                                     |puck_v1                                                                                       |CR123A                    |                                   |                                      |
 |Frient                                          |EMIZB-141                                                                                     |2× AA                     |                                   |                                      |
 |frient                                          |MOSZB-140                                                                                     |2× AA                     |                                   |                                      |
+|frient                                          |WISZB-131                                                                                     |2× AA                     |                                   |                                      |
 |Frient                                          |ZHEMI101                                                                                      |3× AA                     |                                   |                                      |
 |frient A/S                                      |EMIZB-141                                                                                     |2× AA                     |                                   |                                      |
 |frient A/S                                      |HESZB-120                                                                                     |CR123A                    |                                   |                                      |
