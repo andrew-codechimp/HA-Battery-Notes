@@ -10423,7 +10423,7 @@
             "battery_type": "Rechargeable"
         },
         {
-            "manufacturer": "Wyze (used via the HACS integration)",
+            "manufacturer": "WyzeLabs",
             "model": "Wyze Sense V1 Motion Sensor",
             "hw_version": "V1",
             "battery_type": "CR2450"
