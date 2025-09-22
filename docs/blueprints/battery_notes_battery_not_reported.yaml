@@ -20,6 +20,15 @@ blueprint:
           multiple: true
           entity:
             - integration: battery_notes
+    included_devices:
+      name: Devices to include (Optional)
+      description: If specified, only these devices will trigger this automation.
+      default:
+      selector:
+        device:
+          multiple: true
+          entity:
+            - integration: battery_notes
     additional_conditions:
       name: Additional conditions
       description: |
@@ -37,31 +46,36 @@ blueprint:
 variables:
   not_reported_notification: !input not_reported_notification
   excluded_devices: !input excluded_devices
+  included_devices: !input included_devices
 triggers:
-- trigger: event
-  event_type: battery_notes_battery_not_reported
-  alias: Battery not reported
+  - trigger: event
+    event_type: battery_notes_battery_not_reported
+    alias: Battery not reported
 conditions:
   - condition: template
     value_template: |-
       {{ trigger.event.data.device_id not in excluded_devices}}
+  - condition: template
+    value_template: |-
+      {{ included_devices | length == 0 or trigger.event.data.device_id in included_devices }}
   - alias: User pick
     condition: !input additional_conditions
 actions:
-- if:
-  - condition: template
-    value_template: '{{ not_reported_notification }}'
-  then:
-  - action: persistent_notification.create
-    data:
-      title: '{{ trigger.event.data.device_name }} Battery Not Reported'
-      message: 'The device has not reported its battery level for {{ trigger.event.data.battery_last_reported_days
-        }} days {{ ''\n'' -}} Its last reported level was {{ trigger.event.data.battery_last_reported_level
-        }}% {{ ''\n'' -}} You need {{ trigger.event.data.battery_quantity }}× {{ trigger.event.data.battery_type
-        }}'
-      notification_id: 'battery_notes_not_reported {{ trigger.event.data.device_id }}-{{ trigger.event.data.source_entity_id }}'
-  - alias: Run user actions
-    choose: []
-    default: !input user_actions
+  - if:
+      - condition: template
+        value_template: "{{ not_reported_notification }}"
+    then:
+      - action: persistent_notification.create
+        data:
+          title: "{{ trigger.event.data.device_name }} Battery Not Reported"
+          message:
+            'The device has not reported its battery level for {{ trigger.event.data.battery_last_reported_days
+            }} days {{ ''\n'' -}} Its last reported level was {{ trigger.event.data.battery_last_reported_level
+            }}% {{ ''\n'' -}} You need {{ trigger.event.data.battery_quantity }}× {{ trigger.event.data.battery_type
+            }}'
+          notification_id: "battery_notes_not_reported {{ trigger.event.data.device_id }}-{{ trigger.event.data.source_entity_id }}"
+      - alias: Run user actions
+        choose: []
+        default: !input user_actions
 mode: queued
 max: 30

@@ -27,6 +27,15 @@ blueprint:
           multiple: true
           entity:
             - integration: battery_notes
+    included_devices:
+      name: Devices to include (Optional)
+      description: If specified, only these devices will trigger this automation.
+      default:
+      selector:
+        device:
+          multiple: true
+          entity:
+            - integration: battery_notes
     additional_conditions:
       name: Additional conditions
       description: |
@@ -52,6 +61,7 @@ variables:
   low_notification: !input low_notification
   high_notification: !input high_notification
   excluded_devices: !input excluded_devices
+  included_devices: !input included_devices
 
 triggers:
   - trigger: event
@@ -71,6 +81,9 @@ conditions:
   - condition: template
     value_template: |-
       {{ trigger.event.data.device_id not in excluded_devices}}
+  - condition: template
+    value_template: |-
+      {{ included_devices | length == 0 or trigger.event.data.device_id in included_devices }}
   - alias: User pick
     condition: !input additional_conditions
 
@@ -97,7 +110,7 @@ actions:
                     trigger.event.data.battery_type }}
           - alias: "Run user on low actions"
             choose: []
-            default: !input 'on_low_actions'
+            default: !input "on_low_actions"
       - conditions:
           - condition: trigger
             id:
@@ -112,6 +125,6 @@ actions:
                   notification_id: "battery_notes_threshold {{ trigger.event.data.device_id }}-{{ trigger.event.data.source_entity_id }}"
           - alias: "Run user on high actions"
             choose: []
-            default: !input 'on_high_actions'
+            default: !input "on_high_actions"
 
 mode: queued
