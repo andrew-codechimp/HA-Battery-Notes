@@ -1359,6 +1359,13 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "Temperature and humidity sensor T1",
+            "model_id": "WSDCGQ12LM",
+            "hw_version": "1",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "Temperature and humidity sensor T1 (WSDCGQ12LM)",
             "battery_type": "CR2032"
         },
@@ -10433,13 +10440,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Aqara",
-            "model": "Temperature and humidity sensor T1",
-            "model_id": "WSDCGQ12LM",
-            "hw_version": "1",
-            "battery_type": "CR2032"
         }
     ]
 }
