@@ -10459,6 +10459,14 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Radiator valve with thermostat",
+            "model_id": "TS0601_thermostat",
+            "hw_version": "1",
+            "battery_type": "AA",
+            "battery_quantity": 2
         }
     ]
 }
