@@ -10446,6 +10446,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "WyzeLabs",
+            "model": "Wyze Sense V1 Contact Sensor",
+            "hw_version": "V1",
+            "battery_type": "CR1632"
         }
     ]
 }
