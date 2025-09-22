@@ -1,4 +1,4 @@
-## 1835 Devices in library
+## 1836 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1685,6 +1685,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Woox                                            |Smart smoke alarm (R7049)                                                                     |2× AAA                    |                                   |                                      |
 |Worx                                            |Landroid S390 (WR100SI)                                                                       |Rechargeable              |                                   |                                      |
 |WyzeLabs                                        |WVOD1                                                                                         |Rechargeable              |                                   |                                      |
+|WyzeLabs                                        |Wyze Sense V1 Contact Sensor                                                                  |CR1632                    |                                   |V1                                    |
 |WyzeLabs                                        |Wyze Sense V1 Motion Sensor                                                                   |CR2450                    |                                   |V1                                    |
 |WyzeLabs                                        |YD.LO1                                                                                        |4× AA                     |                                   |                                      |
 |X-Sense                                         |SMA51                                                                                         |CR2                       |                                   |                                      |
