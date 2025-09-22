@@ -1422,6 +1422,12 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "Water leak sensor T1",
+            "model_id": "SJCGQ12LM",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "Water leak sensor T1 (SJCGQ12LM)",
             "battery_type": "CR2032"
         },
@@ -10427,12 +10433,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Aqara",
-            "model": "Water leak sensor T1",
-            "model_id": "SJCGQ12LM",
-            "battery_type": "CR2032"
         }
     ]
 }
