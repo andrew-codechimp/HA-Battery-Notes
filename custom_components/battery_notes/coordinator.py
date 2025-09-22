@@ -133,8 +133,6 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
             self.is_orphaned = True
             return
 
-        assert self.device_name
-
         self.battery_type = cast(str, self.subentry.data.get(CONF_BATTERY_TYPE, ""))
         try:
             self.battery_quantity = cast(
