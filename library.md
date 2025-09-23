@@ -1,4 +1,4 @@
-## 1837 Devices in library
+## 1838 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1512,6 +1512,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tuya                                            |PIR Sensor (XFD2nSDKxFlGV5sV)                                                                 |3× AAA                    |                                   |                                      |
 |TuYa                                            |Plant Sensor SGS01 (gvygg3m8)                                                                 |2× AAA                    |                                   |                                      |
 |Tuya                                            |R459                                                                                          |2× AAA                    |                                   |                                      |
+|Tuya                                            |Radiator valve with thermostat                                                                |2× AA                     |TS0601_thermostat                  |                                     1|
 |TuYa                                            |Radiator valve with thermostat (TS0601_thermostat)                                            |2× AA                     |                                   |                                      |
 |Tuya                                            |Rechargeable Zigbee contact sensor                                                            |CR2032                    |SNTZ007                            |                                     1|
 |TuYa                                            |RSH-HS06_1                                                                                    |CR2450                    |                                   |                                      |
