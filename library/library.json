@@ -10467,6 +10467,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Zooz",
+            "model": "ZSE70 800LR",
+            "hw_version": "1.20.1",
+            "battery_type": "CR123A",
+            "battery_quantity": 2
         }
     ]
 }
