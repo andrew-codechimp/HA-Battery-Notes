@@ -130,9 +130,9 @@ class BatteryNotesCoordinator(DataUpdateCoordinator[None]):
         self.device_id = config_entry.data.get(CONF_DEVICE_ID, None)
         self.source_entity_id = config_entry.data.get(CONF_SOURCE_ENTITY_ID, None)
 
-        self._link_device()
-
-        assert(self.device_name)
+        if not self._link_device():
+            self.is_orphaned = True
+            return
 
         self.battery_type = cast(str, self.config_entry.data.get(CONF_BATTERY_TYPE))
         try:
