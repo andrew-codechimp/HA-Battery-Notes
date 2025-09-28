@@ -10480,6 +10480,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "GCLS002",
+            "battery_type": "Rechargeable"
         }
     ]
 }
