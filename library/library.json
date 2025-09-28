@@ -9888,6 +9888,11 @@
         },
         {
             "manufacturer": "Xiaomi",
+            "model": "GCLS002",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Xiaomi",
             "model": "GZCGQ01LM",
             "battery_type": "CR2450"
         },
@@ -10479,11 +10484,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Xiaomi",
-            "model": "GCLS002",
             "battery_type": "Rechargeable"
         }
     ]

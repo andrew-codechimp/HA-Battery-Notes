@@ -1,4 +1,4 @@
-## 1840 Devices in library
+## 1841 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1738,6 +1738,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Xiaomi                                          |BTHome sensor                                                                                 |MANUAL                    |                                   |                                      |
 |Xiaomi                                          |CGDK2                                                                                         |CR2430                    |                                   |                                      |
 |Xiaomi                                          |DJT11LM                                                                                       |CR2032                    |                                   |                                      |
+|Xiaomi                                          |GCLS002                                                                                       |Rechargeable              |                                   |                                      |
 |Xiaomi                                          |GZCGQ01LM                                                                                     |CR2450                    |                                   |                                      |
 |Xiaomi                                          |HHCCJCY01                                                                                     |CR2032                    |                                   |                                      |
 |XIAOMI                                          |lumi.sen_ill.mgl01                                                                            |CR2032                    |                                   |                                      |
