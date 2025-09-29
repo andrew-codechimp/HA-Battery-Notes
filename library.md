@@ -1,4 +1,4 @@
-## 1841 Devices in library
+## 1842 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1348,6 +1348,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Springs Window Fashions                         |CRZB                                                                                          |Rechargeable              |                                   |                                      |
 |Springs Window Fashions                         |CSZ1                                                                                          |8× AA                     |                                   |                                      |
 |Springs Window Fashions                         |MCZ1                                                                                          |2× AAA                    |                                   |                                      |
+|Springs Window Fashions                         |RSZ1                                                                                          |Rechargeable              |                                   |                                      |
 |Springs Window Fashions                         |VCZ1                                                                                          |CR2430                    |                                   |                                      |
 |Sure Petcare                                    |Cat flap                                                                                      |4× AA                     |                                   |                                      |
 |Sure Petcare                                    |Felaqua                                                                                       |4× C                      |                                   |                                      |

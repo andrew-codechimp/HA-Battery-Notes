@@ -7598,6 +7598,11 @@
         },
         {
             "manufacturer": "Springs Window Fashions",
+            "model": "RSZ1",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Springs Window Fashions",
             "model": "VCZ1",
             "battery_type": "CR2430"
         },
@@ -10484,11 +10489,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Springs Window Fashions",
-            "model": "RSZ1",
             "battery_type": "Rechargeable"
         }
     ]
