@@ -742,11 +742,11 @@ class BatteryNotesBatteryBinaryLowSensor(BatteryNotesBatteryLowBaseSensor):
                 self.coordinator.wrapped_battery = new_wrapped_battery
 
                 # Create a listener for the newly named battery entity
-                if self.coordinator.wrapped_battery:
+                if self.coordinator.wrapped_battery_low:
                     self.async_on_remove(
                         async_track_state_change_event(
                             self.hass,
-                            [self.coordinator.wrapped_battery.entity_id],
+                            [self.coordinator.wrapped_battery_low.entity_id],
                             self.async_state_changed_listener,
                         )
                     )
