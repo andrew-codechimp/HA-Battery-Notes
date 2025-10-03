@@ -1,4 +1,4 @@
-## 1843 Devices in library
+## 1844 Devices in library
 
 This file is auto generated, do not modify
 
@@ -878,6 +878,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Leedarson                                       |4-Key Remote Controller (6ARCZABZH)                                                           |CR2450                    |                                   |                                      |
 |Legrand                                         |Wireless double remote switch                                                                 |CR2032                    |                              67774|V3                                    |
 |Level Home                                      |Level Bolt (Matter)                                                                           |CR2                       |                                  3|B12                                   |
+|Level Home                                      |Level Lock Pro                                                                                |CR2                       |                                  4|B05                                   |
 |Lidl                                            |HG06335/HG07310                                                                               |CR123A                    |                                   |                                      |
 |Lidl                                            |HG06336                                                                                       |2× AAA                    |                                   |                                      |
 |Lidl                                            |Parkside smart watering timer (PSBZS A1)                                                      |2× AA                     |                                   |                                      |

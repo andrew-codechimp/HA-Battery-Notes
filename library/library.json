@@ -4978,6 +4978,13 @@
             "battery_type": "CR2"
         },
         {
+            "manufacturer": "Level Home",
+            "model": "Level Lock Pro",
+            "model_id": "4",
+            "hw_version": "B05",
+            "battery_type": "CR2"
+        },
+        {
             "manufacturer": "Lidl",
             "model": "HG06335/HG07310",
             "battery_type": "CR123A"
@@ -10497,13 +10504,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Level Home",
-            "model": "Level Lock Pro",
-            "model_id": "4",
-            "hw_version": "B05",
-            "battery_type": "CR2"
         }
     ]
 }
