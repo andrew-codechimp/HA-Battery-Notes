@@ -10497,6 +10497,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Level Home",
+            "model": "Level Lock Pro",
+            "model_id": "4",
+            "hw_version": "B05",
+            "battery_type": "CR2"
         }
     ]
 }
