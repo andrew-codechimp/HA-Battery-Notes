@@ -10508,8 +10508,6 @@
         {
             "manufacturer": "SwitchBot",
             "model": "Smart Lock Pro",
-            "model_id": "n/a",
-            "hw_version": "n/a",
             "battery_type": "AA",
             "battery_quantity": 4
         }
