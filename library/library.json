@@ -7682,6 +7682,12 @@
         {
             "manufacturer": "SwitchBot",
             "model": "Smart Lock Pro",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "SwitchBot",
+            "model": "Smart Lock Pro",
             "hw_version": "V2.3",
             "battery_type": "Rechargeable",
             "battery_quantity": 2
@@ -10504,12 +10510,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "SwitchBot",
-            "model": "Smart Lock Pro",
-            "battery_type": "AA",
-            "battery_quantity": 4
         }
     ]
 }
