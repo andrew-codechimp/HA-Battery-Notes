@@ -557,6 +557,12 @@
             "battery_type": "PP3"
         },
         {
+            "manufacturer": "_TZE200_rtrmfadk",
+            "model": "TS0601",
+            "battery_type": "AA",
+            "battery_quantity": 3
+        },
+        {
             "manufacturer": "_TZE200_uebojraa",
             "model": "TS0601_smoke_4",
             "model_id": "TS0601",
@@ -1882,6 +1888,13 @@
             "manufacturer": "Bosch",
             "model": "Smoke alarm detector (BSD-2)",
             "battery_type": "Irreplaceable"
+        },
+        {
+            "manufacturer": "Bosch",
+            "model": "Smoke alarm II",
+            "model_id": "BSD-2",
+            "hw_version": "1",
+            "battery_type": "CR17450"
         },
         {
             "manufacturer": "BOSCH",
@@ -4965,6 +4978,20 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Level Home",
+            "model": "Level Bolt (Matter)",
+            "model_id": "3",
+            "hw_version": "B12",
+            "battery_type": "CR2"
+        },
+        {
+            "manufacturer": "Level Home",
+            "model": "Level Lock Pro",
+            "model_id": "4",
+            "hw_version": "B05",
+            "battery_type": "CR2"
+        },
+        {
             "manufacturer": "Lidl",
             "model": "HG06335/HG07310",
             "battery_type": "CR123A"
@@ -7592,6 +7619,11 @@
         },
         {
             "manufacturer": "Springs Window Fashions",
+            "model": "RSZ1",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Springs Window Fashions",
             "model": "VCZ1",
             "battery_type": "CR2430"
         },
@@ -7653,6 +7685,12 @@
             "manufacturer": "switchbot",
             "model": "Roller Shade",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "SwitchBot",
+            "model": "Smart Lock Pro",
+            "battery_type": "AA",
+            "battery_quantity": 4
         },
         {
             "manufacturer": "SwitchBot",
@@ -9879,6 +9917,11 @@
             "manufacturer": "Xiaomi",
             "model": "DJT11LM",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "GCLS002",
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "Xiaomi",
