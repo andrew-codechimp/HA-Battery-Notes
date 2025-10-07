@@ -1,4 +1,4 @@
-## 1846 Devices in library
+## 1847 Devices in library
 
 This file is auto generated, do not modify
 
@@ -443,6 +443,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Elro                                            |Fire alarm                                                                                    |2× AA                     |                                   |                                      |
 |Elro                                            |Heat alarm                                                                                    |2× AA                     |                                   |                                      |
 |Elro                                            |TEMPERATURE_SENSOR                                                                            |2× AA                     |                                   |                                      |
+|Eltako                                          |A5-08-01                                                                                      |CR2032                    |                                   |                                      |
 |Ember                                           |Ember Mug 2 (14oz)                                                                            |Rechargeable              |                                   |                                    10|
 |eQ-3                                            |ELV-SH-CTH                                                                                    |CR2032                    |                                   |                                      |
 |eQ-3                                            |HM-CC-RT-DN                                                                                   |2× AA                     |                                   |                                      |

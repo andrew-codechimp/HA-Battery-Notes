@@ -2457,11 +2457,6 @@
             "battery_quantity": 2
         },
         {
-            "manufacturer": "Eltako",
-            "model": "A5-08-01",
-            "battery_type": "CR2032"
-        },
-        {
             "manufacturer": "Elro",
             "model": "CO alarm",
             "battery_type": "AA",
@@ -2484,6 +2479,11 @@
             "model": "TEMPERATURE_SENSOR",
             "battery_type": "AA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Eltako",
+            "model": "A5-08-01",
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "Ember",
