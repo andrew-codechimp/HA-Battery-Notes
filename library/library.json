@@ -2407,16 +2407,6 @@
             "battery_type": "MANUAL"
         },
         {
-            "manufacturer": "ECOWITT",
-            "model": "WH51",
-            "battery_type": "AA"
-        },
-        {
-            "manufacturer": "ECOWITT",
-            "model": "WN34L",
-            "battery_type": "AA"
-        },
-        {
             "manufacturer": "Elexa Consumer Products Inc.",
             "model": "DMMS1",
             "battery_type": "CR123A"
@@ -9060,13 +9050,7 @@
         {
             "manufacturer": "TuYa",
             "model": "TS0044_1",
-            "battery_type": "CR2430"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "TS0044_1",
-            "battery_type": "AAA",
-            "battery_quantity": 2
+            "battery_type": "MANUAL"
         },
         {
             "manufacturer": "TuYa",
