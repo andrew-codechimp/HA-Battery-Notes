@@ -10534,6 +10534,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Lenovo",
+            "model": "TB328FU",
+            "hw_version": "Firmware: 31",
+            "battery_type": "Rechargeable"
         }
     ]
 }
