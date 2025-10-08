@@ -10520,6 +10520,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "WIFI Temperature and Humidity Sensor",
+            "model_id": "g7cjmefuoucmcb2s",
+            "battery_type": "AAA",
+            "battery_quantity": 3
         }
     ]
 }
