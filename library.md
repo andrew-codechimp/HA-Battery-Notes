@@ -1,4 +1,4 @@
-## 1844 Devices in library
+## 1845 Devices in library
 
 This file is auto generated, do not modify
 
@@ -681,6 +681,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Govee                                           |H5177                                                                                         |3× AAA                    |                                   |                                      |
 |Govee                                           |H5179                                                                                         |3× AA                     |                                   |                                      |
 |GoveeLife                                       |H5105                                                                                         |CR2450                    |                                   |                                      |
+|Grohe                                           |Sense                                                                                         |3× AAA                    |                                   |                                  1547|
 |GS                                              |Motion sensor (SMHM-I1)                                                                       |CR123A                    |                                   |                                      |
 |GS                                              |Open and close sensor (SOHM-I1)                                                               |2× AAA                    |                                   |                                      |
 |GS                                              |Smoke detector (SSHM-I1)                                                                      |CR123A                    |                                   |                                      |

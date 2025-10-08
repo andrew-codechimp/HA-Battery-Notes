@@ -3853,6 +3853,13 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "Grohe",
+            "model": "Sense",
+            "hw_version": "1547",
+            "battery_type": "AAA",
+            "battery_quantity": 3
+        },
+        {
             "manufacturer": "GS",
             "model": "Motion sensor (SMHM-I1)",
             "battery_type": "CR123A"
@@ -10506,13 +10513,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Grohe",
-            "model": "Sense",
-            "hw_version": "1547",
-            "battery_type": "AAA",
-            "battery_quantity": 3
         }
     ]
 }
