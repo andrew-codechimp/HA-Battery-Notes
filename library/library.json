@@ -4980,6 +4980,12 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Lenovo",
+            "model": "TB328FU",
+            "hw_version": "Firmware: 31",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Level Home",
             "model": "Level Bolt (Matter)",
             "model_id": "3",
@@ -10533,12 +10539,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Lenovo",
-            "model": "TB328FU",
-            "hw_version": "Firmware: 31",
             "battery_type": "Rechargeable"
         }
     ]
