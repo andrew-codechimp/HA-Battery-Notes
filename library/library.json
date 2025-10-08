@@ -9644,6 +9644,13 @@
         },
         {
             "manufacturer": "Worx",
+            "model": "Landroid M500",
+            "model_id": "WR141E",
+            "hw_version": "3.36.0+1",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Worx",
             "model": "Landroid S390 (WR100SI)",
             "battery_type": "Rechargeable"
         },
@@ -10512,13 +10519,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Worx",
-            "model": "Landroid M500",
-            "model_id": "WR141E",
-            "hw_version": "3.36.0+1",
             "battery_type": "Rechargeable"
         }
     ]
