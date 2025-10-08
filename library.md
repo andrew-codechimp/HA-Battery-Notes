@@ -1,4 +1,4 @@
-## 1847 Devices in library
+## 1848 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1613,6 +1613,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |TuYa                                            |Water valve (TS0049)                                                                          |4× AA                     |                                   |                                      |
 |Tuya                                            |WiFi Temperature & Humidity Sensor                                                            |3× AAA                    |yqiqbaldtr0i7mru                   |                                      |
 |Tuya                                            |WiFi Temperature & Humidity Sensor (q29ebws5adwye1l8)                                         |2× AAA                    |                                   |                                      |
+|Tuya                                            |WIFI Temperature and Humidity Sensor                                                          |3× AAA                    |g7cjmefuoucmcb2s                   |                                      |
 |Tuya                                            |Wireless switch with 1 button                                                                 |CR2032                    |TS0041                             |                                     1|
 |TuYa                                            |Wireless switch with 1 button (TS0041)                                                        |CR2032                    |                                   |                                      |
 |TuYa                                            |Wireless switch with 2 buttons (TS0042)                                                       |CR2032                    |                                   |                                      |

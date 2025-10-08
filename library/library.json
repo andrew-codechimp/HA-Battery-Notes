@@ -9207,6 +9207,13 @@
         },
         {
             "manufacturer": "Tuya",
+            "model": "WIFI Temperature and Humidity Sensor",
+            "model_id": "g7cjmefuoucmcb2s",
+            "battery_type": "AAA",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "Tuya",
             "model": "Wireless switch with 1 button",
             "model_id": "TS0041",
             "hw_version": "1",
@@ -10527,13 +10534,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "WIFI Temperature and Humidity Sensor",
-            "model_id": "g7cjmefuoucmcb2s",
-            "battery_type": "AAA",
-            "battery_quantity": 3
         }
     ]
 }
