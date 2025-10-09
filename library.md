@@ -1,4 +1,4 @@
-## 1850 Devices in library
+## 1851 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1237,6 +1237,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Signify Netherlands B.V.                        |Hue dimmer switch (RWL020)                                                                    |CR2450                    |                                   |                                      |
 |Signify Netherlands B.V.                        |Hue dimmer switch (RWL021)                                                                    |CR2450                    |                                   |                                      |
 |Signify Netherlands B.V.                        |Hue dimmer switch (RWL022)                                                                    |CR2032                    |                                   |                                      |
+|Signify Netherlands B.V.                        |Hue motion sensor                                                                             |2× AAA                    |SML003                             |                                      |
 |Signify Netherlands B.V.                        |Hue motion sensor (SML001)                                                                    |2× AAA                    |                                   |                                      |
 |Signify Netherlands B.V.                        |Hue motion sensor (SML003)                                                                    |2× AAA                    |                                   |                                      |
 |Signify Netherlands B.V.                        |Hue outdoor motion sensor (SML002)                                                            |2× AA                     |                                   |                                      |
