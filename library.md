@@ -1,4 +1,4 @@
-## 1849 Devices in library
+## 1850 Devices in library
 
 This file is auto generated, do not modify
 
@@ -309,6 +309,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |August Home Inc.                                |MD-01                                                                                         |4× AA                     |                                   |                                      |
 |August Home, Inc.                               |ASL-02                                                                                        |4× AA                     |                                   |                                      |
 |AVATTO                                          |ME167                                                                                         |2× AA                     |                                   |                                      |
+|AVATTO                                          |Thermostatic radiator valve (ME167)                                                           |2× AA                     |ME167                              |V1                                    |
 |AVM                                             |Comet DECT                                                                                    |2× AA                     |                                   |                                      |
 |AVM                                             |FRITZ!DECT 300                                                                                |2× AA                     |                                   |                                      |
 |AVM                                             |FRITZ!Dect 301                                                                                |2× AA                     |                                   |                                      |
