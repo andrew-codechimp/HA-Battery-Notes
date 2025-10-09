@@ -7014,6 +7014,13 @@
         },
         {
             "manufacturer": "Signify Netherlands B.V.",
+            "model": "Hue outdoor motion sensor",
+            "model_id": "SML002",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Signify Netherlands B.V.",
             "model": "Hue outdoor motion sensor (SML002)",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -10555,13 +10562,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Signify Netherlands B.V.",
-            "model": "Hue outdoor motion sensor",
-            "model_id": "SML002",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }

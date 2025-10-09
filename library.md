@@ -1,4 +1,4 @@
-## 1851 Devices in library
+## 1852 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1240,6 +1240,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Signify Netherlands B.V.                        |Hue motion sensor                                                                             |2× AAA                    |SML003                             |                                      |
 |Signify Netherlands B.V.                        |Hue motion sensor (SML001)                                                                    |2× AAA                    |                                   |                                      |
 |Signify Netherlands B.V.                        |Hue motion sensor (SML003)                                                                    |2× AAA                    |                                   |                                      |
+|Signify Netherlands B.V.                        |Hue outdoor motion sensor                                                                     |2× AA                     |SML002                             |                                      |
 |Signify Netherlands B.V.                        |Hue outdoor motion sensor (SML002)                                                            |2× AA                     |                                   |                                      |
 |Signify Netherlands B.V.                        |Hue outdoor motion sensor (SML004)                                                            |2× AA                     |                                   |                                      |
 |Signify Netherlands B.V.                        |Hue secure contact sensor (SOC001)                                                            |CR2 Lithium               |                                   |                                      |
