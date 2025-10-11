@@ -4185,6 +4185,11 @@
         },
         {
             "manufacturer": "Homematic",
+            "model": "HmIP-SRH",
+            "battery_type": "AAA"
+        },
+        {
+            "manufacturer": "Homematic",
             "model": "HmIP-STHO-A",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -10574,11 +10579,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Homematic",
-            "model": "HmIP-SRH",
-            "battery_type": "AAA"
         }
     ]
 }
