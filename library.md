@@ -1,4 +1,4 @@
-## 1856 Devices in library
+## 1857 Devices in library
 
 This file is auto generated, do not modify
 
@@ -736,6 +736,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Homematic                                       |HM-Sec-MDIR                                                                                   |3× AA                     |                                   |                                      |
 |Homematic                                       |HM-Sec-SCo                                                                                    |AAA                       |                                   |                                      |
 |Homematic                                       |HM-Sec-Win                                                                                    |HM-Sec-Win-BaP            |                                   |                                      |
+|Homematic                                       |HM-Sen-LI-O                                                                                   |3× AA                     |                                   |                                      |
 |Homematic                                       |HM-WDS30-T-O                                                                                  |2× AAA                    |                                   |                                      |
 |Homematic                                       |HmIP-DSD-PCB                                                                                  |2× AAA                    |                                   |                                      |
 |Homematic                                       |HmIP-SRH                                                                                      |AAA                       |                                   |                                      |
