@@ -10579,6 +10579,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "APC",
+            "model": "Back-UPS RS 900G",
+            "hw_version": "879.L4 .I USB FW:L4",
+            "battery_type": "APCRBC123"
         }
     ]
 }
