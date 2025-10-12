@@ -9789,6 +9789,13 @@
         },
         {
             "manufacturer": "X-Sense",
+            "model": "Waterleak sensor",
+            "model_id": "SWS51",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "X-Sense",
             "model": "XC01-M",
             "battery_type": "CR123A"
         },
@@ -10625,13 +10632,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "X-Sense",
-            "model": "Waterleak sensor",
-            "model_id": "SWS51",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }

@@ -1,4 +1,4 @@
-## 1862 Devices in library
+## 1863 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1713,6 +1713,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |WyzeLabs                                        |Wyze Sense V1 Motion Sensor                                                                   |CR2450                    |                                   |V1                                    |
 |WyzeLabs                                        |YD.LO1                                                                                        |4× AA                     |                                   |                                      |
 |X-Sense                                         |SMA51                                                                                         |CR2                       |                                   |                                      |
+|X-Sense                                         |Waterleak sensor                                                                              |2× AAA                    |SWS51                              |                                      |
 |X-Sense                                         |XC01-M                                                                                        |CR123A                    |                                   |                                      |
 |X-Sense                                         |XC04-WX                                                                                       |CR123A                    |                                   |                                      |
 |X-Sense                                         |XS01-M                                                                                        |CR123A                    |                                   |                                      |
