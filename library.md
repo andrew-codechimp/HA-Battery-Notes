@@ -1,4 +1,4 @@
-## 1860 Devices in library
+## 1861 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1345,6 +1345,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Sonoff                                          |Temperature and humidity sensor with screen                                                   |CR2450                    |SNZB-02D                           |                                      |
 |SONOFF                                          |Temperature and humidity sensor with screen (SNZB-02D)                                        |CR2450                    |                                   |                                      |
 |SONOFF                                          |TRVZB                                                                                         |3× AA                     |                                   |                                      |
+|SONOFF                                          |Waterproof (IP65) temperature and humidity sensor with screen                                 |CR2477                    |SNZB-02WD                          |                                    16|
 |SONOFF                                          |Wireless Button                                                                               |CR2477                    |SNZB-01P                           |                                      |
 |SONOFF                                          |Wireless button (SNZB-01)                                                                     |CR2450                    |                                   |                                      |
 |SONOFF                                          |Wireless button (SNZB-01P)                                                                    |CR2477                    |                                   |                                      |

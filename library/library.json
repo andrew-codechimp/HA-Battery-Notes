@@ -7595,6 +7595,13 @@
         },
         {
             "manufacturer": "SONOFF",
+            "model": "Waterproof (IP65) temperature and humidity sensor with screen",
+            "model_id": "SNZB-02WD",
+            "hw_version": "16",
+            "battery_type": "CR2477"
+        },
+        {
+            "manufacturer": "SONOFF",
             "model": "Wireless Button",
             "model_id": "SNZB-01P",
             "battery_type": "CR2477"
@@ -10610,13 +10617,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "SONOFF",
-            "model": "Waterproof (IP65) temperature and humidity sensor with screen",
-            "model_id": "SNZB-02WD",
-            "hw_version": "16",
-            "battery_type": "CR2477"
         }
     ]
 }
