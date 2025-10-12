@@ -4169,6 +4169,12 @@
         },
         {
             "manufacturer": "Homematic",
+            "model": "HM-Sec-SC",
+            "battery_type": "LR44",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Homematic",
             "model": "HM-Sec-SCo",
             "battery_type": "AAA"
         },
@@ -10591,12 +10597,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Homematic",
-            "model": "HM-Sec-SC",
-            "battery_type": "LR44",
-            "battery_quantity": 2
         }
     ]
 }
