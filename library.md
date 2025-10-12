@@ -1,4 +1,4 @@
-## 1859 Devices in library
+## 1860 Devices in library
 
 This file is auto generated, do not modify
 
@@ -86,6 +86,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |_TZE200_3towulqd                                |TS0601                                                                                        |CR2450                    |                                   |                                      |
 |_TZE200_4eeyebrt                                |TS0601                                                                                        |2× AA                     |                                   |                                      |
 |_TZE200_68nvbio9                                |TS0601                                                                                        |Rechargeable              |                                   |                                      |
+|_TZE200_9yapgbuv                                |TS0601                                                                                        |CR2032                    |                                   |0x00000048                            |
 |_TZE200_a8sdabtg                                |TS0601                                                                                        |CR2450                    |                                   |                                      |
 |_TZE200_b6wax7g0                                |TS0601                                                                                        |2× AA                     |                                   |                                      |
 |_TZE200_bh3n6gk8                                |TS0601                                                                                        |CR2450                    |                                   |                                      |
