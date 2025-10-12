@@ -1,4 +1,4 @@
-## 1855 Devices in library
+## 1856 Devices in library
 
 This file is auto generated, do not modify
 
@@ -182,6 +182,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |AMV FritzBox                                    |FRITZ!DECT 302                                                                                |3× AA                     |                                   |                                      |
 |AMV FritzBox                                    |FRITZ!DECT 350                                                                                |2× AAA                    |                                   |                                      |
 |AMV FritzBox                                    |FRITZ!DECT 440                                                                                |2× AAA                    |                                   |                                      |
+|APC                                             |Back-UPS RS 900G                                                                              |APCRBC123                 |                                   |879.L4 .I USB FW:L4                   |
 |APC                                             |Back-UPS XS 1500M                                                                             |Rechargeable              |                                   |                                      |
 |APC                                             |SRV 2K I -AR                                                                                  |APCRBCV204                |                                   |                                      |
 |ApolloAutomation                                |PLT-1B                                                                                        |18650                     |                                   |                                      |
