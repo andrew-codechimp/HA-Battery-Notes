@@ -10632,6 +10632,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "AS038",
+            "hw_version": "1",
+            "battery_type": "CR2450",
+            "battery_quantity": 2
         }
     ]
 }
