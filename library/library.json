@@ -2659,6 +2659,12 @@
         },
         {
             "manufacturer": "eQ-3",
+            "model": "HM-Sec-SC",
+            "battery_type": "LR44",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "eQ-3",
             "model": "HM-Sec-SC-2",
             "battery_type": "LR44",
             "battery_quantity": 2
@@ -10639,12 +10645,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "eQ-3",
-            "model": "HM-Sec-SC",
-            "battery_type": "LR44",
-            "battery_quantity": 2
         }
     ]
 }
