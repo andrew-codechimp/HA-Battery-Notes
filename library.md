@@ -1,4 +1,4 @@
-## 1865 Devices in library
+## 1866 Devices in library
 
 This file is auto generated, do not modify
 
@@ -481,6 +481,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |eQ-3                                            |HM-Sec-TiS                                                                                    |CR2032                    |                                   |                                      |
 |eQ-3                                            |HM-Sec-Win                                                                                    |HM-Sec-Win-BaP            |                                   |                                      |
 |eQ-3                                            |HM-Sen-DB-PCB                                                                                 |2× AAA                    |                                   |                                      |
+|eQ-3                                            |HM-Sen-LI-O                                                                                   |3× AA                     |                                   |                                      |
 |eQ-3                                            |HM-Sen-MDIR-O                                                                                 |3× AA                     |HM-Sen-MDIR-O                      |                                  1.60|
 |eQ-3                                            |HM-Sen-MDIR-O-2                                                                               |3× AA                     |                                   |                                      |
 |eQ-3                                            |HM-Sen-MDIR-SM                                                                                |3× AA                     |                                   |                                      |

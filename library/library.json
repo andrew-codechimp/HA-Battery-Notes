@@ -2709,6 +2709,12 @@
         },
         {
             "manufacturer": "eQ-3",
+            "model": "HM-Sen-LI-O",
+            "battery_type": "AA",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "eQ-3",
             "model": "HM-Sen-MDIR-O",
             "model_id": "HM-Sen-MDIR-O",
             "hw_version": "1.6",
@@ -10645,12 +10651,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "eQ-3",
-            "model": "HM-Sen-LI-O",
-            "battery_type": "AA",
-            "battery_quantity": 3
         }
     ]
 }
