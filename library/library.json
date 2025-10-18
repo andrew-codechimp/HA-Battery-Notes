@@ -9809,6 +9809,11 @@
         },
         {
             "manufacturer": "X-Sense",
+            "model": "SC07-WX",
+            "battery_type": "Sealed 10-Year"
+        },
+        {
+            "manufacturer": "X-Sense",
             "model": "SMA51",
             "battery_type": "CR2"
         },
@@ -10657,11 +10662,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "X-Sense",
-            "model": "SC07-WX",
-            "battery_type": "Sealed 10-Year"
         }
     ]
 }
