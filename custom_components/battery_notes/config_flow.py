@@ -59,6 +59,8 @@ from .library_updater import LibraryUpdater
 
 _LOGGER = logging.getLogger(__name__)
 
+DOCUMENTATION_URL = "https://andrew-codechimp.github.io/HA-Battery-Notes/"
+
 CONFIG_VERSION = 3
 
 OPTIONS_SCHEMA = vol.Schema(
@@ -268,6 +270,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
         self._set_confirm_only()
         return self.async_show_form(
             step_id="user",
+            description_placeholders={"documentation_url": DOCUMENTATION_URL},
         )
 
 
@@ -511,7 +514,10 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
     ) -> SubentryFlowResult:
         """Add a subentry."""
 
-        return self.async_show_menu(step_id="user", menu_options=["device", "entity"])
+        return self.async_show_menu(step_id="user",
+                                    menu_options=["device", "entity"],
+                                    description_placeholders={"documentation_url": DOCUMENTATION_URL},
+                                    )
 
     async def async_step_device(
         self,

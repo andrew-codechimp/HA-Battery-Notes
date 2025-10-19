@@ -2,7 +2,7 @@
     "config": {
         "step": {
             "user": {
-                "description": "New Battery Notes will be discovered if they are in the library.\nTo add new Battery Notes manually go into the integration page, select Add Battery Note and follow the instructions.\nIf you need help with the configuration have a look here: https://andrew-codechimp.github.io/HA-Battery-Notes/",
+                "description": "New Battery Notes will be discovered if they are in the library.\nTo add new Battery Notes manually go into the integration page, select Add Battery Note and follow the instructions.\nIf you need help with the configuration have a look here: {documentation_url}",
                 "title": "Setup Battery Notes"
             },
             "battery": {
@@ -38,7 +38,7 @@
             "entry_type": "Battery note",
             "step": {
                 "user": {
-                    "description": "Jos tarvitset apua asetuksissa, katso täältä: https://andrew-codechimp.github.io/HA-Battery-Notes/",
+                    "description": "Jos tarvitset apua asetuksissa, katso täältä: {documentation_url}",
                     "data": {
                         "association_type": "Association type"
                     },
