@@ -2310,12 +2310,6 @@
         },
         {
             "manufacturer": "Devolo",
-            "model": "MT02792",
-            "battery_type": "AA",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Devolo",
             "model": "MT2649 / DRS21",
             "battery_type": "AA",
             "battery_quantity": 2
