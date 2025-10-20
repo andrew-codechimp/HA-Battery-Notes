@@ -2316,6 +2316,12 @@
         },
         {
             "manufacturer": "Devolo",
+            "model": "MT2649 / DRS21",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Devolo",
             "model": "MT2652",
             "battery_type": "CR2032"
         },
@@ -10674,12 +10680,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Devolo",
-            "model": "MT2649 / DRS21",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
