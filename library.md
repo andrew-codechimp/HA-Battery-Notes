@@ -1,4 +1,4 @@
-## 1870 Devices in library
+## 1871 Devices in library
 
 This file is auto generated, do not modify
 
@@ -409,6 +409,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Devolo                                          |MT02647                                                                                       |CR123A                    |                                   |                                      |
 |Devolo                                          |MT02648                                                                                       |CR123A                    |                                   |                                      |
 |Devolo                                          |MT02650                                                                                       |2× AA                     |                                   |                                      |
+|Devolo                                          |MT2649                                                                                        |2× AA                     |                                   |                                      |
 |Devolo                                          |MT2649 / DRS21                                                                                |2× AA                     |                                   |                                      |
 |Devolo                                          |MT2652                                                                                        |CR2032                    |                                   |                                      |
 |Devolo                                          |MT2756                                                                                        |CR123A                    |                                   |                                      |
