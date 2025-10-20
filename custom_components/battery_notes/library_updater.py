@@ -12,6 +12,7 @@ from typing import Any
 
 import aiohttp
 import async_timeout
+from homeassistant.const import CONTENT_TYPE_JSON
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.exceptions import ConfigEntryNotReady
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
@@ -20,12 +21,18 @@ from homeassistant.helpers.storage import STORAGE_DIR
 
 from .const import (
     DEFAULT_LIBRARY_URL,
+    VERSION,
 )
 from .coordinator import MY_KEY, BatteryNotesDomainConfig
 from .discovery import DiscoveryManager
 from .library import DATA_LIBRARY
 
 _LOGGER = logging.getLogger(__name__)
+
+HEADERS = {
+    "User-Agent": f"BatteryNotes/{VERSION}",
+    "Content-Type": CONTENT_TYPE_JSON
+    }
 
 class LibraryUpdaterClientError(Exception):
     """Exception to indicate a general API error."""
@@ -172,12 +179,13 @@ class LibraryUpdaterClient:
     async def async_get_data(self) -> Any:
         """Get data from the API."""
         _LOGGER.debug("Updating library from %s", DEFAULT_LIBRARY_URL)
-        return await self._api_wrapper(method="get", url=DEFAULT_LIBRARY_URL)
+        return await self._api_wrapper(method="get", url=DEFAULT_LIBRARY_URL, headers=HEADERS)
 
     async def _api_wrapper(
         self,
         method: str,
         url: str,
+        headers: dict[str, str],
     ) -> Any:
         """Get information from the API."""
         try:
@@ -186,6 +194,7 @@ class LibraryUpdaterClient:
                     method=method,
                     url=url,
                     allow_redirects=True,
+                    headers=headers,
                 )
                 # response.raise_for_status()
                 return await response.text()
