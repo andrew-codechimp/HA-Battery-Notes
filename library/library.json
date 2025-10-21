@@ -10680,6 +10680,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "SONOFF",
+            "model": "Waterproof (IP65) sensor with screen and probe temperature detection",
+            "model_id": "SNZB-02LD",
+            "hw_version": "16",
+            "battery_type": "CR2477"
         }
     ]
 }
