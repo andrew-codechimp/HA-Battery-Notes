@@ -8951,8 +8951,7 @@
             "model": "Temperature & humidity sensor",
             "model_id": "IH-K009",
             "hw_version": "1",
-            "battery_type": "AAA",
-            "battery_quantity": 2
+            "battery_type": "MANUAL"
         },
         {
             "manufacturer": "Tuya",
@@ -8979,7 +8978,7 @@
         {
             "manufacturer": "TuYa",
             "model": "Temperature & humidity sensor (IH-K009)",
-            "battery_type": "CR2450"
+            "battery_type": "MANUAL"
         },
         {
             "manufacturer": "Tuya",
