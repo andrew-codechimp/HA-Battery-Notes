@@ -31,7 +31,8 @@ _LOGGER = logging.getLogger(__name__)
 
 HEADERS = {
     "User-Agent": f"BatteryNotes/{VERSION}",
-    "Content-Type": CONTENT_TYPE_JSON
+    "Content-Type": CONTENT_TYPE_JSON,
+    "Accept-Encoding": "gzip",
     }
 
 class LibraryUpdaterClientError(Exception):
