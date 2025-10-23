@@ -267,7 +267,8 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                 options=options
             )
 
-        self._set_confirm_only()
+        self.context["confirm_only"] = True
+
         return self.async_show_form(
             step_id="user",
             description_placeholders={"documentation_url": DOCUMENTATION_URL},
