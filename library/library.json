@@ -4210,6 +4210,12 @@
         },
         {
             "manufacturer": "HOBEIAN",
+            "model": "Water leak detector",
+            "model_id": "ZG-222Z",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "HOBEIAN",
             "model": "Water leak sensor",
             "model_id": "ZG-222ZA",
             "hw_version": "1",
@@ -10699,12 +10705,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "HOBEIAN",
-            "model": "Water leak detector",
-            "model_id": "ZG-222Z",
-            "battery_type": "CR2032"
         }
     ]
 }
