@@ -1858,6 +1858,12 @@
         },
         {
             "manufacturer": "Bosch",
+            "model": "BSEN-M",
+            "battery_type": "CR123A",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Bosch",
             "model": "Door/window contact II (BSEN-C2)",
             "battery_type": "CR123"
         },
@@ -10705,12 +10711,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Bosch",
-            "model": "BSEN-M",
-            "battery_type": "CR123A",
-            "battery_quantity": 2
         }
     ]
 }
