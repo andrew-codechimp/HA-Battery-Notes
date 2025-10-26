@@ -2483,6 +2483,11 @@
             "battery_type": "MANUAL"
         },
         {
+            "manufacturer": "Ecowitt",
+            "model": "WH51",
+            "battery_type": "AA"
+        },
+        {
             "manufacturer": "Elexa Consumer Products Inc.",
             "model": "DMMS1",
             "battery_type": "CR123A"
@@ -10717,11 +10722,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Ecowitt",
-            "model": "WH51",
-            "battery_type": "AA"
         }
     ]
 }
