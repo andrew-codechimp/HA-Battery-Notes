@@ -1,5 +1,12 @@
-[tool.poetry]
-authors = ["Andrew Jackson <andrew@codechimp.org>"]
+[project]
+name = "ha-battery-notes"
+version = "0.0.0"
+description = "HA-Battery-Notes - A Home Assistant integration to provide battery notes of devices"
+authors = [{email = "Andrew Jackson <andrew@codechimp.org>"}]
+maintainers = [{email = "Andrew Jackson <andrew@codechimp.org>"}]
+
+readme = "README.md"
+license = "MIT"
 classifiers = [
   "Development Status :: 5 - Production/Stable",
   "Framework :: AsyncIO",
@@ -8,70 +15,84 @@ classifiers = [
   "Programming Language :: Python :: 3.13",
   "Programming Language :: Python :: 3",
 ]
-description = "HA-Battery-Notes - A Home Assistant integration to provide battery notes of devices"
+requires-python = "==3.13.2"
+dependencies = [
+    "homeassistant==2025.4.0",
+]
+
+[project.urls]
 documentation = "https://github.com/andrew-codechimp/HA-Battery-Notes"
 homepage = "https://github.com/andrew-codechimp/HA-Battery-Notes"
-license = "MIT"
-maintainers = ["Andrew Jackson <andrew@codechimp.org>"]
-name = "HA-Battery-Notes"
-packages = []
-readme = "README.md"
 repository = "https://github.com/andrew-codechimp/HA-Battery-Notes"
-version = "0.0.0"
-
-[tool.poetry.dependencies]
-homeassistant = "2025.4.0"
-python = ">=3.13,<3.14"
-
-[tool.poetry.group.dev.dependencies]
-pre-commit = "4.3.0"
-pre-commit-hooks = "6.0.0"
-pylint = "4.0.2"
-ruff = "0.14.1"
-
-[tool.poetry.urls]
 "Bug Tracker" = "https://github.com/andrew-codechimp/HA-Battery-Notes/issues"
 Changelog = "https://github.com/andrew-codechimp/HA-Battery-Notes/releases"
 
-[build-system]
-build-backend = "poetry.core.masonry.api"
-requires = ["poetry-core"]
+[dependency-groups]
+dev = [
+    "pre-commit>=4.3.0",
+    "pre-commit-hooks>=6.0.0",
+    "ruff>=0.14.2",
+]
 
-[tool.lint.ruff]
+[tool.ruff]
+target-version = "py313"
+src = ["custom_components/battery_notes"]
+
+[tool.ruff.format]
+docstring-code-format = true
+docstring-code-line-length = "dynamic"
+line-ending = "auto"
+
+[tool.ruff.lint]
+select=["ALL"]
 ignore = [
-  "ANN101", # Self... explanatory
-  "ANN401", # Opiniated warning on disallowing dynamically typed expressions
-  "D203",   # Conflicts with other rules
-  "D213",   # Conflicts with other rules
+  # Annotation and type hint rules
+  "ANN401", # Disallowing dynamically typed expressions (too strict)
+
+  # Docstring convention conflicts
+  "D202", # No blank lines allowed after function docstring
+  "D203", # 1 blank line required before class docstring
+  "D213", # Multi-line docstring summary should start at the second line
+  "D404", # First word of the docstring should not be "This"
+  "D406", # Section name should end with a newline
+  "D407", # Section name underlining
+  "D411", # Missing blank line before section
+
+  # Style/tidiness adjustments
   "TID252", # Relative imports
-  "RUF012", # Just broken
-  "D202",   # No blank lines allowed after function docstring
-  "D203",   # 1 blank line required before class docstring
-  "D213",   # Multi-line docstring summary should start at the second line
-  "D404",   # First word of the docstring should not be This
-  "D406",   # Section name should end with a newline
-  "D407",   # Section name underlining
-  "D411",   # Missing blank line before section
-  "E501",   # line too long
-  "E731",   # do not assign a lambda expression, use a def
+  "E731",   # Do not assign a lambda expression, use a def
 
-
-  # Formatter conflicts
+  # Formatting conflicts (black/ruff fmt)
   "COM812",
   "COM819",
   "D206",
-  "E501",
+  "E501",   # Line too long (handled by formatter)
   "ISC001",
   "Q000",
   "Q001",
   "Q002",
   "Q003",
   "W191",
+  "RUF012", # Broken rule in some cases
 ]
-select = ["ALL"]
-src = ["custom_components/battery_notes"]
 
-[tool.link.flake8-import-conventions.extend-aliases]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 25
+
+[tool.ruff.lint.isort]
+length-sort = true
+section-order = [
+    "future",
+    "standard-library",
+    "third-party",
+    "first-party",
+    "local-folder",
+]
+known-first-party = ["homeassistant"]
+combine-as-imports = true
+
+[tool.ruff.lint.flake8-import-conventions.extend-aliases]
 "homeassistant.helpers.area_registry" = "ar"
 "homeassistant.helpers.config_validation" = "cv"
 "homeassistant.helpers.device_registry" = "dr"
@@ -79,30 +100,11 @@ src = ["custom_components/battery_notes"]
 "homeassistant.helpers.issue_registry" = "ir"
 voluptuous = "vol"
 
-[tool.lint.isort]
-force-sort-within-sections = true
-known-first-party = ["homeassistant"]
-combine-as-imports = true
-
-[tool.pylint."MESSAGES CONTROL"]
-# Reasons disabled:
-# format - handled by ruff
-# duplicate-code - unavoidable
-# used-before-assignment - false positives with TYPE_CHECKING structures
-disable = [
-  "abstract-method",
-  "duplicate-code",
-  "format",
-  "unexpected-keyword-arg",
-  "used-before-assignment",
-]
-
 [tool.mypy]
 # Specify the target platform details in config, so your developers are
 # free to run mypy on Windows, Linux, or macOS and get consistent
 # results.
 platform = "linux"
-python_version = "3.13"
 
 # show error messages from unrelated files
 follow_imports = "normal"
@@ -126,6 +128,3 @@ ignore_missing_imports = true
 # warn_return_any = true
 # warn_unused_configs = true
 # warn_unused_ignores = true
-
-[tool.ruff.lint.mccabe]
-max-complexity = 25
