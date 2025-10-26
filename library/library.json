@@ -10711,6 +10711,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Shelly",
+            "model": "Shelly BLU  Door/Window",
+            "model_id": "SBDW-002C",
+            "battery_type": "CR2032"
         }
     ]
 }
