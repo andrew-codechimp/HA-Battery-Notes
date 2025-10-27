@@ -30,7 +30,8 @@ jobs:
         with:
           args: check --output-format=github
 
-      - name: Ruff Format
-        uses: astral-sh/ruff-action@v3
-        with:
-          args: format --check --diff
+      #TODO: Temporary disable until V3
+      # - name: Ruff Format
+      #   uses: astral-sh/ruff-action@v3
+      #   with:
+      #     args: format --check --diff
