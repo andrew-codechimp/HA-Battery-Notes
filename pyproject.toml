@@ -26,8 +26,8 @@ python = ">=3.13.2,<3.14"
 [tool.poetry.group.dev.dependencies]
 pre-commit = "4.3.0"
 pre-commit-hooks = "6.0.0"
-pylint = "3.3.9"
-ruff = "0.13.3"
+pylint = "4.0.2"
+ruff = "0.14.1"
 
 [tool.poetry.urls]
 "Bug Tracker" = "https://github.com/andrew-codechimp/HA-Battery-Notes/issues"

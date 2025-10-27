@@ -32,8 +32,7 @@ jobs:
           destination-dir: ./
 
       - name: Cloudflare Purge Cache
-        uses: jakejarvis/cloudflare-purge-action@v0.3.0
-        env:
-          CLOUDFLARE_ZONE: ${{ secrets.CLOUDFLARE_ZONE }}
-          CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
-          PURGE_URLS: '["https://battery-notes-data.codechimp.org/library.json", "https://battery-notes-data.codechimp.org/schema.json"]'
+        uses: nathanvaughn/actions-cloudflare-purge@v4.0.0
+        with:
+          cf_zone: ${{ secrets.CLOUDFLARE_ZONE }}
+          cf_auth: ${{ secrets.CLOUDFLARE_TOKEN }}

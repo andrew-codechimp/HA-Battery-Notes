@@ -293,6 +293,13 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "_TZ3000_rdhukkmi",
+            "model": "TS0201",
+            "hw_version": "0x10033607",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "_TZ3000_rr1cqjwu",
             "model": "TS0207_water_leak_detector",
             "model_id": "TS0207",
@@ -435,6 +442,12 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "_TZE200_9yapgbuv",
+            "model": "TS0601",
+            "hw_version": "0x00000048",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "_TZE200_a8sdabtg",
             "model": "TS0601",
             "battery_type": "CR2450"
@@ -479,6 +492,12 @@
             "model": "Temperature & humidity sensor and alarm",
             "model_id": "NAS-AB02B0",
             "battery_type": "CR123A + USB",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "_TZE200_h4cgnbzg",
+            "model": "TS0601",
+            "battery_type": "AA",
             "battery_quantity": 2
         },
         {
@@ -980,6 +999,12 @@
         },
         {
             "manufacturer": "APC",
+            "model": "Back-UPS RS 900G",
+            "hw_version": "879.L4 .I USB FW:L4",
+            "battery_type": "APCRBC123"
+        },
+        {
+            "manufacturer": "APC",
             "model": "Back-UPS XS 1500M",
             "battery_type": "Rechargeable"
         },
@@ -1099,6 +1124,13 @@
             "manufacturer": "Aqara",
             "model": "AS010",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "AS038",
+            "hw_version": "1",
+            "battery_type": "CR2450",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "Aqara",
@@ -1719,6 +1751,14 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "AVATTO",
+            "model": "Thermostatic radiator valve (ME167)",
+            "model_id": "ME167",
+            "hw_version": "V1",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "AVM",
             "model": "Comet DECT",
             "battery_type": "AA",
@@ -1815,6 +1855,12 @@
             "manufacturer": "BlueMaestro",
             "model": "Tempo Disc THD",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Bosch",
+            "model": "BSEN-M",
+            "battery_type": "CR123A",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "Bosch",
@@ -2164,6 +2210,18 @@
         },
         {
             "manufacturer": "Danfoss",
+            "model": "MT02650",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Danfoss",
+            "model": "MT2649 / DRS21",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Danfoss",
             "model": "TRV001",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -2261,6 +2319,24 @@
             "manufacturer": "Devolo",
             "model": "MT02648",
             "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Devolo",
+            "model": "MT02650",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Devolo",
+            "model": "MT2649",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Devolo",
+            "model": "MT2649 / DRS21",
+            "battery_type": "AA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "Devolo",
@@ -2407,13 +2483,8 @@
             "battery_type": "MANUAL"
         },
         {
-            "manufacturer": "ECOWITT",
+            "manufacturer": "Ecowitt",
             "model": "WH51",
-            "battery_type": "AA"
-        },
-        {
-            "manufacturer": "ECOWITT",
-            "model": "WN34L",
             "battery_type": "AA"
         },
         {
@@ -2479,6 +2550,11 @@
             "model": "TEMPERATURE_SENSOR",
             "battery_type": "AA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Eltako",
+            "model": "A5-08-01",
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "Ember",
@@ -2630,6 +2706,12 @@
         },
         {
             "manufacturer": "eQ-3",
+            "model": "HM-Sec-SC",
+            "battery_type": "LR44",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "eQ-3",
             "model": "HM-Sec-SC-2",
             "battery_type": "LR44",
             "battery_quantity": 2
@@ -2671,6 +2753,12 @@
             "model": "HM-Sen-DB-PCB",
             "battery_type": "AAA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "eQ-3",
+            "model": "HM-Sen-LI-O",
+            "battery_type": "AA",
+            "battery_quantity": 3
         },
         {
             "manufacturer": "eQ-3",
@@ -3170,6 +3258,14 @@
             "manufacturer": "eQ-3",
             "model": "MAX! Window Sensor",
             "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "EQ-3 AG",
+            "model": "eQ-3 Bluetooth Smart Thermostats",
+            "model_id": "CC-RT-BLE-EQ",
+            "hw_version": "6.2.1",
+            "battery_type": "AA",
             "battery_quantity": 2
         },
         {
@@ -3858,6 +3954,13 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "Grohe",
+            "model": "Sense",
+            "hw_version": "1547",
+            "battery_type": "AAA",
+            "battery_quantity": 3
+        },
+        {
             "manufacturer": "GS",
             "model": "Motion sensor (SMHM-I1)",
             "battery_type": "CR123A"
@@ -4118,6 +4221,12 @@
         },
         {
             "manufacturer": "HOBEIAN",
+            "model": "Water leak detector",
+            "model_id": "ZG-222Z",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "HOBEIAN",
             "model": "Water leak sensor",
             "model_id": "ZG-222ZA",
             "hw_version": "1",
@@ -4153,6 +4262,12 @@
         },
         {
             "manufacturer": "Homematic",
+            "model": "HM-Sec-SC",
+            "battery_type": "LR44",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Homematic",
             "model": "HM-Sec-SCo",
             "battery_type": "AAA"
         },
@@ -4160,6 +4275,12 @@
             "manufacturer": "Homematic",
             "model": "HM-Sec-Win",
             "battery_type": "HM-Sec-Win-BaP"
+        },
+        {
+            "manufacturer": "Homematic",
+            "model": "HM-Sen-LI-O",
+            "battery_type": "AA",
+            "battery_quantity": 3
         },
         {
             "manufacturer": "Homematic",
@@ -4172,6 +4293,11 @@
             "model": "HmIP-DSD-PCB",
             "battery_type": "AAA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Homematic",
+            "model": "HmIP-SRH",
+            "battery_type": "AAA"
         },
         {
             "manufacturer": "Homematic",
@@ -4978,6 +5104,12 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Lenovo",
+            "model": "TB328FU",
+            "hw_version": "Firmware: 31",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Level Home",
             "model": "Level Bolt (Matter)",
             "model_id": "3",
@@ -5678,6 +5810,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Netatmo",
+            "model": "VELUX Sensor",
+            "battery_type": "AA",
+            "battery_quantity": 3
+        },
+        {
             "manufacturer": "Nexturn",
             "model": "Door_Sensor",
             "battery_type": "CR123A"
@@ -6105,6 +6243,12 @@
             "model": "Hue dimmer switch",
             "model_id": "929002398602",
             "hw_version": "1",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Philips",
+            "model": "Hue Dimmer Switch",
+            "model_id": "RWL022",
             "battery_type": "CR2032"
         },
         {
@@ -6811,6 +6955,12 @@
         },
         {
             "manufacturer": "Shelly",
+            "model": "Shelly BLU  Door/Window",
+            "model_id": "SBDW-002C",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Shelly",
             "model": "Shelly BLU Motion",
             "model_id": "SBMO-003Z",
             "battery_type": "CR2477"
@@ -6979,6 +7129,13 @@
         },
         {
             "manufacturer": "Signify Netherlands B.V.",
+            "model": "Hue motion sensor",
+            "model_id": "SML003",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Signify Netherlands B.V.",
             "model": "Hue motion sensor (SML001)",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -6987,6 +7144,13 @@
             "manufacturer": "Signify Netherlands B.V.",
             "model": "Hue motion sensor (SML003)",
             "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Signify Netherlands B.V.",
+            "model": "Hue outdoor motion sensor",
+            "model_id": "SML002",
+            "battery_type": "AA",
             "battery_quantity": 2
         },
         {
@@ -7514,6 +7678,20 @@
             "model": "TRVZB",
             "battery_type": "AA",
             "battery_quantity": 3
+        },
+        {
+            "manufacturer": "SONOFF",
+            "model": "Waterproof (IP65) sensor with screen and probe temperature detection",
+            "model_id": "SNZB-02LD",
+            "hw_version": "16",
+            "battery_type": "CR2477"
+        },
+        {
+            "manufacturer": "SONOFF",
+            "model": "Waterproof (IP65) temperature and humidity sensor with screen",
+            "model_id": "SNZB-02WD",
+            "hw_version": "16",
+            "battery_type": "CR2477"
         },
         {
             "manufacturer": "SONOFF",
@@ -8815,7 +8993,7 @@
             "model": "Temperature & humidity sensor",
             "model_id": "IH-K009",
             "hw_version": "1",
-            "battery_type": "CR2450"
+            "battery_type": "MANUAL"
         },
         {
             "manufacturer": "Tuya",
@@ -8842,7 +9020,7 @@
         {
             "manufacturer": "TuYa",
             "model": "Temperature & humidity sensor (IH-K009)",
-            "battery_type": "CR2450"
+            "battery_type": "MANUAL"
         },
         {
             "manufacturer": "Tuya",
@@ -9055,13 +9233,7 @@
         {
             "manufacturer": "TuYa",
             "model": "TS0044_1",
-            "battery_type": "CR2430"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "TS0044_1",
-            "battery_type": "AAA",
-            "battery_quantity": 2
+            "battery_type": "MANUAL"
         },
         {
             "manufacturer": "TuYa",
@@ -9198,9 +9370,23 @@
         },
         {
             "manufacturer": "Tuya",
+            "model": "WiFi Temperature & Humidity Sensor",
+            "model_id": "yqiqbaldtr0i7mru",
+            "battery_type": "AAA",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "Tuya",
             "model": "WiFi Temperature & Humidity Sensor (q29ebws5adwye1l8)",
             "battery_type": "AAA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "WIFI Temperature and Humidity Sensor",
+            "model_id": "g7cjmefuoucmcb2s",
+            "battery_type": "AAA",
+            "battery_quantity": 3
         },
         {
             "manufacturer": "Tuya",
@@ -9648,6 +9834,13 @@
         },
         {
             "manufacturer": "Worx",
+            "model": "Landroid M500",
+            "model_id": "WR141E",
+            "hw_version": "3.36.0+1",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Worx",
             "model": "Landroid S390 (WR100SI)",
             "battery_type": "Rechargeable"
         },
@@ -9676,8 +9869,20 @@
         },
         {
             "manufacturer": "X-Sense",
+            "model": "SC07-WX",
+            "battery_type": "Sealed 10-Year"
+        },
+        {
+            "manufacturer": "X-Sense",
             "model": "SMA51",
             "battery_type": "CR2"
+        },
+        {
+            "manufacturer": "X-Sense",
+            "model": "Waterleak sensor",
+            "model_id": "SWS51",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "X-Sense",
