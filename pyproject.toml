@@ -107,6 +107,7 @@ ignore = [
   "PYI041",  # Use `float` instead of `int | float`
   "RET504",  # Unnecessary assignment before `return` statement
   "RET505",  # Unnecessary `else` after `return` statement
+  "RUF059",  # Unpacked variable is never used
   "SIM102",  # Use a single `if`-statement instead of nested `if`-statements
   "SIM103",  # Return the condition directly
   "SLF001",  # Private member accessed
