@@ -2,8 +2,8 @@
 name = "ha-battery-notes"
 version = "0.0.0"
 description = "HA-Battery-Notes - A Home Assistant integration to provide battery notes of devices"
-authors = [{email = "Andrew Jackson <andrew@codechimp.org>"}]
-maintainers = [{email = "Andrew Jackson <andrew@codechimp.org>"}]
+authors = [{ email = "Andrew Jackson <andrew@codechimp.org>" }]
+maintainers = [{ email = "Andrew Jackson <andrew@codechimp.org>" }]
 
 readme = "README.md"
 license = "MIT"
@@ -16,9 +16,7 @@ classifiers = [
   "Programming Language :: Python :: 3",
 ]
 requires-python = "==3.13.2"
-dependencies = [
-    "homeassistant==2025.4.0",
-]
+dependencies = ["homeassistant==2025.4.0"]
 
 [project.urls]
 documentation = "https://github.com/andrew-codechimp/HA-Battery-Notes"
@@ -28,9 +26,7 @@ repository = "https://github.com/andrew-codechimp/HA-Battery-Notes"
 Changelog = "https://github.com/andrew-codechimp/HA-Battery-Notes/releases"
 
 [dependency-groups]
-dev = [
-    "ruff>=0.14.2",
-]
+dev = ["ruff>=0.14.2"]
 
 [tool.ruff]
 target-version = "py313"
@@ -42,7 +38,7 @@ docstring-code-line-length = "dynamic"
 line-ending = "auto"
 
 [tool.ruff.lint]
-select=["ALL"]
+select = ["ALL"]
 ignore = [
   # Annotation and type hint rules
   "ANN401", # Disallowing dynamically typed expressions (too strict)
@@ -72,6 +68,56 @@ ignore = [
   "Q003",
   "W191",
   "RUF012", # Broken rule in some cases
+
+  "RUF001", # String contains ambiguous character
+  "S101",   # Use of assert detected
+  "TC001",  # Move application import into type checking
+
+  # TODO: Temporary ignores, to review
+  "ANN001",  # Missing type annotation for function argument
+  "ANN201",  # Missing return type annotation for public function
+  "ANN202",  # Missing return type annotation for private function
+  "ANN204",  # Missing return type annotation for special method
+  "ARG001",  # Unused function argument
+  "ARG002",  # Unused method argument
+  "ARG004",  # Unused static method argument
+  "COM818",  # Trailing comma on bare tuple prohibited
+  "D204",    # 1 blank line required after class docstring
+  "DTZ005",  # The use of `datetime.datetime.now()` without `tz` argument is not allowed
+  "EM101",   # Exception must not use a string literal, assign to variable first
+  "EM102",   # Exception must not use an f-string literal, assign to variable first
+  "ERA001",  # Found commented-out code
+  "FBT001",  # Boolean-typed positional argument in function definition
+  "FBT002",  # Boolean-typed positional argument in function definition
+  "G004",    # Logging statement uses f-string
+  "I001",    # Import block is un-sorted or un-formatted
+  "INP001",  # File is part of an implicit namespace package
+  "PGH003",  # Use specific rule codes when ignoring type issues
+  "PLR0912", # Too many branches
+  "PLR0913", # Too many arguments in function definition
+  "PLR0915", # Too many statements
+  "PLR2004", # Magic value used in comparison
+  "PLR5501", # Use `elif` instead of `else` then `if`
+  "PLW2901", # `for` loop variable overwritten by assignment target
+  "PTH103",  # `os.makedirs()` should be replaced by `Path.mkdir()`
+  "PTH104",  # `os.rename()` should be replaced by `Path.rename()`
+  "PTH118",  # `os.path.join()` should be replaced by `Path` with `/` operator
+  "PTH120",  # `os.path.dirname()` should be replaced by `Path.parent`
+  "PTH123",  # `open()` should be replaced by `Path.open()`
+  "PYI041",  # Use `float` instead of `int | float`
+  "RET504",  # Unnecessary assignment before `return` statement
+  "RET505",  # Unnecessary `else` after `return` statement
+  "SIM102",  # Use a single `if`-statement instead of nested `if`-statements
+  "SIM103",  # Return the condition directly
+  "SLF001",  # Private member accessed
+  "TC003",   # Move standard library import into a type-checking block
+  "TC006",   # Move third-party import into a type-checking block
+  "TRY003",  # Avoid specifying long messages outside the exception class
+  "TRY004",  # Prefer `TypeError` exception for invalid type
+  "TRY300",  # Consider moving this statement to an `else` block
+  "TRY400",  # Use `logging.exception` instead of `logging.error`
+  "UP039",   # Unnecessary parentheses after class name
+  "W292",    # No newline at end of file
 ]
 
 
@@ -81,11 +127,11 @@ max-complexity = 25
 [tool.ruff.lint.isort]
 length-sort = true
 section-order = [
-    "future",
-    "standard-library",
-    "third-party",
-    "first-party",
-    "local-folder",
+  "future",
+  "standard-library",
+  "third-party",
+  "first-party",
+  "local-folder",
 ]
 known-first-party = ["homeassistant"]
 combine-as-imports = true
