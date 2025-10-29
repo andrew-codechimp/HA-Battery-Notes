@@ -5,17 +5,7 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 
-# Install uv from Astral (if not already installed)
-if ! command -v uv &>/dev/null; then
-  echo "Installing uv from Astral..."
-  curl -LsSf https://astral.sh/uv/install.sh | sh
-  # ensure shell can find it (installer adds ~/.cargo/bin or ~/.local/bin)
-  export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
-fi
-
-
 # Sync environment using uv
-echo "Syncing Python environment..."
 uv sync
 
 echo "Environment ready."
