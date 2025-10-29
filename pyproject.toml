@@ -26,7 +26,10 @@ repository = "https://github.com/andrew-codechimp/HA-Battery-Notes"
 Changelog = "https://github.com/andrew-codechimp/HA-Battery-Notes/releases"
 
 [dependency-groups]
-dev = ["ruff>=0.14.2"]
+dev = [
+    "colorlog>=6.10.1",
+    "ruff>=0.14.2",
+]
 
 [tool.ruff]
 target-version = "py313"
