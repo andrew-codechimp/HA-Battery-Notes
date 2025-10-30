@@ -6827,6 +6827,12 @@
             "battery_quantity": 4
         },
         {
+            "manufacturer": "Schlage",
+            "model": "BE499WB",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
             "manufacturer": "Schneider Electric",
             "model": "FLS/SYSTEM-M/4",
             "battery_type": "CR2032"
@@ -10728,12 +10734,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Schlage",
-            "model": "BE499WB",
-            "battery_type": "AA",
-            "battery_quantity": 4
         }
     ]
 }
