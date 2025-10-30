@@ -24,13 +24,15 @@ from homeassistant.helpers import (
     device_registry as dr,
     entity_registry as er,
     config_validation as cv,
-    helper_integration,
 )
 from homeassistant.helpers.event import async_call_later
 from homeassistant.config_entries import SOURCE_IGNORE, ConfigEntry, ConfigSubentry
 from homeassistant.helpers.device import async_entity_id_to_device_id
 from homeassistant.helpers.typing import ConfigType
 from homeassistant.helpers.issue_registry import IssueSeverity, async_create_issue
+from homeassistant.helpers.helper_integration import (
+    async_remove_helper_config_entry_from_source_device,
+)
 
 from .const import (
     NAME as INTEGRATION_NAME,
@@ -382,7 +384,7 @@ async def async_migrate_integration(hass: HomeAssistant, config: ConfigType) -> 
             source_device_id = async_entity_id_to_device_id(hass, source_entity_id)
 
         if source_device_id:
-            helper_integration.async_remove_helper_config_entry_from_source_device(
+            async_remove_helper_config_entry_from_source_device(
                 hass=hass,
                 helper_config_entry_id=entry.entry_id,
                 source_device_id=source_device_id,
