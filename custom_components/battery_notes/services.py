@@ -70,7 +70,6 @@ def async_setup_services(hass: HomeAssistant) -> None:
         SERVICE_CHECK_BATTERY_LOW,
         _async_battery_low,
     )
-    return None
 
 
 async def _async_battery_replaced(call: ServiceCall) -> ServiceResponse:
