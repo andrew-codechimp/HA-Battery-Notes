@@ -6816,6 +6816,12 @@
         },
         {
             "manufacturer": "Schlage",
+            "model": "BE489WB",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Schlage",
             "model": "be499WB",
             "battery_type": "AA",
             "battery_quantity": 4
@@ -10722,12 +10728,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Schlage",
-            "model": "BE489WB",
-            "battery_type": "AA",
-            "battery_quantity": 4
         }
     ]
 }

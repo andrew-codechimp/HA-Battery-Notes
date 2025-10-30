@@ -1,4 +1,4 @@
-## 1878 Devices in library
+## 1879 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1202,6 +1202,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Samsung                                         |SM-\*                                                                                         |Rechargeable              |                                   |                                      |
 |Saswell                                         |Thermostatic radiator valve (SEA801-Zigbee/SEA802-Zigbee)                                     |2× AA                     |                                   |                                      |
 |Schlage                                         |BE469NX                                                                                       |4× AA                     |                                   |                                      |
+|Schlage                                         |BE489WB                                                                                       |4× AA                     |                                   |                                      |
 |Schlage                                         |be499WB                                                                                       |4× AA                     |                                   |                                      |
 |Schneider Electric                              |FLS/SYSTEM-M/4                                                                                |CR2032                    |                                   |                                      |
 |Schneider Electric                              |LK FUGA wiser wireless battery 4 button switch                                                |CR2032                    |550D6001                           |                                     1|
