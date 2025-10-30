@@ -78,7 +78,9 @@ class DiscoveryManager:
     so the user can add them to their HA instance.
     """
 
-    def __init__(self, hass: HomeAssistant, ha_config: BatteryNotesDomainConfig) -> None:
+    def __init__(
+        self, hass: HomeAssistant, ha_config: BatteryNotesDomainConfig
+    ) -> None:
         """Init."""
         self.hass = hass
         self.ha_config = ha_config
@@ -138,15 +140,22 @@ class DiscoveryManager:
         unique_id = f"bn_{device_entry.id}"
 
         # Iterate all the ignored devices and check if we have it already
-        for config_entry in self.hass.config_entries.async_entries(domain=DOMAIN, include_ignore=True, include_disabled=False):
-            if config_entry.source == SOURCE_IGNORE and config_entry.unique_id == unique_id:
+        for config_entry in self.hass.config_entries.async_entries(
+            domain=DOMAIN, include_ignore=True, include_disabled=False
+        ):
+            if (
+                config_entry.source == SOURCE_IGNORE
+                and config_entry.unique_id == unique_id
+            ):
                 _LOGGER.debug(
                     "%s: Ignored, skipping new discovery",
                     unique_id,
                 )
                 return
 
-        for config_entry in self.hass.config_entries.async_entries(domain=DOMAIN, include_ignore=False, include_disabled=False):
+        for config_entry in self.hass.config_entries.async_entries(
+            domain=DOMAIN, include_ignore=False, include_disabled=False
+        ):
             for subentry in config_entry.subentries.values():
                 if subentry.data.get(CONF_DEVICE_ID, "") == device_entry.id:
                     _LOGGER.debug(

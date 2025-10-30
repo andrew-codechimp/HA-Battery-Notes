@@ -98,7 +98,9 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
 
 
 @callback
-def async_add_to_device(hass: HomeAssistant, entry: BatteryNotesConfigEntry) -> str | None:
+def async_add_to_device(
+    hass: HomeAssistant, entry: BatteryNotesConfigEntry
+) -> str | None:
     """Add our config entry to the device."""
     device_registry = dr.async_get(hass)
 
@@ -146,7 +148,11 @@ async def async_setup_entry(
             entity_type="binary_sensor",
         )
 
-        entities: list[BatteryNotesBatteryLowTemplateSensor | BatteryNotesBatteryLowSensor | BatteryNotesBatteryBinaryLowSensor] = []
+        entities: list[
+            BatteryNotesBatteryLowTemplateSensor
+            | BatteryNotesBatteryLowSensor
+            | BatteryNotesBatteryBinaryLowSensor
+        ] = []
 
         if coordinator.battery_low_template is not None:
             entities.append(
@@ -282,9 +288,7 @@ class _TemplateAttribute:
         return
 
 
-class BatteryNotesBatteryLowBaseSensor(
-    BatteryNotesEntity, BinarySensorEntity
-):
+class BatteryNotesBatteryLowBaseSensor(BatteryNotesEntity, BinarySensorEntity):
     """Low battery binary sensor base."""
 
     entity_description: BatteryNotesBinarySensorEntityDescription
@@ -297,7 +301,9 @@ class BatteryNotesBatteryLowBaseSensor(
     ):
         """Initialize the low battery binary sensor."""
 
-        super().__init__(hass, entity_description=entity_description, coordinator=coordinator)
+        super().__init__(
+            hass, entity_description=entity_description, coordinator=coordinator
+        )
 
         self.enable_replaced = hass.data[MY_KEY].enable_replaced
 
@@ -358,7 +364,9 @@ class BatteryNotesBatteryLowTemplateSensor(
     ) -> None:
         """Create a low battery binary sensor."""
 
-        super().__init__(hass=hass, coordinator=coordinator, entity_description=entity_description)
+        super().__init__(
+            hass=hass, coordinator=coordinator, entity_description=entity_description
+        )
 
         self._attr_unique_id = unique_id
         self._template_attrs: dict[Template, list[_TemplateAttribute]] = {}
@@ -368,22 +376,18 @@ class BatteryNotesBatteryLowTemplateSensor(
             self._attr_translation_placeholders = {
                 "device_name": coordinator.device_name + " "
             }
-            self.entity_id = (
-                f"binary_sensor.{coordinator.device_name.lower()}_{entity_description.key}"
-            )
+            self.entity_id = f"binary_sensor.{coordinator.device_name.lower()}_{entity_description.key}"
         elif coordinator.source_entity_id and coordinator.device_id:
-            _, source_object_id = split_entity_id(
-                coordinator.source_entity_id
-            )
+            _, source_object_id = split_entity_id(coordinator.source_entity_id)
             self._attr_translation_placeholders = {
                 "device_name": coordinator.source_entity_name + " "
             }
-            self.entity_id = f"binary_sensor.{source_object_id}_{entity_description.key}"
+            self.entity_id = (
+                f"binary_sensor.{source_object_id}_{entity_description.key}"
+            )
         else:
             self._attr_translation_placeholders = {"device_name": ""}
-            self.entity_id = (
-                f"binary_sensor.{coordinator.device_name.lower()}_{entity_description.key}"
-            )
+            self.entity_id = f"binary_sensor.{coordinator.device_name.lower()}_{entity_description.key}"
 
         self._template = tmpl
         self._state: bool | None = None
@@ -552,28 +556,26 @@ class BatteryNotesBatteryLowSensor(BatteryNotesBatteryLowBaseSensor):
         unique_id: str,
     ) -> None:
         """Create a low battery binary sensor."""
-        super().__init__(hass=hass, coordinator=coordinator, entity_description=entity_description)
+        super().__init__(
+            hass=hass, coordinator=coordinator, entity_description=entity_description
+        )
 
         if coordinator.source_entity_id and not coordinator.device_id:
             self._attr_translation_placeholders = {
                 "device_name": coordinator.device_name + " "
             }
-            self.entity_id = (
-                f"binary_sensor.{coordinator.device_name.lower()}_{entity_description.key}"
-            )
+            self.entity_id = f"binary_sensor.{coordinator.device_name.lower()}_{entity_description.key}"
         elif coordinator.source_entity_id and coordinator.device_id:
-            _, source_object_id = split_entity_id(
-                coordinator.source_entity_id
-            )
+            _, source_object_id = split_entity_id(coordinator.source_entity_id)
             self._attr_translation_placeholders = {
                 "device_name": coordinator.source_entity_name + " "
             }
-            self.entity_id = f"binary_sensor.{source_object_id}_{entity_description.key}"
+            self.entity_id = (
+                f"binary_sensor.{source_object_id}_{entity_description.key}"
+            )
         else:
             self._attr_translation_placeholders = {"device_name": ""}
-            self.entity_id = (
-                f"binary_sensor.{coordinator.device_name.lower()}_{entity_description.key}"
-            )
+            self.entity_id = f"binary_sensor.{coordinator.device_name.lower()}_{entity_description.key}"
 
         self._attr_unique_id = unique_id
 
@@ -632,28 +634,26 @@ class BatteryNotesBatteryBinaryLowSensor(BatteryNotesBatteryLowBaseSensor):
         unique_id: str,
     ) -> None:
         """Create a low battery binary sensor."""
-        super().__init__(hass=hass, coordinator=coordinator, entity_description=entity_description)
+        super().__init__(
+            hass=hass, coordinator=coordinator, entity_description=entity_description
+        )
 
         if coordinator.source_entity_id and not coordinator.device_id:
             self._attr_translation_placeholders = {
                 "device_name": coordinator.device_name + " "
             }
-            self.entity_id = (
-                f"binary_sensor.{coordinator.device_name.lower()}_{entity_description.key}"
-            )
+            self.entity_id = f"binary_sensor.{coordinator.device_name.lower()}_{entity_description.key}"
         elif coordinator.source_entity_id and coordinator.device_id:
-            _, source_object_id = split_entity_id(
-                coordinator.source_entity_id
-            )
+            _, source_object_id = split_entity_id(coordinator.source_entity_id)
             self._attr_translation_placeholders = {
                 "device_name": coordinator.source_entity_name + " "
             }
-            self.entity_id = f"binary_sensor.{source_object_id}_{entity_description.key}"
+            self.entity_id = (
+                f"binary_sensor.{source_object_id}_{entity_description.key}"
+            )
         else:
             self._attr_translation_placeholders = {"device_name": ""}
-            self.entity_id = (
-                f"binary_sensor.{coordinator.device_name.lower()}_{entity_description.key}"
-            )
+            self.entity_id = f"binary_sensor.{coordinator.device_name.lower()}_{entity_description.key}"
 
         self._attr_unique_id = unique_id
 
@@ -869,4 +869,3 @@ class BatteryNotesBatteryBinaryLowSensor(BatteryNotesBatteryLowBaseSensor):
     def is_on(self) -> bool | None:
         """Return true if sensor is on."""
         return self._attr_is_on
-

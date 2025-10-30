@@ -49,7 +49,9 @@ class BatteryNotesButtonEntityDescription(
 
 
 @callback
-def async_add_to_device(hass: HomeAssistant, entry: BatteryNotesConfigEntry) -> str | None:
+def async_add_to_device(
+    hass: HomeAssistant, entry: BatteryNotesConfigEntry
+) -> str | None:
     """Add our config entry to the device."""
     device_registry = dr.async_get(hass)
 
@@ -125,7 +127,9 @@ class BatteryNotesButton(BatteryNotesEntity, ButtonEntity):
     ) -> None:
         """Create a battery replaced button."""
 
-        super().__init__(hass=hass, entity_description=entity_description, coordinator=coordinator)
+        super().__init__(
+            hass=hass, entity_description=entity_description, coordinator=coordinator
+        )
 
         if coordinator.source_entity_id and not coordinator.device_id:
             self._attr_translation_placeholders = {
@@ -135,9 +139,7 @@ class BatteryNotesButton(BatteryNotesEntity, ButtonEntity):
                 f"button.{coordinator.device_name.lower()}_{entity_description.key}"
             )
         elif coordinator.source_entity_id and coordinator.device_id:
-            _, source_object_id = split_entity_id(
-                coordinator.source_entity_id
-            )
+            _, source_object_id = split_entity_id(coordinator.source_entity_id)
             self._attr_translation_placeholders = {
                 "device_name": coordinator.source_entity_name + " "
             }
@@ -169,8 +171,7 @@ class BatteryNotesButton(BatteryNotesEntity, ButtonEntity):
             EVENT_BATTERY_REPLACED,
             {
                 ATTR_DEVICE_ID: self.coordinator.device_id or "",
-                ATTR_SOURCE_ENTITY_ID: self.coordinator.source_entity_id
-                or "",
+                ATTR_SOURCE_ENTITY_ID: self.coordinator.source_entity_id or "",
                 ATTR_DEVICE_NAME: self.coordinator.device_name,
                 ATTR_BATTERY_TYPE_AND_QUANTITY: self.coordinator.battery_type_and_quantity,
                 ATTR_BATTERY_TYPE: self.coordinator.battery_type,

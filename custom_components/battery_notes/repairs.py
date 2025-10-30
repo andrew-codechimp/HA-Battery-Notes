@@ -13,6 +13,7 @@ from homeassistant.components.repairs import RepairsFlow
 
 REQUIRED_KEYS = ("entry_id", "device_id", "source_entity_id")
 
+
 class MissingDeviceRepairFlow(RepairsFlow):
     """Handler for an issue fixing flow."""
 
@@ -26,18 +27,19 @@ class MissingDeviceRepairFlow(RepairsFlow):
         self.source_entity_id = cast(str, data["source_entity_id"])
 
     async def async_step_init(
-        self, user_input: dict[str, str] | None = None #pylint: disable=unused-argument
+        self,
+        user_input: dict[str, str] | None = None,  # pylint: disable=unused-argument
     ) -> data_entry_flow.FlowResult:
         """Handle the first step of a fix flow."""
 
-        return await (self.async_step_confirm())
+        return await self.async_step_confirm()
 
     async def async_step_confirm(
         self, user_input: dict[str, str] | None = None
     ) -> data_entry_flow.FlowResult:
         """Handle the confirm step of a fix flow."""
         if user_input is not None:
-            if (entry:= self.hass.config_entries.async_get_entry(self.entry_id)):
+            if entry := self.hass.config_entries.async_get_entry(self.entry_id):
                 self.hass.config_entries.async_remove_subentry(entry, self.subentry_id)
 
             return self.async_create_entry(data={})
@@ -50,12 +52,12 @@ class MissingDeviceRepairFlow(RepairsFlow):
         return self.async_show_form(
             step_id="confirm",
             data_schema=vol.Schema({}),
-            description_placeholders=description_placeholders
+            description_placeholders=description_placeholders,
         )
 
 
 async def async_create_fix_flow(
-    hass: HomeAssistant, #pylint: disable=unused-argument
+    hass: HomeAssistant,  # pylint: disable=unused-argument
     issue_id: str,
     data: dict[str, str | int | float | None] | None,
 ) -> RepairsFlow:

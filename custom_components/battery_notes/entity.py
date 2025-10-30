@@ -61,22 +61,16 @@ class BatteryNotesEntity(CoordinatorEntity[BatteryNotesSubentryCoordinator]):
             self._attr_translation_placeholders = {
                 "device_name": self.coordinator.device_name + " "
             }
-            self.entity_id = (
-                f"{entity_description.entity_type}.{self.coordinator.device_name.lower()}_{entity_description.key}"
-            )
+            self.entity_id = f"{entity_description.entity_type}.{self.coordinator.device_name.lower()}_{entity_description.key}"
         elif self.coordinator.source_entity_id and self.coordinator.device_id:
-            _, source_object_id = split_entity_id(
-                self.coordinator.source_entity_id
-            )
+            _, source_object_id = split_entity_id(self.coordinator.source_entity_id)
             self._attr_translation_placeholders = {
                 "device_name": self.coordinator.source_entity_name + " "
             }
             self.entity_id = f"{entity_description.entity_type}.{source_object_id}_{entity_description.key}"
         else:
             self._attr_translation_placeholders = {"device_name": ""}
-            self.entity_id = (
-                f"{entity_description.entity_type}.{self.coordinator.device_name.lower()}_{entity_description.key}"
-            )
+            self.entity_id = f"{entity_description.entity_type}.{self.coordinator.device_name.lower()}_{entity_description.key}"
 
     def _associate_device(
         self, hass: HomeAssistant, device_registry: dr.DeviceRegistry
@@ -87,7 +81,10 @@ class BatteryNotesEntity(CoordinatorEntity[BatteryNotesSubentryCoordinator]):
         ):
             # Attach to the device_id
             self.device_entry = device_registry.async_get(self.coordinator.device_id)
-        elif self.entity_description.require_device is False and self.coordinator.source_entity_id:
+        elif (
+            self.entity_description.require_device is False
+            and self.coordinator.source_entity_id
+        ):
             device_id = async_entity_id_to_device_id(
                 hass, self.coordinator.source_entity_id
             )

@@ -100,6 +100,7 @@ CONFIG_SCHEMA = vol.Schema(
     extra=vol.ALLOW_EXTRA,
 )
 
+
 async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     """Integration setup."""
 
@@ -140,12 +141,22 @@ async def async_setup_entry(
     domain_config.show_all_devices = config_entry.options[CONF_SHOW_ALL_DEVICES]
     domain_config.hide_battery = config_entry.options[CONF_HIDE_BATTERY]
     domain_config.round_battery = config_entry.options[CONF_ROUND_BATTERY]
-    domain_config.default_battery_low_threshold = config_entry.options[CONF_DEFAULT_BATTERY_LOW_THRESHOLD]
-    domain_config.battery_increased_threshod = config_entry.options[CONF_BATTERY_INCREASE_THRESHOLD]
+    domain_config.default_battery_low_threshold = config_entry.options[
+        CONF_DEFAULT_BATTERY_LOW_THRESHOLD
+    ]
+    domain_config.battery_increased_threshod = config_entry.options[
+        CONF_BATTERY_INCREASE_THRESHOLD
+    ]
 
-    domain_config.enable_autodiscovery = config_entry.options[CONF_ADVANCED_SETTINGS][CONF_ENABLE_AUTODISCOVERY]
-    domain_config.enable_replaced = config_entry.options[CONF_ADVANCED_SETTINGS][CONF_ENABLE_REPLACED]
-    domain_config.user_library = config_entry.options[CONF_ADVANCED_SETTINGS][CONF_USER_LIBRARY]
+    domain_config.enable_autodiscovery = config_entry.options[CONF_ADVANCED_SETTINGS][
+        CONF_ENABLE_AUTODISCOVERY
+    ]
+    domain_config.enable_replaced = config_entry.options[CONF_ADVANCED_SETTINGS][
+        CONF_ENABLE_REPLACED
+    ]
+    domain_config.user_library = config_entry.options[CONF_ADVANCED_SETTINGS][
+        CONF_USER_LIBRARY
+    ]
 
     config_entry.runtime_data = BatteryNotesData(
         domain_config=domain_config,
@@ -158,19 +169,21 @@ async def async_setup_entry(
     config_entry.runtime_data.subentry_coordinators = {}
     for subentry in config_entry.subentries.values():
         if subentry.subentry_type == SUBENTRY_BATTERY_NOTE:
-
             coordinator = BatteryNotesSubentryCoordinator(hass, config_entry, subentry)
-            config_entry.runtime_data.subentry_coordinators[subentry.subentry_id] = coordinator
+            config_entry.runtime_data.subentry_coordinators[subentry.subentry_id] = (
+                coordinator
+            )
 
             assert subentry.unique_id
 
     await hass.config_entries.async_forward_entry_setups(config_entry, PLATFORMS)
 
-    config_entry.async_on_unload(config_entry.add_update_listener(_async_update_listener))
-
+    config_entry.async_on_unload(
+        config_entry.add_update_listener(_async_update_listener)
+    )
 
     @callback
-    async def _async_delayed_discovery(now: datetime) -> None: #pylint: disable=unused-argument
+    async def _async_delayed_discovery(now: datetime) -> None:  # pylint: disable=unused-argument
         """Update the library and do discovery."""
         library_updater = LibraryUpdater(hass)
         await library_updater.copy_schema()
@@ -185,7 +198,9 @@ async def async_setup_entry(
     async_call_later(
         hass,
         DISCOVERY_DELAY,
-        HassJob(_async_delayed_discovery, "battery notes discovery", cancel_on_shutdown=True),
+        HassJob(
+            _async_delayed_discovery, "battery notes discovery", cancel_on_shutdown=True
+        ),
     )
 
     return True
@@ -206,7 +221,10 @@ async def async_remove_entry(
 
     for subentry in config_entry.subentries.values():
         if subentry.subentry_id not in config_entry.subentries:
-            await _async_remove_subentry(hass, config_entry, subentry, remove_store_entries=False)
+            await _async_remove_subentry(
+                hass, config_entry, subentry, remove_store_entries=False
+            )
+
 
 async def async_migrate_integration(hass: HomeAssistant, config: ConfigType) -> None:
     """Migrate integration entry structure."""
@@ -234,7 +252,9 @@ async def async_migrate_integration(hass: HomeAssistant, config: ConfigType) -> 
         key=lambda e: e.disabled_by is not None,
     )
 
-    if not any(entry.version < 3 and entry.source != SOURCE_IGNORE for entry in entries):
+    if not any(
+        entry.version < 3 and entry.source != SOURCE_IGNORE for entry in entries
+    ):
         return
 
     for entry in entries:
@@ -272,24 +292,36 @@ async def async_migrate_integration(hass: HomeAssistant, config: ConfigType) -> 
 
         if not migrate_base_entry:
             if yaml_domain_config:
-                options={
-                    CONF_SHOW_ALL_DEVICES: yaml_domain_config.get(CONF_SHOW_ALL_DEVICES, False),
+                options = {
+                    CONF_SHOW_ALL_DEVICES: yaml_domain_config.get(
+                        CONF_SHOW_ALL_DEVICES, False
+                    ),
                     CONF_HIDE_BATTERY: yaml_domain_config.get(CONF_HIDE_BATTERY, False),
-                    CONF_ROUND_BATTERY: yaml_domain_config.get(CONF_ROUND_BATTERY, False),
+                    CONF_ROUND_BATTERY: yaml_domain_config.get(
+                        CONF_ROUND_BATTERY, False
+                    ),
                     CONF_DEFAULT_BATTERY_LOW_THRESHOLD: yaml_domain_config.get(
-                        CONF_DEFAULT_BATTERY_LOW_THRESHOLD, DEFAULT_BATTERY_LOW_THRESHOLD
+                        CONF_DEFAULT_BATTERY_LOW_THRESHOLD,
+                        DEFAULT_BATTERY_LOW_THRESHOLD,
                     ),
                     CONF_BATTERY_INCREASE_THRESHOLD: yaml_domain_config.get(
-                        CONF_BATTERY_INCREASE_THRESHOLD, DEFAULT_BATTERY_INCREASE_THRESHOLD
+                        CONF_BATTERY_INCREASE_THRESHOLD,
+                        DEFAULT_BATTERY_INCREASE_THRESHOLD,
                     ),
                     CONF_ADVANCED_SETTINGS: {
-                        CONF_ENABLE_AUTODISCOVERY: yaml_domain_config.get(CONF_ENABLE_AUTODISCOVERY, True),
-                        CONF_ENABLE_REPLACED: yaml_domain_config.get(CONF_ENABLE_REPLACED, True),
-                        CONF_USER_LIBRARY: yaml_domain_config.get(CONF_USER_LIBRARY, ""),
+                        CONF_ENABLE_AUTODISCOVERY: yaml_domain_config.get(
+                            CONF_ENABLE_AUTODISCOVERY, True
+                        ),
+                        CONF_ENABLE_REPLACED: yaml_domain_config.get(
+                            CONF_ENABLE_REPLACED, True
+                        ),
+                        CONF_USER_LIBRARY: yaml_domain_config.get(
+                            CONF_USER_LIBRARY, ""
+                        ),
                     },
                 }
             else:
-                options={
+                options = {
                     CONF_SHOW_ALL_DEVICES: False,
                     CONF_HIDE_BATTERY: False,
                     CONF_ROUND_BATTERY: False,
@@ -324,19 +356,19 @@ async def async_migrate_integration(hass: HomeAssistant, config: ConfigType) -> 
                 if "_" not in entity_entry.unique_id:
                     new_unique_id = f"{subentry.unique_id}_battery_type"
                 else:
-                    new_unique_id = f"{subentry.unique_id}_{entity_entry.unique_id.split("_", 1)[1]}"
+                    new_unique_id = f"{subentry.unique_id}_{entity_entry.unique_id.split('_', 1)[1]}"
 
                 entity_disabled_by = entity_entry.disabled_by
                 if entity_disabled_by:
                     entity_disabled_by = er.RegistryEntryDisabler.USER
 
                 entity_registry.async_update_entity(
-                                entity_entry.entity_id,
-                                config_entry_id=migrate_base_entry.entry_id,
-                                config_subentry_id=subentry.subentry_id,
-                                disabled_by=entity_disabled_by,
-                                new_unique_id=new_unique_id,
-                            )
+                    entity_entry.entity_id,
+                    config_entry_id=migrate_base_entry.entry_id,
+                    config_subentry_id=subentry.subentry_id,
+                    disabled_by=entity_disabled_by,
+                    new_unique_id=new_unique_id,
+                )
 
         # Remove the config entry from the device
         source_device_id = subentry.data.get(CONF_DEVICE_ID, None)
@@ -347,12 +379,14 @@ async def async_migrate_integration(hass: HomeAssistant, config: ConfigType) -> 
 
         source_entity_id = subentry.data.get("source_entity_id", None)
         if source_entity_id:
-            source_device_id = async_entity_id_to_device_id(
-                hass, source_entity_id
-            )
+            source_device_id = async_entity_id_to_device_id(hass, source_entity_id)
 
         if source_device_id:
-            helper_integration.async_remove_helper_config_entry_from_source_device(hass=hass, helper_config_entry_id=entry.entry_id, source_device_id=source_device_id)
+            helper_integration.async_remove_helper_config_entry_from_source_device(
+                hass=hass,
+                helper_config_entry_id=entry.entry_id,
+                source_device_id=source_device_id,
+            )
 
         # Remove the old config entry
         if entry.entry_id != migrate_base_entry.entry_id:
@@ -369,7 +403,11 @@ async def async_migrate_entry(
     hass: HomeAssistant, config_entry: BatteryNotesConfigEntry
 ) -> bool:
     """Migrate old config."""
-    _LOGGER.debug("Migrating configuration from version %s.%s", config_entry.version, config_entry.minor_version)
+    _LOGGER.debug(
+        "Migrating configuration from version %s.%s",
+        config_entry.version,
+        config_entry.minor_version,
+    )
 
     if config_entry.version > 3:
         # This means the user has downgraded from a future version
@@ -423,7 +461,9 @@ async def _async_update_listener(
 
     for subentry in config_entry.runtime_data.loaded_subentries.values():
         if subentry.subentry_id not in config_entry.subentries:
-            await _async_remove_subentry(hass, config_entry, subentry, remove_store_entries=False)
+            await _async_remove_subentry(
+                hass, config_entry, subentry, remove_store_entries=False
+            )
 
     # Update the config entry with the new sub entries
     config_entry.runtime_data.loaded_subentries = config_entry.subentries.copy()
@@ -438,10 +478,16 @@ async def _async_remove_subentry(
     remove_store_entries: bool,
 ) -> None:
     """Remove a sub entry."""
-    _LOGGER.debug("Removing sub entry %s from config entry %s", subentry.subentry_id, config_entry.entry_id)
+    _LOGGER.debug(
+        "Removing sub entry %s from config entry %s",
+        subentry.subentry_id,
+        config_entry.entry_id,
+    )
 
     assert config_entry.runtime_data.subentry_coordinators
-    coordinator = config_entry.runtime_data.subentry_coordinators.get(subentry.subentry_id)
+    coordinator = config_entry.runtime_data.subentry_coordinators.get(
+        subentry.subentry_id
+    )
     assert coordinator
 
     # Remove any issues raised
@@ -460,16 +506,19 @@ async def _async_remove_subentry(
     # Unhide the battery
     if coordinator.wrapped_battery:
         entity_registry = er.async_get(hass)
-        if (
-            wrapped_battery_entity_entry := entity_registry.async_get(
-                coordinator.wrapped_battery.entity_id
-            )
+        if wrapped_battery_entity_entry := entity_registry.async_get(
+            coordinator.wrapped_battery.entity_id
         ):
-            if wrapped_battery_entity_entry.hidden_by == er.RegistryEntryHider.INTEGRATION:
+            if (
+                wrapped_battery_entity_entry.hidden_by
+                == er.RegistryEntryHider.INTEGRATION
+            ):
                 entity_registry.async_update_entity(
                     coordinator.wrapped_battery.entity_id, hidden_by=None
                 )
-                _LOGGER.debug("Unhidden Original Battery for device%s", coordinator.device_id)
+                _LOGGER.debug(
+                    "Unhidden Original Battery for device%s", coordinator.device_id
+                )
 
     config_entry.runtime_data.subentry_coordinators.pop(subentry.subentry_id)
 
@@ -483,4 +532,6 @@ async def _async_remove_subentry(
 
     for entity_id in entities_to_remove:
         entity_registry.async_remove(entity_id)
-        _LOGGER.debug("Removed entity %s for subentry %s", entity_id, subentry.subentry_id)
+        _LOGGER.debug(
+            "Removed entity %s for subentry %s", entity_id, subentry.subentry_id
+        )

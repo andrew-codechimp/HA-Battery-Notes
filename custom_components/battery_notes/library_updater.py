@@ -34,7 +34,8 @@ HEADERS = {
     "User-Agent": f"BatteryNotes/{VERSION}",
     "Content-Type": CONTENT_TYPE_JSON,
     "Accept-Encoding": "gzip",
-    }
+}
+
 
 class LibraryUpdaterClientError(Exception):
     """Exception to indicate a general API error."""
@@ -60,7 +61,12 @@ class LibraryUpdater:
         # Fire the library check every 24 hours from just before now
         refresh_time = datetime.now() - timedelta(hours=0, minutes=1)
         async_track_utc_time_change(
-            hass, self.timer_update, hour=refresh_time.hour, minute=refresh_time.minute, second=refresh_time.second, local=True
+            hass,
+            self.timer_update,
+            hour=refresh_time.hour,
+            minute=refresh_time.minute,
+            second=refresh_time.second,
+            local=True,
         )
 
     @callback
@@ -98,7 +104,9 @@ class LibraryUpdater:
             content = await self._client.async_get_data()
 
             if self.validate_json(content):
-                json_path = self.hass.config.path(STORAGE_DIR, "battery_notes", "library.json")
+                json_path = self.hass.config.path(
+                    STORAGE_DIR, "battery_notes", "library.json"
+                )
 
                 await self.hass.async_add_executor_job(
                     _update_library_json, json_path, content
@@ -114,15 +122,15 @@ class LibraryUpdater:
 
         except LibraryUpdaterClientError:
             if not startup:
-                _LOGGER.warning(
-                    "Unable to update library, will retry later."
-                )
+                _LOGGER.warning("Unable to update library, will retry later.")
 
     async def copy_schema(self):
         """Copy schema file to storage to be relative to downloaded library."""
 
         install_schema_path = os.path.join(os.path.dirname(__file__), "schema.json")
-        storage_schema_path = self.hass.config.path(STORAGE_DIR, "battery_notes", "schema.json")
+        storage_schema_path = self.hass.config.path(
+            STORAGE_DIR, "battery_notes", "schema.json"
+        )
         os.makedirs(os.path.dirname(storage_schema_path), exist_ok=True)
         await self.hass.async_add_executor_job(
             shutil.copyfile,
@@ -138,9 +146,7 @@ class LibraryUpdater:
                 return True
 
             if library_last_update := self.hass.data[MY_KEY].library_last_update:
-                time_since_last_update = (
-                    datetime.now() - library_last_update
-                )
+                time_since_last_update = datetime.now() - library_last_update
 
                 time_difference_in_hours = time_since_last_update / timedelta(hours=1)
 
@@ -181,7 +187,9 @@ class LibraryUpdaterClient:
     async def async_get_data(self) -> Any:
         """Get data from the API."""
         _LOGGER.debug("Updating library from %s", DEFAULT_LIBRARY_URL)
-        return await self._api_wrapper(method="get", url=DEFAULT_LIBRARY_URL, headers=HEADERS)
+        return await self._api_wrapper(
+            method="get", url=DEFAULT_LIBRARY_URL, headers=HEADERS
+        )
 
     async def _api_wrapper(
         self,

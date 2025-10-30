@@ -64,9 +64,11 @@ from .filters import LowOutlierFilter
 
 _LOGGER = logging.getLogger(__name__)
 
+
 @dataclass
 class BatteryNotesDomainConfig:
     """Class for sharing config data within the BatteryNotes integration."""
+
     enable_autodiscovery: bool = True
     show_all_devices: bool = False
     enable_replaced: bool = True
@@ -78,9 +80,11 @@ class BatteryNotesDomainConfig:
     user_library: str = ""
     store: BatteryNotesStorage | None = None
 
+
 MY_KEY: HassKey[BatteryNotesDomainConfig] = HassKey(DOMAIN)
 
 type BatteryNotesConfigEntry = ConfigEntry[BatteryNotesData]
+
 
 @dataclass
 class BatteryNotesData:
@@ -90,6 +94,7 @@ class BatteryNotesData:
     store: BatteryNotesStorage
     loaded_subentries: dict[str, ConfigSubentry]
     subentry_coordinators: dict[str, BatteryNotesSubentryCoordinator] | None = None
+
 
 class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
     """Define an object to hold Battery Notes device."""
@@ -119,7 +124,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
         self,
         hass: HomeAssistant,
         config_entry: BatteryNotesConfigEntry,
-        subentry: ConfigSubentry
+        subentry: ConfigSubentry,
     ):
         """Initialize."""
         super().__init__(hass, _LOGGER, config_entry=config_entry, name=DOMAIN)
@@ -254,13 +259,12 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
             self.device_name = self.subentry.title
         else:
             for entity in entity_registry.entities.values():
-
                 if not entity.device_id or entity.device_id != self.device_id:
                     continue
-                if (
-                    not entity.domain
-                    or entity.domain not in [SENSOR_DOMAIN, BINARY_SENSOR_DOMAIN]
-                ):
+                if not entity.domain or entity.domain not in [
+                    SENSOR_DOMAIN,
+                    BINARY_SENSOR_DOMAIN,
+                ]:
                     continue
                 if not entity.platform or entity.platform == DOMAIN:
                     continue
@@ -292,7 +296,9 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                 device_entry = device_registry.async_get(self.device_id)
             if device_entry:
                 self.device_name = (
-                    self.subentry.title or device_entry.name_by_user or device_entry.name
+                    self.subentry.title
+                    or device_entry.name_by_user
+                    or device_entry.name
                 )
             else:
                 self.device_name = self.subentry.title
@@ -338,16 +344,31 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                 entity_registry = er.async_get(self.hass)
                 device_registry = dr.async_get(self.hass)
                 registry_entry = entity_registry.async_get(self.source_entity_id)
-                device_entry = device_registry.async_get(self.device_id) if self.device_id else None
+                device_entry = (
+                    device_registry.async_get(self.device_id)
+                    if self.device_id
+                    else None
+                )
 
                 if registry_entry:
-                    if registry_entry and registry_entry.name is None and registry_entry.has_entity_name and device_entry:
+                    if (
+                        registry_entry
+                        and registry_entry.name is None
+                        and registry_entry.has_entity_name
+                        and device_entry
+                    ):
                         self._source_entity_name = (
-                            registry_entry.name or registry_entry.original_name or device_entry.name_by_user or device_entry.name or self.source_entity_id
+                            registry_entry.name
+                            or registry_entry.original_name
+                            or device_entry.name_by_user
+                            or device_entry.name
+                            or self.source_entity_id
                         )
                     else:
                         self._source_entity_name = (
-                            registry_entry.name or registry_entry.original_name or self.source_entity_id
+                            registry_entry.name
+                            or registry_entry.original_name
+                            or self.source_entity_id
                         )
 
         return self._source_entity_name
@@ -364,7 +385,8 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
         if (
             self._previous_battery_low_template_state is not None
             and self.battery_low_template
-            and value not in [
+            and value
+            not in [
                 STATE_UNAVAILABLE,
                 STATE_UNKNOWN,
             ]
@@ -394,7 +416,8 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
             if (
                 self._previous_battery_low_template_state
                 and not self._battery_low_template_state
-                and value not in [
+                and value
+                not in [
                     STATE_UNAVAILABLE,
                     STATE_UNKNOWN,
                 ]
@@ -418,7 +441,6 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
 
                 _LOGGER.debug("battery_increased event fired via template")
 
-
         self._previous_battery_low_template_state = value
 
     @property
@@ -430,11 +452,10 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
     def battery_low_binary_state(self, value):
         """Set the current battery low status from a binary sensor and fire events if valid."""
         self._battery_low_binary_state = value
-        if (self._previous_battery_low_binary_state is not None
-            and value not in [
-                STATE_UNAVAILABLE,
-                STATE_UNKNOWN,
-            ]):
+        if self._previous_battery_low_binary_state is not None and value not in [
+            STATE_UNAVAILABLE,
+            STATE_UNKNOWN,
+        ]:
             self.hass.bus.async_fire(
                 EVENT_BATTERY_THRESHOLD,
                 {
@@ -461,7 +482,8 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
             if (
                 self._previous_battery_low_binary_state
                 and not self._battery_low_binary_state
-                and value not in [
+                and value
+                not in [
                     STATE_UNAVAILABLE,
                     STATE_UNKNOWN,
                 ]
@@ -504,7 +526,9 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                     "Checking outlier (%s=%s) -> %s",
                     self.device_id or self.source_entity_id or "",
                     value,
-                    "skip" if self._outlier_filter.skip_processing else self._outlier_filter.filter_state(value),
+                    "skip"
+                    if self._outlier_filter.skip_processing
+                    else self._outlier_filter.filter_state(value),
                 )
                 if self._outlier_filter.skip_processing:
                     return
@@ -537,7 +561,9 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                 _LOGGER.debug("battery_threshold event fired Low: %s", self.battery_low)
 
             # Battery increased event
-            increase_threshold = self.config_entry.runtime_data.domain_config.battery_increased_threshod
+            increase_threshold = (
+                self.config_entry.runtime_data.domain_config.battery_increased_threshod
+            )
 
             if self._current_battery_level not in [STATE_UNAVAILABLE, STATE_UNKNOWN]:
                 if (
@@ -585,9 +611,13 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
             return None
 
         if self.source_entity_id:
-            entry = self.config_entry.runtime_data.store.async_get_entity(self.source_entity_id)
+            entry = self.config_entry.runtime_data.store.async_get_entity(
+                self.source_entity_id
+            )
         else:
-            entry = self.config_entry.runtime_data.store.async_get_device(self.device_id)
+            entry = self.config_entry.runtime_data.store.async_get_device(
+                self.device_id
+            )
 
         if entry:
             if LAST_REPLACED in entry and entry[LAST_REPLACED] is not None:
@@ -618,9 +648,13 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
             return None
 
         if self.source_entity_id:
-            entry = self.config_entry.runtime_data.store.async_get_entity(self.source_entity_id)
+            entry = self.config_entry.runtime_data.store.async_get_entity(
+                self.source_entity_id
+            )
         else:
-            entry = self.config_entry.runtime_data.store.async_get_device(self.device_id)
+            entry = self.config_entry.runtime_data.store.async_get_device(
+                self.device_id
+            )
 
         if entry:
             if LAST_REPORTED in entry:
@@ -654,9 +688,13 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
             return None
 
         if self.source_entity_id:
-            entry = self.config_entry.runtime_data.store.async_get_entity(self.source_entity_id)
+            entry = self.config_entry.runtime_data.store.async_get_entity(
+                self.source_entity_id
+            )
         else:
-            entry = self.config_entry.runtime_data.store.async_get_device(self.device_id)
+            entry = self.config_entry.runtime_data.store.async_get_device(
+                self.device_id
+            )
 
         if entry:
             if LAST_REPORTED_LEVEL in entry:
@@ -704,7 +742,12 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
     def _rounded_level(self, value) -> float:
         """Round the level, if preferred."""
         if validate_is_float(value):
-            return round(float(value), None if self.config_entry.runtime_data.domain_config.round_battery else 1)
+            return round(
+                float(value),
+                None
+                if self.config_entry.runtime_data.domain_config.round_battery
+                else 1,
+            )
         else:
             return value
 

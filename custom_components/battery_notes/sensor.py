@@ -96,6 +96,7 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
 
 _LOGGER = logging.getLogger(__name__)
 
+
 async def async_setup_entry(
     hass: HomeAssistant,
     config_entry: BatteryNotesConfigEntry,
@@ -134,7 +135,9 @@ async def async_setup_entry(
             translation_key="battery_last_replaced",
             entity_category=EntityCategory.DIAGNOSTIC,
             device_class=SensorDeviceClass.TIMESTAMP,
-            entity_registry_enabled_default=config_entry.options[CONF_ADVANCED_SETTINGS].get(CONF_ENABLE_REPLACED, True),
+            entity_registry_enabled_default=config_entry.options[
+                CONF_ADVANCED_SETTINGS
+            ].get(CONF_ENABLE_REPLACED, True),
             entity_type="sensor",
         )
 
@@ -143,7 +146,11 @@ async def async_setup_entry(
             key="battery_plus",
             translation_key="battery_plus",
             device_class=SensorDeviceClass.BATTERY,
-            suggested_display_precision=0 if config_entry.options[CONF_ADVANCED_SETTINGS].get(CONF_ROUND_BATTERY, True) else 1,
+            suggested_display_precision=0
+            if config_entry.options[CONF_ADVANCED_SETTINGS].get(
+                CONF_ROUND_BATTERY, True
+            )
+            else 1,
             entity_type="sensor",
             require_device=True,
         )
@@ -177,8 +184,12 @@ async def async_setup_entry(
                     battery_plus_sensor_entity_description,
                     coordinator,
                     f"{subentry.unique_id}{battery_plus_sensor_entity_description.unique_id_suffix}",
-                    config_entry.options[CONF_ADVANCED_SETTINGS].get(CONF_ENABLE_REPLACED, True),
-                    config_entry.options[CONF_ADVANCED_SETTINGS].get(CONF_ROUND_BATTERY, False),
+                    config_entry.options[CONF_ADVANCED_SETTINGS].get(
+                        CONF_ENABLE_REPLACED, True
+                    ),
+                    config_entry.options[CONF_ADVANCED_SETTINGS].get(
+                        CONF_ROUND_BATTERY, False
+                    ),
                 )
             )
 
@@ -206,7 +217,9 @@ class BatteryNotesTypeSensor(BatteryNotesEntity, RestoreSensor):
     ) -> None:
         # pylint: disable=unused-argument
         """Initialize the sensor."""
-        super().__init__(hass=hass, entity_description=entity_description, coordinator=coordinator)
+        super().__init__(
+            hass=hass, entity_description=entity_description, coordinator=coordinator
+        )
 
         self._attr_unique_id = unique_id
 
@@ -250,9 +263,8 @@ class BatteryNotesTypeSensor(BatteryNotesEntity, RestoreSensor):
             attrs.update(super_attrs)
         return attrs
 
-class BatteryNotesLastReplacedSensor(
-    BatteryNotesEntity, SensorEntity
-):
+
+class BatteryNotesLastReplacedSensor(BatteryNotesEntity, SensorEntity):
     """Represents a battery note sensor."""
 
     _attr_should_poll = False
@@ -270,7 +282,9 @@ class BatteryNotesLastReplacedSensor(
     ) -> None:
         # pylint: disable=unused-argument
         """Initialize the sensor."""
-        super().__init__(hass=hass, entity_description=entity_description, coordinator=coordinator)
+        super().__init__(
+            hass=hass, entity_description=entity_description, coordinator=coordinator
+        )
 
         self._attr_device_class = description.device_class
         self._attr_unique_id = unique_id
@@ -307,9 +321,8 @@ class BatteryNotesLastReplacedSensor(
         """Return the native value of the sensor."""
         return self._native_value
 
-class BatteryNotesBatteryPlusSensor(
-    BatteryNotesEntity, RestoreSensor
-):
+
+class BatteryNotesBatteryPlusSensor(BatteryNotesEntity, RestoreSensor):
     """Represents a battery plus type sensor."""
 
     _attr_should_poll = False
@@ -345,7 +358,9 @@ class BatteryNotesBatteryPlusSensor(
     ) -> None:
         # pylint: disable=unused-argument
         """Initialize the sensor."""
-        super().__init__(hass=hass, entity_description=entity_description, coordinator=coordinator)
+        super().__init__(
+            hass=hass, entity_description=entity_description, coordinator=coordinator
+        )
 
         self.config_entry = config_entry
 
@@ -661,4 +676,3 @@ class BatteryNotesBatteryPlusSensor(
     def native_value(self) -> StateType | Any | datetime:
         """Return the value reported by the sensor."""
         return self._attr_native_value
-

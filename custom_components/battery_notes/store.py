@@ -28,7 +28,7 @@ SAVE_DELAY = 10
 
 @attr.s(slots=True, frozen=True)
 class DeviceEntry:
-    #pylint: disable=too-few-public-methods
+    # pylint: disable=too-few-public-methods
     """Battery Notes Device storage Entry."""
 
     device_id = attr.ib(type=str, default=None)
@@ -39,7 +39,7 @@ class DeviceEntry:
 
 @attr.s(slots=True, frozen=True)
 class EntityEntry:
-    #pylint: disable=too-few-public-methods
+    # pylint: disable=too-few-public-methods
     """Battery Notes Entity storage Entry."""
 
     entity_id = attr.ib(type=str, default=None)
@@ -124,7 +124,7 @@ class BatteryNotesStorage:
         self.devices = {}
 
     @callback
-    def async_get_device(self, device_id)-> dict[str, Any] | None:
+    def async_get_device(self, device_id) -> dict[str, Any] | None:
         """Get an existing DeviceEntry by id."""
         res = self.devices.get(device_id)
         return attr.asdict(res) if res else None

@@ -35,7 +35,7 @@ class FilterState:
         return f"{self.timestamp} : {self.state}"
 
 
-class Filter():
+class Filter:
     """Base filter class."""
 
     def __init__(
@@ -91,6 +91,7 @@ class Filter():
         new_state = filtered.state
         return new_state
 
+
 class LowOutlierFilter(Filter):
     """Low Outlier filter.
 
@@ -106,9 +107,7 @@ class LowOutlierFilter(Filter):
 
         :param radius: band radius
         """
-        super().__init__(
-            window_size
-        )
+        super().__init__(window_size)
         self._radius = radius
         self._stats_internal: Counter = Counter()
         self._store_raw = True
@@ -122,10 +121,10 @@ class LowOutlierFilter(Filter):
 
         if previous_state_values and new_state_value >= previous_state_values[-1]:
             _LOGGER.debug(
-                    "New value higher than last previous state, allowing. %s >= %s",
-                    new_state,
-                    previous_state_values[-1]
-                )
+                "New value higher than last previous state, allowing. %s >= %s",
+                new_state,
+                previous_state_values[-1],
+            )
             return new_state
 
         median = statistics.median(previous_state_values) if self.states else 0
