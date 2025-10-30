@@ -5,10 +5,11 @@ from __future__ import annotations
 from typing import cast
 
 import voluptuous as vol
+
 from homeassistant import data_entry_flow
-from homeassistant.components.repairs import RepairsFlow
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers import issue_registry as ir
+from homeassistant.components.repairs import RepairsFlow
 
 REQUIRED_KEYS = ("entry_id", "device_id", "source_entity_id")
 

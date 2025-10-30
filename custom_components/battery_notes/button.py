@@ -5,37 +5,35 @@ from __future__ import annotations
 import logging
 from dataclasses import dataclass
 
+from homeassistant.core import HomeAssistant, callback, split_entity_id
+from homeassistant.const import (
+    CONF_DEVICE_ID,
+)
+from homeassistant.helpers import (
+    device_registry as dr,
+    entity_registry as er,
+)
+from homeassistant.helpers.entity import EntityCategory
 from homeassistant.components.button import (
     ButtonEntity,
     ButtonEntityDescription,
 )
-from homeassistant.const import (
-    CONF_DEVICE_ID,
-)
-from homeassistant.core import HomeAssistant, callback, split_entity_id
-from homeassistant.helpers import (
-    device_registry as dr,
-)
-from homeassistant.helpers import (
-    entity_registry as er,
-)
-from homeassistant.helpers.entity import EntityCategory
 from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
 
-from .common import utcnow_no_timezone
 from .const import (
-    ATTR_BATTERY_QUANTITY,
-    ATTR_BATTERY_TYPE,
-    ATTR_BATTERY_TYPE_AND_QUANTITY,
+    DOMAIN,
     ATTR_DEVICE_ID,
     ATTR_DEVICE_NAME,
+    ATTR_BATTERY_TYPE,
+    ATTR_BATTERY_QUANTITY,
     ATTR_SOURCE_ENTITY_ID,
-    DOMAIN,
-    EVENT_BATTERY_REPLACED,
     SUBENTRY_BATTERY_NOTE,
+    EVENT_BATTERY_REPLACED,
+    ATTR_BATTERY_TYPE_AND_QUANTITY,
 )
-from .coordinator import BatteryNotesConfigEntry, BatteryNotesSubentryCoordinator
+from .common import utcnow_no_timezone
 from .entity import BatteryNotesEntity, BatteryNotesEntityDescription
+from .coordinator import BatteryNotesConfigEntry, BatteryNotesSubentryCoordinator
 
 _LOGGER = logging.getLogger(__name__)
 

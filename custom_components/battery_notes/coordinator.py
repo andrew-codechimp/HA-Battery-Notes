@@ -3,61 +3,64 @@
 from __future__ import annotations
 
 import logging
-from dataclasses import dataclass
-from datetime import datetime
 from typing import cast
+from datetime import datetime
+from dataclasses import dataclass
 
-from homeassistant.components.binary_sensor import DOMAIN as BINARY_SENSOR_DOMAIN
-from homeassistant.components.binary_sensor import BinarySensorDeviceClass
-from homeassistant.components.sensor import DOMAIN as SENSOR_DOMAIN
-from homeassistant.components.sensor import SensorDeviceClass
-from homeassistant.config_entries import ConfigEntry, ConfigSubentry
-from homeassistant.const import (
-    CONF_DEVICE_ID,
-    PERCENTAGE,
-    STATE_UNAVAILABLE,
-    STATE_UNKNOWN,
-)
 from homeassistant.core import CALLBACK_TYPE, HomeAssistant
-from homeassistant.helpers import device_registry as dr
-from homeassistant.helpers import entity_registry as er
-from homeassistant.helpers import issue_registry as ir
-from homeassistant.helpers.entity_registry import RegistryEntry
-from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
+from homeassistant.const import (
+    PERCENTAGE,
+    STATE_UNKNOWN,
+    CONF_DEVICE_ID,
+    STATE_UNAVAILABLE,
+)
+from homeassistant.helpers import (
+    issue_registry as ir,
+    device_registry as dr,
+    entity_registry as er,
+)
+from homeassistant.config_entries import ConfigEntry, ConfigSubentry
 from homeassistant.util.hass_dict import HassKey
+from homeassistant.components.sensor import DOMAIN as SENSOR_DOMAIN, SensorDeviceClass
+from homeassistant.helpers.entity_registry import RegistryEntry
+from homeassistant.components.binary_sensor import (
+    DOMAIN as BINARY_SENSOR_DOMAIN,
+    BinarySensorDeviceClass,
+)
+from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
 
-from .common import utcnow_no_timezone, validate_is_float
 from .const import (
-    ATTR_BATTERY_LAST_REPLACED,
-    ATTR_BATTERY_LEVEL,
-    ATTR_BATTERY_LOW,
-    ATTR_BATTERY_LOW_THRESHOLD,
-    ATTR_BATTERY_QUANTITY,
-    ATTR_BATTERY_THRESHOLD_REMINDER,
-    ATTR_BATTERY_TYPE,
-    ATTR_BATTERY_TYPE_AND_QUANTITY,
-    ATTR_DEVICE_ID,
-    ATTR_DEVICE_NAME,
-    ATTR_PREVIOUS_BATTERY_LEVEL,
-    ATTR_REMOVE,
-    ATTR_SOURCE_ENTITY_ID,
-    CONF_BATTERY_LOW_TEMPLATE,
-    CONF_BATTERY_LOW_THRESHOLD,
-    CONF_BATTERY_QUANTITY,
-    CONF_BATTERY_TYPE,
-    CONF_FILTER_OUTLIERS,
-    CONF_SOURCE_ENTITY_ID,
-    DEFAULT_BATTERY_INCREASE_THRESHOLD,
-    DEFAULT_BATTERY_LOW_THRESHOLD,
     DOMAIN,
-    EVENT_BATTERY_INCREASED,
-    EVENT_BATTERY_THRESHOLD,
+    ATTR_REMOVE,
     LAST_REPLACED,
     LAST_REPORTED,
+    ATTR_DEVICE_ID,
+    ATTR_BATTERY_LOW,
+    ATTR_DEVICE_NAME,
+    ATTR_BATTERY_TYPE,
+    CONF_BATTERY_TYPE,
+    ATTR_BATTERY_LEVEL,
     LAST_REPORTED_LEVEL,
+    CONF_FILTER_OUTLIERS,
+    ATTR_BATTERY_QUANTITY,
+    ATTR_SOURCE_ENTITY_ID,
+    CONF_BATTERY_QUANTITY,
+    CONF_SOURCE_ENTITY_ID,
+    EVENT_BATTERY_INCREASED,
+    EVENT_BATTERY_THRESHOLD,
+    CONF_BATTERY_LOW_TEMPLATE,
+    ATTR_BATTERY_LAST_REPLACED,
+    ATTR_BATTERY_LOW_THRESHOLD,
+    CONF_BATTERY_LOW_THRESHOLD,
+    ATTR_PREVIOUS_BATTERY_LEVEL,
+    DEFAULT_BATTERY_LOW_THRESHOLD,
+    ATTR_BATTERY_TYPE_AND_QUANTITY,
+    ATTR_BATTERY_THRESHOLD_REMINDER,
+    DEFAULT_BATTERY_INCREASE_THRESHOLD,
 )
-from .filters import LowOutlierFilter
 from .store import BatteryNotesStorage
+from .common import validate_is_float, utcnow_no_timezone
+from .filters import LowOutlierFilter
 
 _LOGGER = logging.getLogger(__name__)
 

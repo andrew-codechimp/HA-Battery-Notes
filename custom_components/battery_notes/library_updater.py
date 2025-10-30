@@ -2,30 +2,31 @@
 
 from __future__ import annotations
 
-import json
-import logging
 import os
+import json
 import shutil
 import socket
-from datetime import datetime, timedelta
+import logging
 from typing import Any
+from datetime import datetime, timedelta
 
 import aiohttp
 import async_timeout
-from homeassistant.const import CONTENT_TYPE_JSON
+
 from homeassistant.core import HomeAssistant, callback
+from homeassistant.const import CONTENT_TYPE_JSON
 from homeassistant.exceptions import ConfigEntryNotReady
-from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.event import async_track_utc_time_change
 from homeassistant.helpers.storage import STORAGE_DIR
+from homeassistant.helpers.aiohttp_client import async_get_clientsession
 
 from .const import (
-    DEFAULT_LIBRARY_URL,
     VERSION,
+    DEFAULT_LIBRARY_URL,
 )
-from .coordinator import MY_KEY, BatteryNotesDomainConfig
-from .discovery import DiscoveryManager
 from .library import DATA_LIBRARY
+from .discovery import DiscoveryManager
+from .coordinator import MY_KEY, BatteryNotesDomainConfig
 
 _LOGGER = logging.getLogger(__name__)
 

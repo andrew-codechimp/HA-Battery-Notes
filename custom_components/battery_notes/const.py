@@ -1,11 +1,12 @@
 """Constants for battery_notes."""
 
 import json
+from typing import Final
 from logging import Logger, getLogger
 from pathlib import Path
-from typing import Final
 
 import voluptuous as vol
+
 from homeassistant.const import Platform
 from homeassistant.helpers import config_validation as cv
 

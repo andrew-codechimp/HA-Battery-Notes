@@ -6,65 +6,70 @@ https://github.com/andrew-codechimp/ha-battery-notes
 
 from __future__ import annotations
 
-import logging
 import re
-from datetime import datetime
+import logging
 from types import MappingProxyType
+from datetime import datetime
 
 import voluptuous as vol
 from awesomeversion.awesomeversion import AwesomeVersion
-from homeassistant.config_entries import SOURCE_IGNORE, ConfigEntry, ConfigSubentry
-from homeassistant.const import CONF_DEVICE_ID
-from homeassistant.const import __version__ as HA_VERSION  # noqa: N812
+
 from homeassistant.core import HassJob, HomeAssistant, callback
-from homeassistant.helpers import config_validation as cv
-from homeassistant.helpers import device_registry as dr
-from homeassistant.helpers import entity_registry as er
-from homeassistant.helpers import helper_integration
-from homeassistant.helpers import issue_registry as ir
-from homeassistant.helpers.device import async_entity_id_to_device_id
+from homeassistant.const import (
+    CONF_DEVICE_ID,
+    __version__ as HA_VERSION,  # noqa: N812
+)
+from homeassistant.helpers import (
+    issue_registry as ir,
+    device_registry as dr,
+    entity_registry as er,
+    config_validation as cv,
+    helper_integration,
+)
 from homeassistant.helpers.event import async_call_later
-from homeassistant.helpers.issue_registry import IssueSeverity, async_create_issue
+from homeassistant.config_entries import SOURCE_IGNORE, ConfigEntry, ConfigSubentry
+from homeassistant.helpers.device import async_entity_id_to_device_id
 from homeassistant.helpers.typing import ConfigType
+from homeassistant.helpers.issue_registry import IssueSeverity, async_create_issue
 
 from .const import (
-    CONF_ADVANCED_SETTINGS,
-    CONF_BATTERY_INCREASE_THRESHOLD,
-    CONF_BATTERY_QUANTITY,
-    CONF_BATTERY_TYPE,
-    CONF_DEFAULT_BATTERY_LOW_THRESHOLD,
-    CONF_DEVICE_NAME,
-    CONF_ENABLE_AUTODISCOVERY,
-    CONF_ENABLE_REPLACED,
-    CONF_HIDE_BATTERY,
-    CONF_HW_VERSION,
-    CONF_MANUFACTURER,
+    NAME as INTEGRATION_NAME,
+    DOMAIN,
+    PLATFORMS,
     CONF_MODEL,
     CONF_MODEL_ID,
-    CONF_ROUND_BATTERY,
-    CONF_SHOW_ALL_DEVICES,
-    CONF_USER_LIBRARY,
-    DEFAULT_BATTERY_INCREASE_THRESHOLD,
-    DEFAULT_BATTERY_LOW_THRESHOLD,
-    DOMAIN,
-    ISSUE_DEPRECATED_YAML,
     MIN_HA_VERSION,
-    PLATFORMS,
+    CONF_HW_VERSION,
+    CONF_DEVICE_NAME,
+    CONF_BATTERY_TYPE,
+    CONF_HIDE_BATTERY,
+    CONF_MANUFACTURER,
+    CONF_USER_LIBRARY,
+    CONF_ROUND_BATTERY,
+    CONF_ENABLE_REPLACED,
+    CONF_BATTERY_QUANTITY,
+    CONF_SHOW_ALL_DEVICES,
+    ISSUE_DEPRECATED_YAML,
     SUBENTRY_BATTERY_NOTE,
+    CONF_ADVANCED_SETTINGS,
+    CONF_ENABLE_AUTODISCOVERY,
+    DEFAULT_BATTERY_LOW_THRESHOLD,
+    CONF_BATTERY_INCREASE_THRESHOLD,
+    CONF_DEFAULT_BATTERY_LOW_THRESHOLD,
+    DEFAULT_BATTERY_INCREASE_THRESHOLD,
 )
-from .const import NAME as INTEGRATION_NAME
+from .store import async_get_registry
+from .library import DATA_LIBRARY, Library
+from .services import async_setup_services
+from .discovery import DiscoveryManager
 from .coordinator import (
     MY_KEY,
-    BatteryNotesConfigEntry,
     BatteryNotesData,
+    BatteryNotesConfigEntry,
     BatteryNotesDomainConfig,
     BatteryNotesSubentryCoordinator,
 )
-from .discovery import DiscoveryManager
-from .library import DATA_LIBRARY, Library
 from .library_updater import LibraryUpdater
-from .services import async_setup_services
-from .store import async_get_registry
 
 _LOGGER = logging.getLogger(__name__)
 

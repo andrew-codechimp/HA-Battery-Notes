@@ -3,39 +3,24 @@
 from __future__ import annotations
 
 import logging
-from collections.abc import Mapping
-from dataclasses import dataclass
-from datetime import datetime
 from typing import Any
+from datetime import datetime
+from dataclasses import dataclass
+from collections.abc import Mapping
 
 import voluptuous as vol
-from homeassistant.components.sensor import (
-    PLATFORM_SCHEMA,
-    RestoreSensor,
-    SensorDeviceClass,
-    SensorEntity,
-    SensorEntityDescription,
-    SensorStateClass,
-)
-from homeassistant.config_entries import ConfigSubentry
+
+from homeassistant.core import Event, HomeAssistant, callback
 from homeassistant.const import (
-    CONF_DEVICE_ID,
     CONF_NAME,
     PERCENTAGE,
-    STATE_UNAVAILABLE,
     STATE_UNKNOWN,
-)
-from homeassistant.core import Event, HomeAssistant, callback
-from homeassistant.helpers import (
-    config_validation as cv,
+    CONF_DEVICE_ID,
+    STATE_UNAVAILABLE,
 )
 from homeassistant.helpers import (
     entity_registry as er,
-)
-from homeassistant.helpers.entity import EntityCategory
-from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
-from homeassistant.helpers.entity_registry import (
-    EVENT_ENTITY_REGISTRY_UPDATED,
+    config_validation as cv,
 )
 from homeassistant.helpers.event import (
     EventStateChangedData,
@@ -43,36 +28,50 @@ from homeassistant.helpers.event import (
     async_track_state_change_event,
     async_track_state_report_event,
 )
+from homeassistant.config_entries import ConfigSubentry
+from homeassistant.helpers.entity import EntityCategory
 from homeassistant.helpers.typing import StateType
+from homeassistant.components.sensor import (
+    PLATFORM_SCHEMA,
+    SensorEntity,
+    RestoreSensor,
+    SensorStateClass,
+    SensorDeviceClass,
+    SensorEntityDescription,
+)
+from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
+from homeassistant.helpers.entity_registry import (
+    EVENT_ENTITY_REGISTRY_UPDATED,
+)
 
-from .common import utcnow_no_timezone, validate_is_float
 from .const import (
+    DOMAIN,
+    ATTR_DEVICE_ID,
+    ATTR_BATTERY_LOW,
+    ATTR_DEVICE_NAME,
+    ATTR_BATTERY_TYPE,
+    CONF_BATTERY_TYPE,
+    CONF_ROUND_BATTERY,
+    CONF_ENABLE_REPLACED,
+    ATTR_BATTERY_QUANTITY,
+    ATTR_SOURCE_ENTITY_ID,
+    CONF_BATTERY_QUANTITY,
+    CONF_SOURCE_ENTITY_ID,
+    SUBENTRY_BATTERY_NOTE,
+    CONF_ADVANCED_SETTINGS,
     ATTR_BATTERY_LAST_REPLACED,
     ATTR_BATTERY_LAST_REPORTED,
-    ATTR_BATTERY_LAST_REPORTED_LEVEL,
-    ATTR_BATTERY_LOW,
     ATTR_BATTERY_LOW_THRESHOLD,
-    ATTR_BATTERY_QUANTITY,
-    ATTR_BATTERY_TYPE,
     ATTR_BATTERY_TYPE_AND_QUANTITY,
-    ATTR_DEVICE_ID,
-    ATTR_DEVICE_NAME,
-    ATTR_SOURCE_ENTITY_ID,
-    CONF_ADVANCED_SETTINGS,
-    CONF_BATTERY_QUANTITY,
-    CONF_BATTERY_TYPE,
-    CONF_ENABLE_REPLACED,
-    CONF_ROUND_BATTERY,
-    CONF_SOURCE_ENTITY_ID,
-    DOMAIN,
-    SUBENTRY_BATTERY_NOTE,
+    ATTR_BATTERY_LAST_REPORTED_LEVEL,
 )
+from .common import validate_is_float, utcnow_no_timezone
+from .entity import BatteryNotesEntity, BatteryNotesEntityDescription
 from .coordinator import (
     MY_KEY,
     BatteryNotesConfigEntry,
     BatteryNotesSubentryCoordinator,
 )
-from .entity import BatteryNotesEntity, BatteryNotesEntityDescription
 
 
 @dataclass(frozen=True, kw_only=True)
