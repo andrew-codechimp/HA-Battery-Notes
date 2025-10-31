@@ -7,7 +7,6 @@ on:
     paths:
       - '**.py' # Run if pushed commits include a change to a Python (.py) file.
       - '.github/workflows/lint.yml' # Run if pushed commits include a change to a github actions workflow file.
-      - 'requirements.txt' # Run if pushed commits include a change to the Python requirements.txt file.
       - '.pyproject.toml' # Run if project configuration file changes.
   pull_request:
     branches:
@@ -15,58 +14,24 @@ on:
     paths:
       - '**.py' # Run if pushed commits include a change to a Python (.py) file.
       - '.github/workflows/lint.yml' # Run if pushed commits include a change to a github actions workflow file.
-      - 'requirements.txt' # Run if pushed commits include a change to the Python requirements.txt file.
       - '.pyproject.toml' # Run if project configuration file changes.
   workflow_dispatch:
 
 jobs:
-  build:
-    strategy:
-      fail-fast: false
-      matrix:
-        os:
-          - ubuntu-latest
-        python-version:
-          - "3.13"
-
-    runs-on: ${{ matrix.os }}
-
-    permissions:
-      security-events: write
-      actions: read
-      contents: read
+  ruff_check:
+    runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v5
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v6
+      - name: Ruff Check
+        uses: astral-sh/ruff-action@v3
         with:
-          python-version: ${{ matrix.python-version }}
-          cache: pip
+          args: check --output-format=github
 
-      - name: Install uv and create venv
-        run: |
-          pip install -U pip uv
-          uv venv
-
-      - name: Enable venv
-        run: |
-          source .venv/bin/activate
-          echo $PATH >> $GITHUB_PATH
-
-      - name: Install dependencies
-        run: |
-          if [ -f requirements.txt ]; then uv pip install -r requirements.txt; fi
-
-      - name: Install dev dependencies
-        run: |
-          pip install mypy
-
-      - name: Analyse the code with ruff
-        run: |
-          python3 -m ruff check .
-
-      # - name: Type check the code with mypy
-      #   run: |
-      #     mypy custom_components/battery_notes/ --check-untyped-defs
+      #TODO: Temporary disable until V3
+      # - name: Ruff Format
+      #   uses: astral-sh/ruff-action@v3
+      #   with:
+      #     args: format --check --diff
