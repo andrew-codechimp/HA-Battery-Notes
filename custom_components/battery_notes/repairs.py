@@ -28,7 +28,7 @@ class MissingDeviceRepairFlow(RepairsFlow):
 
     async def async_step_init(
         self,
-        user_input: dict[str, str] | None = None,  # pylint: disable=unused-argument
+        user_input: dict[str, str] | None = None,  # noqa: ARG002
     ) -> data_entry_flow.FlowResult:
         """Handle the first step of a fix flow."""
 

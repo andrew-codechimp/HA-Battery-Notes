@@ -120,7 +120,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
     _source_entity_name: str | None = None
     _outlier_filter: LowOutlierFilter | None = None
 
-    def __init__(
+    def __init__(  # noqa: PLR0912
         self,
         hass: HomeAssistant,
         config_entry: BatteryNotesConfigEntry,
@@ -208,7 +208,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
             )
             self.last_reported = last_reported
 
-    def _link_to_source(self) -> bool:
+    def _link_to_source(self) -> bool:  # noqa: PLR0912
         """Get the source device or entity, determine name and associate our wrapped battery if available."""
         device_registry = dr.async_get(self.hass)
         entity_registry = er.async_get(self.hass)

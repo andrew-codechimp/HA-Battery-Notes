@@ -73,7 +73,7 @@ def async_setup_services(hass: HomeAssistant) -> None:
     )
 
 
-async def _async_battery_replaced(call: ServiceCall) -> ServiceResponse:
+async def _async_battery_replaced(call: ServiceCall) -> ServiceResponse:  # noqa: PLR0912
     """Handle the service call."""
     device_id = call.data.get(ATTR_DEVICE_ID, "")
     source_entity_id = call.data.get(ATTR_SOURCE_ENTITY_ID, "")

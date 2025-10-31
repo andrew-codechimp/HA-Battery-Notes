@@ -232,9 +232,9 @@ class _TemplateAttribute:
     @callback
     def handle_result(
         self,
-        event: Event[EventStateChangedData] | None,
-        tmpl: Template,
-        last_result: str | None | TemplateError,
+        event: Event[EventStateChangedData] | None,  # noqa: ARG002
+        tmpl: Template,  # noqa: ARG002
+        last_result: str | None | TemplateError,  # noqa: ARG002
         result: str | TemplateError,
     ) -> None:
         # pylint: disable=unused-argument
@@ -662,7 +662,7 @@ class BatteryNotesBatteryBinaryLowSensor(BatteryNotesBatteryLowBaseSensor):
 
     @callback
     async def async_state_changed_listener(
-        self, event: Event[EventStateChangedData] | None = None
+        self, event: Event[EventStateChangedData] | None = None  # noqa: ARG002
     ) -> None:
         # pylint: disable=unused-argument
         """Handle child updates."""

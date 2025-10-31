@@ -209,8 +209,8 @@ class BatteryNotesTypeSensor(BatteryNotesEntity, RestoreSensor):
     def __init__(
         self,
         hass,
-        config_entry: BatteryNotesConfigEntry,
-        subentry: ConfigSubentry,
+        config_entry: BatteryNotesConfigEntry,  # noqa: ARG002
+        subentry: ConfigSubentry,  # noqa: ARG002
         entity_description: BatteryNotesEntityDescription,
         coordinator: BatteryNotesSubentryCoordinator,
         unique_id: str,
@@ -273,8 +273,8 @@ class BatteryNotesLastReplacedSensor(BatteryNotesEntity, SensorEntity):
     def __init__(
         self,
         hass,
-        config_entry: BatteryNotesConfigEntry,
-        subentry: ConfigSubentry,
+        config_entry: BatteryNotesConfigEntry,  # noqa: ARG002
+        subentry: ConfigSubentry,  # noqa: ARG002
         entity_description: BatteryNotesEntityDescription,
         coordinator: BatteryNotesSubentryCoordinator,
         description: BatteryNotesSensorEntityDescription,
@@ -298,8 +298,7 @@ class BatteryNotesLastReplacedSensor(BatteryNotesEntity, SensorEntity):
         """Handle added to Hass."""
         await super().async_added_to_hass()
 
-    def _set_native_value(self, log_on_error=True):
-        # pylint: disable=unused-argument
+    def _set_native_value(self, log_on_error=True): # noqa: ARG002
 
         if last_replaced := self.coordinator.last_replaced:
             self._native_value = last_replaced
@@ -349,7 +348,7 @@ class BatteryNotesBatteryPlusSensor(BatteryNotesEntity, RestoreSensor):
         self,
         hass: HomeAssistant,
         config_entry: BatteryNotesConfigEntry,
-        subentry: ConfigSubentry,
+        subentry: ConfigSubentry,  # noqa: ARG002
         entity_description: BatteryNotesEntityDescription,
         coordinator: BatteryNotesSubentryCoordinator,
         unique_id: str,
@@ -386,7 +385,7 @@ class BatteryNotesBatteryPlusSensor(BatteryNotesEntity, RestoreSensor):
 
     @callback
     async def async_state_changed_listener(
-        self, event: Event[EventStateChangedData] | None = None
+        self, event: Event[EventStateChangedData] | None = None  # noqa: ARG002
     ) -> None:
         # pylint: disable=unused-argument
         """Handle child updates."""
@@ -438,9 +437,8 @@ class BatteryNotesBatteryPlusSensor(BatteryNotesEntity, RestoreSensor):
 
     @callback
     async def async_state_reported_listener(
-        self, event: Event[EventStateReportedData] | None = None
+        self, event: Event[EventStateReportedData] | None = None  # noqa: ARG002
     ) -> None:
-        # pylint: disable=unused-argument
         """Handle child updates."""
 
         if not self.coordinator.wrapped_battery:

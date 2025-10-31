@@ -70,7 +70,7 @@ class LibraryUpdater:
         )
 
     @callback
-    async def timer_update(self, now: datetime) -> None:  # pylint: disable=unused-argument
+    async def timer_update(self, now: datetime) -> None:  # noqa: ARG002
         """Need to update the library."""
         if await self.time_to_update_library(23) is False:
             return
@@ -89,7 +89,6 @@ class LibraryUpdater:
 
     @callback
     async def get_library_updates(self, startup: bool = False) -> None:
-        # pylint: disable=unused-argument
         """Make a call to get the latest library.json."""
 
         def _update_library_json(library_file: str, content: str) -> None:
