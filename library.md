@@ -1,4 +1,4 @@
-## 1884 Devices in library
+## 1885 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1715,6 +1715,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Wink Inc.                                       |D/W SENSOR                                                                                    |CR14250                   |                                   |                                      |
 |Wink Inc.                                       |Motion Sensor                                                                                 |CR123A                    |                                   |                                      |
 |Wink Inc.                                       |Siren                                                                                         |2× CR123A                 |                                   |                                      |
+|Withings                                        |Body                                                                                          |4× AAA                    |                                   |                                      |
 |Withings                                        |Body Comp                                                                                     |4× AAA                    |                                   |                                      |
 |Withings                                        |Body+                                                                                         |4× AAA                    |                                   |                                      |
 |Withings                                        |BPM Connect                                                                                   |Rechargeable              |                                   |                                      |
