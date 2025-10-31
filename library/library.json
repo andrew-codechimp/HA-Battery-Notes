@@ -9811,6 +9811,11 @@
         },
         {
             "manufacturer": "Withings",
+            "model": "BPM Connect",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Withings",
             "model": "BPM Core",
             "battery_type": "Rechargeable"
         },
@@ -10746,11 +10751,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Withings",
-            "model": "BPM Connect",
             "battery_type": "Rechargeable"
         }
     ]

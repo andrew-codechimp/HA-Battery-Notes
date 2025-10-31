@@ -1,4 +1,4 @@
-## 1882 Devices in library
+## 1883 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1716,6 +1716,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Wink Inc.                                       |Siren                                                                                         |2× CR123A                 |                                   |                                      |
 |Withings                                        |Body Comp                                                                                     |4× AAA                    |                                   |                                      |
 |Withings                                        |Body+                                                                                         |4× AAA                    |                                   |                                      |
+|Withings                                        |BPM Connect                                                                                   |Rechargeable              |                                   |                                      |
 |Withings                                        |BPM Core                                                                                      |Rechargeable              |                                   |                                      |
 |Withings                                        |Smart Body Analyzer                                                                           |4× AAA                    |                                   |                                      |
 |Withings                                        |Thermo                                                                                        |Rechargeable              |                                   |                                      |
