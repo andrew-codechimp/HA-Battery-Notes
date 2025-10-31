@@ -9823,7 +9823,8 @@
         {
             "manufacturer": "Withings",
             "model": "Thermo",
-            "battery_type": "Rechargeable"
+            "battery_type": "AAA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "Withings",
