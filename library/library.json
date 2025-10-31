@@ -6816,7 +6816,25 @@
         },
         {
             "manufacturer": "Schlage",
+            "model": "BE469ZP",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Schlage",
+            "model": "BE489WB",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Schlage",
             "model": "be499WB",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Schlage",
+            "model": "BE499WB",
             "battery_type": "AA",
             "battery_quantity": 4
         },

@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
-set -e
-
+# Move to project root
 cd "$(dirname "$0")/.."
 
-python3 -m pip install --requirement requirements.txt
+
+# Sync environment using uv
+uv sync
+
+echo "Environment ready."
