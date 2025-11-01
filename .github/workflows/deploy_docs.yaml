@@ -13,7 +13,7 @@ jobs:
     name: Deploy docs
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/astral-sh/uv:trixie-slim
+      image: ghcr.io/astral-sh/uv:latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5

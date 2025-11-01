@@ -14,7 +14,7 @@ jobs:
   librarian:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/astral-sh/uv:trixie-slim
+      image: ghcr.io/astral-sh/uv:latest
     permissions:
       contents: write
       pull-requests: write
