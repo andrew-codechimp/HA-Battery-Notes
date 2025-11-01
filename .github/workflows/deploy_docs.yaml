@@ -12,8 +12,6 @@ jobs:
   deploy_docs:
     name: Deploy docs
     runs-on: ubuntu-latest
-    container:
-      image: ghcr.io/astral-sh/uv:latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
@@ -25,5 +23,9 @@ jobs:
           restore-keys: |
             mkdocs-material-
 
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+
       - name: Deploy documentation
-        run: uv run mkdocs gh-deploy --force
+        run: |
+          uv run --only-group docs mkdocs gh-deploy --force

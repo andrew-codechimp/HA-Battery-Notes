@@ -16,7 +16,7 @@ classifiers = [
   "Programming Language :: Python :: 3",
 ]
 requires-python = "==3.13.2"
-dependencies = ["homeassistant==2025.4.0"]
+dependencies = [] # Use dev for all dependencies
 
 [project.urls]
 documentation = "https://github.com/andrew-codechimp/HA-Battery-Notes"
@@ -26,13 +26,21 @@ repository = "https://github.com/andrew-codechimp/HA-Battery-Notes"
 Changelog = "https://github.com/andrew-codechimp/HA-Battery-Notes/releases"
 
 [dependency-groups]
-dev = [
+dev = [    
     "colorlog",
-    "mkdocs-material",
-    "pytablewriter==0.61.0",
+    "homeassistant==2025.4.0",
     "ruff",
 ]
 
+docs = [
+    "mkdocs-material",
+]
+library = [
+    "pytablewriter==0.61.0",
+]
+
+[tool.uv]
+default-groups = ["dev"]
 [tool.ruff]
 target-version = "py313"
 src = ["custom_components/battery_notes"]
