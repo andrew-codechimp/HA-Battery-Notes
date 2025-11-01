@@ -11,9 +11,7 @@ def generate_device_list():
     """Generate static file containing the device library."""
 
     # Load the existing JSON library file
-    with open(
-        "library/library.json", encoding="UTF-8"
-    ) as f:
+    with open("library/library.json", encoding="UTF-8") as f:
         devices_json = json.loads(f.read())
         devices = devices_json.get("devices")
 

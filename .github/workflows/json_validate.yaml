@@ -7,13 +7,13 @@ on:
       - "main"
     paths:
       - "library/**"
-      - ".github/workflows/json*.yml"
+      - ".github/workflows/json*.yaml"
   pull_request:
     branches:
       - "main"
     paths:
       - "library/**"
-      - ".github/workflows/json*.yml"
+      - ".github/workflows/json*.yaml"
 
 jobs:
   verify-json-validation:
