@@ -13,15 +13,14 @@ on:
 jobs:
   librarian:
     runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/astral-sh/uv:trixie-slim
     permissions:
       contents: write
       pull-requests: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
-
-      - name: Setup uv
-        uses: astral-sh/setup-uv@v7
 
       - name: Update Library Files
         run: |
