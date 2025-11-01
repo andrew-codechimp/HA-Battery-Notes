@@ -28,6 +28,7 @@ Changelog = "https://github.com/andrew-codechimp/HA-Battery-Notes/releases"
 [dependency-groups]
 dev = [
     "colorlog>=6.10.1",
+    "pytablewriter==0.61.0",
     "ruff>=0.14.2",
 ]
 
