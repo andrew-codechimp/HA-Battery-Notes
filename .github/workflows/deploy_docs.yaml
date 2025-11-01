@@ -12,17 +12,18 @@ jobs:
   deploy_docs:
     name: Deploy docs
     runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/astral-sh/uv:trixie-slim
     steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-python@v6
-        with:
-          python-version: 3.x
-      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
       - uses: actions/cache@v4
         with:
-          key: mkdocs-material-${{ env.cache_id }}
+          key: mkdocs-material-${{ runner.os }}-${{ hashFiles('mkdocs.yaml', 'pyproject.toml', 'uv.lock') }}
           path: .cache
           restore-keys: |
             mkdocs-material-
-      - run: pip install mkdocs-material
-      - run: mkdocs gh-deploy --force
+
+      - name: Deploy documentation
+        run: uv run mkdocs gh-deploy --force
