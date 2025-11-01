@@ -6,14 +6,14 @@ on:
       - "main"
     paths:
       - '**.py' # Run if pushed commits include a change to a Python (.py) file.
-      - '.github/workflows/lint.yml' # Run if pushed commits include a change to a github actions workflow file.
+      - '.github/workflows/lint.yaml' # Run if pushed commits include a change to a github actions workflow file.
       - '.pyproject.toml' # Run if project configuration file changes.
   pull_request:
     branches:
       - "main"
     paths:
       - '**.py' # Run if pushed commits include a change to a Python (.py) file.
-      - '.github/workflows/lint.yml' # Run if pushed commits include a change to a github actions workflow file.
+      - '.github/workflows/lint.yaml' # Run if pushed commits include a change to a github actions workflow file.
       - '.pyproject.toml' # Run if project configuration file changes.
   workflow_dispatch:
 
