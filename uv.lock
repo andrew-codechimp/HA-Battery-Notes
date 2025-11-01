@@ -788,10 +788,10 @@ requires-dist = [{ name = "homeassistant", specifier = "==2025.4.0" }]
 
 [package.metadata.requires-dev]
 dev = [
-    { name = "colorlog", specifier = ">=6.10.1" },
-    { name = "mkdocs-material", specifier = ">=9.6.22" },
+    { name = "colorlog" },
+    { name = "mkdocs-material" },
     { name = "pytablewriter", specifier = "==0.61.0" },
-    { name = "ruff", specifier = ">=0.14.2" },
+    { name = "ruff" },
 ]
 
 [[package]]
