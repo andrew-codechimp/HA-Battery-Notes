@@ -82,6 +82,11 @@ ignore = [
   "W191",
   "RUF012", # Broken rule in some cases
 
+  # GitHub actions
+  "INP001",  # File is part of an implicit namespace package
+
+  # Project preference
+  "ERA001",  # Found commented-out code
   "RUF001", # String contains ambiguous character
   "S101",   # Use of assert detected
   "TC001",  # Move application import into type checking
@@ -91,19 +96,13 @@ ignore = [
   "ANN201",  # Missing return type annotation for public function
   "ANN202",  # Missing return type annotation for private function
   "ANN204",  # Missing return type annotation for special method
-  "ARG001",  # Unused function argument
-  "ARG004",  # Unused static method argument
-  "COM818",  # Trailing comma on bare tuple prohibited
-  "D204",    # 1 blank line required after class docstring
   "DTZ005",  # The use of `datetime.datetime.now()` without `tz` argument is not allowed
   "EM101",   # Exception must not use a string literal, assign to variable first
   "EM102",   # Exception must not use an f-string literal, assign to variable first
-  "ERA001",  # Found commented-out code
   "FBT001",  # Boolean-typed positional argument in function definition
   "FBT002",  # Boolean-typed positional argument in function definition
   "G004",    # Logging statement uses f-string
   "I001",    # Import block is un-sorted or un-formatted
-  "INP001",  # File is part of an implicit namespace package
   "PGH003",  # Use specific rule codes when ignoring type issues
   "PLR0913", # Too many arguments in function definition
   "PLR0915", # Too many statements
@@ -118,7 +117,6 @@ ignore = [
   "PYI041",  # Use `float` instead of `int | float`
   "RET504",  # Unnecessary assignment before `return` statement
   "RET505",  # Unnecessary `else` after `return` statement
-  "RUF059",  # Unpacked variable is never used
   "SIM102",  # Use a single `if`-statement instead of nested `if`-statements
   "SIM103",  # Return the condition directly
   "SLF001",  # Private member accessed
@@ -128,8 +126,6 @@ ignore = [
   "TRY004",  # Prefer `TypeError` exception for invalid type
   "TRY300",  # Consider moving this statement to an `else` block
   "TRY400",  # Use `logging.exception` instead of `logging.error`
-  "UP039",   # Unnecessary parentheses after class name
-  "W292",    # No newline at end of file
 ]
 
 

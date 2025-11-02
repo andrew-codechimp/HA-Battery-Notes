@@ -185,7 +185,7 @@ async def async_setup_entry(
     )
 
     @callback
-    async def _async_delayed_discovery(now: datetime) -> None:  # pylint: disable=unused-argument
+    async def _async_delayed_discovery(now: datetime) -> None:  # noqa: ARG001
         """Update the library and do discovery."""
         library_updater = LibraryUpdater(hass)
         await library_updater.copy_schema()

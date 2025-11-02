@@ -57,7 +57,7 @@ class MissingDeviceRepairFlow(RepairsFlow):
 
 
 async def async_create_fix_flow(
-    hass: HomeAssistant,  # pylint: disable=unused-argument
+    hass: HomeAssistant,  # noqa: ARG001
     issue_id: str,
     data: dict[str, str | int | float | None] | None,
 ) -> RepairsFlow:
