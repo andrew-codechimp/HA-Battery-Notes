@@ -255,20 +255,18 @@ async def async_migrate_integration(hass: HomeAssistant, config: ConfigType) -> 
     )
 
     if not any(
-        entry.version < 3  # noqa: PLR2004
-        and entry.source != SOURCE_IGNORE
-        for entry in entries
+        entry.version < 3 and entry.source != SOURCE_IGNORE for entry in entries
     ):
         return
 
     for entry in entries:
-        if entry.version == 3 and entry.unique_id == DOMAIN:  # noqa: PLR2004
+        if entry.version == 3 and entry.unique_id == DOMAIN:
             # We have a V3 entry, so we can use this as the base
             migrate_base_entry = entry
             break
 
     for entry in entries:
-        if entry.version >= 3:  # noqa: PLR2004
+        if entry.version >= 3:
             continue
 
         if entry.source == SOURCE_IGNORE:
@@ -413,7 +411,7 @@ async def async_migrate_entry(
         config_entry.minor_version,
     )
 
-    if config_entry.version > 3:  # noqa: PLR2004
+    if config_entry.version > 3:
         # This means the user has downgraded from a future version
         return False
 
@@ -445,7 +443,7 @@ async def async_migrate_entry(
             2,
         )
 
-    if config_entry.version == 2 and config_entry.source == SOURCE_IGNORE:  # noqa: PLR2004
+    if config_entry.version == 2 and config_entry.source == SOURCE_IGNORE:
         hass.config_entries.async_update_entry(
             config_entry, version=3, title=config_entry.title
         )
