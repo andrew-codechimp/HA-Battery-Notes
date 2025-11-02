@@ -635,6 +635,13 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "_TZE284_rjxqso4a",
+            "model": "TS0601",
+            "model_id": "_TZE284_rjxqso4a",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "ABUS Security-Center GmbH Co. KG",
             "model": "SHRM10000",
             "battery_type": "CR123A"
@@ -1956,6 +1963,11 @@
         {
             "manufacturer": "BOSCH",
             "model": "SWD2",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Bosch",
+            "model": "SWD2_PLUS",
             "battery_type": "CR123A"
         },
         {
@@ -3369,6 +3381,13 @@
             "hw_version": "1.1",
             "battery_type": "AA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Eve Systems",
+            "model": "Eve Weather",
+            "model_id": "20EBS9901",
+            "hw_version": "1.1",
+            "battery_type": "CR2450"
         },
         {
             "manufacturer": "Eve Systems",
@@ -9792,6 +9811,12 @@
         },
         {
             "manufacturer": "Withings",
+            "model": "Body",
+            "battery_type": "AAA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Withings",
             "model": "Body Comp",
             "battery_type": "AAA",
             "battery_quantity": 4
@@ -9801,6 +9826,11 @@
             "model": "Body+",
             "battery_type": "AAA",
             "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Withings",
+            "model": "BPM Connect",
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "Withings",
@@ -9816,7 +9846,8 @@
         {
             "manufacturer": "Withings",
             "model": "Thermo",
-            "battery_type": "Rechargeable"
+            "battery_type": "AAA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "Withings",

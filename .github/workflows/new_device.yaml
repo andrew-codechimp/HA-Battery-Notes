@@ -17,7 +17,7 @@ jobs:
         uses: issue-ops/parser@v4
         with:
           body: ${{ github.event.issue.body }}
-          issue-form-template: new_device_request.yml
+          issue-form-template: new_device_request.yaml
 
       - name: Install jq
         run: sudo apt install jq

@@ -1,6 +1,10 @@
 {
-    "[python]": {
-        "editor.defaultFormatter": "ms-python.black-formatter"
+    "git.autofetch": true,
+    "python.createEnvironment.trigger": "off",
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "always",
     },
-    "python.formatting.provider": "none"
+    "python.terminal.activateEnvInCurrentTerminal": true,
 }

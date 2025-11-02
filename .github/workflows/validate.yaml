@@ -11,7 +11,7 @@ on:
       - 'library/**'
       - 'docs/**'
       - '*.md'
-      - '*.yml'
+      - '*.yaml'
       - 'LICENSE'
   pull_request:
     branches:
@@ -20,7 +20,7 @@ on:
       - 'library/**'
       - 'docs/**'
       - '*.md'
-      - '*.yml'
+      - '*.yaml'
       - 'LICENSE'
 
 jobs:
