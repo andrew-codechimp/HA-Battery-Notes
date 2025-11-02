@@ -298,8 +298,7 @@ class BatteryNotesLastReplacedSensor(BatteryNotesEntity, SensorEntity):
         """Handle added to Hass."""
         await super().async_added_to_hass()
 
-    def _set_native_value(self, log_on_error=True): # noqa: ARG002
-
+    def _set_native_value(self, log_on_error=True):  # noqa: ARG002
         if last_replaced := self.coordinator.last_replaced:
             self._native_value = last_replaced
 
@@ -385,7 +384,8 @@ class BatteryNotesBatteryPlusSensor(BatteryNotesEntity, RestoreSensor):
 
     @callback
     async def async_state_changed_listener(
-        self, event: Event[EventStateChangedData] | None = None  # noqa: ARG002
+        self,
+        event: Event[EventStateChangedData] | None = None,  # noqa: ARG002
     ) -> None:
         # pylint: disable=unused-argument
         """Handle child updates."""
@@ -437,7 +437,8 @@ class BatteryNotesBatteryPlusSensor(BatteryNotesEntity, RestoreSensor):
 
     @callback
     async def async_state_reported_listener(
-        self, event: Event[EventStateReportedData] | None = None  # noqa: ARG002
+        self,
+        event: Event[EventStateReportedData] | None = None,  # noqa: ARG002
     ) -> None:
         """Handle child updates."""
 

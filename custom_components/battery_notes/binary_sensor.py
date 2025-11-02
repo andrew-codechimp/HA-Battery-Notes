@@ -662,7 +662,8 @@ class BatteryNotesBatteryBinaryLowSensor(BatteryNotesBatteryLowBaseSensor):
 
     @callback
     async def async_state_changed_listener(
-        self, event: Event[EventStateChangedData] | None = None  # noqa: ARG002
+        self,
+        event: Event[EventStateChangedData] | None = None,  # noqa: ARG002
     ) -> None:
         # pylint: disable=unused-argument
         """Handle child updates."""
