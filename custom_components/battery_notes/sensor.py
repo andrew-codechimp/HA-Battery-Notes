@@ -206,7 +206,7 @@ class BatteryNotesTypeSensor(BatteryNotesEntity, RestoreSensor):
     entity_description: BatteryNotesSensorEntityDescription
     _unrecorded_attributes = frozenset({ATTR_BATTERY_QUANTITY, ATTR_BATTERY_TYPE})
 
-    def __init__(
+    def __init__(  # noqa: PLR0913
         self,
         hass,
         config_entry: BatteryNotesConfigEntry,  # noqa: ARG002
@@ -270,7 +270,7 @@ class BatteryNotesLastReplacedSensor(BatteryNotesEntity, SensorEntity):
     _attr_should_poll = False
     entity_description: BatteryNotesSensorEntityDescription
 
-    def __init__(
+    def __init__(  # noqa: PLR0913
         self,
         hass,
         config_entry: BatteryNotesConfigEntry,  # noqa: ARG002
@@ -343,7 +343,7 @@ class BatteryNotesBatteryPlusSensor(BatteryNotesEntity, RestoreSensor):
 
     entity_description: BatteryNotesSensorEntityDescription
 
-    def __init__(
+    def __init__(  # noqa: PLR0913
         self,
         hass: HomeAssistant,
         config_entry: BatteryNotesConfigEntry,

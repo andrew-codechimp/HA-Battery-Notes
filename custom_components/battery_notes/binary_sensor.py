@@ -195,7 +195,7 @@ async def async_setup_entry(
 class _TemplateAttribute:
     """Attribute value linked to template result."""
 
-    def __init__(
+    def __init__(  # noqa: PLR0913
         self,
         entity: Entity,
         attribute: str,
