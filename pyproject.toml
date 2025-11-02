@@ -28,7 +28,7 @@ Changelog = "https://github.com/andrew-codechimp/HA-Battery-Notes/releases"
 [dependency-groups]
 dev = [    
     "colorlog",
-    "homeassistant==2025.4.0",
+    "homeassistant==2025.9.0",
     "ruff",
 ]
 
