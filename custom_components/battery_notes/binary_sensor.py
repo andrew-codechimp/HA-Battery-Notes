@@ -459,7 +459,7 @@ class BatteryNotesBatteryLowTemplateSensor(
             is_availability_template = False
             for attribute in attributes:
                 # pylint: disable-next=protected-access
-                if attribute._attribute == "_attr_available":
+                if attribute._attribute == "_attr_available":  # noqa: SLF001
                     has_availability_template = True
                     is_availability_template = True
                 attribute.async_setup()
