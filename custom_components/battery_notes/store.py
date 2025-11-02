@@ -53,9 +53,9 @@ class MigratableStore(Store):
 
     async def _async_migrate_func(
         self,
-        old_major_version: int,
-        old_minor_version: int,
-        data: dict,  # noqa: ARG002
+        old_major_version: int,  # noqa: ARG002
+        old_minor_version: int,  # noqa: ARG002
+        data: dict,
     ):
         # pylint: disable=arguments-renamed
         # pylint: disable=unused-argument
