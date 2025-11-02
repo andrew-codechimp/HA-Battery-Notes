@@ -59,7 +59,7 @@ If your device has a different percentage, perhaps a max charge indicator Batter
 ## How do I create a battery low template
 
 The best way to do this is to test in the developer tools/template section for your sensor.  
-Be aware that Home Assistant shows friendly alternatives for some sensors, so when you are seeing Normal/Low this may really be a bool, testing in the template tool will allow you to determine the correct template to use. Start by adapting one of these below.
+Be aware that Home Assistant shows friendly alternatives for some sensors, so when you are seeing Normal/Low this may really be a bool, testing in the template tool will allow you to determine the correct template to use. Start by adapting one of these.
 
 ```
 {{ states('sensor.mysensor_battery_low') }}
