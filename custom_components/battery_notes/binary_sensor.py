@@ -816,15 +816,14 @@ class BatteryNotesBatteryBinaryLowSensor(BatteryNotesBatteryLowBaseSensor):
                     self.coordinator.wrapped_battery_low.entity_id,
                     hidden_by=er.RegistryEntryHider.INTEGRATION,
                 )
-        else:
-            if (
-                self.coordinator.wrapped_battery_low
-                and self.coordinator.wrapped_battery_low.hidden_by
-                == er.RegistryEntryHider.INTEGRATION
-            ):
-                registry.async_update_entity(
-                    self.coordinator.wrapped_battery_low.entity_id, hidden_by=None
-                )
+        elif (
+            self.coordinator.wrapped_battery_low
+            and self.coordinator.wrapped_battery_low.hidden_by
+            == er.RegistryEntryHider.INTEGRATION
+        ):
+            registry.async_update_entity(
+                self.coordinator.wrapped_battery_low.entity_id, hidden_by=None
+            )
 
         self.async_on_remove(
             self.coordinator.async_add_listener(self._handle_coordinator_update)

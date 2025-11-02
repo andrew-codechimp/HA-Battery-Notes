@@ -247,12 +247,11 @@ class Library:  # pylint: disable=too-few-public-methods
                     library_device.model.casefold()
                 ):
                     return True
-        else:
-            if (
-                library_device.model.casefold()
-                == str(device_to_find.model or "").casefold()
-            ):
-                return True
+        elif (
+            library_device.model.casefold()
+            == str(device_to_find.model or "").casefold()
+        ):
+            return True
         return False
 
     def device_partial_match(

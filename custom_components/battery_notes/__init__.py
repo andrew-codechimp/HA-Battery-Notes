@@ -501,9 +501,8 @@ async def _async_remove_subentry(
 
         if coordinator.source_entity_id:
             store.async_delete_entity(coordinator.source_entity_id)
-        else:
-            if coordinator.device_id:
-                store.async_delete_device(coordinator.device_id)
+        elif coordinator.device_id:
+            store.async_delete_device(coordinator.device_id)
 
     # Unhide the battery
     if coordinator.wrapped_battery:

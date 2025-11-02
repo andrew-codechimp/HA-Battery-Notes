@@ -874,22 +874,21 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
 
             if not device_entry:
                 errors["base"] = "orphaned_battery_note"
-            else:
-                if device_entry and device_entry.manufacturer and device_entry.model:
-                    _LOGGER.debug(
-                        "Looking up device %s %s %s %s",
-                        device_entry.manufacturer,
-                        device_entry.model,
-                        get_device_model_id(device_entry) or "",
-                        device_entry.hw_version,
-                    )
+            elif device_entry and device_entry.manufacturer and device_entry.model:
+                _LOGGER.debug(
+                    "Looking up device %s %s %s %s",
+                    device_entry.manufacturer,
+                    device_entry.model,
+                    get_device_model_id(device_entry) or "",
+                    device_entry.hw_version,
+                )
 
-                    self.model_info = ModelInfo(
-                        device_entry.manufacturer,
-                        device_entry.model,
-                        get_device_model_id(device_entry),
-                        device_entry.hw_version,
-                    )
+                self.model_info = ModelInfo(
+                    device_entry.manufacturer,
+                    device_entry.model,
+                    get_device_model_id(device_entry),
+                    device_entry.hw_version,
+                )
 
         if self.data.get(CONF_BATTERY_LOW_TEMPLATE, None) is None:
             data_schema = vol.Schema(
