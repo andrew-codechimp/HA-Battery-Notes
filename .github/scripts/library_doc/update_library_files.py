@@ -7,7 +7,31 @@ import json
 from pytablewriter import MarkdownTableWriter
 
 
-def generate_device_list():
+def get_device_list() -> None:
+    """Sort the device library JSON file."""
+    # Load the existing JSON library file
+    with open(
+        file="library/library.json",
+        encoding="UTF-8",
+    ) as f:
+        devices_json = json.loads(f.read())
+        devices = devices_json.get("devices")
+
+    # Sort the devices by manufacturer and model
+    devices.sort(
+        key=lambda k: (
+            k["manufacturer"].lower(),
+            k.get("model_match_method", "").lower(),
+            k["model"].lower(),
+            k.get("model_id", "").lower(),
+            k.get("hw_version", "").lower(),
+        )
+    )
+    with open("library/library.json", "w", encoding="UTF-8") as f:
+        f.write(json.dumps(devices_json, indent=4))
+
+
+def regenerate_device_list() -> None:
     """Generate static file containing the device library."""
 
     # Load the existing JSON library file
@@ -67,4 +91,6 @@ def generate_device_list():
         md_file.close()
 
 
-generate_device_list()
+if __name__ == "__main__":
+    get_device_list()
+    regenerate_device_list()
