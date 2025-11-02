@@ -1,0 +1,31 @@
+name: JSON Library Sorter and Doc Gen
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - "main"
+    paths:
+      - "library/library.json"
+      - ".github/workflows/json_librarian.yaml"
+      - ".github/workflows/scripts/library_doc/**"
+
+jobs:
+  librarian:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+                
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+
+      - name: Sort and Update Library Files
+        run: |
+          uv run --only-group library .github/scripts/library_doc/update_library_files.py
+
+      - name: Commit any changes
+        uses: stefanzweifel/git-auto-commit-action@v7

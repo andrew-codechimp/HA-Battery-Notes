@@ -1,1 +1,0 @@
-pytablewriter==0.61.0
