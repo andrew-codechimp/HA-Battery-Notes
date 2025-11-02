@@ -351,7 +351,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             last_step=False,
         )
 
-    async def async_step_battery(  # noqa: PLR0912
+    async def async_step_battery(  # noqa: PLR0912, PLR0915
         self, user_input: dict[str, Any] | None = None
     ) -> ConfigFlowResult:
         """Second step in config flow to add the battery type."""

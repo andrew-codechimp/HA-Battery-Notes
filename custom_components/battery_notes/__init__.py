@@ -228,7 +228,7 @@ async def async_remove_entry(
             )
 
 
-async def async_migrate_integration(hass: HomeAssistant, config: ConfigType) -> None:  # noqa: PLR0912
+async def async_migrate_integration(hass: HomeAssistant, config: ConfigType) -> None:  # noqa: PLR0912, PLR0915
     """Migrate integration entry structure."""
 
     migrate_base_entry: ConfigEntry | None = None
