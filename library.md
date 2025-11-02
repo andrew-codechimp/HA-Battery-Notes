@@ -1,4 +1,4 @@
-## 1885 Devices in library
+## 1886 Devices in library
 
 This file is auto generated, do not modify
 
@@ -350,6 +350,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |BOSCH                                           |SMOKE_DETECTOR2                                                                               |CR17450                   |                                   |                                      |
 |BOSCH                                           |SWD                                                                                           |2× AAA                    |                                   |                                      |
 |BOSCH                                           |SWD2                                                                                          |CR123A                    |                                   |                                      |
+|Bosch                                           |SWD2_PLUS                                                                                     |CR123A                    |                                   |                                      |
 |BOSCH                                           |THB                                                                                           |2× AAA                    |                                   |                                      |
 |BOSCH                                           |TRV                                                                                           |2× AA                     |                                   |                                      |
 |BOSCH                                           |TRV_GEN2                                                                                      |2× AA                     |                                   |                                      |

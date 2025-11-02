@@ -1966,6 +1966,11 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "Bosch",
+            "model": "SWD2_PLUS",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "BOSCH",
             "model": "THB",
             "battery_type": "AAA",
@@ -10766,11 +10771,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Bosch",
-            "model": "SWD2_PLUS",
-            "battery_type": "CR123A"
         }
     ]
 }
