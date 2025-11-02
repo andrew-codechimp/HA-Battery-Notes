@@ -20,6 +20,23 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v5
 
+      - name: Clean up JSON library file
+        id: update-json
+        uses: jannekem/run-python-script-action@v1
+        with:
+          script: |
+            import json
+
+            # Load the existing JSON library file
+            with open("library/library.json", "r", encoding="UTF-8") as f:
+                devices_json = json.loads(f.read())
+                devices = devices_json.get("devices")
+
+            # Sort the devices by manufacturer and model
+            devices.sort(key=lambda k: (k["manufacturer"].lower(), k.get("model_match_method", "").lower(), k["model"].lower(), k.get("model_id", "").lower(), k.get("hw_version", "").lower()))
+            with open("library/library.json", "w", encoding="UTF-8") as f:
+                f.write(json.dumps(devices_json, indent=4))
+                
       - name: Install uv
         uses: astral-sh/setup-uv@v7
 
