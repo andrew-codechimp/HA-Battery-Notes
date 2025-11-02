@@ -259,9 +259,9 @@ class Library:  # pylint: disable=too-few-public-methods
     ) -> bool:
         """Check if device match on hw_version or model_id."""
         if device_to_find.hw_version is None and device_to_find.model_id is None:
-            if library_device.hw_version is None and library_device.model_id is None:
-                return True
-            return False
+            return bool(
+                library_device.hw_version is None and library_device.model_id is None
+            )
 
         if device_to_find.hw_version is None or device_to_find.model_id is None:
             if (library_device.hw_version or "").casefold() == str(
@@ -277,13 +277,12 @@ class Library:  # pylint: disable=too-few-public-methods
         self, library_device: LibraryDevice, device_to_find: ModelInfo
     ) -> bool:
         """Check if device match on hw_version and model_id."""
-        if (library_device.hw_version or "").casefold() == str(
-            device_to_find.hw_version
-        ).casefold() and (library_device.model_id or "").casefold() == str(
-            device_to_find.model_id
-        ).casefold():
-            return True
-        return False
+        return bool(
+            (library_device.hw_version or "").casefold()
+            == str(device_to_find.hw_version).casefold()
+            and (library_device.model_id or "").casefold()
+            == str(device_to_find.model_id).casefold()
+        )
 
 
 class DeviceBatteryDetails(NamedTuple):
@@ -299,9 +298,7 @@ class DeviceBatteryDetails(NamedTuple):
     @property
     def is_manual(self):
         """Return whether the device should be discovered or battery type suggested."""
-        if self.battery_type.casefold() == "manual".casefold():
-            return True
-        return False
+        return self.battery_type.casefold() == "manual".casefold()
 
     @property
     def battery_type_and_quantity(self):

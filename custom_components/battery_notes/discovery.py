@@ -125,10 +125,7 @@ class DiscoveryManager:
 
     def should_process_device(self, device_entry: dr.DeviceEntry) -> bool:
         """Do some validations on the registry entry to see if it qualifies for discovery."""
-        if device_entry.disabled:
-            return False
-
-        return True
+        return not device_entry.disabled
 
     @callback
     def _init_entity_discovery(
