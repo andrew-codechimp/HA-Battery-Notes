@@ -87,7 +87,7 @@ triggers:
 conditions:
   - condition: template
     value_template: |-
-      {{ trigger.event.data.device_id not in excluded_devices}}
+      {{ excluded_devices == none or excluded_devices | length == 0 or trigger.event.data.device_id not in excluded_devices }}
   - condition: template
     value_template: |-
       {{ not include_devices_enabled or trigger.event.data.device_id in include_devices }}
