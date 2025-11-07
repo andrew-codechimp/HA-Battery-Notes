@@ -18,6 +18,12 @@ blueprint:
       default: True
       selector:
         boolean:
+    exclude_devices_enabled:
+      name: Enable Exclude Devices Filter
+      description: Do not trigger for specific devices when enabled.
+      default: true
+      selector:
+        boolean:                
     excluded_devices:
       name: Devices to exclude (Optional)
       description: Devices that you do not want to trigger this automation.
@@ -62,6 +68,7 @@ blueprint:
 variables:
   low_notification: !input low_notification
   high_notification: !input high_notification
+  exclude_devices_enabled: !input exclude_devices_enabled
   excluded_devices: !input excluded_devices
   include_devices_enabled: !input include_devices_enabled
   include_devices: !input include_devices
@@ -83,10 +90,10 @@ triggers:
 conditions:
   - condition: template
     value_template: |-
-      {{ excluded_devices == none or excluded_devices | length == 0 or trigger.event.data.device_id not in excluded_devices }}
+      {{ not exclude_devices_enabled or (excluded_devices == none or excluded_devices | length == 0 or trigger.event.data.device_id not in excluded_devices) }}
   - condition: template
     value_template: |-
-      {{ not include_devices_enabled or trigger.event.data.device_id in include_devices }}
+      {{ not include_devices_enabled or (include_devices != none and include_devices | length > 0 and trigger.event.data.device_id in include_devices) }}
   - alias: User pick
     condition: !input additional_conditions
 
