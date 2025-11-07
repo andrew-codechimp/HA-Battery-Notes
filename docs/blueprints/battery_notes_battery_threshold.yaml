@@ -26,7 +26,7 @@ blueprint:
         boolean:                
     excluded_devices:
       name: Devices to exclude (Optional)
-      description: Devices that you do not want to trigger this automation.
+      description: When enabled above, these devices will not trigger this automation.
       default:
       selector:
         device:
