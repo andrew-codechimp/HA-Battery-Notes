@@ -7646,6 +7646,12 @@
         },
         {
             "manufacturer": "SONOFF",
+            "model": "SNZB-02D",
+            "hw_version": "0",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "SONOFF",
             "model": "SNZB-02LD",
             "battery_type": "CR2477"
         },
@@ -10784,12 +10790,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "SONOFF",
-            "model": "SNZB-02D",
-            "hw_version": "0",
-            "battery_type": "CR2450"
         }
     ]
 }
