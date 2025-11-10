@@ -10777,6 +10777,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Vesternet",
+            "model": "VES-ZW-WAL-009",
+            "model_id": "VES-ZW-WAL-009",
+            "hw_version": "1,28",
+            "battery_type": "CR2450"
         }
     ]
 }
