@@ -34,7 +34,8 @@ Once you have [installed the integration](https://github.com/andrew-codechimp/HA
 
 ## To add a battery note manually
 
-- Go to Settings/Integrations/Battery Notes and click Add Battery Note.
+- Go to Settings/Integrations and click Add Integration.
+- Select Battery Notes.
 - Choose Device or Entity and click next. Device will automatically detect a battery and will work for most common devices, you should use entity if your device has multiple batteries or when an entity does not have a device.
 - Choose your device or entity from the drop down and click next.
 - Enter the battery type and quantity and optionally a battery low threshold and click submit.
