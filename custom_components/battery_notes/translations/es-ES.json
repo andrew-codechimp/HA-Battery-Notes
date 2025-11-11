@@ -152,31 +152,6 @@
             "unknown": "Se ha producido un error desconocido."
         }
     },
-    "battery_note_options": {
-        "step": {
-            "init": {
-                "description": "Fabricante: {manufacturer}\nModelo: {model}\nID de Modelo: {model_id}\nVersión de Hardware: {hw_version}",
-                "data": {
-                    "name": "Nombre",
-                    "battery_type": "Tipo de batería",
-                    "battery_quantity": "Cantidad de batería",
-                    "battery_low_threshold": "Umbral bajo de batería",
-                    "battery_low_template": "Plantilla de batería baja",
-                    "filter_outliers": "Filtrar valores atípicos"
-                },
-                "data_description": {
-                    "name": "Dejar en blanco utilizará el nombre del dispositivo de serie",
-                    "battery_low_threshold": "0 usará el umbral global por defecto",
-                    "battery_low_template": "Plantilla para determinar que una batería es baja, debe devolver verdadero si es baja\nSolo necesario para niveles de batería no estándar",
-                    "filter_outliers": "Filtra las grandes caídas del nivel de batería, reduciendo los eventos que se disparan falsamente en los dispositivos que informan erróneamente de los niveles de forma ocasional."
-                }
-            }
-        },
-        "error": {
-            "orphaned_battery_note": "El dispositivo o entidad asociada ya no existe para esta Nota de batería",
-            "unknown": "Se ha producido un error desconocido."
-        }
-    },
     "entity": {
         "binary_sensor": {
             "battery_low": {

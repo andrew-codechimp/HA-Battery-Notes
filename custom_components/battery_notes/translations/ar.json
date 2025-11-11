@@ -152,31 +152,6 @@
             "unknown": "حدث خطأ غير معروف."
         }
     },
-    "battery_note_options": {
-        "step": {
-            "init": {
-                "description": "الصانع: {manufacturer}\nالطراز: {model}\nمعرف الطراز: {model_id}\nإصدار الجهاز: {hw_version}",
-                "data": {
-                    "name": "اسم",
-                    "battery_type": "نوع البطارية",
-                    "battery_quantity": "كَمّيَّة البطارية",
-                    "battery_low_threshold": "عتبة البطارية المنخفضة",
-                    "battery_low_template": "قالب البطارية المنخفضة",
-                    "filter_outliers": "Filter outliers"
-                },
-                "data_description": {
-                    "name": "تركه فارغًا سيأخذ الاسم من الجهاز المصدر.",
-                    "battery_low_threshold": "الصفر سيستخدم العتبة الافتراضية العالمية.",
-                    "battery_low_template": "القالب لتحديد إذا كانت البطارية منخفضة، يجب أن يُرجع \"صحيح\" إذا كانت منخفضة.\nمطلوب فقط للمستويات غير القياسية للبطارية.",
-                    "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
-                }
-            }
-        },
-        "error": {
-            "orphaned_battery_note": "الجهاز أو الكيان المرتبط لم يعد موجودًا لهذه الملاحظة الخاصة بالبطارية.",
-            "unknown": "حدث خطأ غير معروف."
-        }
-    },
     "entity": {
         "binary_sensor": {
             "battery_low": {

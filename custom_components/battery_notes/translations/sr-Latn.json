@@ -152,31 +152,6 @@
             "unknown": "Nepoznata greška se dogodila!"
         }
     },
-    "battery_note_options": {
-        "step": {
-            "init": {
-                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
-                "data": {
-                    "name": "Naziv",
-                    "battery_type": "Tip baterije",
-                    "battery_quantity": "Broj baterija",
-                    "battery_low_threshold": "Nizak prag napunjenosti baterije",
-                    "battery_low_template": "Šablon prazne baterije",
-                    "filter_outliers": "Filter outliers"
-                },
-                "data_description": {
-                    "name": "Ako ostavite prazno, naziv će preuzeti sa izvornog uređaja",
-                    "battery_low_threshold": "0 će koristiti globalni podrazumevani prag",
-                    "battery_low_template": "Šablon za određivanje da je baterija prazna, treba da vrati true ako je nizak nivo\nPotrebno samo za nestandardne nivoe baterije",
-                    "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
-                }
-            }
-        },
-        "error": {
-            "orphaned_battery_note": "The associated device or entity no longer exists for this Battery Note.",
-            "unknown": "Nepoznata greška se dogodila!"
-        }
-    },
     "entity": {
         "binary_sensor": {
             "battery_low": {

@@ -152,31 +152,6 @@
             "unknown": "Onbekende fout opgetreden."
         }
     },
-    "battery_note_options": {
-        "step": {
-            "init": {
-                "description": "Fabrikant: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware versie: {hw_version}",
-                "data": {
-                    "name": "Naam",
-                    "battery_type": "Batterij type",
-                    "battery_quantity": "Aantal batterijen",
-                    "battery_low_threshold": "Drempelwaarde batterij bijna leeg",
-                    "battery_low_template": "Sjabloon batterij bijna leeg",
-                    "filter_outliers": "Filter outliers"
-                },
-                "data_description": {
-                    "name": "Indien dit leeg gelaten wordt dan wordt de naam van het bronapparaat overgenomen",
-                    "battery_low_threshold": "0 zal de globale standaard drempelwaarde gebruiken",
-                    "battery_low_template": "Sjabloon om te bepalen dat een batterij bijna leeg is, zal 'waar' teruggeven als bijna leeg\nAlleen nodig voor niet-standaard batterijniveaus",
-                    "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
-                }
-            }
-        },
-        "error": {
-            "orphaned_battery_note": "Het gekoppelde apparaat of entiteit bestaat niet meer voor deze Battery Note.",
-            "unknown": "Onbekende fout opgetreden."
-        }
-    },
     "entity": {
         "binary_sensor": {
             "battery_low": {

@@ -152,31 +152,6 @@
             "unknown": "Vyskytla se neznámá chyba."
         }
     },
-    "battery_note_options": {
-        "step": {
-            "init": {
-                "description": "Výrobce: {manufacturer}\nModel: {model}\nID modelu: {model_id}\nHardware verze: {hw_version}",
-                "data": {
-                    "name": "Název",
-                    "battery_type": "Typ baterie",
-                    "battery_quantity": "Množství baterií",
-                    "battery_low_threshold": "Práh nízkého stavu baterie",
-                    "battery_low_template": "Šablona nízkého stavu baterie",
-                    "filter_outliers": "Filtrovat odlehlé hodnoty"
-                },
-                "data_description": {
-                    "name": "Ponecháte-li prázdné, převezme název ze zdrojového zařízení",
-                    "battery_low_threshold": "0 se použije jako globální výchozí práh",
-                    "battery_low_template": "Šablona k určení zda je stav baterie nízký, měla by vrátit hodnotu pravda, pokud je nízký\nJe potřeba pouze pro nestandardní úroveně baterie",
-                    "filter_outliers": "Filtrovat velké ztráty úrovně baterie, což snižuje falešné spouštění událostí na zařízení, která občas chybně hlásí úrovně"
-                }
-            }
-        },
-        "error": {
-            "orphaned_battery_note": "Přidružené zařízení nebo entita pro tuto poznámku k baterii již neexistuje.",
-            "unknown": "Vyskytla se neznámá chyba."
-        }
-    },
     "entity": {
         "binary_sensor": {
             "battery_low": {

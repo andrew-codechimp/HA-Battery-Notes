@@ -152,31 +152,6 @@
             "unknown": "Wystąpił nieznany błąd."
         }
     },
-    "battery_note_options": {
-        "step": {
-            "init": {
-                "description": "Producent: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nWersja sprzętowa: {hw_version}",
-                "data": {
-                    "name": "Nazwa",
-                    "battery_type": "Typ baterii",
-                    "battery_quantity": "Liczba baterii",
-                    "battery_low_threshold": "Próg niskiego poziomu baterii",
-                    "battery_low_template": "Szablon niskiego poziomu baterii",
-                    "filter_outliers": "Filtr wartości odstających"
-                },
-                "data_description": {
-                    "name": "Pozostawienie pustego pola spowoduje pobranie nazwy z urządzenia źródłowego",
-                    "battery_low_threshold": "0 użyje globalnego progu domyślnego",
-                    "battery_low_template": "Szablon do określenia czy poziom naładowania baterii jest niski, powinien zwrócić wartość true, jeśli poziom jest niski.\nJest wymagany tylko dla niestandardowych raportów poziomu baterii",
-                    "filter_outliers": "Filtruj duże spadki poziomu baterii, zmniejszając fałszywe wyzwalanie zdarzeń na urządzeniach, które sporadycznie zgłaszają poziomy baterii"
-                }
-            }
-        },
-        "error": {
-            "orphaned_battery_note": "Powiązane urządzenie lub encja już nie istnieje dla tej Notatki Baterii.",
-            "unknown": "Wystąpił nieznany błąd."
-        }
-    },
     "entity": {
         "binary_sensor": {
             "battery_low": {

@@ -152,31 +152,6 @@
             "unknown": "En ukjent feil har oppstått."
         }
     },
-    "battery_note_options": {
-        "step": {
-            "init": {
-                "description": "Produsent: {manufacturer}\nModel: {model}\nModell-ID: {model_id}\nMaskinvareversjon: {hw_version}",
-                "data": {
-                    "name": "Navn",
-                    "battery_type": "Batteritype",
-                    "battery_quantity": "Antall batterier",
-                    "battery_low_threshold": "Lavt batterinivå-terskel",
-                    "battery_low_template": "Mal for lavt batterinivå",
-                    "filter_outliers": "Filter outliers"
-                },
-                "data_description": {
-                    "name": "Leaving blank will take the name from the source device",
-                    "battery_low_threshold": "0 will use the global default threshold",
-                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels",
-                    "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
-                }
-            }
-        },
-        "error": {
-            "orphaned_battery_note": "The associated device or entity no longer exists for this Battery Note.",
-            "unknown": "En ukjent feil har oppstått."
-        }
-    },
     "entity": {
         "binary_sensor": {
             "battery_low": {

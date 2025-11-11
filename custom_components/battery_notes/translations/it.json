@@ -152,31 +152,6 @@
             "unknown": "Errore sconosciuto."
         }
     },
-    "battery_note_options": {
-        "step": {
-            "init": {
-                "description": "Produttore: {manufacturer}\nModello: {model}\nID Modello: {model_id}\nVersione hardware: {hw_version}",
-                "data": {
-                    "name": "Nome",
-                    "battery_type": "Tipo di batteria",
-                    "battery_quantity": "Quantità batteria",
-                    "battery_low_threshold": "Livello batteria bassa",
-                    "battery_low_template": "Modello batteria bassa",
-                    "filter_outliers": "Filtra anomali"
-                },
-                "data_description": {
-                    "name": "Lasciando vuoto prenderà il nome dal dispositivo di origine",
-                    "battery_low_threshold": "0 utilizzerà la soglia globale predefinita",
-                    "battery_low_template": "Modello per determinare se una batteria è scarica, dovrebbe restituire vero se scarica. \nNecessario solo per livelli di batteria non standard",
-                    "filter_outliers": "Filtra grossi cali batteria, riducendo falsi eventi su dispositivi che restituiscono occasionalmente livelli erronei"
-                }
-            }
-        },
-        "error": {
-            "orphaned_battery_note": "L'entità o dispositivo associato non esiste più per questo Battery Note.",
-            "unknown": "Errore sconosciuto."
-        }
-    },
     "entity": {
         "binary_sensor": {
             "battery_low": {

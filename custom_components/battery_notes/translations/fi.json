@@ -152,31 +152,6 @@
             "unknown": "Tuntematon virhe."
         }
     },
-    "battery_note_options": {
-        "step": {
-            "init": {
-                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
-                "data": {
-                    "name": "Nimi",
-                    "battery_type": "Akun tyyppi",
-                    "battery_quantity": "Akkujen määrä",
-                    "battery_low_threshold": "Akun alhainen raja",
-                    "battery_low_template": "Battery low template",
-                    "filter_outliers": "Filter outliers"
-                },
-                "data_description": {
-                    "name": "Tyhjäksi jättäminen ottaa nimen lähdelaitteesta",
-                    "battery_low_threshold": "0 käyttää yleistä oletusarvoa",
-                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels",
-                    "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
-                }
-            }
-        },
-        "error": {
-            "orphaned_battery_note": "The associated device or entity no longer exists for this Battery Note.",
-            "unknown": "Tuntematon virhe."
-        }
-    },
     "entity": {
         "binary_sensor": {
             "battery_low": {

@@ -152,31 +152,6 @@
             "unknown": "Notika nezināma kļūda."
         }
     },
-    "battery_note_options": {
-        "step": {
-            "init": {
-                "description": "Ražotājs: {manufacturer}\nModelis: {model}\nModeļa ID: {model_id}\nAparatūras versija: {hw_version}",
-                "data": {
-                    "name": "Nosaukums",
-                    "battery_type": "Baterijas tips",
-                    "battery_quantity": "Bateriju daudzums",
-                    "battery_low_threshold": "Zema baterijas līmeņa slieksnis",
-                    "battery_low_template": "Zema baterijas līmeņa šablons",
-                    "filter_outliers": "Filter outliers"
-                },
-                "data_description": {
-                    "name": "Atstājot tukšu tiks ņemts nosaukums no pamata ierīces",
-                    "battery_low_threshold": "Norādiet 0, lai izmantotu noklusēto slieksni",
-                    "battery_low_template": "Šablons lai noteiktu zemu baterijas līmeni, kam jāatgriež patiesa vērtība, līmenis ir zems\nNepieciešams tikai nestandarta bateriju līmeņiem",
-                    "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
-                }
-            }
-        },
-        "error": {
-            "orphaned_battery_note": "The associated device or entity no longer exists for this Battery Note.",
-            "unknown": "Notika nezināma kļūda."
-        }
-    },
     "entity": {
         "binary_sensor": {
             "battery_low": {

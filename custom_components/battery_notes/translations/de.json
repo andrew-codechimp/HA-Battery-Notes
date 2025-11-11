@@ -152,31 +152,6 @@
             "unknown": "Ein unbekannter Fehler ist aufgetreten."
         }
     },
-    "battery_note_options": {
-        "step": {
-            "init": {
-                "description": "Hersteller: {manufacturer}\nModell: {model}\nModell ID: {model_id}\nHardware Version: {hw_version}",
-                "data": {
-                    "name": "Name",
-                    "battery_type": "Batterieart",
-                    "battery_quantity": "Batteriemenge",
-                    "battery_low_threshold": "Schwelle für niedrigen Batteriestand",
-                    "battery_low_template": "Vorlage für niedrigen Batteriestand",
-                    "filter_outliers": "Ausreißer filtern"
-                },
-                "data_description": {
-                    "name": "Wenn du nichts eingibst, wird der Name vom Quellgerät übernommen",
-                    "battery_low_threshold": "0 verwendet den globalen Standardschwellenwert",
-                    "battery_low_template": "Vorlage um zu bestimmen, ob eine Batterie schwach ist; sollte \"wahr\" (true) rückmelden, wenn schwach.\nNur für nicht-Standard Batteriewerte benötigt.",
-                    "filter_outliers": "Filtere größere Sprünge des Ladestandes der Batterie bei Geräten, die ihren Ladestand nur sporadisch mitteilen, um fehlerhafte Auslösungen zu verhindern"
-                }
-            }
-        },
-        "error": {
-            "orphaned_battery_note": "Das zugeordnete Gerät für diesen Eintrag in \"Battery Notes\" ist nicht mehr verfügbar",
-            "unknown": "Ein unbekannter Fehler ist aufgetreten."
-        }
-    },
     "entity": {
         "binary_sensor": {
             "battery_low": {

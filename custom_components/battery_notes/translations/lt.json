@@ -152,31 +152,6 @@
             "unknown": "Įvyko nežinoma klaida."
         }
     },
-    "battery_note_options": {
-        "step": {
-            "init": {
-                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
-                "data": {
-                    "name": "Pavadinimas",
-                    "battery_type": "Baterijos tipas",
-                    "battery_quantity": "Baterijų kiekis",
-                    "battery_low_threshold": "Battery low threshold",
-                    "battery_low_template": "Battery low template",
-                    "filter_outliers": "Filter outliers"
-                },
-                "data_description": {
-                    "name": "Leaving blank will take the name from the source device",
-                    "battery_low_threshold": "Įrašius 0 bus naudojama numatytoji vertė",
-                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels",
-                    "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
-                }
-            }
-        },
-        "error": {
-            "orphaned_battery_note": "The associated device or entity no longer exists for this Battery Note.",
-            "unknown": "Įvyko nežinoma klaida."
-        }
-    },
     "entity": {
         "binary_sensor": {
             "battery_low": {
