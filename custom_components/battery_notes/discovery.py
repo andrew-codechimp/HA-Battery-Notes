@@ -6,23 +6,24 @@ import logging
 from typing import Any
 
 import homeassistant.helpers.device_registry as dr
-from homeassistant.config_entries import SOURCE_INTEGRATION_DISCOVERY
-from homeassistant.const import CONF_DEVICE_ID
 from homeassistant.core import HomeAssistant, callback
+from homeassistant.const import CONF_DEVICE_ID
 from homeassistant.helpers import discovery_flow
+from homeassistant.config_entries import SOURCE_IGNORE, SOURCE_INTEGRATION_DISCOVERY
 
-from .common import get_device_model_id
 from .const import (
-    CONF_BATTERY_QUANTITY,
-    CONF_BATTERY_TYPE,
-    CONF_DEVICE_NAME,
-    CONF_MANUFACTURER,
+    DOMAIN,
     CONF_MODEL,
     CONF_MODEL_ID,
-    DOMAIN,
+    CONF_HW_VERSION,
+    CONF_DEVICE_NAME,
+    CONF_BATTERY_TYPE,
+    CONF_MANUFACTURER,
+    CONF_BATTERY_QUANTITY,
 )
+from .common import get_device_model_id
+from .library import DATA_LIBRARY, ModelInfo, DeviceBatteryDetails
 from .coordinator import BatteryNotesDomainConfig
-from .library import DeviceBatteryDetails, Library, ModelInfo
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -77,7 +78,9 @@ class DiscoveryManager:
     so the user can add them to their HA instance.
     """
 
-    def __init__(self, hass: HomeAssistant, ha_config: BatteryNotesDomainConfig) -> None:
+    def __init__(
+        self, hass: HomeAssistant, ha_config: BatteryNotesDomainConfig
+    ) -> None:
         """Init."""
         self.hass = hass
         self.ha_config = ha_config
@@ -87,10 +90,11 @@ class DiscoveryManager:
         _LOGGER.debug("Start auto discovering devices")
         device_registry = dr.async_get(self.hass)
 
-        library = Library(self.hass)
-        await library.load_libraries()
+        library = self.hass.data[DATA_LIBRARY]
+        if not library.is_loaded:
+            await library.load_libraries()
 
-        if library.loaded():
+        if library.is_loaded:
             for device_entry in list(device_registry.devices.values()):
                 if not self.should_process_device(device_entry):
                     continue
@@ -121,10 +125,7 @@ class DiscoveryManager:
 
     def should_process_device(self, device_entry: dr.DeviceEntry) -> bool:
         """Do some validations on the registry entry to see if it qualifies for discovery."""
-        if device_entry.disabled:
-            return False
-
-        return True
+        return not device_entry.disabled
 
     @callback
     def _init_entity_discovery(
@@ -133,17 +134,32 @@ class DiscoveryManager:
         device_battery_details: DeviceBatteryDetails,
     ) -> None:
         """Dispatch the discovery flow for a given entity."""
-        existing_entries = [
-            entry
-            for entry in self.hass.config_entries.async_entries(DOMAIN)
-            if entry.unique_id == f"bn_{device_entry.id}"
-        ]
-        if existing_entries:
-            _LOGGER.debug(
-                "%s: Already setup, skipping new discovery",
-                f"bn_{device_entry.id}",
-            )
-            return
+        unique_id = f"bn_{device_entry.id}"
+
+        # Iterate all the ignored devices and check if we have it already
+        for config_entry in self.hass.config_entries.async_entries(
+            domain=DOMAIN, include_ignore=True, include_disabled=False
+        ):
+            if (
+                config_entry.source == SOURCE_IGNORE
+                and config_entry.unique_id == unique_id
+            ):
+                _LOGGER.debug(
+                    "%s: Ignored, skipping new discovery",
+                    unique_id,
+                )
+                return
+
+        for config_entry in self.hass.config_entries.async_entries(
+            domain=DOMAIN, include_ignore=False, include_disabled=False
+        ):
+            for subentry in config_entry.subentries.values():
+                if subentry.data.get(CONF_DEVICE_ID, "") == device_entry.id:
+                    _LOGGER.debug(
+                        "%s: Already setup, skipping new discovery",
+                        unique_id,
+                    )
+                    return
 
         discovery_data: dict[str, Any] = {
             CONF_DEVICE_ID: device_entry.id,
@@ -156,7 +172,8 @@ class DiscoveryManager:
             )
         discovery_data[CONF_MANUFACTURER] = device_battery_details.manufacturer
         discovery_data[CONF_MODEL] = device_battery_details.model
-        discovery_data[CONF_MODEL_ID] = get_device_model_id(device_entry),
+        discovery_data[CONF_MODEL_ID] = get_device_model_id(device_entry)
+        discovery_data[CONF_HW_VERSION] = device_battery_details.hw_version
         discovery_data[CONF_DEVICE_NAME] = get_wrapped_device_name(
             device_entry.id, device_entry
         )

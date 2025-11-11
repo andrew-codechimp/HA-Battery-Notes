@@ -29,22 +29,18 @@ _If you want to show your support please_
 
 ## Installation
 
-**Important**
-
-Once you have installed battery notes using either HACS or manually as per the instructions below you must add the following entry to your `configuration.yaml`, then restart Home Assistant. This will enable discovery of your devices.
-
-```
-battery_notes:
-```
-
-If you need to add a device that is not automatically discovered from the library go to Settings -> Integrations click "+" and search for "Battery Notes"
-
 ### HACS Installation
 
 [![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=andrew-codechimp&repository=HA-Battery-Notes&category=Integration)
 
 Or
 Search for `Battery Notes` in HACS and install it under the "Integrations" category.
+
+Restart Home Assistant
+
+In the HA UI go to Settings -> Integrations click "+ Add integration" and search for "Battery Notes"
+
+This will create the main Battery Notes integration service and discovery will start shortly afterwards, or you can battery notes manually within the integration.
 
 ### Manual Installation
 
@@ -53,14 +49,9 @@ Search for `Battery Notes` in HACS and install it under the "Integrations" categ
 
 - You should take the battery_notes.zip file from the latest [published release](https://github.com/andrew-codechimp/ha-battery-notes/releases).
 - To install, place the contents of `custom_components` into the `<config directory>/custom_components` folder of your Home Assistant installation.
-- Add the following entry to your `configuration.yaml`
-
-```
-battery_notes:
-```
-
 - Restart Home Assistant
-- In the HA UI go to Settings -> Integrations click "+" and search for "Battery Notes"
+- In the HA UI go to Settings -> Integrations click "+ Add integration" and search for "Battery Notes"
+- This will create the main Battery Notes integration service and discovery will start shortly afterwards, or you can battery notes manually within the integration.
 </details>
 
 ## Docs

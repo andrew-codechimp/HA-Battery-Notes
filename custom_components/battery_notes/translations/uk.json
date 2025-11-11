@@ -2,33 +2,8 @@
     "config": {
         "step": {
             "user": {
-                "description": "Якщо вам потрібна допомога з конфігурацією, подивіться тут: https://andrew-codechimp.github.io/HA-Battery-Notes/",
-                "data": {
-                    "association_type": "Тип асоціацій"
-                },
-                "menu_options": {
-                    "device": "Пристрій (рекомендовано)",
-                    "entity": "Об'єкт"
-                },
-                "title": "Виберіть тип асоціації"
-            },
-            "device": {
-                "data": {
-                    "device_id": "Пристрій",
-                    "name": "Назва"
-                },
-                "data_description": {
-                    "name": "Залишаючи незаповненим, буде взяте ім'я з основного пристрою"
-                }
-            },
-            "entity": {
-                "data": {
-                    "source_entity_id": "Об'єкт",
-                    "name": "Назва"
-                },
-                "data_description": {
-                    "name": "Залишаючи незаповненим, буде взяте ім'я з основного об'єкта"
-                }
+                "description": "New Battery Notes will be discovered if they are in the library.\nTo add new Battery Notes manually go into the integration page, select Add Battery Note and follow the instructions.\nIf you need help with the configuration have a look here: {documentation_url}",
+                "title": "Setup Battery Notes"
             },
             "battery": {
                 "description": "Виробник: {manufacturer}\nМодель: {model}\nID моделі: {model_id}\nРевізія: {hw_version}",
@@ -44,42 +19,136 @@
                     "battery_low_template": "Шаблон для визначення, коли заряд батареї низький - в такому випадку має повернути \"true\"\nПотрібен тільки для нестандартних рівнів батареї",
                     "filter_outliers": "Відфільтровуйте великі падіння рівня заряду акумулятора, зменшуючи кількість помилкових спрацьовувань на пристроях, які час від часу помилково повідомляють про рівень заряду"
                 }
-            },
-            "manual": {
-                "description": "Цей пристрій позначено у бібліотеці як налаштований вручну, різні варіанти пристрою використовують різні типи батарей, тому її не можна додати до бібліотеки.\nНаступний крок дозволить встановити тип батареї, але, будь ласка, не надсилайте запит на додання пристрою.",
-                "title": "Ручне налаштування пристрою"
             }
         },
         "abort": {
-            "already_configured": "Пристрій вже налаштовано"
+            "already_configured": "Integration is already configured",
+            "integration_not_added": "Integration not added, please add the integration first",
+            "created_sub_entry": "Battery Note created successfully"
         },
         "error": {
-            "unknown": "Сталася невідома помилка.",
-            "unconfigurable_entity": "Неможливо додати цей об'єкт до Battery Notes."
+            "unknown": "Сталася невідома помилка."
+        }
+    },
+    "config_subentries": {
+        "battery_note": {
+            "initiate_flow": {
+                "user": "Add battery note"
+            },
+            "entry_type": "Battery note",
+            "step": {
+                "user": {
+                    "description": "Якщо вам потрібна допомога з конфігурацією, подивіться тут: {documentation_url}",
+                    "data": {
+                        "association_type": "Тип асоціацій"
+                    },
+                    "menu_options": {
+                        "device": "Пристрій (рекомендовано)",
+                        "entity": "Об'єкт"
+                    },
+                    "title": "Виберіть тип асоціації"
+                },
+                "device": {
+                    "data": {
+                        "device_id": "Пристрій",
+                        "name": "Назва"
+                    },
+                    "data_description": {
+                        "name": "Залишаючи незаповненим, буде взяте ім'я з основного пристрою"
+                    }
+                },
+                "entity": {
+                    "data": {
+                        "source_entity_id": "Об'єкт",
+                        "name": "Назва"
+                    },
+                    "data_description": {
+                        "name": "Залишаючи незаповненим, буде взяте ім'я з основного об'єкта"
+                    }
+                },
+                "battery": {
+                    "description": "Виробник: {manufacturer}\nМодель: {model}\nID моделі: {model_id}\nРевізія: {hw_version}",
+                    "data": {
+                        "battery_type": "Тип батареї",
+                        "battery_quantity": "Кількість батарей",
+                        "battery_low_threshold": "Нижній поріг батареї",
+                        "battery_low_template": "Шаблон низького заряду батареї",
+                        "filter_outliers": "Відсіяти сторонні елементи"
+                    },
+                    "data_description": {
+                        "battery_low_threshold": "0 буде використовувати глобальний поріг за замовчуванням",
+                        "battery_low_template": "Шаблон для визначення, коли заряд батареї низький - в такому випадку має повернути \"true\"\nПотрібен тільки для нестандартних рівнів батареї",
+                        "filter_outliers": "Відфільтровуйте великі падіння рівня заряду акумулятора, зменшуючи кількість помилкових спрацьовувань на пристроях, які час від часу помилково повідомляють про рівень заряду"
+                    }
+                },
+                "manual": {
+                    "description": "Цей пристрій позначено у бібліотеці як налаштований вручну, різні варіанти пристрою використовують різні типи батарей, тому її не можна додати до бібліотеки.\nНаступний крок дозволить встановити тип батареї, але, будь ласка, не надсилайте запит на додання пристрою.",
+                    "title": "Ручне налаштування пристрою"
+                },
+                "reconfigure": {
+                    "description": "Виробник: {manufacturer}\nМодель: {model}\nID моделі: {model_id}\nРевізія: {hw_version}",
+                    "data": {
+                        "name": "Назва",
+                        "battery_type": "Тип батареї",
+                        "battery_quantity": "Кількість батарей",
+                        "battery_low_threshold": "Нижній поріг батареї",
+                        "battery_low_template": "Шаблон низького заряду батареї",
+                        "filter_outliers": "Відсіяти сторонні елементи"
+                    },
+                    "data_description": {
+                        "name": "Залишаючи незаповненим, буде взяте ім'я з основного пристрою",
+                        "battery_low_threshold": "0 буде використовувати глобальний поріг за замовчуванням",
+                        "battery_low_template": "Шаблон для визначення, коли заряд батареї низький - в такому випадку має повернути \"true\"\nПотрібен тільки для нестандартних рівнів батареї",
+                        "filter_outliers": "Відфільтровуйте великі падіння рівня заряду акумулятора, зменшуючи кількість помилкових спрацьовувань на пристроях, які час від часу помилково повідомляють про рівень заряду"
+                    }
+                }
+            },
+            "abort": {
+                "reconfigure_successful": "Re-configuration was successful",
+                "already_configured": "Пристрій вже налаштовано"
+            },
+            "error": {
+                "unknown": "Сталася невідома помилка.",
+                "unconfigurable_entity": "Неможливо додати цей об'єкт до Battery Notes.",
+                "orphaned_battery_note": "Пов'язаний пристрій або об'єкт більше не існує для Battery Note"
+            }
         }
     },
     "options": {
         "step": {
             "init": {
-                "description": "Виробник: {manufacturer}\nМодель: {model}\nID моделі: {model_id}\nРевізія: {hw_version}",
                 "data": {
-                    "name": "Назва",
-                    "battery_type": "Тип батареї",
-                    "battery_quantity": "Кількість батарей",
-                    "battery_low_threshold": "Нижній поріг батареї",
-                    "battery_low_template": "Шаблон низького заряду батареї",
-                    "filter_outliers": "Відсіяти сторонні елементи"
+                    "show_all_devices": "Show all devices",
+                    "hide_battery": "Hide battery",
+                    "round_battery": "Round battery",
+                    "default_battery_low_threshold": "Default battery low threshold",
+                    "battery_increase_threshold": "Battery increase threshold"
                 },
                 "data_description": {
-                    "name": "Залишаючи незаповненим, буде взяте ім'я з основного пристрою",
-                    "battery_low_threshold": "0 буде використовувати глобальний поріг за замовчуванням",
-                    "battery_low_template": "Шаблон для визначення, коли заряд батареї низький - в такому випадку має повернути \"true\"\nПотрібен тільки для нестандартних рівнів батареї",
-                    "filter_outliers": "Відфільтровуйте великі падіння рівня заряду акумулятора, зменшуючи кількість помилкових спрацьовувань на пристроях, які час від часу помилково повідомляють про рівень заряду"
+                    "show_all_devices": "Show all devices in the device dropdown, otherwise only those with batteries will be shown.",
+                    "hide_battery": "Hide the standard battery when adding Battery+.",
+                    "round_battery": "Round Battery+ to whole percentages.",
+                    "default_battery_low_threshold": "The default threshold where a devices battery_low entity is set to true and the battery_notes_battery_threshold event is fired if the battery is below this threshold, can be overriden per device in device configuration.",
+                    "battery_increase_threshold": "The threshold where the battery_notes_battery_increased event is fired, use this event for battery replaced automations. The threshold is the difference in increase between previous and current battery level."
+                },
+                "sections": {
+                    "advanced_settings": {
+                        "name": "Advanced settings",
+                        "data": {
+                            "enable_autodiscovery": "Auto discovery",
+                            "enable_replaced": "Enable battery replaced",
+                            "user_library": "User library"
+                        },
+                        "data_description": {
+                            "enable_autodiscovery": "Auto discovery of devices that are in the library.",
+                            "enable_replaced": "Enable the battery replaced button on each battery note.",
+                            "user_library": "If specified then a user library file will be searched prior to the main library, the user library must be in the same format as the library and placed in `config/.storage/battery_notes`."
+                        }
+                    }
                 }
             }
         },
         "error": {
-            "orphaned_battery_note": "Пов'язаний пристрій або об'єкт більше не існує для Battery Note",
             "unknown": "Сталася невідома помилка."
         }
     },
@@ -199,6 +268,15 @@
                     }
                 }
             }
+        },
+        "deprecated_yaml": {
+            "title": "The {integration_title} YAML configuration is being removed",
+            "description": "Configuring {integration_title} using YAML is being removed.\n\nYour existing YAML configuration has been imported into the UI automatically.\n\nRemove the `{domain}` configuration from your configuration.yaml file and restart Home Assistant to fix this issue."
+        }
+    },
+    "exceptions": {
+        "not_configured_in_battery_notes": {
+            "message": "{source} is not configured in Battery Notes."
         }
     }
 }

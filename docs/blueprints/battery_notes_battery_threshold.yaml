@@ -23,7 +23,7 @@ blueprint:
       description: Do not trigger for specific devices when enabled.
       default: true
       selector:
-        boolean:        
+        boolean:                
     excluded_devices:
       name: Devices to exclude (Optional)
       description: When enabled above, these devices will not trigger this automation.
@@ -31,8 +31,6 @@ blueprint:
       selector:
         device:
           multiple: true
-          entity:
-            - integration: battery_notes
     include_devices_enabled:
       name: Enable Include Devices Filter
       description: Only trigger for specific devices when enabled.
@@ -46,8 +44,6 @@ blueprint:
       selector:
         device:
           multiple: true
-          entity:
-            - integration: battery_notes
     additional_conditions:
       name: Additional conditions
       description: |

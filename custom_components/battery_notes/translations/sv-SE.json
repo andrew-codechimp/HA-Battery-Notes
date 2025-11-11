@@ -2,33 +2,8 @@
     "config": {
         "step": {
             "user": {
-                "description": "Om du behöver hjälp med konfigurationen ta en titt här: https://andrew-codechimp.github.io/HA-Battery-Notes/",
-                "data": {
-                    "association_type": "Associationstyp"
-                },
-                "menu_options": {
-                    "device": "Enhet (rekommenderas)",
-                    "entity": "Entitet"
-                },
-                "title": "Välj din associationstyp"
-            },
-            "device": {
-                "data": {
-                    "device_id": "Enhet",
-                    "name": "Namn"
-                },
-                "data_description": {
-                    "name": "Genom att lämna blankt tas namnet från källenheten. "
-                }
-            },
-            "entity": {
-                "data": {
-                    "source_entity_id": "Entitet",
-                    "name": "Namn"
-                },
-                "data_description": {
-                    "name": "Lämnas tom kommer namn tas från källentiteten"
-                }
+                "description": "New Battery Notes will be discovered if they are in the library.\nTo add new Battery Notes manually go into the integration page, select Add Battery Note and follow the instructions.\nIf you need help with the configuration have a look here: {documentation_url}",
+                "title": "Setup Battery Notes"
             },
             "battery": {
                 "description": "Tillverkare: {manufacturer}\nModell: {model}\nModell ID: {model_id}\nHårdvaruversion: {hw_version}",
@@ -44,42 +19,136 @@
                     "battery_low_template": "Template för att bestämma om batteriet är lågt, borde returnera true om lågt.\nEndast nödvändigt för icke-standard batterinivåer.",
                     "filter_outliers": "Filtrera bort stora batterinivåfall för att minska falska händelser på enheter som ibland rapporterar nivåer felaktigt"
                 }
-            },
-            "manual": {
-                "description": "Enheten är markerad som manuell i registret, varianter använder olika batterityper så den kan därför inte ställas in i registret.\nNästa steg gör att du kan ställa in din batterityp, men skicka inte in någon begäran om tillägg av denna batterienhet till utvecklarna.",
-                "title": "Manuell konfiguration av enhet"
             }
         },
         "abort": {
-            "already_configured": "Enheten är redan konfigurerad. "
+            "already_configured": "Integration is already configured",
+            "integration_not_added": "Integration not added, please add the integration first",
+            "created_sub_entry": "Battery Note created successfully"
         },
         "error": {
-            "unknown": "Okänt fel inträffade. ",
-            "unconfigurable_entity": "Det är inte möjligt att lägga till denna enhet till Battery Notes."
+            "unknown": "Okänt fel inträffade."
+        }
+    },
+    "config_subentries": {
+        "battery_note": {
+            "initiate_flow": {
+                "user": "Add battery note"
+            },
+            "entry_type": "Battery note",
+            "step": {
+                "user": {
+                    "description": "Om du behöver hjälp med konfigurationen ta en titt här: {documentation_url}",
+                    "data": {
+                        "association_type": "Associationstyp"
+                    },
+                    "menu_options": {
+                        "device": "Enhet (rekommenderas)",
+                        "entity": "Entitet"
+                    },
+                    "title": "Välj din associationstyp"
+                },
+                "device": {
+                    "data": {
+                        "device_id": "Enhet",
+                        "name": "Namn"
+                    },
+                    "data_description": {
+                        "name": "Genom att lämna blankt tas namnet från källenheten. "
+                    }
+                },
+                "entity": {
+                    "data": {
+                        "source_entity_id": "Entitet",
+                        "name": "Namn"
+                    },
+                    "data_description": {
+                        "name": "Lämnas tom kommer namn tas från källentiteten"
+                    }
+                },
+                "battery": {
+                    "description": "Tillverkare: {manufacturer}\nModell: {model}\nModell ID: {model_id}\nHårdvaruversion: {hw_version}",
+                    "data": {
+                        "battery_type": "Batterityp",
+                        "battery_quantity": "Antal batterier",
+                        "battery_low_threshold": "Tröskelvärde lågt batteri",
+                        "battery_low_template": "Batteri lågt template",
+                        "filter_outliers": "Filtrera avvikande"
+                    },
+                    "data_description": {
+                        "battery_low_threshold": "0 kommer att använda det globala standardtröskelvärdet",
+                        "battery_low_template": "Template för att bestämma om batteriet är lågt, borde returnera true om lågt.\nEndast nödvändigt för icke-standard batterinivåer.",
+                        "filter_outliers": "Filtrera bort stora batterinivåfall för att minska falska händelser på enheter som ibland rapporterar nivåer felaktigt"
+                    }
+                },
+                "manual": {
+                    "description": "Enheten är markerad som manuell i registret, varianter använder olika batterityper så den kan därför inte ställas in i registret.\nNästa steg gör att du kan ställa in din batterityp, men skicka inte in någon begäran om tillägg av denna batterienhet till utvecklarna.",
+                    "title": "Manuell konfiguration av enhet"
+                },
+                "reconfigure": {
+                    "description": "Tillverkare: {manufacturer}\nModell: {model}\nModell ID: {model_id}\nHårdvaruversion: {hw_version}",
+                    "data": {
+                        "name": "Namn",
+                        "battery_type": "Batterityp",
+                        "battery_quantity": "Antal batterier",
+                        "battery_low_threshold": "Batteri lågt tröskelvärde",
+                        "battery_low_template": "Batteri lågt template",
+                        "filter_outliers": "Filtrera avvikande värden"
+                    },
+                    "data_description": {
+                        "name": "Genom att lämna blankt tas namnet från källenheten. ",
+                        "battery_low_threshold": "0 kommer att använda den globala standardtröskelvärdet. ",
+                        "battery_low_template": "Template för att bestämma om batteriet är lågt. Ska returnera true om lågt. Behövs endast för icke-standard batterinivåer. ",
+                        "filter_outliers": "Filtrera bort stora batterinivåfall för att minska falska händelser på enheter som ibland rapporterar nivåer felaktigt"
+                    }
+                }
+            },
+            "abort": {
+                "reconfigure_successful": "Re-configuration was successful",
+                "already_configured": "Enheten är redan konfigurerad. "
+            },
+            "error": {
+                "unknown": "Okänt fel inträffade.",
+                "unconfigurable_entity": "Det är inte möjligt att lägga till denna enhet till Battery Notes.",
+                "orphaned_battery_note": "Den associerade enheten eller entiteten finns inte längre för denna Batteri \nNotering ."
+            }
         }
     },
     "options": {
         "step": {
             "init": {
-                "description": "Tillverkare: {manufacturer}\nModell: {model}\nModell ID: {model_id}\nHårdvaruversion: {hw_version}",
                 "data": {
-                    "name": "Namn",
-                    "battery_type": "Batterityp",
-                    "battery_quantity": "Antal batterier",
-                    "battery_low_threshold": "Batteri lågt tröskelvärde",
-                    "battery_low_template": "Batteri lågt template",
-                    "filter_outliers": "Filtrera avvikande värden"
+                    "show_all_devices": "Show all devices",
+                    "hide_battery": "Hide battery",
+                    "round_battery": "Round battery",
+                    "default_battery_low_threshold": "Default battery low threshold",
+                    "battery_increase_threshold": "Battery increase threshold"
                 },
                 "data_description": {
-                    "name": "Genom att lämna blankt tas namnet från källenheten. ",
-                    "battery_low_threshold": "0 kommer att använda den globala standardtröskelvärdet. ",
-                    "battery_low_template": "Template för att bestämma om batteriet är lågt. Ska returnera true om lågt. Behövs endast för icke-standard batterinivåer. ",
-                    "filter_outliers": "Filtrera bort stora batterinivåfall för att minska falska händelser på enheter som ibland rapporterar nivåer felaktigt"
+                    "show_all_devices": "Show all devices in the device dropdown, otherwise only those with batteries will be shown.",
+                    "hide_battery": "Hide the standard battery when adding Battery+.",
+                    "round_battery": "Round Battery+ to whole percentages.",
+                    "default_battery_low_threshold": "The default threshold where a devices battery_low entity is set to true and the battery_notes_battery_threshold event is fired if the battery is below this threshold, can be overriden per device in device configuration.",
+                    "battery_increase_threshold": "The threshold where the battery_notes_battery_increased event is fired, use this event for battery replaced automations. The threshold is the difference in increase between previous and current battery level."
+                },
+                "sections": {
+                    "advanced_settings": {
+                        "name": "Advanced settings",
+                        "data": {
+                            "enable_autodiscovery": "Auto discovery",
+                            "enable_replaced": "Enable battery replaced",
+                            "user_library": "User library"
+                        },
+                        "data_description": {
+                            "enable_autodiscovery": "Auto discovery of devices that are in the library.",
+                            "enable_replaced": "Enable the battery replaced button on each battery note.",
+                            "user_library": "If specified then a user library file will be searched prior to the main library, the user library must be in the same format as the library and placed in `config/.storage/battery_notes`."
+                        }
+                    }
                 }
             }
         },
         "error": {
-            "orphaned_battery_note": "Den associerade enheten eller entiteten finns inte längre för denna Batteri \nNotering .",
             "unknown": "Okänt fel inträffade. "
         }
     },
@@ -199,6 +268,15 @@
                     }
                 }
             }
+        },
+        "deprecated_yaml": {
+            "title": "The {integration_title} YAML configuration is being removed",
+            "description": "Configuring {integration_title} using YAML is being removed.\n\nYour existing YAML configuration has been imported into the UI automatically.\n\nRemove the `{domain}` configuration from your configuration.yaml file and restart Home Assistant to fix this issue."
+        }
+    },
+    "exceptions": {
+        "not_configured_in_battery_notes": {
+            "message": "{source} is not configured in Battery Notes."
         }
     }
 }

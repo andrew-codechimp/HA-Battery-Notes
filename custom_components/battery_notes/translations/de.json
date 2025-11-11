@@ -2,33 +2,8 @@
     "config": {
         "step": {
             "user": {
-                "description": "Hilfe zur Konfiguration findest du unter: https://andrew-codechimp.github.io/HA-Battery-Notes/",
-                "data": {
-                    "association_type": "Verbindungstyp"
-                },
-                "menu_options": {
-                    "device": "Gerät (empfohlen)",
-                    "entity": "Entität"
-                },
-                "title": "Wählen Sie den Verbindungstyp"
-            },
-            "device": {
-                "data": {
-                    "device_id": "Gerät",
-                    "name": "Name"
-                },
-                "data_description": {
-                    "name": "Wenn du nichts eingibst, wird der Name vom Quellgerät übernommen"
-                }
-            },
-            "entity": {
-                "data": {
-                    "source_entity_id": "Entität",
-                    "name": "Name"
-                },
-                "data_description": {
-                    "name": "Leer lassen wird den Namen von der Quell-Entität übernehmen"
-                }
+                "description": "New Battery Notes will be discovered if they are in the library.\nTo add new Battery Notes manually go into the integration page, select Add Battery Note and follow the instructions.\nIf you need help with the configuration have a look here: {documentation_url}",
+                "title": "Setup Battery Notes"
             },
             "battery": {
                 "description": "Hersteller: {manufacturer}\nModell: {model}\nModell ID: {model_id}\nHardware Version: {hw_version}",
@@ -44,42 +19,136 @@
                     "battery_low_template": "Vorlage um zu bestimmen, ob eine Batterie schwach ist; sollte \"wahr\" (true) rückmelden, wenn schwach.\nNur für nicht-Standard Batteriewerte benötigt.",
                     "filter_outliers": "Filtere größere Sprünge des Ladestandes der Batterie bei Geräten, die ihren Ladestand nur sporadisch mitteilen, um fehlerhafte Auslösungen zu verhindern"
                 }
-            },
-            "manual": {
-                "description": "Dieses Gerät ist in der Bibliothek als \"manuell einzurichten\" gekennzeichnet, verschiedene Varianten verwenden unterschiedliche Batterietypen, so dass es in der Bibliothek nicht eingestellt werden kann.\nIm nächsten Schritt können Sie Ihren Batterietyp einstellen, aber bitte keine Geräteanforderung einreichen.",
-                "title": "Gerät manuell konfigurieren"
             }
         },
         "abort": {
-            "already_configured": "Das Gerät ist bereits konfiguriert."
+            "already_configured": "Integration is already configured",
+            "integration_not_added": "Integration not added, please add the integration first",
+            "created_sub_entry": "Battery Note created successfully"
         },
         "error": {
-            "unknown": "Ein unbekannter Fehler ist aufgetreten.",
-            "unconfigurable_entity": "Es ist nicht möglich, diese Entität zu einem Batteriestatus hinzuzufügen."
+            "unknown": "Ein unbekannter Fehler ist aufgetreten."
+        }
+    },
+    "config_subentries": {
+        "battery_note": {
+            "initiate_flow": {
+                "user": "Add battery note"
+            },
+            "entry_type": "Battery note",
+            "step": {
+                "user": {
+                    "description": "Hilfe zur Konfiguration findest du unter: {documentation_url}",
+                    "data": {
+                        "association_type": "Verbindungstyp"
+                    },
+                    "menu_options": {
+                        "device": "Gerät (empfohlen)",
+                        "entity": "Entität"
+                    },
+                    "title": "Wählen Sie den Verbindungstyp"
+                },
+                "device": {
+                    "data": {
+                        "device_id": "Gerät",
+                        "name": "Name"
+                    },
+                    "data_description": {
+                        "name": "Wenn du nichts eingibst, wird der Name vom Quellgerät übernommen"
+                    }
+                },
+                "entity": {
+                    "data": {
+                        "source_entity_id": "Entität",
+                        "name": "Name"
+                    },
+                    "data_description": {
+                        "name": "Leer lassen wird den Namen von der Quell-Entität übernehmen"
+                    }
+                },
+                "battery": {
+                    "description": "Hersteller: {manufacturer}\nModell: {model}\nModell ID: {model_id}\nHardware Version: {hw_version}",
+                    "data": {
+                        "battery_type": "Batterieart",
+                        "battery_quantity": "Batteriemenge",
+                        "battery_low_threshold": "Schwelle für niedrigen Batteriestand",
+                        "battery_low_template": "Vorlage für niedrigen Batteriestand",
+                        "filter_outliers": "Ausreißer filtern"
+                    },
+                    "data_description": {
+                        "battery_low_threshold": "0 verwendet den globalen Standardschwellenwert",
+                        "battery_low_template": "Vorlage um zu bestimmen, ob eine Batterie schwach ist; sollte \"wahr\" (true) rückmelden, wenn schwach.\nNur für nicht-Standard Batteriewerte benötigt.",
+                        "filter_outliers": "Filtere größere Sprünge des Ladestandes der Batterie bei Geräten, die ihren Ladestand nur sporadisch mitteilen, um fehlerhafte Auslösungen zu verhindern"
+                    }
+                },
+                "manual": {
+                    "description": "Dieses Gerät ist in der Bibliothek als \"manuell einzurichten\" gekennzeichnet, verschiedene Varianten verwenden unterschiedliche Batterietypen, so dass es in der Bibliothek nicht eingestellt werden kann.\nIm nächsten Schritt können Sie Ihren Batterietyp einstellen, aber bitte keine Geräteanforderung einreichen.",
+                    "title": "Gerät manuell konfigurieren"
+                },
+                "reconfigure": {
+                    "description": "Hersteller: {manufacturer}\nModell: {model}\nModell ID: {model_id}\nHardware Version: {hw_version}",
+                    "data": {
+                        "name": "Name",
+                        "battery_type": "Batterieart",
+                        "battery_quantity": "Batteriemenge",
+                        "battery_low_threshold": "Schwelle für niedrigen Batteriestand",
+                        "battery_low_template": "Vorlage für niedrigen Batteriestand",
+                        "filter_outliers": "Ausreißer filtern"
+                    },
+                    "data_description": {
+                        "name": "Wenn du nichts eingibst, wird der Name vom Quellgerät übernommen",
+                        "battery_low_threshold": "0 verwendet den globalen Standardschwellenwert",
+                        "battery_low_template": "Vorlage um zu bestimmen, ob eine Batterie schwach ist; sollte \"wahr\" (true) rückmelden, wenn schwach.\nNur für nicht-Standard Batteriewerte benötigt.",
+                        "filter_outliers": "Filtere größere Sprünge des Ladestandes der Batterie bei Geräten, die ihren Ladestand nur sporadisch mitteilen, um fehlerhafte Auslösungen zu verhindern"
+                    }
+                }
+            },
+            "abort": {
+                "reconfigure_successful": "Re-configuration was successful",
+                "already_configured": "Das Gerät ist bereits konfiguriert."
+            },
+            "error": {
+                "unknown": "Ein unbekannter Fehler ist aufgetreten.",
+                "unconfigurable_entity": "Es ist nicht möglich, diese Entität zu einem Batteriestatus hinzuzufügen.",
+                "orphaned_battery_note": "Das zugeordnete Gerät für diesen Eintrag in \"Battery Notes\" ist nicht mehr verfügbar"
+            }
         }
     },
     "options": {
         "step": {
             "init": {
-                "description": "Hersteller: {manufacturer}\nModell: {model}\nModell ID: {model_id}\nHardware Version: {hw_version}",
                 "data": {
-                    "name": "Name",
-                    "battery_type": "Batterieart",
-                    "battery_quantity": "Batteriemenge",
-                    "battery_low_threshold": "Schwelle für niedrigen Batteriestand",
-                    "battery_low_template": "Vorlage für niedrigen Batteriestand",
-                    "filter_outliers": "Ausreißer filtern"
+                    "show_all_devices": "Show all devices",
+                    "hide_battery": "Hide battery",
+                    "round_battery": "Round battery",
+                    "default_battery_low_threshold": "Default battery low threshold",
+                    "battery_increase_threshold": "Battery increase threshold"
                 },
                 "data_description": {
-                    "name": "Wenn du nichts eingibst, wird der Name vom Quellgerät übernommen",
-                    "battery_low_threshold": "0 verwendet den globalen Standardschwellenwert",
-                    "battery_low_template": "Vorlage um zu bestimmen, ob eine Batterie schwach ist; sollte \"wahr\" (true) rückmelden, wenn schwach.\nNur für nicht-Standard Batteriewerte benötigt.",
-                    "filter_outliers": "Filtere größere Sprünge des Ladestandes der Batterie bei Geräten, die ihren Ladestand nur sporadisch mitteilen, um fehlerhafte Auslösungen zu verhindern"
+                    "show_all_devices": "Show all devices in the device dropdown, otherwise only those with batteries will be shown.",
+                    "hide_battery": "Hide the standard battery when adding Battery+.",
+                    "round_battery": "Round Battery+ to whole percentages.",
+                    "default_battery_low_threshold": "The default threshold where a devices battery_low entity is set to true and the battery_notes_battery_threshold event is fired if the battery is below this threshold, can be overriden per device in device configuration.",
+                    "battery_increase_threshold": "The threshold where the battery_notes_battery_increased event is fired, use this event for battery replaced automations. The threshold is the difference in increase between previous and current battery level."
+                },
+                "sections": {
+                    "advanced_settings": {
+                        "name": "Advanced settings",
+                        "data": {
+                            "enable_autodiscovery": "Auto discovery",
+                            "enable_replaced": "Enable battery replaced",
+                            "user_library": "User library"
+                        },
+                        "data_description": {
+                            "enable_autodiscovery": "Auto discovery of devices that are in the library.",
+                            "enable_replaced": "Enable the battery replaced button on each battery note.",
+                            "user_library": "If specified then a user library file will be searched prior to the main library, the user library must be in the same format as the library and placed in `config/.storage/battery_notes`."
+                        }
+                    }
                 }
             }
         },
         "error": {
-            "orphaned_battery_note": "Das zugeordnete Gerät für diesen Eintrag in \"Battery Notes\" ist nicht mehr verfügbar",
             "unknown": "Ein unbekannter Fehler ist aufgetreten."
         }
     },
@@ -199,6 +268,15 @@
                     }
                 }
             }
+        },
+        "deprecated_yaml": {
+            "title": "The {integration_title} YAML configuration is being removed",
+            "description": "Configuring {integration_title} using YAML is being removed.\n\nYour existing YAML configuration has been imported into the UI automatically.\n\nRemove the `{domain}` configuration from your configuration.yaml file and restart Home Assistant to fix this issue."
+        }
+    },
+    "exceptions": {
+        "not_configured_in_battery_notes": {
+            "message": "{source} is not configured in Battery Notes."
         }
     }
 }

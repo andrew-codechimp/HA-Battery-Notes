@@ -2,33 +2,8 @@
     "config": {
         "step": {
             "user": {
-                "description": "若在設定過程中有任何疑問，請參考： https://andrew-codechimp.github.io/HA-Battery-Notes/",
-                "data": {
-                    "association_type": "關聯類型"
-                },
-                "menu_options": {
-                    "device": "裝置（建議）",
-                    "entity": "實體"
-                },
-                "title": "選擇關聯類型"
-            },
-            "device": {
-                "data": {
-                    "device_id": "裝置",
-                    "name": "名稱"
-                },
-                "data_description": {
-                    "name": "若留空，將使用來源裝置的名稱"
-                }
-            },
-            "entity": {
-                "data": {
-                    "source_entity_id": "實體",
-                    "name": "名稱"
-                },
-                "data_description": {
-                    "name": "若留空，將使用來源實體的名稱"
-                }
+                "description": "New Battery Notes will be discovered if they are in the library.\nTo add new Battery Notes manually go into the integration page, select Add Battery Note and follow the instructions.\nIf you need help with the configuration have a look here: {documentation_url}",
+                "title": "Setup Battery Notes"
             },
             "battery": {
                 "description": "製造商：{manufacturer}\n型號：{model}\n型號 ID：{model_id}\n硬體版本：{hw_version}",
@@ -44,42 +19,136 @@
                     "battery_low_template": "判斷電池是否低電量的模板，若為低電量應回傳 true\n僅在電池電量非標準時需要",
                     "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
                 }
-            },
-            "manual": {
-                "description": "此裝置在資料庫中被標記為手動設定，不同變體使用不同電池類型，因此無法在資料庫中設定。\n下一步將讓你設定電池類型，但請勿提交裝置請求。",
-                "title": "裝置手動設定"
             }
         },
         "abort": {
-            "already_configured": "裝置已設定過"
+            "already_configured": "Integration is already configured",
+            "integration_not_added": "Integration not added, please add the integration first",
+            "created_sub_entry": "Battery Note created successfully"
         },
         "error": {
-            "unknown": "發生未知錯誤。",
-            "unconfigurable_entity": "無法將此實體新增至 Battery Notes。"
+            "unknown": "發生未知錯誤。"
+        }
+    },
+    "config_subentries": {
+        "battery_note": {
+            "initiate_flow": {
+                "user": "Add battery note"
+            },
+            "entry_type": "Battery note",
+            "step": {
+                "user": {
+                    "description": "若在設定過程中有任何疑問，請參考： {documentation_url}",
+                    "data": {
+                        "association_type": "關聯類型"
+                    },
+                    "menu_options": {
+                        "device": "裝置（建議）",
+                        "entity": "實體"
+                    },
+                    "title": "選擇關聯類型"
+                },
+                "device": {
+                    "data": {
+                        "device_id": "裝置",
+                        "name": "名稱"
+                    },
+                    "data_description": {
+                        "name": "若留空，將使用來源裝置的名稱"
+                    }
+                },
+                "entity": {
+                    "data": {
+                        "source_entity_id": "實體",
+                        "name": "名稱"
+                    },
+                    "data_description": {
+                        "name": "若留空，將使用來源實體的名稱"
+                    }
+                },
+                "battery": {
+                    "description": "製造商：{manufacturer}\n型號：{model}\n型號 ID：{model_id}\n硬體版本：{hw_version}",
+                    "data": {
+                        "battery_type": "電池類型",
+                        "battery_quantity": "電池數量",
+                        "battery_low_threshold": "低電量閾值",
+                        "battery_low_template": "低電量模板",
+                        "filter_outliers": "Filter outliers"
+                    },
+                    "data_description": {
+                        "battery_low_threshold": "若為零，將使用全域預設閾值",
+                        "battery_low_template": "判斷電池是否低電量的模板，若為低電量應回傳 true\n僅在電池電量非標準時需要",
+                        "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                    }
+                },
+                "manual": {
+                    "description": "此裝置在資料庫中被標記為手動設定，不同變體使用不同電池類型，因此無法在資料庫中設定。\n下一步將讓你設定電池類型，但請勿提交裝置請求。",
+                    "title": "裝置手動設定"
+                },
+                "reconfigure": {
+                    "description": "製造商：{manufacturer}\n型號：{model}\n型號 ID：{model_id}\n硬體版本：{hw_version}",
+                    "data": {
+                        "name": "名稱",
+                        "battery_type": "電池類型",
+                        "battery_quantity": "電池數量",
+                        "battery_low_threshold": "低電量閾值",
+                        "battery_low_template": "低電量模板",
+                        "filter_outliers": "Filter outliers"
+                    },
+                    "data_description": {
+                        "name": "若留空，將使用來源裝置的名稱",
+                        "battery_low_threshold": "若為零，將使用全域預設閾值",
+                        "battery_low_template": "判斷電池是否低電量的模板，若為低電量應回傳 true\n僅在電池電量非標準時需要",
+                        "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                    }
+                }
+            },
+            "abort": {
+                "reconfigure_successful": "Re-configuration was successful",
+                "already_configured": "裝置已設定過"
+            },
+            "error": {
+                "unknown": "發生未知錯誤。",
+                "unconfigurable_entity": "無法將此實體新增至 Battery Notes。",
+                "orphaned_battery_note": "此 Battery Note 的關聯裝置或實體已不存在。"
+            }
         }
     },
     "options": {
         "step": {
             "init": {
-                "description": "製造商：{manufacturer}\n型號：{model}\n型號 ID：{model_id}\n硬體版本：{hw_version}",
                 "data": {
-                    "name": "名稱",
-                    "battery_type": "電池類型",
-                    "battery_quantity": "電池數量",
-                    "battery_low_threshold": "低電量閾值",
-                    "battery_low_template": "低電量模板",
-                    "filter_outliers": "Filter outliers"
+                    "show_all_devices": "Show all devices",
+                    "hide_battery": "Hide battery",
+                    "round_battery": "Round battery",
+                    "default_battery_low_threshold": "Default battery low threshold",
+                    "battery_increase_threshold": "Battery increase threshold"
                 },
                 "data_description": {
-                    "name": "若留空，將使用來源裝置的名稱",
-                    "battery_low_threshold": "若為零，將使用全域預設閾值",
-                    "battery_low_template": "判斷電池是否低電量的模板，若為低電量應回傳 true\n僅在電池電量非標準時需要",
-                    "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                    "show_all_devices": "Show all devices in the device dropdown, otherwise only those with batteries will be shown.",
+                    "hide_battery": "Hide the standard battery when adding Battery+.",
+                    "round_battery": "Round Battery+ to whole percentages.",
+                    "default_battery_low_threshold": "The default threshold where a devices battery_low entity is set to true and the battery_notes_battery_threshold event is fired if the battery is below this threshold, can be overriden per device in device configuration.",
+                    "battery_increase_threshold": "The threshold where the battery_notes_battery_increased event is fired, use this event for battery replaced automations. The threshold is the difference in increase between previous and current battery level."
+                },
+                "sections": {
+                    "advanced_settings": {
+                        "name": "Advanced settings",
+                        "data": {
+                            "enable_autodiscovery": "Auto discovery",
+                            "enable_replaced": "Enable battery replaced",
+                            "user_library": "User library"
+                        },
+                        "data_description": {
+                            "enable_autodiscovery": "Auto discovery of devices that are in the library.",
+                            "enable_replaced": "Enable the battery replaced button on each battery note.",
+                            "user_library": "If specified then a user library file will be searched prior to the main library, the user library must be in the same format as the library and placed in `config/.storage/battery_notes`."
+                        }
+                    }
                 }
             }
         },
         "error": {
-            "orphaned_battery_note": "此 Battery Note 的關聯裝置或實體已不存在。",
             "unknown": "發生未知錯誤。"
         }
     },
@@ -199,6 +268,15 @@
                     }
                 }
             }
+        },
+        "deprecated_yaml": {
+            "title": "The {integration_title} YAML configuration is being removed",
+            "description": "Configuring {integration_title} using YAML is being removed.\n\nYour existing YAML configuration has been imported into the UI automatically.\n\nRemove the `{domain}` configuration from your configuration.yaml file and restart Home Assistant to fix this issue."
+        }
+    },
+    "exceptions": {
+        "not_configured_in_battery_notes": {
+            "message": "{source} is not configured in Battery Notes."
         }
     }
 }

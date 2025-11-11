@@ -18,8 +18,6 @@ blueprint:
       selector:
         device:
           multiple: true
-          entity:
-            - integration: battery_notes
     include_devices_enabled:
       name: Enable Include Devices Filter
       description: Only trigger for specific devices when enabled.
@@ -33,8 +31,6 @@ blueprint:
       selector:
         device:
           multiple: true
-          entity:
-            - integration: battery_notes
     additional_conditions:
       name: Additional conditions
       description: |

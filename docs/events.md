@@ -17,7 +17,7 @@ You can use this to send notifications in your preferred method.  An example aut
 |-----------|------|-------------|
 | `device_id` | `string` | The device id of the device. |
 | `source_entity_id` | `string` | The entity id of the sensor associated with the battery note. |
-| `device_name` | `string` | The device name (or associated sensor name if no device). |
+| `device_name` | `string` | The device name (or associated sensor name if no device), if you have renamed the battery note it will use this name. |
 | `battery_low` | `bool` | Returns true if the battery has gone below the threshold, false when the battery has returned above the threshold. **Your automations will almost certainly want to examine this value and set/clear notifications or other indicators.** |
 | `battery_low_threshold` | `string` | Battery low threshold (or global if 0). |
 | `battery_type_and_quantity` | `string` | Battery type & quantity. |
@@ -93,7 +93,7 @@ An example automation below shows how to update the battery_replaced.
 |-----------|------|-------------|
 | `device_id` | `string` | The device id of the device. |
 | `source_entity_id` | `string` | The entity id of the sensor associated with the battery note. |
-| `device_name` | `string` | The device name (or associated sensor name if no device). |
+| `device_name` | `string` | The device name (or associated sensor name if no device), if you have renamed the battery note it will use this name. |
 | `battery_low` | `bool` | Returns true if the battery has gone below the threshold, false when the battery has returned above the threshold. |
 | `battery_low_threshold` | `string` | Battery low threshold (or global if 0). |
 | `battery_type_and_quantity` | `string` | Battery type & quantity. |
@@ -134,7 +134,7 @@ The action can raise multiple events quickly so when using with an automation it
 |-----------|------|-------------|
 | `device_id` | `string` | The device id of the device. |
 | `source_entity_id` | `string` | The entity id of the sensor associated with the battery note. |
-| `device_name` | `string` | The device name (or associated sensor name if no device). |
+| `device_name` | `string` | The device name (or associated sensor name if no device), if you have renamed the battery note it will use this name. |
 | `battery_type_and_quantity` | `string` | Battery type & quantity. |
 | `battery_type` | `string` | Battery type. |
 | `battery_quantity` | `int` | Battery quantity. |
@@ -183,7 +183,7 @@ This can be useful for adding batteries to a shopping list or inventory system.
 |-----------|------|-------------|
 | `device_id` | `string` | The device id of the device. |
 | `source_entity_id` | `string` | The entity id of the sensor associated with the battery note. |
-| `device_name` | `string` | The device name (or associated sensor name if no device). |
+| `device_name` | `string` | The device name (or associated sensor name if no device), if you have renamed the battery note it will use this name. |
 | `battery_type_and_quantity` | `string` | Battery type & quantity. |
 | `battery_type` | `string` | Battery type. |
 | `battery_quantity` | `int` | Battery quantity. |

@@ -2,33 +2,8 @@
     "config": {
         "step": {
             "user": {
-                "description": "Ak potrebujete pomoc s konfiguráciou, pozrite sa sem: https://andrew-codechimp.github.io/HA-Battery-Notes/",
-                "data": {
-                    "association_type": "Typ asociácie"
-                },
-                "menu_options": {
-                    "device": "Zariadenie (odporúčané)",
-                    "entity": "Entita"
-                },
-                "title": "Vyberte typ asociácie"
-            },
-            "device": {
-                "data": {
-                    "device_id": "Zariadenie",
-                    "name": "Názov"
-                },
-                "data_description": {
-                    "name": "Ak ponecháte prázdne, názov sa prevezme zo zdrojového zariadenia"
-                }
-            },
-            "entity": {
-                "data": {
-                    "source_entity_id": "Entita",
-                    "name": "Názov"
-                },
-                "data_description": {
-                    "name": "Ak ponecháte prázdne, názov sa prevezme zo zdrojovej entity"
-                }
+                "description": "New Battery Notes will be discovered if they are in the library.\nTo add new Battery Notes manually go into the integration page, select Add Battery Note and follow the instructions.\nIf you need help with the configuration have a look here: {documentation_url}",
+                "title": "Setup Battery Notes"
             },
             "battery": {
                 "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
@@ -44,42 +19,136 @@
                     "battery_low_template": "Šablóna na určenie nízkej úrovne batérie by mala vrátiť hodnotu Pravda, ak je nízke\nPotrebné iba pri neštandardných úrovniach batérie",
                     "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
                 }
-            },
-            "manual": {
-                "description": "This device is marked in the library as manual, variants use different battery types so it cannot be set in the library.\nThe next step will allow you to set your battery type but please do not submit a device request.",
-                "title": "Device manual configuration"
             }
         },
         "abort": {
-            "already_configured": "Zariadenie je už nakonfigurované"
+            "already_configured": "Integration is already configured",
+            "integration_not_added": "Integration not added, please add the integration first",
+            "created_sub_entry": "Battery Note created successfully"
         },
         "error": {
-            "unknown": "Vyskytla sa neznáma chyba.",
-            "unconfigurable_entity": "It is not possible to add this entity to Battery Notes."
+            "unknown": "Vyskytla sa neznáma chyba."
+        }
+    },
+    "config_subentries": {
+        "battery_note": {
+            "initiate_flow": {
+                "user": "Add battery note"
+            },
+            "entry_type": "Battery note",
+            "step": {
+                "user": {
+                    "description": "Ak potrebujete pomoc s konfiguráciou, pozrite sa sem: {documentation_url}",
+                    "data": {
+                        "association_type": "Typ asociácie"
+                    },
+                    "menu_options": {
+                        "device": "Zariadenie (odporúčané)",
+                        "entity": "Entita"
+                    },
+                    "title": "Vyberte typ asociácie"
+                },
+                "device": {
+                    "data": {
+                        "device_id": "Zariadenie",
+                        "name": "Názov"
+                    },
+                    "data_description": {
+                        "name": "Ak ponecháte prázdne, názov sa prevezme zo zdrojového zariadenia"
+                    }
+                },
+                "entity": {
+                    "data": {
+                        "source_entity_id": "Entita",
+                        "name": "Názov"
+                    },
+                    "data_description": {
+                        "name": "Ak ponecháte prázdne, názov sa prevezme zo zdrojovej entity"
+                    }
+                },
+                "battery": {
+                    "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
+                    "data": {
+                        "battery_type": "Typ batérie",
+                        "battery_quantity": "Množstvo batérie",
+                        "battery_low_threshold": "Nízky prah batérie",
+                        "battery_low_template": "Šablóna slabej batérie",
+                        "filter_outliers": "Filter outliers"
+                    },
+                    "data_description": {
+                        "battery_low_threshold": "0 použije globálny predvolený prah",
+                        "battery_low_template": "Šablóna na určenie nízkej úrovne batérie by mala vrátiť hodnotu Pravda, ak je nízke\nPotrebné iba pri neštandardných úrovniach batérie",
+                        "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                    }
+                },
+                "manual": {
+                    "description": "This device is marked in the library as manual, variants use different battery types so it cannot be set in the library.\nThe next step will allow you to set your battery type but please do not submit a device request.",
+                    "title": "Device manual configuration"
+                },
+                "reconfigure": {
+                    "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
+                    "data": {
+                        "name": "Názov",
+                        "battery_type": "Typ batérie",
+                        "battery_quantity": "Množstvo batérie",
+                        "battery_low_threshold": "Nízky prah batérie",
+                        "battery_low_template": "Šablóna slabej batérie",
+                        "filter_outliers": "Filter outliers"
+                    },
+                    "data_description": {
+                        "name": "Ak ponecháte prázdne, názov sa prevezme zo zdrojového zariadenia",
+                        "battery_low_threshold": "0 použije globálny predvolený prah",
+                        "battery_low_template": "Šablóna na určenie nízkej úrovne batérie by mala vrátiť hodnotu true, ak je nízka\nPotrebné iba pri neštandardných úrovniach batérie",
+                        "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                    }
+                }
+            },
+            "abort": {
+                "reconfigure_successful": "Re-configuration was successful",
+                "already_configured": "Zariadenie je už nakonfigurované"
+            },
+            "error": {
+                "unknown": "Vyskytla sa neznáma chyba.",
+                "unconfigurable_entity": "It is not possible to add this entity to Battery Notes.",
+                "orphaned_battery_note": "The associated device or entity no longer exists for this Battery Note."
+            }
         }
     },
     "options": {
         "step": {
             "init": {
-                "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
                 "data": {
-                    "name": "Názov",
-                    "battery_type": "Typ batérie",
-                    "battery_quantity": "Množstvo batérie",
-                    "battery_low_threshold": "Nízky prah batérie",
-                    "battery_low_template": "Šablóna slabej batérie",
-                    "filter_outliers": "Filter outliers"
+                    "show_all_devices": "Show all devices",
+                    "hide_battery": "Hide battery",
+                    "round_battery": "Round battery",
+                    "default_battery_low_threshold": "Default battery low threshold",
+                    "battery_increase_threshold": "Battery increase threshold"
                 },
                 "data_description": {
-                    "name": "Ak ponecháte prázdne, názov sa prevezme zo zdrojového zariadenia",
-                    "battery_low_threshold": "0 použije globálny predvolený prah",
-                    "battery_low_template": "Šablóna na určenie nízkej úrovne batérie by mala vrátiť hodnotu true, ak je nízka\nPotrebné iba pri neštandardných úrovniach batérie",
-                    "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                    "show_all_devices": "Show all devices in the device dropdown, otherwise only those with batteries will be shown.",
+                    "hide_battery": "Hide the standard battery when adding Battery+.",
+                    "round_battery": "Round Battery+ to whole percentages.",
+                    "default_battery_low_threshold": "The default threshold where a devices battery_low entity is set to true and the battery_notes_battery_threshold event is fired if the battery is below this threshold, can be overriden per device in device configuration.",
+                    "battery_increase_threshold": "The threshold where the battery_notes_battery_increased event is fired, use this event for battery replaced automations. The threshold is the difference in increase between previous and current battery level."
+                },
+                "sections": {
+                    "advanced_settings": {
+                        "name": "Advanced settings",
+                        "data": {
+                            "enable_autodiscovery": "Auto discovery",
+                            "enable_replaced": "Enable battery replaced",
+                            "user_library": "User library"
+                        },
+                        "data_description": {
+                            "enable_autodiscovery": "Auto discovery of devices that are in the library.",
+                            "enable_replaced": "Enable the battery replaced button on each battery note.",
+                            "user_library": "If specified then a user library file will be searched prior to the main library, the user library must be in the same format as the library and placed in `config/.storage/battery_notes`."
+                        }
+                    }
                 }
             }
         },
         "error": {
-            "orphaned_battery_note": "The associated device or entity no longer exists for this Battery Note.",
             "unknown": "Vyskytla sa neznáma chyba."
         }
     },
@@ -199,6 +268,15 @@
                     }
                 }
             }
+        },
+        "deprecated_yaml": {
+            "title": "The {integration_title} YAML configuration is being removed",
+            "description": "Configuring {integration_title} using YAML is being removed.\n\nYour existing YAML configuration has been imported into the UI automatically.\n\nRemove the `{domain}` configuration from your configuration.yaml file and restart Home Assistant to fix this issue."
+        }
+    },
+    "exceptions": {
+        "not_configured_in_battery_notes": {
+            "message": "{source} is not configured in Battery Notes."
         }
     }
 }

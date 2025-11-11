@@ -2,6 +2,6 @@
     "name": "Battery Notes",
     "filename": "battery_notes.zip",
     "hide_default_branch": true,
-    "homeassistant": "2025.4.0",
+    "homeassistant": "2025.9.0",
     "zip_release": true
 }

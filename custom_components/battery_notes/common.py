@@ -2,8 +2,8 @@
 
 from datetime import datetime
 
-from homeassistant.helpers.device_registry import DeviceEntry
 from homeassistant.util import dt as dt_util
+from homeassistant.helpers.device_registry import DeviceEntry
 
 
 def validate_is_float(num):
@@ -16,10 +16,12 @@ def validate_is_float(num):
             return False
     return False
 
+
 def utcnow_no_timezone() -> datetime:
     """Return UTC now without timezone information."""
 
     return dt_util.utcnow().replace(tzinfo=None)
+
 
 def get_device_model_id(device_entry: DeviceEntry) -> str | None:
     """Get the device model if available."""
