@@ -29,17 +29,6 @@ _If you want to show your support please_
 
 ## Installation
 
-**Important for current v2.x releases (not beta)**
-
-Once you have installed battery notes using either HACS or manually as per the instructions below you must add the following entry to your `configuration.yaml`, then restart Home Assistant. This will enable discovery of your devices.
-
-```
-battery_notes:
-```
-
-If you need to add a device that is not automatically discovered from the library go to Settings -> Integrations click "+" and search for "Battery Notes"
-
-
 ### HACS Installation
 
 [![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=andrew-codechimp&repository=HA-Battery-Notes&category=Integration)
