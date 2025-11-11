@@ -3146,6 +3146,12 @@
         },
         {
             "manufacturer": "eQ-3",
+            "model": "HmIP-SWDO-PL-2",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "eQ-3",
             "model": "HmIP-SWO-B",
             "battery_type": "AA",
             "battery_quantity": 3
@@ -7640,6 +7646,12 @@
         },
         {
             "manufacturer": "SONOFF",
+            "model": "SNZB-02D",
+            "hw_version": "0",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "SONOFF",
             "model": "SNZB-02LD",
             "battery_type": "CR2477"
         },
@@ -9660,6 +9672,13 @@
             "manufacturer": "Vesternet",
             "model": "8 Button",
             "model_id": "VES-ZW-WAL-009",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Vesternet",
+            "model": "VES-ZW-WAL-009",
+            "model_id": "VES-ZW-WAL-009",
+            "hw_version": "1,28",
             "battery_type": "CR2450"
         },
         {

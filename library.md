@@ -1,4 +1,4 @@
-## 1886 Devices in library
+## 1889 Devices in library
 
 This file is auto generated, do not modify
 
@@ -555,6 +555,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |eQ-3                                            |HmIP-SWDO-2                                                                                   |AAA                       |                                   |                                      |
 |eQ-3                                            |HMIP-SWDO-I                                                                                   |2× AAA                    |                                   |                                      |
 |eQ-3                                            |HMIP-SWDO-PL                                                                                  |2× AAA                    |                                   |                                      |
+|eQ-3                                            |HmIP-SWDO-PL-2                                                                                |2× AAA                    |                                   |                                      |
 |eQ-3                                            |HmIP-SWO-B                                                                                    |3× AA                     |                                   |                                      |
 |eQ-3                                            |HmIP-SWO-PR                                                                                   |3× AA                     |                                   |                                      |
 |eQ-3                                            |HmIP-SWSD                                                                                     |2× FDK CR17450E-N (3V)    |                                   |                                      |
@@ -1351,6 +1352,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |SonOff                                          |SNZB-01                                                                                       |CR2450                    |                                   |                                      |
 |Sonoff                                          |SNZB-02                                                                                       |CR2450                    |                                   |                                      |
 |SONOFF                                          |SNZB-02D                                                                                      |CR2450                    |                                   |                                      |
+|SONOFF                                          |SNZB-02D                                                                                      |CR2450                    |                                   |                                     0|
 |SONOFF                                          |SNZB-02LD                                                                                     |CR2477                    |                                   |                                      |
 |SONOFF                                          |SNZB-02P                                                                                      |CR2477                    |                                   |                                      |
 |Sonoff                                          |SNZB-03                                                                                       |CR2032                    |                                   |                                      |
@@ -1689,6 +1691,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Verisure                                        |Lockguard Smartlock                                                                           |4× AA                     |                                   |                                      |
 |verspringE                                      |HSP02 / SP103                                                                                 |CR2                       |                                   |                                      |
 |Vesternet                                       |8 Button                                                                                      |CR2450                    |VES-ZW-WAL-009                     |                                      |
+|Vesternet                                       |VES-ZW-WAL-009                                                                                |CR2450                    |VES-ZW-WAL-009                     |                                   128|
 |VictorPest.com                                  |Rat Trap                                                                                      |4× C                      |                                   |                                      |
 |Viking                                          |Viking 02035,02038                                                                            |2× AAA                    |                                   |                                      |
 |Vision Security                                 |ZD2102-5                                                                                      |CR123A                    |                                   |                                      |
