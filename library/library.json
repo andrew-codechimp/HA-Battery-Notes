@@ -7801,6 +7801,13 @@
             "battery_type": "CR2477"
         },
         {
+            "manufacturer": "SONOFF",
+            "model": "Zigbee water sensor",
+            "model_id": "SNZB-05P",
+            "hw_version": "0",
+            "battery_type": "CR2477"
+        },
+        {
             "manufacturer": "Sonos",
             "model": "Move",
             "battery_type": "Rechargeable"
@@ -10789,13 +10796,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "SONOFF",
-            "model": "Zigbee water sensor",
-            "model_id": "SNZB-05P",
-            "hw_version": "0",
-            "battery_type": "CR2477"
         }
     ]
 }

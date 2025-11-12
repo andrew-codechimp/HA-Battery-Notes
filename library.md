@@ -1,4 +1,4 @@
-## 1889 Devices in library
+## 1890 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1379,6 +1379,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |SONOFF                                          |Zigbee thermostatic radiator valve                                                            |3× AA                     |TRVZB                              |                                      |
 |SONOFF                                          |Zigbee thermostatic radiator valve (TRVZB)                                                    |3× AA                     |                                   |                                      |
 |Sonoff                                          |Zigbee water sensor                                                                           |CR2477                    |SNZB-05P                           |                                      |
+|SONOFF                                          |Zigbee water sensor                                                                           |CR2477                    |SNZB-05P                           |                                     0|
 |Sonos                                           |Move                                                                                          |Rechargeable              |                                   |                                      |
 |Sonos                                           |Roam                                                                                          |Rechargeable              |                                   |                                      |
 |Sonos                                           |Roam 2                                                                                        |Rechargeable              |S54                                |                                      |
