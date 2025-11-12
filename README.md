@@ -40,7 +40,7 @@ Restart Home Assistant
 
 In the HA UI go to Settings -> Integrations click "+ Add integration" and search for "Battery Notes"
 
-This will create the main Battery Notes integration service and discovery will start shortly afterwards, or you can battery notes manually within the integration.
+This will create the main Battery Notes integration service and discovery will start shortly afterwards, or you can add battery notes manually within the settings/integrations/Battery Notes page by using the Add Battery Note button.
 
 ### Manual Installation
 
@@ -51,7 +51,7 @@ This will create the main Battery Notes integration service and discovery will s
 - To install, place the contents of `custom_components` into the `<config directory>/custom_components` folder of your Home Assistant installation.
 - Restart Home Assistant
 - In the HA UI go to Settings -> Integrations click "+ Add integration" and search for "Battery Notes"
-- This will create the main Battery Notes integration service and discovery will start shortly afterwards, or you can battery notes manually within the integration.
+- This will create the main Battery Notes integration service and discovery will start shortly afterwards, or you can add battery notes manually within the settings/integrations/Battery Notes page by using the Add Battery Note button.
 </details>
 
 ## Docs
