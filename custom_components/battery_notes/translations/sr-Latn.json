@@ -38,46 +38,46 @@
             "entry_type": "Battery note",
             "step": {
                 "user": {
-                    "description": "Ako vam treba pomoć oko konfiguracije, pogledajte ovde: {documentation_url}",
+                    "description": "If you need help with the configuration have a look here: {documentation_url}",
                     "data": {
-                        "association_type": "Vrsta povezivanja"
+                        "association_type": "Association type"
                     },
                     "menu_options": {
-                        "device": "Uređaj (preporučeno)",
-                        "entity": "Entitet"
+                        "device": "Device (recommended)",
+                        "entity": "Entity"
                     },
-                    "title": "Odaberite vrstu povezivanja"
+                    "title": "Choose your association type"
                 },
                 "device": {
                     "data": {
-                        "device_id": "Uređaj",
-                        "name": "Naziv"
+                        "device_id": "Device",
+                        "name": "Name"
                     },
                     "data_description": {
-                        "name": "Ako ostavite prazno, naziv će preuzeti sa izvornog uređaja"
+                        "name": "Leaving blank will take the name from the source device"
                     }
                 },
                 "entity": {
                     "data": {
-                        "source_entity_id": "Entitet",
-                        "name": "Naziv"
+                        "source_entity_id": "Entity",
+                        "name": "Name"
                     },
                     "data_description": {
-                        "name": "Ako ostavite prazno, naziv će preuzeti sa izvornog entiteta"
+                        "name": "Leaving blank will take the name from the source entity"
                     }
                 },
                 "battery": {
                     "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
                     "data": {
-                        "battery_type": "Tip baterije",
-                        "battery_quantity": "Broj baterija",
-                        "battery_low_threshold": "Nizak prag napunjenosti baterije",
-                        "battery_low_template": "Šablon ptazne baterije",
+                        "battery_type": "Battery type",
+                        "battery_quantity": "Battery quantity",
+                        "battery_low_threshold": "Battery low threshold",
+                        "battery_low_template": "Battery low template",
                         "filter_outliers": "Filter outliers"
                     },
                     "data_description": {
-                        "battery_low_threshold": "0 će koristiti globalni podrazumevani prag",
-                        "battery_low_template": "Šablon za određivanje da je baterija prazna, treba da vrati true ako je nizak nivo\nPotrebno samo za nestandardne nivoe baterije",
+                        "battery_low_threshold": "0 will use the global default threshold",
+                        "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels",
                         "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
                     }
                 },
@@ -88,27 +88,27 @@
                 "reconfigure": {
                     "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
                     "data": {
-                        "name": "Naziv",
-                        "battery_type": "Tip baterije",
-                        "battery_quantity": "Broj baterija",
-                        "battery_low_threshold": "Nizak prag napunjenosti baterije",
-                        "battery_low_template": "Šablon prazne baterije",
+                        "name": "Name",
+                        "battery_type": "Battery type",
+                        "battery_quantity": "Battery quantity",
+                        "battery_low_threshold": "Battery low threshold",
+                        "battery_low_template": "Battery low template",
                         "filter_outliers": "Filter outliers"
                     },
                     "data_description": {
-                        "name": "Ako ostavite prazno, naziv će preuzeti sa izvornog uređaja",
-                        "battery_low_threshold": "0 će koristiti globalni podrazumevani prag",
-                        "battery_low_template": "Šablon za određivanje da je baterija prazna, treba da vrati true ako je nizak nivo\nPotrebno samo za nestandardne nivoe baterije",
+                        "name": "Leaving blank will take the name from the source device",
+                        "battery_low_threshold": "0 will use the global default threshold",
+                        "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels",
                         "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
                     }
                 }
             },
             "abort": {
                 "reconfigure_successful": "Re-configuration was successful",
-                "already_configured": "Uređaj je već konfigurisan"
+                "already_configured": "Device is already configured"
             },
             "error": {
-                "unknown": "Nepoznata greška se dogodila.",
+                "unknown": "Unknown error occurred.",
                 "unconfigurable_entity": "It is not possible to add this entity to Battery Notes.",
                 "orphaned_battery_note": "The associated device or entity no longer exists for this Battery Note."
             }

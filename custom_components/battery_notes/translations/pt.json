@@ -38,79 +38,79 @@
             "entry_type": "Battery note",
             "step": {
                 "user": {
-                    "description": "Caso precise se ajude na configuração pode verificar em : https://github.com/andrew-codechimp/ha-battery-notes",
+                    "description": "If you need help with the configuration have a look here: {documentation_url}",
                     "data": {
-                        "association_type": "Tipo de associação"
+                        "association_type": "Association type"
                     },
                     "menu_options": {
-                        "device": "Dispositivo (recomendado)",
-                        "entity": "Entidade"
+                        "device": "Device (recommended)",
+                        "entity": "Entity"
                     },
-                    "title": "Escolha o tipo de associação"
+                    "title": "Choose your association type"
                 },
                 "device": {
                     "data": {
-                        "device_id": "Dispositivo",
-                        "name": "Nome"
+                        "device_id": "Device",
+                        "name": "Name"
                     },
                     "data_description": {
-                        "name": "Deixar em branco fará com que tenha o mesmo nome que o dispositivo de origem"
+                        "name": "Leaving blank will take the name from the source device"
                     }
                 },
                 "entity": {
                     "data": {
-                        "source_entity_id": "Entidade",
-                        "name": "Nome"
+                        "source_entity_id": "Entity",
+                        "name": "Name"
                     },
                     "data_description": {
-                        "name": "Deixar em branco fará com que tenha mesmo nome que a entidade de origem"
+                        "name": "Leaving blank will take the name from the source entity"
                     }
                 },
                 "battery": {
-                    "description": "Fabricante: {manufacturer}\nModelo: {model}\nID do Modelo: {model_id}\nVersão de Hardware: {hw_version}",
+                    "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
                     "data": {
-                        "battery_type": "Tipo de bateria",
-                        "battery_quantity": "Quantidade de baterias",
-                        "battery_low_threshold": "Nivel de bateria baixa",
-                        "battery_low_template": "Template de bateria baixa",
+                        "battery_type": "Battery type",
+                        "battery_quantity": "Battery quantity",
+                        "battery_low_threshold": "Battery low threshold",
+                        "battery_low_template": "Battery low template",
                         "filter_outliers": "Filter outliers"
                     },
                     "data_description": {
-                        "battery_low_threshold": "0 irá ser usado como valor por defeito para definir o descarregada",
-                        "battery_low_template": "Template para determinar que a bateria está baixa, deve devolver true se estiver baixa\nÉ somente necessário para níveis de bateria non-standard",
+                        "battery_low_threshold": "0 will use the global default threshold",
+                        "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels",
                         "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
                     }
                 },
                 "manual": {
-                    "description": "Este dispositivo está definido como criado manualmente, variantes usam tipos de bateria diferentes, portanto, não pode ser configurado na biblioteca. \n O próximo passo permitirá que defina o tipo de bateria, mas, por favor, não envie um pedido para o dispositivo.",
-                    "title": "Configuração manual do dispositivo"
+                    "description": "This device is marked in the library as manual, variants use different battery types so it cannot be set in the library.\nThe next step will allow you to set your battery type but please do not submit a device request.",
+                    "title": "Device manual configuration"
                 },
                 "reconfigure": {
-                    "description": "Fabricante: {manufacturer}\nModelo: {model}\nID do Modelo: {model_id}\nVersão de Hardware: {hw_version}",
+                    "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
                     "data": {
-                        "name": "Nome",
-                        "battery_type": "Tipo de bateria",
-                        "battery_quantity": "Quantidade de baterias",
-                        "battery_low_threshold": "Nivel de bateria baixa",
-                        "battery_low_template": "Template de bateria baixa",
+                        "name": "Name",
+                        "battery_type": "Battery type",
+                        "battery_quantity": "Battery quantity",
+                        "battery_low_threshold": "Battery low threshold",
+                        "battery_low_template": "Battery low template",
                         "filter_outliers": "Filter outliers"
                     },
                     "data_description": {
-                        "name": "Deixar em branco fará com que tenha mesmo o nome que o dispositivo de origem",
-                        "battery_low_threshold": "0 irá ser usado como valor por defeito para definir o descarregada",
-                        "battery_low_template": "Template para determinar que a bateria está baixa, deve devolver true se estiver baixa\nÉ somente necessário para níveis de bateria non-standard",
+                        "name": "Leaving blank will take the name from the source device",
+                        "battery_low_threshold": "0 will use the global default threshold",
+                        "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels",
                         "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
                     }
                 }
             },
             "abort": {
                 "reconfigure_successful": "Re-configuration was successful",
-                "already_configured": "Dispositivo já configurado"
+                "already_configured": "Device is already configured"
             },
             "error": {
-                "unknown": "Erro desconhecido.",
-                "unconfigurable_entity": "Não é possível adicionar esta entidade ao Battery Notes.",
-                "orphaned_battery_note": "O dispositivo ou entidade associado não existe mais para esta Nota de Bateria."
+                "unknown": "Unknown error occurred.",
+                "unconfigurable_entity": "It is not possible to add this entity to Battery Notes.",
+                "orphaned_battery_note": "The associated device or entity no longer exists for this Battery Note."
             }
         }
     },

@@ -2,8 +2,8 @@
     "config": {
         "step": {
             "user": {
-                "description": "New Battery Notes will be discovered if they are in the library.\nTo add new Battery Notes manually go into the integration page, select Add Battery Note and follow the instructions.\nIf you need help with the configuration have a look here: {documentation_url}",
-                "title": "Setup Battery Notes"
+                "description": "Οι νέες Σημειώσεις Μπαταρίας θα ανακαλυφθούν εάν υπάρχουν στη βιβλιοθήκη.\nΓια να προσθέσετε νέες Σημειώσεις Μπαταρίας χειροκίνητα, μεταβείτε στη σελίδα ενσωμάτωσης, επιλέξτε Προσθήκη Σημείωσης Μπαταρίας και ακολουθήστε τις οδηγίες.\nΕάν χρειάζεστε βοήθεια με τη διαμόρφωση, ρίξτε μια ματιά εδώ: {documentation_url}",
+                "title": "Ρύθμιση Σημειώσεων Μπαταρίας"
             },
             "battery": {
                 "description": "Κατασκευαστής: {manufacturer}\nΜοντέλο: {model}\nID Μοντέλου: {model_id}\nΕκδοση υλικού: {hw_version}",
@@ -22,8 +22,8 @@
             }
         },
         "abort": {
-            "already_configured": "Integration is already configured",
-            "integration_not_added": "Integration not added, please add the integration first",
+            "already_configured": "Η ενσωμάτωση έχει ήδη διαμορφωθεί",
+            "integration_not_added": "Η ενσωμάτωση δεν προστέθηκε, παρακαλώ προσθέστε πρώτα την ενσωμάτωση",
             "created_sub_entry": "Battery Note created successfully"
         },
         "error": {
