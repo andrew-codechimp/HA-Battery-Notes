@@ -429,7 +429,7 @@ class BatteryNotesBatteryLowTemplateSensor(
 
         """
         assert self.hass is not None, "hass cannot be None"
-        template.hass = self.hass
+        tmpl.hass = self.hass
         template_attribute = _TemplateAttribute(
             self, attribute, tmpl, validator, on_update, none_on_template_error
         )
