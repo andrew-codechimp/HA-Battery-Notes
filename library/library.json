@@ -193,8 +193,7 @@
         {
             "manufacturer": "_TZ3000_fllyghyj",
             "model": "TS0201",
-            "battery_type": "AAA",
-            "battery_quantity": 2
+            "battery_type": "MANUAL"
         },
         {
             "manufacturer": "_TZ3000_hkcpblrs",
