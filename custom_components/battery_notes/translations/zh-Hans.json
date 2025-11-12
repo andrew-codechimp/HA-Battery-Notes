@@ -38,79 +38,79 @@
             "entry_type": "Battery note",
             "step": {
                 "user": {
-                    "description": "若在设定过程中有任何疑问，请参考： {documentation_url}",
+                    "description": "If you need help with the configuration have a look here: {documentation_url}",
                     "data": {
-                        "association_type": "关联类型"
+                        "association_type": "Association type"
                     },
                     "menu_options": {
-                        "device": "装置（推荐）",
-                        "entity": "实体"
+                        "device": "Device (recommended)",
+                        "entity": "Entity"
                     },
-                    "title": "选择关联类型"
+                    "title": "Choose your association type"
                 },
                 "device": {
                     "data": {
-                        "device_id": "装置",
-                        "name": "名称"
+                        "device_id": "Device",
+                        "name": "Name"
                     },
                     "data_description": {
-                        "name": "若留空，将使用来源装置的名称"
+                        "name": "Leaving blank will take the name from the source device"
                     }
                 },
                 "entity": {
                     "data": {
-                        "source_entity_id": "实体",
-                        "name": "名称"
+                        "source_entity_id": "Entity",
+                        "name": "Name"
                     },
                     "data_description": {
-                        "name": "若留空，将使用来源实体的名称"
+                        "name": "Leaving blank will take the name from the source entity"
                     }
                 },
                 "battery": {
-                    "description": "制造商：{manufacturer}\n型号：{model}\n型号 ID：{model_id}\n硬件版本：{hw_version}",
+                    "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
                     "data": {
-                        "battery_type": "电池类型",
-                        "battery_quantity": "电池数量",
-                        "battery_low_threshold": "低电量阈值",
-                        "battery_low_template": "低电量模板",
+                        "battery_type": "Battery type",
+                        "battery_quantity": "Battery quantity",
+                        "battery_low_threshold": "Battery low threshold",
+                        "battery_low_template": "Battery low template",
                         "filter_outliers": "Filter outliers"
                     },
                     "data_description": {
-                        "battery_low_threshold": "若为零，将使用全域默认阈值",
-                        "battery_low_template": "判断电池是否低电量的模板，若为低电量应回传 true\n仅在电池电量非标准时需要",
+                        "battery_low_threshold": "0 will use the global default threshold",
+                        "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels",
                         "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
                     }
                 },
                 "manual": {
-                    "description": "此装置在数据库中被标记为手动设定，不同变体使用不同电池类型，因此无法在数据库中设定。\n下一步将让你设定电池类型，但请勿提交装置请求。",
-                    "title": "装置手动设定"
+                    "description": "This device is marked in the library as manual, variants use different battery types so it cannot be set in the library.\nThe next step will allow you to set your battery type but please do not submit a device request.",
+                    "title": "Device manual configuration"
                 },
                 "reconfigure": {
-                    "description": "制造商：{manufacturer}\n型号：{model}\n型号 ID：{model_id}\n硬件版本：{hw_version}",
+                    "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
                     "data": {
-                        "name": "名称",
-                        "battery_type": "电池类型",
-                        "battery_quantity": "电池数量",
-                        "battery_low_threshold": "低电量阈值",
-                        "battery_low_template": "低电量模板",
+                        "name": "Name",
+                        "battery_type": "Battery type",
+                        "battery_quantity": "Battery quantity",
+                        "battery_low_threshold": "Battery low threshold",
+                        "battery_low_template": "Battery low template",
                         "filter_outliers": "Filter outliers"
                     },
                     "data_description": {
-                        "name": "若留空，将使用来源装置的名称",
-                        "battery_low_threshold": "若为零，将使用全域默认阈值",
-                        "battery_low_template": "判断电池是否低电量的模板，若为低电量应回传 true\n仅在电池电量非标准时需要",
+                        "name": "Leaving blank will take the name from the source device",
+                        "battery_low_threshold": "0 will use the global default threshold",
+                        "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels",
                         "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
                     }
                 }
             },
             "abort": {
                 "reconfigure_successful": "Re-configuration was successful",
-                "already_configured": "装置已设定过"
+                "already_configured": "Device is already configured"
             },
             "error": {
-                "unknown": "发生未知错误。",
-                "unconfigurable_entity": "无法将此实体新增至 Battery Notes。",
-                "orphaned_battery_note": "此 Battery Note 的关联装置或实体已不存在。"
+                "unknown": "Unknown error occurred.",
+                "unconfigurable_entity": "It is not possible to add this entity to Battery Notes.",
+                "orphaned_battery_note": "The associated device or entity no longer exists for this Battery Note."
             }
         }
     },
