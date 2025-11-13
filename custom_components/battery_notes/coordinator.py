@@ -725,10 +725,12 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                 return bool(
                     float(self.current_battery_level) < self.battery_low_threshold
                 )
+            else:
+                return None
         elif self.wrapped_battery_low:
             return self.battery_low_binary_state
 
-        return False
+        return None
 
     @property
     def rounded_battery_level(self) -> float:
