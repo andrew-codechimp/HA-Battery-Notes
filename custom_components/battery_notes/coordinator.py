@@ -716,7 +716,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
             self.async_update_device_config(device_id=self.device_id, data=entry)
 
     @property
-    def battery_low(self) -> bool:
+    def battery_low(self) -> bool | None:
         """Check if battery low against threshold."""
         if self.battery_low_template:
             return self.battery_low_template_state
