@@ -8059,6 +8059,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Tado",
+            "model": "VA02E",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "tado\u00b0 GmbH",
             "model": "Smart Radiator Thermostat X",
             "model_id": "1",
