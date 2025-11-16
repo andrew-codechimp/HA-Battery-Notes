@@ -423,6 +423,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             self.data.pop(CONF_MODEL, None)
             self.data.pop(CONF_MODEL_ID, None)
             self.data.pop(CONF_HW_VERSION, None)
+            self.data.pop(CONF_INTEGRATION_NAME, None)
 
             subentry = ConfigSubentry(
                 subentry_type=SUBENTRY_BATTERY_NOTE,
