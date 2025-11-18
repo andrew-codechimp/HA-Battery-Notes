@@ -26,5 +26,5 @@ Next translate a string
 
 ## Adding a new language
 
-Create an [Issue](https://github.com/andrew-codechimp/HA-Battery-Notes/issues/new?template=new_language_request.yml&title=New+Language) requesting a new language. We will do the necessary work to add the new translation to the integration and Crowdin site, when it's ready for you to contribute we'll comment on the issue you raised.
+Create an [Issue](https://github.com/andrew-codechimp/HA-Battery-Notes/issues/new?template=new_language_request.yaml&title=New+Language) requesting a new language. We will do the necessary work to add the new translation to the integration and Crowdin site, when it's ready for you to contribute we'll comment on the issue you raised.
 

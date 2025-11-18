@@ -8,7 +8,7 @@ It will pull the latest devices that have been merged into the main branch, if y
 
 ## Submit Definition via GitHub Issues Form
 
-[!["New Device Request"](./assets/new-device-request.png)](https://github.com/andrew-codechimp/HA-Battery-Notes/issues/new?template=new_device_request.yml&title=[Device]%3A+)
+[!["New Device Request"](./assets/new-device-request.png)](https://github.com/andrew-codechimp/HA-Battery-Notes/issues/new?template=new_device_request.yaml&title=[Device]%3A+)
 
 Upon submission using the form above GitHub will attempt to make the required code changes automatically.
 
