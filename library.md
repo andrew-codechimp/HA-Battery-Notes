@@ -1,4 +1,4 @@
-## 1889 Devices in library
+## 1891 Devices in library
 
 This file is auto generated, do not modify
 
@@ -41,7 +41,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |_TZ3000_ee8nrt2l                                |TS0044                                                                                        |CR2032                    |                                   |                                      |
 |_TZ3000_f2bw0b6k                                |TS0201                                                                                        |CR2032                    |                                   |                                      |
 |_TZ3000_fa9mlvja                                |TS0041                                                                                        |CR2032                    |                                   |                                      |
-|_TZ3000_fllyghyj                                |TS0201                                                                                        |2× AAA                    |                                   |                                      |
+|_TZ3000_fllyghyj                                |TS0201                                                                                        |MANUAL                    |                                   |                                      |
 |_TZ3000_hkcpblrs                                |TS0203                                                                                        |2× AAA                    |                                   |                                      |
 |_TZ3000_ixla93vd                                |TS004F                                                                                        |CR2032                    |                                   |                                      |
 |_TZ3000_ja5osu5g                                |TS004F                                                                                        |CR2032                    |                                   |                                      |
@@ -1379,6 +1379,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |SONOFF                                          |Zigbee thermostatic radiator valve                                                            |3× AA                     |TRVZB                              |                                      |
 |SONOFF                                          |Zigbee thermostatic radiator valve (TRVZB)                                                    |3× AA                     |                                   |                                      |
 |Sonoff                                          |Zigbee water sensor                                                                           |CR2477                    |SNZB-05P                           |                                      |
+|SONOFF                                          |Zigbee water sensor                                                                           |CR2477                    |SNZB-05P                           |                                     0|
 |Sonos                                           |Move                                                                                          |Rechargeable              |                                   |                                      |
 |Sonos                                           |Roam                                                                                          |Rechargeable              |                                   |                                      |
 |Sonos                                           |Roam 2                                                                                        |Rechargeable              |S54                                |                                      |
@@ -1423,6 +1424,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tado                                            |SU02                                                                                          |3× AAA                    |                                   |                                      |
 |Tado                                            |VA01                                                                                          |2× AA                     |                                   |                                      |
 |Tado                                            |VA02                                                                                          |2× AA                     |                                   |                                      |
+|Tado                                            |VA02E                                                                                         |2× AA                     |                                   |                                      |
 |tado° GmbH                                      |Smart Radiator Thermostat X                                                                   |Rechargeable              |                                  1|VA04                                  |
 |tado° GmbH                                      |Smart Thermostat X                                                                            |3× AAA                    |RU04                               |                                      |
 |tado° GmbH                                      |Wireless Temperature Sensor X (3)                                                             |3× LR03                   |                                   |SU04                                  |

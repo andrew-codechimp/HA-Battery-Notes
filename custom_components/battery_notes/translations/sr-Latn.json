@@ -38,7 +38,7 @@
             "entry_type": "Battery note",
             "step": {
                 "user": {
-                    "description": "Ako vam treba pomoć oko konfiguracije, pogledajte ovde: {documentation_url}",
+                    "description": "ko vam treba pomoć oko konfiguracije, pogledajte ovde: {documentation_url}",
                     "data": {
                         "association_type": "Vrsta povezivanja"
                     },
@@ -72,13 +72,13 @@
                         "battery_type": "Tip baterije",
                         "battery_quantity": "Broj baterija",
                         "battery_low_threshold": "Nizak prag napunjenosti baterije",
-                        "battery_low_template": "Šablon ptazne baterije",
+                        "battery_low_template": "Šablon prazne baterije",
                         "filter_outliers": "Filter outliers"
                     },
                     "data_description": {
                         "battery_low_threshold": "0 će koristiti globalni podrazumevani prag",
                         "battery_low_template": "Šablon za određivanje da je baterija prazna, treba da vrati true ako je nizak nivo\nPotrebno samo za nestandardne nivoe baterije",
-                        "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                        "filter_outliers": "Filter out large battery level changes, reducing falsely firing events on devices that erronously report levels occasionally"
                     }
                 },
                 "manual": {
@@ -99,7 +99,7 @@
                         "name": "Ako ostavite prazno, naziv će preuzeti sa izvornog uređaja",
                         "battery_low_threshold": "0 će koristiti globalni podrazumevani prag",
                         "battery_low_template": "Šablon za određivanje da je baterija prazna, treba da vrati true ako je nizak nivo\nPotrebno samo za nestandardne nivoe baterije",
-                        "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                        "filter_outliers": "Filter out large battery level changes, reducing falsely firing events on devices that erronously report levels occasionally"
                     }
                 }
             },

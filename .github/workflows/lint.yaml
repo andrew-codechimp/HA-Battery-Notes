@@ -7,14 +7,14 @@ on:
     paths:
       - '**.py' # Run if pushed commits include a change to a Python (.py) file.
       - '.github/workflows/lint.yaml' # Run if pushed commits include a change to a github actions workflow file.
-      - '.pyproject.toml' # Run if project configuration file changes.
+      - 'pyproject.toml' # Run if project configuration file changes.
   pull_request:
     branches:
       - "main"
     paths:
       - '**.py' # Run if pushed commits include a change to a Python (.py) file.
       - '.github/workflows/lint.yaml' # Run if pushed commits include a change to a github actions workflow file.
-      - '.pyproject.toml' # Run if project configuration file changes.
+      - 'pyproject.toml' # Run if project configuration file changes.
   workflow_dispatch:
 
 jobs:
@@ -34,3 +34,24 @@ jobs:
         uses: astral-sh/ruff-action@v3
         with:
           args: format --check --diff
+
+  mypy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+        with:
+          enable-cache: true
+
+      - name: Set up Python
+        run: uv python install
+
+      - name: Install dependencies
+        run: uv sync
+
+      - name: Run mypy
+        run: uv run mypy custom_components/battery_notes/ --check-untyped-defs

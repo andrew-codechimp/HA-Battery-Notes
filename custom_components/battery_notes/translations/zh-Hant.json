@@ -38,7 +38,7 @@
             "entry_type": "Battery note",
             "step": {
                 "user": {
-                    "description": "若在設定過程中有任何疑問，請參考： {documentation_url}",
+                    "description": "If you need help with the configuration have a look here: {documentation_url}",
                     "data": {
                         "association_type": "關聯類型"
                     },
@@ -71,7 +71,7 @@
                     "data": {
                         "battery_type": "電池類型",
                         "battery_quantity": "電池數量",
-                        "battery_low_threshold": "低電量閾值",
+                        "battery_low_threshold": "電池低電量閾值",
                         "battery_low_template": "低電量模板",
                         "filter_outliers": "Filter outliers"
                     },
@@ -91,7 +91,7 @@
                         "name": "名稱",
                         "battery_type": "電池類型",
                         "battery_quantity": "電池數量",
-                        "battery_low_threshold": "低電量閾值",
+                        "battery_low_threshold": "電池低電量閾值",
                         "battery_low_template": "低電量模板",
                         "filter_outliers": "Filter outliers"
                     },
@@ -105,7 +105,7 @@
             },
             "abort": {
                 "reconfigure_successful": "Re-configuration was successful",
-                "already_configured": "裝置已設定過"
+                "already_configured": "Device is already configured"
             },
             "error": {
                 "unknown": "發生未知錯誤。",

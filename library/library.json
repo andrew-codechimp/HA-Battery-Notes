@@ -193,8 +193,7 @@
         {
             "manufacturer": "_TZ3000_fllyghyj",
             "model": "TS0201",
-            "battery_type": "AAA",
-            "battery_quantity": 2
+            "battery_type": "MANUAL"
         },
         {
             "manufacturer": "_TZ3000_hkcpblrs",
@@ -7802,6 +7801,13 @@
             "battery_type": "CR2477"
         },
         {
+            "manufacturer": "SONOFF",
+            "model": "Zigbee water sensor",
+            "model_id": "SNZB-05P",
+            "hw_version": "0",
+            "battery_type": "CR2477"
+        },
+        {
             "manufacturer": "Sonos",
             "model": "Move",
             "battery_type": "Rechargeable"
@@ -8049,6 +8055,12 @@
         {
             "manufacturer": "Tado",
             "model": "VA02",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tado",
+            "model": "VA02E",
             "battery_type": "AA",
             "battery_quantity": 2
         },

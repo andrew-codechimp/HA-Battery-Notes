@@ -27,7 +27,7 @@
             "created_sub_entry": "Battery Note created successfully"
         },
         "error": {
-            "unknown": "Unknown error occurred."
+            "unknown": "Errore sconosciuto."
         }
     },
     "config_subentries": {

@@ -297,8 +297,8 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
             if device_entry:
                 self.device_name = (
                     self.subentry.title
-                    or device_entry.name_by_user
-                    or device_entry.name
+                    if self.subentry
+                    else device_entry.name_by_user or device_entry.name or ""
                 )
             else:
                 self.device_name = self.subentry.title

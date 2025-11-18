@@ -75,7 +75,7 @@ def regenerate_device_list() -> None:
     tables_output = [f"## {len(devices)} Devices in library\n\n"]
     tables_output.append("This file is auto generated, do not modify\n\n")
     tables_output.append(
-        "Request new devices to be added to the library [here](https://github.com/andrew-codechimp/HA-Battery-Notes/issues/new?template=new_device_request.yml&title=%5BDevice%5D%3A+)\n\n"
+        "Request new devices to be added to the library [here](https://github.com/andrew-codechimp/HA-Battery-Notes/issues/new?template=new_device_request.yaml&title=%5BDevice%5D%3A+)\n\n"
     )
     tables_output.append(writer.dumps())
 

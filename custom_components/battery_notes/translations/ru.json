@@ -149,7 +149,7 @@
             }
         },
         "error": {
-            "unknown": "Unknown error occurred."
+            "unknown": "Произошла неизвестная ошибка."
         }
     },
     "entity": {
