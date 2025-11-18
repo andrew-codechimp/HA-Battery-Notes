@@ -1,8 +1,8 @@
-## 1891 Devices in library
+## 1892 Devices in library
 
 This file is auto generated, do not modify
 
-Request new devices to be added to the library [here](https://github.com/andrew-codechimp/HA-Battery-Notes/issues/new?template=new_device_request.yml&title=%5BDevice%5D%3A+)
+Request new devices to be added to the library [here](https://github.com/andrew-codechimp/HA-Battery-Notes/issues/new?template=new_device_request.yaml&title=%5BDevice%5D%3A+)
 
 |                  Manufacturer                  |                                            Model                                             |       Battery Type       |        Model ID (optional)        |        HW Version (optional)         |
 |------------------------------------------------|----------------------------------------------------------------------------------------------|--------------------------|-----------------------------------|--------------------------------------|
@@ -499,6 +499,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |eQ-3                                            |HM-SwI-3-FM                                                                                   |CR2032                    |                                   |                                      |
 |eQ-3                                            |HM-TC-IT-WM-W-EU                                                                              |2× AAA                    |                                   |                                      |
 |eQ-3                                            |HM-WDS10-TH-O                                                                                 |2× AA                     |                                   |                                      |
+|eQ-3                                            |HM-WDS100-C6-O-2                                                                              |3× AA                     |                                   |                                      |
 |eQ-3                                            |HM-WDS30-OT2-SM                                                                               |2× AA                     |                                   |                                      |
 |eQ-3                                            |HM-WDS30-T-O                                                                                  |2× AAA                    |                                   |                                      |
 |eQ-3                                            |HM-WDS40-TH-I                                                                                 |2× AA                     |                                   |                                      |
