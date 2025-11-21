@@ -10254,6 +10254,12 @@
         },
         {
             "manufacturer": "Xiaomi",
+            "model": "LYWSD03MMC",
+            "hw_version": "BTHome v2",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Xiaomi",
             "model": "LYWSD03MMC-z",
             "battery_type": "CR2032"
         },
@@ -10808,12 +10814,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Xiaomi",
-            "model": "LYWSD03MMC",
-            "hw_version": "BTHome v2",
-            "battery_type": "CR2032"
         }
     ]
 }
