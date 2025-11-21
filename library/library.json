@@ -1621,6 +1621,14 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "Arteco",
+            "model": "Soil moisture sensor",
+            "model_id": "ZS-301Z",
+            "hw_version": "1",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "ATC",
             "model": "ATC (Atc1441)",
             "battery_type": "CR2032"
@@ -10814,14 +10822,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Arteco",
-            "model": "Soil moisture sensor",
-            "model_id": "ZS-301Z",
-            "hw_version": "1",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }

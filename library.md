@@ -1,4 +1,4 @@
-## 1893 Devices in library
+## 1894 Devices in library
 
 This file is auto generated, do not modify
 
@@ -292,6 +292,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Aqara                                           |ZNJLBL01LM                                                                                    |Rechargeable              |                                   |                                      |
 |Aquara                                          |AS038                                                                                         |2× CR2450                 |                                   |                                      |
 |Arlo                                            |Pro 2                                                                                         |Rechargeable              |                                   |                                      |
+|Arteco                                          |Soil moisture sensor                                                                          |2× AAA                    |ZS-301Z                            |                                     1|
 |ATC                                             |ATC (Atc1441)                                                                                 |CR2032                    |                                   |                                      |
 |Aubess                                          |IH-K665                                                                                       |CR2032                    |                                   |                                      |
 |Aubess                                          |Water leak sensor                                                                             |CR2032                    |IH-K665                            |                                     1|
