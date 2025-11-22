@@ -1353,6 +1353,13 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "AQARA",
+            "model": "Smart radiator thermostat E1",
+            "model_id": "SRTS-A01",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Aqara",
             "model": "Smart radiator thermostat E1 (SRTS-A01)",
             "battery_type": "AA",
@@ -10827,13 +10834,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "AQARA",
-            "model": "Smart radiator thermostat E1",
-            "model_id": "SRTS-A01",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
