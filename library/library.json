@@ -5913,6 +5913,12 @@
         },
         {
             "manufacturer": "Nous",
+            "model": "Smoke sensor (E8)",
+            "model_id": "E8",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Nous",
             "model": "Temperature & humidity LCD sensor",
             "model_id": "E6",
             "battery_type": "AAA",
@@ -10844,12 +10850,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Nous",
-            "model": "Smoke sensor (E8)",
-            "model_id": "E8",
-            "battery_type": "CR123A"
         }
     ]
 }
