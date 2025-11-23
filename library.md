@@ -1,4 +1,4 @@
-## 1896 Devices in library
+## 1897 Devices in library
 
 This file is auto generated, do not modify
 
@@ -365,6 +365,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |by Philio Technology Corp                       |PSP05                                                                                         |CR123A                    |                                   |                                      |
 |Centralite                                      |3157100                                                                                       |4× AA                     |                                   |                                      |
 |CentraLite                                      |3315                                                                                          |CR2                       |                                   |                                      |
+|CentraLite                                      |3315-G                                                                                        |CR2                       |                                   |                                      |
 |CentraLite                                      |3315-L                                                                                        |CR2                       |                                   |                                      |
 |CentraLite                                      |3315-S                                                                                        |CR2                       |                                   |                                      |
 |CentraLite                                      |3320-L                                                                                        |CR2                       |                                   |                                      |
