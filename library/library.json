@@ -10834,6 +10834,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "_TZ3000_3kdszvwi",
+            "model": "TS0203",
+            "battery_type": "CR2032"
         }
     ]
 }
