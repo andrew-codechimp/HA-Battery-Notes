@@ -10834,6 +10834,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "CentraLite",
+            "model": "3315-G",
+            "battery_type": "CR2"
         }
     ]
 }
