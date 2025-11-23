@@ -70,17 +70,19 @@ jobs:
               devices.append(new_device)
 
             # Save manufacturer and model for later use
-            set_output("branch", "_".join(re.findall(r"\w+",f"{new_device['manufacturer']} {new_device['model']} {new_device.get('model_id', '')} {new_device.get('hw_version', '')})".lower())))
-            set_output("manufacturer", new_device['manufacturer'])
-            set_output("model", new_device['model'])
-            set_output("model_id", new_device.get('model_id', ''))
-            set_output("hw_version", new_device.get('hw_version', ''))
-            set_output("bqt", f"{numeric_quantity}x {new_device['battery_type']}")
+            set_env("BRANCH", "_".join(re.findall(r"\w+",f"{new_device['manufacturer']} {new_device['model']} {new_device.get('model_id', '')} {new_device.get('hw_version', '')})".lower())))
+            set_env("MANUFACTURER", new_device['manufacturer'])
+            set_env("MODEL", new_device['model'])
+            set_env("MODEL_ID", new_device.get('model_id', ''))
+            set_env("HW_VERSION", new_device.get('hw_version', ''))
+            set_env("BQT", f"{numeric_quantity}x {new_device['battery_type']}")
 
             if duplicate_found:
-              set_output("mode", "updates")
+              set_env("MODE", "updates")
+              set_env("TITLE_MODE", "Update")
             else:
-              set_output("mode", "adds")
+              set_env("MODE", "adds")
+              set_env("TITLE_MODE", "Add")
 
             with open("library/library.json", "w") as f:
               f.write(json.dumps(devices_json, indent=4))
@@ -92,7 +94,7 @@ jobs:
             --header 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
             --header 'Content-Type: application/json' \
             --data '{
-              "title": "Device: ${{ steps.update-json.outputs.manufacturer }} - ${{ steps.update-json.outputs.model }}"
+              "title": "Device: ${{ env.MANUFACTURER }} - ${{ env.MODEL }}"
             }'
 
       - name: Validate JSON
@@ -104,20 +106,20 @@ jobs:
       - name: Create pull request
         uses: peter-evans/create-pull-request@v7
         with:
-          commit-message: "Update device: ${{ steps.update-json.outputs.model }} by ${{ steps.update-json.outputs.manufacturer }}"
-          title: "Device: ${{ steps.update-json.outputs.manufacturer }} - ${{ steps.update-json.outputs.model }}"
+          commit-message: "${{ env.TITLE_MODE }} device: ${{ env.MODEL }} by ${{ env.MANUFACTURER }}"
+          title: "${{ env.TITLE_MODE }} device: ${{ env.MANUFACTURER }} - ${{ env.MODEL }}"
           body: |
-            This pull request ${{ steps.update-json.outputs.mode }} the device information for:
-            Manufacturer: ${{ steps.update-json.outputs.manufacturer }}
-            Model: ${{ steps.update-json.outputs.model }}
-            Model ID: ${{ steps.update-json.outputs.model_id }}
-            Hardware: ${{ steps.update-json.outputs.hw_version }}
-            Battery: ${{ steps.update-json.outputs.bqt }}
+            This pull request ${{ env.MODE }} the device information for:
+            Manufacturer: ${{ env.MANUFACTURER }}
+            Model: ${{ env.MODEL }}
+            Model ID: ${{ env.MODEL_ID }}
+            Hardware: ${{ env.HW_VERSION }}
+            Battery: ${{ env.BQT }}
             It closes issue #${{ github.event.issue.number }}
 
             If Battery Notes is useful to you please
             [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png)](https://www.buymeacoffee.com/codechimp)
-          branch: "device-${{ steps.update-json.outputs.branch }}"
+          branch: "device-${{ env.BRANCH }}"
 
       - name: Close Issue
         run: gh issue close --comment "$BODY" ${{github.event.issue.number}}
