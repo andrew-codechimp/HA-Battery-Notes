@@ -1348,7 +1348,7 @@
             "model": "Smart Lock U200",
             "model_id": "10242",
             "hw_version": "1.0.0.0",
-            "battery_type": "Rechargeable"
+            "battery_type": "Custom"
         },
         {
             "manufacturer": "Aqara",
