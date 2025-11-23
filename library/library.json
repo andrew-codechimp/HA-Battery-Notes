@@ -5886,6 +5886,13 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "Niko",
+            "model": "Battery switch with 2 buttons",
+            "model_id": "(552-720X2)",
+            "hw_version": "0",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "Nortek Security & Control LLC",
             "model": "NGD00Z-4",
             "battery_type": "CR2032"
@@ -10855,13 +10862,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Niko",
-            "model": "Battery switch with 2 buttons",
-            "model_id": "(552-720X2)",
-            "hw_version": "0",
-            "battery_type": "CR2450"
         }
     ]
 }
