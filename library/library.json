@@ -10733,6 +10733,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "ZEMISMART",
+            "model": "TS0044",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "Zipato",
             "model": "HS1SA",
             "battery_type": "CR123A"
@@ -10850,11 +10855,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "ZEMISMART",
-            "model": "TS0044",
-            "battery_type": "CR2450"
         }
     ]
 }
