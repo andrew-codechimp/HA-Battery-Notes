@@ -1,4 +1,4 @@
-## 1909 Devices in library
+## 1910 Devices in library
 
 This file is auto generated, do not modify
 
@@ -724,6 +724,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Heatit                                          |Z-TEMP3                                                                                       |2× AAA                    |                                   |                                      |
 |Heatmiser                                       |Contact Sensor                                                                                |LS14250                   |                                   |                                      |
 |Heatmiser                                       |Heatmiser Air Sensor                                                                          |CR2032                    |                                   |                                      |
+|Heatmiser                                       |NeoAir V2                                                                                     |4× AAA                    |                                   |                                      |
 |Heiman                                          |Carbon monoxide alarm                                                                         |CR123A                    |HS1CA-E                            |                                      |
 |HEIMAN                                          |HS-720ES-M                                                                                    |2× AA                     |                                   |                                      |
 |HEIMAN                                          |HS1SA-M                                                                                       |CR123A                    |                                   |                                      |

@@ -4108,6 +4108,12 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Heatmiser",
+            "model": "NeoAir V2",
+            "battery_type": "AAA",
+            "battery_quantity": 4
+        },
+        {
             "manufacturer": "Heiman",
             "model": "Carbon monoxide alarm",
             "model_id": "HS1CA-E",
@@ -10917,12 +10923,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Heatmiser",
-            "model": "NeoAir V2",
-            "battery_type": "AAA",
-            "battery_quantity": 4
         }
     ]
 }
