@@ -384,11 +384,17 @@ async def async_migrate_integration(hass: HomeAssistant, config: ConfigType) -> 
             source_device_id = async_entity_id_to_device_id(hass, source_entity_id)
 
         if source_device_id:
-            async_remove_helper_config_entry_from_source_device(
-                hass=hass,
-                helper_config_entry_id=entry.entry_id,
-                source_device_id=source_device_id,
-            )
+            try:
+                async_remove_helper_config_entry_from_source_device(
+                    hass=hass,
+                    helper_config_entry_id=entry.entry_id,
+                    source_device_id=source_device_id,
+                )
+            except ValueError as ex:
+                _LOGGER.debug(
+                    "Error removing helper config entry from device during migration: %s",
+                    ex,
+                )
 
         # Remove the old config entry
         if entry.entry_id != migrate_base_entry.entry_id:
