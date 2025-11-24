@@ -1,4 +1,4 @@
-## 1906 Devices in library
+## 1907 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1147,6 +1147,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Plugwise                                        |Lisa                                                                                          |2× AAA                    |                                   |                                      |
 |Plugwise                                        |Tom/Floor                                                                                     |2× AA                     |                                   |                                      |
 |Poly-control                                    |Danalock V3-BTZE                                                                              |4× CR123A                 |                                   |                                      |
+|Popp                                            |Smart thermostat                                                                              |2× AA                     |                             701721|                                    69|
 |Popp                                            |Smart thermostat (701721)                                                                     |2× AA                     |                                   |                                      |
 |Popp & Co                                       |004001                                                                                        |PP3                       |                                   |                                      |
 |Popp & Co                                       |004407                                                                                        |LR14250                   |                                   |                                      |
