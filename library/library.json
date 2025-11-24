@@ -4099,6 +4099,11 @@
         },
         {
             "manufacturer": "Heatmiser",
+            "model": "Contact Sensor",
+            "battery_type": "LS14250"
+        },
+        {
+            "manufacturer": "Heatmiser",
             "model": "Heatmiser Air Sensor",
             "battery_type": "CR2032"
         },
@@ -10912,11 +10917,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Heatmiser",
-            "model": "Contact Sensor",
-            "battery_type": "LS14250"
         }
     ]
 }
