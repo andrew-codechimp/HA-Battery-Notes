@@ -1,4 +1,4 @@
-## 1904 Devices in library
+## 1905 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1214,6 +1214,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Samjin                                          |multi                                                                                         |CR2450                    |                                   |                                      |
 |Samjin                                          |water                                                                                         |CR2450                    |                                   |                                      |
 |Samsung                                         |SM-\*                                                                                         |Rechargeable              |                                   |                                      |
+|Saswell                                         |Thermostatic radiator valve                                                                   |2× AA                     |SEA801-Zigbee/SEA802-Zigbee        |                                     1|
 |Saswell                                         |Thermostatic radiator valve (SEA801-Zigbee/SEA802-Zigbee)                                     |2× AA                     |                                   |                                      |
 |Schlage                                         |BE469NX                                                                                       |4× AA                     |                                   |                                      |
 |Schlage                                         |BE469ZP                                                                                       |4× AA                     |                                   |                                      |

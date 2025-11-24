@@ -6891,6 +6891,14 @@
         },
         {
             "manufacturer": "Saswell",
+            "model": "Thermostatic radiator valve",
+            "model_id": "SEA801-Zigbee/SEA802-Zigbee",
+            "hw_version": "1",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Saswell",
             "model": "Thermostatic radiator valve (SEA801-Zigbee/SEA802-Zigbee)",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -10883,14 +10891,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Saswell",
-            "model": "Thermostatic radiator valve",
-            "model_id": "SEA801-Zigbee/SEA802-Zigbee",
-            "hw_version": "1",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
