@@ -6987,6 +6987,13 @@
         },
         {
             "manufacturer": "Sengled",
+            "model": "Smart window and door sensor",
+            "model_id": "E1D-G73WNA",
+            "hw_version": "2",
+            "battery_type": "CR1632"
+        },
+        {
+            "manufacturer": "Sengled",
             "model": "Smart window and door sensor (E1D-G73WNA)",
             "battery_type": "CR1632"
         },
@@ -10876,13 +10883,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Sengled",
-            "model": "Smart window and door sensor",
-            "model_id": "E1D-G73WNA",
-            "hw_version": "2",
-            "battery_type": "CR1632"
         }
     ]
 }
