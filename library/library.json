@@ -10899,6 +10899,14 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Popp",
+            "model": "Smart thermostat",
+            "model_id": "701721",
+            "hw_version": "69",
+            "battery_type": "AA",
+            "battery_quantity": 2
         }
     ]
 }
