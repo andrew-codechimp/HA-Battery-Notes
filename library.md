@@ -1,4 +1,4 @@
-## 1910 Devices in library
+## 1911 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1749,6 +1749,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Woox                                            |Smart garden irrigation control                                                               |2× AA                     |R7060                              |                                     1|
 |Woox                                            |Smart garden irrigation control (R7060)                                                       |4× AA                     |                                   |                                      |
 |Woox                                            |Smart siren (R7051)                                                                           |Rechargeable              |                                   |                                      |
+|Woox                                            |Smart smoke alarm                                                                             |2× AAA                    |R7049                              |                                     1|
 |Woox                                            |Smart smoke alarm (R7049)                                                                     |2× AAA                    |                                   |                                      |
 |Worx                                            |Landroid M500                                                                                 |Rechargeable              |WR141E                             |3.36.0+1                              |
 |Worx                                            |Landroid S390 (WR100SI)                                                                       |Rechargeable              |                                   |                                      |

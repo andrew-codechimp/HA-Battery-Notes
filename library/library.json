@@ -10018,6 +10018,14 @@
         },
         {
             "manufacturer": "Woox",
+            "model": "Smart smoke alarm",
+            "model_id": "R7049",
+            "hw_version": "1",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Woox",
             "model": "Smart smoke alarm (R7049)",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -10923,14 +10931,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Woox",
-            "model": "Smart smoke alarm",
-            "model_id": "R7049",
-            "hw_version": "1",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
