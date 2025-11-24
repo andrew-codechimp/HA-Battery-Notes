@@ -19,7 +19,7 @@ jobs:
       contents: read
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Upload library to Cloudflare
         uses: ryand56/r2-upload-action@latest
