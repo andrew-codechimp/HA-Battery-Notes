@@ -19,7 +19,7 @@ jobs:
   verify-json-validation:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Validate JSON
         uses: dsanders11/json-schema-validate-action@v1.4.0
         with:
