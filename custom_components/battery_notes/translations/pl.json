@@ -2,8 +2,8 @@
     "config": {
         "step": {
             "user": {
-                "description": "New Battery Notes will be discovered if they are in the library.\nTo add new Battery Notes manually go into the integration page, select Add Battery Note and follow the instructions.\nIf you need help with the configuration have a look here: {documentation_url}",
-                "title": "Setup Battery Notes"
+                "description": "Nowe notatki baterii zostaną wykryte automatycznie, jeśli znajdują się w bibliotece.\nAby dodać nową notatkę baterii ręcznie, przejdź do strony integracji, wybierz „Dodaj notatkę baterii” i postępuj zgodnie z instrukcjami.\nJeśli potrzebujesz pomocy z konfiguracją, zajrzyj tutaj: {documentation_url}",
+                "title": "Konfiguracja notatek baterii"
             },
             "battery": {
                 "description": "Producent: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nWersja sprzętowa: {hw_version}",
@@ -22,9 +22,9 @@
             }
         },
         "abort": {
-            "already_configured": "Integration is already configured",
-            "integration_not_added": "Integration not added, please add the integration first",
-            "created_sub_entry": "Battery Note created successfully"
+            "already_configured": "Integracja jest już skonfigurowana",
+            "integration_not_added": "Integracja nie została dodana, proszę najpierw dodać integrację",
+            "created_sub_entry": "Notatka baterii została pomyślnie utworzona"
         },
         "error": {
             "unknown": "Wystąpił nieznany błąd."
@@ -33,9 +33,9 @@
     "config_subentries": {
         "battery_note": {
             "initiate_flow": {
-                "user": "Add battery note"
+                "user": "Dodaj notatkę baterii"
             },
-            "entry_type": "Battery note",
+            "entry_type": "Notatka baterii",
             "step": {
                 "user": {
                     "description": "Jeśli potrzebujesz pomocy w konfiguracji, zajrzyj tutaj: {documentation_url}",
@@ -104,7 +104,7 @@
                 }
             },
             "abort": {
-                "reconfigure_successful": "Re-configuration was successful",
+                "reconfigure_successful": "Re-konfiguracja zakończyła się pomyślnie",
                 "already_configured": "Urządzenie jest już skonfigurowane"
             },
             "error": {
@@ -118,31 +118,31 @@
         "step": {
             "init": {
                 "data": {
-                    "show_all_devices": "Show all devices",
-                    "hide_battery": "Hide battery",
-                    "round_battery": "Round battery",
-                    "default_battery_low_threshold": "Default battery low threshold",
-                    "battery_increase_threshold": "Battery increase threshold"
+                    "show_all_devices": "Pokaż wszystkie urządzenia",
+                    "hide_battery": "Ukryj baterię",
+                    "round_battery": "Zaokrąglaj baterię",
+                    "default_battery_low_threshold": "Domyślny próg niskiego poziomu baterii",
+                    "battery_increase_threshold": "Próg wzrostu poziomu baterii"
                 },
                 "data_description": {
-                    "show_all_devices": "Show all devices in the device dropdown, otherwise only those with batteries will be shown.",
-                    "hide_battery": "Hide the standard battery when adding Battery+.",
-                    "round_battery": "Round Battery+ to whole percentages.",
-                    "default_battery_low_threshold": "The default threshold where a devices battery_low entity is set to true and the battery_notes_battery_threshold event is fired if the battery is below this threshold, can be overriden per device in device configuration.",
-                    "battery_increase_threshold": "The threshold where the battery_notes_battery_increased event is fired, use this event for battery replaced automations. The threshold is the difference in increase between previous and current battery level."
+                    "show_all_devices": "Pokaż wszystkie urządzenia na liście wyboru, w przeciwnym razie wyświetlane będą tylko te z bateriami.",
+                    "hide_battery": "Ukryj standardową baterię podczas dodawania Bateria+.",
+                    "round_battery": "Zaokrąglaj Bateria+ do pełnych procentów",
+                    "default_battery_low_threshold": "Domyślny próg, przy którym encja battery_low urządzenia zostaje ustawiona na true, a zdarzenie battery_notes_battery_threshold jest wywoływane, jeśli poziom baterii spadnie poniżej tego progu.\nPróg ten może zostać nadpisany indywidualnie w konfiguracji konkretnego urządzenia.",
+                    "battery_increase_threshold": "Próg, przy którym wywoływane jest zdarzenie battery_notes_battery_increased.\nUżywaj go w automatyzacjach dotyczących wymiany baterii.\nPróg określa różnicę wzrostu pomiędzy poprzednim a aktualnym poziomem baterii."
                 },
                 "sections": {
                     "advanced_settings": {
-                        "name": "Advanced settings",
+                        "name": "Ustawienia zaawansowane",
                         "data": {
-                            "enable_autodiscovery": "Auto discovery",
-                            "enable_replaced": "Enable battery replaced",
-                            "user_library": "User library"
+                            "enable_autodiscovery": "Automatyczne wykrywanie",
+                            "enable_replaced": "Włącz wymienianie baterii",
+                            "user_library": "Biblioteka użytkownika"
                         },
                         "data_description": {
-                            "enable_autodiscovery": "Auto discovery of devices that are in the library.",
-                            "enable_replaced": "Enable the battery replaced button on each battery note.",
-                            "user_library": "If specified then a user library file will be searched prior to the main library, the user library must be in the same format as the library and placed in `config/.storage/battery_notes`."
+                            "enable_autodiscovery": "Automatyczne wykrywanie urządzeń, które znajdują się w bibliotece.",
+                            "enable_replaced": "Włącz przycisk wymiany baterii dla każdej notatki baterii",
+                            "user_library": "Jeśli ustawiono tę opcję, plik biblioteki użytkownika będzie przeszukiwany przed główną biblioteką.\nBiblioteka użytkownika musi mieć taki sam format jak biblioteka główna i być umieszczona w `config/.storage/battery_notes`."
                         }
                     }
                 }
@@ -270,13 +270,13 @@
             }
         },
         "deprecated_yaml": {
-            "title": "The {integration_title} YAML configuration is being removed",
-            "description": "Configuring {integration_title} using YAML is being removed.\n\nYour existing YAML configuration has been imported into the UI automatically.\n\nRemove the `{domain}` configuration from your configuration.yaml file and restart Home Assistant to fix this issue."
+            "title": "Konfiguracja YAML dla {integration_title} jest usuwana",
+            "description": "Konfigurowanie {integration_title} za pomocą YAML jest usuwane.\n\nTwoja obecna konfiguracja YAML została automatycznie zaimportowana do interfejsu użytkownika.\n\nUsuń wpis `{domain}` z pliku configuration.yaml i zrestartuj Home Assistanta, aby rozwiązać ten problem."
         }
     },
     "exceptions": {
         "not_configured_in_battery_notes": {
-            "message": "{source} is not configured in Battery Notes."
+            "message": "{source} nie jest skonfigurowane w notatkach baterii."
         }
     }
 }
