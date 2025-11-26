@@ -10931,6 +10931,14 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Third Reality",
+            "model": "Door sensor",
+            "model_id": "3RDS17BZ",
+            "hw_version": "0",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
