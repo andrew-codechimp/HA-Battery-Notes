@@ -129,7 +129,7 @@
                     "hide_battery": "Hide the standard battery when adding Battery+.",
                     "round_battery": "Round Battery+ to whole percentages.",
                     "default_battery_low_threshold": "The default threshold where a devices battery_low entity is set to true and the battery_notes_battery_threshold event is fired if the battery is below this threshold, can be overriden per device in device configuration.",
-                    "battery_increase_threshold": "The threshold where the battery_notes_battery_increased event is fired, use this event for battery replaced automations. The threshold is the difference in increase between previous and current battery level."
+                    "battery_increase_threshold": "La soglia in cui viene attivato l'evento battery_notes_battery_increased utilizza questo evento per le automazioni sostituite dalla batteria. La soglia è la differenza di aumento tra il livello precedente e quello corrente della batteria."
                 },
                 "sections": {
                     "advanced_settings": {
@@ -141,8 +141,8 @@
                         },
                         "data_description": {
                             "enable_autodiscovery": "Auto discovery of devices that are in the library.",
-                            "enable_replaced": "Enable the battery replaced button on each battery note.",
-                            "user_library": "If specified then a user library file will be searched prior to the main library, the user library must be in the same format as the library and placed in `config/.storage/battery_notes`."
+                            "enable_replaced": "Abilita il pulsante di sostituzione della batteria su ogni battery note",
+                            "user_library": "Se specificato allora una libreria utente verrà usata prima della libreria principale, la libreria utente deve avere lo stesso formato della libreria principale e posizionata in 'config/storage/battery_note'"
                         }
                     }
                 }
@@ -270,7 +270,7 @@
             }
         },
         "deprecated_yaml": {
-            "title": "The {integration_title} YAML configuration is being removed",
+            "title": "La configurazione YAML {integration_title} è stata rimossa",
             "description": "Configuring {integration_title} using YAML is being removed.\n\nYour existing YAML configuration has been imported into the UI automatically.\n\nRemove the `{domain}` configuration from your configuration.yaml file and restart Home Assistant to fix this issue."
         }
     },
