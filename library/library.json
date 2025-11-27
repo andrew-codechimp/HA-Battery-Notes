@@ -10939,6 +10939,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "Presence sensor FP300 (PS-S04D)",
+            "hw_version": "lumi.sensor_occupy.agl8",
+            "battery_type": "CR2450",
+            "battery_quantity": 2
         }
     ]
 }
