@@ -1,4 +1,4 @@
-## 1912 Devices in library
+## 1913 Devices in library
 
 This file is auto generated, do not modify
 
@@ -239,6 +239,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Aqara                                           |Opple wireless switch (single band) (WXCJKG11LM)                                              |CR2032                    |                                   |                                      |
 |Aqara                                           |Opple wireless switch (triple band) (WXCJKG13LM)                                              |CR2032                    |                                   |                                      |
 |Aqara                                           |PETC1-M01                                                                                     |3× LR20                   |                                   |                                      |
+|Aqara                                           |Presence sensor FP300 (PS-S04D)                                                               |2× CR2450                 |                                   |lumi.sensor_occupy.agl8               |
 |Aqara                                           |Radiator Thermostat E1                                                                        |2× AA                     |SRTS-A01                           |                                      |
 |Aqara                                           |Roller shade driver E1                                                                        |Rechargeable              |ZNJLBL01LM                         |                                      |
 |Aqara                                           |Roller shade driver E1 (ZNJLBL01LM)                                                           |Rechargeable              |                                   |                                      |
