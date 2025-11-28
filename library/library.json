@@ -6765,6 +6765,11 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "roborock",
+            "model": "roborock.vacuum.a19",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Roborock",
             "model": "roborock.vacuum.a27",
             "battery_type": "Rechargeable"
@@ -10953,11 +10958,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "roborock",
-            "model": "roborock.vacuum.a19",
             "battery_type": "Rechargeable"
         }
     ]
