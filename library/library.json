@@ -10965,6 +10965,14 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "Climate Sensor W100",
+            "model_id": "TH-S04D",
+            "hw_version": "12",
+            "battery_type": "CR2450",
+            "battery_quantity": 2
         }
     ]
 }
