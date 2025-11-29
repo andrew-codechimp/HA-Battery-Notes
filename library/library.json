@@ -10959,6 +10959,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Schlage",
+            "model": "be499WB2",
+            "battery_type": "AA",
+            "battery_quantity": 4
         }
     ]
 }
