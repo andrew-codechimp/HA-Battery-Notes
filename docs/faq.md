@@ -63,6 +63,13 @@ There seems to have been an issue with the Shelly integration at some point wher
 - Re-Add the Shelly device
 - Add the battery note to the device
 
+## Battery Notes is not showing in the integrations list within a device page (new with version 3)
+
+The way Battery Notes associate with a device has had to change due to a change within Home Assistant.  
+You will still see your battery note entities within the device page and they work exactly the same, but you will not see Battery Notes listed in the integrations at the top.  
+You can edit a battery note for a device by going into the Battery Notes integration, choosing the device and configuring it there.  
+A Battery Note no longer has entities itself, but you can still see all the entities, grouped by device, by clicking on the xx entities just under the Battery Notes service within the integration page.  
+
 ## How do I install pre-release versions via HACS
 
 Within Home Assistant go to Settings -> Integrations -> HACS  
