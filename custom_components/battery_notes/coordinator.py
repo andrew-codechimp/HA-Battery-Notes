@@ -111,7 +111,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
     wrapped_battery_low: RegistryEntry | None = None
     is_orphaned: bool = False
     last_wrapped_battery_state_write: datetime = utcnow_no_timezone() - timedelta(
-        hours=1
+        hours=2
     )
     _current_battery_level: str | None = None
     _previous_battery_low: bool | None = None
