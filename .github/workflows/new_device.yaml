@@ -57,16 +57,20 @@ jobs:
             if new_device.get("battery_type", "").lower() == "rechargable":
               new_device["battery_type"] = "Rechargeable"
 
-            # Check for duplicates and replace old entry with new one
+            # Check for duplicates and replace old entry with new one, flagging manual entries
             duplicate_found = False
+            manual_found = False
             for i, device in enumerate(devices):
               if device["manufacturer"] == new_device["manufacturer"] and device["model"] == new_device["model"] and device.get("model_id", "") == new_device.get("model_id", "") and device.get("hw_version", "") == new_device.get("hw_version", ""):
+                if device["battery_type"].upper() == "MANUAL":
+                  manual_found = True
+                  break
                 devices[i] = new_device
                 duplicate_found = True
                 break
 
-            # If no duplicate found, add the new device to the JSON library file
-            if not duplicate_found:
+            # If no duplicate found and not currently manual, add the new device to the JSON library file
+            if not duplicate_found and not manual_found:
               devices.append(new_device)
 
             # Save manufacturer and model for later use
@@ -84,8 +88,11 @@ jobs:
               set_env("MODE", "adds")
               set_env("TITLE_MODE", "Add")
 
-            with open("library/library.json", "w") as f:
-              f.write(json.dumps(devices_json, indent=4))
+            set_env("MANUAL", str(manual_found))
+
+            if not manual_found:
+              with open("library/library.json", "w") as f:
+                f.write(json.dumps(devices_json, indent=4))
 
       - name: Rename Issue
         run: |
@@ -99,12 +106,14 @@ jobs:
 
       - name: Validate JSON
         uses: docker://orrosenblatt/validate-json-action:latest
+        if: "${{ env.MANUAL != 'True' }}"
         env:
           INPUT_SCHEMA: library/schema.json
           INPUT_JSONS: library/library.json
 
       - name: Create pull request
         uses: peter-evans/create-pull-request@v7
+        if: "${{ env.MANUAL != 'True' }}"
         with:
           commit-message: "${{ env.TITLE_MODE }} device: ${{ env.MODEL }} by ${{ env.MANUFACTURER }}"
           title: "${{ env.TITLE_MODE }} device: ${{ env.MANUFACTURER }} - ${{ env.MODEL }}"
