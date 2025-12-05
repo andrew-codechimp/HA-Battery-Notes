@@ -8,6 +8,7 @@ from typing import Any
 import homeassistant.helpers.device_registry as dr
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.const import CONF_DEVICE_ID
+from homeassistant.loader import Integration, async_get_integration
 from homeassistant.helpers import discovery_flow
 from homeassistant.config_entries import SOURCE_IGNORE, SOURCE_INTEGRATION_DISCOVERY
 
@@ -20,6 +21,7 @@ from .const import (
     CONF_BATTERY_TYPE,
     CONF_MANUFACTURER,
     CONF_BATTERY_QUANTITY,
+    CONF_INTEGRATION_NAME,
 )
 from .common import get_device_model_id
 from .library import DATA_LIBRARY, ModelInfo, DeviceBatteryDetails
@@ -117,7 +119,16 @@ class DiscoveryManager:
                 if device_battery_details.is_manual:
                     continue
 
-                self._init_entity_discovery(device_entry, device_battery_details)
+                config_entry_id = next(iter(device_entry.config_entries))
+                config_entry = self.hass.config_entries.async_get_entry(config_entry_id)
+                if config_entry:
+                    integration = await async_get_integration(
+                        self.hass, config_entry.domain
+                    )
+
+                self._init_entity_discovery(
+                    device_entry, device_battery_details, integration or None
+                )
         else:
             _LOGGER.error("Library not loaded")
 
@@ -132,6 +143,7 @@ class DiscoveryManager:
         self,
         device_entry: dr.DeviceEntry,
         device_battery_details: DeviceBatteryDetails,
+        integration: Integration | None,
     ) -> None:
         """Dispatch the discovery flow for a given entity."""
         unique_id = f"bn_{device_entry.id}"
@@ -176,6 +188,9 @@ class DiscoveryManager:
         discovery_data[CONF_HW_VERSION] = device_battery_details.hw_version
         discovery_data[CONF_DEVICE_NAME] = get_wrapped_device_name(
             device_entry.id, device_entry
+        )
+        discovery_data[CONF_INTEGRATION_NAME] = (
+            integration.name if integration else None
         )
 
         discovery_flow.async_create_flow(

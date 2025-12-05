@@ -41,6 +41,7 @@ from .const import (
     CONF_ENABLE_REPLACED,
     CONF_FILTER_OUTLIERS,
     CONF_BATTERY_QUANTITY,
+    CONF_INTEGRATION_NAME,
     CONF_SHOW_ALL_DEVICES,
     CONF_SOURCE_ENTITY_ID,
     SUBENTRY_BATTERY_NOTE,
@@ -223,7 +224,9 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                 return self.async_abort(reason="already_configured")
 
         self.context["title_placeholders"] = {
-            "name": discovery_info[CONF_DEVICE_NAME],
+            "name": f"{discovery_info[CONF_DEVICE_NAME]} - {discovery_info[CONF_INTEGRATION_NAME]}"
+            if discovery_info[CONF_INTEGRATION_NAME]
+            else discovery_info[CONF_DEVICE_NAME],
             "manufacturer": discovery_info[CONF_MANUFACTURER],
             "model": discovery_info[CONF_MODEL],
             "model_id": discovery_info[CONF_MODEL_ID],
@@ -420,6 +423,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             self.data.pop(CONF_MODEL, None)
             self.data.pop(CONF_MODEL_ID, None)
             self.data.pop(CONF_HW_VERSION, None)
+            self.data.pop(CONF_INTEGRATION_NAME, None)
 
             subentry = ConfigSubentry(
                 subentry_type=SUBENTRY_BATTERY_NOTE,
