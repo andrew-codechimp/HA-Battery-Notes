@@ -10473,6 +10473,12 @@
         },
         {
             "manufacturer": "Xiaomi",
+            "model": "Mi motion sensor",
+            "model_id": "RTCGQ01LM",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Xiaomi",
             "model": "Mi motion sensor (RTCGQ01LM)",
             "battery_type": "CR2450"
         },
@@ -10973,12 +10979,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Xiaomi",
-            "model": "Mi motion sensor",
-            "model_id": "RTCGQ01LM",
-            "battery_type": "CR2450"
         }
     ]
 }
