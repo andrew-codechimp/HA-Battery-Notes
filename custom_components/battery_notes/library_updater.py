@@ -23,6 +23,7 @@ from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from .const import (
     VERSION,
     DEFAULT_LIBRARY_URL,
+    FALLBACK_LIBRARY_URL,
 )
 from .library import DATA_LIBRARY
 from .discovery import DiscoveryManager
@@ -97,31 +98,38 @@ class LibraryUpdater:
                 file.write(content)
                 file.close()
 
+        _LOGGER.debug("Getting library updates")
+
         try:
-            _LOGGER.debug("Getting library updates")
-
-            content = await self._client.async_get_data()
-
-            if self.validate_json(content):
-                json_path = self.hass.config.path(
-                    STORAGE_DIR, "battery_notes", "library.json"
-                )
-
-                await self.hass.async_add_executor_job(
-                    _update_library_json, json_path, content
-                )
-
-                domain_config = self.hass.data.get(MY_KEY)
-                if domain_config:
-                    self.hass.data[MY_KEY].library_last_update = datetime.now()
-
-                _LOGGER.debug("Updated library")
-            else:
-                _LOGGER.error("Library file is invalid, not updated")
-
+            content = await self._client.async_get_data(DEFAULT_LIBRARY_URL)
         except LibraryUpdaterClientError:
-            if not startup:
-                _LOGGER.warning("Unable to update library, will retry later.")
+            # Try fallback URL
+            _LOGGER.debug("Trying fallback library URL")
+            try:
+                content = await self._client.async_get_data(FALLBACK_LIBRARY_URL)
+            except LibraryUpdaterClientError:
+                if not startup:
+                    _LOGGER.warning(
+                        "Unable to update library from primary or fallback URLs, will retry later."
+                    )
+                return
+
+        if self.validate_json(content):
+            json_path = self.hass.config.path(
+                STORAGE_DIR, "battery_notes", "library.json"
+            )
+
+            await self.hass.async_add_executor_job(
+                _update_library_json, json_path, content
+            )
+
+            domain_config = self.hass.data.get(MY_KEY)
+            if domain_config:
+                self.hass.data[MY_KEY].library_last_update = datetime.now()
+
+            _LOGGER.debug("Updated library")
+        else:
+            _LOGGER.error("Library file is invalid, not updated")
 
     async def copy_schema(self):
         """Copy schema file to storage to be relative to downloaded library."""
@@ -183,12 +191,10 @@ class LibraryUpdaterClient:
         """Client to get latest library file from GitHub."""
         self._session = session
 
-    async def async_get_data(self) -> Any:
+    async def async_get_data(self, url: str) -> Any:
         """Get data from the API."""
-        _LOGGER.debug("Updating library from %s", DEFAULT_LIBRARY_URL)
-        return await self._api_wrapper(
-            method="get", url=DEFAULT_LIBRARY_URL, headers=HEADERS
-        )
+        _LOGGER.debug("Updating library from %s", url)
+        return await self._api_wrapper(method="get", url=url, headers=HEADERS)
 
     async def _api_wrapper(
         self,
@@ -205,7 +211,10 @@ class LibraryUpdaterClient:
                     allow_redirects=True,
                     headers=headers,
                 )
-                # response.raise_for_status()
+                if response.status != 200:
+                    raise LibraryUpdaterClientCommunicationError(  # noqa: TRY301
+                        f"HTTP {response.status} error fetching information",
+                    )
                 return await response.text()
 
         except TimeoutError as exception:
