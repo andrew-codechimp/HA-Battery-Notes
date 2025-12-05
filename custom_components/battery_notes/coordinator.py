@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import logging
 from typing import cast
-from datetime import datetime
+from datetime import datetime, timedelta
 from dataclasses import dataclass
 
 from homeassistant.core import CALLBACK_TYPE, HomeAssistant
@@ -110,6 +110,9 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
     wrapped_battery: RegistryEntry | None = None
     wrapped_battery_low: RegistryEntry | None = None
     is_orphaned: bool = False
+    last_wrapped_battery_state_write: datetime = utcnow_no_timezone() - timedelta(
+        hours=2
+    )
     _current_battery_level: str | None = None
     _previous_battery_low: bool | None = None
     _previous_battery_level: str | None = None
