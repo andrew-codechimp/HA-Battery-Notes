@@ -10984,6 +10984,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Shelly",
+            "model": "Flood Gen 4",
+            "battery_type": "AA",
+            "battery_quantity": 4
         }
     ]
 }
