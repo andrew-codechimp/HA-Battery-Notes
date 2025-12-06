@@ -7108,6 +7108,11 @@
         },
         {
             "manufacturer": "Shelly",
+            "model": "BLU Distance",
+            "battery_type": "ER14505"
+        },
+        {
+            "manufacturer": "Shelly",
             "model": "BLU Door Window Sensor",
             "battery_type": "CR2032"
         },
@@ -10979,11 +10984,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Shelly",
-            "model": "BLU Distance",
-            "battery_type": "ER14505"
         }
     ]
 }
