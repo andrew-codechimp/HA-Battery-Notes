@@ -1,4 +1,4 @@
-## 1919 Devices in library
+## 1920 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1255,6 +1255,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Shelly                                          |BLU Door/Window                                                                               |CR2032                    |                                   |                                      |
 |Shelly                                          |Blu Motion                                                                                    |CR2477                    |                                   |                                      |
 |Shelly                                          |BTHome sensor                                                                                 |MANUAL                    |                                   |                                      |
+|Shelly                                          |Flood Gen 4                                                                                   |4× AA                     |                                   |                                      |
 |Shelly                                          |gen1 (SHHT-1)                                                                                 |CR123A                    |                                   |                                      |
 |Shelly                                          |Shelly BLU  Door/Window                                                                       |CR2032                    |SBDW-002C                          |                                      |
 |Shelly                                          |Shelly BLU Motion                                                                             |CR2477                    |SBMO-003Z                          |                                      |
