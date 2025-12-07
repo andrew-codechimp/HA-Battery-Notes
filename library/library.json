@@ -10990,6 +10990,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Oral-B",
+            "model": "Smart Series 7000",
+            "battery_type": "Rechargeable"
         }
     ]
 }
