@@ -4899,6 +4899,14 @@
         },
         {
             "manufacturer": "IKEA of Sweden",
+            "model": "MYGGSPRAY wrlss mtn sensor",
+            "model_id": "12288",
+            "hw_version": "P2.0",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "IKEA of Sweden",
             "model": "PARASOLL Door/Window Sensor",
             "battery_type": "AAA"
         },
@@ -11022,14 +11030,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "IKEA of Sweden",
-            "model": "MYGGSPRAY wrlss mtn sensor",
-            "model_id": "12288",
-            "hw_version": "P2.0",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
