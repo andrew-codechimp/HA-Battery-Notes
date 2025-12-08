@@ -4881,6 +4881,14 @@
         },
         {
             "manufacturer": "IKEA of Sweden",
+            "model": "BILRESA dual button",
+            "model_id": "32769",
+            "hw_version": "P2.0",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "IKEA of Sweden",
             "model": "FYRTUR block-out roller blind",
             "battery_type": "Rechargeable"
         },
@@ -11014,14 +11022,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "IKEA of Sweden",
-            "model": "BILRESA dual button",
-            "model_id": "32769",
-            "hw_version": "P2.0",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
