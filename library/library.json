@@ -10921,6 +10921,13 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "Zemismart Technology Limited",
+            "model": "Zemismart Roller Shade Driver",
+            "model_id": "64257",
+            "hw_version": "1.0.0",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Zipato",
             "model": "HS1SA",
             "battery_type": "CR123A"
@@ -11037,13 +11044,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Zemismart Technology Limited",
-            "model": "Zemismart Roller Shade Driver",
-            "model_id": "64257",
-            "hw_version": "1.0.0",
             "battery_type": "Rechargeable"
         }
     ]
