@@ -1,4 +1,4 @@
-## 1921 Devices in library
+## 1922 Devices in library
 
 This file is auto generated, do not modify
 
@@ -656,6 +656,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |First Alert (BRK Brands Inc)                    |ZCOMBO                                                                                        |2× AA                     |                                   |                                      |
 |Flair                                           |Smart Vent                                                                                    |2× C                      |                                   |                                      |
 |Flair                                           |Wireless Puck                                                                                 |2× AAA                    |                                   |                                      |
+|Flic                                            |1                                                                                             |CR2016                    |                                   |                                     1|
 |Flic                                            |V2_white                                                                                      |CR2032                    |                                   |                                      |
 |Flo by Moen                                     |puck_v1                                                                                       |CR123A                    |                                   |                                      |
 |Frient                                          |EMIZB-141                                                                                     |2× AA                     |                                   |                                      |
