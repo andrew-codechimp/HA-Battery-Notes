@@ -11008,6 +11008,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Flic",
+            "model": "2",
+            "hw_version": "2",
+            "battery_type": "CR2032"
         }
     ]
 }
