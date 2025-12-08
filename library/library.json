@@ -11030,6 +11030,14 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "IKEA of Sweden",
+            "model": "KLIPPBOK water leak sensor",
+            "model_id": "32774",
+            "hw_version": "P2.0",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
