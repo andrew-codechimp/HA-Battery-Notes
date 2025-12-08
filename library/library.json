@@ -10995,6 +10995,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Zemismart Technology Limited",
+            "model": "Zemismart Roller Shade Driver",
+            "model_id": "64257",
+            "hw_version": "1.0.0",
+            "battery_type": "Rechargeable"
         }
     ]
 }
