@@ -1,4 +1,4 @@
-## 1926 Devices in library
+## 1927 Devices in library
 
 This file is auto generated, do not modify
 
@@ -858,6 +858,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |IKEA of Sweden                                  |BILRESA dual button                                                                           |2× AAA                    |                              32769|P2.0                                  |
 |IKEA of Sweden                                  |FYRTUR block-out roller blind                                                                 |Rechargeable              |                                   |                                      |
 |IKEA of Sweden                                  |KADRILJ roller blind                                                                          |Rechargeable              |                                   |                                      |
+|IKEA of Sweden                                  |KLIPPBOK water leak sensor                                                                    |2× AAA                    |                              32774|P2.0                                  |
 |IKEA of Sweden                                  |MYGGSPRAY wrlss mtn sensor                                                                    |2× AAA                    |                              12288|P2.0                                  |
 |IKEA of Sweden                                  |PARASOLL Door/Window Sensor                                                                   |AAA                       |                                   |                                      |
 |IKEA of Sweden                                  |PRAKTLYSING cellular blind                                                                    |Rechargeable              |                                   |                                      |
