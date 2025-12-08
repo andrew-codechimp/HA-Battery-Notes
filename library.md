@@ -1,4 +1,4 @@
-## 1923 Devices in library
+## 1924 Devices in library
 
 This file is auto generated, do not modify
 
@@ -658,6 +658,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Flair                                           |Smart Vent                                                                                    |2× C                      |                                   |                                      |
 |Flair                                           |Wireless Puck                                                                                 |2× AAA                    |                                   |                                      |
 |Flic                                            |1                                                                                             |CR2016                    |                                   |                                     1|
+|Flic                                            |2                                                                                             |CR2032                    |                                   |                                     2|
 |Flic                                            |V2_white                                                                                      |CR2032                    |                                   |                                      |
 |Flo by Moen                                     |puck_v1                                                                                       |CR123A                    |                                   |                                      |
 |Frient                                          |EMIZB-141                                                                                     |2× AA                     |                                   |                                      |

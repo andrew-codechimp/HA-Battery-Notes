@@ -3744,6 +3744,12 @@
         },
         {
             "manufacturer": "Flic",
+            "model": "2",
+            "hw_version": "2",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Flic",
             "model": "V2_white",
             "battery_type": "CR2032"
         },
@@ -11008,12 +11014,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Flic",
-            "model": "2",
-            "hw_version": "2",
-            "battery_type": "CR2032"
         }
     ]
 }
