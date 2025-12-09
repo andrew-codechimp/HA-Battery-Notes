@@ -11044,8 +11044,7 @@
             "model": "LWR01",
             "model_id": "40961",
             "hw_version": "1.0.0",
-            "battery_type": "AA",
-            "battery_quantity": 2
+            "battery_type": "MANUAL"
         }
     ]
 }
