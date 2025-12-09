@@ -3886,6 +3886,13 @@
             "battery_quantity": 4
         },
         {
+            "manufacturer": "GL Technologies",
+            "model": "LWR01",
+            "model_id": "40961",
+            "hw_version": "1.0.0",
+            "battery_type": "MANUAL"
+        },
+        {
             "manufacturer": "Google",
             "model": "A12",
             "battery_type": "AA",
@@ -11038,13 +11045,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "GL Technologies",
-            "model": "LWR01",
-            "model_id": "40961",
-            "hw_version": "1.0.0",
-            "battery_type": "MANUAL"
         }
     ]
 }

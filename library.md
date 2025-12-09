@@ -1,4 +1,4 @@
-## 1927 Devices in library
+## 1928 Devices in library
 
 This file is auto generated, do not modify
 
@@ -683,6 +683,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |GiEX                                            |Water irrigation valve (QT06_2)                                                               |4× AA                     |                                   |                                      |
 |GiEX                                            |Water valve                                                                                   |4× AA                     |GX02                               |                                     1|
 |GiEX                                            |Water valve (GX02)                                                                            |4× AA                     |                                   |                                      |
+|GL Technologies                                 |LWR01                                                                                         |MANUAL                    |                              40961|1.0.0                                 |
 |Google                                          |A12                                                                                           |3× AA                     |                                   |                                      |
 |Google                                          |Google Pixel Watch                                                                            |Rechargeable              |                                   |                                      |
 |Google                                          |KR1                                                                                           |CR2                       |                                   |                                      |
