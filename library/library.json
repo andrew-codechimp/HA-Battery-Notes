@@ -4309,6 +4309,13 @@
         },
         {
             "manufacturer": "HOBEIAN",
+            "model": "Rainwater detection sensor",
+            "model_id": "ZG-223Z",
+            "hw_version": "1",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "HOBEIAN",
             "model": "Soil moisture sensor",
             "model_id": "ZG-303Z",
             "hw_version": "0122052017",
@@ -11045,13 +11052,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "HOBEIAN",
-            "model": "Rainwater detection sensor",
-            "model_id": "ZG-223Z",
-            "hw_version": "1",
-            "battery_type": "CR123A"
         }
     ]
 }
