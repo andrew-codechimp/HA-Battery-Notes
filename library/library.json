@@ -11045,6 +11045,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "HOBEIAN",
+            "model": "Rainwater detection sensor",
+            "model_id": "ZG-223Z",
+            "hw_version": "1",
+            "battery_type": "CR123A"
         }
     ]
 }
