@@ -1,4 +1,4 @@
-## 1929 Devices in library
+## 1930 Devices in library
 
 This file is auto generated, do not modify
 
@@ -172,6 +172,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Alarm.com                                       |n/a                                                                                           |CR123A                    |                                   |                                      |
 |Aldi                                            |MEGOS switch and dimming light remote control (141L100RC)                                     |CR2450                    |                                   |                                      |
 |Alecto                                          |Smoke detector (SMART-SMOKE10)                                                                |2× AA                     |                                   |                                      |
+|Allegion                                        |BE369                                                                                         |9v                        |                                   |                                      |
 |Allegion                                        |BE468ZP                                                                                       |4× AA                     |                                   |                                      |
 |Allegion                                        |BE469                                                                                         |4× AA                     |                                   |                                      |
 |Allegion                                        |BE469ZP                                                                                       |4× AA                     |                                   |                                      |
