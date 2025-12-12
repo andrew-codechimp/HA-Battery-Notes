@@ -1,4 +1,4 @@
-## 1930 Devices in library
+## 1931 Devices in library
 
 This file is auto generated, do not modify
 
@@ -603,6 +603,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Eve                                             |Weather                                                                                       |CR2450                    |20EBS9901                          |                                  1.10|
 |Eve Systems                                     |Eve Door 20EBN9901                                                                            |LS14250                   |                                   |                                      |
 |Eve Systems                                     |Eve Motion 20EBY9901                                                                          |2× AAA                    |                                   |                                      |
+|Eve Systems                                     |Eve Motion 20EBY9901                                                                          |2× AAA                    |                                 89|                                  1.10|
 |Eve Systems                                     |Eve MotionBlinds 20CAA9901                                                                    |Rechargeable              |                                 85|                                  1.10|
 |Eve Systems                                     |Eve Thermo 20EBP1701                                                                          |2× AA                     |                                 79|                                  1.10|
 |Eve Systems                                     |Eve Weather                                                                                   |CR2450                    |20EBS9901                          |                                  1.10|

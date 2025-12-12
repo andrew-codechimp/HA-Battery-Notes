@@ -3433,6 +3433,14 @@
         },
         {
             "manufacturer": "Eve Systems",
+            "model": "Eve Motion 20EBY9901",
+            "model_id": "89",
+            "hw_version": "1.1",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Eve Systems",
             "model": "Eve MotionBlinds 20CAA9901",
             "model_id": "85",
             "hw_version": "1.1",
@@ -11057,14 +11065,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Eve Systems",
-            "model": "Eve Motion 20EBY9901",
-            "model_id": "89",
-            "hw_version": "1.1",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
