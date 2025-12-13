@@ -11065,6 +11065,14 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Tuja",
+            "model": "Window Sensor",
+            "model_id": "a1er7lposf6ctd0b",
+            "hw_version": "v2.1.12",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
