@@ -11080,6 +11080,14 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Tuja",
+            "model": "Motion Sensor",
+            "model_id": "7i8vqgkql9wjn9gj",
+            "hw_version": "v2.1.8",
+            "battery_type": "AA",
+            "battery_quantity": 2
         }
     ]
 }
