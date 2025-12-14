@@ -11088,6 +11088,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Shelly",
+            "model": "BLU Wall Switch 4",
+            "battery_type": "CR2032"
         }
     ]
 }
