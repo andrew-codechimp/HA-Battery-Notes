@@ -4979,6 +4979,14 @@
         },
         {
             "manufacturer": "IKEA of Sweden",
+            "model": "TIMMERFLOTTE temp/hmd sensor",
+            "model_id": "32773",
+            "hw_version": "P2.1",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "IKEA of Sweden",
             "model": "TRADFRI motion sensor",
             "battery_type": "CR2032",
             "battery_quantity": 2
@@ -11093,14 +11101,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "IKEA of Sweden",
-            "model": "TIMMERFLOTTE temp/hmd sensor",
-            "model_id": "32773",
-            "hw_version": "P2.1",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
