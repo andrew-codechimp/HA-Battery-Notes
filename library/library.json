@@ -8710,6 +8710,14 @@
             "battery_quantity": 4
         },
         {
+            "manufacturer": "Tuja",
+            "model": "Window Sensor",
+            "model_id": "a1er7lposf6ctd0b",
+            "hw_version": "v2.1.12",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "TUO Accessories LLC",
             "model": "TUO Contact Sensor Door & Window",
             "battery_type": "CR2450"
@@ -11072,14 +11080,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Tuja",
-            "model": "Window Sensor",
-            "model_id": "a1er7lposf6ctd0b",
-            "hw_version": "v2.1.12",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
