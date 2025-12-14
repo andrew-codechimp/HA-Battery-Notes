@@ -1,4 +1,4 @@
-## 1936 Devices in library
+## 1937 Devices in library
 
 This file is auto generated, do not modify
 
@@ -859,6 +859,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |IKEA                                            |Water leakage detection sensor (E2202)                                                        |AAA                       |                                   |                                      |
 |IKEA of Sweden                                  |BADRING Water Leakage Sensor                                                                  |AAA                       |                                   |                                      |
 |IKEA of Sweden                                  |BILRESA dual button                                                                           |2× AAA                    |                              32769|P2.0                                  |
+|IKEA of Sweden                                  |BILRESA scroll wheel                                                                          |2× AAA                    |                              32768|P2.0                                  |
 |IKEA of Sweden                                  |FYRTUR block-out roller blind                                                                 |Rechargeable              |                                   |                                      |
 |IKEA of Sweden                                  |KADRILJ roller blind                                                                          |Rechargeable              |                                   |                                      |
 |IKEA of Sweden                                  |KLIPPBOK water leak sensor                                                                    |2× AAA                    |                              32774|P2.0                                  |
