@@ -120,8 +120,8 @@
                 "data": {
                     "show_all_devices": "Show all devices",
                     "hide_battery": "Hide battery",
-                    "round_battery": "Round battery",
-                    "default_battery_low_threshold": "Default battery low threshold",
+                    "round_battery": "Batterijniveau afronden",
+                    "default_battery_low_threshold": "Standaard drempelwaarde laag batterijniveau",
                     "battery_increase_threshold": "Battery increase threshold"
                 },
                 "data_description": {
@@ -276,7 +276,7 @@
     },
     "exceptions": {
         "not_configured_in_battery_notes": {
-            "message": "{source} is not configured in Battery Notes."
+            "message": "{source} is niet geconfigureerd in Batterij Notities."
         }
     }
 }
