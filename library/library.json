@@ -7203,6 +7203,11 @@
         },
         {
             "manufacturer": "Shelly",
+            "model": "BLU Wall Switch 4",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Shelly",
             "model": "BTHome sensor",
             "battery_type": "MANUAL"
         },
@@ -11088,11 +11093,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Shelly",
-            "model": "BLU Wall Switch 4",
-            "battery_type": "CR2032"
         }
     ]
 }
