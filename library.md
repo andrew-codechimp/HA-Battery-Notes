@@ -1,4 +1,4 @@
-## 1933 Devices in library
+## 1934 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1529,6 +1529,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |TT Lock                                         |Electronic lock                                                                               |4× AA                     |w301_901ca5                        |V1.1                                  |
 |TT Lock                                         |SN511-180MS_PV53                                                                              |4× AA                     |                                   |                                      |
 |TT Lock                                         |SN9206-01-FS_PV53                                                                             |4× AA                     |                                   |                                      |
+|Tuja                                            |Motion Sensor                                                                                 |2× AA                     |7i8vqgkql9wjn9gj                   |v2.1.8                                |
 |Tuja                                            |Window Sensor                                                                                 |2× AAA                    |a1er7lposf6ctd0b                   |v2.1.12                               |
 |TUO Accessories LLC                             |TUO Contact Sensor Door & Window                                                              |CR2450                    |                                   |                                      |
 |TUO Accessories LLC                             |TUO Smart Button                                                                              |CR2032                    |                                   |                                      |
