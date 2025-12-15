@@ -11109,6 +11109,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Google",
+            "model": "pixel 9 Pro XL",
+            "battery_type": "asdfa"
         }
     ]
 }
