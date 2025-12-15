@@ -112,7 +112,7 @@ jobs:
           INPUT_JSONS: library/library.json
 
       - name: Create pull request
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         if: "${{ env.MANUAL != 'True' }}"
         with:
           commit-message: "${{ env.TITLE_MODE }} device: ${{ env.MODEL }} by ${{ env.MANUFACTURER }}"
