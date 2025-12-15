@@ -6726,6 +6726,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Remsol",
+            "model": "ismartgateMINI",
+            "battery_type": "LR1",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Reolink",
             "model": "Reolink Video Doorbell",
             "hw_version": "DB_560MIXDB32M35DBB14MP",
@@ -11109,12 +11115,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Remsol",
-            "model": "ismartgateMINI",
-            "battery_type": "LR1",
-            "battery_quantity": 2
         }
     ]
 }
