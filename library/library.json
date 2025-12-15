@@ -11109,6 +11109,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Remsol",
+            "model": "ismartgateMINI",
+            "battery_type": "LR1",
+            "battery_quantity": 2
         }
     ]
 }
