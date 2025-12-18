@@ -11115,6 +11115,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Arteco",
+            "model": "ZS-304Z",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
