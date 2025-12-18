@@ -6,7 +6,7 @@
                 "title": "Setup Battery Notes"
             },
             "battery": {
-                "description": "Výrobce: {manufacturer}\nModel: {model}\nID modelu: {model_id}\nHardware verze: {hw_version}",
+                "description": "Název: {name}\nVýrobce: {manufacturer}\nModel: {model}\nID modelu: {model_id}\nHardware verze: {hw_version}",
                 "data": {
                     "battery_type": "Typ baterie",
                     "battery_quantity": "Množství baterií",
@@ -67,7 +67,7 @@
                     }
                 },
                 "battery": {
-                    "description": "Výrobce: {manufacturer}\nModel: {model}\nID modelu: {model_id}\nHardware verze: {hw_version}",
+                    "description": "Název: {name}\nVýrobce: {manufacturer}\nModel: {model}\nID modelu: {model_id}\nHardware verze: {hw_version}",
                     "data": {
                         "battery_type": "Typ baterie",
                         "battery_quantity": "Množství baterií",

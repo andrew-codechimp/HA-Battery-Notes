@@ -6,7 +6,7 @@
                 "title": "Setup Battery Notes"
             },
             "battery": {
-                "description": "Produsent: {manufacturer}\nModel: {model}\nModell-ID: {model_id}\nMaskinvareversjon: {hw_version}",
+                "description": "Navn: {name}\nProdusent: {manufacturer}\nModel: {model}\nModell-ID: {model_id}\nMaskinvareversjon: {hw_version}",
                 "data": {
                     "battery_type": "Batteritype",
                     "battery_quantity": "Antall batterier",
@@ -67,7 +67,7 @@
                     }
                 },
                 "battery": {
-                    "description": "Produsent: {manufacturer}\nModel: {model}\nModell-ID: {model_id}\nMaskinvareversjon: {hw_version}",
+                    "description": "Navn: {name}\nProdusent: {manufacturer}\nModel: {model}\nModell-ID: {model_id}\nMaskinvareversjon: {hw_version}",
                     "data": {
                         "battery_type": "Batteritype",
                         "battery_quantity": "Antall batterier",

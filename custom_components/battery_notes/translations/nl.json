@@ -6,7 +6,7 @@
                 "title": "Setup Battery Notes"
             },
             "battery": {
-                "description": "Fabrikant: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware versie: {hw_version}",
+                "description": "Naam: {name}\nFabrikant: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware versie: {hw_version}",
                 "data": {
                     "battery_type": "Batterij type",
                     "battery_quantity": "Aantal batterijen",
@@ -67,7 +67,7 @@
                     }
                 },
                 "battery": {
-                    "description": "Fabrikant: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware versie: {hw_version}",
+                    "description": "Naam: {name}\nFabrikant: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware versie: {hw_version}",
                     "data": {
                         "battery_type": "Batterij type",
                         "battery_quantity": "Aantal batterijen",

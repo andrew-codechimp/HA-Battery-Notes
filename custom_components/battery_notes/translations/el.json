@@ -6,7 +6,7 @@
                 "title": "Ρύθμιση Σημειώσεων Μπαταρίας"
             },
             "battery": {
-                "description": "Κατασκευαστής: {manufacturer}\nΜοντέλο: {model}\nID Μοντέλου: {model_id}\nΕκδοση υλικού: {hw_version}",
+                "description": "Ονομα: {name}\nΚατασκευαστής: {manufacturer}\nΜοντέλο: {model}\nID Μοντέλου: {model_id}\nΕκδοση υλικού: {hw_version}",
                 "data": {
                     "battery_type": "Τύπος μπαταρίας",
                     "battery_quantity": "Αριθμός μπαταριών",
@@ -67,7 +67,7 @@
                     }
                 },
                 "battery": {
-                    "description": "Κατασκευαστής: {manufacturer}\nΜοντέλο: {model}\nID Μοντέλου: {model_id}\nΕκδοση υλικού: {hw_version}",
+                    "description": "Ονομα: {name}\nΚατασκευαστής: {manufacturer}\nΜοντέλο: {model}\nID Μοντέλου: {model_id}\nΕκδοση υλικού: {hw_version}",
                     "data": {
                         "battery_type": "Τύπος μπαταρίας",
                         "battery_quantity": "Αριθμός μπαταριών",

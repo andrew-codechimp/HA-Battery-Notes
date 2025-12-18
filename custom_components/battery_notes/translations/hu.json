@@ -6,7 +6,7 @@
                 "title": "Setup Battery Notes"
             },
             "battery": {
-                "description": "Gyártó: {manufacturer}\nModell: {model}\nModell azonosító: {model_id}\nHardver verzió: {hw_version}",
+                "description": "Név: {name}\nGyártó: {manufacturer}\nModell: {model}\nModell azonosító: {model_id}\nHardver verzió: {hw_version}",
                 "data": {
                     "battery_type": "Elemtípus",
                     "battery_quantity": "Elem darabszám",
@@ -67,7 +67,7 @@
                     }
                 },
                 "battery": {
-                    "description": "Gyártó: {manufacturer}\nModell: {model}\nModell azonosító: {model_id}\nHardver verzió: {hw_version}",
+                    "description": "GNév: {name}\nyártó: {manufacturer}\nModell: {model}\nModell azonosító: {model_id}\nHardver verzió: {hw_version}",
                     "data": {
                         "battery_type": "Elemtípus",
                         "battery_quantity": "Elem darabszám",

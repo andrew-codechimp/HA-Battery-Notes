@@ -6,7 +6,7 @@
                 "title": "Setup Battery Notes"
             },
             "battery": {
-                "description": "制造商：{manufacturer}\n型号：{model}\n型号 ID：{model_id}\n硬件版本：{hw_version}",
+                "description": "名称: {name}\n制造商：{manufacturer}\n型号：{model}\n型号 ID：{model_id}\n硬件版本：{hw_version}",
                 "data": {
                     "battery_type": "电池类型",
                     "battery_quantity": "电池数量",
@@ -67,7 +67,7 @@
                     }
                 },
                 "battery": {
-                    "description": "制造商：{manufacturer}\n型号：{model}\n型号 ID：{model_id}\n硬件版本：{hw_version}",
+                    "description": "名称: {name}\n制造商：{manufacturer}\n型号：{model}\n型号 ID：{model_id}\n硬件版本：{hw_version}",
                     "data": {
                         "battery_type": "电池类型",
                         "battery_quantity": "电池数量",

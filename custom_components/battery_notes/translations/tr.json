@@ -6,7 +6,7 @@
                 "title": "Setup Battery Notes"
             },
             "battery": {
-                "description": "Üretici firma: {manufacturer}\nModel: {model}\nModel Kodu: {model_id}\nDonanım sürümü: {hw_version}",
+                "description": "İsim: {name}\nÜretici firma: {manufacturer}\nModel: {model}\nModel Kodu: {model_id}\nDonanım sürümü: {hw_version}",
                 "data": {
                     "battery_type": "Pil Türü",
                     "battery_quantity": "Pil miktarı",
@@ -67,7 +67,7 @@
                     }
                 },
                 "battery": {
-                    "description": "Üretici firma: {manufacturer}\nModel: {model}\nModel Kodu: {model_id}\nDonanım sürümü: {hw_version}",
+                    "description": "İsim: {name}\nÜretici firma: {manufacturer}\nModel: {model}\nModel Kodu: {model_id}\nDonanım sürümü: {hw_version}",
                     "data": {
                         "battery_type": "Pil Türü",
                         "battery_quantity": "Pil miktarı",
