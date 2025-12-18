@@ -6,7 +6,7 @@
                 "title": "Setup Battery Notes"
             },
             "battery": {
-                "description": "Fabricant: {manufacturer}\nModel: {model}\nIdentificador del model: {model_id}\nVersió de maquinari: {hw_version}",
+                "description": "Nom: {name}\nFabricant: {manufacturer}\nModel: {model}\nIdentificador del model: {model_id}\nVersió de maquinari: {hw_version}",
                 "data": {
                     "battery_type": "Tipus de bateria",
                     "battery_quantity": "Quantitat de bateries",
@@ -67,7 +67,7 @@
                     }
                 },
                 "battery": {
-                    "description": "Fabricant: {manufacturer}\nModel: {model}\nIdentificador del model: {model_id}\nVersió de maquinari: {hw_version}",
+                    "description": "Nom: {name}\nFabricant: {manufacturer}\nModel: {model}\nIdentificador del model: {model_id}\nVersió de maquinari: {hw_version}",
                     "data": {
                         "battery_type": "Tipus de bateria",
                         "battery_quantity": "Quantitat de bateries",

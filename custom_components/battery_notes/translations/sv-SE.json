@@ -6,7 +6,7 @@
                 "title": "Setup Battery Notes"
             },
             "battery": {
-                "description": "Tillverkare: {manufacturer}\nModell: {model}\nModell ID: {model_id}\nHårdvaruversion: {hw_version}",
+                "description": "Namn: {name}\nTillverkare: {manufacturer}\nModell: {model}\nModell ID: {model_id}\nHårdvaruversion: {hw_version}",
                 "data": {
                     "battery_type": "Batterityp",
                     "battery_quantity": "Antal batterier",
@@ -67,7 +67,7 @@
                     }
                 },
                 "battery": {
-                    "description": "Tillverkare: {manufacturer}\nModell: {model}\nModell ID: {model_id}\nHårdvaruversion: {hw_version}",
+                    "description": "Namn: {name}\nTillverkare: {manufacturer}\nModell: {model}\nModell ID: {model_id}\nHårdvaruversion: {hw_version}",
                     "data": {
                         "battery_type": "Batterityp",
                         "battery_quantity": "Antal batterier",

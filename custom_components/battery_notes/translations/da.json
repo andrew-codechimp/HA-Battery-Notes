@@ -6,7 +6,7 @@
                 "title": "Setup Battery Notes"
             },
             "battery": {
-                "description": "Fabrikant: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
+                "description": "Navn: {name}\nFabrikant: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
                 "data": {
                     "battery_type": "Batteri type",
                     "battery_quantity": "Antal batterier",
@@ -67,7 +67,7 @@
                     }
                 },
                 "battery": {
-                    "description": "Fabrikant: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
+                    "description": "Navn: {name}\nFabrikant: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
                     "data": {
                         "battery_type": "Batteri type",
                         "battery_quantity": "Antal batterier",

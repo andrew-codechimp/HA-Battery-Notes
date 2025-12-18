@@ -6,7 +6,7 @@
                 "title": "Setup Battery Notes"
             },
             "battery": {
-                "description": "Produttore: {manufacturer}\nModello: {model}\nID Modello: {model_id}\nVersione hardware: {hw_version}",
+                "description": "Nome: {name}\nProduttore: {manufacturer}\nModello: {model}\nID Modello: {model_id}\nVersione hardware: {hw_version}",
                 "data": {
                     "battery_type": "Tipo di batteria",
                     "battery_quantity": "Quantità batteria",
@@ -67,7 +67,7 @@
                     }
                 },
                 "battery": {
-                    "description": "Produttore: {manufacturer}\nModello: {model}\nID Modello: {model_id}\nVersione hardware: {hw_version}",
+                    "description": "Nome: {name}\nProduttore: {manufacturer}\nModello: {model}\nID Modello: {model_id}\nVersione hardware: {hw_version}",
                     "data": {
                         "battery_type": "Tipo di batteria",
                         "battery_quantity": "Quantità batteria",

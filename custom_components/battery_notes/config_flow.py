@@ -11,7 +11,7 @@ import voluptuous as vol
 import homeassistant.helpers.device_registry as dr
 import homeassistant.helpers.entity_registry as er
 from homeassistant import config_entries
-from homeassistant.core import callback, split_entity_id
+from homeassistant.core import HomeAssistant, callback, split_entity_id
 from homeassistant.const import CONF_NAME, CONF_DEVICE_ID, Platform
 from homeassistant.helpers import selector
 from homeassistant.config_entries import (
@@ -148,6 +148,71 @@ ENTITY_SCHEMA = vol.Schema(
 )
 
 
+def calc_config_attributes(
+    hass: HomeAssistant,
+    data: dict,
+) -> tuple[str, str]:
+    """Calculate the unique ID and title for a battery notes configuration entry.
+
+    This function determines the unique identifier and display title based on either
+    a source entity ID or device ID. For entities, it combines device and entity names
+    when available. For devices, it uses the device name directly.
+
+    Args:
+        hass: The Home Assistant instance.
+        data: Configuration data dictionary containing either CONF_SOURCE_ENTITY_ID
+              or CONF_DEVICE_ID, and optionally CONF_NAME.
+
+    Returns:
+        tuple[str, str]: A tuple containing:
+            - unique_id (str): A unique identifier prefixed with "bn_" followed by
+              either the entity's unique ID or device ID.
+            - title (str): A human-readable title for the configuration entry. If CONF_NAME
+              is provided, uses that value. Otherwise, constructs a title from device and/or
+              entity names.
+
+    """
+    source_entity_id = data.get(CONF_SOURCE_ENTITY_ID)
+    device_id = data.get(CONF_DEVICE_ID)
+
+    entity_entry = None
+    device_entry = None
+
+    device_registry = dr.async_get(hass)
+
+    if source_entity_id:
+        entity_registry = er.async_get(hass)
+        entity_entry = entity_registry.async_get(source_entity_id)
+        _, source_object_id = split_entity_id(source_entity_id)
+        if entity_entry:
+            entity_unique_id = entity_entry.unique_id or entity_entry.entity_id
+        else:
+            entity_unique_id = source_object_id
+        unique_id = f"bn_{entity_unique_id}"
+    else:
+        assert device_id
+        unique_id = f"bn_{device_id}"
+
+    if CONF_NAME in data:
+        title = data.get(CONF_NAME)
+    elif source_entity_id and entity_entry:
+        if entity_entry.device_id:
+            device_entry = device_registry.async_get(entity_entry.device_id)
+            if device_entry:
+                title = f"{device_entry.name_by_user or device_entry.name} - {entity_entry.name or entity_entry.original_name}"
+            else:
+                title = entity_entry.name or entity_entry.original_name
+        else:
+            title = entity_entry.name or entity_entry.original_name
+    else:
+        assert device_id
+        device_entry = device_registry.async_get(device_id)
+        assert device_entry
+        title = device_entry.name_by_user or device_entry.name
+
+    return (unique_id, str(title))
+
+
 class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
     """Config flow for BatteryNotes."""
 
@@ -167,7 +232,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
     @callback
     def async_get_supported_subentry_types(
         cls,
-        config_entry: ConfigEntry,  # noqa: ARG003
+        _: ConfigEntry,
     ) -> dict[str, type[ConfigSubentryFlow]]:
         """Return subentries supported by this integration."""
         return {
@@ -354,11 +419,13 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             last_step=False,
         )
 
-    async def async_step_battery(  # noqa: PLR0912, PLR0915
+    async def async_step_battery(
         self, user_input: dict[str, Any] | None = None
     ) -> ConfigFlowResult:
         """Second step in config flow to add the battery type."""
         errors: dict[str, str] = {}
+        unique_id, title = calc_config_attributes(self.hass, self.data)
+
         if user_input is not None:
             config_entry = await self.async_get_integration_entry()
 
@@ -377,45 +444,8 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                 CONF_FILTER_OUTLIERS, False
             )
 
-            source_entity_id = self.data.get(CONF_SOURCE_ENTITY_ID, None)
-            device_id = self.data.get(CONF_DEVICE_ID, None)
-
-            entity_entry = None
-            device_entry = None
-
-            if source_entity_id:
-                entity_registry = er.async_get(self.hass)
-                entity_entry = entity_registry.async_get(source_entity_id)
-                _, source_object_id = split_entity_id(source_entity_id)
-                if entity_entry:
-                    entity_unique_id = entity_entry.unique_id or entity_entry.entity_id
-                else:
-                    entity_unique_id = source_object_id
-                unique_id = f"bn_{entity_unique_id}"
-            else:
-                device_registry = dr.async_get(self.hass)
-                assert device_id
-                device_entry = device_registry.async_get(device_id)
-                unique_id = f"bn_{device_id}"
-
             await self.async_set_unique_id(unique_id)
             self._abort_if_unique_id_configured()
-
-            if CONF_NAME in self.data:
-                title = self.data.pop(CONF_NAME)
-            elif source_entity_id and entity_entry:
-                if entity_entry.device_id:
-                    device_registry = dr.async_get(self.hass)
-                    device_entry = device_registry.async_get(entity_entry.device_id)
-                    if device_entry:
-                        title = f"{device_entry.name_by_user or device_entry.name} - {entity_entry.name or entity_entry.original_name}"
-                    else:
-                        title = entity_entry.name or entity_entry.original_name
-                else:
-                    title = entity_entry.name or entity_entry.original_name
-            else:
-                assert device_entry
-                title = device_entry.name_by_user or device_entry.name
 
             # Remove discovery data from data
             self.data.pop(CONF_DEVICE_NAME, None)
@@ -425,10 +455,12 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             self.data.pop(CONF_HW_VERSION, None)
             self.data.pop(CONF_INTEGRATION_NAME, None)
 
+            self.data.pop(CONF_NAME, None)
+
             subentry = ConfigSubentry(
                 subentry_type=SUBENTRY_BATTERY_NOTE,
                 data=MappingProxyType(self.data),
-                title=str(title),
+                title=title,
                 unique_id=unique_id,
             )
             self.hass.config_entries.async_add_subentry(config_entry, subentry)
@@ -438,6 +470,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
         return self.async_show_form(
             step_id="battery",
             description_placeholders={
+                "name": title,
                 "manufacturer": self.model_info.manufacturer if self.model_info else "",
                 "model": self.model_info.model if self.model_info else "",
                 "model_id": (
@@ -716,11 +749,12 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
             errors=errors,
         )
 
-    async def async_step_battery(  # noqa: PLR0912
+    async def async_step_battery(
         self, user_input: dict[str, Any] | None = None
     ) -> SubentryFlowResult:
         """Second step in config flow to add the battery type."""
         errors: dict[str, str] = {}
+        unique_id, title = calc_config_attributes(self.hass, self.data)
 
         if user_input is not None:
             self.data[CONF_BATTERY_TYPE] = user_input[CONF_BATTERY_TYPE]
@@ -735,27 +769,6 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
                 CONF_FILTER_OUTLIERS, False
             )
 
-            source_entity_id = self.data.get(CONF_SOURCE_ENTITY_ID, None)
-            device_id = self.data.get(CONF_DEVICE_ID, None)
-
-            entity_entry = None
-            device_entry = None
-
-            if source_entity_id:
-                entity_registry = er.async_get(self.hass)
-                entity_entry = entity_registry.async_get(source_entity_id)
-                _, source_object_id = split_entity_id(source_entity_id)
-                if entity_entry:
-                    entity_unique_id = entity_entry.unique_id or entity_entry.entity_id
-                else:
-                    entity_unique_id = source_object_id
-                unique_id = f"bn_{entity_unique_id}"
-            else:
-                device_registry = dr.async_get(self.hass)
-                assert device_id
-                device_entry = device_registry.async_get(device_id)
-                unique_id = f"bn_{device_id}"
-
             # Check if unique_id already exists
             config_entry = self._get_entry()
             for existing_subentry in config_entry.subentries.values():
@@ -765,29 +778,16 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
                     )
                     return self.async_abort(reason="already_configured")
 
-            if CONF_NAME in self.data:
-                title = self.data.pop(CONF_NAME)
-            elif source_entity_id and entity_entry:
-                if entity_entry.device_id:
-                    device_registry = dr.async_get(self.hass)
-                    device_entry = device_registry.async_get(entity_entry.device_id)
-                    if device_entry:
-                        title = f"{device_entry.name_by_user or device_entry.name} - {entity_entry.name or entity_entry.original_name}"
-                    else:
-                        title = entity_entry.name or entity_entry.original_name
-                else:
-                    title = entity_entry.name or entity_entry.original_name
-            else:
-                assert device_entry
-                title = device_entry.name_by_user or device_entry.name
+            self.data.pop(CONF_NAME, None)
 
             return self.async_create_entry(
-                title=str(title), data=self.data, unique_id=unique_id
+                title=title, data=self.data, unique_id=unique_id
             )
 
         return self.async_show_form(
             step_id="battery",
             description_placeholders={
+                "name": title,
                 "manufacturer": self.model_info.manufacturer if self.model_info else "",
                 "model": self.model_info.model if self.model_info else "",
                 "model_id": (

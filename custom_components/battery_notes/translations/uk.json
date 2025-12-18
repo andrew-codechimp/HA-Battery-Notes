@@ -6,7 +6,7 @@
                 "title": "Setup Battery Notes"
             },
             "battery": {
-                "description": "Виробник: {manufacturer}\nМодель: {model}\nID моделі: {model_id}\nРевізія: {hw_version}",
+                "description": "Назва: {name}\nВиробник: {manufacturer}\nМодель: {model}\nID моделі: {model_id}\nРевізія: {hw_version}",
                 "data": {
                     "battery_type": "Тип батареї",
                     "battery_quantity": "Кількість батарей",
@@ -67,7 +67,7 @@
                     }
                 },
                 "battery": {
-                    "description": "Виробник: {manufacturer}\nМодель: {model}\nID моделі: {model_id}\nРевізія: {hw_version}",
+                    "description": "Назва: {name}\nВиробник: {manufacturer}\nМодель: {model}\nID моделі: {model_id}\nРевізія: {hw_version}",
                     "data": {
                         "battery_type": "Тип батареї",
                         "battery_quantity": "Кількість батарей",
