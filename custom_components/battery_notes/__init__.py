@@ -49,11 +49,13 @@ from .const import (
     CONF_USER_LIBRARY,
     CONF_ROUND_BATTERY,
     CONF_ENABLE_REPLACED,
+    CONF_FILTER_OUTLIERS,
     CONF_BATTERY_QUANTITY,
     CONF_SHOW_ALL_DEVICES,
     ISSUE_DEPRECATED_YAML,
     SUBENTRY_BATTERY_NOTE,
     CONF_ADVANCED_SETTINGS,
+    CONF_BATTERY_LOW_TEMPLATE,
     CONF_ENABLE_AUTODISCOVERY,
     DEFAULT_BATTERY_LOW_THRESHOLD,
     CONF_BATTERY_INCREASE_THRESHOLD,
@@ -260,8 +262,8 @@ async def async_migrate_integration(hass: HomeAssistant, config: ConfigType) -> 
         return
 
     for entry in entries:
-        if entry.version == 3 and entry.unique_id == DOMAIN:
-            # We have a V3 entry, so we can use this as the base
+        if entry.version >= 3 and entry.unique_id == DOMAIN:
+            # We have a V3 or greater entry, so we can use this as the base
             migrate_base_entry = entry
             break
 
@@ -417,9 +419,15 @@ async def async_migrate_entry(
         config_entry.minor_version,
     )
 
-    if config_entry.version > 3:
+    if config_entry.version > 4:
         # This means the user has downgraded from a future version
         return False
+
+    if config_entry.version < 4 and config_entry.source == SOURCE_IGNORE:
+        hass.config_entries.async_update_entry(
+            config_entry, version=4, title=config_entry.title
+        )
+        return True
 
     if config_entry.version == 1:
         # Version 1 had a single config for qty & type, split them
@@ -449,9 +457,33 @@ async def async_migrate_entry(
             2,
         )
 
-    if config_entry.version == 2 and config_entry.source == SOURCE_IGNORE:
+    if config_entry.version == 3:
+        for subentry in config_entry.subentries.values():
+            # Migrate subentry settings to advanced_settings
+            subentry_data_dict = dict(subentry.data)
+            advanced_settings = {}
+
+            advanced_settings[CONF_BATTERY_LOW_TEMPLATE] = subentry_data_dict.get(
+                CONF_BATTERY_LOW_TEMPLATE
+            )
+
+            advanced_settings[CONF_FILTER_OUTLIERS] = subentry_data_dict.get(
+                CONF_FILTER_OUTLIERS, False
+            )
+
+            subentry_data_dict.pop(CONF_BATTERY_LOW_TEMPLATE)
+            subentry_data_dict.pop(CONF_FILTER_OUTLIERS)
+
+            subentry_data_dict[CONF_ADVANCED_SETTINGS] = advanced_settings
+
+            hass.config_entries.async_update_subentry(
+                config_entry,
+                subentry.subentry_id,
+                data=MappingProxyType(subentry_data_dict),
+            )
+
         hass.config_entries.async_update_entry(
-            config_entry, version=3, title=config_entry.title
+            config_entry, version=4, title=config_entry.title
         )
 
     return True
