@@ -437,6 +437,8 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             self.data[CONF_BATTERY_LOW_THRESHOLD] = int(
                 user_input[CONF_BATTERY_LOW_THRESHOLD]
             )
+            if CONF_ADVANCED_SETTINGS not in self.data:
+                self.data[CONF_ADVANCED_SETTINGS] = {}
             self.data[CONF_ADVANCED_SETTINGS][CONF_BATTERY_LOW_TEMPLATE] = user_input[
                 CONF_ADVANCED_SETTINGS
             ].get(CONF_BATTERY_LOW_TEMPLATE, None)
@@ -769,6 +771,8 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
             self.data[CONF_BATTERY_LOW_THRESHOLD] = int(
                 user_input[CONF_BATTERY_LOW_THRESHOLD]
             )
+            if CONF_ADVANCED_SETTINGS not in self.data:
+                self.data[CONF_ADVANCED_SETTINGS] = {}
             self.data[CONF_ADVANCED_SETTINGS][CONF_BATTERY_LOW_TEMPLATE] = user_input[
                 CONF_ADVANCED_SETTINGS
             ].get(CONF_BATTERY_LOW_TEMPLATE, None)
@@ -862,6 +866,8 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
             self.data[CONF_BATTERY_LOW_THRESHOLD] = int(
                 user_input[CONF_BATTERY_LOW_THRESHOLD]
             )
+            if CONF_ADVANCED_SETTINGS not in self.data:
+                self.data[CONF_ADVANCED_SETTINGS] = {}
             if user_input.get(CONF_BATTERY_LOW_TEMPLATE, "") == "":
                 self.data[CONF_ADVANCED_SETTINGS][CONF_BATTERY_LOW_TEMPLATE] = None
             else:
@@ -883,6 +889,8 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
             )
 
         self.data = config_subentry.data.copy()
+        if CONF_ADVANCED_SETTINGS not in self.data:
+            self.data[CONF_ADVANCED_SETTINGS] = {}
 
         source_device_id = self.data.get(CONF_DEVICE_ID)
 
