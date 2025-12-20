@@ -463,22 +463,19 @@ async def async_migrate_entry(
             subentry_data_dict = dict(subentry.data)
             advanced_settings = {}
 
-            advanced_settings[CONF_BATTERY_LOW_TEMPLATE] = subentry_data_dict.get(
-                CONF_BATTERY_LOW_TEMPLATE
+            advanced_settings[CONF_BATTERY_LOW_TEMPLATE] = subentry_data_dict.pop(
+                CONF_BATTERY_LOW_TEMPLATE, None
             )
 
-            advanced_settings[CONF_FILTER_OUTLIERS] = subentry_data_dict.get(
+            advanced_settings[CONF_FILTER_OUTLIERS] = subentry_data_dict.pop(
                 CONF_FILTER_OUTLIERS, False
             )
-
-            subentry_data_dict.pop(CONF_BATTERY_LOW_TEMPLATE)
-            subentry_data_dict.pop(CONF_FILTER_OUTLIERS)
 
             subentry_data_dict[CONF_ADVANCED_SETTINGS] = advanced_settings
 
             hass.config_entries.async_update_subentry(
                 config_entry,
-                subentry.subentry_id,
+                subentry,
                 data=MappingProxyType(subentry_data_dict),
             )
 

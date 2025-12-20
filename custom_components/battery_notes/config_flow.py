@@ -868,7 +868,7 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
             )
             if CONF_ADVANCED_SETTINGS not in self.data:
                 self.data[CONF_ADVANCED_SETTINGS] = {}
-            if user_input.get(CONF_BATTERY_LOW_TEMPLATE, "") == "":
+            if user_input[CONF_ADVANCED_SETTINGS].get(CONF_BATTERY_LOW_TEMPLATE, "") == "":
                 self.data[CONF_ADVANCED_SETTINGS][CONF_BATTERY_LOW_TEMPLATE] = None
             else:
                 self.data[CONF_ADVANCED_SETTINGS][CONF_BATTERY_LOW_TEMPLATE] = (
@@ -916,7 +916,7 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
                     device_entry.hw_version,
                 )
 
-        if self.data.get(CONF_BATTERY_LOW_TEMPLATE, None) is None:
+        if self.data[CONF_ADVANCED_SETTINGS].get(CONF_BATTERY_LOW_TEMPLATE, None) is None:
             data_schema = vol.Schema(
                 {
                     vol.Optional(
