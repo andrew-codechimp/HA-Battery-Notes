@@ -10,14 +10,23 @@
                 "data": {
                     "battery_type": "Pil Türü",
                     "battery_quantity": "Pil miktarı",
-                    "battery_low_threshold": "Düşük pil eşiği",
-                    "battery_low_template": "Düşük pil şablonu",
-                    "filter_outliers": "Filter outliers"
+                    "battery_low_threshold": "Düşük pil eşiği"
                 },
                 "data_description": {
-                    "battery_low_threshold": "0 genel varsayılan eşiği kullanacaktır",
-                    "battery_low_template": "Bir pilin zayıf olduğunu belirleyen şablon, zayıfsa true döndürmelidir\nYalnızca standart olmayan pil seviyeleri için gereklidir",
-                    "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                    "battery_low_threshold": "0 genel varsayılan eşiği kullanacaktır"
+                },
+                "sections": {
+                    "advanced_settings": {
+                        "name": "Advanced settings",
+                        "data": {
+                            "battery_low_template": "Düşük pil şablonu",
+                            "filter_outliers": "Filter outliers"
+                        },
+                        "data_description": {
+                            "battery_low_template": "Bir pilin zayıf olduğunu belirleyen şablon, zayıfsa true döndürmelidir\nYalnızca standart olmayan pil seviyeleri için gereklidir",
+                            "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                        }
+                    }
                 }
             }
         },
@@ -71,14 +80,23 @@
                     "data": {
                         "battery_type": "Pil Türü",
                         "battery_quantity": "Pil miktarı",
-                        "battery_low_threshold": "Düşük pil eşiği",
-                        "battery_low_template": "Düşük pil şablonu",
-                        "filter_outliers": "Filter outliers"
+                        "battery_low_threshold": "Düşük pil eşiği"
                     },
                     "data_description": {
-                        "battery_low_threshold": "0 genel varsayılan eşiği kullanacaktır",
-                        "battery_low_template": "Bir pilin zayıf olduğunu belirleyen şablon, zayıfsa true döndürmelidir\nYalnızca standart olmayan pil seviyeleri için gereklidir",
-                        "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                        "battery_low_threshold": "0 genel varsayılan eşiği kullanacaktır"
+                    },
+                    "sections": {
+                        "advanced_settings": {
+                            "name": "Advanced settings",
+                            "data": {
+                                "battery_low_template": "Düşük pil şablonu",
+                                "filter_outliers": "Filter outliers"
+                            },
+                            "data_description": {
+                                "battery_low_template": "Bir pilin zayıf olduğunu belirleyen şablon, zayıfsa true döndürmelidir\nYalnızca standart olmayan pil seviyeleri için gereklidir",
+                                "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                            }
+                        }
                     }
                 },
                 "manual": {
@@ -91,15 +109,24 @@
                         "name": "İsim",
                         "battery_type": "Pil türü",
                         "battery_quantity": "Pil miktarı",
-                        "battery_low_threshold": "Düşük pil eşiği",
-                        "battery_low_template": "Düşük pil şablonu",
-                        "filter_outliers": "Filter outliers"
+                        "battery_low_threshold": "Düşük pil eşiği"
                     },
                     "data_description": {
                         "name": "Boş bırakıldığında kaynak cihazın ismi alınır",
-                        "battery_low_threshold": "0 genel varsayılan eşiği kullanacaktır",
-                        "battery_low_template": "Bir pilin zayıf olduğunu belirleyen şablon, zayıfsa true döndürmelidir\nYalnızca standart olmayan pil seviyeleri için gereklidir",
-                        "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                        "battery_low_threshold": "0 genel varsayılan eşiği kullanacaktır"
+                    },
+                    "sections": {
+                        "advanced_settings": {
+                            "name": "Advanced settings",
+                            "data": {
+                                "battery_low_template": "Düşük pil şablonu",
+                                "filter_outliers": "Filter outliers"
+                            },
+                            "data_description": {
+                                "battery_low_template": "Bir pilin zayıf olduğunu belirleyen şablon, zayıfsa true döndürmelidir\nYalnızca standart olmayan pil seviyeleri için gereklidir",
+                                "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                            }
+                        }
                     }
                 }
             },

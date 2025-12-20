@@ -10,14 +10,23 @@
                 "data": {
                     "battery_type": "Type de batterie",
                     "battery_quantity": "Nombre de batteries",
-                    "battery_low_threshold": "Seuil de batterie faible",
-                    "battery_low_template": "Modèle de batterie faible",
-                    "filter_outliers": "Filtrer les valeurs aberrantes"
+                    "battery_low_threshold": "Seuil de batterie faible"
                 },
                 "data_description": {
-                    "battery_low_threshold": "0 gardera le seuil par defaut",
-                    "battery_low_template": "Modèle pour déterminer si une batterie est faible, devrait retourner vrai si faible\nNécessaire uniquement pour les niveaux de batterie non standard",
-                    "filter_outliers": "Filtrer les baisses importantes du niveau de batterie, pour réduire les événements faussement déclenchés par les appareils qui signalent occasionnellement des niveaux erronés"
+                    "battery_low_threshold": "0 gardera le seuil par defaut"
+                },
+                "sections": {
+                    "advanced_settings": {
+                        "name": "Advanced settings",
+                        "data": {
+                            "battery_low_template": "Modèle de batterie faible",
+                            "filter_outliers": "Filtrer les valeurs aberrantes"
+                        },
+                        "data_description": {
+                            "battery_low_template": "Modèle pour déterminer si une batterie est faible, devrait retourner vrai si faible\nNécessaire uniquement pour les niveaux de batterie non standard",
+                            "filter_outliers": "Filtrer les baisses importantes du niveau de batterie, pour réduire les événements faussement déclenchés par les appareils qui signalent occasionnellement des niveaux erronés"
+                        }
+                    }
                 }
             }
         },
@@ -71,14 +80,23 @@
                     "data": {
                         "battery_type": "Type de batterie",
                         "battery_quantity": "Nombre de batteries",
-                        "battery_low_threshold": "Seuil de batterie faible",
-                        "battery_low_template": "Modèle de batterie faible",
-                        "filter_outliers": "Filtrer les valeurs aberrantes"
+                        "battery_low_threshold": "Seuil de batterie faible"
                     },
                     "data_description": {
-                        "battery_low_threshold": "0 gardera le seuil par defaut",
-                        "battery_low_template": "Modèle pour déterminer si une batterie est faible, devrait retourner vrai si faible\nNécessaire uniquement pour les niveaux de batterie non standard",
-                        "filter_outliers": "Filtrer les baisses importantes du niveau de batterie, pour réduire les événements faussement déclenchés par les appareils qui signalent occasionnellement des niveaux erronés"
+                        "battery_low_threshold": "0 gardera le seuil par defaut"
+                    },
+                    "sections": {
+                        "advanced_settings": {
+                            "name": "Advanced settings",
+                            "data": {
+                                "battery_low_template": "Modèle de batterie faible",
+                                "filter_outliers": "Filtrer les valeurs aberrantes"
+                            },
+                            "data_description": {
+                                "battery_low_template": "Modèle pour déterminer si une batterie est faible, devrait retourner vrai si faible\nNécessaire uniquement pour les niveaux de batterie non standard",
+                                "filter_outliers": "Filtrer les baisses importantes du niveau de batterie, pour réduire les événements faussement déclenchés par les appareils qui signalent occasionnellement des niveaux erronés"
+                            }
+                        }
                     }
                 },
                 "manual": {
@@ -91,15 +109,24 @@
                         "name": "Nom",
                         "battery_type": "Type de batterie",
                         "battery_quantity": "Nombre de batteries",
-                        "battery_low_threshold": "Seuil de batterie faible",
-                        "battery_low_template": "Modèle de batterie faible",
-                        "filter_outliers": "Filtrer les valeurs aberrantes"
+                        "battery_low_threshold": "Seuil de batterie faible"
                     },
                     "data_description": {
                         "name": "Laisser vide gardera le seuil par defaut",
-                        "battery_low_threshold": "0 gardera le seuil par defaut",
-                        "battery_low_template": "Modèle pour déterminer si une batterie est faible, devrait retourner vrai si faible\nNécessaire uniquement pour les niveaux de batterie non standard",
-                        "filter_outliers": "Filtrer les baisses importantes du niveau de batterie, pour réduire les événements faussement déclenchés par les appareils qui signalent occasionnellement des niveaux erronés"
+                        "battery_low_threshold": "0 gardera le seuil par defaut"
+                    },
+                    "sections": {
+                        "advanced_settings": {
+                            "name": "Advanced settings",
+                            "data": {
+                                "battery_low_template": "Modèle de batterie faible",
+                                "filter_outliers": "Filtrer les valeurs aberrantes"
+                            },
+                            "data_description": {
+                                "battery_low_template": "Modèle pour déterminer si une batterie est faible, devrait retourner vrai si faible\nNécessaire uniquement pour les niveaux de batterie non standard",
+                                "filter_outliers": "Filtrer les baisses importantes du niveau de batterie, pour réduire les événements faussement déclenchés par les appareils qui signalent occasionnellement des niveaux erronés"
+                            }
+                        }
                     }
                 }
             },

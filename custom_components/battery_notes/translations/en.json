@@ -25,7 +25,6 @@
                         "data_description": {
                             "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels",
                             "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
-
                         }
                     }
                 }
@@ -96,7 +95,6 @@
                             "data_description": {
                                 "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels",
                                 "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
-
                             }
                         }
                     }
@@ -127,7 +125,6 @@
                             "data_description": {
                                 "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels",
                                 "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
-
                             }
                         }
                     }
