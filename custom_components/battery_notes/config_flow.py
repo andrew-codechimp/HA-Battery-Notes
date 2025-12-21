@@ -63,7 +63,7 @@ _LOGGER = logging.getLogger(__name__)
 
 DOCUMENTATION_URL = "https://andrew-codechimp.github.io/HA-Battery-Notes/"
 
-CONFIG_VERSION = 3
+CONFIG_VERSION = 4
 
 OPTIONS_SCHEMA = vol.Schema(
     {
@@ -437,12 +437,14 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             self.data[CONF_BATTERY_LOW_THRESHOLD] = int(
                 user_input[CONF_BATTERY_LOW_THRESHOLD]
             )
-            self.data[CONF_BATTERY_LOW_TEMPLATE] = user_input.get(
-                CONF_BATTERY_LOW_TEMPLATE, None
-            )
-            self.data[CONF_FILTER_OUTLIERS] = user_input.get(
-                CONF_FILTER_OUTLIERS, False
-            )
+            if CONF_ADVANCED_SETTINGS not in self.data:
+                self.data[CONF_ADVANCED_SETTINGS] = {}
+            self.data[CONF_ADVANCED_SETTINGS][CONF_BATTERY_LOW_TEMPLATE] = user_input[
+                CONF_ADVANCED_SETTINGS
+            ].get(CONF_BATTERY_LOW_TEMPLATE, None)
+            self.data[CONF_ADVANCED_SETTINGS][CONF_FILTER_OUTLIERS] = user_input[
+                CONF_ADVANCED_SETTINGS
+            ].get(CONF_FILTER_OUTLIERS, False)
 
             await self.async_set_unique_id(unique_id)
             self._abort_if_unique_id_configured()
@@ -506,12 +508,19 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                             min=0, max=99, mode=selector.NumberSelectorMode.BOX
                         ),
                     ),
-                    vol.Optional(
-                        CONF_BATTERY_LOW_TEMPLATE
-                    ): selector.TemplateSelector(),
-                    vol.Optional(
-                        CONF_FILTER_OUTLIERS, default=False
-                    ): selector.BooleanSelector(),
+                    vol.Required(CONF_ADVANCED_SETTINGS): section(
+                        vol.Schema(
+                            {
+                                vol.Optional(
+                                    CONF_BATTERY_LOW_TEMPLATE
+                                ): selector.TemplateSelector(),
+                                vol.Optional(
+                                    CONF_FILTER_OUTLIERS, default=False
+                                ): selector.BooleanSelector(),
+                            }
+                        ),
+                        {"collapsed": True},
+                    ),
                 }
             ),
             errors=errors,
@@ -762,12 +771,14 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
             self.data[CONF_BATTERY_LOW_THRESHOLD] = int(
                 user_input[CONF_BATTERY_LOW_THRESHOLD]
             )
-            self.data[CONF_BATTERY_LOW_TEMPLATE] = user_input.get(
-                CONF_BATTERY_LOW_TEMPLATE, None
-            )
-            self.data[CONF_FILTER_OUTLIERS] = user_input.get(
-                CONF_FILTER_OUTLIERS, False
-            )
+            if CONF_ADVANCED_SETTINGS not in self.data:
+                self.data[CONF_ADVANCED_SETTINGS] = {}
+            self.data[CONF_ADVANCED_SETTINGS][CONF_BATTERY_LOW_TEMPLATE] = user_input[
+                CONF_ADVANCED_SETTINGS
+            ].get(CONF_BATTERY_LOW_TEMPLATE, None)
+            self.data[CONF_ADVANCED_SETTINGS][CONF_FILTER_OUTLIERS] = user_input[
+                CONF_ADVANCED_SETTINGS
+            ].get(CONF_FILTER_OUTLIERS, False)
 
             # Check if unique_id already exists
             config_entry = self._get_entry()
@@ -823,12 +834,19 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
                             min=0, max=99, mode=selector.NumberSelectorMode.BOX
                         ),
                     ),
-                    vol.Optional(
-                        CONF_BATTERY_LOW_TEMPLATE
-                    ): selector.TemplateSelector(),
-                    vol.Optional(
-                        CONF_FILTER_OUTLIERS, default=False
-                    ): selector.BooleanSelector(),
+                    vol.Required(CONF_ADVANCED_SETTINGS): section(
+                        vol.Schema(
+                            {
+                                vol.Optional(
+                                    CONF_BATTERY_LOW_TEMPLATE
+                                ): selector.TemplateSelector(),
+                                vol.Optional(
+                                    CONF_FILTER_OUTLIERS, default=False
+                                ): selector.BooleanSelector(),
+                            }
+                        ),
+                        {"collapsed": True},
+                    ),
                 }
             ),
             errors=errors,
@@ -848,15 +866,20 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
             self.data[CONF_BATTERY_LOW_THRESHOLD] = int(
                 user_input[CONF_BATTERY_LOW_THRESHOLD]
             )
-            if user_input.get(CONF_BATTERY_LOW_TEMPLATE, "") == "":
-                self.data[CONF_BATTERY_LOW_TEMPLATE] = None
+            if CONF_ADVANCED_SETTINGS not in self.data:
+                self.data[CONF_ADVANCED_SETTINGS] = {}
+            if (
+                user_input[CONF_ADVANCED_SETTINGS].get(CONF_BATTERY_LOW_TEMPLATE, "")
+                == ""
+            ):
+                self.data[CONF_ADVANCED_SETTINGS][CONF_BATTERY_LOW_TEMPLATE] = None
             else:
-                self.data[CONF_BATTERY_LOW_TEMPLATE] = user_input[
-                    CONF_BATTERY_LOW_TEMPLATE
-                ]
-            self.data[CONF_FILTER_OUTLIERS] = user_input.get(
-                CONF_FILTER_OUTLIERS, False
-            )
+                self.data[CONF_ADVANCED_SETTINGS][CONF_BATTERY_LOW_TEMPLATE] = (
+                    user_input[CONF_ADVANCED_SETTINGS][CONF_BATTERY_LOW_TEMPLATE]
+                )
+            self.data[CONF_ADVANCED_SETTINGS][CONF_FILTER_OUTLIERS] = user_input[
+                CONF_ADVANCED_SETTINGS
+            ].get(CONF_FILTER_OUTLIERS, False)
 
             # Save the updated subentry
             new_title = user_input.pop(CONF_NAME)
@@ -869,6 +892,8 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
             )
 
         self.data = config_subentry.data.copy()
+        if CONF_ADVANCED_SETTINGS not in self.data:
+            self.data[CONF_ADVANCED_SETTINGS] = {}
 
         source_device_id = self.data.get(CONF_DEVICE_ID)
 
@@ -894,7 +919,10 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
                     device_entry.hw_version,
                 )
 
-        if self.data.get(CONF_BATTERY_LOW_TEMPLATE, None) is None:
+        if (
+            self.data[CONF_ADVANCED_SETTINGS].get(CONF_BATTERY_LOW_TEMPLATE, None)
+            is None
+        ):
             data_schema = vol.Schema(
                 {
                     vol.Optional(
@@ -920,19 +948,30 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
                     ),
                     vol.Required(
                         CONF_BATTERY_LOW_THRESHOLD,
-                        default=self.data.get(CONF_BATTERY_LOW_THRESHOLD, 0),
+                        default=self.data[CONF_ADVANCED_SETTINGS].get(
+                            CONF_BATTERY_LOW_THRESHOLD, 0
+                        ),
                     ): selector.NumberSelector(
                         selector.NumberSelectorConfig(
                             min=0, max=99, mode=selector.NumberSelectorMode.BOX
                         ),
                     ),
-                    vol.Optional(
-                        CONF_BATTERY_LOW_TEMPLATE
-                    ): selector.TemplateSelector(),
-                    vol.Optional(
-                        CONF_FILTER_OUTLIERS,
-                        default=self.data.get(CONF_FILTER_OUTLIERS, False),
-                    ): selector.BooleanSelector(),
+                    vol.Required(CONF_ADVANCED_SETTINGS): section(
+                        vol.Schema(
+                            {
+                                vol.Optional(
+                                    CONF_BATTERY_LOW_TEMPLATE
+                                ): selector.TemplateSelector(),
+                                vol.Optional(
+                                    CONF_FILTER_OUTLIERS,
+                                    default=self.data[CONF_ADVANCED_SETTINGS].get(
+                                        CONF_FILTER_OUTLIERS, False
+                                    ),
+                                ): selector.BooleanSelector(),
+                            }
+                        ),
+                        {"collapsed": True},
+                    ),
                 }
             )
         else:
@@ -967,14 +1006,25 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
                             min=0, max=99, mode=selector.NumberSelectorMode.BOX
                         ),
                     ),
-                    vol.Optional(
-                        CONF_BATTERY_LOW_TEMPLATE,
-                        default=self.data.get(CONF_BATTERY_LOW_TEMPLATE, None),
-                    ): selector.TemplateSelector(),
-                    vol.Optional(
-                        CONF_FILTER_OUTLIERS,
-                        default=self.data.get(CONF_FILTER_OUTLIERS, False),
-                    ): selector.BooleanSelector(),
+                    vol.Required(CONF_ADVANCED_SETTINGS): section(
+                        vol.Schema(
+                            {
+                                vol.Optional(
+                                    CONF_BATTERY_LOW_TEMPLATE,
+                                    default=self.data[CONF_ADVANCED_SETTINGS].get(
+                                        CONF_BATTERY_LOW_TEMPLATE, None
+                                    ),
+                                ): selector.TemplateSelector(),
+                                vol.Optional(
+                                    CONF_FILTER_OUTLIERS,
+                                    default=self.data[CONF_ADVANCED_SETTINGS].get(
+                                        CONF_FILTER_OUTLIERS, False
+                                    ),
+                                ): selector.BooleanSelector(),
+                            }
+                        ),
+                        {"collapsed": True},
+                    ),
                 }
             )
 

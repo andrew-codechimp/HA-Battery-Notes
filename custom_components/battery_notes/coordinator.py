@@ -46,6 +46,7 @@ from .const import (
     ATTR_SOURCE_ENTITY_ID,
     CONF_BATTERY_QUANTITY,
     CONF_SOURCE_ENTITY_ID,
+    CONF_ADVANCED_SETTINGS,
     EVENT_BATTERY_INCREASED,
     EVENT_BATTERY_THRESHOLD,
     CONF_BATTERY_LOW_TEMPLATE,
@@ -160,11 +161,11 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
             if self.battery_low_threshold == 0:
                 self.battery_low_threshold = self.config_entry.runtime_data.domain_config.default_battery_low_threshold
 
-        self.battery_low_template = self.subentry.data.get(
+        self.battery_low_template = self.subentry.data[CONF_ADVANCED_SETTINGS].get(
             CONF_BATTERY_LOW_TEMPLATE, None
         )
 
-        if self.subentry.data.get(CONF_FILTER_OUTLIERS, False):
+        if self.subentry.data[CONF_ADVANCED_SETTINGS].get(CONF_FILTER_OUTLIERS, False):
             self._outlier_filter = LowOutlierFilter(window_size=3, radius=80)
             _LOGGER.debug("Outlier filter enabled")
 

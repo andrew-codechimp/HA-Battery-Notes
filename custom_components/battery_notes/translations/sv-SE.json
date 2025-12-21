@@ -10,14 +10,23 @@
                 "data": {
                     "battery_type": "Batterityp",
                     "battery_quantity": "Antal batterier",
-                    "battery_low_threshold": "Tröskelvärde lågt batteri",
-                    "battery_low_template": "Batteri lågt template",
-                    "filter_outliers": "Filtrera avvikande"
+                    "battery_low_threshold": "Tröskelvärde lågt batteri"
                 },
                 "data_description": {
-                    "battery_low_threshold": "0 kommer att använda det globala standardtröskelvärdet",
-                    "battery_low_template": "Template för att bestämma om batteriet är lågt, borde returnera true om lågt.\nEndast nödvändigt för icke-standard batterinivåer.",
-                    "filter_outliers": "Filtrera bort stora batterinivåfall för att minska falska händelser på enheter som ibland rapporterar nivåer felaktigt"
+                    "battery_low_threshold": "0 kommer att använda det globala standardtröskelvärdet"
+                },
+                "sections": {
+                    "advanced_settings": {
+                        "name": "Advanced settings",
+                        "data": {
+                            "battery_low_template": "Batteri lågt template",
+                            "filter_outliers": "Filtrera avvikande"
+                        },
+                        "data_description": {
+                            "battery_low_template": "Template för att bestämma om batteriet är lågt, borde returnera true om lågt.\nEndast nödvändigt för icke-standard batterinivåer.",
+                            "filter_outliers": "Filtrera bort stora batterinivåfall för att minska falska händelser på enheter som ibland rapporterar nivåer felaktigt"
+                        }
+                    }
                 }
             }
         },
@@ -71,14 +80,23 @@
                     "data": {
                         "battery_type": "Batterityp",
                         "battery_quantity": "Antal batterier",
-                        "battery_low_threshold": "Tröskelvärde lågt batteri",
-                        "battery_low_template": "Batteri lågt template",
-                        "filter_outliers": "Filtrera avvikande"
+                        "battery_low_threshold": "Tröskelvärde lågt batteri"
                     },
                     "data_description": {
-                        "battery_low_threshold": "0 kommer att använda det globala standardtröskelvärdet",
-                        "battery_low_template": "Template för att bestämma om batteriet är lågt, borde returnera true om lågt.\nEndast nödvändigt för icke-standard batterinivåer.",
-                        "filter_outliers": "Filtrera bort stora batterinivåfall för att minska falska händelser på enheter som ibland rapporterar nivåer felaktigt"
+                        "battery_low_threshold": "0 kommer att använda det globala standardtröskelvärdet"
+                    },
+                    "sections": {
+                        "advanced_settings": {
+                            "name": "Advanced settings",
+                            "data": {
+                                "battery_low_template": "Batteri lågt template",
+                                "filter_outliers": "Filtrera avvikande"
+                            },
+                            "data_description": {
+                                "battery_low_template": "Template för att bestämma om batteriet är lågt, borde returnera true om lågt.\nEndast nödvändigt för icke-standard batterinivåer.",
+                                "filter_outliers": "Filtrera bort stora batterinivåfall för att minska falska händelser på enheter som ibland rapporterar nivåer felaktigt"
+                            }
+                        }
                     }
                 },
                 "manual": {
@@ -91,15 +109,24 @@
                         "name": "Namn",
                         "battery_type": "Batterityp",
                         "battery_quantity": "Antal batterier",
-                        "battery_low_threshold": "Batteri lågt tröskelvärde",
-                        "battery_low_template": "Batteri lågt template",
-                        "filter_outliers": "Filtrera avvikande värden"
+                        "battery_low_threshold": "Batteri lågt tröskelvärde"
                     },
                     "data_description": {
                         "name": "Genom att lämna blankt tas namnet från källenheten. ",
-                        "battery_low_threshold": "0 kommer att använda den globala standardtröskelvärdet. ",
-                        "battery_low_template": "Template för att bestämma om batteriet är lågt. Ska returnera true om lågt. Behövs endast för icke-standard batterinivåer. ",
-                        "filter_outliers": "Filtrera bort stora batterinivåfall för att minska falska händelser på enheter som ibland rapporterar nivåer felaktigt"
+                        "battery_low_threshold": "0 kommer att använda den globala standardtröskelvärdet. "
+                    },
+                    "sections": {
+                        "advanced_settings": {
+                            "name": "Advanced settings",
+                            "data": {
+                                "battery_low_template": "Batteri lågt template",
+                                "filter_outliers": "Filtrera avvikande"
+                            },
+                            "data_description": {
+                                "battery_low_template": "Template för att bestämma om batteriet är lågt, borde returnera true om lågt.\nEndast nödvändigt för icke-standard batterinivåer.",
+                                "filter_outliers": "Filtrera bort stora batterinivåfall för att minska falska händelser på enheter som ibland rapporterar nivåer felaktigt"
+                            }
+                        }
                     }
                 }
             },

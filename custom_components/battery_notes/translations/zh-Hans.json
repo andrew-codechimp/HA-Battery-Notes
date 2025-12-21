@@ -10,14 +10,23 @@
                 "data": {
                     "battery_type": "电池类型",
                     "battery_quantity": "电池数量",
-                    "battery_low_threshold": "低电量阈值",
-                    "battery_low_template": "低电量模板",
-                    "filter_outliers": "Filter outliers"
+                    "battery_low_threshold": "低电量阈值"
                 },
                 "data_description": {
-                    "battery_low_threshold": "若为零，将使用全域默认阈值",
-                    "battery_low_template": "判断电池是否低电量的模板，若为低电量应回传 true\n仅在电池电量非标准时需要",
-                    "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                    "battery_low_threshold": "若为零，将使用全域默认阈值"
+                },
+                "sections": {
+                    "advanced_settings": {
+                        "name": "Advanced settings",
+                        "data": {
+                            "battery_low_template": "低电量模板",
+                            "filter_outliers": "Filter outliers"
+                        },
+                        "data_description": {
+                            "battery_low_template": "判断电池是否低电量的模板，若为低电量应回传 true\n仅在电池电量非标准时需要",
+                            "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                        }
+                    }
                 }
             }
         },
@@ -71,14 +80,23 @@
                     "data": {
                         "battery_type": "电池类型",
                         "battery_quantity": "电池数量",
-                        "battery_low_threshold": "电池低电量阈值",
-                        "battery_low_template": "低电量模板",
-                        "filter_outliers": "Filter outliers"
+                        "battery_low_threshold": "电池低电量阈值"
                     },
                     "data_description": {
-                        "battery_low_threshold": "若为零，将使用全域默认阈值",
-                        "battery_low_template": "判断电池是否低电量的模板，若为低电量应回传 true\n仅在电池电量非标准时需要",
-                        "filter_outliers": "Filter out large battery level changes, reducing falsely firing events on devices that erronously report levels occasionally"
+                        "battery_low_threshold": "若为零，将使用全域默认阈值"
+                    },
+                    "sections": {
+                        "advanced_settings": {
+                            "name": "Advanced settings",
+                            "data": {
+                                "battery_low_template": "低电量模板",
+                                "filter_outliers": "Filter outliers"
+                            },
+                            "data_description": {
+                                "battery_low_template": "判断电池是否低电量的模板，若为低电量应回传 true\n仅在电池电量非标准时需要",
+                                "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                            }
+                        }
                     }
                 },
                 "manual": {
@@ -91,15 +109,24 @@
                         "name": "名称",
                         "battery_type": "电池类型",
                         "battery_quantity": "电池数量",
-                        "battery_low_threshold": "电池低电量阈值",
-                        "battery_low_template": "低电量模板",
-                        "filter_outliers": "筛选溢出"
+                        "battery_low_threshold": "电池低电量阈值"
                     },
                     "data_description": {
                         "name": "若留空，将使用来源装置的名称",
-                        "battery_low_threshold": "若为零，将使用全域默认阈值",
-                        "battery_low_template": "判断电池是否低电量的模板，若为低电量应回传 true\n仅在电池电量非标准时需要",
-                        "filter_outliers": "Filter out large battery level changes, reducing falsely firing events on devices that erronously report levels occasionally"
+                        "battery_low_threshold": "若为零，将使用全域默认阈值"
+                    },
+                    "sections": {
+                        "advanced_settings": {
+                            "name": "Advanced settings",
+                            "data": {
+                                "battery_low_template": "低电量模板",
+                                "filter_outliers": "Filter outliers"
+                            },
+                            "data_description": {
+                                "battery_low_template": "判断电池是否低电量的模板，若为低电量应回传 true\n仅在电池电量非标准时需要",
+                                "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                            }
+                        }
                     }
                 }
             },

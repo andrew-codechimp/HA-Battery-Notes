@@ -10,14 +10,23 @@
                 "data": {
                     "battery_type": "Battery type",
                     "battery_quantity": "Battery quantity",
-                    "battery_low_threshold": "Battery low threshold",
-                    "battery_low_template": "Battery low template",
-                    "filter_outliers": "Filter outliers"
+                    "battery_low_threshold": "Battery low threshold"
                 },
                 "data_description": {
-                    "battery_low_threshold": "0 will use the global default threshold",
-                    "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels",
-                    "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                    "battery_low_threshold": "0 will use the global default threshold"
+                },
+                "sections": {
+                    "advanced_settings": {
+                        "name": "Advanced settings",
+                        "data": {
+                            "battery_low_template": "Battery low template",
+                            "filter_outliers": "Filter outliers"
+                        },
+                        "data_description": {
+                            "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels",
+                            "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                        }
+                    }
                 }
             }
         },
@@ -71,14 +80,23 @@
                     "data": {
                         "battery_type": "Battery type",
                         "battery_quantity": "Battery quantity",
-                        "battery_low_threshold": "Battery low threshold",
-                        "battery_low_template": "Battery low template",
-                        "filter_outliers": "Filter outliers"
+                        "battery_low_threshold": "Battery low threshold"
                     },
                     "data_description": {
-                        "battery_low_threshold": "0 will use the global default threshold",
-                        "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels",
-                        "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                        "battery_low_threshold": "0 will use the global default threshold"
+                    },
+                    "sections": {
+                        "advanced_settings": {
+                            "name": "Advanced settings",
+                            "data": {
+                                "battery_low_template": "Battery low template",
+                                "filter_outliers": "Filter outliers"
+                            },
+                            "data_description": {
+                                "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels",
+                                "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                            }
+                        }
                     }
                 },
                 "manual": {
@@ -91,15 +109,24 @@
                         "name": "Name",
                         "battery_type": "Battery type",
                         "battery_quantity": "Battery quantity",
-                        "battery_low_threshold": "Battery low threshold",
-                        "battery_low_template": "Battery low template",
-                        "filter_outliers": "Filter outliers"
+                        "battery_low_threshold": "Battery low threshold"
                     },
                     "data_description": {
                         "name": "Leaving blank will take the name from the source device",
-                        "battery_low_threshold": "0 will use the global default threshold",
-                        "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels",
-                        "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                        "battery_low_threshold": "0 will use the global default threshold"
+                    },
+                    "sections": {
+                        "advanced_settings": {
+                            "name": "Advanced settings",
+                            "data": {
+                                "battery_low_template": "Battery low template",
+                                "filter_outliers": "Filter outliers"
+                            },
+                            "data_description": {
+                                "battery_low_template": "Template to determine a battery is low, should return true if low\nOnly needed for non-standard battery levels",
+                                "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                            }
+                        }
                     }
                 }
             },

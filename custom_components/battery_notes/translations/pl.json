@@ -10,14 +10,23 @@
                 "data": {
                     "battery_type": "Typ baterii",
                     "battery_quantity": "Liczba baterii",
-                    "battery_low_threshold": "Próg niskiego poziomu baterii",
-                    "battery_low_template": "Szablon niskiego poziomu baterii",
-                    "filter_outliers": "Filtr wartości odstających"
+                    "battery_low_threshold": "Próg niskiego poziomu baterii"
                 },
                 "data_description": {
-                    "battery_low_threshold": "0 użyje globalnego progu domyślnego",
-                    "battery_low_template": "Szablon do określenia czy poziom naładowania baterii jest niski, powinien zwrócić wartość true, jeśli poziom jest niski.\nJest wymagany tylko dla niestandardowych raportów poziomu baterii",
-                    "filter_outliers": "Filtruj duże spadki poziomu baterii, zmniejszając fałszywe wyzwalanie zdarzeń na urządzeniach, które sporadycznie zgłaszają poziomy baterii"
+                    "battery_low_threshold": "0 użyje globalnego progu domyślnego"
+                },
+                "sections": {
+                    "advanced_settings": {
+                        "name": "Ustawienia zaawansowane",
+                        "data": {
+                            "battery_low_template": "Szablon niskiego poziomu baterii",
+                            "filter_outliers": "Filtr wartości odstających"
+                        },
+                        "data_description": {
+                            "battery_low_template": "Szablon do określenia czy poziom naładowania baterii jest niski, powinien zwrócić wartość true, jeśli poziom jest niski.\nJest wymagany tylko dla niestandardowych raportów poziomu baterii",
+                            "filter_outliers": "Filtruj duże spadki poziomu baterii, zmniejszając fałszywe wyzwalanie zdarzeń na urządzeniach, które sporadycznie zgłaszają poziomy baterii"
+                        }
+                    }
                 }
             }
         },
@@ -71,14 +80,23 @@
                     "data": {
                         "battery_type": "Typ baterii",
                         "battery_quantity": "Liczba baterii",
-                        "battery_low_threshold": "Próg niskiego poziomu baterii",
-                        "battery_low_template": "Szablon niskiego poziomu baterii",
-                        "filter_outliers": "Filtr wartości odstających"
+                        "battery_low_threshold": "Próg niskiego poziomu baterii"
                     },
                     "data_description": {
-                        "battery_low_threshold": "0 użyje globalnego progu domyślnego",
-                        "battery_low_template": "Szablon do określenia czy poziom naładowania baterii jest niski, powinien zwrócić wartość true, jeśli poziom jest niski.\nJest wymagany tylko dla niestandardowych raportów poziomu baterii",
-                        "filter_outliers": "Filtruj duże spadki poziomu baterii, zmniejszając fałszywe wyzwalanie zdarzeń na urządzeniach, które sporadycznie zgłaszają poziomy baterii"
+                        "battery_low_threshold": "0 użyje globalnego progu domyślnego"
+                    },
+                    "sections": {
+                        "advanced_settings": {
+                            "name": "Ustawienia zaawansowane",
+                            "data": {
+                                "battery_low_template": "Szablon niskiego poziomu baterii",
+                                "filter_outliers": "Filtr wartości odstających"
+                            },
+                            "data_description": {
+                                "battery_low_template": "Szablon do określenia czy poziom naładowania baterii jest niski, powinien zwrócić wartość true, jeśli poziom jest niski.\nJest wymagany tylko dla niestandardowych raportów poziomu baterii",
+                                "filter_outliers": "Filtruj duże spadki poziomu baterii, zmniejszając fałszywe wyzwalanie zdarzeń na urządzeniach, które sporadycznie zgłaszają poziomy baterii"
+                            }
+                        }
                     }
                 },
                 "manual": {
@@ -91,15 +109,24 @@
                         "name": "Nazwa",
                         "battery_type": "Typ baterii",
                         "battery_quantity": "Liczba baterii",
-                        "battery_low_threshold": "Próg niskiego poziomu baterii",
-                        "battery_low_template": "Szablon niskiego poziomu baterii",
-                        "filter_outliers": "Filtr wartości odstających"
+                        "battery_low_threshold": "Próg niskiego poziomu baterii"
                     },
                     "data_description": {
                         "name": "Pozostawienie pustego pola spowoduje pobranie nazwy z urządzenia źródłowego",
-                        "battery_low_threshold": "0 użyje globalnego progu domyślnego",
-                        "battery_low_template": "Szablon do określenia czy poziom naładowania baterii jest niski, powinien zwrócić wartość true, jeśli poziom jest niski.\nJest wymagany tylko dla niestandardowych raportów poziomu baterii",
-                        "filter_outliers": "Filtruj duże spadki poziomu baterii, zmniejszając fałszywe wyzwalanie zdarzeń na urządzeniach, które sporadycznie zgłaszają poziomy baterii"
+                        "battery_low_threshold": "0 użyje globalnego progu domyślnego"
+                    },
+                    "sections": {
+                        "advanced_settings": {
+                            "name": "Ustawienia zaawansowane",
+                            "data": {
+                                "battery_low_template": "Szablon niskiego poziomu baterii",
+                                "filter_outliers": "Filtr wartości odstających"
+                            },
+                            "data_description": {
+                                "battery_low_template": "Szablon do określenia czy poziom naładowania baterii jest niski, powinien zwrócić wartość true, jeśli poziom jest niski.\nJest wymagany tylko dla niestandardowych raportów poziomu baterii",
+                                "filter_outliers": "Filtruj duże spadki poziomu baterii, zmniejszając fałszywe wyzwalanie zdarzeń na urządzeniach, które sporadycznie zgłaszają poziomy baterii"
+                            }
+                        }
                     }
                 }
             },
