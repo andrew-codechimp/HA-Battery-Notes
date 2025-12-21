@@ -277,7 +277,7 @@ class BatteryNotesBatteryLowBinaryTemplateSensor(
         coordinator: BatteryNotesSubentryCoordinator,
         entity_description: BatteryNotesBinarySensorEntityDescription,
         unique_id: str,
-        tmpl: str,
+        battery_low_template: str,
     ) -> None:
         """Create a low battery binary sensor."""
 
@@ -306,7 +306,7 @@ class BatteryNotesBatteryLowBinaryTemplateSensor(
             self._attr_translation_placeholders = {"device_name": ""}
             self.entity_id = f"binary_sensor.{coordinator.device_name.lower()}_{entity_description.key}"
 
-        self._template = tmpl
+        self._template = battery_low_template
         self._state: bool | None = None
 
     async def async_added_to_hass(self) -> None:

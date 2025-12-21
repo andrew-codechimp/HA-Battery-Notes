@@ -782,7 +782,7 @@ class BatteryNotesBatteryPlusTemplateSensor(
             enable_replaced=enable_replaced,
             round_battery=round_battery,
         )
-        self.battery_percentage_template = battery_percentage_template
+        self._template = battery_percentage_template
         self._template_attrs: dict[Template, list[_TemplateAttribute]] = {}
         self._template_result_info: TrackTemplateResultInfo | None = None
 
