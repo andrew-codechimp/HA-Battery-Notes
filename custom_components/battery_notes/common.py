@@ -2,8 +2,8 @@
 
 from datetime import datetime
 
-from homeassistant.util import dt as dt_util
 from homeassistant.helpers.device_registry import DeviceEntry
+from homeassistant.util import dt as dt_util
 
 
 def validate_is_float(num):

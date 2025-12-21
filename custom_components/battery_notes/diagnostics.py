@@ -4,15 +4,15 @@ from __future__ import annotations
 
 from typing import Any
 
-from homeassistant.core import HomeAssistant
 from homeassistant.const import CONF_DEVICE_ID
+from homeassistant.core import HomeAssistant
 from homeassistant.helpers import (
     device_registry as dr,
     entity_registry as er,
 )
 
-from .const import CONF_SOURCE_ENTITY_ID
 from .common import get_device_model_id
+from .const import CONF_SOURCE_ENTITY_ID
 from .coordinator import BatteryNotesConfigEntry
 
 

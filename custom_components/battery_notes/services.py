@@ -1,48 +1,48 @@
 """Define services for the Battery Notes integration."""
 
 import logging
-from typing import cast
 from datetime import datetime
+from typing import cast
 
 from homeassistant.core import (
-    ServiceCall,
     HomeAssistant,
+    ServiceCall,
     ServiceResponse,
     callback,
 )
-from homeassistant.util import dt as dt_util
-from homeassistant.helpers import device_registry as dr, entity_registry as er
 from homeassistant.exceptions import HomeAssistantError
+from homeassistant.helpers import device_registry as dr, entity_registry as er
+from homeassistant.util import dt as dt_util
 
+from .common import utcnow_no_timezone
 from .const import (
-    DOMAIN,
-    ATTR_DEVICE_ID,
-    ATTR_BATTERY_LOW,
-    ATTR_DEVICE_NAME,
-    ATTR_BATTERY_TYPE,
+    ATTR_BATTERY_LAST_REPLACED,
+    ATTR_BATTERY_LAST_REPORTED,
+    ATTR_BATTERY_LAST_REPORTED_DAYS,
+    ATTR_BATTERY_LAST_REPORTED_LEVEL,
     ATTR_BATTERY_LEVEL,
+    ATTR_BATTERY_LOW,
+    ATTR_BATTERY_LOW_THRESHOLD,
     ATTR_BATTERY_QUANTITY,
+    ATTR_BATTERY_THRESHOLD_REMINDER,
+    ATTR_BATTERY_TYPE,
+    ATTR_BATTERY_TYPE_AND_QUANTITY,
+    ATTR_DEVICE_ID,
+    ATTR_DEVICE_NAME,
+    ATTR_PREVIOUS_BATTERY_LEVEL,
     ATTR_SOURCE_ENTITY_ID,
+    DOMAIN,
+    EVENT_BATTERY_NOT_REPORTED,
     EVENT_BATTERY_REPLACED,
     EVENT_BATTERY_THRESHOLD,
     SERVICE_BATTERY_REPLACED,
-    SERVICE_CHECK_BATTERY_LOW,
-    ATTR_BATTERY_LAST_REPLACED,
-    ATTR_BATTERY_LAST_REPORTED,
-    ATTR_BATTERY_LOW_THRESHOLD,
-    EVENT_BATTERY_NOT_REPORTED,
-    ATTR_PREVIOUS_BATTERY_LEVEL,
-    ATTR_BATTERY_TYPE_AND_QUANTITY,
-    ATTR_BATTERY_LAST_REPORTED_DAYS,
-    ATTR_BATTERY_THRESHOLD_REMINDER,
     SERVICE_BATTERY_REPLACED_SCHEMA,
-    SERVICE_DATA_DATE_TIME_REPLACED,
-    SERVICE_DATA_DAYS_LAST_REPORTED,
-    ATTR_BATTERY_LAST_REPORTED_LEVEL,
     SERVICE_CHECK_BATTERY_LAST_REPORTED,
     SERVICE_CHECK_BATTERY_LAST_REPORTED_SCHEMA,
+    SERVICE_CHECK_BATTERY_LOW,
+    SERVICE_DATA_DATE_TIME_REPLACED,
+    SERVICE_DATA_DAYS_LAST_REPORTED,
 )
-from .common import utcnow_no_timezone
 from .coordinator import BatteryNotesConfigEntry
 
 _LOGGER = logging.getLogger(__name__)

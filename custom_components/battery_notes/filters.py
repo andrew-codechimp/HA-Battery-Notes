@@ -2,13 +2,13 @@
 
 import logging
 import statistics
-from typing import cast
-from numbers import Number
-from datetime import timedelta
 from collections import Counter, deque
+from datetime import timedelta
+from numbers import Number
+from typing import cast
 
-from .const import WINDOW_SIZE_UNIT_TIME, WINDOW_SIZE_UNIT_NUMBER_EVENTS
 from .common import utcnow_no_timezone
+from .const import WINDOW_SIZE_UNIT_NUMBER_EVENTS, WINDOW_SIZE_UNIT_TIME
 
 _LOGGER = logging.getLogger(__name__)
 

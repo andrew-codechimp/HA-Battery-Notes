@@ -3,24 +3,38 @@
 from __future__ import annotations
 
 import logging
-from typing import Any
-from datetime import datetime
-from dataclasses import dataclass
 from collections.abc import Mapping
+from dataclasses import dataclass
+from datetime import datetime
+from typing import Any
 
 import voluptuous as vol
 
-from homeassistant.core import Event, HomeAssistant, callback
+from homeassistant.components.sensor import (
+    PLATFORM_SCHEMA,
+    RestoreSensor,
+    SensorDeviceClass,
+    SensorEntity,
+    SensorEntityDescription,
+    SensorStateClass,
+)
+from homeassistant.config_entries import ConfigSubentry
 from homeassistant.const import (
+    CONF_DEVICE_ID,
     CONF_NAME,
     PERCENTAGE,
-    STATE_UNKNOWN,
-    CONF_DEVICE_ID,
     STATE_UNAVAILABLE,
+    STATE_UNKNOWN,
 )
+from homeassistant.core import Event, HomeAssistant, callback
 from homeassistant.helpers import (
-    entity_registry as er,
     config_validation as cv,
+    entity_registry as er,
+)
+from homeassistant.helpers.entity import EntityCategory
+from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
+from homeassistant.helpers.entity_registry import (
+    EVENT_ENTITY_REGISTRY_UPDATED,
 )
 from homeassistant.helpers.event import (
     EventStateChangedData,
@@ -28,50 +42,36 @@ from homeassistant.helpers.event import (
     async_track_state_change_event,
     async_track_state_report_event,
 )
-from homeassistant.config_entries import ConfigSubentry
-from homeassistant.helpers.entity import EntityCategory
 from homeassistant.helpers.typing import StateType
-from homeassistant.components.sensor import (
-    PLATFORM_SCHEMA,
-    SensorEntity,
-    RestoreSensor,
-    SensorStateClass,
-    SensorDeviceClass,
-    SensorEntityDescription,
-)
-from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
-from homeassistant.helpers.entity_registry import (
-    EVENT_ENTITY_REGISTRY_UPDATED,
-)
 
+from .common import utcnow_no_timezone, validate_is_float
 from .const import (
-    DOMAIN,
-    ATTR_DEVICE_ID,
-    ATTR_BATTERY_LOW,
-    ATTR_DEVICE_NAME,
-    ATTR_BATTERY_TYPE,
-    CONF_BATTERY_TYPE,
-    CONF_ROUND_BATTERY,
-    CONF_ENABLE_REPLACED,
-    ATTR_BATTERY_QUANTITY,
-    ATTR_SOURCE_ENTITY_ID,
-    CONF_BATTERY_QUANTITY,
-    CONF_SOURCE_ENTITY_ID,
-    SUBENTRY_BATTERY_NOTE,
-    CONF_ADVANCED_SETTINGS,
     ATTR_BATTERY_LAST_REPLACED,
     ATTR_BATTERY_LAST_REPORTED,
-    ATTR_BATTERY_LOW_THRESHOLD,
-    ATTR_BATTERY_TYPE_AND_QUANTITY,
     ATTR_BATTERY_LAST_REPORTED_LEVEL,
+    ATTR_BATTERY_LOW,
+    ATTR_BATTERY_LOW_THRESHOLD,
+    ATTR_BATTERY_QUANTITY,
+    ATTR_BATTERY_TYPE,
+    ATTR_BATTERY_TYPE_AND_QUANTITY,
+    ATTR_DEVICE_ID,
+    ATTR_DEVICE_NAME,
+    ATTR_SOURCE_ENTITY_ID,
+    CONF_ADVANCED_SETTINGS,
+    CONF_BATTERY_QUANTITY,
+    CONF_BATTERY_TYPE,
+    CONF_ENABLE_REPLACED,
+    CONF_ROUND_BATTERY,
+    CONF_SOURCE_ENTITY_ID,
+    DOMAIN,
+    SUBENTRY_BATTERY_NOTE,
 )
-from .common import validate_is_float, utcnow_no_timezone
-from .entity import BatteryNotesEntity, BatteryNotesEntityDescription
 from .coordinator import (
     MY_KEY,
     BatteryNotesConfigEntry,
     BatteryNotesSubentryCoordinator,
 )
+from .entity import BatteryNotesEntity, BatteryNotesEntityDescription
 
 
 @dataclass(frozen=True, kw_only=True)
@@ -175,7 +175,25 @@ async def async_setup_entry(
             ),
         ]
 
-        if coordinator.wrapped_battery is not None:
+        if coordinator.battery_percentage_template is not None:
+            entities.append(
+                BatteryNotesBatteryPlusTemplateSensor(
+                    hass,
+                    config_entry,
+                    subentry,
+                    battery_plus_sensor_entity_description,
+                    coordinator,
+                    f"{subentry.unique_id}{battery_plus_sensor_entity_description.unique_id_suffix}",
+                    config_entry.options[CONF_ADVANCED_SETTINGS].get(
+                        CONF_ENABLE_REPLACED, True
+                    ),
+                    config_entry.options[CONF_ADVANCED_SETTINGS].get(
+                        CONF_ROUND_BATTERY, False
+                    ),
+                    coordinator.battery_percentage_template,
+                )
+            )
+        elif coordinator.wrapped_battery is not None:
             entities.append(
                 BatteryNotesBatteryPlusSensor(
                     hass,
@@ -320,11 +338,11 @@ class BatteryNotesLastReplacedSensor(BatteryNotesEntity, SensorEntity):
         return self._native_value
 
 
-class BatteryNotesBatteryPlusSensor(BatteryNotesEntity, RestoreSensor):
-    """Represents a battery plus type sensor."""
+class BatteryNotesBatteryPlusBaseSensor(BatteryNotesEntity):
+    """Base class for Battery Plus sensors."""
 
     _attr_should_poll = False
-    _wrapped_attributes = None
+    entity_description: BatteryNotesSensorEntityDescription
     _unrecorded_attributes = frozenset(
         {
             ATTR_BATTERY_QUANTITY,
@@ -340,8 +358,6 @@ class BatteryNotesBatteryPlusSensor(BatteryNotesEntity, RestoreSensor):
             ATTR_DEVICE_NAME,
         }
     )
-
-    entity_description: BatteryNotesSensorEntityDescription
 
     def __init__(  # noqa: PLR0913
         self,
@@ -381,6 +397,36 @@ class BatteryNotesBatteryPlusSensor(BatteryNotesEntity, RestoreSensor):
         self._attr_device_class = SensorDeviceClass.BATTERY
         self._attr_state_class = SensorStateClass.MEASUREMENT
         self._attr_native_unit_of_measurement = PERCENTAGE
+
+
+class BatteryNotesBatteryPlusSensor(BatteryNotesBatteryPlusBaseSensor, RestoreSensor):
+    """Represents a battery plus type sensor."""
+
+    _wrapped_attributes = None
+
+    def __init__(  # noqa: PLR0913
+        self,
+        hass: HomeAssistant,
+        config_entry: BatteryNotesConfigEntry,
+        subentry: ConfigSubentry,
+        entity_description: BatteryNotesEntityDescription,
+        coordinator: BatteryNotesSubentryCoordinator,
+        unique_id: str,
+        enable_replaced: bool,
+        round_battery: bool,
+    ) -> None:
+        # pylint: disable=unused-argument
+        """Initialize the sensor."""
+        super().__init__(
+            hass=hass,
+            config_entry=config_entry,
+            subentry=subentry,
+            entity_description=entity_description,
+            coordinator=coordinator,
+            unique_id=unique_id,
+            enable_replaced=enable_replaced,
+            round_battery=round_battery,
+        )
 
     @callback
     async def async_state_changed_listener(

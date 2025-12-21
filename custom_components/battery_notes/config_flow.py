@@ -11,53 +11,53 @@ import voluptuous as vol
 import homeassistant.helpers.device_registry as dr
 import homeassistant.helpers.entity_registry as er
 from homeassistant import config_entries
-from homeassistant.core import HomeAssistant, callback, split_entity_id
-from homeassistant.const import CONF_NAME, CONF_DEVICE_ID, Platform
-from homeassistant.helpers import selector
+from homeassistant.components.sensor.const import SensorDeviceClass
 from homeassistant.config_entries import (
     ConfigEntry,
-    OptionsFlow,
-    ConfigSubentry,
     ConfigFlowResult,
+    ConfigSubentry,
     ConfigSubentryFlow,
+    OptionsFlow,
     SubentryFlowResult,
 )
-from homeassistant.helpers.typing import DiscoveryInfoType
+from homeassistant.const import CONF_DEVICE_ID, CONF_NAME, Platform
+from homeassistant.core import HomeAssistant, callback, split_entity_id
 from homeassistant.data_entry_flow import section
-from homeassistant.components.sensor.const import SensorDeviceClass
+from homeassistant.helpers import selector
+from homeassistant.helpers.typing import DiscoveryInfoType
 
+from .common import get_device_model_id
 from .const import (
-    NAME as INTEGRATION_NAME,
-    DOMAIN,
-    CONF_MODEL,
-    CONF_MODEL_ID,
-    CONF_HW_VERSION,
-    CONF_DEVICE_NAME,
+    CONF_ADVANCED_SETTINGS,
+    CONF_BATTERY_INCREASE_THRESHOLD,
+    CONF_BATTERY_LOW_TEMPLATE,
+    CONF_BATTERY_LOW_THRESHOLD,
+    CONF_BATTERY_PERCENTAGE_TEMPLATE,
+    CONF_BATTERY_QUANTITY,
     CONF_BATTERY_TYPE,
-    CONF_HIDE_BATTERY,
-    CONF_MANUFACTURER,
-    CONF_USER_LIBRARY,
-    CONF_ROUND_BATTERY,
+    CONF_DEFAULT_BATTERY_LOW_THRESHOLD,
+    CONF_DEVICE_NAME,
+    CONF_ENABLE_AUTODISCOVERY,
     CONF_ENABLE_REPLACED,
     CONF_FILTER_OUTLIERS,
-    CONF_BATTERY_QUANTITY,
+    CONF_HIDE_BATTERY,
+    CONF_HW_VERSION,
     CONF_INTEGRATION_NAME,
+    CONF_MANUFACTURER,
+    CONF_MODEL,
+    CONF_MODEL_ID,
+    CONF_ROUND_BATTERY,
     CONF_SHOW_ALL_DEVICES,
     CONF_SOURCE_ENTITY_ID,
-    SUBENTRY_BATTERY_NOTE,
-    CONF_ADVANCED_SETTINGS,
-    CONF_BATTERY_LOW_TEMPLATE,
-    CONF_ENABLE_AUTODISCOVERY,
-    CONF_BATTERY_LOW_THRESHOLD,
-    DEFAULT_BATTERY_LOW_THRESHOLD,
-    CONF_BATTERY_INCREASE_THRESHOLD,
-    CONF_BATTERY_PERCENTAGE_TEMPLATE,
-    CONF_DEFAULT_BATTERY_LOW_THRESHOLD,
+    CONF_USER_LIBRARY,
     DEFAULT_BATTERY_INCREASE_THRESHOLD,
+    DEFAULT_BATTERY_LOW_THRESHOLD,
+    DOMAIN,
+    NAME as INTEGRATION_NAME,
+    SUBENTRY_BATTERY_NOTE,
 )
-from .common import get_device_model_id
-from .library import DATA_LIBRARY, ModelInfo
 from .coordinator import MY_KEY
+from .library import DATA_LIBRARY, ModelInfo
 from .library_updater import LibraryUpdater
 
 _LOGGER = logging.getLogger(__name__)
