@@ -17,7 +17,7 @@
                 },
                 "sections": {
                     "advanced_settings": {
-                        "name": "Advanced settings",
+                        "name": "Erweiterte Einstellungen",
                         "data": {
                             "battery_low_template": "Vorlage für niedrigen Batteriestand",
                             "filter_outliers": "Ausreißer filtern"
@@ -87,7 +87,7 @@
                     },
                     "sections": {
                         "advanced_settings": {
-                            "name": "Advanced settings",
+                            "name": "Erweiterte Einstellungen",
                             "data": {
                                 "battery_low_template": "Vorlage für niedrigen Batteriestand",
                                 "filter_outliers": "Ausreißer filtern"
@@ -117,7 +117,7 @@
                     },
                     "sections": {
                         "advanced_settings": {
-                            "name": "Advanced settings",
+                            "name": "Erweiterte Einstellungen",
                             "data": {
                                 "battery_low_template": "Vorlage für niedrigen Batteriestand",
                                 "filter_outliers": "Ausreißer filtern"
@@ -160,7 +160,7 @@
                 },
                 "sections": {
                     "advanced_settings": {
-                        "name": "Advanced settings",
+                        "name": "Erweiterte Einstellungen",
                         "data": {
                             "enable_autodiscovery": "Auto discovery",
                             "enable_replaced": "Enable battery replaced",
