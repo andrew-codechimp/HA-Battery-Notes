@@ -149,19 +149,31 @@ async def async_setup_entry(
         )
 
         entities: list[
-            BatteryNotesBatteryLowTemplateSensor
+            BatteryNotesBatteryLowBinaryTemplateSensor
             | BatteryNotesBatteryLowSensor
             | BatteryNotesBatteryBinaryLowSensor
+            | BatteryNotesBatteryLowPercentageTemplateSensor
         ] = []
 
         if coordinator.battery_low_template is not None:
             entities.append(
-                BatteryNotesBatteryLowTemplateSensor(
+                BatteryNotesBatteryLowBinaryTemplateSensor(
                     hass,
                     coordinator,
                     battery_low_entity_description,
                     f"{subentry.unique_id}{battery_low_entity_description.unique_id_suffix}",
                     coordinator.battery_low_template,
+                )
+            )
+
+        elif coordinator.battery_percentage_template is not None:
+            entities.append(
+                BatteryNotesBatteryLowPercentageTemplateSensor(
+                    hass,
+                    coordinator,
+                    battery_low_entity_description,
+                    f"{subentry.unique_id}{battery_low_entity_description.unique_id_suffix}",
+                    coordinator.battery_percentage_template,
                 )
             )
 
@@ -346,7 +358,7 @@ class BatteryNotesBatteryLowBaseSensor(BatteryNotesEntity, BinarySensorEntity):
         return attrs
 
 
-class BatteryNotesBatteryLowTemplateSensor(
+class BatteryNotesBatteryLowBinaryTemplateSensor(
     BatteryNotesBatteryLowBaseSensor, RestoreEntity
 ):
     """Represents a low battery threshold binary sensor from a template."""
