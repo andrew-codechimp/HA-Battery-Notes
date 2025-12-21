@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import logging
-from collections.abc import Mapping
+from collections.abc import Callable, Mapping
 from dataclasses import dataclass
 from datetime import datetime
 from typing import Any
@@ -27,6 +27,7 @@ from homeassistant.const import (
     STATE_UNKNOWN,
 )
 from homeassistant.core import Event, HomeAssistant, callback
+from homeassistant.exceptions import TemplateError
 from homeassistant.helpers import (
     config_validation as cv,
     entity_registry as er,
@@ -39,8 +40,17 @@ from homeassistant.helpers.entity_registry import (
 from homeassistant.helpers.event import (
     EventStateChangedData,
     EventStateReportedData,
+    TrackTemplate,
+    TrackTemplateResult,
+    TrackTemplateResultInfo,
     async_track_state_change_event,
     async_track_state_report_event,
+    async_track_template_result,
+)
+from homeassistant.helpers.start import async_at_start
+from homeassistant.helpers.template import (
+    Template,
+    TemplateStateFromEntityId,
 )
 from homeassistant.helpers.typing import StateType
 
@@ -72,6 +82,7 @@ from .coordinator import (
     BatteryNotesSubentryCoordinator,
 )
 from .entity import BatteryNotesEntity, BatteryNotesEntityDescription
+from .template_helpers import _TemplateAttribute
 
 
 @dataclass(frozen=True, kw_only=True)
@@ -745,6 +756,8 @@ class BatteryNotesBatteryPlusTemplateSensor(
 ):
     """Represents a battery plus from template type sensor."""
 
+    _self_ref_update_count = 0
+
     def __init__(  # noqa: PLR0913
         self,
         hass: HomeAssistant,
@@ -770,11 +783,158 @@ class BatteryNotesBatteryPlusTemplateSensor(
             round_battery=round_battery,
         )
         self.battery_percentage_template = battery_percentage_template
+        self._template_attrs: dict[Template, list[_TemplateAttribute]] = {}
+        self._template_result_info: TrackTemplateResultInfo | None = None
 
     async def async_added_to_hass(self) -> None:
         """Handle added to Hass."""
 
-        # TODO: Implement template listening
+        await super().async_added_to_hass()
+
+        self._async_setup_templates()
+
+        async_at_start(self.hass, self._async_template_startup)
+
+    def add_template_attribute(
+        self,
+        attribute: str,
+        tmpl: Template,
+        validator: Callable[[Any], Any] | None = None,
+        on_update: Callable[[Any], None] | None = None,
+        none_on_template_error: bool = False,
+    ) -> None:
+        """Call in the constructor to add a template linked to a attribute.
+
+        Parameters
+        ----------
+        attribute
+            The name of the attribute to link to. This attribute must exist
+            unless a custom on_update method is supplied.
+        tmpl
+            The template to calculate.
+        validator
+            Validator function to parse the result and ensure it's valid.
+        on_update
+            Called to store the template result rather than storing it
+            the supplied attribute. Passed the result of the validator, or None
+            if the template or validator resulted in an error.
+        none_on_template_error
+            If True, the attribute will be set to None if the template errors.
+
+        """
+        assert self.hass is not None, "hass cannot be None"
+        tmpl.hass = self.hass
+        template_attribute = _TemplateAttribute(
+            self, attribute, tmpl, validator, on_update, none_on_template_error
+        )
+        self._template_attrs.setdefault(tmpl, [])
+        self._template_attrs[tmpl].append(template_attribute)
+
+    @callback
+    def _async_setup_templates(self) -> None:
+        """Set up templates."""
+        self.add_template_attribute(
+            "_state", Template(self._template, self.hass), None, self._update_state
+        )
+
+    @callback
+    def _async_template_startup(
+        self,
+        _hass: HomeAssistant | None,
+        log_fn: Callable[[int, str], None] | None = None,
+    ) -> None:
+        template_var_tups: list[TrackTemplate] = []
+        has_availability_template = False
+
+        variables = {"this": TemplateStateFromEntityId(self.hass, self.entity_id)}
+
+        for loop_template, attributes in self._template_attrs.items():
+            template_var_tup = TrackTemplate(loop_template, variables)
+            is_availability_template = False
+            for attribute in attributes:
+                # pylint: disable-next=protected-access
+                if attribute._attribute == "_attr_available":  # noqa: SLF001
+                    has_availability_template = True
+                    is_availability_template = True
+                attribute.async_setup()
+            # Insert the availability template first in the list
+            if is_availability_template:
+                template_var_tups.insert(0, template_var_tup)
+            else:
+                template_var_tups.append(template_var_tup)
+
+        result_info = async_track_template_result(
+            self.hass,
+            template_var_tups,
+            self._handle_results,
+            log_fn=log_fn,
+            has_super_template=has_availability_template,
+        )
+        self.async_on_remove(result_info.async_remove)
+        self._template_result_info = result_info
+        result_info.async_refresh()
+
+    @callback
+    def _handle_results(
+        self,
+        event: Event[EventStateChangedData] | None,
+        updates: list[TrackTemplateResult],
+    ) -> None:
+        """Call back the results to the attributes."""
+        if event:
+            self.async_set_context(event.context)
+
+        entity_id = event and event.data["entity_id"]
+
+        if entity_id and entity_id == self.entity_id:
+            self._self_ref_update_count += 1
+        else:
+            self._self_ref_update_count = 0
+
+        if self._self_ref_update_count > len(self._template_attrs):
+            for update in updates:
+                _LOGGER.warning(
+                    (
+                        "Template loop detected while processing event: %s, skipping"
+                        " template render for Template[%s]"
+                    ),
+                    event,
+                    update.template.template,
+                )
+            return
+
+        for update in updates:
+            for template_attr in self._template_attrs[update.template]:
+                template_attr.handle_result(
+                    event, update.template, update.last_result, update.result
+                )
+
+        self.async_write_ha_state()
+        return
+
+    @callback
+    def _update_state(self, result):
+        try:
+            self._attr_available = not isinstance(result, TemplateError)
+            state = None if isinstance(result, TemplateError) else float(result)
+        except (ValueError, TypeError):
+            self._attr_available = False
+            state = None
+
+        if state == self._state:
+            return
+
+        self._state = state
+        self.coordinator.current_battery_level = state
+
+        self._attr_available = True
+        self._attr_native_value = self.coordinator.rounded_battery_level
+
+        _LOGGER.debug(
+            "%s sensor battery_plus set to: %s via template",
+            self.entity_id,
+            state,
+        )
 
     @property
     def native_value(self) -> StateType | Any | datetime:
