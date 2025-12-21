@@ -398,6 +398,34 @@ class BatteryNotesBatteryPlusBaseSensor(BatteryNotesEntity):
         self._attr_state_class = SensorStateClass.MEASUREMENT
         self._attr_native_unit_of_measurement = PERCENTAGE
 
+    @property
+    def extra_state_attributes(self) -> dict[str, Any] | None:
+        """Return the state attributes of the battery type."""
+
+        # Battery related attributes
+        attrs = {
+            ATTR_BATTERY_QUANTITY: self.coordinator.battery_quantity,
+            ATTR_BATTERY_TYPE: self.coordinator.battery_type,
+            ATTR_BATTERY_TYPE_AND_QUANTITY: self.coordinator.battery_type_and_quantity,
+            ATTR_BATTERY_LOW: self.coordinator.battery_low,
+            ATTR_BATTERY_LOW_THRESHOLD: self.coordinator.battery_low_threshold,
+            ATTR_BATTERY_LAST_REPORTED: self.coordinator.last_reported,
+            ATTR_BATTERY_LAST_REPORTED_LEVEL: self.coordinator.last_reported_level,
+        }
+
+        if self.enable_replaced:
+            attrs[ATTR_BATTERY_LAST_REPLACED] = self.coordinator.last_replaced
+
+        # Other attributes that should follow battery, attribute list is unsorted
+        attrs[ATTR_DEVICE_ID] = self.coordinator.device_id or ""
+        attrs[ATTR_SOURCE_ENTITY_ID] = self.coordinator.source_entity_id or ""
+        attrs[ATTR_DEVICE_NAME] = self.coordinator.device_name
+
+        super_attrs = super().extra_state_attributes
+        if super_attrs:
+            attrs.update(super_attrs)
+        return attrs
+
 
 class BatteryNotesBatteryPlusSensor(BatteryNotesBatteryPlusBaseSensor, RestoreSensor):
     """Represents a battery plus type sensor."""
@@ -700,24 +728,7 @@ class BatteryNotesBatteryPlusSensor(BatteryNotesBatteryPlusBaseSensor, RestoreSe
     def extra_state_attributes(self) -> dict[str, Any] | None:
         """Return the state attributes of the battery type."""
 
-        # Battery related attributes
-        attrs = {
-            ATTR_BATTERY_QUANTITY: self.coordinator.battery_quantity,
-            ATTR_BATTERY_TYPE: self.coordinator.battery_type,
-            ATTR_BATTERY_TYPE_AND_QUANTITY: self.coordinator.battery_type_and_quantity,
-            ATTR_BATTERY_LOW: self.coordinator.battery_low,
-            ATTR_BATTERY_LOW_THRESHOLD: self.coordinator.battery_low_threshold,
-            ATTR_BATTERY_LAST_REPORTED: self.coordinator.last_reported,
-            ATTR_BATTERY_LAST_REPORTED_LEVEL: self.coordinator.last_reported_level,
-        }
-
-        if self.enable_replaced:
-            attrs[ATTR_BATTERY_LAST_REPLACED] = self.coordinator.last_replaced
-
-        # Other attributes that should follow battery, attribute list is unsorted
-        attrs[ATTR_DEVICE_ID] = self.coordinator.device_id or ""
-        attrs[ATTR_SOURCE_ENTITY_ID] = self.coordinator.source_entity_id or ""
-        attrs[ATTR_DEVICE_NAME] = self.coordinator.device_name
+        attrs = {}
 
         super_attrs = super().extra_state_attributes
         if super_attrs:
@@ -725,6 +736,48 @@ class BatteryNotesBatteryPlusSensor(BatteryNotesBatteryPlusBaseSensor, RestoreSe
         if self._wrapped_attributes:
             attrs.update(self._wrapped_attributes)
         return attrs
+
+    @property
+    def native_value(self) -> StateType | Any | datetime:
+        """Return the value reported by the sensor."""
+        return self._attr_native_value
+
+
+class BatteryNotesBatteryPlusTemplateSensor(
+    BatteryNotesBatteryPlusBaseSensor, RestoreSensor
+):
+    """Represents a battery plus from template type sensor."""
+
+    def __init__(  # noqa: PLR0913
+        self,
+        hass: HomeAssistant,
+        config_entry: BatteryNotesConfigEntry,
+        subentry: ConfigSubentry,
+        entity_description: BatteryNotesEntityDescription,
+        coordinator: BatteryNotesSubentryCoordinator,
+        unique_id: str,
+        enable_replaced: bool,
+        round_battery: bool,
+        battery_percentage_template: str,
+    ) -> None:
+        # pylint: disable=unused-argument
+        """Initialize the sensor."""
+        super().__init__(
+            hass=hass,
+            config_entry=config_entry,
+            subentry=subentry,
+            entity_description=entity_description,
+            coordinator=coordinator,
+            unique_id=unique_id,
+            enable_replaced=enable_replaced,
+            round_battery=round_battery,
+        )
+        self.battery_percentage_template = battery_percentage_template
+
+    async def async_added_to_hass(self) -> None:
+        """Handle added to Hass."""
+
+        # TODO: Implement template listening
 
     @property
     def native_value(self) -> StateType | Any | datetime:

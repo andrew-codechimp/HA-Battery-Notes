@@ -91,7 +91,9 @@ ignore = [
   "RUF001", # String contains ambiguous character
   "S101",   # Use of assert detected
   "TC001",  # Move application import into type checking
-  "TC006",   # Add quotes to type expression in typing.cast()
+  "TC006",  # Add quotes to type expression in typing.cast()
+  "TD002",  # Missing auther in TODO
+  "TD003",  # Missing issue link TODO
 
   # TODO: Temporary ignores, to review
   "ANN001",  # Missing type annotation for function argument
