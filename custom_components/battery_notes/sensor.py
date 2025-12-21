@@ -728,11 +728,8 @@ class BatteryNotesBatteryPlusSensor(BatteryNotesBatteryPlusBaseSensor, RestoreSe
     def extra_state_attributes(self) -> dict[str, Any] | None:
         """Return the state attributes of the battery type."""
 
-        attrs = {}
+        attrs = super().extra_state_attributes
 
-        super_attrs = super().extra_state_attributes
-        if super_attrs:
-            attrs.update(super_attrs)
         if self._wrapped_attributes:
             attrs.update(self._wrapped_attributes)
         return attrs
