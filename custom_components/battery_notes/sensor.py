@@ -349,7 +349,7 @@ class BatteryNotesLastReplacedSensor(BatteryNotesEntity, SensorEntity):
         return self._native_value
 
 
-class BatteryNotesBatteryPlusBaseSensor(BatteryNotesEntity):
+class BatteryNotesBatteryPlusBaseSensor(BatteryNotesEntity, RestoreSensor):
     """Base class for Battery Plus sensors."""
 
     _attr_should_poll = False
@@ -438,7 +438,7 @@ class BatteryNotesBatteryPlusBaseSensor(BatteryNotesEntity):
         return attrs
 
 
-class BatteryNotesBatteryPlusSensor(BatteryNotesBatteryPlusBaseSensor, RestoreSensor):
+class BatteryNotesBatteryPlusSensor(BatteryNotesBatteryPlusBaseSensor):
     """Represents a battery plus type sensor."""
 
     _wrapped_attributes = None
@@ -739,9 +739,12 @@ class BatteryNotesBatteryPlusSensor(BatteryNotesBatteryPlusBaseSensor, RestoreSe
     def extra_state_attributes(self) -> dict[str, Any] | None:
         """Return the state attributes of the battery type."""
 
+        attrs: dict[str, Any] | None = None
         attrs = super().extra_state_attributes
 
         if self._wrapped_attributes:
+            if attrs is None:
+                attrs = {}
             attrs.update(self._wrapped_attributes)
         return attrs
 
@@ -751,12 +754,11 @@ class BatteryNotesBatteryPlusSensor(BatteryNotesBatteryPlusBaseSensor, RestoreSe
         return self._attr_native_value
 
 
-class BatteryNotesBatteryPlusTemplateSensor(
-    BatteryNotesBatteryPlusBaseSensor, RestoreSensor
-):
+class BatteryNotesBatteryPlusTemplateSensor(BatteryNotesBatteryPlusBaseSensor):
     """Represents a battery plus from template type sensor."""
 
     _self_ref_update_count = 0
+    _state: float | None = None
 
     def __init__(  # noqa: PLR0913
         self,

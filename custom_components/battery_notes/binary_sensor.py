@@ -151,9 +151,9 @@ async def async_setup_entry(
 
         entities: list[
             BatteryNotesBatteryLowBinaryTemplateSensor
-            | BatteryNotesBatteryLowSensor
+            | BatteryNotesBatteryWrappedLowSensor
             | BatteryNotesBatteryBinaryLowSensor
-            | BatteryNotesBatteryLowPercentageTemplateSensor
+            | BatteryNotesBatteryPercentageTemplateLowSensor
         ] = []
 
         if coordinator.battery_low_template is not None:
@@ -169,18 +169,17 @@ async def async_setup_entry(
 
         elif coordinator.battery_percentage_template is not None:
             entities.append(
-                BatteryNotesBatteryLowPercentageTemplateSensor(
+                BatteryNotesBatteryPercentageTemplateLowSensor(
                     hass,
                     coordinator,
                     battery_low_entity_description,
                     f"{subentry.unique_id}{battery_low_entity_description.unique_id_suffix}",
-                    coordinator.battery_percentage_template,
                 )
             )
 
         elif coordinator.wrapped_battery is not None:
             entities.append(
-                BatteryNotesBatteryLowSensor(
+                BatteryNotesBatteryWrappedLowSensor(
                     hass,
                     coordinator,
                     battery_low_entity_description,
@@ -460,7 +459,73 @@ class BatteryNotesBatteryLowBinaryTemplateSensor(
         return self._state
 
 
-class BatteryNotesBatteryLowSensor(BatteryNotesBatteryLowBaseSensor):
+class BatteryNotesBatteryPercentageTemplateLowSensor(BatteryNotesBatteryLowBaseSensor):
+    """Represents a low battery threshold binary sensor from a template percentage."""
+
+    _attr_should_poll = False
+
+    def __init__(
+        self,
+        hass: HomeAssistant,
+        coordinator: BatteryNotesSubentryCoordinator,
+        entity_description: BatteryNotesBinarySensorEntityDescription,
+        unique_id: str,
+    ) -> None:
+        """Create a low battery binary sensor."""
+        super().__init__(
+            hass=hass, coordinator=coordinator, entity_description=entity_description
+        )
+
+        if coordinator.source_entity_id and not coordinator.device_id:
+            self._attr_translation_placeholders = {
+                "device_name": coordinator.device_name + " "
+            }
+            self.entity_id = f"binary_sensor.{coordinator.device_name.lower()}_{entity_description.key}"
+        elif coordinator.source_entity_id and coordinator.device_id:
+            _, source_object_id = split_entity_id(coordinator.source_entity_id)
+            self._attr_translation_placeholders = {
+                "device_name": coordinator.source_entity_name + " "
+            }
+            self.entity_id = (
+                f"binary_sensor.{source_object_id}_{entity_description.key}"
+            )
+        else:
+            self._attr_translation_placeholders = {"device_name": ""}
+            self.entity_id = f"binary_sensor.{coordinator.device_name.lower()}_{entity_description.key}"
+
+        self._attr_unique_id = unique_id
+
+    async def async_added_to_hass(self) -> None:
+        """Handle added to Hass."""
+
+        await super().async_added_to_hass()
+
+        await self.coordinator.async_refresh()
+
+    @callback
+    def _handle_coordinator_update(self) -> None:
+        """Handle updated data from the coordinator."""
+
+        if self.coordinator.current_battery_level is None or not validate_is_float(
+            self.coordinator.current_battery_level
+        ):
+            self._attr_is_on = None
+            self._attr_available = False
+            self.async_write_ha_state()
+            return
+
+        self._attr_is_on = self.coordinator.battery_low
+
+        self.async_write_ha_state()
+
+        _LOGGER.debug(
+            "%s binary sensor battery_low set to: %s via percentage template",
+            self.entity_id,
+            self.coordinator.battery_low,
+        )
+
+
+class BatteryNotesBatteryWrappedLowSensor(BatteryNotesBatteryLowBaseSensor):
     """Represents a low battery threshold binary sensor from a device percentage."""
 
     _attr_should_poll = False
