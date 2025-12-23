@@ -11131,6 +11131,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Busch J\u00e4ger",
+            "model": "Fenster\u00f6ffnungsmelder / window opening detector",
+            "model_id": "6222/x-x",
+            "battery_type": "CR2"
         }
     ]
 }
