@@ -26,29 +26,7 @@ See how to use this entity in the [community contributions](./community.md)
 | `source_entity_id` | `string` | The entity_id the battery note is associated with |
 
 ### Adding a battery percentage
-If your device does not have a battery percentage but does have a battery voltage or other indicative sensor you can create a helper to add a calculated percentage. Battery Notes will create the Battery+ sensor from this. You can create the helper as follows   
-
-- Within Settings > Devices & Services > Helpers press Create Helper
-- Select a Template helper
-- Select Template a sensor
-- Give the template a name of MyDevice Battery (ensuring MyDevice exactly matches the name of the device will drop the device name from the Device sensors view and just show battery)
-- The state template should reference the sensor and return a percentage  
-Example of voltage sensor with a maximum capacity of 3 volts   
-```{{ (states('sensor.my_sensor_voltage')|float(0) / 3 * 100) | round(0) }}```  
-Example of low sensor, returning either 100% or 9%  
-```{{ 9 if states('binary_sensor.my_sensor_low') == true else 100 }}```  
-- Unit of measurement should be %
-- Device class should be battery
-- State class should be measurement
-- Device should be the device you want the template associated with (this is important otherwise Battery Notes will not find the helper)
-- Save the helper 
-- Within Settings > Devices & Services > Integrations > Battery Notes find the device you added the template to and click on the 3 dots and select Reload
-- You will now have a Battery+ sensor for this device
-
-!!! info
-
-    You must create the template via a helper for it to be associated with the device.  YAML templates do not have the ability to be associated.
-
+If your device does not have a battery percentage but does have a battery voltage or other indicative sensor you can create a template to add a calculated percentage. Battery Notes will create the Battery+ sensor from this. More details [here](index.md/#battery-percentage-template) 
 
 ## Battery Type
 `sensor.{{device_name}}_battery_type`

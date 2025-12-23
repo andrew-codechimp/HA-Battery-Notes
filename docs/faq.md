@@ -35,11 +35,22 @@ Yes, you can turn off enable replaced within configuration settings. _new_ devic
 
 ## My device doesn't show a Battery+ sensor
 
-This is usually because the device does not have a battery percentage, you can create one if your device has a voltage, low indicator or similar by following [these instructions](entities.md/#adding-a-battery-percentage)
+This is usually because the device does not have a battery percentage, you can create one if your device has a voltage, low indicator or similar by following [these instructions](index.md/#battery-percentage-template)
 
 ## My device is not picking up the proper battery percentage for Battery+
 
 If your device has a different percentage, perhaps a max charge indicator Battery Notes cannot identify the correct battery percentage to monitor. You can either hide the entity you want Battery+ to ignore or you can remove the Battery Notes device, then re-add as an Entity Association Type manually and choose the correct battery percentage to monitor.
+
+## How do I create a battery percentage template
+
+The best way to do this is to test in the developer tools/template section for your sensor.  
+Be aware that Home Assistant shows friendly alternatives for some sensors, so when you are seeing Normal/Low this may really be a bool, testing in the template tool will allow you to determine the correct template to use. Start by adapting one of these.
+
+
+Example of voltage sensor with a maximum capacity of 3 volts   
+```{{ (states('sensor.my_sensor_voltage')|float(0) / 3 * 100) | round(0) }}```  
+Example of binary low sensor, returning either 100% or 9%  
+```{{ 9 if states('binary_sensor.my_sensor_low') == true else 100 }}```  
 
 ## How do I create a battery low template
 
