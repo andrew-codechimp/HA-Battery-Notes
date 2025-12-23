@@ -1,4 +1,4 @@
-## 1941 Devices in library
+## 1942 Devices in library
 
 This file is auto generated, do not modify
 
@@ -368,6 +368,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |BOSCH                                           |WRC2                                                                                          |2× AAA                    |                                   |                                      |
 |BRK Brands, Inc.                                |ZCOMBO                                                                                        |2× AA                     |                                   |                                      |
 |BRK Brands, Inc.                                |ZSMOKE                                                                                        |2× AA                     |                                   |                                      |
+|Busch Jäger                                     |Fensteröffnungsmelder / window opening detector                                               |CR2                       |6222/x-x                           |                                      |
 |by Philio Technology Corp                       |PSP05                                                                                         |CR123A                    |                                   |                                      |
 |Centralite                                      |3157100                                                                                       |4× AA                     |                                   |                                      |
 |CentraLite                                      |3315                                                                                          |CR2                       |                                   |                                      |
