@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import copy
 import logging
 from types import MappingProxyType
 from typing import Any
@@ -908,7 +909,7 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
                 data=self.data,
             )
 
-        self.data = config_subentry.data.copy()
+        self.data = copy.deepcopy(dict(config_subentry.data))
         if CONF_ADVANCED_SETTINGS not in self.data:
             self.data[CONF_ADVANCED_SETTINGS] = {}
 
