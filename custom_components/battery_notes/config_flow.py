@@ -982,14 +982,16 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
                             vol.Optional(
                                 CONF_BATTERY_PERCENTAGE_TEMPLATE,
                                 default=self.data[CONF_ADVANCED_SETTINGS].get(
-                                    CONF_BATTERY_PERCENTAGE_TEMPLATE, None
-                                ),
+                                    CONF_BATTERY_PERCENTAGE_TEMPLATE, ""
+                                )
+                                or "",
                             ): selector.TemplateSelector(),
                             vol.Optional(
                                 CONF_BATTERY_LOW_TEMPLATE,
                                 default=self.data[CONF_ADVANCED_SETTINGS].get(
-                                    CONF_BATTERY_LOW_TEMPLATE, None
-                                ),
+                                    CONF_BATTERY_LOW_TEMPLATE, ""
+                                )
+                                or "",
                             ): selector.TemplateSelector(),
                             vol.Optional(
                                 CONF_FILTER_OUTLIERS,
