@@ -149,13 +149,6 @@ ENTITY_SCHEMA = vol.Schema(
 )
 
 
-def none_if_empty(value: str) -> str | None:
-    """Convert empty strings to None."""
-    if value == "":
-        return None
-    return value
-
-
 def calc_config_attributes(
     hass: HomeAssistant,
     data: dict,
@@ -894,19 +887,13 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
                 self.data[CONF_ADVANCED_SETTINGS] = {}
 
             self.data[CONF_ADVANCED_SETTINGS][CONF_BATTERY_PERCENTAGE_TEMPLATE] = (
-                none_if_empty(
-                    user_input[CONF_ADVANCED_SETTINGS].get(
-                        CONF_BATTERY_PERCENTAGE_TEMPLATE, ""
-                    )
+                user_input[CONF_ADVANCED_SETTINGS].get(
+                    CONF_BATTERY_PERCENTAGE_TEMPLATE, ""
                 )
             )
-            self.data[CONF_ADVANCED_SETTINGS][CONF_BATTERY_LOW_TEMPLATE] = (
-                none_if_empty(
-                    user_input[CONF_ADVANCED_SETTINGS].get(
-                        CONF_BATTERY_LOW_TEMPLATE, ""
-                    )
-                )
-            )
+            self.data[CONF_ADVANCED_SETTINGS][CONF_BATTERY_LOW_TEMPLATE] = user_input[
+                CONF_ADVANCED_SETTINGS
+            ].get(CONF_BATTERY_LOW_TEMPLATE, "")
             self.data[CONF_ADVANCED_SETTINGS][CONF_FILTER_OUTLIERS] = user_input[
                 CONF_ADVANCED_SETTINGS
             ].get(CONF_FILTER_OUTLIERS, False)
