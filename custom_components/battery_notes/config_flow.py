@@ -876,8 +876,6 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
         """User flow to modify an existing battery note."""
         errors: dict[str, str] = {}
 
-        config_subentry = self._get_reconfigure_subentry()
-
         if user_input is not None:
             self.data[CONF_BATTERY_TYPE] = user_input[CONF_BATTERY_TYPE]
             self.data[CONF_BATTERY_QUANTITY] = int(user_input[CONF_BATTERY_QUANTITY])
@@ -909,6 +907,7 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
                 data=self.data,
             )
 
+        config_subentry = self._get_reconfigure_subentry()
         self.data = copy.deepcopy(dict(config_subentry.data))
         if CONF_ADVANCED_SETTINGS not in self.data:
             self.data[CONF_ADVANCED_SETTINGS] = {}
