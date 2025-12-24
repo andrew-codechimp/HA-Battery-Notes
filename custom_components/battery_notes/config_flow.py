@@ -150,6 +150,13 @@ ENTITY_SCHEMA = vol.Schema(
 )
 
 
+def none_if_empty(value: str | None) -> str | None:
+    """Return None if the string is empty or None, otherwise return the string."""
+    if value is None or value.strip() == "":
+        return None
+    return value
+
+
 def calc_config_attributes(
     hass: HomeAssistant,
     data: dict,
@@ -509,7 +516,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                     ),
                     vol.Required(
                         CONF_BATTERY_LOW_THRESHOLD,
-                        default=int(self.data.get(CONF_BATTERY_LOW_THRESHOLD, 0)),
+                        default=0,
                     ): selector.NumberSelector(
                         selector.NumberSelectorConfig(
                             min=0, max=99, mode=selector.NumberSelectorMode.BOX
@@ -886,19 +893,27 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
                 self.data[CONF_ADVANCED_SETTINGS] = {}
 
             self.data[CONF_ADVANCED_SETTINGS][CONF_BATTERY_PERCENTAGE_TEMPLATE] = (
-                user_input[CONF_ADVANCED_SETTINGS].get(
-                    CONF_BATTERY_PERCENTAGE_TEMPLATE, ""
+                none_if_empty(
+                    user_input[CONF_ADVANCED_SETTINGS].get(
+                        CONF_BATTERY_PERCENTAGE_TEMPLATE, ""
+                    )
                 )
             )
-            self.data[CONF_ADVANCED_SETTINGS][CONF_BATTERY_LOW_TEMPLATE] = user_input[
-                CONF_ADVANCED_SETTINGS
-            ].get(CONF_BATTERY_LOW_TEMPLATE, "")
+            self.data[CONF_ADVANCED_SETTINGS][CONF_BATTERY_LOW_TEMPLATE] = (
+                none_if_empty(
+                    user_input[CONF_ADVANCED_SETTINGS].get(
+                        CONF_BATTERY_LOW_TEMPLATE, ""
+                    )
+                )
+            )
             self.data[CONF_ADVANCED_SETTINGS][CONF_FILTER_OUTLIERS] = user_input[
                 CONF_ADVANCED_SETTINGS
             ].get(CONF_FILTER_OUTLIERS, False)
 
             # Save the updated subentry
-            new_title = user_input.pop(CONF_NAME)
+            new_title = user_input.pop(
+                CONF_NAME, self._get_reconfigure_subentry().title
+            )
 
             return self.async_update_and_abort(
                 self._get_entry(),
@@ -938,26 +953,19 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
 
         data_schema = vol.Schema(
             {
-                vol.Optional(
-                    CONF_NAME, default=config_subentry.title
-                ): selector.TextSelector(
+                vol.Optional(CONF_NAME): selector.TextSelector(
                     selector.TextSelectorConfig(type=selector.TextSelectorType.TEXT),
                 ),
-                vol.Required(
-                    CONF_BATTERY_TYPE, default=self.data[CONF_BATTERY_TYPE]
-                ): selector.TextSelector(
+                vol.Required(CONF_BATTERY_TYPE): selector.TextSelector(
                     selector.TextSelectorConfig(type=selector.TextSelectorType.TEXT),
                 ),
-                vol.Required(
-                    CONF_BATTERY_QUANTITY, default=self.data[CONF_BATTERY_QUANTITY]
-                ): selector.NumberSelector(
+                vol.Required(CONF_BATTERY_QUANTITY): selector.NumberSelector(
                     selector.NumberSelectorConfig(
                         min=1, max=100, mode=selector.NumberSelectorMode.BOX
                     ),
                 ),
                 vol.Required(
                     CONF_BATTERY_LOW_THRESHOLD,
-                    default=self.data.get(CONF_BATTERY_LOW_THRESHOLD, 0),
                 ): selector.NumberSelector(
                     selector.NumberSelectorConfig(
                         min=0, max=99, mode=selector.NumberSelectorMode.BOX
@@ -968,23 +976,12 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
                         {
                             vol.Optional(
                                 CONF_BATTERY_PERCENTAGE_TEMPLATE,
-                                default=self.data[CONF_ADVANCED_SETTINGS].get(
-                                    CONF_BATTERY_PERCENTAGE_TEMPLATE, ""
-                                )
-                                or "",
                             ): selector.TemplateSelector(),
                             vol.Optional(
                                 CONF_BATTERY_LOW_TEMPLATE,
-                                default=self.data[CONF_ADVANCED_SETTINGS].get(
-                                    CONF_BATTERY_LOW_TEMPLATE, ""
-                                )
-                                or "",
                             ): selector.TemplateSelector(),
                             vol.Optional(
                                 CONF_FILTER_OUTLIERS,
-                                default=self.data[CONF_ADVANCED_SETTINGS].get(
-                                    CONF_FILTER_OUTLIERS, False
-                                ),
                             ): selector.BooleanSelector(),
                         }
                     ),
@@ -993,6 +990,7 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
             }
         )
 
+        self.data[CONF_NAME] = config_subentry.title
         return self.async_show_form(
             step_id="reconfigure",
             description_placeholders={
@@ -1005,6 +1003,6 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
                     str(self.model_info.hw_version or "") if self.model_info else ""
                 ),
             },
-            data_schema=data_schema,
+            data_schema=self.add_suggested_values_to_schema(data_schema, self.data),
             errors=errors,
         )
