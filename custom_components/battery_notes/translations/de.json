@@ -298,7 +298,7 @@
         },
         "deprecated_yaml": {
             "title": "The {integration_title} YAML configuration is being removed",
-            "description": "Configuring {integration_title} using YAML is being removed.\n\nYour existing YAML configuration has been imported into the UI automatically.\n\nRemove the `{domain}` configuration from your configuration.yaml file and restart Home Assistant to fix this issue."
+            "description": "Das Konfigurieren von {integration_title} mit YAML wird entfernt.\n\nDeine bestehende YAML-Konfiguration wurde automatisch in die Benutzeroberfläche importiert.\n\nEntferne die `{domain}` Konfiguration von deiner configuration.yaml Datei und starte den Home Assistant neu, um dieses Problem zu beheben."
         }
     },
     "exceptions": {
