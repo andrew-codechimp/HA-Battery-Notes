@@ -2078,6 +2078,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Busch J\u00e4ger",
+            "model": "Fenster\u00f6ffnungsmelder / window opening detector",
+            "model_id": "6222/x-x",
+            "battery_type": "CR2"
+        },
+        {
             "manufacturer": "by Philio Technology Corp",
             "model": "PSP05",
             "battery_type": "CR123A"
@@ -4621,6 +4627,12 @@
             "model": "Vignette",
             "battery_type": "MANUAL",
             "model_match_method": "startswith"
+        },
+        {
+            "manufacturer": "Husqvarna",
+            "model": "Automower",
+            "model_id": "410XE NERA",
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "Husqvarna AB",
@@ -7421,6 +7433,12 @@
         },
         {
             "manufacturer": "Signify Netherlands B.V.",
+            "model": "Hue dimmer switch",
+            "model_id": "RWL022",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Signify Netherlands B.V.",
             "model": "Hue dimmer switch (RWL020)",
             "battery_type": "CR2450"
         },
@@ -8277,6 +8295,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "switchbot",
+            "model": "WoTHPc",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Sylvania",
             "model": "Contact Sensor-A",
             "battery_type": "CR2"
@@ -8313,6 +8337,12 @@
         },
         {
             "manufacturer": "Tado",
+            "model": "SU04",
+            "battery_type": "AAA",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "Tado",
             "model": "VA01",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -8328,6 +8358,11 @@
             "model": "VA02E",
             "battery_type": "AA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tado",
+            "model": "VA04",
+            "battery_type": "USB-C Rechargeable Pack"
         },
         {
             "manufacturer": "tado\u00b0 GmbH",
