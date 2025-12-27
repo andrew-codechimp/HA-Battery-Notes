@@ -11149,6 +11149,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Tado",
+            "model": "SU04",
+            "battery_type": "AAA",
+            "battery_quantity": 3
         }
     ]
 }
