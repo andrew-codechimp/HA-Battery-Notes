@@ -4629,6 +4629,12 @@
             "model_match_method": "startswith"
         },
         {
+            "manufacturer": "Husqvarna",
+            "model": "Automower",
+            "model_id": "410XE NERA",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Husqvarna AB",
             "model": "TBD",
             "battery_type": "PP3"
@@ -11154,12 +11160,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Husqvarna",
-            "model": "Automower",
-            "model_id": "410XE NERA",
             "battery_type": "Rechargeable"
         }
     ]

@@ -1,4 +1,4 @@
-## 1945 Devices in library
+## 1946 Devices in library
 
 This file is auto generated, do not modify
 
@@ -813,6 +813,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Hunter Douglas                                  |Venetian\*                                                                                    |MANUAL                    |                                   |                                      |
 |Hunter Douglas                                  |Vertical Slats\*                                                                              |MANUAL                    |                                   |                                      |
 |Hunter Douglas                                  |Vignette\*                                                                                    |MANUAL                    |                                   |                                      |
+|Husqvarna                                       |Automower                                                                                     |Rechargeable              |410XE NERA                         |                                      |
 |Husqvarna AB                                    |TBD                                                                                           |PP3                       |                                   |                                      |
 |iCasa                                           |Zigbee 3.0 Keypad Pulse 8S (ICZB-KPD18S)                                                      |CR2450                    |                                   |                                      |
 |ID Lock AS                                      |ID-150                                                                                        |8× AA                     |                                   |                                      |
