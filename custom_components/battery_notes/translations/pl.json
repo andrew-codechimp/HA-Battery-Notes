@@ -19,10 +19,12 @@
                     "advanced_settings": {
                         "name": "Ustawienia zaawansowane",
                         "data": {
+                            "battery_percentage_template": "Battery percentage template",
                             "battery_low_template": "Szablon niskiego poziomu baterii",
                             "filter_outliers": "Filtr wartości odstających"
                         },
                         "data_description": {
+                            "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
                             "battery_low_template": "Szablon do określenia czy poziom naładowania baterii jest niski, powinien zwrócić wartość true, jeśli poziom jest niski.\nJest wymagany tylko dla niestandardowych raportów poziomu baterii",
                             "filter_outliers": "Filtruj duże spadki poziomu baterii, zmniejszając fałszywe wyzwalanie zdarzeń na urządzeniach, które sporadycznie zgłaszają poziomy baterii"
                         }
@@ -89,10 +91,12 @@
                         "advanced_settings": {
                             "name": "Ustawienia zaawansowane",
                             "data": {
+                                "battery_percentage_template": "Battery percentage template",
                                 "battery_low_template": "Szablon niskiego poziomu baterii",
                                 "filter_outliers": "Filtr wartości odstających"
                             },
                             "data_description": {
+                                "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
                                 "battery_low_template": "Szablon do określenia czy poziom naładowania baterii jest niski, powinien zwrócić wartość true, jeśli poziom jest niski.\nJest wymagany tylko dla niestandardowych raportów poziomu baterii",
                                 "filter_outliers": "Filtruj duże spadki poziomu baterii, zmniejszając fałszywe wyzwalanie zdarzeń na urządzeniach, które sporadycznie zgłaszają poziomy baterii"
                             }
@@ -119,10 +123,12 @@
                         "advanced_settings": {
                             "name": "Ustawienia zaawansowane",
                             "data": {
+                                "battery_percentage_template": "Battery percentage template",
                                 "battery_low_template": "Szablon niskiego poziomu baterii",
                                 "filter_outliers": "Filtr wartości odstających"
                             },
                             "data_description": {
+                                "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
                                 "battery_low_template": "Szablon do określenia czy poziom naładowania baterii jest niski, powinien zwrócić wartość true, jeśli poziom jest niski.\nJest wymagany tylko dla niestandardowych raportów poziomu baterii",
                                 "filter_outliers": "Filtruj duże spadki poziomu baterii, zmniejszając fałszywe wyzwalanie zdarzeń na urządzeniach, które sporadycznie zgłaszają poziomy baterii"
                             }

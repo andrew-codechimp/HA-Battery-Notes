@@ -1,9 +1,9 @@
 """Constants for battery_notes."""
 
 import json
-from typing import Final
 from logging import Logger, getLogger
 from pathlib import Path
+from typing import Final
 
 import voluptuous as vol
 
@@ -54,6 +54,7 @@ CONF_BATTERY_INCREASE_THRESHOLD = "battery_increase_threshold"
 CONF_HIDE_BATTERY = "hide_battery"
 CONF_ROUND_BATTERY = "round_battery"
 CONF_BATTERY_LOW_TEMPLATE = "battery_low_template"
+CONF_BATTERY_PERCENTAGE_TEMPLATE = "battery_percentage_template"
 CONF_FILTER_OUTLIERS = "filter_outliers"
 CONF_ADVANCED_SETTINGS = "advanced_settings"
 

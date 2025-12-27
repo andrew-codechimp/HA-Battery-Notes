@@ -19,10 +19,12 @@
                     "advanced_settings": {
                         "name": "Ρυθμίσεις για προχωρημένους",
                         "data": {
+                            "battery_percentage_template": "Battery percentage template",
                             "battery_low_template": "Template χαμηλής στάθμης μπαταρίας",
                             "filter_outliers": "Φιλτράρισμα ακραίων τιμών"
                         },
                         "data_description": {
+                            "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
                             "battery_low_template": "Template για τον προσδιορισμό μιας μπαταρίας με χαμηλή στάθμη, θα πρέπει να επιστρέψει true εάν είναι χαμηλή\nΧρειάζεται μόνο για μη τυπικές στάθμες μπαταρίας",
                             "filter_outliers": "Φιλτράρετε μεγάλες πτώσεις στάθμης μπαταρίας, περιορίζοντας την πυροδότηση ψευδών συμβάντων σε συσκευές που εσφαλμένα αναφέρουν επίπεδα περιστασιακά"
                         }
@@ -89,10 +91,12 @@
                         "advanced_settings": {
                             "name": "Ρυθμίσεις για προχωρημένους",
                             "data": {
+                                "battery_percentage_template": "Battery percentage template",
                                 "battery_low_template": "Template χαμηλής στάθμης μπαταρίας",
                                 "filter_outliers": "Φιλτράρισμα ακραίων τιμών"
                             },
                             "data_description": {
+                                "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
                                 "battery_low_template": "Template για τον προσδιορισμό μιας μπαταρίας με χαμηλή στάθμη, θα πρέπει να επιστρέψει true εάν είναι χαμηλή\nΧρειάζεται μόνο για μη τυπικές στάθμες μπαταρίας",
                                 "filter_outliers": "Φιλτράρετε μεγάλες πτώσεις στάθμης μπαταρίας, περιορίζοντας την πυροδότηση ψευδών συμβάντων σε συσκευές που εσφαλμένα αναφέρουν επίπεδα περιστασιακά"
                             }
@@ -119,10 +123,12 @@
                         "advanced_settings": {
                             "name": "Ρυθμίσεις για προχωρημένους",
                             "data": {
+                                "battery_percentage_template": "Battery percentage template",
                                 "battery_low_template": "Template χαμηλής στάθμης μπαταρίας",
                                 "filter_outliers": "Φιλτράρισμα ακραίων τιμών"
                             },
                             "data_description": {
+                                "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
                                 "battery_low_template": "Template για τον προσδιορισμό μιας μπαταρίας με χαμηλή στάθμη, θα πρέπει να επιστρέψει true εάν είναι χαμηλή\nΧρειάζεται μόνο για μη τυπικές στάθμες μπαταρίας",
                                 "filter_outliers": "Φιλτράρετε μεγάλες πτώσεις στάθμης μπαταρίας, περιορίζοντας την πυροδότηση ψευδών συμβάντων σε συσκευές που εσφαλμένα αναφέρουν επίπεδα περιστασιακά"
                             }

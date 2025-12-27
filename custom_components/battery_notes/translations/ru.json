@@ -19,10 +19,12 @@
                     "advanced_settings": {
                         "name": "Advanced settings",
                         "data": {
+                            "battery_percentage_template": "Battery percentage template",
                             "battery_low_template": "Шаблон низкого заряда батареи",
                             "filter_outliers": "Фильтр скачков заряда"
                         },
                         "data_description": {
+                            "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
                             "battery_low_template": "Шаблон низкого заряда батареи. В случае низкого заряда должен возвращать true.\nТребуется только для нестандартных уровней заряда батареи.",
                             "filter_outliers": "Отфильтровать скачки заряда, уменьшая ложные срабатывания событий для устройств, которые иногда сообщают заряд батареи с ошибками"
                         }
@@ -89,10 +91,12 @@
                         "advanced_settings": {
                             "name": "Advanced settings",
                             "data": {
+                                "battery_percentage_template": "Battery percentage template",
                                 "battery_low_template": "Шаблон низкого заряда батареи",
                                 "filter_outliers": "Фильтр скачков заряда"
                             },
                             "data_description": {
+                                "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
                                 "battery_low_template": "Шаблон низкого заряда батареи. В случае низкого заряда должен возвращать true.\nТребуется только для нестандартных уровней заряда батареи.",
                                 "filter_outliers": "Отфильтровать скачки заряда, уменьшая ложные срабатывания событий для устройств, которые иногда сообщают заряд батареи с ошибками"
                             }
@@ -119,10 +123,12 @@
                         "advanced_settings": {
                             "name": "Advanced settings",
                             "data": {
+                                "battery_percentage_template": "Battery percentage template",
                                 "battery_low_template": "Шаблон низкого заряда батареи",
                                 "filter_outliers": "Фильтр скачков заряда"
                             },
                             "data_description": {
+                                "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
                                 "battery_low_template": "Шаблон низкого заряда батареи. В случае низкого заряда должен возвращать true.\nТребуется только для нестандартных уровней заряда батареи.",
                                 "filter_outliers": "Отфильтровать скачки заряда, уменьшая ложные срабатывания событий для устройств, которые иногда сообщают заряд батареи с ошибками"
                             }

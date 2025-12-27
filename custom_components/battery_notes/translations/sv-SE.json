@@ -19,10 +19,12 @@
                     "advanced_settings": {
                         "name": "Advanced settings",
                         "data": {
+                            "battery_percentage_template": "Battery percentage template",
                             "battery_low_template": "Batteri lågt template",
                             "filter_outliers": "Filtrera avvikande"
                         },
                         "data_description": {
+                            "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
                             "battery_low_template": "Template för att bestämma om batteriet är lågt, borde returnera true om lågt.\nEndast nödvändigt för icke-standard batterinivåer.",
                             "filter_outliers": "Filtrera bort stora batterinivåfall för att minska falska händelser på enheter som ibland rapporterar nivåer felaktigt"
                         }
@@ -89,10 +91,12 @@
                         "advanced_settings": {
                             "name": "Advanced settings",
                             "data": {
+                                "battery_percentage_template": "Battery percentage template",
                                 "battery_low_template": "Batteri lågt template",
                                 "filter_outliers": "Filtrera avvikande"
                             },
                             "data_description": {
+                                "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
                                 "battery_low_template": "Template för att bestämma om batteriet är lågt, borde returnera true om lågt.\nEndast nödvändigt för icke-standard batterinivåer.",
                                 "filter_outliers": "Filtrera bort stora batterinivåfall för att minska falska händelser på enheter som ibland rapporterar nivåer felaktigt"
                             }
@@ -119,10 +123,12 @@
                         "advanced_settings": {
                             "name": "Advanced settings",
                             "data": {
+                                "battery_percentage_template": "Battery percentage template",
                                 "battery_low_template": "Batteri lågt template",
                                 "filter_outliers": "Filtrera avvikande"
                             },
                             "data_description": {
+                                "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
                                 "battery_low_template": "Template för att bestämma om batteriet är lågt, borde returnera true om lågt.\nEndast nödvändigt för icke-standard batterinivåer.",
                                 "filter_outliers": "Filtrera bort stora batterinivåfall för att minska falska händelser på enheter som ibland rapporterar nivåer felaktigt"
                             }

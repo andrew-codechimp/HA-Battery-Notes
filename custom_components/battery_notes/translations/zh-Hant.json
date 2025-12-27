@@ -19,10 +19,12 @@
                     "advanced_settings": {
                         "name": "Advanced settings",
                         "data": {
+                            "battery_percentage_template": "Battery percentage template",
                             "battery_low_template": "低電量模板",
                             "filter_outliers": "Filter outliers"
                         },
                         "data_description": {
+                            "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
                             "battery_low_template": "判斷電池是否低電量的模板，若為低電量應回傳 true\n僅在電池電量非標準時需要",
                             "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
                         }
@@ -89,10 +91,12 @@
                         "advanced_settings": {
                             "name": "Advanced settings",
                             "data": {
+                                "battery_percentage_template": "Battery percentage template",
                                 "battery_low_template": "低電量模板",
                                 "filter_outliers": "Filter outliers"
                             },
                             "data_description": {
+                                "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
                                 "battery_low_template": "判斷電池是否低電量的模板，若為低電量應回傳 true\n僅在電池電量非標準時需要",
                                 "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
                             }
@@ -119,10 +123,12 @@
                         "advanced_settings": {
                             "name": "Advanced settings",
                             "data": {
+                                "battery_percentage_template": "Battery percentage template",
                                 "battery_low_template": "低電量模板",
                                 "filter_outliers": "Filter outliers"
                             },
                             "data_description": {
+                                "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
                                 "battery_low_template": "判斷電池是否低電量的模板，若為低電量應回傳 true\n僅在電池電量非標準時需要",
                                 "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
                             }

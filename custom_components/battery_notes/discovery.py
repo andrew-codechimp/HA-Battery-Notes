@@ -6,26 +6,26 @@ import logging
 from typing import Any
 
 import homeassistant.helpers.device_registry as dr
-from homeassistant.core import HomeAssistant, callback
-from homeassistant.const import CONF_DEVICE_ID
-from homeassistant.loader import Integration, async_get_integration
-from homeassistant.helpers import discovery_flow
 from homeassistant.config_entries import SOURCE_IGNORE, SOURCE_INTEGRATION_DISCOVERY
+from homeassistant.const import CONF_DEVICE_ID
+from homeassistant.core import HomeAssistant, callback
+from homeassistant.helpers import discovery_flow
+from homeassistant.loader import Integration, async_get_integration
 
+from .common import get_device_model_id
 from .const import (
-    DOMAIN,
+    CONF_BATTERY_QUANTITY,
+    CONF_BATTERY_TYPE,
+    CONF_DEVICE_NAME,
+    CONF_HW_VERSION,
+    CONF_INTEGRATION_NAME,
+    CONF_MANUFACTURER,
     CONF_MODEL,
     CONF_MODEL_ID,
-    CONF_HW_VERSION,
-    CONF_DEVICE_NAME,
-    CONF_BATTERY_TYPE,
-    CONF_MANUFACTURER,
-    CONF_BATTERY_QUANTITY,
-    CONF_INTEGRATION_NAME,
+    DOMAIN,
 )
-from .common import get_device_model_id
-from .library import DATA_LIBRARY, ModelInfo, DeviceBatteryDetails
 from .coordinator import BatteryNotesDomainConfig
+from .library import DATA_LIBRARY, DeviceBatteryDetails, ModelInfo
 
 _LOGGER = logging.getLogger(__name__)
 

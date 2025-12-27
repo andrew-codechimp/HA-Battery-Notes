@@ -19,10 +19,12 @@
                     "advanced_settings": {
                         "name": "Advanced settings",
                         "data": {
+                            "battery_percentage_template": "Battery percentage template",
                             "battery_low_template": "Sjabloon batterij bijna leeg",
                             "filter_outliers": "Filter outliers"
                         },
                         "data_description": {
+                            "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
                             "battery_low_template": "Sjabloon om te bepalen dat een batterij bijna leeg is, zal 'waar' teruggeven als bijna leeg\nAlleen nodig voor niet-standaard batterijniveaus",
                             "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
                         }
@@ -89,10 +91,12 @@
                         "advanced_settings": {
                             "name": "Advanced settings",
                             "data": {
+                                "battery_percentage_template": "Battery percentage template",
                                 "battery_low_template": "Sjabloon batterij bijna leeg",
                                 "filter_outliers": "Filter outliers"
                             },
                             "data_description": {
+                                "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
                                 "battery_low_template": "Sjabloon om te bepalen dat een batterij bijna leeg is, zal 'waar' teruggeven als bijna leeg\nAlleen nodig voor niet-standaard batterijniveaus",
                                 "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
                             }
@@ -119,10 +123,12 @@
                         "advanced_settings": {
                             "name": "Advanced settings",
                             "data": {
+                                "battery_percentage_template": "Battery percentage template",
                                 "battery_low_template": "Sjabloon batterij bijna leeg",
                                 "filter_outliers": "Filter outliers"
                             },
                             "data_description": {
+                                "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
                                 "battery_low_template": "Sjabloon om te bepalen dat een batterij bijna leeg is, zal 'waar' teruggeven als bijna leeg\nAlleen nodig voor niet-standaard batterijniveaus",
                                 "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
                             }

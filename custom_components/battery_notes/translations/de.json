@@ -19,10 +19,12 @@
                     "advanced_settings": {
                         "name": "Erweiterte Einstellungen",
                         "data": {
+                            "battery_percentage_template": "Battery percentage template",
                             "battery_low_template": "Vorlage für niedrigen Batteriestand",
                             "filter_outliers": "Ausreißer filtern"
                         },
                         "data_description": {
+                            "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
                             "battery_low_template": "Vorlage um zu bestimmen, ob eine Batterie schwach ist; sollte \"wahr\" (true) rückmelden, wenn schwach.\nNur für nicht-Standard Batteriewerte benötigt.",
                             "filter_outliers": "Filtere größere Sprünge des Ladestandes der Batterie bei Geräten, die ihren Ladestand nur sporadisch mitteilen, um fehlerhafte Auslösungen zu verhindern"
                         }
@@ -89,10 +91,12 @@
                         "advanced_settings": {
                             "name": "Erweiterte Einstellungen",
                             "data": {
+                                "battery_percentage_template": "Battery percentage template",
                                 "battery_low_template": "Vorlage für niedrigen Batteriestand",
                                 "filter_outliers": "Ausreißer filtern"
                             },
                             "data_description": {
+                                "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
                                 "battery_low_template": "Vorlage um zu bestimmen, ob eine Batterie schwach ist; sollte \"wahr\" (true) rückmelden, wenn schwach.\nNur für nicht-Standard Batteriewerte benötigt.",
                                 "filter_outliers": "Filtere größere Sprünge des Ladestandes der Batterie bei Geräten, die ihren Ladestand nur sporadisch mitteilen, um fehlerhafte Auslösungen zu verhindern"
                             }
@@ -119,10 +123,12 @@
                         "advanced_settings": {
                             "name": "Erweiterte Einstellungen",
                             "data": {
+                                "battery_percentage_template": "Battery percentage template",
                                 "battery_low_template": "Vorlage für niedrigen Batteriestand",
                                 "filter_outliers": "Ausreißer filtern"
                             },
                             "data_description": {
+                                "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
                                 "battery_low_template": "Vorlage um zu bestimmen, ob eine Batterie schwach ist; sollte \"wahr\" (true) rückmelden, wenn schwach.\nNur für nicht-Standard Batteriewerte benötigt.",
                                 "filter_outliers": "Filtere größere Sprünge des Ladestandes der Batterie bei Geräten, die ihren Ladestand nur sporadisch mitteilen, um fehlerhafte Auslösungen zu verhindern"
                             }

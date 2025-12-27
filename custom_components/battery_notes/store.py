@@ -3,10 +3,10 @@
 from __future__ import annotations
 
 import logging
-from typing import Any, cast
-from datetime import datetime
 from collections import OrderedDict
 from collections.abc import MutableMapping
+from datetime import datetime
+from typing import Any, cast
 
 import attr
 
