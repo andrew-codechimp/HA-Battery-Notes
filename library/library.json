@@ -11161,6 +11161,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Tado",
+            "model": "VA04",
+            "battery_type": "USB-C Rechargeable Pack"
         }
     ]
 }
