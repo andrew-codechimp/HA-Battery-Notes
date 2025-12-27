@@ -4399,6 +4399,12 @@
         },
         {
             "manufacturer": "HOBEIAN",
+            "model": "ZG-204ZM",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "HOBEIAN",
             "model": "ZG-227Z",
             "battery_type": "CR2032"
         },
@@ -11166,12 +11172,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "HOBEIAN",
-            "model": "ZG-204ZM",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
