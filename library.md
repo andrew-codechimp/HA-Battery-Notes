@@ -1,4 +1,4 @@
-## 1943 Devices in library
+## 1944 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1459,6 +1459,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |switchbot                                       |WoPresence                                                                                    |2× AAA                    |                                   |                                      |
 |Switchbot                                       |WoRemote                                                                                      |CR2450                    |                                   |                                      |
 |switchbot                                       |WoTHP                                                                                         |2× AAA                    |                                   |                                      |
+|switchbot                                       |WoTHPc                                                                                        |2× AA                     |                                   |                                      |
 |Sylvania                                        |Contact Sensor-A                                                                              |CR2                       |                                   |                                      |
 |Sylvania                                        |Smart+ contact and temperature sensor (74388)                                                 |CR2                       |                                   |                                      |
 |Tado                                            |RU01                                                                                          |3× AAA                    |                                   |                                      |
