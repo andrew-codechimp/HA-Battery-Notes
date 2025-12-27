@@ -1,4 +1,4 @@
-## 1944 Devices in library
+## 1945 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1466,6 +1466,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tado                                            |RU02                                                                                          |3× AAA                    |                                   |                                      |
 |Tado                                            |Smart Radiator Thermostat                                                                     |2× AA                     |SRT01                              |                                      |
 |Tado                                            |SU02                                                                                          |3× AAA                    |                                   |                                      |
+|Tado                                            |SU04                                                                                          |3× AAA                    |                                   |                                      |
 |Tado                                            |VA01                                                                                          |2× AA                     |                                   |                                      |
 |Tado                                            |VA02                                                                                          |2× AA                     |                                   |                                      |
 |Tado                                            |VA02E                                                                                         |2× AA                     |                                   |                                      |
