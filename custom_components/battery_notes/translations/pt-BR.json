@@ -19,10 +19,12 @@
                     "advanced_settings": {
                         "name": "Advanced settings",
                         "data": {
+                            "battery_percentage_template": "Battery percentage template",
                             "battery_low_template": "Modelo de bateria fraca",
                             "filter_outliers": "Filtrar atípicos"
                         },
                         "data_description": {
+                            "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
                             "battery_low_template": "Modelo para determinar se a bateria está fraca, deve retornar verdadeiro se estiver fraca\nNecessário apenas para níveis de bateria fora do padrão",
                             "filter_outliers": "Filtre grandes quedas no nível da bateria, reduzindo eventos de disparo falso em dispositivos que ocasionalmente relatam níveis incorretos."
                         }
@@ -89,10 +91,12 @@
                         "advanced_settings": {
                             "name": "Advanced settings",
                             "data": {
+                                "battery_percentage_template": "Battery percentage template",
                                 "battery_low_template": "Modelo de bateria fraca",
                                 "filter_outliers": "Filtrar atípicos"
                             },
                             "data_description": {
+                                "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
                                 "battery_low_template": "Modelo para determinar se a bateria está fraca, deve retornar verdadeiro se estiver fraca\nNecessário apenas para níveis de bateria fora do padrão",
                                 "filter_outliers": "Filtre grandes quedas no nível da bateria, reduzindo eventos de disparo falso em dispositivos que ocasionalmente relatam níveis incorretos."
                             }
@@ -119,10 +123,12 @@
                         "advanced_settings": {
                             "name": "Advanced settings",
                             "data": {
+                                "battery_percentage_template": "Battery percentage template",
                                 "battery_low_template": "Modelo de bateria fraca",
                                 "filter_outliers": "Filtrar atípicos"
                             },
                             "data_description": {
+                                "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
                                 "battery_low_template": "Modelo para determinar se a bateria está fraca, deve retornar verdadeiro se estiver fraca\nNecessário apenas para níveis de bateria fora do padrão",
                                 "filter_outliers": "Filtre grandes quedas no nível da bateria, reduzindo eventos de disparo falso em dispositivos que ocasionalmente relatam níveis incorretos."
                             }

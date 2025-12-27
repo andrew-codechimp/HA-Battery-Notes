@@ -19,10 +19,12 @@
                     "advanced_settings": {
                         "name": "Advanced settings",
                         "data": {
+                            "battery_percentage_template": "Battery percentage template",
                             "battery_low_template": "Шаблон низького заряду батареї",
                             "filter_outliers": "Відсіяти сторонні елементи"
                         },
                         "data_description": {
+                            "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
                             "battery_low_template": "Шаблон для визначення, коли заряд батареї низький - в такому випадку має повернути \"true\"\nПотрібен тільки для нестандартних рівнів батареї",
                             "filter_outliers": "Відфільтровуйте великі падіння рівня заряду акумулятора, зменшуючи кількість помилкових спрацьовувань на пристроях, які час від часу помилково повідомляють про рівень заряду"
                         }
@@ -89,10 +91,12 @@
                         "advanced_settings": {
                             "name": "Advanced settings",
                             "data": {
+                                "battery_percentage_template": "Battery percentage template",
                                 "battery_low_template": "Шаблон низького заряду батареї",
                                 "filter_outliers": "Відсіяти сторонні елементи"
                             },
                             "data_description": {
+                                "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
                                 "battery_low_template": "Шаблон для визначення, коли заряд батареї низький - в такому випадку має повернути \"true\"\nПотрібен тільки для нестандартних рівнів батареї",
                                 "filter_outliers": "Відфільтровуйте великі падіння рівня заряду акумулятора, зменшуючи кількість помилкових спрацьовувань на пристроях, які час від часу помилково повідомляють про рівень заряду"
                             }
@@ -119,10 +123,12 @@
                         "advanced_settings": {
                             "name": "Advanced settings",
                             "data": {
+                                "battery_percentage_template": "Battery percentage template",
                                 "battery_low_template": "Шаблон низького заряду батареї",
                                 "filter_outliers": "Відсіяти сторонні елементи"
                             },
                             "data_description": {
+                                "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
                                 "battery_low_template": "Шаблон для визначення, коли заряд батареї низький - в такому випадку має повернути \"true\"\nПотрібен тільки для нестандартних рівнів батареї",
                                 "filter_outliers": "Відфільтровуйте великі падіння рівня заряду акумулятора, зменшуючи кількість помилкових спрацьовувань на пристроях, які час від часу помилково повідомляють про рівень заряду"
                             }

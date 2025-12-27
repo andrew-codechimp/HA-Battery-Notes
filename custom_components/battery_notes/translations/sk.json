@@ -19,10 +19,12 @@
                     "advanced_settings": {
                         "name": "Advanced settings",
                         "data": {
+                            "battery_percentage_template": "Battery percentage template",
                             "battery_low_template": "Šablóna slabej batérie",
                             "filter_outliers": "Filter outliers"
                         },
                         "data_description": {
+                            "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
                             "battery_low_template": "Šablóna na určenie nízkej úrovne batérie by mala vrátiť hodnotu Pravda, ak je nízke\nPotrebné iba pri neštandardných úrovniach batérie",
                             "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
                         }
@@ -89,10 +91,12 @@
                         "advanced_settings": {
                             "name": "Advanced settings",
                             "data": {
+                                "battery_percentage_template": "Battery percentage template",
                                 "battery_low_template": "Šablóna slabej batérie",
                                 "filter_outliers": "Filter outliers"
                             },
                             "data_description": {
+                                "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
                                 "battery_low_template": "Šablóna na určenie nízkej úrovne batérie by mala vrátiť hodnotu Pravda, ak je nízke\nPotrebné iba pri neštandardných úrovniach batérie",
                                 "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
                             }
@@ -119,10 +123,12 @@
                         "advanced_settings": {
                             "name": "Advanced settings",
                             "data": {
+                                "battery_percentage_template": "Battery percentage template",
                                 "battery_low_template": "Šablóna slabej batérie",
                                 "filter_outliers": "Filter outliers"
                             },
                             "data_description": {
+                                "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
                                 "battery_low_template": "Šablóna na určenie nízkej úrovne batérie by mala vrátiť hodnotu Pravda, ak je nízke\nPotrebné iba pri neštandardných úrovniach batérie",
                                 "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
                             }

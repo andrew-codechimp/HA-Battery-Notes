@@ -19,10 +19,12 @@
                     "advanced_settings": {
                         "name": "Advanced settings",
                         "data": {
+                            "battery_percentage_template": "Battery percentage template",
                             "battery_low_template": "Modello batteria bassa",
                             "filter_outliers": "Filtra anomali"
                         },
                         "data_description": {
+                            "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
                             "battery_low_template": "Modello per determinare se una batteria è scarica, dovrebbe restituire vero se scarica. \nNecessario solo per livelli di batteria non standard",
                             "filter_outliers": "Filtra grossi cali batteria, riducendo falsi eventi su dispositivi che restituiscono occasionalmente livelli erronei"
                         }
@@ -89,10 +91,12 @@
                         "advanced_settings": {
                             "name": "Advanced settings",
                             "data": {
+                                "battery_percentage_template": "Battery percentage template",
                                 "battery_low_template": "Modello batteria bassa",
                                 "filter_outliers": "Filtra anomali"
                             },
                             "data_description": {
+                                "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
                                 "battery_low_template": "Modello per determinare se una batteria è scarica, dovrebbe restituire vero se scarica. \nNecessario solo per livelli di batteria non standard",
                                 "filter_outliers": "Filtra grossi cali batteria, riducendo falsi eventi su dispositivi che restituiscono occasionalmente livelli erronei"
                             }
@@ -119,10 +123,12 @@
                         "advanced_settings": {
                             "name": "Advanced settings",
                             "data": {
+                                "battery_percentage_template": "Battery percentage template",
                                 "battery_low_template": "Modello batteria bassa",
                                 "filter_outliers": "Filtra anomali"
                             },
                             "data_description": {
+                                "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
                                 "battery_low_template": "Modello per determinare se una batteria è scarica, dovrebbe restituire vero se scarica. \nNecessario solo per livelli di batteria non standard",
                                 "filter_outliers": "Filtra grossi cali batteria, riducendo falsi eventi su dispositivi che restituiscono occasionalmente livelli erronei"
                             }

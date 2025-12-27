@@ -19,10 +19,12 @@
                     "advanced_settings": {
                         "name": "Advanced settings",
                         "data": {
+                            "battery_percentage_template": "Battery percentage template",
                             "battery_low_template": "Plantilla de bateria baixa",
                             "filter_outliers": "iltrar valors atípics"
                         },
                         "data_description": {
+                            "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
                             "battery_low_template": "La plantilla per determinar que la bateria és baixa, hauria de tornar correcte si és baixa\nNomés és necessari per a nivells de bateria no estàndard",
                             "filter_outliers": "Filtra les grans caigudes del nivell de bateria, reduint els esdeveniments que es disparen falsament en els dispositius que informen erròniament dels nivells de manera ocasional."
                         }
@@ -89,10 +91,12 @@
                         "advanced_settings": {
                             "name": "Advanced settings",
                             "data": {
+                                "battery_percentage_template": "Battery percentage template",
                                 "battery_low_template": "Plantilla de bateria baixa",
                                 "filter_outliers": "iltrar valors atípics"
                             },
                             "data_description": {
+                                "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
                                 "battery_low_template": "La plantilla per determinar que la bateria és baixa, hauria de tornar correcte si és baixa\nNomés és necessari per a nivells de bateria no estàndard",
                                 "filter_outliers": "Filtra les grans caigudes del nivell de bateria, reduint els esdeveniments que es disparen falsament en els dispositius que informen erròniament dels nivells de manera ocasional."
                             }
@@ -119,10 +123,12 @@
                         "advanced_settings": {
                             "name": "Advanced settings",
                             "data": {
+                                "battery_percentage_template": "Battery percentage template",
                                 "battery_low_template": "Plantilla de bateria baixa",
                                 "filter_outliers": "iltrar valors atípics"
                             },
                             "data_description": {
+                                "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
                                 "battery_low_template": "La plantilla per determinar que la bateria és baixa, hauria de tornar correcte si és baixa\nNomés és necessari per a nivells de bateria no estàndard",
                                 "filter_outliers": "Filtra les grans caigudes del nivell de bateria, reduint els esdeveniments que es disparen falsament en els dispositius que informen erròniament dels nivells de manera ocasional."
                             }
