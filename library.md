@@ -1,4 +1,4 @@
-## 1948 Devices in library
+## 1949 Devices in library
 
 This file is auto generated, do not modify
 
@@ -634,6 +634,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |eWeLink                                         |WB01                                                                                          |CR2450                    |                                   |                                      |
 |eWeLink                                         |Zigbee water sensor                                                                           |AAA                       |SNZB-05                            |                                      |
 |Express Controls                                |EZMotion Express                                                                              |3× AAA                    |                                   |                                      |
+|EZVIZ                                           |CP4                                                                                           |USB-C Rechargeable        |                                   |                                      |
 |EZVIZ                                           |DB2 Pro                                                                                       |Rechargeable              |                                   |                                      |
 |EZVIZ                                           |DP2                                                                                           |Rechargeable              |                                   |                                      |
 |Fairphone                                       |FP5                                                                                           |Rechargeable              |                                   |                                      |

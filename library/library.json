@@ -3617,6 +3617,11 @@
         },
         {
             "manufacturer": "EZVIZ",
+            "model": "CP4",
+            "battery_type": "USB-C Rechargeable"
+        },
+        {
+            "manufacturer": "EZVIZ",
             "model": "DB2 Pro",
             "battery_type": "Rechargeable"
         },
@@ -11172,11 +11177,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "EZVIZ",
-            "model": "CP4",
-            "battery_type": "USB-C Rechargeable"
         }
     ]
 }
