@@ -1,4 +1,4 @@
-## 1949 Devices in library
+## 1950 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1095,6 +1095,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Onvis                                           |CT3                                                                                           |CR2450                    |                                   |                                      |
 |Onvis                                           |HS2                                                                                           |CR2450                    |                                   |                                      |
 |OpenEpaperLink                                  |M2 1.54                                                                                       |CR2450                    |                                   |                                      |
+|OpenEPaperLink                                  |M2 2.6                                                                                        |2× CR2450                 |                                   |296x152                               |
 |OpenEpaperLink                                  |M2 2.9                                                                                        |2× CR2450                 |                                   |                                      |
 |OpenEpaperLink                                  |M2 4.2                                                                                        |2× CR2450                 |                                   |                                      |
 |OpenEpaperLink                                  |M3 2.9                                                                                        |2× CR2450                 |                                   |                                      |

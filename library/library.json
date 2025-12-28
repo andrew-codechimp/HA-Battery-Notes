@@ -6243,6 +6243,13 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "OpenEPaperLink",
+            "model": "M2 2.6\"",
+            "hw_version": "296x152",
+            "battery_type": "CR2450",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "OpenEpaperLink",
             "model": "M2 2.9\"",
             "battery_type": "CR2450",
@@ -11177,13 +11184,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "OpenEPaperLink",
-            "model": "M2 2.6\"",
-            "hw_version": "296x152",
-            "battery_type": "CR2450",
-            "battery_quantity": 2
         }
     ]
 }
