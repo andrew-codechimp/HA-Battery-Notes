@@ -81,6 +81,10 @@ You will still see your battery note entities within the device page and they wo
 You can edit a battery note for a device by going into the Battery Notes integration, choosing the device and configuring it there.  
 A Battery Note no longer has entities itself, but you can still see all the entities, grouped by device, by clicking on the xx entities just under the Battery Notes service within the integration page.  
 
+## Why do I have a battery_notes section in my configuration.yaml
+
+This was required prior to version 3, you can safely remove it and and any configuration details within it.  Once you have removed it and saved your configuration ensure you go into developer tools and check your configuration before restarting Home Assistant.
+
 ## How do I install pre-release versions via HACS
 
 Within Home Assistant go to Settings -> Integrations -> HACS  
