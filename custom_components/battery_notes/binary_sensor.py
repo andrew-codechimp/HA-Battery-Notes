@@ -53,9 +53,8 @@ from homeassistant.helpers.template import (
     Template,
     TemplateStateFromEntityId,
 )
-from homeassistant.util.dt import utcnow as utcnow_no_timezone
 
-from .common import validate_is_float
+from .common import utcnow_no_timezone, validate_is_float
 from .const import (
     ATTR_BATTERY_LAST_REPLACED,
     ATTR_BATTERY_LOW_THRESHOLD,
