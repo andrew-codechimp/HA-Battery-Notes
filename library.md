@@ -1,4 +1,4 @@
-## 1950 Devices in library
+## 1951 Devices in library
 
 This file is auto generated, do not modify
 
@@ -253,6 +253,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Aqara                                           |Smart radiator thermostat E1 (SRTS-A01)                                                       |2× AA                     |                                   |                                      |
 |Aqara                                           |Smart smoke detector                                                                          |CR17450                   |JY-GZ-01AQ                         |                                      |
 |Aqara                                           |Smart smoke detector                                                                          |CR17450                   |JY-GZ-01AQ                         |                                     1|
+|Aqara                                           |Smart Smoke Detector                                                                          |CR17450                   |lumi.sensor_smoke.acn03            |                                      |
 |Aqara                                           |Smart smoke detector (JY-GZ-01AQ)                                                             |CR17450                   |                                   |                                      |
 |Aqara                                           |SRTS-A01                                                                                      |2× AA                     |                                   |                                      |
 |Aqara                                           |SVD-C02                                                                                       |6× AA                     |                                   |                                  1.10|
