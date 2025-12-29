@@ -667,13 +667,11 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                 self.device_id
             )
 
-        if entry:
-            if LAST_REPORTED in entry:
-                if entry[LAST_REPORTED]:
-                    last_reported_date = datetime.fromisoformat(
-                        str(entry[LAST_REPORTED]) + "+00:00"
-                    )
-                    return last_reported_date
+        if entry and LAST_REPORTED in entry and entry[LAST_REPORTED] is not None:
+            entry_last_reported = str(entry[LAST_REPORTED])
+            if not entry_last_reported.endswith("+00:00"):
+                entry_last_reported += "+00:00"
+            return datetime.fromisoformat(entry_last_reported)
 
         return None
 
