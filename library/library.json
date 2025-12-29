@@ -11184,6 +11184,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "Smart Smoke Detector",
+            "model_id": "lumi.sensor_smoke.acn03",
+            "battery_type": "CR17450"
         }
     ]
 }
