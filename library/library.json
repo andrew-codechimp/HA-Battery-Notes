@@ -11198,6 +11198,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Heiman",
+            "model": "Smart siren",
+            "model_id": "HS2WD-E",
+            "hw_version": "5",
+            "battery_type": "Rechargeable"
         }
     ]
 }
