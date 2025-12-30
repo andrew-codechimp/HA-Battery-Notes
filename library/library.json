@@ -4256,6 +4256,13 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "Heiman",
+            "model": "Smart siren",
+            "model_id": "HS2WD-E",
+            "hw_version": "5",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "HEIMAN",
             "model": "Smoke detector",
             "model_id": "HS1SA",
@@ -11197,13 +11204,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Heiman",
-            "model": "Smart siren",
-            "model_id": "HS2WD-E",
-            "hw_version": "5",
             "battery_type": "Rechargeable"
         }
     ]

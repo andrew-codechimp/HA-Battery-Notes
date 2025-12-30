@@ -1,4 +1,4 @@
-## 1952 Devices in library
+## 1953 Devices in library
 
 This file is auto generated, do not modify
 
@@ -748,6 +748,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |HEIMAN                                          |Smart carbon monoxide sensor (HS1CA-E)                                                        |CR123A                    |                                   |                                      |
 |HEIMAN                                          |Smart carbon monoxide sensor (HS1CA-M)                                                        |CR123A                    |                                   |                                      |
 |HEIMAN                                          |Smart motion sensor (HS3MS)                                                                   |CR123A                    |                                   |                                      |
+|Heiman                                          |Smart siren                                                                                   |Rechargeable              |HS2WD-E                            |                                     5|
 |HEIMAN                                          |Smoke detector                                                                                |CR123A                    |HS1SA                              |                                      |
 |HEIMAN                                          |Smoke detector (HS1SA)                                                                        |CR123A                    |                                   |                                      |
 |HEIMAN                                          |Smoke detector (HS1SA)                                                                        |CR123A                    |                                   |                                    16|
