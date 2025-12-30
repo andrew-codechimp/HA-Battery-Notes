@@ -3,7 +3,7 @@
         "step": {
             "user": {
                 "description": "New Battery Notes will be discovered if they are in the library.\nTo add new Battery Notes manually go into the integration page, select Add Battery Note and follow the instructions.\nIf you need help with the configuration have a look here: {documentation_url}",
-                "title": "Setup Battery Notes"
+                "title": "Battery Notes einrichten"
             },
             "battery": {
                 "description": "Name: {name}\nHersteller: {manufacturer}\nModell: {model}\nModell ID: {model_id}\nHardware Version: {hw_version}",
@@ -19,7 +19,7 @@
                     "advanced_settings": {
                         "name": "Erweiterte Einstellungen",
                         "data": {
-                            "battery_percentage_template": "Battery percentage template",
+                            "battery_percentage_template": "Vorlage für Batterieanzeige in %",
                             "battery_low_template": "Vorlage für niedrigen Batteriestand",
                             "filter_outliers": "Ausreißer filtern"
                         },
@@ -34,7 +34,7 @@
         },
         "abort": {
             "already_configured": "Integration is already configured",
-            "integration_not_added": "Integration not added, please add the integration first",
+            "integration_not_added": "Integration nicht hinzugefügt, bitte zuerst die Integration hinzufügen",
             "created_sub_entry": "Battery Note created successfully"
         },
         "error": {
