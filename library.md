@@ -1,4 +1,4 @@
-## 1953 Devices in library
+## 1954 Devices in library
 
 This file is auto generated, do not modify
 
@@ -825,6 +825,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |ID-RF                                           |CWS-3101                                                                                      |CR2032                    |                                   |                                      |
 |ID-RF                                           |Soft Remote                                                                                   |CR2032                    |                                   |                                      |
 |iHseno                                          |Vibration sensor                                                                              |2× AAA                    |_TZ3000_lzdjjfss                   |                                     1|
+|iHseno                                          |Zigbee 4 button remote - 12 scene                                                             |A23                       |_TZ3000_mh9px7cq                   |                                     1|
 |IKEA                                            |BADRING water leakage sensor                                                                  |AAA                       |E2202                              |                                      |
 |IKEA                                            |BADRING water leakage sensor (E2202)                                                          |AAA                       |                                   |                                      |
 |IKEA                                            |E2102                                                                                         |Rechargeable              |                                   |                                      |
