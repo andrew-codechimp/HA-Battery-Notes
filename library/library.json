@@ -11205,6 +11205,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "iHseno",
+            "model": "Zigbee 4 button remote - 12 scene",
+            "model_id": "_TZ3000_mh9px7cq",
+            "hw_version": "1",
+            "battery_type": "A23"
         }
     ]
 }
