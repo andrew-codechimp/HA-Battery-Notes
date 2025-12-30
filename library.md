@@ -1,4 +1,4 @@
-## 1951 Devices in library
+## 1952 Devices in library
 
 This file is auto generated, do not modify
 
@@ -413,6 +413,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Develco                                         |AQSZB-110                                                                                     |2× AA                     |                                   |                                      |
 |Develco                                         |Fire detector with siren                                                                      |CR123                     |HESZB-120                          |5.0.2                                 |
 |Develco                                         |Fire detector with siren (HESZB-120)                                                          |CR123A                    |                                   |                                      |
+|Develco                                         |Keypad                                                                                        |4× AA                     |KEYZB-110                          |2.0.1                                 |
 |Develco                                         |Keypad (KEYZB-110)                                                                            |4× AA                     |                                   |                                      |
 |Develco                                         |KEYZB-110                                                                                     |4× AA                     |                                   |                                      |
 |Develco                                         |Motion sensor                                                                                 |2× AA                     |MOSZB-140                          |                                      |
