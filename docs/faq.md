@@ -35,11 +35,22 @@ Yes, you can turn off enable replaced within configuration settings. _new_ devic
 
 ## My device doesn't show a Battery+ sensor
 
-This is usually because the device does not have a battery percentage, you can create one if your device has a voltage, low indicator or similar by following [these instructions](entities.md/#adding-a-battery-percentage)
+This is usually because the device does not have a battery percentage, you can create one if your device has a voltage, low indicator or similar by following [these instructions](index.md/#battery-percentage-template)
 
 ## My device is not picking up the proper battery percentage for Battery+
 
 If your device has a different percentage, perhaps a max charge indicator Battery Notes cannot identify the correct battery percentage to monitor. You can either hide the entity you want Battery+ to ignore or you can remove the Battery Notes device, then re-add as an Entity Association Type manually and choose the correct battery percentage to monitor.
+
+## How do I create a battery percentage template
+
+The best way to do this is to test in the developer tools/template section for your sensor.  
+Be aware that Home Assistant shows friendly alternatives for some sensors, so when you are seeing Normal/Low this may really be a bool, testing in the template tool will allow you to determine the correct template to use. Start by adapting one of these.
+
+
+Example of voltage sensor with a maximum capacity of 3 volts   
+```{{ (states('sensor.my_sensor_voltage')|float(0) / 3 * 100) | round(0) }}```  
+Example of binary low sensor, returning either 100% or 9%  
+```{{ 9 if states('binary_sensor.my_sensor_low') == true else 100 }}```  
 
 ## How do I create a battery low template
 
@@ -69,6 +80,10 @@ The way Battery Notes associate with a device has had to change due to a change 
 You will still see your battery note entities within the device page and they work exactly the same, but you will not see Battery Notes listed in the integrations at the top.  
 You can edit a battery note for a device by going into the Battery Notes integration, choosing the device and configuring it there.  
 A Battery Note no longer has entities itself, but you can still see all the entities, grouped by device, by clicking on the xx entities just under the Battery Notes service within the integration page.  
+
+## Why do I have a battery_notes section in my configuration.yaml
+
+This was required prior to version 3, you can safely remove it and and any configuration details within it.  Once you have removed it and saved your configuration ensure you go into developer tools and check your configuration before restarting Home Assistant.
 
 ## How do I install pre-release versions via HACS
 

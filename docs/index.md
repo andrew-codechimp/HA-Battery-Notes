@@ -43,10 +43,22 @@ Once you have [installed the integration](https://github.com/andrew-codechimp/HA
 
     The library is updated automatically with new devices approximately every 24 hours from starting Home Assistant, if you have added a device to the library using [this form](https://github.com/andrew-codechimp/HA-Battery-Notes/issues/new?template=new_device_request.yaml&title=[Device]%3A+) then this will take about a day to be discovered once it's approved and added.
 
+## Battery Percentage Template
+
+This is for advanced use where a device does not have a typical battery percentage (or it is innacurate) but still provides an indication of the level, such as a string, boolean or voltage.  
+Specifying a template for devices without a typical battery percentage will create a battery+ sensor.  
+You can specify a template that must return a percentage (0-100).
+
+Example of voltage sensor with a maximum capacity of 3 volts   
+```{{ (states('sensor.my_sensor_voltage')|float(0) / 3 * 100) | round(0) }}```  
+Example of binary low sensor, returning either 100% or 9%  
+```{{ 9 if states('binary_sensor.my_sensor_low') == true else 100 }}```  
+
 ## Battery Low Template
 
 This is for advanced use where a device does not have a typical battery percentage or battery low boolean (or it is innacurate) but still provides an indication of the level, such as a string, boolean or voltage.  
-You can specify a template that must return true when the battery is deemed low.
+The battery percentage template above will also trigger low battery events/states so the battery low template is for legacy use.  
+You can specify a template that must return true when the battery is deemed low.  
 
 Example templates
 
