@@ -1,4 +1,4 @@
-## 1955 Devices in library
+## 1956 Devices in library
 
 This file is auto generated, do not modify
 
@@ -199,6 +199,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Aqara                                           |Aqara Climate Sensor W100                                                                     |2× CR2450                 |                               8196|0.0.1.2                               |
 |Aqara                                           |Aqara Door and Window Sensor P2                                                               |CR123A                    |                                   |                                      |
 |Aqara                                           |Aqara Door and Window Sensor T1                                                               |CR1632                    |                                   |                                     1|
+|Aqara                                           |Aqara MCCGQ13LM                                                                               |CR123A                    |MCCGQ13LM                          |                                      |
 |Aqara                                           |Aqara Motion and Light Sensor P2                                                              |CR2450                    |                               8195|1.0.0.0                               |
 |Aqara                                           |Aqara Smart Lock U100                                                                         |4× AA                     |                                   |                                      |
 |Aqara                                           |Aqara Smart Lock U200                                                                         |Rechargeable              |                              10242|1.0.0.0                               |

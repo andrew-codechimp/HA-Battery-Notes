@@ -1079,6 +1079,12 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "Aqara MCCGQ13LM",
+            "model_id": "MCCGQ13LM",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "Aqara Motion and Light Sensor P2",
             "model_id": "8195",
             "hw_version": "1.0.0.0",
@@ -11219,12 +11225,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Aqara",
-            "model": "Aqara MCCGQ13LM",
-            "model_id": "MCCGQ13LM",
-            "battery_type": "CR123A"
         }
     ]
 }
