@@ -57,7 +57,7 @@ Example of binary low sensor, returning either 100% or 9%
 ## Battery Low Template
 
 This is for advanced use where a device does not have a typical battery percentage or battery low boolean (or it is innacurate) but still provides an indication of the level, such as a string, boolean or voltage.  
-The battery percentage template above will also trigger low battery events/states so the battery low template is for legacy use or if you want to provide more control.  
+The battery percentage template above will also trigger low battery events/states so the battery low template is for legacy use.  
 You can specify a template that must return true when the battery is deemed low.  
 
 Example templates
