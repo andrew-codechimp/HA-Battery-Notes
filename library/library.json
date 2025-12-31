@@ -11219,6 +11219,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "Aqara MCCGQ13LM",
+            "model_id": "MCCGQ13LM",
+            "battery_type": "CR123A"
         }
     ]
 }
