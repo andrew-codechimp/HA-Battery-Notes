@@ -11225,6 +11225,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Dreametech\u2122",
+            "model": "dreame.vacuum.r2492j",
+            "battery_type": "Internal"
         }
     ]
 }
