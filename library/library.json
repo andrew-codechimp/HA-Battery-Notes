@@ -11212,6 +11212,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Zen",
+            "model": "Thermostat (Zen-01-W)",
+            "hw_version": "3",
+            "battery_type": "AA",
+            "battery_quantity": 4
         }
     ]
 }
