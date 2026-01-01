@@ -11230,6 +11230,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Roborock",
+            "model": "roborock.vacuum.a10",
+            "model_id": "roborock.vacuum.a10",
+            "battery_type": "Rechargeable"
         }
     ]
 }
