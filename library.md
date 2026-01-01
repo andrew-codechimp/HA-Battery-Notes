@@ -1,4 +1,4 @@
-## 1957 Devices in library
+## 1958 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1219,6 +1219,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Ring                                            |Spotlight Cam Plus                                                                            |Rechargeable              |                                   |                                      |
 |Ring                                            |Stick Up Cam (3rd Gen)                                                                        |Rechargeable              |                                   |                                      |
 |ROBB smarrt                                     |ROB_200-024-0                                                                                 |CR2032                    |                                   |                                      |
+|Roborock                                        |roborock.vacuum.a10                                                                           |Rechargeable              |roborock.vacuum.a10                |                                      |
 |Roborock                                        |roborock.vacuum.a15                                                                           |Rechargeable              |                                   |                                      |
 |roborock                                        |roborock.vacuum.a19                                                                           |Rechargeable              |                                   |                                      |
 |Roborock                                        |roborock.vacuum.a27                                                                           |Rechargeable              |                                   |                                      |
