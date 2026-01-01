@@ -291,6 +291,11 @@
             "battery_type": "CR2430"
         },
         {
+            "manufacturer": "_TZ3000_rco1yzb1",
+            "model": "TS004F",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "_TZ3000_rcuyhwe3",
             "model": "TS0203",
             "battery_type": "AAA",
@@ -11225,11 +11230,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "_TZ3000_rco1yzb1",
-            "model": "TS004F",
-            "battery_type": "CR2032"
         }
     ]
 }

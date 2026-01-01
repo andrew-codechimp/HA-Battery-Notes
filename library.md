@@ -1,4 +1,4 @@
-## 1956 Devices in library
+## 1957 Devices in library
 
 This file is auto generated, do not modify
 
@@ -60,6 +60,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |_TZ3000_o4mkahkc                                |TS0202                                                                                        |2× AAA                    |                                   |                                      |
 |_TZ3000_oxslv1c9                                |TS0203                                                                                        |CR2032                    |                                   |                                      |
 |_TZ3000_pzui3skt                                |TS0041                                                                                        |CR2430                    |                                   |                                      |
+|_TZ3000_rco1yzb1                                |TS004F                                                                                        |CR2032                    |                                   |                                      |
 |_TZ3000_rcuyhwe3                                |TS0203                                                                                        |2× AAA                    |                                   |                                      |
 |_TZ3000_rdhukkmi                                |TS0201                                                                                        |2× AAA                    |                                   |0x10033607                            |
 |_TZ3000_rr1cqjwu                                |TS0207_water_leak_detector                                                                    |CR2032                    |TS0207                             |                             122052017|
