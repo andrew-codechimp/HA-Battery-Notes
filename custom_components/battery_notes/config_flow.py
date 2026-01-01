@@ -99,7 +99,9 @@ DEVICE_SCHEMA_ALL = vol.Schema(
     {
         vol.Required(CONF_DEVICE_ID): selector.DeviceSelector(),
         vol.Optional(CONF_NAME): selector.TextSelector(
-            selector.TextSelectorConfig(type=selector.TextSelectorType.TEXT),
+            selector.TextSelectorConfig(
+                type=selector.TextSelectorType.TEXT, autocomplete="off"
+            ),
         ),
     }
 )
@@ -121,7 +123,9 @@ DEVICE_SCHEMA = vol.Schema(
             )
         ),
         vol.Optional(CONF_NAME): selector.TextSelector(
-            selector.TextSelectorConfig(type=selector.TextSelectorType.TEXT),
+            selector.TextSelectorConfig(
+                type=selector.TextSelectorType.TEXT, autocomplete="off"
+            ),
         ),
     }
 )
@@ -130,7 +134,9 @@ ENTITY_SCHEMA_ALL = vol.Schema(
     {
         vol.Required(CONF_SOURCE_ENTITY_ID): selector.EntitySelector(),
         vol.Optional(CONF_NAME): selector.TextSelector(
-            selector.TextSelectorConfig(type=selector.TextSelectorType.TEXT),
+            selector.TextSelectorConfig(
+                type=selector.TextSelectorType.TEXT, autocomplete="off"
+            ),
         ),
     }
 )
@@ -144,7 +150,9 @@ ENTITY_SCHEMA = vol.Schema(
             )
         ),
         vol.Optional(CONF_NAME): selector.TextSelector(
-            selector.TextSelectorConfig(type=selector.TextSelectorType.TEXT),
+            selector.TextSelectorConfig(
+                type=selector.TextSelectorType.TEXT, autocomplete="off"
+            ),
         ),
     }
 )
@@ -954,7 +962,9 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
         data_schema = vol.Schema(
             {
                 vol.Optional(CONF_NAME): selector.TextSelector(
-                    selector.TextSelectorConfig(type=selector.TextSelectorType.TEXT),
+                    selector.TextSelectorConfig(
+                        type=selector.TextSelectorType.TEXT, autocomplete="off"
+                    ),
                 ),
                 vol.Required(CONF_BATTERY_TYPE): selector.TextSelector(
                     selector.TextSelectorConfig(type=selector.TextSelectorType.TEXT),
