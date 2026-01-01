@@ -1,4 +1,4 @@
-## 1958 Devices in library
+## 1959 Devices in library
 
 This file is auto generated, do not modify
 
@@ -438,6 +438,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Drayton Wiser                                   |RoomStat                                                                                      |2× AA                     |                                   |                                      |
 |Dreame                                          |L10 Pro                                                                                       |Rechargeable              |                                   |                                      |
 |Dreametech                                      |X40 ULTRA COMPLETE                                                                            |Rechargeable              |dreame.vacuum.r2449a               |                                      |
+|Dreametech™                                     |dreame.vacuum.r2492j                                                                          |Rechargeable              |                                   |                                      |
 |Eaton                                           |Ellipse ECO 650                                                                               |Rechargeable              |                                   |                                      |
 |ecobee                                          |ecobee Room Sensor                                                                            |CR2032                    |                                   |                                      |
 |ecobee Inc.                                     |EBERS41                                                                                       |CR2477                    |                                   |                                      |
