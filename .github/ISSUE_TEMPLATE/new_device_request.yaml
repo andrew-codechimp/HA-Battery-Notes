@@ -59,7 +59,7 @@ body:
     id: battery_type
     attributes:
       label: Battery Type
-      description: When specifying battery types please use the Most Common naming for general batteries and the IEC naming for battery cells according to [Wikipedia](https://en.wikipedia.org/wiki/List_of_battery_sizes). If a device has a bespoke or interal rechargeable battery you should use Rechargeable.  Devices where the battery is not replaceable you should use Irreplaceable.
+      description: When specifying battery types please use the Most Common naming for general batteries and the IEC naming for battery cells according to [Wikipedia](https://en.wikipedia.org/wiki/List_of_battery_sizes). If a device has a bespoke or internal rechargeable battery you should use Rechargeable.  Devices where the battery is not replaceable you should use Irreplaceable.
       placeholder: ex. CR2032
     validations:
       required: true
