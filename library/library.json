@@ -11288,6 +11288,14 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Third Reality",
+            "model": "Smart motion sensor R1",
+            "model_id": "3RSMR01067Z",
+            "hw_version": "0",
+            "battery_type": "AA",
+            "battery_quantity": 3
         }
     ]
 }
