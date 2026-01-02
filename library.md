@@ -1,4 +1,4 @@
-## 1963 Devices in library
+## 1964 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1671,6 +1671,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tuya                                            |Temperature and humidity sensor                                                               |CR2032                    |ZG-227Z                            |                                     1|
 |Tuya                                            |Temperature and humidity sensor                                                               |CR2032                    |ZTH02                              |                                     1|
 |Tuya                                            |Temperature and humidity sensor                                                               |CR2032                    |ZTH05                              |                                     1|
+|Tuya                                            |Temperature and humidity sensor                                                               |3× AAA                    |ZTH08                              |                                     1|
 |TuYa                                            |Temperature and humidity sensor (TH02Z)                                                       |2× AAA                    |                                   |                                      |
 |TuYa                                            |Temperature and humidity sensor (ZG-227Z)                                                     |CR2450                    |                                   |                                      |
 |Tuya                                            |Temperature and humidity sensor (ZG-227Z)                                                     |2× AAA                    |                                   |                                      |
