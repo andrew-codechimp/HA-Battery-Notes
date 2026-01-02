@@ -11246,6 +11246,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Withings",
+            "model": "Body Scan",
+            "battery_type": "Rechargeable"
         }
     ]
 }
