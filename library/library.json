@@ -8557,6 +8557,14 @@
         },
         {
             "manufacturer": "Third Reality",
+            "model": "Smart motion sensor R1",
+            "model_id": "3RSMR01067Z",
+            "hw_version": "0",
+            "battery_type": "AA",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "Third Reality",
             "model": "Smart switch Gen3",
             "model_id": "3RSS009Z",
             "hw_version": "1",
@@ -11288,14 +11296,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Third Reality",
-            "model": "Smart motion sensor R1",
-            "model_id": "3RSMR01067Z",
-            "hw_version": "0",
-            "battery_type": "AA",
-            "battery_quantity": 3
         }
     ]
 }
