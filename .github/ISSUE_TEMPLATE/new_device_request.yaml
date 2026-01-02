@@ -19,11 +19,6 @@ body:
         If your device has a Model ID or HW Version then these must be included.  
         If your device has a blank Manufacturer or Model these cannot be added to the library, please don't try, but you can still add a battery note manually.
 
-        The Battery Type should follow the most common naming for general batteries (ex. AAA, D) and the IEC naming for battery cells according to [Wikipedia](https://en.wikipedia.org/wiki/List_of_battery_sizes) (ex. CR2032, 18650)  
-        If a device has a bespoke rechargeable battery you should use Rechargeable  
-        If a device has an internal battery you should use Rechargeable  
-        For devices like smoke alarms where the battery is not replaceable you should use Irreplaceable  
-
   - type: input
     id: manufacturer
     attributes:
@@ -64,7 +59,7 @@ body:
     id: battery_type
     attributes:
       label: Battery Type
-      description: When specifying battery types please use the Most Common naming for general batteries and the IEC naming for battery cells according to [Wikipedia](https://en.wikipedia.org/wiki/List_of_battery_sizes).
+      description: When specifying battery types please use the Most Common naming for general batteries and the IEC naming for battery cells according to [Wikipedia](https://en.wikipedia.org/wiki/List_of_battery_sizes). If a device has a bespoke or interal rechargeable battery you should use Rechargeable.  Devices where the battery is not replaceable you should use Irreplaceable.
       placeholder: ex. CR2032
     validations:
       required: true
@@ -73,7 +68,7 @@ body:
     id: battery_quantity
     attributes:
       label: Battery Quantity
-      description: The battery_quantity attribute is numeric (no letters or special characters).
+      description: The battery quantity attribute is numeric (no letters or special characters).
       placeholder: ex. 1
     validations:
       required: true
