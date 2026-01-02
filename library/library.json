@@ -7279,6 +7279,11 @@
         },
         {
             "manufacturer": "Sensative AB",
+            "model": "11-01-022",
+            "battery_type": "Irreplaceable"
+        },
+        {
+            "manufacturer": "Sensative AB",
             "model": "Strips-MaZw (11-01-011)",
             "battery_type": "Irreplaceable"
         },
@@ -11259,11 +11264,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Sensative AB",
-            "model": "11-01-022",
-            "battery_type": "Irreplaceable"
         }
     ]
 }

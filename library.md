@@ -1,4 +1,4 @@
-## 1962 Devices in library
+## 1963 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1275,6 +1275,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Sengled                                         |Smart window and door sensor (E1D-G73WNA)                                                     |CR1632                    |                                   |                                      |
 |Senoro                                          |Senoro window alarm                                                                           |3× CR2032                 |Senoro.Win                         |                                     1|
 |Sensative AB                                    |11-01-011                                                                                     |Irreplaceable             |                                   |                                      |
+|Sensative AB                                    |11-01-022                                                                                     |Irreplaceable             |                                   |                                      |
 |Sensative AB                                    |Strips-MaZw (11-01-011)                                                                       |Irreplaceable             |                                   |                                      |
 |SensorPush                                      |HT1                                                                                           |CR2477                    |                                   |                                      |
 |SensorPush                                      |HTP.xw                                                                                        |CR2477                    |                                   |                                      |
