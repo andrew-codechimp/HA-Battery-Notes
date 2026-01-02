@@ -1,4 +1,4 @@
-## 1960 Devices in library
+## 1961 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1786,6 +1786,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Withings                                        |Body                                                                                          |4× AAA                    |                                   |                                      |
 |Withings                                        |Body Cardio                                                                                   |Rechargeable              |                                   |                                      |
 |Withings                                        |Body Comp                                                                                     |4× AAA                    |                                   |                                      |
+|Withings                                        |Body Scan                                                                                     |Rechargeable              |                                   |                                      |
 |Withings                                        |Body+                                                                                         |4× AAA                    |                                   |                                      |
 |Withings                                        |BPM Connect                                                                                   |Rechargeable              |                                   |                                      |
 |Withings                                        |BPM Core                                                                                      |Rechargeable              |                                   |                                      |
