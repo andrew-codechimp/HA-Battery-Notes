@@ -20,9 +20,9 @@ body:
         If your device has a blank Manufacturer or Model these cannot be added to the library, please don't try, but you can still add a battery note manually.
 
         The Battery Type should follow the most common naming for general batteries (ex. AAA, D) and the IEC naming for battery cells according to [Wikipedia](https://en.wikipedia.org/wiki/List_of_battery_sizes) (ex. CR2032, 18650)  
-        If a device has a bespoke rechargeable battery you should use `"battery_type": "Rechargeable"`  
-        If a device has an internal battery you should use `"battery_type": "Rechargeable"`  
-        For devices like smoke alarms where the battery is not replaceable you can use `"battery_type": "Irreplaceable"`  
+        If a device has a bespoke rechargeable battery you should use Rechargeable  
+        If a device has an internal battery you should use Rechargeable  
+        For devices like smoke alarms where the battery is not replaceable you can use Irreplaceable  
 
   - type: input
     id: manufacturer
