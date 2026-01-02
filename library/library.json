@@ -11272,6 +11272,14 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "SMaBiT (Bitron Video)",
+            "model": "Optical smoke detector (hardware version v2)",
+            "model_id": "AV2010/24A",
+            "hw_version": "0",
+            "battery_type": "AA",
+            "battery_quantity": 3
         }
     ]
 }
