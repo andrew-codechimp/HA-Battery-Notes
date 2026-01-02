@@ -1,4 +1,4 @@
-## 1959 Devices in library
+## 1960 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1784,6 +1784,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Wink Inc.                                       |Motion Sensor                                                                                 |CR123A                    |                                   |                                      |
 |Wink Inc.                                       |Siren                                                                                         |2× CR123A                 |                                   |                                      |
 |Withings                                        |Body                                                                                          |4× AAA                    |                                   |                                      |
+|Withings                                        |Body Cardio                                                                                   |Rechargeable              |                                   |                                      |
 |Withings                                        |Body Comp                                                                                     |4× AAA                    |                                   |                                      |
 |Withings                                        |Body+                                                                                         |4× AAA                    |                                   |                                      |
 |Withings                                        |BPM Connect                                                                                   |Rechargeable              |                                   |                                      |
