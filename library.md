@@ -1,4 +1,4 @@
-## 1965 Devices in library
+## 1966 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1360,6 +1360,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Siterwell                                       |Radiator valve with thermostat (GS361A-H04)                                                   |2× AA                     |                                   |                                      |
 |SMaBiT (Bitron Video)                           |4 button Zigbee remote control (AV2010/23)                                                    |CR2032                    |                                   |                                      |
 |SMaBiT (Bitron Video)                           |Compact magnetic contact sensor (AV2010/21A)                                                  |CR2                       |                                   |                                      |
+|SMaBiT (Bitron Video)                           |Optical smoke detector (hardware version v2)                                                  |3× AA                     |AV2010/24A                         |                                     0|
 |smarthjemmet.dk                                 |[Multi switch from Smarthjemmet.dk](https://smarthjemmet.dk) (MULTI-ZIG-SW)                   |CR2032                    |                                   |                                      |
 |SmartLabs, Inc                                  |2844-222 (0x10, 0x16)                                                                         |PP3                       |                                   |                                      |
 |SmartLabs, Inc                                  |2845-222 (0x10, 0x11)                                                                         |AAA                       |                                   |                                      |
