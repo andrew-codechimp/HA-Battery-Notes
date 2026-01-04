@@ -133,6 +133,12 @@ class Library:  # pylint: disable=too-few-public-methods
                         "User library file not found at %s",
                         json_user_path,
                     )
+            except (json.JSONDecodeError, KeyError, ValueError) as err:
+                _LOGGER.error(
+                    "Failed to parse user library file at %s: %s",
+                    json_user_path,
+                    err,
+                )
 
         # Default Library
         json_default_path = self.hass.config.path(
@@ -161,6 +167,12 @@ class Library:  # pylint: disable=too-few-public-methods
             _LOGGER.error(
                 "library.json file not found at %s",
                 json_default_path,
+            )
+        except (json.JSONDecodeError, KeyError, ValueError) as err:
+            _LOGGER.error(
+                "Failed to parse library file at %s: %s",
+                json_default_path,
+                err,
             )
 
     async def get_device_battery_details(
