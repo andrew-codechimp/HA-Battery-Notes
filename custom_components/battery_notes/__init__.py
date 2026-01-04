@@ -193,8 +193,6 @@ async def async_setup_entry(
         await library_updater.copy_schema()
         await library_updater.get_library_updates(startup=True)
 
-        await hass.data[DATA_LIBRARY].load_libraries()
-
         if domain_config.enable_autodiscovery:
             await discovery_manager.start_discovery()
         else:
