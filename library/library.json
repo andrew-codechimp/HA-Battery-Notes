@@ -49,6 +49,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "_TZ3000_0hkmcrza",
+            "model": "TS0203",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "_TZ3000_0s9gukzt",
             "model": "TS0207",
             "battery_type": "CR2032"
@@ -11315,12 +11321,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "_TZ3000_0hkmcrza",
-            "model": "TS0203",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }

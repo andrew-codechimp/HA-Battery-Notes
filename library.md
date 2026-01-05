@@ -1,4 +1,4 @@
-## 1970 Devices in library
+## 1971 Devices in library
 
 This file is auto generated, do not modify
 
@@ -14,6 +14,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |_TZ1800_ejwkn2h2                                |TY0203                                                                                        |2× AAA                    |                                   |                                      |
 |_TZ1800_fcdjzz3s                                |TY0202                                                                                        |CR123A                    |                                   |                                      |
 |_TZ2000_a476raq2                                |TS0201                                                                                        |2× AAA                    |                                   |                                      |
+|_TZ3000_0hkmcrza                                |TS0203                                                                                        |2× AAA                    |                                   |                                      |
 |_TZ3000_0s9gukzt                                |TS0207                                                                                        |CR2032                    |                                   |                                      |
 |_TZ3000_1bwpjvlz                                |TS0203                                                                                        |CR2032                    |                                   |                                      |
 |_TZ3000_26fmupbb                                |TS0203                                                                                        |CR2032                    |                                   |                                      |
