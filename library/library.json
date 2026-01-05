@@ -11303,6 +11303,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "_TZ3000_lqpt3mvr",
+            "model": "TS0210",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
