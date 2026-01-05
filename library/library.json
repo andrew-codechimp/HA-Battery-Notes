@@ -270,6 +270,12 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "_TZ3000_n2egfsli",
+            "model": "SNZB-04",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "_TZ3000_nrfkrgf4",
             "model": "TS0046",
             "battery_type": "AAA",
@@ -11309,12 +11315,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "_TZ3000_n2egfsli",
-            "model": "SNZB-04",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
