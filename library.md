@@ -1,4 +1,4 @@
-## 1972 Devices in library
+## 1973 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1952,6 +1952,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |YoLink                                          |VibrationSensor                                                                               |2× AAA                    |                                   |                                      |
 |Yolink                                          |YS7103                                                                                        |2× AA                     |                                   |                                      |
 |Yookee                                          |Smart blind                                                                                   |Rechargeable              |D10110_1                           |                                      |
+|Zbeacon                                         |DS01                                                                                          |2× AAA                    |                                   |                                      |
 |Zbeacon                                         |Temperature and humidity sensor                                                               |2× AAA                    |TH01                               |                                     0|
 |ZEMISMART                                       |TS0044                                                                                        |CR2450                    |                                   |                                      |
 |Zemismart Technology Limited                    |Zemismart Roller Shade Driver                                                                 |Rechargeable              |                              64257|1.0.0                                 |

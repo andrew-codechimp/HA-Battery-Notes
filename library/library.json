@@ -11184,6 +11184,12 @@
         },
         {
             "manufacturer": "Zbeacon",
+            "model": "DS01",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Zbeacon",
             "model": "Temperature and humidity sensor",
             "model_id": "TH01",
             "hw_version": "0",
@@ -11327,12 +11333,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Zbeacon",
-            "model": "DS01",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
