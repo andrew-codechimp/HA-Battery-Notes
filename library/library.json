@@ -455,7 +455,8 @@
         {
             "manufacturer": "_TZE200_3towulqd",
             "model": "TS0601",
-            "battery_type": "CR2450"
+            "battery_type": "AAA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "_TZE200_4eeyebrt",
