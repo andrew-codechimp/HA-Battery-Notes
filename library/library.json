@@ -11327,6 +11327,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "IKEA",
+            "model": "MYGGBETT door/window sensor",
+            "model_id": "32775",
+            "hw_version": "P2.0",
+            "battery_type": "AAA"
         }
     ]
 }
