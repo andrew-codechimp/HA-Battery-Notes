@@ -11322,6 +11322,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "BITRON VIDEO",
+            "model": "AV2010/22A",
+            "battery_type": "CR456"
         }
     ]
 }
