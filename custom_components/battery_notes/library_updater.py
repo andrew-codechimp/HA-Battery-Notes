@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import asyncio
 import json
 import logging
 import os
@@ -52,6 +53,7 @@ class LibraryUpdater:
     def __init__(self, hass: HomeAssistant):
         """Initialize the library updater."""
         self.hass = hass
+        self._update_lock = asyncio.Lock()
 
         domain_config = self.hass.data.get(MY_KEY)
         if not domain_config:
@@ -91,6 +93,11 @@ class LibraryUpdater:
     @callback
     async def get_library_updates(self, startup: bool = False) -> None:
         """Make a call to get the latest library.json."""
+        async with self._update_lock:
+            await self._do_get_library_updates(startup)
+
+    async def _do_get_library_updates(self, startup: bool = False) -> None:
+        """Get library updates internally (must be called with lock held)."""
 
         def _update_library_json(library_file: str, content: str) -> None:
             os.makedirs(os.path.dirname(library_file), exist_ok=True)
