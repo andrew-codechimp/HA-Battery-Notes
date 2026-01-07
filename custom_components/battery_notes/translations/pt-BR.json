@@ -2,11 +2,11 @@
     "config": {
         "step": {
             "user": {
-                "description": "New Battery Notes will be discovered if they are in the library.\nTo add new Battery Notes manually go into the integration page, select Add Battery Note and follow the instructions.\nIf you need help with the configuration have a look here: {documentation_url}",
-                "title": "Setup Battery Notes"
+                "description": "Novas notas de bateria serão descobertas se estiverem na biblioteca.\nPara adicionar novas notas da bateria vá manualmente para a página de integração, selecione Adicionar Nota da Bateria e siga as instruções.\nSe você precisar de ajuda com a configuração veja a documentação em: {documentation_url}",
+                "title": "Configurar Battery Notes"
             },
             "battery": {
-                "description": "Nome: {name}\nFabricante: {manufacturer}\nModelo: {model}\nModelo ID: {model_id}\nVersão de hardware: {hw_version}",
+                "description": "Nome: {name}\nFabricante: {manufacturer}\nModelo: {model}\nID do Modelo: {model_id}\nVersão de hardware: {hw_version}",
                 "data": {
                     "battery_type": "Tipo de bateria",
                     "battery_quantity": "Quantidade de baterias",
@@ -17,14 +17,14 @@
                 },
                 "sections": {
                     "advanced_settings": {
-                        "name": "Advanced settings",
+                        "name": "Configurações avançadas",
                         "data": {
-                            "battery_percentage_template": "Battery percentage template",
+                            "battery_percentage_template": "Template de percentual da bateria",
                             "battery_low_template": "Modelo de bateria fraca",
                             "filter_outliers": "Filtrar atípicos"
                         },
                         "data_description": {
-                            "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
+                            "battery_percentage_template": "Modelo para criar uma porcentagem de bateria\nnecessário apenas para dispositivos que não possuem uma porcentagem padrão de bateria",
                             "battery_low_template": "Modelo para determinar se a bateria está fraca, deve retornar verdadeiro se estiver fraca\nNecessário apenas para níveis de bateria fora do padrão",
                             "filter_outliers": "Filtre grandes quedas no nível da bateria, reduzindo eventos de disparo falso em dispositivos que ocasionalmente relatam níveis incorretos."
                         }
@@ -33,9 +33,9 @@
             }
         },
         "abort": {
-            "already_configured": "Integration is already configured",
-            "integration_not_added": "Integration not added, please add the integration first",
-            "created_sub_entry": "Battery Note created successfully"
+            "already_configured": "O dispositivo já está configurado",
+            "integration_not_added": "Integração não adicionada, por favor adicione a integração primeiro",
+            "created_sub_entry": "Notas de baterias criadas com sucesso"
         },
         "error": {
             "unknown": "Ocorreu um erro desconhecido."
@@ -44,9 +44,9 @@
     "config_subentries": {
         "battery_note": {
             "initiate_flow": {
-                "user": "Add battery note"
+                "user": "Adicionar nota de bateria"
             },
-            "entry_type": "Battery note",
+            "entry_type": "Nota de bateria",
             "step": {
                 "user": {
                     "description": "Se você precisar de ajuda com a configuração dê uma olhada aqui: {documentation_url}",
@@ -89,14 +89,14 @@
                     },
                     "sections": {
                         "advanced_settings": {
-                            "name": "Advanced settings",
+                            "name": "Configurações avançadas",
                             "data": {
-                                "battery_percentage_template": "Battery percentage template",
+                                "battery_percentage_template": "Template de percentual da bateria",
                                 "battery_low_template": "Modelo de bateria fraca",
                                 "filter_outliers": "Filtrar atípicos"
                             },
                             "data_description": {
-                                "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
+                                "battery_percentage_template": "",
                                 "battery_low_template": "Modelo para determinar se a bateria está fraca, deve retornar verdadeiro se estiver fraca\nNecessário apenas para níveis de bateria fora do padrão",
                                 "filter_outliers": "Filtre grandes quedas no nível da bateria, reduzindo eventos de disparo falso em dispositivos que ocasionalmente relatam níveis incorretos."
                             }
@@ -108,27 +108,27 @@
                     "title": "Configuração manual do dispositivo"
                 },
                 "reconfigure": {
-                    "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
+                    "description": "Fabricante: {manufacturer}\nModelo: {model}\nID do Modelo: {model_id}\nVersão de hardware: {hw_version}",
                     "data": {
-                        "name": "Name",
-                        "battery_type": "Battery type",
-                        "battery_quantity": "Battery quantity",
-                        "battery_low_threshold": "Battery low threshold"
+                        "name": "Nome",
+                        "battery_type": "Tipo de bateria",
+                        "battery_quantity": "Quantidade de baterias",
+                        "battery_low_threshold": "Limite de bateria fraca"
                     },
                     "data_description": {
-                        "name": "Leaving blank will take the name from the source device",
-                        "battery_low_threshold": "0 will use the global default threshold"
+                        "name": "Deixar em branco utilizará o nome do dispositivo de origem",
+                        "battery_low_threshold": "0 irá usar o limite padrão global"
                     },
                     "sections": {
                         "advanced_settings": {
-                            "name": "Advanced settings",
+                            "name": "Configurações avançadas",
                             "data": {
-                                "battery_percentage_template": "Battery percentage template",
+                                "battery_percentage_template": "Template de percentual da bateria",
                                 "battery_low_template": "Modelo de bateria fraca",
                                 "filter_outliers": "Filtrar atípicos"
                             },
                             "data_description": {
-                                "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
+                                "battery_percentage_template": "Modelo para criar uma porcentagem de bateria\nnecessário apenas para dispositivos que não possuem uma porcentagem padrão de bateria",
                                 "battery_low_template": "Modelo para determinar se a bateria está fraca, deve retornar verdadeiro se estiver fraca\nNecessário apenas para níveis de bateria fora do padrão",
                                 "filter_outliers": "Filtre grandes quedas no nível da bateria, reduzindo eventos de disparo falso em dispositivos que ocasionalmente relatam níveis incorretos."
                             }
@@ -137,7 +137,7 @@
                 }
             },
             "abort": {
-                "reconfigure_successful": "Re-configuration was successful",
+                "reconfigure_successful": "A reconfiguração foi bem sucedida",
                 "already_configured": "O dispositivo já está configurado"
             },
             "error": {
@@ -151,31 +151,31 @@
         "step": {
             "init": {
                 "data": {
-                    "show_all_devices": "Show all devices",
-                    "hide_battery": "Hide battery",
-                    "round_battery": "Round battery",
-                    "default_battery_low_threshold": "Default battery low threshold",
-                    "battery_increase_threshold": "Battery increase threshold"
+                    "show_all_devices": "Mostrar todos os dispositivos",
+                    "hide_battery": "Ocultar bateria",
+                    "round_battery": "Bateria arredondada",
+                    "default_battery_low_threshold": "Limite padrão de bateria baixa",
+                    "battery_increase_threshold": "Limite de aumento de bateria"
                 },
                 "data_description": {
-                    "show_all_devices": "Show all devices in the device dropdown, otherwise only those with batteries will be shown.",
-                    "hide_battery": "Hide the standard battery when adding Battery+.",
-                    "round_battery": "Round Battery+ to whole percentages.",
-                    "default_battery_low_threshold": "The default threshold where a devices battery_low entity is set to true and the battery_notes_battery_threshold event is fired if the battery is below this threshold, can be overriden per device in device configuration.",
-                    "battery_increase_threshold": "The threshold where the battery_notes_battery_increased event is fired, use this event for battery replaced automations. The threshold is the difference in increase between previous and current battery level."
+                    "show_all_devices": "Mostrar todos os dispositivos no menu suspenso do dispositivo, caso contrário, apenas aqueles com bateria serão mostrados.",
+                    "hide_battery": "Ocultar a bateria padrão ao adicionar bateria+",
+                    "round_battery": "Arredondar Bateria+ para porcentagens inteiras",
+                    "default_battery_low_threshold": "",
+                    "battery_increase_threshold": ""
                 },
                 "sections": {
                     "advanced_settings": {
-                        "name": "Advanced settings",
+                        "name": "Configurações avançadas",
                         "data": {
-                            "enable_autodiscovery": "Auto discovery",
-                            "enable_replaced": "Enable battery replaced",
-                            "user_library": "User library"
+                            "enable_autodiscovery": "Descobrir automaticamente",
+                            "enable_replaced": "Habilitar botão de substituição de bateria",
+                            "user_library": "Biblioteca de usuário"
                         },
                         "data_description": {
-                            "enable_autodiscovery": "Auto discovery of devices that are in the library.",
-                            "enable_replaced": "Enable the battery replaced button on each battery note.",
-                            "user_library": "If specified then a user library file will be searched prior to the main library, the user library must be in the same format as the library and placed in `config/.storage/battery_notes`."
+                            "enable_autodiscovery": "Descobrir automaticamente dispositivos que estão na biblioteca.",
+                            "enable_replaced": "Habilitar o botão de substituição de bateria em cada nota de bateria.",
+                            "user_library": "Se especificado, um arquivo de biblioteca de usuário será pesquisado antes da biblioteca principal, a biblioteca do usuário deve estar no mesmo formato que a biblioteca e colocada em `config/.storage/battery_notes`."
                         }
                     }
                 }
@@ -303,13 +303,13 @@
             }
         },
         "deprecated_yaml": {
-            "title": "The {integration_title} YAML configuration is being removed",
-            "description": "Configuring {integration_title} using YAML is being removed.\n\nYour existing YAML configuration has been imported into the UI automatically.\n\nRemove the `{domain}` configuration from your configuration.yaml file and restart Home Assistant to fix this issue."
+            "title": "A configuração YAML {integration_title} está sendo removida",
+            "description": "Configurar o {integration_title} usando o YAML está sendo removido.\n\nSua configuração existente do YAML foi importada automaticamente para a UI.\n\nRemova a configuração `{domain}` do seu arquivo configuration.yaml e reinicie o Assistente para corrigir este problema."
         }
     },
     "exceptions": {
         "not_configured_in_battery_notes": {
-            "message": "{source} is not configured in Battery Notes."
+            "message": "{source} não está configurado em Battery Notes."
         }
     }
 }
