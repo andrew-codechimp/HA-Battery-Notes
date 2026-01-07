@@ -7386,6 +7386,14 @@
         },
         {
             "manufacturer": "Shelly",
+            "model": "Flood Gen4",
+            "model_id": "S4SN-0071A",
+            "hw_version": "gen4",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Shelly",
             "model": "gen1 (SHHT-1)",
             "battery_type": "CR123A"
         },
@@ -11345,14 +11353,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Shelly",
-            "model": "Flood Gen4",
-            "model_id": "S4SN-0071A",
-            "hw_version": "gen4",
-            "battery_type": "AA",
-            "battery_quantity": 4
         }
     ]
 }
