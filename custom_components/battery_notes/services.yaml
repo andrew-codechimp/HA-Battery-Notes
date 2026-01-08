@@ -20,6 +20,19 @@ set_battery_replaced:
       required: false
       selector:
         datetime:
+check_battery_last_replaced:
+  name: Check battery replaced
+  description: "Raise events for devices that haven't had their battery replaced."
+  fields:
+    days_last_replaced:
+      name: Days
+      description: Number of days since a device last had its battery replaced.
+      required: true
+      selector:
+        number:
+          min: 1
+          max: 720
+          mode: box
 check_battery_last_reported:
   name: Check battery reported
   description: "Raise events for devices that haven't reported their battery level."
@@ -33,6 +46,7 @@ check_battery_last_reported:
           min: 1
           max: 100
           mode: box
+
 check_battery_low:
   name: Check battery low
   description: "Raise events for devices that have a low battery."
