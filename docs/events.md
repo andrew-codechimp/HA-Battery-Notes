@@ -209,3 +209,52 @@ actions:
       message: >
         You just used {{ trigger.event.data.battery_type_and_quantity }} batteries
 ```
+
+## Battery Not Replaced
+`battery_notes_battery_not_replaced`
+
+This is fired from the [check_battery_last_replaced](./actions.md/#check-battery-last-replaced) action call for each device that has not had its battery replaced for the number of days specified in the action call.
+
+The action can raise multiple events quickly so when using with an automation it's important to use the `mode: queued` to handle these.
+
+| Attribute | Type | Description |
+|-----------|------|-------------|
+| `device_id` | `string` | The device id of the device. |
+| `source_entity_id` | `string` | The entity id of the sensor associated with the battery note. |
+| `device_name` | `string` | The device name (or associated sensor name if no device), if you have renamed the battery note it will use this name. |
+| `battery_type_and_quantity` | `string` | Battery type & quantity. |
+| `battery_type` | `string` | Battery type. |
+| `battery_quantity` | `int` | Battery quantity. |
+| `battery_last_reported` | `datetime` | The datetime the battery was last reported. |
+| `battery_last_reported_level` | `float` | The level of the battery when it was last reported. |
+| `battery_last_replaced` | `datetime` | The date the battery was last replaced. |
+| `battery_last_replaced_days` | `int` | The number of days since the battery was last replaced. |
+
+### Automation Example
+
+See others in the [community contributions](./community.md)
+
+Note this cannot be run manually as it examines event triggers.
+
+```yaml
+alias: Battery Not Replaced
+description: Battery not replaced
+mode: queued
+max: 30
+triggers:
+  - trigger: event
+    event_type: battery_notes_battery_not_replaced
+conditions: []
+actions:
+  - action: persistent_notification.create
+    data:
+      title: |
+        {{ trigger.event.data.device_name }} Battery Not Replaced
+      message: >
+        The device has not been replaced for {{
+        trigger.event.data.battery_last_replaced_days }} days {{ '\n'
+        -}} Its last replaced date was {{
+        trigger.event.data.battery_last_replaced }}% {{ '\n' -}} You need
+        {{ trigger.event.data.battery_quantity }}× {{
+        trigger.event.data.battery_type }}
+```
