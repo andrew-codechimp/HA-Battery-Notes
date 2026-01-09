@@ -11360,6 +11360,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "MINI-ZSB",
+            "battery_type": "CR2032"
         }
     ]
 }
