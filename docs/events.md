@@ -251,10 +251,9 @@ actions:
       title: |
         {{ trigger.event.data.device_name }} Battery Not Replaced
       message: >
-        The device has not been replaced for {{
-        trigger.event.data.battery_last_replaced_days }} days {{ '\n'
-        -}} Its last replaced date was {{
-        trigger.event.data.battery_last_replaced }}% {{ '\n' -}} You need
-        {{ trigger.event.data.battery_quantity }}× {{
-        trigger.event.data.battery_type }}
+        The device has not been replaced for {{ 
+        trigger.event.data.battery_last_replaced_days }} days {{ '\n' 
+        -}} Its last replaced date was {{ trigger.event.data.battery_last_replaced 
+        | as_timestamp | timestamp_custom('%Y-%m-%d', true)}} {{ '\n' -}} You need 
+        {{ trigger.event.data.battery_quantity }}× {{ trigger.event.data.battery_type }}        
 ```
