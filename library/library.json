@@ -9171,6 +9171,11 @@
         },
         {
             "manufacturer": "Tuya",
+            "model": "MINI-ZSB",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Tuya",
             "model": "Motion sensor",
             "model_id": "809WZT",
             "hw_version": "1",
@@ -11360,11 +11365,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "MINI-ZSB",
-            "battery_type": "CR2032"
         }
     ]
 }
