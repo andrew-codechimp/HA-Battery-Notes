@@ -9108,6 +9108,12 @@
         },
         {
             "manufacturer": "Tuya",
+            "model": "JM-TRH-ZGB-V1",
+            "battery_type": "AAA",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "Tuya",
             "model": "kscbebaf3s1eogvt",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -11371,12 +11377,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "JM-TRH-ZGB-V1",
-            "battery_type": "AAA",
-            "battery_quantity": 3
         }
     ]
 }
