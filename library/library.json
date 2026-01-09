@@ -9120,6 +9120,12 @@
         },
         {
             "manufacturer": "Tuya",
+            "model": "LCZ030",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tuya",
             "model": "Light intensity sensor",
             "model_id": "TS0222",
             "hw_version": "1",
@@ -11365,12 +11371,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "LCZ030",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
