@@ -9321,6 +9321,13 @@
         },
         {
             "manufacturer": "Tuya",
+            "model": "Pressure pad sensor",
+            "model_id": "C3007",
+            "hw_version": "1",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Tuya",
             "model": "R459",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -11353,13 +11360,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Pressure pad sensor",
-            "model_id": "C3007",
-            "hw_version": "1",
-            "battery_type": "CR2032"
         }
     ]
 }
