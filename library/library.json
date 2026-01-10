@@ -8319,6 +8319,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "switchbot",
+            "model": "Lock Ultra",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "SwitchBot",
             "model": "Meter",
             "battery_type": "AAA",
@@ -11376,11 +11381,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "switchbot",
-            "model": "Lock Ultra",
             "battery_type": "Rechargeable"
         }
     ]

@@ -1,4 +1,4 @@
-## 1980 Devices in library
+## 1981 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1462,6 +1462,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Sure Petcare                                    |Feeder\*                                                                                      |4× C                      |                                   |                                      |
 |SwitchBot                                       |Bot                                                                                           |CR2                       |                                   |                                      |
 |switchbot                                       |Leak Detector                                                                                 |2× AAA                    |                                   |                                      |
+|switchbot                                       |Lock Ultra                                                                                    |Rechargeable              |                                   |                                      |
 |SwitchBot                                       |Meter                                                                                         |2× AAA                    |                                   |                                      |
 |SwitchBot                                       |MeterPlus                                                                                     |2× AAA                    |                                   |                                      |
 |switchbot                                       |Roller Shade                                                                                  |Rechargeable              |                                   |                                      |
