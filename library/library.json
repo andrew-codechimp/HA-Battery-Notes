@@ -11377,6 +11377,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "switchbot",
+            "model": "Lock Ultra",
+            "battery_type": "Rechargeable"
         }
     ]
 }
