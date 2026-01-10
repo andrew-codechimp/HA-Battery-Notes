@@ -11382,6 +11382,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "SmartWave",
+            "model": "SmartWave Window Covering",
+            "model_id": "10001",
+            "hw_version": "1.0.0",
+            "battery_type": "Rechargeable"
         }
     ]
 }
