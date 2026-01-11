@@ -11389,6 +11389,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "_TZE284_rccxox8p",
+            "model": "TS0601",
+            "battery_type": "AA",
+            "battery_quantity": 2
         }
     ]
 }
