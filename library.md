@@ -1,4 +1,4 @@
-## 1982 Devices in library
+## 1983 Devices in library
 
 This file is auto generated, do not modify
 
@@ -125,6 +125,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |_TZE204_yjjdcqsq                                |TS0601                                                                                        |2× AAA                    |                                   |                                      |
 |_TZE284_aao3yzhs                                |TS0601                                                                                        |2× AAA                    |                                   |                                      |
 |_TZE284_nhgdf6qr                                |TS0601                                                                                        |2× AAA                    |                                   |                                      |
+|_TZE284_rccxox8p                                |TS0601                                                                                        |2× AA                     |                                   |                                      |
 |_TZE284_rjxqso4a                                |TS0601                                                                                        |2× AA                     |_TZE284_rjxqso4a                   |                                      |
 |ABUS Security-Center GmbH Co. KG                |SHRM10000                                                                                     |CR123A                    |                                   |                                      |
 |Acurite                                         |Acurite-5n1                                                                                   |4× AA                     |                                   |                                      |
