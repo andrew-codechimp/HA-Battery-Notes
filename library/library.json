@@ -10329,6 +10329,12 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "Volvo",
+            "model": "XC60 PETROL/ELECTRIC (2023)",
+            "model_id": "XC60 (2023)",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Waveshare",
             "model": "Model A",
             "battery_type": "18650",
@@ -11400,12 +11406,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Volvo",
-            "model": "XC60 PETROL/ELECTRIC (2023)",
-            "model_id": "XC60 (2023)",
             "battery_type": "Rechargeable"
         }
     ]

@@ -1,4 +1,4 @@
-## 1984 Devices in library
+## 1985 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1795,6 +1795,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Visonic                                         |MCW-K980                                                                                      |LS14250                   |                                   |                                      |
 |Visonic                                         |MP-841                                                                                        |2× CR123A                 |                                   |                                      |
 |Visonic                                         |Next K9-85                                                                                    |CR123A                    |                                   |                                      |
+|Volvo                                           |XC60 PETROL/ELECTRIC (2023)                                                                   |Rechargeable              |XC60 (2023)                        |                                      |
 |Waveshare                                       |Model A                                                                                       |2× 18650                  |                                   |                                      |
 |WAXMAN                                          |leakSMART Water Sensor V2                                                                     |3× AAA                    |                                   |                                      |
 |WAXMAN                                          |leakSMART Water Valve v2.10                                                                   |4× AA                     |                                   |                                      |
