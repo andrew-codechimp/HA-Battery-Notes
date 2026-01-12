@@ -651,6 +651,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "_TZE204_rtrmfadk",
+            "model": "TS0601",
+            "battery_type": "AA",
+            "battery_quantity": 3
+        },
+        {
             "manufacturer": "_TZE204_t1blo2bj",
             "model": "TS0601",
             "battery_type": "CR123A",
@@ -11442,12 +11448,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "_TZE204_rtrmfadk",
-            "model": "TS0601",
-            "battery_type": "AA",
-            "battery_quantity": 3
         }
     ]
 }
