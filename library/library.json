@@ -2281,6 +2281,11 @@
         },
         {
             "manufacturer": "CPS",
+            "model": "CP1000PFCLCDa",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "CPS",
             "model": "CP1500AVRLCDa",
             "battery_type": "Rechargeable"
         },
@@ -11444,11 +11449,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "CPS",
-            "model": "CP1000PFCLCDa",
             "battery_type": "Rechargeable"
         }
     ]

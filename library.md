@@ -1,4 +1,4 @@
-## 1991 Devices in library
+## 1992 Devices in library
 
 This file is auto generated, do not modify
 
@@ -403,6 +403,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |COOLO                                           |Soil moisture sensor                                                                          |2× AAA                    |CS-201Z                            |                                     1|
 |COOLO                                           |TS0601                                                                                        |2× AAA                    |CS-201Z                            |                                      |
 |Cowboy                                          |Cruiser                                                                                       |Rechargeable              |                                   |                                      |
+|CPS                                             |CP1000PFCLCDa                                                                                 |Rechargeable              |                                   |                                      |
 |CPS                                             |CP1500AVRLCDa                                                                                 |Rechargeable              |                                   |                                      |
 |CPS                                             |CP1500PFCLCD                                                                                  |2× 12V9AH-SLA             |                                   |                                      |
 |CPS                                             |CP1500PFCLCDa                                                                                 |RB1290X2                  |                                   |                                      |
