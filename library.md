@@ -1,4 +1,4 @@
-## 1986 Devices in library
+## 1988 Devices in library
 
 This file is auto generated, do not modify
 
@@ -381,6 +381,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |BRK Brands, Inc.                                |ZSMOKE                                                                                        |2× AA                     |                                   |                                      |
 |Busch Jäger                                     |Fensteröffnungsmelder / window opening detector                                               |CR2                       |6222/x-x                           |                                      |
 |by Philio Technology Corp                       |PSP05                                                                                         |CR123A                    |                                   |                                      |
+|Centralite                                      |3-Series pearl touch thermostat                                                               |4× AA                     |                            3157100|                                     3|
 |Centralite                                      |3-Series pearl touch thermostat                                                               |4× AA                     |                            3157100|                                     3|
 |Centralite                                      |3157100                                                                                       |4× AA                     |                                   |                                      |
 |CentraLite                                      |3315                                                                                          |CR2                       |                                   |                                      |
@@ -926,6 +927,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Iris                                            |Water sensor (3315-L)                                                                         |CR2                       |                                   |                                      |
 |iRobot                                          |c975840                                                                                       |Rechargeable              |                                   |                                      |
 |iRobot                                          |i715640                                                                                       |Rechargeable              |                                   |                                      |
+|iRobot                                          |j755020                                                                                       |Rechargeable              |                                   |                                      |
 |iRobot                                          |R675020                                                                                       |Rechargeable              |                                   |                                      |
 |iRobot                                          |R980020                                                                                       |Rechargeable              |                                   |                                     2|
 |Konke                                           |3AFE28010402000D                                                                              |CR2450                    |                                   |                                      |
