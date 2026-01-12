@@ -1,4 +1,4 @@
-## 1988 Devices in library
+## 1990 Devices in library
 
 This file is auto generated, do not modify
 
@@ -614,6 +614,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Eufy Security                                   |T8210                                                                                         |Rechargeable              |                                   |                                      |
 |Eufy Security                                   |T8210C                                                                                        |Rechargeable              |                                   |                                      |
 |Eufy Security                                   |T8213                                                                                         |Rechargeable              |                                   |                                      |
+|Eufy Security                                   |T8530                                                                                         |Rechargeable              |                                   |                                      |
 |Eurotronic                                      |Spirit Zigbee wireless heater thermostat (SPZB0001)                                           |2× AA                     |                                   |                                      |
 |Eurotronics                                     |Spirit                                                                                        |2× AA                     |                                   |                                      |
 |Eve                                             |Thermo                                                                                        |2× AA                     |                                   |                                      |
@@ -1798,6 +1799,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Visonic                                         |MCW-K980                                                                                      |LS14250                   |                                   |                                      |
 |Visonic                                         |MP-841                                                                                        |2× CR123A                 |                                   |                                      |
 |Visonic                                         |Next K9-85                                                                                    |CR123A                    |                                   |                                      |
+|Volvo                                           |XC60 PETROL/ELECTRIC (2023)                                                                   |Rechargeable              |XC60 (2023)                        |                                      |
 |Volvo                                           |XC60 PETROL/ELECTRIC (2023)                                                                   |Rechargeable              |XC60 (2023)                        |                                      |
 |Waveshare                                       |Model A                                                                                       |2× 18650                  |                                   |                                      |
 |WAXMAN                                          |leakSMART Water Sensor V2                                                                     |3× AAA                    |                                   |                                      |
