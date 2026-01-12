@@ -11401,6 +11401,14 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Centralite",
+            "model": "3-Series pearl touch thermostat",
+            "model_id": "3157100",
+            "hw_version": "3",
+            "battery_type": "AA",
+            "battery_quantity": 4
         }
     ]
 }
