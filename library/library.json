@@ -663,6 +663,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "_TZE284_d7lpruvi",
+            "model": "TS0601",
+            "battery_type": "AAA",
+            "battery_quantity": 3
+        },
+        {
             "manufacturer": "_TZE284_nhgdf6qr",
             "model": "TS0601",
             "battery_type": "AAA",
@@ -11395,12 +11401,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "_TZE284_d7lpruvi",
-            "model": "TS0601",
-            "battery_type": "AAA",
-            "battery_quantity": 3
         }
     ]
 }
