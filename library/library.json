@@ -2165,14 +2165,6 @@
         },
         {
             "manufacturer": "Centralite",
-            "model": "3-Series pearl touch thermostat",
-            "model_id": "3157100",
-            "hw_version": "3",
-            "battery_type": "AA",
-            "battery_quantity": 4
-        },
-        {
-            "manufacturer": "Centralite",
             "model": "3157100",
             "battery_type": "AA",
             "battery_quantity": 4
@@ -10364,12 +10356,6 @@
             "manufacturer": "Visonic",
             "model": "Next K9-85",
             "battery_type": "CR123A"
-        },
-        {
-            "manufacturer": "Volvo",
-            "model": "XC60 PETROL/ELECTRIC (2023)",
-            "model_id": "XC60 (2023)",
-            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "Volvo",
