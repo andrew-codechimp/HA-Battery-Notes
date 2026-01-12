@@ -11428,6 +11428,17 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Volvo",
+            "model": "XC60 PETROL/ELECTRIC (2023)",
+            "model_id": "XC60 (2023)",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Eufy Security",
+            "model": "T8530",
+            "battery_type": "Rechargeable"
         }
     ]
 }
