@@ -223,6 +223,8 @@ async def _async_battery_last_replaced(call: ServiceCall) -> ServiceResponse:
     """Handle the service call."""
     days_last_replaced = cast(int, call.data.get(SERVICE_DATA_DAYS_LAST_REPLACED))
 
+    entity_registry = er.async_get(call.hass)
+
     for config_entry in call.hass.config_entries.async_loaded_entries(DOMAIN):
         battery_notes_config_entry = cast(BatteryNotesConfigEntry, config_entry)
         if not battery_notes_config_entry.runtime_data.subentry_coordinators:
@@ -232,6 +234,23 @@ async def _async_battery_last_replaced(call: ServiceCall) -> ServiceResponse:
             coordinator
         ) in battery_notes_config_entry.runtime_data.subentry_coordinators.values():
             if coordinator.last_replaced:
+                # Skip if last replaced sensor is disabled
+                last_replaced_entity_id = entity_registry.async_get_entity_id(
+                    "sensor",
+                    DOMAIN,
+                    f"{coordinator.subentry.unique_id}_battery_last_replaced",
+                )
+
+                if last_replaced_entity_id:
+                    last_replaced_entity_entry = entity_registry.async_get(
+                        last_replaced_entity_id
+                    )
+                    if (
+                        last_replaced_entity_entry
+                        and last_replaced_entity_entry.disabled
+                    ):
+                        continue
+
                 time_since_last_replaced = (
                     datetime.fromisoformat(str(utcnow_no_timezone()) + "+00:00")
                     - coordinator.last_replaced
