@@ -1,4 +1,4 @@
-## 1996 Devices in library
+## 1997 Devices in library
 
 This file is auto generated, do not modify
 
@@ -131,6 +131,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |_TZE284_nhgdf6qr                                |TS0601                                                                                        |2× AAA                    |                                   |                                      |
 |_TZE284_rccxox8p                                |TS0601                                                                                        |2× AA                     |                                   |                                      |
 |_TZE284_rjxqso4a                                |TS0601                                                                                        |2× AA                     |_TZE284_rjxqso4a                   |                                      |
+|Abode                                           |Smoke Sensor                                                                                  |CR123A                    |                                   |                                     1|
 |ABUS Security-Center GmbH Co. KG                |SHRM10000                                                                                     |CR123A                    |                                   |                                      |
 |Acurite                                         |Acurite-5n1                                                                                   |4× AA                     |                                   |                                      |
 |Adaprox                                         |TS0001_fingerbot_1                                                                            |CR2                       |                                   |                                      |

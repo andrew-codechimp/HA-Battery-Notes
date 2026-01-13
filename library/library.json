@@ -706,6 +706,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Abode",
+            "model": "Smoke Sensor",
+            "hw_version": "1.0",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "ABUS Security-Center GmbH Co. KG",
             "model": "SHRM10000",
             "battery_type": "CR123A"
@@ -11474,12 +11480,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Abode",
-            "model": "Smoke Sensor",
-            "hw_version": "1.0",
-            "battery_type": "CR123A"
         }
     ]
 }
