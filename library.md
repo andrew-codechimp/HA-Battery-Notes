@@ -1,4 +1,4 @@
-## 2002 Devices in library
+## 2003 Devices in library
 
 This file is auto generated, do not modify
 
@@ -137,6 +137,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Abode                                           |KeyPad                                                                                        |Rechargeable              |                                   |                                     1|
 |Abode                                           |Occupancy Sensor                                                                              |2× AA                     |                                   |                                     1|
 |Abode                                           |Smoke Sensor                                                                                  |CR123A                    |                                   |                                     1|
+|Abode                                           |Vibration Sensor                                                                              |CR123A                    |                                   |                                     1|
 |ABUS Security-Center GmbH Co. KG                |SHRM10000                                                                                     |CR123A                    |                                   |                                      |
 |Acurite                                         |Acurite-5n1                                                                                   |4× AA                     |                                   |                                      |
 |Adaprox                                         |TS0001_fingerbot_1                                                                            |CR2                       |                                   |                                      |
