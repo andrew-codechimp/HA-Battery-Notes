@@ -2671,6 +2671,13 @@
         },
         {
             "manufacturer": "Ecowitt",
+            "model": "Weather Station",
+            "model_id": "WH85",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Ecowitt",
             "model": "WH51",
             "battery_type": "AA"
         },
@@ -11454,13 +11461,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Ecowitt",
-            "model": "Weather Station",
-            "model_id": "WH85",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
