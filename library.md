@@ -1,4 +1,4 @@
-## 2001 Devices in library
+## 2002 Devices in library
 
 This file is auto generated, do not modify
 
@@ -133,6 +133,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |_TZE284_rjxqso4a                                |TS0601                                                                                        |2× AA                     |_TZE284_rjxqso4a                   |                                      |
 |Abode                                           |Bridge                                                                                        |Rechargeable              |                                   |                                     1|
 |Abode                                           |Contact Sensor                                                                                |CR2450                    |                                   |                                     1|
+|Abode                                           |KeyFob                                                                                        |CR2032                    |                                   |                                     1|
 |Abode                                           |KeyPad                                                                                        |Rechargeable              |                                   |                                     1|
 |Abode                                           |Occupancy Sensor                                                                              |2× AA                     |                                   |                                     1|
 |Abode                                           |Smoke Sensor                                                                                  |CR123A                    |                                   |                                     1|
