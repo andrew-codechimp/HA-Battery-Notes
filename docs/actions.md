@@ -20,7 +20,7 @@ For raising events for devices that haven't replaced their battery.
 
 The action will raise a seperate [battery_not_replaced](./events.md/#battery-not-replaced) event for each device where its last replaced date is older than the number of days specified.  
 
-If you do not want an event raised for certain devices such as rechargeable then disable the battery_last_replaced entity for that device.  
+If you do not want an event raised for certain devices such as rechargeable then disable the battery_last_replaced sensor entity for that device.  
 
 You can use this action to schedule checks on batteries that is convenient to you, e.g. once a week etc.  
 

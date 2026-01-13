@@ -215,7 +215,7 @@ actions:
 
 This is fired from the [check_battery_last_replaced](./actions.md/#check-battery-last-replaced) action call for each device that has not had its battery replaced for the number of days specified in the action call.
 
-If you do not want an event raised for certain devices such as rechargeable then disable the battery_last_replaced entity for that device.
+If you do not want an event raised for certain devices such as rechargeable then disable the battery_last_replaced sensor entity for that device.
 
 The action can raise multiple events quickly so when using with an automation it's important to use the `mode: queued` to handle these.
 
