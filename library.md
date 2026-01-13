@@ -1,4 +1,4 @@
-## 1994 Devices in library
+## 1995 Devices in library
 
 This file is auto generated, do not modify
 
@@ -472,6 +472,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Ecowitt                                         |GW1200                                                                                        |MANUAL                    |                                   |                                      |
 |Ecowitt                                         |GW2000A                                                                                       |MANUAL                    |                                   |                                      |
 |Ecowitt                                         |GW2001                                                                                        |MANUAL                    |                                   |                                      |
+|Ecowitt                                         |Soil moisture sensor                                                                          |AA                        |WH51                               |                                      |
 |Ecowitt                                         |Weather Station                                                                               |2× AA                     |WH85                               |                                      |
 |Ecowitt                                         |WH51                                                                                          |AA                        |                                   |                                      |
 |Elexa Consumer Products Inc.                    |DMMS1                                                                                         |CR123A                    |                                   |                                      |

@@ -2671,6 +2671,12 @@
         },
         {
             "manufacturer": "Ecowitt",
+            "model": "Soil moisture sensor",
+            "model_id": "WH51",
+            "battery_type": "AA"
+        },
+        {
+            "manufacturer": "Ecowitt",
             "model": "Weather Station",
             "model_id": "WH85",
             "battery_type": "AA",
@@ -11461,12 +11467,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Ecowitt",
-            "model": "Soil moisture sensor",
-            "model_id": "WH51",
-            "battery_type": "AA"
         }
     ]
 }
