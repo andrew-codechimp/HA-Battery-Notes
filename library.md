@@ -1,4 +1,4 @@
-## 1998 Devices in library
+## 1999 Devices in library
 
 This file is auto generated, do not modify
 
@@ -131,6 +131,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |_TZE284_nhgdf6qr                                |TS0601                                                                                        |2× AAA                    |                                   |                                      |
 |_TZE284_rccxox8p                                |TS0601                                                                                        |2× AA                     |                                   |                                      |
 |_TZE284_rjxqso4a                                |TS0601                                                                                        |2× AA                     |_TZE284_rjxqso4a                   |                                      |
+|Abode                                           |Bridge                                                                                        |Rechargeable              |                                   |                                     1|
 |Abode                                           |Contact Sensor                                                                                |CR2450                    |                                   |                                     1|
 |Abode                                           |Smoke Sensor                                                                                  |CR123A                    |                                   |                                     1|
 |ABUS Security-Center GmbH Co. KG                |SHRM10000                                                                                     |CR123A                    |                                   |                                      |

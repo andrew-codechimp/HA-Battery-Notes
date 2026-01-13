@@ -707,6 +707,12 @@
         },
         {
             "manufacturer": "Abode",
+            "model": "Bridge",
+            "hw_version": "1.0",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Abode",
             "model": "Contact Sensor",
             "hw_version": "1.0",
             "battery_type": "CR2450"
@@ -11485,12 +11491,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Abode",
-            "model": "Bridge",
-            "hw_version": "1.0",
             "battery_type": "Rechargeable"
         }
     ]
