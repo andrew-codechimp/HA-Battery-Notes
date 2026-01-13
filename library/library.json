@@ -719,6 +719,13 @@
         },
         {
             "manufacturer": "Abode",
+            "model": "Occupancy Sensor",
+            "hw_version": "1.0",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Abode",
             "model": "Smoke Sensor",
             "hw_version": "1.0",
             "battery_type": "CR123A"
@@ -11492,13 +11499,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Abode",
-            "model": "Occupancy Sensor",
-            "hw_version": "1.0",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
