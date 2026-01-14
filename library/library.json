@@ -11506,6 +11506,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "nous",
+            "model": "Wireless switch button (LZ4)",
+            "battery_type": "CR2032"
         }
     ]
 }
