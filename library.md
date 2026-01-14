@@ -1,4 +1,4 @@
-## 2002 Devices in library
+## 1999 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1405,7 +1405,6 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |SmartThings                                     |motionv5                                                                                      |CR2477                    |                                   |                                      |
 |SmartThings                                     |Multi Sensor (2015 model) (3321-S)                                                            |CR2450                    |                                   |                                      |
 |SmartThings                                     |Multipurpose sensor (2016 model)                                                              |CR2450                    |F-MLT-US-2                         |                                      |
-|SmartThings                                     |Multipurpose sensor (2016 model)                                                              |CR2450                    |F-MLT-US-2                         |                                      |
 |SmartThings                                     |Multipurpose sensor (2018 model)                                                              |CR2450                    |IM6001-MPP01                       |                                      |
 |SmartThings                                     |Multipurpose sensor (2018 model) (IM6001-MPP01)                                               |CR2450                    |                                   |                                      |
 |SmartThings                                     |multiv4                                                                                       |CR2450                    |                                   |                                      |
@@ -1832,7 +1831,6 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Withings                                        |BPM Core                                                                                      |Rechargeable              |                                   |                                      |
 |Withings                                        |Smart Body Analyzer                                                                           |4× AAA                    |                                   |                                      |
 |Withings                                        |Thermo                                                                                        |2× AAA                    |                                   |                                      |
-|Withings                                        |Thermo                                                                                        |2× AAA                    |XNASCT01                           |                                      |
 |Woox                                            |Smart garden irrigation control                                                               |2× AA                     |R7060                              |                                     1|
 |Woox                                            |Smart garden irrigation control (R7060)                                                       |4× AA                     |                                   |                                      |
 |Woox                                            |Smart siren (R7051)                                                                           |Rechargeable              |                                   |                                      |
@@ -1943,8 +1941,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Xiaomi                                          |WXKG13LM                                                                                      |CR2032                    |                                   |                                      |
 |Xiaomi                                          |Xiaomi temperature & humidity sensor with custom firmware (LYWSD03MMC) av Custom devices (DiY)|CR2032                    |                                   |                                      |
 |Xiaomi                                          |XMOSB01XS                                                                                     |CR2450                    |                                   |                                      |
-|Xiaomi                                          |XMTZC01HM/XMTZC04HM                                                                           |3× AAA                    |                                   |                                      |
-|Xiaomi                                          |XMTZC01HM/XMTZC04HM                                                                           |CR2032                    |                                   |                                      |
+|Xiaomi                                          |XMTZC01HM/XMTZC04HM                                                                           |MANUAL                    |                                   |                                      |
 |Xiaomi                                          |XMTZC02HM/XMTZC05HM/NUN4049CN                                                                 |4× AAA                    |                                   |                                      |
 |Xiaomi                                          |XMWSDJ04MMC                                                                                   |CR2450                    |                                   |                                      |
 |Xiaomi                                          |zigbee GZCGQ01LM (lumi.sen_ill.mgl01)                                                         |CR2032                    |                                   |                                      |
