@@ -11492,6 +11492,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "IKEA",
+            "model": "KLIPPBOK",
+            "hw_version": "P2.0",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
