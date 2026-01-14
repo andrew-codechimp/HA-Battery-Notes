@@ -1,4 +1,4 @@
-## 2001 Devices in library
+## 2002 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1106,6 +1106,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Nous                                            |Smoke sensor (E8)                                                                             |CR123A                    |E8                                 |                                      |
 |Nous                                            |Temperature & humidity LCD sensor                                                             |2× AAA                    |E6                                 |                                      |
 |Nous                                            |Temperature and humidity sensor with clock                                                    |3× AAA                    |SZ-T04                             |                                      |
+|nous                                            |Wireless switch button (LZ4)                                                                  |CR2032                    |                                   |                                      |
 |NUKI                                            |Nuki Door Sensor                                                                              |LS14250                   |                                   |                                      |
 |Nuki                                            |Nuki Opener                                                                                   |4× AAA                    |                                   |                                      |
 |Nuki                                            |Nuki Smart Lock                                                                               |4× AA                     |                                   |                                      |

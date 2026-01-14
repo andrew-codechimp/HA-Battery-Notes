@@ -6329,6 +6329,11 @@
             "battery_quantity": 3
         },
         {
+            "manufacturer": "nous",
+            "model": "Wireless switch button (LZ4)",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "NUKI",
             "model": "Nuki Door Sensor",
             "battery_type": "LS14250"
@@ -11506,11 +11511,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "nous",
-            "model": "Wireless switch button (LZ4)",
-            "battery_type": "CR2032"
         }
     ]
 }
