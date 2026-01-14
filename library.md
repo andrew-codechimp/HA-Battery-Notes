@@ -1,4 +1,4 @@
-## 1999 Devices in library
+## 2000 Devices in library
 
 This file is auto generated, do not modify
 
@@ -863,6 +863,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |IKEA                                            |KADRILJ roller blind                                                                          |IKEA BRAUNIT              |E1926                              |                                     1|
 |Ikea                                            |KADRILJ roller blind (E1926)                                                                  |Rechargeable              |                                   |                                      |
 |IKEA                                            |KADRILJ roller blind (E1926)                                                                  |IKEA BRAUNIT              |E1926                              |                                     1|
+|IKEA                                            |KLIPPBOK                                                                                      |2× AAA                    |                                   |P2.0                                  |
 |IKEA                                            |PARASOLL door/window sensor                                                                   |AAA                       |E2013                              |                                      |
 |IKEA                                            |PARASOLL door/window Sensor (E2013)                                                           |AAA                       |                                   |                                      |
 |IKEA                                            |RODRET wireless dimmer/power switch                                                           |AAA                       |E2201                              |                                     1|

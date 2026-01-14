@@ -4932,6 +4932,13 @@
         },
         {
             "manufacturer": "IKEA",
+            "model": "KLIPPBOK",
+            "hw_version": "P2.0",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "IKEA",
             "model": "PARASOLL door/window sensor",
             "model_id": "E2013",
             "battery_type": "AAA"
@@ -11492,13 +11499,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "IKEA",
-            "model": "KLIPPBOK",
-            "hw_version": "P2.0",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
