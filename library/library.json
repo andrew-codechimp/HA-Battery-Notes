@@ -4884,6 +4884,13 @@
         },
         {
             "manufacturer": "IKEA",
+            "model": "BILRESA",
+            "hw_version": "P2.0",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "IKEA",
             "model": "E2102",
             "battery_type": "Rechargeable"
         },
@@ -11499,13 +11506,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "IKEA",
-            "model": "BILRESA",
-            "hw_version": "P2.0",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }

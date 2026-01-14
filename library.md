@@ -1,4 +1,4 @@
-## 2000 Devices in library
+## 2001 Devices in library
 
 This file is auto generated, do not modify
 
@@ -855,6 +855,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |iHseno                                          |Zigbee 4 button remote - 12 scene                                                             |A23                       |_TZ3000_mh9px7cq                   |                                     1|
 |IKEA                                            |BADRING water leakage sensor                                                                  |AAA                       |E2202                              |                                      |
 |IKEA                                            |BADRING water leakage sensor (E2202)                                                          |AAA                       |                                   |                                      |
+|IKEA                                            |BILRESA                                                                                       |2× AAA                    |                                   |P2.0                                  |
 |IKEA                                            |E2102                                                                                         |Rechargeable              |                                   |                                      |
 |IKEA                                            |FYRTUR roller blind (E1757)                                                                   |Rechargeable              |                                   |                                      |
 |IKEA                                            |FYRTUR roller blind, block-out                                                                |IKEA BRAUNIT              |E1757                              |                                     1|
