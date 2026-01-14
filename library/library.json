@@ -8007,12 +8007,6 @@
         },
         {
             "manufacturer": "SmartThings",
-            "model": "Multipurpose sensor (2016 model)",
-            "model_id": "F-MLT-US-2",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "SmartThings",
             "model": "Multipurpose sensor (2018 model)",
             "model_id": "IM6001-MPP01",
             "battery_type": "CR2450"
@@ -10545,13 +10539,6 @@
             "battery_quantity": 2
         },
         {
-            "manufacturer": "Withings",
-            "model": "Thermo",
-            "model_id": "XNASCT01",
-            "battery_type": "AAA",
-            "battery_quantity": 2
-        },
-        {
             "manufacturer": "Woox",
             "model": "Smart garden irrigation control",
             "model_id": "R7060",
@@ -11148,13 +11135,7 @@
         {
             "manufacturer": "Xiaomi",
             "model": "XMTZC01HM/XMTZC04HM",
-            "battery_type": "AAA",
-            "battery_quantity": 3
-        },
-        {
-            "manufacturer": "Xiaomi",
-            "model": "XMTZC01HM/XMTZC04HM",
-            "battery_type": "CR2032"
+            "battery_type": "MANUAL"
         },
         {
             "manufacturer": "Xiaomi",
