@@ -11511,6 +11511,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Philips",
+            "model": "Hue motion huiskamer Batterij",
+            "hw_version": "67.115.5",
+            "battery_type": "AA",
+            "battery_quantity": 2
         }
     ]
 }
