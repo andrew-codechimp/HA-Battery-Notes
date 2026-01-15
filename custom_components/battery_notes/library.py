@@ -232,7 +232,20 @@ class Library:  # pylint: disable=too-few-public-methods
             return None
 
         if len(matching_devices) > 1:
-            return None
+            # Check if all matching devices are duplicates (all fields identical)
+            first_device = matching_devices[0]
+            all_same = all(
+                device.manufacturer == first_device.manufacturer
+                and device.model == first_device.model
+                and device.model_id == first_device.model_id
+                and device.hw_version == first_device.hw_version
+                and device.model_match_method == first_device.model_match_method
+                and device.battery_type == first_device.battery_type
+                and device.battery_quantity == first_device.battery_quantity
+                for device in matching_devices[1:]
+            )
+            if not all_same:
+                return None
 
         matched_device = matching_devices[0]
 
