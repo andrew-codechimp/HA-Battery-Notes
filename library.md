@@ -1,4 +1,4 @@
-## 2003 Devices in library
+## 2004 Devices in library
 
 This file is auto generated, do not modify
 
@@ -109,6 +109,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |_TZE200_kds0pmmv                                |TS0601                                                                                        |3× AA                     |                                   |                                      |
 |_TZE200_kfvq6avy                                |TS0601                                                                                        |2× AA                     |                                   |                                      |
 |_TZE200_locansqn                                |TS0601                                                                                        |3× AAA                    |                                   |                                      |
+|_TZE200_m9skfctm                                |TS0601                                                                                        |PP3                       |                                   |                                      |
 |_TZE200_myd45weu                                |TS0601                                                                                        |2× AA                     |                                   |                                      |
 |_TZE200_n8dljorx                                |TS0601                                                                                        |CR2032                    |                                   |                                      |
 |_TZE200_nnrfa68v                                |TS0601                                                                                        |2× AAA                    |                                   |                                      |
