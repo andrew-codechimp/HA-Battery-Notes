@@ -89,7 +89,7 @@
                     },
                     "sections": {
                         "advanced_settings": {
-                            "name": "Advanced settings",
+                            "name": "Додаткові налаштування",
                             "data": {
                                 "battery_percentage_template": "Battery percentage template",
                                 "battery_low_template": "Шаблон низького заряду батареї",
