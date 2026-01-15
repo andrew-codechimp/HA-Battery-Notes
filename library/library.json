@@ -11518,6 +11518,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "_TZE200_m9skfctm",
+            "model": "TS0601",
+            "battery_type": "PP3"
         }
     ]
 }
