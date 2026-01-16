@@ -190,7 +190,7 @@
         {
             "manufacturer": "_TZ3000_dowj6gyi",
             "model": "TS0201",
-            "battery_type": "CR2450"
+            "battery_type": "MANUAL"
         },
         {
             "manufacturer": "_TZ3000_ee8nrt2l",
@@ -558,6 +558,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "_TZE200_kds0pmmv",
+            "model": "TS0601",
+            "battery_type": "AA",
+            "battery_quantity": 3
+        },
+        {
             "manufacturer": "_TZE200_kfvq6avy",
             "model": "TS0601",
             "battery_type": "AA",
@@ -568,6 +574,11 @@
             "model": "TS0601",
             "battery_type": "AAA",
             "battery_quantity": 3
+        },
+        {
+            "manufacturer": "_TZE200_m9skfctm",
+            "model": "TS0601",
+            "battery_type": "PP3"
         },
         {
             "manufacturer": "_TZE200_myd45weu",
@@ -628,6 +639,12 @@
             "battery_quantity": 3
         },
         {
+            "manufacturer": "_TZE200_wqashyqo",
+            "model": "TS0601",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "_TZE200_yjjdcqsq",
             "model": "TS0601",
             "battery_type": "AAA",
@@ -643,6 +660,12 @@
             "model": "TS0601",
             "battery_type": "AA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "_TZE204_rtrmfadk",
+            "model": "TS0601",
+            "battery_type": "AA",
+            "battery_quantity": 3
         },
         {
             "manufacturer": "_TZE204_t1blo2bj",
@@ -663,9 +686,21 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "_TZE284_d7lpruvi",
+            "model": "TS0601",
+            "battery_type": "AAA",
+            "battery_quantity": 3
+        },
+        {
             "manufacturer": "_TZE284_nhgdf6qr",
             "model": "TS0601",
             "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "_TZE284_rccxox8p",
+            "model": "TS0601",
+            "battery_type": "AA",
             "battery_quantity": 2
         },
         {
@@ -674,6 +709,49 @@
             "model_id": "_TZE284_rjxqso4a",
             "battery_type": "AA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Abode",
+            "model": "Bridge",
+            "hw_version": "1.0",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Abode",
+            "model": "Contact Sensor",
+            "hw_version": "1.0",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Abode",
+            "model": "KeyFob",
+            "hw_version": "1.0",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Abode",
+            "model": "KeyPad",
+            "hw_version": "1.0",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Abode",
+            "model": "Occupancy Sensor",
+            "hw_version": "1.0",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Abode",
+            "model": "Smoke Sensor",
+            "hw_version": "1.0",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Abode",
+            "model": "Vibration Sensor",
+            "hw_version": "1.0",
+            "battery_type": "CR123A"
         },
         {
             "manufacturer": "ABUS Security-Center GmbH Co. KG",
@@ -2145,6 +2223,14 @@
         },
         {
             "manufacturer": "Centralite",
+            "model": "3-Series pearl touch thermostat",
+            "model_id": "3157100",
+            "hw_version": "3",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Centralite",
             "model": "3157100",
             "battery_type": "AA",
             "battery_quantity": 4
@@ -2249,6 +2335,11 @@
         {
             "manufacturer": "Cowboy",
             "model": "Cruiser",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "CPS",
+            "model": "CP1000PFCLCDa",
             "battery_type": "Rechargeable"
         },
         {
@@ -2625,6 +2716,19 @@
             "manufacturer": "Ecowitt",
             "model": "GW2001",
             "battery_type": "MANUAL"
+        },
+        {
+            "manufacturer": "Ecowitt",
+            "model": "Soil moisture sensor",
+            "model_id": "WH51",
+            "battery_type": "AA"
+        },
+        {
+            "manufacturer": "Ecowitt",
+            "model": "Weather Station",
+            "model_id": "WH85",
+            "battery_type": "AA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "Ecowitt",
@@ -3473,6 +3577,11 @@
         {
             "manufacturer": "Eufy Security",
             "model": "T8213",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Eufy Security",
+            "model": "T8530",
             "battery_type": "Rechargeable"
         },
         {
@@ -4780,6 +4889,13 @@
         },
         {
             "manufacturer": "IKEA",
+            "model": "BILRESA",
+            "hw_version": "P2.0",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "IKEA",
             "model": "E2102",
             "battery_type": "Rechargeable"
         },
@@ -4825,6 +4941,13 @@
             "model_id": "E1926",
             "hw_version": "1",
             "battery_type": "IKEA BRAUNIT"
+        },
+        {
+            "manufacturer": "IKEA",
+            "model": "KLIPPBOK",
+            "hw_version": "P2.0",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "IKEA",
@@ -5158,12 +5281,6 @@
             "battery_quantity": 2
         },
         {
-            "manufacturer": "IKEA of Sweden",
-            "model": "VALLHORN Wireless Motion Sensor",
-            "battery_type": "AAA",
-            "battery_quantity": 2
-        },
-        {
             "manufacturer": "iMagic by GreatStar",
             "model": "1116-S",
             "battery_type": "CR2"
@@ -5224,6 +5341,13 @@
         },
         {
             "manufacturer": "Iris",
+            "model": "Contact and temperature sensor",
+            "model_id": "IL06_1",
+            "hw_version": "0",
+            "battery_type": "CR2"
+        },
+        {
+            "manufacturer": "Iris",
             "model": "Contact and temperature sensor (3320-L)",
             "battery_type": "CR2"
         },
@@ -5261,6 +5385,12 @@
         },
         {
             "manufacturer": "Iris",
+            "model": "Smart fob",
+            "model_id": "3450-L",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Iris",
             "model": "Water sensor (3315-L)",
             "battery_type": "CR2"
         },
@@ -5272,6 +5402,11 @@
         {
             "manufacturer": "iRobot",
             "model": "i715640",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "iRobot",
+            "model": "j755020",
             "battery_type": "Rechargeable"
         },
         {
@@ -6205,6 +6340,11 @@
             "battery_quantity": 3
         },
         {
+            "manufacturer": "nous",
+            "model": "Wireless switch button (LZ4)",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "NUKI",
             "model": "Nuki Door Sensor",
             "battery_type": "LS14250"
@@ -6614,6 +6754,13 @@
         },
         {
             "manufacturer": "Philips",
+            "model": "Hue motion huiskamer Batterij",
+            "hw_version": "67.115.5",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Philips",
             "model": "Hue motion outdoor sensor",
             "model_id": "9290019758",
             "battery_type": "AA",
@@ -7002,6 +7149,12 @@
             "manufacturer": "Roborock",
             "model": "roborock.vacuum.a10",
             "model_id": "roborock.vacuum.a10",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Roborock",
+            "model": "roborock.vacuum.a144",
+            "model_id": "roborock.vacuum.a144",
             "battery_type": "Rechargeable"
         },
         {
@@ -7891,12 +8044,6 @@
         },
         {
             "manufacturer": "SmartThings",
-            "model": "Multipurpose sensor (2016 model)",
-            "model_id": "F-MLT-US-2",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "SmartThings",
             "model": "Multipurpose sensor (2018 model)",
             "model_id": "IM6001-MPP01",
             "battery_type": "CR2450"
@@ -7925,6 +8072,13 @@
             "manufacturer": "SmartThings",
             "model": "Water sensor (3315-S)",
             "battery_type": "CR2"
+        },
+        {
+            "manufacturer": "SmartWave",
+            "model": "SmartWave Window Covering",
+            "model_id": "10001",
+            "hw_version": "1.0.0",
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "SmartWave",
@@ -7996,6 +8150,12 @@
             "model": "Sonesse 28 WF Li-Ion Roller",
             "hw_version": "zigbee:SomfyRollerShadeComponent",
             "battery_type": "MANUAL"
+        },
+        {
+            "manufacturer": "SONOFF",
+            "model": "Contact sensor",
+            "model_id": "SNZB-04",
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "Sonoff",
@@ -8317,6 +8477,11 @@
             "model": "Leak Detector",
             "battery_type": "AAA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "switchbot",
+            "model": "Lock Ultra",
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "SwitchBot",
@@ -9108,12 +9273,24 @@
         },
         {
             "manufacturer": "Tuya",
+            "model": "JM-TRH-ZGB-V1",
+            "battery_type": "AAA",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "Tuya",
             "model": "kscbebaf3s1eogvt",
             "battery_type": "AAA",
             "battery_quantity": 2
         },
         {
             "manufacturer": "TuYa",
+            "model": "LCZ030",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tuya",
             "model": "LCZ030",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -9168,6 +9345,11 @@
             "manufacturer": "TuYa",
             "model": "Luminance motion sensor (ZG-204ZL)",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "MINI-ZSB",
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "Tuya",
@@ -9318,6 +9500,13 @@
             "model": "Plant Sensor SGS01 (gvygg3m8)",
             "battery_type": "AAA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Pressure pad sensor",
+            "model_id": "C3007",
+            "hw_version": "1",
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "Tuya",
@@ -10281,6 +10470,12 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "Volvo",
+            "model": "XC60 PETROL/ELECTRIC (2023)",
+            "model_id": "XC60 (2023)",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Waveshare",
             "model": "Model A",
             "battery_type": "18650",
@@ -10383,13 +10578,6 @@
         {
             "manufacturer": "Withings",
             "model": "Thermo",
-            "battery_type": "AAA",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Withings",
-            "model": "Thermo",
-            "model_id": "XNASCT01",
             "battery_type": "AAA",
             "battery_quantity": 2
         },
@@ -10990,13 +11178,7 @@
         {
             "manufacturer": "Xiaomi",
             "model": "XMTZC01HM/XMTZC04HM",
-            "battery_type": "AAA",
-            "battery_quantity": 3
-        },
-        {
-            "manufacturer": "Xiaomi",
-            "model": "XMTZC01HM/XMTZC04HM",
-            "battery_type": "CR2032"
+            "battery_type": "MANUAL"
         },
         {
             "manufacturer": "Xiaomi",
