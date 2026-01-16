@@ -16,7 +16,9 @@
   },
   "ignoreDeps": [
     "homeassistant",
-    "python"
+    "python",
+    "mkdocs-material",
+    "pytablewriter"
   ],
   "dependencyDashboard": false,
   "labels": [
