@@ -1,4 +1,4 @@
-## 2005 Devices in library
+## 2006 Devices in library
 
 This file is auto generated, do not modify
 
@@ -940,6 +940,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Iris                                            |Motion and temperature sensor (3326-L)                                                        |CR2                       |                                   |                                      |
 |Iris                                            |Motion Sensor (iL07_1)                                                                        |CR123A                    |                                   |                                      |
 |Iris                                            |Smart button (3460-L)                                                                         |CR2450                    |                                   |                                      |
+|Iris                                            |Smart fob                                                                                     |CR2450                    |3450-L                             |                                      |
 |Iris                                            |Water sensor (3315-L)                                                                         |CR2                       |                                   |                                      |
 |iRobot                                          |c975840                                                                                       |Rechargeable              |                                   |                                      |
 |iRobot                                          |i715640                                                                                       |Rechargeable              |                                   |                                      |
