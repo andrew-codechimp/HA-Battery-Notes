@@ -10,6 +10,8 @@
   "prConcurrentLimit": 5,
   "lockFileMaintenance": {
     "enabled": true,
+    "automergeType": "pr",
+    "automerge": true,    
     "schedule": [
       "before 6am on friday"
     ]
