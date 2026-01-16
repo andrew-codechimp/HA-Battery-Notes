@@ -1,6 +1,46 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended"
+    "config:recommended",
+    ":semanticCommits"
+  ],
+  "schedule": [
+    "before 6am on friday"
+  ],
+  "prConcurrentLimit": 5,
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": [
+      "before 6am on friday"
+    ]
+  },
+  "ignoreDeps": [
+    "homeassistant",
+    "python"
+  ],
+  "dependencyDashboard": false,
+  "labels": [
+    "dependencies"
+  ],
+  "packageRules": [
+    {
+      "description": "Group dev dependencies",
+      "matchDepTypes": ["dependency-groups"],
+      "groupName": "dev dependencies",
+      "automerge": false
+    },
+    {
+      "description": "Auto-merge non-major dev dependency updates",
+      "matchDepTypes": ["dependency-groups"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true
+    },
+    {
+      "description": "Group GitHub Actions updates",
+      "matchManagers": ["github-actions"],
+      "groupName": "GitHub Actions",
+      "automerge": true,
+      "matchUpdateTypes": ["minor", "patch"]
+    }
   ]
 }
