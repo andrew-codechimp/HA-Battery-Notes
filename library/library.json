@@ -11523,6 +11523,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Iris",
+            "model": "Smart fob",
+            "model_id": "3450-L",
+            "battery_type": "CR2450"
         }
     ]
 }
