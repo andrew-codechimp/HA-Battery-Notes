@@ -8146,6 +8146,12 @@
             "battery_type": "MANUAL"
         },
         {
+            "manufacturer": "SONOFF",
+            "model": "Contact sensor",
+            "model_id": "SNZB-04",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "Sonoff",
             "model": "Contact Sensor",
             "model_id": "SNZB-04P",
@@ -11523,12 +11529,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "SONOFF",
-            "model": "Contact sensor",
-            "model_id": "SNZB-04",
-            "battery_type": "CR2032"
         }
     ]
 }
