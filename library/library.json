@@ -11540,6 +11540,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Ecowitt",
+            "model": "GW3000B",
+            "battery_type": "Manual"
         }
     ]
 }
