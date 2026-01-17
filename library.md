@@ -1,4 +1,4 @@
-## 2006 Devices in library
+## 2007 Devices in library
 
 This file is auto generated, do not modify
 
@@ -198,6 +198,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Amazon                                          |KFMAWI                                                                                        |Rechargeable              |                                   |                                      |
 |Amazon                                          |KFONWI                                                                                        |Rechargeable              |                                   |                                      |
 |Amazon                                          |KFRAWI                                                                                        |Rechargeable              |                                   |                                      |
+|Amazon                                          |KFTRWI                                                                                        |Rechargeable              |                                   |                                      |
 |Amazon                                          |KFTUW                                                                                         |Rechargeable              |                                   |                                      |
 |American Power Conversion                       |Back-UPS ES 600M1                                                                             |Rechargeable              |                                   |                                      |
 |American Power Conversion                       |Back-UPS NS 1250 LCD                                                                          |2× UB1280                 |                                   |                                      |

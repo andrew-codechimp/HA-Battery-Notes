@@ -1079,6 +1079,11 @@
         },
         {
             "manufacturer": "Amazon",
+            "model": "KFTRWI",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Amazon",
             "model": "KFTUW",
             "battery_type": "Rechargeable"
         },
@@ -11534,11 +11539,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Amazon",
-            "model": "KFTRWI",
             "battery_type": "Rechargeable"
         }
     ]
