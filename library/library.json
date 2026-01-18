@@ -2724,6 +2724,11 @@
         },
         {
             "manufacturer": "Ecowitt",
+            "model": "GW3000B",
+            "battery_type": "Manual"
+        },
+        {
+            "manufacturer": "Ecowitt",
             "model": "Soil moisture sensor",
             "model_id": "WH51",
             "battery_type": "AA"
@@ -11547,11 +11552,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Ecowitt",
-            "model": "GW3000B",
-            "battery_type": "Manual"
         }
     ]
 }
