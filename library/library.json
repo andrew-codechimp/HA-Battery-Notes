@@ -4620,6 +4620,12 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "HOBEIAN",
+            "model": "ZG-303Z",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Homematic",
             "model": "HM-CC-RT-DN",
             "model_id": "MEQ0789539",
@@ -11590,12 +11596,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "HOBEIAN",
-            "model": "ZG-303Z",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
