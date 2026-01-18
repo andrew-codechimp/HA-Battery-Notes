@@ -11403,6 +11403,13 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "YoLink",
+            "model": "WaterMeterController",
+            "model_id": "YS5009-UC",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Yolink",
             "model": "YS7103",
             "battery_type": "AA",
@@ -11565,13 +11572,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "YoLink",
-            "model": "WaterMeterController",
-            "model_id": "YS5009-UC",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
