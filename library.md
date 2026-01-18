@@ -1,4 +1,4 @@
-## 2012 Devices in library
+## 2013 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1150,6 +1150,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Oras                                            |Electra Washbasin Faucet                                                                      |2CR5                      |                                   |                                      |
 |Orbit                                           |HT32-0001                                                                                     |2× AA                     |                                   |                                      |
 |Orbit BHyve                                     |HT25-0000                                                                                     |2× AA                     |                                   |                                      |
+|Orbit BHyve                                     |HT25G2-0001                                                                                   |2× AA                     |                                   |HT25G2-0001                           |
 |Orbit BHyve                                     |HT32-0001                                                                                     |2× AA                     |                                   |                                      |
 |Orbit BHyve                                     |HT34-0001                                                                                     |2× AA                     |                                   |                                      |
 |ORVIBO                                          |e70f96b3773a4c9283c6862dbafb6a99                                                              |CR2032                    |                                   |                                      |
