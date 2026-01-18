@@ -7430,6 +7430,11 @@
         },
         {
             "manufacturer": "Schneider Electric",
+            "model": "W599001",
+            "battery_type": "Irreplaceable"
+        },
+        {
+            "manufacturer": "Schneider Electric",
             "model": "Wiser radiator thermostat (WV704R0A0902)",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -11585,11 +11590,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Schneider Electric",
-            "model": "W599001",
-            "battery_type": "Irreplaceable"
         }
     ]
 }

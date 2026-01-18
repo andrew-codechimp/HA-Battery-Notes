@@ -1,4 +1,4 @@
-## 2014 Devices in library
+## 2015 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1300,6 +1300,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Schneider Electric                              |LK FUGA wiser wireless battery 4 button switch                                                |CR2032                    |550D6001                           |                                     1|
 |Schneider Electric                              |LK FUGA wiser wireless battery 4 button switch (550D6001)                                     |CR2032                    |                                   |                                      |
 |Schneider Electric                              |Temperature & humidity sensor                                                                 |CR2450                    |550B1024                           |                                     0|
+|Schneider Electric                              |W599001                                                                                       |Irreplaceable             |                                   |                                      |
 |Schneider Electric                              |Wiser radiator thermostat (WV704R0A0902)                                                      |2× AA                     |                                   |                                      |
 |Schneider Electric                              |Wiser window/door sensor                                                                      |CR2450                    |CCT591011_AS                       |                                     0|
 |Secure Meters (UK) Ltd.                         |HRT4-ZW / SRT321                                                                              |2× AAA                    |                                   |                                      |
