@@ -11373,6 +11373,12 @@
         },
         {
             "manufacturer": "YoLink",
+            "model": "Siren",
+            "model_id": "YS7105-UC",
+            "battery_type": "ER34615"
+        },
+        {
+            "manufacturer": "YoLink",
             "model": "SmartRemoter",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -11552,12 +11558,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "YoLink",
-            "model": "Siren",
-            "model_id": "YS7105-UC",
-            "battery_type": "ER34615"
         }
     ]
 }
