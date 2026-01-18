@@ -11374,6 +11374,13 @@
         {
             "manufacturer": "YoLink",
             "model": "Siren",
+            "model_id": "YS7103-UC",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "YoLink",
+            "model": "Siren",
             "model_id": "YS7105-UC",
             "battery_type": "ER34615"
         },
@@ -11558,13 +11565,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "YoLink",
-            "model": "Siren",
-            "model_id": "YS7103-UC",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
