@@ -1,4 +1,4 @@
-## 2013 Devices in library
+## 2014 Devices in library
 
 This file is auto generated, do not modify
 
@@ -11,6 +11,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |_TYZB01_7qf81wty                                |TS1001                                                                                        |2× AAA                    |                                   |                                      |
 |_TYZB01_hww2py6b                                |TS1001                                                                                        |CR2450                    |                                   |                                      |
 |_TYZB01_tob46aoq                                |TS0205                                                                                        |CR123A                    |                                   |0x00000044                            |
+|_TYZB01_yet4gkcj                                |TS0203                                                                                        |2× CR1632                 |                                   |                                      |
 |_TZ1800_ejwkn2h2                                |TY0203                                                                                        |2× AAA                    |                                   |                                      |
 |_TZ1800_fcdjzz3s                                |TY0202                                                                                        |CR123A                    |                                   |                                      |
 |_TZ2000_a476raq2                                |TS0201                                                                                        |2× AAA                    |                                   |                                      |
