@@ -1,4 +1,4 @@
-## 2021 Devices in library
+## 2022 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1575,6 +1575,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Third Reality, Inc                              |3RWS18BZ                                                                                      |2× AAA                    |                                   |                                      |
 |Tile                                            |T1101                                                                                         |CR2032                    |                                   |                                      |
 |Tile                                            |T1301N                                                                                        |CR2032                    |                                   |                                      |
+|TNCE                                            |Temperature and humidity sensor                                                               |2× AAA                    |TNCE_CLIMATE                       |                                     0|
 |TP-Link                                         |S200B                                                                                         |CR2032                    |                                   |                                     1|
 |TP-Link                                         |S210                                                                                          |2× AAA                    |                                   |                                     1|
 |TP-Link                                         |S220                                                                                          |2× AAA                    |                                   |                                     1|
