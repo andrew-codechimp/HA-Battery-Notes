@@ -7043,6 +7043,12 @@
         },
         {
             "manufacturer": "Reolink",
+            "model": "Reolink Argus PT",
+            "hw_version": "BIPC_566MIX16M35SD965MP",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Reolink",
             "model": "Reolink Video Doorbell",
             "hw_version": "DB_560MIXDB32M35DBB14MP",
             "battery_type": "Rechargeable"
@@ -11595,12 +11601,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Reolink",
-            "model": "Reolink Argus PT",
-            "hw_version": "BIPC_566MIX16M35SD965MP",
             "battery_type": "Rechargeable"
         }
     ]
