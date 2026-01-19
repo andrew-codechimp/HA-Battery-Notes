@@ -11621,6 +11621,14 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "TNCE",
+            "model": "Temperature and humidity sensor",
+            "model_id": "TNCE_CLIMATE",
+            "hw_version": "0",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
