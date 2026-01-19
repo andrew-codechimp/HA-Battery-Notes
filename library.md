@@ -1,4 +1,4 @@
-## 2019 Devices in library
+## 2020 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1285,6 +1285,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |SAF Tehnika                                     |Aranet Radiation                                                                              |2× AA                     |                                   |                                      |
 |SAF Tehnika                                     |Aranet Radon Plus                                                                             |2× AA                     |                                   |                                      |
 |SAF Tehnika                                     |Aranet2 HOME                                                                                  |2× AA                     |                                   |                                      |
+|SAF Tehnika                                     |Aranet4                                                                                       |2× AA                     |                                   |                                      |
 |SAF Tehnika                                     |Aranet4 HOME                                                                                  |2× AA                     |                                   |                                      |
 |Samjin                                          |button                                                                                        |CR2450                    |                                   |                                      |
 |Samjin                                          |motion                                                                                        |CR2450                    |                                   |                                      |
