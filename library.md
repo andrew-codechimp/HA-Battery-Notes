@@ -1,4 +1,4 @@
-## 2018 Devices in library
+## 2019 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1176,6 +1176,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Petlibro                                        |PLAF109                                                                                       |3× AA                     |                                   |5.2.0                                 |
 |PETLIBRO                                        |PLAF203                                                                                       |3× D                      |                                   |                                      |
 |PETLIBRO                                        |PLAF301                                                                                       |3× D                      |                                   |                                      |
+|PetSafe                                         |SmartFeed_2.0                                                                                 |4× D                      |                                   |                                      |
 |Philio Technology Corp                          |PAT02-B                                                                                       |CR123A                    |                                   |                                      |
 |Philio Technology Corp                          |PAT02-C                                                                                       |CR123A                    |                                   |                                      |
 |Philio Technology Corp                          |PST02A                                                                                        |CR123A                    |                                   |                                      |

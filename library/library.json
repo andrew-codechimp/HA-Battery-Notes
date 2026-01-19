@@ -6725,6 +6725,12 @@
             "battery_quantity": 3
         },
         {
+            "manufacturer": "PetSafe",
+            "model": "SmartFeed_2.0",
+            "battery_type": "D",
+            "battery_quantity": 4
+        },
+        {
             "manufacturer": "Philio Technology Corp",
             "model": "PAT02-B",
             "battery_type": "CR123A"
@@ -11609,12 +11615,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "PetSafe",
-            "model": "SmartFeed_2.0",
-            "battery_type": "D",
-            "battery_quantity": 4
         }
     ]
 }
