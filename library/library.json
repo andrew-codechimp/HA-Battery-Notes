@@ -11621,6 +11621,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Signify Netherlands B.V.",
+            "model": "Hue tap dial switch",
+            "model_id": "RDM002",
+            "battery_type": "CR2032"
         }
     ]
 }
