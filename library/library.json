@@ -10353,6 +10353,13 @@
         },
         {
             "manufacturer": "Universal Electronics Inc",
+            "model": "Magnetic door & window contact sensor",
+            "model_id": "XHS2-UE",
+            "hw_version": "1",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Universal Electronics Inc",
             "model": "Magnetic door & window contact sensor (XHS2-UE)",
             "battery_type": "CR2450"
         },
@@ -11602,13 +11609,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Universal Electronics Inc",
-            "model": "Magnetic door & window contact sensor",
-            "model_id": "XHS2-UE",
-            "hw_version": "1",
-            "battery_type": "CR2450"
         }
     ]
 }
