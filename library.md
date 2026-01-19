@@ -1,4 +1,4 @@
-## 2020 Devices in library
+## 2021 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1373,6 +1373,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Signify Netherlands B.V.                        |Hue secure contact sensor (SOC001)                                                            |CR2 Lithium               |                                   |                                      |
 |Signify Netherlands B.V.                        |Hue Smart button                                                                              |CR2032                    |ROM001                             |                                      |
 |Signify Netherlands B.V.                        |Hue Smart button (ROM001)                                                                     |CR2032                    |                                   |                                      |
+|Signify Netherlands B.V.                        |Hue tap dial switch                                                                           |CR2032                    |RDM002                             |                                      |
 |Signify Netherlands B.V.                        |Hue tap dial switch (RDM002)                                                                  |CR2032                    |                                   |                                      |
 |Signify Netherlands B.V.                        |Hue wall switch module                                                                        |CR2450                    |RDM001                             |                                      |
 |Signify Netherlands B.V.                        |Hue wall switch module (RDM001)                                                               |CR2450                    |                                   |                                      |
