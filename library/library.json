@@ -7347,6 +7347,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "SAF Tehnika",
+            "model": "Aranet4",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Samjin",
             "model": "button",
             "battery_type": "CR2450"
