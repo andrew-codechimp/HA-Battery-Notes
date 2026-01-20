@@ -11641,6 +11641,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "MJWSD05MMC",
+            "battery_type": "CR2450"
         }
     ]
 }
