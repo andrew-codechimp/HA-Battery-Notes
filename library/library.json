@@ -11192,6 +11192,11 @@
         },
         {
             "manufacturer": "Xiaomi",
+            "model": "MJWSD05MMC",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Xiaomi",
             "model": "MJYD02YL",
             "battery_type": "AA",
             "battery_quantity": 3
@@ -11647,11 +11652,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Xiaomi",
-            "model": "MJWSD05MMC",
-            "battery_type": "CR2450"
         }
     ]
 }
