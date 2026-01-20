@@ -1,4 +1,4 @@
-## 2022 Devices in library
+## 2023 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1625,6 +1625,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tuya                                            |Door sensor                                                                                   |2× AAA                    |19DZT                              |                                     1|
 |Tuya                                            |Door sensor                                                                                   |2× CR1632                 |TS0203                             |                                     0|
 |Tuya                                            |Door sensor                                                                                   |CR2032                    |TS0203                             |                                     1|
+|Tuya                                            |Door sensor                                                                                   |CR2032                    |ZD08                               |                                     1|
 |TuYa                                            |Door sensor (TS0203)                                                                          |CR2032                    |                                   |                                      |
 |Tuya                                            |Door sensor (TS0203)                                                                          |2× AAA                    |                                   |                                      |
 |TuYa                                            |Door sensor (ZD08)                                                                            |CR2032                    |                                   |                                      |
