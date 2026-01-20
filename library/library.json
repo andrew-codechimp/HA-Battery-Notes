@@ -5729,6 +5729,12 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "LoraTap",
+            "model": "4 button portable remote control",
+            "model_id": "SS6400ZB",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "Loratap",
             "model": "GDC311ZBQ1",
             "battery_type": "CR2032"
@@ -11641,12 +11647,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "LoraTap",
-            "model": "4 button portable remote control",
-            "model_id": "SS6400ZB",
-            "battery_type": "CR2032"
         }
     ]
 }

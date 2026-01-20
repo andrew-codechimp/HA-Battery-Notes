@@ -1,4 +1,4 @@
-## 2023 Devices in library
+## 2024 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1000,6 +1000,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Loginovo                                        |Smart button                                                                                  |CR2032                    |                                   |                                      |
 |Loginovo                                        |Smart button (ZG-101ZL)                                                                       |CR2032                    |                                   |                                      |
 |Loginovo                                        |ZG-101ZL                                                                                      |CR2032                    |                                   |                                      |
+|LoraTap                                         |4 button portable remote control                                                              |CR2032                    |SS6400ZB                           |                                      |
 |Loratap                                         |GDC311ZBQ1                                                                                    |CR2032                    |                                   |                                      |
 |LUMI                                            |lumi.airmonitor.acn01                                                                         |2× CR2450                 |                                   |                                      |
 |LUMI                                            |lumi.airrtc.agl001                                                                            |2× AA                     |                                   |                                      |
