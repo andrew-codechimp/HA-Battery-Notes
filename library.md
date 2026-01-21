@@ -1,4 +1,4 @@
-## 2025 Devices in library
+## 2026 Devices in library
 
 This file is auto generated, do not modify
 
@@ -697,6 +697,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Flic                                            |2                                                                                             |CR2032                    |                                   |                                     2|
 |Flic                                            |V2_white                                                                                      |CR2032                    |                                   |                                      |
 |Flo by Moen                                     |puck_v1                                                                                       |CR123A                    |                                   |                                      |
+|Flume, Inc.                                     |Flume Smart Water Monitor                                                                     |4× AA                     |                                   |                                      |
 |Frient                                          |EMIZB-141                                                                                     |2× AA                     |                                   |                                      |
 |frient                                          |MOSZB-140                                                                                     |2× AA                     |                                   |                                      |
 |frient                                          |WISZB-131                                                                                     |2× AA                     |                                   |                                      |
