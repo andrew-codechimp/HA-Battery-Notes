@@ -2590,6 +2590,14 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "DIYRuZ",
+            "model": "Flower sensor",
+            "model_id": "DIYRuZ_Flower",
+            "hw_version": "1",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Dome",
             "model": "Siren",
             "battery_type": "CR123A",
@@ -11658,14 +11666,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "DIYRuZ",
-            "model": "Flower sensor",
-            "model_id": "DIYRuZ_Flower",
-            "hw_version": "1",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
