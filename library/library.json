@@ -11679,6 +11679,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "August Home Inc.",
+            "model": "ASL-05",
+            "battery_type": "CR123A",
+            "battery_quantity": 2
         }
     ]
 }
