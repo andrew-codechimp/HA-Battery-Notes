@@ -1,4 +1,4 @@
-## 2029 Devices in library
+## 2030 Devices in library
 
 This file is auto generated, do not modify
 
@@ -333,6 +333,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |August Home                                     |ASL-03                                                                                        |4× AA                     |                                   |                                      |
 |August Home Inc.                                |AK-R1                                                                                         |2× AAA                    |                                   |                                      |
 |August Home Inc.                                |ASL-03                                                                                        |4× AA                     |                                   |                                      |
+|August Home Inc.                                |ASL-05                                                                                        |2× CR123A                 |                                   |                                      |
 |August Home Inc.                                |ASL-06                                                                                        |4× AA                     |                                   |                                      |
 |August Home Inc.                                |ASL6_05/101200/SI                                                                             |4× AA                     |                                   |                                      |
 |August Home Inc.                                |ASL6_05/101300/SI                                                                             |4× AA                     |                                   |                                      |
