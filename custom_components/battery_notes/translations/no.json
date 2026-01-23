@@ -280,7 +280,7 @@
             "fields": {
                 "days_last_reported": {
                     "description": "Number of days since a device last had its battery replaced.",
-                    "name": "Days"
+                    "name": "Dager"
                 }
             },
             "name": "Check battery last replaced"
