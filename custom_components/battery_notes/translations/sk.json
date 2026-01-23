@@ -275,6 +275,16 @@
             },
             "name": "Sada vymenená batéria"
         },
+        "check_battery_last_replaced": {
+            "description": "Raise events for devices that haven't had their battery replaced.",
+            "fields": {
+                "days_last_reported": {
+                    "description": "Number of days since a device last had its battery replaced.",
+                    "name": "Days"
+                }
+            },
+            "name": "Check battery last replaced"
+        },
         "check_battery_last_reported": {
             "description": "Vyvolajte udalosti pre zariadenia, ktoré nenahlásili úroveň batérie.",
             "fields": {
