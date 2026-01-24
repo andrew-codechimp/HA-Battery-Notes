@@ -229,7 +229,7 @@ async def _async_battery_last_replaced(call: ServiceCall) -> ServiceResponse:
 
     entity_registry = er.async_get(call.hass)
 
-    return_response: list[dict[str, str | int | float | datetime | None]] = []
+    return_items: list[dict[str, str | int | float | datetime | None]] = []
 
     for config_entry in call.hass.config_entries.async_loaded_entries(DOMAIN):
         battery_notes_config_entry = cast(BatteryNotesConfigEntry, config_entry)
@@ -279,7 +279,7 @@ async def _async_battery_last_replaced(call: ServiceCall) -> ServiceResponse:
                         EVENT_BATTERY_NOT_REPLACED,
                         data,
                     )
-                    return_response.append(data)
+                    return_items.append(data)
 
                     _LOGGER.debug(
                         "Raised event device %s battery not replaced since %s",
@@ -288,7 +288,7 @@ async def _async_battery_last_replaced(call: ServiceCall) -> ServiceResponse:
                     )
 
     if call.return_response:
-        return {"check_battery_last_replaced": return_response}
+        return {"check_battery_last_replaced": return_items}
     return None
 
 
@@ -296,7 +296,7 @@ async def _async_battery_last_reported(call: ServiceCall) -> ServiceResponse:
     """Handle the service call."""
     days_last_reported = cast(int, call.data.get(SERVICE_DATA_DAYS_LAST_REPORTED))
 
-    return_response: list[dict[str, str | int | float | datetime | None]] = []
+    return_items: list[dict[str, str | int | float | datetime | None]] = []
 
     for config_entry in call.hass.config_entries.async_loaded_entries(DOMAIN):
         battery_notes_config_entry = cast(BatteryNotesConfigEntry, config_entry)
@@ -328,7 +328,7 @@ async def _async_battery_last_reported(call: ServiceCall) -> ServiceResponse:
                         EVENT_BATTERY_NOT_REPORTED,
                         data,
                     )
-                    return_response.append(data)
+                    return_items.append(data)
 
                     _LOGGER.debug(
                         "Raised event device %s not reported since %s",
@@ -336,14 +336,14 @@ async def _async_battery_last_reported(call: ServiceCall) -> ServiceResponse:
                         str(coordinator.last_reported),
                     )
     if call.return_response:
-        return {"check_battery_last_reported": return_response}
+        return {"check_battery_last_reported": return_items}
     return None
 
 
 async def _async_battery_low(call: ServiceCall) -> ServiceResponse:
     """Handle the service call."""
 
-    return_response: list[dict[str, str | int | float | datetime | None]] = []
+    return_items: list[dict[str, str | int | float | datetime | None]] = []
 
     for config_entry in call.hass.config_entries.async_loaded_entries(DOMAIN):
         battery_notes_config_entry = cast(BatteryNotesConfigEntry, config_entry)
@@ -372,12 +372,12 @@ async def _async_battery_low(call: ServiceCall) -> ServiceResponse:
                     EVENT_BATTERY_THRESHOLD,
                     data,
                 )
-                return_response.append(data)
+                return_items.append(data)
 
                 _LOGGER.debug(
                     "Raised event device %s battery low",
                     coordinator.device_id,
                 )
     if call.return_response:
-        return {"check_battery_battery_low": return_response}
+        return {"check_battery_battery_low": return_items}
     return None
