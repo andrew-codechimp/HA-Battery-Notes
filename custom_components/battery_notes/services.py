@@ -32,6 +32,7 @@ from .const import (
     ATTR_DEVICE_ID,
     ATTR_DEVICE_NAME,
     ATTR_PREVIOUS_BATTERY_LEVEL,
+    ATTR_RETURN_RESPONSE,
     ATTR_SOURCE_ENTITY_ID,
     DOMAIN,
     EVENT_BATTERY_NOT_REPLACED,
@@ -276,6 +277,7 @@ async def _async_battery_last_replaced(call: ServiceCall) -> ServiceResponse:
                         ATTR_BATTERY_LAST_REPORTED_LEVEL: coordinator.last_reported_level,
                         ATTR_BATTERY_LAST_REPLACED: coordinator.last_replaced.isoformat(),
                         ATTR_BATTERY_LAST_REPLACED_DAYS: time_since_last_replaced.days,
+                        ATTR_RETURN_RESPONSE: call.return_response,
                     }
                     call.hass.bus.async_fire(
                         EVENT_BATTERY_NOT_REPLACED,
@@ -326,6 +328,7 @@ async def _async_battery_last_reported(call: ServiceCall) -> ServiceResponse:
                     ATTR_BATTERY_LAST_REPLACED: coordinator.last_replaced.isoformat()
                     if coordinator.last_replaced
                     else None,
+                    ATTR_RETURN_RESPONSE: call.return_response,
                 }
                 if time_since_last_reported.days > days_last_reported:
                     call.hass.bus.async_fire(
@@ -373,6 +376,7 @@ async def _async_battery_low(call: ServiceCall) -> ServiceResponse:
                     if coordinator.last_replaced
                     else None,
                     ATTR_BATTERY_THRESHOLD_REMINDER: True,
+                    ATTR_RETURN_RESPONSE: call.return_response,
                 }
                 call.hass.bus.async_fire(
                     EVENT_BATTERY_THRESHOLD,
