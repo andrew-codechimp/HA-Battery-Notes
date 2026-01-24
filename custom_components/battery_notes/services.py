@@ -277,10 +277,11 @@ async def _async_battery_last_replaced(call: ServiceCall) -> ServiceResponse:
                         ATTR_BATTERY_LAST_REPLACED: coordinator.last_replaced.isoformat(),
                         ATTR_BATTERY_LAST_REPLACED_DAYS: time_since_last_replaced.days,
                     }
-                    call.hass.bus.async_fire(
-                        EVENT_BATTERY_NOT_REPLACED,
-                        data,
-                    )
+                    if not call.return_response:
+                        call.hass.bus.async_fire(
+                            EVENT_BATTERY_NOT_REPLACED,
+                            data,
+                        )
                     return_items.append(data)
 
                     _LOGGER.debug(
@@ -328,10 +329,11 @@ async def _async_battery_last_reported(call: ServiceCall) -> ServiceResponse:
                     else None,
                 }
                 if time_since_last_reported.days > days_last_reported:
-                    call.hass.bus.async_fire(
-                        EVENT_BATTERY_NOT_REPORTED,
-                        data,
-                    )
+                    if not call.return_response:
+                        call.hass.bus.async_fire(
+                            EVENT_BATTERY_NOT_REPORTED,
+                            data,
+                        )
                     return_items.append(data)
 
                     _LOGGER.debug(
@@ -374,10 +376,11 @@ async def _async_battery_low(call: ServiceCall) -> ServiceResponse:
                     else None,
                     ATTR_BATTERY_THRESHOLD_REMINDER: True,
                 }
-                call.hass.bus.async_fire(
-                    EVENT_BATTERY_THRESHOLD,
-                    data,
-                )
+                if not call.return_response:
+                    call.hass.bus.async_fire(
+                        EVENT_BATTERY_THRESHOLD,
+                        data,
+                    )
                 return_items.append(data)
 
                 _LOGGER.debug(
