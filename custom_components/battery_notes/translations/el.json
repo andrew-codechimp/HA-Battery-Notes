@@ -276,14 +276,14 @@
             "name": "Ορισμός μπαταρίας ως αντικατεστημένη"
         },
         "check_battery_last_replaced": {
-            "description": "Raise events for devices that haven't had their battery replaced.",
+            "description": "Εμφάνιση συμβάντων για συσκευές, των οποίων οι μπαταρίες δεν έχουν αντικατασταθεί.",
             "fields": {
                 "days_last_reported": {
-                    "description": "Number of days since a device last had its battery replaced.",
+                    "description": "Αριθμός ημερών από την τελευταία αντικατάσταση της μπαταρίας μιας συσκευής.",
                     "name": "Ημέρες"
                 }
             },
-            "name": "Check battery last replaced"
+            "name": "Ελεγχος τελευταίας αντικατάστασης μπαταρίας"
         },
         "check_battery_last_reported": {
             "description": "Εμφάνιση συμβάντων για συσκευές που δεν έχουν αναφέρει τη στάθμη της μπαταρίας τους.",
