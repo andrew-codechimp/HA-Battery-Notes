@@ -11685,6 +11685,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "TP-Link",
+            "model": "KE100",
+            "hw_version": "1.0",
+            "battery_type": "AA",
+            "battery_quantity": 2
         }
     ]
 }
