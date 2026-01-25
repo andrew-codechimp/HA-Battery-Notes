@@ -298,30 +298,6 @@
         "check_battery_low": {
             "description": "Raise events for devices that have a low battery.",
             "name": "Check battery low"
-        },
-        "get_battery_last_replaced": {
-            "description": "Get devices that haven't had their battery replaced.",
-            "fields": {
-                "days_last_reported": {
-                    "description": "Number of days since a device last had its battery replaced.",
-                    "name": "Days"
-                }
-            },
-            "name": "Get battery last replaced"
-        },
-        "get_battery_last_reported": {
-            "description": "Get devices that haven't reported their battery level.",
-            "fields": {
-                "days_last_reported": {
-                    "description": "Number of days since a device last reported its battery level.",
-                    "name": "Days"
-                }
-            },
-            "name": "Get battery last reported"
-        },
-        "get_battery_low": {
-            "description": "Get devices that have a low battery.",
-            "name": "Get battery low"
         }
     },
     "issues": {

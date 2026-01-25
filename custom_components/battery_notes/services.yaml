@@ -46,35 +46,7 @@ check_battery_last_reported:
           min: 1
           max: 100
           mode: box
+
 check_battery_low:
   name: Check battery low
   description: "Raise events for devices that have a low battery."
-get_battery_last_replaced:
-  name: Get battery replaced
-  description: "Get devices that haven't had their battery replaced."
-  fields:
-    days_last_replaced:
-      name: Days
-      description: Number of days since a device last had its battery replaced.
-      required: true
-      selector:
-        number:
-          min: 1
-          max: 720
-          mode: box
-get_battery_last_reported:
-  name: Get battery reported
-  description: "Get devices that haven't reported their battery level."
-  fields:
-    days_last_reported:
-      name: Days
-      description: Number of days since a device last reported its battery level.
-      required: true
-      selector:
-        number:
-          min: 1
-          max: 100
-          mode: box
-get_battery_low:
-  name: Get battery low
-  description: "Get devices that have a low battery."
