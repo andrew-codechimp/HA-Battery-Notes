@@ -1,4 +1,4 @@
-## 2030 Devices in library
+## 2031 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1581,6 +1581,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tile                                            |T1101                                                                                         |CR2032                    |                                   |                                      |
 |Tile                                            |T1301N                                                                                        |CR2032                    |                                   |                                      |
 |TNCE                                            |Temperature and humidity sensor                                                               |2× AAA                    |TNCE_CLIMATE                       |                                     0|
+|TP-Link                                         |KE100                                                                                         |2× AA                     |                                   |                                     1|
 |TP-Link                                         |S200B                                                                                         |CR2032                    |                                   |                                     1|
 |TP-Link                                         |S210                                                                                          |2× AAA                    |                                   |                                     1|
 |TP-Link                                         |S220                                                                                          |2× AAA                    |                                   |                                     1|
