@@ -278,7 +278,34 @@ actions:
         trigger.event.data.battery_type }}
 ```
 
-### Check Battery Last Replaced Monthly
+### Check Battery Last Replaced - Response Variable
+
+This script can be used to call the check battery last replaced action and get a response for those not replaced in the last 365 days.  
+It then adds all devices to a todo list.
+
+```yaml
+sequence:
+  - action: battery_notes.check_battery_last_replaced
+    data:
+      days_last_replaced: 365
+      raise_events: false
+    response_variable: response
+  - repeat:
+      for_each: "{{ response.get('check_battery_last_replaced', []) }}"
+      sequence:
+        - action: todo.add_item
+          metadata: {}
+          data:
+            item: >-
+              {{ repeat.item.device_name }} - {{
+              repeat.item.battery_type_and_quantity }}
+          target:
+            entity_id: todo.maintenance_list
+alias: Add not replaced to maintenance list 
+description: ""
+```
+
+### Check Battery Last Replaced Monthly - Raising Events
 
 Call the check battery last replaced action on the first of the month to raise events for those not replaced in the last 365 days.  
 To be used in conjunction with a Battery Not Replaced automation.
