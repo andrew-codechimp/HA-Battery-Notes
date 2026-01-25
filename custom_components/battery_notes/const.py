@@ -69,10 +69,16 @@ SERVICE_DATA_DATE_TIME_REPLACED = "datetime_replaced"
 
 SERVICE_CHECK_BATTERY_LAST_REPORTED = "check_battery_last_reported"
 SERVICE_DATA_DAYS_LAST_REPORTED = "days_last_reported"
+
+SERVICE_CHECK_BATTERY_LAST_REPLACED = "check_battery_last_replaced"
+SERVICE_DATA_DAYS_LAST_REPLACED = "days_last_replaced"
+
 SERVICE_CHECK_BATTERY_LOW = "check_battery_low"
+SERVICE_DATA_RAISE_EVENTS = "raise_events"
 
 EVENT_BATTERY_THRESHOLD = "battery_notes_battery_threshold"
 EVENT_BATTERY_INCREASED = "battery_notes_battery_increased"
+EVENT_BATTERY_NOT_REPLACED = "battery_notes_battery_not_replaced"
 EVENT_BATTERY_NOT_REPORTED = "battery_notes_battery_not_reported"
 EVENT_BATTERY_REPLACED = "battery_notes_battery_replaced"
 
@@ -87,6 +93,7 @@ ATTR_BATTERY_LOW = "battery_low"
 ATTR_BATTERY_LOW_THRESHOLD = "battery_low_threshold"
 ATTR_DEVICE_NAME = "device_name"
 ATTR_BATTERY_LEVEL = "battery_level"
+ATTR_BATTERY_LAST_REPLACED_DAYS = "battery_last_replaced_days"
 ATTR_BATTERY_LAST_REPORTED = "battery_last_reported"
 ATTR_BATTERY_LAST_REPORTED_DAYS = "battery_last_reported_days"
 ATTR_BATTERY_LAST_REPORTED_LEVEL = "battery_last_reported_level"
@@ -106,9 +113,23 @@ SERVICE_BATTERY_REPLACED_SCHEMA = vol.Schema(
     }
 )
 
+SERVICE_CHECK_BATTERY_LAST_REPLACED_SCHEMA = vol.Schema(
+    {
+        vol.Required(SERVICE_DATA_DAYS_LAST_REPLACED): cv.positive_int,
+        vol.Optional(SERVICE_DATA_RAISE_EVENTS, default=True): cv.boolean,
+    }
+)
+
 SERVICE_CHECK_BATTERY_LAST_REPORTED_SCHEMA = vol.Schema(
     {
         vol.Required(SERVICE_DATA_DAYS_LAST_REPORTED): cv.positive_int,
+        vol.Optional(SERVICE_DATA_RAISE_EVENTS, default=True): cv.boolean,
+    }
+)
+
+SERVICE_CHECK_BATTERY_LOW_SCHEMA = vol.Schema(
+    {
+        vol.Optional(SERVICE_DATA_RAISE_EVENTS, default=True): cv.boolean,
     }
 )
 

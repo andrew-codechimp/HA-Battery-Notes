@@ -275,18 +275,42 @@
             },
             "name": "Elemcsere időpontjának beállítása"
         },
+        "check_battery_last_replaced": {
+            "description": "Get a response or raise events for devices that haven't had their battery replaced.",
+            "fields": {
+                "days_last_reported": {
+                    "description": "Number of days since a device last had its battery replaced.",
+                    "name": "Napok száma"
+                },
+                "raise_events": {
+                    "description": "Raise events for use in automation triggers.",
+                    "name": "Raise events"
+                }
+            },
+            "name": "Check battery last replaced"
+        },
         "check_battery_last_reported": {
-            "description": "Eseményt generál azon eszközökről, melyek nem jelentették az elemszintjüket.",
+            "description": "Get a response or raise events for devices that haven't reported their battery level.",
             "fields": {
                 "days_last_reported": {
                     "description": "Eltelt napok száma mióta az eszköz nem jelentette az elemszintjét.",
                     "name": "Napok száma"
+                },
+                "raise_events": {
+                    "description": "Raise events for use in automation triggers.",
+                    "name": "Raise events"
                 }
             },
             "name": "Elemszint jelentések ellenőrzése"
         },
         "check_battery_low": {
-            "description": "Eseményt generál azon eszközökről, melyek elemszintje alacsony.",
+            "description": "Get a response or raise events for devices that have a low battery.",
+            "fields": {
+                "raise_events": {
+                    "description": "Raise events for use in automation triggers.",
+                    "name": "Raise events"
+                }
+            },
             "name": "Alacsony elemszintek ellenőrzése"
         }
     },

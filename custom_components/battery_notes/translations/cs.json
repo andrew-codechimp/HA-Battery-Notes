@@ -275,18 +275,42 @@
             },
             "name": "Nastavit výměnu baterie"
         },
+        "check_battery_last_replaced": {
+            "description": "Get a response or raise events for devices that haven't had their battery replaced.",
+            "fields": {
+                "days_last_reported": {
+                    "description": "Number of days since a device last had its battery replaced.",
+                    "name": "Dny"
+                },
+                "raise_events": {
+                    "description": "Raise events for use in automation triggers.",
+                    "name": "Raise events"
+                }
+            },
+            "name": "Check battery last replaced"
+        },
         "check_battery_last_reported": {
-            "description": "Vytváří události pro zařízení, která neohlásila stav jejich baterie.",
+            "description": "Get a response or raise events for devices that haven't reported their battery level.",
             "fields": {
                 "days_last_reported": {
                     "description": "Počet dní od posledního oznámení stavu baterie.",
                     "name": "Dny"
+                },
+                "raise_events": {
+                    "description": "Raise events for use in automation triggers.",
+                    "name": "Raise events"
                 }
             },
             "name": "Poslední nahlášená kontrola baterií"
         },
         "check_battery_low": {
-            "description": "Vytváří události pro zařízení, která mají nízkou baterii.",
+            "description": "Get a response or raise events for devices that have a low battery.",
+            "fields": {
+                "raise_events": {
+                    "description": "Raise events for use in automation triggers.",
+                    "name": "Raise events"
+                }
+            },
             "name": "Zkontrolovat baterii - nízký stav"
         }
     },

@@ -23,6 +23,9 @@
         "set_battery_replaced": {
             "service": "mdi:battery-sync"
         },
+        "check_battery_last_replaced": {
+            "service": "mdi:battery-clock"
+        },
         "check_battery_last_reported": {
             "service": "mdi:battery-unknown"
         },

@@ -275,18 +275,42 @@
             },
             "name": "Ορισμός μπαταρίας ως αντικατεστημένη"
         },
+        "check_battery_last_replaced": {
+            "description": "Get a response or raise events for devices that haven't had their battery replaced.",
+            "fields": {
+                "days_last_reported": {
+                    "description": "Αριθμός ημερών από την τελευταία αντικατάσταση της μπαταρίας μιας συσκευής.",
+                    "name": "Ημέρες"
+                },
+                "raise_events": {
+                    "description": "Raise events for use in automation triggers.",
+                    "name": "Raise events"
+                }
+            },
+            "name": "Ελεγχος τελευταίας αντικατάστασης μπαταρίας"
+        },
         "check_battery_last_reported": {
-            "description": "Εμφάνιση συμβάντων για συσκευές που δεν έχουν αναφέρει τη στάθμη της μπαταρίας τους.",
+            "description": "Get a response or raise events for devices that haven't reported their battery level.",
             "fields": {
                 "days_last_reported": {
                     "description": "Αριθμός ημερών από την τελευταία φορά που μια συσκευή ανέφερε τη στάθμη της μπαταρίας της.",
                     "name": "Ημέρες"
+                },
+                "raise_events": {
+                    "description": "Raise events for use in automation triggers.",
+                    "name": "Raise events"
                 }
             },
             "name": "Ελεγχος τελευταίας αναφοράς μπαταρίας"
         },
         "check_battery_low": {
-            "description": "Εμφάνιση συμβάντων για συσκευές με χαμηλή μπαταρία.",
+            "description": "Get a response or raise events for devices that have a low battery.",
+            "fields": {
+                "raise_events": {
+                    "description": "Raise events for use in automation triggers.",
+                    "name": "Raise events"
+                }
+            },
             "name": "Ελεγχος χαμηλής μπαταρίας"
         }
     },

@@ -231,18 +231,30 @@ class Library:  # pylint: disable=too-few-public-methods
         if not matching_devices:
             return None
 
-        if len(matching_devices) > 1:
-            return None
+        first_matched_device = matching_devices[0]
 
-        matched_device = matching_devices[0]
+        if len(matching_devices) > 1:
+            # Check if all matching devices are duplicates (all fields identical)
+            all_same = all(
+                device.manufacturer == first_matched_device.manufacturer
+                and device.model == first_matched_device.model
+                and device.model_id == first_matched_device.model_id
+                and device.hw_version == first_matched_device.hw_version
+                and device.model_match_method == first_matched_device.model_match_method
+                and device.battery_type == first_matched_device.battery_type
+                and device.battery_quantity == first_matched_device.battery_quantity
+                for device in matching_devices[1:]
+            )
+            if not all_same:
+                return None
 
         return DeviceBatteryDetails(
-            manufacturer=matched_device.manufacturer,
-            model=matched_device.model,
-            model_id=matched_device.model_id or "",
-            hw_version=matched_device.hw_version or "",
-            battery_type=matched_device.battery_type,
-            battery_quantity=matched_device.battery_quantity,
+            manufacturer=first_matched_device.manufacturer,
+            model=first_matched_device.model,
+            model_id=first_matched_device.model_id or "",
+            hw_version=first_matched_device.hw_version or "",
+            battery_type=first_matched_device.battery_type,
+            battery_quantity=first_matched_device.battery_quantity,
         )
 
     @property

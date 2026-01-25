@@ -275,18 +275,42 @@
             },
             "name": "Sada vymenená batéria"
         },
+        "check_battery_last_replaced": {
+            "description": "Get a response or raise events for devices that haven't had their battery replaced.",
+            "fields": {
+                "days_last_reported": {
+                    "description": "Number of days since a device last had its battery replaced.",
+                    "name": "Dni"
+                },
+                "raise_events": {
+                    "description": "Raise events for use in automation triggers.",
+                    "name": "Raise events"
+                }
+            },
+            "name": "Check battery last replaced"
+        },
         "check_battery_last_reported": {
-            "description": "Vyvolajte udalosti pre zariadenia, ktoré nenahlásili úroveň batérie.",
+            "description": "Get a response or raise events for devices that haven't reported their battery level.",
             "fields": {
                 "days_last_reported": {
                     "description": "Počet dní, odkedy zariadenie naposledy nahlásilo úroveň nabitia batérie.",
                     "name": "Dni"
+                },
+                "raise_events": {
+                    "description": "Raise events for use in automation triggers.",
+                    "name": "Raise events"
                 }
             },
             "name": "Batéria bola naposledy nahlásená"
         },
         "check_battery_low": {
-            "description": "Vyvolajte udalosti pre zariadenia, ktoré nahlásili nízku úroveň batérie.",
+            "description": "Get a response or raise events for devices that have a low battery.",
+            "fields": {
+                "raise_events": {
+                    "description": "Raise events for use in automation triggers.",
+                    "name": "Raise events"
+                }
+            },
             "name": "Skontrolovať stav vybitia batérie"
         }
     },

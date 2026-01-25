@@ -20,9 +20,29 @@ set_battery_replaced:
       required: false
       selector:
         datetime:
+check_battery_last_replaced:
+  name: Check battery replaced
+  description: Get or raise events for devices that haven't had their battery replaced."
+  fields:
+    days_last_replaced:
+      name: Days
+      description: Number of days since a device last had its battery replaced.
+      required: true
+      selector:
+        number:
+          min: 1
+          max: 720
+          mode: box
+    raise_events:
+      name: Raise events
+      description: Raise events for use in automation triggers.
+      required: false
+      default: true
+      selector:
+        boolean:
 check_battery_last_reported:
   name: Check battery reported
-  description: "Raise events for devices that haven't reported their battery level."
+  description: "Get or raise events for devices that haven't reported their battery level."
   fields:
     days_last_reported:
       name: Days
@@ -33,6 +53,22 @@ check_battery_last_reported:
           min: 1
           max: 100
           mode: box
+    raise_events:
+      name: Raise events
+      description: Raise events for use in automation triggers.
+      required: false
+      default: true
+      selector:
+        boolean:
+
 check_battery_low:
   name: Check battery low
-  description: "Raise events for devices that have a low battery."
+  description: "Get or raise events for devices that have a low battery."
+  fields:
+    raise_events:
+      name: Raise events
+      description: Raise events for use in automation triggers.
+      required: false
+      default: true
+      selector:
+        boolean:

@@ -275,18 +275,42 @@
             },
             "name": "Pil değiştirildi olarak ayarla"
         },
+        "check_battery_last_replaced": {
+            "description": "Get a response or raise events for devices that haven't had their battery replaced.",
+            "fields": {
+                "days_last_reported": {
+                    "description": "Number of days since a device last had its battery replaced.",
+                    "name": "Gün"
+                },
+                "raise_events": {
+                    "description": "Raise events for use in automation triggers.",
+                    "name": "Raise events"
+                }
+            },
+            "name": "Check battery last replaced"
+        },
         "check_battery_last_reported": {
-            "description": "Pil seviyelerini bildirmeyen cihazlar için olayları arttırın.",
+            "description": "Get a response or raise events for devices that haven't reported their battery level.",
             "fields": {
                 "days_last_reported": {
                     "description": "Bir cihazın pil seviyesini en son bildirmesinden bu yana geçen gün sayısı.",
                     "name": "Gün"
+                },
+                "raise_events": {
+                    "description": "Raise events for use in automation triggers.",
+                    "name": "Raise events"
                 }
             },
             "name": "Pilin son bildirimini kontrol edin"
         },
         "check_battery_low": {
-            "description": "Pili zayıf olan cihazlar için olayları arttırın.",
+            "description": "Get a response or raise events for devices that have a low battery.",
+            "fields": {
+                "raise_events": {
+                    "description": "Raise events for use in automation triggers.",
+                    "name": "Raise events"
+                }
+            },
             "name": "Pil düşüklüğünü kontrol edin"
         }
     },

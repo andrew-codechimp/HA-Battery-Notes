@@ -275,18 +275,42 @@
             },
             "name": "Отметить замену батареи"
         },
+        "check_battery_last_replaced": {
+            "description": "Get a response or raise events for devices that haven't had their battery replaced.",
+            "fields": {
+                "days_last_reported": {
+                    "description": "Number of days since a device last had its battery replaced.",
+                    "name": "Дней"
+                },
+                "raise_events": {
+                    "description": "Raise events for use in automation triggers.",
+                    "name": "Raise events"
+                }
+            },
+            "name": "Check battery last replaced"
+        },
         "check_battery_last_reported": {
-            "description": "Вызов событий для устройств, которые не сообщили уровень заряда батареи.",
+            "description": "Get a response or raise events for devices that haven't reported their battery level.",
             "fields": {
                 "days_last_reported": {
                     "description": "Количество дней с последнего отчёта об уровне заряда батареи.",
                     "name": "Дней"
+                },
+                "raise_events": {
+                    "description": "Raise events for use in automation triggers.",
+                    "name": "Raise events"
                 }
             },
             "name": "Последняя информация по батарее"
         },
         "check_battery_low": {
-            "description": "Вызов событий для устройств с низким зарядом батареи.\nVyzyvayte sobytiya dlya ustroystv s nizki",
+            "description": "Get a response or raise events for devices that have a low battery.",
+            "fields": {
+                "raise_events": {
+                    "description": "Raise events for use in automation triggers.",
+                    "name": "Raise events"
+                }
+            },
             "name": "Проверить низкий заряд батареи"
         }
     },

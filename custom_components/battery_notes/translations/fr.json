@@ -275,18 +275,42 @@
             },
             "name": "Mise à jour remplacement de la batterie"
         },
+        "check_battery_last_replaced": {
+            "description": "Get a response or raise events for devices that haven't had their battery replaced.",
+            "fields": {
+                "days_last_reported": {
+                    "description": "Number of days since a device last had its battery replaced.",
+                    "name": "Jours"
+                },
+                "raise_events": {
+                    "description": "Raise events for use in automation triggers.",
+                    "name": "Raise events"
+                }
+            },
+            "name": "Check battery last replaced"
+        },
         "check_battery_last_reported": {
-            "description": "Remontée des appareils qui n'ont pas signalé leur niveau de batterie.",
+            "description": "Get a response or raise events for devices that haven't reported their battery level.",
             "fields": {
                 "days_last_reported": {
                     "description": "Nombre de jours écoulés depuis la dernière fois qu'un appareil a signalé son niveau de batterie.",
                     "name": "Jours"
+                },
+                "raise_events": {
+                    "description": "Raise events for use in automation triggers.",
+                    "name": "Raise events"
                 }
             },
             "name": "Batterie signalée pour la dernière fois"
         },
         "check_battery_low": {
-            "description": "Déclenche des événements pour les appareils qui ont une batterie faible.",
+            "description": "Get a response or raise events for devices that have a low battery.",
+            "fields": {
+                "raise_events": {
+                    "description": "Raise events for use in automation triggers.",
+                    "name": "Raise events"
+                }
+            },
             "name": "Vérifier si batterie faible"
         }
     },

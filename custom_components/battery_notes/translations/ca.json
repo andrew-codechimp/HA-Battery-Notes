@@ -275,18 +275,42 @@
             },
             "name": "Estableix la data de substitució de la bateria"
         },
+        "check_battery_last_replaced": {
+            "description": "Get a response or raise events for devices that haven't had their battery replaced.",
+            "fields": {
+                "days_last_reported": {
+                    "description": "Number of days since a device last had its battery replaced.",
+                    "name": "Dies"
+                },
+                "raise_events": {
+                    "description": "Raise events for use in automation triggers.",
+                    "name": "Raise events"
+                }
+            },
+            "name": "Check battery last replaced"
+        },
         "check_battery_last_reported": {
-            "description": "Llença els esdeveniments per als dispositius que no han informat del nivell de bateria.",
+            "description": "Get a response or raise events for devices that haven't reported their battery level.",
             "fields": {
                 "days_last_reported": {
                     "description": "Nombre de dies des que un dispositiu va informar per última vegada del nivell de bateria.",
                     "name": "Dies"
+                },
+                "raise_events": {
+                    "description": "Raise events for use in automation triggers.",
+                    "name": "Raise events"
                 }
             },
             "name": "Comproveu l'última informació de la bateria"
         },
         "check_battery_low": {
-            "description": "Llença les notificacions per als dispositius que tenen una bateria baixa.",
+            "description": "Get a response or raise events for devices that have a low battery.",
+            "fields": {
+                "raise_events": {
+                    "description": "Raise events for use in automation triggers.",
+                    "name": "Raise events"
+                }
+            },
             "name": "Comproveu l'última informació de la bateria"
         }
     },
