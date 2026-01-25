@@ -99,7 +99,6 @@ ATTR_BATTERY_LAST_REPORTED_DAYS = "battery_last_reported_days"
 ATTR_BATTERY_LAST_REPORTED_LEVEL = "battery_last_reported_level"
 ATTR_PREVIOUS_BATTERY_LEVEL = "previous_battery_level"
 ATTR_BATTERY_THRESHOLD_REMINDER = "reminder"
-ATTR_RETURN_RESPONSE = "return_response"
 
 WINDOW_SIZE_UNIT_NUMBER_EVENTS = 1
 WINDOW_SIZE_UNIT_TIME = 2

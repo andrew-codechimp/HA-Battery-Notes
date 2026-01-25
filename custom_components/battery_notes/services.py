@@ -32,7 +32,6 @@ from .const import (
     ATTR_DEVICE_ID,
     ATTR_DEVICE_NAME,
     ATTR_PREVIOUS_BATTERY_LEVEL,
-    ATTR_RETURN_RESPONSE,
     ATTR_SOURCE_ENTITY_ID,
     DOMAIN,
     EVENT_BATTERY_NOT_REPLACED,
@@ -283,7 +282,6 @@ async def _async_battery_last_replaced(call: ServiceCall) -> ServiceResponse:
                                 ATTR_BATTERY_LAST_REPORTED_LEVEL: coordinator.last_reported_level,
                                 ATTR_BATTERY_LAST_REPLACED: coordinator.last_replaced,
                                 ATTR_BATTERY_LAST_REPLACED_DAYS: time_since_last_replaced.days,
-                                ATTR_RETURN_RESPONSE: call.return_response,
                             },
                         )
                         _LOGGER.debug(
@@ -350,7 +348,6 @@ async def _async_battery_last_reported(call: ServiceCall) -> ServiceResponse:
                                 ATTR_BATTERY_LAST_REPORTED_DAYS: time_since_last_reported.days,
                                 ATTR_BATTERY_LAST_REPORTED_LEVEL: coordinator.last_reported_level,
                                 ATTR_BATTERY_LAST_REPLACED: coordinator.last_replaced,
-                                ATTR_RETURN_RESPONSE: call.return_response,
                             },
                         )
                         _LOGGER.debug(
@@ -412,7 +409,6 @@ async def _async_battery_low(call: ServiceCall) -> ServiceResponse:
                             ATTR_PREVIOUS_BATTERY_LEVEL: coordinator.rounded_previous_battery_level,
                             ATTR_BATTERY_LAST_REPLACED: coordinator.last_replaced,
                             ATTR_BATTERY_THRESHOLD_REMINDER: True,
-                            ATTR_RETURN_RESPONSE: call.return_response,
                         },
                     )
                     _LOGGER.debug(
