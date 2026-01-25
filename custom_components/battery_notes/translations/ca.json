@@ -276,7 +276,7 @@
             "name": "Estableix la data de substitució de la bateria"
         },
         "check_battery_last_replaced": {
-            "description": "Get or raise events for devices that haven't had their battery replaced.",
+            "description": "Get a response or raise events for devices that haven't had their battery replaced.",
             "fields": {
                 "days_last_reported": {
                     "description": "Number of days since a device last had its battery replaced.",
@@ -290,7 +290,7 @@
             "name": "Check battery last replaced"
         },
         "check_battery_last_reported": {
-            "description": "Get or raise events for devices that haven't reported their battery level.",
+            "description": "Get a response or raise events for devices that haven't reported their battery level.",
             "fields": {
                 "days_last_reported": {
                     "description": "Nombre de dies des que un dispositiu va informar per última vegada del nivell de bateria.",
@@ -304,7 +304,7 @@
             "name": "Comproveu l'última informació de la bateria"
         },
         "check_battery_low": {
-            "description": "Get or raise events for devices that have a low battery.",
+            "description": "Get a response or raise events for devices that have a low battery.",
             "fields": {
                 "raise_events": {
                     "description": "Raise events for use in automation triggers.",
