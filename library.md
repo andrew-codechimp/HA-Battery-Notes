@@ -1,4 +1,4 @@
-## 2031 Devices in library
+## 2032 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1048,6 +1048,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Mammotion                                       |LubaVAWD5000                                                                                  |Rechargeable              |Luba2AWD10000H                     |                                      |
 |Merkury                                         |SS003                                                                                         |CR2                       |                                   |                                      |
 |Meross                                          |ms100                                                                                         |CR2477                    |                                   |                                      |
+|Meross                                          |Smart Presence Sensor (16898)                                                                 |CR123A                    |                              16898|prerelease                            |
 |Mi                                              |MS009                                                                                         |CR2540                    |                                   |                                      |
 |Mi light sensor                                 |GZCGQ01LM                                                                                     |CR2450                    |                                   |                                      |
 |MiaoMiaoCe                                      |MHO-C401N-z                                                                                   |CR2032                    |                                   |                                      |

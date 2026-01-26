@@ -5984,6 +5984,13 @@
             "battery_type": "CR2477"
         },
         {
+            "manufacturer": "Meross",
+            "model": "Smart Presence Sensor (16898)",
+            "model_id": "16898",
+            "hw_version": "prerelease",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "Mi",
             "model": "MS009",
             "battery_type": "CR2540"
@@ -11692,13 +11699,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Meross",
-            "model": "Smart Presence Sensor (16898)",
-            "model_id": "16898",
-            "hw_version": "prerelease",
-            "battery_type": "CR123A"
         }
     ]
 }
