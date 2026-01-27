@@ -123,7 +123,7 @@
                         "advanced_settings": {
                             "name": "Erweiterte Einstellungen",
                             "data": {
-                                "battery_percentage_template": "Batterie-Prozentvorlage",
+                                "battery_percentage_template": "Vorlage zum Erstellen eines Batterie-Prozentsatzes",
                                 "battery_low_template": "Vorlage für niedrigen Batteriestand",
                                 "filter_outliers": "Ausreißer filtern"
                             },
