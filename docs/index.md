@@ -53,7 +53,7 @@ Example of voltage sensor with a maximum capacity of 3 volts, with a linear perc
 ```{{ (states('sensor.my_sensor_voltage')|float(0) / 3 * 100) | round(0) }}```  
 
 Example of voltage sensor with a maximum capacity of 3 volts, where 2 volts should be equivalent to 10%  
-{{ [0, (((states('sensor.voltage')|float(0) - 2) / (3 - 2)) * 90 + 10) | round(0)] | max }}
+```{{ [0, (((states('sensor.voltage')|float(0) - 2) / (3 - 2)) * 90 + 10) | round(0)] | max }}```
 
 Example of binary low sensor, returning either 100% or 9%  
 ```{{ 9 if states('binary_sensor.my_sensor_low') == true else 100 }}```  
