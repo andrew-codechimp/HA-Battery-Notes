@@ -11705,6 +11705,14 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Senoro",
+            "model": "Senoro.Win v2",
+            "model_id": "TS0601",
+            "hw_version": "v2",
+            "battery_type": "CR2032",
+            "battery_quantity": 3
         }
     ]
 }
