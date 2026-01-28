@@ -1732,6 +1732,13 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "Wireless remote switch H1 (double rocker)",
+            "model_id": "WXKG15LM",
+            "hw_version": "1",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "Wireless remote switch H1 (double rocker) (WXKG15LM)",
             "battery_type": "CR2450"
         },
@@ -11713,13 +11720,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Aqara",
-            "model": "Wireless remote switch H1 (double rocker)",
-            "model_id": "WXKG15LM",
-            "hw_version": "1",
-            "battery_type": "CR2450"
         }
     ]
 }
