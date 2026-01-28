@@ -2,7 +2,7 @@
     "config": {
         "step": {
             "user": {
-                "description": "Neue Battery notes werden entdeckt, wenn sie sich in der Bibliothek befinden.\nUm neue Battery notes manuell hinzuzufügen, wählen Sie \"Battery note hinzufügen\" und folgen den Anweisungen.\nWenn Sie Hilfe bei der Konfiguration benötigen, schauen Sie hier: {documentation_url}",
+                "description": "Neue Battery Notes werden entdeckt, wenn sie sich in der Bibliothek befinden.\nUm neue Battery Notes manuell hinzuzufügen, wähle \"Battery Note hinzufügen\" und folge den Anweisungen.\nWeitere Hilfe zur Konfiguration findest du unter:  {documentation_url}",
                 "title": "Battery Notes einrichten"
             },
             "battery": {
@@ -19,14 +19,14 @@
                     "advanced_settings": {
                         "name": "Erweiterte Einstellungen",
                         "data": {
-                            "battery_percentage_template": "Vorlage für Batterieanzeige in %",
-                            "battery_low_template": "Vorlage für niedrigen Batteriestand",
+                            "battery_percentage_template": "Vorlage für den Batterieladezustand in Prozent",
+                            "battery_low_template": "Vorlage für niedrigen Batterieladezustand",
                             "filter_outliers": "Ausreißer filtern"
                         },
                         "data_description": {
-                            "battery_percentage_template": "Vorlage zum Erstellen eines Batterie-Prozentsatzes\nNur für Geräte, die keinen Standard-Batterie-Prozentsatz besitzen",
-                            "battery_low_template": "Vorlage um zu bestimmen, ob eine Batterie schwach ist; sollte \"wahr\" (true) rückmelden, wenn schwach.\nNur für nicht-Standard Batteriewerte benötigt.",
-                            "filter_outliers": "Filtere größere Sprünge des Ladestandes der Batterie bei Geräten, die ihren Ladestand nur sporadisch mitteilen, um fehlerhafte Auslösungen zu verhindern"
+                            "battery_percentage_template": "Vorlage zum Erstellen des Batterieladezustandes.\nNur erforderlich für Geräte, die keinen normalen Batterieladezustand haben",
+                            "battery_low_template": "Vorlage zur Feststellung eines niedrigen Batterieladezustandes, sollte bei niedrigem Akkustand „TRUE“ (wahr) zurückgeben.\nNur für nicht normale Batterieladezustände benötigt.",
+                            "filter_outliers": "Filtere größere Sprünge des Ladezustandes der Batterie bei Geräten, die ihren Ladezustand nur sporadisch mitteilen, um fehlerhafte Auslösungen zu verhindern"
                         }
                     }
                 }
@@ -57,7 +57,7 @@
                         "device": "Gerät (empfohlen)",
                         "entity": "Entität"
                     },
-                    "title": "Wählen Sie den Verbindungstyp"
+                    "title": "Wähle den Verbindungstyp"
                 },
                 "device": {
                     "data": {
@@ -65,7 +65,7 @@
                         "name": "Name"
                     },
                     "data_description": {
-                        "name": "Wenn du nichts eingibst, wird der Name vom Quellgerät übernommen"
+                        "name": "Bei leerem Feld wird der Name des Quellgeräts verwendet."
                     }
                 },
                 "entity": {
@@ -74,15 +74,15 @@
                         "name": "Name"
                     },
                     "data_description": {
-                        "name": "Leer lassen wird den Namen von der Quell-Entität übernehmen"
+                        "name": "Bei leerem Feld wird der Name der Quellentität verwendet."
                     }
                 },
                 "battery": {
                     "description": "Name: {name}\nHersteller: {manufacturer}\nModell: {model}\nModell ID: {model_id}\nHardware Version: {hw_version}",
                     "data": {
-                        "battery_type": "Batterieart",
-                        "battery_quantity": "Batteriemenge",
-                        "battery_low_threshold": "Schwelle für niedrigen Batteriestand"
+                        "battery_type": "Batterietyp",
+                        "battery_quantity": "Anzahl der Batterien",
+                        "battery_low_threshold": "Schwelle für niedrigen Batterieladezustand"
                     },
                     "data_description": {
                         "battery_low_threshold": "0 verwendet den globalen Standardschwellenwert"
@@ -91,8 +91,8 @@
                         "advanced_settings": {
                             "name": "Erweiterte Einstellungen",
                             "data": {
-                                "battery_percentage_template": "Batterie-Prozentvorlage",
-                                "battery_low_template": "Vorlage für niedrigen Batteriestand",
+                                "battery_percentage_template": "Vorlage für den Batterieladezustand in Prozent",
+                                "battery_low_template": "Vorlage für niedrigen Batterieladezustand",
                                 "filter_outliers": "Ausreißer filtern"
                             },
                             "data_description": {
@@ -174,7 +174,7 @@
                         },
                         "data_description": {
                             "enable_autodiscovery": "Automatische Erkennung von Geräten, die in der Bibliothek sind.",
-                            "enable_replaced": "Die \"Batterie ersetzt\"-Schaltfläche auf jedem Battery-Note aktivieren",
+                            "enable_replaced": "Die \"Batterie ersetzt\"-Schaltfläche auf jedem Battery Note aktivieren",
                             "user_library": "Wenn angegeben, wird vor der Hauptbibliothek eine Benutzerbibliothek durchsucht. Die Benutzerbibliothek muss im selben Format sein, wie die Hauptbibliothek und in `config/. torage/battery_notes` platziert sein."
                         }
                     }
@@ -241,7 +241,7 @@
                 }
             },
             "battery_type": {
-                "name": "{device_name}Batterieart",
+                "name": "{device_name} - Batterieart",
                 "state_attributes": {
                     "battery_type": {
                         "name": "Batterieart"
@@ -276,39 +276,39 @@
             "name": "Stelle Batteriewechsel ein"
         },
         "check_battery_last_replaced": {
-            "description": "Get a response or raise events for devices that haven't had their battery replaced.",
+            "description": "Erhalte eine Antwort oder löse Ereignisse für Geräte aus, deren Batterie noch nicht ausgetauscht wurde.",
             "fields": {
                 "days_last_reported": {
-                    "description": "Number of days since a device last had its battery replaced.",
+                    "description": "Anzahl der Tage seit dem letzten Batteriewechsel eines Geräts.",
                     "name": "Tage"
                 },
                 "raise_events": {
-                    "description": "Raise events for use in automation triggers.",
-                    "name": "Raise events"
+                    "description": "Ereignisse für die Verwendung in Automatisierungstriggern auslösen.",
+                    "name": "Ereignisse auslösen"
                 }
             },
-            "name": "Check battery last replaced"
+            "name": "Überprüfe, wann die Batterie zuletzt ausgetauscht wurde."
         },
         "check_battery_last_reported": {
-            "description": "Get a response or raise events for devices that haven't reported their battery level.",
+            "description": "Erhalte eine Antwort oder löse Ereignisse für Geräte aus, die ihren Batterieladezustand nicht gemeldet haben.",
             "fields": {
                 "days_last_reported": {
                     "description": "Anzahl der Tage seit der letzten Batteriestands-Meldung.",
                     "name": "Tage"
                 },
                 "raise_events": {
-                    "description": "Raise events for use in automation triggers.",
-                    "name": "Raise events"
+                    "description": "Ereignisse für die Verwendung in Automatisierungstriggern auslösen.",
+                    "name": "Ereignisse auslösen"
                 }
             },
             "name": "Prüfe auf letzte Batteriestands-Meldungen"
         },
         "check_battery_low": {
-            "description": "Get a response or raise events for devices that have a low battery.",
+            "description": "Erhalte eine Benachrichtigung oder löse Ereignisse für Geräte aus, deren Batterie fast leer ist.",
             "fields": {
                 "raise_events": {
-                    "description": "Raise events for use in automation triggers.",
-                    "name": "Raise events"
+                    "description": "Ereignisse für die Verwendung in Automatisierungstriggern auslösen.",
+                    "name": "Ereignisse auslösen"
                 }
             },
             "name": "Prüfe auf schwache Batterien"
