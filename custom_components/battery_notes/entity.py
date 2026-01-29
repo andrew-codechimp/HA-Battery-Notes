@@ -9,6 +9,7 @@ from homeassistant.helpers import device_registry as dr
 from homeassistant.helpers.device import async_entity_id_to_device_id
 from homeassistant.helpers.entity import EntityDescription
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
+from homeassistant.util import slugify
 
 from .coordinator import BatteryNotesSubentryCoordinator
 
@@ -61,16 +62,22 @@ class BatteryNotesEntity(CoordinatorEntity[BatteryNotesSubentryCoordinator]):
             self._attr_translation_placeholders = {
                 "device_name": self.coordinator.device_name + " "
             }
-            self.entity_id = f"{entity_description.entity_type}.{self.coordinator.device_name.lower()}_{entity_description.key}"
+            self.entity_id = f"{entity_description.entity_type}.{slugify(self.coordinator.device_name.lower())}_{entity_description.key}".replace(
+                "__", "_"
+            )
         elif self.coordinator.source_entity_id and self.coordinator.device_id:
             _, source_object_id = split_entity_id(self.coordinator.source_entity_id)
             self._attr_translation_placeholders = {
                 "device_name": self.coordinator.source_entity_name + " "
             }
-            self.entity_id = f"{entity_description.entity_type}.{source_object_id}_{entity_description.key}"
+            self.entity_id = f"{entity_description.entity_type}.{source_object_id}_{entity_description.key}".replace(
+                "__", "_"
+            )
         else:
             self._attr_translation_placeholders = {"device_name": ""}
-            self.entity_id = f"{entity_description.entity_type}.{self.coordinator.device_name.lower()}_{entity_description.key}"
+            self.entity_id = f"{entity_description.entity_type}.{slugify(self.coordinator.device_name.lower())}_{entity_description.key}".replace(
+                "__", "_"
+            )
 
     def _associate_device(
         self, hass: HomeAssistant, device_registry: dr.DeviceRegistry

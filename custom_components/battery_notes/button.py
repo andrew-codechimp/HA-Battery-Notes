@@ -19,6 +19,7 @@ from homeassistant.helpers import (
 )
 from homeassistant.helpers.entity import EntityCategory
 from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
+from homeassistant.util import slugify
 
 from .common import utcnow_no_timezone
 from .const import (
@@ -135,19 +136,21 @@ class BatteryNotesButton(BatteryNotesEntity, ButtonEntity):
             self._attr_translation_placeholders = {
                 "device_name": coordinator.device_name + " "
             }
-            self.entity_id = (
-                f"button.{coordinator.device_name.lower()}_{entity_description.key}"
+            self.entity_id = f"button.{slugify(coordinator.device_name.lower())}_{entity_description.key}".replace(
+                "__", "_"
             )
         elif coordinator.source_entity_id and coordinator.device_id:
             _, source_object_id = split_entity_id(coordinator.source_entity_id)
             self._attr_translation_placeholders = {
                 "device_name": coordinator.source_entity_name + " "
             }
-            self.entity_id = f"button.{source_object_id}_{entity_description.key}"
+            self.entity_id = (
+                f"button.{source_object_id}_{entity_description.key}".replace("__", "_")
+            )
         else:
             self._attr_translation_placeholders = {"device_name": ""}
-            self.entity_id = (
-                f"button.{coordinator.device_name.lower()}_{entity_description.key}"
+            self.entity_id = f"button.{slugify(coordinator.device_name.lower())}_{entity_description.key}".replace(
+                "__", "_"
             )
 
         self._attr_unique_id = unique_id
