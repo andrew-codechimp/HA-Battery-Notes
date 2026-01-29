@@ -1,4 +1,4 @@
-## 2037 Devices in library
+## 2038 Devices in library
 
 This file is auto generated, do not modify
 
@@ -2018,6 +2018,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Yookee                                          |Smart blind                                                                                   |Rechargeable              |D10110_1                           |                                      |
 |Zbeacon                                         |DS01                                                                                          |MANUAL                    |                                   |                                      |
 |Zbeacon                                         |Temperature and humidity sensor                                                               |2× AAA                    |TH01                               |                                     0|
+|Zemismart                                       |Cover motor                                                                                   |Rechargeable              |ZM16EL-03/33                       |                                      |
 |ZEMISMART                                       |TS0044                                                                                        |CR2450                    |                                   |                                      |
 |Zemismart Technology Limited                    |Zemismart Roller Shade Driver                                                                 |Rechargeable              |                              64257|1.0.0                                 |
 |Zen                                             |Thermostat (Zen-01-W)                                                                         |4× AA                     |                                   |                                     3|

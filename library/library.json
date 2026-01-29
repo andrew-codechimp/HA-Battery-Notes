@@ -11599,6 +11599,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Zemismart",
+            "model": "Cover motor",
+            "model_id": "ZM16EL-03/33",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "ZEMISMART",
             "model": "TS0044",
             "battery_type": "CR2450"
@@ -11734,12 +11740,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Zemismart",
-            "model": "Cover motor",
-            "model_id": "ZM16EL-03/33",
             "battery_type": "Rechargeable"
         }
     ]
