@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from collections.abc import Mapping
 from dataclasses import dataclass
 
 from homeassistant.core import HomeAssistant, split_entity_id
@@ -9,6 +10,7 @@ from homeassistant.helpers import device_registry as dr
 from homeassistant.helpers.device import async_entity_id_to_device_id
 from homeassistant.helpers.entity import EntityDescription
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
+from homeassistant.util import slugify
 
 from .coordinator import BatteryNotesSubentryCoordinator
 
@@ -50,27 +52,11 @@ class BatteryNotesEntity(CoordinatorEntity[BatteryNotesSubentryCoordinator]):
         self._attr_has_entity_name = True
 
         # Set up entity naming and translation placeholders
-        self._set_entity_id(entity_description)
+        self._attr_translation_placeholders = self._generate_translation_placeholders()
+        self.entity_id = self._generate_entity_id()
 
         # Set up device association
         self._associate_device(hass, device_registry)
-
-    def _set_entity_id(self, entity_description: BatteryNotesEntityDescription) -> None:
-        """Set up entity naming and translation placeholders."""
-        if self.coordinator.source_entity_id and not self.coordinator.device_id:
-            self._attr_translation_placeholders = {
-                "device_name": self.coordinator.device_name + " "
-            }
-            self.entity_id = f"{entity_description.entity_type}.{self.coordinator.device_name.lower()}_{entity_description.key}"
-        elif self.coordinator.source_entity_id and self.coordinator.device_id:
-            _, source_object_id = split_entity_id(self.coordinator.source_entity_id)
-            self._attr_translation_placeholders = {
-                "device_name": self.coordinator.source_entity_name + " "
-            }
-            self.entity_id = f"{entity_description.entity_type}.{source_object_id}_{entity_description.key}"
-        else:
-            self._attr_translation_placeholders = {"device_name": ""}
-            self.entity_id = f"{entity_description.entity_type}.{self.coordinator.device_name.lower()}_{entity_description.key}"
 
     def _associate_device(
         self, hass: HomeAssistant, device_registry: dr.DeviceRegistry
@@ -94,3 +80,31 @@ class BatteryNotesEntity(CoordinatorEntity[BatteryNotesSubentryCoordinator]):
         else:
             # No device, leave hanging
             self.device_entry = None
+
+    def _generate_translation_placeholders(self) -> Mapping[str, str]:
+        """Generate translation placeholders."""
+        if self.coordinator.source_entity_id and not self.coordinator.device_id:
+            return {"device_name": self.coordinator.device_name + " "}
+        elif self.coordinator.source_entity_id and self.coordinator.device_id:
+            return {"device_name": self.coordinator.source_entity_name + " "}
+        else:
+            return {"device_name": ""}
+
+    def _generate_entity_id(
+        self,
+    ) -> str:
+        """Generate a consistent entity ID."""
+        entity_type = self.entity_description.entity_type
+        entity_key = self.entity_description.key
+
+        if self.coordinator.source_entity_id and not self.coordinator.device_id:
+            return f"{entity_type}.{slugify(self.coordinator.device_name.lower())}_{entity_key}".replace(
+                "__", "_"
+            )
+        elif self.coordinator.source_entity_id and self.coordinator.device_id:
+            _, source_object_id = split_entity_id(self.coordinator.source_entity_id)
+            return f"{entity_type}.{source_object_id}_{entity_key}".replace("__", "_")
+        else:
+            return f"{entity_type}.{slugify(self.coordinator.device_name.lower())}_{entity_key}".replace(
+                "__", "_"
+            )

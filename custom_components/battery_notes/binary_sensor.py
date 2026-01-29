@@ -25,7 +25,6 @@ from homeassistant.core import (
     Event,
     HomeAssistant,
     callback,
-    split_entity_id,
 )
 from homeassistant.exceptions import TemplateError
 from homeassistant.helpers import (
@@ -54,7 +53,10 @@ from homeassistant.helpers.template import (
     TemplateStateFromEntityId,
 )
 
-from .common import utcnow_no_timezone, validate_is_float
+from .common import (
+    utcnow_no_timezone,
+    validate_is_float,
+)
 from .const import (
     ATTR_BATTERY_LAST_REPLACED,
     ATTR_BATTERY_LOW_THRESHOLD,
@@ -288,23 +290,6 @@ class BatteryNotesBatteryLowBinaryTemplateSensor(
         self._template_attrs: dict[Template, list[_TemplateAttribute]] = {}
         self._template_result_info: TrackTemplateResultInfo | None = None
 
-        if coordinator.source_entity_id and not coordinator.device_id:
-            self._attr_translation_placeholders = {
-                "device_name": coordinator.device_name + " "
-            }
-            self.entity_id = f"binary_sensor.{coordinator.device_name.lower()}_{entity_description.key}"
-        elif coordinator.source_entity_id and coordinator.device_id:
-            _, source_object_id = split_entity_id(coordinator.source_entity_id)
-            self._attr_translation_placeholders = {
-                "device_name": coordinator.source_entity_name + " "
-            }
-            self.entity_id = (
-                f"binary_sensor.{source_object_id}_{entity_description.key}"
-            )
-        else:
-            self._attr_translation_placeholders = {"device_name": ""}
-            self.entity_id = f"binary_sensor.{coordinator.device_name.lower()}_{entity_description.key}"
-
         self._template = battery_low_template
         self._state: bool | None = None
 
@@ -476,23 +461,6 @@ class BatteryNotesBatteryPercentageTemplateLowSensor(BatteryNotesBatteryLowBaseS
             hass=hass, coordinator=coordinator, entity_description=entity_description
         )
 
-        if coordinator.source_entity_id and not coordinator.device_id:
-            self._attr_translation_placeholders = {
-                "device_name": coordinator.device_name + " "
-            }
-            self.entity_id = f"binary_sensor.{coordinator.device_name.lower()}_{entity_description.key}"
-        elif coordinator.source_entity_id and coordinator.device_id:
-            _, source_object_id = split_entity_id(coordinator.source_entity_id)
-            self._attr_translation_placeholders = {
-                "device_name": coordinator.source_entity_name + " "
-            }
-            self.entity_id = (
-                f"binary_sensor.{source_object_id}_{entity_description.key}"
-            )
-        else:
-            self._attr_translation_placeholders = {"device_name": ""}
-            self.entity_id = f"binary_sensor.{coordinator.device_name.lower()}_{entity_description.key}"
-
         self._attr_unique_id = unique_id
 
     async def async_added_to_hass(self) -> None:
@@ -538,28 +506,12 @@ class BatteryNotesBatteryWrappedLowSensor(BatteryNotesBatteryLowBaseSensor):
         unique_id: str,
     ) -> None:
         """Create a low battery binary sensor."""
+
+        self._attr_unique_id = unique_id
+
         super().__init__(
             hass=hass, coordinator=coordinator, entity_description=entity_description
         )
-
-        if coordinator.source_entity_id and not coordinator.device_id:
-            self._attr_translation_placeholders = {
-                "device_name": coordinator.device_name + " "
-            }
-            self.entity_id = f"binary_sensor.{coordinator.device_name.lower()}_{entity_description.key}"
-        elif coordinator.source_entity_id and coordinator.device_id:
-            _, source_object_id = split_entity_id(coordinator.source_entity_id)
-            self._attr_translation_placeholders = {
-                "device_name": coordinator.source_entity_name + " "
-            }
-            self.entity_id = (
-                f"binary_sensor.{source_object_id}_{entity_description.key}"
-            )
-        else:
-            self._attr_translation_placeholders = {"device_name": ""}
-            self.entity_id = f"binary_sensor.{coordinator.device_name.lower()}_{entity_description.key}"
-
-        self._attr_unique_id = unique_id
 
     async def async_added_to_hass(self) -> None:
         """Handle added to Hass."""
@@ -619,23 +571,6 @@ class BatteryNotesBatteryBinaryLowSensor(BatteryNotesBatteryLowBaseSensor):
         super().__init__(
             hass=hass, coordinator=coordinator, entity_description=entity_description
         )
-
-        if coordinator.source_entity_id and not coordinator.device_id:
-            self._attr_translation_placeholders = {
-                "device_name": coordinator.device_name + " "
-            }
-            self.entity_id = f"binary_sensor.{coordinator.device_name.lower()}_{entity_description.key}"
-        elif coordinator.source_entity_id and coordinator.device_id:
-            _, source_object_id = split_entity_id(coordinator.source_entity_id)
-            self._attr_translation_placeholders = {
-                "device_name": coordinator.source_entity_name + " "
-            }
-            self.entity_id = (
-                f"binary_sensor.{source_object_id}_{entity_description.key}"
-            )
-        else:
-            self._attr_translation_placeholders = {"device_name": ""}
-            self.entity_id = f"binary_sensor.{coordinator.device_name.lower()}_{entity_description.key}"
 
         self._attr_unique_id = unique_id
 

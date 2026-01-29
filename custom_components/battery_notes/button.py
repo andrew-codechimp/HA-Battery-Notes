@@ -12,7 +12,7 @@ from homeassistant.components.button import (
 from homeassistant.const import (
     CONF_DEVICE_ID,
 )
-from homeassistant.core import HomeAssistant, callback, split_entity_id
+from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers import (
     device_registry as dr,
     entity_registry as er,
@@ -130,25 +130,6 @@ class BatteryNotesButton(BatteryNotesEntity, ButtonEntity):
         super().__init__(
             hass=hass, entity_description=entity_description, coordinator=coordinator
         )
-
-        if coordinator.source_entity_id and not coordinator.device_id:
-            self._attr_translation_placeholders = {
-                "device_name": coordinator.device_name + " "
-            }
-            self.entity_id = (
-                f"button.{coordinator.device_name.lower()}_{entity_description.key}"
-            )
-        elif coordinator.source_entity_id and coordinator.device_id:
-            _, source_object_id = split_entity_id(coordinator.source_entity_id)
-            self._attr_translation_placeholders = {
-                "device_name": coordinator.source_entity_name + " "
-            }
-            self.entity_id = f"button.{source_object_id}_{entity_description.key}"
-        else:
-            self._attr_translation_placeholders = {"device_name": ""}
-            self.entity_id = (
-                f"button.{coordinator.device_name.lower()}_{entity_description.key}"
-            )
 
         self._attr_unique_id = unique_id
         self._source_entity_id = coordinator.source_entity_id
