@@ -30,7 +30,7 @@ dev = [
     "colorlog",
     "homeassistant==2025.9.0",
     "mypy",
-    "pycares<5.0.0",
+    "pycares<5.0.2",
     "ruff",
 ]
 
