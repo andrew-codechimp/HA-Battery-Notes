@@ -417,6 +417,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "_TZ3000_zgyzgdua",
+            "model": "TS0044",
+            "battery_type": "CR2430"
+        },
+        {
             "manufacturer": "_TZ3000_zl1kmjqx",
             "model": "TY0201",
             "battery_type": "CR2450"
@@ -11741,11 +11746,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "_TZ3000_zgyzgdua",
-            "model": "TS0044",
-            "battery_type": "CR2430"
         }
     ]
 }
