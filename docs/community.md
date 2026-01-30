@@ -278,6 +278,83 @@ actions:
         trigger.event.data.battery_type }}
 ```
 
+### Check Battery Last Replaced - Response Variable
+
+This script can be used to call the check battery last replaced action and get a response for those not replaced in the last 365 days.  
+It then adds all devices to a todo list.
+
+```yaml
+sequence:
+  - action: battery_notes.check_battery_last_replaced
+    data:
+      days_last_replaced: 365
+      raise_events: false
+    response_variable: response
+  - repeat:
+      for_each: "{{ response.get('check_battery_last_replaced', []) }}"
+      sequence:
+        - action: todo.add_item
+          metadata: {}
+          data:
+            item: >-
+              {{ repeat.item.device_name }} - {{
+              repeat.item.battery_type_and_quantity }}
+          target:
+            entity_id: todo.maintenance_list
+alias: Add not replaced to maintenance list 
+description: ""
+```
+
+### Check Battery Last Replaced Monthly - Raising Events
+
+Call the check battery last replaced action on the first of the month to raise events for those not replaced in the last 365 days.  
+To be used in conjunction with a Battery Not Replaced automation.
+
+```yaml
+alias: Monthly Battery Not Replaced Check
+description: Check when a battery was last replaced
+mode: single
+triggers:
+  - platform: template
+    value_template: "{{ now().day == 1 }}"
+conditions: []
+actions:
+  - action: battery_notes.check_battery_last_replaced
+    data:
+      days_last_replaced: 365
+```
+
+### Battery Not Replaced
+
+Respond to events raised by the check_battery_last_replaced action and create notifications.
+
+!!! info
+
+    Note this cannot be run manually as it examines event triggers, use it with the [Check Battery Last Reported Daily](community.md/#check-battery-last-reported-monthly) or similar.
+
+```yaml
+alias: Battery Not Replaced
+description: Battery not replaced
+mode: queued
+max: 30
+triggers:
+  - trigger: event
+    event_type: battery_notes_battery_not_replaced
+conditions: []
+actions:
+  - action: persistent_notification.create
+    data:
+      title: |
+        {{ trigger.event.data.device_name }} Battery Not Replaced
+      message: >
+        The device has not been replaced for {{ 
+        trigger.event.data.battery_last_replaced_days }} days {{ '\n' 
+        -}} Its last replaced date was {{ trigger.event.data.battery_last_replaced 
+        | as_timestamp | timestamp_custom('%Y-%m-%d', true)}} {{ '\n' -}} You need 
+        {{ trigger.event.data.battery_quantity }}× {{ trigger.event.data.battery_type }}   
+```
+
+
 ## Automation Tips
 
 To call the battery replaced action from an entity trigger you will need the device_id, here's an easy way to get this

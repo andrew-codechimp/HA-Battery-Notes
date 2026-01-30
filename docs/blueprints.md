@@ -26,3 +26,14 @@ It is extended from the [community Battery Not Reported automation yaml](communi
 !!! info
 
     You must trigger the check_battery_not_reported action via an automation to raise events, see [Check Battery Last Reported Daily](community.md/#check-battery-last-reported-daily).
+
+### Battery Not Replaced
+
+[Install blueprint](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fraw.githubusercontent.com%2Fandrew-codechimp%2FHA-Battery-Notes%2Fmain%2Fdocs%2Fblueprints%2Fbattery_notes_battery_not_replaced.yaml) | [Source](https://raw.githubusercontent.com/andrew-codechimp/HA-Battery-Notes/main/docs/blueprints/battery_notes_battery_not_replaced.yaml)
+
+This blueprint will allow notifications to be raised and/or custom actions to be performed when the battery not replaced event is fired.  
+It is extended from the [community Battery Not Replaced automation yaml](community.md/#battery-not-replaced) for those who'd prefer an easy way to get started.
+
+!!! info
+
+    You must trigger the check_battery_not_replaced action via an automation to raise events, see [Check Battery Last Replaced Daily](community.md/#check-battery-last-replaced-monthly).
