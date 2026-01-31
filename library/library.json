@@ -3717,6 +3717,14 @@
         },
         {
             "manufacturer": "Eve Systems",
+            "model": "Eve Thermo 20ECD1701",
+            "model_id": "125",
+            "hw_version": "1.1",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Eve Systems",
             "model": "Eve Weather",
             "model_id": "20EBS9901",
             "hw_version": "1.1",
@@ -11764,14 +11772,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Eve Systems",
-            "model": "Eve Thermo 20ECD1701",
-            "model_id": "125",
-            "hw_version": "1.1",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
