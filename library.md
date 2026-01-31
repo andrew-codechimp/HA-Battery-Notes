@@ -1,4 +1,4 @@
-## 2041 Devices in library
+## 2042 Devices in library
 
 This file is auto generated, do not modify
 
@@ -170,6 +170,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Aeotec Ltd.                                     |ZWA005                                                                                        |CR123A                    |                                   |                                      |
 |Aeotec Ltd.                                     |ZWA008                                                                                        |LS14250                   |                                   |                                      |
 |Aeotec Ltd.                                     |ZWA009                                                                                        |CR2477                    |                                   |                                      |
+|Aeotec Ltd.                                     |ZWA011                                                                                        |CR14250                   |                                   |                                      |
 |Aeotec Ltd.                                     |ZWA012                                                                                        |LS14250                   |                                   |                                      |
 |Aeotec Ltd.                                     |ZWA018                                                                                        |CR14250                   |                                   |                                      |
 |Aeotec Ltd.                                     |ZWA019                                                                                        |LS14250                   |                                   |                                      |

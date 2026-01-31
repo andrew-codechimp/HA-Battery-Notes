@@ -922,6 +922,11 @@
         },
         {
             "manufacturer": "Aeotec Ltd.",
+            "model": "ZWA011",
+            "battery_type": "CR14250"
+        },
+        {
+            "manufacturer": "Aeotec Ltd.",
             "model": "ZWA012",
             "battery_type": "LS14250"
         },
@@ -11759,11 +11764,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Aeotec Ltd.",
-            "model": "ZWA011",
-            "battery_type": "CR14250"
         }
     ]
 }
