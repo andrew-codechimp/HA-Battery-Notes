@@ -2084,6 +2084,11 @@
             "battery_type": "CR456"
         },
         {
+            "manufacturer": "BLOOMIN8",
+            "model": "E-Ink Canvas",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Blueforcer",
             "model": "AWTRIX 3",
             "battery_type": "Rechargeable"
@@ -11753,11 +11758,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "BLOOMIN8",
-            "model": "E-Ink Canvas",
             "battery_type": "Rechargeable"
         }
     ]

@@ -1,4 +1,4 @@
-## 2040 Devices in library
+## 2041 Devices in library
 
 This file is auto generated, do not modify
 
@@ -368,6 +368,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |b-parasite                                      |Plant sensor                                                                                  |CR2032                    |                                   |                                      |
 |Bird Buddy, Inc.                                |Bird Buddy                                                                                    |Rechargeable              |                                   |                                      |
 |BITRON VIDEO                                    |AV2010/22A                                                                                    |CR456                     |                                   |                                      |
+|BLOOMIN8                                        |E-Ink Canvas                                                                                  |Rechargeable              |                                   |                                      |
 |Blueforcer                                      |AWTRIX 3                                                                                      |Rechargeable              |                                   |                                      |
 |Blueforcer                                      |AWTRIX Light                                                                                  |Rechargeable              |                                   |                                      |
 |BlueMaestro                                     |Tempo Disc THD                                                                                |CR2032                    |                                   |                                      |
