@@ -11772,6 +11772,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Zemismart",
+            "model": "Blind driver",
+            "model_id": "ZMP1",
+            "hw_version": "1",
+            "battery_type": "Rechargeable"
         }
     ]
 }
