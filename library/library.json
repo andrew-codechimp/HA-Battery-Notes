@@ -11804,6 +11804,19 @@
             "manufacturer": "eWeLink",
             "model": "CK-TLSR8656-SS5-01(7014)",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "PushOK Hardware",
+            "model": "POK007",
+            "hw_version": "v2",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "PushOk Hardware",
+            "model": "POK009",
+            "hw_version": "v2",
+            "battery_type": "CR2032"
         }
     ]
 }
