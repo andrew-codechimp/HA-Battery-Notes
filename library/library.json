@@ -8715,6 +8715,12 @@
             "battery_type": "CR2"
         },
         {
+            "manufacturer": "SwitchBot",
+            "model": "WoIOSensor",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "switchbot",
             "model": "WoIOSensorTH",
             "battery_type": "AAA",
@@ -11787,12 +11793,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "SwitchBot",
-            "model": "WoIOSensor",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }

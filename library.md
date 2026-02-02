@@ -1,4 +1,4 @@
-## 2045 Devices in library
+## 2046 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1527,6 +1527,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |switchbot                                       |WoContact                                                                                     |2× AAA                    |                                   |                                      |
 |switchbot                                       |WoCurtain                                                                                     |Rechargeable              |                                   |                                      |
 |switchbot                                       |woHand                                                                                        |CR2                       |                                   |                                      |
+|SwitchBot                                       |WoIOSensor                                                                                    |2× AAA                    |                                   |                                      |
 |switchbot                                       |WoIOSensorTH                                                                                  |2× AAA                    |                                   |                                      |
 |switchbot                                       |WoLock                                                                                        |2× CR123A                 |                                   |                                      |
 |switchbot                                       |WoLockPro                                                                                     |4× AA                     |                                   |                                      |
