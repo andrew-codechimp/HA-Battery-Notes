@@ -11772,6 +11772,14 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Thermostatic radiator valve (v1.5 - with Refactored Modes)",
+            "model_id": "TRV602Z",
+            "hw_version": "1",
+            "battery_type": "AA",
+            "battery_quantity": 3
         }
     ]
 }
