@@ -11803,7 +11803,7 @@
         {
             "manufacturer": "eWeLink",
             "model": "CK-TLSR8656-SS5-01(7014)",
-            "battery_type": "2032"
+            "battery_type": "CR2032"
         }
     ]
 }
