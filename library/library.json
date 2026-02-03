@@ -11817,6 +11817,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "HOBEIAN",
+            "model": "ZG-227Z",
+            "hw_version": "V1.0",
+            "battery_type": "CR2450"
         }
     ]
 }
