@@ -1,4 +1,4 @@
-## 2047 Devices in library
+## 2050 Devices in library
 
 This file is auto generated, do not modify
 
@@ -660,6 +660,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Everspring                                      |ST814                                                                                         |3× AA                     |                                   |                                      |
 |Everspring                                      |ST815                                                                                         |3× AA                     |                                   |                                      |
 |eWeLink                                         |66666                                                                                         |CR2450                    |                                   |                                      |
+|eWeLink                                         |CK-TLSR8656-SS5-01(7014)                                                                      |CR2032                    |                                   |                                      |
 |eWeLink                                         |Contact sensor                                                                                |CR2032                    |SNZB-04                            |                                     0|
 |eWeLink                                         |DS01                                                                                          |CR2032                    |                                   |                                      |
 |eWeLink                                         |Motion sensor                                                                                 |CR2450                    |SNZB-03                            |                                     0|
@@ -1238,6 +1239,8 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Popp & Co                                       |004407                                                                                        |LR14250                   |                                   |                                      |
 |Popp & Co                                       |POPE700168                                                                                    |2× AAA                    |                                   |                                      |
 |Powermax                                        |MCT-426                                                                                       |CR123A                    |                                   |                                      |
+|PushOK Hardware                                 |POK007                                                                                        |2× AAA                    |                                   |v2                                    |
+|PushOk Hardware                                 |POK009                                                                                        |CR2032                    |                                   |v2                                    |
 |Qingping                                        |CGG1                                                                                          |CR2430                    |                                   |                                      |
 |Qingping                                        |GCP22C                                                                                        |Rechargeable              |                                   |                                      |
 |Qingping Technology (Beijing) Co., Ltd.         |CGG1T                                                                                         |CR2430                    |                                   |                                      |

@@ -3785,6 +3785,11 @@
         },
         {
             "manufacturer": "eWeLink",
+            "model": "CK-TLSR8656-SS5-01(7014)",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "eWeLink",
             "model": "Contact sensor",
             "model_id": "SNZB-04",
             "hw_version": "0",
@@ -7093,6 +7098,19 @@
             "manufacturer": "Powermax",
             "model": "MCT-426",
             "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "PushOK Hardware",
+            "model": "POK007",
+            "hw_version": "v2",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "PushOk Hardware",
+            "model": "POK009",
+            "hw_version": "v2",
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "Qingping",
@@ -11799,24 +11817,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "eWeLink",
-            "model": "CK-TLSR8656-SS5-01(7014)",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "PushOK Hardware",
-            "model": "POK007",
-            "hw_version": "v2",
-            "battery_type": "AAA",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "PushOk Hardware",
-            "model": "POK009",
-            "hw_version": "v2",
-            "battery_type": "CR2032"
         }
     ]
 }
