@@ -1,4 +1,4 @@
-## 2050 Devices in library
+## 2051 Devices in library
 
 This file is auto generated, do not modify
 
@@ -820,6 +820,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |HOBEIAN                                         |ZG-204ZM                                                                                      |2× AAA                    |                                   |                                      |
 |HOBEIAN                                         |ZG-204ZV                                                                                      |2× AAA                    |                                   |                                      |
 |HOBEIAN                                         |ZG-227Z                                                                                       |CR2032                    |                                   |                                      |
+|HOBEIAN                                         |ZG-227Z                                                                                       |CR2450                    |                                   |V1.0                                  |
 |HOBEIAN                                         |ZG-303Z                                                                                       |2× AAA                    |                                   |                                      |
 |Homematic                                       |HM-CC-RT-DN                                                                                   |2× AA                     |MEQ0789539                         |                                      |
 |Homematic                                       |HM-RC-4-3                                                                                     |AAA                       |                                   |                                      |
