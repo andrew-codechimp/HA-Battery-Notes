@@ -11818,6 +11818,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "PushOk Hardware",
+            "model": "POK010",
+            "battery_type": "CR2032"
         }
     ]
 }
