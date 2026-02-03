@@ -11823,6 +11823,11 @@
             "manufacturer": "PushOk Hardware",
             "model": "POK005",
             "battery_type": "CR14250"
+        },
+        {
+            "manufacturer": "PushOk Hardware",
+            "model": "POK010",
+            "battery_type": "CR2032"
         }
     ]
 }
