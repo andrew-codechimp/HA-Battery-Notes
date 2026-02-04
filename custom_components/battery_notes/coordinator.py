@@ -192,12 +192,12 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
 
                 if device_entry and device_entry.created_at.year > 1970:
                     last_replaced = device_entry.created_at.strftime(
-                        "%Y-%m-%dT%H:%M:%S:%f"
+                        "%Y-%m-%dT%H:%M:%S.%f"
                     )
             elif self.source_entity_id:
                 entity = entity_registry.async_get(self.source_entity_id)
                 if entity and entity.created_at.year > 1970:
-                    last_replaced = entity.created_at.strftime("%Y-%m-%dT%H:%M:%S:%f")
+                    last_replaced = entity.created_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
 
             _LOGGER.debug(
                 "Defaulting %s battery last replaced to %s",
