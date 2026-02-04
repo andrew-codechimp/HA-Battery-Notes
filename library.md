@@ -1,4 +1,4 @@
-## 2051 Devices in library
+## 2052 Devices in library
 
 This file is auto generated, do not modify
 
@@ -819,7 +819,6 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |HOBEIAN                                         |ZG-102ZM                                                                                      |CR2032                    |                                   |                                      |
 |HOBEIAN                                         |ZG-204ZM                                                                                      |2× AAA                    |                                   |                                      |
 |HOBEIAN                                         |ZG-204ZV                                                                                      |2× AAA                    |                                   |                                      |
-|HOBEIAN                                         |ZG-227Z                                                                                       |CR2032                    |                                   |                                      |
 |HOBEIAN                                         |ZG-227Z                                                                                       |CR2450                    |                                   |V1.0                                  |
 |HOBEIAN                                         |ZG-303Z                                                                                       |2× AAA                    |                                   |                                      |
 |Homematic                                       |HM-CC-RT-DN                                                                                   |2× AA                     |MEQ0789539                         |                                      |
@@ -1240,8 +1239,10 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Popp & Co                                       |004407                                                                                        |LR14250                   |                                   |                                      |
 |Popp & Co                                       |POPE700168                                                                                    |2× AAA                    |                                   |                                      |
 |Powermax                                        |MCT-426                                                                                       |CR123A                    |                                   |                                      |
+|PushOk Hardware                                 |POK005                                                                                        |CR14250                   |                                   |                                      |
 |PushOK Hardware                                 |POK007                                                                                        |2× AAA                    |                                   |v2                                    |
 |PushOk Hardware                                 |POK009                                                                                        |CR2032                    |                                   |v2                                    |
+|PushOk Hardware                                 |POK010                                                                                        |CR2032                    |                                   |                                      |
 |Qingping                                        |CGG1                                                                                          |CR2430                    |                                   |                                      |
 |Qingping                                        |GCP22C                                                                                        |Rechargeable              |                                   |                                      |
 |Qingping Technology (Beijing) Co., Ltd.         |CGG1T                                                                                         |CR2430                    |                                   |                                      |

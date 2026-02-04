@@ -7101,6 +7101,11 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "PushOk Hardware",
+            "model": "POK005",
+            "battery_type": "CR14250"
+        },
+        {
             "manufacturer": "PushOK Hardware",
             "model": "POK007",
             "hw_version": "v2",
@@ -7111,6 +7116,11 @@
             "manufacturer": "PushOk Hardware",
             "model": "POK009",
             "hw_version": "v2",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "PushOk Hardware",
+            "model": "POK010",
             "battery_type": "CR2032"
         },
         {
@@ -11818,16 +11828,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "PushOk Hardware",
-            "model": "POK005",
-            "battery_type": "CR14250"
-        },
-        {
-            "manufacturer": "PushOk Hardware",
-            "model": "POK010",
-            "battery_type": "CR2032"
         }
     ]
 }
