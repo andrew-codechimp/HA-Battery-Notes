@@ -97,6 +97,7 @@ ignore = [
   "TC006",  # Add quotes to type expression in typing.cast()
   "TD002",  # Missing auther in TODO
   "TD003",  # Missing issue link TODO
+  "TRY400",  # Use `logging.exception` instead of `logging.error`
 
   # TODO: Temporary ignores, to review
   "ANN001",  # Missing type annotation for function argument
@@ -119,7 +120,6 @@ ignore = [
   "TRY003",  # Avoid specifying long messages outside the exception class
   "TRY004",  # Prefer `TypeError` exception for invalid type
   "TRY300",  # Consider moving this statement to an `else` block
-  "TRY400",  # Use `logging.exception` instead of `logging.error`
 ]
 
 
