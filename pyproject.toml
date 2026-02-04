@@ -89,6 +89,8 @@ ignore = [
 
   # Project preference
   "ERA001",  # Found commented-out code
+  "FBT001",  # Boolean-typed positional argument in function definition
+  "FBT002",  # Boolean-typed positional argument in function definition
   "RUF001", # String contains ambiguous character
   "S101",   # Use of assert detected
   "TC001",  # Move application import into type checking
@@ -101,11 +103,8 @@ ignore = [
   "ANN201",  # Missing return type annotation for public function
   "ANN202",  # Missing return type annotation for private function
   "ANN204",  # Missing return type annotation for special method
-  "DTZ005",  # The use of `datetime.datetime.now()` without `tz` argument is not allowed
   "EM101",   # Exception must not use a string literal, assign to variable first
   "EM102",   # Exception must not use an f-string literal, assign to variable first
-  "FBT001",  # Boolean-typed positional argument in function definition
-  "FBT002",  # Boolean-typed positional argument in function definition
   "PLR2004", # Magic value used in comparison
   "PTH103",  # `os.makedirs()` should be replaced by `Path.mkdir()`
   "PTH104",  # `os.rename()` should be replaced by `Path.rename()`
