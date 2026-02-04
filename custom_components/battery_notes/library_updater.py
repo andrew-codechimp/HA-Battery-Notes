@@ -63,7 +63,7 @@ class LibraryUpdater:
         self._client = LibraryUpdaterClient(session=async_get_clientsession(hass))
 
         # Fire the library check every 24 hours from just before now
-        refresh_time = dt_util.utcnow - timedelta(hours=0, minutes=1)
+        refresh_time = dt_util.utcnow() - timedelta(hours=0, minutes=1)
         async_track_utc_time_change(
             hass,
             self.timer_update,
