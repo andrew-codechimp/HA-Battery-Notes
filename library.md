@@ -1,4 +1,4 @@
-## 2052 Devices in library
+## 2053 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1652,6 +1652,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tuya                                            |Door sensor (TS0203)                                                                          |2× AAA                    |                                   |                                      |
 |TuYa                                            |Door sensor (ZD08)                                                                            |CR2032                    |                                   |                                      |
 |TuYa                                            |Door sensor (ZG-102Z)                                                                         |CR2032                    |                                   |                                      |
+|Tuya                                            |Door window sensor                                                                            |2× AAA                    |ZD06                               |                                     1|
 |Tuya                                            |Door/window sensor                                                                            |CR2032                    |TS0203                             |                                     1|
 |Tuya                                            |Fingerbot Plus (6jcvqwh0)                                                                     |CR2                       |                                   |                                      |
 |TuYa                                            |IH012-RT01                                                                                    |CR2450                    |                                   |                                      |

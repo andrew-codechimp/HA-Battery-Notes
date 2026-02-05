@@ -9470,6 +9470,14 @@
         },
         {
             "manufacturer": "Tuya",
+            "model": "Door window sensor",
+            "model_id": "ZD06",
+            "hw_version": "1",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tuya",
             "model": "Door/window sensor",
             "model_id": "TS0203",
             "hw_version": "1",
@@ -11828,14 +11836,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Door window sensor",
-            "model_id": "ZD06",
-            "hw_version": "1",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
