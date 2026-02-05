@@ -11828,6 +11828,14 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Door window sensor",
+            "model_id": "ZD06",
+            "hw_version": "1",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
