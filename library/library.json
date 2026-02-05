@@ -11828,6 +11828,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Solar light sensor",
+            "model_id": "TS0222_solar_light",
+            "hw_version": "1",
+            "battery_type": "Solar"
         }
     ]
 }
