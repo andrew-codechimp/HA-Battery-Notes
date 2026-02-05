@@ -1,4 +1,4 @@
-## 2055 Devices in library
+## 2056 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1073,6 +1073,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Moes                                            |Smart door and window sensor (ZSS-JM-GWM-C-MS)                                                |CR2032                    |_TZ3000_decxrtwa                   |                                      |
 |Moes                                            |Smart temperature and humidity meter with display                                             |CR2032                    |ZSS-ZK-THL                         |                                     1|
 |Moes                                            |Smoke sensor (ZSS-HM-SSD01)                                                                   |CR123A                    |                                   |                                      |
+|Moes                                            |Temperature and humidity sensor                                                               |CR2032                    |ZSS-S01-TH                         |                                     1|
 |Moes                                            |Thermostat radiator valve                                                                     |2× AA                     |TV01-ZB                            |                                      |
 |Moes                                            |Thermostat radiator valve (TV01-ZB)                                                           |2× AA                     |                                   |                                      |
 |Moes                                            |Thermostat radiator valve (ZTRV-ZX-TV01-MS)                                                   |2× AA                     |                                   |                                      |
