@@ -1,4 +1,4 @@
-## 2054 Devices in library
+## 2055 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1722,6 +1722,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tuya                                            |Soil sensor                                                                                   |2× AAA                    |TS0601_soil_3                      |                                     1|
 |TuYa                                            |Soil sensor (TS0601_soil)                                                                     |2× AA                     |                                   |                                      |
 |Tuya                                            |Soil sensor (TS0601_soil_3)                                                                   |2× AAA                    |                                   |                                      |
+|Tuya                                            |Solar light sensor                                                                            |Solar                     |TS0222_solar_light                 |                                     1|
 |Tuya                                            |Solar powered rain sensor                                                                     |Solar                     |_TZ3000_mqiev3jk                   |                                     1|
 |Tuya                                            |Solar Rain sensor                                                                             |Solar                     |RB-SRAIN01                         |                                      |
 |Tuya                                            |T & H Sensor                                                                                  |2× AAA                    |lf36y5nwb8jkxwgg                   |TH01CB3S                              |
