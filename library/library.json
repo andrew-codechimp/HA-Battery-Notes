@@ -11850,6 +11850,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Moes",
+            "model": "Temperature and humidity sensor",
+            "model_id": "ZSS-S01-TH",
+            "hw_version": "1",
+            "battery_type": "CR2032"
         }
     ]
 }
