@@ -1,4 +1,4 @@
-## 2056 Devices in library
+## 2057 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1497,6 +1497,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |SONOFF                                          |ZBCurtain                                                                                     |Rechargeable              |                                   |                                      |
 |SONOFF                                          |Zigbee PIR sensor                                                                             |CR2477                    |SBZB-03P                           |                                      |
 |SONOFF                                          |Zigbee PIR sensor (SNZB-03P)                                                                  |CR2477                    |                                   |                                      |
+|SONOFF                                          |Zigbee smart curtain motor                                                                    |Rechargeable              |ZBCurtain                          |                                     0|
 |SONOFF                                          |Zigbee smart water valve                                                                      |4× AA                     |SWV                                |                                    16|
 |SONOFF                                          |Zigbee thermostatic radiator valve                                                            |3× AA                     |TRVZB                              |                                      |
 |SONOFF                                          |Zigbee thermostatic radiator valve (TRVZB)                                                    |3× AA                     |                                   |                                      |

@@ -8544,6 +8544,13 @@
         },
         {
             "manufacturer": "SONOFF",
+            "model": "Zigbee smart curtain motor",
+            "model_id": "ZBCurtain",
+            "hw_version": "0",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "SONOFF",
             "model": "Zigbee smart water valve",
             "model_id": "SWV",
             "hw_version": "16",
@@ -11856,13 +11863,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "SONOFF",
-            "model": "Zigbee smart curtain motor",
-            "model_id": "ZBCurtain",
-            "hw_version": "0",
             "battery_type": "Rechargeable"
         }
     ]
