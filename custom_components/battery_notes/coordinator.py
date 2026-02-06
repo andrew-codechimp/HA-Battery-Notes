@@ -608,6 +608,8 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
             self._previous_battery_low = self.battery_low
             self._previous_battery_level = self._current_battery_level
 
+        self.async_set_updated_data(None)
+
     @property
     def battery_type_and_quantity(self) -> str:
         """Merge battery type & quantity."""
@@ -729,7 +731,9 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
         if self.battery_low_template:
             return self.battery_low_template_state
         elif self.battery_percentage_template or self.wrapped_battery:
-            if validate_is_float(self.current_battery_level):
+            if self.current_battery_level is not None and validate_is_float(
+                self.current_battery_level
+            ):
                 return bool(
                     float(self.current_battery_level) < self.battery_low_threshold
                 )

@@ -8,7 +8,7 @@ from homeassistant.util import dt as dt_util
 
 def validate_is_float(num):
     """Validate value is a float."""
-    if num:
+    if num is not None:
         try:
             float(num)
             return True
