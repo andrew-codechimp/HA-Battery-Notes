@@ -1,4 +1,4 @@
-## 2057 Devices in library
+## 2058 Devices in library
 
 This file is auto generated, do not modify
 
@@ -477,6 +477,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |ecobee Inc.                                     |EBRSE4                                                                                        |CR2032                    |                                   |                                      |
 |EcoDim                                          |ED-10013                                                                                      |CR2450                    |                                   |                                      |
 |EcoDim                                          |Zigbee 8 button wall switch - white (ED-10014)                                                |CR2450                    |                                   |                                      |
+|Ecolink                                         |4655BC0-R                                                                                     |CR2032                    |                                   |                                      |
 |Ecolink                                         |DWZWAVE2                                                                                      |CR123A                    |                                   |                                      |
 |Ecolink                                         |DWZWAVE25                                                                                     |CR123A                    |                                   |                                      |
 |Ecolink                                         |FF-ZWAVE5-ECO                                                                                 |CR123                     |                                   |                                      |

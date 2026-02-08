@@ -2716,6 +2716,11 @@
         },
         {
             "manufacturer": "Ecolink",
+            "model": "4655BC0-R",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Ecolink",
             "model": "DWZWAVE2",
             "battery_type": "CR123A"
         },
@@ -11864,11 +11869,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Ecolink",
-            "model": "4655BC0-R",
-            "battery_type": "CR2032"
         }
     ]
 }
