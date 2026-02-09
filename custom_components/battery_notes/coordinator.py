@@ -421,7 +421,8 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
             )
 
             _LOGGER.debug(
-                "battery_threshold event fired Low: %s via template", self.battery_low
+                "battery_threshold event fired Low: %s via battery_low_template setter",
+                self.battery_low,
             )
 
             if (
@@ -486,7 +487,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
             )
 
             _LOGGER.debug(
-                "battery_threshold event fired Low: %s via binary sensor",
+                "battery_threshold event fired Low: %s via battery_low_binary_state setter",
                 self.battery_low,
             )
 
@@ -569,7 +570,10 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                     },
                 )
 
-                _LOGGER.debug("battery_threshold event fired Low: %s", self.battery_low)
+                _LOGGER.debug(
+                    "battery_threshold event fired Low: %s via current_battery_level setter",
+                    self.battery_low,
+                )
 
             # Battery increased event
             increase_threshold = (
