@@ -300,6 +300,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "_TZ3000_ngsph3oj",
+            "model": "TS0043",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "_TZ3000_nrfkrgf4",
             "model": "TS0046",
             "battery_type": "AAA",
@@ -4681,6 +4686,11 @@
             "manufacturer": "HOBEIAN",
             "model": "ZG-102ZM",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "HOBEIAN",
+            "model": "ZG-204ZL",
+            "battery_type": "CR2450"
         },
         {
             "manufacturer": "HOBEIAN",
