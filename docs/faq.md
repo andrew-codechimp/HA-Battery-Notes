@@ -61,7 +61,7 @@ Example of voltage sensor with a maximum capacity of 3 volts, where 2 volts shou
 ```yaml
 {% set v = states('sensor.my_sensor_voltage') %}
 {{ 
-  (((v | float - 2) / (3 - 2)) * 90 + 10) | round(0)
+  [0, (((v | float - 2) / (3 - 2)) * 90 + 10) | round(0)] | max
   if v not in ['unknown','unavailable'] else 'unknown'
 }}
 ```
