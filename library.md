@@ -1,4 +1,4 @@
-## 2059 Devices in library
+## 2061 Devices in library
 
 This file is auto generated, do not modify
 
@@ -61,6 +61,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |_TZ3000_mrpevh8p                                |TS0041                                                                                        |CR2032                    |                                   |                                      |
 |_TZ3000_msl6wxk9                                |TS0202                                                                                        |CR2450                    |                                   |                                      |
 |_TZ3000_n2egfsli                                |SNZB-04                                                                                       |2× AAA                    |                                   |                                      |
+|_TZ3000_ngsph3oj                                |TS0043                                                                                        |CR2032                    |                                   |                                      |
 |_TZ3000_nrfkrgf4                                |TS0046                                                                                        |2× AAA                    |                                   |                                      |
 |_TZ3000_nss8amz9                                |TS0202                                                                                        |CR2450                    |                                   |                                      |
 |_TZ3000_o4mkahkc                                |TS0202                                                                                        |2× AAA                    |                                   |                                      |
@@ -818,6 +819,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |HOBEIAN                                         |ZG-101ZL                                                                                      |CR2032                    |                                   |                                      |
 |HOBEIAN                                         |ZG-102ZL                                                                                      |CR2032                    |                                   |                                      |
 |HOBEIAN                                         |ZG-102ZM                                                                                      |CR2032                    |                                   |                                      |
+|HOBEIAN                                         |ZG-204ZL                                                                                      |CR2450                    |                                   |                                      |
 |HOBEIAN                                         |ZG-204ZM                                                                                      |2× AAA                    |                                   |                                      |
 |HOBEIAN                                         |ZG-204ZV                                                                                      |2× AAA                    |                                   |                                      |
 |HOBEIAN                                         |ZG-227Z                                                                                       |CR2450                    |                                   |V1.0                                  |
