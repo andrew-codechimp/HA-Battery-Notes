@@ -48,10 +48,23 @@ Be aware that Home Assistant shows friendly alternatives for some sensors, so wh
 
 
 Example of voltage sensor with a maximum capacity of 3 volts, with a linear percentage (3 volts = 100%, 0 volts = 0%)   
-```{{ (states('sensor.my_sensor_voltage')|float(0) / 3 * 100) | round(0) }}```  
+```yaml
+{% set v = states('sensor.my_sensor_voltage') %}
+{{ 
+  (v | float / 3 * 100) | round(0)
+  if v not in ['unknown','unavailable'] else 'unknown'
+}}
+```
+
 
 Example of voltage sensor with a maximum capacity of 3 volts, where 2 volts should be equivalent to 10%  
-```{{ [0, (((states('sensor.voltage')|float(0) - 2) / (3 - 2)) * 90 + 10) | round(0)] | max }}```
+```yaml
+{% set v = states('sensor.my_sensor_voltage') %}
+{{ 
+  [0, (((v | float - 2) / (3 - 2)) * 90 + 10) | round(0)] | max
+  if v not in ['unknown','unavailable'] else 'unknown'
+}}
+```
 
 Example of binary low sensor, returning either 100% or 9%  
 ```{{ 9 if states('binary_sensor.my_sensor_low') == true else 100 }}```  

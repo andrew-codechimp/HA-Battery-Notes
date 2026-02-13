@@ -8857,6 +8857,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "tado",
+            "model": "SRT01",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Tado",
             "model": "SU02",
             "battery_type": "AAA",
