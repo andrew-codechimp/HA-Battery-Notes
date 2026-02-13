@@ -11628,6 +11628,12 @@
         },
         {
             "manufacturer": "Yale",
+            "model": "YRL226 TS",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Yale",
             "model": "YRL256",
             "battery_type": "AA",
             "battery_quantity": 4
