@@ -1,4 +1,4 @@
-## 2062 Devices in library
+## 2063 Devices in library
 
 This file is auto generated, do not modify
 
@@ -2022,6 +2022,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Yale                                            |YRD450-F-ZW3                                                                                  |4× AA                     |                                   |                                      |
 |Yale                                            |YRD450-ZW3                                                                                    |4× AA                     |                                   |                                      |
 |Yale                                            |YRD652-ZW2                                                                                    |4× AA                     |                                   |                                      |
+|Yale                                            |YRL226 TS                                                                                     |4× AA                     |                                   |                                      |
 |Yale                                            |YRL256                                                                                        |4× AA                     |                                   |                                      |
 |Yale Home Inc.                                  |AK-R1                                                                                         |2× AAA                    |                                   |                                      |
 |Yale Home Inc.                                  |ASL6_05/101110/MB                                                                             |4× AA                     |                                   |                                      |
