@@ -1390,6 +1390,12 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "lumi.sensor_occupy.agl8",
+            "battery_type": "CR2450",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "lumi.sensor_switch.v2",
             "battery_type": "CR2032"
         },
@@ -11899,12 +11905,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Aqara",
-            "model": "lumi.sensor_occupy.agl8",
-            "battery_type": "CR2450",
-            "battery_quantity": 2
         }
     ]
 }

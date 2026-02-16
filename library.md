@@ -1,4 +1,4 @@
-## 2063 Devices in library
+## 2064 Devices in library
 
 This file is auto generated, do not modify
 
@@ -252,6 +252,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Aqara                                           |lumi.sen_ill.agl01                                                                            |CR2450                    |                                   |                                      |
 |Aqara                                           |lumi.sensor_magnet.v2                                                                         |CR1632                    |                                   |                                      |
 |Aqara                                           |lumi.sensor_motion.v2                                                                         |CR2450                    |                                   |                                      |
+|Aqara                                           |lumi.sensor_occupy.agl8                                                                       |2× CR2450                 |                                   |                                      |
 |Aqara                                           |lumi.sensor_switch.v2                                                                         |CR2032                    |                                   |                                      |
 |Aqara                                           |lumi.valve.agl001                                                                             |4× AA                     |                                   |                                      |
 |Aqara                                           |MCCGQ11LM                                                                                     |CR2032                    |                                   |                                      |
