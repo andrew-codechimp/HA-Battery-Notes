@@ -230,7 +230,7 @@
                         "name": "Letzter gemeldeter Batteriestand"
                     },
                     "source_entity_id": {
-                        "name": "Quellentitäts-ID"
+                        "name": "Quellen-Entitäts-Id"
                     },
                     "device_id": {
                         "name": "Geräte-ID"
@@ -241,7 +241,7 @@
                 }
             },
             "battery_type": {
-                "name": "{device_name}Batterietyp",
+                "name": "{device_name}Batterie-Typ",
                 "state_attributes": {
                     "battery_type": {
                         "name": "Batterieart"
@@ -252,7 +252,7 @@
                 }
             },
             "battery_last_replaced": {
-                "name": "Letzter Batteriewechsel von {device_name}"
+                "name": "{device_name}Letzter Batteriewechsel"
             }
         }
     },
