@@ -11911,6 +11911,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Jaeger Direkt",
+            "model": "004010000040",
+            "battery_type": "CR123"
         }
     ]
 }
