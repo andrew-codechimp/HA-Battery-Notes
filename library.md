@@ -1,4 +1,4 @@
-## 2065 Devices in library
+## 2066 Devices in library
 
 This file is auto generated, do not modify
 
@@ -968,6 +968,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |iRobot                                          |j755020                                                                                       |Rechargeable              |                                   |                                      |
 |iRobot                                          |R675020                                                                                       |Rechargeable              |                                   |                                      |
 |iRobot                                          |R980020                                                                                       |Rechargeable              |                                   |                                     2|
+|Jaeger Direkt                                   |004010000040                                                                                  |CR123                     |                                   |                                      |
 |Konke                                           |3AFE28010402000D                                                                              |CR2450                    |                                   |                                      |
 |Konke                                           |Multi-function button                                                                         |CR2450                    |2AJZ4KPKEY                         |                                      |
 |Konke                                           |Temperature and humidity sensor                                                               |CR2450                    |2AJZ4KPFT                          |                                      |

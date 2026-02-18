@@ -5546,6 +5546,11 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "Jaeger Direkt",
+            "model": "004010000040",
+            "battery_type": "CR123"
+        },
+        {
             "manufacturer": "Konke",
             "model": "3AFE28010402000D",
             "battery_type": "CR2450"
@@ -11911,11 +11916,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Jaeger Direkt",
-            "model": "004010000040",
-            "battery_type": "CR123"
         }
     ]
 }
