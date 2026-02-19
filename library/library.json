@@ -5794,6 +5794,12 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "LINCUKOO",
+            "model": "TS0203",
+            "battery_type": "CR1632",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Linkind",
             "model": "Door/window Sensor (ZS110050078)",
             "battery_type": "CR2032"
@@ -11923,12 +11929,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "LINCUKOO",
-            "model": "TS0203",
-            "battery_type": "CR1632",
-            "battery_quantity": 2
         }
     ]
 }
