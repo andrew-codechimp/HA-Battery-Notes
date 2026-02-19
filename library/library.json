@@ -1011,6 +1011,13 @@
         },
         {
             "manufacturer": "Airthings AS",
+            "model": "Corentium Home 2",
+            "hw_version": "REV X",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Airthings AS",
             "model": "Wave Enhance",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -11916,13 +11923,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Airthings AS",
-            "model": "Corentium Home 2",
-            "hw_version": "REV X",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
