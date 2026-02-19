@@ -11923,6 +11923,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "LINCUKOO",
+            "model": "TS0203",
+            "battery_type": "CR1632",
+            "battery_quantity": 2
         }
     ]
 }
