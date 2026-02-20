@@ -1,4 +1,4 @@
-## 2068 Devices in library
+## 2070 Devices in library
 
 This file is auto generated, do not modify
 
@@ -18,6 +18,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |_TZ3000_0hkmcrza                                |TS0203                                                                                        |2× AAA                    |                                   |                                      |
 |_TZ3000_0s9gukzt                                |TS0207                                                                                        |CR2032                    |                                   |                                      |
 |_TZ3000_1bwpjvlz                                |TS0203                                                                                        |CR2032                    |                                   |                                      |
+|_TZ3000_22ugzkme                                |TS0041                                                                                        |CR2430                    |                                   |                                      |
 |_TZ3000_26fmupbb                                |TS0203                                                                                        |CR2032                    |                                   |                                      |
 |_TZ3000_3kdszvwi                                |TS0203                                                                                        |CR2032                    |                                   |                                      |
 |_TZ3000_4fjiwweb                                |TS004F                                                                                        |CR2032                    |                                   |                                      |
@@ -80,6 +81,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |_TZ3000_wkai4ga5                                |TS0044                                                                                        |CR2430                    |                                   |                                      |
 |_TZ3000_ww9i3e0y                                |TS0207                                                                                        |2× AA                     |                                   |                                      |
 |_TZ3000_xr3htd96                                |TS0201                                                                                        |2× AAA                    |                                   |                                      |
+|_TZ3000_xr7itfxq                                |TS0042                                                                                        |CR2430                    |                                   |                                      |
 |_TZ3000_yj6k7vfo                                |TS0041                                                                                        |CR2032                    |                                   |                                      |
 |_TZ3000_ywagc4rj                                |TS0201                                                                                        |CR2032                    |                                   |                                      |
 |_TZ3000_yxqnffam                                |TS0203                                                                                        |2× AAA                    |                                   |                                      |
