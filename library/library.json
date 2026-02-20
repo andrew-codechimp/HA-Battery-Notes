@@ -71,6 +71,11 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "_TZ3000_22ugzkme",
+            "model": "TS0041",
+            "battery_type": "CR2430"
+        },
+        {
             "manufacturer": "_TZ3000_26fmupbb",
             "model": "TS0203",
             "battery_type": "CR2032"
@@ -404,6 +409,11 @@
             "model": "TS0201",
             "battery_type": "AAA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "_TZ3000_xr7itfxq",
+            "model": "TS0042",
+            "battery_type": "CR2430"
         },
         {
             "manufacturer": "_TZ3000_yj6k7vfo",
