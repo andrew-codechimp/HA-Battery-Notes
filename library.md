@@ -1,4 +1,4 @@
-## 2071 Devices in library
+## 2072 Devices in library
 
 This file is auto generated, do not modify
 
@@ -390,6 +390,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Bosch                                           |Radiator Thermostat II                                                                        |2× AA                     |                                   |                                      |
 |Bosch                                           |Radiator thermostat II (BTH-RA)                                                               |2× AA                     |                                   |                                      |
 |BOSCH                                           |Radiator Thermostat II +M                                                                     |2× AA                     |                              12306|1.2.0                                 |
+|Bosch                                           |RBSH-RTH0-BAT-ZB-EU                                                                           |4× AAA                    |                                   |0x02096a90                            |
 |BOSCH                                           |RBSH-TRV0-ZB-EU                                                                               |2× AA                     |                                   |                                      |
 |Bosch                                           |Room thermostat II                                                                            |4× AAA                    |RBSH-RTH0-BAT-ZB-EU                |                                      |
 |Bosch                                           |Smoke alarm detector (BSD-2)                                                                  |Irreplaceable             |                                   |                                      |

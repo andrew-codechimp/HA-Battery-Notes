@@ -2209,6 +2209,13 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Bosch",
+            "model": "RBSH-RTH0-BAT-ZB-EU",
+            "hw_version": "0x02096a90",
+            "battery_type": "AAA",
+            "battery_quantity": 4
+        },
+        {
             "manufacturer": "BOSCH",
             "model": "RBSH-TRV0-ZB-EU",
             "battery_type": "AA",
@@ -11944,13 +11951,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Bosch",
-            "model": "RBSH-RTH0-BAT-ZB-EU",
-            "hw_version": "0x02096a90",
-            "battery_type": "AAA",
-            "battery_quantity": 4
         }
     ]
 }
