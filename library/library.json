@@ -26,6 +26,11 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "_TYZB01_ohyttvf6",
+            "model": "TS0205",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "_TYZB01_tob46aoq",
             "model": "TS0205",
             "hw_version": "0x00000044",
@@ -36,11 +41,6 @@
             "model": "TS0203",
             "battery_type": "CR1632",
             "battery_quantity": 2
-        },
-        {
-            "manufacturer": "_TYZB01_ohyttvf6",
-            "model": "TS0205",
-            "battery_type": "CR123A"
         },
         {
             "manufacturer": "_TZ1800_ejwkn2h2",
