@@ -6134,6 +6134,13 @@
         },
         {
             "manufacturer": "Mobile Alerts",
+            "model": "Wireless Thermo-Hygrometer",
+            "model_id": "MA10200",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Mobile Alerts",
             "model": "Wireless Thermometer",
             "model_id": "MA10100",
             "battery_type": "AAA",
@@ -11958,13 +11965,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Mobile Alerts",
-            "model": "Wireless Thermo-Hygrometer",
-            "model_id": "MA10200",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }

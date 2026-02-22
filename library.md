@@ -1,4 +1,4 @@
-## 2073 Devices in library
+## 2074 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1074,6 +1074,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |MiaoMiaoCe                                      |MHO-C401N-z                                                                                   |CR2032                    |                                   |                                      |
 |Minoston                                        |MR40Z                                                                                         |2× CR2032                 |                                   |                                      |
 |Minoston                                        |MSE30Z                                                                                        |CR2450                    |                                   |                                      |
+|Mobile Alerts                                   |Wireless Thermo-Hygrometer                                                                    |2× AAA                    |MA10200                            |                                      |
 |Mobile Alerts                                   |Wireless Thermometer                                                                          |2× AAA                    |MA10100                            |                                      |
 |modkam.ru                                       |DIYRuZ_Flower                                                                                 |2× AAA                    |                                   |                                      |
 |modkam.ru                                       |ptvo_counter_2ch                                                                              |2× AAA                    |                                   |                                      |
