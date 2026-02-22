@@ -923,11 +923,13 @@ class BatteryNotesBatteryPlusTemplateSensor(BatteryNotesBatteryPlusBaseSensor):
             self._attr_available = False
             state = None
 
-        if state == self._state:
+        clamped_state = max(0, min(100, state)) if state is not None else state
+
+        if clamped_state == self._state:
             return
 
-        self._state = state
-        self.coordinator.current_battery_level = state
+        self._state = clamped_state
+        self.coordinator.current_battery_level = clamped_state
 
         self._attr_available = True
         self._attr_native_value = self.coordinator.rounded_battery_level
@@ -935,7 +937,7 @@ class BatteryNotesBatteryPlusTemplateSensor(BatteryNotesBatteryPlusBaseSensor):
         _LOGGER.debug(
             "%s sensor battery_plus set to: %s via template",
             self.entity_id,
-            state,
+            clamped_state,
         )
 
     @property
