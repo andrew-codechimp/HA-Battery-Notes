@@ -1,4 +1,4 @@
-## 2074 Devices in library
+## 2075 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1239,6 +1239,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Philips                                         |SML001                                                                                        |2× AAA                    |                                   |                                      |
 |Philips                                         |SML002                                                                                        |2× AA                     |                                   |                                      |
 |Philips Hue                                     |SML001                                                                                        |2× AAA                    |                                   |                                      |
+|PitPat                                          |GPS Tracker                                                                                   |Rechargeable              |                                  6|6.2.5                                 |
 |PLab                                            |Home Buttons                                                                                  |Rechargeable              |                                   |                                  2.30|
 |PLab                                            |Home Buttons Mini                                                                             |2× AA                     |                                   |                                  1.10|
 |PLab                                            |HomeButtons                                                                                   |18650                     |                                   |                                      |
