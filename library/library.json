@@ -11979,6 +11979,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "RWE",
+            "model": "WSC2",
+            "battery_type": "CR2032"
         }
     ]
 }
