@@ -33,7 +33,7 @@ from .library import DATA_LIBRARY
 _LOGGER = logging.getLogger(__name__)
 
 HEADERS = {
-    "User-Agent": f"BatteryNotes",
+    "User-Agent": "BatteryNotes",
     "Content-Type": CONTENT_TYPE_JSON,
     "Accept-Encoding": "gzip",
 }
