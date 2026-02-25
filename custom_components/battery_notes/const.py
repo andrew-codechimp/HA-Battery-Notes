@@ -1,8 +1,6 @@
 """Constants for battery_notes."""
 
-import json
 from logging import Logger, getLogger
-from pathlib import Path
 from typing import Final
 
 import voluptuous as vol
@@ -14,14 +12,8 @@ LOGGER: Logger = getLogger(__package__)
 
 MIN_HA_VERSION = "2025.9.0"
 
-manifestfile = Path(__file__).parent / "manifest.json"
-with open(file=manifestfile, encoding="UTF-8") as json_file:
-    manifest_data = json.load(json_file)
-
-DOMAIN = manifest_data.get("domain")
-NAME = manifest_data.get("name")
-VERSION = manifest_data.get("version")
-ISSUEURL = manifest_data.get("issue_tracker")
+DOMAIN = "battery_notes"
+NAME = "Battery Notes"
 MANUFACTURER = "@Andrew-CodeChimp"
 LAST_REPLACED = "battery_last_replaced"
 LAST_REPORTED = "battery_last_reported"
