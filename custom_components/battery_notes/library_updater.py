@@ -25,7 +25,6 @@ from homeassistant.util import dt as dt_util
 from .const import (
     DEFAULT_LIBRARY_URL,
     FALLBACK_LIBRARY_URL,
-    VERSION,
 )
 from .coordinator import MY_KEY, BatteryNotesDomainConfig
 from .discovery import DiscoveryManager
@@ -34,7 +33,7 @@ from .library import DATA_LIBRARY
 _LOGGER = logging.getLogger(__name__)
 
 HEADERS = {
-    "User-Agent": f"BatteryNotes/{VERSION}",
+    "User-Agent": f"BatteryNotes",
     "Content-Type": CONTENT_TYPE_JSON,
     "Accept-Encoding": "gzip",
 }
