@@ -29,7 +29,7 @@ from homeassistant.helpers.entity_registry import RegistryEntry
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
 from homeassistant.util.hass_dict import HassKey
 
-from .common import utcnow_no_timezone, validate_is_float
+from .common import fix_datetime_string, utcnow_no_timezone, validate_is_float
 from .const import (
     ATTR_BATTERY_LAST_REPLACED,
     ATTR_BATTERY_LEVEL,
@@ -636,11 +636,15 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                 self.device_id
             )
 
-        if entry:
-            if LAST_REPLACED in entry and entry[LAST_REPLACED] is not None:
-                entry_last_replaced = str(entry[LAST_REPLACED])
-                if not entry_last_replaced.endswith("+00:00"):
-                    entry_last_replaced += "+00:00"
+        if entry and LAST_REPLACED in entry and entry[LAST_REPLACED] is not None:
+            entry_last_replaced = str(entry[LAST_REPLACED])
+            if not entry_last_replaced.endswith("+00:00"):
+                entry_last_replaced += "+00:00"
+
+            try:
+                return datetime.fromisoformat(entry_last_replaced)
+            except ValueError:
+                entry_last_replaced = fix_datetime_string(entry_last_replaced)
                 return datetime.fromisoformat(entry_last_replaced)
         return None
 
@@ -677,7 +681,12 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
             entry_last_reported = str(entry[LAST_REPORTED])
             if not entry_last_reported.endswith("+00:00"):
                 entry_last_reported += "+00:00"
-            return datetime.fromisoformat(entry_last_reported)
+
+            try:
+                return datetime.fromisoformat(entry_last_reported)
+            except ValueError:
+                entry_last_reported = fix_datetime_string(entry_last_reported)
+                return datetime.fromisoformat(entry_last_reported)
 
         return None
 
