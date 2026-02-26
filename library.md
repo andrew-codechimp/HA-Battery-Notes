@@ -1,4 +1,4 @@
-## 2078 Devices in library
+## 2079 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1318,6 +1318,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Ruuvi                                           |Ruuvitag                                                                                      |CR2477T                   |                                   |                                      |
 |Ruuvi Innovations Ltd.                          |RuuviTag                                                                                      |CR2477                    |                                   |                                      |
 |RWE                                             |WDS                                                                                           |2× AAA                    |                                   |                                      |
+|RWE                                             |WSC2                                                                                          |CR2032                    |                                   |                                      |
 |RWE                                             |WSD                                                                                           |3× AA                     |                                   |                                      |
 |SAF Tehnika                                     |Aranet Radiation                                                                              |2× AA                     |                                   |                                      |
 |SAF Tehnika                                     |Aranet Radon Plus                                                                             |2× AA                     |                                   |                                      |
