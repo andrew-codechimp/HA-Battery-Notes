@@ -24,7 +24,13 @@ def utcnow_no_timezone() -> datetime:
     return dt_util.utcnow().replace(tzinfo=None)
 
 
-def fix_datetime_string(datetime_str) -> str:
+def datetime_no_timezone(dt: datetime) -> datetime:
+    """Return the datetime without timezone information."""
+
+    return dt.replace(tzinfo=None)
+
+
+def fix_datetime_string(datetime_str: str) -> str:
     """Fix datetime string by replacing colon with period before microseconds."""
     # Prior to 3.3.2 there was an issue where microseconds were formatted with a colon and are held in storage.
     # New dates are stored correctly, over time the last_reported, last_replaced will be updated with the correct format.
