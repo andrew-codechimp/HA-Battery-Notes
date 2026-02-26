@@ -29,7 +29,12 @@ from homeassistant.helpers.entity_registry import RegistryEntry
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
 from homeassistant.util.hass_dict import HassKey
 
-from .common import fix_datetime_string, utcnow_no_timezone, validate_is_float
+from .common import (
+    datetime_no_timezone,
+    fix_datetime_string,
+    utcnow_no_timezone,
+    validate_is_float,
+)
 from .const import (
     ATTR_BATTERY_LAST_REPLACED,
     ATTR_BATTERY_LEVEL,
@@ -645,7 +650,9 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                 return datetime.fromisoformat(entry_last_replaced)
             except ValueError:
                 entry_last_replaced = fix_datetime_string(entry_last_replaced)
-                return datetime.fromisoformat(entry_last_replaced)
+                dt = datetime.fromisoformat(entry_last_replaced)
+                self.last_replaced = datetime_no_timezone(dt)
+                return dt
         return None
 
     @last_replaced.setter
@@ -686,12 +693,14 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                 return datetime.fromisoformat(entry_last_reported)
             except ValueError:
                 entry_last_reported = fix_datetime_string(entry_last_reported)
-                return datetime.fromisoformat(entry_last_reported)
+                dt = datetime.fromisoformat(entry_last_reported)
+                self.last_reported = datetime_no_timezone(dt)
+                return dt
 
         return None
 
     @last_reported.setter
-    def last_reported(self, value):
+    def last_reported(self, value: datetime):
         """Set the last reported datetime and store it."""
 
         if not hasattr(self.config_entry, "runtime_data"):
