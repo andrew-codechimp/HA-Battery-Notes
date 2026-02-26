@@ -8518,6 +8518,12 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "Sonoff",
+            "model": "Outdoor Temperatur & Humidity Sensor",
+            "model_id": "SNZB-02WD",
+            "battery_type": "MANUAL"
+        },
+        {
             "manufacturer": "SonOff",
             "model": "SNZB-01",
             "battery_type": "CR2450"
@@ -11996,12 +12002,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Sonoff",
-            "model": "Outdoor Temperatur & Humidity Sensor",
-            "model_id": "SNZB-02WD",
-            "battery_type": "MANUAL"
         }
     ]
 }
