@@ -7539,6 +7539,12 @@
         },
         {
             "manufacturer": "RWE",
+            "model": "RST",
+            "battery_type": "AA",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "RWE",
             "model": "WDS",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -12008,12 +12014,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "RWE",
-            "model": "RST",
-            "battery_type": "AA",
-            "battery_quantity": 3
         }
     ]
 }

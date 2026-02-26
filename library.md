@@ -1,4 +1,4 @@
-## 2081 Devices in library
+## 2082 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1317,6 +1317,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |rtl_433                                         |WT450-TH                                                                                      |AA                        |                                   |                                      |
 |Ruuvi                                           |Ruuvitag                                                                                      |CR2477T                   |                                   |                                      |
 |Ruuvi Innovations Ltd.                          |RuuviTag                                                                                      |CR2477                    |                                   |                                      |
+|RWE                                             |RST                                                                                           |3× AA                     |                                   |                                      |
 |RWE                                             |WDS                                                                                           |2× AAA                    |                                   |                                      |
 |RWE                                             |WMD                                                                                           |3× AA                     |                                   |                                      |
 |RWE                                             |WSC2                                                                                          |CR2032                    |                                   |                                      |
