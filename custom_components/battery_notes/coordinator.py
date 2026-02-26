@@ -638,10 +638,10 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
 
         if entry:
             if LAST_REPLACED in entry and entry[LAST_REPLACED] is not None:
-                last_replaced_date = datetime.fromisoformat(
-                    str(entry[LAST_REPLACED]) + "+00:00"
-                )
-                return last_replaced_date
+                entry_last_replaced = str(entry[LAST_REPLACED])
+                if not entry_last_replaced.endswith("+00:00"):
+                    entry_last_replaced += "+00:00"
+                return datetime.fromisoformat(entry_last_replaced)
         return None
 
     @last_replaced.setter
