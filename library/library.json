@@ -12001,7 +12001,7 @@
             "manufacturer": "Sonoff",
             "model": "Outdoor Temperatur & Humidity Sensor",
             "model_id": "SNZB-02WD",
-            "battery_type": "CR2477 oder CR2450"
+            "battery_type": "MANUAL"
         }
     ]
 }
