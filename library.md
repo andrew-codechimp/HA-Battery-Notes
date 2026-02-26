@@ -1,4 +1,4 @@
-## 2076 Devices in library
+## 2077 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1317,6 +1317,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |rtl_433                                         |WT450-TH                                                                                      |AA                        |                                   |                                      |
 |Ruuvi                                           |Ruuvitag                                                                                      |CR2477T                   |                                   |                                      |
 |Ruuvi Innovations Ltd.                          |RuuviTag                                                                                      |CR2477                    |                                   |                                      |
+|RWE                                             |WDS                                                                                           |2× AAA                    |                                   |                                      |
 |SAF Tehnika                                     |Aranet Radiation                                                                              |2× AA                     |                                   |                                      |
 |SAF Tehnika                                     |Aranet Radon Plus                                                                             |2× AA                     |                                   |                                      |
 |SAF Tehnika                                     |Aranet2 HOME                                                                                  |2× AA                     |                                   |                                      |
