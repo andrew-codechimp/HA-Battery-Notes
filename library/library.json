@@ -8618,6 +8618,14 @@
             "battery_type": "CR2477"
         },
         {
+            "manufacturer": "SONOFF",
+            "model": "Temperature and humidity sensor with display and relay control",
+            "model_id": "SNZB-02DR2",
+            "hw_version": "16",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Sonoff",
             "model": "Temperature and humidity sensor with screen",
             "model_id": "SNZB-02D",
@@ -12014,14 +12022,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "SONOFF",
-            "model": "Temperature and humidity sensor with display and relay control",
-            "model_id": "SNZB-02DR2",
-            "hw_version": "16",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
