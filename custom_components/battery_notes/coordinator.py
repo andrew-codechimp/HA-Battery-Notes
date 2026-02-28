@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import logging
+import re
 from dataclasses import dataclass
 from datetime import datetime, timedelta
 from typing import cast
@@ -27,14 +28,10 @@ from homeassistant.helpers import (
 )
 from homeassistant.helpers.entity_registry import RegistryEntry
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
+from homeassistant.util import dt as dt_util
 from homeassistant.util.hass_dict import HassKey
 
-from .common import (
-    datetime_no_timezone,
-    fix_datetime_string,
-    utcnow_no_timezone,
-    validate_is_float,
-)
+from .common import validate_is_float
 from .const import (
     ATTR_BATTERY_LAST_REPLACED,
     ATTR_BATTERY_LEVEL,
@@ -103,6 +100,29 @@ class BatteryNotesData:
     subentry_coordinators: dict[str, BatteryNotesSubentryCoordinator] | None = None
 
 
+def fix_datetime_string(datetime_str: str) -> str:
+    """Fix datetime string by replacing colon with period before microseconds."""
+    # Prior to 3.3.2 there was an issue where microseconds were formatted with a colon and are held in storage.
+    # New dates are stored correctly, over time the last_reported, last_replaced will be updated with the correct format.
+
+    # Look for timezone offset at the end (e.g., +00:00, -05:00, Z)
+    tz_match = re.search(r"([+-]\d{2}:\d{2}|[+-]\d{4}|Z)$", datetime_str)
+
+    if tz_match:
+        # Split into datetime and timezone parts
+        tz_start = tz_match.start()
+        datetime_part = datetime_str[:tz_start]
+        tz_part = datetime_str[tz_start:]
+    else:
+        datetime_part = datetime_str
+        tz_part = ""
+
+    # Replace colon with period only if followed by exactly 6 digits (microseconds)
+    datetime_part = re.sub(r":(\d{6})$", r".\1", datetime_part)
+
+    return datetime_part + tz_part
+
+
 class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
     """Define an object to hold Battery Notes device."""
 
@@ -118,9 +138,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
     wrapped_battery: RegistryEntry | None = None
     wrapped_battery_low: RegistryEntry | None = None
     is_orphaned: bool = False
-    last_wrapped_battery_state_write: datetime = utcnow_no_timezone() - timedelta(
-        hours=2
-    )
+    last_wrapped_battery_state_write: datetime = dt_util.utcnow() - timedelta(hours=2)
     _current_battery_level: str | None = None
     _previous_battery_low: bool | None = None
     _previous_battery_level: str | None = None
@@ -196,13 +214,11 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                 device_entry = device_registry.async_get(self.device_id)
 
                 if device_entry and device_entry.created_at.year > 1970:
-                    last_replaced = device_entry.created_at.strftime(
-                        "%Y-%m-%dT%H:%M:%S.%f"
-                    )
+                    last_replaced = device_entry.created_at
             elif self.source_entity_id:
                 entity = entity_registry.async_get(self.source_entity_id)
                 if entity and entity.created_at.year > 1970:
-                    last_replaced = entity.created_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
+                    last_replaced = entity.created_at
 
             _LOGGER.debug(
                 "Defaulting %s battery last replaced to %s",
@@ -211,11 +227,11 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
             )
 
             if last_replaced:
-                self.last_replaced = datetime.fromisoformat(last_replaced)
+                self.last_replaced = last_replaced
 
         # If there is not a last_reported set to now
         if not self.last_reported:
-            last_reported = utcnow_no_timezone()
+            last_reported = dt_util.utcnow()
             _LOGGER.debug(
                 "Defaulting %s battery last reported to %s",
                 self.source_entity_id or self.device_id,
@@ -612,7 +628,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                     _LOGGER.debug("battery_increased event fired")
 
         if self._current_battery_level not in [STATE_UNAVAILABLE, STATE_UNKNOWN]:
-            self.last_reported = utcnow_no_timezone()
+            self.last_reported = dt_util.utcnow()
             self.last_reported_level = cast(float, self._current_battery_level)
             self._previous_battery_low = self.battery_low
             self._previous_battery_level = self._current_battery_level
@@ -645,13 +661,15 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
             entry_last_replaced = str(entry[LAST_REPLACED])
             if not entry_last_replaced.endswith("+00:00"):
                 entry_last_replaced += "+00:00"
-
+                entry_last_replaced = fix_datetime_string(entry_last_replaced)
+                dt = datetime.fromisoformat(entry_last_replaced)
+                self.last_replaced = dt
             try:
                 return datetime.fromisoformat(entry_last_replaced)
             except ValueError:
                 entry_last_replaced = fix_datetime_string(entry_last_replaced)
                 dt = datetime.fromisoformat(entry_last_replaced)
-                self.last_replaced = datetime_no_timezone(dt)
+                self.last_replaced = dt
                 return dt
         return None
 
@@ -688,13 +706,15 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
             entry_last_reported = str(entry[LAST_REPORTED])
             if not entry_last_reported.endswith("+00:00"):
                 entry_last_reported += "+00:00"
-
+                entry_last_reported = fix_datetime_string(entry_last_reported)
+                dt = datetime.fromisoformat(entry_last_reported)
+                self.last_reported = dt
             try:
                 return datetime.fromisoformat(entry_last_reported)
             except ValueError:
                 entry_last_reported = fix_datetime_string(entry_last_reported)
                 dt = datetime.fromisoformat(entry_last_reported)
-                self.last_reported = datetime_no_timezone(dt)
+                self.last_reported = dt
                 return dt
 
         return None

@@ -53,8 +53,9 @@ from homeassistant.helpers.template import (
     TemplateStateFromEntityId,
 )
 from homeassistant.helpers.typing import StateType
+from homeassistant.util import dt as dt_util
 
-from .common import utcnow_no_timezone, validate_is_float
+from .common import validate_is_float
 from .const import (
     ATTR_BATTERY_LAST_REPLACED,
     ATTR_BATTERY_LAST_REPORTED,
@@ -550,7 +551,7 @@ class BatteryNotesBatteryPlusSensor(BatteryNotesBatteryPlusBaseSensor):
             return
 
         # Don't update if battery level same and it's been < 1 hour
-        delta = utcnow_no_timezone() - self.coordinator.last_wrapped_battery_state_write
+        delta = dt_util.utcnow() - self.coordinator.last_wrapped_battery_state_write
         if (
             self.coordinator.last_reported_level == wrapped_battery_state.state
             and delta.total_seconds() < 3600  # 1 hour
@@ -558,12 +559,12 @@ class BatteryNotesBatteryPlusSensor(BatteryNotesBatteryPlusBaseSensor):
             self._attr_available = True
             return
 
-        self.coordinator.last_wrapped_battery_state_write = utcnow_no_timezone()
+        self.coordinator.last_wrapped_battery_state_write = dt_util.utcnow()
         self.coordinator.current_battery_level = wrapped_battery_state.state
 
         await self.coordinator.async_request_refresh()
 
-        self.coordinator.last_reported = utcnow_no_timezone()
+        self.coordinator.last_reported = dt_util.utcnow()
 
         _LOGGER.debug(
             "Entity id %s has been reported.",

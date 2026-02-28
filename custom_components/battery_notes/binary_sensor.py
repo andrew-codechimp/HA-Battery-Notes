@@ -52,11 +52,9 @@ from homeassistant.helpers.template import (
     Template,
     TemplateStateFromEntityId,
 )
+from homeassistant.util import dt as dt_util
 
-from .common import (
-    utcnow_no_timezone,
-    validate_is_float,
-)
+from .common import validate_is_float
 from .const import (
     ATTR_BATTERY_LAST_REPLACED,
     ATTR_BATTERY_LOW_THRESHOLD,
@@ -607,7 +605,7 @@ class BatteryNotesBatteryBinaryLowSensor(BatteryNotesBatteryLowBaseSensor):
             self.async_write_ha_state()
             return
 
-        self.coordinator.last_reported = utcnow_no_timezone()
+        self.coordinator.last_reported = dt_util.utcnow()
         self.coordinator.battery_low_binary_state = (
             wrapped_battery_low_state.state == "on"
         )
