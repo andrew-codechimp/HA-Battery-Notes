@@ -2953,6 +2953,12 @@
         },
         {
             "manufacturer": "eQ-3",
+            "model": "HM-CC-VD",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "eQ-3",
             "model": "HM-Dis-EP-WM55",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -12022,12 +12028,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "eQ-3",
-            "model": "HM-CC-VD",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }

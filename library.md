@@ -1,4 +1,4 @@
-## 2083 Devices in library
+## 2084 Devices in library
 
 This file is auto generated, do not modify
 
@@ -520,6 +520,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |eQ-3                                            |ELV-SH-CTH                                                                                    |CR2032                    |                                   |                                      |
 |eQ-3                                            |HM-CC-RT-DN                                                                                   |2× AA                     |                                   |                                      |
 |eQ-3                                            |HM-CC-TC                                                                                      |2× AA                     |                                   |                                      |
+|eQ-3                                            |HM-CC-VD                                                                                      |2× AA                     |                                   |                                      |
 |eQ-3                                            |HM-Dis-EP-WM55                                                                                |2× AAA                    |                                   |                                      |
 |eQ-3                                            |HM-ES-TX-WM                                                                                   |4× AA                     |                                   |                                      |
 |eQ-3                                            |HM-OU-CFM-TW                                                                                  |2× LR14                   |                                   |                                      |
