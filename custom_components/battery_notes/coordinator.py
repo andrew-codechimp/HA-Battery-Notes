@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import logging
-import re
 from dataclasses import dataclass
 from datetime import datetime, timedelta
 from typing import cast
@@ -98,29 +97,6 @@ class BatteryNotesData:
     store: BatteryNotesStorage
     loaded_subentries: dict[str, ConfigSubentry]
     subentry_coordinators: dict[str, BatteryNotesSubentryCoordinator] | None = None
-
-
-def fix_datetime_string(datetime_str: str) -> str:
-    """Fix datetime string by replacing colon with period before microseconds."""
-    # Prior to 3.3.2 there was an issue where microseconds were formatted with a colon and are held in storage.
-    # New dates are stored correctly, over time the last_reported, last_replaced will be updated with the correct format.
-
-    # Look for timezone offset at the end (e.g., +00:00, -05:00, Z)
-    tz_match = re.search(r"([+-]\d{2}:\d{2}|[+-]\d{4}|Z)$", datetime_str)
-
-    if tz_match:
-        # Split into datetime and timezone parts
-        tz_start = tz_match.start()
-        datetime_part = datetime_str[:tz_start]
-        tz_part = datetime_str[tz_start:]
-    else:
-        datetime_part = datetime_str
-        tz_part = ""
-
-    # Replace colon with period only if followed by exactly 6 digits (microseconds)
-    datetime_part = re.sub(r":(\d{6})$", r".\1", datetime_part)
-
-    return datetime_part + tz_part
 
 
 class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
@@ -658,19 +634,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
             )
 
         if entry and LAST_REPLACED in entry and entry[LAST_REPLACED] is not None:
-            entry_last_replaced = str(entry[LAST_REPLACED])
-            if not entry_last_replaced.endswith("+00:00"):
-                entry_last_replaced += "+00:00"
-                entry_last_replaced = fix_datetime_string(entry_last_replaced)
-                dt = datetime.fromisoformat(entry_last_replaced)
-                self.last_replaced = dt
-            try:
-                return datetime.fromisoformat(entry_last_replaced)
-            except ValueError:
-                entry_last_replaced = fix_datetime_string(entry_last_replaced)
-                dt = datetime.fromisoformat(entry_last_replaced)
-                self.last_replaced = dt
-                return dt
+            return datetime.fromisoformat(str(entry[LAST_REPLACED]))
         return None
 
     @last_replaced.setter
@@ -703,19 +667,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
             )
 
         if entry and LAST_REPORTED in entry and entry[LAST_REPORTED] is not None:
-            entry_last_reported = str(entry[LAST_REPORTED])
-            if not entry_last_reported.endswith("+00:00"):
-                entry_last_reported += "+00:00"
-                entry_last_reported = fix_datetime_string(entry_last_reported)
-                dt = datetime.fromisoformat(entry_last_reported)
-                self.last_reported = dt
-            try:
-                return datetime.fromisoformat(entry_last_reported)
-            except ValueError:
-                entry_last_reported = fix_datetime_string(entry_last_reported)
-                dt = datetime.fromisoformat(entry_last_reported)
-                self.last_reported = dt
-                return dt
+            return datetime.fromisoformat(str(entry[LAST_REPORTED]))
 
         return None
 
