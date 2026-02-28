@@ -51,30 +51,30 @@ class EntityEntry:
     battery_last_reported_level = attr.ib(type=float, default=None)
 
 
+def _fix_datetime_string(datetime_str: str) -> str:
+    """Fix datetime string by replacing colon with period before microseconds."""
+    # Prior to 3.3.2 there was an issue where microseconds were formatted with a colon and are held in storage.
+
+    # Look for timezone offset at the end (e.g., +00:00, -05:00, Z)
+    tz_match = re.search(r"([+-]\d{2}:\d{2}|[+-]\d{4}|Z)$", datetime_str)
+
+    if tz_match:
+        # Split into datetime and timezone parts
+        tz_start = tz_match.start()
+        datetime_part = datetime_str[:tz_start]
+        tz_part = datetime_str[tz_start:]
+    else:
+        datetime_part = datetime_str
+        tz_part = "+00:00"
+
+    # Replace colon with period only if followed by exactly 6 digits (microseconds)
+    datetime_part = re.sub(r":(\d{6})$", r".\1", datetime_part)
+
+    return datetime_part + tz_part
+
+
 class MigratableStore(Store):
     """Holds battery notes data."""
-
-    def fix_datetime_string(self, datetime_str: str) -> str:
-        """Fix datetime string by replacing colon with period before microseconds."""
-        # Prior to 3.3.2 there was an issue where microseconds were formatted with a colon and are held in storage.
-        # New dates are stored correctly, over time the last_reported, last_replaced will be updated with the correct format.
-
-        # Look for timezone offset at the end (e.g., +00:00, -05:00, Z)
-        tz_match = re.search(r"([+-]\d{2}:\d{2}|[+-]\d{4}|Z)$", datetime_str)
-
-        if tz_match:
-            # Split into datetime and timezone parts
-            tz_start = tz_match.start()
-            datetime_part = datetime_str[:tz_start]
-            tz_part = datetime_str[tz_start:]
-        else:
-            datetime_part = datetime_str
-            tz_part = "+00:00"
-
-        # Replace colon with period only if followed by exactly 6 digits (microseconds)
-        datetime_part = re.sub(r":(\d{6})$", r".\1", datetime_part)
-
-        return datetime_part + tz_part
 
     async def _async_migrate_func(
         self,
@@ -87,19 +87,19 @@ class MigratableStore(Store):
                 for device in data["devices"]:
                     last_replaced = device[LAST_REPLACED]
                     if last_replaced:
-                        device[LAST_REPLACED] = self.fix_datetime_string(last_replaced)
+                        device[LAST_REPLACED] = _fix_datetime_string(last_replaced)
 
                     last_reported = device[LAST_REPORTED]
                     if last_reported:
-                        device[LAST_REPORTED] = self.fix_datetime_string(last_reported)
+                        device[LAST_REPORTED] = _fix_datetime_string(last_reported)
                 for entity in data["entities"]:
                     last_replaced = entity[LAST_REPLACED]
                     if last_replaced:
-                        entity[LAST_REPLACED] = self.fix_datetime_string(last_replaced)
+                        entity[LAST_REPLACED] = _fix_datetime_string(last_replaced)
 
                     last_reported = entity[LAST_REPORTED]
                     if last_reported:
-                        entity[LAST_REPORTED] = self.fix_datetime_string(last_reported)
+                        entity[LAST_REPORTED] = _fix_datetime_string(last_reported)
         return data
 
 
