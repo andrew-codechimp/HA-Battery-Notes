@@ -11114,6 +11114,11 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "X-SENSE",
+            "model": "XH02-M",
+            "battery_type": "Irreplaceable"
+        },
+        {
             "manufacturer": "X-Sense",
             "model": "XS01-M",
             "battery_type": "CR123A"
@@ -12028,11 +12033,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "X-SENSE",
-            "model": "XH02-M",
-            "battery_type": "Irreplaceable"
         }
     ]
 }

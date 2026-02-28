@@ -1,4 +1,4 @@
-## 2084 Devices in library
+## 2085 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1923,6 +1923,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |X-Sense                                         |Waterleak sensor                                                                              |2× AAA                    |SWS51                              |                                      |
 |X-Sense                                         |XC01-M                                                                                        |CR123A                    |                                   |                                      |
 |X-Sense                                         |XC04-WX                                                                                       |CR123A                    |                                   |                                      |
+|X-SENSE                                         |XH02-M                                                                                        |Irreplaceable             |                                   |                                      |
 |X-Sense                                         |XS01-M                                                                                        |CR123A                    |                                   |                                      |
 |X-SENSE                                         |XS0B-MR                                                                                       |CR123A                    |                                   |                                      |
 |Xiaomi                                          |Aqara curtain driver E1 (ZNCLBL01LM)                                                          |Rechargeable              |                                   |                                      |
