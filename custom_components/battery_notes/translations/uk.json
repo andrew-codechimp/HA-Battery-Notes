@@ -2,8 +2,8 @@
     "config": {
         "step": {
             "user": {
-                "description": "New Battery Notes will be discovered if they are in the library.\nTo add new Battery Notes manually go into the integration page, select Add Battery Note and follow the instructions.\nIf you need help with the configuration have a look here: {documentation_url}",
-                "title": "Setup Battery Notes"
+                "description": "Нові примітки щодо батареї буде автоматично виявлено, якщо вони є в бібліотеці.\nЩоб додати нову примітку щодо батареї вручну, перейдіть на сторінку інтеграції, виберіть «Додати примітку щодо батареї» та дотримуйтесь інструкцій.\nЯкщо вам потрібна допомога з налаштуванням, перегляньте документацію тут: {documentation_url}",
+                "title": "Налаштування Battery Notes"
             },
             "battery": {
                 "description": "Назва: {name}\nВиробник: {manufacturer}\nМодель: {model}\nID моделі: {model_id}\nРевізія: {hw_version}",
@@ -17,14 +17,14 @@
                 },
                 "sections": {
                     "advanced_settings": {
-                        "name": "Advanced settings",
+                        "name": "Додаткові налаштування",
                         "data": {
-                            "battery_percentage_template": "Battery percentage template",
+                            "battery_percentage_template": "Шаблон відсотка батареї",
                             "battery_low_template": "Шаблон низького заряду батареї",
                             "filter_outliers": "Відсіяти сторонні елементи"
                         },
                         "data_description": {
-                            "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
+                            "battery_percentage_template": "Шаблон для створення відсотка батареї\nнеобхідний лише для пристроїв, які не мають стандартного відсотку заряду батареї",
                             "battery_low_template": "Шаблон для визначення, коли заряд батареї низький - в такому випадку має повернути \"true\"\nПотрібен тільки для нестандартних рівнів батареї",
                             "filter_outliers": "Відфільтровуйте великі падіння рівня заряду акумулятора, зменшуючи кількість помилкових спрацьовувань на пристроях, які час від часу помилково повідомляють про рівень заряду"
                         }
@@ -33,9 +33,9 @@
             }
         },
         "abort": {
-            "already_configured": "Integration is already configured",
-            "integration_not_added": "Integration not added, please add the integration first",
-            "created_sub_entry": "Battery Note created successfully"
+            "already_configured": "Інтеграцію вже налаштовано",
+            "integration_not_added": "Інтеграцію не додано, спершу додайте інтеграцію.",
+            "created_sub_entry": "Примітку щодо батареї успішно створено.\n"
         },
         "error": {
             "unknown": "Сталася невідома помилка."
@@ -44,9 +44,9 @@
     "config_subentries": {
         "battery_note": {
             "initiate_flow": {
-                "user": "Add battery note"
+                "user": "Додати примітку до батареї"
             },
-            "entry_type": "Battery note",
+            "entry_type": "Примітка щодо батареї",
             "step": {
                 "user": {
                     "description": "Якщо вам потрібна допомога з конфігурацією, подивіться тут: {documentation_url}",
@@ -91,12 +91,12 @@
                         "advanced_settings": {
                             "name": "Додаткові налаштування",
                             "data": {
-                                "battery_percentage_template": "Battery percentage template",
+                                "battery_percentage_template": "Шаблон відсотка батареї",
                                 "battery_low_template": "Шаблон низького заряду батареї",
                                 "filter_outliers": "Відсіяти сторонні елементи"
                             },
                             "data_description": {
-                                "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
+                                "battery_percentage_template": "Шаблон для створення відсотка батареї\nПотрібен лише для пристроїв, які не мають стандартного відсотка заряду.",
                                 "battery_low_template": "Шаблон для визначення, коли заряд батареї низький - в такому випадку має повернути \"true\"\nПотрібен тільки для нестандартних рівнів батареї",
                                 "filter_outliers": "Відфільтровуйте великі падіння рівня заряду акумулятора, зменшуючи кількість помилкових спрацьовувань на пристроях, які час від часу помилково повідомляють про рівень заряду"
                             }
@@ -121,14 +121,14 @@
                     },
                     "sections": {
                         "advanced_settings": {
-                            "name": "Advanced settings",
+                            "name": "Додаткові налаштування",
                             "data": {
-                                "battery_percentage_template": "Battery percentage template",
+                                "battery_percentage_template": "Шаблон відсотка батареї",
                                 "battery_low_template": "Шаблон низького заряду батареї",
                                 "filter_outliers": "Відсіяти сторонні елементи"
                             },
                             "data_description": {
-                                "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
+                                "battery_percentage_template": "Шаблон для створення відсотка батареї\nПотрібен лише для пристроїв, які не мають стандартного відсотка заряду.",
                                 "battery_low_template": "Шаблон для визначення, коли заряд батареї низький - в такому випадку має повернути \"true\"\nПотрібен тільки для нестандартних рівнів батареї",
                                 "filter_outliers": "Відфільтровуйте великі падіння рівня заряду акумулятора, зменшуючи кількість помилкових спрацьовувань на пристроях, які час від часу помилково повідомляють про рівень заряду"
                             }
@@ -137,7 +137,7 @@
                 }
             },
             "abort": {
-                "reconfigure_successful": "Re-configuration was successful",
+                "reconfigure_successful": "Переконфігурація пройшла успішно",
                 "already_configured": "Пристрій вже налаштовано"
             },
             "error": {
@@ -151,31 +151,31 @@
         "step": {
             "init": {
                 "data": {
-                    "show_all_devices": "Show all devices",
-                    "hide_battery": "Hide battery",
-                    "round_battery": "Round battery",
-                    "default_battery_low_threshold": "Default battery low threshold",
-                    "battery_increase_threshold": "Battery increase threshold"
+                    "show_all_devices": "Показати всі пристрої",
+                    "hide_battery": "Приховати заряд батареї",
+                    "round_battery": "Округлити відсоток батареї",
+                    "default_battery_low_threshold": "Стандартний поріг низького заряду батареї",
+                    "battery_increase_threshold": "Поріг збільшення відсотка батареї"
                 },
                 "data_description": {
-                    "show_all_devices": "Show all devices in the device dropdown, otherwise only those with batteries will be shown.",
-                    "hide_battery": "Hide the standard battery when adding Battery+.",
-                    "round_battery": "Round Battery+ to whole percentages.",
-                    "default_battery_low_threshold": "The default threshold where a devices battery_low entity is set to true and the battery_notes_battery_threshold event is fired if the battery is below this threshold, can be overriden per device in device configuration.",
-                    "battery_increase_threshold": "The threshold where the battery_notes_battery_increased event is fired, use this event for battery replaced automations. The threshold is the difference in increase between previous and current battery level."
+                    "show_all_devices": "Показувати всі пристрої у випадаючому списку, інакше відображатимуться лише ті, що мають батареї.",
+                    "hide_battery": "Приховати стандартну батарею при додаванні Battery+.",
+                    "round_battery": "Округляти Battery+ до цілих відсотків.",
+                    "default_battery_low_threshold": "Стандартний поріг, при якому сутність battery_low пристрою встановлюється в true, а подія battery_notes_battery_threshold спрацьовує, якщо заряд батареї нижчий за цей поріг. Можна змінити для кожного пристрою окремо в його налаштуваннях.",
+                    "battery_increase_threshold": "Поріг, при якому спрацьовує подія battery_notes_battery_increased. Використовуйте цю подію для автоматизацій заміни батареї. Поріг визначає різницю між попереднім і поточним рівнем заряду батареї."
                 },
                 "sections": {
                     "advanced_settings": {
-                        "name": "Advanced settings",
+                        "name": "Додаткові налаштування",
                         "data": {
-                            "enable_autodiscovery": "Auto discovery",
-                            "enable_replaced": "Enable battery replaced",
-                            "user_library": "User library"
+                            "enable_autodiscovery": "Автоматичне виявлення",
+                            "enable_replaced": "Увімкнути сповіщення про заміну батареї",
+                            "user_library": "Бібліотека користувачів"
                         },
                         "data_description": {
-                            "enable_autodiscovery": "Auto discovery of devices that are in the library.",
-                            "enable_replaced": "Enable the battery replaced button on each battery note.",
-                            "user_library": "If specified then a user library file will be searched prior to the main library, the user library must be in the same format as the library and placed in `config/.storage/battery_notes`."
+                            "enable_autodiscovery": "Автоматичне виявлення пристроїв, які є в бібліотеці.",
+                            "enable_replaced": "Увімкнути кнопку «Батарею замінено» на кожній примітці щодо батареї.",
+                            "user_library": "Якщо вказано, спершу буде шукатися файл користувацької бібліотеки перед основною бібліотекою. Користувацька бібліотека повинна мати той самий формат, що й основна, і розміщуватися в config/.storage/battery_notes."
                         }
                     }
                 }
@@ -276,39 +276,39 @@
             "name": "Встановити, що батарея була замінена"
         },
         "check_battery_last_replaced": {
-            "description": "Get a response or raise events for devices that haven't had their battery replaced.",
+            "description": "Отримувати сповіщення або генерувати події для пристроїв, батареї яких ще не були замінені.",
             "fields": {
                 "days_last_reported": {
-                    "description": "Number of days since a device last had its battery replaced.",
+                    "description": "Кількість днів, що минули з останньої заміни батареї пристрою.",
                     "name": "Дні(в)"
                 },
                 "raise_events": {
-                    "description": "Raise events for use in automation triggers.",
-                    "name": "Raise events"
+                    "description": "Генерувати події для використання в тригерах автоматизацій.",
+                    "name": "Генерувати події"
                 }
             },
-            "name": "Check battery last replaced"
+            "name": "Перевірити останню заміну батареї"
         },
         "check_battery_last_reported": {
-            "description": "Get a response or raise events for devices that haven't reported their battery level.",
+            "description": "Отримувати сповіщення або генерувати події для пристроїв, які не передавали рівень заряду батареї.",
             "fields": {
                 "days_last_reported": {
                     "description": "Кількість днів з моменту останнього повідомлення про заряд акумулятора пристрою.",
                     "name": "Дні(в)"
                 },
                 "raise_events": {
-                    "description": "Raise events for use in automation triggers.",
-                    "name": "Raise events"
+                    "description": "Генерувати події для використання в тригерах автоматизацій.",
+                    "name": "Генерувати події"
                 }
             },
             "name": "Перевірити час остатнього звіту від батареї"
         },
         "check_battery_low": {
-            "description": "Get a response or raise events for devices that have a low battery.",
+            "description": "Отримувати сповіщення або генерувати події для пристроїв із низьким зарядом батареї.",
             "fields": {
                 "raise_events": {
-                    "description": "Raise events for use in automation triggers.",
-                    "name": "Raise events"
+                    "description": "Генерувати події для використання в тригерах автоматизацій.",
+                    "name": "Генерувати події"
                 }
             },
             "name": "Перевірити низький заряд акумулятора"
@@ -327,13 +327,13 @@
             }
         },
         "deprecated_yaml": {
-            "title": "The {integration_title} YAML configuration is being removed",
-            "description": "Configuring {integration_title} using YAML is being removed.\n\nYour existing YAML configuration has been imported into the UI automatically.\n\nRemove the `{domain}` configuration from your configuration.yaml file and restart Home Assistant to fix this issue."
+            "title": "Конфігурація {integration_title} у форматі YAML буде видалена.",
+            "description": "Налаштування {integration_title} за допомогою YAML буде видалено.\n\nВаша наявна конфігурація YAML була автоматично імпортована в інтерфейс користувача.\n\nВидаліть конфігурацію {domain} з файлу configuration.yaml і перезапустіть Home Assistant, щоб виправити цю проблему."
         }
     },
     "exceptions": {
         "not_configured_in_battery_notes": {
-            "message": "{source} is not configured in Battery Notes."
+            "message": "{source} не налаштовано в Battery Notes."
         }
     }
 }
