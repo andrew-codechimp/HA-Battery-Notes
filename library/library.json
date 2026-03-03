@@ -11720,6 +11720,12 @@
         },
         {
             "manufacturer": "Yale",
+            "model": "TEST200228",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Yale",
             "model": "YRD210",
             "battery_type": "AA",
             "battery_quantity": 4
@@ -12033,12 +12039,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Yale",
-            "model": "TEST200228",
-            "battery_type": "AA",
-            "battery_quantity": 4
         }
     ]
 }

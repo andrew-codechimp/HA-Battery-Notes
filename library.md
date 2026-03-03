@@ -1,4 +1,4 @@
-## 2085 Devices in library
+## 2086 Devices in library
 
 This file is auto generated, do not modify
 
@@ -2037,6 +2037,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Yale                                            |420D                                                                                          |4× AA                     |                                   |                                      |
 |Yale                                            |P-KFCON-MOD-YALE                                                                              |4× AA                     |                                   |                                      |
 |Yale                                            |SD-L1000-CH                                                                                   |4× AA                     |                                   |                                      |
+|Yale                                            |TEST200228                                                                                    |4× AA                     |                                   |                                      |
 |Yale                                            |YRD210                                                                                        |4× AA                     |                                   |                                      |
 |Yale                                            |YRD220/240 TSDB                                                                               |4× AA                     |                                   |                                      |
 |Yale                                            |YRD226 / YRC226 / YRC246 / YRD256 / YRC256 / YRD446                                           |4× AA                     |                                   |                                      |
