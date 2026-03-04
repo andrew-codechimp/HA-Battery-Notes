@@ -12039,6 +12039,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Nissan",
+            "model": "2020 Leaf",
+            "hw_version": "ZE1-P",
+            "battery_type": "Rechargeable"
         }
     ]
 }
