@@ -6507,6 +6507,12 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "Nissan",
+            "model": "2020 Leaf",
+            "hw_version": "ZE1-P",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Nortek Security & Control LLC",
             "model": "NGD00Z-4",
             "battery_type": "CR2032"
@@ -12038,12 +12044,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Nissan",
-            "model": "2020 Leaf",
-            "hw_version": "ZE1-P",
             "battery_type": "Rechargeable"
         }
     ]

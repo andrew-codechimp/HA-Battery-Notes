@@ -1,4 +1,4 @@
-## 2086 Devices in library
+## 2087 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1135,6 +1135,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Niko                                            |Battery switch with 1 button                                                                  |CR2450                    |552-720X1                          |                                     0|
 |Niko                                            |Battery switch with 2 buttons                                                                 |CR2450                    |(552-720X2)                        |                                     0|
 |Niko                                            |Battery switch with 4 buttons                                                                 |CR2450                    |552-720X4                          |                                     0|
+|Nissan                                          |2020 Leaf                                                                                     |Rechargeable              |                                   |ZE1-P                                 |
 |Nortek Security & Control LLC                   |NGD00Z-4                                                                                      |CR2032                    |                                   |                                      |
 |Nortek Security & Control LLC                   |WADWAZ-1                                                                                      |CR123A                    |                                   |                                      |
 |Nortek Security & Control LLC                   |WAPIRZ-1                                                                                      |CR123a                    |                                   |                                      |
