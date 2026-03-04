@@ -1,4 +1,4 @@
-## 2087 Devices in library
+## 2089 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1079,6 +1079,8 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Mobile Alerts                                   |Wireless Thermometer                                                                          |2× AAA                    |MA10100                            |                                      |
 |modkam.ru                                       |DIYRuZ_Flower                                                                                 |2× AAA                    |                                   |                                      |
 |modkam.ru                                       |ptvo_counter_2ch                                                                              |2× AAA                    |                                   |                                      |
+|Moes                                            |4 button portable remote control                                                              |CR2032                    |XH-SY-04Z                          |                                     1|
+|Moes                                            |Door/window alarm sensor                                                                      |CR2032                    |ZSS-S01-GWM-C-MS                   |                                     1|
 |Moes                                            |Door/window magnetic sensor                                                                   |CR2032                    |ZSS-X-GWM-C                        |                                     1|
 |Moes                                            |Door/window magnetic sensor (ZSS-X-GWM-C)                                                     |CR2032                    |                                   |                                      |
 |Moes                                            |kvwjujy9                                                                                      |CR2032                    |                                   |                                      |
