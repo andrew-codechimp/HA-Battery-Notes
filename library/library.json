@@ -6166,6 +6166,20 @@
         },
         {
             "manufacturer": "Moes",
+            "model": "4 button portable remote control",
+            "model_id": "XH-SY-04Z",
+            "hw_version": "1",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Moes",
+            "model": "Door/window alarm sensor",
+            "model_id": "ZSS-S01-GWM-C-MS",
+            "hw_version": "1",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Moes",
             "model": "Door/window magnetic sensor",
             "model_id": "ZSS-X-GWM-C",
             "hw_version": "1",
