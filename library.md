@@ -1,4 +1,4 @@
-## 2089 Devices in library
+## 2090 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1822,6 +1822,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tuya                                            |Vibration sensor                                                                              |CR2450                    |lzdjjfss                           |                                      |
 |Tuya                                            |Vibration sensor                                                                              |CR2450                    |TS0210                             |                                     1|
 |Tuya                                            |Vibration sensor (TS0210)                                                                     |2× AAA                    |                                   |                                      |
+|Tuya                                            |Water leak detector                                                                           |CR2032                    |TS0207_water_leak_detector         |                                     0|
 |Tuya                                            |Water leak detector                                                                           |2× AAA                    |TS0207_water_leak_detector         |                                     1|
 |TuYa                                            |Water leak detector (TS0207_water_leak_detector)                                              |CR2032                    |                                   |                                      |
 |Tuya                                            |Water leak sensor                                                                             |2× AAA                    |upgcbody                           |                                      |
