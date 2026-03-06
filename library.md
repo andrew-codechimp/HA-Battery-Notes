@@ -1,4 +1,4 @@
-## 2091 Devices in library
+## 2092 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1077,6 +1077,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Minoston                                        |MSE30Z                                                                                        |CR2450                    |                                   |                                      |
 |Mobile Alerts                                   |Wireless Thermo-Hygrometer                                                                    |2× AAA                    |MA10200                            |                                      |
 |Mobile Alerts                                   |Wireless Thermometer                                                                          |2× AAA                    |MA10100                            |                                      |
+|MOCREO                                          |ST5                                                                                           |Rechargeable              |                                   |                                      |
 |modkam.ru                                       |DIYRuZ_Flower                                                                                 |2× AAA                    |                                   |                                      |
 |modkam.ru                                       |ptvo_counter_2ch                                                                              |2× AAA                    |                                   |                                      |
 |Moes                                            |4 button portable remote control                                                              |CR2032                    |XH-SY-04Z                          |                                     1|

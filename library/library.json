@@ -6153,6 +6153,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "MOCREO",
+            "model": "ST5",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "modkam.ru",
             "model": "DIYRuZ_Flower",
             "battery_type": "AAA",
@@ -12072,11 +12077,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "MOCREO",
-            "model": "ST5",
             "battery_type": "Rechargeable"
         }
     ]
