@@ -9563,6 +9563,13 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Tuya",
+            "model": "_TZE284_1wnh8bqp",
+            "model_id": "TS0601",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "TuYa",
             "model": "Aegislink Wi-Fi Combination Alarm (cfet7ouwznslditf)",
             "battery_type": "CR123A"
@@ -12066,13 +12073,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "_TZE284_1wnh8bqp",
-            "model_id": "TS0601",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
