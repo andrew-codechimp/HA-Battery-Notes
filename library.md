@@ -1,4 +1,4 @@
-## 2094 Devices in library
+## 2095 Devices in library
 
 This file is auto generated, do not modify
 
@@ -6,6 +6,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 
 |                  Manufacturer                  |                                            Model                                             |       Battery Type       |        Model ID (optional)        |        HW Version (optional)         |
 |------------------------------------------------|----------------------------------------------------------------------------------------------|--------------------------|-----------------------------------|--------------------------------------|
+|0x117c                                          |IKEA of Sweden PARASOLL Door/Wi                                                               |AAA                       |                                   |                                      |
 |_TYST11_jeaxp72v                                |eaxp72v                                                                                       |2× AA                     |                                   |                                      |
 |_TYST11_kfvq6avy                                |fvq6avy                                                                                       |2× AA                     |                                   |                                      |
 |_TYZB01_7qf81wty                                |TS1001                                                                                        |2× AAA                    |                                   |                                      |

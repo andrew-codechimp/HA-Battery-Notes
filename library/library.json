@@ -3,6 +3,11 @@
     "version": 1,
     "devices": [
         {
+            "manufacturer": "0x117c",
+            "model": "IKEA of Sweden PARASOLL Door/Wi",
+            "battery_type": "AAA"
+        },
+        {
             "manufacturer": "_TYST11_jeaxp72v",
             "model": "eaxp72v",
             "battery_type": "AA",
@@ -12089,11 +12094,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "0x117c",
-            "model": "IKEA of Sweden PARASOLL Door/Wi",
-            "battery_type": "AAA"
         }
     ]
 }
