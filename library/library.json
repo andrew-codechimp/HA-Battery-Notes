@@ -256,6 +256,11 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "_TZ3000_kfu8zapd",
+            "model": "TS0044",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "_TZ3000_kky16aay",
             "model": "TS0222",
             "battery_type": "AA",
@@ -12078,11 +12083,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "_TZ3000_kfu8zapd",
-            "model": "TS0044",
-            "battery_type": "CR2032"
         }
     ]
 }

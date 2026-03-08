@@ -1,4 +1,4 @@
-## 2092 Devices in library
+## 2093 Devices in library
 
 This file is auto generated, do not modify
 
@@ -53,6 +53,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |_TZ3000_ixla93vd                                |TS004F                                                                                        |CR2032                    |                                   |                                      |
 |_TZ3000_ja5osu5g                                |TS004F                                                                                        |CR2032                    |                                   |                                      |
 |_TZ3000_k4ej3ww2                                |TS0207                                                                                        |CR2032                    |                                   |                                      |
+|_TZ3000_kfu8zapd                                |TS0044                                                                                        |CR2032                    |                                   |                                      |
 |_TZ3000_kky16aay                                |TS0222                                                                                        |4× AA                     |                                   |                                      |
 |_TZ3000_kstbkt6a                                |TS0207                                                                                        |CR2032                    |                                   |                                      |
 |_TZ3000_lbtpiody                                |TS0201                                                                                        |CR2                       |                                   |                                      |
