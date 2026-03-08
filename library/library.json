@@ -1407,6 +1407,12 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "lumi.sensor_ht.agl001",
+            "battery_type": "CR2450",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "lumi.sensor_magnet.v2",
             "battery_type": "CR1632"
         },
@@ -12083,12 +12089,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Aqara",
-            "model": "lumi.sensor_ht.agl001",
-            "battery_type": "CR2450",
-            "battery_quantity": 2
         }
     ]
 }
