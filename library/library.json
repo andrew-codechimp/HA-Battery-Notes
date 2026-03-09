@@ -12100,6 +12100,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Meian",
+            "model": "Water leak sensor",
+            "model_id": "SW02",
+            "hw_version": "1",
+            "battery_type": "CR2450"
         }
     ]
 }
