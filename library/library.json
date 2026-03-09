@@ -4332,6 +4332,12 @@
         },
         {
             "manufacturer": "Govee",
+            "model": "H5023",
+            "battery_type": "A23",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Govee",
             "model": "H5054",
             "battery_type": "AAA",
             "battery_quantity": 2
