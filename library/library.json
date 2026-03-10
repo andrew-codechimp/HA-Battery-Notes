@@ -12107,6 +12107,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Olibra",
+            "model": "RMS35",
+            "battery_type": "Rechargeable"
         }
     ]
 }
