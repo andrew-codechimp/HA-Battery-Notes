@@ -6689,6 +6689,11 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "Olibra",
+            "model": "RMS35",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Omlet",
             "model": "Autodoor",
             "battery_type": "AA",
@@ -12106,11 +12111,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Olibra",
-            "model": "RMS35",
             "battery_type": "Rechargeable"
         }
     ]

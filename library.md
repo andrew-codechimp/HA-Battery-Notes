@@ -1,4 +1,4 @@
-## 2097 Devices in library
+## 2098 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1167,6 +1167,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |NYCE                                            |3043                                                                                          |2× AAA                    |                                   |                                      |
 |Nyce                                            |Door/window sensor (NCZ-3011-HA)                                                              |CR2032                    |                                   |                                      |
 |Oculus                                          |Quest                                                                                         |Rechargeable              |                                   |                                      |
+|Olibra                                          |RMS35                                                                                         |Rechargeable              |                                   |                                      |
 |Omlet                                           |Autodoor                                                                                      |4× AA                     |                                   |                                      |
 |OnePlus                                         |BE2026                                                                                        |Rechargeable              |                                   |                                      |
 |OnePlus                                         |CPH2451                                                                                       |Rechargeable              |                                   |                                      |
