@@ -2175,6 +2175,11 @@
             "battery_type": "CR123"
         },
         {
+            "manufacturer": "Bosch",
+            "model": "Drive Unit Performance Line CX",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "BOSCH",
             "model": "DWCII",
             "model_id": "12309",
