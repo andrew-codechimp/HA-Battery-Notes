@@ -1,4 +1,4 @@
-## 2098 Devices in library
+## 2099 Devices in library
 
 This file is auto generated, do not modify
 
@@ -385,6 +385,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |BlueMaestro                                     |Tempo Disc THD                                                                                |CR2032                    |                                   |                                      |
 |Bosch                                           |BSEN-M                                                                                        |2× CR123A                 |                                   |                                      |
 |Bosch                                           |Door/window contact II (BSEN-C2)                                                              |CR123                     |                                   |                                      |
+|Bosch                                           |Drive Unit Performance Line CX                                                                |Rechargeable              |                                   |                                      |
 |BOSCH                                           |DWCII                                                                                         |CR123A                    |                              12309|                                     2|
 |Bosch                                           |ISW-ZPR1-WP13                                                                                 |4× AA                     |                                   |                                      |
 |BOSCH                                           |MD                                                                                            |CR123A                    |                                   |                                      |
