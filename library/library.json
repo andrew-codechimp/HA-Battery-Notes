@@ -10809,6 +10809,12 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Ubiquiti",
+            "model": "USL Environmental",
+            "model_id": "USL-Environmental-US",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "Ultraloq",
             "model": "U-BOLT-PRO-ZWAVE",
             "battery_type": "AA",
@@ -12117,12 +12123,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Ubiquiti",
-            "model": "USL Environmental",
-            "model_id": "USL-Environmental-US",
-            "battery_type": "CR123A"
         }
     ]
 }
