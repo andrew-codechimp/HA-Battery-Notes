@@ -7001,6 +7001,11 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "Philio Technology Corp",
+            "model": "PST02C",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "Philips",
             "model": "Hue dimmer switch",
             "model_id": "324131092621",
@@ -12135,11 +12140,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Philio Technology Corp",
-            "model": "PST02C",
-            "battery_type": "CR123A"
         }
     ]
 }
