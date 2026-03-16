@@ -8918,6 +8918,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Switchbot",
+            "model": "Presence Sensor by switchbot",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "switchbot",
             "model": "Roller Shade",
             "battery_type": "Rechargeable"
@@ -12129,12 +12135,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Switchbot",
-            "model": "Presence Sensor by switchbot",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }

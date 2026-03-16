@@ -1,4 +1,4 @@
-## 2101 Devices in library
+## 2102 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1560,6 +1560,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |switchbot                                       |Lock Ultra                                                                                    |Rechargeable              |                                   |                                      |
 |SwitchBot                                       |Meter                                                                                         |2× AAA                    |                                   |                                      |
 |SwitchBot                                       |MeterPlus                                                                                     |2× AAA                    |                                   |                                      |
+|Switchbot                                       |Presence Sensor by switchbot                                                                  |2× AAA                    |                                   |                                      |
 |switchbot                                       |Roller Shade                                                                                  |Rechargeable              |                                   |                                      |
 |SwitchBot                                       |Smart Lock Pro                                                                                |4× AA                     |                                   |                                      |
 |SwitchBot                                       |Smart Lock Pro                                                                                |2× Rechargeable           |                                   |V2.3                                  |
