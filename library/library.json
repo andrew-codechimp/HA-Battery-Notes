@@ -12140,6 +12140,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Unfolded Circle",
+            "model": "Remote Two",
+            "hw_version": "2",
+            "battery_type": "Rechargeable"
         }
     ]
 }
