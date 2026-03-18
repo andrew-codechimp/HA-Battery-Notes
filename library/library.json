@@ -12165,6 +12165,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "HomematicIP",
+            "model": "HmIP-eTRV-3",
+            "battery_type": "AA",
+            "battery_quantity": 2
         }
     ]
 }
