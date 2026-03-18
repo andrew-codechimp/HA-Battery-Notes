@@ -1,4 +1,4 @@
-## 2105 Devices in library
+## 2106 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1281,6 +1281,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Remotec                                         |BW8510                                                                                        |2× AAA                    |                                   |                                      |
 |Remsol                                          |ismartgateLITE                                                                                |2× N                      |                                   |                                      |
 |Remsol                                          |ismartgateMINI                                                                                |2× LR1                    |                                   |                                      |
+|reolink                                         |Argus Eco Ultra                                                                               |Rechargeable              |                                   |BIPC_560MIX16M35B238MP                |
 |Reolink                                         |Reolink Argus PT                                                                              |Rechargeable              |                                   |BIPC_566MIX16M35SD965MP               |
 |Reolink                                         |Reolink Video Doorbell                                                                        |Rechargeable              |                                   |DB_560MIXDB32M35DBB14MP               |
 |RGB Genie                                       |Zigbee 3.0 remote control (ZB-5001)                                                           |CR2032                    |                                   |                                      |
