@@ -12153,6 +12153,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "reolink",
+            "model": "Argus Eco Ultra",
+            "hw_version": "BIPC_560MIX16M35B238MP",
+            "battery_type": "Rechargeable"
         }
     ]
 }
