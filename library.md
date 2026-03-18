@@ -1,4 +1,4 @@
-## 2106 Devices in library
+## 2107 Devices in library
 
 This file is auto generated, do not modify
 
@@ -849,6 +849,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Homematic                                       |HmIP-DSD-PCB                                                                                  |2× AAA                    |                                   |                                      |
 |Homematic                                       |HmIP-SRH                                                                                      |AAA                       |                                   |                                      |
 |Homematic                                       |HmIP-STHO-A                                                                                   |2× AA                     |                                   |                                      |
+|HomematicIP                                     |HmIP-eTRV-E                                                                                   |2× AA                     |                                   |                                      |
 |HomeSeer Technologies                           |HS-FS100+                                                                                     |3× AAA                    |                                   |                                      |
 |HomeSeer Technologies                           |HS-LS100+                                                                                     |LS14250                   |                                   |                                      |
 |HomeSeer Technologies                           |HS-MS100+                                                                                     |CR123A                    |                                   |                                      |

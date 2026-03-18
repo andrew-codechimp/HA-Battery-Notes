@@ -4861,6 +4861,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "HomematicIP",
+            "model": "HmIP-eTRV-E",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "HomeSeer Technologies",
             "model": "HS-FS100+",
             "battery_type": "AAA",
@@ -12159,12 +12165,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "HomematicIP",
-            "model": "HmIP-eTRV-E",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
