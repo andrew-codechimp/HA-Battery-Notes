@@ -3731,6 +3731,13 @@
         },
         {
             "manufacturer": "Eufy Security",
+            "model": "T8506",
+            "model_id": "T8506",
+            "battery_type": "AA",
+            "battery_quantity": 8
+        },
+        {
+            "manufacturer": "Eufy Security",
             "model": "T8530",
             "battery_type": "Rechargeable"
         },
@@ -12146,13 +12153,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Eufy Security",
-            "model": "T8506",
-            "model_id": "T8506",
-            "battery_type": "AA",
-            "battery_quantity": 8
         }
     ]
 }

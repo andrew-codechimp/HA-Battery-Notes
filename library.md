@@ -1,4 +1,4 @@
-## 2104 Devices in library
+## 2105 Devices in library
 
 This file is auto generated, do not modify
 
@@ -653,6 +653,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Eufy Security                                   |T8210                                                                                         |Rechargeable              |                                   |                                      |
 |Eufy Security                                   |T8210C                                                                                        |Rechargeable              |                                   |                                      |
 |Eufy Security                                   |T8213                                                                                         |Rechargeable              |                                   |                                      |
+|Eufy Security                                   |T8506                                                                                         |8× AA                     |T8506                              |                                      |
 |Eufy Security                                   |T8530                                                                                         |Rechargeable              |                                   |                                      |
 |Eurotronic                                      |Spirit Zigbee wireless heater thermostat (SPZB0001)                                           |2× AA                     |                                   |                                      |
 |Eurotronics                                     |Spirit                                                                                        |2× AA                     |                                   |                                      |
