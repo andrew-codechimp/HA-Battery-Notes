@@ -1,4 +1,4 @@
-## 2108 Devices in library
+## 2109 Devices in library
 
 This file is auto generated, do not modify
 
@@ -379,6 +379,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |b-parasite                                      |b-parasite                                                                                    |CR2032                    |                                   |                                      |
 |Bird Buddy, Inc.                                |Bird Buddy                                                                                    |Rechargeable              |                                   |                                      |
 |BITRON VIDEO                                    |AV2010/22A                                                                                    |CR456                     |                                   |                                      |
+|Blink                                           |doorbell                                                                                      |2× AAA                    |                                   |                                      |
 |BLOOMIN8                                        |E-Ink Canvas                                                                                  |Rechargeable              |                                   |                                      |
 |Blueforcer                                      |AWTRIX 3                                                                                      |Rechargeable              |                                   |                                      |
 |Blueforcer                                      |AWTRIX Light                                                                                  |Rechargeable              |                                   |                                      |

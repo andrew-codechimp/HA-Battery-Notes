@@ -2144,6 +2144,12 @@
             "battery_type": "CR456"
         },
         {
+            "manufacturer": "Blink",
+            "model": "doorbell",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "BLOOMIN8",
             "model": "E-Ink Canvas",
             "battery_type": "Rechargeable"
@@ -12171,12 +12177,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Blink",
-            "model": "doorbell",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
