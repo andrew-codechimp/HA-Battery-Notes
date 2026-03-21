@@ -4678,6 +4678,13 @@
         },
         {
             "manufacturer": "Hive",
+            "model": "Heating thermostat remote control (SLT3D)",
+            "model_id": "SLT3d",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Hive",
             "model": "Motion Sensor",
             "model_id": "MOT003",
             "battery_type": "CR123A"
