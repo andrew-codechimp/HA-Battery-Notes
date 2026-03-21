@@ -1,4 +1,4 @@
-## 2109 Devices in library
+## 2110 Devices in library
 
 This file is auto generated, do not modify
 
@@ -819,6 +819,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Hive                                            |Door/window sensor                                                                            |CR123A                    |DWS003                             |                                      |
 |Hive                                            |Heating thermostat remote control (SLT3B)                                                     |4× AA                     |                                   |                                      |
 |Hive                                            |Heating thermostat remote control (SLT3C)                                                     |4× AA                     |                                   |                                      |
+|Hive                                            |Heating thermostat remote control (SLT3D)                                                     |4× AA                     |SLT3d                              |                                      |
 |Hive                                            |Motion Sensor                                                                                 |CR123A                    |MOT003                             |                                      |
 |Hive                                            |Radiator valve (UK7004240)                                                                    |2× AA                     |                                   |                                      |
 |Hive                                            |TRV003                                                                                        |2× AA                     |                                   |                                      |
