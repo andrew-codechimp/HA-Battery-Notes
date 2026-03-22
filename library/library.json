@@ -4666,6 +4666,13 @@
         },
         {
             "manufacturer": "Hive",
+            "model": "Heating thermostat remote control",
+            "model_id": "SLT3C",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Hive",
             "model": "Heating thermostat remote control (SLT3B)",
             "battery_type": "AA",
             "battery_quantity": 4
@@ -12190,13 +12197,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Hive",
-            "model": "Heating thermostat remote control",
-            "model_id": "SLT3C",
-            "battery_type": "AA",
-            "battery_quantity": 4
         }
     ]
 }
