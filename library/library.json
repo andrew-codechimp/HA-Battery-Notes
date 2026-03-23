@@ -835,6 +835,13 @@
         },
         {
             "manufacturer": "ADEO",
+            "model": "RGB CTT LEXMAN ENKI remote control",
+            "model_id": "HR-C99C-Z-C045",
+            "hw_version": "2",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "ADEO",
             "model": "RGB CTT LEXMAN ENKI remote control (HR-C99C-Z-C045)",
             "battery_type": "CR2450"
         },
@@ -12197,13 +12204,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "ADEO",
-            "model": "RGB CTT LEXMAN ENKI remote control",
-            "model_id": "HR-C99C-Z-C045",
-            "hw_version": "2",
-            "battery_type": "CR2450"
         }
     ]
 }
