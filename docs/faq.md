@@ -21,10 +21,10 @@ Go into the Settings -> Integrations -> Battery Notes, use the menu on the right
 
 Go into Settings -> Integrations -> Battery Notes and click Configure on the device you want to edit.
 
-## What is the battery note field used for?
+## What is the note field used for?
 
 Anything you want, some people use it for the preferred brand of battery or the tool required to open the device.  
-The field appears as a battery_note attribute on Battery Type, Battery Plus and Battery Low entities and is also available in all event data.
+The field appears as a note attribute on Battery Type, Battery Plus and Battery Low entities and is also available in all event data.
 
 ## Why am I only able to see some of my devices when adding manually?
 
