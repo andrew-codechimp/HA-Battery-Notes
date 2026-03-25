@@ -43,7 +43,7 @@
         }
     },
     "config_subentries": {
-        "note": {
+        "battery_note": {
             "initiate_flow": {
                 "user": "Add battery note"
             },
