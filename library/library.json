@@ -9206,6 +9206,14 @@
             "battery_quantity": 3
         },
         {
+            "manufacturer": "TFA Dostmann",
+            "model": "Klima@Home",
+            "model_id": "30.3060.54.IT",
+            "hw_version": "V001 A18 (05/2018)",
+            "battery_type": "AA",
+            "battery_quantity": 3
+        },
+        {
             "manufacturer": "ThermoBeacon",
             "model": "16",
             "battery_type": "CR2477"
@@ -12212,14 +12220,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "TFA Dostmann",
-            "model": "Klima@Home",
-            "model_id": "30.3060.54.IT",
-            "hw_version": "V001 A18 (05/2018)",
-            "battery_type": "AA",
-            "battery_quantity": 3
         }
     ]
 }
