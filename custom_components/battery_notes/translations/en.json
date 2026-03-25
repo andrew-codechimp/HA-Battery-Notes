@@ -10,7 +10,7 @@
                 "data": {
                     "battery_type": "Battery type",
                     "battery_quantity": "Battery quantity",
-                    "battery_note": "Battery note",
+                    "note": "Note",
                     "battery_low_threshold": "Battery low threshold"
                 },
                 "data_description": {
@@ -43,7 +43,7 @@
         }
     },
     "config_subentries": {
-        "battery_note": {
+        "note": {
             "initiate_flow": {
                 "user": "Add battery note"
             },
@@ -83,7 +83,7 @@
                     "data": {
                         "battery_type": "Battery type",
                         "battery_quantity": "Battery quantity",
-                        "battery_note": "Battery note",
+                        "note": "Note",
                         "battery_low_threshold": "Battery low threshold"
                     },
                     "data_description": {
@@ -115,7 +115,7 @@
                         "name": "Name",
                         "battery_type": "Battery type",
                         "battery_quantity": "Battery quantity",
-                        "battery_note": "Battery note",
+                        "note": "Note",
                         "battery_low_threshold": "Battery low threshold"
                     },
                     "data_description": {
@@ -217,8 +217,8 @@
                     "battery_type_and_quantity": {
                         "name": "Battery type and quantity"
                     },
-                    "battery_note": {
-                        "name": "Battery note"
+                    "note": {
+                        "name": "Note"
                     },
                     "battery_last_replaced": {
                         "name": "Battery last replaced"
@@ -255,8 +255,8 @@
                     "battery_quantity": {
                         "name": "Battery quantity"
                     },
-                    "battery_note": {
-                        "name": "Battery note"
+                    "note": {
+                        "name": "Note"
                     }
                 }
             },

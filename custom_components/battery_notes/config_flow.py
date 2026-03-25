@@ -33,7 +33,6 @@ from .const import (
     CONF_BATTERY_INCREASE_THRESHOLD,
     CONF_BATTERY_LOW_TEMPLATE,
     CONF_BATTERY_LOW_THRESHOLD,
-    CONF_BATTERY_NOTE,
     CONF_BATTERY_PERCENTAGE_TEMPLATE,
     CONF_BATTERY_QUANTITY,
     CONF_BATTERY_TYPE,
@@ -48,6 +47,7 @@ from .const import (
     CONF_MANUFACTURER,
     CONF_MODEL,
     CONF_MODEL_ID,
+    CONF_NOTE,
     CONF_ROUND_BATTERY,
     CONF_SHOW_ALL_DEVICES,
     CONF_SOURCE_ENTITY_ID,
@@ -524,8 +524,8 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                         ),
                     ),
                     vol.Optional(
-                        CONF_BATTERY_NOTE,
-                        default=self.data.get(CONF_BATTERY_NOTE),
+                        CONF_NOTE,
+                        default=self.data.get(CONF_NOTE),
                     ): selector.TextSelector(
                         selector.TextSelectorConfig(
                             type=selector.TextSelectorType.TEXT
@@ -802,7 +802,7 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
         if user_input is not None:
             self.data[CONF_BATTERY_TYPE] = user_input[CONF_BATTERY_TYPE]
             self.data[CONF_BATTERY_QUANTITY] = int(user_input[CONF_BATTERY_QUANTITY])
-            self.data[CONF_BATTERY_NOTE] = user_input[CONF_BATTERY_NOTE]
+            self.data[CONF_NOTE] = user_input[CONF_NOTE]
             self.data[CONF_BATTERY_LOW_THRESHOLD] = int(
                 user_input[CONF_BATTERY_LOW_THRESHOLD]
             )
@@ -867,8 +867,8 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
                         ),
                     ),
                     vol.Optional(
-                        CONF_BATTERY_NOTE,
-                        default=self.data.get(CONF_BATTERY_NOTE),
+                        CONF_NOTE,
+                        default=self.data.get(CONF_NOTE),
                     ): selector.TextSelector(
                         selector.TextSelectorConfig(
                             type=selector.TextSelectorType.TEXT
@@ -912,7 +912,7 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
         if user_input is not None:
             self.data[CONF_BATTERY_TYPE] = user_input[CONF_BATTERY_TYPE]
             self.data[CONF_BATTERY_QUANTITY] = int(user_input[CONF_BATTERY_QUANTITY])
-            self.data[CONF_BATTERY_NOTE] = user_input[CONF_BATTERY_NOTE]
+            self.data[CONF_NOTE] = user_input[CONF_NOTE]
             self.data[CONF_BATTERY_LOW_THRESHOLD] = int(
                 user_input[CONF_BATTERY_LOW_THRESHOLD]
             )
@@ -993,7 +993,7 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
                         min=1, max=100, mode=selector.NumberSelectorMode.BOX
                     ),
                 ),
-                vol.Optional(CONF_BATTERY_NOTE): selector.TextSelector(
+                vol.Optional(CONF_NOTE): selector.TextSelector(
                     selector.TextSelectorConfig(type=selector.TextSelectorType.TEXT),
                 ),
                 vol.Required(
