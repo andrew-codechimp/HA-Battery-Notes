@@ -1,4 +1,4 @@
-## 2113 Devices in library
+## 2114 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1607,6 +1607,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |tado° GmbH                                      |Wireless Temperature Sensor X (3)                                                             |3× LR03                   |                                   |SU04                                  |
 |Tedee                                           |Tedee GO                                                                                      |3× CR123A                 |                                   |                                      |
 |Tedee                                           |Tedee PRO                                                                                     |Rechargeable              |                                   |                                      |
+|TFA Dostmann                                    |Klima@Home                                                                                    |3× AA                     |30.3060.01.IT                      |V001 A18 (09/2019)                    |
 |ThermoBeacon                                    |16                                                                                            |CR2477                    |                                   |                                      |
 |ThermoBeacon                                    |21                                                                                            |CR2477                    |                                   |                                      |
 |ThermoBeacon                                    |27                                                                                            |CR2477                    |                                   |                                      |
