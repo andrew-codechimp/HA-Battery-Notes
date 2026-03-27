@@ -4724,6 +4724,14 @@
         },
         {
             "manufacturer": "HOBEIAN",
+            "model": "Door/window sensor",
+            "model_id": "ZG-102ZA",
+            "hw_version": "1",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "HOBEIAN",
             "model": "Millimeter wave motion detection",
             "model_id": "ZG-204ZV",
             "hw_version": "1",
@@ -12220,14 +12228,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "HOBEIAN",
-            "model": "Door/window sensor",
-            "model_id": "ZG-102ZA",
-            "hw_version": "1",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
