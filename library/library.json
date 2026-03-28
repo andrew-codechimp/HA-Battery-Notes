@@ -1738,6 +1738,13 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "Vibration Sensor T1",
+            "model_id": "DJT12LM",
+            "hw_version": "1",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "Water leak sensor",
             "model_id": "SJCGQ11LM",
             "battery_type": "CR2032"
