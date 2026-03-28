@@ -8579,6 +8579,13 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "Solity",
+            "model": "Solity DoorLock",
+            "model_id": "16",
+            "battery_type": "AA",
+            "battery_quantity": 8
+        },
+        {
             "manufacturer": "Somfy",
             "model": "IntelliTag",
             "battery_type": "AAA"
@@ -12255,13 +12262,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Solity",
-            "model": "Solity DoorLock",
-            "model_id": "16",
-            "battery_type": "AA",
-            "battery_quantity": 8
         }
     ]
 }
