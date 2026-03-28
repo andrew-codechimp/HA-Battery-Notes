@@ -1,4 +1,4 @@
-## 2119 Devices in library
+## 2120 Devices in library
 
 This file is auto generated, do not modify
 
@@ -412,6 +412,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |BOSCH                                           |TRV_GEN2                                                                                      |2× AA                     |                                   |                                      |
 |BOSCH                                           |TWINGUARD                                                                                     |6× AA                     |                                   |                                      |
 |Bosch                                           |Twinguard (8750001213)                                                                        |6× AA                     |                                   |                                      |
+|Bosch                                           |Wireless motion detector                                                                      |2× CR123                  |RADION TriTech ZB                  |RFDL-ZB-MS                            |
 |BOSCH                                           |WLS                                                                                           |2× AAA                    |                                   |                                      |
 |BOSCH                                           |WRC2                                                                                          |2× AAA                    |                                   |                                      |
 |BRK Brands, Inc.                                |ZCOMBO                                                                                        |2× AA                     |                                   |                                      |
