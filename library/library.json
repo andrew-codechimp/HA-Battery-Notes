@@ -12247,6 +12247,14 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Bosch",
+            "model": "Wireless motion detector",
+            "model_id": "RADION TriTech ZB",
+            "hw_version": "RFDL-ZB-MS",
+            "battery_type": "CR123",
+            "battery_quantity": 2
         }
     ]
 }
