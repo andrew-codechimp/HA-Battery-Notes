@@ -171,6 +171,11 @@
             "battery_type": "A23"
         },
         {
+            "manufacturer": "_TZ3000_abrsvsou",
+            "model": "TS004F",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "_TZ3000_au1rjicn",
             "model": "TS0203",
             "battery_type": "CR2032"
