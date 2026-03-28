@@ -1,4 +1,4 @@
-## 2121 Devices in library
+## 2122 Devices in library
 
 This file is auto generated, do not modify
 
@@ -289,6 +289,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Aqara                                           |Smart Lock U200                                                                               |MANUAL                    |                              10242|1.0.0.0                               |
 |Aqara                                           |Smart radiator thermostat E1                                                                  |2× AA                     |SRTS-A01                           |                                      |
 |Aqara                                           |Smart radiator thermostat E1 (SRTS-A01)                                                       |2× AA                     |                                   |                                      |
+|Aqara                                           |Smart rotary knob H1 (wireless)                                                               |2× CR2032                 |ZNXNKG02LM                         |                                      |
 |Aqara                                           |Smart smoke detector                                                                          |CR17450                   |JY-GZ-01AQ                         |                                      |
 |Aqara                                           |Smart smoke detector                                                                          |CR17450                   |JY-GZ-01AQ                         |                                     1|
 |Aqara                                           |Smart Smoke Detector                                                                          |CR17450                   |lumi.sensor_smoke.acn03            |                                      |

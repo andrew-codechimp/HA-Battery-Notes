@@ -1615,6 +1615,13 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "Smart rotary knob H1 (wireless)",
+            "model_id": "ZNXNKG02LM",
+            "battery_type": "CR2032",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "Smart smoke detector",
             "model_id": "JY-GZ-01AQ",
             "battery_type": "CR17450"
@@ -12262,13 +12269,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Aqara",
-            "model": "Smart rotary knob H1 (wireless)",
-            "model_id": "ZNXNKG02LM",
-            "battery_type": "CR2032",
-            "battery_quantity": 2
         }
     ]
 }
