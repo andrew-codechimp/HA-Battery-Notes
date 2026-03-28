@@ -2262,6 +2262,12 @@
         },
         {
             "manufacturer": "Bosch",
+            "model": "RFDL-ZB-MS",
+            "battery_type": "CR123",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Bosch",
             "model": "Room thermostat II",
             "model_id": "RBSH-RTH0-BAT-ZB-EU",
             "battery_type": "AAA",
@@ -12241,12 +12247,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Bosch",
-            "model": "RFDL-ZB-MS",
-            "battery_type": "CR123",
-            "battery_quantity": 2
         }
     ]
 }
