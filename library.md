@@ -1,4 +1,4 @@
-## 2122 Devices in library
+## 2123 Devices in library
 
 This file is auto generated, do not modify
 
@@ -308,6 +308,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Aqara                                           |Vibration Sensor                                                                              |CR2032                    |DJT11LM                            |                                      |
 |Aqara                                           |Vibration Sensor                                                                              |CR2032                    |DJT11LM                            |                                     3|
 |Aqara                                           |Vibration sensor (DJT11LM)                                                                    |CR2032                    |                                   |                                      |
+|Aqara                                           |Vibration Sensor T1                                                                           |CR2032                    |DJT12LM                            |                                     1|
 |Aqara                                           |Water leak sensor                                                                             |CR2032                    |SJCGQ11LM                          |                                      |
 |Aqara                                           |Water leak sensor (SJCGQ11LM)                                                                 |CR2032                    |                                   |                                      |
 |Aqara                                           |Water leak sensor T1                                                                          |CR2032                    |SJCGQ12LM                          |                                      |
