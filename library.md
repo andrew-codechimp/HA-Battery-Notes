@@ -1,4 +1,4 @@
-## 2123 Devices in library
+## 2124 Devices in library
 
 This file is auto generated, do not modify
 
@@ -137,6 +137,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |_TZE204_rtrmfadk                                |TS0601                                                                                        |3× AA                     |                                   |                                      |
 |_TZE204_t1blo2bj                                |TS0601                                                                                        |2× CR123A                 |                                   |                                      |
 |_TZE204_yjjdcqsq                                |TS0601                                                                                        |2× AAA                    |                                   |                                      |
+|_TZE284_1wnh8bqp                                |TS0601                                                                                        |2× AAA                    |                                   |                                      |
 |_TZE284_aao3yzhs                                |TS0601                                                                                        |2× AAA                    |                                   |                                      |
 |_TZE284_d7lpruvi                                |TS0601                                                                                        |3× AAA                    |                                   |                                      |
 |_TZE284_nhgdf6qr                                |TS0601                                                                                        |2× AAA                    |                                   |                                      |
