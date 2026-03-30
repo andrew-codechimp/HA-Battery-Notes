@@ -1,4 +1,4 @@
-## 2124 Devices in library
+## 2125 Devices in library
 
 This file is auto generated, do not modify
 
@@ -492,6 +492,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Dreametech                                      |X40 ULTRA COMPLETE                                                                            |Rechargeable              |dreame.vacuum.r2449a               |                                      |
 |Dreametech™                                     |dreame.vacuum.r2492j                                                                          |Rechargeable              |                                   |                                      |
 |Eaton                                           |Ellipse ECO 650                                                                               |Rechargeable              |                                   |                                      |
+|Echos                                           |Thermostatic radiator valve                                                                   |2× AA                     |Eco-4160                           |                                     1|
 |ecobee                                          |ecobee Room Sensor                                                                            |CR2032                    |                                   |                                      |
 |ecobee Inc.                                     |EBERS41                                                                                       |CR2477                    |                                   |                                      |
 |ecobee Inc.                                     |EBRSE4                                                                                        |CR2032                    |                                   |                                      |
