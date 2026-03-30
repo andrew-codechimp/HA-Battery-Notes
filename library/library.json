@@ -7401,6 +7401,12 @@
         },
         {
             "manufacturer": "Qingping",
+            "model": "CGPR1",
+            "battery_type": "CR2450",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Qingping",
             "model": "GCP22C",
             "battery_type": "Rechargeable"
         },
@@ -12290,12 +12296,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Qingping",
-            "model": "CGPR1",
-            "battery_type": "CR2450",
-            "battery_quantity": 2
         }
     ]
 }

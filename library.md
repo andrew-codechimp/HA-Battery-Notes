@@ -1,4 +1,4 @@
-## 2125 Devices in library
+## 2126 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1288,6 +1288,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |PushOk Hardware                                 |POK009                                                                                        |CR2032                    |                                   |v2                                    |
 |PushOk Hardware                                 |POK010                                                                                        |CR2032                    |                                   |                                      |
 |Qingping                                        |CGG1                                                                                          |CR2430                    |                                   |                                      |
+|Qingping                                        |CGPR1                                                                                         |2× CR2450                 |                                   |                                      |
 |Qingping                                        |GCP22C                                                                                        |Rechargeable              |                                   |                                      |
 |Qingping Technology (Beijing) Co., Ltd.         |CGG1T                                                                                         |CR2430                    |                                   |                                      |
 |Radio Thermostat Company of America (RTC)       |CT100                                                                                         |4× AA                     |                                   |                                      |
