@@ -1,4 +1,4 @@
-## 2129 Devices in library
+## 2130 Devices in library
 
 This file is auto generated, do not modify
 
@@ -520,6 +520,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Ecowitt                                         |wh34                                                                                          |AA                        |                                   |                                      |
 |Ecowitt                                         |WH51                                                                                          |AA                        |                                   |                                      |
 |Ecowitt                                         |wh51                                                                                          |AA                        |                                   |                                      |
+|Ecowitt                                         |wh69                                                                                          |2× AA                     |                                   |                                      |
 |Elexa Consumer Products Inc.                    |DMMS1                                                                                         |CR123A                    |                                   |                                      |
 |Elexa Consumer Products Inc.                    |DMS01                                                                                         |2× CR123A                 |                                   |                                      |
 |Elexa Consumer Products Inc.                    |DMWD1                                                                                         |CR123A                    |                                   |                                      |
