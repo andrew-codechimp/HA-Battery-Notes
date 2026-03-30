@@ -2942,6 +2942,11 @@
         },
         {
             "manufacturer": "Ecowitt",
+            "model": "wh34",
+            "battery_type": "AA"
+        },
+        {
+            "manufacturer": "Ecowitt",
             "model": "WH51",
             "battery_type": "AA"
         },
@@ -12307,11 +12312,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Ecowitt",
-            "model": "wh34",
-            "battery_type": "AA"
         }
     ]
 }
