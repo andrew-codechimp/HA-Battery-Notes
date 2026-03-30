@@ -12282,6 +12282,14 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Echos",
+            "model": "Thermostatic radiator valve",
+            "model_id": "Eco-4160",
+            "hw_version": "1",
+            "battery_type": "AA",
+            "battery_quantity": 2
         }
     ]
 }
