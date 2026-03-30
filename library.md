@@ -1,4 +1,4 @@
-## 2126 Devices in library
+## 2127 Devices in library
 
 This file is auto generated, do not modify
 
@@ -517,6 +517,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Ecowitt                                         |Soil moisture sensor                                                                          |AA                        |WH51                               |                                      |
 |Ecowitt                                         |Weather Station                                                                               |2× AA                     |WH85                               |                                      |
 |Ecowitt                                         |WH51                                                                                          |AA                        |                                   |                                      |
+|Ecowitt                                         |wh51                                                                                          |AA                        |                                   |                                      |
 |Elexa Consumer Products Inc.                    |DMMS1                                                                                         |CR123A                    |                                   |                                      |
 |Elexa Consumer Products Inc.                    |DMS01                                                                                         |2× CR123A                 |                                   |                                      |
 |Elexa Consumer Products Inc.                    |DMWD1                                                                                         |CR123A                    |                                   |                                      |
