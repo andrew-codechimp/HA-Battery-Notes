@@ -4225,6 +4225,11 @@
             "battery_quantity": 4
         },
         {
+            "manufacturer": "Freebox SAS",
+            "model": "F-HADWS01A",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "Frient",
             "model": "EMIZB-141",
             "battery_type": "AA",
@@ -12326,11 +12331,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Freebox SAS",
-            "model": "F-HADWS01A",
-            "battery_type": "CR2450"
         }
     ]
 }
