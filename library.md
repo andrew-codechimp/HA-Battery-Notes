@@ -1,4 +1,4 @@
-## 2130 Devices in library
+## 2131 Devices in library
 
 This file is auto generated, do not modify
 
@@ -463,6 +463,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Danfoss                                         |MT2649 / DRS21                                                                                |2× AA                     |                                   |                                      |
 |Danfoss                                         |TRV001                                                                                        |2× AA                     |                                   |                                      |
 |Datek                                           |Eva water leak sensor                                                                         |2× CR2450                 |HSE2919E                           |                                      |
+|Develco                                         |Air quality sensor                                                                            |2× AA                     |AQSZB-110                          |                                   110|
 |Develco                                         |AQSZB-110                                                                                     |2× AA                     |                                   |                                      |
 |Develco                                         |Fire detector with siren                                                                      |CR123                     |HESZB-120                          |5.0.2                                 |
 |Develco                                         |Fire detector with siren (HESZB-120)                                                          |CR123A                    |                                   |                                      |
