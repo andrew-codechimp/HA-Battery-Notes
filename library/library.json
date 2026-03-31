@@ -12326,6 +12326,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Freebox SAS",
+            "model": "F-HADWS01A",
+            "battery_type": "CR2450"
         }
     ]
 }
