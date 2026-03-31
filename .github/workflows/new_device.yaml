@@ -117,6 +117,7 @@ jobs:
         with:
           commit-message: "${{ env.TITLE_MODE }} device: ${{ env.MODEL }} by ${{ env.MANUFACTURER }}"
           title: "${{ env.TITLE_MODE }} device: ${{ env.MANUFACTURER }} - ${{ env.MODEL }}"
+          labels: library
           body: |
             This pull request ${{ env.MODE }} the device information for:
             Manufacturer: ${{ env.MANUFACTURER }}
