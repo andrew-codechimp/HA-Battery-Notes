@@ -10,7 +10,7 @@ from homeassistant.helpers import config_validation as cv
 
 LOGGER: Logger = getLogger(__package__)
 
-MIN_HA_VERSION = "2025.9.0"
+MIN_HA_VERSION = "2025.12.0"
 
 DOMAIN = "battery_notes"
 NAME = "Battery Notes"
