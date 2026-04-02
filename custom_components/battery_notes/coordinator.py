@@ -41,6 +41,7 @@ from .const import (
     ATTR_BATTERY_TYPE_AND_QUANTITY,
     ATTR_DEVICE_ID,
     ATTR_DEVICE_NAME,
+    ATTR_NOTE,
     ATTR_PREVIOUS_BATTERY_LEVEL,
     ATTR_REMOVE,
     ATTR_SOURCE_ENTITY_ID,
@@ -51,6 +52,7 @@ from .const import (
     CONF_BATTERY_QUANTITY,
     CONF_BATTERY_TYPE,
     CONF_FILTER_OUTLIERS,
+    CONF_NOTE,
     CONF_SOURCE_ENTITY_ID,
     DEFAULT_BATTERY_INCREASE_THRESHOLD,
     DEFAULT_BATTERY_LOW_THRESHOLD,
@@ -107,6 +109,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
     device_name: str
     battery_type: str
     battery_quantity: int
+    battery_note: str
     battery_low_threshold: int
     battery_low_template: str | None
     battery_percentage_template: str | None
@@ -148,6 +151,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
             return
 
         self.battery_type = cast(str, self.subentry.data.get(CONF_BATTERY_TYPE, ""))
+        self.battery_note = cast(str, self.subentry.data.get(CONF_NOTE, ""))
         try:
             self.battery_quantity = cast(
                 int, self.subentry.data.get(CONF_BATTERY_QUANTITY, 1)
@@ -412,6 +416,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                     ATTR_BATTERY_LOW_THRESHOLD: self.battery_low_threshold,
                     ATTR_BATTERY_TYPE_AND_QUANTITY: self.battery_type_and_quantity,
                     ATTR_BATTERY_TYPE: self.battery_type,
+                    ATTR_NOTE: self.battery_note,
                     ATTR_BATTERY_QUANTITY: self.battery_quantity,
                     ATTR_BATTERY_LEVEL: 0,
                     ATTR_PREVIOUS_BATTERY_LEVEL: 100,
@@ -444,6 +449,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                         ATTR_BATTERY_LOW_THRESHOLD: self.battery_low_threshold,
                         ATTR_BATTERY_TYPE_AND_QUANTITY: self.battery_type_and_quantity,
                         ATTR_BATTERY_TYPE: self.battery_type,
+                        ATTR_NOTE: self.battery_note,
                         ATTR_BATTERY_QUANTITY: self.battery_quantity,
                         ATTR_BATTERY_LEVEL: 100,
                         ATTR_PREVIOUS_BATTERY_LEVEL: 0,
@@ -478,6 +484,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                     ATTR_BATTERY_LOW_THRESHOLD: self.battery_low_threshold,
                     ATTR_BATTERY_TYPE_AND_QUANTITY: self.battery_type_and_quantity,
                     ATTR_BATTERY_TYPE: self.battery_type,
+                    ATTR_NOTE: self.battery_note,
                     ATTR_BATTERY_QUANTITY: self.battery_quantity,
                     ATTR_BATTERY_LEVEL: 0,
                     ATTR_PREVIOUS_BATTERY_LEVEL: 100,
@@ -510,6 +517,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                         ATTR_BATTERY_LOW_THRESHOLD: self.battery_low_threshold,
                         ATTR_BATTERY_TYPE_AND_QUANTITY: self.battery_type_and_quantity,
                         ATTR_BATTERY_TYPE: self.battery_type,
+                        ATTR_NOTE: self.battery_note,
                         ATTR_BATTERY_QUANTITY: self.battery_quantity,
                         ATTR_BATTERY_LEVEL: 100,
                         ATTR_PREVIOUS_BATTERY_LEVEL: 0,
@@ -562,6 +570,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                         ATTR_BATTERY_LOW_THRESHOLD: self.battery_low_threshold,
                         ATTR_BATTERY_TYPE_AND_QUANTITY: self.battery_type_and_quantity,
                         ATTR_BATTERY_TYPE: self.battery_type,
+                        ATTR_NOTE: self.battery_note,
                         ATTR_BATTERY_QUANTITY: self.battery_quantity,
                         ATTR_BATTERY_LEVEL: self.rounded_battery_level,
                         ATTR_PREVIOUS_BATTERY_LEVEL: self.rounded_previous_battery_level,
@@ -597,6 +606,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                             ATTR_BATTERY_LOW_THRESHOLD: self.battery_low_threshold,
                             ATTR_BATTERY_TYPE_AND_QUANTITY: self.battery_type_and_quantity,
                             ATTR_BATTERY_TYPE: self.battery_type,
+                            ATTR_NOTE: self.battery_note,
                             ATTR_BATTERY_QUANTITY: self.battery_quantity,
                             ATTR_BATTERY_LEVEL: self.rounded_battery_level,
                             ATTR_PREVIOUS_BATTERY_LEVEL: self.rounded_previous_battery_level,

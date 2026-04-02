@@ -66,6 +66,7 @@ from .const import (
     ATTR_BATTERY_TYPE_AND_QUANTITY,
     ATTR_DEVICE_ID,
     ATTR_DEVICE_NAME,
+    ATTR_NOTE,
     ATTR_SOURCE_ENTITY_ID,
     CONF_ADVANCED_SETTINGS,
     CONF_BATTERY_QUANTITY,
@@ -233,7 +234,13 @@ class BatteryNotesTypeSensor(BatteryNotesEntity, RestoreSensor):
 
     _attr_should_poll = False
     entity_description: BatteryNotesSensorEntityDescription
-    _unrecorded_attributes = frozenset({ATTR_BATTERY_QUANTITY, ATTR_BATTERY_TYPE})
+    _unrecorded_attributes = frozenset(
+        {
+            ATTR_BATTERY_QUANTITY,
+            ATTR_BATTERY_TYPE,
+            ATTR_NOTE,
+        }
+    )
 
     def __init__(  # noqa: PLR0913
         self,
@@ -285,6 +292,7 @@ class BatteryNotesTypeSensor(BatteryNotesEntity, RestoreSensor):
         attrs = {
             ATTR_BATTERY_QUANTITY: self.coordinator.battery_quantity,
             ATTR_BATTERY_TYPE: self.coordinator.battery_type,
+            ATTR_NOTE: self.coordinator.battery_note,
         }
 
         super_attrs = super().extra_state_attributes
@@ -359,6 +367,7 @@ class BatteryNotesBatteryPlusBaseSensor(BatteryNotesEntity, RestoreSensor):
             ATTR_BATTERY_QUANTITY,
             ATTR_BATTERY_TYPE,
             ATTR_BATTERY_TYPE_AND_QUANTITY,
+            ATTR_NOTE,
             ATTR_BATTERY_LOW,
             ATTR_BATTERY_LOW_THRESHOLD,
             ATTR_BATTERY_LAST_REPORTED,
@@ -418,6 +427,7 @@ class BatteryNotesBatteryPlusBaseSensor(BatteryNotesEntity, RestoreSensor):
             ATTR_BATTERY_QUANTITY: self.coordinator.battery_quantity,
             ATTR_BATTERY_TYPE: self.coordinator.battery_type,
             ATTR_BATTERY_TYPE_AND_QUANTITY: self.coordinator.battery_type_and_quantity,
+            ATTR_NOTE: self.coordinator.battery_note,
             ATTR_BATTERY_LOW: self.coordinator.battery_low,
             ATTR_BATTERY_LOW_THRESHOLD: self.coordinator.battery_low_threshold,
             ATTR_BATTERY_LAST_REPORTED: self.coordinator.last_reported,
