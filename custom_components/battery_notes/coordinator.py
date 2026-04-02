@@ -19,13 +19,14 @@ from homeassistant.const import (
     STATE_UNAVAILABLE,
     STATE_UNKNOWN,
 )
-from homeassistant.core import CALLBACK_TYPE, HomeAssistant
+from homeassistant.core import CALLBACK_TYPE, HomeAssistant, callback
 from homeassistant.helpers import (
     device_registry as dr,
     entity_registry as er,
     issue_registry as ir,
 )
 from homeassistant.helpers.entity_registry import RegistryEntry
+from homeassistant.helpers.event import async_call_later
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
 from homeassistant.util import dt as dt_util
 from homeassistant.util.hass_dict import HassKey
@@ -127,6 +128,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
     _previous_battery_low_binary_state: bool | None = None
     _source_entity_name: str | None = None
     _outlier_filter: LowOutlierFilter | None = None
+    _link_retry_delay: timedelta = timedelta(minutes=2)
 
     def __init__(  # noqa: PLR0912
         self,
@@ -147,6 +149,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
 
         if not self._link_to_source():
             self.is_orphaned = True
+            self._schedule_link_retry()
             return
 
         self.battery_type = cast(str, self.subentry.data.get(CONF_BATTERY_TYPE, ""))
@@ -219,7 +222,31 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
             )
             self.last_reported = last_reported
 
-    def _link_to_source(self) -> bool:  # noqa: PLR0912
+    def _schedule_link_retry(self) -> None:
+        """Retry linking to source after startup state settles."""
+
+        @callback
+        def _retry_link_to_source(_now: datetime) -> None:
+            if not self._link_to_source(create_issue=True):
+                return
+
+            self.is_orphaned = False
+            _LOGGER.debug(
+                "%s source link restored; reloading entry to create entities",
+                self.subentry.subentry_id,
+            )
+            self.hass.async_create_task(
+                self.hass.config_entries.async_reload(self.config_entry.entry_id)
+            )
+
+        remove_retry = async_call_later(
+            self.hass,
+            self._link_retry_delay,
+            _retry_link_to_source,
+        )
+        self.config_entry.async_on_unload(remove_retry)
+
+    def _link_to_source(self, create_issue: bool = False) -> bool:  # noqa: PLR0912
         """Get the source device or entity, determine name and associate our wrapped battery if available."""
         device_registry = dr.async_get(self.hass)
         entity_registry = er.async_get(self.hass)
@@ -228,23 +255,24 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
             entity = entity_registry.async_get(self.source_entity_id)
 
             if not entity:
-                ir.async_create_issue(
-                    self.hass,
-                    DOMAIN,
-                    f"missing_device_{self.subentry.subentry_id}",
-                    data={
-                        "entry_id": self.config_entry.entry_id,
-                        "subentry_id": self.subentry.subentry_id,
-                        "device_id": self.device_id,
-                        "source_entity_id": self.source_entity_id,
-                    },
-                    is_fixable=True,
-                    severity=ir.IssueSeverity.WARNING,
-                    translation_key="missing_device",
-                    translation_placeholders={
-                        "name": self.subentry.title,
-                    },
-                )
+                if create_issue:
+                    ir.async_create_issue(
+                        self.hass,
+                        DOMAIN,
+                        f"missing_device_{self.subentry.subentry_id}",
+                        data={
+                            "entry_id": self.config_entry.entry_id,
+                            "subentry_id": self.subentry.subentry_id,
+                            "device_id": self.device_id,
+                            "source_entity_id": self.source_entity_id,
+                        },
+                        is_fixable=True,
+                        severity=ir.IssueSeverity.WARNING,
+                        translation_key="missing_device",
+                        translation_placeholders={
+                            "name": self.subentry.title,
+                        },
+                    )
 
                 _LOGGER.warning(
                     "%s is orphaned, unable to find entity %s",
@@ -314,23 +342,24 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
             else:
                 self.device_name = self.subentry.title
 
-                ir.async_create_issue(
-                    self.hass,
-                    DOMAIN,
-                    f"missing_device_{self.subentry.subentry_id}",
-                    data={
-                        "entry_id": self.config_entry.entry_id,
-                        "subentry_id": self.subentry.subentry_id,
-                        "device_id": self.device_id,
-                        "source_entity_id": self.source_entity_id,
-                    },
-                    is_fixable=True,
-                    severity=ir.IssueSeverity.WARNING,
-                    translation_key="missing_device",
-                    translation_placeholders={
-                        "name": self.subentry.title,
-                    },
-                )
+                if create_issue:
+                    ir.async_create_issue(
+                        self.hass,
+                        DOMAIN,
+                        f"missing_device_{self.subentry.subentry_id}",
+                        data={
+                            "entry_id": self.config_entry.entry_id,
+                            "subentry_id": self.subentry.subentry_id,
+                            "device_id": self.device_id,
+                            "source_entity_id": self.source_entity_id,
+                        },
+                        is_fixable=True,
+                        severity=ir.IssueSeverity.WARNING,
+                        translation_key="missing_device",
+                        translation_placeholders={
+                            "name": self.subentry.title,
+                        },
+                    )
 
                 _LOGGER.warning(
                     "%s is orphaned, unable to find device %s",
