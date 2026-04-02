@@ -10,6 +10,7 @@
                 "data": {
                     "battery_type": "Tipus de bateria",
                     "battery_quantity": "Quantitat de bateries",
+                    "note": "Note",
                     "battery_low_threshold": "Llindar baix de la bateria"
                 },
                 "data_description": {
@@ -82,6 +83,7 @@
                     "data": {
                         "battery_type": "Tipus de bateria",
                         "battery_quantity": "Quantitat de bateries",
+                        "note": "Note",
                         "battery_low_threshold": "Llindar baix de la bateria"
                     },
                     "data_description": {
@@ -113,6 +115,7 @@
                         "name": "Nom",
                         "battery_type": "Tipus de bateria",
                         "battery_quantity": "Quantitat de bateries",
+                        "note": "Note",
                         "battery_low_threshold": "Llindar baix de la bateria"
                     },
                     "data_description": {
@@ -214,6 +217,9 @@
                     "battery_type_and_quantity": {
                         "name": "Tipus i quantitat de bateries"
                     },
+                    "note": {
+                        "name": "Note"
+                    },
                     "battery_last_replaced": {
                         "name": "Últim cop que es va canviar la bateria"
                     },
@@ -248,6 +254,9 @@
                     },
                     "battery_quantity": {
                         "name": "Quantitat de bateries"
+                    },
+                    "note": {
+                        "name": "Note"
                     }
                 }
             },
