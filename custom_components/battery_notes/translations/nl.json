@@ -10,6 +10,7 @@
                 "data": {
                     "battery_type": "Batterij type",
                     "battery_quantity": "Aantal batterijen",
+                    "note": "Note",
                     "battery_low_threshold": "Drempelwaarde batterij bijna leeg"
                 },
                 "data_description": {
@@ -82,6 +83,7 @@
                     "data": {
                         "battery_type": "Batterij type",
                         "battery_quantity": "Aantal batterijen",
+                        "note": "Note",
                         "battery_low_threshold": "Drempelwaarde batterij bijna leeg"
                     },
                     "data_description": {
@@ -113,6 +115,7 @@
                         "name": "Naam",
                         "battery_type": "Batterij type",
                         "battery_quantity": "Aantal batterijen",
+                        "note": "Note",
                         "battery_low_threshold": "Drempelwaarde batterij bijna leeg"
                     },
                     "data_description": {
@@ -214,6 +217,9 @@
                     "battery_type_and_quantity": {
                         "name": "Batterij type en aantal"
                     },
+                    "note": {
+                        "name": "Note"
+                    },
                     "battery_last_replaced": {
                         "name": "Batterij laatst vervangen"
                     },
@@ -248,6 +254,9 @@
                     },
                     "battery_quantity": {
                         "name": "Aantal batterijen"
+                    },
+                    "note": {
+                        "name": "Note"
                     }
                 }
             },

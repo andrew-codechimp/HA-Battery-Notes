@@ -10,6 +10,7 @@
                 "data": {
                     "battery_type": "Тип батареї",
                     "battery_quantity": "Кількість батарей",
+                    "note": "Примітка",
                     "battery_low_threshold": "Нижній поріг батареї"
                 },
                 "data_description": {
@@ -82,6 +83,7 @@
                     "data": {
                         "battery_type": "Тип батареї",
                         "battery_quantity": "Кількість батарей",
+                        "note": "Примітка",
                         "battery_low_threshold": "Нижній поріг батареї"
                     },
                     "data_description": {
@@ -113,6 +115,7 @@
                         "name": "Назва",
                         "battery_type": "Тип батареї",
                         "battery_quantity": "Кількість батарей",
+                        "note": "Примітка",
                         "battery_low_threshold": "Нижній поріг батареї"
                     },
                     "data_description": {
@@ -214,6 +217,9 @@
                     "battery_type_and_quantity": {
                         "name": "Тип та кількість батареї"
                     },
+                    "note": {
+                        "name": "Примітка"
+                    },
                     "battery_last_replaced": {
                         "name": "Остання заміна батареї"
                     },
@@ -248,6 +254,9 @@
                     },
                     "battery_quantity": {
                         "name": "Кількість батарей"
+                    },
+                    "note": {
+                        "name": "Примітка"
                     }
                 }
             },

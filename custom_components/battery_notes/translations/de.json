@@ -10,6 +10,7 @@
                 "data": {
                     "battery_type": "Batterieart",
                     "battery_quantity": "Batteriemenge",
+                    "note": "Notiz",
                     "battery_low_threshold": "Schwelle für niedrigen Batteriestand"
                 },
                 "data_description": {
@@ -82,6 +83,7 @@
                     "data": {
                         "battery_type": "Batterie-Typ",
                         "battery_quantity": "Anzahl Batterien",
+                        "note": "Notiz",
                         "battery_low_threshold": "Schwellenwert für eine leere Batterie"
                     },
                     "data_description": {
@@ -113,6 +115,7 @@
                         "name": "Name",
                         "battery_type": "Batterie-Typ",
                         "battery_quantity": "Anzahl Batterien",
+                        "note": "Notiz",
                         "battery_low_threshold": "Schwellenwert für eine leere Batterie"
                     },
                     "data_description": {
@@ -214,6 +217,9 @@
                     "battery_type_and_quantity": {
                         "name": "Batterietyp und -menge"
                     },
+                    "note": {
+                        "name": "Notiz"
+                    },
                     "battery_last_replaced": {
                         "name": "Batterie zuletzt ersetzt"
                     },
@@ -248,6 +254,9 @@
                     },
                     "battery_quantity": {
                         "name": "Batteriemenge"
+                    },
+                    "note": {
+                        "name": "Notiz"
                     }
                 }
             },
