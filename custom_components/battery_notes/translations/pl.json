@@ -10,7 +10,7 @@
                 "data": {
                     "battery_type": "Typ baterii",
                     "battery_quantity": "Liczba baterii",
-                    "note": "Note",
+                    "note": "Notatka",
                     "battery_low_threshold": "Próg niskiego poziomu baterii"
                 },
                 "data_description": {
@@ -83,7 +83,7 @@
                     "data": {
                         "battery_type": "Typ baterii",
                         "battery_quantity": "Liczba baterii",
-                        "note": "Note",
+                        "note": "Notatka",
                         "battery_low_threshold": "Próg niskiego poziomu baterii"
                     },
                     "data_description": {
@@ -115,7 +115,7 @@
                         "name": "Nazwa",
                         "battery_type": "Typ baterii",
                         "battery_quantity": "Liczba baterii",
-                        "note": "Note",
+                        "note": "Notatka",
                         "battery_low_threshold": "Próg niskiego poziomu baterii"
                     },
                     "data_description": {
@@ -218,7 +218,7 @@
                         "name": "Typ i ilość baterii"
                     },
                     "note": {
-                        "name": "Note"
+                        "name": "Notatka"
                     },
                     "battery_last_replaced": {
                         "name": "Ostatnia wymiana baterii"
@@ -256,7 +256,7 @@
                         "name": "Liczba baterii"
                     },
                     "note": {
-                        "name": "Note"
+                        "name": "Notatka"
                     }
                 }
             },
