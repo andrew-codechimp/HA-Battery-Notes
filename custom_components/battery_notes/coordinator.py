@@ -27,9 +27,10 @@ from homeassistant.helpers import (
 )
 from homeassistant.helpers.entity_registry import RegistryEntry
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
+from homeassistant.util import dt as dt_util
 from homeassistant.util.hass_dict import HassKey
 
-from .common import fix_datetime_string, utcnow_no_timezone, validate_is_float
+from .common import validate_is_float
 from .const import (
     ATTR_BATTERY_LAST_REPLACED,
     ATTR_BATTERY_LEVEL,
@@ -116,9 +117,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
     wrapped_battery: RegistryEntry | None = None
     wrapped_battery_low: RegistryEntry | None = None
     is_orphaned: bool = False
-    last_wrapped_battery_state_write: datetime = utcnow_no_timezone() - timedelta(
-        hours=2
-    )
+    last_wrapped_battery_state_write: datetime = dt_util.utcnow() - timedelta(hours=2)
     _current_battery_level: str | None = None
     _previous_battery_low: bool | None = None
     _previous_battery_level: str | None = None
@@ -195,13 +194,11 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                 device_entry = device_registry.async_get(self.device_id)
 
                 if device_entry and device_entry.created_at.year > 1970:
-                    last_replaced = device_entry.created_at.strftime(
-                        "%Y-%m-%dT%H:%M:%S.%f"
-                    )
+                    last_replaced = device_entry.created_at
             elif self.source_entity_id:
                 entity = entity_registry.async_get(self.source_entity_id)
                 if entity and entity.created_at.year > 1970:
-                    last_replaced = entity.created_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
+                    last_replaced = entity.created_at
 
             _LOGGER.debug(
                 "Defaulting %s battery last replaced to %s",
@@ -210,11 +207,11 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
             )
 
             if last_replaced:
-                self.last_replaced = datetime.fromisoformat(last_replaced)
+                self.last_replaced = last_replaced
 
         # If there is not a last_reported set to now
         if not self.last_reported:
-            last_reported = utcnow_no_timezone()
+            last_reported = dt_util.utcnow()
             _LOGGER.debug(
                 "Defaulting %s battery last reported to %s",
                 self.source_entity_id or self.device_id,
@@ -617,7 +614,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                     _LOGGER.debug("battery_increased event fired")
 
         if self._current_battery_level not in [STATE_UNAVAILABLE, STATE_UNKNOWN]:
-            self.last_reported = utcnow_no_timezone()
+            self.last_reported = dt_util.utcnow()
             self.last_reported_level = cast(float, self._current_battery_level)
             self._previous_battery_low = self.battery_low
             self._previous_battery_level = self._current_battery_level
@@ -647,15 +644,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
             )
 
         if entry and LAST_REPLACED in entry and entry[LAST_REPLACED] is not None:
-            entry_last_replaced = str(entry[LAST_REPLACED])
-            if not entry_last_replaced.endswith("+00:00"):
-                entry_last_replaced += "+00:00"
-
-            try:
-                return datetime.fromisoformat(entry_last_replaced)
-            except ValueError:
-                entry_last_replaced = fix_datetime_string(entry_last_replaced)
-                return datetime.fromisoformat(entry_last_replaced)
+            return datetime.fromisoformat(str(entry[LAST_REPLACED]))
         return None
 
     @last_replaced.setter
@@ -688,20 +677,12 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
             )
 
         if entry and LAST_REPORTED in entry and entry[LAST_REPORTED] is not None:
-            entry_last_reported = str(entry[LAST_REPORTED])
-            if not entry_last_reported.endswith("+00:00"):
-                entry_last_reported += "+00:00"
-
-            try:
-                return datetime.fromisoformat(entry_last_reported)
-            except ValueError:
-                entry_last_reported = fix_datetime_string(entry_last_reported)
-                return datetime.fromisoformat(entry_last_reported)
+            return datetime.fromisoformat(str(entry[LAST_REPORTED]))
 
         return None
 
     @last_reported.setter
-    def last_reported(self, value):
+    def last_reported(self, value: datetime):
         """Set the last reported datetime and store it."""
 
         if not hasattr(self.config_entry, "runtime_data"):

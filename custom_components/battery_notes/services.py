@@ -1,7 +1,6 @@
 """Define services for the Battery Notes integration."""
 
 import logging
-from datetime import datetime
 from typing import Any, cast
 
 from homeassistant.core import (
@@ -15,7 +14,6 @@ from homeassistant.exceptions import HomeAssistantError
 from homeassistant.helpers import device_registry as dr, entity_registry as er
 from homeassistant.util import dt as dt_util
 
-from .common import utcnow_no_timezone
 from .const import (
     ATTR_BATTERY_LAST_REPLACED,
     ATTR_BATTERY_LAST_REPLACED_DAYS,
@@ -101,7 +99,7 @@ async def _async_battery_replaced(call: ServiceCall) -> ServiceResponse:  # noqa
     if datetime_replaced_entry:
         datetime_replaced = dt_util.as_utc(datetime_replaced_entry).replace(tzinfo=None)
     else:
-        datetime_replaced = utcnow_no_timezone()
+        datetime_replaced = dt_util.utcnow()
 
     entity_registry = er.async_get(call.hass)
     device_registry = dr.async_get(call.hass)
@@ -261,10 +259,7 @@ async def _async_battery_last_replaced(call: ServiceCall) -> ServiceResponse:
                     ):
                         continue
 
-                time_since_last_replaced = (
-                    datetime.fromisoformat(str(utcnow_no_timezone()) + "+00:00")
-                    - coordinator.last_replaced
-                )
+                time_since_last_replaced = dt_util.utcnow() - coordinator.last_replaced
 
                 if time_since_last_replaced.days > days_last_replaced:
                     if raise_events:
@@ -328,10 +323,7 @@ async def _async_battery_last_reported(call: ServiceCall) -> ServiceResponse:
             coordinator
         ) in battery_notes_config_entry.runtime_data.subentry_coordinators.values():
             if coordinator.wrapped_battery and coordinator.last_reported:
-                time_since_last_reported = (
-                    datetime.fromisoformat(str(utcnow_no_timezone()) + "+00:00")
-                    - coordinator.last_reported
-                )
+                time_since_last_reported = dt_util.utcnow() - coordinator.last_reported
                 if time_since_last_reported.days > days_last_reported:
                     if raise_events:
                         call.hass.bus.async_fire(
