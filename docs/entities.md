@@ -16,6 +16,7 @@ See how to use this entity in the [community contributions](./community.md)
 | `battery_quantity` | `int` | The quantity of batteries |
 | `battery_type` | `string` | The type of batteries |
 | `battery_type_and_quantity` | `string` | The type of batteries with the quantity if more than 1 |
+| `note` | `string` | The note added within configuration of this battery note |
 | `battery_last_replaced` | `string` | The date and time the battery was last replaced |
 | `battery_low` | `bool` | An indicator of whether the battery is low based on the device or global threshold |
 | `battery_low_threshold` | `int` | The device or global threshold for when the battery is low |
@@ -37,6 +38,7 @@ The battery quantity and type display in an easy to use single entity.  The quan
 |-----------|------|-------------|
 | `battery_quantity` | `int` | The quantity of batteries |
 | `battery_type` | `string` | The type of batteries |
+| `note` | `string` | The note added within configuration of this battery note |
 
 ## Battery Last Replaced
 `sensor.{{device_name}}_battery_last_replaced`
@@ -62,6 +64,7 @@ If you have specified a manual template then this will be created, reflecting th
 | `battery_quantity` | `int` | The quantity of batteries |
 | `battery_type` | `string` | The type of batteries |
 | `battery_type_and_quantity` | `string` | The type of batteries with the quantity if more than 1 |
+| `note` | `string` | The note added within configuration of this battery note |
 | `battery_last_replaced` | `string` | The date and time the battery was last replaced |
 | `device_id` | `string` | The device_id of the device |
 | `device_name` | `string` | The name of the device, if you have renamed the battery note it will use this name |

@@ -23,6 +23,7 @@ You can use this to send notifications in your preferred method.  An example aut
 | `battery_type_and_quantity` | `string` | Battery type & quantity. |
 | `battery_type` | `string` | Battery type. |
 | `battery_quantity` | `int` | Battery quantity. |
+| `note` | `string` | The note added within configuration of this battery note |
 | `battery_level` | `float` | Battery level % of the device. |
 | `previous_battery_level` | `float` | Previous battery level % of the device. |
 | `battery_last_replaced` | `datetime` | The date the battery was last replaced. |
@@ -99,6 +100,7 @@ An example automation below shows how to update the battery_replaced.
 | `battery_type_and_quantity` | `string` | Battery type & quantity. |
 | `battery_type` | `string` | Battery type. |
 | `battery_quantity` | `int` | Battery quantity. |
+| `note` | `string` | The note added within configuration of this battery note |
 | `battery_level` | `float` | Current battery level % of the device. |
 | `previous_battery_level` | `float` | Previous battery level % of the device. |
 | `battery_last_replaced` | `datetime` | The date the battery was last replaced. |
@@ -138,6 +140,7 @@ The action can raise multiple events quickly so when using with an automation it
 | `battery_type_and_quantity` | `string` | Battery type & quantity. |
 | `battery_type` | `string` | Battery type. |
 | `battery_quantity` | `int` | Battery quantity. |
+| `note` | `string` | The note added within configuration of this battery note |
 | `battery_last_reported` | `datetime` | The datetime the battery was last reported. |
 | `battery_last_reported_days` | `int` | The number of days since the battery was last reported. |
 | `battery_last_reported_level` | `float` | The level of the battery when it was last reported. |
@@ -187,6 +190,7 @@ This can be useful for adding batteries to a shopping list or inventory system.
 | `battery_type_and_quantity` | `string` | Battery type & quantity. |
 | `battery_type` | `string` | Battery type. |
 | `battery_quantity` | `int` | Battery quantity. |
+| `note` | `string` | The note added within configuration of this battery note |
 
 ### Automation Example
 
@@ -227,6 +231,7 @@ The action can raise multiple events quickly so when using with an automation it
 | `battery_type_and_quantity` | `string` | Battery type & quantity. |
 | `battery_type` | `string` | Battery type. |
 | `battery_quantity` | `int` | Battery quantity. |
+| `note` | `string` | The note added within configuration of this battery note |
 | `battery_last_reported` | `datetime` | The datetime the battery was last reported. |
 | `battery_last_reported_level` | `float` | The level of the battery when it was last reported. |
 | `battery_last_replaced` | `datetime` | The date the battery was last replaced. |
