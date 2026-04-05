@@ -68,83 +68,95 @@ DOCUMENTATION_URL = "https://andrew-codechimp.github.io/HA-Battery-Notes/"
 
 CONFIG_VERSION = 4
 
-OPTIONS_SCHEMA = vol.Schema({
-    vol.Required(CONF_SHOW_ALL_DEVICES): selector.BooleanSelector(),
-    vol.Required(CONF_HIDE_BATTERY): selector.BooleanSelector(),
-    vol.Required(CONF_ROUND_BATTERY): selector.BooleanSelector(),
-    vol.Required(CONF_DEFAULT_BATTERY_LOW_THRESHOLD): selector.NumberSelector(
-        selector.NumberSelectorConfig(
-            min=0, max=99, mode=selector.NumberSelectorMode.BOX
+OPTIONS_SCHEMA = vol.Schema(
+    {
+        vol.Required(CONF_SHOW_ALL_DEVICES): selector.BooleanSelector(),
+        vol.Required(CONF_HIDE_BATTERY): selector.BooleanSelector(),
+        vol.Required(CONF_ROUND_BATTERY): selector.BooleanSelector(),
+        vol.Required(CONF_DEFAULT_BATTERY_LOW_THRESHOLD): selector.NumberSelector(
+            selector.NumberSelectorConfig(
+                min=0, max=99, mode=selector.NumberSelectorMode.BOX
+            ),
         ),
-    ),
-    vol.Required(CONF_BATTERY_INCREASE_THRESHOLD): selector.NumberSelector(
-        selector.NumberSelectorConfig(
-            min=0, max=99, mode=selector.NumberSelectorMode.BOX
+        vol.Required(CONF_BATTERY_INCREASE_THRESHOLD): selector.NumberSelector(
+            selector.NumberSelectorConfig(
+                min=0, max=99, mode=selector.NumberSelectorMode.BOX
+            ),
         ),
-    ),
-    vol.Required(CONF_ADVANCED_SETTINGS): section(
-        vol.Schema({
-            vol.Required(CONF_ENABLE_AUTODISCOVERY): selector.BooleanSelector(),
-            vol.Required(CONF_ENABLE_REPLACED): selector.BooleanSelector(),
-            vol.Optional(CONF_USER_LIBRARY): selector.TextSelector(),
-        }),
-        {"collapsed": True},
-    ),
-})
+        vol.Required(CONF_ADVANCED_SETTINGS): section(
+            vol.Schema(
+                {
+                    vol.Required(CONF_ENABLE_AUTODISCOVERY): selector.BooleanSelector(),
+                    vol.Required(CONF_ENABLE_REPLACED): selector.BooleanSelector(),
+                    vol.Optional(CONF_USER_LIBRARY): selector.TextSelector(),
+                }
+            ),
+            {"collapsed": True},
+        ),
+    }
+)
 
-DEVICE_SCHEMA_ALL = vol.Schema({
-    vol.Required(CONF_DEVICE_ID): selector.DeviceSelector(),
-    vol.Optional(CONF_NAME): selector.TextSelector(
-        selector.TextSelectorConfig(
-            type=selector.TextSelectorType.TEXT, autocomplete="off"
+DEVICE_SCHEMA_ALL = vol.Schema(
+    {
+        vol.Required(CONF_DEVICE_ID): selector.DeviceSelector(),
+        vol.Optional(CONF_NAME): selector.TextSelector(
+            selector.TextSelectorConfig(
+                type=selector.TextSelectorType.TEXT, autocomplete="off"
+            ),
         ),
-    ),
-})
+    }
+)
 
-DEVICE_SCHEMA = vol.Schema({
-    vol.Required(CONF_DEVICE_ID): selector.DeviceSelector(
-        config=selector.DeviceSelectorConfig(
-            entity=[
-                selector.EntityFilterSelectorConfig(
-                    domain=Platform.SENSOR,
-                    device_class=SensorDeviceClass.BATTERY,
-                ),
-                selector.EntityFilterSelectorConfig(
-                    domain=Platform.BINARY_SENSOR,
-                    device_class=SensorDeviceClass.BATTERY,
-                ),
-            ]
-        )
-    ),
-    vol.Optional(CONF_NAME): selector.TextSelector(
-        selector.TextSelectorConfig(
-            type=selector.TextSelectorType.TEXT, autocomplete="off"
+DEVICE_SCHEMA = vol.Schema(
+    {
+        vol.Required(CONF_DEVICE_ID): selector.DeviceSelector(
+            config=selector.DeviceSelectorConfig(
+                entity=[
+                    selector.EntityFilterSelectorConfig(
+                        domain=Platform.SENSOR,
+                        device_class=SensorDeviceClass.BATTERY,
+                    ),
+                    selector.EntityFilterSelectorConfig(
+                        domain=Platform.BINARY_SENSOR,
+                        device_class=SensorDeviceClass.BATTERY,
+                    ),
+                ]
+            )
         ),
-    ),
-})
+        vol.Optional(CONF_NAME): selector.TextSelector(
+            selector.TextSelectorConfig(
+                type=selector.TextSelectorType.TEXT, autocomplete="off"
+            ),
+        ),
+    }
+)
 
-ENTITY_SCHEMA_ALL = vol.Schema({
-    vol.Required(CONF_SOURCE_ENTITY_ID): selector.EntitySelector(),
-    vol.Optional(CONF_NAME): selector.TextSelector(
-        selector.TextSelectorConfig(
-            type=selector.TextSelectorType.TEXT, autocomplete="off"
+ENTITY_SCHEMA_ALL = vol.Schema(
+    {
+        vol.Required(CONF_SOURCE_ENTITY_ID): selector.EntitySelector(),
+        vol.Optional(CONF_NAME): selector.TextSelector(
+            selector.TextSelectorConfig(
+                type=selector.TextSelectorType.TEXT, autocomplete="off"
+            ),
         ),
-    ),
-})
+    }
+)
 
-ENTITY_SCHEMA = vol.Schema({
-    vol.Required(CONF_SOURCE_ENTITY_ID): selector.EntitySelector(
-        selector.EntitySelectorConfig(
-            domain=[Platform.SENSOR, Platform.BINARY_SENSOR],
-            device_class=SensorDeviceClass.BATTERY,
-        )
-    ),
-    vol.Optional(CONF_NAME): selector.TextSelector(
-        selector.TextSelectorConfig(
-            type=selector.TextSelectorType.TEXT, autocomplete="off"
+ENTITY_SCHEMA = vol.Schema(
+    {
+        vol.Required(CONF_SOURCE_ENTITY_ID): selector.EntitySelector(
+            selector.EntitySelectorConfig(
+                domain=[Platform.SENSOR, Platform.BINARY_SENSOR],
+                device_class=SensorDeviceClass.BATTERY,
+            )
         ),
-    ),
-})
+        vol.Optional(CONF_NAME): selector.TextSelector(
+            selector.TextSelectorConfig(
+                type=selector.TextSelectorType.TEXT, autocomplete="off"
+            ),
+        ),
+    }
+)
 
 
 def none_if_empty(value: str | None) -> str | None:
@@ -493,50 +505,58 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                     str(self.model_info.hw_version or "") if self.model_info else ""
                 ),
             },
-            data_schema=vol.Schema({
-                vol.Required(
-                    CONF_BATTERY_TYPE,
-                    default=self.data.get(CONF_BATTERY_TYPE),
-                ): selector.TextSelector(
-                    selector.TextSelectorConfig(type=selector.TextSelectorType.TEXT),
-                ),
-                vol.Required(
-                    CONF_BATTERY_QUANTITY,
-                    default=int(self.data.get(CONF_BATTERY_QUANTITY, 1)),
-                ): selector.NumberSelector(
-                    selector.NumberSelectorConfig(
-                        min=1, max=100, mode=selector.NumberSelectorMode.BOX
+            data_schema=vol.Schema(
+                {
+                    vol.Required(
+                        CONF_BATTERY_TYPE,
+                        default=self.data.get(CONF_BATTERY_TYPE),
+                    ): selector.TextSelector(
+                        selector.TextSelectorConfig(
+                            type=selector.TextSelectorType.TEXT
+                        ),
                     ),
-                ),
-                vol.Optional(
-                    CONF_NOTE,
-                    default=self.data.get(CONF_NOTE, ""),
-                ): selector.TextSelector(
-                    selector.TextSelectorConfig(type=selector.TextSelectorType.TEXT),
-                ),
-                vol.Required(
-                    CONF_BATTERY_LOW_THRESHOLD,
-                    default=0,
-                ): selector.NumberSelector(
-                    selector.NumberSelectorConfig(
-                        min=0, max=99, mode=selector.NumberSelectorMode.BOX
+                    vol.Required(
+                        CONF_BATTERY_QUANTITY,
+                        default=int(self.data.get(CONF_BATTERY_QUANTITY, 1)),
+                    ): selector.NumberSelector(
+                        selector.NumberSelectorConfig(
+                            min=1, max=100, mode=selector.NumberSelectorMode.BOX
+                        ),
                     ),
-                ),
-                vol.Required(CONF_ADVANCED_SETTINGS): section(
-                    vol.Schema({
-                        vol.Optional(
-                            CONF_BATTERY_PERCENTAGE_TEMPLATE
-                        ): selector.TemplateSelector(),
-                        vol.Optional(
-                            CONF_BATTERY_LOW_TEMPLATE
-                        ): selector.TemplateSelector(),
-                        vol.Optional(
-                            CONF_FILTER_OUTLIERS, default=False
-                        ): selector.BooleanSelector(),
-                    }),
-                    {"collapsed": True},
-                ),
-            }),
+                    vol.Optional(
+                        CONF_NOTE,
+                        default=self.data.get(CONF_NOTE, ""),
+                    ): selector.TextSelector(
+                        selector.TextSelectorConfig(
+                            type=selector.TextSelectorType.TEXT
+                        ),
+                    ),
+                    vol.Required(
+                        CONF_BATTERY_LOW_THRESHOLD,
+                        default=0,
+                    ): selector.NumberSelector(
+                        selector.NumberSelectorConfig(
+                            min=0, max=99, mode=selector.NumberSelectorMode.BOX
+                        ),
+                    ),
+                    vol.Required(CONF_ADVANCED_SETTINGS): section(
+                        vol.Schema(
+                            {
+                                vol.Optional(
+                                    CONF_BATTERY_PERCENTAGE_TEMPLATE
+                                ): selector.TemplateSelector(),
+                                vol.Optional(
+                                    CONF_BATTERY_LOW_TEMPLATE
+                                ): selector.TemplateSelector(),
+                                vol.Optional(
+                                    CONF_FILTER_OUTLIERS, default=False
+                                ): selector.BooleanSelector(),
+                            }
+                        ),
+                        {"collapsed": True},
+                    ),
+                }
+            ),
             errors=errors,
         )
 
@@ -828,50 +848,58 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
                     str(self.model_info.hw_version or "") if self.model_info else ""
                 ),
             },
-            data_schema=vol.Schema({
-                vol.Required(
-                    CONF_BATTERY_TYPE,
-                    default=self.data.get(CONF_BATTERY_TYPE),
-                ): selector.TextSelector(
-                    selector.TextSelectorConfig(type=selector.TextSelectorType.TEXT),
-                ),
-                vol.Required(
-                    CONF_BATTERY_QUANTITY,
-                    default=int(self.data.get(CONF_BATTERY_QUANTITY, 1)),
-                ): selector.NumberSelector(
-                    selector.NumberSelectorConfig(
-                        min=1, max=100, mode=selector.NumberSelectorMode.BOX
+            data_schema=vol.Schema(
+                {
+                    vol.Required(
+                        CONF_BATTERY_TYPE,
+                        default=self.data.get(CONF_BATTERY_TYPE),
+                    ): selector.TextSelector(
+                        selector.TextSelectorConfig(
+                            type=selector.TextSelectorType.TEXT
+                        ),
                     ),
-                ),
-                vol.Optional(
-                    CONF_NOTE,
-                    default=self.data.get(CONF_NOTE, ""),
-                ): selector.TextSelector(
-                    selector.TextSelectorConfig(type=selector.TextSelectorType.TEXT),
-                ),
-                vol.Required(
-                    CONF_BATTERY_LOW_THRESHOLD,
-                    default=int(self.data.get(CONF_BATTERY_LOW_THRESHOLD, 0)),
-                ): selector.NumberSelector(
-                    selector.NumberSelectorConfig(
-                        min=0, max=99, mode=selector.NumberSelectorMode.BOX
+                    vol.Required(
+                        CONF_BATTERY_QUANTITY,
+                        default=int(self.data.get(CONF_BATTERY_QUANTITY, 1)),
+                    ): selector.NumberSelector(
+                        selector.NumberSelectorConfig(
+                            min=1, max=100, mode=selector.NumberSelectorMode.BOX
+                        ),
                     ),
-                ),
-                vol.Required(CONF_ADVANCED_SETTINGS): section(
-                    vol.Schema({
-                        vol.Optional(
-                            CONF_BATTERY_PERCENTAGE_TEMPLATE
-                        ): selector.TemplateSelector(),
-                        vol.Optional(
-                            CONF_BATTERY_LOW_TEMPLATE
-                        ): selector.TemplateSelector(),
-                        vol.Optional(
-                            CONF_FILTER_OUTLIERS, default=False
-                        ): selector.BooleanSelector(),
-                    }),
-                    {"collapsed": True},
-                ),
-            }),
+                    vol.Optional(
+                        CONF_NOTE,
+                        default=self.data.get(CONF_NOTE, ""),
+                    ): selector.TextSelector(
+                        selector.TextSelectorConfig(
+                            type=selector.TextSelectorType.TEXT
+                        ),
+                    ),
+                    vol.Required(
+                        CONF_BATTERY_LOW_THRESHOLD,
+                        default=int(self.data.get(CONF_BATTERY_LOW_THRESHOLD, 0)),
+                    ): selector.NumberSelector(
+                        selector.NumberSelectorConfig(
+                            min=0, max=99, mode=selector.NumberSelectorMode.BOX
+                        ),
+                    ),
+                    vol.Required(CONF_ADVANCED_SETTINGS): section(
+                        vol.Schema(
+                            {
+                                vol.Optional(
+                                    CONF_BATTERY_PERCENTAGE_TEMPLATE
+                                ): selector.TemplateSelector(),
+                                vol.Optional(
+                                    CONF_BATTERY_LOW_TEMPLATE
+                                ): selector.TemplateSelector(),
+                                vol.Optional(
+                                    CONF_FILTER_OUTLIERS, default=False
+                                ): selector.BooleanSelector(),
+                            }
+                        ),
+                        {"collapsed": True},
+                    ),
+                }
+            ),
             errors=errors,
         )
 
@@ -950,45 +978,49 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
                     device_entry.hw_version,
                 )
 
-        data_schema = vol.Schema({
-            vol.Optional(CONF_NAME): selector.TextSelector(
-                selector.TextSelectorConfig(
-                    type=selector.TextSelectorType.TEXT, autocomplete="off"
+        data_schema = vol.Schema(
+            {
+                vol.Optional(CONF_NAME): selector.TextSelector(
+                    selector.TextSelectorConfig(
+                        type=selector.TextSelectorType.TEXT, autocomplete="off"
+                    ),
                 ),
-            ),
-            vol.Required(CONF_BATTERY_TYPE): selector.TextSelector(
-                selector.TextSelectorConfig(type=selector.TextSelectorType.TEXT),
-            ),
-            vol.Required(CONF_BATTERY_QUANTITY): selector.NumberSelector(
-                selector.NumberSelectorConfig(
-                    min=1, max=100, mode=selector.NumberSelectorMode.BOX
+                vol.Required(CONF_BATTERY_TYPE): selector.TextSelector(
+                    selector.TextSelectorConfig(type=selector.TextSelectorType.TEXT),
                 ),
-            ),
-            vol.Optional(CONF_NOTE): selector.TextSelector(
-                selector.TextSelectorConfig(type=selector.TextSelectorType.TEXT),
-            ),
-            vol.Required(
-                CONF_BATTERY_LOW_THRESHOLD,
-            ): selector.NumberSelector(
-                selector.NumberSelectorConfig(
-                    min=0, max=99, mode=selector.NumberSelectorMode.BOX
+                vol.Required(CONF_BATTERY_QUANTITY): selector.NumberSelector(
+                    selector.NumberSelectorConfig(
+                        min=1, max=100, mode=selector.NumberSelectorMode.BOX
+                    ),
                 ),
-            ),
-            vol.Required(CONF_ADVANCED_SETTINGS): section(
-                vol.Schema({
-                    vol.Optional(
-                        CONF_BATTERY_PERCENTAGE_TEMPLATE,
-                    ): selector.TemplateSelector(),
-                    vol.Optional(
-                        CONF_BATTERY_LOW_TEMPLATE,
-                    ): selector.TemplateSelector(),
-                    vol.Optional(
-                        CONF_FILTER_OUTLIERS,
-                    ): selector.BooleanSelector(),
-                }),
-                {"collapsed": True},
-            ),
-        })
+                vol.Optional(CONF_NOTE): selector.TextSelector(
+                    selector.TextSelectorConfig(type=selector.TextSelectorType.TEXT),
+                ),
+                vol.Required(
+                    CONF_BATTERY_LOW_THRESHOLD,
+                ): selector.NumberSelector(
+                    selector.NumberSelectorConfig(
+                        min=0, max=99, mode=selector.NumberSelectorMode.BOX
+                    ),
+                ),
+                vol.Required(CONF_ADVANCED_SETTINGS): section(
+                    vol.Schema(
+                        {
+                            vol.Optional(
+                                CONF_BATTERY_PERCENTAGE_TEMPLATE,
+                            ): selector.TemplateSelector(),
+                            vol.Optional(
+                                CONF_BATTERY_LOW_TEMPLATE,
+                            ): selector.TemplateSelector(),
+                            vol.Optional(
+                                CONF_FILTER_OUTLIERS,
+                            ): selector.BooleanSelector(),
+                        }
+                    ),
+                    {"collapsed": True},
+                ),
+            }
+        )
 
         self.data[CONF_NAME] = config_subentry.title
         return self.async_show_form(
