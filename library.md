@@ -1,4 +1,4 @@
-## 2133 Devices in library
+## 2134 Devices in library
 
 This file is auto generated, do not modify
 
@@ -852,6 +852,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |HOBEIAN                                         |ZG-101ZL                                                                                      |CR2032                    |                                   |                                      |
 |HOBEIAN                                         |ZG-102ZL                                                                                      |CR2032                    |                                   |                                      |
 |HOBEIAN                                         |ZG-102ZM                                                                                      |CR2032                    |                                   |                                      |
+|HOBEIAN                                         |ZG-103Z                                                                                       |CR2450                    |                                   |                                      |
 |HOBEIAN                                         |ZG-204ZL                                                                                      |CR2450                    |                                   |                                      |
 |HOBEIAN                                         |ZG-204ZM                                                                                      |2× AAA                    |                                   |                                      |
 |HOBEIAN                                         |ZG-204ZV                                                                                      |2× AAA                    |                                   |                                      |
