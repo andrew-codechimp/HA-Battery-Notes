@@ -297,26 +297,24 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
 
             self.device_name = self.subentry.title
         else:
+            candidates = (
+                entity
+                for entity in entity_registry.entities.values()
+                if entity.device_id
+                and entity.device_id == self.device_id
+                and entity.domain in [SENSOR_DOMAIN, BINARY_SENSOR_DOMAIN]
+                and entity.platform
+                and entity.platform != DOMAIN
+                and not entity.disabled
+            )
+
             # Sort entities to prioritize SENSOR_DOMAIN before BINARY_SENSOR_DOMAIN
             sorted_entities = sorted(
-                entity_registry.entities.values(),
+                candidates,
                 key=lambda e: (e.domain != SENSOR_DOMAIN, e.entity_id),
             )
 
             for entity in sorted_entities:
-                if not entity.device_id or entity.device_id != self.device_id:
-                    continue
-                if not entity.domain or entity.domain not in [
-                    SENSOR_DOMAIN,
-                    BINARY_SENSOR_DOMAIN,
-                ]:
-                    continue
-                if not entity.platform or entity.platform == DOMAIN:
-                    continue
-
-                if entity.disabled:
-                    continue
-
                 device_class = entity.device_class or entity.original_device_class
 
                 if entity.domain == SENSOR_DOMAIN:
