@@ -297,42 +297,48 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
 
             self.device_name = self.subentry.title
         else:
-            candidates = (
-                entity
-                for entity in entity_registry.entities.values()
-                if entity.device_id
-                and entity.device_id == self.device_id
-                and entity.domain in [SENSOR_DOMAIN, BINARY_SENSOR_DOMAIN]
-                and entity.platform
-                and entity.platform != DOMAIN
-                and not entity.disabled
-            )
-
-            # Sort entities to prioritize SENSOR_DOMAIN before BINARY_SENSOR_DOMAIN
-            sorted_entities = sorted(
-                candidates,
-                key=lambda e: (e.domain != SENSOR_DOMAIN, e.entity_id),
-            )
-
-            for entity in sorted_entities:
-                device_class = entity.device_class or entity.original_device_class
-
-                if entity.domain == SENSOR_DOMAIN:
-                    if device_class != SensorDeviceClass.BATTERY:
-                        continue
-                    if entity.unit_of_measurement != PERCENTAGE:
-                        continue
-                    self.wrapped_battery = entity_registry.async_get(entity.entity_id)
-                    break
-
-                if entity.domain == BINARY_SENSOR_DOMAIN:
-                    if device_class != BinarySensorDeviceClass.BATTERY:
-                        continue
-                    self.wrapped_battery_low = entity_registry.async_get(
-                        entity.entity_id
+            if self.device_id is not None:
+                device_entities: list[RegistryEntry] = (
+                    entity_registry.entities.get_entries_for_device_id(
+                        self.device_id, include_disabled_entities=False
                     )
-                    if self.wrapped_battery:
+                )
+
+                candidates = (
+                    entity
+                    for entity in device_entities
+                    if entity.domain in [SENSOR_DOMAIN, BINARY_SENSOR_DOMAIN]
+                    and entity.platform
+                    and entity.platform != DOMAIN
+                )
+
+                # Sort entities to prioritize SENSOR_DOMAIN before BINARY_SENSOR_DOMAIN
+                sorted_entities = sorted(
+                    candidates,
+                    key=lambda e: (e.domain != SENSOR_DOMAIN, e.entity_id),
+                )
+
+                for entity in sorted_entities:
+                    device_class = entity.device_class or entity.original_device_class
+
+                    if entity.domain == SENSOR_DOMAIN:
+                        if device_class != SensorDeviceClass.BATTERY:
+                            continue
+                        if entity.unit_of_measurement != PERCENTAGE:
+                            continue
+                        self.wrapped_battery = entity_registry.async_get(
+                            entity.entity_id
+                        )
                         break
+
+                    if entity.domain == BINARY_SENSOR_DOMAIN:
+                        if device_class != BinarySensorDeviceClass.BATTERY:
+                            continue
+                        self.wrapped_battery_low = entity_registry.async_get(
+                            entity.entity_id
+                        )
+                        if self.wrapped_battery:
+                            break
 
             device_entry = None
             if self.device_id:
