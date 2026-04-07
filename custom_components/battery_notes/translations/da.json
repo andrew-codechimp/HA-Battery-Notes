@@ -2,41 +2,41 @@
     "config": {
         "step": {
             "user": {
-                "description": "New Battery Notes will be discovered if they are in the library.\nTo add new Battery Notes manually go into the integration page, select Add Battery Note and follow the instructions.\nIf you need help with the configuration have a look here: {documentation_url}",
-                "title": "Setup Battery Notes"
+                "description": "Nye Battery Notes vil blive opdaget, hvis de er i biblioteket.\nFor at tilføje nye Battery Notes manuelt gå ind på integrationssiden, vælge Tilføj Battery Notes og følge instruktionerne.\nHvis du har brug for hjælp til konfigurationen, skal du se her: {documentation_url}",
+                "title": "Opsætning af Battery Notes"
             },
             "battery": {
                 "description": "Navn: {name}\nFabrikant: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
                 "data": {
-                    "battery_type": "Batteri type",
+                    "battery_type": "Batteritype",
                     "battery_quantity": "Antal batterier",
                     "note": "Note",
-                    "battery_low_threshold": "Lavt batteri niveau"
+                    "battery_low_threshold": "Tærskel for lavt batteriniveau"
                 },
                 "data_description": {
                     "battery_low_threshold": "0 vil bruge den globale standardtærskel"
                 },
                 "sections": {
                     "advanced_settings": {
-                        "name": "Advanced settings",
+                        "name": "Avancerede indstillinger",
                         "data": {
-                            "battery_percentage_template": "Battery percentage template",
-                            "battery_low_template": "Batteri lav skabelon",
-                            "filter_outliers": "Filter outliers"
+                            "battery_percentage_template": "Batteriprocentskabelon",
+                            "battery_low_template": "Lavt batteri-skabelon",
+                            "filter_outliers": "Filtrer afvigere"
                         },
                         "data_description": {
-                            "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
-                            "battery_low_template": "Skabelon til at bestemme om et batteri er lavt, skal returnere sand, hvis lavt.\nKun nødvendigt for ikke-standard batteriniveauer",
-                            "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                            "battery_percentage_template": "Skabelon til at oprette en batteriprocent\nKun nødvendigt for enheder, der ikke har en standard batteriprocent",
+                            "battery_low_template": "Skabelon til at afgøre om batteriet er lavt, skal returnere ‘true’, hvis det er lavt.\nKun nødvendig for ikke-standard batteriniveauer.",
+                            "filter_outliers": "Filtrer store fald i batteriniveau fra, så falske hændelser reduceres på enheder, der af og til rapporterer forkerte niveauer."
                         }
                     }
                 }
             }
         },
         "abort": {
-            "already_configured": "Integration is already configured",
-            "integration_not_added": "Integration not added, please add the integration first",
-            "created_sub_entry": "Battery Note created successfully"
+            "already_configured": "Integrationen er allerede konfigureret",
+            "integration_not_added": "Integration ikke tilføjet, tilføj først integrationen",
+            "created_sub_entry": "Battery Note oprettet succesfuldt"
         },
         "error": {
             "unknown": "Der opstod en ukendt fejl."
@@ -45,20 +45,20 @@
     "config_subentries": {
         "battery_note": {
             "initiate_flow": {
-                "user": "Add battery note"
+                "user": "Tilføj batterinote"
             },
-            "entry_type": "Battery note",
+            "entry_type": "Batterinote",
             "step": {
                 "user": {
                     "description": "Hvis du har brug for hjælp til konfigurationen, så kig her: {documentation_url}",
                     "data": {
-                        "association_type": "Association type"
+                        "association_type": "Associeringstype"
                     },
                     "menu_options": {
                         "device": "Enhed (anbefales)",
-                        "entity": "Enhed"
+                        "entity": "Entitet"
                     },
-                    "title": "Choose your association type"
+                    "title": "Vælg din associationstype"
                 },
                 "device": {
                     "data": {
@@ -71,7 +71,7 @@
                 },
                 "entity": {
                     "data": {
-                        "source_entity_id": "Enhed",
+                        "source_entity_id": "Entitet",
                         "name": "Navn"
                     },
                     "data_description": {
@@ -81,42 +81,42 @@
                 "battery": {
                     "description": "Navn: {name}\nFabrikant: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
                     "data": {
-                        "battery_type": "Batteri type",
+                        "battery_type": "Batteritype",
                         "battery_quantity": "Antal batterier",
                         "note": "Note",
-                        "battery_low_threshold": "Lavt batteri niveau"
+                        "battery_low_threshold": "Lavt batteriniveau"
                     },
                     "data_description": {
                         "battery_low_threshold": "0 vil bruge den globale standardtærskel"
                     },
                     "sections": {
                         "advanced_settings": {
-                            "name": "Advanced settings",
+                            "name": "Avancerede indstillinger",
                             "data": {
-                                "battery_percentage_template": "Battery percentage template",
-                                "battery_low_template": "Batteri lav skabelon",
-                                "filter_outliers": "Filter outliers"
+                                "battery_percentage_template": "Batteriprocentskabelon",
+                                "battery_low_template": "Lavt batteri-skabelon",
+                                "filter_outliers": "Filtrer afvigere"
                             },
                             "data_description": {
-                                "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
-                                "battery_low_template": "Skabelon til at bestemme om et batteri er lavt, skal returnere sand, hvis lavt.\nKun nødvendigt for ikke-standard batteriniveauer",
-                                "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                                "battery_percentage_template": "Skabelon til at oprette en batteriprocent\nKun nødvendigt for enheder, der ikke har en standard batteriprocent",
+                                "battery_low_template": "Skabelon til at afgøre om batteriet er lavt, skal returnere ‘true’, hvis det er lavt.\nKun nødvendig for ikke-standard batteriniveauer.",
+                                "filter_outliers": "Filtrer store fald i batteriniveau fra, så falske hændelser reduceres på enheder, der af og til rapporterer forkerte niveauer."
                             }
                         }
                     }
                 },
                 "manual": {
-                    "description": "This device is marked in the library as manual, variants use different battery types so it cannot be set in the library.\nThe next step will allow you to set your battery type but please do not submit a device request.",
-                    "title": "Manuel konfiguration enheden"
+                    "description": "Denne enhed er markeret som manuel i biblioteket. Varianter bruger forskellige batterityper, så det kan ikke angives i biblioteket.\nNæste trin giver dig mulighed for at vælge din batteritype, men undlad venligst at indsende en enhedsanmodning.",
+                    "title": "Manuel enhedskonfiguration"
                 },
                 "reconfigure": {
                     "description": "Fabrikant: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
                     "data": {
                         "name": "Navn",
-                        "battery_type": "Batteri type",
+                        "battery_type": "Batteritype",
                         "battery_quantity": "Antal batterier",
                         "note": "Note",
-                        "battery_low_threshold": "Lavt batteri niveau"
+                        "battery_low_threshold": "Lavt batteriniveau"
                     },
                     "data_description": {
                         "name": "Hvis du lader dette felt være tomt, hentes navnet fra kildeenheden",
@@ -124,29 +124,29 @@
                     },
                     "sections": {
                         "advanced_settings": {
-                            "name": "Advanced settings",
+                            "name": "Avancerede indstillinger",
                             "data": {
-                                "battery_percentage_template": "Battery percentage template",
-                                "battery_low_template": "Batteri lav skabelon",
-                                "filter_outliers": "Filter outliers"
+                                "battery_percentage_template": "Batteriprocentskabelon",
+                                "battery_low_template": "Lavt batteri-skabelon",
+                                "filter_outliers": "Filtrer afvigere"
                             },
                             "data_description": {
-                                "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
-                                "battery_low_template": "Skabelon til at bestemme om et batteri er lavt, skal returnere sand, hvis lavt.\nKun nødvendigt for ikke-standard batteriniveauer",
-                                "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                                "battery_percentage_template": "Skabelon til at oprette en batteriprocent\nKun nødvendigt for enheder, der ikke har en standard batteriprocent",
+                                "battery_low_template": "Skabelon til at afgøre om batteriet er lavt, skal returnere ‘true’, hvis det er lavt.\nKun nødvendig for ikke-standard batteriniveauer.",
+                                "filter_outliers": "Filtrer store fald i batteriniveau fra, så falske hændelser reduceres på enheder, der af og til rapporterer forkerte niveauer."
                             }
                         }
                     }
                 }
             },
             "abort": {
-                "reconfigure_successful": "Re-configuration was successful",
+                "reconfigure_successful": "Genopsætning var succesfuld",
                 "already_configured": "Enheden er allerede konfigureret"
             },
             "error": {
                 "unknown": "Der opstod en ukendt fejl.",
-                "unconfigurable_entity": "Det er ikke muligt at tilføje denne enhed til Battery Notes.",
-                "orphaned_battery_note": "Den tilknyttede enhed eller enhed eksisterer ikke længere for dette Battery Note."
+                "unconfigurable_entity": "Det er ikke muligt at tilføje denne entitet til Battery Notes.",
+                "orphaned_battery_note": "Den tilknyttede enhed eller entitet findes ikke længere for denne Battery Note."
             }
         }
     },
@@ -154,31 +154,31 @@
         "step": {
             "init": {
                 "data": {
-                    "show_all_devices": "Show all devices",
-                    "hide_battery": "Hide battery",
-                    "round_battery": "Round battery",
-                    "default_battery_low_threshold": "Default battery low threshold",
-                    "battery_increase_threshold": "Battery increase threshold"
+                    "show_all_devices": "Vis alle enheder",
+                    "hide_battery": "Skjul batteriet",
+                    "round_battery": "Afrund batteri",
+                    "default_battery_low_threshold": "Standardgrænse for lavt batteriniveau",
+                    "battery_increase_threshold": "Grænse for stigning i batteriniveau"
                 },
                 "data_description": {
-                    "show_all_devices": "Show all devices in the device dropdown, otherwise only those with batteries will be shown.",
-                    "hide_battery": "Hide the standard battery when adding Battery+.",
-                    "round_battery": "Round Battery+ to whole percentages.",
-                    "default_battery_low_threshold": "The default threshold where a devices battery_low entity is set to true and the battery_notes_battery_threshold event is fired if the battery is below this threshold, can be overriden per device in device configuration.",
-                    "battery_increase_threshold": "The threshold where the battery_notes_battery_increased event is fired, use this event for battery replaced automations. The threshold is the difference in increase between previous and current battery level."
+                    "show_all_devices": "Vis alle enheder i enhedens dropdown, ellers vises kun dem med batterier.",
+                    "hide_battery": "Skjul standardbatteriet ved tilføjelse af Battery+.",
+                    "round_battery": "Rund Battery+ til hele procenter.",
+                    "default_battery_low_threshold": "Standardtærsklen hvor en enheds battery_low entitet sættes til sand, og battery_notes_battery_threshold hændelsen udløses, hvis batteriniveauet er under denne tærskel. Kan tilsidesættes pr. enhed i enhedskonfigurationen.",
+                    "battery_increase_threshold": "Tærsklen hvor battery_notes_battery_increased-hændelsen udløses. Brug denne hændelse til automatiseringer for batteriskift. Tærsklen er forskellen mellem tidligere og nuværende batteriniveau."
                 },
                 "sections": {
                     "advanced_settings": {
-                        "name": "Advanced settings",
+                        "name": "Avancerede indstillinger",
                         "data": {
-                            "enable_autodiscovery": "Auto discovery",
-                            "enable_replaced": "Enable battery replaced",
-                            "user_library": "User library"
+                            "enable_autodiscovery": "Automatisk opdagelse",
+                            "enable_replaced": "Aktivér batteri udskiftet",
+                            "user_library": "Brugerbibliotek"
                         },
                         "data_description": {
-                            "enable_autodiscovery": "Auto discovery of devices that are in the library.",
-                            "enable_replaced": "Enable the battery replaced button on each battery note.",
-                            "user_library": "If specified then a user library file will be searched prior to the main library, the user library must be in the same format as the library and placed in `config/.storage/battery_notes`."
+                            "enable_autodiscovery": "Automatisk opdagelse af enheder, der er i biblioteket.",
+                            "enable_replaced": "Aktivér knappen for batteriudskiftning på hver batterinote.",
+                            "user_library": "Hvis angivet, søges der først i en brugerdefineret biblioteksfil før hovedbiblioteket. Brugerbiblioteket skal have samme format som biblioteket og placeres i config/.storage/battery_notes."
                         }
                     }
                 }
@@ -194,7 +194,7 @@
                 "name": "{device_name}Lavt batteri",
                 "state_attributes": {
                     "battery_low_threshold": {
-                        "name": "Lavt batteri niveau"
+                        "name": "Lavt batteri-tærskel"
                     }
                 }
             }
@@ -206,10 +206,10 @@
         },
         "sensor": {
             "battery_plus": {
-                "name": "{device_name}Batteri+",
+                "name": "{device_name}Battery+",
                 "state_attributes": {
                     "battery_type": {
-                        "name": "Batteri type"
+                        "name": "Batteritype"
                     },
                     "battery_quantity": {
                         "name": "Antal batterier"
@@ -221,16 +221,16 @@
                         "name": "Note"
                     },
                     "battery_last_replaced": {
-                        "name": "Batteri sidst skiftet"
+                        "name": "Batteri sidst udskiftet"
                     },
                     "battery_low": {
                         "name": "Lavt batteri"
                     },
                     "battery_low_threshold": {
-                        "name": "Lavt batteri niveau"
+                        "name": "Lavt batteri-tærskel"
                     },
                     "battery_last_reported": {
-                        "name": "Batteri sidst rapporteret"
+                        "name": "Sidst rapporteret batteriniveau"
                     },
                     "battery_last_reported_level": {
                         "name": "Sidst rapporterede batteriniveau"
@@ -250,7 +250,7 @@
                 "name": "{device_name}Batteri type",
                 "state_attributes": {
                     "battery_type": {
-                        "name": "Batteri type"
+                        "name": "Batteritype"
                     },
                     "battery_quantity": {
                         "name": "Antal batterier"
@@ -274,75 +274,75 @@
                     "name": "Enhed"
                 },
                 "entity_id": {
-                    "description": "Entity that has had its battery replaced.",
-                    "name": "Enhed"
+                    "description": "Entitet hvor batteriet er blevet udskiftet (bruges kun til batterinoter knyttet til entiteter).",
+                    "name": "Entitet"
                 },
                 "datetime_replaced": {
-                    "description": "Dato udskiftet.",
+                    "description": "Dato for udskiftning.",
                     "name": "Dato"
                 }
             },
-            "name": "Batteri udskiftet"
+            "name": "Markér batteri som udskiftet"
         },
         "check_battery_last_replaced": {
-            "description": "Get a response or raise events for devices that haven't had their battery replaced.",
+            "description": "Få et svar eller udløs hændelser for enheder, der ikke har fået udskiftet batteri.",
             "fields": {
                 "days_last_reported": {
-                    "description": "Number of days since a device last had its battery replaced.",
+                    "description": "Antal dage siden en enhed sidst fik sit batteri udskiftet.",
                     "name": "Dage"
                 },
                 "raise_events": {
-                    "description": "Raise events for use in automation triggers.",
-                    "name": "Raise events"
+                    "description": "Udløs hændelser til brug som automatiseringsudløsere.",
+                    "name": "Udløs hændelser"
                 }
             },
-            "name": "Check battery last replaced"
+            "name": "Tjek hvornår batteriet sidst blev udskiftet"
         },
         "check_battery_last_reported": {
-            "description": "Get a response or raise events for devices that haven't reported their battery level.",
+            "description": "Få et svar eller udløs hændelser for enheder, der ikke har rapporteret deres batteriniveau.",
             "fields": {
                 "days_last_reported": {
                     "description": "Antal dage siden en enhed sidst rapporterede sit batteriniveau.",
                     "name": "Dage"
                 },
                 "raise_events": {
-                    "description": "Raise events for use in automation triggers.",
-                    "name": "Raise events"
+                    "description": "Udløs hændelser til brug som automatiseringsudløsere.",
+                    "name": "Udløs hændelser"
                 }
             },
-            "name": "Batteri sidst rapporteret"
+            "name": "Tjek sidste batterirapportering"
         },
         "check_battery_low": {
-            "description": "Get a response or raise events for devices that have a low battery.",
+            "description": "Få et svar eller udløs hændelser for enheder, der ikke har fået udskiftet batteri.",
             "fields": {
                 "raise_events": {
-                    "description": "Raise events for use in automation triggers.",
-                    "name": "Raise events"
+                    "description": "Udløs hændelser til brug som automatiseringsudløsere.",
+                    "name": "Udløs hændelser"
                 }
             },
-            "name": "Check battery low"
+            "name": "Kontrollér lavt batteriniveau"
         }
     },
     "issues": {
         "missing_device": {
-            "title": "Orphaned Battery Note",
+            "title": "Batterinote uden tilknytning",
             "fix_flow": {
                 "step": {
                     "confirm": {
-                        "title": "Orphaned Battery Note",
-                        "description": "The associated device or entity no longer exists for the Battery Note entry {name}, the Battery Note should be deleted.\nSelect **Submit** to delete this Battery Note."
+                        "title": "Batterinote uden tilknytning",
+                        "description": "Den tilknyttede enhed eller entitet findes ikke længere for Battery Note-posten {name}. Battery Note bør slettes.\nVælg **Submit** for at slette denne Battery Note."
                     }
                 }
             }
         },
         "deprecated_yaml": {
-            "title": "The {integration_title} YAML configuration is being removed",
-            "description": "Configuring {integration_title} using YAML is being removed.\n\nYour existing YAML configuration has been imported into the UI automatically.\n\nRemove the `{domain}` configuration from your configuration.yaml file and restart Home Assistant to fix this issue."
+            "title": "YAML-konfigurationen for {integration_title} bliver fjernet",
+            "description": "Konfiguration af  {integration_title}  via YAML bliver fjernet.\n\nDin eksisterende YAML-konfiguration er automatisk blevet importeret til brugerfladen.\n\nFjern `{domain}`-konfigurationen fra din configuration.yaml-fil og genstart Home Assistant for at løse problemet."
         }
     },
     "exceptions": {
         "not_configured_in_battery_notes": {
-            "message": "{source} is not configured in Battery Notes."
+            "message": "{source} er ikke konfigureret i Battery Notes."
         }
     }
 }
