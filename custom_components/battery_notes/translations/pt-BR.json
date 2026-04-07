@@ -10,7 +10,7 @@
                 "data": {
                     "battery_type": "Tipo de bateria",
                     "battery_quantity": "Quantidade de baterias",
-                    "note": "Note",
+                    "note": "Nota",
                     "battery_low_threshold": "Limite de bateria fraca"
                 },
                 "data_description": {
@@ -83,7 +83,7 @@
                     "data": {
                         "battery_type": "Tipo de bateria",
                         "battery_quantity": "Quantidade de baterias",
-                        "note": "Note",
+                        "note": "Nota",
                         "battery_low_threshold": "Limite de bateria fraca"
                     },
                     "data_description": {
@@ -115,7 +115,7 @@
                         "name": "Nome",
                         "battery_type": "Tipo de bateria",
                         "battery_quantity": "Quantidade de baterias",
-                        "note": "Note",
+                        "note": "Nota",
                         "battery_low_threshold": "Limite de bateria fraca"
                     },
                     "data_description": {
@@ -218,7 +218,7 @@
                         "name": "Tipo e quantidade de baterias"
                     },
                     "note": {
-                        "name": "Note"
+                        "name": "Nota"
                     },
                     "battery_last_replaced": {
                         "name": "Última substituição da bateria"
@@ -256,7 +256,7 @@
                         "name": "Quantidade de baterias"
                     },
                     "note": {
-                        "name": "Note"
+                        "name": "Nota"
                     }
                 }
             },
@@ -285,39 +285,39 @@
             "name": "Definir a bateria como substituída"
         },
         "check_battery_last_replaced": {
-            "description": "Get a response or raise events for devices that haven't had their battery replaced.",
+            "description": "Receba uma resposta ou gere eventos para dispositivos que ainda não tiveram a bateria trocada.",
             "fields": {
                 "days_last_reported": {
-                    "description": "Number of days since a device last had its battery replaced.",
+                    "description": "Número de dias desde a última vez em um dispositivo teve sua bateria substituída.",
                     "name": "Dias"
                 },
                 "raise_events": {
-                    "description": "Raise events for use in automation triggers.",
-                    "name": "Raise events"
+                    "description": "Gere eventos para uso em gatilho de automações.",
+                    "name": "Gere eventos"
                 }
             },
-            "name": "Check battery last replaced"
+            "name": "Verificar a última troca de bateria"
         },
         "check_battery_last_reported": {
-            "description": "Get a response or raise events for devices that haven't reported their battery level.",
+            "description": "Receba uma resposta ou gere eventos para dispositivos que ainda não repostaram o nível de bateria.",
             "fields": {
                 "days_last_reported": {
                     "description": "Número de dias desde a última vez que um dispositivo relatou o nível da bateria.",
                     "name": "Dias"
                 },
                 "raise_events": {
-                    "description": "Raise events for use in automation triggers.",
-                    "name": "Raise events"
+                    "description": "Gere eventos para uso em gatilho de automações.",
+                    "name": "Gere eventos"
                 }
             },
             "name": "Verificar a última atualização da bateria"
         },
         "check_battery_low": {
-            "description": "Get a response or raise events for devices that have a low battery.",
+            "description": "Receba uma resposta ou gere eventos para dispositivos que ainda não tiveram registro de bateria baixa.",
             "fields": {
                 "raise_events": {
-                    "description": "Raise events for use in automation triggers.",
-                    "name": "Raise events"
+                    "description": "Gere eventos para uso em gatilho de automações.",
+                    "name": "Gere eventos"
                 }
             },
             "name": "Verificar bateria fraca"
