@@ -1,8 +1,11 @@
 {
     "git.autofetch": true,
     "python.createEnvironment.trigger": "off",
-    "editor.defaultFormatter": "charliermarsh.ruff",
     "editor.formatOnSave": true,
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff"
+    },
+    "ruff.importStrategy": "fromEnvironment",
     "editor.codeActionsOnSave": {
         "source.organizeImports": "always",
     },

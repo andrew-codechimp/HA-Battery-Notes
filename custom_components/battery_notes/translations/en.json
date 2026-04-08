@@ -11,10 +11,12 @@
                     "battery_type": "Battery type",
                     "battery_quantity": "Battery quantity",
                     "note": "Note",
-                    "battery_low_threshold": "Battery low threshold"
+                    "battery_low_threshold": "Battery low threshold",
+                    "battery_increase_threshold": "Battery increase threshold"
                 },
                 "data_description": {
-                    "battery_low_threshold": "0 will use the global default threshold"
+                    "battery_low_threshold": "0 will use the global default threshold",
+                    "battery_increase_threshold": "The threshold is the difference in increase between previous and current battery level\n0 will use the global default threshold"
                 },
                 "sections": {
                     "advanced_settings": {
@@ -84,10 +86,12 @@
                         "battery_type": "Battery type",
                         "battery_quantity": "Battery quantity",
                         "note": "Note",
-                        "battery_low_threshold": "Battery low threshold"
+                        "battery_low_threshold": "Battery low threshold",
+                        "battery_increase_threshold": "Battery increase threshold"
                     },
                     "data_description": {
-                        "battery_low_threshold": "0 will use the global default threshold"
+                        "battery_low_threshold": "0 will use the global default threshold",
+                        "battery_increase_threshold": "The threshold is the difference in increase between previous and current battery level\n0 will use the global default threshold"
                     },
                     "sections": {
                         "advanced_settings": {
@@ -116,11 +120,13 @@
                         "battery_type": "Battery type",
                         "battery_quantity": "Battery quantity",
                         "note": "Note",
-                        "battery_low_threshold": "Battery low threshold"
+                        "battery_low_threshold": "Battery low threshold",
+                        "battery_increase_threshold": "Battery increase threshold"
                     },
                     "data_description": {
                         "name": "Leaving blank will take the name from the source device",
-                        "battery_low_threshold": "0 will use the global default threshold"
+                        "battery_low_threshold": "0 will use the global default threshold",
+                        "battery_increase_threshold": "The threshold is the difference in increase between previous and current battery level\n0 will use the global default threshold"
                     },
                     "sections": {
                         "advanced_settings": {
@@ -158,14 +164,14 @@
                     "hide_battery": "Hide battery",
                     "round_battery": "Round battery",
                     "default_battery_low_threshold": "Default battery low threshold",
-                    "battery_increase_threshold": "Battery increase threshold"
+                    "battery_increase_threshold": "Default battery increase threshold"
                 },
                 "data_description": {
                     "show_all_devices": "Show all devices in the device dropdown, otherwise only those with batteries will be shown.",
                     "hide_battery": "Hide the standard battery when adding Battery+.",
                     "round_battery": "Round Battery+ to whole percentages.",
                     "default_battery_low_threshold": "The default threshold where a devices battery_low entity is set to true and the battery_notes_battery_threshold event is fired if the battery is below this threshold, can be overriden per device in device configuration.",
-                    "battery_increase_threshold": "The threshold where the battery_notes_battery_increased event is fired, use this event for battery replaced automations. The threshold is the difference in increase between previous and current battery level."
+                    "battery_increase_threshold": "The default threshold where the battery_notes_battery_increased event is fired, use this event for battery replaced automations. The threshold is the difference in increase between previous and current battery level. Can be overriden per device in device configuration."
                 },
                 "sections": {
                     "advanced_settings": {

@@ -48,6 +48,7 @@ from .const import (
     ATTR_REMOVE,
     ATTR_SOURCE_ENTITY_ID,
     CONF_ADVANCED_SETTINGS,
+    CONF_BATTERY_INCREASE_THRESHOLD,
     CONF_BATTERY_LOW_TEMPLATE,
     CONF_BATTERY_LOW_THRESHOLD,
     CONF_BATTERY_PERCENTAGE_TEMPLATE,
@@ -81,7 +82,7 @@ class BatteryNotesDomainConfig:
     hide_battery: bool = False
     round_battery: bool = False
     default_battery_low_threshold: int = DEFAULT_BATTERY_LOW_THRESHOLD
-    battery_increased_threshod: int = DEFAULT_BATTERY_INCREASE_THRESHOLD
+    default_battery_increased_threshold: int = DEFAULT_BATTERY_INCREASE_THRESHOLD
     library_last_update: datetime | None = None
     user_library: str = ""
     store: BatteryNotesStorage | None = None
@@ -621,9 +622,13 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                 )
 
             # Battery increased event
-            increase_threshold = (
-                self.config_entry.runtime_data.domain_config.battery_increased_threshod
+            increase_threshold = int(
+                self.subentry.data.get(CONF_BATTERY_INCREASE_THRESHOLD, 0)
             )
+
+            if hasattr(self.config_entry, "runtime_data"):
+                if increase_threshold == 0:
+                    increase_threshold = self.config_entry.runtime_data.domain_config.default_battery_increased_threshold
 
             if self._current_battery_level not in [STATE_UNAVAILABLE, STATE_UNKNOWN]:
                 if (
