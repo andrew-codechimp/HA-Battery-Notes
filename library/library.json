@@ -10123,7 +10123,8 @@
             "model": "Photoelectric smoke detector",
             "model_id": "PA-44Z",
             "hw_version": "1",
-            "battery_type": "E"
+            "battery_type": "AA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "TuYa",
