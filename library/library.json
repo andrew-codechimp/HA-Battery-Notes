@@ -12350,6 +12350,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Philips",
+            "model": "Philips QP4530",
+            "battery_type": "Rechargeable"
         }
     ]
 }
