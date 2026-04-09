@@ -97,7 +97,9 @@ async def _async_battery_replaced(call: ServiceCall) -> ServiceResponse:  # noqa
     datetime_replaced_entry = call.data.get(SERVICE_DATA_DATE_TIME_REPLACED)
 
     if datetime_replaced_entry:
-        datetime_replaced = dt_util.as_utc(datetime_replaced_entry).replace(tzinfo=None)
+        datetime_replaced = dt_util.as_utc(datetime_replaced_entry).replace(
+            microsecond=1
+        )
     else:
         datetime_replaced = dt_util.utcnow()
 

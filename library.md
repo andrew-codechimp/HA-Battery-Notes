@@ -1,4 +1,4 @@
-## 2134 Devices in library
+## 2135 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1756,7 +1756,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |TuYa                                            |Motion sensor with scene switch (TS0202_2)                                                    |2× AAA                    |                                   |                                      |
 |Tuya                                            |NOTSEK smart Wifi Temperature Hygrometer                                                      |2× AA                     |hbluag8nbjwtkyqs                   |                                      |
 |Tuya                                            |Optical smoke sensor (model YG500A on the PCB)                                                |2× AAA                    |TS0205_smoke_2                     |                                     1|
-|Tuya                                            |Photoelectric smoke detector                                                                  |E                         |PA-44Z                             |                                     1|
+|Tuya                                            |Photoelectric smoke detector                                                                  |2× AA                     |PA-44Z                             |                                     1|
 |TuYa                                            |Photoelectric smoke detector (PA-44Z)                                                         |PP3                       |                                   |                                      |
 |Tuya                                            |PIR (b5g40alm)                                                                                |CR2450                    |                                   |                                      |
 |Tuya                                            |PIR 24Ghz human presence sensor                                                               |2× AAA                    |ZG-204ZM                           |                                      |
@@ -1824,6 +1824,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tuya                                            |Temperature and humidity sensor                                                               |2× AAA                    |ZTH01/ZTH02                        |                                      |
 |Tuya                                            |Temperature and humidity sensor                                                               |CR2032                    |ZTH02                              |                                     1|
 |Tuya                                            |Temperature and humidity sensor                                                               |CR2032                    |ZTH05                              |                                     1|
+|Tuya                                            |Temperature and humidity sensor                                                               |2× AAA                    |ZTH05_1                            |                                     1|
 |Tuya                                            |Temperature and humidity sensor                                                               |3× AAA                    |ZTH08                              |                                     1|
 |TuYa                                            |Temperature and humidity sensor (TH02Z)                                                       |2× AAA                    |                                   |                                      |
 |TuYa                                            |Temperature and humidity sensor (ZG-227Z)                                                     |CR2450                    |                                   |                                      |
