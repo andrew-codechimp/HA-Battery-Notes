@@ -1,4 +1,4 @@
-## 2135 Devices in library
+## 2136 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1268,6 +1268,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Philips                                         |Hue wall switch module                                                                        |CR2450                    |                       929003017102|                                     1|
 |Philips                                         |Hue wall switch module (929003017102)                                                         |CR2450                    |                                   |                                      |
 |Philips                                         |Hue wall switch module (RDM004)                                                               |CR2450                    |                                   |                                      |
+|Philips                                         |Philips QP4530                                                                                |Rechargeable              |                                   |                                      |
 |Philips                                         |ROM001                                                                                        |CR2032                    |                                   |                                      |
 |Philips                                         |RWL020                                                                                        |CR2450                    |                                   |                                      |
 |Philips                                         |RWL021                                                                                        |CR2450                    |                                   |                                      |
