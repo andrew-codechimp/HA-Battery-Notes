@@ -2666,6 +2666,13 @@
         },
         {
             "manufacturer": "Develco",
+            "model": "Flood alarm device",
+            "model_id": "FLSZB-110",
+            "hw_version": "502",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Develco",
             "model": "Keypad",
             "model_id": "KEYZB-110",
             "hw_version": "2.0.1",
@@ -7284,6 +7291,11 @@
             "manufacturer": "Philips",
             "model": "Hue wall switch module (RDM004)",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Philips",
+            "model": "Philips QP4530",
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "Philips",
