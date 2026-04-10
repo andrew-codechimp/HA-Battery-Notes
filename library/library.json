@@ -12355,6 +12355,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Develco",
+            "model": "Flood alarm device",
+            "model_id": "FLSZB-110",
+            "hw_version": "502",
+            "battery_type": "CR123A"
         }
     ]
 }
