@@ -1,4 +1,4 @@
-## 2137 Devices in library
+## 2138 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1905,6 +1905,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |TUYATEC-riuj5xzs                                |RH3052                                                                                        |CR2032                    |                                   |                                      |
 |TUYATEC-xrvzm3yI                                |RH3001                                                                                        |CR2032                    |                                   |                                      |
 |TUYATEC-yg5dcbfu                                |RH3052                                                                                        |CR2032                    |                                   |                                      |
+|U-tec Group Inc.                                |Ultraloq Bolt F Matter                                                                        |8× AA                     |                                  1|v1.2                                  |
 |Ubiquiti                                        |USL Environmental                                                                             |CR123A                    |USL-Environmental-US               |                                      |
 |Ultraloq                                        |U-BOLT-PRO-ZWAVE                                                                              |4× AA                     |                                   |                                      |
 |Unfolded Circle                                 |Remote 3                                                                                      |Rechargeable              |                                   |                                      |

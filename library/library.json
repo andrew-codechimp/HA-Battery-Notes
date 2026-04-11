@@ -11042,6 +11042,14 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "U-tec Group Inc.",
+            "model": "Ultraloq Bolt F Matter",
+            "model_id": "1",
+            "hw_version": "v1.2",
+            "battery_type": "AA",
+            "battery_quantity": 8
+        },
+        {
             "manufacturer": "Ubiquiti",
             "model": "USL Environmental",
             "model_id": "USL-Environmental-US",
@@ -12362,14 +12370,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "U-tec Group Inc.",
-            "model": "Ultraloq Bolt F Matter",
-            "model_id": "1",
-            "hw_version": "v1.2",
-            "battery_type": "AA",
-            "battery_quantity": 8
         }
     ]
 }
