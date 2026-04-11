@@ -8136,6 +8136,13 @@
         },
         {
             "manufacturer": "Shelly",
+            "model": "Shelly Flood Gen4 (S4SN-0071A)",
+            "model_id": "gen4",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Shelly",
             "model": "Shelly H&T",
             "battery_type": "MANUAL"
         },
@@ -12370,13 +12377,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Shelly",
-            "model": "Shelly Flood Gen4 (S4SN-0071A)",
-            "model_id": "gen4",
-            "battery_type": "AA",
-            "battery_quantity": 4
         }
     ]
 }
