@@ -8136,8 +8136,8 @@
         },
         {
             "manufacturer": "Shelly",
-            "model": "Shelly Flood Gen4 (S4SN-0071A)",
-            "model_id": "gen4",
+            "model": "Shelly Flood Gen4",
+            "model_id": "S4SN-0071A",
             "battery_type": "AA",
             "battery_quantity": 4
         },
