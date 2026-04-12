@@ -6926,6 +6926,13 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "OpenEPaperLink",
+            "model": "M3 2.9\" BWRY",
+            "hw_version": "384x168",
+            "battery_type": "CR2450",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "OpenEpaperLink",
             "model": "ST\u2010GR16000 1.54\"",
             "battery_type": "CR2450"
@@ -12377,13 +12384,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "OpenEPaperLink",
-            "model": "M3 2.9\" BWRY",
-            "hw_version": "384x168",
-            "battery_type": "CR2450",
-            "battery_quantity": 2
         }
     ]
 }

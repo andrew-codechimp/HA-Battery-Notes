@@ -1,4 +1,4 @@
-## 2139 Devices in library
+## 2140 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1206,6 +1206,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |OpenEpaperLink                                  |M2 2.9                                                                                        |2× CR2450                 |                                   |                                      |
 |OpenEpaperLink                                  |M2 4.2                                                                                        |2× CR2450                 |                                   |                                      |
 |OpenEpaperLink                                  |M3 2.9                                                                                        |2× CR2450                 |                                   |                                      |
+|OpenEPaperLink                                  |M3 2.9" BWRY                                                                                  |2× CR2450                 |                                   |384x168                               |
 |OpenEpaperLink                                  |ST‐GR16000 1.54                                                                               |CR2450                    |                                   |                                      |
 |OpenEpaperLink                                  |ST‐GR29000 2.9                                                                                |2× CR2450                 |                                   |                                      |
 |Oral-B                                          |Genius X                                                                                      |Rechargeable              |                                   |                                      |
