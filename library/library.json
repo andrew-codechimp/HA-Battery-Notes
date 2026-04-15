@@ -12403,6 +12403,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Legrand",
+            "model": "Home & away switch / master switch",
+            "model_id": "064873",
+            "hw_version": "V2",
+            "battery_type": "CR2032"
         }
     ]
 }
