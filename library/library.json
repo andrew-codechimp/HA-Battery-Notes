@@ -12418,6 +12418,14 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Heiman",
+            "model": "Water leakage sensor",
+            "model_id": "HS1WL/HS3WL",
+            "hw_version": "V18",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
