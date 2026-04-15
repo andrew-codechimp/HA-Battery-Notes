@@ -12433,6 +12433,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Aqara",
+            "model": "Aqara Smart Lock U400",
+            "model_id": "10244",
+            "hw_version": "1.0.0.0",
+            "battery_type": "Rechargeable"
         }
     ]
 }
