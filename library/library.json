@@ -12390,6 +12390,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "switchbot",
+            "model": "Presence Sensor",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
