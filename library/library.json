@@ -12433,6 +12433,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Linkind",
+            "model": "ZB-DoorSensor-D0003",
+            "battery_type": "CR2032"
         }
     ]
 }
