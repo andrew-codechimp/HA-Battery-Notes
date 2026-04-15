@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import logging
 from dataclasses import dataclass
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timedelta
 from typing import cast
 
 from homeassistant.components.binary_sensor import (
@@ -74,7 +74,7 @@ _LOGGER = logging.getLogger(__name__)
 def _ensure_utc(dt_val: datetime) -> datetime:
     """Ensure a datetime is timezone-aware (UTC). Fixes naive datetimes from old storage."""
     if dt_val.tzinfo is None:
-        return dt_val.replace(tzinfo=timezone.utc)
+        return dt_val.replace(tzinfo=datetime.UTC)
     return dt_val
 
 
