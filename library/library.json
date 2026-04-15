@@ -12396,6 +12396,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Legrand",
+            "model": "Wireless remote switch",
+            "model_id": "067773",
+            "hw_version": "V3",
+            "battery_type": "CR2032"
         }
     ]
 }
