@@ -700,7 +700,9 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
         if not hasattr(self.config_entry, "runtime_data"):
             return
 
-        entry = {LAST_REPLACED: _ensure_utc(value) if isinstance(value, datetime) else value}
+        entry = {
+            LAST_REPLACED: _ensure_utc(value) if isinstance(value, datetime) else value
+        }
 
         if self.source_entity_id:
             self.async_update_entity_config(entity_id=self.source_entity_id, data=entry)
@@ -736,7 +738,9 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
         if not hasattr(self.config_entry, "runtime_data"):
             return
 
-        entry = {LAST_REPORTED: _ensure_utc(value) if isinstance(value, datetime) else value}
+        entry = {
+            LAST_REPORTED: _ensure_utc(value) if isinstance(value, datetime) else value
+        }
 
         if self.source_entity_id:
             self.async_update_entity_config(entity_id=self.source_entity_id, data=entry)
