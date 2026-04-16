@@ -12445,6 +12445,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "_TZ3000_amis43tj",
+            "model": "TS0207",
+            "battery_type": "CR2450"
         }
     ]
 }
