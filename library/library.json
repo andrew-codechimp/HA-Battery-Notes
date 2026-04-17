@@ -12455,6 +12455,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Nexia Home Intelligence",
+            "model": "ZSENS930",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
