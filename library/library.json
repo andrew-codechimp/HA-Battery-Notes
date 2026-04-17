@@ -12450,6 +12450,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "HAB Home Intelligence, LLC",
+            "model": "IB2.0",
+            "battery_type": "Rechargeable"
         }
     ]
 }
