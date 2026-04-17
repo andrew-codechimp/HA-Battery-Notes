@@ -12455,6 +12455,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Sensative AB",
+            "model": "11 04 021/022/028",
+            "battery_type": "Irreplaceable"
         }
     ]
 }
