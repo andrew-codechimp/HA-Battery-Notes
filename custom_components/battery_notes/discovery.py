@@ -22,6 +22,7 @@ from .const import (
     CONF_MANUFACTURER,
     CONF_MODEL,
     CONF_MODEL_ID,
+    DISCOVERY_IGNORED_INTEGRATION_DOMAINS,
     DOMAIN,
 )
 from .coordinator import BatteryNotesDomainConfig
@@ -119,9 +120,13 @@ class DiscoveryManager:
                 if device_battery_details.is_manual:
                     continue
 
+                integration: Integration | None = None
                 config_entry_id = next(iter(device_entry.config_entries))
                 config_entry = self.hass.config_entries.async_get_entry(config_entry_id)
                 if config_entry:
+                    if config_entry.domain in DISCOVERY_IGNORED_INTEGRATION_DOMAINS:
+                        continue
+
                     integration = await async_get_integration(
                         self.hass, config_entry.domain
                     )

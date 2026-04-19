@@ -133,4 +133,8 @@ PLATFORMS: Final = [
     Platform.SENSOR,
 ]
 
+DISCOVERY_IGNORED_INTEGRATION_DOMAINS: Final[list[str]] = [
+    "music_assistant",
+]
+
 SUBENTRY_BATTERY_NOTE = "battery_note"
