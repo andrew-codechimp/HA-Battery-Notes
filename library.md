@@ -1,4 +1,4 @@
-## 2153 Devices in library
+## 2154 Devices in library
 
 This file is auto generated, do not modify
 
@@ -276,6 +276,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Aqara                                           |Motion Sensor P1                                                                              |CR2450                    |Aqara Motion Sensor P1             |                                     1|
 |Aqara                                           |Motion sensor P1                                                                              |2× CR2450                 |RTCGQ14LM                          |                                     1|
 |Aqara                                           |Motion sensor P1 (RTCGQ14LM)                                                                  |2× CR2450                 |                                   |                                      |
+|Aqara                                           |Multi-State Sensor P100                                                                       |CR2450                    |DWZTCGQ11LM                        |                                     1|
 |Aqara                                           |Opple wireless switch (double band)                                                           |CR2032                    |WXCJKG12LM                         |                                     1|
 |Aqara                                           |Opple wireless switch (single band)                                                           |CR2032                    |WXCJKG11LM                         |                                     1|
 |Aqara                                           |Opple wireless switch (single band) (WXCJKG11LM)                                              |CR2032                    |                                   |                                      |
