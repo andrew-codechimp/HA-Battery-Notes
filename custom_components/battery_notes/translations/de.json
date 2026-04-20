@@ -2,11 +2,11 @@
     "config": {
         "step": {
             "user": {
-                "description": "Neue Battery Notes werden entdeckt, wenn sie sich in der Bibliothek befinden.\nUm neue Battery Notes manuell hinzuzufügen, wähle \"Battery Note hinzufügen\" und folge den Anweisungen.\nWeitere Hilfe zur Konfiguration findest du unter:  {documentation_url}",
+                "description": "Neue Batterie-Notizen werden entdeckt, wenn sie sich in der Bibliothek befinden.\nUm neue Batterie-Notizen manuell hinzuzufügen, wähle \"Batterie-Notiz hinzufügen\" und folge den Anweisungen.\nWeitere Hilfe zur Konfiguration findest du unter:  {documentation_url}",
                 "title": "Battery Notes einrichten"
             },
             "battery": {
-                "description": "Name: {name}\nHersteller: {manufacturer}\nModell: {model}\nModell ID: {model_id}\nHardware Version: {hw_version}",
+                "description": "Name: {name}\nHersteller: {manufacturer}\nModell: {model}\nModell-ID: {model_id}\nHardware-Version: {hw_version}",
                 "data": {
                     "battery_type": "Batterieart",
                     "battery_quantity": "Batteriemenge",
@@ -36,7 +36,7 @@
         "abort": {
             "already_configured": "Integration ist bereits konfiguriert",
             "integration_not_added": "Integration nicht hinzugefügt, bitte zuerst die Integration hinzufügen",
-            "created_sub_entry": "Battery note erfolgreich erstellt"
+            "created_sub_entry": "Batterie-Notiz erfolgreich erstellt"
         },
         "error": {
             "unknown": "Ein unbekannter Fehler ist aufgetreten."
@@ -45,9 +45,9 @@
     "config_subentries": {
         "battery_note": {
             "initiate_flow": {
-                "user": "Battery note hinzufügen"
+                "user": "Batterie-Notiz hinzufügen"
             },
-            "entry_type": "Battery note",
+            "entry_type": "Batterie-Notiz",
             "step": {
                 "user": {
                     "description": "Hilfe zur Konfiguration findest du unter: {documentation_url}",
@@ -75,11 +75,11 @@
                         "name": "Name"
                     },
                     "data_description": {
-                        "name": "Wenn Du das Feld leer lässt, wird der Entitätsnamen genommen."
+                        "name": "Wenn du das Feld leer lässt, wird der Entitätsname verwendet."
                     }
                 },
                 "battery": {
-                    "description": "Name: {name}\nHersteller: {manufacturer}\nModell: {model}\nModell ID: {model_id}\nHardware Version: {hw_version}",
+                    "description": "Name: {name}\nHersteller: {manufacturer}\nModell: {model}\nModell-ID: {model_id}\nHardware-Version: {hw_version}",
                     "data": {
                         "battery_type": "Batterie-Typ",
                         "battery_quantity": "Anzahl Batterien",
@@ -106,11 +106,11 @@
                     }
                 },
                 "manual": {
-                    "description": "Dieses Gerät ist in der Bibliothek als \"manuell einzurichten\" gekennzeichnet, verschiedene Varianten verwenden unterschiedliche Batterietypen, so dass \"Battery Notes\" nicht automatisch hinzugefügt werden können.\nIm nächsten Schritt kannst Du die Anzahl der benötigen Batterien und deren Typ einstellen. (Damit wird keine Anforderung eines neues Geräte in der Bibliothek erzeugt!)",
+                    "description": "Dieses Gerät ist in der Bibliothek als \"manuell einzurichten\" gekennzeichnet. Verschiedene Varianten verwenden unterschiedliche Batterietypen, sodass \"Batterie-Notizen\" nicht automatisch hinzugefügt werden können.\nIm nächsten Schritt kannst du die Anzahl der benötigen Batterien und deren Typ einstellen. (Damit wird keine Anforderung eines neues Geräte in der Bibliothek erzeugt!)",
                     "title": "Gerät manuell konfigurieren"
                 },
                 "reconfigure": {
-                    "description": "Hersteller: {manufacturer}\nModell: {model}\nModell ID: {model_id}\nHardware Version: {hw_version}",
+                    "description": "Hersteller: {manufacturer}\nModell: {model}\nModell-ID: {model_id}\nHardware-Version: {hw_version}",
                     "data": {
                         "name": "Name",
                         "battery_type": "Batterie-Typ",
@@ -146,7 +146,7 @@
             "error": {
                 "unknown": "Ein unbekannter Fehler ist aufgetreten.",
                 "unconfigurable_entity": "Es ist nicht möglich, diese Entität durch \"Battery Notes\" beobachten zu lassen.",
-                "orphaned_battery_note": "Das zugeordnete Gerät für diesen Eintrag in \"Battery Notes\" existiert nicht mehr"
+                "orphaned_battery_note": "Das zugeordnete Gerät für diesen Eintrag in \"Battery Notes\" existiert nicht mehr."
             }
         }
     },
@@ -157,15 +157,15 @@
                     "show_all_devices": "Alle Geräte zeigen",
                     "hide_battery": "Batterie verbergen",
                     "round_battery": "Batterieladezustand runden",
-                    "default_battery_low_threshold": "Standard Schwellenwert für leere Batterie",
+                    "default_battery_low_threshold": "Standard-Schwellenwert für leere Batterie",
                     "battery_increase_threshold": "Batterieanstieg-Schwellenwert"
                 },
                 "data_description": {
                     "show_all_devices": "Alle Geräte in der Geräte-Auswahlliste zeigen, ansonsten nur solche mit Batterien anzeigen.",
-                    "hide_battery": "Standard-Batterie Entität beim Hinzufügen von Batterie+ verbergen.",
+                    "hide_battery": "Standard-Batterie-Entität beim Hinzufügen von Batterie+ verbergen.",
                     "round_battery": "Batterie+ auf ganze Prozent runden.",
                     "default_battery_low_threshold": "Der Standardschwellenwert, bei dem die battery_low-Entität auf wahr gesetzt wird und das battery_notes_battery_threshold-Ereignis ausgelöst wird, wenn die Batterie unter diesem Schwellenwert liegt. Kann in der Gerätekonfiguration pro Gerät überschrieben werden.",
-                    "battery_increase_threshold": "Der Schwellenwert, an dem das Ereignis Battery_notes_battery_increased ausgelöst wird, verwenden Sie dieses Ereignis für Batterieersatzautomationen. Der Schwellenwert ist der Unterschied in der Steigerung zwischen dem vorigen und dem aktuellen Akkustand."
+                    "battery_increase_threshold": "Der Schwellenwert, an dem das Ereignis Battery_notes_battery_increased ausgelöst wird. Verwende dieses Ereignis für Batterieersatzautomationen. Der Schwellenwert ist der Unterschied in der Steigerung zwischen dem vorigen und dem aktuellen Akkustand."
                 },
                 "sections": {
                     "advanced_settings": {
@@ -177,7 +177,7 @@
                         },
                         "data_description": {
                             "enable_autodiscovery": "Automatische Erkennung von Geräten, die in der Bibliothek sind.",
-                            "enable_replaced": "Die \"Batterie ersetzt\"-Schaltfläche auf jedem Battery Note aktivieren",
+                            "enable_replaced": "Die \"Batterie ersetzt\"-Schaltfläche bei jeder Batterie-Notiz aktivieren",
                             "user_library": "Wenn angegeben, wird vor der Hauptbibliothek eine Benutzerbibliothek durchsucht. Die Benutzerbibliothek muss im selben Format sein, wie die Hauptbibliothek und in `config/. torage/battery_notes` platziert sein."
                         }
                     }
@@ -236,7 +236,7 @@
                         "name": "Letzter gemeldeter Batteriestand"
                     },
                     "source_entity_id": {
-                        "name": "Quellen-Entitäts-Id"
+                        "name": "Quellen-Entitäts-ID"
                     },
                     "device_id": {
                         "name": "Geräte-ID"
@@ -267,22 +267,22 @@
     },
     "services": {
         "set_battery_replaced": {
-            "description": "Stellen Sie die zuletzt ausgetauschte Batterie ein.",
+            "description": "Gib an, wann die Batterie zuletzt ausgetauscht wurde.",
             "fields": {
                 "device_id": {
                     "description": "Gerät, bei dem die Batterie ersetzt wurde.",
                     "name": "Gerät"
                 },
                 "entity_id": {
-                    "description": "Entität, dessen Batterie(n) ersetzt wurde(n). (Wird nur benötigt für \"Battery Notes\", die mit Entitäten verknüpft sind)",
+                    "description": "Entität, dessen Batterie(n) ersetzt wurde(n). (Wird nur für Batterie-Notizen benötigt, die mit Entitäten verknüpft sind.)",
                     "name": "Entität"
                 },
                 "datetime_replaced": {
-                    "description": "Datum ersetzt.",
+                    "description": "Ersetzungsdatum.",
                     "name": "Datum"
                 }
             },
-            "name": "Setze Batteriewechsel"
+            "name": "Batteriewechsel festlegen"
         },
         "check_battery_last_replaced": {
             "description": "Erhalte eine Antwort oder löse Ereignisse für Geräte aus, deren Batterie noch nicht ausgetauscht wurde.",
@@ -330,14 +330,14 @@
                 "step": {
                     "confirm": {
                         "title": "Verwaister Eintrag in \"Battery Notes\"",
-                        "description": "Das verbundene Gerät oder die Entität des Eintrags {name} in \"Battery Notes\" ist nicht mehr vorhanden, der Eintrag sollte gelöscht werden.\nWählen Sie **Absenden** um diesen Eintrag zu löschen."
+                        "description": "Das verbundene Gerät oder die Entität des Eintrags {name} in \"Battery Notes\" ist nicht mehr vorhanden, der Eintrag sollte gelöscht werden.\nKlicke auf **OK**, um diesen Eintrag zu löschen."
                     }
                 }
             }
         },
         "deprecated_yaml": {
             "title": "Die {integration_title} YAML-Konfiguration wurde entfernt",
-            "description": "Das Konfigurieren von {integration_title} mit YAML wird entfernt.\n\nDeine bestehende YAML-Konfiguration wurde automatisch in die Benutzeroberfläche importiert.\n\nEntferne die `{domain}` Konfiguration von deiner configuration.yaml Datei und starte den Home Assistant neu, um dieses Problem zu beheben."
+            "description": "Das Konfigurieren von {integration_title} mit YAML wird entfernt.\n\nDeine bestehende YAML-Konfiguration wurde automatisch in die Benutzeroberfläche importiert.\n\nEntferne die `{domain}`-Konfiguration von deiner configuration.yaml-Datei und starte Home Assistant neu, um dieses Problem zu beheben."
         }
     },
     "exceptions": {
