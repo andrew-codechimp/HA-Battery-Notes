@@ -2,7 +2,7 @@
     "config": {
         "step": {
             "user": {
-                "description": "Neue Battery Notes werden entdeckt, wenn sie sich in der Bibliothek befinden.\nUm neue Battery Notes manuell hinzuzufügen, wähle \"Battery Note hinzufügen\" und folge den Anweisungen.\nWeitere Hilfe zur Konfiguration findest du unter:  {documentation_url}",
+                "description": "Neue Batterie-Notizen werden entdeckt, wenn sie sich in der Bibliothek befinden.\nUm neue Batterie-Notizen manuell hinzuzufügen, wähle \"Batterie-Notiz hinzufügen\" und folge den Anweisungen.\nWeitere Hilfe zur Konfiguration findest du unter:  {documentation_url}",
                 "title": "Battery Notes einrichten"
             },
             "battery": {
@@ -36,7 +36,7 @@
         "abort": {
             "already_configured": "Integration ist bereits konfiguriert",
             "integration_not_added": "Integration nicht hinzugefügt, bitte zuerst die Integration hinzufügen",
-            "created_sub_entry": "Battery Note erfolgreich erstellt"
+            "created_sub_entry": "Batterie-Notiz erfolgreich erstellt"
         },
         "error": {
             "unknown": "Ein unbekannter Fehler ist aufgetreten."
@@ -45,9 +45,9 @@
     "config_subentries": {
         "battery_note": {
             "initiate_flow": {
-                "user": "Battery Note hinzufügen"
+                "user": "Batterie-Notiz hinzufügen"
             },
-            "entry_type": "Battery Note",
+            "entry_type": "Batterie-Notiz",
             "step": {
                 "user": {
                     "description": "Hilfe zur Konfiguration findest du unter: {documentation_url}",
@@ -106,7 +106,7 @@
                     }
                 },
                 "manual": {
-                    "description": "Dieses Gerät ist in der Bibliothek als \"manuell einzurichten\" gekennzeichnet. Verschiedene Varianten verwenden unterschiedliche Batterietypen, sodass \"Battery Notes\" nicht automatisch hinzugefügt werden können.\nIm nächsten Schritt kannst du die Anzahl der benötigen Batterien und deren Typ einstellen. (Damit wird keine Anforderung eines neues Geräte in der Bibliothek erzeugt!)",
+                    "description": "Dieses Gerät ist in der Bibliothek als \"manuell einzurichten\" gekennzeichnet. Verschiedene Varianten verwenden unterschiedliche Batterietypen, sodass \"Batterie-Notizen\" nicht automatisch hinzugefügt werden können.\nIm nächsten Schritt kannst du die Anzahl der benötigen Batterien und deren Typ einstellen. (Damit wird keine Anforderung eines neues Geräte in der Bibliothek erzeugt!)",
                     "title": "Gerät manuell konfigurieren"
                 },
                 "reconfigure": {
@@ -177,7 +177,7 @@
                         },
                         "data_description": {
                             "enable_autodiscovery": "Automatische Erkennung von Geräten, die in der Bibliothek sind.",
-                            "enable_replaced": "Die \"Batterie ersetzt\"-Schaltfläche bei jeder Battery Note aktivieren",
+                            "enable_replaced": "Die \"Batterie ersetzt\"-Schaltfläche bei jeder Batterie-Notiz aktivieren",
                             "user_library": "Wenn angegeben, wird vor der Hauptbibliothek eine Benutzerbibliothek durchsucht. Die Benutzerbibliothek muss im selben Format sein, wie die Hauptbibliothek und in `config/. torage/battery_notes` platziert sein."
                         }
                     }
@@ -274,7 +274,7 @@
                     "name": "Gerät"
                 },
                 "entity_id": {
-                    "description": "Entität, dessen Batterie(n) ersetzt wurde(n). (Wird nur für \"Battery Notes\" benötigt, die mit Entitäten verknüpft sind)",
+                    "description": "Entität, dessen Batterie(n) ersetzt wurde(n). (Wird nur für Batterie-Notizen benötigt, die mit Entitäten verknüpft sind.)",
                     "name": "Entität"
                 },
                 "datetime_replaced": {
