@@ -2,7 +2,7 @@
     "config": {
         "step": {
             "user": {
-                "description": "Neue Batterie-Notizen werden entdeckt, wenn sie sich in der Bibliothek befinden.\nUm neue Batterie-Notizen manuell hinzuzufügen, wähle \"Batterie-Notiz hinzufügen\" und folge den Anweisungen.\nWeitere Hilfe zur Konfiguration findest du unter:  {documentation_url}",
+                "description": "Neue Batterie-Notizen werden entdeckt, wenn sie sich in der Bibliothek befinden.\nUm neue Batterie-Notizen manuell hinzuzufügen, wähle Batterie-Notiz hinzufügen und folge den Anweisungen.\nWeitere Hilfe zur Konfiguration findest du unter:  {documentation_url}a",
                 "title": "Battery Notes einrichten"
             },
             "battery": {
@@ -45,9 +45,9 @@
     "config_subentries": {
         "battery_note": {
             "initiate_flow": {
-                "user": "Batterie-Notiz hinzufügen"
+                "user": "Battery note hinzufügen"
             },
-            "entry_type": "Batterie-Notiz",
+            "entry_type": "Battery note",
             "step": {
                 "user": {
                     "description": "Hilfe zur Konfiguration findest du unter: {documentation_url}",
@@ -267,7 +267,7 @@
     },
     "services": {
         "set_battery_replaced": {
-            "description": "Gib an, wann die Batterie zuletzt ausgetauscht wurde.",
+            "description": "Stellen Sie die zuletzt ausgetauschte Batterie ein.",
             "fields": {
                 "device_id": {
                     "description": "Gerät, bei dem die Batterie ersetzt wurde.",
@@ -278,7 +278,7 @@
                     "name": "Entität"
                 },
                 "datetime_replaced": {
-                    "description": "Ersetzungsdatum.",
+                    "description": "Datum ersetzt.",
                     "name": "Datum"
                 }
             },
