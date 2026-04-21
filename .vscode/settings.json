@@ -16,8 +16,8 @@
             "source.organizeImports": "always"
         }
     },
-    "ruff.nativeServer": "off",
-    "ruff.importStrategy": "fromEnvironment",
-    "ruff.configuration": "/workspaces/HA-Battery-Notes/pyproject.toml",
+    "ruff.nativeServer": "on",
+    "ruff.importStrategy": "useBundled",
+    "ruff.configuration": "${workspaceFolder}/pyproject.toml",
     "python.terminal.activateEnvInCurrentTerminal": true,
 }
