@@ -12324,6 +12324,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Zbeacon",
+            "model": "TH01",
+            "battery_type": "MANUAL"
+        },
+        {
             "manufacturer": "Zemismart",
             "model": "Blind driver",
             "model_id": "ZMP1",
@@ -12473,11 +12478,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Zbeacon",
-            "model": "TH01",
-            "battery_type": "MANUAL"
         }
     ]
 }
