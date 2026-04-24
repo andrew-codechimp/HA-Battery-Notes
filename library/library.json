@@ -6076,6 +6076,13 @@
         },
         {
             "manufacturer": "Linkind",
+            "model": "Door/window Sensor",
+            "model_id": "ZS110050078",
+            "hw_version": "1",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Linkind",
             "model": "Door/window Sensor (ZS110050078)",
             "battery_type": "CR2032"
         },
@@ -12476,13 +12483,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Linkind",
-            "model": "Door/window Sensor",
-            "model_id": "ZS110050078",
-            "hw_version": "1",
-            "battery_type": "CR2032"
         }
     ]
 }
