@@ -426,16 +426,25 @@ class BatteryNotesBatteryPlusBaseSensor(BatteryNotesEntity, RestoreSensor):
     @callback
     def _write_tracked_ha_state(self) -> None:
         """Write state at startup, on value changes, or when interval elapsed."""
+        native_value = self._attr_native_value
+        if isinstance(native_value, int | float | str):
+            try:
+                current_battery_level = float(native_value)
+            except ValueError:
+                current_battery_level = None
+        else:
+            current_battery_level = None
+
         if self._last_ha_state_write is not None:
             if (
-                self._attr_native_value == self._last_written_battery_level
+                current_battery_level == self._last_written_battery_level
                 and (dt_util.utcnow() - self._last_ha_state_write).total_seconds()
                 < STATE_WRITE_INTERVAL_SECONDS
             ):
                 return
 
         self._last_ha_state_write = dt_util.utcnow()
-        self._last_written_battery_level = self._attr_native_value
+        self._last_written_battery_level = current_battery_level
         self.async_write_ha_state()
 
     @property
