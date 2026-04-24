@@ -45,7 +45,7 @@ dev = [
     "homeassistant==2026.4.0",
     "infrared-protocols",
     "mutagen",
-    "mypy==1.20.0",
+    "mypy==1.20.2",
     "pycares",
     "pygments",
     "pymicro-vad",
