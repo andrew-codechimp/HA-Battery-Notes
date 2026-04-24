@@ -21,6 +21,7 @@ LAST_REPORTED_LEVEL = "battery_last_reported_level"
 
 DEFAULT_BATTERY_LOW_THRESHOLD = 10
 DEFAULT_BATTERY_INCREASE_THRESHOLD = 25
+STATE_WRITE_INTERVAL_SECONDS = 60 * 60  # 1 hour
 DEFAULT_LIBRARY_URL = "https://battery-notes-data.codechimp.org/library.json"
 DEFAULT_SCHEMA_URL = "https://battery-notes-data.codechimp.org/schema.json"
 FALLBACK_LIBRARY_URL = "https://raw.githubusercontent.com/andrew-codechimp/HA-Battery-Notes/main/library/library.json"  # pylint: disable=line-too-long

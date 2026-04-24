@@ -76,6 +76,7 @@ from .const import (
     CONF_ROUND_BATTERY,
     CONF_SOURCE_ENTITY_ID,
     DOMAIN,
+    STATE_WRITE_INTERVAL_SECONDS,
     SUBENTRY_BATTERY_NOTE,
 )
 from .coordinator import (
@@ -419,6 +420,33 @@ class BatteryNotesBatteryPlusBaseSensor(BatteryNotesEntity, RestoreSensor):
         self._attr_state_class = SensorStateClass.MEASUREMENT
         self._attr_native_unit_of_measurement = PERCENTAGE
 
+        self._last_ha_state_write: datetime | None = None
+        self._last_written_battery_level: float | None = None
+
+    @callback
+    def _write_tracked_ha_state(self) -> None:
+        """Write state at startup, on value changes, or when interval elapsed."""
+        native_value = self._attr_native_value
+        if isinstance(native_value, int | float | str):
+            try:
+                current_battery_level = float(native_value)
+            except ValueError:
+                current_battery_level = None
+        else:
+            current_battery_level = None
+
+        if self._last_ha_state_write is not None:
+            if (
+                current_battery_level == self._last_written_battery_level
+                and (dt_util.utcnow() - self._last_ha_state_write).total_seconds()
+                < STATE_WRITE_INTERVAL_SECONDS
+            ):
+                return
+
+        self._last_ha_state_write = dt_util.utcnow()
+        self._last_written_battery_level = current_battery_level
+        self.async_write_ha_state()
+
     @property
     def extra_state_attributes(self) -> dict[str, Any] | None:
         """Return the state attributes of the battery type."""
@@ -518,7 +546,7 @@ class BatteryNotesBatteryPlusSensor(BatteryNotesBatteryPlusBaseSensor):
 
             self._attr_native_value = None
             self._attr_available = False
-            self.async_write_ha_state()
+            self._write_tracked_ha_state()
             return
 
         self.coordinator.current_battery_level = wrapped_battery_state.state
@@ -529,7 +557,7 @@ class BatteryNotesBatteryPlusSensor(BatteryNotesBatteryPlusBaseSensor):
         self._attr_native_value = self.coordinator.rounded_battery_level
         self._wrapped_attributes = wrapped_battery_state.attributes
 
-        self.async_write_ha_state()
+        self._write_tracked_ha_state()
 
     @callback
     async def async_state_reported_listener(
@@ -557,22 +585,20 @@ class BatteryNotesBatteryPlusSensor(BatteryNotesBatteryPlusBaseSensor):
         ):
             self._attr_native_value = None
             self._attr_available = False
-            self.async_write_ha_state()
+            self._write_tracked_ha_state()
             return
 
         # Don't update if battery level same and it's been < 1 hour
         delta = dt_util.utcnow() - self.coordinator.last_wrapped_battery_state_write
         if (
             self.coordinator.last_reported_level == wrapped_battery_state.state
-            and delta.total_seconds() < 3600  # 1 hour
+            and delta.total_seconds() < STATE_WRITE_INTERVAL_SECONDS
         ):
             self._attr_available = True
             return
 
         self.coordinator.last_wrapped_battery_state_write = dt_util.utcnow()
         self.coordinator.current_battery_level = wrapped_battery_state.state
-
-        await self.coordinator.async_request_refresh()
 
         self.coordinator.last_reported = dt_util.utcnow()
 
@@ -587,7 +613,7 @@ class BatteryNotesBatteryPlusSensor(BatteryNotesBatteryPlusBaseSensor):
         self._attr_native_value = self.coordinator.rounded_battery_level
         self._wrapped_attributes = wrapped_battery_state.attributes
 
-        self.async_write_ha_state()
+        self._write_tracked_ha_state()
 
     async def _register_entity_id_change_listener(
         self,
@@ -743,8 +769,12 @@ class BatteryNotesBatteryPlusSensor(BatteryNotesBatteryPlusBaseSensor):
         """Handle updated data from the coordinator."""
 
         _LOGGER.debug("Update from coordinator")
+        battery_level = self.coordinator.rounded_battery_level
 
-        self.async_write_ha_state()
+        if battery_level is not None:
+            self._attr_native_value = battery_level
+
+        self._write_tracked_ha_state()
 
     @property
     def extra_state_attributes(self) -> dict[str, Any] | None:
@@ -922,8 +952,7 @@ class BatteryNotesBatteryPlusTemplateSensor(BatteryNotesBatteryPlusBaseSensor):
                     event, update.template, update.last_result, update.result
                 )
 
-        self.async_write_ha_state()
-        return
+        self._write_tracked_ha_state()
 
     @callback
     def _update_state(self, result):

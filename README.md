@@ -7,8 +7,11 @@
 [![License][license-shield]](LICENSE)
 [![hacs][hacsbadge]][hacs]
 
-Integration to add battery notes to a device or entity, with automatic discovery via a growing [battery library](library.md) for devices.  
+Integration to add battery notes to a device or entity, with automatic discovery via a growing [battery library](library.md) for devices.
+
 Track the battery type, when the battery was replaced, when a battery is low based on device or global thresholds and also when a battery hasn't been reported for a while.
+
+The library makes adding battery notes easy, identifying the type of battery when known, but you can also add your own manually.
 
 **Dashboard cards usage**
 
