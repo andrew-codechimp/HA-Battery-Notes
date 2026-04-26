@@ -1,4 +1,4 @@
-## 2163 Devices in library
+## 2164 Devices in library
 
 This file is auto generated, do not modify
 
@@ -2136,6 +2136,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Yolink                                          |YS7103                                                                                        |2× AA                     |                                   |                                      |
 |YoLink                                          |YS7706-UC                                                                                     |2× AAA                    |TiltSensor                         |                                      |
 |YoLink                                          |YS7707-UC                                                                                     |2× AA                     |DoorSensor                         |                                      |
+|YoLink                                          |YS7805-UC                                                                                     |2× AA                     |MotionSensor                       |                                      |
 |YoLink                                          |YS7903-UC                                                                                     |2× AAA                    |LeakSensor                         |                                      |
 |YoLink                                          |YS7906-UC                                                                                     |2× AAA                    |LeakSensor                         |                                      |
 |Yookee                                          |Smart blind                                                                                   |Rechargeable              |D10110_1                           |                                      |
