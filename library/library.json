@@ -9484,6 +9484,11 @@
             "battery_type": "AAA"
         },
         {
+            "manufacturer": "Thermoworks",
+            "model": "signals",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Third Reality",
             "model": "3RSB015BZ",
             "battery_type": "AA",
@@ -12492,11 +12497,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Thermoworks",
-            "model": "signals",
             "battery_type": "Rechargeable"
         }
     ]
