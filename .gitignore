@@ -6,6 +6,7 @@ __pycache__
 */dist/*
 .venv
 .ruff_cache
+node_modules/
 
 # misc
 .coverage
@@ -19,3 +20,6 @@ config/*
 config/configuration.yaml
 backup/*
 custom_components/battery_notes/frontend/node_modules
+custom_components/battery_notes/frontend/dist/*
+!custom_components/battery_notes/frontend/dist/.gitkeep
+!custom_components/battery_notes/frontend/dist/battery-notes-panel.js

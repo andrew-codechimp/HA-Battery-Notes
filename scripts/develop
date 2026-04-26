@@ -3,6 +3,16 @@ set -euo pipefail
 
 cd "$(dirname "$0")/.."
 
+FRONTEND_DIR="${PWD}/custom_components/battery_notes/frontend"
+
+cleanup() {
+    if [[ -n "${FRONTEND_WATCH_PID:-}" ]]; then
+        kill "${FRONTEND_WATCH_PID}" 2>/dev/null || true
+    fi
+}
+
+trap cleanup EXIT
+
 # Create config dir if not present
 if [[ ! -d "${PWD}/config" ]]; then
     mkdir -p "${PWD}/config"
@@ -14,6 +24,16 @@ fi
 ## while at the same time have Home Assistant configuration inside <root>/config
 ## without resulting to symlinks.
 export PYTHONPATH="${PYTHONPATH:-}:${PWD}/custom_components"
+
+# Build and watch frontend assets when frontend tooling is configured
+if [[ -f "${FRONTEND_DIR}/package.json" ]]; then
+    if [[ ! -d "${FRONTEND_DIR}/node_modules" ]]; then
+        npm --prefix "${FRONTEND_DIR}" install
+    fi
+
+    npm --prefix "${FRONTEND_DIR}" run watch &
+    FRONTEND_WATCH_PID=$!
+fi
 
 # Start Home Assistant
 uv run hass --config "${PWD}/config" --debug

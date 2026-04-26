@@ -84,7 +84,7 @@ DISCOVERY_DELAY = 10
 PANEL_FRONTEND_URL_PATH = "battery-notes"
 PANEL_WEB_COMPONENT_NAME = "battery-notes-panel"
 PANEL_JS_FILE_NAME = "battery-notes-panel.js"
-PANEL_JS_URL_PATH = f"/api/{DOMAIN}/{PANEL_JS_FILE_NAME}"
+PANEL_JS_URL_PATH = f"/api/{DOMAIN}/dist/{PANEL_JS_FILE_NAME}"
 PANEL_REGISTERED_DATA_KEY = f"{DOMAIN}_panel_registered"
 CONFIG_SCHEMA = vol.Schema(
     {
@@ -150,7 +150,7 @@ async def _async_register_panel(hass: HomeAssistant) -> None:
     if hass.data.get(PANEL_REGISTERED_DATA_KEY):
         return
 
-    panel_js_path = Path(__file__).parent / "frontend" / PANEL_JS_FILE_NAME
+    panel_js_path = Path(__file__).parent / "frontend" / "dist" / PANEL_JS_FILE_NAME
 
     await hass.http.async_register_static_paths([
         StaticPathConfig(
