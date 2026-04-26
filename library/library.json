@@ -12334,6 +12334,13 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "YoLink",
+            "model": "YS7906-UC",
+            "model_id": "LeakSensor",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Yookee",
             "model": "Smart blind",
             "model_id": "D10110_1",
@@ -12505,13 +12512,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "YoLink",
-            "model": "YS7906-UC",
-            "model_id": "LeakSensor",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
