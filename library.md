@@ -1,4 +1,4 @@
-## 2159 Devices in library
+## 2160 Devices in library
 
 This file is auto generated, do not modify
 
@@ -2134,6 +2134,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |YoLink                                          |VibrationSensor                                                                               |2× AAA                    |                                   |                                      |
 |YoLink                                          |WaterMeterController                                                                          |2× AA                     |YS5009-UC                          |                                      |
 |Yolink                                          |YS7103                                                                                        |2× AA                     |                                   |                                      |
+|YoLink                                          |YS7706-UC                                                                                     |2× AAA                    |TiltSensor                         |                                      |
 |Yookee                                          |Smart blind                                                                                   |Rechargeable              |D10110_1                           |                                      |
 |Zbeacon                                         |DS01                                                                                          |MANUAL                    |                                   |                                      |
 |Zbeacon                                         |Temperature and humidity sensor                                                               |MANUAL                    |TH01                               |                                      |

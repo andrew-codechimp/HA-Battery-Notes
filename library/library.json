@@ -12327,6 +12327,13 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "YoLink",
+            "model": "YS7706-UC",
+            "model_id": "TiltSensor",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Yookee",
             "model": "Smart blind",
             "model_id": "D10110_1",
@@ -12498,13 +12505,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "YoLink",
-            "model": "YS7706-UC",
-            "model_id": "TiltSensor",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
