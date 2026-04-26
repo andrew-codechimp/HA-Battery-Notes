@@ -9,9 +9,24 @@ async function fetchBatteryDevices(hass) {
         return {
             subentry_id: String(record.subentry_id ?? ""),
             device_name: String(record.device_name ?? "Unknown device"),
+            battery_type: String(record.battery_type ?? "-"),
+            battery_quantity: parseBatteryQuantity(record.battery_quantity),
             battery_percentage: parseBatteryPercentage(record.battery_percentage),
         };
     });
+}
+function parseBatteryQuantity(value) {
+    if (value === null || value === undefined) {
+        return null;
+    }
+    if (typeof value === "number") {
+        return Number.isNaN(value) ? null : value;
+    }
+    if (typeof value === "string") {
+        const parsed = Number.parseInt(value, 10);
+        return Number.isNaN(parsed) ? null : parsed;
+    }
+    return null;
 }
 function parseBatteryPercentage(value) {
     if (value === null || value === undefined) {
@@ -91,9 +106,14 @@ if (!customElements.get("battery-notes-header-view")) {
 }
 
 class BatteryNotesTableView extends HTMLElement {
+    _hass = null;
     _rows = [];
     _isLoading = false;
     _errorMessage = null;
+    set hass(hass) {
+        this._hass = hass;
+        this._render();
+    }
     set rows(rows) {
         this._rows = rows;
         this._render();
@@ -123,31 +143,71 @@ class BatteryNotesTableView extends HTMLElement {
             return;
         }
         this.innerHTML = `
-      <table style="width: 100%; border-collapse: collapse; background: var(--card-background-color); border-radius: 8px; overflow: hidden;">
-        <thead>
-          <tr>
-            <th style="text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--divider-color);">Device</th>
-            <th style="text-align: right; padding: 10px 12px; border-bottom: 1px solid var(--divider-color);">Battery</th>
-          </tr>
-        </thead>
-        <tbody>
-          ${this._rows
-            .map((row) => `
-                <tr>
-                  <td style="padding: 10px 12px; border-bottom: 1px solid var(--divider-color);">${this._escapeHtml(row.device_name)}</td>
-                  <td style="padding: 10px 12px; border-bottom: 1px solid var(--divider-color); text-align: right;">${this._formatBattery(row.battery_percentage)}</td>
-                </tr>
-              `)
-            .join("")}
-        </tbody>
-      </table>
+      <style>
+        :host {
+          display: block;
+          height: 100%;
+          min-height: 0;
+        }
+
+        ha-data-table {
+          width: 100%;
+          height: 100%;
+          --data-table-border-width: 0;
+        }
+      </style>
+      <ha-data-table id="battery-notes-table"></ha-data-table>
     `;
+        const table = this.querySelector("#battery-notes-table");
+        if (!table) {
+            return;
+        }
+        table.hass = this._hass;
+        table.id = "subentry_id";
+        table.autoHeight = false;
+        table.columns = {
+            device_name: { title: "Device", sortable: true },
+            battery_type: { title: "Battery Type", sortable: true },
+            battery_quantity_display: {
+                title: "Quantity",
+                type: "numeric",
+                sortable: true,
+                valueColumn: "battery_quantity_sort",
+            },
+            battery_display: {
+                title: "Battery",
+                type: "numeric",
+                sortable: true,
+                valueColumn: "battery_sort",
+            },
+        };
+        table.data = this._rows.map((row) => ({
+            subentry_id: row.subentry_id,
+            device_name: row.device_name,
+            battery_type: row.battery_type,
+            battery_quantity_display: this._formatQuantity(row.battery_quantity),
+            battery_quantity_sort: this._sortValue(row.battery_quantity),
+            battery_display: this._formatBattery(row.battery_percentage),
+            battery_sort: this._sortValue(row.battery_percentage),
+        }));
+    }
+    _sortValue(value) {
+        if (value === null || Number.isNaN(value)) {
+            return 101;
+        }
+        return value;
     }
     _formatBattery(value) {
         if (value === null || Number.isNaN(value)) {
             return "-";
         }
         return `${Math.round(value)}%`;
+    }
+    _formatQuantity(value) {
+        if (value === null || Number.isNaN(value)) {
+            return "-";
+        }
+        return String(value);
     }
     _escapeHtml(value) {
         return value
@@ -205,21 +265,30 @@ class BatteryNotesPanel extends HTMLElement {
     _render() {
         this.innerHTML = `
       <style>
-        .content {
-          padding: 24px;
-          max-width: 800px;
-          margin: 0 auto;
+        :host {
+          display: block;
+          height: 100%;
+          min-height: 0;
         }
 
-        .subtitle {
-          margin: 0 0 16px 0;
-          opacity: 0.8;
+        .panel {
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+          min-height: 0;
+        }
+
+        .content {
+          flex: 1;
+          min-height: 0;
+          padding: 0 16px 16px;
         }
       </style>
-      <battery-notes-header-view></battery-notes-header-view>
-      <div class="content">
-        <p class="subtitle">Configured battery note devices</p>
-        <battery-notes-table-view></battery-notes-table-view>
+      <div class="panel">
+        <battery-notes-header-view></battery-notes-header-view>
+        <div class="content">
+          <battery-notes-table-view></battery-notes-table-view>
+        </div>
       </div>
     `;
         this._syncHeaderViewState();
@@ -238,6 +307,7 @@ class BatteryNotesPanel extends HTMLElement {
         if (!tableView) {
             return;
         }
+        tableView.hass = this._hass;
         tableView.rows = this._rows;
         tableView.isLoading = this._isLoading;
         tableView.errorMessage = this._errorMessage;

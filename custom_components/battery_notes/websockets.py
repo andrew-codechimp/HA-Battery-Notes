@@ -39,6 +39,8 @@ def websocket_list_devices(
             rows.append({
                 "subentry_id": subentry_id,
                 "device_name": coordinator.device_name,
+                "battery_type": coordinator.battery_type,
+                "battery_quantity": coordinator.battery_quantity,
                 "battery_percentage": coordinator.rounded_battery_level,
             })
 

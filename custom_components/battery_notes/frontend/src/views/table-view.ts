@@ -1,11 +1,38 @@
 import type { BatteryDeviceRow } from "../data/websockets.js";
 
+type HassLike = {
+  callWS: (msg: { type: string }) => Promise<unknown>;
+};
+
+type HaDataTableElement = HTMLElement & {
+  hass?: HassLike | null;
+  columns?: Record<
+    string,
+    {
+      title: string;
+      type?: string;
+      sortable?: boolean;
+      valueColumn?: string;
+    }
+  >;
+  data?: Array<Record<string, unknown>>;
+  id?: string;
+  autoHeight?: boolean;
+};
+
 class BatteryNotesTableView extends HTMLElement {
+  private _hass: HassLike | null = null;
+
   private _rows: BatteryDeviceRow[] = [];
 
   private _isLoading = false;
 
   private _errorMessage: string | null = null;
+
+  set hass(hass: HassLike | null) {
+    this._hass = hass;
+    this._render();
+  }
 
   set rows(rows: BatteryDeviceRow[]) {
     this._rows = rows;
@@ -43,27 +70,66 @@ class BatteryNotesTableView extends HTMLElement {
     }
 
     this.innerHTML = `
-      <table style="width: 100%; border-collapse: collapse; background: var(--card-background-color); border-radius: 8px; overflow: hidden;">
-        <thead>
-          <tr>
-            <th style="text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--divider-color);">Device</th>
-            <th style="text-align: right; padding: 10px 12px; border-bottom: 1px solid var(--divider-color);">Battery</th>
-          </tr>
-        </thead>
-        <tbody>
-          ${this._rows
-            .map(
-              (row) => `
-                <tr>
-                  <td style="padding: 10px 12px; border-bottom: 1px solid var(--divider-color);">${this._escapeHtml(row.device_name)}</td>
-                  <td style="padding: 10px 12px; border-bottom: 1px solid var(--divider-color); text-align: right;">${this._formatBattery(row.battery_percentage)}</td>
-                </tr>
-              `
-            )
-            .join("")}
-        </tbody>
-      </table>
+      <style>
+        :host {
+          display: block;
+          height: 100%;
+          min-height: 0;
+        }
+
+        ha-data-table {
+          width: 100%;
+          height: 100%;
+          --data-table-border-width: 0;
+        }
+      </style>
+      <ha-data-table id="battery-notes-table"></ha-data-table>
     `;
+
+    const table = this.querySelector("#battery-notes-table") as
+      | HaDataTableElement
+      | null;
+
+    if (!table) {
+      return;
+    }
+
+    table.hass = this._hass;
+    table.id = "subentry_id";
+    table.autoHeight = false;
+    table.columns = {
+      device_name: { title: "Device", sortable: true },
+      battery_type: { title: "Battery Type", sortable: true },
+      battery_quantity_display: {
+        title: "Quantity",
+        type: "numeric",
+        sortable: true,
+        valueColumn: "battery_quantity_sort",
+      },
+      battery_display: {
+        title: "Battery",
+        type: "numeric",
+        sortable: true,
+        valueColumn: "battery_sort",
+      },
+    };
+    table.data = this._rows.map((row) => ({
+      subentry_id: row.subentry_id,
+      device_name: row.device_name,
+      battery_type: row.battery_type,
+      battery_quantity_display: this._formatQuantity(row.battery_quantity),
+      battery_quantity_sort: this._sortValue(row.battery_quantity),
+      battery_display: this._formatBattery(row.battery_percentage),
+      battery_sort: this._sortValue(row.battery_percentage),
+    }));
+  }
+
+  private _sortValue(value: number | null): number {
+    if (value === null || Number.isNaN(value)) {
+      return 101;
+    }
+
+    return value;
   }
 
   private _formatBattery(value: number | null): string {
@@ -72,6 +138,14 @@ class BatteryNotesTableView extends HTMLElement {
     }
 
     return `${Math.round(value)}%`;
+  }
+
+  private _formatQuantity(value: number | null): string {
+    if (value === null || Number.isNaN(value)) {
+      return "-";
+    }
+
+    return String(value);
   }
 
   private _escapeHtml(value: string): string {

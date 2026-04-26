@@ -8,6 +8,7 @@ type HassLike = {
 };
 
 type BatteryNotesTableViewElement = HTMLElement & {
+  hass?: HassLike | null;
   rows?: BatteryDeviceRow[];
   isLoading?: boolean;
   errorMessage?: string | null;
@@ -72,21 +73,30 @@ class BatteryNotesPanel extends HTMLElement {
   private _render(): void {
     this.innerHTML = `
       <style>
-        .content {
-          padding: 24px;
-          max-width: 800px;
-          margin: 0 auto;
+        :host {
+          display: block;
+          height: 100%;
+          min-height: 0;
         }
 
-        .subtitle {
-          margin: 0 0 16px 0;
-          opacity: 0.8;
+        .panel {
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+          min-height: 0;
+        }
+
+        .content {
+          flex: 1;
+          min-height: 0;
+          padding: 0 16px 16px;
         }
       </style>
-      <battery-notes-header-view></battery-notes-header-view>
-      <div class="content">
-        <p class="subtitle">Configured battery note devices</p>
-        <battery-notes-table-view></battery-notes-table-view>
+      <div class="panel">
+        <battery-notes-header-view></battery-notes-header-view>
+        <div class="content">
+          <battery-notes-table-view></battery-notes-table-view>
+        </div>
       </div>
     `;
 
@@ -116,6 +126,7 @@ class BatteryNotesPanel extends HTMLElement {
       return;
     }
 
+    tableView.hass = this._hass;
     tableView.rows = this._rows;
     tableView.isLoading = this._isLoading;
     tableView.errorMessage = this._errorMessage;
