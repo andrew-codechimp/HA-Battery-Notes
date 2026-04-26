@@ -12512,6 +12512,13 @@
             "model_id": "LeakSensor",
             "battery_type": "AAA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "YoLink",
+            "model": "YS7201-UC",
+            "model_id": "VibrationSensor",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
