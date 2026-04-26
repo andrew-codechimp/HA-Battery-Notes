@@ -9,11 +9,14 @@ from __future__ import annotations
 import logging
 import re
 from datetime import datetime
+from pathlib import Path
 from types import MappingProxyType
 
 import voluptuous as vol
 from awesomeversion.awesomeversion import AwesomeVersion
 
+from homeassistant.components import frontend, panel_custom
+from homeassistant.components.http import StaticPathConfig
 from homeassistant.config_entries import SOURCE_IGNORE, ConfigEntry, ConfigSubentry
 from homeassistant.const import (
     CONF_DEVICE_ID,
@@ -78,6 +81,11 @@ from .store import async_get_registry
 _LOGGER = logging.getLogger(__name__)
 
 DISCOVERY_DELAY = 10
+PANEL_FRONTEND_URL_PATH = "battery-notes"
+PANEL_WEB_COMPONENT_NAME = "battery-notes-panel"
+PANEL_JS_FILE_NAME = "battery-notes-panel.js"
+PANEL_JS_URL_PATH = f"/api/{DOMAIN}/{PANEL_JS_FILE_NAME}"
+PANEL_REGISTERED_DATA_KEY = f"{DOMAIN}_panel_registered"
 CONFIG_SCHEMA = vol.Schema(
     {
         DOMAIN: vol.All(
@@ -128,16 +136,49 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     hass.data[MY_KEY] = domain_config
     hass.data[DATA_LIBRARY] = Library(hass)
 
+    await _async_register_panel(hass)
+
     # Register custom services
     async_setup_services(hass)
 
     return True
 
 
+async def _async_register_panel(hass: HomeAssistant) -> None:
+    """Register a minimal custom sidebar panel for Battery Notes."""
+
+    if hass.data.get(PANEL_REGISTERED_DATA_KEY):
+        return
+
+    panel_js_path = Path(__file__).parent / "frontend" / PANEL_JS_FILE_NAME
+
+    await hass.http.async_register_static_paths([
+        StaticPathConfig(
+            PANEL_JS_URL_PATH,
+            str(panel_js_path),
+            cache_headers=False,
+        )
+    ])
+
+    await panel_custom.async_register_panel(
+        hass,
+        frontend_url_path=PANEL_FRONTEND_URL_PATH,
+        webcomponent_name=PANEL_WEB_COMPONENT_NAME,
+        sidebar_title=INTEGRATION_NAME,
+        sidebar_icon="mdi:battery-heart-variant",
+        module_url=PANEL_JS_URL_PATH,
+        require_admin=False,
+    )
+
+    hass.data[PANEL_REGISTERED_DATA_KEY] = True
+
+
 async def async_setup_entry(
     hass: HomeAssistant, config_entry: BatteryNotesConfigEntry
 ) -> bool:
     """Set up a config entry."""
+
+    await _async_register_panel(hass)
 
     domain_config = hass.data[MY_KEY]
     assert domain_config.store
@@ -216,8 +257,23 @@ async def async_unload_entry(
     hass: HomeAssistant, config_entry: BatteryNotesConfigEntry
 ) -> bool:
     """Unload a config entry."""
+    unload_ok = await hass.config_entries.async_unload_platforms(
+        config_entry, PLATFORMS
+    )
 
-    return await hass.config_entries.async_unload_platforms(config_entry, PLATFORMS)
+    if (
+        unload_ok
+        and not hass.config_entries.async_loaded_entries(DOMAIN)
+        and hass.data.get(PANEL_REGISTERED_DATA_KEY)
+    ):
+        frontend.async_remove_panel(
+            hass,
+            PANEL_FRONTEND_URL_PATH,
+            warn_if_unknown=False,
+        )
+        hass.data.pop(PANEL_REGISTERED_DATA_KEY, None)
+
+    return unload_ok
 
 
 async def async_remove_entry(
