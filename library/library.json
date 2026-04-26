@@ -9474,6 +9474,11 @@
             "battery_type": "AAA"
         },
         {
+            "manufacturer": "Thermoworks",
+            "model": "rfx meat",
+            "battery_type": "AAA"
+        },
+        {
             "manufacturer": "Third Reality",
             "model": "3RSB015BZ",
             "battery_type": "AA",
@@ -12483,11 +12488,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Thermoworks",
-            "model": "rfx meat",
-            "battery_type": "AAA"
         }
     ]
 }
