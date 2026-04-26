@@ -12342,6 +12342,13 @@
         },
         {
             "manufacturer": "YoLink",
+            "model": "YS7804-UC",
+            "model_id": "MotionSensor",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "YoLink",
             "model": "YS7805-UC",
             "model_id": "MotionSensor",
             "battery_type": "AA",
@@ -12533,13 +12540,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "YoLink",
-            "model": "YS7804-UC",
-            "model_id": "MotionSensor",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
