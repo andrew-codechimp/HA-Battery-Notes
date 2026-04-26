@@ -12483,6 +12483,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Thermoworks",
+            "model": "rfx meat",
+            "battery_type": "AAA"
         }
     ]
 }
