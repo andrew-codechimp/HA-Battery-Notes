@@ -77,6 +77,7 @@ from .library import DATA_LIBRARY, Library
 from .library_updater import LibraryUpdater
 from .services import async_setup_services
 from .store import async_get_registry
+from .websockets import async_setup_websockets
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -137,6 +138,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     hass.data[DATA_LIBRARY] = Library(hass)
 
     await _async_register_panel(hass)
+    async_setup_websockets(hass)
 
     # Register custom services
     async_setup_services(hass)
