@@ -1,4 +1,4 @@
-## 2170 Devices in library
+## 2171 Devices in library
 
 This file is auto generated, do not modify
 
@@ -2136,6 +2136,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |YoLink                                          |YS5709-UC                                                                                     |2× AA                     |Switch                             |                                      |
 |Yolink                                          |YS7103                                                                                        |2× AA                     |                                   |                                      |
 |YoLink                                          |YS7201-UC                                                                                     |2× AAA                    |VibrationSensor                    |                                      |
+|YoLink                                          |YS7704-UC                                                                                     |2× AAA                    |DoorSensor                         |                                      |
 |YoLink                                          |YS7706-UC                                                                                     |2× AAA                    |TiltSensor                         |                                      |
 |YoLink                                          |YS7707-UC                                                                                     |2× AA                     |DoorSensor                         |                                      |
 |YoLink                                          |YS7804-UC                                                                                     |2× AAA                    |MotionSensor                       |                                      |
