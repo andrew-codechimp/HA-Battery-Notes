@@ -12554,6 +12554,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "YoLink",
+            "model": "YS8003-UC",
+            "model_id": "THSensor",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
