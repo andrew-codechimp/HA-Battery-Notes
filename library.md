@@ -1,4 +1,4 @@
-## 2168 Devices in library
+## 2170 Devices in library
 
 This file is auto generated, do not modify
 
@@ -2135,11 +2135,13 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |YoLink                                          |WaterMeterController                                                                          |2× AA                     |YS5009-UC                          |                                      |
 |YoLink                                          |YS5709-UC                                                                                     |2× AA                     |Switch                             |                                      |
 |Yolink                                          |YS7103                                                                                        |2× AA                     |                                   |                                      |
+|YoLink                                          |YS7201-UC                                                                                     |2× AAA                    |VibrationSensor                    |                                      |
 |YoLink                                          |YS7706-UC                                                                                     |2× AAA                    |TiltSensor                         |                                      |
 |YoLink                                          |YS7707-UC                                                                                     |2× AA                     |DoorSensor                         |                                      |
 |YoLink                                          |YS7804-UC                                                                                     |2× AAA                    |MotionSensor                       |                                      |
 |YoLink                                          |YS7805-UC                                                                                     |2× AA                     |MotionSensor                       |                                      |
 |YoLink                                          |YS7903-UC                                                                                     |2× AAA                    |LeakSensor                         |                                      |
+|YoLink                                          |YS7906-UC                                                                                     |2× AAA                    |LeakSensor                         |                                      |
 |YoLink                                          |YS7906-UC                                                                                     |2× AAA                    |LeakSensor                         |                                      |
 |YoLink                                          |YS8003-UC                                                                                     |2× AAA                    |THSensor                           |                                      |
 |YoLink                                          |YS8006-UC                                                                                     |2× AA                     |THSensor                           |                                      |

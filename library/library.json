@@ -12335,6 +12335,13 @@
         },
         {
             "manufacturer": "YoLink",
+            "model": "YS7201-UC",
+            "model_id": "VibrationSensor",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "YoLink",
             "model": "YS7706-UC",
             "model_id": "TiltSensor",
             "battery_type": "AAA",
@@ -12364,6 +12371,13 @@
         {
             "manufacturer": "YoLink",
             "model": "YS7903-UC",
+            "model_id": "LeakSensor",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "YoLink",
+            "model": "YS7906-UC",
             "model_id": "LeakSensor",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -12561,20 +12575,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "YoLink",
-            "model": "YS7906-UC",
-            "model_id": "LeakSensor",
-            "battery_type": "AAA",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "YoLink",
-            "model": "YS7201-UC",
-            "model_id": "VibrationSensor",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
