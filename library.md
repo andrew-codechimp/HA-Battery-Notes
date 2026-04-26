@@ -1,4 +1,4 @@
-## 2157 Devices in library
+## 2158 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1651,6 +1651,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |ThermoBeacon                                    |27                                                                                            |CR2477                    |                                   |                                      |
 |ThermoPro                                       |TP357                                                                                         |AAA                       |                                   |                                      |
 |ThermoPro                                       |TP357S                                                                                        |AAA                       |                                   |                                      |
+|Thermoworks                                     |rfx gateway                                                                                   |Rechargeable              |                                   |                                      |
 |Thermoworks                                     |rfx meat                                                                                      |AAA                       |                                   |                                      |
 |Third Reality                                   |3RSB015BZ                                                                                     |4× AA                     |                                   |                                      |
 |Third Reality                                   |3RTHS0224Z                                                                                    |2× AAA                    |                                   |                                      |
