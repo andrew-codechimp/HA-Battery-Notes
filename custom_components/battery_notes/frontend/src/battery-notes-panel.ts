@@ -1,11 +1,27 @@
-import { BatteryDeviceRow, fetchBatteryDevices } from "./data/websockets";
+import type { BatteryDeviceRow } from "./data/websockets.js";
+import { fetchBatteryDevices } from "./data/websockets.js";
+import "./views/header-view";
+import "./views/table-view";
 
 type HassLike = {
   callWS: (msg: { type: string }) => Promise<unknown>;
 };
 
+type BatteryNotesTableViewElement = HTMLElement & {
+  rows?: BatteryDeviceRow[];
+  isLoading?: boolean;
+  errorMessage?: string | null;
+};
+
+type BatteryNotesHeaderViewElement = HTMLElement & {
+  hass?: HassLike | null;
+  narrow?: boolean;
+};
+
 class BatteryNotesPanel extends HTMLElement {
   private _hass: HassLike | null = null;
+
+  private _narrow = false;
 
   private _rows: BatteryDeviceRow[] = [];
 
@@ -20,6 +36,13 @@ class BatteryNotesPanel extends HTMLElement {
     if (firstSet) {
       void this._loadRows();
     }
+
+    this._render();
+  }
+
+  set narrow(narrow: boolean) {
+    this._narrow = narrow;
+    this._syncHeaderViewState();
   }
 
   connectedCallback(): void {
@@ -47,59 +70,55 @@ class BatteryNotesPanel extends HTMLElement {
   }
 
   private _render(): void {
-    const body = this._isLoading
-      ? "<p style=\"margin: 0;\">Loading battery notes...</p>"
-      : this._errorMessage
-        ? `<p style=\"margin: 0; color: var(--error-color);\">Failed to load battery notes: ${this._escapeHtml(this._errorMessage)}</p>`
-        : this._rows.length === 0
-          ? "<p style=\"margin: 0;\">No battery notes configured.</p>"
-          : `
-            <table style=\"width: 100%; border-collapse: collapse; background: var(--card-background-color); border-radius: 8px; overflow: hidden;\">
-              <thead>
-                <tr>
-                  <th style=\"text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--divider-color);\">Device</th>
-                  <th style=\"text-align: right; padding: 10px 12px; border-bottom: 1px solid var(--divider-color);\">Battery</th>
-                </tr>
-              </thead>
-              <tbody>
-                ${this._rows
-                  .map(
-                    (row) => `
-                      <tr>
-                        <td style=\"padding: 10px 12px; border-bottom: 1px solid var(--divider-color);\">${this._escapeHtml(row.device_name)}</td>
-                        <td style=\"padding: 10px 12px; border-bottom: 1px solid var(--divider-color); text-align: right;\">${this._formatBattery(row.battery_percentage)}</td>
-                      </tr>
-                    `
-                  )
-                  .join("")}
-              </tbody>
-            </table>
-          `;
-
     this.innerHTML = `
-      <div style="padding: 24px; max-width: 800px; margin: 0 auto;">
-        <h1 style="margin: 0 0 8px 0;">Battery Notes</h1>
-        <p style="margin: 0 0 16px 0; opacity: 0.8;">Configured battery note devices</p>
-        ${body}
+      <style>
+        .content {
+          padding: 24px;
+          max-width: 800px;
+          margin: 0 auto;
+        }
+
+        .subtitle {
+          margin: 0 0 16px 0;
+          opacity: 0.8;
+        }
+      </style>
+      <battery-notes-header-view></battery-notes-header-view>
+      <div class="content">
+        <p class="subtitle">Configured battery note devices</p>
+        <battery-notes-table-view></battery-notes-table-view>
       </div>
     `;
+
+    this._syncHeaderViewState();
+    this._syncTableViewState();
   }
 
-  private _formatBattery(value: number | null): string {
-    if (value === null || Number.isNaN(value)) {
-      return "-";
+  private _syncHeaderViewState(): void {
+    const headerView = this.querySelector("battery-notes-header-view") as
+      | BatteryNotesHeaderViewElement
+      | null;
+
+    if (!headerView) {
+      return;
     }
 
-    return `${Math.round(value)}%`;
+    headerView.hass = this._hass;
+    headerView.narrow = this._narrow;
   }
 
-  private _escapeHtml(value: string): string {
-    return value
-      .replaceAll("&", "&amp;")
-      .replaceAll("<", "&lt;")
-      .replaceAll(">", "&gt;")
-      .replaceAll('"', "&quot;")
-      .replaceAll("'", "&#39;");
+  private _syncTableViewState(): void {
+    const tableView = this.querySelector("battery-notes-table-view") as
+      | BatteryNotesTableViewElement
+      | null;
+
+    if (!tableView) {
+      return;
+    }
+
+    tableView.rows = this._rows;
+    tableView.isLoading = this._isLoading;
+    tableView.errorMessage = this._errorMessage;
   }
 }
 
