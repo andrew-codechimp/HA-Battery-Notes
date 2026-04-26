@@ -17,6 +17,19 @@ jobs:
       - name: "Checkout the repository"
         uses: "actions/checkout@v6"
 
+      - name: "Setup Node.js"
+        uses: "actions/setup-node@v4"
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: "custom_components/battery_notes/frontend/package-lock.json"
+
+      - name: "Build frontend"
+        shell: "bash"
+        run: |
+          npm ci --prefix "${{ github.workspace }}/custom_components/battery_notes/frontend"
+          npm run build --prefix "${{ github.workspace }}/custom_components/battery_notes/frontend"
+
       - name: "Adjust version number"
         shell: "bash"
         run: |
@@ -27,7 +40,13 @@ jobs:
         shell: "bash"
         run: |
           cd "${{ github.workspace }}/custom_components/battery_notes"
-          zip battery_notes.zip -r ./
+          zip battery_notes.zip -r ./ \
+            -x "frontend/src/*" \
+            -x "frontend/node_modules/*" \
+            -x "frontend/package.json" \
+            -x "frontend/package-lock.json" \
+            -x "frontend/tsconfig.json" \
+            -x "frontend/rollup.config.mjs"
 
       - name: "Upload the ZIP file to the release"
         uses: softprops/action-gh-release@v3.0.0
