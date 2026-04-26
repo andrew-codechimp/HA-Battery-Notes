@@ -12335,6 +12335,13 @@
         },
         {
             "manufacturer": "YoLink",
+            "model": "YS7707-UC",
+            "model_id": "DoorSensor",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "YoLink",
             "model": "YS7903-UC",
             "model_id": "LeakSensor",
             "battery_type": "AAA",
@@ -12519,13 +12526,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "YoLink",
-            "model": "YS7707-UC",
-            "model_id": "DoorSensor",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
