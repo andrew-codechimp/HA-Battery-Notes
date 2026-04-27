@@ -209,8 +209,9 @@ class BatteryNotesPanel extends HTMLElement {
         }
 
         .search-input {
-          width: min(360px, 100%);
-          max-width: 100%;
+          flex: 1;
+          min-width: 0;
+          width: auto;
           box-sizing: border-box;
           padding: 8px 12px;
           border: 1px solid var(--divider-color);
@@ -226,6 +227,8 @@ class BatteryNotesPanel extends HTMLElement {
 
         .header-actions {
           display: flex;
+          flex: 1;
+          min-width: 0;
           align-items: center;
           gap: 12px;
         }
