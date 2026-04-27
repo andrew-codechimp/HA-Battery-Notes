@@ -69,6 +69,14 @@ To get full use of the integration, read the documentation. It contains communit
 
 To add a device definition to the battery library so that it will be automatically configured fill out the above form or see the [docs](https://andrew-codechimp.github.io/HA-Battery-Notes/library) for adding via pull request.
 
+<details>
+<summary>Third Party Library Usage</summary>
+
+- The library relies on community contributions, it is open source under the MIT license and available for anyone to use in their project.
+- Do not have your client accesss/download the library directly from this repository, please take a copy and distribute that by your own means.
+- Please credit the use of this library, it takes a lot of effort to maintain this.
+</details>
+
 ## Translations
 
 To add a new language translation to Battery Notes see [here](https://andrew-codechimp.github.io/HA-Battery-Notes/translations)

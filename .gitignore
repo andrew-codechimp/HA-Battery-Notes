@@ -6,6 +6,7 @@ __pycache__
 */dist/*
 .venv
 .ruff_cache
+node_modules/
 
 # misc
 .coverage
