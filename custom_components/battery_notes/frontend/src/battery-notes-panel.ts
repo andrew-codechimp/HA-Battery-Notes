@@ -492,6 +492,7 @@ class BatteryNotesPanel extends HTMLElement {
       const deviceName = row.device_name.toLowerCase();
       const batteryType = row.battery_type.toLowerCase();
       const area = (row.area ?? "").toLowerCase();
+      const floor = (row.floor ?? "").toLowerCase();
       const lastReplaced = row.last_replaced
         ? new Date(row.last_replaced).toLocaleDateString(undefined, {
             year: "numeric",
@@ -503,6 +504,7 @@ class BatteryNotesPanel extends HTMLElement {
         deviceName.includes(search) ||
         batteryType.includes(search) ||
         area.includes(search) ||
+        floor.includes(search) ||
         lastReplaced.includes(search)
       );
     });
@@ -514,6 +516,9 @@ class BatteryNotesPanel extends HTMLElement {
         [
           row.subentry_id,
           row.device_name,
+          row.area ?? "",
+          row.floor ?? "",
+          row.last_replaced ?? "",
           row.battery_type,
           row.battery_quantity ?? "",
           row.battery_percentage ?? "",

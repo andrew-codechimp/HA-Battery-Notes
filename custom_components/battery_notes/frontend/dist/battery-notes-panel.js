@@ -15,6 +15,7 @@ async function fetchBatteryDevices(hass) {
             subentry_id: String(record.subentry_id ?? ""),
             device_name: String(record.device_name ?? "Unknown device"),
             area: typeof record.area === "string" ? record.area : null,
+            floor: typeof record.floor === "string" ? record.floor : null,
             battery_type: String(record.battery_type ?? "-"),
             battery_quantity: parseBatteryQuantity(record.battery_quantity),
             battery_percentage: parseBatteryPercentage(record.battery_percentage),
@@ -226,6 +227,7 @@ class BatteryNotesTableView extends HTMLElement {
         table.columns = {
             device_name: { title: "Device", sortable: true, flex: 4 },
             area: { title: "Area", sortable: true, flex: 2 },
+            floor: { title: "Floor", sortable: true, flex: 2 },
             last_replaced_display: {
                 title: "Last Replaced",
                 sortable: true,
@@ -259,6 +261,7 @@ class BatteryNotesTableView extends HTMLElement {
             subentry_id: row.subentry_id,
             device_name: row.device_name,
             area: row.area ?? "-",
+            floor: row.floor ?? "-",
             last_replaced_display: this._formatDate(row.last_replaced),
             last_replaced_sort: row.last_replaced ?? "",
             battery_low_display: this._formatBatteryLow(row.battery_low),
@@ -727,6 +730,7 @@ class BatteryNotesPanel extends HTMLElement {
             const deviceName = row.device_name.toLowerCase();
             const batteryType = row.battery_type.toLowerCase();
             const area = (row.area ?? "").toLowerCase();
+            const floor = (row.floor ?? "").toLowerCase();
             const lastReplaced = row.last_replaced
                 ? new Date(row.last_replaced).toLocaleDateString(undefined, {
                     year: "numeric",
@@ -737,6 +741,7 @@ class BatteryNotesPanel extends HTMLElement {
             return (deviceName.includes(search) ||
                 batteryType.includes(search) ||
                 area.includes(search) ||
+                floor.includes(search) ||
                 lastReplaced.includes(search));
         });
     }
@@ -745,6 +750,9 @@ class BatteryNotesPanel extends HTMLElement {
             .map((row) => [
             row.subentry_id,
             row.device_name,
+            row.area ?? "",
+            row.floor ?? "",
+            row.last_replaced ?? "",
             row.battery_type,
             row.battery_quantity ?? "",
             row.battery_percentage ?? "",

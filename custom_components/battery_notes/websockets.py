@@ -8,7 +8,11 @@ import voluptuous as vol
 
 from homeassistant.components import websocket_api
 from homeassistant.core import HomeAssistant, callback
-from homeassistant.helpers import area_registry as ar, device_registry as dr
+from homeassistant.helpers import (
+    area_registry as ar,
+    device_registry as dr,
+    floor_registry as fr,
+)
 
 from .const import DOMAIN
 
@@ -29,6 +33,7 @@ def websocket_list_devices(
 
     area_reg = ar.async_get(hass)
     device_reg = dr.async_get(hass)
+    floor_reg = fr.async_get(hass)
 
     for entry in hass.config_entries.async_loaded_entries(DOMAIN):
         runtime_data = getattr(entry, "runtime_data", None)
@@ -41,17 +46,24 @@ def websocket_list_devices(
 
         for subentry_id, coordinator in subentry_coordinators.items():
             area_name: str | None = None
+            floor_name: str | None = None
             if coordinator.device_id:
                 device_entry = device_reg.async_get(coordinator.device_id)
                 if device_entry and device_entry.area_id:
                     area_entry = area_reg.async_get_area(device_entry.area_id)
                     if area_entry:
                         area_name = area_entry.name
+                        floor_id = getattr(area_entry, "floor_id", None)
+                        if floor_id:
+                            floor_entry = floor_reg.async_get_floor(floor_id)
+                            if floor_entry:
+                                floor_name = floor_entry.name
 
             rows.append({
                 "subentry_id": subentry_id,
                 "device_name": coordinator.device_name,
                 "area": area_name,
+                "floor": floor_name,
                 "battery_type": coordinator.battery_type,
                 "battery_quantity": coordinator.battery_quantity,
                 "battery_percentage": coordinator.rounded_battery_level,

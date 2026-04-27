@@ -4,6 +4,7 @@ export type BatteryDeviceRow = {
   subentry_id: string;
   device_name: string;
   area: string | null;
+  floor: string | null;
   battery_type: string;
   battery_quantity: number | null;
   battery_percentage: number | null;
@@ -29,6 +30,7 @@ export async function fetchBatteryDevices(hass: HassLike): Promise<BatteryDevice
       subentry_id: String(record.subentry_id ?? ""),
       device_name: String(record.device_name ?? "Unknown device"),
       area: typeof record.area === "string" ? record.area : null,
+      floor: typeof record.floor === "string" ? record.floor : null,
       battery_type: String(record.battery_type ?? "-"),
       battery_quantity: parseBatteryQuantity(record.battery_quantity),
       battery_percentage: parseBatteryPercentage(record.battery_percentage),

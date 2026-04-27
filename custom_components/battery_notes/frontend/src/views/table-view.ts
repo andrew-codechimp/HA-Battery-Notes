@@ -162,6 +162,7 @@ class BatteryNotesTableView extends HTMLElement {
     table.columns = {
       device_name: { title: "Device", sortable: true, flex: 4 },
       area: { title: "Area", sortable: true, flex: 2 },
+      floor: { title: "Floor", sortable: true, flex: 2 },
       last_replaced_display: {
         title: "Last Replaced",
         sortable: true,
@@ -195,6 +196,7 @@ class BatteryNotesTableView extends HTMLElement {
       subentry_id: row.subentry_id,
       device_name: row.device_name,
       area: row.area ?? "-",
+      floor: row.floor ?? "-",
       last_replaced_display: this._formatDate(row.last_replaced),
       last_replaced_sort: row.last_replaced ?? "",
       battery_low_display: this._formatBatteryLow(row.battery_low),
