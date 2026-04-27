@@ -1,3 +1,8 @@
+// Material Design Icons v7.4.47
+var mdiChevronDown = "M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z";
+var mdiClose = "M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z";
+var mdiFormatListChecks = "M3,5H9V11H3V5M5,7V9H7V7H5M11,7H21V9H11V7M11,15H21V17H11V15M5,20L1.5,16.5L2.91,15.09L5,17.17L9.59,12.59L11,14L5,20Z";
+
 const WS_LIST_DEVICES = "battery_notes/list_devices";
 async function fetchBatteryDevices(hass) {
     const response = await hass.callWS({ type: WS_LIST_DEVICES });
@@ -361,12 +366,17 @@ class BatteryNotesPanel extends HTMLElement {
         }
 
         .selection-mode-button {
-          min-width: 96px;
+          cursor: pointer;
         }
 
-        .selection-mode-button-icon {
-          margin-right: 8px;
-          vertical-align: text-bottom;
+        .select-mode-chip {
+          --md-assist-chip-icon-label-space: 0;
+          --md-assist-chip-trailing-space: 8px;
+        }
+
+        ha-assist-chip {
+          --ha-assist-chip-container-shape: 10px;
+          --ha-assist-chip-container-color: var(--card-background-color);
         }
 
         .selection-mode-button.hidden {
@@ -399,6 +409,17 @@ class BatteryNotesPanel extends HTMLElement {
           line-height: 20px;
         }
 
+        .selection-menu-chip {
+          --ha-assist-chip-container-color: color-mix(in srgb, var(--app-header-text-color, white) 12%, transparent);
+          --ha-assist-chip-label-text-color: var(--app-header-text-color, white);
+          --ha-assist-chip-icon-color: var(--app-header-text-color, white);
+        }
+
+        .selection-menu-icon {
+          width: 18px;
+          height: 18px;
+        }
+
         .selection-close {
           color: var(--app-header-text-color, white);
           min-width: 40px;
@@ -412,17 +433,29 @@ class BatteryNotesPanel extends HTMLElement {
       <div class="panel">
         <battery-notes-header-view class="main-header"></battery-notes-header-view>
         <div class="selection-header hidden">
-          <ha-button class="selection-close" appearance="plain" title="Exit selection mode" aria-label="Exit selection mode">
-            <ha-icon icon="mdi:close"></ha-icon>
-          </ha-button>
+          <ha-icon-button
+            class="selection-close"
+            title="Exit selection mode"
+            label="Exit selection mode"
+            path="${mdiClose}"
+          ></ha-icon-button>
+          <ha-button-menu class="selection-menu" corner="BOTTOM_START" fixed>
+            <ha-assist-chip slot="trigger" class="selection-menu-chip" title="Selection actions">
+              <ha-svg-icon slot="icon" class="selection-menu-icon" path="${mdiChevronDown}"></ha-svg-icon>
+              Selection
+            </ha-assist-chip>
+            <ha-list-item class="selection-menu-item" data-action="all">Select all</ha-list-item>
+            <ha-list-item class="selection-menu-item" data-action="none">Select none</ha-list-item>
+            <ha-list-item class="selection-menu-item" data-action="exit">Exit selection mode</ha-list-item>
+          </ha-button-menu>
           <p class="selection-header-title">0 selected</p>
         </div>
         <div class="content">
           <div class="table-header">
             <div class="header-actions">
-              <ha-button class="selection-mode-button" appearance="plain">
-                <ha-icon class="selection-mode-button-icon" icon="mdi:format-list-checks"></ha-icon>
-              </ha-button>
+              <ha-assist-chip class="selection-mode-button select-mode-chip" title="Enter selection mode">
+                <ha-svg-icon slot="icon" path="${mdiFormatListChecks}"></ha-svg-icon>
+              </ha-assist-chip>
               <input
                 class="search-input"
                 type="search"
@@ -477,6 +510,10 @@ class BatteryNotesPanel extends HTMLElement {
         const selectedCount = this._selectedIds.length;
         title.textContent = `${selectedCount} selected`;
         close.onclick = this._handleSelectionModeExit;
+        const menuItems = this.querySelectorAll(".selection-menu-item");
+        menuItems.forEach((item) => {
+            item.onclick = this._handleSelectionMenuAction;
+        });
     }
     _syncHeaderViewState() {
         const headerView = this.querySelector("battery-notes-header-view");
@@ -512,6 +549,23 @@ class BatteryNotesPanel extends HTMLElement {
         this._selectedIds = [];
         this._syncTableViewState();
         this._syncSelectionHeaderState();
+    };
+    _handleSelectionMenuAction = (event) => {
+        const action = event.currentTarget.dataset.action;
+        const tableView = this.querySelector("battery-notes-table-view");
+        if (action === "all") {
+            tableView?.selectAllRows?.();
+            return;
+        }
+        if (action === "none") {
+            tableView?.clearSelectedRows?.();
+            this._selectedIds = [];
+            this._syncSelectionHeaderState();
+            return;
+        }
+        if (action === "exit") {
+            this._handleSelectionModeExit();
+        }
     };
     _handleSelectionChanged = (event) => {
         const selectedIds = event.detail;

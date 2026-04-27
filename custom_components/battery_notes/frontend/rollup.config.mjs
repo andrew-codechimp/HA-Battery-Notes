@@ -1,3 +1,4 @@
+import { nodeResolve } from "@rollup/plugin-node-resolve";
 import typescript from "@rollup/plugin-typescript";
 
 export default {
@@ -8,6 +9,7 @@ export default {
     sourcemap: false
   },
   plugins: [
+    nodeResolve(),
     typescript({
       tsconfig: "./tsconfig.json"
     })
