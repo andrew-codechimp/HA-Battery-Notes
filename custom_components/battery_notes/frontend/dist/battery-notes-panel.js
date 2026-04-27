@@ -18,8 +18,15 @@ async function fetchBatteryDevices(hass) {
             battery_quantity: parseBatteryQuantity(record.battery_quantity),
             battery_percentage: parseBatteryPercentage(record.battery_percentage),
             battery_low: parseBatteryLow(record.battery_low),
+            last_replaced: parseLastReplaced(record.last_replaced),
         };
     });
+}
+function parseLastReplaced(value) {
+    if (typeof value === "string" && value.length > 0) {
+        return value;
+    }
+    return null;
 }
 function parseBatteryLow(value) {
     if (typeof value === "boolean") {
@@ -217,6 +224,12 @@ class BatteryNotesTableView extends HTMLElement {
         table.selectable = this._selectionMode;
         table.columns = {
             device_name: { title: "Device", sortable: true, flex: 4 },
+            last_replaced_display: {
+                title: "Last Replaced",
+                sortable: true,
+                valueColumn: "last_replaced_sort",
+                flex: 2,
+            },
             battery_type: { title: "Battery Type", sortable: true, flex: 1 },
             battery_quantity_display: {
                 title: "Quantity",
@@ -243,6 +256,8 @@ class BatteryNotesTableView extends HTMLElement {
         table.data = this._rows.map((row) => ({
             subentry_id: row.subentry_id,
             device_name: row.device_name,
+            last_replaced_display: this._formatDate(row.last_replaced),
+            last_replaced_sort: row.last_replaced ?? "",
             battery_low_display: this._formatBatteryLow(row.battery_low),
             battery_low_sort: row.battery_low ? 1 : 0,
             battery_type: row.battery_type,
@@ -290,6 +305,21 @@ class BatteryNotesTableView extends HTMLElement {
             return "-";
         }
         return String(value);
+    }
+    _formatDate(value) {
+        if (!value) {
+            return "-";
+        }
+        try {
+            return new Date(value).toLocaleDateString(undefined, {
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+            });
+        }
+        catch {
+            return "-";
+        }
     }
     _formatBatteryLow(value) {
         return value ? "Yes" : "No";

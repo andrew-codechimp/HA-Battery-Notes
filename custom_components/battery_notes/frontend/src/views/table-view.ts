@@ -161,6 +161,12 @@ class BatteryNotesTableView extends HTMLElement {
     table.selectable = this._selectionMode;
     table.columns = {
       device_name: { title: "Device", sortable: true, flex: 4 },
+      last_replaced_display: {
+        title: "Last Replaced",
+        sortable: true,
+        valueColumn: "last_replaced_sort",
+        flex: 2,
+      },
       battery_type: { title: "Battery Type", sortable: true, flex: 1 },
       battery_quantity_display: {
         title: "Quantity",
@@ -187,6 +193,8 @@ class BatteryNotesTableView extends HTMLElement {
     table.data = this._rows.map((row) => ({
       subentry_id: row.subentry_id,
       device_name: row.device_name,
+      last_replaced_display: this._formatDate(row.last_replaced),
+      last_replaced_sort: row.last_replaced ?? "",
       battery_low_display: this._formatBatteryLow(row.battery_low),
       battery_low_sort: row.battery_low ? 1 : 0,
       battery_type: row.battery_type,
@@ -248,6 +256,21 @@ class BatteryNotesTableView extends HTMLElement {
     }
 
     return String(value);
+  }
+
+  private _formatDate(value: string | null): string {
+    if (!value) {
+      return "-";
+    }
+    try {
+      return new Date(value).toLocaleDateString(undefined, {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+      });
+    } catch {
+      return "-";
+    }
   }
 
   private _formatBatteryLow(value: boolean): string {

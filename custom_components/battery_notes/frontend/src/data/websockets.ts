@@ -7,6 +7,7 @@ export type BatteryDeviceRow = {
   battery_quantity: number | null;
   battery_percentage: number | null;
   battery_low: boolean;
+  last_replaced: string | null;
 };
 
 type HassLike = {
@@ -30,8 +31,16 @@ export async function fetchBatteryDevices(hass: HassLike): Promise<BatteryDevice
       battery_quantity: parseBatteryQuantity(record.battery_quantity),
       battery_percentage: parseBatteryPercentage(record.battery_percentage),
       battery_low: parseBatteryLow(record.battery_low),
+      last_replaced: parseLastReplaced(record.last_replaced),
     };
   });
+}
+
+function parseLastReplaced(value: unknown): string | null {
+  if (typeof value === "string" && value.length > 0) {
+    return value;
+  }
+  return null;
 }
 
 function parseBatteryLow(value: unknown): boolean {
