@@ -181,7 +181,7 @@ class BatteryNotesPanel extends HTMLElement {
         .content {
           flex: 1;
           min-height: 0;
-          padding: 0 16px 16px;
+          padding: 0;
           display: flex;
           flex-direction: column;
           gap: 12px;
@@ -199,7 +199,7 @@ class BatteryNotesPanel extends HTMLElement {
           align-items: center;
           justify-content: space-between;
           gap: 12px;
-          padding-top: 12px;
+          padding: 12px 16px 0;
         }
 
         .table-title {
@@ -491,7 +491,20 @@ class BatteryNotesPanel extends HTMLElement {
     return rows.filter((row) => {
       const deviceName = row.device_name.toLowerCase();
       const batteryType = row.battery_type.toLowerCase();
-      return deviceName.includes(search) || batteryType.includes(search);
+      const area = (row.area ?? "").toLowerCase();
+      const lastReplaced = row.last_replaced
+        ? new Date(row.last_replaced).toLocaleDateString(undefined, {
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+          }).toLowerCase()
+        : "";
+      return (
+        deviceName.includes(search) ||
+        batteryType.includes(search) ||
+        area.includes(search) ||
+        lastReplaced.includes(search)
+      );
     });
   }
 

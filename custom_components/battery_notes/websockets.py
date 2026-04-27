@@ -8,6 +8,7 @@ import voluptuous as vol
 
 from homeassistant.components import websocket_api
 from homeassistant.core import HomeAssistant, callback
+from homeassistant.helpers import area_registry as ar, device_registry as dr
 
 from .const import DOMAIN
 
@@ -26,6 +27,9 @@ def websocket_list_devices(
     """Return Battery Notes devices with current battery percentage."""
     rows: list[dict[str, Any]] = []
 
+    area_reg = ar.async_get(hass)
+    device_reg = dr.async_get(hass)
+
     for entry in hass.config_entries.async_loaded_entries(DOMAIN):
         runtime_data = getattr(entry, "runtime_data", None)
         if runtime_data is None:
@@ -36,9 +40,18 @@ def websocket_list_devices(
             continue
 
         for subentry_id, coordinator in subentry_coordinators.items():
+            area_name: str | None = None
+            if coordinator.device_id:
+                device_entry = device_reg.async_get(coordinator.device_id)
+                if device_entry and device_entry.area_id:
+                    area_entry = area_reg.async_get_area(device_entry.area_id)
+                    if area_entry:
+                        area_name = area_entry.name
+
             rows.append({
                 "subentry_id": subentry_id,
                 "device_name": coordinator.device_name,
+                "area": area_name,
                 "battery_type": coordinator.battery_type,
                 "battery_quantity": coordinator.battery_quantity,
                 "battery_percentage": coordinator.rounded_battery_level,

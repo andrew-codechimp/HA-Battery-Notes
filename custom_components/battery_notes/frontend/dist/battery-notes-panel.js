@@ -14,6 +14,7 @@ async function fetchBatteryDevices(hass) {
         return {
             subentry_id: String(record.subentry_id ?? ""),
             device_name: String(record.device_name ?? "Unknown device"),
+            area: typeof record.area === "string" ? record.area : null,
             battery_type: String(record.battery_type ?? "-"),
             battery_quantity: parseBatteryQuantity(record.battery_quantity),
             battery_percentage: parseBatteryPercentage(record.battery_percentage),
@@ -224,6 +225,7 @@ class BatteryNotesTableView extends HTMLElement {
         table.selectable = this._selectionMode;
         table.columns = {
             device_name: { title: "Device", sortable: true, flex: 4 },
+            area: { title: "Area", sortable: true, flex: 2 },
             last_replaced_display: {
                 title: "Last Replaced",
                 sortable: true,
@@ -256,6 +258,7 @@ class BatteryNotesTableView extends HTMLElement {
         table.data = this._rows.map((row) => ({
             subentry_id: row.subentry_id,
             device_name: row.device_name,
+            area: row.area ?? "-",
             last_replaced_display: this._formatDate(row.last_replaced),
             last_replaced_sort: row.last_replaced ?? "",
             battery_low_display: this._formatBatteryLow(row.battery_low),
@@ -453,7 +456,7 @@ class BatteryNotesPanel extends HTMLElement {
         .content {
           flex: 1;
           min-height: 0;
-          padding: 0 16px 16px;
+          padding: 0;
           display: flex;
           flex-direction: column;
           gap: 12px;
@@ -471,7 +474,7 @@ class BatteryNotesPanel extends HTMLElement {
           align-items: center;
           justify-content: space-between;
           gap: 12px;
-          padding-top: 12px;
+          padding: 12px 16px 0;
         }
 
         .table-title {
@@ -723,7 +726,18 @@ class BatteryNotesPanel extends HTMLElement {
         return rows.filter((row) => {
             const deviceName = row.device_name.toLowerCase();
             const batteryType = row.battery_type.toLowerCase();
-            return deviceName.includes(search) || batteryType.includes(search);
+            const area = (row.area ?? "").toLowerCase();
+            const lastReplaced = row.last_replaced
+                ? new Date(row.last_replaced).toLocaleDateString(undefined, {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                }).toLowerCase()
+                : "";
+            return (deviceName.includes(search) ||
+                batteryType.includes(search) ||
+                area.includes(search) ||
+                lastReplaced.includes(search));
         });
     }
     _buildRowsSignature(rows) {
