@@ -23,6 +23,8 @@ type BatteryNotesHeaderViewElement = HTMLElement & {
   narrow?: boolean;
 };
 
+const ROW_REFRESH_INTERVAL_MS = 15000;
+
 class BatteryNotesPanel extends HTMLElement {
   private _hass: HassLike | null = null;
 
@@ -40,15 +42,24 @@ class BatteryNotesPanel extends HTMLElement {
 
   private _selectedIds: string[] = [];
 
+  private _refreshIntervalId: number | null = null;
+
+  private _isRefreshing = false;
+
+  private _rowsSignature = "";
+
   set hass(hass: HassLike) {
     const firstSet = this._hass === null;
     this._hass = hass;
 
     if (firstSet) {
-      void this._loadRows();
+      this._render();
+      void this._refreshRows(true);
+    } else {
+      this._syncHeaderViewState();
     }
 
-    this._render();
+    this._startAutoRefresh();
   }
 
   set narrow(narrow: boolean) {
@@ -61,7 +72,13 @@ class BatteryNotesPanel extends HTMLElement {
       "battery-notes-selection-changed",
       this._handleSelectionChanged as EventListener
     );
-    this._render();
+
+    document.addEventListener("visibilitychange", this._handleVisibilityChange);
+
+    this._startAutoRefresh();
+    if (!this.querySelector(".panel")) {
+      this._render();
+    }
   }
 
   disconnectedCallback(): void {
@@ -69,25 +86,79 @@ class BatteryNotesPanel extends HTMLElement {
       "battery-notes-selection-changed",
       this._handleSelectionChanged as EventListener
     );
+
+    document.removeEventListener(
+      "visibilitychange",
+      this._handleVisibilityChange
+    );
+
+    this._stopAutoRefresh();
   }
 
-  private async _loadRows(): Promise<void> {
-    if (!this._hass) {
+  private _startAutoRefresh(): void {
+    if (!this.isConnected || !this._hass || this._refreshIntervalId !== null) {
       return;
     }
 
-    this._isLoading = true;
-    this._render();
+    this._refreshIntervalId = window.setInterval(() => {
+      void this._refreshRows();
+    }, ROW_REFRESH_INTERVAL_MS);
+  }
+
+  private _stopAutoRefresh(): void {
+    if (this._refreshIntervalId === null) {
+      return;
+    }
+
+    window.clearInterval(this._refreshIntervalId);
+    this._refreshIntervalId = null;
+  }
+
+  private async _refreshRows(showLoading = false): Promise<void> {
+    if (!this._hass || this._isRefreshing) {
+      return;
+    }
+
+    this._isRefreshing = true;
+
+    if (showLoading) {
+      this._isLoading = true;
+      this._render();
+    }
 
     try {
-      this._rows = await fetchBatteryDevices(this._hass);
+      const fetchedRows = await fetchBatteryDevices(this._hass);
+      const nextSignature = this._buildRowsSignature(fetchedRows);
+      const rowsChanged = nextSignature !== this._rowsSignature;
+      const errorChanged = this._errorMessage !== null;
+
+      if (rowsChanged) {
+        this._rows = fetchedRows;
+        this._rowsSignature = nextSignature;
+      }
+
       this._errorMessage = null;
+
+      if (!showLoading && (rowsChanged || errorChanged)) {
+        this._syncSearchInputState();
+        this._syncTableViewState();
+      }
     } catch (error) {
-      this._errorMessage =
+      const nextError =
         error instanceof Error ? error.message : "Unknown websocket error";
+      const errorChanged = this._errorMessage !== nextError;
+      this._errorMessage = nextError;
+
+      if (!showLoading && errorChanged) {
+        this._syncTableViewState();
+      }
     } finally {
-      this._isLoading = false;
-      this._render();
+      this._isRefreshing = false;
+
+      if (showLoading) {
+        this._isLoading = false;
+        this._render();
+      }
     }
   }
 
@@ -403,6 +474,14 @@ class BatteryNotesPanel extends HTMLElement {
     this._syncSelectionHeaderState();
   };
 
+  private _handleVisibilityChange = (): void => {
+    if (document.visibilityState !== "visible") {
+      return;
+    }
+
+    void this._refreshRows();
+  };
+
   private _filterRows(rows: BatteryDeviceRow[]): BatteryDeviceRow[] {
     const search = this._searchText.trim().toLowerCase();
     if (!search) {
@@ -414,6 +493,21 @@ class BatteryNotesPanel extends HTMLElement {
       const batteryType = row.battery_type.toLowerCase();
       return deviceName.includes(search) || batteryType.includes(search);
     });
+  }
+
+  private _buildRowsSignature(rows: BatteryDeviceRow[]): string {
+    return rows
+      .map((row) =>
+        [
+          row.subentry_id,
+          row.device_name,
+          row.battery_type,
+          row.battery_quantity ?? "",
+          row.battery_percentage ?? "",
+          row.battery_low ? "1" : "0",
+        ].join("|")
+      )
+      .join("\n");
   }
 }
 

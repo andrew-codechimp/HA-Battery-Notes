@@ -42,6 +42,7 @@ def websocket_list_devices(
                 "battery_type": coordinator.battery_type,
                 "battery_quantity": coordinator.battery_quantity,
                 "battery_percentage": coordinator.rounded_battery_level,
+                "battery_low": coordinator.battery_low,
             })
 
     rows.sort(key=lambda row: str(row["device_name"]).lower())

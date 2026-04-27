@@ -6,6 +6,7 @@ export type BatteryDeviceRow = {
   battery_type: string;
   battery_quantity: number | null;
   battery_percentage: number | null;
+  battery_low: boolean;
 };
 
 type HassLike = {
@@ -28,8 +29,21 @@ export async function fetchBatteryDevices(hass: HassLike): Promise<BatteryDevice
       battery_type: String(record.battery_type ?? "-"),
       battery_quantity: parseBatteryQuantity(record.battery_quantity),
       battery_percentage: parseBatteryPercentage(record.battery_percentage),
+      battery_low: parseBatteryLow(record.battery_low),
     };
   });
+}
+
+function parseBatteryLow(value: unknown): boolean {
+  if (typeof value === "boolean") {
+    return value;
+  }
+
+  if (typeof value === "string") {
+    return value.toLowerCase() === "true";
+  }
+
+  return false;
 }
 
 function parseBatteryQuantity(value: unknown): number | null {

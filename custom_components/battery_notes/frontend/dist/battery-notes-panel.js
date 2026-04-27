@@ -17,8 +17,18 @@ async function fetchBatteryDevices(hass) {
             battery_type: String(record.battery_type ?? "-"),
             battery_quantity: parseBatteryQuantity(record.battery_quantity),
             battery_percentage: parseBatteryPercentage(record.battery_percentage),
+            battery_low: parseBatteryLow(record.battery_low),
         };
     });
+}
+function parseBatteryLow(value) {
+    if (typeof value === "boolean") {
+        return value;
+    }
+    if (typeof value === "string") {
+        return value.toLowerCase() === "true";
+    }
+    return false;
 }
 function parseBatteryQuantity(value) {
     if (value === null || value === undefined) {
@@ -116,28 +126,30 @@ class BatteryNotesTableView extends HTMLElement {
     _isLoading = false;
     _errorMessage = null;
     _selectionMode = false;
+    _renderQueued = false;
+    _currentView = null;
     set hass(hass) {
         this._hass = hass;
-        this._render();
+        this._queueRender();
     }
     set rows(rows) {
         this._rows = rows;
-        this._render();
+        this._queueRender();
     }
     set isLoading(isLoading) {
         this._isLoading = isLoading;
-        this._render();
+        this._queueRender();
     }
     set errorMessage(errorMessage) {
         this._errorMessage = errorMessage;
-        this._render();
+        this._queueRender();
     }
     set selectionMode(selectionMode) {
         this._selectionMode = selectionMode;
-        this._render();
+        this._queueRender();
     }
     connectedCallback() {
-        this._render();
+        this._queueRender();
     }
     selectAllRows() {
         const table = this.querySelector("#battery-notes-table");
@@ -147,35 +159,54 @@ class BatteryNotesTableView extends HTMLElement {
         const table = this.querySelector("#battery-notes-table");
         table?.clearSelection?.();
     }
+    _queueRender() {
+        if (this._renderQueued) {
+            return;
+        }
+        this._renderQueued = true;
+        queueMicrotask(() => {
+            this._renderQueued = false;
+            this._render();
+        });
+    }
     _render() {
-        if (this._isLoading) {
-            this.innerHTML = "<p style=\"margin: 0;\">Loading battery notes...</p>";
-            return;
-        }
-        if (this._errorMessage) {
-            this.innerHTML = `<p style=\"margin: 0; color: var(--error-color);\">Failed to load battery notes: ${this._escapeHtml(this._errorMessage)}</p>`;
-            return;
-        }
-        if (this._rows.length === 0) {
-            this.innerHTML = "<p style=\"margin: 0;\">No battery notes configured.</p>";
-            return;
-        }
-        this.innerHTML = `
-      <style>
-        :host {
-          display: block;
-          height: 100%;
-          min-height: 0;
-        }
+        const nextView = this._getView();
+        if (this._currentView !== nextView) {
+            this._currentView = nextView;
+            if (nextView === "loading") {
+                this.innerHTML = "<p style=\"margin: 0;\">Loading battery notes...</p>";
+                return;
+            }
+            if (nextView === "error") {
+                this.innerHTML = `<p style="margin: 0; color: var(--error-color);">Failed to load battery notes: ${this._escapeHtml(this._errorMessage ?? "Unknown error")}</p>`;
+                return;
+            }
+            if (nextView === "empty") {
+                this.innerHTML = "<p style=\"margin: 0;\">No battery notes configured.</p>";
+                return;
+            }
+            this.innerHTML = `
+        <style>
+          :host {
+            display: block;
+            height: 100%;
+            min-height: 0;
+          }
 
-        ha-data-table {
-          width: 100%;
-          height: 100%;
-          --data-table-border-width: 0;
+          ha-data-table {
+            width: 100%;
+            height: 100%;
+            --data-table-border-width: 0;
+          }
+        </style>
+        <ha-data-table id="battery-notes-table"></ha-data-table>
+      `;
+            const table = this.querySelector("#battery-notes-table");
+            table?.addEventListener("selection-changed", this._handleSelectionChanged);
         }
-      </style>
-      <ha-data-table id="battery-notes-table"></ha-data-table>
-    `;
+        if (nextView !== "table") {
+            return;
+        }
         const table = this.querySelector("#battery-notes-table");
         if (!table) {
             return;
@@ -185,40 +216,63 @@ class BatteryNotesTableView extends HTMLElement {
         table.autoHeight = false;
         table.selectable = this._selectionMode;
         table.columns = {
-            device_name: { title: "Device", sortable: true },
-            battery_type: { title: "Battery Type", sortable: true },
+            device_name: { title: "Device", sortable: true, flex: 4 },
+            battery_type: { title: "Battery Type", sortable: true, flex: 1 },
             battery_quantity_display: {
                 title: "Quantity",
                 type: "numeric",
                 sortable: true,
                 valueColumn: "battery_quantity_sort",
+                flex: 1,
             },
             battery_display: {
                 title: "Battery",
                 type: "numeric",
                 sortable: true,
                 valueColumn: "battery_sort",
+                flex: 1,
+            },
+            battery_low_display: {
+                title: "Low",
+                sortable: true,
+                direction: "desc",
+                valueColumn: "battery_low_sort",
+                flex: 1,
             },
         };
         table.data = this._rows.map((row) => ({
             subentry_id: row.subentry_id,
             device_name: row.device_name,
+            battery_low_display: this._formatBatteryLow(row.battery_low),
+            battery_low_sort: row.battery_low ? 1 : 0,
             battery_type: row.battery_type,
             battery_quantity_display: this._formatQuantity(row.battery_quantity),
             battery_quantity_sort: this._sortValue(row.battery_quantity),
             battery_display: this._formatBattery(row.battery_percentage),
             battery_sort: this._sortValue(row.battery_percentage),
         }));
-        table.addEventListener("selection-changed", (event) => {
-            const detail = event.detail;
-            const selectedIds = Array.isArray(detail?.value) ? detail.value : [];
-            this.dispatchEvent(new CustomEvent("battery-notes-selection-changed", {
-                detail: selectedIds,
-                bubbles: true,
-                composed: true,
-            }));
-        });
     }
+    _getView() {
+        if (this._isLoading) {
+            return "loading";
+        }
+        if (this._errorMessage) {
+            return "error";
+        }
+        if (this._rows.length === 0) {
+            return "empty";
+        }
+        return "table";
+    }
+    _handleSelectionChanged = (event) => {
+        const detail = event.detail;
+        const selectedIds = Array.isArray(detail?.value) ? detail.value : [];
+        this.dispatchEvent(new CustomEvent("battery-notes-selection-changed", {
+            detail: selectedIds,
+            bubbles: true,
+            composed: true,
+        }));
+    };
     _sortValue(value) {
         if (value === null || Number.isNaN(value)) {
             return 101;
@@ -237,6 +291,9 @@ class BatteryNotesTableView extends HTMLElement {
         }
         return String(value);
     }
+    _formatBatteryLow(value) {
+        return value ? "Yes" : "No";
+    }
     _escapeHtml(value) {
         return value
             .replaceAll("&", "&amp;")
@@ -250,6 +307,7 @@ if (!customElements.get("battery-notes-table-view")) {
     customElements.define("battery-notes-table-view", BatteryNotesTableView);
 }
 
+const ROW_REFRESH_INTERVAL_MS = 15000;
 class BatteryNotesPanel extends HTMLElement {
     _hass = null;
     _narrow = false;
@@ -259,13 +317,20 @@ class BatteryNotesPanel extends HTMLElement {
     _searchText = "";
     _selectionMode = false;
     _selectedIds = [];
+    _refreshIntervalId = null;
+    _isRefreshing = false;
+    _rowsSignature = "";
     set hass(hass) {
         const firstSet = this._hass === null;
         this._hass = hass;
         if (firstSet) {
-            void this._loadRows();
+            this._render();
+            void this._refreshRows(true);
         }
-        this._render();
+        else {
+            this._syncHeaderViewState();
+        }
+        this._startAutoRefresh();
     }
     set narrow(narrow) {
         this._narrow = narrow;
@@ -273,28 +338,70 @@ class BatteryNotesPanel extends HTMLElement {
     }
     connectedCallback() {
         this.addEventListener("battery-notes-selection-changed", this._handleSelectionChanged);
-        this._render();
+        document.addEventListener("visibilitychange", this._handleVisibilityChange);
+        this._startAutoRefresh();
+        if (!this.querySelector(".panel")) {
+            this._render();
+        }
     }
     disconnectedCallback() {
         this.removeEventListener("battery-notes-selection-changed", this._handleSelectionChanged);
+        document.removeEventListener("visibilitychange", this._handleVisibilityChange);
+        this._stopAutoRefresh();
     }
-    async _loadRows() {
-        if (!this._hass) {
+    _startAutoRefresh() {
+        if (!this.isConnected || !this._hass || this._refreshIntervalId !== null) {
             return;
         }
-        this._isLoading = true;
-        this._render();
+        this._refreshIntervalId = window.setInterval(() => {
+            void this._refreshRows();
+        }, ROW_REFRESH_INTERVAL_MS);
+    }
+    _stopAutoRefresh() {
+        if (this._refreshIntervalId === null) {
+            return;
+        }
+        window.clearInterval(this._refreshIntervalId);
+        this._refreshIntervalId = null;
+    }
+    async _refreshRows(showLoading = false) {
+        if (!this._hass || this._isRefreshing) {
+            return;
+        }
+        this._isRefreshing = true;
+        if (showLoading) {
+            this._isLoading = true;
+            this._render();
+        }
         try {
-            this._rows = await fetchBatteryDevices(this._hass);
+            const fetchedRows = await fetchBatteryDevices(this._hass);
+            const nextSignature = this._buildRowsSignature(fetchedRows);
+            const rowsChanged = nextSignature !== this._rowsSignature;
+            const errorChanged = this._errorMessage !== null;
+            if (rowsChanged) {
+                this._rows = fetchedRows;
+                this._rowsSignature = nextSignature;
+            }
             this._errorMessage = null;
+            if (!showLoading && (rowsChanged || errorChanged)) {
+                this._syncSearchInputState();
+                this._syncTableViewState();
+            }
         }
         catch (error) {
-            this._errorMessage =
-                error instanceof Error ? error.message : "Unknown websocket error";
+            const nextError = error instanceof Error ? error.message : "Unknown websocket error";
+            const errorChanged = this._errorMessage !== nextError;
+            this._errorMessage = nextError;
+            if (!showLoading && errorChanged) {
+                this._syncTableViewState();
+            }
         }
         finally {
-            this._isLoading = false;
-            this._render();
+            this._isRefreshing = false;
+            if (showLoading) {
+                this._isLoading = false;
+                this._render();
+            }
         }
     }
     _render() {
@@ -572,6 +679,12 @@ class BatteryNotesPanel extends HTMLElement {
         this._selectedIds = Array.isArray(selectedIds) ? selectedIds : [];
         this._syncSelectionHeaderState();
     };
+    _handleVisibilityChange = () => {
+        if (document.visibilityState !== "visible") {
+            return;
+        }
+        void this._refreshRows();
+    };
     _filterRows(rows) {
         const search = this._searchText.trim().toLowerCase();
         if (!search) {
@@ -582,6 +695,18 @@ class BatteryNotesPanel extends HTMLElement {
             const batteryType = row.battery_type.toLowerCase();
             return deviceName.includes(search) || batteryType.includes(search);
         });
+    }
+    _buildRowsSignature(rows) {
+        return rows
+            .map((row) => [
+            row.subentry_id,
+            row.device_name,
+            row.battery_type,
+            row.battery_quantity ?? "",
+            row.battery_percentage ?? "",
+            row.battery_low ? "1" : "0",
+        ].join("|"))
+            .join("\n");
     }
 }
 if (!customElements.get("battery-notes-panel")) {
