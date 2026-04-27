@@ -87,6 +87,7 @@ PANEL_WEB_COMPONENT_NAME = "battery-notes-panel"
 PANEL_JS_FILE_NAME = "battery-notes-panel.js"
 PANEL_JS_URL_PATH = f"/api/{DOMAIN}/dist/{PANEL_JS_FILE_NAME}"
 PANEL_REGISTERED_DATA_KEY = f"{DOMAIN}_panel_registered"
+PANEL_STATIC_PATH_REGISTERED_DATA_KEY = f"{DOMAIN}_panel_static_path_registered"
 CONFIG_SCHEMA = vol.Schema(
     {
         DOMAIN: vol.All(
@@ -148,19 +149,27 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
 
 async def _async_register_panel(hass: HomeAssistant) -> None:
     """Register a minimal custom sidebar panel for Battery Notes."""
+    panel_js_path = Path(__file__).parent / "frontend" / "dist" / PANEL_JS_FILE_NAME
+
+    if not hass.data.get(PANEL_STATIC_PATH_REGISTERED_DATA_KEY):
+        try:
+            await hass.http.async_register_static_paths([
+                StaticPathConfig(
+                    PANEL_JS_URL_PATH,
+                    str(panel_js_path),
+                    cache_headers=False,
+                )
+            ])
+        except RuntimeError as err:
+            # Static routes are not removed on integration unload. On reload,
+            # re-registering the same GET route can raise this RuntimeError.
+            if "method GET is already registered" not in str(err):
+                raise
+        finally:
+            hass.data[PANEL_STATIC_PATH_REGISTERED_DATA_KEY] = True
 
     if hass.data.get(PANEL_REGISTERED_DATA_KEY):
         return
-
-    panel_js_path = Path(__file__).parent / "frontend" / "dist" / PANEL_JS_FILE_NAME
-
-    await hass.http.async_register_static_paths([
-        StaticPathConfig(
-            PANEL_JS_URL_PATH,
-            str(panel_js_path),
-            cache_headers=False,
-        )
-    ])
 
     await panel_custom.async_register_panel(
         hass,
