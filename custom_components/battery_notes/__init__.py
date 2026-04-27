@@ -167,7 +167,7 @@ async def _async_register_panel(hass: HomeAssistant) -> None:
         frontend_url_path=PANEL_FRONTEND_URL_PATH,
         webcomponent_name=PANEL_WEB_COMPONENT_NAME,
         sidebar_title=INTEGRATION_NAME,
-        sidebar_icon="mdi:battery-heart-variant",
+        sidebar_icon="mdi:battery",
         module_url=PANEL_JS_URL_PATH,
         require_admin=False,
     )
