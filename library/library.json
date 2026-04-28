@@ -11387,6 +11387,11 @@
             "battery_quantity": 4
         },
         {
+            "manufacturer": "WeatherFlow",
+            "model": "Tempest",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Weenect",
             "model": "familykid",
             "battery_type": "Rechargeable"
@@ -12581,11 +12586,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "WeatherFlow",
-            "model": "Tempest",
             "battery_type": "Rechargeable"
         }
     ]
