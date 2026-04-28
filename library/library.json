@@ -7294,6 +7294,13 @@
         },
         {
             "manufacturer": "Philips",
+            "model": "Hue dimmer switch gen 2",
+            "model_id": "929002398602",
+            "hw_version": "1",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Philips",
             "model": "Hue motion huiskamer Batterij",
             "hw_version": "67.115.5",
             "battery_type": "AA",
@@ -12587,13 +12594,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Philips",
-            "model": "Hue dimmer switch gen 2",
-            "model_id": "929002398602",
-            "hw_version": "1",
-            "battery_type": "CR2032"
         }
     ]
 }
