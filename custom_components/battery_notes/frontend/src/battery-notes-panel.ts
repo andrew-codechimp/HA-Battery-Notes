@@ -1,4 +1,3 @@
-import { mdiChevronDown, mdiClose, mdiFormatListChecks } from "@mdi/js";
 import type { BatteryDeviceRow } from "./data/websockets.js";
 import { fetchBatteryDevices } from "./data/websockets.js";
 import "./views/header-view";
@@ -13,9 +12,6 @@ type BatteryNotesTableViewElement = HTMLElement & {
   rows?: BatteryDeviceRow[];
   isLoading?: boolean;
   errorMessage?: string | null;
-  selectionMode?: boolean;
-  selectAllRows?: () => void;
-  clearSelectedRows?: () => void;
 };
 
 type BatteryNotesHeaderViewElement = HTMLElement & {
@@ -37,10 +33,6 @@ class BatteryNotesPanel extends HTMLElement {
   private _errorMessage: string | null = null;
 
   private _searchText = "";
-
-  private _selectionMode = false;
-
-  private _selectedIds: string[] = [];
 
   private _refreshIntervalId: number | null = null;
 
@@ -68,11 +60,6 @@ class BatteryNotesPanel extends HTMLElement {
   }
 
   connectedCallback(): void {
-    this.addEventListener(
-      "battery-notes-selection-changed",
-      this._handleSelectionChanged as EventListener
-    );
-
     document.addEventListener("visibilitychange", this._handleVisibilityChange);
 
     this._startAutoRefresh();
@@ -82,11 +69,6 @@ class BatteryNotesPanel extends HTMLElement {
   }
 
   disconnectedCallback(): void {
-    this.removeEventListener(
-      "battery-notes-selection-changed",
-      this._handleSelectionChanged as EventListener
-    );
-
     document.removeEventListener(
       "visibilitychange",
       this._handleVisibilityChange
@@ -232,98 +214,12 @@ class BatteryNotesPanel extends HTMLElement {
           align-items: center;
           gap: 12px;
         }
-
-        .selection-mode-button {
-          cursor: pointer;
-        }
-
-        .select-mode-chip {
-          --md-assist-chip-icon-label-space: 0;
-          --md-assist-chip-trailing-space: 8px;
-        }
-
-        ha-assist-chip {
-          --ha-assist-chip-container-shape: 10px;
-          --ha-assist-chip-container-color: var(--card-background-color);
-        }
-
-        .selection-mode-button.hidden {
-          display: none;
-        }
-
-        .main-header.hidden {
-          display: none;
-        }
-
-        .selection-header {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          min-height: var(--header-height);
-          padding: 0 16px;
-          background-color: var(--app-header-background-color);
-          color: var(--app-header-text-color, white);
-          border-bottom: var(--app-header-border-bottom, none);
-        }
-
-        .selection-header.hidden {
-          display: none;
-        }
-
-        .selection-header-title {
-          margin: 0;
-          font-size: 20px;
-          font-weight: 400;
-          line-height: 20px;
-        }
-
-        .selection-menu-chip {
-          --ha-assist-chip-container-color: color-mix(in srgb, var(--app-header-text-color, white) 12%, transparent);
-          --ha-assist-chip-label-text-color: var(--app-header-text-color, white);
-          --ha-assist-chip-icon-color: var(--app-header-text-color, white);
-        }
-
-        .selection-menu-icon {
-          width: 18px;
-          height: 18px;
-        }
-
-        .selection-close {
-          color: var(--app-header-text-color, white);
-          min-width: 40px;
-          width: 40px;
-          height: 40px;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-        }
       </style>
       <div class="panel">
         <battery-notes-header-view class="main-header"></battery-notes-header-view>
-        <div class="selection-header hidden">
-          <ha-icon-button
-            class="selection-close"
-            title="Exit selection mode"
-            label="Exit selection mode"
-            path="${mdiClose}"
-          ></ha-icon-button>
-          <ha-button-menu class="selection-menu" corner="BOTTOM_START" fixed>
-            <ha-assist-chip slot="trigger" class="selection-menu-chip" title="Selection actions">
-              <ha-svg-icon slot="icon" class="selection-menu-icon" path="${mdiChevronDown}"></ha-svg-icon>
-              Selection
-            </ha-assist-chip>
-            <ha-list-item class="selection-menu-item" data-action="all">Select all</ha-list-item>
-            <ha-list-item class="selection-menu-item" data-action="none">Select none</ha-list-item>
-            <ha-list-item class="selection-menu-item" data-action="exit">Exit selection mode</ha-list-item>
-          </ha-button-menu>
-          <p class="selection-header-title">0 selected</p>
-        </div>
         <div class="content">
           <div class="table-header">
             <div class="header-actions">
-              <ha-assist-chip class="selection-mode-button select-mode-chip" title="Enter selection mode">
-                <ha-svg-icon slot="icon" path="${mdiFormatListChecks}"></ha-svg-icon>
-              </ha-assist-chip>
               <input
                 class="search-input"
                 type="search"
@@ -338,8 +234,6 @@ class BatteryNotesPanel extends HTMLElement {
 
     this._syncHeaderViewState();
     this._syncSearchInputState();
-    this._syncSelectionActionState();
-    this._syncSelectionHeaderState();
     this._syncTableViewState();
   }
 
@@ -352,52 +246,6 @@ class BatteryNotesPanel extends HTMLElement {
     input.placeholder = `Search ${this._rows.length} devices`;
     input.value = this._searchText;
     input.addEventListener("input", this._handleSearchInput);
-  }
-
-  private _syncSelectionActionState(): void {
-    const selectButton = this.querySelector(".selection-mode-button") as
-      | HTMLElement
-      | null;
-    if (!selectButton) {
-      return;
-    }
-
-    selectButton.addEventListener("click", this._handleSelectionModeStart);
-  }
-
-  private _syncSelectionHeaderState(): void {
-    const header = this.querySelector(".selection-header") as HTMLElement | null;
-    const title = this.querySelector(".selection-header-title") as
-      | HTMLElement
-      | null;
-    const close = this.querySelector(".selection-close") as HTMLElement | null;
-    const mainHeader = this.querySelector(".main-header") as HTMLElement | null;
-    if (!header || !title || !close || !mainHeader) {
-      return;
-    }
-
-    const selectButton = this.querySelector(".selection-mode-button") as
-      | HTMLElement
-      | null;
-
-    if (!this._selectionMode) {
-      header.classList.add("hidden");
-      mainHeader.classList.remove("hidden");
-      selectButton?.classList.remove("hidden");
-      return;
-    }
-
-    header.classList.remove("hidden");
-    mainHeader.classList.add("hidden");
-    selectButton?.classList.add("hidden");
-    const selectedCount = this._selectedIds.length;
-    title.textContent = `${selectedCount} selected`;
-    (close as HTMLButtonElement).onclick = this._handleSelectionModeExit;
-
-    const menuItems = this.querySelectorAll(".selection-menu-item");
-    menuItems.forEach((item) => {
-      (item as HTMLElement).onclick = this._handleSelectionMenuAction;
-    });
   }
 
   private _syncHeaderViewState(): void {
@@ -426,55 +274,12 @@ class BatteryNotesPanel extends HTMLElement {
     tableView.rows = this._filterRows(this._rows);
     tableView.isLoading = this._isLoading;
     tableView.errorMessage = this._errorMessage;
-    tableView.selectionMode = this._selectionMode;
   }
 
   private _handleSearchInput = (event: Event): void => {
     const input = event.currentTarget as HTMLInputElement;
     this._searchText = input.value;
     this._syncTableViewState();
-  };
-
-  private _handleSelectionModeStart = (): void => {
-    this._selectionMode = true;
-    this._syncSelectionHeaderState();
-    this._syncTableViewState();
-  };
-
-  private _handleSelectionModeExit = (): void => {
-    this._selectionMode = false;
-    this._selectedIds = [];
-    this._syncTableViewState();
-    this._syncSelectionHeaderState();
-  };
-
-  private _handleSelectionMenuAction = (event: Event): void => {
-    const action = (event.currentTarget as HTMLElement).dataset.action;
-    const tableView = this.querySelector("battery-notes-table-view") as
-      | BatteryNotesTableViewElement
-      | null;
-
-    if (action === "all") {
-      tableView?.selectAllRows?.();
-      return;
-    }
-
-    if (action === "none") {
-      tableView?.clearSelectedRows?.();
-      this._selectedIds = [];
-      this._syncSelectionHeaderState();
-      return;
-    }
-
-    if (action === "exit") {
-      this._handleSelectionModeExit();
-    }
-  };
-
-  private _handleSelectionChanged = (event: Event): void => {
-    const selectedIds = (event as CustomEvent<string[]>).detail;
-    this._selectedIds = Array.isArray(selectedIds) ? selectedIds : [];
-    this._syncSelectionHeaderState();
   };
 
   private _handleVisibilityChange = (): void => {

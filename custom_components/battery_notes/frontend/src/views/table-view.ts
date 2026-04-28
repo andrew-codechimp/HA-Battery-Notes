@@ -20,13 +20,6 @@ type HaDataTableElement = HTMLElement & {
   data?: Array<Record<string, unknown>>;
   id?: string;
   autoHeight?: boolean;
-  selectable?: boolean;
-  selectAll?: () => void;
-  clearSelection?: () => void;
-};
-
-type SelectionChangedDetail = {
-  value?: string[];
 };
 
 class BatteryNotesTableView extends HTMLElement {
@@ -37,8 +30,6 @@ class BatteryNotesTableView extends HTMLElement {
   private _isLoading = false;
 
   private _errorMessage: string | null = null;
-
-  private _selectionMode = false;
 
   private _renderQueued = false;
 
@@ -64,27 +55,8 @@ class BatteryNotesTableView extends HTMLElement {
     this._queueRender();
   }
 
-  set selectionMode(selectionMode: boolean) {
-    this._selectionMode = selectionMode;
-    this._queueRender();
-  }
-
   connectedCallback(): void {
     this._queueRender();
-  }
-
-  public selectAllRows(): void {
-    const table = this.querySelector("#battery-notes-table") as
-      | HaDataTableElement
-      | null;
-    table?.selectAll?.();
-  }
-
-  public clearSelectedRows(): void {
-    const table = this.querySelector("#battery-notes-table") as
-      | HaDataTableElement
-      | null;
-    table?.clearSelection?.();
   }
 
   private _queueRender(): void {
@@ -140,7 +112,6 @@ class BatteryNotesTableView extends HTMLElement {
       const table = this.querySelector("#battery-notes-table") as
         | HaDataTableElement
         | null;
-      table?.addEventListener("selection-changed", this._handleSelectionChanged);
     }
 
     if (nextView !== "table") {
@@ -158,7 +129,6 @@ class BatteryNotesTableView extends HTMLElement {
     table.hass = this._hass;
     table.id = "subentry_id";
     table.autoHeight = false;
-    table.selectable = this._selectionMode;
     table.columns = {
       device_name: { title: "Device", sortable: true, flex: 4 },
       area: { title: "Area", sortable: true, flex: 2 },
@@ -224,19 +194,6 @@ class BatteryNotesTableView extends HTMLElement {
 
     return "table";
   }
-
-  private _handleSelectionChanged = (event: Event): void => {
-    const detail = (event as CustomEvent<SelectionChangedDetail>).detail;
-    const selectedIds = Array.isArray(detail?.value) ? detail.value : [];
-
-    this.dispatchEvent(
-      new CustomEvent<string[]>("battery-notes-selection-changed", {
-        detail: selectedIds,
-        bubbles: true,
-        composed: true,
-      })
-    );
-  };
 
   private _sortValue(value: number | null): number {
     if (value === null || Number.isNaN(value)) {

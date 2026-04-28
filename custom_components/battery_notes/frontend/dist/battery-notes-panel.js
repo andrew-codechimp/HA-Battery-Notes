@@ -1,8 +1,3 @@
-// Material Design Icons v7.4.47
-var mdiChevronDown = "M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z";
-var mdiClose = "M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z";
-var mdiFormatListChecks = "M3,5H9V11H3V5M5,7V9H7V7H5M11,7H21V9H11V7M11,15H21V17H11V15M5,20L1.5,16.5L2.91,15.09L5,17.17L9.59,12.59L11,14L5,20Z";
-
 const WS_LIST_DEVICES = "battery_notes/list_devices";
 async function fetchBatteryDevices(hass) {
     const response = await hass.callWS({ type: WS_LIST_DEVICES });
@@ -134,7 +129,6 @@ class BatteryNotesTableView extends HTMLElement {
     _rows = [];
     _isLoading = false;
     _errorMessage = null;
-    _selectionMode = false;
     _renderQueued = false;
     _currentView = null;
     set hass(hass) {
@@ -153,20 +147,8 @@ class BatteryNotesTableView extends HTMLElement {
         this._errorMessage = errorMessage;
         this._queueRender();
     }
-    set selectionMode(selectionMode) {
-        this._selectionMode = selectionMode;
-        this._queueRender();
-    }
     connectedCallback() {
         this._queueRender();
-    }
-    selectAllRows() {
-        const table = this.querySelector("#battery-notes-table");
-        table?.selectAll?.();
-    }
-    clearSelectedRows() {
-        const table = this.querySelector("#battery-notes-table");
-        table?.clearSelection?.();
     }
     _queueRender() {
         if (this._renderQueued) {
@@ -210,8 +192,7 @@ class BatteryNotesTableView extends HTMLElement {
         </style>
         <ha-data-table id="battery-notes-table"></ha-data-table>
       `;
-            const table = this.querySelector("#battery-notes-table");
-            table?.addEventListener("selection-changed", this._handleSelectionChanged);
+            this.querySelector("#battery-notes-table");
         }
         if (nextView !== "table") {
             return;
@@ -223,7 +204,6 @@ class BatteryNotesTableView extends HTMLElement {
         table.hass = this._hass;
         table.id = "subentry_id";
         table.autoHeight = false;
-        table.selectable = this._selectionMode;
         table.columns = {
             device_name: { title: "Device", sortable: true, flex: 4 },
             area: { title: "Area", sortable: true, flex: 2 },
@@ -285,15 +265,6 @@ class BatteryNotesTableView extends HTMLElement {
         }
         return "table";
     }
-    _handleSelectionChanged = (event) => {
-        const detail = event.detail;
-        const selectedIds = Array.isArray(detail?.value) ? detail.value : [];
-        this.dispatchEvent(new CustomEvent("battery-notes-selection-changed", {
-            detail: selectedIds,
-            bubbles: true,
-            composed: true,
-        }));
-    };
     _sortValue(value) {
         if (value === null || Number.isNaN(value)) {
             return 101;
@@ -351,8 +322,6 @@ class BatteryNotesPanel extends HTMLElement {
     _isLoading = false;
     _errorMessage = null;
     _searchText = "";
-    _selectionMode = false;
-    _selectedIds = [];
     _refreshIntervalId = null;
     _isRefreshing = false;
     _rowsSignature = "";
@@ -373,7 +342,6 @@ class BatteryNotesPanel extends HTMLElement {
         this._syncHeaderViewState();
     }
     connectedCallback() {
-        this.addEventListener("battery-notes-selection-changed", this._handleSelectionChanged);
         document.addEventListener("visibilitychange", this._handleVisibilityChange);
         this._startAutoRefresh();
         if (!this.querySelector(".panel")) {
@@ -381,7 +349,6 @@ class BatteryNotesPanel extends HTMLElement {
         }
     }
     disconnectedCallback() {
-        this.removeEventListener("battery-notes-selection-changed", this._handleSelectionChanged);
         document.removeEventListener("visibilitychange", this._handleVisibilityChange);
         this._stopAutoRefresh();
     }
@@ -510,98 +477,12 @@ class BatteryNotesPanel extends HTMLElement {
           align-items: center;
           gap: 12px;
         }
-
-        .selection-mode-button {
-          cursor: pointer;
-        }
-
-        .select-mode-chip {
-          --md-assist-chip-icon-label-space: 0;
-          --md-assist-chip-trailing-space: 8px;
-        }
-
-        ha-assist-chip {
-          --ha-assist-chip-container-shape: 10px;
-          --ha-assist-chip-container-color: var(--card-background-color);
-        }
-
-        .selection-mode-button.hidden {
-          display: none;
-        }
-
-        .main-header.hidden {
-          display: none;
-        }
-
-        .selection-header {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          min-height: var(--header-height);
-          padding: 0 16px;
-          background-color: var(--app-header-background-color);
-          color: var(--app-header-text-color, white);
-          border-bottom: var(--app-header-border-bottom, none);
-        }
-
-        .selection-header.hidden {
-          display: none;
-        }
-
-        .selection-header-title {
-          margin: 0;
-          font-size: 20px;
-          font-weight: 400;
-          line-height: 20px;
-        }
-
-        .selection-menu-chip {
-          --ha-assist-chip-container-color: color-mix(in srgb, var(--app-header-text-color, white) 12%, transparent);
-          --ha-assist-chip-label-text-color: var(--app-header-text-color, white);
-          --ha-assist-chip-icon-color: var(--app-header-text-color, white);
-        }
-
-        .selection-menu-icon {
-          width: 18px;
-          height: 18px;
-        }
-
-        .selection-close {
-          color: var(--app-header-text-color, white);
-          min-width: 40px;
-          width: 40px;
-          height: 40px;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-        }
       </style>
       <div class="panel">
         <battery-notes-header-view class="main-header"></battery-notes-header-view>
-        <div class="selection-header hidden">
-          <ha-icon-button
-            class="selection-close"
-            title="Exit selection mode"
-            label="Exit selection mode"
-            path="${mdiClose}"
-          ></ha-icon-button>
-          <ha-button-menu class="selection-menu" corner="BOTTOM_START" fixed>
-            <ha-assist-chip slot="trigger" class="selection-menu-chip" title="Selection actions">
-              <ha-svg-icon slot="icon" class="selection-menu-icon" path="${mdiChevronDown}"></ha-svg-icon>
-              Selection
-            </ha-assist-chip>
-            <ha-list-item class="selection-menu-item" data-action="all">Select all</ha-list-item>
-            <ha-list-item class="selection-menu-item" data-action="none">Select none</ha-list-item>
-            <ha-list-item class="selection-menu-item" data-action="exit">Exit selection mode</ha-list-item>
-          </ha-button-menu>
-          <p class="selection-header-title">0 selected</p>
-        </div>
         <div class="content">
           <div class="table-header">
             <div class="header-actions">
-              <ha-assist-chip class="selection-mode-button select-mode-chip" title="Enter selection mode">
-                <ha-svg-icon slot="icon" path="${mdiFormatListChecks}"></ha-svg-icon>
-              </ha-assist-chip>
               <input
                 class="search-input"
                 type="search"
@@ -615,8 +496,6 @@ class BatteryNotesPanel extends HTMLElement {
     `;
         this._syncHeaderViewState();
         this._syncSearchInputState();
-        this._syncSelectionActionState();
-        this._syncSelectionHeaderState();
         this._syncTableViewState();
     }
     _syncSearchInputState() {
@@ -627,39 +506,6 @@ class BatteryNotesPanel extends HTMLElement {
         input.placeholder = `Search ${this._rows.length} devices`;
         input.value = this._searchText;
         input.addEventListener("input", this._handleSearchInput);
-    }
-    _syncSelectionActionState() {
-        const selectButton = this.querySelector(".selection-mode-button");
-        if (!selectButton) {
-            return;
-        }
-        selectButton.addEventListener("click", this._handleSelectionModeStart);
-    }
-    _syncSelectionHeaderState() {
-        const header = this.querySelector(".selection-header");
-        const title = this.querySelector(".selection-header-title");
-        const close = this.querySelector(".selection-close");
-        const mainHeader = this.querySelector(".main-header");
-        if (!header || !title || !close || !mainHeader) {
-            return;
-        }
-        const selectButton = this.querySelector(".selection-mode-button");
-        if (!this._selectionMode) {
-            header.classList.add("hidden");
-            mainHeader.classList.remove("hidden");
-            selectButton?.classList.remove("hidden");
-            return;
-        }
-        header.classList.remove("hidden");
-        mainHeader.classList.add("hidden");
-        selectButton?.classList.add("hidden");
-        const selectedCount = this._selectedIds.length;
-        title.textContent = `${selectedCount} selected`;
-        close.onclick = this._handleSelectionModeExit;
-        const menuItems = this.querySelectorAll(".selection-menu-item");
-        menuItems.forEach((item) => {
-            item.onclick = this._handleSelectionMenuAction;
-        });
     }
     _syncHeaderViewState() {
         const headerView = this.querySelector("battery-notes-header-view");
@@ -678,45 +524,11 @@ class BatteryNotesPanel extends HTMLElement {
         tableView.rows = this._filterRows(this._rows);
         tableView.isLoading = this._isLoading;
         tableView.errorMessage = this._errorMessage;
-        tableView.selectionMode = this._selectionMode;
     }
     _handleSearchInput = (event) => {
         const input = event.currentTarget;
         this._searchText = input.value;
         this._syncTableViewState();
-    };
-    _handleSelectionModeStart = () => {
-        this._selectionMode = true;
-        this._syncSelectionHeaderState();
-        this._syncTableViewState();
-    };
-    _handleSelectionModeExit = () => {
-        this._selectionMode = false;
-        this._selectedIds = [];
-        this._syncTableViewState();
-        this._syncSelectionHeaderState();
-    };
-    _handleSelectionMenuAction = (event) => {
-        const action = event.currentTarget.dataset.action;
-        const tableView = this.querySelector("battery-notes-table-view");
-        if (action === "all") {
-            tableView?.selectAllRows?.();
-            return;
-        }
-        if (action === "none") {
-            tableView?.clearSelectedRows?.();
-            this._selectedIds = [];
-            this._syncSelectionHeaderState();
-            return;
-        }
-        if (action === "exit") {
-            this._handleSelectionModeExit();
-        }
-    };
-    _handleSelectionChanged = (event) => {
-        const selectedIds = event.detail;
-        this._selectedIds = Array.isArray(selectedIds) ? selectedIds : [];
-        this._syncSelectionHeaderState();
     };
     _handleVisibilityChange = () => {
         if (document.visibilityState !== "visible") {
