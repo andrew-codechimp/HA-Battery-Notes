@@ -2,7 +2,7 @@
 
 ## Does a device have to be in the library?
 
-No, you can always add a device manually by going to Settings -> Integrations -> Battery Notes screen add a new device where you can enter the battery details manually.
+No, you can always add a device manually by going to Settings -> Devices & Services -> Battery Notes screen add a new device where you can enter the battery details manually.
 
 ## Why is my device not being discovered?
 
@@ -13,13 +13,19 @@ It could be missing from the [library](https://github.com/andrew-codechimp/HA-Ba
 It updates when Home Assistant is restarted and approximately every 24 hours after that.  
 It will pull the latest devices that have been merged into the main branch, if you have recently submitted a pull request for a new device it will not appear until it has been manually reviewed and merged.
 
+## Why do I get two battery devices on the maintenance dashboard?
+
+The maintenance dashboard shows tiles for each battery on a device. The Battery+ sensor created by Battery Notes mirrors the original battery but adds lots of attributes and event monitoring to enable the features of Battery Notes to work properly.
+
+If you don't want two batteries showing up you can hide the original battery automatically by going into Settings -> Devices & Services -> Battery Notes, click on the cog for Battery Notes and turn on Hide Battery.
+
 ## How do I remove a battery note on a device?
 
-Go into the Settings -> Integrations -> Battery Notes, use the menu on the right of a device and select Delete, this will only delete the battery note, not the whole device.
+Go into the Settings -> Devices & Services -> Battery Notes, use the menu on the right of a device and select Delete, this will only delete the battery note, not the whole device.
 
 ## Can I edit a battery note?
 
-Go into Settings -> Integrations -> Battery Notes and click Configure on the device you want to edit.
+Go into Settings -> Devices & Services -> Battery Notes and click Configure on the device you want to edit.
 
 ## What is the note field used for?
 
@@ -109,7 +115,7 @@ This was required prior to version 3, you can safely remove it and and any confi
 
 ## How do I install pre-release versions via HACS
 
-Within Home Assistant go to Settings -> Integrations -> HACS  
+Within Home Assistant go to Settings -> Devices & Services -> HACS  
 Select Services  
 Select Battery Notes  
 In the Diagnostics panel select the +1 entity not shown  
@@ -122,7 +128,7 @@ HACS will now show updates available for pre-releases if there are any
 
 ## How do I uninstall Battery Notes
 
-Within Home Assistant go to Settings -> Integrations -> Battery Notes  
+Within Home Assistant go to Settings -> Devices & Services -> Battery Notes  
 Click on the three dots for the top Battery Notes service and select Delete  
 Go to HACS from your sidebar  
 Click on the three dots next to Battery Notes and select Remove  
