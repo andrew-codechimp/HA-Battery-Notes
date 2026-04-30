@@ -9729,6 +9729,12 @@
         },
         {
             "manufacturer": "TP-Link",
+            "model": "DL-110",
+            "hw_version": "2.0",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "TP-Link",
             "model": "KE100",
             "hw_version": "1.0",
             "battery_type": "AA",
@@ -12593,12 +12599,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "TP-Link",
-            "model": "DL-110",
-            "hw_version": "2.0",
             "battery_type": "Rechargeable"
         }
     ]
