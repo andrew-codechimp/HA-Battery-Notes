@@ -12606,6 +12606,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "SONOFF",
+            "model": "SNZB-02WD",
+            "battery_type": "CR2477"
         }
     ]
 }
