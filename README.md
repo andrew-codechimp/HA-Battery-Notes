@@ -82,7 +82,7 @@ If you want to contribute to this please read the [Contribution guidelines](CONT
 
 The library relies on community contributions, it is open source under the MIT license and available for anyone to use in their project.
 
-Do not have your client accesss/download the library directly from this repository, please take a copy and distribute that by your own means.
+Do not have your client access/download the library directly from this repository, please take a copy and distribute that by your own means.
 
 Please credit the use of this library, it takes a lot of effort to maintain this.
 
