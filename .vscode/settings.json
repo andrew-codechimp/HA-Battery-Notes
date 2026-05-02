@@ -20,4 +20,5 @@
     "ruff.importStrategy": "useBundled",
     "ruff.configuration": "${workspaceFolder}/pyproject.toml",
     "python.terminal.activateEnvInCurrentTerminal": true,
+    "git.addAICoAuthor": "off",
 }
