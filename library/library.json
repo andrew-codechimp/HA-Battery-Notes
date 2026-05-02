@@ -12611,6 +12611,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Xiaomi",
+            "model": "BLE: MCCGQ02HL, isa.magnet.dw2hl",
+            "battery_type": "CR2032"
         }
     ]
 }
