@@ -11819,6 +11819,11 @@
         },
         {
             "manufacturer": "Xiaomi",
+            "model": "BLE: MCCGQ02HL, isa.magnet.dw2hl",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Xiaomi",
             "model": "BTHome sensor",
             "battery_type": "MANUAL"
         },
@@ -12611,11 +12616,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Xiaomi",
-            "model": "BLE: MCCGQ02HL, isa.magnet.dw2hl",
-            "battery_type": "CR2032"
         }
     ]
 }
