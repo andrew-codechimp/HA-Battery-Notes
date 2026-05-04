@@ -36,6 +36,10 @@ The field appears as a note attribute on Battery Type, Battery Plus and Battery 
 
 By default Battery Notes filters the device list to only devices with a battery, if you want to add a battery note to a random device then you can disable this filtering by turning on the Show all devices configuration setting.
 
+## Can I add a battery note to non smart devices?
+
+Not directly, but I have created a small integration called [Fake Devices](https://github.com/andrew-codechimp/HA-Fake-Devices) which allows you to create a device that you can add a battery note to. Ensure you have disabled the filtering to devices with batteries to see them.
+
 ## I only want to add notes to a few devices, can I disable auto discovery?
 
 If you want to disable this functionality you can turn off auto discovery in the configuration settings
