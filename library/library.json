@@ -133,13 +133,6 @@
             "battery_quantity": 2
         },
         {
-            "manufacturer": "_TZ3000_6zvw8ham",
-            "model": "TS0203",
-            "model_id": "TS0203",
-            "battery_type": "AAA",
-            "battery_quantity": 2
-        },
-        {
             "manufacturer": "_TZ3000_7d8yme6f",
             "model": "TS0203",
             "battery_type": "CR2032"
@@ -1658,13 +1651,6 @@
         },
         {
             "manufacturer": "Aqara",
-            "model": "Smart smoke detector",
-            "model_id": "JY-GZ-01AQ",
-            "hw_version": "1",
-            "battery_type": "CR17450"
-        },
-        {
-            "manufacturer": "Aqara",
             "model": "Smart Smoke Detector",
             "model_id": "lumi.sensor_smoke.acn03",
             "battery_type": "CR17450"
@@ -1752,13 +1738,6 @@
             "manufacturer": "Aqara",
             "model": "Vibration Sensor",
             "model_id": "DJT11LM",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Aqara",
-            "model": "Vibration Sensor",
-            "model_id": "DJT11LM",
-            "hw_version": "3",
             "battery_type": "CR2032"
         },
         {
@@ -2174,13 +2153,6 @@
         {
             "manufacturer": "AVM",
             "model": "FRITZ!Smart Thermo 302",
-            "battery_type": "AA",
-            "battery_quantity": 3
-        },
-        {
-            "manufacturer": "AVM",
-            "model": "FRITZ!Smart Thermo 302",
-            "hw_version": "5.26",
             "battery_type": "AA",
             "battery_quantity": 3
         },
@@ -3900,14 +3872,6 @@
         },
         {
             "manufacturer": "Eve Systems",
-            "model": "Eve Motion 20EBY9901",
-            "model_id": "89",
-            "hw_version": "1.1",
-            "battery_type": "AAA",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Eve Systems",
             "model": "Eve MotionBlinds 20CAA9901",
             "model_id": "85",
             "hw_version": "1.1",
@@ -4712,13 +4676,6 @@
             "battery_type": "CR2450"
         },
         {
-            "manufacturer": "HEIMAN",
-            "model": "Remote dimmer and color control",
-            "model_id": "HS2WDSR-E",
-            "hw_version": "16",
-            "battery_type": "CR2450"
-        },
-        {
             "manufacturer": "Heiman",
             "model": "Smart air quality monitor",
             "model_id": "HS3AQ",
@@ -4762,12 +4719,6 @@
         {
             "manufacturer": "HEIMAN",
             "model": "Smoke detector (HS1SA)",
-            "battery_type": "CR123A"
-        },
-        {
-            "manufacturer": "HEIMAN",
-            "model": "Smoke detector (HS1SA)",
-            "hw_version": "16",
             "battery_type": "CR123A"
         },
         {
@@ -7259,21 +7210,7 @@
         {
             "manufacturer": "Philips",
             "model": "Hue dimmer switch",
-            "model_id": "324131092621",
-            "hw_version": "1",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "Philips",
-            "model": "Hue dimmer switch",
             "model_id": "929002398602",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Philips",
-            "model": "Hue dimmer switch",
-            "model_id": "929002398602",
-            "hw_version": "1",
             "battery_type": "CR2032"
         },
         {
@@ -8839,23 +8776,9 @@
             "battery_type": "CR2032"
         },
         {
-            "manufacturer": "SONOFF",
-            "model": "Contact sensor",
-            "model_id": "SNZB-04",
-            "hw_version": "1",
-            "battery_type": "CR2032"
-        },
-        {
             "manufacturer": "Sonoff",
             "model": "Contact Sensor",
             "model_id": "SNZB-04P",
-            "battery_type": "CR2477"
-        },
-        {
-            "manufacturer": "SONOFF",
-            "model": "Contact sensor",
-            "model_id": "SNZB-04P",
-            "hw_version": "0",
             "battery_type": "CR2477"
         },
         {
@@ -8911,12 +8834,6 @@
         {
             "manufacturer": "SONOFF",
             "model": "SNZB-02D",
-            "battery_type": "CR2450"
-        },
-        {
-            "manufacturer": "SONOFF",
-            "model": "SNZB-02D",
-            "hw_version": "0",
             "battery_type": "CR2450"
         },
         {
@@ -9454,15 +9371,6 @@
             "manufacturer": "TFA Dostmann",
             "model": "Klima@Home",
             "model_id": "30.3060.01.IT",
-            "hw_version": "V001 A18 (09/2019)",
-            "battery_type": "AA",
-            "battery_quantity": 3
-        },
-        {
-            "manufacturer": "TFA Dostmann",
-            "model": "Klima@Home",
-            "model_id": "30.3060.54.IT",
-            "hw_version": "V001 A18 (05/2018)",
             "battery_type": "AA",
             "battery_quantity": 3
         },
@@ -10058,13 +9966,7 @@
         {
             "manufacturer": "TuYa",
             "model": "Door sensor (TS0203)",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Door sensor (TS0203)",
-            "battery_type": "AAA",
-            "battery_quantity": 2
+            "battery_type": "MANUAL"
         },
         {
             "manufacturer": "TuYa",
@@ -10877,12 +10779,6 @@
         {
             "manufacturer": "Tuya",
             "model": "TS0205",
-            "battery_type": "CR123A"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "TS0205",
-            "model_id": "_TYZB01_dsjszp0x",
             "battery_type": "CR123A"
         },
         {
@@ -11888,12 +11784,6 @@
         },
         {
             "manufacturer": "Xiaomi",
-            "model": "LYWSD03MMC",
-            "hw_version": "BTHome v2",
-            "battery_type": "CR2032"
-        },
-        {
-            "manufacturer": "Xiaomi",
             "model": "LYWSD03MMC-z",
             "battery_type": "CR2032"
         },
@@ -12412,13 +12302,6 @@
         {
             "manufacturer": "YoLink",
             "model": "YS7903-UC",
-            "model_id": "LeakSensor",
-            "battery_type": "AAA",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "YoLink",
-            "model": "YS7906-UC",
             "model_id": "LeakSensor",
             "battery_type": "AAA",
             "battery_quantity": 2
