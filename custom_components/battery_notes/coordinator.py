@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import logging
 from dataclasses import dataclass
-from datetime import datetime, timedelta
+from datetime import UTC, datetime, timedelta
 from typing import cast
 
 from homeassistant.components.binary_sensor import (
@@ -70,6 +70,13 @@ from .filters import LowOutlierFilter
 from .store import BatteryNotesStorage
 
 _LOGGER = logging.getLogger(__name__)
+
+
+def _ensure_utc(dt_val: datetime) -> datetime:
+    """Ensure a datetime is timezone-aware (UTC). Fixes naive datetimes from old storage."""
+    if dt_val.tzinfo is None:
+        return dt_val.replace(tzinfo=UTC)
+    return dt_val
 
 
 @dataclass
@@ -688,7 +695,8 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
             )
 
         if entry and LAST_REPLACED in entry and entry[LAST_REPLACED] is not None:
-            return datetime.fromisoformat(str(entry[LAST_REPLACED]))
+            dt_val = datetime.fromisoformat(str(entry[LAST_REPLACED]))
+            return _ensure_utc(dt_val)
         return None
 
     @last_replaced.setter
@@ -697,7 +705,9 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
         if not hasattr(self.config_entry, "runtime_data"):
             return
 
-        entry = {LAST_REPLACED: value}
+        entry = {
+            LAST_REPLACED: _ensure_utc(value) if isinstance(value, datetime) else value
+        }
 
         if self.source_entity_id:
             self.async_update_entity_config(entity_id=self.source_entity_id, data=entry)
@@ -721,7 +731,8 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
             )
 
         if entry and LAST_REPORTED in entry and entry[LAST_REPORTED] is not None:
-            return datetime.fromisoformat(str(entry[LAST_REPORTED]))
+            dt_val = datetime.fromisoformat(str(entry[LAST_REPORTED]))
+            return _ensure_utc(dt_val)
 
         return None
 
@@ -732,7 +743,9 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
         if not hasattr(self.config_entry, "runtime_data"):
             return
 
-        entry = {LAST_REPORTED: value}
+        entry = {
+            LAST_REPORTED: _ensure_utc(value) if isinstance(value, datetime) else value
+        }
 
         if self.source_entity_id:
             self.async_update_entity_config(entity_id=self.source_entity_id, data=entry)

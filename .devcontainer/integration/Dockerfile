@@ -1,9 +1,14 @@
-FROM ghcr.io/astral-sh/uv:trixie-slim
+FROM ghcr.io/astral-sh/uv:trixie
+
+# Install required packages
+RUN apt-get update && apt-get install -y \
+    gnupg \
+    sudo \
+    && rm -rf /var/lib/apt/lists/*
 
 # Create vscode user
 RUN useradd -m -s /bin/bash vscode \
     && echo "vscode ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
-
 
 # Ensure workspace exists and is owned by vscode
 RUN mkdir -p /workspace && chown -R vscode:vscode /workspace

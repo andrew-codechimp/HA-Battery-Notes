@@ -12,10 +12,10 @@ classifiers = [
   "Framework :: AsyncIO",
   "Intended Audience :: Developers",
   "Natural Language :: English",
-  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
   "Programming Language :: Python :: 3",
 ]
-requires-python = "==3.13.2"
+requires-python = "==3.14.2"
 dependencies = [] # Use dev for all dependencies
 
 [project.urls]
@@ -27,10 +27,34 @@ Changelog = "https://github.com/andrew-codechimp/HA-Battery-Notes/releases"
 
 [dependency-groups]
 dev = [
+    "aiodhcpwatcher",
+    "aiodiscover",
+    "aiodns",
+    "aioesphomeapi",
+    "aiousbwatcher",
+    "async-upnp-client",
+    "av",
+    "bleak_esphome",
     "colorlog",
-    "homeassistant==2025.12.0",
-    "mypy",
-    "pycares<5.0.0",
+    "debugpy",
+    "esphome_dashboard_api",
+    "go2rtc_client",
+    "ha-ffmpeg",
+    "hassil",
+    "home-assistant-intents",
+    "homeassistant==2026.4.0",
+    "infrared-protocols",
+    "mutagen",
+    "mypy==1.20.2",
+    "pycares",
+    "pygments",
+    "pymicro-vad",
+    "pyotp",
+    "pyqrcode",
+    "pyserial",
+    "pyspeex-noise",
+    "pytest-homeassistant-custom-component",
+    "pyturbojpeg",
     "ruff",
 ]
 
@@ -149,6 +173,7 @@ voluptuous = "vol"
 # Specify the target platform details in config, so your developers are
 # free to run mypy on Windows, Linux, or macOS and get consistent
 # results.
+python_version = "3.14"
 platform = "linux"
 
 # show error messages from unrelated files

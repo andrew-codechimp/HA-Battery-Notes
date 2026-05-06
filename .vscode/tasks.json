@@ -105,6 +105,20 @@
                 "reveal": "always",
                 "panel": "shared"
             }
+        },
+        {
+            "label": "Validate Library JSON",
+            "type": "shell",
+            "command": "./scripts/validate_library",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            }
         }
     ],
     "configurations": [
