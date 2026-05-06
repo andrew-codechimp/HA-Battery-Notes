@@ -158,14 +158,14 @@
                     "hide_battery": "Skjul batteriet",
                     "round_battery": "Afrund batteri",
                     "default_battery_low_threshold": "Standardgrænse for lavt batteriniveau",
-                    "battery_increase_threshold": "Grænse for stigning i batteriniveau"
+                    "default_battery_increase_threshold": "Grænse for stigning i batteriniveau"
                 },
                 "data_description": {
                     "show_all_devices": "Vis alle enheder i enhedens dropdown, ellers vises kun dem med batterier.",
                     "hide_battery": "Skjul standardbatteriet ved tilføjelse af Battery+.",
                     "round_battery": "Rund Battery+ til hele procenter.",
                     "default_battery_low_threshold": "Standardtærsklen hvor en enheds battery_low entitet sættes til sand, og battery_notes_battery_threshold hændelsen udløses, hvis batteriniveauet er under denne tærskel. Kan tilsidesættes pr. enhed i enhedskonfigurationen.",
-                    "battery_increase_threshold": "Tærsklen hvor battery_notes_battery_increased-hændelsen udløses. Brug denne hændelse til automatiseringer for batteriskift. Tærsklen er forskellen mellem tidligere og nuværende batteriniveau."
+                    "default_battery_increase_threshold": "Tærsklen hvor battery_notes_battery_increased-hændelsen udløses. Brug denne hændelse til automatiseringer for batteriskift. Tærsklen er forskellen mellem tidligere og nuværende batteriniveau. Kan tilsidesættes pr. enhed i enhedskonfigurationen."
                 },
                 "sections": {
                     "advanced_settings": {

@@ -158,14 +158,14 @@
                     "hide_battery": "Ukryj baterię",
                     "round_battery": "Zaokrąglaj baterię",
                     "default_battery_low_threshold": "Domyślny próg niskiego poziomu baterii",
-                    "battery_increase_threshold": "Próg wzrostu poziomu baterii"
+                    "default_battery_increase_threshold": "Próg wzrostu poziomu baterii"
                 },
                 "data_description": {
                     "show_all_devices": "Pokaż wszystkie urządzenia na liście wyboru, w przeciwnym razie wyświetlane będą tylko te z bateriami.",
                     "hide_battery": "Ukryj standardową baterię podczas dodawania Bateria+.",
                     "round_battery": "Zaokrąglaj Bateria+ do pełnych procentów",
                     "default_battery_low_threshold": "Domyślny próg, przy którym encja battery_low urządzenia zostaje ustawiona na true, a zdarzenie battery_notes_battery_threshold jest wywoływane, jeśli poziom baterii spadnie poniżej tego progu.\nPróg ten może zostać nadpisany indywidualnie w konfiguracji konkretnego urządzenia.",
-                    "battery_increase_threshold": "Próg, przy którym wywoływane jest zdarzenie battery_notes_battery_increased.\nUżywaj go w automatyzacjach dotyczących wymiany baterii.\nPróg określa różnicę wzrostu pomiędzy poprzednim a aktualnym poziomem baterii."
+                    "default_battery_increase_threshold": "Próg, przy którym wywoływane jest zdarzenie battery_notes_battery_increased.\nUżywaj go w automatyzacjach dotyczących wymiany baterii.\nPróg określa różnicę wzrostu pomiędzy poprzednim a aktualnym poziomem baterii.\nPróg ten może zostać nadpisany indywidualnie w konfiguracji konkretnego urządzenia."
                 },
                 "sections": {
                     "advanced_settings": {

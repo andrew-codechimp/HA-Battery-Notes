@@ -157,15 +157,15 @@
                     "show_all_devices": "Alle Geräte zeigen",
                     "hide_battery": "Batterie verbergen",
                     "round_battery": "Batterieladezustand runden",
-                    "default_battery_low_threshold": "Standard-Schwellenwert für leere Batterie",
-                    "battery_increase_threshold": "Batterieanstieg-Schwellenwert"
+                    "default_battery_low_threshold": "Standard Schwellenwert für leere Batterie",
+                    "default_battery_increase_threshold": "Batterieanstieg-Schwellenwert"
                 },
                 "data_description": {
                     "show_all_devices": "Alle Geräte in der Geräte-Auswahlliste zeigen, ansonsten nur solche mit Batterien anzeigen.",
                     "hide_battery": "Standard-Batterie-Entität beim Hinzufügen von Batterie+ verbergen.",
                     "round_battery": "Batterie+ auf ganze Prozent runden.",
                     "default_battery_low_threshold": "Der Standardschwellenwert, bei dem die battery_low-Entität auf wahr gesetzt wird und das battery_notes_battery_threshold-Ereignis ausgelöst wird, wenn die Batterie unter diesem Schwellenwert liegt. Kann in der Gerätekonfiguration pro Gerät überschrieben werden.",
-                    "battery_increase_threshold": "Der Schwellenwert, an dem das Ereignis Battery_notes_battery_increased ausgelöst wird. Verwende dieses Ereignis für Batterieersatzautomationen. Der Schwellenwert ist der Unterschied in der Steigerung zwischen dem vorigen und dem aktuellen Akkustand."
+                    "default_battery_increase_threshold": "Der Schwellenwert, an dem das Ereignis Battery_notes_battery_increased ausgelöst wird. Verwende dieses Ereignis für Batterieersatzautomationen. Der Schwellenwert ist der Unterschied in der Steigerung zwischen dem vorigen und dem aktuellen Akkustand. Kann in der Gerätekonfiguration pro Gerät überschrieben werden."
                 },
                 "sections": {
                     "advanced_settings": {

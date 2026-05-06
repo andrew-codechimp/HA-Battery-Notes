@@ -158,14 +158,14 @@
                     "hide_battery": "Nascondi batteria standard",
                     "round_battery": "Arrotonda Batteria+",
                     "default_battery_low_threshold": "Soglia predefinita batteria bassa",
-                    "battery_increase_threshold": "Soglia aumento batteria"
+                    "default_battery_increase_threshold": "Soglia aumento batteria"
                 },
                 "data_description": {
                     "show_all_devices": "Mostra tutti i dispositivi nel menu a tendina; altrimenti verranno mostrati solo quelli con batteria.",
                     "hide_battery": "Nasconde la batteria standard quando si aggiunge Batteria+.",
                     "round_battery": "Arrotonda il valore Batteria+ a percentuali intere.",
                     "default_battery_low_threshold": "Soglia predefinita sotto la quale l’entità battery_low viene impostata su vero e viene generato l’evento battery_notes_battery_threshold. Può essere sovrascritta nella configurazione del singolo dispositivo.",
-                    "battery_increase_threshold": "La soglia di aumento tra il livello precedente e quello attuale che genera l’evento battery_notes_battery_increased. Utilizzalo per automazioni basate sulla sostituzione della batteria."
+                    "default_battery_increase_threshold": "La soglia di aumento tra il livello precedente e quello attuale che genera l’evento battery_notes_battery_increased. Utilizzalo per automazioni basate sulla sostituzione della batteria. Può essere sovrascritta nella configurazione del singolo dispositivo."
                 },
                 "sections": {
                     "advanced_settings": {

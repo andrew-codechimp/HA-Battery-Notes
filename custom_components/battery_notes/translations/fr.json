@@ -158,14 +158,14 @@
                     "hide_battery": "Masquer la batterie",
                     "round_battery": "Batterie ronde",
                     "default_battery_low_threshold": "Seuil bas batterie par défaut",
-                    "battery_increase_threshold": "Seuil d'augmentation de la batterie"
+                    "default_battery_increase_threshold": "Seuil d'augmentation de la batterie"
                 },
                 "data_description": {
                     "show_all_devices": "Afficher tous les appareils dans la liste déroulante de l'appareil, sinon seuls ceux avec des piles seront affichés.",
                     "hide_battery": "Hide the standard battery when adding Battery+.",
                     "round_battery": "Round Battery+ to whole percentages.",
                     "default_battery_low_threshold": "The default threshold where a devices battery_low entity is set to true and the battery_notes_battery_threshold event is fired if the battery is below this threshold, can be overriden per device in device configuration.",
-                    "battery_increase_threshold": "The threshold where the battery_notes_battery_increased event is fired, use this event for battery replaced automations. The threshold is the difference in increase between previous and current battery level."
+                    "default_battery_increase_threshold": "The default threshold where the battery_notes_battery_increased event is fired, use this event for battery replaced automations. The threshold is the difference in increase between previous and current battery level, can be overriden per device in device configuration."
                 },
                 "sections": {
                     "advanced_settings": {

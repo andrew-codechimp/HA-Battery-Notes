@@ -158,14 +158,14 @@
                     "hide_battery": "Ocultar bateria",
                     "round_battery": "Bateria arredondada",
                     "default_battery_low_threshold": "Limite padrão de bateria baixa",
-                    "battery_increase_threshold": "Limite de aumento de bateria"
+                    "default_battery_increase_threshold": "Limite de aumento de bateria"
                 },
                 "data_description": {
                     "show_all_devices": "Mostrar todos os dispositivos no menu suspenso do dispositivo, caso contrário, apenas aqueles com bateria serão mostrados.",
                     "hide_battery": "Ocultar a bateria padrão ao adicionar bateria+",
                     "round_battery": "Arredondar Bateria+ para porcentagens inteiras",
                     "default_battery_low_threshold": "",
-                    "battery_increase_threshold": ""
+                    "default_battery_increase_threshold": ""
                 },
                 "sections": {
                     "advanced_settings": {
