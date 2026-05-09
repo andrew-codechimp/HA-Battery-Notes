@@ -1,4 +1,4 @@
-## 2162 Devices in library
+## 2163 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1524,6 +1524,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |SmartWings                                      |Roller shade                                                                                  |Rechargeable              |WM25L-Z                            |                                      |
 |Smartwings                                      |Roller shade (WM25L-Z)                                                                        |Rechargeable              |                                   |                                      |
 |Smartwings                                      |WM25/L-Z                                                                                      |Rechargeable              |                                   |                                      |
+|SmartWings                                      |WM25L                                                                                         |Rechargeable              |                                   |                                      |
 |Smoke detector                                  |SSHM-I1                                                                                       |CR123A                    |                                   |                                      |
 |Solity                                          |Solity DoorLock                                                                               |8× AA                     |                                 16|                                      |
 |Somfy                                           |IntelliTag                                                                                    |AAA                       |                                   |                                      |

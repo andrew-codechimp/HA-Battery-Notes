@@ -8729,6 +8729,11 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "SmartWings",
+            "model": "WM25L",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Smoke detector",
             "model": "SSHM-I1",
             "battery_type": "CR123A"
@@ -12514,11 +12519,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "SmartWings",
-            "model": "WM25L",
             "battery_type": "Rechargeable"
         }
     ]
