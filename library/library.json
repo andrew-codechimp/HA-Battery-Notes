@@ -12520,6 +12520,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Lutron",
+            "model": "Lutron Aurora",
+            "model_id": "Z3-1BRL",
+            "battery_type": "CR2032"
         }
     ]
 }
