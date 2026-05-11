@@ -6457,6 +6457,13 @@
         },
         {
             "manufacturer": "Moes",
+            "model": "Scene remote with 3 keys",
+            "model_id": "ZT-B-EU3",
+            "hw_version": "1",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Moes",
             "model": "Smart button",
             "model_id": "ERS-10TZBVB-AA",
             "hw_version": "1",
@@ -12548,13 +12555,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Moes",
-            "model": "Scene remote with 3 keys",
-            "model_id": "ZT-B-EU3",
-            "hw_version": "1",
-            "battery_type": "CR2032"
         }
     ]
 }
