@@ -7693,6 +7693,11 @@
         },
         {
             "manufacturer": "Ring",
+            "model": "Stick Up Cam",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Ring",
             "model": "Stick Up Cam (3rd Gen)",
             "battery_type": "Rechargeable"
         },
@@ -12530,11 +12535,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Ring",
-            "model": "Stick Up Cam",
             "battery_type": "Rechargeable"
         }
     ]
