@@ -3908,6 +3908,12 @@
         },
         {
             "manufacturer": "Eve Systems",
+            "model": "Eve Weather 20EBS9901",
+            "hw_version": "1.1",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Eve Systems",
             "model": "Thermo 20EBP1701",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -12542,12 +12548,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Eve Systems",
-            "model": "Eve Weather 20EBS9901",
-            "hw_version": "1.1",
-            "battery_type": "CR2450"
         }
     ]
 }
