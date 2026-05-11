@@ -12555,6 +12555,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Ring",
+            "model": "Glassbreak Sensor",
+            "battery_type": "AA",
+            "battery_quantity": 3
         }
     ]
 }
