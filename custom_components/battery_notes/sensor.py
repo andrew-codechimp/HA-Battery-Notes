@@ -98,13 +98,15 @@ class BatteryNotesSensorEntityDescription(
     unique_id_suffix: str
 
 
-PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
-    vol.Optional(CONF_NAME): cv.string,
-    vol.Optional(CONF_DEVICE_ID): cv.string,
-    vol.Optional(CONF_SOURCE_ENTITY_ID): cv.string,
-    vol.Required(CONF_BATTERY_TYPE): cv.string,
-    vol.Required(CONF_BATTERY_QUANTITY): cv.positive_int,
-})
+PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
+    {
+        vol.Optional(CONF_NAME): cv.string,
+        vol.Optional(CONF_DEVICE_ID): cv.string,
+        vol.Optional(CONF_SOURCE_ENTITY_ID): cv.string,
+        vol.Required(CONF_BATTERY_TYPE): cv.string,
+        vol.Required(CONF_BATTERY_QUANTITY): cv.positive_int,
+    }
+)
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -234,11 +236,13 @@ class BatteryNotesTypeSensor(BatteryNotesEntity, RestoreSensor):
 
     _attr_should_poll = False
     entity_description: BatteryNotesSensorEntityDescription
-    _unrecorded_attributes = frozenset({
-        ATTR_BATTERY_QUANTITY,
-        ATTR_BATTERY_TYPE,
-        ATTR_NOTE,
-    })
+    _unrecorded_attributes = frozenset(
+        {
+            ATTR_BATTERY_QUANTITY,
+            ATTR_BATTERY_TYPE,
+            ATTR_NOTE,
+        }
+    )
 
     def __init__(  # noqa: PLR0913
         self,
@@ -360,20 +364,22 @@ class BatteryNotesBatteryPlusBaseSensor(BatteryNotesEntity, RestoreSensor):
 
     _attr_should_poll = False
     entity_description: BatteryNotesSensorEntityDescription
-    _unrecorded_attributes = frozenset({
-        ATTR_BATTERY_QUANTITY,
-        ATTR_BATTERY_TYPE,
-        ATTR_BATTERY_TYPE_AND_QUANTITY,
-        ATTR_NOTE,
-        ATTR_BATTERY_LOW,
-        ATTR_BATTERY_LOW_THRESHOLD,
-        ATTR_BATTERY_LAST_REPORTED,
-        ATTR_BATTERY_LAST_REPORTED_LEVEL,
-        ATTR_BATTERY_LAST_REPLACED,
-        ATTR_DEVICE_ID,
-        ATTR_SOURCE_ENTITY_ID,
-        ATTR_DEVICE_NAME,
-    })
+    _unrecorded_attributes = frozenset(
+        {
+            ATTR_BATTERY_QUANTITY,
+            ATTR_BATTERY_TYPE,
+            ATTR_BATTERY_TYPE_AND_QUANTITY,
+            ATTR_NOTE,
+            ATTR_BATTERY_LOW,
+            ATTR_BATTERY_LOW_THRESHOLD,
+            ATTR_BATTERY_LAST_REPORTED,
+            ATTR_BATTERY_LAST_REPORTED_LEVEL,
+            ATTR_BATTERY_LAST_REPLACED,
+            ATTR_DEVICE_ID,
+            ATTR_SOURCE_ENTITY_ID,
+            ATTR_DEVICE_NAME,
+        }
+    )
 
     def __init__(  # noqa: PLR0913
         self,
