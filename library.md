@@ -1,4 +1,4 @@
-## 2164 Devices in library
+## 2165 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1337,6 +1337,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Ring                                            |Peephole Cam                                                                                  |Rechargeable              |                                   |                                      |
 |Ring                                            |Security Keypad                                                                               |Rechargeable              |                                   |                                      |
 |Ring                                            |Smoke & CO Listener                                                                           |CR123A                    |                                   |                                      |
+|Ring                                            |Spotlight Cam                                                                                 |Rechargeable              |                                   |                                      |
 |Ring                                            |Spotlight Cam Battery                                                                         |2× Rechargeable           |                                   |                                      |
 |Ring                                            |Spotlight Cam Plus                                                                            |Rechargeable              |                                   |                                      |
 |Ring                                            |Stick Up Cam (3rd Gen)                                                                        |Rechargeable              |                                   |                                      |
