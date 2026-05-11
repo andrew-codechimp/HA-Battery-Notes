@@ -1,4 +1,4 @@
-## 2169 Devices in library
+## 2170 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1335,6 +1335,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Ring                                            |Doorbell 4                                                                                    |Ring Li-Ion 6800mAH       |                                   |                                      |
 |Ring                                            |Flood & Freeze Sensor                                                                         |CR123A                    |                                   |                                      |
 |Ring                                            |Glass Break Sensor                                                                            |3× AA                     |                                   |                                      |
+|Ring                                            |Glassbreak Sensor                                                                             |3× AA                     |                                   |                                      |
 |Ring                                            |Intercom                                                                                      |Rechargeable              |                                   |                                      |
 |Ring                                            |Motion Sensor                                                                                 |2× AA                     |                                   |                                      |
 |Ring                                            |Peephole Cam                                                                                  |Rechargeable              |                                   |                                      |
