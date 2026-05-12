@@ -12587,6 +12587,14 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Sonoff",
+            "model": "Contact sensor",
+            "model_id": "SNZB-04PR2",
+            "hw_version": "0",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
