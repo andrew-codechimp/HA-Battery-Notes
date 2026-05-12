@@ -6177,6 +6177,11 @@
         },
         {
             "manufacturer": "LUMI",
+            "model": "lumi.motion.agl02",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "LUMI",
             "model": "lumi.motion.agl04",
             "battery_type": "CR2450",
             "battery_quantity": 2
@@ -12575,11 +12580,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "LUMI",
-            "model": "lumi.motion.agl02",
-            "battery_type": "CR2450"
         }
     ]
 }
