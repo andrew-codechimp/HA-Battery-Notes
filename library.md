@@ -1,4 +1,4 @@
-## 2174 Devices in library
+## 2175 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1548,6 +1548,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |SOMFY                                           |Sonesse 28 WF Li-Ion Roller                                                                   |MANUAL                    |                                   |zigbee:SomfyRollerShadeComponent      |
 |SONOFF                                          |Contact sensor                                                                                |CR2032                    |SNZB-04                            |                                      |
 |Sonoff                                          |Contact Sensor                                                                                |CR2477                    |SNZB-04P                           |                                      |
+|Sonoff                                          |Contact sensor                                                                                |2× AAA                    |SNZB-04PR2                         |                                     0|
 |Sonoff                                          |Contact sensor (SNZB-04)                                                                      |CR2032                    |                                   |                                      |
 |SONOFF                                          |Contact sensor (SNZB-04P)                                                                     |CR2477                    |                                   |                                      |
 |SONOFF                                          |DW2-Wi-Fi                                                                                     |2× AAA                    |                                   |                                      |
