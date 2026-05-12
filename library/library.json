@@ -12569,6 +12569,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Haozee",
+            "model": "Haozee Zigbee Temperature and Humidity sensor",
+            "model_id": "ZG-227Z",
+            "battery_type": "CR2450"
         }
     ]
 }
