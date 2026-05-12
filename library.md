@@ -1,4 +1,4 @@
-## 2171 Devices in library
+## 2172 Devices in library
 
 This file is auto generated, do not modify
 
@@ -807,6 +807,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |HANK Electronics Ltd.                           |SCN04                                                                                         |CR2450                    |                                   |                                      |
 |HANK Electronics, Ltd.                          |HKZW-DWS01                                                                                    |2× AAA                    |                                   |                                      |
 |HANK Electronics, Ltd.                          |HKZW-MS02                                                                                     |CR123A                    |                                   |                                      |
+|Haozee                                          |Haozee Zigbee Temperature and Humidity sensor                                                 |CR2450                    |ZG-227Z                            |                                      |
 |HARMAN International Industries                 |JBL BAR 1000                                                                                  |Rechargeable              |                                   |MT8518                                |
 |Heatit                                          |Z-PH WALL CONTROLLER                                                                          |CR2450                    |                                   |                                      |
 |Heatit                                          |Z-Temp2                                                                                       |3× AA                     |                                   |                                      |
