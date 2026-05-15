@@ -12595,6 +12595,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Ujin",
+            "model": "Aqua-Sense BLE",
+            "battery_type": "CR2450"
         }
     ]
 }
