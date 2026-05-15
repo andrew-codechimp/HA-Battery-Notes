@@ -11197,6 +11197,11 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "Ujin",
+            "model": "Aqua-Sense BLE",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "Ultraloq",
             "model": "U-BOLT-PRO-ZWAVE",
             "battery_type": "AA",
@@ -12595,11 +12600,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Ujin",
-            "model": "Aqua-Sense BLE",
-            "battery_type": "CR2450"
         }
     ]
 }
