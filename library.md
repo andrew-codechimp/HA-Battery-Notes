@@ -1,4 +1,4 @@
-## 2177 Devices in library
+## 2178 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1933,6 +1933,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Ubiquiti                                        |USL Environmental                                                                             |CR123A                    |USL-Environmental-US               |                                      |
 |Ujin                                            |Aqua-Sense BLE                                                                                |CR2450                    |                                   |                                      |
 |Ujin                                            |RHT-Z-H367                                                                                    |2× AA                     |                                   |                                      |
+|Ujin                                            |RHT-Z-H368                                                                                    |2× AA                     |                                   |                                      |
 |Ultraloq                                        |U-BOLT-PRO-ZWAVE                                                                              |4× AA                     |                                   |                                      |
 |Unfolded Circle                                 |Remote 3                                                                                      |Rechargeable              |                                   |                                      |
 |Unfolded Circle                                 |Remote Two                                                                                    |Rechargeable              |                                   |                                     2|

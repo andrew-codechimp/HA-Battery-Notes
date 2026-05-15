@@ -11208,6 +11208,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Ujin",
+            "model": "RHT-Z-H368",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Ultraloq",
             "model": "U-BOLT-PRO-ZWAVE",
             "battery_type": "AA",
@@ -12606,12 +12612,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Ujin",
-            "model": "RHT-Z-H368",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
