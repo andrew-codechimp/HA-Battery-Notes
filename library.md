@@ -1,4 +1,4 @@
-## 2179 Devices in library
+## 2180 Devices in library
 
 This file is auto generated, do not modify
 
@@ -2130,6 +2130,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Yale                                            |YRL256                                                                                        |4× AA                     |                                   |                                      |
 |Yale Home Inc.                                  |AK-R1                                                                                         |2× AAA                    |                                   |                                      |
 |Yale Home Inc.                                  |ASL6_05/101110/MB                                                                             |4× AA                     |                                   |                                      |
+|Yale/August                                     |AUGUST_MODEL_NUMBER_HERE                                                                      |4× AA                     |                                   |                                      |
 |Yeelight                                        |ble YLAI003                                                                                   |CR2032                    |                                   |                                      |
 |YoLink                                          |COSmokeSensor                                                                                 |2× AA                     |YS7A02-UC                          |                                      |
 |YoLink                                          |DoorSensor                                                                                    |2× AAA                    |                                   |                                      |
