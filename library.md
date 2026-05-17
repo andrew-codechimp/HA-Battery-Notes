@@ -1,4 +1,4 @@
-## 2178 Devices in library
+## 2179 Devices in library
 
 This file is auto generated, do not modify
 
@@ -344,6 +344,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Aqara                                           |ZNJLBL01LM                                                                                    |Rechargeable              |                                   |                                      |
 |Aquara                                          |AS038                                                                                         |2× CR2450                 |                                   |                                      |
 |Arlo                                            |Pro 2                                                                                         |Rechargeable              |                                   |                                      |
+|arre home LLC                                   |Temperature Sensor                                                                            |CR2032                    |                                   |                                     2|
 |Arteco                                          |Soil moisture sensor                                                                          |2× AAA                    |ZS-301Z                            |                                     1|
 |Arteco                                          |ZS-304Z                                                                                       |2× AAA                    |                                   |                                      |
 |ATC                                             |ATC (Atc1441)                                                                                 |CR2032                    |                                   |                                      |
