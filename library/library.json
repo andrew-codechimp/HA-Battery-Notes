@@ -12471,6 +12471,13 @@
         },
         {
             "manufacturer": "Zbeacon",
+            "model": "Temperature and humidity sensor",
+            "model_id": "TH01",
+            "hw_version": "0",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Zbeacon",
             "model": "TH01",
             "battery_type": "MANUAL"
         },
@@ -12624,13 +12631,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Zbeacon",
-            "model": "Temperature and humidity sensor",
-            "model_id": "TH01",
-            "hw_version": "0",
-            "battery_type": "CR2032"
         }
     ]
 }

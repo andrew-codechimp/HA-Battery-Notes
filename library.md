@@ -1,4 +1,4 @@
-## 2180 Devices in library
+## 2181 Devices in library
 
 This file is auto generated, do not modify
 
@@ -2158,6 +2158,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Yookee                                          |Smart blind                                                                                   |Rechargeable              |D10110_1                           |                                      |
 |Zbeacon                                         |DS01                                                                                          |MANUAL                    |                                   |                                      |
 |Zbeacon                                         |Temperature and humidity sensor                                                               |MANUAL                    |TH01                               |                                      |
+|Zbeacon                                         |Temperature and humidity sensor                                                               |CR2032                    |TH01                               |                                     0|
 |Zbeacon                                         |TH01                                                                                          |MANUAL                    |                                   |                                      |
 |Zemismart                                       |Blind driver                                                                                  |Rechargeable              |ZMP1                               |                                     1|
 |Zemismart                                       |Cover motor                                                                                   |Rechargeable              |ZM16EL-03/33                       |                                      |
