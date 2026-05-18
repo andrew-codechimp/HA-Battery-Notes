@@ -1651,6 +1651,13 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "Smart smoke detector",
+            "model_id": "JY-GZ-01AQ",
+            "hw_version": "1",
+            "battery_type": "CR17450"
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "Smart Smoke Detector",
             "model_id": "lumi.sensor_smoke.acn03",
             "battery_type": "CR17450"
@@ -1925,6 +1932,12 @@
             "manufacturer": "Arlo",
             "model": "Pro 2",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "arre home LLC",
+            "model": "Temperature Sensor",
+            "hw_version": "2.0",
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "Arteco",
@@ -3879,6 +3892,12 @@
         },
         {
             "manufacturer": "Eve Systems",
+            "model": "Eve Room 20EBX9901",
+            "hw_version": "1.1",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Eve Systems",
             "model": "Eve Thermo 20EBP1701",
             "model_id": "79",
             "hw_version": "1.1",
@@ -3897,6 +3916,12 @@
             "manufacturer": "Eve Systems",
             "model": "Eve Weather",
             "model_id": "20EBS9901",
+            "hw_version": "1.1",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Eve Systems",
+            "model": "Eve Weather 20EBS9901",
             "hw_version": "1.1",
             "battery_type": "CR2450"
         },
@@ -4601,6 +4626,12 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "Haozee",
+            "model": "Haozee Zigbee Temperature and Humidity sensor",
+            "model_id": "ZG-227Z",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "HARMAN International Industries",
             "model": "JBL BAR 1000",
             "hw_version": "MT8518",
@@ -4797,6 +4828,14 @@
         },
         {
             "manufacturer": "Hive",
+            "model": "Radiator valve",
+            "model_id": "UK7004240",
+            "hw_version": "69",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Hive",
             "model": "Radiator valve (UK7004240)",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -4818,6 +4857,14 @@
             "manufacturer": "HOBEIAN",
             "model": "Door/window sensor",
             "model_id": "ZG-102ZA",
+            "hw_version": "1",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "HOBEIAN",
+            "model": "Human Presence Sensor",
+            "model_id": "ZG-204ZH",
             "hw_version": "1",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -6143,6 +6190,11 @@
         },
         {
             "manufacturer": "LUMI",
+            "model": "lumi.motion.agl02",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "LUMI",
             "model": "lumi.motion.agl04",
             "battery_type": "CR2450",
             "battery_quantity": 2
@@ -6260,6 +6312,12 @@
         {
             "manufacturer": "LUMI",
             "model": "lumi.weather",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Lutron",
+            "model": "Lutron Aurora",
+            "model_id": "Z3-1BRL",
             "battery_type": "CR2032"
         },
         {
@@ -6428,6 +6486,13 @@
             "model_id": "AM43-0.45/40-ES-EB",
             "hw_version": "1",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Moes",
+            "model": "Scene remote with 3 keys",
+            "model_id": "ZT-B-EU3",
+            "hw_version": "1",
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "Moes",
@@ -7637,6 +7702,12 @@
         },
         {
             "manufacturer": "Ring",
+            "model": "Glassbreak Sensor",
+            "battery_type": "AA",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "Ring",
             "model": "Intercom",
             "battery_type": "Rechargeable"
         },
@@ -7663,6 +7734,11 @@
         },
         {
             "manufacturer": "Ring",
+            "model": "Spotlight Cam",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Ring",
             "model": "Spotlight Cam Battery",
             "battery_type": "Rechargeable",
             "battery_quantity": 2
@@ -7670,6 +7746,11 @@
         {
             "manufacturer": "Ring",
             "model": "Spotlight Cam Plus",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Ring",
+            "model": "Stick Up Cam",
             "battery_type": "Rechargeable"
         },
         {
@@ -7981,6 +8062,14 @@
             "manufacturer": "Schneider Electric",
             "model": "W599001",
             "battery_type": "Irreplaceable"
+        },
+        {
+            "manufacturer": "Schneider Electric",
+            "model": "Wiser radiator thermostat",
+            "model_id": "WV704R0A0902",
+            "hw_version": "0",
+            "battery_type": "AA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "Schneider Electric",
@@ -8713,6 +8802,11 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "SmartWings",
+            "model": "WM25L",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Smoke detector",
             "model": "SSHM-I1",
             "battery_type": "CR123A"
@@ -8780,6 +8874,14 @@
             "model": "Contact Sensor",
             "model_id": "SNZB-04P",
             "battery_type": "CR2477"
+        },
+        {
+            "manufacturer": "Sonoff",
+            "model": "Contact sensor",
+            "model_id": "SNZB-04PR2",
+            "hw_version": "0",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "Sonoff",
@@ -11101,6 +11203,23 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "Ujin",
+            "model": "Aqua-Sense BLE",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Ujin",
+            "model": "RHT-Z-H367",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Ujin",
+            "model": "RHT-Z-H368",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Ultraloq",
             "model": "U-BOLT-PRO-ZWAVE",
             "battery_type": "AA",
@@ -12171,6 +12290,12 @@
             "battery_quantity": 4
         },
         {
+            "manufacturer": "Yale/August",
+            "model": "AUGUST_MODEL_NUMBER_HERE",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
             "manufacturer": "Yeelight",
             "model": "ble YLAI003",
             "battery_type": "CR2032"
@@ -12343,6 +12468,13 @@
             "model": "Temperature and humidity sensor",
             "model_id": "TH01",
             "battery_type": "MANUAL"
+        },
+        {
+            "manufacturer": "Zbeacon",
+            "model": "Temperature and humidity sensor",
+            "model_id": "TH01",
+            "hw_version": "0",
+            "battery_type": "CR2032"
         },
         {
             "manufacturer": "Zbeacon",
