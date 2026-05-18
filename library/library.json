@@ -6509,6 +6509,13 @@
         },
         {
             "manufacturer": "Moes",
+            "model": "Smart knob",
+            "model_id": "ZG-101ZD",
+            "hw_version": "1",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Moes",
             "model": "Smart temperature and humidity meter with display",
             "model_id": "ZSS-ZK-THL",
             "hw_version": "1",
@@ -12631,13 +12638,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Moes",
-            "model": "Smart knob",
-            "model_id": "ZG-101ZD",
-            "hw_version": "1",
-            "battery_type": "CR2450"
         }
     ]
 }
