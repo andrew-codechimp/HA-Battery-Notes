@@ -1229,6 +1229,11 @@
         },
         {
             "manufacturer": "APC",
+            "model": "Smart-UPS 1500",
+            "battery_type": "APCRBC164-LI"
+        },
+        {
+            "manufacturer": "APC",
             "model": "SRV 2K I -AR",
             "battery_type": "APCRBCV204"
         },
@@ -12660,11 +12665,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "APC",
-            "model": "Smart-UPS 1500",
-            "battery_type": "APCRBC164-LI"
         }
     ]
 }
