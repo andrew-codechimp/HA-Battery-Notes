@@ -1,4 +1,4 @@
-## 2185 Devices in library
+## 2186 Devices in library
 
 This file is auto generated, do not modify
 
@@ -220,6 +220,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |American Power Conversion                       |Back-UPS RS 900MI                                                                             |Rechargeable              |                                   |                                      |
 |American Power Conversion                       |Back-UPS XS 1500M                                                                             |Rechargeable              |                                   |                                      |
 |American Power Conversion                       |Back-UPS XS 800CI                                                                             |RBCBX800-BD1              |                                   |                                      |
+|American Power Conversion                       |Back-UPS XS 950U                                                                              |RBCBX950-BD1              |                                   |                                      |
 |AMV FritzBox                                    |FRITZ!DECT 302                                                                                |3× AA                     |                                   |                                      |
 |AMV FritzBox                                    |FRITZ!DECT 350                                                                                |2× AAA                    |                                   |                                      |
 |AMV FritzBox                                    |FRITZ!DECT 440                                                                                |2× AAA                    |                                   |                                      |
