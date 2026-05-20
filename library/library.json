@@ -1189,6 +1189,11 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "American Power Conversion",
+            "model": "Back-UPS XS 800CI",
+            "battery_type": "RBCBX800-BD1"
+        },
+        {
             "manufacturer": "AMV FritzBox",
             "model": "FRITZ!DECT 302",
             "battery_type": "AA",
@@ -12650,11 +12655,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "American Power Conversion",
-            "model": "Back-UPS XS 800CI",
-            "battery_type": "RBCBX800-BD1"
         }
     ]
 }
