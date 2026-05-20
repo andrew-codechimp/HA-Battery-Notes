@@ -3292,6 +3292,12 @@
         },
         {
             "manufacturer": "eQ-3",
+            "model": "HM-Sen-Wa-Od",
+            "battery_type": "AA",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "eQ-3",
             "model": "HM-SwI-3-FM",
             "battery_type": "CR2032"
         },
@@ -12638,12 +12644,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "eQ-3",
-            "model": "HM-Sen-Wa-Od",
-            "battery_type": "AA",
-            "battery_quantity": 3
         }
     ]
 }
