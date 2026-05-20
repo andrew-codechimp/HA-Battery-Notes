@@ -12655,6 +12655,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "American Power Conversion",
+            "model": "Back-UPS XS 950U",
+            "battery_type": "RBCBX950-BD1"
         }
     ]
 }
