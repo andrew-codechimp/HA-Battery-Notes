@@ -1,4 +1,4 @@
-## 2188 Devices in library
+## 2189 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1315,6 +1315,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Popp & Co                                       |004407                                                                                        |LR14250                   |                                   |                                      |
 |Popp & Co                                       |POPE700168                                                                                    |2× AAA                    |                                   |                                      |
 |Powermax                                        |MCT-426                                                                                       |CR123A                    |                                   |                                      |
+|PushOK Hardware                                 |POK002                                                                                        |2× AAA                    |                                   |                                      |
 |PushOk Hardware                                 |POK005                                                                                        |CR14250                   |                                   |                                      |
 |PushOK Hardware                                 |POK007                                                                                        |2× AAA                    |                                   |v2                                    |
 |PushOk Hardware                                 |POK009                                                                                        |CR2032                    |                                   |v2                                    |
