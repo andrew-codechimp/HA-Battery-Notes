@@ -12679,6 +12679,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Reolink",
+            "model": "Argus 3 Ultra",
+            "hw_version": "BIPC_560MIX16M35C10G8MP",
+            "battery_type": "Rechargeable"
         }
     ]
 }
