@@ -18,7 +18,7 @@
                 },
                 "sections": {
                     "advanced_settings": {
-                        "name": "Advanced settings",
+                        "name": "Avancerade inställningar",
                         "data": {
                             "battery_percentage_template": "Battery percentage template",
                             "battery_low_template": "Batteri lågt template",
@@ -34,8 +34,8 @@
             }
         },
         "abort": {
-            "already_configured": "Integration is already configured",
-            "integration_not_added": "Integration not added, please add the integration first",
+            "already_configured": "Integrationen är redan konfigurerad",
+            "integration_not_added": "Integration har inte lagts till, lägg till integreringen först",
             "created_sub_entry": "Battery Note created successfully"
         },
         "error": {
@@ -91,7 +91,7 @@
                     },
                     "sections": {
                         "advanced_settings": {
-                            "name": "Advanced settings",
+                            "name": "Avancerade inställningar",
                             "data": {
                                 "battery_percentage_template": "Battery percentage template",
                                 "battery_low_template": "Batteri lågt template",
@@ -124,7 +124,7 @@
                     },
                     "sections": {
                         "advanced_settings": {
-                            "name": "Advanced settings",
+                            "name": "Avancerade inställningar",
                             "data": {
                                 "battery_percentage_template": "Battery percentage template",
                                 "battery_low_template": "Batteri lågt template",
@@ -154,7 +154,7 @@
         "step": {
             "init": {
                 "data": {
-                    "show_all_devices": "Show all devices",
+                    "show_all_devices": "Visa alla enheter",
                     "hide_battery": "Hide battery",
                     "round_battery": "Round battery",
                     "default_battery_low_threshold": "Default battery low threshold",
@@ -169,7 +169,7 @@
                 },
                 "sections": {
                     "advanced_settings": {
-                        "name": "Advanced settings",
+                        "name": "Avancerade inställningar",
                         "data": {
                             "enable_autodiscovery": "Auto discovery",
                             "enable_replaced": "Enable battery replaced",
@@ -296,7 +296,7 @@
                     "name": "Raise events"
                 }
             },
-            "name": "Check battery last replaced"
+            "name": "Kontrollera senast bytt batteri"
         },
         "check_battery_last_reported": {
             "description": "Get a response or raise events for devices that haven't reported their battery level.",
