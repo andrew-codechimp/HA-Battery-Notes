@@ -1,4 +1,4 @@
-## 2192 Devices in library
+## 2193 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1987,6 +1987,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Weenect                                         |pet2                                                                                          |Rechargeable              |                                   |                                      |
 |Weiser                                          |GED1455                                                                                       |4× AA                     |                                   |                                      |
 |Weiser                                          |GED1800                                                                                       |4× AA                     |                                   |                                      |
+|Wing                                            |TS0201                                                                                        |2× AAA                    |                                   |                                      |
 |Wink Inc.                                       |D/W SENSOR                                                                                    |CR14250                   |                                   |                                      |
 |Wink Inc.                                       |Motion Sensor                                                                                 |CR123A                    |                                   |                                      |
 |Wink Inc.                                       |Siren                                                                                         |2× CR123A                 |                                   |                                      |
