@@ -324,9 +324,16 @@ async def _async_battery_last_reported(call: ServiceCall) -> ServiceResponse:
         for (
             coordinator
         ) in battery_notes_config_entry.runtime_data.subentry_coordinators.values():
-            if coordinator.wrapped_battery and coordinator.last_reported:
-                time_since_last_reported = dt_util.utcnow() - coordinator.last_reported
-                if time_since_last_reported.days > days_last_reported:
+            if coordinator.wrapped_battery or coordinator.wrapped_battery_low:
+                time_since_last_reported = None
+                if coordinator.last_reported:
+                    time_since_last_reported = (
+                        dt_util.utcnow() - coordinator.last_reported
+                    )
+                if (
+                    time_since_last_reported is None
+                    or time_since_last_reported.days > days_last_reported
+                ):
                     if raise_events:
                         call.hass.bus.async_fire(
                             EVENT_BATTERY_NOT_REPORTED,
