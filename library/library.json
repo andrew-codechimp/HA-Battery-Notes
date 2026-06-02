@@ -174,6 +174,11 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "_TZ3000_an5rjiwd",
+            "model": "TS0041",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "_TZ3000_au1rjicn",
             "model": "TS0203",
             "battery_type": "CR2032"
@@ -403,6 +408,12 @@
             "manufacturer": "_TZ3000_tzvbimpq",
             "model": "TS0042",
             "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "_TZ3000_ukzswb8o",
+            "model": "TS0203",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "_TZ3000_upgcbody",
@@ -1189,6 +1200,16 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "American Power Conversion",
+            "model": "Back-UPS XS 800CI",
+            "battery_type": "RBCBX800-BD1"
+        },
+        {
+            "manufacturer": "American Power Conversion",
+            "model": "Back-UPS XS 950U",
+            "battery_type": "RBCBX950-BD1"
+        },
+        {
             "manufacturer": "AMV FritzBox",
             "model": "FRITZ!DECT 302",
             "battery_type": "AA",
@@ -1216,6 +1237,11 @@
             "manufacturer": "APC",
             "model": "Back-UPS XS 1500M",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "APC",
+            "model": "Smart-UPS 1500",
+            "battery_type": "APCRBC164-LI"
         },
         {
             "manufacturer": "APC",
@@ -3249,6 +3275,12 @@
         },
         {
             "manufacturer": "eQ-3",
+            "model": "HM-Sec-WDS-2",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "eQ-3",
             "model": "HM-Sec-Win",
             "battery_type": "HM-Sec-Win-BaP"
         },
@@ -3289,6 +3321,12 @@
             "model": "HM-Sen-MDIR-WM55",
             "battery_type": "AAA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "eQ-3",
+            "model": "HM-Sen-Wa-Od",
+            "battery_type": "AA",
+            "battery_quantity": 3
         },
         {
             "manufacturer": "eQ-3",
@@ -6509,6 +6547,13 @@
         },
         {
             "manufacturer": "Moes",
+            "model": "Smart knob",
+            "model_id": "ZG-101ZD",
+            "hw_version": "1",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Moes",
             "model": "Smart temperature and humidity meter with display",
             "model_id": "ZSS-ZK-THL",
             "hw_version": "1",
@@ -7530,6 +7575,12 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "PushOK Hardware",
+            "model": "POK002",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "PushOk Hardware",
             "model": "POK005",
             "battery_type": "CR14250"
@@ -7601,6 +7652,12 @@
             "model": "ismartgateMINI",
             "battery_type": "LR1",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Reolink",
+            "model": "Argus 3 Ultra",
+            "hw_version": "BIPC_560MIX16M35C10G8MP",
+            "battery_type": "Rechargeable"
         },
         {
             "manufacturer": "reolink",
@@ -10493,6 +10550,14 @@
         {
             "manufacturer": "TuYa",
             "model": "Smoke sensor (TS0601_smoke_1)",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Soil sensor",
+            "model_id": "SGS02Z",
+            "hw_version": "1",
             "battery_type": "AAA",
             "battery_quantity": 2
         },
