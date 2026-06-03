@@ -12707,7 +12707,7 @@
             "manufacturer": "Xiaomi",
             "model": "Temperature and Humidity Monitor 3 Mini (pvxx/ZigbeeTLc)",
             "model_id": "MJWSD06MMC-z",
-            "battery_type": "Cr2450"
+            "battery_type": "CR2450"
         }
     ]
 }
