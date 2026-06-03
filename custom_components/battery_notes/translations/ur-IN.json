@@ -6,7 +6,7 @@
                 "title": "Setup Battery Notes"
             },
             "battery": {
-                "description": "Name: {name}\nManufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
+                "description": "Name: {name}\nManufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\n",
                 "data": {
                     "battery_type": "بیٹری کی قسم",
                     "battery_quantity": "بیٹری کی مقدار",
@@ -79,7 +79,7 @@
                     }
                 },
                 "battery": {
-                    "description": "Name: {name}\nManufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
+                    "description": "Name: {name}\nManufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\n",
                     "data": {
                         "battery_type": "بیٹری کی قسم",
                         "battery_quantity": "بیٹری کی مقدار",
@@ -110,7 +110,7 @@
                     "title": "Device manual configuration"
                 },
                 "reconfigure": {
-                    "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
+                    "description": "Manufacturer: {manufacturer}\nModel: {model}\nModel ID: {model_id}\n",
                     "data": {
                         "name": "نام",
                         "battery_type": "بیٹری کی قسم",

@@ -6,7 +6,7 @@
                 "title": "Opsætning af Battery Notes"
             },
             "battery": {
-                "description": "Navn: {name}\nFabrikant: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
+                "description": "Navn: {name}\nFabrikant: {manufacturer}\nModel: {model}\nModel ID: {model_id}\n",
                 "data": {
                     "battery_type": "Batteritype",
                     "battery_quantity": "Antal batterier",
@@ -79,7 +79,7 @@
                     }
                 },
                 "battery": {
-                    "description": "Navn: {name}\nFabrikant: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
+                    "description": "Navn: {name}\nFabrikant: {manufacturer}\nModel: {model}\nModel ID: {model_id}\n",
                     "data": {
                         "battery_type": "Batteritype",
                         "battery_quantity": "Antal batterier",
@@ -110,7 +110,7 @@
                     "title": "Manuel enhedskonfiguration"
                 },
                 "reconfigure": {
-                    "description": "Fabrikant: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware version: {hw_version}",
+                    "description": "Fabrikant: {manufacturer}\nModel: {model}\nModel ID: {model_id}\n",
                     "data": {
                         "name": "Navn",
                         "battery_type": "Batteritype",

@@ -6,7 +6,7 @@
                 "title": "Setup Battery Notes"
             },
             "battery": {
-                "description": "İsim: {name}\nÜretici firma: {manufacturer}\nModel: {model}\nModel Kodu: {model_id}\nDonanım sürümü: {hw_version}",
+                "description": "İsim: {name}\nÜretici firma: {manufacturer}\nModel: {model}\nModel Kodu: {model_id}\n",
                 "data": {
                     "battery_type": "Pil Türü",
                     "battery_quantity": "Pil miktarı",
@@ -79,7 +79,7 @@
                     }
                 },
                 "battery": {
-                    "description": "İsim: {name}\nÜretici firma: {manufacturer}\nModel: {model}\nModel Kodu: {model_id}\nDonanım sürümü: {hw_version}",
+                    "description": "İsim: {name}\nÜretici firma: {manufacturer}\nModel: {model}\nModel Kodu: {model_id}\n",
                     "data": {
                         "battery_type": "Pil Türü",
                         "battery_quantity": "Pil miktarı",
@@ -110,7 +110,7 @@
                     "title": "Cihaz manuel yapılandırması"
                 },
                 "reconfigure": {
-                    "description": "Üretici firma: {manufacturer}\nModel: {model}\nModel kodu: {model_id}\nDonanım sürümü: {hw_version}",
+                    "description": "Üretici firma: {manufacturer}\nModel: {model}\nModel kodu: {model_id}\n",
                     "data": {
                         "name": "İsim",
                         "battery_type": "Pil türü",

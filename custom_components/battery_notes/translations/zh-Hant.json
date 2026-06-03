@@ -6,7 +6,7 @@
                 "title": "Setup Battery Notes"
             },
             "battery": {
-                "description": "名稱: {name}\n製造商：{manufacturer}\n型號：{model}\n型號 ID：{model_id}\n硬體版本：{hw_version}",
+                "description": "名稱: {name}\n製造商：{manufacturer}\n型號：{model}\n型號 ID：{model_id}\n",
                 "data": {
                     "battery_type": "電池類型",
                     "battery_quantity": "電池數量",
@@ -79,7 +79,7 @@
                     }
                 },
                 "battery": {
-                    "description": "名稱: {name}\n製造商：{manufacturer}\n型號：{model}\n型號 ID：{model_id}\n硬體版本：{hw_version}",
+                    "description": "名稱: {name}\n製造商：{manufacturer}\n型號：{model}\n型號 ID：{model_id}\n",
                     "data": {
                         "battery_type": "電池類型",
                         "battery_quantity": "電池數量",
@@ -110,7 +110,7 @@
                     "title": "裝置手動設定"
                 },
                 "reconfigure": {
-                    "description": "製造商：{manufacturer}\n型號：{model}\n型號 ID：{model_id}\n硬體版本：{hw_version}",
+                    "description": "製造商：{manufacturer}\n型號：{model}\n型號 ID：{model_id}\n",
                     "data": {
                         "name": "名稱",
                         "battery_type": "電池類型",

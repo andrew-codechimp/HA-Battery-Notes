@@ -6,7 +6,7 @@
                 "title": "Battery Notes einrichten"
             },
             "battery": {
-                "description": "Name: {name}\nHersteller: {manufacturer}\nModell: {model}\nModell-ID: {model_id}\nHardware-Version: {hw_version}",
+                "description": "Name: {name}\nHersteller: {manufacturer}\nModell: {model}\nModell-ID: {model_id}\n",
                 "data": {
                     "battery_type": "Batterieart",
                     "battery_quantity": "Batteriemenge",
@@ -79,7 +79,7 @@
                     }
                 },
                 "battery": {
-                    "description": "Name: {name}\nHersteller: {manufacturer}\nModell: {model}\nModell-ID: {model_id}\nHardware-Version: {hw_version}",
+                    "description": "Name: {name}\nHersteller: {manufacturer}\nModell: {model}\nModell-ID: {model_id}\n",
                     "data": {
                         "battery_type": "Batterie-Typ",
                         "battery_quantity": "Anzahl Batterien",
@@ -110,7 +110,7 @@
                     "title": "Gerät manuell konfigurieren"
                 },
                 "reconfigure": {
-                    "description": "Hersteller: {manufacturer}\nModell: {model}\nModell-ID: {model_id}\nHardware-Version: {hw_version}",
+                    "description": "Hersteller: {manufacturer}\nModell: {model}\nModell-ID: {model_id}\n",
                     "data": {
                         "name": "Name",
                         "battery_type": "Batterie-Typ",

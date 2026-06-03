@@ -6,7 +6,7 @@
                 "title": "Setup Battery Notes"
             },
             "battery": {
-                "description": "Nome: {name}\nFabricante: {manufacturer}\nModelo: {model}\nID do Modelo: {model_id}\nVersão de Hardware: {hw_version}",
+                "description": "Nome: {name}\nFabricante: {manufacturer}\nModelo: {model}\nID do Modelo: {model_id}\n",
                 "data": {
                     "battery_type": "Tipo de bateria",
                     "battery_quantity": "Quantidade de baterias",
@@ -79,7 +79,7 @@
                     }
                 },
                 "battery": {
-                    "description": "Nome: {name}\nFabricante: {manufacturer}\nModelo: {model}\nID do Modelo: {model_id}\nVersão de Hardware: {hw_version}",
+                    "description": "Nome: {name}\nFabricante: {manufacturer}\nModelo: {model}\nID do Modelo: {model_id}\n",
                     "data": {
                         "battery_type": "Tipo de bateria",
                         "battery_quantity": "Quantidades de baterias",
@@ -110,7 +110,7 @@
                     "title": "Configuração manual do dispositivo"
                 },
                 "reconfigure": {
-                    "description": "Fabricante: {manufacturer}\nModelo: {model}\nID do Modelo: {model_id}\nVersão de Hardware: {hw_version}",
+                    "description": "Fabricante: {manufacturer}\nModelo: {model}\nID do Modelo: {model_id}\n",
                     "data": {
                         "name": "Nome",
                         "battery_type": "Tipo de bateria",

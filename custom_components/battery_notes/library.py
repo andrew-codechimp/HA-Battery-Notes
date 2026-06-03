@@ -23,7 +23,6 @@ LIBRARY_MANUFACTURER: Final[str] = "manufacturer"
 LIBRARY_MODEL: Final[str] = "model"
 LIBRARY_MODEL_MATCH_METHOD: Final[str] = "model_match_method"
 LIBRARY_MODEL_ID: Final[str] = "model_id"
-LIBRARY_HW_VERSION: Final[str] = "hw_version"
 LIBRARY_BATTERY_TYPE: Final[str] = "battery_type"
 LIBRARY_BATTERY_QUANTITY: Final[str] = "battery_quantity"
 LIBRARY_MISSING: Final[str] = "##MISSING##"
@@ -41,7 +40,6 @@ class LibraryDevice:
     model_match_method: str | None = None
     model_id: str | None = None
     battery_quantity: int = 1
-    hw_version: str | None = None
 
     @classmethod
     def from_json(cls, data: dict[str, Any]) -> LibraryDevice:
@@ -51,7 +49,6 @@ class LibraryDevice:
             model=data[LIBRARY_MODEL],
             model_match_method=data.get(LIBRARY_MODEL_MATCH_METHOD),
             model_id=data.get(LIBRARY_MODEL_ID),
-            hw_version=data.get(LIBRARY_HW_VERSION),
             battery_type=data[LIBRARY_BATTERY_TYPE],
             battery_quantity=data.get(LIBRARY_BATTERY_QUANTITY, 1),
         )
@@ -239,7 +236,6 @@ class Library:  # pylint: disable=too-few-public-methods
                 device.manufacturer == first_matched_device.manufacturer
                 and device.model == first_matched_device.model
                 and device.model_id == first_matched_device.model_id
-                and device.hw_version == first_matched_device.hw_version
                 and device.model_match_method == first_matched_device.model_match_method
                 and device.battery_type == first_matched_device.battery_type
                 and device.battery_quantity == first_matched_device.battery_quantity
@@ -252,7 +248,6 @@ class Library:  # pylint: disable=too-few-public-methods
             manufacturer=first_matched_device.manufacturer,
             model=first_matched_device.model,
             model_id=first_matched_device.model_id or "",
-            hw_version=first_matched_device.hw_version or "",
             battery_type=first_matched_device.battery_type,
             battery_quantity=first_matched_device.battery_quantity,
         )
@@ -303,16 +298,12 @@ class Library:  # pylint: disable=too-few-public-methods
     def device_partial_match(
         self, library_device: LibraryDevice, device_to_find: ModelInfo
     ) -> bool:
-        """Check if device match on hw_version or model_id."""
-        if device_to_find.hw_version is None and device_to_find.model_id is None:
-            return bool(
-                library_device.hw_version is None and library_device.model_id is None
-            )
+        """Check if device match on model_id."""
+        if device_to_find.model_id is None:
+            return bool(library_device.model_id is None)
 
-        if device_to_find.hw_version is None or device_to_find.model_id is None:
-            if (library_device.hw_version or "").casefold() == str(
-                device_to_find.hw_version
-            ).casefold() or (library_device.model_id or "").casefold() == str(
+        if device_to_find.model_id is None:
+            if (library_device.model_id or "").casefold() == str(
                 device_to_find.model_id
             ).casefold():
                 return True
@@ -322,11 +313,9 @@ class Library:  # pylint: disable=too-few-public-methods
     def device_full_match(
         self, library_device: LibraryDevice, device_to_find: ModelInfo
     ) -> bool:
-        """Check if device match on hw_version and model_id."""
+        """Check if device match on model_id."""
         return bool(
-            (library_device.hw_version or "").casefold()
-            == str(device_to_find.hw_version).casefold()
-            and (library_device.model_id or "").casefold()
+            (library_device.model_id or "").casefold()
             == str(device_to_find.model_id).casefold()
         )
 
@@ -337,7 +326,6 @@ class DeviceBatteryDetails(NamedTuple):
     manufacturer: str
     model: str
     model_id: str
-    hw_version: str
     battery_type: str
     battery_quantity: int
 
@@ -368,4 +356,3 @@ class ModelInfo(NamedTuple):
     manufacturer: str
     model: str
     model_id: str | None
-    hw_version: str | None

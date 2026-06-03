@@ -42,7 +42,6 @@ async def async_get_config_entry_diagnostics(
                     "manufacturer": device_entry.manufacturer,
                     "model": device_entry.model,
                     "model_id": get_device_model_id(device_entry),
-                    "hw_version": device_entry.hw_version,
                 }
                 diagnostics.update({f"subentry {subentry.subentry_id}": device_info})
 

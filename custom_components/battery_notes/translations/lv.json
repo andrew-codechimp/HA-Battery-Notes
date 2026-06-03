@@ -6,7 +6,7 @@
                 "title": "Setup Battery Notes"
             },
             "battery": {
-                "description": "Nosaukums: {name}\nRažotājs: {manufacturer}\nModelis: {model}\nModeļa ID: {model_id}\nAparatūras versija: {hw_version}",
+                "description": "Nosaukums: {name}\nRažotājs: {manufacturer}\nModelis: {model}\nModeļa ID: {model_id}\n",
                 "data": {
                     "battery_type": "Baterijas tips",
                     "battery_quantity": "Bateriju daudzums",
@@ -79,7 +79,7 @@
                     }
                 },
                 "battery": {
-                    "description": "Nosaukums: {name}\nRažotājs: {manufacturer}\nModelis: {model}\nModeļa ID: {model_id}\nAparatūras versija: {hw_version}",
+                    "description": "Nosaukums: {name}\nRažotājs: {manufacturer}\nModelis: {model}\nModeļa ID: {model_id}\n",
                     "data": {
                         "battery_type": "Baterijas tips",
                         "battery_quantity": "Bateriju daudzums",
@@ -110,7 +110,7 @@
                     "title": "Ierīces manuāla konfigurācija"
                 },
                 "reconfigure": {
-                    "description": "Ražotājs: {manufacturer}\nModelis: {model}\nModeļa ID: {model_id}\nAparatūras versija: {hw_version}",
+                    "description": "Ražotājs: {manufacturer}\nModelis: {model}\nModeļa ID: {model_id}\n",
                     "data": {
                         "name": "Nosaukums",
                         "battery_type": "Baterijas tips",

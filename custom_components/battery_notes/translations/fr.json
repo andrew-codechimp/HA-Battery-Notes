@@ -6,7 +6,7 @@
                 "title": "Configuration de Battery Notes"
             },
             "battery": {
-                "description": "Nom: {name}\nFabricant : {manufacturer}\nModèle : {model}\nID modèle : {model_id}\nVersion du matériel : {hw_version}",
+                "description": "Nom: {name}\nFabricant : {manufacturer}\nModèle : {model}\nID modèle : {model_id}\n",
                 "data": {
                     "battery_type": "Type de batterie",
                     "battery_quantity": "Nombre de batteries",
@@ -79,7 +79,7 @@
                     }
                 },
                 "battery": {
-                    "description": "Nom: {name}\nFabricant : {manufacturer}\nModèle : {model}\nID modèle : {model_id}\nVersion du matériel : {hw_version}",
+                    "description": "Nom: {name}\nFabricant : {manufacturer}\nModèle : {model}\nID modèle : {model_id}\n",
                     "data": {
                         "battery_type": "Type de batterie",
                         "battery_quantity": "Nombre de batteries",
@@ -110,7 +110,7 @@
                     "title": "Configuration manuelle de l'appareil"
                 },
                 "reconfigure": {
-                    "description": "Fabricant : {manufacturer}\nModèle : {model}\nID modèle : {model_id}\nVersion du matériel : {hw_version}",
+                    "description": "Fabricant : {manufacturer}\nModèle : {model}\nID modèle : {model_id}\n",
                     "data": {
                         "name": "Nom",
                         "battery_type": "Type de batterie",

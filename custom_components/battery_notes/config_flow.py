@@ -42,7 +42,6 @@ from .const import (
     CONF_ENABLE_REPLACED,
     CONF_FILTER_OUTLIERS,
     CONF_HIDE_BATTERY,
-    CONF_HW_VERSION,
     CONF_INTEGRATION_NAME,
     CONF_MANUFACTURER,
     CONF_MODEL,
@@ -313,7 +312,6 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             "manufacturer": discovery_info[CONF_MANUFACTURER],
             "model": discovery_info[CONF_MODEL],
             "model_id": discovery_info[CONF_MODEL_ID],
-            "hw_version": discovery_info[CONF_HW_VERSION],
         }
 
         await self.async_set_unique_id(unique_id)
@@ -383,18 +381,16 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
 
             if device_entry and device_entry.manufacturer and device_entry.model:
                 _LOGGER.debug(
-                    "Looking up device %s %s %s %s",
+                    "Looking up device %s %s %s",
                     device_entry.manufacturer,
                     device_entry.model,
                     get_device_model_id(device_entry) or "",
-                    device_entry.hw_version,
                 )
 
                 self.model_info = ModelInfo(
                     device_entry.manufacturer,
                     device_entry.model,
                     get_device_model_id(device_entry),
-                    device_entry.hw_version,
                 )
 
                 library = self.hass.data[DATA_LIBRARY]
@@ -410,11 +406,10 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
 
                 if device_battery_details and not device_battery_details.is_manual:
                     _LOGGER.debug(
-                        "Found device %s %s %s %s",
+                        "Found device %s %s %s",
                         device_entry.manufacturer,
                         device_entry.model,
                         get_device_model_id(device_entry) or "",
-                        device_entry.hw_version,
                     )
                     self.data[CONF_BATTERY_TYPE] = device_battery_details.battery_type
 
@@ -477,7 +472,6 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             self.data.pop(CONF_MANUFACTURER, None)
             self.data.pop(CONF_MODEL, None)
             self.data.pop(CONF_MODEL_ID, None)
-            self.data.pop(CONF_HW_VERSION, None)
             self.data.pop(CONF_INTEGRATION_NAME, None)
 
             self.data.pop(CONF_NAME, None)
@@ -500,9 +494,6 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                 "model": self.model_info.model if self.model_info else "",
                 "model_id": (
                     str(self.model_info.model_id or "") if self.model_info else ""
-                ),
-                "hw_version": (
-                    str(self.model_info.hw_version or "") if self.model_info else ""
                 ),
             },
             data_schema=vol.Schema(
@@ -626,18 +617,16 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
 
             if device_entry and device_entry.manufacturer and device_entry.model:
                 _LOGGER.debug(
-                    "Looking up device %s %s %s %s",
+                    "Looking up device %s %s %s",
                     device_entry.manufacturer,
                     device_entry.model,
                     get_device_model_id(device_entry) or "",
-                    device_entry.hw_version,
                 )
 
                 self.model_info = ModelInfo(
                     device_entry.manufacturer,
                     device_entry.model,
                     get_device_model_id(device_entry),
-                    device_entry.hw_version,
                 )
 
                 library = self.hass.data[DATA_LIBRARY]
@@ -653,11 +642,10 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
 
                 if device_battery_details and not device_battery_details.is_manual:
                     _LOGGER.debug(
-                        "Found device %s %s %s %s",
+                        "Found device %s %s %s",
                         device_entry.manufacturer,
                         device_entry.model,
                         get_device_model_id(device_entry) or "",
-                        device_entry.hw_version,
                     )
                     self.data[CONF_BATTERY_TYPE] = device_battery_details.battery_type
 
@@ -719,18 +707,16 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
                         and device_entry.model
                     ):
                         _LOGGER.debug(
-                            "Looking up device %s %s %s %s",
+                            "Looking up device %s %s %s",
                             device_entry.manufacturer,
                             device_entry.model,
                             get_device_model_id(device_entry) or "",
-                            device_entry.hw_version,
                         )
 
                         self.model_info = ModelInfo(
                             device_entry.manufacturer,
                             device_entry.model,
                             get_device_model_id(device_entry),
-                            device_entry.hw_version,
                         )
 
                         library = self.hass.data[DATA_LIBRARY]
@@ -746,11 +732,10 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
                             and not device_battery_details.is_manual
                         ):
                             _LOGGER.debug(
-                                "Found device %s %s %s %s",
+                                "Found device %s %s %s",
                                 device_entry.manufacturer,
                                 device_entry.model,
                                 get_device_model_id(device_entry) or "",
-                                device_entry.hw_version,
                             )
                             self.data[CONF_BATTERY_TYPE] = (
                                 device_battery_details.battery_type
@@ -843,9 +828,6 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
                 "model": self.model_info.model if self.model_info else "",
                 "model_id": (
                     str(self.model_info.model_id or "") if self.model_info else ""
-                ),
-                "hw_version": (
-                    str(self.model_info.hw_version or "") if self.model_info else ""
                 ),
             },
             data_schema=vol.Schema(
@@ -964,18 +946,16 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
                 errors["base"] = "orphaned_battery_note"
             elif device_entry and device_entry.manufacturer and device_entry.model:
                 _LOGGER.debug(
-                    "Looking up device %s %s %s %s",
+                    "Looking up device %s %s %s",
                     device_entry.manufacturer,
                     device_entry.model,
                     get_device_model_id(device_entry) or "",
-                    device_entry.hw_version,
                 )
 
                 self.model_info = ModelInfo(
                     device_entry.manufacturer,
                     device_entry.model,
                     get_device_model_id(device_entry),
-                    device_entry.hw_version,
                 )
 
         data_schema = vol.Schema(
@@ -1030,9 +1010,6 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
                 "model": self.model_info.model if self.model_info else "",
                 "model_id": (
                     str(self.model_info.model_id or "") if self.model_info else ""
-                ),
-                "hw_version": (
-                    str(self.model_info.hw_version or "") if self.model_info else ""
                 ),
             },
             data_schema=self.add_suggested_values_to_schema(data_schema, self.data),

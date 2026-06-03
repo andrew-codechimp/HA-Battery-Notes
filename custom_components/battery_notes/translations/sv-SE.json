@@ -6,7 +6,7 @@
                 "title": "Setup Battery Notes"
             },
             "battery": {
-                "description": "Namn: {name}\nTillverkare: {manufacturer}\nModell: {model}\nModell ID: {model_id}\nHårdvaruversion: {hw_version}",
+                "description": "Namn: {name}\nTillverkare: {manufacturer}\nModell: {model}\nModell ID: {model_id}\n",
                 "data": {
                     "battery_type": "Batterityp",
                     "battery_quantity": "Antal batterier",
@@ -79,7 +79,7 @@
                     }
                 },
                 "battery": {
-                    "description": "Namn: {name}\nTillverkare: {manufacturer}\nModell: {model}\nModell ID: {model_id}\nHårdvaruversion: {hw_version}",
+                    "description": "Namn: {name}\nTillverkare: {manufacturer}\nModell: {model}\nModell ID: {model_id}\n",
                     "data": {
                         "battery_type": "Batterityp",
                         "battery_quantity": "Antal batterier",
@@ -110,7 +110,7 @@
                     "title": "Manuell konfiguration av enhet"
                 },
                 "reconfigure": {
-                    "description": "Tillverkare: {manufacturer}\nModell: {model}\nModell ID: {model_id}\nHårdvaruversion: {hw_version}",
+                    "description": "Tillverkare: {manufacturer}\nModell: {model}\nModell ID: {model_id}\n",
                     "data": {
                         "name": "Namn",
                         "battery_type": "Batterityp",

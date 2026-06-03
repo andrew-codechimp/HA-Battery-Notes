@@ -6,7 +6,7 @@
                 "title": "Налаштування Battery Notes"
             },
             "battery": {
-                "description": "Назва: {name}\nВиробник: {manufacturer}\nМодель: {model}\nID моделі: {model_id}\nРевізія: {hw_version}",
+                "description": "Назва: {name}\nВиробник: {manufacturer}\nМодель: {model}\nID моделі: {model_id}\n",
                 "data": {
                     "battery_type": "Тип батареї",
                     "battery_quantity": "Кількість батарей",
@@ -79,7 +79,7 @@
                     }
                 },
                 "battery": {
-                    "description": "Назва: {name}\nВиробник: {manufacturer}\nМодель: {model}\nID моделі: {model_id}\nРевізія: {hw_version}",
+                    "description": "Назва: {name}\nВиробник: {manufacturer}\nМодель: {model}\nID моделі: {model_id}\n",
                     "data": {
                         "battery_type": "Тип батареї",
                         "battery_quantity": "Кількість батарей",
@@ -110,7 +110,7 @@
                     "title": "Ручне налаштування пристрою"
                 },
                 "reconfigure": {
-                    "description": "Виробник: {manufacturer}\nМодель: {model}\nID моделі: {model_id}\nРевізія: {hw_version}",
+                    "description": "Виробник: {manufacturer}\nМодель: {model}\nID моделі: {model_id}\n",
                     "data": {
                         "name": "Назва",
                         "battery_type": "Тип батареї",

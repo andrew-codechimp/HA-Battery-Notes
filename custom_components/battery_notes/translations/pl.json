@@ -6,7 +6,7 @@
                 "title": "Konfiguracja notatek baterii"
             },
             "battery": {
-                "description": "Nazwa: {name}\nProducent: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nWersja sprzętowa: {hw_version}",
+                "description": "Nazwa: {name}\nProducent: {manufacturer}\nModel: {model}\nModel ID: {model_id}\n",
                 "data": {
                     "battery_type": "Typ baterii",
                     "battery_quantity": "Liczba baterii",
@@ -79,7 +79,7 @@
                     }
                 },
                 "battery": {
-                    "description": "Nazwa: {name}\nProducent: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nWersja sprzętowa: {hw_version}",
+                    "description": "Nazwa: {name}\nProducent: {manufacturer}\nModel: {model}\nModel ID: {model_id}\n",
                     "data": {
                         "battery_type": "Typ baterii",
                         "battery_quantity": "Liczba baterii",
@@ -110,7 +110,7 @@
                     "title": "Ręczna konfiguracja urządzenia"
                 },
                 "reconfigure": {
-                    "description": "Producent: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nWersja sprzętowa: {hw_version}",
+                    "description": "Producent: {manufacturer}\nModel: {model}\nModel ID: {model_id}\n",
                     "data": {
                         "name": "Nazwa",
                         "battery_type": "Typ baterii",

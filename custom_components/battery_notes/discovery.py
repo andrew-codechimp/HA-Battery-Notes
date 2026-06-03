@@ -17,7 +17,6 @@ from .const import (
     CONF_BATTERY_QUANTITY,
     CONF_BATTERY_TYPE,
     CONF_DEVICE_NAME,
-    CONF_HW_VERSION,
     CONF_INTEGRATION_NAME,
     CONF_MANUFACTURER,
     CONF_MODEL,
@@ -62,12 +61,11 @@ async def get_model_information(
     manufacturer = device_entry.manufacturer
     model = device_entry.model
     model_id = get_device_model_id(device_entry)
-    hw_version = device_entry.hw_version
 
     if not manufacturer or not model:
         return None
 
-    return ModelInfo(manufacturer, model, model_id, hw_version)
+    return ModelInfo(manufacturer, model, model_id)
 
 
 class DiscoveryManager:
@@ -185,7 +183,6 @@ class DiscoveryManager:
         discovery_data[CONF_MANUFACTURER] = device_battery_details.manufacturer
         discovery_data[CONF_MODEL] = device_battery_details.model
         discovery_data[CONF_MODEL_ID] = get_device_model_id(device_entry)
-        discovery_data[CONF_HW_VERSION] = device_battery_details.hw_version
         discovery_data[CONF_DEVICE_NAME] = get_wrapped_device_name(
             device_entry.id, device_entry
         )

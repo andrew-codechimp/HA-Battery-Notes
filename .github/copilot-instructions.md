@@ -20,7 +20,7 @@ Battery Notes is a Home Assistant custom integration that tracks battery informa
 ### Device Discovery & Library
 - `library/library.json`: 10K+ device definitions with battery types
 - `discovery.py`: Auto-discovers devices and creates config entries
-- Device matching: `manufacturer` + `model` (+ optional `hw_version`)
+- Device matching: `manufacturer` + `model` (+ optional `model_id`)
 
 ## Key File Responsibilities
 

@@ -46,7 +46,6 @@ from .const import (
     CONF_ENABLE_REPLACED,
     CONF_FILTER_OUTLIERS,
     CONF_HIDE_BATTERY,
-    CONF_HW_VERSION,
     CONF_MANUFACTURER,
     CONF_MODEL,
     CONF_MODEL_ID,
@@ -287,7 +286,6 @@ async def async_migrate_integration(hass: HomeAssistant, config: ConfigType) -> 
         entry_data_dict.pop(CONF_MANUFACTURER, None)
         entry_data_dict.pop(CONF_MODEL, None)
         entry_data_dict.pop(CONF_MODEL_ID, None)
-        entry_data_dict.pop(CONF_HW_VERSION, None)
 
         subentry = ConfigSubentry(
             data=MappingProxyType(entry_data_dict),

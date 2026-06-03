@@ -6,7 +6,7 @@
                 "title": "Setup Battery Notes"
             },
             "battery": {
-                "description": "اسم: {}\nالصانع: {manufacturer}\nالطراز: {model}\nمعرف الطراز: {model_id}\nإصدار الجهاز: {hw_version}",
+                "description": "اسم: {}\nالصانع: {manufacturer}\nالطراز: {model}\nمعرف الطراز: {model_id}\n",
                 "data": {
                     "battery_type": "نوع البطارية",
                     "battery_quantity": "كَمّيَّة البطارية",
@@ -79,7 +79,7 @@
                     }
                 },
                 "battery": {
-                    "description": "اسم: {}\nالصانع: {manufacturer}\nالطراز: {model}\nمعرف الطراز: {model_id}\nإصدار الجهاز: {hw_version}",
+                    "description": "اسم: {}\nالصانع: {manufacturer}\nالطراز: {model}\nمعرف الطراز: {model_id}\n",
                     "data": {
                         "battery_type": "نوع البطارية",
                         "battery_quantity": "كَمّيَّة البطارية",
@@ -110,7 +110,7 @@
                     "title": "التكوين اليدوي للجهاز\n\n\n\n"
                 },
                 "reconfigure": {
-                    "description": "الصانع: {manufacturer}\nالطراز: {model}\nمعرف الطراز: {model_id}\nإصدار الجهاز: {hw_version}",
+                    "description": "الصانع: {manufacturer}\nالطراز: {model}\nمعرف الطراز: {model_id}\n",
                     "data": {
                         "name": "اسم",
                         "battery_type": "نوع البطارية",

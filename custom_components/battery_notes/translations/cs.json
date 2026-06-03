@@ -6,7 +6,7 @@
                 "title": "Setup Battery Notes"
             },
             "battery": {
-                "description": "Název: {name}\nVýrobce: {manufacturer}\nModel: {model}\nID modelu: {model_id}\nHardware verze: {hw_version}",
+                "description": "Název: {name}\nVýrobce: {manufacturer}\nModel: {model}\nID modelu: {model_id}\n",
                 "data": {
                     "battery_type": "Typ baterie",
                     "battery_quantity": "Množství baterií",
@@ -79,7 +79,7 @@
                     }
                 },
                 "battery": {
-                    "description": "Název: {name}\nVýrobce: {manufacturer}\nModel: {model}\nID modelu: {model_id}\nHardware verze: {hw_version}",
+                    "description": "Název: {name}\nVýrobce: {manufacturer}\nModel: {model}\nID modelu: {model_id}\n",
                     "data": {
                         "battery_type": "Typ baterie",
                         "battery_quantity": "Množství baterií",
@@ -110,7 +110,7 @@
                     "title": "Ruční nastavení zařízení"
                 },
                 "reconfigure": {
-                    "description": "Výrobce: {manufacturer}\nModel: {model}\nID modelu: {model_id}\nHardware verze: {hw_version}",
+                    "description": "Výrobce: {manufacturer}\nModel: {model}\nID modelu: {model_id}\n",
                     "data": {
                         "name": "Název",
                         "battery_type": "Typ baterie",

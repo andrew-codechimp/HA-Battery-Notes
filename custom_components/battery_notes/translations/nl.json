@@ -6,7 +6,7 @@
                 "title": "Setup Battery Notes"
             },
             "battery": {
-                "description": "Naam: {name}\nFabrikant: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware versie: {hw_version}",
+                "description": "Naam: {name}\nFabrikant: {manufacturer}\nModel: {model}\nModel ID: {model_id}\n",
                 "data": {
                     "battery_type": "Batterij type",
                     "battery_quantity": "Aantal batterijen",
@@ -79,7 +79,7 @@
                     }
                 },
                 "battery": {
-                    "description": "Naam: {name}\nFabrikant: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware versie: {hw_version}",
+                    "description": "Naam: {name}\nFabrikant: {manufacturer}\nModel: {model}\nModel ID: {model_id}\n",
                     "data": {
                         "battery_type": "Batterij type",
                         "battery_quantity": "Aantal batterijen",
@@ -110,7 +110,7 @@
                     "title": "Handmatige configuratie van het toestel"
                 },
                 "reconfigure": {
-                    "description": "Fabrikant: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware versie: {hw_version}",
+                    "description": "Fabrikant: {manufacturer}\nModel: {model}\nModel ID: {model_id}\n",
                     "data": {
                         "name": "Naam",
                         "battery_type": "Batterij type",
