@@ -12168,6 +12168,12 @@
         },
         {
             "manufacturer": "Xiaomi",
+            "model": "Temperature and Humidity Monitor 3 Mini (pvxx/ZigbeeTLc)",
+            "model_id": "MJWSD06MMC-z",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Xiaomi",
             "model": "temperature and humidity sensor",
             "model_id": "WSDCGQ01LM",
             "hw_version": "30",
@@ -12707,12 +12713,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Xiaomi",
-            "model": "Temperature and Humidity Monitor 3 Mini (pvxx/ZigbeeTLc)",
-            "model_id": "MJWSD06MMC-z",
-            "battery_type": "CR2450"
         }
     ]
 }
