@@ -12702,6 +12702,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "_TYZB01_iev4cs4x",
+            "model": "TS0205",
+            "battery_type": "CR123a"
         }
     ]
 }
