@@ -3560,6 +3560,13 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "eQ-3",
+            "model": "HmIP-RC8",
+            "model_id": "Homematic IP Fernbedienung, 8 Kanal",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "EQ-3",
             "model": "HmIP-RCB1",
             "hw_version": "1.2.4",
@@ -12781,13 +12788,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "eQ-3",
-            "model": "HmIP-RC8",
-            "model_id": "Homematic IP Fernbedienung, 8 Kanal",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }

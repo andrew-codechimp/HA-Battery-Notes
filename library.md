@@ -1,4 +1,4 @@
-## 2205 Devices in library
+## 2206 Devices in library
 
 This file is auto generated, do not modify
 
@@ -623,6 +623,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |eQ-3                                            |HmIP-KRCA                                                                                     |AAA                       |                                                                        |                                      |
 |eQ-3                                            |HmIP-KRCK                                                                                     |AAA                       |                                                                        |                                      |
 |eQ-3                                            |HmIP-RC8                                                                                      |2× AAA                    |                                                                        |                                      |
+|eQ-3                                            |HmIP-RC8                                                                                      |2× AAA                    |Homematic IP Fernbedienung, 8 Kanal                                     |                                      |
 |EQ-3                                            |HmIP-RCB1                                                                                     |AAA                       |                                                                        |1.2.4                                 |
 |eQ-3                                            |HmIP-SAM                                                                                      |2× AA                     |                                                                        |                                      |
 |eQ-3                                            |HmIP-SCI                                                                                      |2× AAA                    |                                                                        |                                      |
