@@ -1972,6 +1972,13 @@
         },
         {
             "manufacturer": "Arteco",
+            "model": "Soil fertility sensor",
+            "model_id": "ZS-SF00",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Arteco",
             "model": "Soil moisture sensor",
             "model_id": "ZS-301Z",
             "hw_version": "1",
@@ -12713,13 +12720,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Arteco",
-            "model": "Soil fertility sensor",
-            "model_id": "ZS-SF00",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
