@@ -12720,6 +12720,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "eQ-3",
+            "model": "HMIP-SWDO",
+            "model_id": "Homematic IP Fenster- und T\u00fcrkontakt - optisch",
+            "battery_type": "AAA"
         }
     ]
 }
