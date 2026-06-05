@@ -12733,6 +12733,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "eQ-3",
+            "model": "HMIP-SMI",
+            "model_id": "Homematic IP Bewegungsmelder innen",
+            "battery_type": "AA",
+            "battery_quantity": 2
         }
     ]
 }
