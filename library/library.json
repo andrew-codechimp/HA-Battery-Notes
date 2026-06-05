@@ -12767,6 +12767,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "eQ-3",
+            "model": "HmIP-SWSD",
+            "model_id": "Homematic IP Rauchmelder",
+            "battery_type": "FDK CR17450E-N (3V)",
+            "battery_quantity": 2
         }
     ]
 }
