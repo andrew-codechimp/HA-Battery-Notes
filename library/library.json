@@ -3833,6 +3833,13 @@
         },
         {
             "manufacturer": "eQ-3",
+            "model": "HmIP-WTH-2",
+            "model_id": "Homematic IP Wandthermostat mit Luftfeuchtigkeitssensor",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "eQ-3",
             "model": "HmIP-WTH-A",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -12774,13 +12781,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "eQ-3",
-            "model": "HmIP-WTH-2",
-            "model_id": "Homematic IP Wandthermostat mit Luftfeuchtigkeitssensor",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }

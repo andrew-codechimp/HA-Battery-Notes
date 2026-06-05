@@ -1,4 +1,4 @@
-## 2204 Devices in library
+## 2205 Devices in library
 
 This file is auto generated, do not modify
 
@@ -668,6 +668,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |eQ-3                                            |HmIP-WTH                                                                                      |2× AAA                    |                                                                        |                                      |
 |eQ-3                                            |HmIP-WTH-1                                                                                    |2× AAA                    |                                                                        |                                      |
 |eQ-3                                            |HmIP-WTH-2                                                                                    |2× AAA                    |                                                                        |                                      |
+|eQ-3                                            |HmIP-WTH-2                                                                                    |2× AAA                    |Homematic IP Wandthermostat mit Luftfeuchtigkeitssensor                 |                                      |
 |eQ-3                                            |HmIP-WTH-A                                                                                    |2× AAA                    |                                                                        |                                      |
 |eQ-3                                            |HmIP-WTH-B                                                                                    |2× AA                     |HmIP-WTH-B                                                              |                                      |
 |eQ-3                                            |HmIP-WTH-B-2                                                                                  |2× AA                     |                                                                        |                                      |
