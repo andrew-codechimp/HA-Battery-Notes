@@ -1,4 +1,4 @@
-## 2199 Devices in library
+## 2200 Devices in library
 
 This file is auto generated, do not modify
 
@@ -600,6 +600,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |EQ-3                                            |HmIP-DBB                                                                                      |AAA                       |                                              |1.0.44                                |
 |eQ-3                                            |HmIP-DLD                                                                                      |3× AA                     |                                              |                                      |
 |eQ-3                                            |HmIP-DLS                                                                                      |CR2032                    |                                              |                                      |
+|eQ-3                                            |HMIP-DLS                                                                                      |CR2032                    |Homematic IP Türschlosssensor                 |                                      |
 |eQ-3                                            |HmIP-DSD-PCB                                                                                  |2× AAA                    |                                              |                                      |
 |eQ-3                                            |HmIP-ESI                                                                                      |2× AA                     |                                              |                                      |
 |eQ-3                                            |HMIP-eTRV                                                                                     |2× AA                     |                                              |                                      |
