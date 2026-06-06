@@ -1328,6 +1328,13 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "Aqara Motion Sensor P1",
+            "hw_version": "1",
+            "battery_type": "CR2450",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "Aqara Smart Lock U100",
             "battery_type": "AA",
             "battery_quantity": 4
@@ -12800,13 +12807,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Aqara",
-            "model": "Aqara Motion Sensor P1",
-            "hw_version": "1",
-            "battery_type": "CR2450",
-            "battery_quantity": 2
         }
     ]
 }
