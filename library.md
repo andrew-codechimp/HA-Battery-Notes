@@ -1,4 +1,4 @@
-## 2209 Devices in library
+## 2210 Devices in library
 
 This file is auto generated, do not modify
 
@@ -250,6 +250,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Aqara                                           |Aqara Smart Lock U400                                                                         |Rechargeable              |                                                                   10244|1.0.0.0                               |
 |Aqara                                           |Aqara Smart Lock U50                                                                          |4× AA                     |                                                                        |                                      |
 |Aqara                                           |Aqara Temp/Humidity Sensor                                                                    |CR2032                    |                                                                        |                                     1|
+|Aqara                                           |Aqara TVOC Air Quality Monitor                                                                |2× CR2450                 |                                                                        |                                     1|
 |Aqara                                           |Aqara Wireless Mini Switch                                                                    |CR2032                    |                                                                        |                                     0|
 |Aqara                                           |Aqara Wireless Remote Switch H1 (Double Rocker)                                               |CR2450                    |WXKG15LM                                                                |                                      |
 |Aqara                                           |aqara.lock.bzacn4 ZNMS16LM                                                                    |6× AA                     |                                                                        |                                      |
