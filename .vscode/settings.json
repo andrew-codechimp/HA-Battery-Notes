@@ -21,4 +21,14 @@
     "ruff.configuration": "${workspaceFolder}/pyproject.toml",
     "python.terminal.activateEnvInCurrentTerminal": true,
     "git.addAICoAuthor": "off",
+    "python-envs.pythonProjects": [
+        {
+            "path": ".",
+            "envManager": "ms-python.python:venv",
+            "packageManager": "ms-python.python:pip"
+        }
+    ],
+    "python.analysis.extraPaths": [
+        "./custom_components/battery_notes"
+    ]
 }
