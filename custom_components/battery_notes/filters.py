@@ -120,6 +120,10 @@ class LowOutlierFilter(Filter):
         new_state_value = cast(float, new_state.state)
         self._skip_processing = False
 
+        if new_state_value <= 0:
+            self._skip_processing = True
+            return new_state
+
         if previous_state_values and new_state_value >= previous_state_values[-1]:
             _LOGGER.debug(
                 "New value higher than last previous state, allowing. %s >= %s",
