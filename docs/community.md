@@ -103,6 +103,8 @@ Raise a persistent notification when a battery is low, dismiss when it's not low
 
     Battery Threshold events are only raised when the device has a Battery+ entity or a [Battery Low Template](./index.md/#battery-low-template) is added to the Battery Notes configuration.
 
+    The condition will cause a notification immediately when any device has a low battery. Set this to true if you have implemented an automation to schedule the check_battery_low action and only want notifications at specific times.
+
 ```yaml
 alias: Battery Low Notification
 description: Battery Low Notification with auto dismiss
@@ -120,7 +122,9 @@ triggers:
       battery_low: false
     id: high
     alias: Battery went high
-conditions: []
+conditions:
+  - condition: template
+    value_template: "{{ trigger.event.data.reminder == false}}"
 actions:
   - choose:
       - conditions:
