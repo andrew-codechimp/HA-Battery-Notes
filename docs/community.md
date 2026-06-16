@@ -122,9 +122,6 @@ triggers:
       battery_low: false
     id: high
     alias: Battery went high
-conditions:
-  - condition: template
-    value_template: "{{ trigger.event.data.reminder == false}}"
 actions:
   - choose:
       - conditions:
@@ -132,7 +129,7 @@ actions:
             id:
               - low
           - condition: template
-            value_template: "{{ trigger.event.data.reminder == true}}"              
+            value_template: "{{ trigger.event.data.reminder == false}}"              
         sequence:
           - action: persistent_notification.create
             data:
