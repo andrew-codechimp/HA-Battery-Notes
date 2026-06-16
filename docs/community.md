@@ -129,7 +129,7 @@ actions:
             id:
               - low
           - condition: template
-            value_template: "{{ trigger.event.data.reminder == false }}"              
+            value_template: "{{ trigger.event.data.reminder == false }}"
         sequence:
           - action: persistent_notification.create
             data:
