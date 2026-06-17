@@ -205,10 +205,10 @@ actions:
     metadata: {}
     data:
       raise_events: false
-    response_variable: battery_check
+    response_variable: battery_check_response
   - variables:
       battery_summary_message: |
-        {%- for item in battery_check.check_battery_battery_low | sort(attribute='battery_level') %}
+        {%- for item in battery_check_response.check_battery_battery_low | sort(attribute='battery_level') %}
         • {{ item.device_name }} - {{ item.battery_level }}% - {{ item.battery_quantity }}× {{ item.battery_type }}
         {%- endfor %}
   - action: notify.send_email
