@@ -189,6 +189,37 @@ actions:
     data: {}
 ```
 
+### Battery Low daily summary
+
+If you want a single message sent to your email or other notification service you can use the Check battery low action response to build a summary.
+
+```yaml
+alias: Battery Notes - Low Battery Summary
+description: Send a single summary of all low batteries daily
+triggers:
+  - trigger: time
+    at: "09:00:00"
+conditions: []
+actions:
+  - action: battery_notes.check_battery_low
+    metadata: {}
+    data:
+      raise_events: false
+    response_variable: battery_check
+  - variables:
+      battery_summary_message: |
+        {%- for item in battery_check.check_battery_battery_low | sort(attribute='battery_level') %}
+        • {{ item.device_name }} - {{ item.battery_level }}% - {{ item.battery_quantity }}× {{ item.battery_type }}
+        {%- endfor %}
+  - action: notify.send_email
+    metadata: {}
+    data:
+      message: "{{ battery_summary_message }}"
+      title: Low battery summary report
+      target: you@youremail.com
+mode: single
+```
+
 ### Battery Replaced
 
 Mark a battery as replaced when there is an increase in battery level.
