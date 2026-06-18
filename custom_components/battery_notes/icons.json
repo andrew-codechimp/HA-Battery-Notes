@@ -16,6 +16,12 @@
             },
             "battery_last_replaced": {
                 "default": "mdi:battery-clock"
+            },
+            "battery_drain_rate": {
+                "default": "mdi:battery-minus"
+            },
+            "battery_estimated_replacement": {
+                "default": "mdi:battery-clock-outline"
             }
         }
     },
