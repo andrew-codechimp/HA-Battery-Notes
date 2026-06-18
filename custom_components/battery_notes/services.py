@@ -49,6 +49,7 @@ from .const import (
     SERVICE_DATA_DAYS_LAST_REPORTED,
     SERVICE_DATA_RAISE_EVENTS,
 )
+from .common import validate_is_float
 from .coordinator import BatteryNotesConfigEntry
 
 _LOGGER = logging.getLogger(__name__)
@@ -131,6 +132,13 @@ async def _async_battery_replaced(call: ServiceCall) -> ServiceResponse:  # noqa
                     and coordinator.source_entity_id == source_entity_id
                 ):
                     entity_found = True
+                    if (
+                        coordinator.current_battery_level is not None
+                        and validate_is_float(coordinator.current_battery_level)
+                    ):
+                        coordinator.last_replaced_level = float(
+                            coordinator.current_battery_level
+                        )
                     coordinator.last_replaced = datetime_replaced
                     await coordinator.async_request_refresh()
 
@@ -188,6 +196,13 @@ async def _async_battery_replaced(call: ServiceCall) -> ServiceResponse:  # noqa
             ) in battery_notes_config_entry.runtime_data.subentry_coordinators.values():
                 if coordinator.device_id == device_id:
                     device_found = True
+                    if (
+                        coordinator.current_battery_level is not None
+                        and validate_is_float(coordinator.current_battery_level)
+                    ):
+                        coordinator.last_replaced_level = float(
+                            coordinator.current_battery_level
+                        )
                     coordinator.last_replaced = datetime_replaced
                     await coordinator.async_request_refresh()
 

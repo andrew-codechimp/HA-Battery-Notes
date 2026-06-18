@@ -21,6 +21,7 @@ from homeassistant.helpers.entity import EntityCategory
 from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
 from homeassistant.util import dt as dt_util
 
+from .common import validate_is_float
 from .const import (
     ATTR_BATTERY_QUANTITY,
     ATTR_BATTERY_TYPE,
@@ -146,6 +147,14 @@ class BatteryNotesButton(BatteryNotesEntity, ButtonEntity):
 
     async def async_press(self) -> None:
         """Press the button."""
+        if (
+            self.coordinator.current_battery_level is not None
+            and validate_is_float(self.coordinator.current_battery_level)
+        ):
+            self.coordinator.last_replaced_level = float(
+                self.coordinator.current_battery_level
+            )
+
         self.coordinator.last_replaced = dt_util.utcnow()
 
         self.hass.bus.async_fire(

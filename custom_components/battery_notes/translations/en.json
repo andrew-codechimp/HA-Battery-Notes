@@ -235,6 +235,15 @@
                     "battery_last_reported_level": {
                         "name": "Battery last reported level"
                     },
+                    "battery_last_replaced_level": {
+                        "name": "Battery level at last replacement"
+                    },
+                    "battery_drain_rate": {
+                        "name": "Battery drain rate"
+                    },
+                    "battery_estimated_replacement_date": {
+                        "name": "Battery estimated replacement date"
+                    },
                     "source_entity_id": {
                         "name": "Source Entity Id"
                     },
@@ -262,6 +271,17 @@
             },
             "battery_last_replaced": {
                 "name": "{device_name}Battery last replaced"
+            },
+            "battery_drain_rate": {
+                "name": "{device_name}Battery drain rate",
+                "state_attributes": {
+                    "battery_last_replaced_level": {
+                        "name": "Battery level at last replacement"
+                    }
+                }
+            },
+            "battery_estimated_replacement": {
+                "name": "{device_name}Battery estimated replacement"
             }
         }
     },

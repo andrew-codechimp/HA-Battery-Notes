@@ -62,6 +62,7 @@ from .const import (
     EVENT_BATTERY_INCREASED,
     EVENT_BATTERY_THRESHOLD,
     LAST_REPLACED,
+    LAST_REPLACED_LEVEL,
     LAST_REPORTED,
     LAST_REPORTED_LEVEL,
 )
@@ -780,6 +781,83 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
         else:
             assert self.device_id
             self.async_update_device_config(device_id=self.device_id, data=entry)
+
+    @property
+    def last_replaced_level(self) -> float | None:
+        """Get the battery level recorded at last replacement."""
+        if not hasattr(self.config_entry, "runtime_data"):
+            return None
+
+        if self.source_entity_id:
+            entry = self.config_entry.runtime_data.store.async_get_entity(
+                self.source_entity_id
+            )
+        else:
+            entry = self.config_entry.runtime_data.store.async_get_device(
+                self.device_id
+            )
+
+        if entry and LAST_REPLACED_LEVEL in entry and entry[LAST_REPLACED_LEVEL] is not None:
+            return float(entry[LAST_REPLACED_LEVEL])
+        return None
+
+    @last_replaced_level.setter
+    def last_replaced_level(self, value: float):
+        """Set the battery level at replacement time and store it."""
+        if not hasattr(self.config_entry, "runtime_data"):
+            return
+
+        entry = {LAST_REPLACED_LEVEL: value}
+
+        if self.source_entity_id:
+            self.async_update_entity_config(entity_id=self.source_entity_id, data=entry)
+        else:
+            assert self.device_id
+            self.async_update_device_config(device_id=self.device_id, data=entry)
+
+    @property
+    def battery_drain_rate(self) -> float | None:
+        """Return average battery drain in % per day since last replacement.
+
+        Returns None if less than 1 day has elapsed or baseline level is unavailable.
+        """
+        replaced_level = self.last_replaced_level
+        if replaced_level is None:
+            return None
+
+        last_replaced = self.last_replaced
+        if last_replaced is None:
+            return None
+
+        days_since = (dt_util.utcnow() - last_replaced).total_seconds() / 86400
+        if days_since < 1:
+            return None
+
+        current = self.current_battery_level
+        if current is None or not validate_is_float(current):
+            return None
+
+        drain = replaced_level - float(current)
+        if drain <= 0:
+            return None
+
+        return round(drain / days_since, 2)
+
+    @property
+    def battery_estimated_replacement_date(self) -> datetime | None:
+        """Return estimated date when battery will reach 0% based on drain rate."""
+        drain_rate = self.battery_drain_rate
+        if drain_rate is None or drain_rate <= 0:
+            return None
+
+        current = self.current_battery_level
+        if current is None or not validate_is_float(current):
+            return None
+
+        days_remaining = float(current) / drain_rate
+        if days_remaining <= 0:
+            return None
+        return dt_util.utcnow() + timedelta(days=days_remaining)
 
     @property
     def battery_low(self) -> bool:

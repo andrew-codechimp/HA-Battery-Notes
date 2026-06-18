@@ -57,7 +57,10 @@ from homeassistant.util import dt as dt_util
 
 from .common import validate_is_float
 from .const import (
+    ATTR_BATTERY_DRAIN_RATE,
+    ATTR_BATTERY_ESTIMATED_REPLACEMENT_DATE,
     ATTR_BATTERY_LAST_REPLACED,
+    ATTR_BATTERY_LAST_REPLACED_LEVEL,
     ATTR_BATTERY_LAST_REPORTED,
     ATTR_BATTERY_LAST_REPORTED_LEVEL,
     ATTR_BATTERY_LOW,
@@ -169,6 +172,26 @@ async def async_setup_entry(
             require_device=True,
         )
 
+        drain_rate_sensor_entity_description = BatteryNotesSensorEntityDescription(
+            unique_id_suffix="_battery_drain_rate",
+            key="battery_drain_rate",
+            translation_key="battery_drain_rate",
+            entity_category=EntityCategory.DIAGNOSTIC,
+            state_class=SensorStateClass.MEASUREMENT,
+            native_unit_of_measurement=f"{PERCENTAGE}/day",
+            suggested_display_precision=2,
+            entity_type="sensor",
+        )
+
+        estimated_replacement_sensor_entity_description = BatteryNotesSensorEntityDescription(
+            unique_id_suffix="_battery_estimated_replacement",
+            key="battery_estimated_replacement",
+            translation_key="battery_estimated_replacement",
+            entity_category=EntityCategory.DIAGNOSTIC,
+            device_class=SensorDeviceClass.TIMESTAMP,
+            entity_type="sensor",
+        )
+
         entities = [
             BatteryNotesTypeSensor(
                 hass,
@@ -186,6 +209,22 @@ async def async_setup_entry(
                 coordinator,
                 last_replaced_sensor_entity_description,
                 f"{subentry.unique_id}{last_replaced_sensor_entity_description.unique_id_suffix}",
+            ),
+            BatteryNotesDrainRateSensor(
+                hass,
+                config_entry,
+                subentry,
+                drain_rate_sensor_entity_description,
+                coordinator,
+                f"{subentry.unique_id}{drain_rate_sensor_entity_description.unique_id_suffix}",
+            ),
+            BatteryNotesEstimatedReplacementSensor(
+                hass,
+                config_entry,
+                subentry,
+                estimated_replacement_sensor_entity_description,
+                coordinator,
+                f"{subentry.unique_id}{estimated_replacement_sensor_entity_description.unique_id_suffix}",
             ),
         ]
 
@@ -468,6 +507,9 @@ class BatteryNotesBatteryPlusBaseSensor(BatteryNotesEntity, RestoreSensor):
             ATTR_BATTERY_LOW_THRESHOLD: self.coordinator.battery_low_threshold,
             ATTR_BATTERY_LAST_REPORTED: self.coordinator.last_reported,
             ATTR_BATTERY_LAST_REPORTED_LEVEL: self.coordinator.last_reported_level,
+            ATTR_BATTERY_LAST_REPLACED_LEVEL: self.coordinator.last_replaced_level,
+            ATTR_BATTERY_DRAIN_RATE: self.coordinator.battery_drain_rate,
+            ATTR_BATTERY_ESTIMATED_REPLACEMENT_DATE: self.coordinator.battery_estimated_replacement_date,
         }
 
         if self.enable_replaced:
@@ -991,3 +1033,74 @@ class BatteryNotesBatteryPlusTemplateSensor(BatteryNotesBatteryPlusBaseSensor):
     def native_value(self) -> StateType | Any | datetime:
         """Return the value reported by the sensor."""
         return self._attr_native_value
+
+
+class BatteryNotesDrainRateSensor(BatteryNotesEntity, SensorEntity):
+    """Represents a battery drain rate diagnostic sensor."""
+
+    _attr_should_poll = False
+    entity_description: BatteryNotesSensorEntityDescription
+
+    def __init__(  # noqa: PLR0913
+        self,
+        hass,
+        config_entry: BatteryNotesConfigEntry,  # noqa: ARG002
+        subentry: ConfigSubentry,  # noqa: ARG002
+        entity_description: BatteryNotesSensorEntityDescription,
+        coordinator: BatteryNotesSubentryCoordinator,
+        unique_id: str,
+    ) -> None:
+        """Initialize the sensor."""
+        super().__init__(
+            hass=hass, entity_description=entity_description, coordinator=coordinator
+        )
+        self._attr_unique_id = unique_id
+
+    @callback
+    def _handle_coordinator_update(self) -> None:
+        """Handle updated data from the coordinator."""
+        self.async_write_ha_state()
+
+    @property
+    def native_value(self) -> float | None:
+        """Return the drain rate in % per day."""
+        return self.coordinator.battery_drain_rate
+
+    @property
+    def extra_state_attributes(self) -> dict[str, Any] | None:
+        """Return battery_last_replaced_level as context for the drain rate."""
+        return {
+            ATTR_BATTERY_LAST_REPLACED_LEVEL: self.coordinator.last_replaced_level,
+        }
+
+
+class BatteryNotesEstimatedReplacementSensor(BatteryNotesEntity, SensorEntity):
+    """Represents a battery estimated replacement date diagnostic sensor."""
+
+    _attr_should_poll = False
+    entity_description: BatteryNotesSensorEntityDescription
+
+    def __init__(  # noqa: PLR0913
+        self,
+        hass,
+        config_entry: BatteryNotesConfigEntry,  # noqa: ARG002
+        subentry: ConfigSubentry,  # noqa: ARG002
+        entity_description: BatteryNotesSensorEntityDescription,
+        coordinator: BatteryNotesSubentryCoordinator,
+        unique_id: str,
+    ) -> None:
+        """Initialize the sensor."""
+        super().__init__(
+            hass=hass, entity_description=entity_description, coordinator=coordinator
+        )
+        self._attr_unique_id = unique_id
+
+    @callback
+    def _handle_coordinator_update(self) -> None:
+        """Handle updated data from the coordinator."""
+        self.async_write_ha_state()
+
+    @property
+    def native_value(self) -> datetime | None:
+        """Return the estimated battery replacement date."""
+        return self.coordinator.battery_estimated_replacement_date

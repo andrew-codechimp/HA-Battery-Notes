@@ -17,6 +17,7 @@ from homeassistant.helpers.storage import Store
 from .const import (
     DOMAIN,
     LAST_REPLACED,
+    LAST_REPLACED_LEVEL,
     LAST_REPORTED,
 )
 
@@ -25,7 +26,7 @@ _LOGGER = logging.getLogger(__name__)
 DATA_REGISTRY = f"{DOMAIN}_storage"
 STORAGE_KEY = f"{DOMAIN}.storage"
 STORAGE_VERSION_MAJOR = 1
-STORAGE_VERSION_MINOR = 2
+STORAGE_VERSION_MINOR = 3
 SAVE_DELAY = 10
 
 
@@ -38,6 +39,7 @@ class DeviceEntry:
     battery_last_replaced = attr.ib(type=datetime, default=None)
     battery_last_reported = attr.ib(type=datetime, default=None)
     battery_last_reported_level = attr.ib(type=float, default=None)
+    battery_last_replaced_level = attr.ib(type=float, default=None)
 
 
 @attr.s(slots=True, frozen=True)
@@ -49,6 +51,7 @@ class EntityEntry:
     battery_last_replaced = attr.ib(type=datetime, default=None)
     battery_last_reported = attr.ib(type=datetime, default=None)
     battery_last_reported_level = attr.ib(type=float, default=None)
+    battery_last_replaced_level = attr.ib(type=float, default=None)
 
 
 def _fix_datetime_string(datetime_str: str) -> str:
@@ -100,6 +103,13 @@ class MigratableStore(Store):
                     last_reported = entity[LAST_REPORTED]
                     if last_reported:
                         entity[LAST_REPORTED] = _fix_datetime_string(last_reported)
+
+            if old_minor_version < 3:
+                for device in data["devices"]:
+                    device.setdefault(LAST_REPLACED_LEVEL, None)
+                for entity in data["entities"]:
+                    entity.setdefault(LAST_REPLACED_LEVEL, None)
+
         return data
 
 
