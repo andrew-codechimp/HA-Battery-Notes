@@ -12826,6 +12826,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Yandex",
+            "model": "Motion and illuminance sensor",
+            "model_id": "YNDX_00528",
+            "battery_type": "CR2450"
         }
     ]
 }
