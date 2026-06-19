@@ -1,4 +1,4 @@
-## 2212 Devices in library
+## 2213 Devices in library
 
 This file is auto generated, do not modify
 
@@ -2162,6 +2162,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Yale Home Inc.                                  |ASL6_05/101110/MB                                                                             |4× AA                     |                                                                        |                                      |
 |Yale/August                                     |AUGUST_MODEL_NUMBER_HERE                                                                      |4× AA                     |                                                                        |                                      |
 |Yandex                                          |Double gang wireless switch                                                                   |2× CR2450                 |YNDX_00535                                                              |                                      |
+|Yandex                                          |Motion and illuminance sensor                                                                 |CR2450                    |YNDX_00528                                                              |                                      |
 |Yeelight                                        |ble YLAI003                                                                                   |CR2032                    |                                                                        |                                      |
 |YoLink                                          |COSmokeSensor                                                                                 |2× AA                     |YS7A02-UC                                                               |                                      |
 |YoLink                                          |DoorSensor                                                                                    |2× AAA                    |                                                                        |                                      |
