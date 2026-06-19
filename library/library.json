@@ -12819,6 +12819,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Yandex",
+            "model": "Double gang wireless switch",
+            "model_id": "YNDX_00535",
+            "battery_type": "CR2450",
+            "battery_quantity": 2
         }
     ]
 }
