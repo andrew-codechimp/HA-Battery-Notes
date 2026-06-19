@@ -4738,6 +4738,14 @@
         },
         {
             "manufacturer": "GS",
+            "model": "Water leakage sensor",
+            "model_id": "SWHM-I1",
+            "hw_version": "16",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "GS",
             "model": "Water leakage sensor (SWHM-I1)",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -12832,14 +12840,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "GS",
-            "model": "Water leakage sensor",
-            "model_id": "SWHM-I1",
-            "hw_version": "16",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
