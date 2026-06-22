@@ -12840,6 +12840,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Lincukoo",
+            "model": "Wireless switch with 1 button",
+            "model_id": "CZB01",
+            "battery_type": "CR2032"
         }
     ]
 }
