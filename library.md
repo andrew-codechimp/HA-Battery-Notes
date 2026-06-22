@@ -1,4 +1,4 @@
-## 2214 Devices in library
+## 2215 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1080,6 +1080,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |LifeControl                                     |Motion sensor (MCLH-05)                                                                       |AA                        |                                                                        |                                      |
 |LifeControl                                     |Water leak switch (MCLH-07)                                                                   |CR123A                    |                                                                        |                                      |
 |LINCUKOO                                        |TS0203                                                                                        |2× CR1632                 |                                                                        |                                      |
+|Lincukoo                                        |Wireless switch with 1 button                                                                 |CR2032                    |CZB01                                                                   |                                      |
 |Linkind                                         |Door/window Sensor                                                                            |CR2032                    |ZS110050078                                                             |                                     1|
 |Linkind                                         |Door/window Sensor (ZS110050078)                                                              |CR2032                    |                                                                        |                                      |
 |Linkind                                         |PIR motion sensor, wireless motion detector (ZS1100400-IN-V1A02)                              |CR2450                    |                                                                        |                                      |

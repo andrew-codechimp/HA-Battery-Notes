@@ -6230,6 +6230,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Lincukoo",
+            "model": "Wireless switch with 1 button",
+            "model_id": "CZB01",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "Linkind",
             "model": "Door/window Sensor",
             "model_id": "ZS110050078",
@@ -12840,12 +12846,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Lincukoo",
-            "model": "Wireless switch with 1 button",
-            "model_id": "CZB01",
-            "battery_type": "CR2032"
         }
     ]
 }
