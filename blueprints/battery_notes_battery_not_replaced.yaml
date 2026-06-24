@@ -1,0 +1,85 @@
+blueprint:
+  name: Battery Notes - Battery Not Replaced
+  description: Actions to perform when the battery not replaced event is fired, note this cannot be run manually as it examines event triggers.
+  author: andrew-codechimp
+  source_url: https://raw.githubusercontent.com/andrew-codechimp/HA-Battery-Notes/main/docs/blueprints/battery_notes_battery_not_replaced.yaml
+  domain: automation
+  input:
+    not_replaced_notification:
+      name: Battery Not Replaced Notification
+      description: Create a persistent notification when the battery is not replaced.
+      default: true
+      selector:
+        boolean: {}
+    excluded_devices:
+      name: Devices to exclude (Optional)
+      description: Devices that you do not want to trigger this automation.
+      default:
+      selector:
+        device:
+          multiple: true
+    include_devices_enabled:
+      name: Enable Include Devices Filter
+      description: Only trigger for specific devices when enabled.
+      default: false
+      selector:
+        boolean:
+    include_devices:
+      name: Devices to include (Optional)
+      description: When enabled above, only these devices will trigger this automation.
+      default:
+      selector:
+        device:
+          multiple: true
+    additional_conditions:
+      name: Additional conditions
+      description: |
+        Extra conditions you may want to add to this automation
+        (Example: Home occupied)
+      default: []
+      selector:
+        condition:
+    user_actions:
+      name: User Actions
+      description: User actions to run on battery not replaced.
+      default: []
+      selector:
+        action: {}
+variables:
+  not_replaced_notification: !input not_replaced_notification
+  excluded_devices: !input excluded_devices
+  include_devices_enabled: !input include_devices_enabled
+  include_devices: !input include_devices
+triggers:
+  - trigger: event
+    event_type: battery_notes_battery_not_replaced
+    alias: Battery not replaced
+conditions:
+  - condition: template
+    value_template: |-
+      {{ trigger.event.data.device_id not in excluded_devices}}
+  - condition: template
+    value_template: |-
+      {{ not include_devices_enabled or trigger.event.data.device_id in include_devices }}
+  - alias: User pick
+    condition: !input additional_conditions
+actions:
+  - if:
+      - condition: template
+        value_template: "{{ not_replaced_notification }}"
+    then:
+      - action: persistent_notification.create
+        data:
+          title: "{{ trigger.event.data.device_name }} Battery Not Replaced"
+          message:
+            'The device has not had its battery replaced for {{ trigger.event.data.battery_last_replaced_days
+            }} days {{ ''\n'' -}} Its last replaced date was {{ trigger.event.data.battery_last_replaced | as_timestamp
+            | timestamp_custom(''%Y-%m-%d'', true)
+            }} {{ ''\n'' -}} You need {{ trigger.event.data.battery_quantity }}× {{ trigger.event.data.battery_type
+            }}'
+          notification_id: "battery_notes_not_replaced {{ trigger.event.data.device_id }}-{{ trigger.event.data.source_entity_id }}"
+      - alias: Run user actions
+        choose: []
+        default: !input user_actions
+mode: queued
+max: 30
