@@ -106,6 +106,10 @@ There seems to have been an issue with the Shelly integration at some point wher
 - Re-Add the Shelly device
 - Add the battery note to the device
 
+## Can I track my non-smart devices
+
+Not directly, but there is a [Fake Devices](https://github.com/andrew-codechimp/HA-Fake-Devices) custom integration which allows you to create devices for things like TV remotes, wall clocks etc. Once you have created a fake device you can add a battery note to it to track the battery type and last replaced.
+
 ## Battery Notes is not showing in the integrations list within a device page (new with version 3)
 
 The way Battery Notes associate with a device has had to change due to a change within Home Assistant.  
