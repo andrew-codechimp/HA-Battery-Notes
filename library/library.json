@@ -6533,6 +6533,12 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "Mammotion",
+            "model": "YUKA mini 2 1000",
+            "model_id": "YUKA mini 2 1000",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Meian",
             "model": "Water leak sensor",
             "model_id": "SW02",
