@@ -71,7 +71,7 @@ To add a device definition to the battery library so that it will be automatical
 
 ## Track non-smart batteries
 
-Using my companion integration [Fake Devices](https://github.com/andrew-codechimp/HA-Fake-Devices) you can create a device place holder, that you can then attach battery notes to, allowing you to note the battery type required and also the date you replaced them.  Just ensure you have enabled `show all devices` within Battery Notes settings for them to be visible.
+Using my companion integration [Fake Devices](https://github.com/andrew-codechimp/HA-Fake-Devices) you can create a device place holder that you can then attach battery notes to, allowing you to note the battery type required and also the date you replaced them.  Just ensure you have enabled `show all devices` within Battery Notes settings for them to be visible.
 
 ## Translations
 
