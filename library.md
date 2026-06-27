@@ -1,4 +1,4 @@
-## 2218 Devices in library
+## 2219 Devices in library
 
 This file is auto generated, do not modify
 
@@ -2034,6 +2034,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |WyzeLabs                                        |YD.LO1                                                                                        |4× AA                     |                                                                        |                                      |
 |X-Sense                                         |SC07-WX                                                                                       |Sealed 10-Year            |                                                                        |                                      |
 |X-Sense                                         |SMA51                                                                                         |CR2                       |                                                                        |                                      |
+|X-Sense                                         |SW50A                                                                                         |2× AAA                    |                                                                        |                                      |
 |X-Sense                                         |Waterleak sensor                                                                              |2× AAA                    |SWS51                                                                   |                                      |
 |X-Sense                                         |XC01-M                                                                                        |CR123A                    |                                                                        |                                      |
 |X-Sense                                         |XC04-WX                                                                                       |CR123A                    |                                                                        |                                      |
