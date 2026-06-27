@@ -11837,6 +11837,11 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "X-Sense",
+            "model": "XS0D-MR",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "Xiaomi",
             "model": "Aqara curtain driver E1 (ZNCLBL01LM)",
             "battery_type": "Rechargeable"
@@ -12858,11 +12863,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "X-Sense",
-            "model": "XS0D-MR",
-            "battery_type": "CR123A"
         }
     ]
 }
