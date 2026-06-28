@@ -76,6 +76,7 @@ EVENT_BATTERY_NOT_REPLACED = "battery_notes_battery_not_replaced"
 EVENT_BATTERY_NOT_REPORTED = "battery_notes_battery_not_reported"
 EVENT_BATTERY_REPLACED = "battery_notes_battery_replaced"
 
+ATTR_AREA_NAME = "area_name"
 ATTR_DEVICE_ID = "device_id"
 ATTR_SOURCE_ENTITY_ID = "source_entity_id"
 ATTR_REMOVE = "remove"
