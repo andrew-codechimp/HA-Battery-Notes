@@ -1,4 +1,4 @@
-## 2219 Devices in library
+## 2220 Devices in library
 
 This file is auto generated, do not modify
 
@@ -2147,6 +2147,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Xiaomi                                          |zigbee WSDCGQ01LM (lumi.sensor_ht)                                                            |CR2032                    |                                                                        |                                      |
 |Xiaomi                                          |zigbee WXKG01LM (lumi.sensor_switch)                                                          |CR2032                    |                                                                        |                                      |
 |Xiaomi                                          |Temp & RH Monitor Lite (pvxx/ZigbeeTLc)\*                                                     |CR2032                    |                                                                        |                                      |
+|Xiaomi Aqara                                    |remote.b1acn01                                                                                |CR2032                    |                                                                        |                                      |
 |Xiaomi Aqara                                    |sensor_magnet.aq2                                                                             |CR1632                    |                                                                        |                                      |
 |Xiaomi Aqara                                    |sensor_switch.aq2                                                                             |CR2032                    |                                                                        |                                      |
 |Xiaomi Aqara                                    |sensor_wleak.aq1                                                                              |CR2032                    |                                                                        |                                      |
