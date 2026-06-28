@@ -12425,6 +12425,11 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Xiaomi Aqara",
+            "model": "weather.v1",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "Xiaomi Aquara",
             "model": "sensor_magnet.aq2",
             "battery_type": "CR1632"
@@ -12874,11 +12879,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Xiaomi Aqara",
-            "model": "weather.v1",
-            "battery_type": "CR2032"
         }
     ]
 }

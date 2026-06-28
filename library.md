@@ -1,4 +1,4 @@
-## 2220 Devices in library
+## 2221 Devices in library
 
 This file is auto generated, do not modify
 
@@ -2151,6 +2151,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Xiaomi Aqara                                    |sensor_magnet.aq2                                                                             |CR1632                    |                                                                        |                                      |
 |Xiaomi Aqara                                    |sensor_switch.aq2                                                                             |CR2032                    |                                                                        |                                      |
 |Xiaomi Aqara                                    |sensor_wleak.aq1                                                                              |CR2032                    |                                                                        |                                      |
+|Xiaomi Aqara                                    |weather.v1                                                                                    |CR2032                    |                                                                        |                                      |
 |Xiaomi Aquara                                   |sensor_magnet.aq2                                                                             |CR1632                    |                                                                        |                                      |
 |Yale                                            |420D                                                                                          |4× AA                     |                                                                        |                                      |
 |Yale                                            |P-KFCON-MOD-YALE                                                                              |4× AA                     |                                                                        |                                      |
