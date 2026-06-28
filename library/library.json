@@ -12869,6 +12869,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Xiaomi Aqara",
+            "model": "remote.b1acn01",
+            "battery_type": "CR2032"
         }
     ]
 }
