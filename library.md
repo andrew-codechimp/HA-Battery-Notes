@@ -1,4 +1,4 @@
-## 2222 Devices in library
+## 2223 Devices in library
 
 This file is auto generated, do not modify
 
@@ -947,6 +947,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |IKEA                                            |BADRING water leakage sensor                                                                  |AAA                       |E2202                                                                   |                                      |
 |IKEA                                            |BADRING water leakage sensor (E2202)                                                          |AAA                       |                                                                        |                                      |
 |IKEA                                            |BILRESA                                                                                       |2× AAA                    |                                                                        |P2.0                                  |
+|IKEA                                            |BILRESA remote control with buttons                                                           |CR2032                    |09B9                                                                    |                                      |
 |IKEA                                            |E2102                                                                                         |Rechargeable              |                                                                        |                                      |
 |IKEA                                            |FYRTUR roller blind (E1757)                                                                   |Rechargeable              |                                                                        |                                      |
 |IKEA                                            |FYRTUR roller blind, block-out                                                                |IKEA BRAUNIT              |E1757                                                                   |                                     1|

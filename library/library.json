@@ -5450,6 +5450,12 @@
         },
         {
             "manufacturer": "IKEA",
+            "model": "BILRESA remote control with buttons",
+            "model_id": "09B9",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "IKEA",
             "model": "E2102",
             "battery_type": "Rechargeable"
         },
@@ -12885,12 +12891,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "IKEA",
-            "model": "BILRESA remote control with buttons",
-            "model_id": "09B9",
-            "battery_type": "CR2032"
         }
     ]
 }
