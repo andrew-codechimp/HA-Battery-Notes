@@ -22,7 +22,6 @@ def get_device_list() -> None:
             k.get("model_match_method", "").lower(),
             k["model"].lower(),
             k.get("model_id", "").lower(),
-            k.get("hw_version", "").lower(),
         )
     )
     with open("library/library.json", "w", encoding="UTF-8") as f:
@@ -58,7 +57,6 @@ def regenerate_device_list() -> None:
             model,
             battery_type_qty,
             device.get("model_id", ""),
-            device.get("hw_version", ""),
         ]
         rows.append(row)
 
@@ -68,7 +66,6 @@ def regenerate_device_list() -> None:
         "Model",
         "Battery Type",
         "Model ID (optional)",
-        "HW Version (optional)",
     ]
     writer.value_matrix = rows
 

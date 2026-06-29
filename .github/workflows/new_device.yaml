@@ -50,8 +50,6 @@ jobs:
               new_device["battery_quantity"] = numeric_quantity
             if new_device.get("model_id", "MISSING").strip() == "":
               del new_device["model_id"]
-            if new_device.get("hw_version", "MISSING").strip() == "":
-              del new_device["hw_version"]
 
             # Fix common typo in battery type
             if new_device.get("battery_type", "").lower() == "rechargable":
@@ -61,7 +59,7 @@ jobs:
             duplicate_found = False
             manual_found = False
             for i, device in enumerate(devices):
-              if device["manufacturer"] == new_device["manufacturer"] and device["model"] == new_device["model"] and device.get("model_id", "") == new_device.get("model_id", "") and device.get("hw_version", "") == new_device.get("hw_version", ""):
+              if device["manufacturer"] == new_device["manufacturer"] and device["model"] == new_device["model"] and device.get("model_id", "") == new_device.get("model_id", ""):
                 if device["battery_type"].upper() == "MANUAL":
                   manual_found = True
                   break
@@ -74,11 +72,10 @@ jobs:
               devices.append(new_device)
 
             # Save manufacturer and model for later use
-            set_env("BRANCH", "_".join(re.findall(r"\w+",f"{new_device['manufacturer']} {new_device['model']} {new_device.get('model_id', '')} {new_device.get('hw_version', '')})".lower())))
+            set_env("BRANCH", "_".join(re.findall(r"\w+",f"{new_device['manufacturer']} {new_device['model']} {new_device.get('model_id', '')})".lower())))
             set_env("MANUFACTURER", new_device['manufacturer'])
             set_env("MODEL", new_device['model'])
             set_env("MODEL_ID", new_device.get('model_id', ''))
-            set_env("HW_VERSION", new_device.get('hw_version', ''))
             set_env("BQT", f"{numeric_quantity}x {new_device['battery_type']}")
 
             if duplicate_found:
@@ -123,7 +120,6 @@ jobs:
             Manufacturer: ${{ env.MANUFACTURER }}
             Model: ${{ env.MODEL }}
             Model ID: ${{ env.MODEL_ID }}
-            Hardware: ${{ env.HW_VERSION }}
             Battery: ${{ env.BQT }}
             It closes issue #${{ github.event.issue.number }}
 
