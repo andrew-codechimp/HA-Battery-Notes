@@ -1,4 +1,4 @@
-## 2223 Devices in library
+## 2224 Devices in library
 
 This file is auto generated, do not modify
 
@@ -877,6 +877,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |HOBEIAN                                         |Door/window sensor                                                                            |2× AAA                    |ZG-102ZA                                                                |                                     1|
 |HOBEIAN                                         |Human Presence Sensor                                                                         |2× AAA                    |ZG-204ZH                                                                |                                     1|
 |HOBEIAN                                         |Millimeter wave motion detection                                                              |2× AAA                    |ZG-204ZV                                                                |                                     1|
+|HOBEIAN                                         |Motion sensor                                                                                 |CR2032                    |ZG-204Z                                                                 |                                      |
 |HOBEIAN                                         |Rainwater detection sensor                                                                    |CR123A                    |ZG-223Z                                                                 |                                     1|
 |HOBEIAN                                         |Soil moisture sensor                                                                          |2× AAA                    |ZG-303Z                                                                 |                             122052017|
 |HOBEIAN                                         |Temperature and humidity sensor                                                               |2× AAA                    |ZG-227Z                                                                 |                                     1|
