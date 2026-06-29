@@ -512,6 +512,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "_TZ3290_j37rooaxrcdcqo5n",
+            "model": "TS1201",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "_TZ3290_ot6ewjvmejq5ekhl",
             "model": "TS1201",
             "battery_type": "AAA",
@@ -12879,12 +12885,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "_TZ3290_j37rooaxrcdcqo5n",
-            "model": "TS1201",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
