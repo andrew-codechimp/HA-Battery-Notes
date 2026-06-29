@@ -12891,6 +12891,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "HOBEIAN",
+            "model": "Motion sensor",
+            "model_id": "ZG-204Z",
+            "battery_type": "CR2032"
         }
     ]
 }
