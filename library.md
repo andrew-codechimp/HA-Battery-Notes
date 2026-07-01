@@ -1,4 +1,4 @@
-## 2230 Devices in library
+## 2231 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1805,6 +1805,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |TuYa                                            |Luminance motion sensor (ZG-204ZL)                                                            |CR2450                    |                                                                        |
 |Tuya                                            |MINI-ZSB                                                                                      |CR2032                    |                                                                        |
 |Tuya                                            |Motion sensor                                                                                 |CR2450                    |809WZT                                                                  |
+|Tuya                                            |Motion Sensor                                                                                 |CR2450                    |gjldowol                                                                |
 |Tuya                                            |Motion sensor                                                                                 |CR2450                    |IH012-RT01                                                              |
 |Tuya                                            |Motion sensor                                                                                 |2× AAA                    |IH012-RT02                                                              |
 |Tuya                                            |Motion Sensor                                                                                 |CR2450                    |mcxw5ehu                                                                |
