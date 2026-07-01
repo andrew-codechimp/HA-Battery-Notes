@@ -11004,6 +11004,13 @@
         },
         {
             "manufacturer": "Tuya",
+            "model": "Temperature Humidity Sensor",
+            "model_id": "fllyghyj",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tuya",
             "model": "TH01Z",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -12897,13 +12904,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Temperature Humidity Sensor",
-            "model_id": "fllyghyj",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
