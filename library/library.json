@@ -12911,6 +12911,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Motion Sensor",
+            "model_id": "gjldowol",
+            "battery_type": "CR2450"
         }
     ]
 }
