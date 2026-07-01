@@ -11224,6 +11224,12 @@
         },
         {
             "manufacturer": "Tuya",
+            "model": "Water Leak Detector",
+            "model_id": "sqmd19i1",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Tuya",
             "model": "Water leak detector",
             "model_id": "TS0207_water_leak_detector",
             "hw_version": "0",
@@ -12944,12 +12950,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Water Leak Detector",
-            "model_id": "sqmd19i1",
-            "battery_type": "CR2032"
         }
     ]
 }
