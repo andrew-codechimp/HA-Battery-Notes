@@ -12911,6 +12911,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Water Leak Detector",
+            "model_id": "sqmd19i1",
+            "battery_type": "CR2032"
         }
     ]
 }
