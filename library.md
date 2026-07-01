@@ -1,4 +1,4 @@
-## 2228 Devices in library
+## 2230 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1807,6 +1807,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tuya                                            |Motion sensor                                                                                 |CR2450                    |809WZT                                                                  |
 |Tuya                                            |Motion sensor                                                                                 |CR2450                    |IH012-RT01                                                              |
 |Tuya                                            |Motion sensor                                                                                 |2× AAA                    |IH012-RT02                                                              |
+|Tuya                                            |Motion Sensor                                                                                 |CR2450                    |mcxw5ehu                                                                |
 |Tuya                                            |Motion Sensor                                                                                 |2× AAA                    |rjzon9kyxpoeksj3                                                        |
 |Tuya                                            |Motion sensor                                                                                 |2× AAA                    |ZP01                                                                    |
 |TuYa                                            |Motion sensor (809WZT)                                                                        |CR2450                    |                                                                        |
@@ -1897,6 +1898,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |TuYa                                            |Temperature and humidity sensor (ZTH05)                                                       |CR2032                    |                                                                        |
 |Tuya                                            |Temperature and humidity sensor (ZTH08-E)                                                     |3× AAA                    |                                                                        |
 |Tuya                                            |Temperature and humidity sensor with clock                                                    |3× AAA                    |TH01Z                                                                   |
+|Tuya                                            |Temperature Humidity Sensor                                                                   |2× AAA                    |bguser20                                                                |
 |Tuya                                            |Temperature Humidity Sensor                                                                   |2× AAA                    |bguser20                                                                |
 |Tuya                                            |Temperature Humidity Sensor                                                                   |2× AAA                    |fllyghyj                                                                |
 |Tuya                                            |TH01Z                                                                                         |2× AAA                    |                                                                        |

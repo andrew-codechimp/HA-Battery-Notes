@@ -10430,6 +10430,12 @@
         {
             "manufacturer": "Tuya",
             "model": "Motion Sensor",
+            "model_id": "mcxw5ehu",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Motion Sensor",
             "model_id": "rjzon9kyxpoeksj3",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -11001,6 +11007,13 @@
             "hw_version": "1",
             "battery_type": "AAA",
             "battery_quantity": 3
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Temperature Humidity Sensor",
+            "model_id": "bguser20",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "Tuya",
@@ -12925,19 +12938,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Temperature Humidity Sensor",
-            "model_id": "bguser20",
-            "battery_type": "AAA",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Motion Sensor",
-            "model_id": "mcxw5ehu",
-            "battery_type": "CR2450"
         }
     ]
 }
