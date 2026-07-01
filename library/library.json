@@ -12911,6 +12911,12 @@
             "model_id": "bguser20",
             "battery_type": "AAA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Motion Sensor",
+            "model_id": "mcxw5ehu",
+            "battery_type": "CR2450"
         }
     ]
 }
