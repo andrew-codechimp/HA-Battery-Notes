@@ -11179,6 +11179,13 @@
         },
         {
             "manufacturer": "Tuya",
+            "model": "Vibration Sensor",
+            "model_id": "3zv6oleo",
+            "battery_type": "aaa",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tuya",
             "model": "Vibration sensor",
             "model_id": "lzdjjfss",
             "battery_type": "CR2450"
@@ -12918,13 +12925,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Vibration Sensor",
-            "model_id": "3zv6oleo",
-            "battery_type": "aaa",
-            "battery_quantity": 2
         }
     ]
 }
