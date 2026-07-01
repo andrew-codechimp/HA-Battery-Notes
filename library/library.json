@@ -12904,6 +12904,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Vibration Sensor",
+            "model_id": "3zv6oleo",
+            "battery_type": "aaa",
+            "battery_quantity": 2
         }
     ]
 }
