@@ -1,4 +1,4 @@
-## 2225 Devices in library
+## 2228 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1897,6 +1897,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |TuYa                                            |Temperature and humidity sensor (ZTH05)                                                       |CR2032                    |                                                                        |
 |Tuya                                            |Temperature and humidity sensor (ZTH08-E)                                                     |3× AAA                    |                                                                        |
 |Tuya                                            |Temperature and humidity sensor with clock                                                    |3× AAA                    |TH01Z                                                                   |
+|Tuya                                            |Temperature Humidity Sensor                                                                   |2× AAA                    |bguser20                                                                |
 |Tuya                                            |Temperature Humidity Sensor                                                                   |2× AAA                    |fllyghyj                                                                |
 |Tuya                                            |TH01Z                                                                                         |2× AAA                    |                                                                        |
 |Tuya                                            |TH05                                                                                          |CR2032                    |                                                                        |
@@ -1925,6 +1926,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tuya                                            |TT001ZAV20                                                                                    |CR2032                    |                                                                        |
 |TuYa                                            |TV02-Zigbee                                                                                   |2× AA                     |                                                                        |
 |Tuya                                            |Tür/ Fenstersensor                                                                            |2× AAA                    |                                                                        |
+|Tuya                                            |Vibration Sensor                                                                              |2× AAA                    |3zv6oleo                                                                |
 |Tuya                                            |Vibration sensor                                                                              |CR2450                    |lzdjjfss                                                                |
 |Tuya                                            |Vibration sensor                                                                              |CR2450                    |TS0210                                                                  |
 |Tuya                                            |Vibration sensor (TS0210)                                                                     |2× AAA                    |                                                                        |
@@ -1955,6 +1957,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tuya                                            |Zigbee fingerbot plus                                                                         |CR2                       |TS0001                                                                  |
 |TuYa                                            |Zigbee fingerbot plus (TS0001_fingerbot)                                                      |CR2                       |                                                                        |
 |Tuya                                            |Zigbee infrared remote (unsupported)                                                          |2× AAA                    |                                                                        |
+|Tuya                                            |Zigbee Temperature & Humidity Sensor                                                          |3× AAA                    |locansqn                                                                |
 |Tuya                                            |Zigbee water flood sensor + 1m probe cable                                                    |2× AAA                    |TS0207_water_leak_detector_1                                            |
 |TuYa                                            |Zigbee water leak sensor (TS0207_water_leak_detector_2)                                       |CR2032                    |                                                                        |
 |Tuya                                            |ZP01                                                                                          |2× AAA                    |                                                                        |

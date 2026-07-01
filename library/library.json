@@ -11005,6 +11005,13 @@
         {
             "manufacturer": "Tuya",
             "model": "Temperature Humidity Sensor",
+            "model_id": "bguser20",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Temperature Humidity Sensor",
             "model_id": "fllyghyj",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -11167,6 +11174,13 @@
         {
             "manufacturer": "Tuya",
             "model": "T\u00fcr/ Fenstersensor",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Vibration Sensor",
+            "model_id": "3zv6oleo",
             "battery_type": "AAA",
             "battery_quantity": 2
         },
@@ -11352,6 +11366,13 @@
             "model": "Zigbee infrared remote (unsupported)",
             "battery_type": "AAA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Zigbee Temperature & Humidity Sensor",
+            "model_id": "locansqn",
+            "battery_type": "AAA",
+            "battery_quantity": 3
         },
         {
             "manufacturer": "Tuya",
