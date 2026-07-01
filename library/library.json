@@ -11362,6 +11362,13 @@
         },
         {
             "manufacturer": "Tuya",
+            "model": "Zigbee Temperature & Humidity Sensor",
+            "model_id": "locansqn",
+            "battery_type": "AAA",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "Tuya",
             "model": "Zigbee water flood sensor + 1m probe cable",
             "model_id": "TS0207_water_leak_detector_1",
             "hw_version": "1",
@@ -12911,13 +12918,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Zigbee Temperature & Humidity Sensor",
-            "model_id": "locansqn",
-            "battery_type": "AAA",
-            "battery_quantity": 3
         }
     ]
 }
