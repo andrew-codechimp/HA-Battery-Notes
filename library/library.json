@@ -11408,6 +11408,12 @@
         },
         {
             "manufacturer": "Tuya",
+            "model": "Zigbee Temperature Humidity Sensor",
+            "model_id": "ywagc4rj",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Tuya",
             "model": "Zigbee water flood sensor + 1m probe cable",
             "model_id": "TS0207_water_leak_detector_1",
             "hw_version": "1",
@@ -12957,12 +12963,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Zigbee Temperature Humidity Sensor",
-            "model_id": "ywagc4rj",
-            "battery_type": "CR2032"
         }
     ]
 }
