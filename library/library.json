@@ -10607,6 +10607,13 @@
         },
         {
             "manufacturer": "Tuya",
+            "model": "Pressure Sensing Strap/Bed Occupancy Sensor",
+            "model_id": "TS0601_bed_presence_sensor",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tuya",
             "model": "R459",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -13036,13 +13043,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Pressure Sensing Strap/Bed Occupancy Sensor",
-            "model_id": "TS0601_bed_presence_sensor",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }

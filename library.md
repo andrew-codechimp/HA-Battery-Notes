@@ -1,4 +1,4 @@
-## 2246 Devices in library
+## 2247 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1836,6 +1836,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |TuYa                                            |Plant Sensor SGS01 (gvygg3m8)                                                                 |2× AAA                    |                                                                        |
 |Tuya                                            |Powerful button                                                                               |CR2032                    |fa9mlvja                                                                |
 |Tuya                                            |Pressure pad sensor                                                                           |CR2032                    |C3007                                                                   |
+|Tuya                                            |Pressure Sensing Strap/Bed Occupancy Sensor                                                   |2× AAA                    |TS0601_bed_presence_sensor                                              |
 |Tuya                                            |R459                                                                                          |2× AAA                    |                                                                        |
 |Tuya                                            |Radiator valve with thermostat                                                                |2× AA                     |TS0601_thermostat                                                       |
 |TuYa                                            |Radiator valve with thermostat (TS0601_thermostat)                                            |2× AA                     |                                                                        |
