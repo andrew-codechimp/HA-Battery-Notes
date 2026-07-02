@@ -46,6 +46,7 @@ from .const import (
     CONF_ENABLE_REPLACED,
     CONF_FILTER_OUTLIERS,
     CONF_HIDE_BATTERY,
+    CONF_HIDE_BATTERY_LOW,
     CONF_HW_VERSION,
     CONF_MANUFACTURER,
     CONF_MODEL,
@@ -88,6 +89,7 @@ CONFIG_SCHEMA = vol.Schema(
                     vol.Optional(CONF_SHOW_ALL_DEVICES, default=False): cv.boolean,
                     vol.Optional(CONF_ENABLE_REPLACED, default=True): cv.boolean,
                     vol.Optional(CONF_HIDE_BATTERY, default=False): cv.boolean,
+                    vol.Optional(CONF_HIDE_BATTERY_LOW, default=False): cv.boolean,
                     vol.Optional(CONF_ROUND_BATTERY, default=False): cv.boolean,
                     vol.Optional(
                         CONF_DEFAULT_BATTERY_LOW_THRESHOLD,
@@ -158,6 +160,9 @@ async def async_setup_entry(
     domain_config.enable_replaced = config_entry.options[CONF_ADVANCED_SETTINGS][
         CONF_ENABLE_REPLACED
     ]
+    domain_config.hide_battery_low = config_entry.options[CONF_ADVANCED_SETTINGS].get(
+        CONF_HIDE_BATTERY_LOW, False
+    )
     domain_config.user_library = config_entry.options[CONF_ADVANCED_SETTINGS][
         CONF_USER_LIBRARY
     ]

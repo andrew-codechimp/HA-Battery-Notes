@@ -42,6 +42,7 @@ from .const import (
     CONF_ENABLE_REPLACED,
     CONF_FILTER_OUTLIERS,
     CONF_HIDE_BATTERY,
+    CONF_HIDE_BATTERY_LOW,
     CONF_HW_VERSION,
     CONF_INTEGRATION_NAME,
     CONF_MANUFACTURER,
@@ -88,6 +89,9 @@ OPTIONS_SCHEMA = vol.Schema(
                 {
                     vol.Required(CONF_ENABLE_AUTODISCOVERY): selector.BooleanSelector(),
                     vol.Required(CONF_ENABLE_REPLACED): selector.BooleanSelector(),
+                    vol.Required(
+                        CONF_HIDE_BATTERY_LOW, default=False
+                    ): selector.BooleanSelector(),
                     vol.Optional(CONF_USER_LIBRARY): selector.TextSelector(),
                 }
             ),
@@ -291,6 +295,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                 CONF_ADVANCED_SETTINGS: {
                     CONF_ENABLE_AUTODISCOVERY: True,
                     CONF_ENABLE_REPLACED: True,
+                    CONF_HIDE_BATTERY_LOW: False,
                     CONF_USER_LIBRARY: "",
                 },
             }
@@ -342,6 +347,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                 CONF_ADVANCED_SETTINGS: {
                     CONF_ENABLE_AUTODISCOVERY: True,
                     CONF_ENABLE_REPLACED: True,
+                    CONF_HIDE_BATTERY_LOW: False,
                     CONF_USER_LIBRARY: "",
                 },
             }
