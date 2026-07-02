@@ -12950,6 +12950,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "\u56db\u952e\u65e0\u7ebf\u60c5\u666f\u5f00\u5173(Zigbee)",
+            "model_id": "aaabrnhr",
+            "battery_type": "CR2032"
         }
     ]
 }
