@@ -756,6 +756,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "_TZE204_upagmta9",
+            "model": "TS0601",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "_TZE204_yjjdcqsq",
             "model": "TS0601",
             "battery_type": "AAA",
@@ -13000,11 +13005,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "_TZE204_upagmta9",
-            "model": "TS0601",
-            "battery_type": "CR2032"
         }
     ]
 }
