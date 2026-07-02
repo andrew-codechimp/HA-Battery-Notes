@@ -10321,6 +10321,13 @@
             "battery_type": "CR2"
         },
         {
+            "manufacturer": "Tuya",
+            "model": "Human presence detector",
+            "model_id": "debczeci",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "TuYa",
             "model": "IH012-RT01",
             "battery_type": "CR2450"
@@ -12950,13 +12957,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Human presence detector",
-            "model_id": "debczeci",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }

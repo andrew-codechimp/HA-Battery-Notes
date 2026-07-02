@@ -1,4 +1,4 @@
-## 2232 Devices in library
+## 2233 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1790,6 +1790,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tuya                                            |Door/window sensor                                                                            |2× AAA                    |TS0203                                                                  |
 |Tuya                                            |Door/window sensor                                                                            |CR2032                    |TS0203                                                                  |
 |Tuya                                            |Fingerbot Plus (6jcvqwh0)                                                                     |CR2                       |                                                                        |
+|Tuya                                            |Human presence detector                                                                       |2× AAA                    |debczeci                                                                |
 |TuYa                                            |IH012-RT01                                                                                    |CR2450                    |                                                                        |
 |Tuya                                            |JM-TRH-ZGB-V1                                                                                 |3× AAA                    |                                                                        |
 |Tuya                                            |kscbebaf3s1eogvt                                                                              |2× AAA                    |                                                                        |
