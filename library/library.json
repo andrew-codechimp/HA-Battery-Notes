@@ -10272,6 +10272,12 @@
         },
         {
             "manufacturer": "Tuya",
+            "model": "Door Sensor",
+            "model_id": "vhrcfp2v",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Tuya",
             "model": "Door sensor",
             "model_id": "ZD08",
             "hw_version": "1",
@@ -12969,12 +12975,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Door Sensor",
-            "model_id": "vhrcfp2v",
-            "battery_type": "CR2032"
         }
     ]
 }
