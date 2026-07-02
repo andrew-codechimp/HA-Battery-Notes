@@ -11559,6 +11559,12 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "upagmta9",
+            "model": "Temp & Humidity Sensor",
+            "model_id": "upagmta9",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "uya",
             "model": "Temperature & humidity sensor",
             "model_id": "RSH-HS06_1",
@@ -12963,12 +12969,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "upagmta9",
-            "model": "Temp & Humidity Sensor",
-            "model_id": "upagmta9",
-            "battery_type": "CR2032"
         }
     ]
 }

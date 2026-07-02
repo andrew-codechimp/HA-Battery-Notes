@@ -1,4 +1,4 @@
-## 2234 Devices in library
+## 2235 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1989,6 +1989,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Universal Electronics Inc                       |URC4470BC0-X-R                                                                                |2× CR123A                 |                                                                        |
 |Universal Electronics Inc                       |Xfinity security keypad                                                                       |4× AA                     |XHK1-UE                                                                 |
 |unk_manufacturer                                |lumi.remote.b28ac1                                                                            |CR2450                    |                                                                        |
+|upagmta9                                        |Temp & Humidity Sensor                                                                        |CR2032                    |upagmta9                                                                |
 |uya                                             |Temperature & humidity sensor                                                                 |CR2450                    |RSH-HS06_1                                                              |
 |Varta                                           |Zigbee Température Humidité                                                                   |2× AAA                    |WSD500A                                                                 |
 |Verisure                                        |Lockguard Smartlock                                                                           |4× AA                     |                                                                        |
