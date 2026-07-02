@@ -1,4 +1,4 @@
-## 2242 Devices in library
+## 2243 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1976,6 +1976,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tuya                                            |ZP01                                                                                          |2× AAA                    |                                                                        |
 |Tuya                                            |zqeaw7pi                                                                                      |2× AAA                    |                                                                        |
 |TuYa                                            |ZTH08-E                                                                                       |3× AAA                    |                                                                        |
+|Tuya                                            |四键无线情景开关(Zigbee)                                                                      |CR2032                    |aaabrnhr                                                                |
 |TUYATEC-1wzznw9a                                |RH3052                                                                                        |CR2032                    |                                                                        |
 |TUYATEC-dgtxmihe                                |PIR sensor                                                                                    |CR2450                    |RH3040                                                                  |
 |TUYATEC-r9hgssol                                |RH3001                                                                                        |CR2450                    |                                                                        |
