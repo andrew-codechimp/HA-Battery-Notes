@@ -12950,6 +12950,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Zigbee Temperature Humidity Sensor",
+            "model_id": "ywagc4rj",
+            "battery_type": "CR2032"
         }
     ]
 }
