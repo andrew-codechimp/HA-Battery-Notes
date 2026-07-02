@@ -1,4 +1,4 @@
-## 2239 Devices in library
+## 2240 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1931,6 +1931,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |TUYA                                            |TS0601_smoke_6                                                                                |2× AA                     |_TZE200_ntcy3xu1                                                        |
 |Tuya                                            |TS0601_temperature_humidity_sensor_1                                                          |2× AA                     |                                                                        |
 |Tuya                                            |TT001ZAV20                                                                                    |CR2032                    |                                                                        |
+|Tuya                                            |TV01-ZG                                                                                       |2× AA                     |e9ba97vf                                                                |
 |TuYa                                            |TV02-Zigbee                                                                                   |2× AA                     |                                                                        |
 |Tuya                                            |Tür/ Fenstersensor                                                                            |2× AAA                    |                                                                        |
 |Tuya                                            |Vibration Sensor                                                                              |2× AAA                    |3zv6oleo                                                                |

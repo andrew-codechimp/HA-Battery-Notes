@@ -11210,6 +11210,13 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Tuya",
+            "model": "TV01-ZG",
+            "model_id": "e9ba97vf",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "TuYa",
             "model": "TV02-Zigbee",
             "battery_type": "AA",
@@ -12993,13 +13000,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "TV01-ZG",
-            "model_id": "e9ba97vf",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
