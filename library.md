@@ -1,4 +1,4 @@
-## 2237 Devices in library
+## 2238 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1866,6 +1866,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tuya                                            |Solar light sensor                                                                            |Solar                     |TS0222_solar_light                                                      |
 |Tuya                                            |Solar powered rain sensor                                                                     |Solar                     |_TZ3000_mqiev3jk                                                        |
 |Tuya                                            |Solar Rain sensor                                                                             |Solar                     |RB-SRAIN01                                                              |
+|Tuya                                            |Switch of scene                                                                               |23A                       |mh9px7cq                                                                |
 |Tuya                                            |T & H Sensor                                                                                  |2× AAA                    |lf36y5nwb8jkxwgg                                                        |
 |TuYa                                            |T & H Sensor (lf36y5nwb8jkxwgg)                                                               |2× AAA                    |                                                                        |
 |Tuya                                            |T & H Sensor (xlk3mtpjo1zkmdvh)                                                               |3× AAA                    |                                                                        |

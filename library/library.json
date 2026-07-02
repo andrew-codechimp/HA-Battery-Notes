@@ -10797,6 +10797,12 @@
         },
         {
             "manufacturer": "Tuya",
+            "model": "Switch of scene",
+            "model_id": "mh9px7cq",
+            "battery_type": "23A"
+        },
+        {
+            "manufacturer": "Tuya",
             "model": "T & H Sensor",
             "model_id": "lf36y5nwb8jkxwgg",
             "hw_version": "TH01CB3S",
@@ -12981,12 +12987,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Switch of scene",
-            "model_id": "mh9px7cq",
-            "battery_type": "23A"
         }
     ]
 }
