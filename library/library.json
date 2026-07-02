@@ -11493,6 +11493,12 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Tuya",
+            "model": "\u65cb\u94ae\u5f00\u5173",
+            "model_id": "abrsvsou",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "TUYATEC-1wzznw9a",
             "model": "RH3052",
             "battery_type": "CR2032"
@@ -13018,12 +13024,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "\u65cb\u94ae\u5f00\u5173",
-            "model_id": "abrsvsou",
-            "battery_type": "CR2032"
         }
     ]
 }
