@@ -12950,6 +12950,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "ZIGBEE Smart Button",
+            "model_id": "ja5osu5g",
+            "battery_type": "CR2032"
         }
     ]
 }
