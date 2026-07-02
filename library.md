@@ -1,4 +1,4 @@
-## 2241 Devices in library
+## 2242 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1849,6 +1849,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tuya                                            |Smart Door Sensor                                                                             |2× AAA                    |5w9vch3u0jfuyleg                                                        |
 |TuYa                                            |Smart knob (ERS-10TZBVK-AA)                                                                   |CR2032                    |                                                                        |
 |Tuya                                            |Smart pet feeder AL                                                                           |4× AA                     |xaw628wk93zqlr80                                                        |
+|Tuya                                            |Smart Radiator Thermostat                                                                     |2× AA                     |bvu2wnxz                                                                |
 |Tuya                                            |Smoke Alarm                                                                                   |PP3                       |                                                                        |
 |Tuya                                            |Smoke Alarm (gymi8xdlnxtpslit)                                                                |CR123A                    |                                                                        |
 |Tuya                                            |Smoke Detector                                                                                |PP3                       |lsjnzox4skgduemo                                                        |
