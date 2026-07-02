@@ -1,4 +1,4 @@
-## 2244 Devices in library
+## 2245 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1825,6 +1825,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tuya                                            |Optical smoke sensor (model YG500A on the PCB)                                                |2× AAA                    |TS0205_smoke_2                                                          |
 |Tuya                                            |Photoelectric smoke detector                                                                  |2× AA                     |PA-44Z                                                                  |
 |TuYa                                            |Photoelectric smoke detector (PA-44Z)                                                         |PP3                       |                                                                        |
+|Tuya                                            |PIR                                                                                           |CR2450                    |53o41joc                                                                |
 |Tuya                                            |PIR (b5g40alm)                                                                                |CR2450                    |                                                                        |
 |Tuya                                            |PIR 24Ghz human presence sensor                                                               |2× AAA                    |ZG-204ZM                                                                |
 |Tuya                                            |PIR 24Ghz human presence sensor (ZG-204ZM)                                                    |2× AAA                    |                                                                        |

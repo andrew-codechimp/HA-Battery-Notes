@@ -10540,6 +10540,12 @@
         },
         {
             "manufacturer": "Tuya",
+            "model": "PIR",
+            "model_id": "53o41joc",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Tuya",
             "model": "PIR (b5g40alm)",
             "battery_type": "CR2450"
         },
@@ -13024,12 +13030,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "PIR",
-            "model_id": "53o41joc",
-            "battery_type": "CR2450"
         }
     ]
 }
