@@ -484,7 +484,9 @@ class BatteryNotesBatteryLowBinaryTemplateSensor(
         return self._state
 
 
-class BatteryNotesBatteryPercentageTemplateLowSensor(BatteryNotesBatteryLowBaseSensor):
+class BatteryNotesBatteryPercentageTemplateLowSensor(
+    BatteryNotesNonTemplateBatteryLowSensor
+):
     """Represents a low battery threshold binary sensor from a template percentage."""
 
     _attr_should_poll = False
