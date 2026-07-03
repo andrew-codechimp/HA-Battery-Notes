@@ -9,14 +9,8 @@ from homeassistant.components.button import (
     ButtonEntity,
     ButtonEntityDescription,
 )
-from homeassistant.const import (
-    CONF_DEVICE_ID,
-)
-from homeassistant.core import HomeAssistant, callback
-from homeassistant.helpers import (
-    device_registry as dr,
-    entity_registry as er,
-)
+from homeassistant.core import HomeAssistant
+from homeassistant.helpers import entity_registry as er
 from homeassistant.helpers.entity import EntityCategory
 from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
 from homeassistant.util import dt as dt_util
@@ -46,24 +40,6 @@ class BatteryNotesButtonEntityDescription(
     """Describes Battery Notes button entity."""
 
     unique_id_suffix: str
-
-
-@callback
-def async_add_to_device(
-    hass: HomeAssistant, entry: BatteryNotesConfigEntry
-) -> str | None:
-    """Add our config entry to the device."""
-    device_registry = dr.async_get(hass)
-
-    device_id = entry.data.get(CONF_DEVICE_ID)
-
-    if device_id:
-        if device_registry.async_get(device_id):
-            device_registry.async_update_device(
-                device_id, add_config_entry_id=entry.entry_id
-            )
-            return device_id
-    return None
 
 
 async def async_setup_entry(

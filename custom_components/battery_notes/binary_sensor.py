@@ -29,7 +29,6 @@ from homeassistant.core import (
 from homeassistant.exceptions import TemplateError
 from homeassistant.helpers import (
     config_validation as cv,
-    device_registry as dr,
     entity_registry as er,
     template,
 )
@@ -98,24 +97,6 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
         vol.Optional(CONF_SOURCE_ENTITY_ID): cv.string,
     }
 )
-
-
-@callback
-def async_add_to_device(
-    hass: HomeAssistant, entry: BatteryNotesConfigEntry
-) -> str | None:
-    """Add our config entry to the device."""
-    device_registry = dr.async_get(hass)
-
-    device_id = entry.data.get(CONF_DEVICE_ID)
-
-    if device_id:
-        if device_registry.async_get(device_id):
-            device_registry.async_update_device(
-                device_id, add_config_entry_id=entry.entry_id
-            )
-            return device_id
-    return None
 
 
 async def async_setup_entry(
