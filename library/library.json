@@ -13043,6 +13043,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "eQ-3",
+            "model": "HmIP-DLP",
+            "model_id": "Homematic IP T\u00fcrschlossantrieb",
+            "battery_type": "AA",
+            "battery_quantity": 4
         }
     ]
 }
