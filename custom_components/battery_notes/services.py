@@ -146,6 +146,7 @@ async def _async_battery_replaced(call: ServiceCall) -> ServiceResponse:  # noqa
                         {
                             ATTR_DEVICE_ID: coordinator.device_id or "",
                             ATTR_SOURCE_ENTITY_ID: coordinator.source_entity_id or "",
+                            ATTR_AREA_NAME: coordinator.area_name,
                             ATTR_DEVICE_NAME: coordinator.device_name,
                             ATTR_BATTERY_TYPE_AND_QUANTITY: coordinator.battery_type_and_quantity,
                             ATTR_BATTERY_TYPE: coordinator.battery_type,
@@ -203,6 +204,7 @@ async def _async_battery_replaced(call: ServiceCall) -> ServiceResponse:  # noqa
                         {
                             ATTR_DEVICE_ID: coordinator.device_id or "",
                             ATTR_SOURCE_ENTITY_ID: coordinator.source_entity_id or "",
+                            ATTR_AREA_NAME: coordinator.area_name,
                             ATTR_DEVICE_NAME: coordinator.device_name,
                             ATTR_BATTERY_TYPE_AND_QUANTITY: coordinator.battery_type_and_quantity,
                             ATTR_BATTERY_TYPE: coordinator.battery_type,
@@ -272,8 +274,8 @@ async def _async_battery_last_replaced(call: ServiceCall) -> ServiceResponse:
                                 ATTR_DEVICE_ID: coordinator.device_id or "",
                                 ATTR_SOURCE_ENTITY_ID: coordinator.source_entity_id
                                 or "",
-                                ATTR_DEVICE_NAME: coordinator.device_name,
                                 ATTR_AREA_NAME: coordinator.area_name,
+                                ATTR_DEVICE_NAME: coordinator.device_name,
                                 ATTR_BATTERY_TYPE_AND_QUANTITY: coordinator.battery_type_and_quantity,
                                 ATTR_BATTERY_TYPE: coordinator.battery_type,
                                 ATTR_BATTERY_QUANTITY: coordinator.battery_quantity,
@@ -354,8 +356,8 @@ async def _async_battery_last_reported(call: ServiceCall) -> ServiceResponse:
                                 ATTR_DEVICE_ID: coordinator.device_id or "",
                                 ATTR_SOURCE_ENTITY_ID: coordinator.source_entity_id
                                 or "",
-                                ATTR_DEVICE_NAME: coordinator.device_name,
                                 ATTR_AREA_NAME: coordinator.area_name,
+                                ATTR_DEVICE_NAME: coordinator.device_name,
                                 ATTR_BATTERY_TYPE_AND_QUANTITY: coordinator.battery_type_and_quantity,
                                 ATTR_BATTERY_TYPE: coordinator.battery_type,
                                 ATTR_BATTERY_QUANTITY: coordinator.battery_quantity,

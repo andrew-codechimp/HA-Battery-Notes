@@ -34,6 +34,7 @@ from homeassistant.util.hass_dict import HassKey
 
 from .common import validate_is_float
 from .const import (
+    ATTR_AREA_NAME,
     ATTR_BATTERY_LAST_REPLACED,
     ATTR_BATTERY_LEVEL,
     ATTR_BATTERY_LOW,
@@ -476,6 +477,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                 {
                     ATTR_DEVICE_ID: self.device_id or "",
                     ATTR_SOURCE_ENTITY_ID: self.source_entity_id or "",
+                    ATTR_AREA_NAME: self.area_name,
                     ATTR_DEVICE_NAME: self.device_name,
                     ATTR_BATTERY_LOW: self.battery_low,
                     ATTR_BATTERY_LOW_THRESHOLD: self.battery_low_threshold,
@@ -509,6 +511,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                     {
                         ATTR_DEVICE_ID: self.device_id or "",
                         ATTR_SOURCE_ENTITY_ID: self.source_entity_id or "",
+                        ATTR_AREA_NAME: self.area_name,
                         ATTR_DEVICE_NAME: self.device_name,
                         ATTR_BATTERY_LOW: self.battery_low,
                         ATTR_BATTERY_LOW_THRESHOLD: self.battery_low_threshold,
@@ -544,6 +547,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                 {
                     ATTR_DEVICE_ID: self.device_id or "",
                     ATTR_SOURCE_ENTITY_ID: self.source_entity_id or "",
+                    ATTR_AREA_NAME: self.area_name,
                     ATTR_DEVICE_NAME: self.device_name,
                     ATTR_BATTERY_LOW: self.battery_low,
                     ATTR_BATTERY_LOW_THRESHOLD: self.battery_low_threshold,
@@ -577,6 +581,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                     {
                         ATTR_DEVICE_ID: self.device_id or "",
                         ATTR_SOURCE_ENTITY_ID: self.source_entity_id or "",
+                        ATTR_AREA_NAME: self.area_name,
                         ATTR_DEVICE_NAME: self.device_name,
                         ATTR_BATTERY_LOW: self.battery_low,
                         ATTR_BATTERY_LOW_THRESHOLD: self.battery_low_threshold,
@@ -630,6 +635,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                     {
                         ATTR_DEVICE_ID: self.device_id or "",
                         ATTR_SOURCE_ENTITY_ID: self.source_entity_id or "",
+                        ATTR_AREA_NAME: self.area_name,
                         ATTR_DEVICE_NAME: self.device_name,
                         ATTR_BATTERY_LOW: self.battery_low,
                         ATTR_BATTERY_LOW_THRESHOLD: self.battery_low_threshold,
@@ -666,6 +672,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                         {
                             ATTR_DEVICE_ID: self.device_id or "",
                             ATTR_SOURCE_ENTITY_ID: self.source_entity_id or "",
+                            ATTR_AREA_NAME: self.area_name,
                             ATTR_DEVICE_NAME: self.device_name,
                             ATTR_BATTERY_LOW: self.battery_low,
                             ATTR_BATTERY_LOW_THRESHOLD: self.battery_low_threshold,
