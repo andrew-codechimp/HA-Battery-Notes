@@ -598,7 +598,7 @@ class BatteryNotesBatteryPlusSensor(BatteryNotesBatteryPlusBaseSensor):
         # Don't update if battery level same and it's been < 1 hour
         delta = dt_util.utcnow() - self.coordinator.last_wrapped_battery_state_write
         if (
-            self.coordinator.last_reported_level == wrapped_battery_state.state
+            self.coordinator.last_reported_level == float(wrapped_battery_state.state)
             and delta.total_seconds() < STATE_WRITE_INTERVAL_SECONDS
         ):
             self._attr_available = True
