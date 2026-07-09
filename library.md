@@ -1,4 +1,4 @@
-## 2249 Devices in library
+## 2250 Devices in library
 
 This file is auto generated, do not modify
 
@@ -2197,6 +2197,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Yale Home Inc.                                  |AK-R1                                                                                         |2× AAA                    |                                                                        |
 |Yale Home Inc.                                  |ASL6_05/101110/MB                                                                             |4× AA                     |                                                                        |
 |Yale/August                                     |AUGUST_MODEL_NUMBER_HERE                                                                      |4× AA                     |                                                                        |
+|Yale/August                                     |MD-04I                                                                                        |4× AA                     |                                                                        |
 |Yandex                                          |Double gang wireless switch                                                                   |2× CR2450                 |YNDX_00535                                                              |
 |Yandex                                          |Motion and illuminance sensor                                                                 |CR2450                    |YNDX_00528                                                              |
 |Yeelight                                        |ble YLAI003                                                                                   |CR2032                    |                                                                        |

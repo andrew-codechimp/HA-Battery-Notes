@@ -12708,6 +12708,12 @@
             "battery_quantity": 4
         },
         {
+            "manufacturer": "Yale/August",
+            "model": "MD-04I",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
             "manufacturer": "Yandex",
             "model": "Double gang wireless switch",
             "model_id": "YNDX_00535",
@@ -13056,12 +13062,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Yale/August",
-            "model": "MD-04I",
-            "battery_type": "AA",
-            "battery_quantity": 4
         }
     ]
 }
