@@ -1,4 +1,4 @@
-## 2253 Devices in library
+## 2254 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1990,6 +1990,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |TUYATEC-dgtxmihe                                |PIR sensor                                                                                    |CR2450                    |RH3040                                                                  |
 |TUYATEC-r9hgssol                                |RH3001                                                                                        |CR2450                    |                                                                        |
 |TUYATEC-riuj5xzs                                |RH3052                                                                                        |CR2032                    |                                                                        |
+|TUYATEC-vhrcfp2v                                |RH3001                                                                                        |CR2032                    |                                                                        |
 |TUYATEC-xrvzm3yI                                |RH3001                                                                                        |CR2032                    |                                                                        |
 |TUYATEC-yg5dcbfu                                |RH3052                                                                                        |CR2032                    |                                                                        |
 |U-tec Group Inc.                                |Ultraloq Bolt F Matter                                                                        |8× AA                     |                                                                       1|
