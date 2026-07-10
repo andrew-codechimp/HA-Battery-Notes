@@ -13084,6 +13084,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Water sensor Roximo",
+            "model_id": "aowej1ni",
+            "battery_type": "CR2032"
         }
     ]
 }
