@@ -13062,6 +13062,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "TUYATEC-vhrcfp2v",
+            "model": "RH3001",
+            "battery_type": "CR2032"
         }
     ]
 }
