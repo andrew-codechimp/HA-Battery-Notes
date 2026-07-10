@@ -13096,6 +13096,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "TUYATEC-53o41joc",
+            "model": "RH3040",
+            "battery_type": "CR2450"
         }
     ]
 }
