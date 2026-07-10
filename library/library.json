@@ -2320,6 +2320,12 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Bold Security Technology B.V.",
+            "model": "Bold Elite",
+            "model_id": "Elite (4097)",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "Bosch",
             "model": "BSEN-M",
             "battery_type": "CR123A",
@@ -13101,12 +13107,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Bold Security Technology B.V.",
-            "model": "Bold Elite",
-            "model_id": "Elite (4097)",
-            "battery_type": "CR123A"
         }
     ]
 }
