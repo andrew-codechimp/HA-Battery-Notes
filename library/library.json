@@ -11350,6 +11350,12 @@
         },
         {
             "manufacturer": "Tuya",
+            "model": "Water sensor Roximo",
+            "model_id": "aowej1ni",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Tuya",
             "model": "Water valve",
             "model_id": "TS0049",
             "battery_type": "AA",
@@ -13084,12 +13090,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Water sensor Roximo",
-            "model_id": "aowej1ni",
-            "battery_type": "CR2032"
         }
     ]
 }

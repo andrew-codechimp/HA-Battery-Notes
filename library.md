@@ -1,4 +1,4 @@
-## 2254 Devices in library
+## 2255 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1953,6 +1953,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tuya                                            |Water leak detector                                                                           |2× AAA                    |TS0207_water_leak_detector                                              |
 |TuYa                                            |Water leak detector (TS0207_water_leak_detector)                                              |CR2032                    |                                                                        |
 |Tuya                                            |Water leak sensor                                                                             |2× AAA                    |upgcbody                                                                |
+|Tuya                                            |Water sensor Roximo                                                                           |CR2032                    |aowej1ni                                                                |
 |Tuya                                            |Water valve                                                                                   |4× AA                     |TS0049                                                                  |
 |TuYa                                            |Water valve (TS0049)                                                                          |4× AA                     |                                                                        |
 |Tuya                                            |WiFi Temperature & Humidity Sensor                                                            |3× AAA                    |yqiqbaldtr0i7mru                                                        |
