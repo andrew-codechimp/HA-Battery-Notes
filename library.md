@@ -1,4 +1,4 @@
-## 2259 Devices in library
+## 2260 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1402,6 +1402,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Roborock                                        |roborock.vacuum.a27                                                                           |Rechargeable              |                                                                        |
 |Roborock                                        |roborock.vacuum.s5e                                                                           |Rechargeable              |roborock.vacuum.s5e                                                     |
 |rtl_433                                         |Acurite-515                                                                                   |2× AA                     |                                                                        |
+|rtl_433                                         |Acurite-606TX                                                                                 |2× AA                     |                                                                        |
 |rtl_433                                         |Acurite-986                                                                                   |2× AA                     |                                                                        |
 |rtl_433                                         |Acurite-Tower                                                                                 |2× AA                     |                                                                        |
 |rtl_433                                         |Efergy-e2CT                                                                                   |3× AAA                    |                                                                        |
