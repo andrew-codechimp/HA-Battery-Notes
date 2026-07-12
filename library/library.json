@@ -4329,6 +4329,11 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "Fibar Group",
+            "model": "FGBHFS-101",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "Fibargroup",
             "model": "FGCD001",
             "battery_type": "CR123A"
@@ -13118,11 +13123,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Fibar Group",
-            "model": "FGBHFS-101",
-            "battery_type": "CR123A"
         }
     ]
 }

@@ -1,4 +1,4 @@
-## 2260 Devices in library
+## 2261 Devices in library
 
 This file is auto generated, do not modify
 
@@ -753,6 +753,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Fantem                                          |4 in 1 multi sensor (ZB003-X)                                                                 |2× CR123A                 |                                                                        |
 |Feasycom                                        |FeasyBeacon FSC-BP108                                                                         |CR3032                    |                                                                        |
 |Fibar Group                                     |CO sensor                                                                                     |CR123A                    |FGBHCD-001                                                              |
+|Fibar Group                                     |FGBHFS-101                                                                                    |CR123A                    |                                                                        |
 |Fibargroup                                      |FGCD001                                                                                       |CR123A                    |                                                                        |
 |Fibargroup                                      |FGDW002                                                                                       |LS14250                   |                                                                        |
 |Fibargroup                                      |FGFS101                                                                                       |CR123A                    |                                                                        |
