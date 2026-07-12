@@ -6621,6 +6621,12 @@
         },
         {
             "manufacturer": "Meross",
+            "model": "gs559",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Meross",
             "model": "ms100",
             "battery_type": "CR2477"
         },
@@ -13123,12 +13129,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Meross",
-            "model": "gs559",
-            "battery_type": "AA",
-            "battery_quantity": 4
         }
     ]
 }

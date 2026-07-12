@@ -1,4 +1,4 @@
-## 2261 Devices in library
+## 2262 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1152,6 +1152,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Mammotion                                       |YUKA mini 2 1000                                                                              |Rechargeable              |YUKA mini 2 1000                                                        |
 |Meian                                           |Water leak sensor                                                                             |CR2450                    |SW02                                                                    |
 |Merkury                                         |SS003                                                                                         |CR2                       |                                                                        |
+|Meross                                          |gs559                                                                                         |4× AA                     |                                                                        |
 |Meross                                          |ms100                                                                                         |CR2477                    |                                                                        |
 |Meross                                          |Smart Presence Sensor (16898)                                                                 |CR123A                    |                                                                   16898|
 |Mi                                              |MS009                                                                                         |CR2540                    |                                                                        |
