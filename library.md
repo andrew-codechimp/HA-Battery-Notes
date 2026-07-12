@@ -1,4 +1,4 @@
-## 2258 Devices in library
+## 2259 Devices in library
 
 This file is auto generated, do not modify
 
@@ -549,6 +549,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Elexa Consumer Products Inc.                    |DMS01                                                                                         |2× CR123A                 |                                                                        |
 |Elexa Consumer Products Inc.                    |DMWD1                                                                                         |CR123A                    |                                                                        |
 |Elexa Consumer Products Inc.                    |DMWS1                                                                                         |CR2                       |                                                                        |
+|Elgato                                          |Eve Degree 20EAF9901                                                                          |CR2450                    |                                                                        |
 |Elgato                                          |Eve Door 20EAL9901                                                                            |LS14250                   |                                                                        |
 |Elgato                                          |Eve Motion 20EAK9901                                                                          |2× AA                     |                                                                        |
 |Elgato                                          |Eve Thermo 20EAR1701                                                                          |2× AA                     |                                                                        |

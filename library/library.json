@@ -3123,6 +3123,11 @@
         },
         {
             "manufacturer": "Elgato",
+            "model": "Eve Degree 20EAF9901",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Elgato",
             "model": "Eve Door 20EAL9901",
             "hw_version": "1.0.0",
             "battery_type": "LS14250"
@@ -13107,11 +13112,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Elgato",
-            "model": "Eve Degree 20EAF9901",
-            "battery_type": "CR2450"
         }
     ]
 }
