@@ -3984,6 +3984,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "eQ-3",
+            "model": "Thermostat",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "EQ-3 AG",
             "model": "eQ-3 Bluetooth Smart Thermostats",
             "model_id": "CC-RT-BLE-EQ",
@@ -13129,12 +13135,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "eQ-3",
-            "model": "Thermostat",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
