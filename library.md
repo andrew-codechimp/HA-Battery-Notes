@@ -1,4 +1,4 @@
-## 2263 Devices in library
+## 2264 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1993,6 +1993,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tuya                                            |zqeaw7pi                                                                                      |2× AAA                    |                                                                        |
 |TuYa                                            |ZTH08-E                                                                                       |3× AAA                    |                                                                        |
 |Tuya                                            |四键无线情景开关(Zigbee)                                                                      |CR2032                    |aaabrnhr                                                                |
+|Tuya                                            |土壤水份传感器                                                                                |2× AAA                    |npj9bug3                                                                |
 |Tuya                                            |旋钮开关                                                                                      |CR2032                    |abrsvsou                                                                |
 |TUYATEC-1wzznw9a                                |RH3052                                                                                        |CR2032                    |                                                                        |
 |TUYATEC-53o41joc                                |RH3040                                                                                        |CR2450                    |                                                                        |
