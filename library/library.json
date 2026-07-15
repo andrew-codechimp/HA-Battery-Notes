@@ -13135,6 +13135,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "\u571f\u58e4\u6c34\u4efd\u4f20\u611f\u5668",
+            "model_id": "npj9bug3",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
