@@ -2661,6 +2661,11 @@
             "battery_type": "RB1290X2"
         },
         {
+            "manufacturer": "CPS",
+            "model": "OR1500LCDRM1Ua",
+            "battery_type": "RB0690X4"
+        },
+        {
             "manufacturer": "Custom devices (DiY)",
             "model": "Plant watering sensor zFlora_S (zFlora_S)",
             "battery_type": "CR2450"
@@ -4861,6 +4866,16 @@
             "manufacturer": "HARMAN International Industries",
             "model": "JBL BAR 1000",
             "hw_version": "MT8518",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Hatch",
+            "model": "RestIot",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Hatch",
+            "model": "RestPlus",
             "battery_type": "Rechargeable"
         },
         {
@@ -12967,6 +12982,16 @@
             "manufacturer": "Yookee",
             "model": "Smart blind",
             "model_id": "D10110_1",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Yoto",
+            "model": "Yoto Mini",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Yoto",
+            "model": "Yoto Player",
             "battery_type": "Rechargeable"
         },
         {
