@@ -1,4 +1,4 @@
-## 2264 Devices in library
+## 2269 Devices in library
 
 This file is auto generated, do not modify
 
@@ -469,6 +469,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |CPS                                             |CP1500AVRLCDa                                                                                 |Rechargeable              |                                                                        |
 |CPS                                             |CP1500PFCLCD                                                                                  |2× 12V9AH-SLA             |                                                                        |
 |CPS                                             |CP1500PFCLCDa                                                                                 |RB1290X2                  |                                                                        |
+|CPS                                             |OR1500LCDRM1Ua                                                                                |RB0690X4                  |                                                                        |
 |Custom devices (DiY)                            |Plant watering sensor zFlora_S (zFlora_S)                                                     |CR2450                    |                                                                        |
 |Custom devices (DiY)                            |Xiaomi temperature & humidity sensor with custom firmware                                     |CR2032                    |LYWSD03MMC                                                              |
 |Custom devices (DiY)                            |Xiaomi temperature & humidity sensor with custom firmware (LYWSD03MMC)                        |CR2032                    |                                                                        |
@@ -848,6 +849,8 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |HANK Electronics, Ltd.                          |HKZW-MS02                                                                                     |CR123A                    |                                                                        |
 |Haozee                                          |Haozee Zigbee Temperature and Humidity sensor                                                 |CR2450                    |ZG-227Z                                                                 |
 |HARMAN International Industries                 |JBL BAR 1000                                                                                  |Rechargeable              |                                                                        |
+|Hatch                                           |RestIot                                                                                       |Rechargeable              |                                                                        |
+|Hatch                                           |RestPlus                                                                                      |Rechargeable              |                                                                        |
 |Heatit                                          |Z-PH WALL CONTROLLER                                                                          |CR2450                    |                                                                        |
 |Heatit                                          |Z-Temp2                                                                                       |3× AA                     |                                                                        |
 |Heatit                                          |Z-TEMP3                                                                                       |2× AAA                    |                                                                        |
@@ -2239,6 +2242,8 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |YoLink                                          |YS8003-UC                                                                                     |2× AAA                    |THSensor                                                                |
 |YoLink                                          |YS8006-UC                                                                                     |2× AA                     |THSensor                                                                |
 |Yookee                                          |Smart blind                                                                                   |Rechargeable              |D10110_1                                                                |
+|Yoto                                            |Yoto Mini                                                                                     |Rechargeable              |                                                                        |
+|Yoto                                            |Yoto Player                                                                                   |Rechargeable              |                                                                        |
 |Zbeacon                                         |DS01                                                                                          |MANUAL                    |                                                                        |
 |Zbeacon                                         |Temperature and humidity sensor                                                               |MANUAL                    |TH01                                                                    |
 |Zbeacon                                         |Temperature and humidity sensor                                                               |CR2032                    |TH01                                                                    |
