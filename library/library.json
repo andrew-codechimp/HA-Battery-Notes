@@ -13073,6 +13073,11 @@
         },
         {
             "manufacturer": "Zooz",
+            "model": "ZAC36",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Zooz",
             "model": "ZAC38",
             "battery_type": "Rechargeable"
         },
@@ -13172,11 +13177,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Zooz",
-            "model": "ZAC36",
             "battery_type": "Rechargeable"
         }
     ]

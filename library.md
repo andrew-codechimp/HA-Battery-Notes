@@ -1,4 +1,4 @@
-## 2270 Devices in library
+## 2271 Devices in library
 
 This file is auto generated, do not modify
 
@@ -2257,6 +2257,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Zipato                                          |HS1SA                                                                                         |CR123A                    |                                                                        |
 |ZONKO                                           |K150                                                                                          |Rechargeable              |                                                                        |
 |Zooz                                            |Q Sensor                                                                                      |2× CR123A                 |                                                                        |
+|Zooz                                            |ZAC36                                                                                         |Rechargeable              |                                                                        |
 |Zooz                                            |ZAC38                                                                                         |Rechargeable              |                                                                        |
 |Zooz                                            |ZEN34                                                                                         |2× CR2032                 |                                                                        |
 |Zooz                                            |ZEN37                                                                                         |LIR2032                   |                                                                        |
