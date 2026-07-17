@@ -88,6 +88,7 @@ class BatteryNotesDomainConfig:
     show_all_devices: bool = False
     enable_replaced: bool = True
     hide_battery: bool = False
+    hide_battery_low: bool = False
     round_battery: bool = False
     default_battery_low_threshold: int = DEFAULT_BATTERY_LOW_THRESHOLD
     battery_increased_threshod: int = DEFAULT_BATTERY_INCREASE_THRESHOLD

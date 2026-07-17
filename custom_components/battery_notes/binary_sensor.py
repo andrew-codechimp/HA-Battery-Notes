@@ -256,6 +256,35 @@ class BatteryNotesBatteryLowBaseSensor(BatteryNotesEntity, BinarySensorEntity):
         return attrs
 
 
+class BatteryNotesNonTemplateBatteryLowSensor(BatteryNotesBatteryLowBaseSensor):
+    """Low battery binary sensor base for non templated entities."""
+
+    entity_description: BatteryNotesBinarySensorEntityDescription
+
+    def __init__(
+        self,
+        hass: HomeAssistant,
+        coordinator: BatteryNotesSubentryCoordinator,
+        entity_description: BatteryNotesBinarySensorEntityDescription,
+    ):
+        """Initialize the low battery binary sensor."""
+
+        super().__init__(
+            hass, entity_description=entity_description, coordinator=coordinator
+        )
+
+        registry = er.async_get(hass)
+        entity = registry.async_get(self.entity_id)
+
+        if entity is not None and entity.hidden_by != er.RegistryEntryHider.USER:
+            registry.async_update_entity(
+                self.entity_id,
+                hidden_by=er.RegistryEntryHider.INTEGRATION
+                if hass.data[MY_KEY].hide_battery_low
+                else None,
+            )
+
+
 class BatteryNotesBatteryLowBinaryTemplateSensor(
     BatteryNotesBatteryLowBaseSensor, RestoreEntity
 ):
@@ -436,7 +465,9 @@ class BatteryNotesBatteryLowBinaryTemplateSensor(
         return self._state
 
 
-class BatteryNotesBatteryPercentageTemplateLowSensor(BatteryNotesBatteryLowBaseSensor):
+class BatteryNotesBatteryPercentageTemplateLowSensor(
+    BatteryNotesNonTemplateBatteryLowSensor
+):
     """Represents a low battery threshold binary sensor from a template percentage."""
 
     _attr_should_poll = False
@@ -485,7 +516,7 @@ class BatteryNotesBatteryPercentageTemplateLowSensor(BatteryNotesBatteryLowBaseS
         )
 
 
-class BatteryNotesBatteryWrappedLowSensor(BatteryNotesBatteryLowBaseSensor):
+class BatteryNotesBatteryWrappedLowSensor(BatteryNotesNonTemplateBatteryLowSensor):
     """Represents a low battery threshold binary sensor from a device percentage."""
 
     _attr_should_poll = False
@@ -547,7 +578,7 @@ class BatteryNotesBatteryWrappedLowSensor(BatteryNotesBatteryLowBaseSensor):
         )
 
 
-class BatteryNotesBatteryBinaryLowSensor(BatteryNotesBatteryLowBaseSensor):
+class BatteryNotesBatteryBinaryLowSensor(BatteryNotesNonTemplateBatteryLowSensor):
     """Represents a low battery binary sensor from a binary sensor."""
 
     _attr_should_poll = False
