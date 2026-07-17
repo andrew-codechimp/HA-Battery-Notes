@@ -295,7 +295,7 @@ class BatteryNotesNonTemplateBatteryLowSensor(BatteryNotesBatteryLowBaseSensor):
         registry = er.async_get(hass)
         entity = registry.async_get(self.entity_id)
 
-        if entity.hidden_by != er.RegistryEntryHider.USER:
+        if entity is not None and entity.hidden_by != er.RegistryEntryHider.USER:
             registry.async_update_entity(
                 self.entity_id,
                 hidden_by=er.RegistryEntryHider.INTEGRATION
