@@ -165,13 +165,13 @@ class BatteryNotesStorage:
 
     @callback
     def async_get_device(self, device_id) -> dict[str, Any] | None:
-        """Get an existing DeviceEntry by id."""
+        """Get an existing device by id."""
         res = self.devices.get(device_id)
         return attr.asdict(res) if res else None
 
     @callback
     def async_get_devices(self):
-        """Get an existing DeviceEntry by id."""
+        """Get all existing devices."""
         res = {}
         for key, val in self.devices.items():
             res[key] = attr.asdict(val)
