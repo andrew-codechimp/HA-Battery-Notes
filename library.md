@@ -1,4 +1,4 @@
-## 2269 Devices in library
+## 2270 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1862,6 +1862,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |TuYa                                            |Security remote control (TS0215A_remote)                                                      |CR2032                    |                                                                        |
 |Tuya                                            |SGS01                                                                                         |2× AAA                    |gvygg3m8                                                                |
 |Tuya                                            |SGS01 (gvygg3m8)                                                                              |2× AAA                    |                                                                        |
+|Tuya                                            |Smart button                                                                                  |CR2032                    |IH-K663                                                                 |
 |TuYa                                            |Smart button (IH-K663)                                                                        |CR2032                    |                                                                        |
 |TuYa                                            |Smart button (MINI-ZSB)                                                                       |CR2032                    |                                                                        |
 |Tuya                                            |Smart Door Sensor                                                                             |2× AAA                    |5w9vch3u0jfuyleg                                                        |

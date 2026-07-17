@@ -10760,6 +10760,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Tuya",
+            "model": "Smart button",
+            "model_id": "IH-K663",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "TuYa",
             "model": "Smart button (IH-K663)",
             "battery_type": "CR2032"
@@ -13167,12 +13173,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Smart button",
-            "model_id": "IH-K663",
-            "battery_type": "CR2032"
         }
     ]
 }
