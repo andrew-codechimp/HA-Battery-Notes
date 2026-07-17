@@ -173,11 +173,13 @@
                         "data": {
                             "enable_autodiscovery": "Rilevamento automatico",
                             "enable_replaced": "Abilita batteria sostituita",
+                            "hide_battery_low": "Hide battery low",
                             "user_library": "Libreria utente"
                         },
                         "data_description": {
                             "enable_autodiscovery": "Rilevamento automatico dei dispositivi presenti nella libreria.",
                             "enable_replaced": "Abilita il pulsante di sostituzione batteria su ogni Battery Note.",
+                            "hide_battery_low": "Hide the battery low binary sensor when a battery percentage is available, avoiding duplication on generated dashboards.",
                             "user_library": "Se specificata, verrà utilizzata una libreria utente prima di quella principale. Deve avere lo stesso formato della libreria principale e trovarsi in 'config/storage/battery_note'."
                         }
                     }

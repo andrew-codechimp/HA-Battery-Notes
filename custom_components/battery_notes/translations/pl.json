@@ -173,11 +173,13 @@
                         "data": {
                             "enable_autodiscovery": "Automatyczne wykrywanie",
                             "enable_replaced": "Włącz wymienianie baterii",
+                            "hide_battery_low": "Hide battery low",
                             "user_library": "Biblioteka użytkownika"
                         },
                         "data_description": {
                             "enable_autodiscovery": "Automatyczne wykrywanie urządzeń, które znajdują się w bibliotece.",
                             "enable_replaced": "Włącz przycisk wymiany baterii dla każdej notatki baterii",
+                            "hide_battery_low": "Hide the battery low binary sensor when a battery percentage is available, avoiding duplication on generated dashboards.",
                             "user_library": "Jeśli ustawiono tę opcję, plik biblioteki użytkownika będzie przeszukiwany przed główną biblioteką.\nBiblioteka użytkownika musi mieć taki sam format jak biblioteka główna i być umieszczona w `config/.storage/battery_notes`."
                         }
                     }
