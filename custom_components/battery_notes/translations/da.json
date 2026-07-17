@@ -173,11 +173,13 @@
                         "data": {
                             "enable_autodiscovery": "Automatisk opdagelse",
                             "enable_replaced": "Aktivér batteri udskiftet",
+                            "hide_battery_low": "Hide battery low",
                             "user_library": "Brugerbibliotek"
                         },
                         "data_description": {
                             "enable_autodiscovery": "Automatisk opdagelse af enheder, der er i biblioteket.",
                             "enable_replaced": "Aktivér knappen for batteriudskiftning på hver batterinote.",
+                            "hide_battery_low": "Hide the battery low binary sensor when a battery percentage is available, avoiding duplication on generated dashboards.",
                             "user_library": "Hvis angivet, søges der først i en brugerdefineret biblioteksfil før hovedbiblioteket. Brugerbiblioteket skal have samme format som biblioteket og placeres i config/.storage/battery_notes."
                         }
                     }

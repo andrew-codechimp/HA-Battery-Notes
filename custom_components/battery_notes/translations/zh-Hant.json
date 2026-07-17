@@ -173,11 +173,13 @@
                         "data": {
                             "enable_autodiscovery": "Auto discovery",
                             "enable_replaced": "Enable battery replaced",
+                            "hide_battery_low": "Hide battery low",
                             "user_library": "User library"
                         },
                         "data_description": {
                             "enable_autodiscovery": "Auto discovery of devices that are in the library.",
                             "enable_replaced": "Enable the battery replaced button on each battery note.",
+                            "hide_battery_low": "Hide the battery low binary sensor when a battery percentage is available, avoiding duplication on generated dashboards.",
                             "user_library": "If specified then a user library file will be searched prior to the main library, the user library must be in the same format as the library and placed in `config/.storage/battery_notes`."
                         }
                     }

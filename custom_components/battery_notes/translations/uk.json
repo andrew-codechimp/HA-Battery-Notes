@@ -173,11 +173,13 @@
                         "data": {
                             "enable_autodiscovery": "Автоматичне виявлення",
                             "enable_replaced": "Увімкнути сповіщення про заміну батареї",
+                            "hide_battery_low": "Hide battery low",
                             "user_library": "Бібліотека користувачів"
                         },
                         "data_description": {
                             "enable_autodiscovery": "Автоматичне виявлення пристроїв, які є в бібліотеці.",
                             "enable_replaced": "Увімкнути кнопку «Батарею замінено» на кожній примітці щодо батареї.",
+                            "hide_battery_low": "Hide the battery low binary sensor when a battery percentage is available, avoiding duplication on generated dashboards.",
                             "user_library": "Якщо вказано, спершу буде шукатися файл користувацької бібліотеки перед основною бібліотекою. Користувацька бібліотека повинна мати той самий формат, що й основна, і розміщуватися в config/.storage/battery_notes."
                         }
                     }

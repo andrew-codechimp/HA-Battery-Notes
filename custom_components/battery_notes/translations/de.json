@@ -173,11 +173,13 @@
                         "data": {
                             "enable_autodiscovery": "Automatische Erkennung",
                             "enable_replaced": "\"Batterie ersetzt\" aktivieren",
+                            "hide_battery_low": "Hide battery low",
                             "user_library": "Benutzer-Bibliothek"
                         },
                         "data_description": {
                             "enable_autodiscovery": "Automatische Erkennung von Geräten, die in der Bibliothek sind.",
                             "enable_replaced": "Die \"Batterie ersetzt\"-Schaltfläche bei jeder Batterie-Notiz aktivieren",
+                            "hide_battery_low": "Hide the battery low binary sensor when a battery percentage is available, avoiding duplication on generated dashboards.",
                             "user_library": "Wenn angegeben, wird vor der Hauptbibliothek eine Benutzerbibliothek durchsucht. Die Benutzerbibliothek muss im selben Format sein, wie die Hauptbibliothek und in `config/. torage/battery_notes` platziert sein."
                         }
                     }
