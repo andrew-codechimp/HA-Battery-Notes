@@ -343,12 +343,12 @@
                 "step": {
                     "select_device": {
                         "data": {
-                            "device_id": "[%key:common::config_flow::data::device%]"
+                            "device_id": "Device"
                         },
                         "data_description": {
                             "device_id": "The device this battery note should be linked to."
                         },
-                        "description": "The battery note {name} was linked to a device which has been split into the following devices: {devices}.\n\nSelect the device this battery note should be linked to, or leave empty to not link it to a device.",
+                        "description": "The battery note {name} was linked to a device which has been split into the following devices: {devices}.\n\nSelect the device this battery note should be linked to, or leave empty to remove the battery note.",
                         "title": "Select device for {name}"
                     }
                 }
