@@ -102,11 +102,10 @@ class CompositeDeviceIdRepairFlow(RepairsFlow):
                     try:
                         store.async_change_device_id(old_device_id, device_id)
                     except ValueError:
-                        store.async_delete_device(old_device_id)
-                        _LOGGER.warning(
-                            "Unable to migrate battery note for %s, delete the battery note and re-add it to the new device",
-                            self._subentry.title,
+                        self.hass.config_entries.async_remove_subentry(
+                            self._entry, self._subentry.subentry_id
                         )
+                        store.async_delete_device(old_device_id)
                 else:
                     self.hass.config_entries.async_remove_subentry(
                         self._entry, self._subentry.subentry_id
