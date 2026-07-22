@@ -24,13 +24,11 @@ from homeassistant.helpers import (
     config_validation as cv,
     device_registry as dr,
     entity_registry as er,
+    helper_integration,
     issue_registry as ir,
 )
 from homeassistant.helpers.device import async_entity_id_to_device_id
 from homeassistant.helpers.event import async_call_later
-from homeassistant.helpers.helper_integration import (
-    async_remove_helper_config_entry_from_source_device,
-)
 from homeassistant.helpers.issue_registry import IssueSeverity, async_create_issue
 from homeassistant.helpers.typing import ConfigType
 
@@ -178,6 +176,41 @@ async def async_setup_entry(
     config_entry.runtime_data.subentry_coordinators = {}
     for subentry in config_entry.subentries.values():
         if subentry.subentry_type == SUBENTRY_BATTERY_NOTE:
+            device_id = subentry.data.get(CONF_DEVICE_ID, None)
+
+            # HA 2026.8 splits composite devices into multiple devices, so we need to check if the device_id is a composite device
+            device_registry = dr.async_get(hass)
+            # New method in 2026.8 - refactor when reach minimum version
+            is_composite_device_id = getattr(
+                device_registry, "async_is_composite_device_id", None
+            )
+            if (
+                device_id is not None
+                and callable(is_composite_device_id)
+                and is_composite_device_id(device_id)
+            ):
+                # The device was split into one device per config entry; ask the user to
+                # select a device again
+                ir.async_create_issue(
+                    hass,
+                    DOMAIN,
+                    f"composite_device_id_{subentry.subentry_id}",
+                    data={
+                        "entry_id": config_entry.entry_id,
+                        "subentry_id": subentry.subentry_id,
+                    },
+                    is_fixable=True,
+                    severity=ir.IssueSeverity.WARNING,
+                    translation_key="composite_device_id",
+                    translation_placeholders={"name": subentry.title},
+                )
+            else:
+                ir.async_delete_issue(
+                    hass,
+                    DOMAIN,
+                    f"composite_device_id_{subentry.subentry_id}",
+                )
+
             coordinator = BatteryNotesSubentryCoordinator(hass, config_entry, subentry)
             config_entry.runtime_data.subentry_coordinators[subentry.subentry_id] = (
                 coordinator
@@ -234,6 +267,14 @@ async def async_remove_entry(
         if subentry.subentry_id not in config_entry.subentries:
             await _async_remove_subentry(
                 hass, config_entry, subentry, remove_store_entries=False
+            )
+            ir.async_delete_issue(
+                hass, DOMAIN, f"missing_device_{subentry.subentry_id}"
+            )
+            ir.async_delete_issue(
+                hass,
+                DOMAIN,
+                f"composite_device_id_{subentry.subentry_id}",
             )
 
 
@@ -394,11 +435,30 @@ async def async_migrate_integration(hass: HomeAssistant, config: ConfigType) -> 
 
         if source_device_id:
             try:
-                async_remove_helper_config_entry_from_source_device(
-                    hass=hass,
-                    helper_config_entry_id=entry.entry_id,
-                    source_device_id=source_device_id,
+                # New method in 2026.8 - remove legacy when reach minimum version
+                remove_helper_devices = getattr(
+                    helper_integration, "async_remove_helper_devices", None
                 )
+                remove_legacy_link = getattr(
+                    helper_integration,
+                    "async_remove_helper_config_entry_from_source_device",
+                    None,
+                )
+
+                if callable(remove_helper_devices):
+                    remove_helper_devices(
+                        hass,
+                        helper_config_entry_id=entry.entry_id,
+                        source_device_id=source_device_id,
+                        remove_all_devices=True,
+                    )
+                elif callable(remove_legacy_link):
+                    remove_legacy_link(
+                        hass,
+                        helper_config_entry_id=entry.entry_id,
+                        source_device_id=source_device_id,
+                    )
+
             except ValueError as ex:
                 _LOGGER.debug(
                     "Error removing helper config entry from device during migration: %s",
@@ -536,6 +596,7 @@ async def _async_remove_subentry(
 
     # Remove any issues raised
     ir.async_delete_issue(hass, DOMAIN, f"missing_device_{subentry.subentry_id}")
+    ir.async_delete_issue(hass, DOMAIN, f"composite_device_id_{subentry.subentry_id}")
 
     # Remove store entries
     if remove_store_entries:

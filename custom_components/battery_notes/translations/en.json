@@ -338,6 +338,23 @@
                 }
             }
         },
+        "composite_device_id": {
+            "fix_flow": {
+                "step": {
+                    "select_device": {
+                        "data": {
+                            "device_id": "[%key:common::config_flow::data::device%]"
+                        },
+                        "data_description": {
+                            "device_id": "The device this battery note should be linked to."
+                        },
+                        "description": "The battery note {name} was linked to a device which has been split into the following devices: {devices}.\n\nSelect the device this battery note should be linked to, or leave empty to not link it to a device.",
+                        "title": "Select device for {name}"
+                    }
+                }
+            },
+            "title": "Device for battery note {name} needs to be selected again"
+        },
         "deprecated_yaml": {
             "title": "The {integration_title} YAML configuration is being removed",
             "description": "Configuring {integration_title} using YAML is being removed.\n\nYour existing YAML configuration has been imported into the UI automatically.\n\nRemove the `{domain}` configuration from your configuration.yaml file and restart Home Assistant to fix this issue."

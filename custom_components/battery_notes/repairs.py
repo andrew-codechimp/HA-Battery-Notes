@@ -2,16 +2,25 @@
 
 from __future__ import annotations
 
+import logging
 from typing import cast
 
 import voluptuous as vol
 
 from homeassistant import data_entry_flow
 from homeassistant.components.repairs import RepairsFlow
+from homeassistant.config_entries import ConfigEntry, ConfigSubentry
+from homeassistant.const import CONF_DEVICE_ID
 from homeassistant.core import HomeAssistant
-from homeassistant.helpers import issue_registry as ir
+from homeassistant.exceptions import HomeAssistantError
+from homeassistant.helpers import device_registry as dr, issue_registry as ir
+from homeassistant.helpers.selector import DeviceSelector
+
+from .store import async_get_registry
 
 REQUIRED_KEYS = ("entry_id", "device_id", "source_entity_id")
+
+_LOGGER = logging.getLogger(__name__)
 
 
 class MissingDeviceRepairFlow(RepairsFlow):
@@ -56,8 +65,90 @@ class MissingDeviceRepairFlow(RepairsFlow):
         )
 
 
+class CompositeDeviceIdRepairFlow(RepairsFlow):
+    """Handler to select a device again after the linked device was split."""
+
+    def __init__(self, entry: ConfigEntry, subentry: ConfigSubentry) -> None:
+        """Initialize the flow."""
+        self._entry = entry
+        self._subentry = subentry
+
+    async def async_step_init(
+        self,
+        user_input: dict[str, str] | None = None,  # noqa: ARG002
+    ) -> data_entry_flow.FlowResult:
+        """Handle the first step of the fix flow."""
+        return await self.async_step_select_device()
+
+    async def async_step_select_device(
+        self, user_input: dict[str, str] | None = None
+    ) -> data_entry_flow.FlowResult:
+        """Handle the device selection step."""
+
+        device_registry = dr.async_get(self.hass)
+        if user_input is not None:
+            device_id = user_input.get(CONF_DEVICE_ID)
+            # Ask again if the selection did not resolve the ambiguity, e.g. the
+            # suggested composite device id was submitted unchanged
+            if device_id is None or device_id in device_registry.devices:
+                old_device_id = self._subentry.data[CONF_DEVICE_ID]
+                data = {**self._subentry.data}
+                store = await async_get_registry(self.hass)
+                if device_id:
+                    data[CONF_DEVICE_ID] = device_id
+                    self.hass.config_entries.async_update_subentry(
+                        self._entry, self._subentry, data=data
+                    )
+                    if device_id and device_id != old_device_id:
+                        try:
+                            store.async_change_device_id(old_device_id, device_id)
+                        except ValueError:
+                            store.async_delete_device(old_device_id)
+                            _LOGGER.warning(
+                                "Unable to migrate battery note for %s, delete the battery note and re-add it to the new device",
+                                self._subentry.title,
+                            )
+                else:
+                    self.hass.config_entries.async_remove_subentry(
+                        self._entry, self._subentry.subentry_id
+                    )
+                    store.async_delete_device(old_device_id)
+                await self.hass.config_entries.async_reload(self._entry.entry_id)
+                return self.async_create_entry(data={})
+
+        old_device_id = self._subentry.data[CONF_DEVICE_ID]
+        get_split_devices = getattr(
+            device_registry, "async_get_devices_for_composite_device_id", None
+        )
+        split_devices = (
+            get_split_devices(old_device_id) if callable(get_split_devices) else []
+        )
+        devices = ", ".join(
+            sorted(
+                typed_device.name_by_user or typed_device.name or typed_device.id
+                for device in split_devices
+                if (typed_device := cast(dr.DeviceEntry, device))
+            )
+        )
+        return self.async_show_form(
+            step_id="select_device",
+            data_schema=vol.Schema(
+                {
+                    vol.Optional(
+                        CONF_DEVICE_ID,
+                        description={"suggested_value": old_device_id},
+                    ): DeviceSelector(),
+                }
+            ),
+            description_placeholders={
+                "name": self._subentry.title,
+                "devices": devices,
+            },
+        )
+
+
 async def async_create_fix_flow(
-    hass: HomeAssistant,  # noqa: ARG001
+    hass: HomeAssistant,
     issue_id: str,
     data: dict[str, str | int | float | None] | None,
 ) -> RepairsFlow:
@@ -66,4 +157,12 @@ async def async_create_fix_flow(
         assert data
 
         return MissingDeviceRepairFlow(data)
-    raise ValueError(f"unknown repair {issue_id}")
+    if (
+        issue_id.startswith("composite_device_id_")
+        and data is not None
+        and (entry := hass.config_entries.async_get_entry(str(data["entry_id"])))
+        is not None
+        and (subentry := entry.subentries.get(str(data["subentry_id"]))) is not None
+    ):
+        return CompositeDeviceIdRepairFlow(entry, subentry)
+    raise HomeAssistantError(f"Unknown issue {issue_id}")
