@@ -94,20 +94,19 @@ class CompositeDeviceIdRepairFlow(RepairsFlow):
                 old_device_id = self._subentry.data[CONF_DEVICE_ID]
                 data = {**self._subentry.data}
                 store = await async_get_registry(self.hass)
-                if device_id:
+                if device_id and device_id != old_device_id:
                     data[CONF_DEVICE_ID] = device_id
                     self.hass.config_entries.async_update_subentry(
                         self._entry, self._subentry, data=data
                     )
-                    if device_id and device_id != old_device_id:
-                        try:
-                            store.async_change_device_id(old_device_id, device_id)
-                        except ValueError:
-                            store.async_delete_device(old_device_id)
-                            _LOGGER.warning(
-                                "Unable to migrate battery note for %s, delete the battery note and re-add it to the new device",
-                                self._subentry.title,
-                            )
+                    try:
+                        store.async_change_device_id(old_device_id, device_id)
+                    except ValueError:
+                        store.async_delete_device(old_device_id)
+                        _LOGGER.warning(
+                            "Unable to migrate battery note for %s, delete the battery note and re-add it to the new device",
+                            self._subentry.title,
+                        )
                 else:
                     self.hass.config_entries.async_remove_subentry(
                         self._entry, self._subentry.subentry_id
@@ -117,19 +116,6 @@ class CompositeDeviceIdRepairFlow(RepairsFlow):
                 return self.async_create_entry(data={})
 
         old_device_id = self._subentry.data[CONF_DEVICE_ID]
-        get_split_devices = getattr(
-            device_registry, "async_get_devices_for_composite_device_id", None
-        )
-        split_devices = (
-            get_split_devices(old_device_id) if callable(get_split_devices) else []
-        )
-        devices = ", ".join(
-            sorted(
-                typed_device.name_by_user or typed_device.name or typed_device.id
-                for device in split_devices
-                if (typed_device := cast(dr.DeviceEntry, device))
-            )
-        )
         return self.async_show_form(
             step_id="select_device",
             data_schema=vol.Schema(
@@ -142,7 +128,6 @@ class CompositeDeviceIdRepairFlow(RepairsFlow):
             ),
             description_placeholders={
                 "name": self._subentry.title,
-                "devices": devices,
             },
         )
 
