@@ -173,13 +173,13 @@
                         "data": {
                             "enable_autodiscovery": "Automatisk opdagelse",
                             "enable_replaced": "Aktivér batteri udskiftet",
-                            "hide_battery_low": "Skjul lavt batteri",
+                            "hide_battery_low": "Hide battery low",
                             "user_library": "Brugerbibliotek"
                         },
                         "data_description": {
                             "enable_autodiscovery": "Automatisk opdagelse af enheder, der er i biblioteket.",
                             "enable_replaced": "Aktivér knappen for batteriudskiftning på hver batterinote.",
-                            "hide_battery_low": "Skjul den binære sensor for lavt batteriniveau, når en batteriprocentdel er tilgængelig, for at undgå duplikering på genererede dashboards.",
+                            "hide_battery_low": "Hide the battery low binary sensor when a battery percentage is available, avoiding duplication on generated dashboards.",
                             "user_library": "Hvis angivet, søges der først i en brugerdefineret biblioteksfil før hovedbiblioteket. Brugerbiblioteket skal have samme format som biblioteket og placeres i config/.storage/battery_notes."
                         }
                     }
@@ -340,10 +340,10 @@
         "composite_device_id": {
             "fix_flow": {
                 "abort": {
-                    "entry_removed": "Konfigurationsposten for Battery Note er fjernet"
+                    "entry_removed": "The Battery Note configuration entry has been removed"
                 },
                 "error": {
-                    "invalid_device": "Vælg en eksisterende enhed eller lad feltet være tomt"
+                    "invalid_device": "Select an existing device or leave the field empty"
                 },
                 "step": {
                     "select_device": {
@@ -351,14 +351,14 @@
                             "device_id": "Enhed"
                         },
                         "data_description": {
-                            "device_id": "Enheden, denne batterinote skal være knyttet til."
+                            "device_id": "The device this battery note should be linked to."
                         },
-                        "description": "Batterinoten {name} var knyttet til en enhed, som er blevet opdelt i flere enheder.\n\nVælg den enhed, denne batterinote skal være knyttet til, eller lad feltet være tomt for at fjerne batterinoten.",
-                        "title": "Vælg enhed for {name}"
+                        "description": "The battery note {name} was linked to a device which has been split into multiple devices.\n\nSelect the device this battery note should be linked to, or leave empty to remove the battery note.",
+                        "title": "Select device for {name}"
                     }
                 }
             },
-            "title": "Enhed for batterinote {name} skal vælges igen"
+            "title": "Device for battery note {name} needs to be selected again"
         },
         "deprecated_yaml": {
             "title": "YAML-konfigurationen for {integration_title} bliver fjernet",
