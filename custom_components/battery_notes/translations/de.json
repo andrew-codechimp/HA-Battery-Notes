@@ -180,7 +180,7 @@
                             "enable_autodiscovery": "Automatische Erkennung von Geräten, die in der Bibliothek sind.",
                             "enable_replaced": "Die \"Batterie ersetzt\"-Schaltfläche bei jeder Batterie-Notiz aktivieren",
                             "hide_battery_low": "Den Binärsensor für niedrigen Batteriestand verbergen, wenn ein Batterieladezustand verfügbar ist, um Duplizierungen auf generierten Dashboards zu vermeiden.",
-                            "user_library": "Wenn angegeben, wird vor der Hauptbibliothek eine Benutzerbibliothek durchsucht. Die Benutzerbibliothek muss im selben Format sein, wie die Hauptbibliothek und in `config/.storage/battery_notes` platziert sein."
+                            "user_library": "Wenn angegeben, wird vor der Hauptbibliothek eine Benutzerbibliothek durchsucht. Die Benutzerbibliothek muss im selben Format sein, wie die Hauptbibliothek und in `config/. torage/battery_notes` platziert sein."
                         }
                     }
                 }
