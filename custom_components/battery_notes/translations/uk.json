@@ -173,13 +173,13 @@
                         "data": {
                             "enable_autodiscovery": "Автоматичне виявлення",
                             "enable_replaced": "Увімкнути сповіщення про заміну батареї",
-                            "hide_battery_low": "Hide battery low",
+                            "hide_battery_low": "Приховати низький заряд батареї",
                             "user_library": "Бібліотека користувачів"
                         },
                         "data_description": {
                             "enable_autodiscovery": "Автоматичне виявлення пристроїв, які є в бібліотеці.",
                             "enable_replaced": "Увімкнути кнопку «Батарею замінено» на кожній примітці щодо батареї.",
-                            "hide_battery_low": "Hide the battery low binary sensor when a battery percentage is available, avoiding duplication on generated dashboards.",
+                            "hide_battery_low": "Приховати бінарний сенсор низького заряду батареї, коли доступний відсоток батареї, щоб уникнути дублювання на створених панелях.",
                             "user_library": "Якщо вказано, спершу буде шукатися файл користувацької бібліотеки перед основною бібліотекою. Користувацька бібліотека повинна мати той самий формат, що й основна, і розміщуватися в config/.storage/battery_notes."
                         }
                     }
@@ -340,10 +340,10 @@
         "composite_device_id": {
             "fix_flow": {
                 "abort": {
-                    "entry_removed": "The Battery Note configuration entry has been removed"
+                    "entry_removed": "Запис конфігурації Battery Note був видалений"
                 },
                 "error": {
-                    "invalid_device": "Select an existing device or leave the field empty"
+                    "invalid_device": "Виберіть існуючий пристрій або залишіть поле порожнім"
                 },
                 "step": {
                     "select_device": {
@@ -351,14 +351,14 @@
                             "device_id": "Пристрій"
                         },
                         "data_description": {
-                            "device_id": "The device this battery note should be linked to."
+                            "device_id": "Пристрій, до якого має бути пов'язана ця примітка про батарею."
                         },
-                        "description": "The battery note {name} was linked to a device which has been split into multiple devices.\n\nSelect the device this battery note should be linked to, or leave empty to remove the battery note.",
-                        "title": "Виберіть пристрій для {name}"
+                        "description": "Примітка про батарею {name} була пов'язана з пристроєм, який був розділений на кілька пристроїв.\n\nВиберіть пристрій, до якого має бути пов'язана ця примітка про батарею, або залишіть порожнім, щоб видалити примітку про батарею.",
+                        "title": "Вибрати пристрій для {name}"
                     }
                 }
             },
-            "title": "Device for battery note {name} needs to be selected again"
+            "title": "Пристрій для примітки про батарею {name} потрібно вибрати ще раз"
         },
         "deprecated_yaml": {
             "title": "Конфігурація {integration_title} у форматі YAML буде видалена.",
