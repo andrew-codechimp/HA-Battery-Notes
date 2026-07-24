@@ -12,6 +12,7 @@ from homeassistant.helpers.entity import EntityDescription
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 from homeassistant.util import slugify
 
+from .common import is_composite_device_id
 from .coordinator import BatteryNotesSubentryCoordinator
 
 
@@ -44,8 +45,6 @@ class BatteryNotesEntity(CoordinatorEntity[BatteryNotesSubentryCoordinator]):
         """Initialize the base entity."""
         super().__init__(coordinator)
 
-        device_registry = dr.async_get(hass)
-
         self.entity_description = entity_description
         self.coordinator = coordinator
 
@@ -56,26 +55,17 @@ class BatteryNotesEntity(CoordinatorEntity[BatteryNotesSubentryCoordinator]):
         self.entity_id = self._generate_entity_id()
 
         # Set up device association
-        self._associate_device(hass, device_registry)
+        self._associate_device(hass)
 
-    def _associate_device(
-        self, hass: HomeAssistant, device_registry: dr.DeviceRegistry
-    ) -> None:
+    def _associate_device(self, hass: HomeAssistant) -> None:
         """Set up device association."""
 
+        device_registry = dr.async_get(hass)
         # HA 2026.8 splits composite devices into multiple devices, so we need to check if the device_id is a composite device
-        # New method in 2026.8 - refactor when reach minimum version
-        is_composite_device_id = getattr(
-            device_registry, "async_is_composite_device_id", None
-        )
-        if callable(is_composite_device_id):
-            is_composite = bool(is_composite_device_id(self.coordinator.device_id))
-        else:
-            is_composite = False
         if (
             self.coordinator.device_id
             and (device_entry := device_registry.async_get(self.coordinator.device_id))
-            and not is_composite
+            and not is_composite_device_id(hass, self.coordinator.device_id)
         ):
             # Attach to the device_id
             self.device_entry = device_entry

@@ -32,6 +32,7 @@ from homeassistant.helpers.event import async_call_later
 from homeassistant.helpers.issue_registry import IssueSeverity, async_create_issue
 from homeassistant.helpers.typing import ConfigType
 
+from .common import is_composite_device_id
 from .const import (
     CONF_ADVANCED_SETTINGS,
     CONF_BATTERY_INCREASE_THRESHOLD,
@@ -179,16 +180,7 @@ async def async_setup_entry(
             device_id = subentry.data.get(CONF_DEVICE_ID, None)
 
             # HA 2026.8 splits composite devices into multiple devices, so we need to check if the device_id is a composite device
-            device_registry = dr.async_get(hass)
-            # New method in 2026.8 - refactor when reach minimum version
-            is_composite_device_id = getattr(
-                device_registry, "async_is_composite_device_id", None
-            )
-            if (
-                device_id is not None
-                and callable(is_composite_device_id)
-                and is_composite_device_id(device_id)
-            ):
+            if device_id is not None and is_composite_device_id(hass, device_id):
                 # The device was split into one device per config entry; ask the user to
                 # select a device again
                 ir.async_create_issue(
