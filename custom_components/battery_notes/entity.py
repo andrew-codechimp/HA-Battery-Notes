@@ -69,7 +69,7 @@ class BatteryNotesEntity(CoordinatorEntity[BatteryNotesSubentryCoordinator]):
             device_registry, "async_is_composite_device_id", None
         )
         if callable(is_composite_device_id):
-            is_composite = is_composite_device_id(self.coordinator.device_id)
+            is_composite = bool(is_composite_device_id(self.coordinator.device_id))
         else:
             is_composite = False
         if (
