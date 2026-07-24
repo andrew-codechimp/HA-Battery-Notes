@@ -122,6 +122,7 @@ ignore = [
   "TD002",  # Missing auther in TODO
   "TD003",  # Missing issue link TODO
   "TRY400",  # Use `logging.exception` instead of `logging.error`
+  "CPY001",  # Missing copyright notice at top of file
 
   # TODO: Temporary ignores, to review
   "ANN001",  # Missing type annotation for function argument
@@ -144,6 +145,8 @@ ignore = [
   "TRY003",  # Avoid specifying long messages outside the exception class
   "TRY004",  # Prefer `TypeError` exception for invalid type
   "TRY300",  # Consider moving this statement to an `else` block
+  "PLR0917", # Too many positional arguments
+  "RUF036",  # None not at the end of the type union
 ]
 
 
