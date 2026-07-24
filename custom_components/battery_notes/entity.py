@@ -64,13 +64,14 @@ class BatteryNotesEntity(CoordinatorEntity[BatteryNotesSubentryCoordinator]):
         """Set up device association."""
 
         # HA 2026.8 splits composite devices into multiple devices, so we need to check if the device_id is a composite device
-        is_composite = False
         # New method in 2026.8 - refactor when reach minimum version
         is_composite_device_id = getattr(
             device_registry, "async_is_composite_device_id", None
         )
         if callable(is_composite_device_id):
             is_composite = is_composite_device_id(self.coordinator.device_id)
+        else:
+            is_composite = False
         if (
             self.coordinator.device_id
             and (device_entry := device_registry.async_get(self.coordinator.device_id))
