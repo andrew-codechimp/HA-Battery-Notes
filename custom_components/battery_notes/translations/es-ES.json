@@ -2,15 +2,15 @@
     "config": {
         "step": {
             "user": {
-                "description": "New Battery Notes will be discovered if they are in the library.\nTo add new Battery Notes manually go into the integration page, select Add Battery Note and follow the instructions.\nIf you need help with the configuration have a look here: {documentation_url}",
-                "title": "Setup Battery Notes"
+                "description": "Las nuevas Notas de batería se descubrirán automáticamente si están en la biblioteca.\nPara agregar nuevas Notas de batería manualmente, vaya a la página de integración, seleccione Agregar Nota de batería y siga las instrucciones.\nSi necesita ayuda con la configuración, consulte aquí: {documentation_url}",
+                "title": "Configurar Notas de batería"
             },
             "battery": {
                 "description": "Nombre: {name}\nFabricante: {manufacturer}\nModelo: {model}\nID de Modelo: {model_id}\nVersión de Hardware: {hw_version}",
                 "data": {
                     "battery_type": "Tipo de batería",
                     "battery_quantity": "Cantidad de batería",
-                    "note": "Note",
+                    "note": "Nota",
                     "battery_low_threshold": "Umbral bajo de batería"
                 },
                 "data_description": {
@@ -18,14 +18,14 @@
                 },
                 "sections": {
                     "advanced_settings": {
-                        "name": "Advanced settings",
+                        "name": "Configuración avanzada",
                         "data": {
-                            "battery_percentage_template": "Battery percentage template",
+                            "battery_percentage_template": "Plantilla de porcentaje de batería",
                             "battery_low_template": "Plantilla de batería baja",
                             "filter_outliers": "Filtrar valores atípicos"
                         },
                         "data_description": {
-                            "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
+                            "battery_percentage_template": "Plantilla para crear un porcentaje de batería\nSolo necesario para dispositivos que no tienen un porcentaje de batería estándar",
                             "battery_low_template": "Plantilla para determinar que una batería es baja, debe devolver verdadero si es baja\nSolo necesario para niveles de batería no estándar",
                             "filter_outliers": "Filtra las grandes caídas del nivel de batería, reduciendo los eventos que se disparan falsamente en los dispositivos que informan erróneamente de los niveles de forma ocasional."
                         }
@@ -35,8 +35,8 @@
         },
         "abort": {
             "already_configured": "Dispositivo ya configurado",
-            "integration_not_added": "Integration not added, please add the integration first",
-            "created_sub_entry": "Battery Note created successfully"
+            "integration_not_added": "Integración no agregada, agregue la integración primero",
+            "created_sub_entry": "Nota de batería creada correctamente"
         },
         "error": {
             "unknown": "Se ha producido un error desconocido."
@@ -45,9 +45,9 @@
     "config_subentries": {
         "battery_note": {
             "initiate_flow": {
-                "user": "Add battery note"
+                "user": "Agregar nota de batería"
             },
-            "entry_type": "Battery note",
+            "entry_type": "Nota de batería",
             "step": {
                 "user": {
                     "description": "Si necesitas ayuda con la configuración, echa un vistazo aquí: {documentation_url}",
@@ -83,7 +83,7 @@
                     "data": {
                         "battery_type": "Tipo de batería",
                         "battery_quantity": "Cantidad de batería",
-                        "note": "Note",
+                        "note": "Nota",
                         "battery_low_threshold": "Umbral bajo de batería"
                     },
                     "data_description": {
@@ -91,14 +91,14 @@
                     },
                     "sections": {
                         "advanced_settings": {
-                            "name": "Advanced settings",
+                            "name": "Configuración avanzada",
                             "data": {
-                                "battery_percentage_template": "Battery percentage template",
+                                "battery_percentage_template": "Plantilla de porcentaje de batería",
                                 "battery_low_template": "Plantilla de batería baja",
                                 "filter_outliers": "Filtrar valores atípicos"
                             },
                             "data_description": {
-                                "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
+                                "battery_percentage_template": "Plantilla para crear un porcentaje de batería\nSolo necesario para dispositivos que no tienen un porcentaje de batería estándar",
                                 "battery_low_template": "Plantilla para determinar que una batería es baja, debe devolver verdadero si es baja\nSolo necesario para niveles de batería no estándar",
                                 "filter_outliers": "Filtra las grandes caídas del nivel de batería, reduciendo los eventos que se disparan falsamente en los dispositivos que informan erróneamente de los niveles de forma ocasional."
                             }
@@ -115,7 +115,7 @@
                         "name": "Nombre",
                         "battery_type": "Tipo de batería",
                         "battery_quantity": "Cantidad de batería",
-                        "note": "Note",
+                        "note": "Nota",
                         "battery_low_threshold": "Umbral bajo de batería"
                     },
                     "data_description": {
@@ -124,14 +124,14 @@
                     },
                     "sections": {
                         "advanced_settings": {
-                            "name": "Advanced settings",
+                            "name": "Configuración avanzada",
                             "data": {
-                                "battery_percentage_template": "Battery percentage template",
+                                "battery_percentage_template": "Plantilla de porcentaje de batería",
                                 "battery_low_template": "Plantilla de batería baja",
                                 "filter_outliers": "Filtrar valores atípicos"
                             },
                             "data_description": {
-                                "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
+                                "battery_percentage_template": "Plantilla para crear un porcentaje de batería\nSolo necesario para dispositivos que no tienen un porcentaje de batería estándar",
                                 "battery_low_template": "Plantilla para determinar que una batería es baja, debe devolver verdadero si es baja\nSolo necesario para niveles de batería no estándar",
                                 "filter_outliers": "Filtra las grandes caídas del nivel de batería, reduciendo los eventos que se disparan falsamente en los dispositivos que informan erróneamente de los niveles de forma ocasional."
                             }
@@ -140,7 +140,7 @@
                 }
             },
             "abort": {
-                "reconfigure_successful": "Re-configuration was successful",
+                "reconfigure_successful": "La reconfiguración fue exitosa",
                 "already_configured": "Dispositivo ya configurado"
             },
             "error": {
@@ -154,33 +154,33 @@
         "step": {
             "init": {
                 "data": {
-                    "show_all_devices": "Show all devices",
-                    "hide_battery": "Hide battery",
-                    "round_battery": "Round battery",
-                    "default_battery_low_threshold": "Default battery low threshold",
-                    "battery_increase_threshold": "Battery increase threshold"
+                    "show_all_devices": "Mostrar todos los dispositivos",
+                    "hide_battery": "Ocultar batería",
+                    "round_battery": "Redondear batería",
+                    "default_battery_low_threshold": "Umbral bajo predeterminado de la batería",
+                    "battery_increase_threshold": "Umbral de aumento de batería"
                 },
                 "data_description": {
-                    "show_all_devices": "Show all devices in the device dropdown, otherwise only those with batteries will be shown.",
-                    "hide_battery": "Hide the standard battery when adding Battery+.",
-                    "round_battery": "Round Battery+ to whole percentages.",
-                    "default_battery_low_threshold": "The default threshold where a devices battery_low entity is set to true and the battery_notes_battery_threshold event is fired if the battery is below this threshold, can be overriden per device in device configuration.",
-                    "battery_increase_threshold": "The threshold where the battery_notes_battery_increased event is fired, use this event for battery replaced automations. The threshold is the difference in increase between previous and current battery level."
+                    "show_all_devices": "Mostrar todos los dispositivos en la lista de dispositivos, de lo contrario solo se mostrarán los que tengan baterías.",
+                    "hide_battery": "Ocultar la batería estándar al agregar Battery+.",
+                    "round_battery": "Redondear Battery+ a porcentajes enteros.",
+                    "default_battery_low_threshold": "El umbral predeterminado en el que la entidad battery_low del dispositivo se establece en verdadero y se dispara el evento battery_notes_battery_threshold si la batería está por debajo de este umbral. Puede ser anulado por dispositivo en la configuración del dispositivo.",
+                    "battery_increase_threshold": "El umbral en el que se dispara el evento battery_notes_battery_increased. Use este evento para automatizaciones de reemplazo de batería. El umbral es la diferencia de aumento entre el nivel anterior y el actual de la batería."
                 },
                 "sections": {
                     "advanced_settings": {
-                        "name": "Advanced settings",
+                        "name": "Configuración avanzada",
                         "data": {
-                            "enable_autodiscovery": "Auto discovery",
-                            "enable_replaced": "Enable battery replaced",
-                            "hide_battery_low": "Hide battery low",
-                            "user_library": "User library"
+                            "enable_autodiscovery": "Descubrimiento automático",
+                            "enable_replaced": "Habilitar reemplazo de batería",
+                            "hide_battery_low": "Ocultar batería baja",
+                            "user_library": "Biblioteca de usuario"
                         },
                         "data_description": {
-                            "enable_autodiscovery": "Auto discovery of devices that are in the library.",
-                            "enable_replaced": "Enable the battery replaced button on each battery note.",
-                            "hide_battery_low": "Hide the battery low binary sensor when a battery percentage is available, avoiding duplication on generated dashboards.",
-                            "user_library": "If specified then a user library file will be searched prior to the main library, the user library must be in the same format as the library and placed in `config/.storage/battery_notes`."
+                            "enable_autodiscovery": "Descubrimiento automático de dispositivos que se encuentran en la biblioteca.",
+                            "enable_replaced": "Habilitar el botón de batería reemplazada en cada nota de batería.",
+                            "hide_battery_low": "Ocultar el sensor binario de batería baja cuando hay un porcentaje de batería disponible, evitando duplicación en los paneles generados.",
+                            "user_library": "Si se especifica, el archivo de biblioteca del usuario se buscará antes que la biblioteca principal. La biblioteca del usuario debe estar en el mismo formato que la biblioteca y ubicarse en `config/.storage/battery_notes`."
                         }
                     }
                 }
@@ -220,7 +220,7 @@
                         "name": "Tipo y cantidad de batería"
                     },
                     "note": {
-                        "name": "Note"
+                        "name": "Nota"
                     },
                     "battery_last_replaced": {
                         "name": "Última batería reemplazada"
@@ -258,7 +258,7 @@
                         "name": "Cantidad de batería"
                     },
                     "note": {
-                        "name": "Note"
+                        "name": "Nota"
                     }
                 }
             },
@@ -276,7 +276,7 @@
                     "name": "Dispositivo"
                 },
                 "entity_id": {
-                    "description": "Entity that has had its battery replaced.",
+                    "description": "Entidad cuya batería ha sido reemplazada.",
                     "name": "Entidad"
                 },
                 "datetime_replaced": {
@@ -287,39 +287,39 @@
             "name": "Establecer batería sustituida"
         },
         "check_battery_last_replaced": {
-            "description": "Get a response or raise events for devices that haven't had their battery replaced.",
+            "description": "Obtenga una respuesta o genere eventos para dispositivos cuya batería no ha sido reemplazada.",
             "fields": {
                 "days_last_reported": {
-                    "description": "Number of days since a device last had its battery replaced.",
+                    "description": "Número de días desde que un dispositivo tuvo su última batería reemplazada.",
                     "name": "Días"
                 },
                 "raise_events": {
-                    "description": "Raise events for use in automation triggers.",
-                    "name": "Raise events"
+                    "description": "Genere eventos para usarlos en desencadenadores de automatización.",
+                    "name": "Generar eventos"
                 }
             },
-            "name": "Check battery last replaced"
+            "name": "Comprobar última batería reemplazada"
         },
         "check_battery_last_reported": {
-            "description": "Get a response or raise events for devices that haven't reported their battery level.",
+            "description": "Obtenga una respuesta o genere eventos para dispositivos que no han informado de su nivel de batería.",
             "fields": {
                 "days_last_reported": {
                     "description": "Número de días desde la última vez que un dispositivo informó de su nivel de batería.",
                     "name": "Días"
                 },
                 "raise_events": {
-                    "description": "Raise events for use in automation triggers.",
-                    "name": "Raise events"
+                    "description": "Genere eventos para usarlos en desencadenadores de automatización.",
+                    "name": "Generar eventos"
                 }
             },
             "name": "Comprobar última batería reportada"
         },
         "check_battery_low": {
-            "description": "Get a response or raise events for devices that have a low battery.",
+            "description": "Obtenga una respuesta o genere eventos para dispositivos que tienen una batería baja.",
             "fields": {
                 "raise_events": {
-                    "description": "Raise events for use in automation triggers.",
-                    "name": "Raise events"
+                    "description": "Genere eventos para usarlos en desencadenadores de automatización.",
+                    "name": "Generar eventos"
                 }
             },
             "name": "Comprobar batería baja"
@@ -340,34 +340,34 @@
         "composite_device_id": {
             "fix_flow": {
                 "abort": {
-                    "entry_removed": "The Battery Note configuration entry has been removed"
+                    "entry_removed": "Se ha eliminado la entrada de configuración de la Nota de Batería"
                 },
                 "error": {
-                    "invalid_device": "Select an existing device or leave the field empty"
+                    "invalid_device": "Seleccione un dispositivo existente o déjelo en blanco"
                 },
                 "step": {
                     "select_device": {
                         "data": {
-                            "device_id": "Device"
+                            "device_id": "Dispositivo"
                         },
                         "data_description": {
-                            "device_id": "The device this battery note should be linked to."
+                            "device_id": "El dispositivo al que debe estar vinculada esta nota de batería."
                         },
-                        "description": "The battery note {name} was linked to a device which has been split into multiple devices.\n\nSelect the device this battery note should be linked to, or leave empty to remove the battery note.",
-                        "title": "Select device for {name}"
+                        "description": "La nota de batería {name} estaba vinculada a un dispositivo que ha sido dividido en múltiples dispositivos.\n\nSeleccione el dispositivo al que debe estar vinculada esta nota de batería, o déjelo en blanco para eliminar la nota de batería.",
+                        "title": "Seleccionar dispositivo para {name}"
                     }
                 }
             },
-            "title": "Device for battery note {name} needs to be selected again"
+            "title": "El dispositivo para la nota de batería {name} necesita ser seleccionado nuevamente"
         },
         "deprecated_yaml": {
-            "title": "The {integration_title} YAML configuration is being removed",
-            "description": "Configuring {integration_title} using YAML is being removed.\n\nYour existing YAML configuration has been imported into the UI automatically.\n\nRemove the `{domain}` configuration from your configuration.yaml file and restart Home Assistant to fix this issue."
+            "title": "La configuración YAML de {integration_title} se está eliminando",
+            "description": "La configuración de {integration_title} usando YAML se está eliminando.\n\nSu configuración YAML existente ha sido importada a la interfaz de usuario automáticamente.\n\nElimine la configuración `{domain}` de su archivo configuration.yaml e reinicie Home Assistant para resolver este problema."
         }
     },
     "exceptions": {
         "not_configured_in_battery_notes": {
-            "message": "{source} is not configured in Battery Notes."
+            "message": "{source} no está configurado en Battery Notes."
         }
     }
 }

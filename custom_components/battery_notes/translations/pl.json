@@ -276,7 +276,7 @@
                     "name": "Urządzenie"
                 },
                 "entity_id": {
-                    "description": "Entity that has had its battery replaced.",
+                    "description": "Encja, której bateria została wymieniona.",
                     "name": "Encja"
                 },
                 "datetime_replaced": {
@@ -287,39 +287,39 @@
             "name": "Ustaw wymianę baterii"
         },
         "check_battery_last_replaced": {
-            "description": "Get a response or raise events for devices that haven't had their battery replaced.",
+            "description": "Uzyskaj odpowiedź lub wywoływaj zdarzenia dla urządzeń, których bateria nie została wymieniona.",
             "fields": {
                 "days_last_reported": {
-                    "description": "Number of days since a device last had its battery replaced.",
+                    "description": "Liczba dni od ostatniej wymiany baterii w urządzeniu.",
                     "name": "Dni"
                 },
                 "raise_events": {
-                    "description": "Raise events for use in automation triggers.",
-                    "name": "Raise events"
+                    "description": "Wywoływaj zdarzenia do użytku w wyzwalaczach automatyzacji.",
+                    "name": "Wywoływaj zdarzenia"
                 }
             },
-            "name": "Check battery last replaced"
+            "name": "Sprawdzaj ostatnią wymianę baterii"
         },
         "check_battery_last_reported": {
-            "description": "Get a response or raise events for devices that haven't reported their battery level.",
+            "description": "Uzyskaj odpowiedź lub wywoływaj zdarzenia dla urządzeń, które nie zgłosiły poziomu baterii.",
             "fields": {
                 "days_last_reported": {
                     "description": "Liczba dni od ostatniego zgłoszenia poziomu baterii przez urządzenie.",
                     "name": "Dni"
                 },
                 "raise_events": {
-                    "description": "Raise events for use in automation triggers.",
-                    "name": "Raise events"
+                    "description": "Wywoływaj zdarzenia do użytku w wyzwalaczach automatyzacji.",
+                    "name": "Wywoływaj zdarzenia"
                 }
             },
             "name": "Ostatni raport dotyczący sprawdzenia baterii"
         },
         "check_battery_low": {
-            "description": "Get a response or raise events for devices that have a low battery.",
+            "description": "Uzyskaj odpowiedź lub wywoływaj zdarzenia dla urządzeń o niskim poziomie baterii.",
             "fields": {
                 "raise_events": {
-                    "description": "Raise events for use in automation triggers.",
-                    "name": "Raise events"
+                    "description": "Wywoływaj zdarzenia do użytku w wyzwalaczach automatyzacji.",
+                    "name": "Wywoływaj zdarzenia"
                 }
             },
             "name": "Sprawdzaj niski poziom baterii"
