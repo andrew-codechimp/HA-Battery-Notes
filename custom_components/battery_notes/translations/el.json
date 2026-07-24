@@ -180,7 +180,7 @@
                             "enable_autodiscovery": "Αυτόματη ανακάλυψη συσκευών που βρίσκονται στη βιβλιοθήκη.",
                             "enable_replaced": "Ενεργοποίηση του κουμπιού αντικατάστασης μπαταρίας σε κάθε σημείωση μπαταρίας.",
                             "hide_battery_low": "Απόκρυψη δυαδικού αισθητήρα χαμηλής μπαταρίας όταν είναι διαθέσιμο ένα ποσοστό μπαταρίας, αποφεύγοντας τα διπλότυπα στα ταμπλό που δημιουργήθηκαν.",
-                            "user_library": "Αν καθοριστεί, ένα αρχείο βιβλιοθήκης χρήστη θα αναζητηθεί πριν από την κύρια βιβλιοθήκη, η βιβλιοθήκη χρήστη πρέπει να είναι στην ίδια μορφή με τη βιβλιοθήκη και να τοποθετείται στο `config/.storage/battery_notes`."
+                            "user_library": "Αν καθοριστεί, ένα αρχείο βιβλιοθήκης χρήστη θα αναζητηθεί πριν από την κύρια βιβλιοθήκη, η βιβλιοθήκη χρήστη πρέπει να είναι στην ίδια μορφή με τη βιβλιοθήκη και να τοποθετείται στο `config/. torage/battery_notes`."
                         }
                     }
                 }
@@ -340,10 +340,10 @@
         "composite_device_id": {
             "fix_flow": {
                 "abort": {
-                    "entry_removed": "Η καταχώρηση διαμόρφωσης σημείωσης μπαταρίας έχει αφαιρεθεί"
+                    "entry_removed": "Η καταχώρηση διαμόρφωσης των Σημειώσεων Μπαταρίας έχει καταργηθεί"
                 },
                 "error": {
-                    "invalid_device": "Επιλέξτε μια υπάρχουσα συσκευή ή αφήστε το πεδίο κενό"
+                    "invalid_device": "Select an existing device or leave the field empty"
                 },
                 "step": {
                     "select_device": {
@@ -351,14 +351,14 @@
                             "device_id": "Συσκευή"
                         },
                         "data_description": {
-                            "device_id": "Η συσκευή στην οποία πρέπει να συνδεθεί αυτή η σημείωση μπαταρίας."
+                            "device_id": "The device this battery note should be linked to."
                         },
-                        "description": "Η σημείωση μπαταρίας {name} ήταν συνδεδεμένη με μια συσκευή που έχει διαιρεθεί σε πολλές συσκευές.\n\nΕπιλέξτε τη συσκευή στην οποία πρέπει να συνδεθεί αυτή η σημείωση μπαταρίας ή αφήστε κενό για να αφαιρέσετε τη σημείωση μπαταρίας.",
-                        "title": "Επιλέξτε συσκευή για {name}"
+                        "description": "The battery note {name} was linked to a device which has been split into multiple devices.\n\nSelect the device this battery note should be linked to, or leave empty to remove the battery note.",
+                        "title": "Select device for {name}"
                     }
                 }
             },
-            "title": "Η συσκευή για τη σημείωση μπαταρίας {name} πρέπει να επιλεγεί ξανά"
+            "title": "Device for battery note {name} needs to be selected again"
         },
         "deprecated_yaml": {
             "title": "Η διαμόρφωση YAML του {integration_title} καταργείται",
