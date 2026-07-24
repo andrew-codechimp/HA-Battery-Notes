@@ -73,11 +73,11 @@ class BatteryNotesEntity(CoordinatorEntity[BatteryNotesSubentryCoordinator]):
             is_composite = is_composite_device_id(self.coordinator.device_id)
         if (
             self.coordinator.device_id
-            and (device_registry.async_get(self.coordinator.device_id))
+            and (device_entry := device_registry.async_get(self.coordinator.device_id))
             and not is_composite
         ):
             # Attach to the device_id
-            self.device_entry = device_registry.async_get(self.coordinator.device_id)
+            self.device_entry = device_entry
         elif (
             self.entity_description.require_device is False
             and self.coordinator.source_entity_id
