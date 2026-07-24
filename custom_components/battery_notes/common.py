@@ -1,5 +1,7 @@
 """Common functions for battery_notes."""
 
+from homeassistant.core import HomeAssistant
+from homeassistant.helpers import device_registry as dr
 from homeassistant.helpers.device_registry import DeviceEntry
 
 
@@ -17,3 +19,25 @@ def validate_is_float(num):
 def get_device_model_id(device_entry: DeviceEntry) -> str | None:
     """Get the device model if available."""
     return device_entry.model_id if hasattr(device_entry, "model_id") else None
+
+
+def is_composite_device_id(hass: HomeAssistant, device_id: str) -> bool:
+    """Return whether a device ID identifies a legacy composite device.
+
+    Check for availability of async_is_composite_device_id, because this function is only available in HA >=2026.8
+    """
+    device_registry = dr.async_get(hass)
+    is_composite = getattr(device_registry, "async_is_composite_device_id", None)
+    if not callable(is_composite):
+        return False
+    return bool(is_composite(device_id))
+
+
+def composite_device_issue_id(config_subentry_id: str) -> str:
+    """Return the repair issue ID for a config subentry using a composite device ID."""
+    return f"composite_device_id_{config_subentry_id}"
+
+
+def missing_device_issue_id(config_subentry_id: str) -> str:
+    """Return the repair issue ID for a config subentry with a missing device."""
+    return f"missing_device_{config_subentry_id}"

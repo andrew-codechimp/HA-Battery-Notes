@@ -205,6 +205,17 @@ class BatteryNotesStorage:
         return new
 
     @callback
+    def async_change_device_id(self, old_device_id: str, new_device_id: str) -> None:
+        """Change an existing DeviceEntry ID."""
+        if new_device_id in self.devices:
+            raise ValueError(f"Device {new_device_id} already exists")
+
+        old = self.devices.pop(old_device_id, None)
+        if old is not None:
+            self.devices[new_device_id] = attr.evolve(old, device_id=new_device_id)
+            self.async_schedule_save()
+
+    @callback
     def async_get_entity(self, entity_id) -> dict[str, Any] | None:
         """Get an existing EntityEntry by id."""
         res = self.entities.get(entity_id)
