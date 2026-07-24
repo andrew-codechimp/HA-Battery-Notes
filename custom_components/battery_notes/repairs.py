@@ -16,6 +16,7 @@ from homeassistant.exceptions import HomeAssistantError
 from homeassistant.helpers import device_registry as dr, issue_registry as ir
 from homeassistant.helpers.selector import DeviceSelector
 
+from .const import DOMAIN
 from .store import async_get_registry
 
 REQUIRED_KEYS = ("entry_id", "device_id", "source_entity_id")
@@ -85,32 +86,41 @@ class CompositeDeviceIdRepairFlow(RepairsFlow):
     ) -> data_entry_flow.FlowResult:
         """Handle the device selection step."""
 
+        errors: dict[str, str] = {}
+
         device_registry = dr.async_get(self.hass)
         if user_input is not None:
             device_id = user_input.get(CONF_DEVICE_ID)
-            # Ask again if the selection did not resolve the ambiguity, e.g. the
-            # suggested composite device id was submitted unchanged
-            if device_id is None or device_id in device_registry.devices:
-                old_device_id = self._subentry.data[CONF_DEVICE_ID]
+            old_device_id = self._subentry.data[CONF_DEVICE_ID]
+            store = await async_get_registry(self.hass)
+
+            if device_id is None or device_id == old_device_id:
+                self.hass.config_entries.async_remove_subentry(
+                    self._entry, self._subentry.subentry_id
+                )
+                store.async_delete_device(old_device_id)
+                return self.async_abort(reason="entry_removed")  # type: ignore[no-any-return]
+
+            if device_registry.async_get(device_id) is None:
+                errors["base"] = "invalid_device"
+
+            if not errors:
+                try:
+                    store.async_change_device_id(old_device_id, device_id)
+                except ValueError:
+                    errors["base"] = "invalid_device"
+
+            if not errors:
                 data = {**self._subentry.data}
-                store = await async_get_registry(self.hass)
-                if device_id and device_id != old_device_id:
-                    data[CONF_DEVICE_ID] = device_id
-                    self.hass.config_entries.async_update_subentry(
-                        self._entry, self._subentry, data=data
-                    )
-                    try:
-                        store.async_change_device_id(old_device_id, device_id)
-                    except ValueError:
-                        self.hass.config_entries.async_remove_subentry(
-                            self._entry, self._subentry.subentry_id
-                        )
-                        store.async_delete_device(old_device_id)
-                else:
-                    self.hass.config_entries.async_remove_subentry(
-                        self._entry, self._subentry.subentry_id
-                    )
-                    store.async_delete_device(old_device_id)
+                data[CONF_DEVICE_ID] = device_id
+                self.hass.config_entries.async_update_subentry(
+                    self._entry, self._subentry, data=data
+                )
+                ir.async_delete_issue(
+                    self.hass,
+                    DOMAIN,
+                    f"composite_device_id_{self._subentry.subentry_id}",
+                )
                 await self.hass.config_entries.async_reload(self._entry.entry_id)
                 return self.async_create_entry(data={})
 
@@ -125,6 +135,7 @@ class CompositeDeviceIdRepairFlow(RepairsFlow):
                     ): DeviceSelector(),
                 }
             ),
+            errors=errors,
             description_placeholders={
                 "name": self._subentry.title,
             },

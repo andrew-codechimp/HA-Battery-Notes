@@ -340,6 +340,12 @@
         },
         "composite_device_id": {
             "fix_flow": {
+                "abort": {
+                    "entry_removed": "The Battery Note configuration entry has been removed"
+                },
+                "error": {
+                    "invalid_device": "Select an existing device or leave the field empty"
+                },
                 "step": {
                     "select_device": {
                         "data": {
