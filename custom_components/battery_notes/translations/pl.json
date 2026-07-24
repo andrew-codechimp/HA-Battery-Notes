@@ -173,13 +173,13 @@
                         "data": {
                             "enable_autodiscovery": "Automatyczne wykrywanie",
                             "enable_replaced": "Włącz wymienianie baterii",
-                            "hide_battery_low": "Hide battery low",
+                            "hide_battery_low": "Ukryj niski poziom baterii",
                             "user_library": "Biblioteka użytkownika"
                         },
                         "data_description": {
                             "enable_autodiscovery": "Automatyczne wykrywanie urządzeń, które znajdują się w bibliotece.",
                             "enable_replaced": "Włącz przycisk wymiany baterii dla każdej notatki baterii",
-                            "hide_battery_low": "Hide the battery low binary sensor when a battery percentage is available, avoiding duplication on generated dashboards.",
+                            "hide_battery_low": "Ukryj czujnik binarny niskiego poziomu baterii, gdy dostępny jest procent baterii, unikając duplikacji na wygenerowanych pulpitach.",
                             "user_library": "Jeśli ustawiono tę opcję, plik biblioteki użytkownika będzie przeszukiwany przed główną biblioteką.\nBiblioteka użytkownika musi mieć taki sam format jak biblioteka główna i być umieszczona w `config/.storage/battery_notes`."
                         }
                     }
@@ -340,10 +340,10 @@
         "composite_device_id": {
             "fix_flow": {
                 "abort": {
-                    "entry_removed": "The Battery Note configuration entry has been removed"
+                    "entry_removed": "Wpis konfiguracyjny notatki baterii został usunięty"
                 },
                 "error": {
-                    "invalid_device": "Select an existing device or leave the field empty"
+                    "invalid_device": "Wybierz istniejące urządzenie lub pozostaw pole puste"
                 },
                 "step": {
                     "select_device": {
@@ -351,14 +351,14 @@
                             "device_id": "Urządzenie"
                         },
                         "data_description": {
-                            "device_id": "The device this battery note should be linked to."
+                            "device_id": "Urządzenie, do którego powinna być powiązana ta notatka baterii."
                         },
-                        "description": "The battery note {name} was linked to a device which has been split into multiple devices.\n\nSelect the device this battery note should be linked to, or leave empty to remove the battery note.",
-                        "title": "Select device for {name}"
+                        "description": "Notatka baterii {name} była powiązana z urządzeniem, które zostało podzielone na wiele urządzeń.\n\nWybierz urządzenie, do którego powinna być powiązana ta notatka baterii, lub pozostaw puste, aby usunąć notatkę baterii.",
+                        "title": "Wybierz urządzenie dla {name}"
                     }
                 }
             },
-            "title": "Device for battery note {name} needs to be selected again"
+            "title": "Urządzenie dla notatki baterii {name} musi być wyznaczone ponownie"
         },
         "deprecated_yaml": {
             "title": "Konfiguracja YAML dla {integration_title} jest usuwana",
