@@ -162,25 +162,25 @@
                 },
                 "data_description": {
                     "show_all_devices": "Afficher tous les appareils dans la liste déroulante de l'appareil, sinon seuls ceux avec des piles seront affichés.",
-                    "hide_battery": "Hide the standard battery when adding Battery+.",
-                    "round_battery": "Round Battery+ to whole percentages.",
-                    "default_battery_low_threshold": "The default threshold where a devices battery_low entity is set to true and the battery_notes_battery_threshold event is fired if the battery is below this threshold, can be overriden per device in device configuration.",
-                    "battery_increase_threshold": "The threshold where the battery_notes_battery_increased event is fired, use this event for battery replaced automations. The threshold is the difference in increase between previous and current battery level."
+                    "hide_battery": "Masquer la batterie standard lors de l'ajout de Battery+.",
+                    "round_battery": "Arrondir Battery+ à des pourcentages entiers.",
+                    "default_battery_low_threshold": "Le seuil par défaut où l'entité battery_low d'un appareil est définie sur vrai et l'événement battery_notes_battery_threshold est déclenché si la batterie est inférieure à ce seuil, peut être remplacé par appareil dans la configuration de l'appareil.",
+                    "battery_increase_threshold": "Le seuil où l'événement battery_notes_battery_increased est déclenché, utilisez cet événement pour les automatisations de remplacement de batterie. Le seuil est la différence d'augmentation entre le niveau de batterie précédent et actuel."
                 },
                 "sections": {
                     "advanced_settings": {
                         "name": "Paramètres avancés",
                         "data": {
                             "enable_autodiscovery": "Découverte automatique",
-                            "enable_replaced": "Enable battery replaced",
-                            "hide_battery_low": "Hide battery low",
+                            "enable_replaced": "Activer le remplacement de la batterie",
+                            "hide_battery_low": "Masquer la batterie faible",
                             "user_library": "Bibliothèque utilisateur"
                         },
                         "data_description": {
                             "enable_autodiscovery": "Découverte automatique des périphériques qui se trouvent dans la bibliothèque.",
                             "enable_replaced": "Activer le bouton de remplacement de la batterie sur chaque Battery Notes.",
-                            "hide_battery_low": "Hide the battery low binary sensor when a battery percentage is available, avoiding duplication on generated dashboards.",
-                            "user_library": "Si spécifié, un fichier de bibliothèque utilisateur sera recherché avant la bibliothèque principale, la bibliothèque utilisateur doit être dans le même format que la bibliothèque et placée dans `config/. torage/battery_notes`."
+                            "hide_battery_low": "Masquer le capteur binaire de batterie faible lorsqu'un pourcentage de batterie est disponible, évitant la duplication sur les tableaux de bord générés.",
+                            "user_library": "Si spécifié, un fichier de bibliothèque utilisateur sera recherché avant la bibliothèque principale, la bibliothèque utilisateur doit être dans le même format que la bibliothèque et placée dans `config/.storage/battery_notes`."
                         }
                     }
                 }
@@ -287,39 +287,39 @@
             "name": "Mise à jour remplacement de la batterie"
         },
         "check_battery_last_replaced": {
-            "description": "",
+            "description": "Obtenez une réponse ou levez des événements pour les appareils dont la batterie n'a pas été remplacée.",
             "fields": {
                 "days_last_reported": {
                     "description": "Nombre de jours depuis qu'un appareil a signalé que sa batterie a été remplacée",
                     "name": "Jours"
                 },
                 "raise_events": {
-                    "description": "Raise events for use in automation triggers.",
-                    "name": "Raise events"
+                    "description": "Levez des événements à utiliser dans les déclencheurs d'automatisation.",
+                    "name": "Levez des événements"
                 }
             },
-            "name": "Check battery last replaced"
+            "name": "Vérifier le dernier remplacement de la batterie"
         },
         "check_battery_last_reported": {
-            "description": "Get a response or raise events for devices that haven't reported their battery level.",
+            "description": "Obtenez une réponse ou levez des événements pour les appareils qui n'ont pas signalé leur niveau de batterie.",
             "fields": {
                 "days_last_reported": {
                     "description": "Nombre de jours écoulés depuis la dernière fois qu'un appareil a signalé son niveau de batterie.",
                     "name": "Jours"
                 },
                 "raise_events": {
-                    "description": "Raise events for use in automation triggers.",
-                    "name": "Raise events"
+                    "description": "Levez des événements à utiliser dans les déclencheurs d'automatisation.",
+                    "name": "Levez des événements"
                 }
             },
-            "name": "Batterie signalée pour la dernière fois"
+            "name": "Dernière batterie signalée"
         },
         "check_battery_low": {
-            "description": "Get a response or raise events for devices that have a low battery.",
+            "description": "Obtenez une réponse ou levez des événements pour les appareils ayant une batterie faible.",
             "fields": {
                 "raise_events": {
-                    "description": "Raise events for use in automation triggers.",
-                    "name": "Raise events"
+                    "description": "Levez des événements à utiliser dans les déclencheurs d'automatisation.",
+                    "name": "Levez des événements"
                 }
             },
             "name": "Vérifier si batterie faible"
@@ -340,10 +340,10 @@
         "composite_device_id": {
             "fix_flow": {
                 "abort": {
-                    "entry_removed": "The Battery Note configuration entry has been removed"
+                    "entry_removed": "L'entrée de configuration Battery Note a été supprimée"
                 },
                 "error": {
-                    "invalid_device": "Select an existing device or leave the field empty"
+                    "invalid_device": "Sélectionnez un appareil existant ou laissez le champ vide"
                 },
                 "step": {
                     "select_device": {
@@ -351,14 +351,14 @@
                             "device_id": "Appareil"
                         },
                         "data_description": {
-                            "device_id": "The device this battery note should be linked to."
+                            "device_id": "L'appareil auquel cette note de batterie doit être liée."
                         },
-                        "description": "The battery note {name} was linked to a device which has been split into multiple devices.\n\nSelect the device this battery note should be linked to, or leave empty to remove the battery note.",
-                        "title": "Select device for {name}"
+                        "description": "La note de batterie {name} a été liée à un appareil qui a été divisé en plusieurs appareils.\n\nSélectionnez l'appareil auquel cette note de batterie doit être liée, ou laissez vide pour supprimer la note de batterie.",
+                        "title": "Sélectionner l'appareil pour {name}"
                     }
                 }
             },
-            "title": "Device for battery note {name} needs to be selected again"
+            "title": "L'appareil pour la note de batterie {name} doit être sélectionné à nouveau"
         },
         "deprecated_yaml": {
             "title": "Le fichier de configuration YAML {integration_title} est en cours de suppression",
