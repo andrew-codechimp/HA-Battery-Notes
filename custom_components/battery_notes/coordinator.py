@@ -32,7 +32,7 @@ from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
 from homeassistant.util import dt as dt_util
 from homeassistant.util.hass_dict import HassKey
 
-from .common import validate_is_float
+from .common import missing_device_issue_id, validate_is_float
 from .const import (
     ATTR_AREA_NAME,
     ATTR_BATTERY_LAST_REPLACED,
@@ -269,7 +269,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                     ir.async_create_issue(
                         self.hass,
                         DOMAIN,
-                        f"missing_device_{self.subentry.subentry_id}",
+                        missing_device_issue_id(self.subentry.subentry_id),
                         data={
                             "entry_id": self.config_entry.entry_id,
                             "subentry_id": self.subentry.subentry_id,
@@ -366,7 +366,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                     ir.async_create_issue(
                         self.hass,
                         DOMAIN,
-                        f"missing_device_{self.subentry.subentry_id}",
+                        missing_device_issue_id(self.subentry.subentry_id),
                         data={
                             "entry_id": self.config_entry.entry_id,
                             "subentry_id": self.subentry.subentry_id,

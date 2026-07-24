@@ -32,7 +32,11 @@ from homeassistant.helpers.event import async_call_later
 from homeassistant.helpers.issue_registry import IssueSeverity, async_create_issue
 from homeassistant.helpers.typing import ConfigType
 
-from .common import is_composite_device_id
+from .common import (
+    composite_device_issue_id,
+    is_composite_device_id,
+    missing_device_issue_id,
+)
 from .const import (
     CONF_ADVANCED_SETTINGS,
     CONF_BATTERY_INCREASE_THRESHOLD,
@@ -186,7 +190,7 @@ async def async_setup_entry(
                 ir.async_create_issue(
                     hass,
                     DOMAIN,
-                    f"composite_device_id_{subentry.subentry_id}",
+                    composite_device_issue_id(subentry.subentry_id),
                     data={
                         "entry_id": config_entry.entry_id,
                         "subentry_id": subentry.subentry_id,
@@ -200,7 +204,7 @@ async def async_setup_entry(
                 ir.async_delete_issue(
                     hass,
                     DOMAIN,
-                    f"composite_device_id_{subentry.subentry_id}",
+                    composite_device_issue_id(subentry.subentry_id),
                 )
 
             coordinator = BatteryNotesSubentryCoordinator(hass, config_entry, subentry)
@@ -261,12 +265,12 @@ async def async_remove_entry(
                 hass, config_entry, subentry, remove_store_entries=False
             )
             ir.async_delete_issue(
-                hass, DOMAIN, f"missing_device_{subentry.subentry_id}"
+                hass, DOMAIN, missing_device_issue_id(subentry.subentry_id)
             )
             ir.async_delete_issue(
                 hass,
                 DOMAIN,
-                f"composite_device_id_{subentry.subentry_id}",
+                composite_device_issue_id(subentry.subentry_id),
             )
 
 
@@ -587,8 +591,12 @@ async def _async_remove_subentry(
     assert coordinator
 
     # Remove any issues raised
-    ir.async_delete_issue(hass, DOMAIN, f"missing_device_{subentry.subentry_id}")
-    ir.async_delete_issue(hass, DOMAIN, f"composite_device_id_{subentry.subentry_id}")
+    ir.async_delete_issue(hass, DOMAIN, missing_device_issue_id(subentry.subentry_id))
+    ir.async_delete_issue(
+        hass,
+        DOMAIN,
+        composite_device_issue_id(subentry.subentry_id),
+    )
 
     # Remove store entries
     if remove_store_entries:

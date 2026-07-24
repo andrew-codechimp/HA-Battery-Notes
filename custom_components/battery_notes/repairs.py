@@ -16,6 +16,7 @@ from homeassistant.exceptions import HomeAssistantError
 from homeassistant.helpers import device_registry as dr, issue_registry as ir
 from homeassistant.helpers.selector import DeviceSelector
 
+from .common import composite_device_issue_id
 from .const import DOMAIN
 from .store import async_get_registry
 
@@ -119,7 +120,7 @@ class CompositeDeviceIdRepairFlow(RepairsFlow):
                 ir.async_delete_issue(
                     self.hass,
                     DOMAIN,
-                    f"composite_device_id_{self._subentry.subentry_id}",
+                    composite_device_issue_id(self._subentry.subentry_id),
                 )
                 await self.hass.config_entries.async_reload(self._entry.entry_id)
                 return self.async_create_entry(data={})

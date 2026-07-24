@@ -31,3 +31,13 @@ def is_composite_device_id(hass: HomeAssistant, device_id: str) -> bool:
     if not callable(is_composite):
         return False
     return bool(is_composite(device_id))
+
+
+def composite_device_issue_id(config_subentry_id: str) -> str:
+    """Return the repair issue ID for a config subentry using a composite device ID."""
+    return f"composite_device_id_{config_subentry_id}"
+
+
+def missing_device_issue_id(config_subentry_id: str) -> str:
+    """Return the repair issue ID for a config subentry with a missing device."""
+    return f"missing_device_{config_subentry_id}"
