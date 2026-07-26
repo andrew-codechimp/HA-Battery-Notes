@@ -1902,6 +1902,12 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "Wireless mini switch E1",
+            "model_id": "WXKG20LM",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "Wireless mini switch T1",
             "model_id": "WXKG13LM",
             "battery_type": "CR2032"
@@ -13185,12 +13191,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Aqara",
-            "model": "Wireless mini switch E1",
-            "model_id": "WXKG20LM",
-            "battery_type": "CR2032"
         }
     ]
 }
