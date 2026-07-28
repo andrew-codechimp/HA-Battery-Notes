@@ -5109,6 +5109,12 @@
         },
         {
             "manufacturer": "HOBEIAN",
+            "model": "door/window sensor",
+            "model_id": "ZG-102Z",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "HOBEIAN",
             "model": "Door/window sensor",
             "model_id": "ZG-102ZA",
             "hw_version": "1",
@@ -13191,12 +13197,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "HOBEIAN",
-            "model": "door/window sensor",
-            "model_id": "ZG-102Z",
-            "battery_type": "CR2032"
         }
     ]
 }
