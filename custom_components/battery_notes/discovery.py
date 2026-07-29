@@ -12,7 +12,7 @@ from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers import discovery_flow
 from homeassistant.loader import Integration, async_get_integration
 
-from .common import get_device_model_id
+from .common import get_device_model_id, is_composite_device_id
 from .const import (
     CONF_BATTERY_QUANTITY,
     CONF_BATTERY_TYPE,
@@ -99,6 +99,9 @@ class DiscoveryManager:
         if library.is_loaded:
             for device_entry in list(device_registry.devices.values()):
                 if not self.should_process_device(device_entry):
+                    continue
+
+                if is_composite_device_id(self.hass, device_entry.id):
                     continue
 
                 model_info = await autodiscover_model(device_entry)
