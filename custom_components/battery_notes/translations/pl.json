@@ -18,7 +18,7 @@
                 },
                 "sections": {
                     "advanced_settings": {
-                        "name": "Ustawienia zaawansowane",
+                        "name": "Dodatkowe ustawienia",
                         "data": {
                             "battery_percentage_template": "Szablon procentowy baterii",
                             "battery_low_template": "Szablon niskiego poziomu baterii",
@@ -91,7 +91,7 @@
                     },
                     "sections": {
                         "advanced_settings": {
-                            "name": "Ustawienia zaawansowane",
+                            "name": "Dodatkowe ustawienia",
                             "data": {
                                 "battery_percentage_template": "Szablon procentowy baterii",
                                 "battery_low_template": "Szablon niskiego poziomu baterii",
@@ -169,7 +169,7 @@
                 },
                 "sections": {
                     "advanced_settings": {
-                        "name": "Ustawienia zaawansowane",
+                        "name": "Dodatkowe ustawienia",
                         "data": {
                             "enable_autodiscovery": "Automatyczne wykrywanie",
                             "enable_replaced": "Włącz wymienianie baterii",

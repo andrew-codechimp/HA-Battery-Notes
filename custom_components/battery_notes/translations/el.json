@@ -18,7 +18,7 @@
                 },
                 "sections": {
                     "advanced_settings": {
-                        "name": "Ρυθμίσεις για προχωρημένους",
+                        "name": "Πρόσθετες ρυθμίσεις",
                         "data": {
                             "battery_percentage_template": "Template ποσοστού μπαταρίας",
                             "battery_low_template": "Template χαμηλής στάθμης μπαταρίας",
@@ -91,7 +91,7 @@
                     },
                     "sections": {
                         "advanced_settings": {
-                            "name": "Ρυθμίσεις για προχωρημένους",
+                            "name": "Πρόσθετες ρυθμίσεις",
                             "data": {
                                 "battery_percentage_template": "Template ποσοστού μπαταρίας",
                                 "battery_low_template": "Template χαμηλής στάθμης μπαταρίας",
@@ -124,7 +124,7 @@
                     },
                     "sections": {
                         "advanced_settings": {
-                            "name": "Ρυθμίσεις για προχωρημένους",
+                            "name": "Πρόσθετες ρυθμίσεις",
                             "data": {
                                 "battery_percentage_template": "Template ποσοστού μπαταρίας",
                                 "battery_low_template": "Template χαμηλής στάθμης μπαταρίας",
@@ -169,7 +169,7 @@
                 },
                 "sections": {
                     "advanced_settings": {
-                        "name": "Ρυθμίσεις για προχωρημένους",
+                        "name": "Πρόσθετες ρυθμίσεις",
                         "data": {
                             "enable_autodiscovery": "Αυτόματη ανακάλυψη",
                             "enable_replaced": "Ενεργοποίηση αντικατάστασης μπαταρίας",

@@ -18,7 +18,7 @@
                 },
                 "sections": {
                     "advanced_settings": {
-                        "name": "Avancerede indstillinger",
+                        "name": "Yderligere indstillinger",
                         "data": {
                             "battery_percentage_template": "Batteriprocentskabelon",
                             "battery_low_template": "Lavt batteri-skabelon",
@@ -91,7 +91,7 @@
                     },
                     "sections": {
                         "advanced_settings": {
-                            "name": "Avancerede indstillinger",
+                            "name": "Yderligere indstillinger",
                             "data": {
                                 "battery_percentage_template": "Batteriprocentskabelon",
                                 "battery_low_template": "Lavt batteri-skabelon",
@@ -124,7 +124,7 @@
                     },
                     "sections": {
                         "advanced_settings": {
-                            "name": "Avancerede indstillinger",
+                            "name": "Yderligere indstillinger",
                             "data": {
                                 "battery_percentage_template": "Batteriprocentskabelon",
                                 "battery_low_template": "Lavt batteri-skabelon",
@@ -169,7 +169,7 @@
                 },
                 "sections": {
                     "advanced_settings": {
-                        "name": "Avancerede indstillinger",
+                        "name": "Yderligere indstillinger",
                         "data": {
                             "enable_autodiscovery": "Automatisk opdagelse",
                             "enable_replaced": "Aktivér batteri udskiftet",
