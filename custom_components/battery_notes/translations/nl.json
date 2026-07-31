@@ -2,15 +2,15 @@
     "config": {
         "step": {
             "user": {
-                "description": "New Battery Notes will be discovered if they are in the library.\nTo add new Battery Notes manually go into the integration page, select Add Battery Note and follow the instructions.\nIf you need help with the configuration have a look here: {documentation_url}",
-                "title": "Setup Battery Notes"
+                "description": "Nieuwe Battery Notes worden ontdekt als ze in de bibliotheek staan.\nOm nieuwe Battery Notes handmatig toe te voegen ga je naar de integratiepagina, selecteer je Batterijnotitie toevoegen en volg je de instructies.\nAls je hulp nodig hebt bij de configuratie, kijk dan hier: {documentation_url}",
+                "title": "Battery Notes instellen"
             },
             "battery": {
                 "description": "Naam: {name}\nFabrikant: {manufacturer}\nModel: {model}\nModel ID: {model_id}\nHardware versie: {hw_version}",
                 "data": {
                     "battery_type": "Batterij type",
                     "battery_quantity": "Aantal batterijen",
-                    "note": "Note",
+                    "note": "Notitie",
                     "battery_low_threshold": "Drempelwaarde batterij bijna leeg"
                 },
                 "data_description": {
@@ -34,9 +34,9 @@
             }
         },
         "abort": {
-            "already_configured": "Integration is already configured",
-            "integration_not_added": "Integration not added, please add the integration first",
-            "created_sub_entry": "Battery Note created successfully"
+            "already_configured": "Integratie is al geconfigureerd",
+            "integration_not_added": "Integratie niet toegevoegd, voeg eerst de integratie toe",
+            "created_sub_entry": "Batterijnotitie succesvol aangemaakt"
         },
         "error": {
             "unknown": "Onbekende fout opgetreden."
@@ -45,9 +45,9 @@
     "config_subentries": {
         "battery_note": {
             "initiate_flow": {
-                "user": "Add battery note"
+                "user": "Batterijnotitie toevoegen"
             },
-            "entry_type": "Battery note",
+            "entry_type": "Batterijnotitie",
             "step": {
                 "user": {
                     "description": "Als u hulp nodig heeft bij de configuratie kunt u hier een kijkje nemen: {documentation_url}",
@@ -83,7 +83,7 @@
                     "data": {
                         "battery_type": "Batterij type",
                         "battery_quantity": "Aantal batterijen",
-                        "note": "Note",
+                        "note": "Notitie",
                         "battery_low_threshold": "Drempelwaarde batterij bijna leeg"
                     },
                     "data_description": {
@@ -115,7 +115,7 @@
                         "name": "Naam",
                         "battery_type": "Batterij type",
                         "battery_quantity": "Aantal batterijen",
-                        "note": "Note",
+                        "note": "Notitie",
                         "battery_low_threshold": "Drempelwaarde batterij bijna leeg"
                     },
                     "data_description": {
@@ -140,7 +140,7 @@
                 }
             },
             "abort": {
-                "reconfigure_successful": "Re-configuration was successful",
+                "reconfigure_successful": "Herconfiguratie was succesvol",
                 "already_configured": "Apparaat is al geconfigureerd"
             },
             "error": {
@@ -158,7 +158,7 @@
                     "hide_battery": "Batterij verbergen",
                     "round_battery": "Batterijniveau afronden",
                     "default_battery_low_threshold": "Standaard drempelwaarde laag batterijniveau",
-                    "battery_increase_threshold": "Drempel batterijaanstieg"
+                    "battery_increase_threshold": "Drempel batterijtoename"
                 },
                 "data_description": {
                     "show_all_devices": "Alle apparaten in de apparaatkeuzelijst weergeven, anders alleen die met batterijen.",
@@ -180,7 +180,7 @@
                             "enable_autodiscovery": "Automatische detectie van apparaten die in de bibliotheek staan.",
                             "enable_replaced": "Schakel de knop 'batterij vervangen' in op elke batterijaantekening.",
                             "hide_battery_low": "Verberg de binaire sensor voor lage batterij wanneer een batterijpercentage beschikbaar is, om dubbeling op gegenereerde dashboards te vermijden.",
-                            "user_library": "Indien opgegeven, zal een gebruikersbibliothekbestand vóór de hoofdbibliotheek worden doorzocht. De gebruikersbibliothek moet in hetzelfde formaat als de bibliotheek zijn en zich in `config/.storage/battery_notes` bevinden."
+                            "user_library": "Indien opgegeven, zal een gebruikersbibliotheekbestand voor de hoofdbibliotheek worden doorzocht. De gebruikersbibliotheek moet in hetzelfde formaat als de bibliotheek zijn en zich in `config/.storage/battery_notes` bevinden."
                         }
                     }
                 }
@@ -220,7 +220,7 @@
                         "name": "Batterij type en aantal"
                     },
                     "note": {
-                        "name": "Note"
+                        "name": "Notitie"
                     },
                     "battery_last_replaced": {
                         "name": "Batterij laatst vervangen"
@@ -258,7 +258,7 @@
                         "name": "Aantal batterijen"
                     },
                     "note": {
-                        "name": "Note"
+                        "name": "Notitie"
                     }
                 }
             },
@@ -348,21 +348,21 @@
                 "step": {
                     "select_device": {
                         "data": {
-                            "device_id": "Device"
+                            "device_id": "Apparaat"
                         },
                         "data_description": {
-                            "device_id": "The device this battery note should be linked to."
+                            "device_id": "Het apparaat waaraan deze batterijnotitie gekoppeld moet worden."
                         },
-                        "description": "The battery note {name} was linked to a device which has been split into multiple devices.\n\nSelect the device this battery note should be linked to, or leave empty to remove the battery note.",
-                        "title": "Select device for {name}"
+                        "description": "De batterijnotitie {name} was gekoppeld aan een apparaat dat is opgesplitst in meerdere apparaten.\n\nSelecteer het apparaat waaraan deze batterijnotitie gekoppeld moet worden, of laat het leeg om de batterijnotitie te verwijderen.",
+                        "title": "Selecteer apparaat voor {name}"
                     }
                 }
             },
-            "title": "Device for battery note {name} needs to be selected again"
+            "title": "Apparaat voor batterijnotitie {name} moet opnieuw worden geselecteerd"
         },
         "deprecated_yaml": {
-            "title": "The {integration_title} YAML configuration is being removed",
-            "description": "Configuring {integration_title} using YAML is being removed.\n\nYour existing YAML configuration has been imported into the UI automatically.\n\nRemove the `{domain}` configuration from your configuration.yaml file and restart Home Assistant to fix this issue."
+            "title": "De YAML-configuratie van {integration_title} wordt verwijderd",
+            "description": "Configureren van {integration_title} via YAML wordt verwijderd.\n\nJe bestaande YAML-configuratie is automatisch naar de UI geimporteerd.\n\nVerwijder de `{domain}`-configuratie uit je configuration.yaml-bestand en herstart Home Assistant om dit probleem op te lossen."
         }
     },
     "exceptions": {
