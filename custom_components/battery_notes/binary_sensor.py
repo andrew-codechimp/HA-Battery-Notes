@@ -139,7 +139,10 @@ async def async_setup_entry(
             | BatteryNotesBatteryPercentageTemplateLowSensor
         ] = []
 
-        if coordinator.battery_low_template is not None:
+        if (
+            coordinator.battery_low_template
+            and coordinator.battery_low_template.strip()
+        ):
             entities.append(
                 BatteryNotesBatteryLowBinaryTemplateSensor(
                     hass,
@@ -150,7 +153,10 @@ async def async_setup_entry(
                 )
             )
 
-        elif coordinator.battery_percentage_template is not None:
+        elif (
+            coordinator.battery_percentage_template
+            and coordinator.battery_percentage_template.strip()
+        ):
             entities.append(
                 BatteryNotesBatteryPercentageTemplateLowSensor(
                     hass,
@@ -273,14 +279,19 @@ class BatteryNotesNonTemplateBatteryLowSensor(BatteryNotesBatteryLowBaseSensor):
             hass, entity_description=entity_description, coordinator=coordinator
         )
 
-        registry = er.async_get(hass)
-        entity = registry.async_get(self.entity_id)
+    async def async_added_to_hass(self) -> None:
+        """Handle added to Hass."""
+
+        await super().async_added_to_hass()
+
+        entity_registry = er.async_get(self.hass)
+        entity = entity_registry.async_get(self.entity_id)
 
         if entity is not None and entity.hidden_by != er.RegistryEntryHider.USER:
-            registry.async_update_entity(
+            entity_registry.async_update_entity(
                 self.entity_id,
                 hidden_by=er.RegistryEntryHider.INTEGRATION
-                if hass.data[MY_KEY].hide_battery_low
+                if self.hass.data[MY_KEY].hide_battery_low
                 else None,
             )
 
