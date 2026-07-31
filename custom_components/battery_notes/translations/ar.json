@@ -18,7 +18,7 @@
                 },
                 "sections": {
                     "advanced_settings": {
-                        "name": "Advanced settings",
+                        "name": "Additional settings",
                         "data": {
                             "battery_percentage_template": "Battery percentage template",
                             "battery_low_template": "قالب البطارية المنخفضة",
@@ -91,7 +91,7 @@
                     },
                     "sections": {
                         "advanced_settings": {
-                            "name": "Advanced settings",
+                            "name": "Additional settings",
                             "data": {
                                 "battery_percentage_template": "Battery percentage template",
                                 "battery_low_template": "قالب البطارية المنخفضة",
@@ -124,7 +124,7 @@
                     },
                     "sections": {
                         "advanced_settings": {
-                            "name": "Advanced settings",
+                            "name": "Additional settings",
                             "data": {
                                 "battery_percentage_template": "Battery percentage template",
                                 "battery_low_template": "قالب البطارية المنخفضة",
@@ -169,7 +169,7 @@
                 },
                 "sections": {
                     "advanced_settings": {
-                        "name": "Advanced settings",
+                        "name": "Additional settings",
                         "data": {
                             "enable_autodiscovery": "Auto discovery",
                             "enable_replaced": "Enable battery replaced",

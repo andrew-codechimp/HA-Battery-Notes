@@ -18,7 +18,7 @@
                 },
                 "sections": {
                     "advanced_settings": {
-                        "name": "Configurações avançadas",
+                        "name": "Configurações adicionais",
                         "data": {
                             "battery_percentage_template": "Template de percentual da bateria",
                             "battery_low_template": "Modelo de bateria fraca",
@@ -91,7 +91,7 @@
                     },
                     "sections": {
                         "advanced_settings": {
-                            "name": "Configurações avançadas",
+                            "name": "Configurações adicionais",
                             "data": {
                                 "battery_percentage_template": "Template de percentual da bateria",
                                 "battery_low_template": "Modelo de bateria fraca",
@@ -124,7 +124,7 @@
                     },
                     "sections": {
                         "advanced_settings": {
-                            "name": "Configurações avançadas",
+                            "name": "Configurações adicionais",
                             "data": {
                                 "battery_percentage_template": "Template de percentual da bateria",
                                 "battery_low_template": "Modelo de bateria fraca",
@@ -169,7 +169,7 @@
                 },
                 "sections": {
                     "advanced_settings": {
-                        "name": "Configurações avançadas",
+                        "name": "Configurações adicionais",
                         "data": {
                             "enable_autodiscovery": "Descobrir automaticamente",
                             "enable_replaced": "Habilitar botão de substituição de bateria",

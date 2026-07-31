@@ -18,7 +18,7 @@
                 },
                 "sections": {
                     "advanced_settings": {
-                        "name": "Erweiterte Einstellungen",
+                        "name": "Zusätzliche Einstellungen",
                         "data": {
                             "battery_percentage_template": "Vorlage zur Ermittlung eines Prozentwertes für den Batterieladezustand.",
                             "battery_low_template": "Vorlage zur Ermittlung einer leeren Batterie.",
@@ -91,7 +91,7 @@
                     },
                     "sections": {
                         "advanced_settings": {
-                            "name": "Erweiterte Einstellungen",
+                            "name": "Zusätzliche Einstellungen",
                             "data": {
                                 "battery_percentage_template": "Vorlage zur Ermittlung eines Prozentwertes für den Batterieladezustand.",
                                 "battery_low_template": "Vorlage zur Ermittlung einer leeren Batterie.",
@@ -124,7 +124,7 @@
                     },
                     "sections": {
                         "advanced_settings": {
-                            "name": "Erweiterte Einstellungen",
+                            "name": "Zusätzliche Einstellungen",
                             "data": {
                                 "battery_percentage_template": "Vorlage zur Ermittlung eines Prozentwertes für den Batterieladezustand",
                                 "battery_low_template": "Vorlage zur Ermittlung, ob die Batterie leer ist.",
@@ -169,7 +169,7 @@
                 },
                 "sections": {
                     "advanced_settings": {
-                        "name": "Erweiterte Einstellungen",
+                        "name": "Zusätzliche Einstellungen",
                         "data": {
                             "enable_autodiscovery": "Automatische Erkennung",
                             "enable_replaced": "\"Batterie ersetzt\" aktivieren",

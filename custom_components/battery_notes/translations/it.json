@@ -18,7 +18,7 @@
                 },
                 "sections": {
                     "advanced_settings": {
-                        "name": "Impostazioni avanzate",
+                        "name": "Impostazioni aggiuntive",
                         "data": {
                             "battery_percentage_template": "Template percentuale batteria",
                             "battery_low_template": "Template batteria scarica",
@@ -91,7 +91,7 @@
                     },
                     "sections": {
                         "advanced_settings": {
-                            "name": "Impostazioni avanzate",
+                            "name": "Impostazioni aggiuntive",
                             "data": {
                                 "battery_percentage_template": "Template percentuale batteria",
                                 "battery_low_template": "Template batteria scarica",
@@ -124,7 +124,7 @@
                     },
                     "sections": {
                         "advanced_settings": {
-                            "name": "Impostazioni avanzate",
+                            "name": "Impostazioni aggiuntive",
                             "data": {
                                 "battery_percentage_template": "Template percentuale batteria",
                                 "battery_low_template": "Template batteria scarica",
@@ -169,7 +169,7 @@
                 },
                 "sections": {
                     "advanced_settings": {
-                        "name": "Impostazioni avanzate",
+                        "name": "Impostazioni aggiuntive",
                         "data": {
                             "enable_autodiscovery": "Rilevamento automatico",
                             "enable_replaced": "Abilita batteria sostituita",
