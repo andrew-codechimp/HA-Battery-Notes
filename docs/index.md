@@ -45,7 +45,7 @@ Once you have [installed the integration](https://github.com/andrew-codechimp/HA
 
 ## Battery Percentage Template
 
-This is for advanced use where a device does not have a typical battery percentage (or it is innacurate) but still provides an indication of the level, such as a string, boolean or voltage.  
+This is for where a device does not have a typical battery percentage (or it is innacurate) but still provides an indication of the level, such as a string, boolean or voltage.  
 Specifying a template for devices without a typical battery percentage will create a battery+ sensor.  
 You can specify a template that must return a percentage (0-100).
 
@@ -73,7 +73,7 @@ Example of binary low sensor, returning either 100% or 9%
 
 ## Battery Low Template
 
-This is for advanced use where a device does not have a typical battery percentage or battery low boolean (or it is innacurate) but still provides an indication of the level, such as a string, boolean or voltage.  
+This is for where a device does not have a typical battery percentage or battery low boolean (or it is innacurate) but still provides an indication of the level, such as a string, boolean or voltage.  
 The battery percentage template above will also trigger low battery events/states so the battery low template is for legacy use.  
 You can specify a template that must return true when the battery is deemed low.  
 
@@ -91,7 +91,7 @@ Example templates
 
 ## Filter Outliers
 
-This is for advanced use when a device occasionally erroneously reports a very low battery level before going back to its true value, which causes battery low events to be raised.  
+This is for when a device occasionally erroneously reports a very low battery level before going back to its true value, which causes battery low events to be raised.  
 If you switch this on for a device then that devices battery low events will be delayed until it has three consistently low states.
 
 ## Community Contributions
