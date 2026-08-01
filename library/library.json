@@ -13197,6 +13197,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Somfy",
+            "model": "RollerShutter",
+            "model_id": "DynamicRollerShutter",
+            "battery_type": "Rechargeable"
         }
     ]
 }
