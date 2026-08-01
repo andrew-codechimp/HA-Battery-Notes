@@ -9169,6 +9169,12 @@
         },
         {
             "manufacturer": "Somfy",
+            "model": "RollerShutter",
+            "model_id": "DynamicRollerShutter",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Somfy",
             "model": "Somfy Smoke Detector",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -13196,12 +13202,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Somfy",
-            "model": "RollerShutter",
-            "model_id": "DynamicRollerShutter",
             "battery_type": "Rechargeable"
         }
     ]
