@@ -196,6 +196,16 @@ class DiscoveryManager:
             integration.name if integration else None
         )
 
+        _LOGGER.info(
+            "Auto discovered device %s in %s (manufacturer=%s, model=%s, model_id=%s, hw_version=%s)",
+            discovery_data[CONF_DEVICE_NAME],
+            discovery_data[CONF_INTEGRATION_NAME],
+            discovery_data[CONF_MANUFACTURER],
+            discovery_data[CONF_MODEL],
+            discovery_data[CONF_MODEL_ID],
+            discovery_data[CONF_HW_VERSION],
+        )
+
         discovery_flow.async_create_flow(
             self.hass,
             DOMAIN,
