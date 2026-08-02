@@ -9171,7 +9171,7 @@
             "manufacturer": "Somfy",
             "model": "RollerShutter",
             "model_id": "DynamicRollerShutter",
-            "battery_type": "Rechargeable"
+            "battery_type": "MANUAL"
         },
         {
             "manufacturer": "Somfy",
