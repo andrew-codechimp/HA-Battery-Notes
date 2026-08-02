@@ -13203,6 +13203,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Guard Dog Security",
+            "model": "BS_PLD01",
+            "model_id": "wgv4haro",
+            "battery_type": "AAA",
+            "battery_quantity": 4
         }
     ]
 }
