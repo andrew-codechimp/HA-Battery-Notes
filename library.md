@@ -1,4 +1,4 @@
-## 2275 Devices in library
+## 2276 Devices in library
 
 This file is auto generated, do not modify
 
@@ -843,6 +843,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |GS                                              |Temperature and humidity sensor (STHM-I1H)                                                    |CR2450                    |                                                                        |
 |GS                                              |Water leakage sensor                                                                          |2× AAA                    |SWHM-I1                                                                 |
 |GS                                              |Water leakage sensor (SWHM-I1)                                                                |2× AAA                    |                                                                        |
+|Guard Dog Security                              |BS_PLD01                                                                                      |4× AAA                    |wgv4haro                                                                |
 |HAB Home Intelligence LLC                       |iblinds V3                                                                                    |Rechargeable              |                                                                        |
 |HAB Home Intelligence, LLC                      |IB2.0                                                                                         |Rechargeable              |                                                                        |
 |HANK Electronics Ltd.                           |HKZW-DWS01                                                                                    |2× AAA                    |                                                                        |

@@ -4838,6 +4838,13 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Guard Dog Security",
+            "model": "BS_PLD01",
+            "model_id": "wgv4haro",
+            "battery_type": "AAA",
+            "battery_quantity": 4
+        },
+        {
             "manufacturer": "HAB Home Intelligence LLC",
             "model": "iblinds V3",
             "battery_type": "Rechargeable"
@@ -13203,13 +13210,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Guard Dog Security",
-            "model": "BS_PLD01",
-            "model_id": "wgv4haro",
-            "battery_type": "AAA",
-            "battery_quantity": 4
         }
     ]
 }
