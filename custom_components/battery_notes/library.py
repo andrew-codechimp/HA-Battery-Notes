@@ -184,15 +184,6 @@ class Library:  # pylint: disable=too-few-public-methods
         if not bool(self._manufacturer_devices):
             return None
 
-        # Test only
-        # device_to_find = ModelInfo("Aqara", "Aqara Climate Sensor W100", "8196", None)
-        # device_to_find = ModelInfo("Google", "Topaz-2.7", None, "Battery")
-        # device_to_find = ModelInfo("Google", "Topaz-2.7", None, "Wired")
-        # device_to_find = ModelInfo("Philips", "Hue dimmer switch (929002398602)", None, None)
-        # device_to_find = ModelInfo("Philips", "Hue dimmer switch", "929002398602", None)
-        # device_to_find = ModelInfo("Philips", "Hue dimmer switch", "929002398602", "1")
-        # device_to_find = ModelInfo("LUMI", "lumi.sensor_magnet.aq2", None, None)
-
         # Get all devices matching manufacturer & model
         matching_devices = None
         partial_matching_devices = None
@@ -220,12 +211,10 @@ class Library:  # pylint: disable=too-few-public-methods
         if partial_matching_devices and len(partial_matching_devices) > 0:
             matching_devices = partial_matching_devices
 
-        if matching_devices and len(matching_devices) > 1:
+        if matching_devices:
             fully_matching_devices = [
                 x for x in matching_devices if self.device_full_match(x, device_to_find)
             ]
-
-        if fully_matching_devices and len(fully_matching_devices) > 0:
             matching_devices = fully_matching_devices
 
         if not matching_devices:
@@ -309,12 +298,28 @@ class Library:  # pylint: disable=too-few-public-methods
                 library_device.hw_version is None and library_device.model_id is None
             )
 
-        if device_to_find.hw_version is None or device_to_find.model_id is None:
-            if (library_device.hw_version or "").casefold() == str(
-                device_to_find.hw_version
-            ).casefold() or (library_device.model_id or "").casefold() == str(
-                device_to_find.model_id
-            ).casefold():
+        # Only compare fields that exist in device_to_find
+        if (
+            device_to_find.hw_version is not None
+            and device_to_find.model_id is not None
+        ):
+            if (
+                library_device.hw_version or ""
+            ).casefold() == device_to_find.hw_version.casefold() and (
+                library_device.model_id or ""
+            ).casefold() == device_to_find.model_id.casefold():
+                return True
+
+        if device_to_find.hw_version is not None:
+            if (
+                library_device.hw_version or ""
+            ).casefold() == device_to_find.hw_version.casefold():
+                return True
+
+        if device_to_find.model_id is not None:
+            if (
+                library_device.model_id or ""
+            ).casefold() == device_to_find.model_id.casefold():
                 return True
 
         return False
@@ -325,9 +330,9 @@ class Library:  # pylint: disable=too-few-public-methods
         """Check if device match on hw_version and model_id."""
         return bool(
             (library_device.hw_version or "").casefold()
-            == str(device_to_find.hw_version).casefold()
+            == (device_to_find.hw_version or "").casefold()
             and (library_device.model_id or "").casefold()
-            == str(device_to_find.model_id).casefold()
+            == (device_to_find.model_id or "").casefold()
         )
 
 
