@@ -13206,8 +13206,8 @@
         },
         {
             "manufacturer": "Guard Dog Security",
-            "model": "BS_PLD01 (wgv4haro)",
-            "model_id": "Firmware: (protocol )",
+            "model": "BS_PLD01",
+            "model_id": "wgv4haro",
             "battery_type": "AAA",
             "battery_quantity": 4
         }
