@@ -13210,6 +13210,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "SwitchBot",
+            "model": "Smart Thermostat Radiator",
+            "battery_type": "AA",
+            "battery_quantity": 2
         }
     ]
 }
