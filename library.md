@@ -1,4 +1,4 @@
-## 2276 Devices in library
+## 2277 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1672,6 +1672,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |switchbot                                       |Roller Shade                                                                                  |Rechargeable              |                                                                        |
 |SwitchBot                                       |Smart Lock Pro                                                                                |4× AA                     |                                                                        |
 |SwitchBot                                       |Smart Lock Pro                                                                                |2× Rechargeable           |                                                                        |
+|SwitchBot                                       |Smart Thermostat Radiator                                                                     |2× AA                     |                                                                        |
 |Switchbot                                       |W070160X                                                                                      |Rechargeable              |                                                                        |
 |SwitchBot                                       |W1101500                                                                                      |2× AAA                    |                                                                        |
 |SwitchBot                                       |W1201500                                                                                      |2× AAA                    |                                                                        |

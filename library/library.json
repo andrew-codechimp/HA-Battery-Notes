@@ -9606,6 +9606,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "SwitchBot",
+            "model": "Smart Thermostat Radiator",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Switchbot",
             "model": "W070160X",
             "battery_type": "Rechargeable"
@@ -13210,12 +13216,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "SwitchBot",
-            "model": "Smart Thermostat Radiator",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
