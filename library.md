@@ -1,4 +1,4 @@
-## 2277 Devices in library
+## 2278 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1744,6 +1744,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Third Reality, Inc                              |3RSB015BZ                                                                                     |4× AA                     |                                                                        |
 |Third Reality, Inc                              |3RSB22BZ                                                                                      |2× AAA                    |                                                                        |
 |Third Reality, Inc                              |3RSM0147Z                                                                                     |AA                        |                                                                        |
+|Third Reality, Inc                              |3RSM0347Z                                                                                     |AAA                       |                                                                        |
 |Third Reality, Inc                              |3RSS009Z                                                                                      |2× AAA                    |                                                                        |
 |Third Reality, Inc                              |3RTHS24BZ                                                                                     |2× AAA                    |                                                                        |
 |Third Reality, Inc                              |3RVS01031Z                                                                                    |2× AAA                    |                                                                        |
