@@ -119,7 +119,7 @@ ignore = [
   "S101",   # Use of assert detected
   "TC001",  # Move application import into type checking
   "TC006",  # Add quotes to type expression in typing.cast()
-  "TD002",  # Missing auther in TODO
+  "TD002",  # Missing author in TODO
   "TD003",  # Missing issue link TODO
   "TRY400",  # Use `logging.exception` instead of `logging.error`
   "CPY001",  # Missing copyright notice at top of file
