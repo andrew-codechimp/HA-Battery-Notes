@@ -125,7 +125,11 @@ class DiscoveryManager:
                 # Change to device_entry.config_entry_id when HA 2026.8 is minimum
                 config_entry_id = next(iter(device_entry.config_entries))
                 config_entry = self.hass.config_entries.async_get_entry(config_entry_id)
+
                 if config_entry:
+                    if library.is_domain_ignored(config_entry.domain):
+                        continue
+
                     integration = await async_get_integration(
                         self.hass, config_entry.domain
                     )

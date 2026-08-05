@@ -13,6 +13,13 @@
             "description": "Version of the library schema",
             "type": "integer"
         },
+        "ignored_domains": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of integrations domains to ignore when discovering devices"
+        },
         "devices": {
             "type": "array",
             "items": {
@@ -62,7 +69,7 @@
             }
         }
     },
-    "additionalProperties": false,
+    "additionalProperties": true,
     "required": [
         "$schema",
         "version",
