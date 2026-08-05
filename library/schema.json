@@ -62,7 +62,7 @@
             }
         }
     },
-    "additionalProperties": false,
+    "additionalProperties": true,
     "required": [
         "$schema",
         "version",
