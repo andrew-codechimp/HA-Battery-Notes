@@ -61,6 +61,7 @@ class Library:  # pylint: disable=too-few-public-methods
     """Hold all known battery types."""
 
     _manufacturer_devices: dict[str, list[LibraryDevice]] = {}
+    _ignored_domains: list[str] = []
 
     def __init__(self, hass: HomeAssistant) -> None:
         """Init."""
@@ -81,7 +82,7 @@ class Library:  # pylint: disable=too-few-public-methods
             finally:
                 self._is_loading = False
 
-    async def _do_load_libraries(self):
+    async def _do_load_libraries(self):  # noqa: PLR0912, PLR0915
         """Load libraries internally (must be called with lock held)."""
 
         def _load_library_json(library_file: str) -> dict[str, Any]:
@@ -97,7 +98,7 @@ class Library:  # pylint: disable=too-few-public-methods
             json_user_path = self.hass.config.path(
                 STORAGE_DIR, "battery_notes", domain_config.user_library
             )
-            _LOGGER.debug("Using user library file at %s", json_user_path)
+            _LOGGER.info("Using user library file at %s", json_user_path)
 
             try:
                 user_json_data = await self.hass.async_add_executor_job(
@@ -110,7 +111,17 @@ class Library:  # pylint: disable=too-few-public-methods
                     if manufacturer not in new_manufacturer_devices:
                         new_manufacturer_devices[manufacturer] = []
                     new_manufacturer_devices[manufacturer].append(library_device)
-                _LOGGER.debug("Loaded %s user devices", len(user_json_data["devices"]))
+                _LOGGER.info("Loaded %s user devices", len(user_json_data["devices"]))
+
+                if "ignored_domains" in user_json_data:
+                    ignored_domains = user_json_data["ignored_domains"]
+                    if isinstance(ignored_domains, list):
+                        for domain in ignored_domains:
+                            self._ignored_domains.append(str(domain).casefold())
+                _LOGGER.info(
+                    "Loaded %s ignored domains from user library",
+                    len(ignored_domains),
+                )
 
             except FileNotFoundError:
                 # Try to move the user library to new location
@@ -145,7 +156,7 @@ class Library:  # pylint: disable=too-few-public-methods
             STORAGE_DIR, "battery_notes", "library.json"
         )
 
-        _LOGGER.debug("Using library file at %s", json_default_path)
+        _LOGGER.info("Using library file at %s", json_default_path)
 
         try:
             default_json_data = await self.hass.async_add_executor_job(
@@ -157,11 +168,21 @@ class Library:  # pylint: disable=too-few-public-methods
                 if manufacturer not in new_manufacturer_devices:
                     new_manufacturer_devices[manufacturer] = []
                 new_manufacturer_devices[manufacturer].append(library_device)
-            _LOGGER.debug(
+            _LOGGER.info(
                 "Loaded %s default devices", len(default_json_data[LIBRARY_DEVICES])
             )
 
             self._manufacturer_devices = new_manufacturer_devices
+
+            if "ignored_domains" in default_json_data:
+                ignored_domains = default_json_data["ignored_domains"]
+                if isinstance(ignored_domains, list):
+                    for domain in ignored_domains:
+                        self._ignored_domains.append(str(domain).casefold())
+            _LOGGER.info(
+                "Loaded %s ignored domains from default library",
+                len(ignored_domains),
+            )
 
         except FileNotFoundError:
             _LOGGER.error(
@@ -174,6 +195,10 @@ class Library:  # pylint: disable=too-few-public-methods
                 json_default_path,
                 err,
             )
+
+    def is_domain_ignored(self, domain: str) -> bool:
+        """Check if an integration domain is ignored."""
+        return domain.casefold() in self._ignored_domains
 
     async def get_device_battery_details(
         self,
