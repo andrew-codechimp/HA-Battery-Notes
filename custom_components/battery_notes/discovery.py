@@ -12,7 +12,11 @@ from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers import discovery_flow
 from homeassistant.loader import Integration, async_get_integration
 
-from .common import get_device_model_id, is_composite_device_id
+from .common import (
+    get_device_model_id,
+    get_related_device_ids,
+    is_composite_device_id,
+)
 from .const import (
     CONF_BATTERY_QUANTITY,
     CONF_BATTERY_TYPE,
@@ -86,6 +90,7 @@ class DiscoveryManager:
         """Init."""
         self.hass = hass
         self.ha_config = ha_config
+        self.existing_devices: set[str] = set()
 
     async def start_discovery(self) -> None:
         """Start the discovery procedure."""
@@ -97,11 +102,10 @@ class DiscoveryManager:
             await library.load_libraries()
 
         if library.is_loaded:
+            await self.initialize_existing_devices()
+
             for device_entry in list(device_registry.devices.values()):
                 if not self.should_process_device(device_entry):
-                    continue
-
-                if is_composite_device_id(self.hass, device_entry.id):
                     continue
 
                 model_info = await autodiscover_model(device_entry)
@@ -142,9 +146,47 @@ class DiscoveryManager:
 
         _LOGGER.debug("Done auto discovering devices")
 
+    async def initialize_existing_devices(self) -> None:
+        """Build a list of device id's and related which are already setup, to prevent duplicate discovery flows."""
+        for config_entry in self.hass.config_entries.async_entries(
+            domain=DOMAIN, include_ignore=False, include_disabled=False
+        ):
+            for subentry in config_entry.subentries.values():
+                device_id = subentry.data.get(CONF_DEVICE_ID)
+                if not device_id:
+                    continue
+
+                self.existing_devices.add(str(device_id))
+                for related_device_id in get_related_device_ids(
+                    self.hass, str(device_id)
+                ):
+                    self.existing_devices.add(related_device_id)
+
     def should_process_device(self, device_entry: dr.DeviceEntry) -> bool:
         """Do some validations on the registry entry to see if it qualifies for discovery."""
-        return not device_entry.disabled
+
+        if is_composite_device_id(self.hass, device_entry.id):
+            _LOGGER.debug(
+                "%s: Is a composite device, skipping new discovery",
+                device_entry.id,
+            )
+            return False
+
+        if device_entry.id in self.existing_devices:
+            _LOGGER.debug(
+                "%s: Already discovered, skipping new discovery",
+                device_entry.id,
+            )
+            return False
+
+        if device_entry.disabled:
+            _LOGGER.debug(
+                "%s: Device is disabled, skipping new discovery",
+                device_entry.id,
+            )
+            return False
+
+        return True
 
     @callback
     def _init_entity_discovery(
@@ -169,17 +211,6 @@ class DiscoveryManager:
                     unique_id,
                 )
                 return
-
-        for config_entry in self.hass.config_entries.async_entries(
-            domain=DOMAIN, include_ignore=False, include_disabled=False
-        ):
-            for subentry in config_entry.subentries.values():
-                if subentry.data.get(CONF_DEVICE_ID, "") == device_entry.id:
-                    _LOGGER.debug(
-                        "%s: Already setup, skipping new discovery",
-                        unique_id,
-                    )
-                    return
 
         discovery_data: dict[str, Any] = {
             CONF_DEVICE_ID: device_entry.id,
