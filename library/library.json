@@ -13221,6 +13221,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Third Reality, Inc",
+            "model": "3RSMR01067Z",
+            "battery_type": "AA",
+            "battery_quantity": 3
         }
     ]
 }
