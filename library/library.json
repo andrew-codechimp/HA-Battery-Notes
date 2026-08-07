@@ -1,6 +1,10 @@
 {
     "$schema": "./schema.json",
-    "version": 1,
+    "version": 2,
+    "ignored_domains": [
+        "music_assistant",
+        "unifi"
+    ],
     "devices": [
         {
             "manufacturer": "0x117c",
