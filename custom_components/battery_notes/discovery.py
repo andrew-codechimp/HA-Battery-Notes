@@ -156,7 +156,6 @@ class DiscoveryManager:
                 if not device_id:
                     continue
 
-                self.existing_devices.add(str(device_id))
                 for related_device_id in get_related_device_ids(
                     self.hass, str(device_id)
                 ):
