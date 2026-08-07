@@ -1,6 +1,6 @@
 {
     "$schema": "./schema.json",
-    "version": 2,
+    "version": 1,
     "ignored_domains": [
         "music_assistant",
         "unifi"
