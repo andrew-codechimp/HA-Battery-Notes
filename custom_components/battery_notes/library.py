@@ -98,7 +98,6 @@ class Library:  # pylint: disable=too-few-public-methods
             json_user_path = self.hass.config.path(
                 STORAGE_DIR, "battery_notes", domain_config.user_library
             )
-            _LOGGER.info("Using user library file at %s", json_user_path)
 
             try:
                 user_json_data = await self.hass.async_add_executor_job(
@@ -111,7 +110,11 @@ class Library:  # pylint: disable=too-few-public-methods
                     if manufacturer not in new_manufacturer_devices:
                         new_manufacturer_devices[manufacturer] = []
                     new_manufacturer_devices[manufacturer].append(library_device)
-                _LOGGER.info("Loaded %s user devices", len(user_json_data["devices"]))
+                _LOGGER.info(
+                    "Loaded %s user devices from %s",
+                    len(user_json_data["devices"]),
+                    json_user_path,
+                )
 
                 if "ignored_domains" in user_json_data:
                     ignored_domains = user_json_data["ignored_domains"]
@@ -119,8 +122,9 @@ class Library:  # pylint: disable=too-few-public-methods
                         for domain in ignored_domains:
                             self._ignored_domains.append(str(domain).casefold())
                 _LOGGER.info(
-                    "Loaded %s ignored domains from user library",
+                    "Loaded %s ignored domains from %s",
                     len(ignored_domains),
+                    json_user_path,
                 )
 
             except FileNotFoundError:
@@ -156,8 +160,6 @@ class Library:  # pylint: disable=too-few-public-methods
             STORAGE_DIR, "battery_notes", "library.json"
         )
 
-        _LOGGER.info("Using library file at %s", json_default_path)
-
         try:
             default_json_data = await self.hass.async_add_executor_job(
                 _load_library_json, json_default_path
@@ -169,7 +171,9 @@ class Library:  # pylint: disable=too-few-public-methods
                     new_manufacturer_devices[manufacturer] = []
                 new_manufacturer_devices[manufacturer].append(library_device)
             _LOGGER.info(
-                "Loaded %s default devices", len(default_json_data[LIBRARY_DEVICES])
+                "Loaded %s default devices from %s",
+                len(default_json_data[LIBRARY_DEVICES]),
+                json_default_path,
             )
 
             self._manufacturer_devices = new_manufacturer_devices
@@ -180,8 +184,9 @@ class Library:  # pylint: disable=too-few-public-methods
                     for domain in ignored_domains:
                         self._ignored_domains.append(str(domain).casefold())
             _LOGGER.info(
-                "Loaded %s ignored domains from default library",
+                "Loaded %s ignored domains from %s",
                 len(ignored_domains),
+                json_default_path,
             )
 
         except FileNotFoundError:
