@@ -13221,6 +13221,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "First Alert",
+            "model": "SMCO410",
+            "battery_type": "Irreplaceable"
         }
     ]
 }
