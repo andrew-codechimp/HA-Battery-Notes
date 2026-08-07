@@ -135,7 +135,7 @@ class LibraryUpdater:
 
             _LOGGER.debug("Updated library")
         else:
-            _LOGGER.error("Library file is invalid, not updated")
+            _LOGGER.error("Library file is invalid, please update Battery Notes")
 
     async def copy_schema(self):
         """Copy schema file to storage to be relative to downloaded library."""
