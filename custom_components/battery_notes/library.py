@@ -121,11 +121,11 @@ class Library:  # pylint: disable=too-few-public-methods
                     if isinstance(ignored_domains, list):
                         for domain in ignored_domains:
                             self._ignored_domains.append(str(domain).casefold())
-                _LOGGER.info(
-                    "Loaded %s ignored domains from %s",
-                    len(ignored_domains),
-                    json_user_path,
-                )
+                        _LOGGER.info(
+                            "Loaded %s ignored domains from %s",
+                            len(ignored_domains),
+                            json_user_path,
+                        )
 
             except FileNotFoundError:
                 # Try to move the user library to new location
@@ -183,11 +183,11 @@ class Library:  # pylint: disable=too-few-public-methods
                 if isinstance(ignored_domains, list):
                     for domain in ignored_domains:
                         self._ignored_domains.append(str(domain).casefold())
-            _LOGGER.info(
-                "Loaded %s ignored domains from %s",
-                len(ignored_domains),
-                json_default_path,
-            )
+                    _LOGGER.info(
+                        "Loaded %s ignored domains from %s",
+                        len(ignored_domains),
+                        json_default_path,
+                    )
 
         except FileNotFoundError:
             _LOGGER.error(
