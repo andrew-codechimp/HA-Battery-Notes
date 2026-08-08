@@ -1,0 +1,32 @@
+name: Validate Translations
+
+on:
+  pull_request:
+    paths:
+      - custom_components/battery_notes/translations/*.json
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test_translations:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v9.0.0
+        with:
+          enable-cache: true
+
+      - name: Set up Python
+        run: uv python install
+
+      - name: Install dependencies
+        run: uv sync
+
+      - name: Run translation tests
+        run: uv run pytest tests/test_translations.py -v
