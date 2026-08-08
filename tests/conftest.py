@@ -6,6 +6,7 @@ from collections.abc import Generator
 from unittest.mock import AsyncMock, patch
 
 import pytest
+from custom_components.battery_notes.config_flow import CONFIG_VERSION
 from custom_components.battery_notes.const import (
     CONF_ADVANCED_SETTINGS,
     CONF_BATTERY_INCREASE_THRESHOLD,
@@ -59,7 +60,7 @@ async def mock_config_entry(
     """Create a Battery Notes config entry without subentries."""
     config_entry = MockConfigEntry(
         domain=DOMAIN,
-        version=3,
+        version=CONFIG_VERSION,
         options={
             CONF_SHOW_ALL_DEVICES: False,
             CONF_HIDE_BATTERY: False,
