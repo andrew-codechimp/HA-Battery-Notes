@@ -7942,6 +7942,12 @@
         },
         {
             "manufacturer": "Reolink",
+            "model": "Argus MagiCam",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Reolink",
             "model": "Reolink Argus PT",
             "hw_version": "BIPC_566MIX16M35SD965MP",
             "battery_type": "Rechargeable"
@@ -13236,12 +13242,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Reolink",
-            "model": "Argus MagiCam",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }

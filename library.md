@@ -1,4 +1,4 @@
-## 2280 Devices in library
+## 2281 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1377,6 +1377,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Remsol                                          |ismartgateMINI                                                                                |2× LR1                    |                                                                        |
 |Reolink                                         |Argus 3 Ultra                                                                                 |Rechargeable              |                                                                        |
 |reolink                                         |Argus Eco Ultra                                                                               |Rechargeable              |                                                                        |
+|Reolink                                         |Argus MagiCam                                                                                 |2× AA                     |                                                                        |
 |Reolink                                         |Reolink Argus PT                                                                              |Rechargeable              |                                                                        |
 |Reolink                                         |Reolink Video Doorbell                                                                        |Rechargeable              |                                                                        |
 |RGB Genie                                       |Zigbee 3.0 remote control (ZB-5001)                                                           |CR2032                    |                                                                        |
