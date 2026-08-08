@@ -29,9 +29,10 @@ from custom_components.battery_notes.const import (
 )
 from pytest_homeassistant_custom_component.common import MockConfigEntry
 
-from homeassistant.config_entries import ConfigEntry
+from homeassistant.config_entries import SOURCE_USER, ConfigEntry
 from homeassistant.const import CONF_DEVICE_ID
 from homeassistant.core import HomeAssistant
+from homeassistant.data_entry_flow import FlowResultType
 from homeassistant.helpers import device_registry as dr, entity_registry as er
 
 pytest_plugins = "pytest_homeassistant_custom_component"
@@ -124,25 +125,52 @@ def battery_percentage_entity_entry(
 
 
 @pytest.fixture
-async def battery_note_config_entry(
+async def battery_note_subentry(
     hass: HomeAssistant,
     mock_config_entry: MockConfigEntry,
     battery_device: dr.DeviceEntry,
-) -> MockConfigEntry:
-    """Fixture to create a Battery Notes config entry with a battery note subentry for a device."""
-    mock_config_entry.create_config_subentry(
-        hass,
-        subentry_type=SUBENTRY_BATTERY_NOTE,
-        unique_id=f"{battery_device.id}_battery_note",
-        data={
-            CONF_DEVICE_ID: battery_device.id,
+):
+    """Create a battery-note subentry for the test battery device."""
+    config_entry = mock_config_entry
+    initial_subentry_count = len(config_entry.subentries)
+
+    result = await hass.config_entries.subentries.async_init(
+        (config_entry.entry_id, SUBENTRY_BATTERY_NOTE),
+        context={"source": SOURCE_USER},
+    )
+    assert result["type"] is FlowResultType.MENU
+
+    result = await hass.config_entries.subentries.async_configure(
+        result["flow_id"], {"next_step_id": "device"}
+    )
+    assert result["type"] is FlowResultType.FORM
+    assert result["step_id"] == "device"
+
+    result = await hass.config_entries.subentries.async_configure(
+        result["flow_id"], {CONF_DEVICE_ID: battery_device.id}
+    )
+    assert result["type"] is FlowResultType.FORM
+    assert result["step_id"] == "battery"
+
+    result = await hass.config_entries.subentries.async_configure(
+        result["flow_id"],
+        {
             CONF_BATTERY_TYPE: "AA",
             CONF_BATTERY_QUANTITY: 2,
             CONF_BATTERY_LOW_THRESHOLD: 10,
-            CONF_ADVANCED_SETTINGS: {
-                CONF_FILTER_OUTLIERS: False,
-            },
+            CONF_ADVANCED_SETTINGS: {CONF_FILTER_OUTLIERS: False},
         },
     )
+    assert result["type"] is FlowResultType.CREATE_ENTRY
+    assert len(config_entry.subentries) == initial_subentry_count + 1
+
     await hass.async_block_till_done()
-    return mock_config_entry
+
+    for subentry in config_entry.subentries.values():
+        if (
+            subentry.subentry_type == SUBENTRY_BATTERY_NOTE
+            and subentry.data.get(CONF_DEVICE_ID) == battery_device.id
+        ):
+            return subentry
+
+    pytest.fail("Battery note subentry was not created")
