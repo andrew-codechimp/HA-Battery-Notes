@@ -205,7 +205,7 @@ class Library:  # pylint: disable=too-few-public-methods
         """Check if an integration domain is ignored."""
         return domain.casefold() in self._ignored_domains
 
-    async def get_device_battery_details(
+    async def get_device_battery_details(  # noqa: PLR0911, PLR0912
         self,
         device_to_find: ModelInfo,
     ) -> DeviceBatteryDetails | None:
@@ -231,6 +231,23 @@ class Library:  # pylint: disable=too-few-public-methods
             if self.device_basic_match(x, device_to_find)
         ]
 
+        if not matching_devices:
+            return None
+
+        # If search doesn't specify model_id/hw_version, filter to entries without them
+        if device_to_find.model_id is None and device_to_find.hw_version is None:
+            generic_matches = [
+                x
+                for x in matching_devices
+                if x.model_id is None and x.hw_version is None
+            ]
+            if generic_matches:
+                matching_devices = generic_matches
+            else:
+                # No generic version found when searching without specifics
+                return None
+
+        # Narrow down from multiple matches
         if matching_devices and len(matching_devices) > 1:
             partial_matching_devices = [
                 x
@@ -238,14 +255,18 @@ class Library:  # pylint: disable=too-few-public-methods
                 if self.device_partial_match(x, device_to_find)
             ]
 
-        if partial_matching_devices and len(partial_matching_devices) > 0:
-            matching_devices = partial_matching_devices
+            if partial_matching_devices:
+                matching_devices = partial_matching_devices
 
-        if matching_devices:
-            fully_matching_devices = [
-                x for x in matching_devices if self.device_full_match(x, device_to_find)
-            ]
-            matching_devices = fully_matching_devices
+                # Only try full match if we still have multiple matches
+                if len(matching_devices) > 1:
+                    fully_matching_devices = [
+                        x
+                        for x in matching_devices
+                        if self.device_full_match(x, device_to_find)
+                    ]
+                    if fully_matching_devices:
+                        matching_devices = fully_matching_devices
 
         if not matching_devices:
             return None

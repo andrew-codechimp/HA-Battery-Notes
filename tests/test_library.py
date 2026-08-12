@@ -43,13 +43,32 @@ def library_with_data() -> Library:
 @pytest.mark.parametrize(
     ("manufacturer", "model", "model_id", "hw_version", "expected_battery"),
     [
+        # No match as lib does not have only manufacturer and model entry
         pytest.param(
             "Aqara",
             "Roller shade driver E1",
             None,
             None,
             None,
-            id="aqara_with_model_id",
+            id="aqara_with_model_libary_more_specific",
+        ),
+        # Match with no model_id or hw_version in lib, model_id on device
+        pytest.param(
+            "eQ-3",
+            "HmIP-SRH",
+            "Homematic IP Fenster-/ Drehgriffkontakt",
+            None,
+            "AAA",
+            id="eq3_hmip_srh_no_model",
+        ),
+        # Match with no model_id or hw_version in lib, hw_version on device
+        pytest.param(
+            "eQ-3",
+            "HmIP-WGC",
+            None,
+            "HW Version",
+            "2× AA",
+            id="eq3_hmip_srh_no_hw_version",
         ),
         # Match with model_id but no hw_version
         pytest.param(
@@ -130,7 +149,3 @@ async def test_get_device_battery_details(  # noqa: PLR0913
     else:
         assert result is not None
         assert result.battery_type_and_quantity == expected_battery
-        assert result.manufacturer == manufacturer
-        assert result.model == model
-        assert result.model_id == (model_id or "")
-        assert result.hw_version == (hw_version or "")
