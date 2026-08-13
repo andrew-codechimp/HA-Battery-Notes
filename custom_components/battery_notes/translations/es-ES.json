@@ -11,10 +11,12 @@
                     "battery_type": "Tipo de batería",
                     "battery_quantity": "Cantidad de batería",
                     "note": "Nota",
-                    "battery_low_threshold": "Umbral bajo de batería"
+                    "battery_low_threshold": "Umbral bajo de batería",
+                    "battery_increase_threshold": "Umbral de aumento de batería"
                 },
                 "data_description": {
-                    "battery_low_threshold": "0 usará el umbral global por defecto"
+                    "battery_low_threshold": "0 usará el umbral global por defecto",
+                    "battery_increase_threshold": "El umbral es la diferencia de aumento entre el nivel anterior y el actual de la batería\n0 utilizará el umbral global por defecto"
                 },
                 "sections": {
                     "advanced_settings": {
@@ -84,10 +86,12 @@
                         "battery_type": "Tipo de batería",
                         "battery_quantity": "Cantidad de batería",
                         "note": "Nota",
-                        "battery_low_threshold": "Umbral bajo de batería"
+                        "battery_low_threshold": "Umbral bajo de batería",
+                        "battery_increase_threshold": "Umbral de aumento de batería"
                     },
                     "data_description": {
-                        "battery_low_threshold": "0 usará el umbral global por defecto"
+                        "battery_low_threshold": "0 usará el umbral global por defecto",
+                        "battery_increase_threshold": "El umbral es la diferencia de aumento entre el nivel anterior y el actual de la batería\n0 utilizará el umbral global por defecto"
                     },
                     "sections": {
                         "advanced_settings": {
@@ -116,11 +120,13 @@
                         "battery_type": "Tipo de batería",
                         "battery_quantity": "Cantidad de batería",
                         "note": "Nota",
-                        "battery_low_threshold": "Umbral bajo de batería"
+                        "battery_low_threshold": "Umbral bajo de batería",
+                        "battery_increase_threshold": "Umbral de aumento de batería"
                     },
                     "data_description": {
                         "name": "Dejar en blanco utilizará el nombre del dispositivo de serie",
-                        "battery_low_threshold": "0 usará el umbral global por defecto"
+                        "battery_low_threshold": "0 usará el umbral global por defecto",
+                        "battery_increase_threshold": "El umbral es la diferencia de aumento entre el nivel anterior y el actual de la batería\n0 utilizará el umbral global por defecto"
                     },
                     "sections": {
                         "advanced_settings": {
@@ -195,6 +201,9 @@
             "battery_low": {
                 "name": "{device_name}Batería baja",
                 "state_attributes": {
+                    "battery_increase_threshold": {
+                        "name": "Umbral de aumento de batería"
+                    },
                     "battery_low_threshold": {
                         "name": "Umbral bajo de batería"
                     }
@@ -224,6 +233,9 @@
                     },
                     "battery_last_replaced": {
                         "name": "Última batería reemplazada"
+                    },
+                    "battery_increase_threshold": {
+                        "name": "Umbral de aumento de batería"
                     },
                     "battery_low": {
                         "name": "Batería baja"

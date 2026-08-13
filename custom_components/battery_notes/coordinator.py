@@ -35,6 +35,7 @@ from homeassistant.util.hass_dict import HassKey
 from .common import missing_device_issue_id, validate_is_float
 from .const import (
     ATTR_AREA_NAME,
+    ATTR_BATTERY_INCREASE_THRESHOLD,
     ATTR_BATTERY_LAST_REPLACED,
     ATTR_BATTERY_LEVEL,
     ATTR_BATTERY_LOW,
@@ -50,6 +51,7 @@ from .const import (
     ATTR_REMOVE,
     ATTR_SOURCE_ENTITY_ID,
     CONF_ADVANCED_SETTINGS,
+    CONF_BATTERY_INCREASE_THRESHOLD,
     CONF_BATTERY_LOW_TEMPLATE,
     CONF_BATTERY_LOW_THRESHOLD,
     CONF_BATTERY_PERCENTAGE_TEMPLATE,
@@ -90,6 +92,7 @@ class BatteryNotesDomainConfig:
     hide_battery: bool = False
     hide_battery_low: bool = False
     round_battery: bool = False
+    default_battery_increased_threshold: int = DEFAULT_BATTERY_INCREASE_THRESHOLD
     default_battery_low_threshold: int = DEFAULT_BATTERY_LOW_THRESHOLD
     battery_increased_threshod: int = DEFAULT_BATTERY_INCREASE_THRESHOLD
     library_last_update: datetime | None = None
@@ -122,6 +125,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
     battery_type: str
     battery_quantity: int
     battery_note: str
+    battery_increased_threshold: int
     battery_low_threshold: int
     battery_low_template: str | None
     battery_percentage_template: str | None
@@ -171,6 +175,10 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
         except ValueError:
             self.battery_quantity = 1
 
+        self.battery_increased_threshold = int(
+            self.subentry.data.get(CONF_BATTERY_INCREASE_THRESHOLD, 0)
+        )
+
         self.battery_low_threshold = int(
             self.subentry.data.get(CONF_BATTERY_LOW_THRESHOLD, 0)
         )
@@ -178,6 +186,8 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
         if hasattr(self.config_entry, "runtime_data"):
             if self.battery_low_threshold == 0:
                 self.battery_low_threshold = self.config_entry.runtime_data.domain_config.default_battery_low_threshold
+            if self.battery_increased_threshold == 0:
+                self.battery_increased_threshold = self.config_entry.runtime_data.domain_config.default_battery_increased_threshold
 
         self.battery_low_template = self.subentry.data[CONF_ADVANCED_SETTINGS].get(
             CONF_BATTERY_LOW_TEMPLATE, None
@@ -481,6 +491,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                     ATTR_AREA_NAME: self.area_name,
                     ATTR_DEVICE_NAME: self.device_name,
                     ATTR_BATTERY_LOW: self.battery_low,
+                    ATTR_BATTERY_INCREASE_THRESHOLD: self.battery_increased_threshold,
                     ATTR_BATTERY_LOW_THRESHOLD: self.battery_low_threshold,
                     ATTR_BATTERY_TYPE_AND_QUANTITY: self.battery_type_and_quantity,
                     ATTR_BATTERY_TYPE: self.battery_type,
@@ -515,6 +526,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                         ATTR_AREA_NAME: self.area_name,
                         ATTR_DEVICE_NAME: self.device_name,
                         ATTR_BATTERY_LOW: self.battery_low,
+                        ATTR_BATTERY_INCREASE_THRESHOLD: self.battery_increased_threshold,
                         ATTR_BATTERY_LOW_THRESHOLD: self.battery_low_threshold,
                         ATTR_BATTERY_TYPE_AND_QUANTITY: self.battery_type_and_quantity,
                         ATTR_BATTERY_TYPE: self.battery_type,
@@ -551,6 +563,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                     ATTR_AREA_NAME: self.area_name,
                     ATTR_DEVICE_NAME: self.device_name,
                     ATTR_BATTERY_LOW: self.battery_low,
+                    ATTR_BATTERY_INCREASE_THRESHOLD: self.battery_increased_threshold,
                     ATTR_BATTERY_LOW_THRESHOLD: self.battery_low_threshold,
                     ATTR_BATTERY_TYPE_AND_QUANTITY: self.battery_type_and_quantity,
                     ATTR_BATTERY_TYPE: self.battery_type,
@@ -585,6 +598,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                         ATTR_AREA_NAME: self.area_name,
                         ATTR_DEVICE_NAME: self.device_name,
                         ATTR_BATTERY_LOW: self.battery_low,
+                        ATTR_BATTERY_INCREASE_THRESHOLD: self.battery_increased_threshold,
                         ATTR_BATTERY_LOW_THRESHOLD: self.battery_low_threshold,
                         ATTR_BATTERY_TYPE_AND_QUANTITY: self.battery_type_and_quantity,
                         ATTR_BATTERY_TYPE: self.battery_type,
@@ -639,6 +653,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                         ATTR_AREA_NAME: self.area_name,
                         ATTR_DEVICE_NAME: self.device_name,
                         ATTR_BATTERY_LOW: self.battery_low,
+                        ATTR_BATTERY_INCREASE_THRESHOLD: self.battery_increased_threshold,
                         ATTR_BATTERY_LOW_THRESHOLD: self.battery_low_threshold,
                         ATTR_BATTERY_TYPE_AND_QUANTITY: self.battery_type_and_quantity,
                         ATTR_BATTERY_TYPE: self.battery_type,
@@ -657,9 +672,13 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                 )
 
             # Battery increased event
-            increase_threshold = (
-                self.config_entry.runtime_data.domain_config.battery_increased_threshod
+            increase_threshold = int(
+                self.subentry.data.get(CONF_BATTERY_INCREASE_THRESHOLD, 0)
             )
+
+            if hasattr(self.config_entry, "runtime_data"):
+                if increase_threshold == 0:
+                    increase_threshold = self.config_entry.runtime_data.domain_config.default_battery_increased_threshold
 
             if self._current_battery_level not in [STATE_UNAVAILABLE, STATE_UNKNOWN]:
                 if (
@@ -676,6 +695,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                             ATTR_AREA_NAME: self.area_name,
                             ATTR_DEVICE_NAME: self.device_name,
                             ATTR_BATTERY_LOW: self.battery_low,
+                            ATTR_BATTERY_INCREASE_THRESHOLD: self.battery_increased_threshold,
                             ATTR_BATTERY_LOW_THRESHOLD: self.battery_low_threshold,
                             ATTR_BATTERY_TYPE_AND_QUANTITY: self.battery_type_and_quantity,
                             ATTR_BATTERY_TYPE: self.battery_type,

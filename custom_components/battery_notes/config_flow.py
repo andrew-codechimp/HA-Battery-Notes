@@ -36,6 +36,7 @@ from .const import (
     CONF_BATTERY_PERCENTAGE_TEMPLATE,
     CONF_BATTERY_QUANTITY,
     CONF_BATTERY_TYPE,
+    CONF_DEFAULT_BATTERY_INCREASE_THRESHOLD,
     CONF_DEFAULT_BATTERY_LOW_THRESHOLD,
     CONF_DEVICE_NAME,
     CONF_ENABLE_AUTODISCOVERY,
@@ -79,7 +80,7 @@ OPTIONS_SCHEMA = vol.Schema(
                 min=0, max=99, mode=selector.NumberSelectorMode.BOX
             ),
         ),
-        vol.Required(CONF_BATTERY_INCREASE_THRESHOLD): selector.NumberSelector(
+        vol.Required(CONF_DEFAULT_BATTERY_INCREASE_THRESHOLD): selector.NumberSelector(
             selector.NumberSelectorConfig(
                 min=0, max=99, mode=selector.NumberSelectorMode.BOX
             ),
@@ -291,7 +292,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                 CONF_HIDE_BATTERY: False,
                 CONF_ROUND_BATTERY: False,
                 CONF_DEFAULT_BATTERY_LOW_THRESHOLD: DEFAULT_BATTERY_LOW_THRESHOLD,
-                CONF_BATTERY_INCREASE_THRESHOLD: DEFAULT_BATTERY_INCREASE_THRESHOLD,
+                CONF_DEFAULT_BATTERY_INCREASE_THRESHOLD: DEFAULT_BATTERY_INCREASE_THRESHOLD,
                 CONF_ADVANCED_SETTINGS: {
                     CONF_ENABLE_AUTODISCOVERY: True,
                     CONF_ENABLE_REPLACED: True,
@@ -343,7 +344,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                 CONF_HIDE_BATTERY: False,
                 CONF_ROUND_BATTERY: False,
                 CONF_DEFAULT_BATTERY_LOW_THRESHOLD: DEFAULT_BATTERY_LOW_THRESHOLD,
-                CONF_BATTERY_INCREASE_THRESHOLD: DEFAULT_BATTERY_INCREASE_THRESHOLD,
+                CONF_DEFAULT_BATTERY_INCREASE_THRESHOLD: DEFAULT_BATTERY_INCREASE_THRESHOLD,
                 CONF_ADVANCED_SETTINGS: {
                     CONF_ENABLE_AUTODISCOVERY: True,
                     CONF_ENABLE_REPLACED: True,
@@ -461,6 +462,9 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             self.data[CONF_BATTERY_LOW_THRESHOLD] = int(
                 user_input[CONF_BATTERY_LOW_THRESHOLD]
             )
+            self.data[CONF_BATTERY_INCREASE_THRESHOLD] = int(
+                user_input.get(CONF_BATTERY_INCREASE_THRESHOLD, 0)
+            )
             if CONF_ADVANCED_SETTINGS not in self.data:
                 self.data[CONF_ADVANCED_SETTINGS] = {}
             self.data[CONF_ADVANCED_SETTINGS][CONF_BATTERY_PERCENTAGE_TEMPLATE] = (
@@ -539,6 +543,14 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                     ),
                     vol.Required(
                         CONF_BATTERY_LOW_THRESHOLD,
+                        default=0,
+                    ): selector.NumberSelector(
+                        selector.NumberSelectorConfig(
+                            min=0, max=99, mode=selector.NumberSelectorMode.BOX
+                        ),
+                    ),
+                    vol.Required(
+                        CONF_BATTERY_INCREASE_THRESHOLD,
                         default=0,
                     ): selector.NumberSelector(
                         selector.NumberSelectorConfig(
@@ -812,6 +824,9 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
             self.data[CONF_BATTERY_LOW_THRESHOLD] = int(
                 user_input[CONF_BATTERY_LOW_THRESHOLD]
             )
+            self.data[CONF_BATTERY_INCREASE_THRESHOLD] = int(
+                user_input.get(CONF_BATTERY_INCREASE_THRESHOLD, 0)
+            )
             if CONF_ADVANCED_SETTINGS not in self.data:
                 self.data[CONF_ADVANCED_SETTINGS] = {}
             self.data[CONF_ADVANCED_SETTINGS][CONF_BATTERY_PERCENTAGE_TEMPLATE] = (
@@ -888,6 +903,14 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
                             min=0, max=99, mode=selector.NumberSelectorMode.BOX
                         ),
                     ),
+                    vol.Required(
+                        CONF_BATTERY_INCREASE_THRESHOLD,
+                        default=int(self.data.get(CONF_BATTERY_INCREASE_THRESHOLD, 0)),
+                    ): selector.NumberSelector(
+                        selector.NumberSelectorConfig(
+                            min=0, max=99, mode=selector.NumberSelectorMode.BOX
+                        ),
+                    ),
                     vol.Required(CONF_ADVANCED_SETTINGS): section(
                         vol.Schema(
                             {
@@ -921,6 +944,9 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
             self.data[CONF_NOTE] = user_input.get(CONF_NOTE, "")
             self.data[CONF_BATTERY_LOW_THRESHOLD] = int(
                 user_input[CONF_BATTERY_LOW_THRESHOLD]
+            )
+            self.data[CONF_BATTERY_INCREASE_THRESHOLD] = int(
+                user_input.get(CONF_BATTERY_INCREASE_THRESHOLD, 0)
             )
             if CONF_ADVANCED_SETTINGS not in self.data:
                 self.data[CONF_ADVANCED_SETTINGS] = {}
@@ -1004,6 +1030,13 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
                 ),
                 vol.Required(
                     CONF_BATTERY_LOW_THRESHOLD,
+                ): selector.NumberSelector(
+                    selector.NumberSelectorConfig(
+                        min=0, max=99, mode=selector.NumberSelectorMode.BOX
+                    ),
+                ),
+                vol.Required(
+                    CONF_BATTERY_INCREASE_THRESHOLD,
                 ): selector.NumberSelector(
                     selector.NumberSelectorConfig(
                         min=0, max=99, mode=selector.NumberSelectorMode.BOX

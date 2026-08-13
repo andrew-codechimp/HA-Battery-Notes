@@ -11,10 +11,12 @@
                     "battery_type": "Typ baterii",
                     "battery_quantity": "Liczba baterii",
                     "note": "Notatka",
-                    "battery_low_threshold": "Próg niskiego poziomu baterii"
+                    "battery_low_threshold": "Próg niskiego poziomu baterii",
+                    "battery_increase_threshold": "Próg wzrostu poziomu baterii"
                 },
                 "data_description": {
-                    "battery_low_threshold": "0 użyje globalnego progu domyślnego"
+                    "battery_low_threshold": "0 użyje globalnego progu domyślnego",
+                    "battery_increase_threshold": "Próg to różnica wzrostu pomiędzy poprzednim a aktualnym poziomem baterii\n0 będzie korzystać z globalnego progu domyślnego"
                 },
                 "sections": {
                     "advanced_settings": {
@@ -84,10 +86,12 @@
                         "battery_type": "Typ baterii",
                         "battery_quantity": "Liczba baterii",
                         "note": "Notatka",
-                        "battery_low_threshold": "Próg niskiego poziomu baterii"
+                        "battery_low_threshold": "Próg niskiego poziomu baterii",
+                        "battery_increase_threshold": "Próg wzrostu poziomu baterii"
                     },
                     "data_description": {
-                        "battery_low_threshold": "0 użyje globalnego progu domyślnego"
+                        "battery_low_threshold": "0 użyje globalnego progu domyślnego",
+                        "battery_increase_threshold": "Próg to różnica wzrostu pomiędzy poprzednim a aktualnym poziomem baterii\n0 będzie korzystać z globalnego progu domyślnego"
                     },
                     "sections": {
                         "advanced_settings": {
@@ -116,11 +120,13 @@
                         "battery_type": "Typ baterii",
                         "battery_quantity": "Liczba baterii",
                         "note": "Notatka",
-                        "battery_low_threshold": "Próg niskiego poziomu baterii"
+                        "battery_low_threshold": "Próg niskiego poziomu baterii",
+                        "battery_increase_threshold": "Próg wzrostu poziomu baterii"
                     },
                     "data_description": {
                         "name": "Pozostawienie pustego pola spowoduje pobranie nazwy z urządzenia źródłowego",
-                        "battery_low_threshold": "0 użyje globalnego progu domyślnego"
+                        "battery_low_threshold": "0 użyje globalnego progu domyślnego",
+                        "battery_increase_threshold": "Próg to różnica wzrostu pomiędzy poprzednim a aktualnym poziomem baterii\n0 będzie korzystać z globalnego progu domyślnego"
                     },
                     "sections": {
                         "advanced_settings": {
@@ -165,7 +171,7 @@
                     "hide_battery": "Ukryj standardową baterię podczas dodawania Bateria+.",
                     "round_battery": "Zaokrąglaj Bateria+ do pełnych procentów",
                     "default_battery_low_threshold": "Domyślny próg, przy którym encja battery_low urządzenia zostaje ustawiona na true, a zdarzenie battery_notes_battery_threshold jest wywoływane, jeśli poziom baterii spadnie poniżej tego progu.\nPróg ten może zostać nadpisany indywidualnie w konfiguracji konkretnego urządzenia.",
-                    "battery_increase_threshold": "Próg, przy którym wywoływane jest zdarzenie battery_notes_battery_increased.\nUżywaj go w automatyzacjach dotyczących wymiany baterii.\nPróg określa różnicę wzrostu pomiędzy poprzednim a aktualnym poziomem baterii."
+                    "battery_increase_threshold": "Domyślny próg, przy którym wywoływane jest zdarzenie battery_notes_battery_increased.\nUżywaj go w automatyzacjach dotyczących wymiany baterii.\nPróg określa różnicę wzrostu pomiędzy poprzednim a aktualnym poziomem baterii."
                 },
                 "sections": {
                     "advanced_settings": {
@@ -195,6 +201,9 @@
             "battery_low": {
                 "name": "{device_name}Niski poziom baterii",
                 "state_attributes": {
+                    "battery_increase_threshold": {
+                        "name": "Próg wzrostu poziomu baterii"
+                    },
                     "battery_low_threshold": {
                         "name": "Próg niskiego poziomu baterii"
                     }
@@ -224,6 +233,9 @@
                     },
                     "battery_last_replaced": {
                         "name": "Ostatnia wymiana baterii"
+                    },
+                    "battery_increase_threshold": {
+                        "name": "Próg wzrostu poziomu baterii"
                     },
                     "battery_low": {
                         "name": "Niski poziom baterii"
