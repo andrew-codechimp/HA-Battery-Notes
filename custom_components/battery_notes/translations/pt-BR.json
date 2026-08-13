@@ -170,7 +170,7 @@
                     "show_all_devices": "Mostrar todos os dispositivos no menu suspenso do dispositivo, caso contrário, apenas aqueles com bateria serão mostrados.",
                     "hide_battery": "Ocultar a bateria padrão ao adicionar bateria+",
                     "round_battery": "Arredondar Bateria+ para porcentagens inteiras",
-                    "default_battery_low_threshold": "",
+                    "default_battery_low_threshold": "Este é o limite padrão para o disparo do evento `battery_notes_battery_increased`; utilize-o para automações relacionadas à substituição da bateria. O limite refere-se à diferença de aumento entre o nível anterior e o atual da bateria e pode ser personalizado individualmente nas configurações de cada dispositivo.",
                     "battery_increase_threshold": "Este é o limite padrão para o disparo do evento `battery_notes_battery_increased`; utilize-o para automações relacionadas à substituição da bateria. O limite refere-se à diferença de aumento entre o nível anterior e o atual da bateria e pode ser personalizado individualmente nas configurações de cada dispositivo."
                 },
                 "sections": {
