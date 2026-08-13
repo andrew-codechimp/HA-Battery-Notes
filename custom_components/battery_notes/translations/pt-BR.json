@@ -171,7 +171,7 @@
                     "hide_battery": "Ocultar a bateria padrão ao adicionar bateria+",
                     "round_battery": "Arredondar Bateria+ para porcentagens inteiras",
                     "default_battery_low_threshold": "",
-                    "battery_increase_threshold": "The default threshold where the battery_notes_battery_increased event is fired, use this event for battery replaced automations. The threshold is the difference in increase between previous and current battery level, can be overriden per device in device configuration."
+                    "battery_increase_threshold": "Este é o limite padrão para o disparo do evento `battery_notes_battery_increased`; utilize-o para automações relacionadas à substituição da bateria. O limite refere-se à diferença de aumento entre o nível anterior e o atual da bateria e pode ser personalizado individualmente nas configurações de cada dispositivo."
                 },
                 "sections": {
                     "advanced_settings": {
