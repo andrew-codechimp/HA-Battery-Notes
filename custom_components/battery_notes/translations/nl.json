@@ -11,10 +11,12 @@
                     "battery_type": "Batterij type",
                     "battery_quantity": "Aantal batterijen",
                     "note": "Notitie",
-                    "battery_low_threshold": "Drempelwaarde batterij bijna leeg"
+                    "battery_low_threshold": "Drempelwaarde batterij bijna leeg",
+                    "battery_increase_threshold": "Drempel batterijtoename"
                 },
                 "data_description": {
-                    "battery_low_threshold": "0 zal de globale standaard drempelwaarde gebruiken"
+                    "battery_low_threshold": "0 zal de globale standaard drempelwaarde gebruiken",
+                    "battery_increase_threshold": "De drempel is het verschil tussen de vorige en huidige batterijniveau toename\n0 zal de globale standaard drempel gebruiken"
                 },
                 "sections": {
                     "advanced_settings": {
@@ -84,10 +86,12 @@
                         "battery_type": "Batterij type",
                         "battery_quantity": "Aantal batterijen",
                         "note": "Notitie",
-                        "battery_low_threshold": "Drempelwaarde batterij bijna leeg"
+                        "battery_low_threshold": "Drempelwaarde batterij bijna leeg",
+                        "battery_increase_threshold": "Drempel batterijtoename"
                     },
                     "data_description": {
-                        "battery_low_threshold": "0 zal de globale standaard drempelwaarde gebruiken"
+                        "battery_low_threshold": "0 zal de globale standaard drempelwaarde gebruiken",
+                        "battery_increase_threshold": "De drempel is het verschil tussen de vorige en huidige batterijniveau toename\n0 zal de globale standaard drempel gebruiken"
                     },
                     "sections": {
                         "advanced_settings": {
@@ -116,11 +120,13 @@
                         "battery_type": "Batterij type",
                         "battery_quantity": "Aantal batterijen",
                         "note": "Notitie",
-                        "battery_low_threshold": "Drempelwaarde batterij bijna leeg"
+                        "battery_low_threshold": "Drempelwaarde batterij bijna leeg",
+                        "battery_increase_threshold": "Drempel batterijtoename"
                     },
                     "data_description": {
                         "name": "Indien dit leeg gelaten wordt dan wordt de naam van het bronapparaat overgenomen",
-                        "battery_low_threshold": "0 zal de globale standaard drempelwaarde gebruiken"
+                        "battery_low_threshold": "0 zal de globale standaard drempelwaarde gebruiken",
+                        "battery_increase_threshold": "De drempel is het verschil tussen de vorige en huidige batterijniveau toename\n0 zal de globale standaard drempel gebruiken"
                     },
                     "sections": {
                         "advanced_settings": {
@@ -165,7 +171,7 @@
                     "hide_battery": "Standaard batterij verbergen bij toevoegen van Batterij+.",
                     "round_battery": "Batterij+ afronden op hele percentages.",
                     "default_battery_low_threshold": "De standaard drempel waarbij de battery_low entiteit van een apparaat op waar wordt ingesteld en het battery_notes_battery_threshold event wordt geactiveerd als de batterij onder deze drempel ligt. Kan per apparaat in de apparaatconfiguratie worden overschreven.",
-                    "battery_increase_threshold": "De drempel waarop het battery_notes_battery_increased event wordt geactiveerd. Gebruik dit event voor automatiseringen bij batterijvervanging. De drempel is het verschil in stijging tussen vorig en huidig batterijniveau."
+                    "battery_increase_threshold": "De standaard drempel waarop het battery_notes_battery_increased event wordt geactiveerd. Gebruik dit event voor automatiseringen bij batterijvervanging. De drempel is het verschil in stijging tussen vorig en huidig batterijniveau."
                 },
                 "sections": {
                     "advanced_settings": {
@@ -195,6 +201,9 @@
             "battery_low": {
                 "name": "{device_name}Lage batterij",
                 "state_attributes": {
+                    "battery_increase_threshold": {
+                        "name": "Drempel batterijtoename"
+                    },
                     "battery_low_threshold": {
                         "name": "Drempelwaarde batterij bijna leeg"
                     }
@@ -224,6 +233,9 @@
                     },
                     "battery_last_replaced": {
                         "name": "Batterij laatst vervangen"
+                    },
+                    "battery_increase_threshold": {
+                        "name": "Drempel batterijtoename"
                     },
                     "battery_low": {
                         "name": "Batterij bijna leeg"

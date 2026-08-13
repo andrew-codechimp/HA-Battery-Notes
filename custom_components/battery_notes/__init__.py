@@ -39,10 +39,10 @@ from .common import (
 )
 from .const import (
     CONF_ADVANCED_SETTINGS,
-    CONF_BATTERY_INCREASE_THRESHOLD,
     CONF_BATTERY_LOW_TEMPLATE,
     CONF_BATTERY_QUANTITY,
     CONF_BATTERY_TYPE,
+    CONF_DEFAULT_BATTERY_INCREASE_THRESHOLD,
     CONF_DEFAULT_BATTERY_LOW_THRESHOLD,
     CONF_DEVICE_NAME,
     CONF_ENABLE_AUTODISCOVERY,
@@ -99,7 +99,7 @@ CONFIG_SCHEMA = vol.Schema(
                         default=DEFAULT_BATTERY_LOW_THRESHOLD,
                     ): cv.positive_int,
                     vol.Optional(
-                        CONF_BATTERY_INCREASE_THRESHOLD,
+                        CONF_DEFAULT_BATTERY_INCREASE_THRESHOLD,
                         default=DEFAULT_BATTERY_INCREASE_THRESHOLD,
                     ): cv.positive_int,
                 },
@@ -154,7 +154,7 @@ async def async_setup_entry(
         CONF_DEFAULT_BATTERY_LOW_THRESHOLD
     ]
     domain_config.battery_increased_threshod = config_entry.options[
-        CONF_BATTERY_INCREASE_THRESHOLD
+        CONF_DEFAULT_BATTERY_INCREASE_THRESHOLD
     ]
 
     domain_config.enable_autodiscovery = config_entry.options[CONF_ADVANCED_SETTINGS][
@@ -352,8 +352,8 @@ async def async_migrate_integration(hass: HomeAssistant, config: ConfigType) -> 
                         CONF_DEFAULT_BATTERY_LOW_THRESHOLD,
                         DEFAULT_BATTERY_LOW_THRESHOLD,
                     ),
-                    CONF_BATTERY_INCREASE_THRESHOLD: yaml_domain_config.get(
-                        CONF_BATTERY_INCREASE_THRESHOLD,
+                    CONF_DEFAULT_BATTERY_INCREASE_THRESHOLD: yaml_domain_config.get(
+                        CONF_DEFAULT_BATTERY_INCREASE_THRESHOLD,
                         DEFAULT_BATTERY_INCREASE_THRESHOLD,
                     ),
                     CONF_ADVANCED_SETTINGS: {
@@ -374,7 +374,7 @@ async def async_migrate_integration(hass: HomeAssistant, config: ConfigType) -> 
                     CONF_HIDE_BATTERY: False,
                     CONF_ROUND_BATTERY: False,
                     CONF_DEFAULT_BATTERY_LOW_THRESHOLD: DEFAULT_BATTERY_LOW_THRESHOLD,
-                    CONF_BATTERY_INCREASE_THRESHOLD: DEFAULT_BATTERY_INCREASE_THRESHOLD,
+                    CONF_DEFAULT_BATTERY_INCREASE_THRESHOLD: DEFAULT_BATTERY_INCREASE_THRESHOLD,
                     CONF_ADVANCED_SETTINGS: {
                         CONF_ENABLE_AUTODISCOVERY: True,
                         CONF_ENABLE_REPLACED: True,

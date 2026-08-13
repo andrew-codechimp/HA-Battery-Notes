@@ -11,10 +11,12 @@
                     "battery_type": "Type de batterie",
                     "battery_quantity": "Nombre de batteries",
                     "note": "Note",
-                    "battery_low_threshold": "Seuil de batterie faible"
+                    "battery_low_threshold": "Seuil de batterie faible",
+                    "battery_increase_threshold": "Seuil d'augmentation de la batterie"
                 },
                 "data_description": {
-                    "battery_low_threshold": "0 gardera le seuil par defaut"
+                    "battery_low_threshold": "0 gardera le seuil par defaut",
+                    "battery_increase_threshold": "Le seuil est la différence d'augmentation entre le niveau de batterie précédent et actuel\n0 utilisera le seuil global par défaut"
                 },
                 "sections": {
                     "advanced_settings": {
@@ -84,10 +86,12 @@
                         "battery_type": "Type de batterie",
                         "battery_quantity": "Nombre de batteries",
                         "note": "Note",
-                        "battery_low_threshold": "Seuil de batterie faible"
+                        "battery_low_threshold": "Seuil de batterie faible",
+                        "battery_increase_threshold": "Seuil d'augmentation de la batterie"
                     },
                     "data_description": {
-                        "battery_low_threshold": "0 gardera le seuil par defaut"
+                        "battery_low_threshold": "0 gardera le seuil par defaut",
+                        "battery_increase_threshold": "Le seuil est la différence d'augmentation entre le niveau de batterie précédent et actuel\n0 utilisera le seuil global par défaut"
                     },
                     "sections": {
                         "advanced_settings": {
@@ -116,11 +120,13 @@
                         "battery_type": "Type de batterie",
                         "battery_quantity": "Nombre de batteries",
                         "note": "Note",
-                        "battery_low_threshold": "Seuil de batterie faible"
+                        "battery_low_threshold": "Seuil de batterie faible",
+                        "battery_increase_threshold": "Seuil d'augmentation de la batterie"
                     },
                     "data_description": {
                         "name": "Laisser vide gardera le seuil par defaut",
-                        "battery_low_threshold": "0 gardera le seuil par defaut"
+                        "battery_low_threshold": "0 gardera le seuil par defaut",
+                        "battery_increase_threshold": "Le seuil est la différence d'augmentation entre le niveau de batterie précédent et actuel\n0 utilisera le seuil global par défaut"
                     },
                     "sections": {
                         "advanced_settings": {
@@ -165,7 +171,7 @@
                     "hide_battery": "Masquer la batterie standard lors de l'ajout de Battery+.",
                     "round_battery": "Arrondir Battery+ à des pourcentages entiers.",
                     "default_battery_low_threshold": "Le seuil par défaut où l'entité battery_low d'un appareil est définie sur vrai et l'événement battery_notes_battery_threshold est déclenché si la batterie est inférieure à ce seuil, peut être remplacé par appareil dans la configuration de l'appareil.",
-                    "battery_increase_threshold": "Le seuil où l'événement battery_notes_battery_increased est déclenché, utilisez cet événement pour les automatisations de remplacement de batterie. Le seuil est la différence d'augmentation entre le niveau de batterie précédent et actuel."
+                    "battery_increase_threshold": "Le seuil par défaut où l'événement battery_notes_battery_increased est déclenché, utilisez cet événement pour les automatisations de remplacement de batterie. Le seuil est la différence d'augmentation entre le niveau de batterie précédent et actuel."
                 },
                 "sections": {
                     "advanced_settings": {
@@ -195,6 +201,9 @@
             "battery_low": {
                 "name": "{device_name}Batterie faible",
                 "state_attributes": {
+                    "battery_increase_threshold": {
+                        "name": "Seuil d'augmentation de la batterie"
+                    },
                     "battery_low_threshold": {
                         "name": "Seuil de batterie faible"
                     }
@@ -224,6 +233,9 @@
                     },
                     "battery_last_replaced": {
                         "name": "Dernier remplacement de la batterie"
+                    },
+                    "battery_increase_threshold": {
+                        "name": "Seuil d'augmentation de la batterie"
                     },
                     "battery_low": {
                         "name": "Batterie faible"

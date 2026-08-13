@@ -11,10 +11,12 @@
                     "battery_type": "Batteritype",
                     "battery_quantity": "Antal batterier",
                     "note": "Note",
-                    "battery_low_threshold": "Tærskel for lavt batteriniveau"
+                    "battery_low_threshold": "Tærskel for lavt batteriniveau",
+                    "battery_increase_threshold": "Tærskel for batteriladestigning"
                 },
                 "data_description": {
-                    "battery_low_threshold": "0 vil bruge den globale standardtærskel"
+                    "battery_low_threshold": "0 vil bruge den globale standardtærskel",
+                    "battery_increase_threshold": "Tærsklen er forskellen i stigning mellem tidligere og aktuelt batteriniveau.\n0 vil bruge den globale standardtærskel"
                 },
                 "sections": {
                     "advanced_settings": {
@@ -84,10 +86,12 @@
                         "battery_type": "Batteritype",
                         "battery_quantity": "Antal batterier",
                         "note": "Note",
-                        "battery_low_threshold": "Lavt batteriniveau"
+                        "battery_low_threshold": "Lavt batteriniveau",
+                        "battery_increase_threshold": "Tærskel for batteriladestigning"
                     },
                     "data_description": {
-                        "battery_low_threshold": "0 vil bruge den globale standardtærskel"
+                        "battery_low_threshold": "0 vil bruge den globale standardtærskel",
+                        "battery_increase_threshold": "Tærsklen er forskellen i stigning mellem tidligere og aktuelt batteriniveau.\n0 vil bruge den globale standardtærskel"
                     },
                     "sections": {
                         "advanced_settings": {
@@ -116,11 +120,13 @@
                         "battery_type": "Batteritype",
                         "battery_quantity": "Antal batterier",
                         "note": "Note",
-                        "battery_low_threshold": "Lavt batteriniveau"
+                        "battery_low_threshold": "Lavt batteriniveau",
+                        "battery_increase_threshold": "Tærskel for batteriladestigning"
                     },
                     "data_description": {
                         "name": "Hvis du lader dette felt være tomt, hentes navnet fra kildeenheden",
-                        "battery_low_threshold": "0 vil bruge den globale standardtærskel"
+                        "battery_low_threshold": "0 vil bruge den globale standardtærskel",
+                        "battery_increase_threshold": "Tærsklen er forskellen i stigning mellem tidligere og aktuelt batteriniveau.\n0 vil bruge den globale standardtærskel"
                     },
                     "sections": {
                         "advanced_settings": {
@@ -158,7 +164,7 @@
                     "hide_battery": "Skjul batteriet",
                     "round_battery": "Afrund batteri",
                     "default_battery_low_threshold": "Standardgrænse for lavt batteriniveau",
-                    "battery_increase_threshold": "Grænse for stigning i batteriniveau"
+                    "battery_increase_threshold": "Standard-tærskel for batteriladestigning"
                 },
                 "data_description": {
                     "show_all_devices": "Vis alle enheder i enhedens dropdown, ellers vises kun dem med batterier.",
@@ -195,6 +201,9 @@
             "battery_low": {
                 "name": "{device_name}Lavt batteri",
                 "state_attributes": {
+                    "battery_increase_threshold": {
+                        "name": "Tærskel for batteriladestigning"
+                    },
                     "battery_low_threshold": {
                         "name": "Lavt batteri-tærskel"
                     }
@@ -224,6 +233,9 @@
                     },
                     "battery_last_replaced": {
                         "name": "Batteri sidst udskiftet"
+                    },
+                    "battery_increase_threshold": {
+                        "name": "Tærskel for batteriladestigning"
                     },
                     "battery_low": {
                         "name": "Lavt batteri"

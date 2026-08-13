@@ -11,10 +11,12 @@
                     "battery_type": "Τύπος μπαταρίας",
                     "battery_quantity": "Αριθμός μπαταριών",
                     "note": "Σημείωση",
-                    "battery_low_threshold": "Ελάχιστο όριο μπαταρίας"
+                    "battery_low_threshold": "Ελάχιστο όριο μπαταρίας",
+                    "battery_increase_threshold": "Όριο αύξησης μπαταρίας"
                 },
                 "data_description": {
-                    "battery_low_threshold": "0 θα χρησιμοποιηθεί το καθολικό προεπιλεγμένο ελάχιστο όριο"
+                    "battery_low_threshold": "0 θα χρησιμοποιηθεί το καθολικό προεπιλεγμένο ελάχιστο όριο",
+                    "battery_increase_threshold": "Το όριο είναι η διαφορά στην αύξηση μεταξύ του προηγούμενου και του τρέχοντος επιπέδου της μπαταρίας\n0 θα χρησιμοποιηθεί το καθολικό προεπιλεγμένο όριο"
                 },
                 "sections": {
                     "advanced_settings": {
@@ -84,10 +86,12 @@
                         "battery_type": "Τύπος μπαταρίας",
                         "battery_quantity": "Αριθμός μπαταριών",
                         "note": "Σημείωση",
-                        "battery_low_threshold": "Ελάχιστο όριο μπαταρίας"
+                        "battery_low_threshold": "Ελάχιστο όριο μπαταρίας",
+                        "battery_increase_threshold": "Όριο αύξησης μπαταρίας"
                     },
                     "data_description": {
-                        "battery_low_threshold": "0 θα χρησιμοποιηθεί το καθολικό προεπιλεγμένο ελάχιστο όριο"
+                        "battery_low_threshold": "0 θα χρησιμοποιηθεί το καθολικό προεπιλεγμένο ελάχιστο όριο",
+                        "battery_increase_threshold": "Το όριο είναι η διαφορά στην αύξηση μεταξύ του προηγούμενου και του τρέχοντος επιπέδου της μπαταρίας\n0 θα χρησιμοποιηθεί το καθολικό προεπιλεγμένο όριο"
                     },
                     "sections": {
                         "advanced_settings": {
@@ -116,11 +120,13 @@
                         "battery_type": "Τύπος μπαταρίας",
                         "battery_quantity": "Αριθμός μπαταριών",
                         "note": "Σημείωση",
-                        "battery_low_threshold": "Ελάχιστο όριο μπαταρίας"
+                        "battery_low_threshold": "Ελάχιστο όριο μπαταρίας",
+                        "battery_increase_threshold": "Όριο αύξησης μπαταρίας"
                     },
                     "data_description": {
                         "name": "Αφήνοντάς το κενό θα πάρει το όνομα από τη συσκευή προέλευσης",
-                        "battery_low_threshold": "0 θα χρησιμοποιηθεί το καθολικό προεπιλεγμένο ελάχιστο όριο"
+                        "battery_low_threshold": "0 θα χρησιμοποιηθεί το καθολικό προεπιλεγμένο ελάχιστο όριο",
+                        "battery_increase_threshold": "Το όριο είναι η διαφορά στην αύξηση μεταξύ του προηγούμενου και του τρέχοντος επιπέδου της μπαταρίας\n0 θα χρησιμοποιηθεί το καθολικό προεπιλεγμένο όριο"
                     },
                     "sections": {
                         "advanced_settings": {
@@ -195,6 +201,9 @@
             "battery_low": {
                 "name": "{device_name}Χαμηλή στάθμη μπαταρίας",
                 "state_attributes": {
+                    "battery_increase_threshold": {
+                        "name": "Όριο αύξησης μπαταρίας"
+                    },
                     "battery_low_threshold": {
                         "name": "Ελάχιστο όριο μπαταρίας"
                     }
@@ -224,6 +233,9 @@
                     },
                     "battery_last_replaced": {
                         "name": "Τελευταία αντικατάσταση μπαταρίας"
+                    },
+                    "battery_increase_threshold": {
+                        "name": "Όριο αύξησης μπαταρίας"
                     },
                     "battery_low": {
                         "name": "Χαμηλό επίπεδο μπαταρίας"

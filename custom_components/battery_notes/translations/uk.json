@@ -11,10 +11,12 @@
                     "battery_type": "Тип батареї",
                     "battery_quantity": "Кількість батарей",
                     "note": "Примітка",
-                    "battery_low_threshold": "Нижній поріг батареї"
+                    "battery_low_threshold": "Нижній поріг батереї",
+                    "battery_increase_threshold": "Поріг збільшення батереї"
                 },
                 "data_description": {
-                    "battery_low_threshold": "0 буде використовувати глобальний поріг за замовчуванням"
+                    "battery_low_threshold": "0 буде використовувати глобальний поріг за замовчуванням",
+                    "battery_increase_threshold": "Поріг - це різниця між попереднім і поточним рівнем заряду батереї\n0 буде використовувати стандартний глобальний поріг"
                 },
                 "sections": {
                     "advanced_settings": {
@@ -84,10 +86,12 @@
                         "battery_type": "Тип батареї",
                         "battery_quantity": "Кількість батарей",
                         "note": "Примітка",
-                        "battery_low_threshold": "Нижній поріг батареї"
+                        "battery_low_threshold": "Нижній поріг батареї",
+                        "battery_increase_threshold": "Поріг збільшення батереї"
                     },
                     "data_description": {
-                        "battery_low_threshold": "0 буде використовувати глобальний поріг за замовчуванням"
+                        "battery_low_threshold": "0 буде використовувати глобальний поріг за замовчуванням",
+                        "battery_increase_threshold": "Поріг - це різниця між попереднім і поточним рівнем заряду батереї\n0 буде використовувати стандартний глобальний поріг"
                     },
                     "sections": {
                         "advanced_settings": {
@@ -116,11 +120,13 @@
                         "battery_type": "Тип батареї",
                         "battery_quantity": "Кількість батарей",
                         "note": "Примітка",
-                        "battery_low_threshold": "Нижній поріг батареї"
+                        "battery_low_threshold": "Нижній поріг батареї",
+                        "battery_increase_threshold": "Поріг збільшення батереї"
                     },
                     "data_description": {
                         "name": "Залишаючи незаповненим, буде взяте ім'я з основного пристрою",
-                        "battery_low_threshold": "0 буде використовувати глобальний поріг за замовчуванням"
+                        "battery_low_threshold": "0 буде використовувати глобальний поріг за замовчуванням",
+                        "battery_increase_threshold": "Поріг - це різниця між попереднім і поточним рівнем заряду батареї\n0 буде використовувати стандартний глобальний поріг"
                     },
                     "sections": {
                         "advanced_settings": {
@@ -195,6 +201,9 @@
             "battery_low": {
                 "name": "Низький заряд батареї {device_name}",
                 "state_attributes": {
+                    "battery_increase_threshold": {
+                        "name": "Поріг збільшення батереї"
+                    },
                     "battery_low_threshold": {
                         "name": "Поріг низького заряду батареї"
                     }
@@ -224,6 +233,9 @@
                     },
                     "battery_last_replaced": {
                         "name": "Остання заміна батареї"
+                    },
+                    "battery_increase_threshold": {
+                        "name": "Поріг збільшення батереї"
                     },
                     "battery_low": {
                         "name": "Низький заряд батареї"
