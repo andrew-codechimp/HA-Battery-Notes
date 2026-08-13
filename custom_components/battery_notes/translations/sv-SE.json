@@ -11,10 +11,12 @@
                     "battery_type": "Batterityp",
                     "battery_quantity": "Antal batterier",
                     "note": "Note",
-                    "battery_low_threshold": "Tröskelvärde lågt batteri"
+                    "battery_low_threshold": "Tröskelvärde lågt batteri",
+                    "battery_increase_threshold": "Battery increase threshold"
                 },
                 "data_description": {
-                    "battery_low_threshold": "0 kommer att använda det globala standardtröskelvärdet"
+                    "battery_low_threshold": "0 kommer att använda det globala standardtröskelvärdet",
+                    "battery_increase_threshold": "The threshold is the difference in increase between previous and current battery level\n0 will use the global default threshold"
                 },
                 "sections": {
                     "advanced_settings": {
@@ -84,10 +86,12 @@
                         "battery_type": "Batterityp",
                         "battery_quantity": "Antal batterier",
                         "note": "Note",
-                        "battery_low_threshold": "Tröskelvärde lågt batteri"
+                        "battery_low_threshold": "Tröskelvärde lågt batteri",
+                        "battery_increase_threshold": "Battery increase threshold"
                     },
                     "data_description": {
-                        "battery_low_threshold": "0 kommer att använda det globala standardtröskelvärdet"
+                        "battery_low_threshold": "0 kommer att använda det globala standardtröskelvärdet",
+                        "battery_increase_threshold": "The threshold is the difference in increase between previous and current battery level\n0 will use the global default threshold"
                     },
                     "sections": {
                         "advanced_settings": {
@@ -116,11 +120,13 @@
                         "battery_type": "Batterityp",
                         "battery_quantity": "Antal batterier",
                         "note": "Note",
-                        "battery_low_threshold": "Batteri lågt tröskelvärde"
+                        "battery_low_threshold": "Batteri lågt tröskelvärde",
+                        "battery_increase_threshold": "Battery increase threshold"
                     },
                     "data_description": {
                         "name": "Genom att lämna blankt tas namnet från källenheten. ",
-                        "battery_low_threshold": "0 kommer att använda den globala standardtröskelvärdet. "
+                        "battery_low_threshold": "0 kommer att använda den globala standardtröskelvärdet. ",
+                        "battery_increase_threshold": "The threshold is the difference in increase between previous and current battery level\n0 will use the global default threshold"
                     },
                     "sections": {
                         "advanced_settings": {
@@ -195,6 +201,9 @@
             "battery_low": {
                 "name": "{device_name}Lågt batteri. ",
                 "state_attributes": {
+                    "battery_increase_threshold": {
+                        "name": "Battery increase threshold"
+                    },
                     "battery_low_threshold": {
                         "name": "Tröskelvärde lågt batteri"
                     }
@@ -224,6 +233,9 @@
                     },
                     "battery_last_replaced": {
                         "name": "Senast bytt batteri"
+                    },
+                    "battery_increase_threshold": {
+                        "name": "Battery increase threshold"
                     },
                     "battery_low": {
                         "name": "Batteriet lågt"
