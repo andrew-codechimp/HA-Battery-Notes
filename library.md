@@ -1,4 +1,4 @@
-## 2281 Devices in library
+## 2282 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1055,6 +1055,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Iris                                            |Water sensor (3315-L)                                                                         |CR2                       |                                                                        |
 |iRobot                                          |c975840                                                                                       |Rechargeable              |                                                                        |
 |iRobot                                          |i715640                                                                                       |Rechargeable              |                                                                        |
+|iRobot                                          |i755840                                                                                       |Rechargeable              |                                                                        |
 |iRobot                                          |j755020                                                                                       |Rechargeable              |                                                                        |
 |iRobot                                          |R675020                                                                                       |Rechargeable              |                                                                        |
 |iRobot                                          |R980020                                                                                       |Rechargeable              |                                                                        |
