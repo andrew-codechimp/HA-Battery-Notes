@@ -6095,6 +6095,11 @@
         },
         {
             "manufacturer": "iRobot",
+            "model": "m610840",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "iRobot",
             "model": "R675020",
             "battery_type": "Rechargeable"
         },
@@ -13246,11 +13251,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "iRobot",
-            "model": "m610840",
             "battery_type": "Rechargeable"
         }
     ]

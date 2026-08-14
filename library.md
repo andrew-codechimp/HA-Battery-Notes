@@ -1,4 +1,4 @@
-## 2282 Devices in library
+## 2283 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1057,6 +1057,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |iRobot                                          |i715640                                                                                       |Rechargeable              |                                                                        |
 |iRobot                                          |i755840                                                                                       |Rechargeable              |                                                                        |
 |iRobot                                          |j755020                                                                                       |Rechargeable              |                                                                        |
+|iRobot                                          |m610840                                                                                       |Rechargeable              |                                                                        |
 |iRobot                                          |R675020                                                                                       |Rechargeable              |                                                                        |
 |iRobot                                          |R980020                                                                                       |Rechargeable              |                                                                        |
 |Jaeger Direkt                                   |004010000040                                                                                  |CR123                     |                                                                        |
