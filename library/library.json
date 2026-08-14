@@ -4057,6 +4057,11 @@
         },
         {
             "manufacturer": "Eufy Security",
+            "model": "T8161",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Eufy Security",
             "model": "T8210",
             "battery_type": "Rechargeable"
         },
@@ -13251,11 +13256,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Eufy Security",
-            "model": "T8161",
             "battery_type": "Rechargeable"
         }
     ]
