@@ -1,4 +1,4 @@
-## 2285 Devices in library
+## 2286 Devices in library
 
 This file is auto generated, do not modify
 
@@ -657,6 +657,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |eQ-3                                            |HmIP-SPI                                                                                      |2× AA                     |                                                                        |
 |eQ-3                                            |HMIP-SPI                                                                                      |2× AA                     |Homematic IP Präsenzmelder - innen                                      |
 |eQ-3                                            |HmIP-SRH                                                                                      |AAA                       |                                                                        |
+|eQ-3                                            |HmIP-SRH                                                                                      |AAA                       |Homematic IP Fenster-/ Drehgriffkontakt                                 |
 |eQ-3                                            |HmIP-STE2-PCB                                                                                 |2× AA                     |                                                                        |
 |eQ-3                                            |HmIP-STH                                                                                      |2× AAA                    |                                                                        |
 |eQ-3                                            |HmIP-STHD                                                                                     |2× AAA                    |                                                                        |

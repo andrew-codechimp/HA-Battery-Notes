@@ -3771,6 +3771,12 @@
         },
         {
             "manufacturer": "eQ-3",
+            "model": "HmIP-SRH",
+            "model_id": "Homematic IP Fenster-/ Drehgriffkontakt",
+            "battery_type": "AAA"
+        },
+        {
+            "manufacturer": "eQ-3",
             "model": "HmIP-STE2-PCB",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -13264,12 +13270,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "eQ-3",
-            "model": "HmIP-SRH",
-            "model_id": "Homematic IP Fenster-/ Drehgriffkontakt",
-            "battery_type": "AAA"
         }
     ]
 }
