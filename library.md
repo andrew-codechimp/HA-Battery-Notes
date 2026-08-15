@@ -1,4 +1,4 @@
-## 2287 Devices in library
+## 2288 Devices in library
 
 This file is auto generated, do not modify
 
@@ -680,6 +680,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |eQ-3                                            |HmIP-SWO-PR                                                                                   |3× AA                     |                                                                        |
 |eQ-3                                            |HmIP-SWSD                                                                                     |2× FDK CR17450E-N (3V)    |                                                                        |
 |eQ-3                                            |HmIP-SWSD                                                                                     |2× FDK CR17450E-N (3V)    |Homematic IP Rauchmelder                                                |
+|eQ-3                                            |HmIP-SWSD-2                                                                                   |Irreplaceable             |                                                                        |
 |eQ-3                                            |HmIP-WGC                                                                                      |2× AA                     |                                                                        |
 |EQ-3                                            |HmIP-WKP                                                                                      |2× AAA                    |                                                                        |
 |eQ-3                                            |HMIP-WRC2                                                                                     |2× AAA                    |                                                                        |

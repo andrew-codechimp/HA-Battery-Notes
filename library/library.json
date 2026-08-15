@@ -3909,6 +3909,11 @@
         },
         {
             "manufacturer": "eQ-3",
+            "model": "HmIP-SWSD-2",
+            "battery_type": "Irreplaceable"
+        },
+        {
+            "manufacturer": "eQ-3",
             "model": "HmIP-WGC",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -13276,11 +13281,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "eQ-3",
-            "model": "HmIP-SWSD-2",
-            "battery_type": "Irreplaceable"
         }
     ]
 }
