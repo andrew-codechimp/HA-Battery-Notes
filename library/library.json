@@ -13270,6 +13270,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "eQ-3",
+            "model": "HM-Sec-SD-2",
+            "model_id": "Funk-Rauchmelder",
+            "battery_type": "Irreplaceable"
         }
     ]
 }
