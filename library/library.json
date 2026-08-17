@@ -2429,6 +2429,13 @@
         },
         {
             "manufacturer": "Bosch",
+            "model": "Smart Home Room Thermostat II",
+            "model_id": "RTH2_BAT",
+            "battery_type": "AAA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Bosch",
             "model": "Smoke alarm detector (BSD-2)",
             "battery_type": "Irreplaceable"
         },
@@ -13281,13 +13288,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Bosch",
-            "model": "Smart Home Room Thermostat II",
-            "model_id": "RTH2_BAT",
-            "battery_type": "AAA",
-            "battery_quantity": 4
         }
     ]
 }
