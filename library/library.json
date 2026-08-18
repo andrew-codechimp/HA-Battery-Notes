@@ -6736,7 +6736,12 @@
             "manufacturer": "Meross",
             "model": "Smart Presence Sensor (16898)",
             "model_id": "16898",
-            "hw_version": "prerelease",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Meross",
+            "model": "Smart Presence Sensor",
+            "model_id": "16898",
             "battery_type": "CR123A"
         },
         {
