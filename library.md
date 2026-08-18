@@ -1,4 +1,4 @@
-## 2289 Devices in library
+## 2290 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1171,6 +1171,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Merkury                                         |SS003                                                                                         |CR2                       |                                                                        |
 |Meross                                          |gs559                                                                                         |4× AA                     |                                                                        |
 |Meross                                          |ms100                                                                                         |CR2477                    |                                                                        |
+|Meross                                          |Smart Presence Sensor                                                                         |CR123A                    |                                                                   16898|
 |Meross                                          |Smart Presence Sensor (16898)                                                                 |CR123A                    |                                                                   16898|
 |Mi                                              |MS009                                                                                         |CR2540                    |                                                                        |
 |Mi light sensor                                 |GZCGQ01LM                                                                                     |CR2450                    |                                                                        |
