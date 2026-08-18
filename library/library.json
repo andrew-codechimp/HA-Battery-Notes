@@ -3489,6 +3489,13 @@
         },
         {
             "manufacturer": "eQ-3",
+            "model": "HM-WDS100-C6-O",
+            "model_id": "Funk-Kombisensor (OC3)",
+            "battery_type": "AA",
+            "battery_quantity": 3
+        },
+        {
+            "manufacturer": "eQ-3",
             "model": "HM-WDS100-C6-O-2",
             "battery_type": "AA",
             "battery_quantity": 3
@@ -13306,13 +13313,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "eQ-3",
-            "model": "HM-WDS100-C6-O",
-            "model_id": "Funk-Kombisensor (OC3)",
-            "battery_type": "AA",
-            "battery_quantity": 3
         }
     ]
 }
