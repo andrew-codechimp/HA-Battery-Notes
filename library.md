@@ -1,4 +1,4 @@
-## 2290 Devices in library
+## 2291 Devices in library
 
 This file is auto generated, do not modify
 
@@ -563,6 +563,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Eltako                                          |A5-08-01                                                                                      |CR2032                    |                                                                        |
 |Ember                                           |Ember Mug 2 (14oz)                                                                            |Rechargeable              |                                                                        |
 |eQ-3                                            |ELV-SH-CTH                                                                                    |CR2032                    |                                                                        |
+|eQ-3                                            |ELV-SH-WSM                                                                                    |2× AA                     |ELV Smart Home Bewässerungsaktor                                        |
 |eQ-3                                            |eTRV-F                                                                                        |2× AA                     |HmIP-eTRV-F                                                             |
 |eQ-3                                            |HM-CC-RT-DN                                                                                   |2× AA                     |                                                                        |
 |eQ-3                                            |HM-CC-TC                                                                                      |2× AA                     |                                                                        |
