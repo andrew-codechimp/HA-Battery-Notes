@@ -3315,6 +3315,12 @@
         },
         {
             "manufacturer": "eQ-3",
+            "model": "HM-RC-4-3",
+            "model_id": "Funk-Fernbedienung 4 Tasten",
+            "battery_type": "AAA"
+        },
+        {
+            "manufacturer": "eQ-3",
             "model": "HM-RC-8",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -13300,12 +13306,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "eQ-3",
-            "model": "HM-RC-4-3",
-            "model_id": "Funk-Fernbedienung 4 Tasten",
-            "battery_type": "AAA"
         }
     ]
 }

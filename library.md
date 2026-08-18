@@ -1,4 +1,4 @@
-## 2291 Devices in library
+## 2292 Devices in library
 
 This file is auto generated, do not modify
 
@@ -580,6 +580,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |eQ-3                                            |HM-PBI-4-FM                                                                                   |CR2032                    |                                                                        |
 |eQ-3                                            |HM-RC-12-B                                                                                    |3× AAA                    |HM-RC-12-B                                                              |
 |eQ-3                                            |HM-RC-4-2                                                                                     |AAA                       |                                                                        |
+|eQ-3                                            |HM-RC-4-3                                                                                     |AAA                       |Funk-Fernbedienung 4 Tasten                                             |
 |eQ-3                                            |HM-RC-8                                                                                       |2× AAA                    |                                                                        |
 |eQ-3                                            |HM-RC-Key4-2                                                                                  |AAA                       |                                                                        |
 |eQ-3                                            |HM-RC-Key4-3                                                                                  |AAA                       |                                                                        |
