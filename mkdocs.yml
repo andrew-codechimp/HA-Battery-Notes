@@ -2,6 +2,7 @@ site_name: Battery Notes for Home Assistant
 site_url: https://andrew-codechimp.github.io/HA-Battery-Notes
 repo_url: https://github.com/andrew-codechimp/HA-Battery-Notes
 docs_dir: docs
+edit_uri: blob/main/docs/
 
 nav:
   - Home: index.md
@@ -33,7 +34,9 @@ theme:
     - search.suggest
     - search.highlight
     - toc.follow
+    - content.code.annotation
     - content.code.copy
+    - content.action.edit    
   favicon: assets/favicon.ico
   logo: assets/logo-circle.svg
   palette:

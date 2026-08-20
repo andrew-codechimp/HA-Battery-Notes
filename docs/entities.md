@@ -12,20 +12,20 @@ The original battery can optionally be hidden by adding a [configuration setting
 
 See how to use this entity in the [community contributions](./community.md)
 
-| Attribute                     | Type     | Description                                                                        |
-| ----------------------------- | -------- | ---------------------------------------------------------------------------------- |
-| `battery_quantity`            | `int`    | The quantity of batteries                                                          |
-| `battery_type`                | `string` | The type of batteries                                                              |
-| `battery_type_and_quantity`   | `string` | The type of batteries with the quantity if more than 1                             |
-| `note`                        | `string` | The note added within configuration of this battery note                           |
-| `battery_last_replaced`       | `string` | The date and time the battery was last replaced                                    |
-| `battery_low`                 | `bool`   | An indicator of whether the battery is low based on the device or global threshold |
-| `battery_low_threshold`       | `int`    | The device or global threshold for when the battery is low                         |
-| `battery_last_reported`       | `string` | The datetime when the battery level was last reported                              |
-| `battery_last_reported_level` | `float`  | The level when the battery was last reported                                       |
-| `device_id`                   | `string` | The device_id of the device                                                        |
-| `device_name`                 | `string` | The name of the device, if you have renamed the battery note it will use this name |
-| `source_entity_id`            | `string` | The entity_id the battery note is associated with                                  |
+| <div style="width:200px">Attribute</div> | Type     | Description                                                                        |
+| ---------------------------------------- | -------- | ---------------------------------------------------------------------------------- |
+| `battery_quantity`                       | `int`    | The quantity of batteries                                                          |
+| `battery_type`                           | `string` | The type of batteries                                                              |
+| `battery_type_and_quantity`              | `string` | The type of batteries with the quantity if more than 1                             |
+| `note`                                   | `string` | The note added within configuration of this battery note                           |
+| `battery_last_replaced`                  | `string` | The date and time the battery was last replaced                                    |
+| `battery_low`                            | `bool`   | An indicator of whether the battery is low based on the device or global threshold |
+| `battery_low_threshold`                  | `int`    | The device or global threshold for when the battery is low                         |
+| `battery_last_reported`                  | `string` | The datetime when the battery level was last reported                              |
+| `battery_last_reported_level`            | `float`  | The level when the battery was last reported                                       |
+| `device_id`                              | `string` | The device_id of the device                                                        |
+| `device_name`                            | `string` | The name of the device, if you have renamed the battery note it will use this name |
+| `source_entity_id`                       | `string` | The entity_id the battery note is associated with                                  |
 
 ### Adding a battery percentage
 
@@ -37,11 +37,11 @@ If your device does not have a battery percentage but does have a battery voltag
 
 The battery quantity and type display in an easy to use single entity.  The quantity is only shown if more than 1.
 
-| Attribute          | Type     | Description                                              |
-| ------------------ | -------- | -------------------------------------------------------- |
-| `battery_quantity` | `int`    | The quantity of batteries                                |
-| `battery_type`     | `string` | The type of batteries                                    |
-| `note`             | `string` | The note added within configuration of this battery note |
+| <div style="width:200px">Attribute</div> | Type     | Description                                              |
+| ---------------------------------------- | -------- | -------------------------------------------------------- |
+| `battery_quantity`                       | `int`    | The quantity of batteries                                |
+| `battery_type`                           | `string` | The type of batteries                                    |
+| `note`                                   | `string` | The note added within configuration of this battery note |
 
 ## Battery Last Replaced
 
@@ -64,15 +64,15 @@ If the device has a battery percentage then this will be automatically created.
 If the device does not have a battery percentage but does have a battery low boolean that is a battery class then this will be automatically created and listen for changes on the original battery low sensor, raising events when the battery is low or high.  
 If you have specified a manual template then this will be created, reflecting the state of the template, raising events when the battery is low or high.
 
-| Attribute                   | Type     | Description                                                                        |
-| --------------------------- | -------- | ---------------------------------------------------------------------------------- |
-| `battery_low_threshold`     | `int`    | The device or global threshold for when the battery is low                         |
-| `battery_quantity`          | `int`    | The quantity of batteries                                                          |
-| `battery_type`              | `string` | The type of batteries                                                              |
-| `battery_type_and_quantity` | `string` | The type of batteries with the quantity if more than 1                             |
-| `note`                      | `string` | The note added within configuration of this battery note                           |
-| `battery_last_replaced`     | `string` | The date and time the battery was last replaced                                    |
-| `battery_last_reported`     | `string` | The date and time the battery was last reported                                    |
-| `device_id`                 | `string` | The device_id of the device                                                        |
-| `device_name`               | `string` | The name of the device, if you have renamed the battery note it will use this name |
-| `source_entity_id`          | `string` | The entity_id the battery note is associated with                                  |
+| <div style="width:200px">Attribute</div> | Type     | Description                                                                        |
+| ---------------------------------------- | -------- | ---------------------------------------------------------------------------------- |
+| `battery_low_threshold`                  | `int`    | The device or global threshold for when the battery is low                         |
+| `battery_quantity`                       | `int`    | The quantity of batteries                                                          |
+| `battery_type`                           | `string` | The type of batteries                                                              |
+| `battery_type_and_quantity`              | `string` | The type of batteries with the quantity if more than 1                             |
+| `note`                                   | `string` | The note added within configuration of this battery note                           |
+| `battery_last_replaced`                  | `string` | The date and time the battery was last replaced                                    |
+| `battery_last_reported`                  | `string` | The date and time the battery was last reported                                    |
+| `device_id`                              | `string` | The device_id of the device                                                        |
+| `device_name`                            | `string` | The name of the device, if you have renamed the battery note it will use this name |
+| `source_entity_id`                       | `string` | The entity_id the battery note is associated with                                  |
