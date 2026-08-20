@@ -11355,6 +11355,12 @@
         },
         {
             "manufacturer": "Tuya",
+            "model": "TH09Z",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tuya",
             "model": "Thermostat radiator valve",
             "model_id": "TV02-Zigbee",
             "battery_type": "AA",
@@ -13325,12 +13331,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "TH09Z",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
