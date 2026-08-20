@@ -19,6 +19,7 @@ See how to use this entity in the [community contributions](./community.md)
 | `battery_type_and_quantity`              | `string` | The type of batteries with the quantity if more than 1                             |
 | `note`                                   | `string` | The note added within configuration of this battery note                           |
 | `battery_last_replaced`                  | `string` | The date and time the battery was last replaced                                    |
+| `battery_increase_threshold`             | `int`    | The device or global threshold for when the battery is increased                   |
 | `battery_low`                            | `bool`   | An indicator of whether the battery is low based on the device or global threshold |
 | `battery_low_threshold`                  | `int`    | The device or global threshold for when the battery is low                         |
 | `battery_last_reported`                  | `string` | The datetime when the battery level was last reported                              |
@@ -66,6 +67,7 @@ If you have specified a manual template then this will be created, reflecting th
 
 | <div style="width:200px">Attribute</div> | Type     | Description                                                                        |
 | ---------------------------------------- | -------- | ---------------------------------------------------------------------------------- |
+| `battery_increase_threshold`             | `int`    | The device or global threshold for when the battery is increased                   |
 | `battery_low_threshold`                  | `int`    | The device or global threshold for when the battery is low                         |
 | `battery_quantity`                       | `int`    | The quantity of batteries                                                          |
 | `battery_type`                           | `string` | The type of batteries                                                              |
