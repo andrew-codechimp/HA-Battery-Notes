@@ -35,7 +35,7 @@ theme:
     - toc.follow
     - content.code.copy
   favicon: assets/favicon.ico
-  logo: assets/logo.svg
+  logo: assets/logo-circle.svg
   palette:
     # Palette toggle for light mode
     - scheme: default
