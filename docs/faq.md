@@ -61,9 +61,9 @@ If your device has a different percentage, perhaps a max charge indicator Batter
 The best way to do this is to test in the developer tools/template section for your sensor.  
 Be aware that Home Assistant shows friendly alternatives for some sensors, so when you are seeing Normal/Low this may really be a bool, testing in the template tool will allow you to determine the correct template to use. Start by adapting one of these.
 
+Example of voltage sensor with a maximum capacity of 3 volts, with a linear percentage (3 volts = 100%, 0 volts = 0%)  
 
-Example of voltage sensor with a maximum capacity of 3 volts, with a linear percentage (3 volts = 100%, 0 volts = 0%)   
-```yaml
+``` yaml
 {% set v = states('sensor.my_sensor_voltage') %}
 {{ 
   (v | float / 3 * 100) | round(0)
@@ -71,9 +71,9 @@ Example of voltage sensor with a maximum capacity of 3 volts, with a linear perc
 }}
 ```
 
-
 Example of voltage sensor with a maximum capacity of 3 volts, where 2 volts should be equivalent to 10%  
-```yaml
+
+``` yaml
 {% set v = states('sensor.my_sensor_voltage') %}
 {{ 
   (((v | float - 2) / (3 - 2)) * 90 + 10) | round(0)

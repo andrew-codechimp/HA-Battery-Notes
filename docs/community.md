@@ -6,7 +6,7 @@
 
 Using the excellent [Battery State Card](https://github.com/maxwroc/battery-state-card) by maxwroc you can easily display devices with their batteries required where the devices battery threshold indicates it's low and show be replaced.
 
-```yaml
+``` yaml
 type: custom:battery-state-card
 secondary_info: "{attributes.battery_type_and_quantity}"
 round: 0
@@ -28,7 +28,7 @@ sort:
 This is from the excellent German blog [Smart Live](https://smart-live.net/battery-notes-batteriemanagement-mit-home-assistant/)  
 The overview video is available on YouTube [here](https://youtu.be/D403Vy2VaFA)
 
-```yaml
+``` yaml
 {% set ns_batteries = namespace(batteries={}) %}
 {% for entity_id in integration_entities('battery_notes') if entity_id is search('_battery_type$', ignorecase=False) -%}
  {% set battery_type = states[entity_id].state %}
@@ -56,7 +56,7 @@ The overview video is available on YouTube [here](https://youtu.be/D403Vy2VaFA)
 Again from the excellent [Smart Live](https://smart-live.net/battery-notes-batteriemanagement-mit-home-assistant/)  
 This requires creating a helper of type text called `Battery search` with a max length of 20, which you can then reference in the below yaml on a dashboard.
 
-```yaml
+``` yaml
 type: vertical-stack
 cards:
   - type: entities
@@ -105,7 +105,7 @@ Raise a persistent notification when a battery is low, dismiss when it's not low
 
     The template condition within the low condition will cause a notification immediately when any device has a low battery. Set this to true if you have implemented an automation to schedule the check_battery_low action and only want notifications at specific times.
 
-```yaml
+``` yaml
 alias: Battery Low Notification
 description: Battery Low Notification with auto dismiss
 mode: queued
@@ -156,7 +156,7 @@ actions:
 Call the check battery low action every day to raise events for those that are still low.  
 To be used in conjunction with a [Battery Low Notification](community.md#battery-low-notification) or similar.
 
-```yaml
+``` yaml
 alias: Daily Battery Low Check
 description: Check whether a battery is low
 mode: single
@@ -174,7 +174,7 @@ Weekly reminders are a little trickier, you will need to create a [Schedule Help
 Below I am referencing a schedule helper called maintenance which I have set to come on weekly.  
 To be used in conjunction with a [Battery Low Notification](community.md#battery-low-notification) or similar.
 
-```yaml
+``` yaml
 alias: Battery Low Check
 description: Check whether a battery is low
 mode: single
@@ -193,7 +193,7 @@ actions:
 
 If you want a single message sent to your email or other notification service you can use the Check battery low action response to build a summary.
 
-```yaml
+``` yaml
 alias: Battery Notes - Low Battery Summary
 description: Send a single summary of all low batteries daily
 triggers:
@@ -228,7 +228,7 @@ Mark a battery as replaced when there is an increase in battery level.
 
     Battery Increased events are only raised when the device has a Battery+ entity or a [Battery Low Template](./index.md#battery-low-template) is added to the Battery Notes configuration.
 
-```yaml
+``` yaml
 alias: Battery Replaced
 description: Battery Replaced
 mode: queued
@@ -245,7 +245,7 @@ actions:
 
 Send a notification when there is an increase in battery level.
 
-```yaml
+``` yaml
 alias: Battery Increased Notification
 description: Battery Increased Notification
 mode: queued
@@ -267,7 +267,7 @@ actions:
 Call the check battery last reported action every day to raise events for those not reported in the last two days.  
 To be used in conjunction with a Battery Not Reported automation.
 
-```yaml
+``` yaml
 alias: Daily Battery Not Reported Check
 description: Check whether a battery has reported
 mode: single
@@ -289,7 +289,7 @@ Respond to events raised by the check_battery_last_reported action and create no
 
     Note this cannot be run manually as it examines event triggers, use it with the [Check Battery Last Reported Daily](community.md#check-battery-last-reported-daily) or similar.
 
-```yaml
+``` yaml
 alias: Battery Not Reported
 description: Battery not reported
 mode: queued
@@ -317,7 +317,7 @@ actions:
 This script can be used to call the check battery last replaced action and get a response for those not replaced in the last 365 days.  
 It then adds all devices to a todo list.
 
-```yaml
+``` yaml
 sequence:
   - action: battery_notes.check_battery_last_replaced
     data:
@@ -344,7 +344,7 @@ description: ""
 Call the check battery last replaced action on the first of the month to raise events for those not replaced in the last 365 days.  
 To be used in conjunction with a Battery Not Replaced automation.
 
-```yaml
+``` yaml
 alias: Monthly Battery Not Replaced Check
 description: Check when a battery was last replaced
 mode: single
@@ -366,7 +366,7 @@ Respond to events raised by the check_battery_last_replaced action and create no
 
     Note this cannot be run manually as it examines event triggers, use it with the [Check Battery Last Replaced Monthly](community.md#check-battery-last-replaced-monthly) or similar.
 
-```yaml
+``` yaml
 alias: Battery Not Replaced
 description: Battery not replaced
 mode: queued
@@ -388,12 +388,11 @@ actions:
         {{ trigger.event.data.battery_quantity }}× {{ trigger.event.data.battery_type }}   
 ```
 
-
 ## Automation Tips
 
 To call the battery replaced action from an entity trigger you will need the device_id, here's an easy way to get this
 
-```yaml
+``` yaml
 actions:
   - action: battery_notes.set_battery_replaced
     data:

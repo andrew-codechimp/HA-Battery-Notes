@@ -2,7 +2,7 @@ name: Deploy docs
 on:
   push:
     paths:
-      - 'mkdocs.yaml'
+      - 'mkdocs.yml'
       - 'docs/**'
     branches:
       - main
@@ -18,7 +18,7 @@ jobs:
 
       - uses: actions/cache@v6
         with:
-          key: mkdocs-material-${{ runner.os }}-${{ hashFiles('mkdocs.yaml', 'pyproject.toml', 'uv.lock') }}
+          key: mkdocs-material-${{ runner.os }}-${{ hashFiles('mkdocs.yml', 'pyproject.toml', 'uv.lock') }}
           path: .cache
           restore-keys: |
             mkdocs-material-

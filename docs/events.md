@@ -3,6 +3,7 @@
 The following events are raised by the integration. These events can be used within automations.
 
 ## Battery Threshold
+
 `battery_notes_battery_threshold`
 
 This is fired when a device within Battery Notes has a battery level changed to either below or above the device specific or global threshold.
@@ -13,28 +14,28 @@ You can use this to send notifications in your preferred method.  An example aut
 
     Battery Threshold events are only raised when the device has a Battery+ entity or a [Battery Low Template](./index.md#battery-low-template) is added to the Battery Notes configuration.
 
-| Attribute | Type | Description |
-|-----------|------|-------------|
-| `device_id` | `string` | The device id of the device. |
-| `source_entity_id` | `string` | The entity id of the sensor associated with the battery note. |
-| `area_name` | `string` | The area name associated with the source device or entity. |
-| `device_name` | `string` | The device name (or associated sensor name if no device), if you have renamed the battery note it will use this name. |
-| `battery_low` | `bool` | Returns true if the battery has gone below the threshold, false when the battery has returned above the threshold. **Your automations will almost certainly want to examine this value and set/clear notifications or other indicators.** |
-| `battery_low_threshold` | `string` | Battery low threshold (or global if 0). |
-| `battery_type_and_quantity` | `string` | Battery type & quantity. |
-| `battery_type` | `string` | Battery type. |
-| `battery_quantity` | `int` | Battery quantity. |
-| `note` | `string` | The note added within configuration of this battery note |
-| `battery_level` | `float` | Battery level % of the device. |
-| `previous_battery_level` | `float` | Previous battery level % of the device. |
-| `battery_last_replaced` | `datetime` | The date the battery was last replaced. |
-| `reminder` | `bool` | Returns true if the event was raised by an action, false if it's from a device event. |  
+| Attribute                   | Type       | Description                                                                                                                                                                                                                               |
+| --------------------------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `device_id`                 | `string`   | The device id of the device.                                                                                                                                                                                                              |
+| `source_entity_id`          | `string`   | The entity id of the sensor associated with the battery note.                                                                                                                                                                             |
+| `area_name`                 | `string`   | The area name associated with the source device or entity.                                                                                                                                                                                |
+| `device_name`               | `string`   | The device name (or associated sensor name if no device), if you have renamed the battery note it will use this name.                                                                                                                     |
+| `battery_low`               | `bool`     | Returns true if the battery has gone below the threshold, false when the battery has returned above the threshold. **Your automations will almost certainly want to examine this value and set/clear notifications or other indicators.** |
+| `battery_low_threshold`     | `string`   | Battery low threshold (or global if 0).                                                                                                                                                                                                   |
+| `battery_type_and_quantity` | `string`   | Battery type & quantity.                                                                                                                                                                                                                  |
+| `battery_type`              | `string`   | Battery type.                                                                                                                                                                                                                             |
+| `battery_quantity`          | `int`      | Battery quantity.                                                                                                                                                                                                                         |
+| `note`                      | `string`   | The note added within configuration of this battery note                                                                                                                                                                                  |
+| `battery_level`             | `float`    | Battery level % of the device.                                                                                                                                                                                                            |
+| `previous_battery_level`    | `float`    | Previous battery level % of the device.                                                                                                                                                                                                   |
+| `battery_last_replaced`     | `datetime` | The date the battery was last replaced.                                                                                                                                                                                                   |
+| `reminder`                  | `bool`     | Returns true if the event was raised by an action, false if it's from a device event.                                                                                                                                                     |
 
 ### Automation Example
 
 See others in the [community contributions](./community.md)
 
-```yaml
+``` yaml
 alias: Battery Low Notification
 description: Battery Low Notification with auto dismiss
 mode: queued
@@ -80,6 +81,7 @@ actions:
 ```
 
 ## Battery Increased
+
 `battery_notes_battery_increased`
 
 This is fired when a device within Battery Notes has a battery level increased above the battery_increase_threshold (default 25%) if not changed within [configuration setting](./configuration.md).
@@ -91,27 +93,27 @@ An example automation below shows how to update the battery_replaced.
 
     Battery Increased events are only raised when the device has a Battery+ entity or a [Battery Low Template](./index.md#battery-low-template) is added to the Battery Notes configuration.
 
-| Attribute | Type | Description |
-|-----------|------|-------------|
-| `device_id` | `string` | The device id of the device. |
-| `source_entity_id` | `string` | The entity id of the sensor associated with the battery note. |
-| `area_name` | `string` | The area name associated with the source device or entity. |
-| `device_name` | `string` | The device name (or associated sensor name if no device), if you have renamed the battery note it will use this name. |
-| `battery_low` | `bool` | Returns true if the battery has gone below the threshold, false when the battery has returned above the threshold. |
-| `battery_low_threshold` | `string` | Battery low threshold (or global if 0). |
-| `battery_type_and_quantity` | `string` | Battery type & quantity. |
-| `battery_type` | `string` | Battery type. |
-| `battery_quantity` | `int` | Battery quantity. |
-| `note` | `string` | The note added within configuration of this battery note |
-| `battery_level` | `float` | Current battery level % of the device. |
-| `previous_battery_level` | `float` | Previous battery level % of the device. |
-| `battery_last_replaced` | `datetime` | The date the battery was last replaced. |
+| Attribute                   | Type       | Description                                                                                                           |
+| --------------------------- | ---------- | --------------------------------------------------------------------------------------------------------------------- |
+| `device_id`                 | `string`   | The device id of the device.                                                                                          |
+| `source_entity_id`          | `string`   | The entity id of the sensor associated with the battery note.                                                         |
+| `area_name`                 | `string`   | The area name associated with the source device or entity.                                                            |
+| `device_name`               | `string`   | The device name (or associated sensor name if no device), if you have renamed the battery note it will use this name. |
+| `battery_low`               | `bool`     | Returns true if the battery has gone below the threshold, false when the battery has returned above the threshold.    |
+| `battery_low_threshold`     | `string`   | Battery low threshold (or global if 0).                                                                               |
+| `battery_type_and_quantity` | `string`   | Battery type & quantity.                                                                                              |
+| `battery_type`              | `string`   | Battery type.                                                                                                         |
+| `battery_quantity`          | `int`      | Battery quantity.                                                                                                     |
+| `note`                      | `string`   | The note added within configuration of this battery note                                                              |
+| `battery_level`             | `float`    | Current battery level % of the device.                                                                                |
+| `previous_battery_level`    | `float`    | Previous battery level % of the device.                                                                               |
+| `battery_last_replaced`     | `datetime` | The date the battery was last replaced.                                                                               |
 
 ### Automation Example
 
 See others in the [community contributions](./community.md)
 
-```yaml
+``` yaml
 alias: Battery Replaced
 description: Battery Replaced
 mode: queued
@@ -128,26 +130,27 @@ actions:
 ```
 
 ## Battery Not Reported
+
 `battery_notes_battery_not_reported`
 
 This is fired from the [check_battery_last_reported](./actions.md#check-battery-last-reported) action call for each device that has not reported its battery level for the number of days specified in the action call, but only when `raise_events` is true.
 
 The action can raise multiple events quickly so when using with an automation it's important to use the `mode: queued` to handle these.
 
-| Attribute | Type | Description |
-|-----------|------|-------------|
-| `device_id` | `string` | The device id of the device. |
-| `source_entity_id` | `string` | The entity id of the sensor associated with the battery note. |
-| `area_name` | `string` | The area name associated with the source device or entity. |
-| `device_name` | `string` | The device name (or associated sensor name if no device), if you have renamed the battery note it will use this name. |
-| `battery_type_and_quantity` | `string` | Battery type & quantity. |
-| `battery_type` | `string` | Battery type. |
-| `battery_quantity` | `int` | Battery quantity. |
-| `note` | `string` | The note added within configuration of this battery note |
-| `battery_last_reported` | `datetime` | The datetime the battery was last reported. |
-| `battery_last_reported_days` | `int` | The number of days since the battery was last reported. |
-| `battery_last_reported_level` | `float` | The level of the battery when it was last reported. |
-| `battery_last_replaced` | `datetime` | The date the battery was last replaced. |
+| Attribute                     | Type       | Description                                                                                                           |
+| ----------------------------- | ---------- | --------------------------------------------------------------------------------------------------------------------- |
+| `device_id`                   | `string`   | The device id of the device.                                                                                          |
+| `source_entity_id`            | `string`   | The entity id of the sensor associated with the battery note.                                                         |
+| `area_name`                   | `string`   | The area name associated with the source device or entity.                                                            |
+| `device_name`                 | `string`   | The device name (or associated sensor name if no device), if you have renamed the battery note it will use this name. |
+| `battery_type_and_quantity`   | `string`   | Battery type & quantity.                                                                                              |
+| `battery_type`                | `string`   | Battery type.                                                                                                         |
+| `battery_quantity`            | `int`      | Battery quantity.                                                                                                     |
+| `note`                        | `string`   | The note added within configuration of this battery note                                                              |
+| `battery_last_reported`       | `datetime` | The datetime the battery was last reported.                                                                           |
+| `battery_last_reported_days`  | `int`      | The number of days since the battery was last reported.                                                               |
+| `battery_last_reported_level` | `float`    | The level of the battery when it was last reported.                                                                   |
+| `battery_last_replaced`       | `datetime` | The date the battery was last replaced.                                                                               |
 
 ### Automation Example
 
@@ -155,7 +158,7 @@ See others in the [community contributions](./community.md)
 
 Note this cannot be run manually as it examines event triggers.
 
-```yaml
+``` yaml
 alias: Battery Not Reported
 description: Battery not reported
 mode: queued
@@ -179,28 +182,29 @@ actions:
 ```
 
 ## Battery Replaced
+
 `battery_notes_battery_replaced`
 
 This is fired when the battery is replaced, either by a button press or the action.
 
 This can be useful for adding batteries to a shopping list or inventory system.
 
-| Attribute | Type | Description |
-|-----------|------|-------------|
-| `device_id` | `string` | The device id of the device. |
-| `source_entity_id` | `string` | The entity id of the sensor associated with the battery note. |
-| `area_name` | `string` | The area name associated with the source device or entity. |
-| `device_name` | `string` | The device name (or associated sensor name if no device), if you have renamed the battery note it will use this name. |
-| `battery_type_and_quantity` | `string` | Battery type & quantity. |
-| `battery_type` | `string` | Battery type. |
-| `battery_quantity` | `int` | Battery quantity. |
-| `note` | `string` | The note added within configuration of this battery note |
+| Attribute                   | Type     | Description                                                                                                           |
+| --------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------- |
+| `device_id`                 | `string` | The device id of the device.                                                                                          |
+| `source_entity_id`          | `string` | The entity id of the sensor associated with the battery note.                                                         |
+| `area_name`                 | `string` | The area name associated with the source device or entity.                                                            |
+| `device_name`               | `string` | The device name (or associated sensor name if no device), if you have renamed the battery note it will use this name. |
+| `battery_type_and_quantity` | `string` | Battery type & quantity.                                                                                              |
+| `battery_type`              | `string` | Battery type.                                                                                                         |
+| `battery_quantity`          | `int`    | Battery quantity.                                                                                                     |
+| `note`                      | `string` | The note added within configuration of this battery note                                                              |
 
 ### Automation Example
 
 Note this cannot be run manually as it examines event triggers.
 
-```yaml
+``` yaml
 alias: Battery Replaced
 description: Battery replaced
 mode: queued
@@ -219,6 +223,7 @@ actions:
 ```
 
 ## Battery Not Replaced
+
 `battery_notes_battery_not_replaced`
 
 This is fired from the [check_battery_last_replaced](./actions.md#check-battery-last-replaced) action call for each device that has not had its battery replaced for the number of days specified in the action call, but only when `raise_events` is true.
@@ -227,20 +232,20 @@ If you do not want an event raised for certain devices such as rechargeable then
 
 The action can raise multiple events quickly so when using with an automation it's important to use the `mode: queued` to handle these.
 
-| Attribute | Type | Description |
-|-----------|------|-------------|
-| `device_id` | `string` | The device id of the device. |
-| `source_entity_id` | `string` | The entity id of the sensor associated with the battery note. |
-| `area_name` | `string` | The area name associated with the source device or entity. |
-| `device_name` | `string` | The device name (or associated sensor name if no device), if you have renamed the battery note it will use this name. |
-| `battery_type_and_quantity` | `string` | Battery type & quantity. |
-| `battery_type` | `string` | Battery type. |
-| `battery_quantity` | `int` | Battery quantity. |
-| `note` | `string` | The note added within configuration of this battery note |
-| `battery_last_reported` | `datetime` | The datetime the battery was last reported. |
-| `battery_last_reported_level` | `float` | The level of the battery when it was last reported. |
-| `battery_last_replaced` | `datetime` | The date the battery was last replaced. |
-| `battery_last_replaced_days` | `int` | The number of days since the battery was last replaced. |
+| Attribute                     | Type       | Description                                                                                                           |
+| ----------------------------- | ---------- | --------------------------------------------------------------------------------------------------------------------- |
+| `device_id`                   | `string`   | The device id of the device.                                                                                          |
+| `source_entity_id`            | `string`   | The entity id of the sensor associated with the battery note.                                                         |
+| `area_name`                   | `string`   | The area name associated with the source device or entity.                                                            |
+| `device_name`                 | `string`   | The device name (or associated sensor name if no device), if you have renamed the battery note it will use this name. |
+| `battery_type_and_quantity`   | `string`   | Battery type & quantity.                                                                                              |
+| `battery_type`                | `string`   | Battery type.                                                                                                         |
+| `battery_quantity`            | `int`      | Battery quantity.                                                                                                     |
+| `note`                        | `string`   | The note added within configuration of this battery note                                                              |
+| `battery_last_reported`       | `datetime` | The datetime the battery was last reported.                                                                           |
+| `battery_last_reported_level` | `float`    | The level of the battery when it was last reported.                                                                   |
+| `battery_last_replaced`       | `datetime` | The date the battery was last replaced.                                                                               |
+| `battery_last_replaced_days`  | `int`      | The number of days since the battery was last replaced.                                                               |
 
 ### Automation Example
 
@@ -248,7 +253,7 @@ See others in the [community contributions](./community.md)
 
 Note this cannot be run manually as it examines event triggers.
 
-```yaml
+``` yaml
 alias: Battery Not Replaced
 description: Battery not replaced
 mode: queued

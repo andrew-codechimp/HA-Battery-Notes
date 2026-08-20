@@ -49,8 +49,9 @@ This is for where a device does not have a typical battery percentage (or it is 
 Specifying a template for devices without a typical battery percentage will create a battery+ sensor.  
 You can specify a template that must return a percentage (0-100).
 
-Example of voltage sensor with a maximum capacity of 3 volts, with a linear percentage (3 volts = 100%, 0 volts = 0%)   
-```yaml
+Example of voltage sensor with a maximum capacity of 3 volts, with a linear percentage (3 volts = 100%, 0 volts = 0%)  
+
+``` yaml
 {% set v = states('sensor.my_sensor_voltage') %}
 {{ 
   (v | float / 3 * 100) | round(0)
@@ -58,9 +59,9 @@ Example of voltage sensor with a maximum capacity of 3 volts, with a linear perc
 }}
 ```
 
-
 Example of voltage sensor with a maximum capacity of 3 volts, where 2 volts should be equivalent to 10%  
-```yaml
+
+``` yaml
 {% set v = states('sensor.my_sensor_voltage') %}
 {{ 
   (((v | float - 2) / (3 - 2)) * 90 + 10) | round(0)

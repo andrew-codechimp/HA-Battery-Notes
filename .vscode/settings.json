@@ -30,5 +30,8 @@
     ],
     "python.analysis.extraPaths": [
         "./custom_components/battery_notes"
-    ]
+    ],
+    "[python-markdown]": {
+        "editor.defaultFormatter": "zensical.zensical-studio"
+    }
 }
