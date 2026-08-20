@@ -7,6 +7,7 @@ __pycache__
 .venv
 .ruff_cache
 node_modules/
+site
 
 # misc
 .coverage
