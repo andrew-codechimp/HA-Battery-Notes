@@ -101,7 +101,7 @@ Raise a persistent notification when a battery is low, dismiss when it's not low
 
 !!! note
 
-    Battery Threshold events are only raised when the device has a Battery+ entity or a [Battery Low Template](./index.md/#battery-low-template) is added to the Battery Notes configuration.
+    Battery Threshold events are only raised when the device has a Battery+ entity or a [Battery Low Template](./index.md#battery-low-template) is added to the Battery Notes configuration.
 
     The template condition within the low condition will cause a notification immediately when any device has a low battery. Set this to true if you have implemented an automation to schedule the check_battery_low action and only want notifications at specific times.
 
@@ -154,7 +154,7 @@ actions:
 ### Check Battery Low daily reminder
 
 Call the check battery low action every day to raise events for those that are still low.  
-To be used in conjunction with a [Battery Low Notification](community.md/#battery-low-notification) or similar.
+To be used in conjunction with a [Battery Low Notification](community.md#battery-low-notification) or similar.
 
 ```yaml
 alias: Daily Battery Low Check
@@ -172,7 +172,7 @@ actions:
 
 Weekly reminders are a little trickier, you will need to create a [Schedule Helper](https://www.home-assistant.io/integrations/schedule/) for when you want the battery check to occur then use this automation for when the helper is on.  
 Below I am referencing a schedule helper called maintenance which I have set to come on weekly.  
-To be used in conjunction with a [Battery Low Notification](community.md/#battery-low-notification) or similar.
+To be used in conjunction with a [Battery Low Notification](community.md#battery-low-notification) or similar.
 
 ```yaml
 alias: Battery Low Check
@@ -226,7 +226,7 @@ Mark a battery as replaced when there is an increase in battery level.
 
 !!! note
 
-    Battery Increased events are only raised when the device has a Battery+ entity or a [Battery Low Template](./index.md/#battery-low-template) is added to the Battery Notes configuration.
+    Battery Increased events are only raised when the device has a Battery+ entity or a [Battery Low Template](./index.md#battery-low-template) is added to the Battery Notes configuration.
 
 ```yaml
 alias: Battery Replaced
@@ -287,7 +287,7 @@ Respond to events raised by the check_battery_last_reported action and create no
 
 !!! info
 
-    Note this cannot be run manually as it examines event triggers, use it with the [Check Battery Last Reported Daily](community.md/#check-battery-last-reported-daily) or similar.
+    Note this cannot be run manually as it examines event triggers, use it with the [Check Battery Last Reported Daily](community.md#check-battery-last-reported-daily) or similar.
 
 ```yaml
 alias: Battery Not Reported
@@ -339,7 +339,7 @@ alias: Add not replaced to maintenance list
 description: ""
 ```
 
-### Check Battery Last Replaced Monthly - Raising Events
+### Check Battery Last Replaced Monthly
 
 Call the check battery last replaced action on the first of the month to raise events for those not replaced in the last 365 days.  
 To be used in conjunction with a Battery Not Replaced automation.
@@ -364,7 +364,7 @@ Respond to events raised by the check_battery_last_replaced action and create no
 
 !!! info
 
-    Note this cannot be run manually as it examines event triggers, use it with the [Check Battery Last Reported Daily](community.md/#check-battery-last-reported-monthly) or similar.
+    Note this cannot be run manually as it examines event triggers, use it with the [Check Battery Last Replaced Monthly](community.md#check-battery-last-replaced-monthly) or similar.
 
 ```yaml
 alias: Battery Not Replaced

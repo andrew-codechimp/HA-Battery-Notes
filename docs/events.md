@@ -11,7 +11,7 @@ You can use this to send notifications in your preferred method.  An example aut
 
 !!! note
 
-    Battery Threshold events are only raised when the device has a Battery+ entity or a [Battery Low Template](./index.md/#battery-low-template) is added to the Battery Notes configuration.
+    Battery Threshold events are only raised when the device has a Battery+ entity or a [Battery Low Template](./index.md#battery-low-template) is added to the Battery Notes configuration.
 
 | Attribute | Type | Description |
 |-----------|------|-------------|
@@ -89,7 +89,7 @@ An example automation below shows how to update the battery_replaced.
 
 !!! note
 
-    Battery Increased events are only raised when the device has a Battery+ entity or a [Battery Low Template](./index.md/#battery-low-template) is added to the Battery Notes configuration.
+    Battery Increased events are only raised when the device has a Battery+ entity or a [Battery Low Template](./index.md#battery-low-template) is added to the Battery Notes configuration.
 
 | Attribute | Type | Description |
 |-----------|------|-------------|
@@ -130,7 +130,7 @@ actions:
 ## Battery Not Reported
 `battery_notes_battery_not_reported`
 
-This is fired from the [check_battery_last_reported](./actions.md/#check-battery-last-reported) action call for each device that has not reported its battery level for the number of days specified in the action call, but only when `raise_events` is true.
+This is fired from the [check_battery_last_reported](./actions.md#check-battery-last-reported) action call for each device that has not reported its battery level for the number of days specified in the action call, but only when `raise_events` is true.
 
 The action can raise multiple events quickly so when using with an automation it's important to use the `mode: queued` to handle these.
 
@@ -221,7 +221,7 @@ actions:
 ## Battery Not Replaced
 `battery_notes_battery_not_replaced`
 
-This is fired from the [check_battery_last_replaced](./actions.md/#check-battery-last-replaced) action call for each device that has not had its battery replaced for the number of days specified in the action call, but only when `raise_events` is true.
+This is fired from the [check_battery_last_replaced](./actions.md#check-battery-last-replaced) action call for each device that has not had its battery replaced for the number of days specified in the action call, but only when `raise_events` is true.
 
 If you do not want an event raised for certain devices such as rechargeable then disable the battery_last_replaced sensor entity for that device.
 

@@ -27,7 +27,7 @@ See how to use this entity in the [community contributions](./community.md)
 | `source_entity_id` | `string` | The entity_id the battery note is associated with |
 
 ### Adding a battery percentage
-If your device does not have a battery percentage but does have a battery voltage or other indicative sensor you can create a template to add a calculated percentage. Battery Notes will create the Battery+ sensor from this. More details [here](index.md/#battery-percentage-template) 
+If your device does not have a battery percentage but does have a battery voltage or other indicative sensor you can create a template to add a calculated percentage. Battery Notes will create the Battery+ sensor from this. More details [here](index.md#battery-percentage-template) 
 
 ## Battery Type
 `sensor.{{device_name}}_battery_type`

@@ -50,7 +50,7 @@ Yes, you can turn off enable replaced within configuration settings. _new_ devic
 
 ## My device doesn't show a Battery+ sensor
 
-This is usually because the device does not have a battery percentage, you can create one if your device has a voltage, low indicator or similar by following [these instructions](index.md/#battery-percentage-template)
+This is usually because the device does not have a battery percentage, you can create one if your device has a voltage, low indicator or similar by following [these instructions](index.md#battery-percentage-template)
 
 ## My device is not picking up the proper battery percentage for Battery+
 
