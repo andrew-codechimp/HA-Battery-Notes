@@ -1,4 +1,4 @@
-## 2296 Devices in library
+## 2297 Devices in library
 
 This file is auto generated, do not modify
 
@@ -410,6 +410,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |BLOOMIN8                                        |E-Ink Canvas                                                                                  |Rechargeable              |                                                                        |
 |Blueforcer                                      |AWTRIX 3                                                                                      |Rechargeable              |                                                                        |
 |Blueforcer                                      |AWTRIX Light                                                                                  |Rechargeable              |                                                                        |
+|Blueforcer                                      |AWTRIX NG                                                                                     |Rechargeable              |                                                                        |
 |BlueMaestro                                     |Tempo Disc THD                                                                                |CR2032                    |                                                                        |
 |Bold Security Technology B.V.                   |Bold Elite                                                                                    |CR123A                    |Elite (4097)                                                            |
 |Bosch                                           |BSEN-M                                                                                        |2× CR123A                 |                                                                        |

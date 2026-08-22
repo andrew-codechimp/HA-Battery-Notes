@@ -2325,6 +2325,11 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "Blueforcer",
+            "model": "AWTRIX NG",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "BlueMaestro",
             "model": "Tempo Disc THD",
             "battery_type": "CR2032"
@@ -13330,11 +13335,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Blueforcer",
-            "model": "AWTRIX NG",
             "battery_type": "Rechargeable"
         }
     ]
