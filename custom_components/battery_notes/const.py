@@ -104,25 +104,33 @@ WINDOW_SIZE_UNIT_TIME = 2
 
 ISSUE_DEPRECATED_YAML = "deprecated_yaml"
 
-SERVICE_BATTERY_REPLACED_SCHEMA = vol.Schema({
-    vol.Optional(ATTR_DEVICE_ID): cv.string,
-    vol.Optional(ATTR_SOURCE_ENTITY_ID): cv.string,
-    vol.Optional(SERVICE_DATA_DATE_TIME_REPLACED): cv.datetime,
-})
+SERVICE_BATTERY_REPLACED_SCHEMA = vol.Schema(
+    {
+        vol.Optional(ATTR_DEVICE_ID): cv.string,
+        vol.Optional(ATTR_SOURCE_ENTITY_ID): cv.string,
+        vol.Optional(SERVICE_DATA_DATE_TIME_REPLACED): cv.datetime,
+    }
+)
 
-SERVICE_CHECK_BATTERY_LAST_REPLACED_SCHEMA = vol.Schema({
-    vol.Required(SERVICE_DATA_DAYS_LAST_REPLACED): cv.positive_int,
-    vol.Optional(SERVICE_DATA_RAISE_EVENTS, default=True): cv.boolean,
-})
+SERVICE_CHECK_BATTERY_LAST_REPLACED_SCHEMA = vol.Schema(
+    {
+        vol.Required(SERVICE_DATA_DAYS_LAST_REPLACED): cv.positive_int,
+        vol.Optional(SERVICE_DATA_RAISE_EVENTS, default=True): cv.boolean,
+    }
+)
 
-SERVICE_CHECK_BATTERY_LAST_REPORTED_SCHEMA = vol.Schema({
-    vol.Required(SERVICE_DATA_DAYS_LAST_REPORTED): cv.positive_int,
-    vol.Optional(SERVICE_DATA_RAISE_EVENTS, default=True): cv.boolean,
-})
+SERVICE_CHECK_BATTERY_LAST_REPORTED_SCHEMA = vol.Schema(
+    {
+        vol.Required(SERVICE_DATA_DAYS_LAST_REPORTED): cv.positive_int,
+        vol.Optional(SERVICE_DATA_RAISE_EVENTS, default=True): cv.boolean,
+    }
+)
 
-SERVICE_CHECK_BATTERY_LOW_SCHEMA = vol.Schema({
-    vol.Optional(SERVICE_DATA_RAISE_EVENTS, default=True): cv.boolean,
-})
+SERVICE_CHECK_BATTERY_LOW_SCHEMA = vol.Schema(
+    {
+        vol.Optional(SERVICE_DATA_RAISE_EVENTS, default=True): cv.boolean,
+    }
+)
 
 PLATFORMS: Final = [
     Platform.BINARY_SENSOR,
