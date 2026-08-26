@@ -3,11 +3,13 @@
 from __future__ import annotations
 
 import logging
-from typing import Any
+from typing import Any, cast
+
+from awesomeversion import AwesomeVersion
 
 import homeassistant.helpers.device_registry as dr
 from homeassistant.config_entries import SOURCE_IGNORE, SOURCE_INTEGRATION_DISCOVERY
-from homeassistant.const import CONF_DEVICE_ID
+from homeassistant.const import CONF_DEVICE_ID, __version__
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers import discovery_flow
 from homeassistant.loader import Integration, async_get_integration
@@ -104,7 +106,15 @@ class DiscoveryManager:
         if library.is_loaded:
             await self.initialize_existing_devices()
 
-            for device_entry in list(device_registry.devices.values()):
+            # # Use .devices for HA 2026.9+ where typing is correct, otherwise values
+            if AwesomeVersion(__version__) >= AwesomeVersion("2026.8.9"):
+                device_entries = device_registry.devices
+            else:
+                device_entries: list[dr.DeviceEntry] = list(  # type: ignore[no-redef]
+                    device_registry.devices.values()
+                )
+
+            for device_entry in cast(list[dr.DeviceEntry], device_entries):
                 if not self.should_process_device(device_entry):
                     continue
 
