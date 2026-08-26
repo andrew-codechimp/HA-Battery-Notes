@@ -11806,6 +11806,11 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "TUYATEC-rwjlk9td",
+            "model": "RH3040",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "TUYATEC-vhrcfp2v",
             "model": "RH3001",
             "battery_type": "CR2032"
@@ -13336,11 +13341,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "TUYATEC-rwjlk9td",
-            "model": "RH3040",
-            "battery_type": "CR2450"
         }
     ]
 }
