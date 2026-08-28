@@ -4,7 +4,7 @@
   "remoteUser": "vscode",
   "features": {
     "ghcr.io/devcontainers/features/git:1": {},
-    "ghcr.io/devcontainers/features/node:1": {
+    "ghcr.io/devcontainers/features/node:2": {
     "version": "lts"
   },
   "ghcr.io/devcontainers-extra/features/apt-packages:1": {
