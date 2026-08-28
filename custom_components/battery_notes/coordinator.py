@@ -64,6 +64,7 @@ from .const import (
     DEFAULT_BATTERY_INCREASE_THRESHOLD,
     DEFAULT_BATTERY_LOW_THRESHOLD,
     DOMAIN,
+    EVENT_BATTERY_CHARGED,
     EVENT_BATTERY_INCREASED,
     EVENT_BATTERY_THRESHOLD,
     LAST_REPLACED,
@@ -145,6 +146,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
     _source_entity_name: str | None = None
     _outlier_filter: LowOutlierFilter | None = None
     _link_retry_delay: timedelta = timedelta(minutes=2)
+    _charged_event_raised: bool = False
 
     def __init__(  # noqa: PLR0912
         self,
@@ -731,6 +733,27 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                     self.wrapped_battery_charging.entity_id,
                 )
                 # TODO: Raise event if above threshold and not already raised
+                if not self._charged_event_raised and self._current_battery_level > 80:
+                    self.hass.bus.async_fire(
+                        EVENT_BATTERY_CHARGED,
+                        {
+                            ATTR_DEVICE_ID: self.device_id or "",
+                            ATTR_SOURCE_ENTITY_ID: self.source_entity_id or "",
+                            ATTR_AREA_NAME: self.area_name,
+                            ATTR_DEVICE_NAME: self.device_name,
+                            ATTR_BATTERY_LOW: self.battery_low,
+                            ATTR_BATTERY_INCREASE_THRESHOLD: self.battery_increased_threshold,
+                            ATTR_BATTERY_LOW_THRESHOLD: self.battery_low_threshold,
+                            ATTR_BATTERY_TYPE_AND_QUANTITY: self.battery_type_and_quantity,
+                            ATTR_BATTERY_TYPE: self.battery_type,
+                            ATTR_NOTE: self.battery_note,
+                            ATTR_BATTERY_QUANTITY: self.battery_quantity,
+                            ATTR_BATTERY_LEVEL: self.rounded_battery_level,
+                            ATTR_PREVIOUS_BATTERY_LEVEL: self.rounded_previous_battery_level,
+                            ATTR_BATTERY_LAST_REPLACED: self.last_replaced,
+                        },
+                    )
+                    self._charged_event_raised = True
 
         if self._current_battery_level not in [STATE_UNAVAILABLE, STATE_UNKNOWN]:
             self.last_reported = dt_util.utcnow()
