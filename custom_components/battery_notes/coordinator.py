@@ -16,6 +16,7 @@ from homeassistant.config_entries import ConfigEntry, ConfigSubentry
 from homeassistant.const import (
     CONF_DEVICE_ID,
     PERCENTAGE,
+    STATE_ON,
     STATE_UNAVAILABLE,
     STATE_UNKNOWN,
 )
@@ -131,6 +132,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
     battery_percentage_template: str | None
     wrapped_battery: RegistryEntry | None = None
     wrapped_battery_low: RegistryEntry | None = None
+    wrapped_battery_charging: RegistryEntry | None = None
     is_orphaned: bool = False
     last_wrapped_battery_state_write: datetime = dt_util.utcnow() - timedelta(hours=2)
     _current_battery_level: str | None = None
@@ -337,6 +339,16 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                     candidates,
                     key=lambda e: (e.domain != SENSOR_DOMAIN, e.entity_id),
                 )
+
+                for entity in sorted_entities:
+                    device_class = entity.device_class or entity.original_device_class
+
+                    if entity.domain == BINARY_SENSOR_DOMAIN:
+                        if device_class == BinarySensorDeviceClass.BATTERY_CHARGING:
+                            self.wrapped_battery_charging = entity_registry.async_get(
+                                entity.entity_id
+                            )
+                            break
 
                 for entity in sorted_entities:
                     device_class = entity.device_class or entity.original_device_class
@@ -708,6 +720,17 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                     )
 
                     _LOGGER.debug("battery_increased event fired")
+
+        if self.wrapped_battery_charging and self.wrapped_battery_charging.entity_id:
+            battery_charging_state = self.hass.states.get(
+                self.wrapped_battery_charging.entity_id
+            )
+            if battery_charging_state and battery_charging_state.state == STATE_ON:
+                _LOGGER.debug(
+                    "Battery charging detected for %s",
+                    self.wrapped_battery_charging.entity_id,
+                )
+                # TODO: Raise event if above threshold and not already raised
 
         if self._current_battery_level not in [STATE_UNAVAILABLE, STATE_UNKNOWN]:
             self.last_reported = dt_util.utcnow()

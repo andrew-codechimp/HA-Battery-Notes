@@ -18,6 +18,8 @@ from homeassistant.components.binary_sensor import (
 from homeassistant.const import (
     CONF_DEVICE_ID,
     CONF_NAME,
+    STATE_OFF,
+    STATE_ON,
     STATE_UNAVAILABLE,
     STATE_UNKNOWN,
 )
@@ -91,13 +93,11 @@ class BatteryNotesBinarySensorEntityDescription(
     unique_id_suffix: str
 
 
-PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
-    {
-        vol.Optional(CONF_NAME): cv.string,
-        vol.Optional(CONF_DEVICE_ID): cv.string,
-        vol.Optional(CONF_SOURCE_ENTITY_ID): cv.string,
-    }
-)
+PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
+    vol.Optional(CONF_NAME): cv.string,
+    vol.Optional(CONF_DEVICE_ID): cv.string,
+    vol.Optional(CONF_SOURCE_ENTITY_ID): cv.string,
+})
 
 
 async def async_setup_entry(
@@ -213,21 +213,19 @@ class BatteryNotesBatteryLowBaseSensor(BatteryNotesEntity, BinarySensorEntity):
 
         self.enable_replaced = hass.data[MY_KEY].enable_replaced
 
-    _unrecorded_attributes = frozenset(
-        {
-            ATTR_BATTERY_INCREASE_THRESHOLD,
-            ATTR_BATTERY_LOW_THRESHOLD,
-            ATTR_BATTERY_QUANTITY,
-            ATTR_BATTERY_TYPE,
-            ATTR_BATTERY_TYPE_AND_QUANTITY,
-            ATTR_NOTE,
-            ATTR_BATTERY_LAST_REPLACED,
-            ATTR_BATTERY_LAST_REPORTED,
-            ATTR_DEVICE_ID,
-            ATTR_SOURCE_ENTITY_ID,
-            ATTR_DEVICE_NAME,
-        }
-    )
+    _unrecorded_attributes = frozenset({
+        ATTR_BATTERY_INCREASE_THRESHOLD,
+        ATTR_BATTERY_LOW_THRESHOLD,
+        ATTR_BATTERY_QUANTITY,
+        ATTR_BATTERY_TYPE,
+        ATTR_BATTERY_TYPE_AND_QUANTITY,
+        ATTR_NOTE,
+        ATTR_BATTERY_LAST_REPLACED,
+        ATTR_BATTERY_LAST_REPORTED,
+        ATTR_DEVICE_ID,
+        ATTR_SOURCE_ENTITY_ID,
+        ATTR_DEVICE_NAME,
+    })
 
     @property
     def extra_state_attributes(self) -> dict[str, Any] | None:
@@ -637,7 +635,7 @@ class BatteryNotesBatteryBinaryLowSensor(BatteryNotesNonTemplateBatteryLowSensor
                 STATE_UNAVAILABLE,
                 STATE_UNKNOWN,
             ]
-            or wrapped_battery_low_state.state not in ["on", "off"]
+            or wrapped_battery_low_state.state not in [STATE_ON, STATE_OFF]
         ):
             self._attr_is_on = None
             self._attr_available = False
@@ -646,7 +644,7 @@ class BatteryNotesBatteryBinaryLowSensor(BatteryNotesNonTemplateBatteryLowSensor
 
         self.coordinator.last_reported = dt_util.utcnow()
         self.coordinator.battery_low_binary_state = (
-            wrapped_battery_low_state.state == "on"
+            wrapped_battery_low_state.state == STATE_ON
         )
 
         await self.coordinator.async_request_refresh()
@@ -803,14 +801,14 @@ class BatteryNotesBatteryBinaryLowSensor(BatteryNotesNonTemplateBatteryLowSensor
                 STATE_UNAVAILABLE,
                 STATE_UNKNOWN,
             ]
-            or wrapped_battery_low_state.state not in ["on", "off"]
+            or wrapped_battery_low_state.state not in [STATE_ON, STATE_OFF]
         ):
             self._attr_is_on = None
             self._attr_available = False
             self.async_write_ha_state()
             return
 
-        self._attr_is_on = self.coordinator.battery_low_binary_state == "on"
+        self._attr_is_on = self.coordinator.battery_low_binary_state == STATE_ON
 
         self.async_write_ha_state()
 
