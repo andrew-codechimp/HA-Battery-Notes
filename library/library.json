@@ -9543,6 +9543,13 @@
         {
             "manufacturer": "SONOFF",
             "model": "Zigbee thermostatic radiator valve",
+            "model_id": "TRV-ZBT",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "SONOFF",
+            "model": "Zigbee thermostatic radiator valve",
             "model_id": "TRVZB",
             "battery_type": "AA",
             "battery_quantity": 3
@@ -13341,13 +13348,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "SONOFF",
-            "model": "Zigbee thermostatic radiator valve",
-            "model_id": "TRV-ZBT",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
