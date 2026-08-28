@@ -3676,6 +3676,13 @@
         },
         {
             "manufacturer": "eQ-3",
+            "model": "HmIP-eTRV-E",
+            "model_id": "Homematic IP Heizk\u00f6rperthermostat - Evo",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "eQ-3",
             "model": "HmIP-eTRV-E-S",
             "model_id": "HmIP-eTRV-E-S",
             "hw_version": "1.4.8",
@@ -13354,13 +13361,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "eQ-3",
-            "model": "HmIP-eTRV-E",
-            "model_id": "Homematic IP Heizk\u00f6rperthermostat - Evo",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
