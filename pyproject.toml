@@ -123,6 +123,7 @@ ignore = [
   "TD003",  # Missing issue link TODO
   "TRY400",  # Use `logging.exception` instead of `logging.error`
   "CPY001",  # Missing copyright notice at top of file
+  "FIX004",  # HACK, used for temporary HA version checks
 
   # TODO: Temporary ignores, to review
   "ANN001",  # Missing type annotation for function argument

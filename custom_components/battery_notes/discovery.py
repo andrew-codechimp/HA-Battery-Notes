@@ -106,7 +106,7 @@ class DiscoveryManager:
         if library.is_loaded:
             await self.initialize_existing_devices()
 
-            # # Use .devices for HA 2026.9+ where typing is correct, otherwise values
+            # HACK: HA backward compatibility use .devices for HA 2026.9+ where typing is correct, otherwise values
             if AwesomeVersion(__version__) >= AwesomeVersion("2026.8.9"):
                 device_entries = device_registry.devices
             else:
@@ -130,13 +130,10 @@ class DiscoveryManager:
                     model_info
                 )
 
-                if not device_battery_details:
+                if not device_battery_details or device_battery_details.is_manual:
                     continue
 
-                if device_battery_details.is_manual:
-                    continue
-
-                # Change to device_entry.config_entry_id when HA 2026.8 is minimum
+                # HACK: Change to device_entry.config_entry_id when HA 2026.8 is minimum
                 config_entry_id = next(iter(device_entry.config_entries))
                 config_entry = self.hass.config_entries.async_get_entry(config_entry_id)
 
@@ -173,6 +170,15 @@ class DiscoveryManager:
 
     def should_process_device(self, device_entry: dr.DeviceEntry) -> bool:
         """Do some validations on the registry entry to see if it qualifies for discovery."""
+
+        # If has a parent device, use that for library search, child devices do not have manufacturer/model info
+        # HACK: Change to use dr.AnyDeviceEntry type and look for isinstance ChildDeviceEntry with 2026.9+
+        if hasattr(device_entry, "parent_device_id"):
+            _LOGGER.debug(
+                "%s: Is a child device, skipping new discovery",
+                device_entry.id,
+            )
+            return False
 
         if is_composite_device_id(self.hass, device_entry.id):
             _LOGGER.debug(
