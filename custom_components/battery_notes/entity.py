@@ -61,7 +61,7 @@ class BatteryNotesEntity(CoordinatorEntity[BatteryNotesSubentryCoordinator]):
         """Set up device association."""
 
         device_registry = dr.async_get(hass)
-        # HA 2026.8 splits composite devices into multiple devices, so we need to check if the device_id is a composite device
+        # HACK: HA 2026.8 splits composite devices into multiple devices, so we need to check if the device_id is a composite device
         if (
             self.coordinator.device_id
             and (device_entry := device_registry.async_get(self.coordinator.device_id))

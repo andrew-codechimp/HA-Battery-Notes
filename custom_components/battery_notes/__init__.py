@@ -183,7 +183,7 @@ async def async_setup_entry(
         if subentry.subentry_type == SUBENTRY_BATTERY_NOTE:
             device_id = subentry.data.get(CONF_DEVICE_ID, None)
 
-            # HA 2026.8 splits composite devices into multiple devices, so we need to check if the device_id is a composite device
+            # HACK: HA 2026.8 splits composite devices into multiple devices, so we need to check if the device_id is a composite device
             if device_id is not None and is_composite_device_id(hass, device_id):
                 # The device was split into one device per config entry; ask the user to
                 # select a device again
@@ -431,7 +431,7 @@ async def async_migrate_integration(hass: HomeAssistant, config: ConfigType) -> 
 
         if source_device_id:
             try:
-                # New method in 2026.8 - remove legacy when reach minimum version
+                # HACK: New method in 2026.8 - remove legacy when reach minimum version
                 remove_helper_devices = getattr(
                     helper_integration, "async_remove_helper_devices", None
                 )
