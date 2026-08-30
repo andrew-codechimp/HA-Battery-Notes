@@ -314,6 +314,8 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                     device_class,
                     entity.unit_of_measurement,
                 )
+            if device_class == BinarySensorDeviceClass.BATTERY:
+                self.wrapped_battery_low = entity
 
             self.device_name = self.subentry.title
         else:

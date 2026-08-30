@@ -295,6 +295,7 @@ class BatteryNotesNonTemplateBatteryLowSensor(BatteryNotesBatteryLowBaseSensor):
                 self.entity_id,
                 hidden_by=er.RegistryEntryHider.INTEGRATION
                 if self.hass.data[MY_KEY].hide_battery_low
+                and self.coordinator.wrapped_battery is not None
                 else None,
             )
 
@@ -592,9 +593,7 @@ class BatteryNotesBatteryWrappedLowSensor(BatteryNotesNonTemplateBatteryLowSenso
         )
 
 
-class BatteryNotesBatteryBinaryLowSensor(
-    BatteryNotesNonTemplateBatteryLowSensor, RestoreEntity
-):
+class BatteryNotesBatteryBinaryLowSensor(BatteryNotesNonTemplateBatteryLowSensor):
     """Represents a low battery binary sensor from a binary sensor."""
 
     _attr_should_poll = False
@@ -722,6 +721,8 @@ class BatteryNotesBatteryBinaryLowSensor(
 
     async def async_added_to_hass(self) -> None:
         """Handle added to Hass."""
+
+        await super().async_added_to_hass()
 
         @callback
         async def _async_state_changed_listener(
