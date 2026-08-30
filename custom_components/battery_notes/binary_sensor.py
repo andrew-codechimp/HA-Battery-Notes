@@ -586,13 +586,15 @@ class BatteryNotesBatteryWrappedLowSensor(BatteryNotesNonTemplateBatteryLowSenso
         self.async_write_ha_state()
 
         _LOGGER.debug(
-            "%s binary sensor battery_low set to: %s",
+            "%s binary sensor battery_low set to: %s via wrapped low sensor",
             self.coordinator.wrapped_battery.entity_id,
             self.coordinator.battery_low,
         )
 
 
-class BatteryNotesBatteryBinaryLowSensor(BatteryNotesNonTemplateBatteryLowSensor):
+class BatteryNotesBatteryBinaryLowSensor(
+    BatteryNotesNonTemplateBatteryLowSensor, RestoreEntity
+):
     """Represents a low battery binary sensor from a binary sensor."""
 
     _attr_should_poll = False
@@ -815,7 +817,7 @@ class BatteryNotesBatteryBinaryLowSensor(BatteryNotesNonTemplateBatteryLowSensor
         self.async_write_ha_state()
 
         _LOGGER.debug(
-            "%s binary sensor battery_low set to: %s",
+            "%s binary sensor battery_low set to: %s via binary low sensor",
             self.coordinator.wrapped_battery_low.entity_id,
             self.coordinator.battery_low,
         )
