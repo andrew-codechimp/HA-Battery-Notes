@@ -295,6 +295,7 @@ class BatteryNotesNonTemplateBatteryLowSensor(BatteryNotesBatteryLowBaseSensor):
                 self.entity_id,
                 hidden_by=er.RegistryEntryHider.INTEGRATION
                 if self.hass.data[MY_KEY].hide_battery_low
+                and self.coordinator.wrapped_battery is not None
                 else None,
             )
 
@@ -586,7 +587,7 @@ class BatteryNotesBatteryWrappedLowSensor(BatteryNotesNonTemplateBatteryLowSenso
         self.async_write_ha_state()
 
         _LOGGER.debug(
-            "%s binary sensor battery_low set to: %s",
+            "%s binary sensor battery_low set to: %s via wrapped low sensor",
             self.coordinator.wrapped_battery.entity_id,
             self.coordinator.battery_low,
         )
@@ -721,6 +722,8 @@ class BatteryNotesBatteryBinaryLowSensor(BatteryNotesNonTemplateBatteryLowSensor
     async def async_added_to_hass(self) -> None:
         """Handle added to Hass."""
 
+        await super().async_added_to_hass()
+
         @callback
         async def _async_state_changed_listener(
             event: Event[EventStateChangedData] | None = None,
@@ -815,7 +818,7 @@ class BatteryNotesBatteryBinaryLowSensor(BatteryNotesNonTemplateBatteryLowSensor
         self.async_write_ha_state()
 
         _LOGGER.debug(
-            "%s binary sensor battery_low set to: %s",
+            "%s binary sensor battery_low set to: %s via binary low sensor",
             self.coordinator.wrapped_battery_low.entity_id,
             self.coordinator.battery_low,
         )
