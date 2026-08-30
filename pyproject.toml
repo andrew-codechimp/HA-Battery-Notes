@@ -56,10 +56,11 @@ dev = [
     "pytest-homeassistant-custom-component",
     "pyturbojpeg",
     "ruff",
+    "zensical",
 ]
 
 docs = [
-    "mkdocs-material",
+    "zensical",
 ]
 library = [
     "pytablewriter==0.61.0",
