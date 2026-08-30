@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="513px" height="513px" viewBox="0 0 513 513" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>logo_logo</title>
+    <g id="logo" stroke="none" fill="none" transform="translate(1, 1)" fill-rule="evenodd">
+        <circle id="Oval" fill="#FFFFFF" cx="255.5" cy="255.5" r="256.5"></circle>
+        <g id="Battery-Note" transform="translate(157, 91)" stroke-width="1">
+            <g id="Battery" fill="#4CA8F2">
+                <path d="M176.055,33 L148.5,33 L148.5,0 L49.5,0 L49.5,33 L21.945,33 C9.82511116,33 0,42.8251112 0,54.945 L0,307.89 C0,320.1 9.9,330 21.945,330 L176.055,330 C188.1,330 198,320.1 198,307.89 L198,54.945 C198,42.735 188.1,33 176.055,33 Z" id="Bottom" fill-rule="nonzero"></path>
+            </g>
+            <g id="Note" transform="translate(98.9845, 135.7833) rotate(10) translate(-98.9845, -135.7833)translate(27.9704, 86.493)">
+                <rect id="Rectangle" fill="#FFF176" x="0" y="0" width="142.028269" height="98.5805085"></rect>
+                <g id="text-short" transform="translate(21.0049, 20.4773)" fill="#000000" fill-rule="nonzero">
+                    <path d="M0,0 L99.3498233,0 L99.3498233,12.3516949 L0,12.3516949 L0,0 L0,0 Z M0,24.7033898 L62.0936396,24.7033898 L62.0936396,37.0550847 L0,37.0550847 L0,24.7033898 Z" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
