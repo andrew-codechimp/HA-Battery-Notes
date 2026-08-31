@@ -1,4 +1,4 @@
-## 2301 Devices in library
+## 2302 Devices in library
 
 This file is auto generated, do not modify
 
@@ -2230,6 +2230,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Xiaomi Aqara                                    |weather.v1                                                                                    |CR2032                    |                                                                        |
 |Xiaomi Aquara                                   |sensor_magnet.aq2                                                                             |CR1632                    |                                                                        |
 |Yale                                            |420D                                                                                          |4× AA                     |                                                                        |
+|Yale                                            |Control4 module for Yale KeyFree/Keyless/Doorman/Assure/nexTouch locks                        |4× AA                     |ZYA-C4-MOD-S                                                            |
 |Yale                                            |P-KFCON-MOD-YALE                                                                              |4× AA                     |                                                                        |
 |Yale                                            |SD-L1000-CH                                                                                   |4× AA                     |                                                                        |
 |Yale                                            |TEST200228                                                                                    |4× AA                     |                                                                        |
