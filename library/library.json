@@ -13361,6 +13361,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Yale",
+            "model": "Control4 module for Yale KeyFree/Keyless/Doorman/Assure/nexTouch locks",
+            "model_id": "ZYA-C4-MOD-S",
+            "battery_type": "AA",
+            "battery_quantity": 4
         }
     ]
 }
