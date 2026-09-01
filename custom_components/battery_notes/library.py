@@ -247,6 +247,29 @@ class Library:  # pylint: disable=too-few-public-methods
                 # No generic version found when searching without specifics
                 return None
 
+        # If a search contains specific identifiers, reject entries that are
+        # incompatible with those constraints. Generic entries (without
+        # identifiers) can still be used as fallback matches.
+        if device_to_find.model_id is not None or device_to_find.hw_version is not None:
+            matching_devices = [
+                x
+                for x in matching_devices
+                if not (device_to_find.model_id is None and x.model_id is not None)
+                and not (device_to_find.hw_version is None and x.hw_version is not None)
+                and not (
+                    device_to_find.model_id is not None
+                    and x.model_id is not None
+                    and x.model_id.casefold() != device_to_find.model_id.casefold()
+                )
+                and not (
+                    device_to_find.hw_version is not None
+                    and x.hw_version is not None
+                    and x.hw_version.casefold() != device_to_find.hw_version.casefold()
+                )
+            ]
+            if not matching_devices:
+                return None
+
         # Narrow down from multiple matches
         if matching_devices and len(matching_devices) > 1:
             partial_matching_devices = [
