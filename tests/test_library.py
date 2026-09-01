@@ -52,6 +52,51 @@ def library_with_data() -> Library:
             None,
             id="aqara_with_model_libary_more_specific",
         ),
+        # No match as lib does not have only manufacturer and model entry
+        pytest.param(
+            "Meross",
+            "Smart Presence Sensor",
+            "NONEXISTENT_MODEL_ID",
+            None,
+            None,
+            id="meross_with_nonexistent_model_id",
+        ),
+        # No match as lib does not have only manufacturer and model entry
+        pytest.param(
+            "Meross",
+            "Smart Presence Sensor",
+            None,
+            "NONEXISTENT_HW_VERSION",
+            None,
+            id="meross_with_nonexistent_hw_version",
+        ),
+        # No match as lib does not have only manufacturer and model entry
+        pytest.param(
+            "Meross",
+            "Smart Presence Sensor",
+            "NONEXISTENT_MODEL_ID",
+            "NONEXISTENT_HW_VERSION",
+            None,
+            id="meross_with_nonexistent_model_id_and_hw_version",
+        ),
+        # No match with just model
+        pytest.param(
+            "Mi",
+            "NONEXISTENT_MODEL",
+            None,
+            None,
+            None,
+            id="mi_no_match_with_just_model",
+        ),
+        # Match with just model
+        pytest.param(
+            "Mi",
+            "MS009",
+            None,
+            None,
+            "CR2540",
+            id="mi_match_with_just_model",
+        ),
         # Match with no model_id or hw_version in lib, model_id on device
         pytest.param(
             "eQ-3",
