@@ -36,12 +36,15 @@ _If you want to show your support please_
 
 [![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=andrew-codechimp&repository=HA-Battery-Notes&category=Integration)
 
-Or
-Search for `Battery Notes` in HACS and install it under the "Integrations" category.
+Or search for `Battery Notes` in HACS and download it.
 
-Restart Home Assistant
+**Restart Home Assistant**
 
-In the HA UI go to Settings -> Devices & Services click "+ Add integration" and search for "Battery Notes"
+Add the Battery Notes integration
+
+[![Open your Home Assistant instance and start setting up a new integration.](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=battery_notes)
+
+Or go to Settings -> Devices & Services click "+ Add integration" and search for "Battery Notes"
 
 This will create the main Battery Notes integration service and discovery will start shortly afterwards, or you can add battery notes manually within the settings/integrations/Battery Notes page by using the Add Battery Note button.
 
