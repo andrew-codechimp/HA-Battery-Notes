@@ -1,4 +1,4 @@
-## 2302 Devices in library
+## 2303 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1574,6 +1574,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Sinopé                                          |LM4110ZB                                                                                      |3× AA                     |                                                                        |
 |Siterwell                                       |Radiator valve with thermostat                                                                |2× AA                     |GS361A-H04                                                              |
 |Siterwell                                       |Radiator valve with thermostat (GS361A-H04)                                                   |2× AA                     |                                                                        |
+|Slacky-DIY                                      |Tuya wireless switch with 1 buttons with custom firmware                                      |CR2032                    |TS0041-M005-SlD                                                         |
 |SMaBiT (Bitron Video)                           |4 button Zigbee remote control (AV2010/23)                                                    |CR2032                    |                                                                        |
 |SMaBiT (Bitron Video)                           |Compact magnetic contact sensor (AV2010/21A)                                                  |CR2                       |                                                                        |
 |SMaBiT (Bitron Video)                           |Optical smoke detector (hardware version v2)                                                  |3× AA                     |AV2010/24A                                                              |
