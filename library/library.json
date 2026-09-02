@@ -9055,6 +9055,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Slacky-DIY",
+            "model": "Tuya wireless switch with 1 buttons with custom firmware",
+            "model_id": "TS0041-M005-SlD",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "SMaBiT (Bitron Video)",
             "model": "4 button Zigbee remote control (AV2010/23)",
             "battery_type": "CR2032"
@@ -13368,12 +13374,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Slacky-DIY",
-            "model": "Tuya wireless switch with 1 buttons with custom firmware",
-            "model_id": "TS0041-M005-SlD",
-            "battery_type": "CR2032"
         }
     ]
 }
