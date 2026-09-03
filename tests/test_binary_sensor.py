@@ -34,6 +34,7 @@ def _sensor(
         entity_id="binary_sensor.source_battery"
     )
     sensor.coordinator.battery_low_binary_state = battery_low_binary_state
+    sensor.coordinator.retain_state = False
 
     sensor.hass = MagicMock()
     sensor.hass.states.get.return_value = MagicMock(state=wrapped_state)

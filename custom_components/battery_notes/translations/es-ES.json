@@ -15,8 +15,8 @@
                     "battery_increase_threshold": "Umbral de aumento de batería"
                 },
                 "data_description": {
-                    "battery_low_threshold": "0 usará el umbral global por defecto",
-                    "battery_increase_threshold": "El umbral es la diferencia de aumento entre el nivel anterior y el actual de la batería\n0 utilizará el umbral global por defecto"
+                    "battery_low_threshold": "0 usará el umbral global por defecto.",
+                    "battery_increase_threshold": "El umbral es la diferencia de aumento entre el nivel anterior y el actual de la batería.\n0 utilizará el umbral global por defecto."
                 },
                 "sections": {
                     "advanced_settings": {
@@ -24,11 +24,13 @@
                         "data": {
                             "battery_percentage_template": "Plantilla de porcentaje de batería",
                             "battery_low_template": "Plantilla de batería baja",
+                            "retain_state": "Mantener estado",
                             "filter_outliers": "Filtrar valores atípicos"
                         },
                         "data_description": {
-                            "battery_percentage_template": "Plantilla para crear un porcentaje de batería\nSolo necesario para dispositivos que no tienen un porcentaje de batería estándar",
-                            "battery_low_template": "Plantilla para determinar que una batería es baja, debe devolver verdadero si es baja\nSolo necesario para niveles de batería no estándar",
+                            "battery_percentage_template": "Plantilla para crear un porcentaje de batería\nSolo necesario para dispositivos que no tienen un porcentaje de batería estándar.",
+                            "battery_low_template": "Plantilla para determinar que una batería es baja, debe devolver verdadero si es baja.\nSolo necesario para niveles de batería no estándar.",
+                            "retain_state": "Mantiene el último estado de la batería cuando la entidad de origen no está disponible.\nÚtil para dispositivos que entran en modo de suspensión y se vuelven no disponibles.",
                             "filter_outliers": "Filtra las grandes caídas del nivel de batería, reduciendo los eventos que se disparan falsamente en los dispositivos que informan erróneamente de los niveles de forma ocasional."
                         }
                     }
@@ -90,8 +92,8 @@
                         "battery_increase_threshold": "Umbral de aumento de batería"
                     },
                     "data_description": {
-                        "battery_low_threshold": "0 usará el umbral global por defecto",
-                        "battery_increase_threshold": "El umbral es la diferencia de aumento entre el nivel anterior y el actual de la batería\n0 utilizará el umbral global por defecto"
+                        "battery_low_threshold": "0 usará el umbral global por defecto.",
+                        "battery_increase_threshold": "El umbral es la diferencia de aumento entre el nivel anterior y el actual de la batería.\n0 utilizará el umbral global por defecto."
                     },
                     "sections": {
                         "advanced_settings": {
@@ -99,11 +101,13 @@
                             "data": {
                                 "battery_percentage_template": "Plantilla de porcentaje de batería",
                                 "battery_low_template": "Plantilla de batería baja",
+                                "retain_state": "Mantener estado",
                                 "filter_outliers": "Filtrar valores atípicos"
                             },
                             "data_description": {
-                                "battery_percentage_template": "Plantilla para crear un porcentaje de batería\nSolo necesario para dispositivos que no tienen un porcentaje de batería estándar",
-                                "battery_low_template": "Plantilla para determinar que una batería es baja, debe devolver verdadero si es baja\nSolo necesario para niveles de batería no estándar",
+                                "battery_percentage_template": "Plantilla para crear un porcentaje de batería.\nSolo necesario para dispositivos que no tienen un porcentaje de batería estándar.",
+                                "battery_low_template": "Plantilla para determinar que una batería es baja, debe devolver verdadero si es baja\nSolo necesario para niveles de batería no estándar.",
+                                "retain_state": "Mantiene el último estado de la batería cuando la entidad de origen no está disponible.\nÚtil para dispositivos que entran en modo de suspensión y se vuelven no disponibles.",
                                 "filter_outliers": "Filtra las grandes caídas del nivel de batería, reduciendo los eventos que se disparan falsamente en los dispositivos que informan erróneamente de los niveles de forma ocasional."
                             }
                         }
@@ -124,9 +128,9 @@
                         "battery_increase_threshold": "Umbral de aumento de batería"
                     },
                     "data_description": {
-                        "name": "Dejar en blanco utilizará el nombre del dispositivo de serie",
-                        "battery_low_threshold": "0 usará el umbral global por defecto",
-                        "battery_increase_threshold": "El umbral es la diferencia de aumento entre el nivel anterior y el actual de la batería\n0 utilizará el umbral global por defecto"
+                        "name": "Dejar en blanco utilizará el nombre del dispositivo de serie.",
+                        "battery_low_threshold": "0 usará el umbral global por defecto.",
+                        "battery_increase_threshold": "El umbral es la diferencia de aumento entre el nivel anterior y el actual de la batería.\n0 utilizará el umbral global por defecto."
                     },
                     "sections": {
                         "advanced_settings": {
@@ -134,11 +138,13 @@
                             "data": {
                                 "battery_percentage_template": "Plantilla de porcentaje de batería",
                                 "battery_low_template": "Plantilla de batería baja",
+                                "retain_state": "Mantener estado",
                                 "filter_outliers": "Filtrar valores atípicos"
                             },
                             "data_description": {
-                                "battery_percentage_template": "Plantilla para crear un porcentaje de batería\nSolo necesario para dispositivos que no tienen un porcentaje de batería estándar",
-                                "battery_low_template": "Plantilla para determinar que una batería es baja, debe devolver verdadero si es baja\nSolo necesario para niveles de batería no estándar",
+                                "battery_percentage_template": "Plantilla para crear un porcentaje de batería.\nSolo necesario para dispositivos que no tienen un porcentaje de batería estándar.",
+                                "battery_low_template": "Plantilla para determinar que una batería es baja, debe devolver verdadero si es baja.\nSolo necesario para niveles de batería no estándar.",
+                                "retain_state": "Mantiene el último estado de la batería cuando la entidad de origen no está disponible.\nÚtil para dispositivos que entran en modo de suspensión y se vuelven no disponibles.",
                                 "filter_outliers": "Filtra las grandes caídas del nivel de batería, reduciendo los eventos que se disparan falsamente en los dispositivos que informan erróneamente de los niveles de forma ocasional."
                             }
                         }

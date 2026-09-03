@@ -15,8 +15,8 @@
                     "battery_increase_threshold": "Battery increase threshold"
                 },
                 "data_description": {
-                    "battery_low_threshold": "Norādiet 0, lai izmantotu nokluseto sliekni",
-                    "battery_increase_threshold": "The threshold is the difference in increase between previous and current battery level\n0 will use the global default threshold"
+                    "battery_low_threshold": "Norādiet 0, lai izmantotu nokluseto sliekni.",
+                    "battery_increase_threshold": "The threshold is the difference in increase between previous and current battery level.\n0 will use the global default threshold."
                 },
                 "sections": {
                     "advanced_settings": {
@@ -24,12 +24,14 @@
                         "data": {
                             "battery_percentage_template": "Battery percentage template",
                             "battery_low_template": "Zema baterijas līmeņa šablons",
+                            "retain_state": "Retain state",
                             "filter_outliers": "Filter outliers"
                         },
                         "data_description": {
-                            "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
-                            "battery_low_template": "Šablons lai noteiktu zemu baterijas līmeni, kam jāatgriež patiesa vērtība, līmenis ir zems\nNepieciešams tikai nestandarta bateriju līmeņiem",
-                            "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                            "battery_percentage_template": "Template to create a battery percentage.\nOnly needed for devices that do not have a standard battery percentage.",
+                            "battery_low_template": "Šablons lai noteiktu zemu baterijas līmeni, kam jāatgriež patiesa vērtība, līmenis ir zems.\nNepieciešams tikai nestandarta bateriju līmeņiem.",
+                            "retain_state": "Retain the last battery state when the source entity is unavailable.\nUseful for devices that sleep and become unavailable.",
+                            "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally."
                         }
                     }
                 }
@@ -90,8 +92,8 @@
                         "battery_increase_threshold": "Battery increase threshold"
                     },
                     "data_description": {
-                        "battery_low_threshold": "Norādiet 0, lai izmantotu nokluseto sliekni",
-                        "battery_increase_threshold": "The threshold is the difference in increase between previous and current battery level\n0 will use the global default threshold"
+                        "battery_low_threshold": "Norādiet 0, lai izmantotu nokluseto sliekni.",
+                        "battery_increase_threshold": "The threshold is the difference in increase between previous and current battery level.\n0 will use the global default threshold."
                     },
                     "sections": {
                         "advanced_settings": {
@@ -99,12 +101,14 @@
                             "data": {
                                 "battery_percentage_template": "Battery percentage template",
                                 "battery_low_template": "Zema baterijas līmeņa šablons",
+                                "retain_state": "Retain state",
                                 "filter_outliers": "Filter outliers"
                             },
                             "data_description": {
-                                "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
-                                "battery_low_template": "Šablons lai noteiktu zemu baterijas līmeni, kam jāatgriež patiesa vērtība, līmenis ir zems\nNepieciešams tikai nestandarta bateriju līmeņiem",
-                                "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                                "battery_percentage_template": "Template to create a battery percentage.\nOnly needed for devices that do not have a standard battery percentage.",
+                                "battery_low_template": "Šablons lai noteiktu zemu baterijas līmeni, kam jāatgriež patiesa vērtība, līmenis ir zems.\nNepieciešams tikai nestandarta bateriju līmeņiem.",
+                                "retain_state": "Retain the last battery state when the source entity is unavailable.\nUseful for devices that sleep and become unavailable.",
+                                "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally."
                             }
                         }
                     }
@@ -124,9 +128,9 @@
                         "battery_increase_threshold": "Battery increase threshold"
                     },
                     "data_description": {
-                        "name": "Aestājot tukšu tiks ņemts nosaukums no pamata ierīces",
-                        "battery_low_threshold": "Norādiet 0, lai izmantotu nokluseto sliekni",
-                        "battery_increase_threshold": "The threshold is the difference in increase between previous and current battery level\n0 will use the global default threshold"
+                        "name": "Aestājot tukšu tiks ņemts nosaukums no pamata ierīces.",
+                        "battery_low_threshold": "Norādiet 0, lai izmantotu nokluseto sliekni.",
+                        "battery_increase_threshold": "The threshold is the difference in increase between previous and current battery level.\n0 will use the global default threshold."
                     },
                     "sections": {
                         "advanced_settings": {
@@ -134,12 +138,14 @@
                             "data": {
                                 "battery_percentage_template": "Battery percentage template",
                                 "battery_low_template": "Zema baterijas līmeņa šablons",
+                                "retain_state": "Retain state",
                                 "filter_outliers": "Filter outliers"
                             },
                             "data_description": {
-                                "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
-                                "battery_low_template": "Šablons lai noteiktu zemu baterijas līmeni, kam jāatgriež patiesa vērtība, līmenis ir zems\nNepieciešams tikai nestandarta bateriju līmeņiem",
-                                "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                                "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage.",
+                                "battery_low_template": "Šablons lai noteiktu zemu baterijas līmeni, kam jāatgriež patiesa vērtība, līmenis ir zems.\nNepieciešams tikai nestandarta bateriju līmeņiem.",
+                                "retain_state": "Retain the last battery state when the source entity is unavailable.\nUseful for devices that sleep and become unavailable.",
+                                "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally."
                             }
                         }
                     }

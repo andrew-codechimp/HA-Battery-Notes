@@ -24,11 +24,13 @@
                         "data": {
                             "battery_percentage_template": "Vorlage zur Ermittlung eines Prozentwertes für den Batterieladezustand.",
                             "battery_low_template": "Vorlage zur Ermittlung einer leeren Batterie.",
+                            "retain_state": "Status beibehalten",
                             "filter_outliers": "Ausreißer filtern"
                         },
                         "data_description": {
-                            "battery_percentage_template": "Vorlage zum Erstellen des Batterieladezustandes.\nNur erforderlich für Geräte, die keinen normalen Batterieladezustand haben",
+                            "battery_percentage_template": "Vorlage zum Erstellen des Batterieladezustandes.\nNur erforderlich für Geräte, die keinen normalen Batterieladezustand haben.",
                             "battery_low_template": "Vorlage zur Ermittlung einer leeren Batterie; muss \"wahr\" (true) zurückmelden, wenn die Batterie leer ist.\nWird nur benötigt, wenn der Schwellenwert für eine leere Batterie nicht dem Standardwert entspricht.",
+                            "retain_state": "Behalten Sie den letzten Batteriestatus bei, wenn die Quellentität nicht verfügbar ist.\nNützlich für Geräte, die in den Ruhemodus wechseln und nicht verfügbar werden.",
                             "filter_outliers": "Größere Sprünge des Ladezustandes der Batterie bei Geräten ausfiltern, die ihren Ladezustand nur sporadisch mitteilen, um fehlerhafte Auslösungen zu verhindern."
                         }
                     }
@@ -90,8 +92,8 @@
                         "battery_increase_threshold": "Batterieanstieg-Schwellenwert"
                     },
                     "data_description": {
-                        "battery_low_threshold": "0 verwendet den globalen Standardschwellenwert",
-                        "battery_increase_threshold": "Der Schwellenwert ist die Differenz der Erhöhung zwischen dem vorherigen und dem aktuellen Batteriestand.\n0 verwendet den globalen Standardschwellenwert"
+                        "battery_low_threshold": "0 verwendet den globalen Standardschwellenwert.",
+                        "battery_increase_threshold": "Der Schwellenwert ist die Differenz der Erhöhung zwischen dem vorherigen und dem aktuellen Batteriestand.\n0 verwendet den globalen Standardschwellenwert."
                     },
                     "sections": {
                         "advanced_settings": {
@@ -99,11 +101,13 @@
                             "data": {
                                 "battery_percentage_template": "Vorlage zur Ermittlung eines Prozentwertes für den Batterieladezustand.",
                                 "battery_low_template": "Vorlage zur Ermittlung einer leeren Batterie.",
+                                "retain_state": "Status beibehalten",
                                 "filter_outliers": "Ausreißer filtern"
                             },
                             "data_description": {
                                 "battery_percentage_template": "Vorlage zur Ermittlung eines Prozentwertes für den Batterieladezustand.\nNur für Geräte, die den Füllstand der Batterie nicht als Prozentwert anzeigen.",
                                 "battery_low_template": "Vorlage zur Ermittlung einer leeren Batterie; muss \"wahr\" (true) zurückmelden, wenn die Batterie leer ist.\nWird nur benötigt, wenn der Schwellenwert für eine leere Batterie nicht dem Standardwert entspricht.",
+                                "retain_state": "Behalten Sie den letzten Batteriestatus bei, wenn die Quellentität nicht verfügbar ist.\nNützlich für Geräte, die in den Ruhemodus wechseln und nicht verfügbar werden.",
                                 "filter_outliers": "Größere Sprünge des Ladezustandes der Batterie bei Geräten ausfiltern, die ihren Ladezustand nur sporadisch mitteilen, um fehlerhafte Auslösungen zu verhindern."
                             }
                         }
@@ -134,12 +138,14 @@
                             "data": {
                                 "battery_percentage_template": "Vorlage zur Ermittlung eines Prozentwertes für den Batterieladezustand",
                                 "battery_low_template": "Vorlage zur Ermittlung, ob die Batterie leer ist.",
+                                "retain_state": "Status beibehalten",
                                 "filter_outliers": "Ausreißer filtern"
                             },
                             "data_description": {
                                 "battery_percentage_template": "Vorlage zur Ermittlung eines Prozentwertes für den Batterieladezustand.\nNur für Geräte, die den Batterieladezustand nicht als Prozentwert  anzeigen.",
                                 "battery_low_template": "Vorlage zur Ermittlung einer leeren Batterie; muss \"wahr\" (true) zurückmelden, wenn die Batterie leer ist.\nWird nur benötigt, wenn der Schwellenwert für eine leere Batterie nicht dem Standardwert entspricht.",
-                                "filter_outliers": "Filtere größere Sprünge des Ladezustandes der Batterie bei Geräten, die ihren Ladezustand nur sporadisch mitteilen, um fehlerhafte Auslösungen zu verhindern"
+                                "retain_state": "Behalten Sie den letzten Batteriestatus bei, wenn die Quellentität nicht verfügbar ist.\nNützlich für Geräte, die in den Ruhemodus wechseln und nicht verfügbar werden.",
+                                "filter_outliers": "Filtere größere Sprünge des Ladezustandes der Batterie bei Geräten, die ihren Ladezustand nur sporadisch mitteilen, um fehlerhafte Auslösungen zu verhindern."
                             }
                         }
                     }

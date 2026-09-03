@@ -554,6 +554,8 @@ class BatteryNotesBatteryPlusSensor(BatteryNotesBatteryPlusBaseSensor):
                     validate_is_float(wrapped_battery_state.state),
                 )
 
+            if self.coordinator.retain_state:
+                return
             self._attr_native_value = None
             self._attr_available = False
             self._write_tracked_ha_state()
@@ -593,6 +595,8 @@ class BatteryNotesBatteryPlusSensor(BatteryNotesBatteryPlusBaseSensor):
             ]
             or not validate_is_float(wrapped_battery_state.state)
         ):
+            if self.coordinator.retain_state:
+                return
             self._attr_native_value = None
             self._attr_available = False
             self._write_tracked_ha_state()

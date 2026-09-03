@@ -50,6 +50,7 @@ from .const import (
     CONF_MODEL,
     CONF_MODEL_ID,
     CONF_NOTE,
+    CONF_RETAIN_STATE,
     CONF_ROUND_BATTERY,
     CONF_SHOW_ALL_DEVICES,
     CONF_SOURCE_ENTITY_ID,
@@ -475,6 +476,9 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             self.data[CONF_ADVANCED_SETTINGS][CONF_BATTERY_LOW_TEMPLATE] = user_input[
                 CONF_ADVANCED_SETTINGS
             ].get(CONF_BATTERY_LOW_TEMPLATE, None)
+            self.data[CONF_ADVANCED_SETTINGS][CONF_RETAIN_STATE] = user_input[
+                CONF_ADVANCED_SETTINGS
+            ].get(CONF_RETAIN_STATE, False)
             self.data[CONF_ADVANCED_SETTINGS][CONF_FILTER_OUTLIERS] = user_input[
                 CONF_ADVANCED_SETTINGS
             ].get(CONF_FILTER_OUTLIERS, False)
@@ -566,6 +570,9 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                                 vol.Optional(
                                     CONF_BATTERY_LOW_TEMPLATE
                                 ): selector.TemplateSelector(),
+                                vol.Optional(
+                                    CONF_RETAIN_STATE, default=False
+                                ): selector.BooleanSelector(),
                                 vol.Optional(
                                     CONF_FILTER_OUTLIERS, default=False
                                 ): selector.BooleanSelector(),
@@ -837,6 +844,9 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
             self.data[CONF_ADVANCED_SETTINGS][CONF_BATTERY_LOW_TEMPLATE] = user_input[
                 CONF_ADVANCED_SETTINGS
             ].get(CONF_BATTERY_LOW_TEMPLATE, None)
+            self.data[CONF_ADVANCED_SETTINGS][CONF_RETAIN_STATE] = user_input[
+                CONF_ADVANCED_SETTINGS
+            ].get(CONF_RETAIN_STATE, False)
             self.data[CONF_ADVANCED_SETTINGS][CONF_FILTER_OUTLIERS] = user_input[
                 CONF_ADVANCED_SETTINGS
             ].get(CONF_FILTER_OUTLIERS, False)
@@ -921,6 +931,9 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
                                     CONF_BATTERY_LOW_TEMPLATE
                                 ): selector.TemplateSelector(),
                                 vol.Optional(
+                                    CONF_RETAIN_STATE, default=False
+                                ): selector.BooleanSelector(),
+                                vol.Optional(
                                     CONF_FILTER_OUTLIERS, default=False
                                 ): selector.BooleanSelector(),
                             }
@@ -965,6 +978,9 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
                     )
                 )
             )
+            self.data[CONF_ADVANCED_SETTINGS][CONF_RETAIN_STATE] = user_input[
+                CONF_ADVANCED_SETTINGS
+            ].get(CONF_RETAIN_STATE, False)
             self.data[CONF_ADVANCED_SETTINGS][CONF_FILTER_OUTLIERS] = user_input[
                 CONF_ADVANCED_SETTINGS
             ].get(CONF_FILTER_OUTLIERS, False)
@@ -1051,6 +1067,9 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
                             vol.Optional(
                                 CONF_BATTERY_LOW_TEMPLATE,
                             ): selector.TemplateSelector(),
+                            vol.Optional(
+                                CONF_RETAIN_STATE,
+                            ): selector.BooleanSelector(),
                             vol.Optional(
                                 CONF_FILTER_OUTLIERS,
                             ): selector.BooleanSelector(),
