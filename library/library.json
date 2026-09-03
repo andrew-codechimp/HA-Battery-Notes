@@ -9416,6 +9416,11 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Sonoff",
+            "model": "SNZB-03PR2",
+            "battery_type": "CR2477"
+        },
+        {
             "manufacturer": "SONOFF",
             "model": "SNZB-04",
             "battery_type": "AAA",
@@ -13374,11 +13379,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Sonoff",
-            "model": "SNZB-03PR2",
-            "battery_type": "CR2477"
         }
     ]
 }
