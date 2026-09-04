@@ -1,4 +1,4 @@
-## 2304 Devices in library
+## 2305 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1636,6 +1636,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |SONOFF                                          |SNZB-02D                                                                                      |CR2450                    |                                                                        |
 |SONOFF                                          |SNZB-02DR2                                                                                    |2× AAA                    |                                                                        |
 |SONOFF                                          |SNZB-02LD                                                                                     |CR2477                    |                                                                        |
+|Sonoff                                          |SNZB-02M                                                                                      |CR2477                    |                                                                        |
 |SONOFF                                          |SNZB-02P                                                                                      |CR2477                    |                                                                        |
 |SONOFF                                          |SNZB-02WD                                                                                     |CR2477                    |                                                                        |
 |Sonoff                                          |SNZB-03                                                                                       |CR2032                    |                                                                        |
