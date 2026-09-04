@@ -13383,6 +13383,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "APC",
+            "model": "https://www.se.com/de/de/product/BX700U-GR/apc-backups-700-va-230-v-avr-schukoausg\u00e4nge-batterie-12v-7-0ah-wird-ersetzt-durch-bx750migr/",
+            "model_id": "Back-UPS XS 700U",
+            "battery_type": "Bleis\u00e4urebatterie 12V"
         }
     ]
 }
