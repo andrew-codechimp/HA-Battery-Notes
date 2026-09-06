@@ -405,4 +405,4 @@ A collection of Blueprints are available [here](./blueprints.md).
 
 ## Contributing
 
-If you want to contribute then [fork the repository](https://github.com/andrew-codechimp/HA-Battery-Notes), edit this page which is in the docs folder and submit a pull request.
+If you want to contribute then [edit this page](https://github.com/andrew-codechimp/HA-Battery-Notes/edit/main/docs/community.md) and submit a pull request.
