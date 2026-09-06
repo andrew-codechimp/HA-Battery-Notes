@@ -119,6 +119,30 @@
                 "reveal": "always",
                 "panel": "shared"
             }
+        },
+        {
+            "label": "Zensical: Serve Docs",
+            "type": "shell",
+            "command": "uv run zensical serve",
+            "isBackground": true,
+            "problemMatcher": {
+                "pattern": {
+                    "regexp": "^.*$"
+                },
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "^.*Serving.*",
+                    "endsPattern": "^.*"
+                }
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            }
         }
     ],
     "configurations": [

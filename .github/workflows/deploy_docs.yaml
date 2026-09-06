@@ -2,7 +2,7 @@ name: Deploy docs
 on:
   push:
     paths:
-      - 'mkdocs.yml'
+      - 'zensical.toml'
       - 'docs/**'
     branches:
       - main
@@ -18,14 +18,14 @@ jobs:
 
       - uses: actions/cache@v6
         with:
-          key: mkdocs-material-${{ runner.os }}-${{ hashFiles('mkdocs.yml', 'pyproject.toml', 'uv.lock') }}
+          key: zensical-${{ runner.os }}-${{ hashFiles('zensical.toml', 'pyproject.toml', 'uv.lock') }}
           path: .cache
           restore-keys: |
-            mkdocs-material-
+            zensical-
 
       - name: Install uv
         uses: astral-sh/setup-uv@v10.0.1
 
       - name: Deploy documentation
         run: |
-          uv run --only-group docs mkdocs gh-deploy --force
+          uv run --only-group docs zensical gh-deploy --force
