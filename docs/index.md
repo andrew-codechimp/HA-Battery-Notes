@@ -90,6 +90,11 @@ Example templates
 
     If a template is specified then the battery percentage will be ignored when evaluating threshold and increased events.
 
+## Retain State
+
+This is for when a device goes to sleep and reports an unavailable battery level, but you want to retain the last known good state until the device wakes up and gives a new reading.  
+If you switch this on both Battery+ and Battery Low will not go unavailable when the source battery does.
+
 ## Filter Outliers
 
 This is for when a device occasionally erroneously reports a very low battery level before going back to its true value, which causes battery low events to be raised.  
