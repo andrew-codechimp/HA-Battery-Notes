@@ -8,7 +8,9 @@ on:
       - main
   workflow_dispatch:
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
 jobs:
   deploy_docs:
     name: Deploy docs
