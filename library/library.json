@@ -2982,6 +2982,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "ECO-WORTHY",
+            "model": "12V 314AH LiFePO4 Lithium Battery Bluetooth",
+            "model_id": "L03L314AHSL-1",
+            "battery_type": "LiFePO4"
+        },
+        {
             "manufacturer": "ecobee",
             "model": "ecobee Room Sensor",
             "battery_type": "CR2032"
@@ -13383,12 +13389,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "ECO-WORTHY",
-            "model": "12V 314AH LiFePO4 Lithium Battery Bluetooth",
-            "model_id": "L03L314AHSL-1",
-            "battery_type": "LiFePO4"
         }
     ]
 }
