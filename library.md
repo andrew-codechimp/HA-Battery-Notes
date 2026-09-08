@@ -1,4 +1,4 @@
-## 2305 Devices in library
+## 2306 Devices in library
 
 This file is auto generated, do not modify
 
@@ -521,6 +521,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Dreametech™                                     |dreame.vacuum.r2492j                                                                          |Rechargeable              |                                                                        |
 |Eaton                                           |Ellipse ECO 650                                                                               |Rechargeable              |                                                                        |
 |Echos                                           |Thermostatic radiator valve                                                                   |2× AA                     |Eco-4160                                                                |
+|ECO-WORTHY                                      |12V 314AH LiFePO4 Lithium Battery Bluetooth                                                   |LiFePO4                   |L03L314AHSL-1                                                           |
 |ecobee                                          |ecobee Room Sensor                                                                            |CR2032                    |                                                                        |
 |ecobee Inc.                                     |EBERS41                                                                                       |CR2477                    |                                                                        |
 |ecobee Inc.                                     |EBRSE4                                                                                        |CR2032                    |                                                                        |
