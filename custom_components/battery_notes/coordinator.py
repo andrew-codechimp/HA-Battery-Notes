@@ -441,45 +441,47 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
 
     def _check_wrapped_entities_and_fallback(self) -> None:
         """Check current wrapped entities and use fallback entities if the current ones are not available."""
-        if not self.wrapped_battery or not self.wrapped_battery_low:
-            if self.source_entity_id:
-                store_entry = self.config_entry.runtime_data.store.async_get_entity(
-                    self.source_entity_id
-                )
-            elif self.device_id:
-                store_entry = self.config_entry.runtime_data.store.async_get_device(
-                    self.device_id
-                )
+        if self.wrapped_battery and self.wrapped_battery_low:
+            return
 
-            if not store_entry:
-                return
+        if self.source_entity_id:
+            store_entry = self.config_entry.runtime_data.store.async_get_entity(
+                self.source_entity_id
+            )
+        elif self.device_id:
+            store_entry = self.config_entry.runtime_data.store.async_get_device(
+                self.device_id
+            )
 
-            entity_registry = er.async_get(self.hass)
-            if not self.wrapped_battery:
-                previous_entity_id_percentage = store_entry.get(
-                    PREVIOUS_ENTITY_PERCENTAGE, None
+        if not store_entry:
+            return
+
+        entity_registry = er.async_get(self.hass)
+        if not self.wrapped_battery:
+            previous_entity_id_percentage = store_entry.get(
+                PREVIOUS_ENTITY_PERCENTAGE, None
+            )
+            if previous_entity_id_percentage:
+                percentage_entity = entity_registry.async_get(
+                    previous_entity_id_percentage
                 )
-                if previous_entity_id_percentage:
-                    percentage_entity = entity_registry.async_get(
-                        previous_entity_id_percentage
+                if percentage_entity:
+                    self.wrapped_battery = percentage_entity
+
+                    _LOGGER.debug(
+                        "Falling back to previous entity for battery percentage: %s",
+                        previous_entity_id_percentage,
                     )
-                    if percentage_entity:
-                        self.wrapped_battery = percentage_entity
-
-                        _LOGGER.debug(
-                            "Falling back to previous entity for battery percentage: %s",
-                            previous_entity_id_percentage,
-                        )
-            if not self.wrapped_battery_low:
-                previous_entity_id_low = store_entry.get(PREVIOUS_ENTITY_LOW, None)
-                if previous_entity_id_low:
-                    low_entity = entity_registry.async_get(previous_entity_id_low)
-                    if low_entity:
-                        self.wrapped_battery_low = low_entity
-                        _LOGGER.debug(
-                            "Falling back to previous entity for battery low: %s",
-                            previous_entity_id_low,
-                        )
+        if not self.wrapped_battery_low:
+            previous_entity_id_low = store_entry.get(PREVIOUS_ENTITY_LOW, None)
+            if previous_entity_id_low:
+                low_entity = entity_registry.async_get(previous_entity_id_low)
+                if low_entity:
+                    self.wrapped_battery_low = low_entity
+                    _LOGGER.debug(
+                        "Falling back to previous entity for battery low: %s",
+                        previous_entity_id_low,
+                    )
 
     @property
     def unique_id(self) -> str:
