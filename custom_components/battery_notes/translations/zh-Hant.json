@@ -24,12 +24,14 @@
                         "data": {
                             "battery_percentage_template": "Battery percentage template",
                             "battery_low_template": "低電量模板",
+                            "retain_state": "Retain state",
                             "filter_outliers": "Filter outliers"
                         },
                         "data_description": {
-                            "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
+                            "battery_percentage_template": "Template to create a battery percentage.\nOnly needed for devices that do not have a standard battery percentage.",
                             "battery_low_template": "判斷電池是否低電量的模板，若為低電量應回傳 true\n僅在電池電量非標準時需要",
-                            "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                            "retain_state": "Retain the last battery state when the source entity is unavailable.\nUseful for devices that sleep and become unavailable.",
+                            "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally."
                         }
                     }
                 }
@@ -91,7 +93,7 @@
                     },
                     "data_description": {
                         "battery_low_threshold": "若為零，將使用全域預設閾值",
-                        "battery_increase_threshold": "The threshold is the difference in increase between previous and current battery level\n0 will use the global default threshold"
+                        "battery_increase_threshold": "The threshold is the difference in increase between previous and current battery level.\n0 will use the global default threshold."
                     },
                     "sections": {
                         "advanced_settings": {
@@ -99,12 +101,14 @@
                             "data": {
                                 "battery_percentage_template": "Battery percentage template",
                                 "battery_low_template": "低電量模板",
+                                "retain_state": "Retain state",
                                 "filter_outliers": "Filter outliers"
                             },
                             "data_description": {
-                                "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
+                                "battery_percentage_template": "Template to create a battery percentage.\nOnly needed for devices that do not have a standard battery percentage.",
                                 "battery_low_template": "判斷電池是否低電量的模板，若為低電量應回傳 true\n僅在電池電量非標準時需要",
-                                "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                                "retain_state": "Retain the last battery state when the source entity is unavailable.\nUseful for devices that sleep and become unavailable.",
+                                "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally."
                             }
                         }
                     }
@@ -126,7 +130,7 @@
                     "data_description": {
                         "name": "若留空，將使用來源装置的名稱",
                         "battery_low_threshold": "若為零，將使用全域預設閾值",
-                        "battery_increase_threshold": "The threshold is the difference in increase between previous and current battery level\n0 will use the global default threshold"
+                        "battery_increase_threshold": "The threshold is the difference in increase between previous and current battery level.\n0 will use the global default threshold."
                     },
                     "sections": {
                         "advanced_settings": {
@@ -134,12 +138,14 @@
                             "data": {
                                 "battery_percentage_template": "Battery percentage template",
                                 "battery_low_template": "低電量模板",
+                                "retain_state": "Retain state",
                                 "filter_outliers": "Filter outliers"
                             },
                             "data_description": {
-                                "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
+                                "battery_percentage_template": "Template to create a battery percentage.\nOnly needed for devices that do not have a standard battery percentage.",
                                 "battery_low_template": "判斷電池是否低電量的模板，若為低電量應回傳 true\n僅在電池電量非標準時需要",
-                                "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally"
+                                "retain_state": "Retain the last battery state when the source entity is unavailable.\nUseful for devices that sleep and become unavailable.",
+                                "filter_outliers": "Filter out large battery level drops, reducing falsely firing events on devices that erroneously report levels occasionally."
                             }
                         }
                     }

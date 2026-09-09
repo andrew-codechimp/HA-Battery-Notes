@@ -15,8 +15,8 @@
                     "battery_increase_threshold": "Battery increase threshold"
                 },
                 "data_description": {
-                    "battery_low_threshold": "0 будет использовать общий порог по умолчанию",
-                    "battery_increase_threshold": "The threshold is the difference in increase between previous and current battery level\n0 will use the global default threshold"
+                    "battery_low_threshold": "0 будет использовать общий порог по умолчанию.",
+                    "battery_increase_threshold": "The threshold is the difference in increase between previous and current battery level.\n0 will use the global default threshold."
                 },
                 "sections": {
                     "advanced_settings": {
@@ -24,12 +24,14 @@
                         "data": {
                             "battery_percentage_template": "Battery percentage template",
                             "battery_low_template": "Шаблон низкого заряда батареи",
+                            "retain_state": "Retain state",
                             "filter_outliers": "Фильтр скачков заряда"
                         },
                         "data_description": {
-                            "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
+                            "battery_percentage_template": "Template to create a battery percentage.\nOnly needed for devices that do not have a standard battery percentage.",
                             "battery_low_template": "Шаблон низкого заряда батареи. В случае низкого заряда должен возвращать true.\nТребуется только для нестандартных уровней заряда батареи.",
-                            "filter_outliers": "Отфильтровать скачки заряда, уменьшая ложные срабатывания событий для устройств, которые иногда сообщают заряд батареи с ошибками"
+                            "retain_state": "Retain the last battery state when the source entity is unavailable.\nUseful for devices that sleep and become unavailable.",
+                            "filter_outliers": "Отфильтровать скачки заряда, уменьшая ложные срабатывания событий для устройств, которые иногда сообщают заряд батареи с ошибками."
                         }
                     }
                 }
@@ -68,7 +70,7 @@
                         "name": "Название"
                     },
                     "data_description": {
-                        "name": "Если оставить пустым, то название будет взято с исходного устройства"
+                        "name": "Если оставить пустым, то название будет взято с исходного устройства."
                     }
                 },
                 "entity": {
@@ -77,7 +79,7 @@
                         "name": "Название"
                     },
                     "data_description": {
-                        "name": "Если оставить пустым, то название будет взято с исходного устройства"
+                        "name": "Если оставить пустым, то название будет взято с исходного устройства."
                     }
                 },
                 "battery": {
@@ -90,8 +92,8 @@
                         "battery_increase_threshold": "Battery increase threshold"
                     },
                     "data_description": {
-                        "battery_low_threshold": "0 будет использовать общий порог по умолчанию",
-                        "battery_increase_threshold": "The threshold is the difference in increase between previous and current battery level\n0 will use the global default threshold"
+                        "battery_low_threshold": "0 будет использовать общий порог по умолчанию.",
+                        "battery_increase_threshold": "The threshold is the difference in increase between previous and current battery level.\n0 will use the global default threshold."
                     },
                     "sections": {
                         "advanced_settings": {
@@ -99,12 +101,14 @@
                             "data": {
                                 "battery_percentage_template": "Battery percentage template",
                                 "battery_low_template": "Шаблон низкого заряда батареи",
+                                "retain_state": "Retain state",
                                 "filter_outliers": "Фильтр скачков заряда"
                             },
                             "data_description": {
-                                "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
+                                "battery_percentage_template": "Template to create a battery percentage.\nOnly needed for devices that do not have a standard battery percentage.",
                                 "battery_low_template": "Шаблон низкого заряда батареи. В случае низкого заряда должен возвращать true.\nТребуется только для нестандартных уровней заряда батареи.",
-                                "filter_outliers": "Отфильтровать скачки заряда, уменьшая ложные срабатывания событий для устройств, которые иногда сообщают заряд батареи с ошибками"
+                                "retain_state": "Retain the last battery state when the source entity is unavailable.\nUseful for devices that sleep and become unavailable.",
+                                "filter_outliers": "Отфильтровать скачки заряда, уменьшая ложные срабатывания событий для устройств, которые иногда сообщают заряд батареи с ошибками."
                             }
                         }
                     }
@@ -124,9 +128,9 @@
                         "battery_increase_threshold": "Battery increase threshold"
                     },
                     "data_description": {
-                        "name": "Если оставить пустым, то название будет взято с исходного устройства",
-                        "battery_low_threshold": "0 будет использовать общий порог по умолчанию",
-                        "battery_increase_threshold": "The threshold is the difference in increase between previous and current battery level\n0 will use the global default threshold"
+                        "name": "Если оставить пустым, то название будет взято с исходного устройства.",
+                        "battery_low_threshold": "0 будет использовать общий порог по умолчанию.",
+                        "battery_increase_threshold": "The threshold is the difference in increase between previous and current battery level.\n0 will use the global default threshold."
                     },
                     "sections": {
                         "advanced_settings": {
@@ -134,12 +138,14 @@
                             "data": {
                                 "battery_percentage_template": "Battery percentage template",
                                 "battery_low_template": "Шаблон низкого заряда батареи",
+                                "retain_state": "Retain state",
                                 "filter_outliers": "Фильтр скачков заряда"
                             },
                             "data_description": {
-                                "battery_percentage_template": "Template to create a battery percentage\nOnly needed for devices that do not have a standard battery percentage",
+                                "battery_percentage_template": "Template to create a battery percentage.\nOnly needed for devices that do not have a standard battery percentage.",
                                 "battery_low_template": "Шаблон низкого заряда батареи. В случае низкого заряда должен возвращать true.\nТребуется только для нестандартных уровней заряда батареи.",
-                                "filter_outliers": "Отфильтровать скачки заряда, уменьшая ложные срабатывания событий для устройств, которые иногда сообщают заряд батареи с ошибками"
+                                "retain_state": "Retain the last battery state when the source entity is unavailable.\nUseful for devices that sleep and become unavailable.",
+                                "filter_outliers": "Отфильтровать скачки заряда, уменьшая ложные срабатывания событий для устройств, которые иногда сообщают заряд батареи с ошибками."
                             }
                         }
                     }

@@ -59,6 +59,7 @@ from .const import (
     CONF_BATTERY_TYPE,
     CONF_FILTER_OUTLIERS,
     CONF_NOTE,
+    CONF_RETAIN_STATE,
     CONF_SOURCE_ENTITY_ID,
     DEFAULT_BATTERY_INCREASE_THRESHOLD,
     DEFAULT_BATTERY_LOW_THRESHOLD,
@@ -129,6 +130,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
     battery_low_threshold: int
     battery_low_template: str | None
     battery_percentage_template: str | None
+    retain_state: bool = False
     wrapped_battery: RegistryEntry | None = None
     wrapped_battery_low: RegistryEntry | None = None
     is_orphaned: bool = False
@@ -200,6 +202,10 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
         if self.subentry.data[CONF_ADVANCED_SETTINGS].get(CONF_FILTER_OUTLIERS, False):
             self._outlier_filter = LowOutlierFilter(window_size=3, radius=80)
             _LOGGER.debug("Outlier filter enabled")
+
+        self.retain_state = self.subentry.data[CONF_ADVANCED_SETTINGS].get(
+            CONF_RETAIN_STATE, False
+        )
 
         if self.wrapped_battery:
             _LOGGER.debug(

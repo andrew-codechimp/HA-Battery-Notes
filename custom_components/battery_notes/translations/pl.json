@@ -15,8 +15,8 @@
                     "battery_increase_threshold": "Próg wzrostu poziomu baterii"
                 },
                 "data_description": {
-                    "battery_low_threshold": "0 użyje globalnego progu domyślnego",
-                    "battery_increase_threshold": "Próg to różnica wzrostu pomiędzy poprzednim a aktualnym poziomem baterii\n0 będzie korzystać z globalnego progu domyślnego"
+                    "battery_low_threshold": "0 użyje globalnego progu domyślnego.",
+                    "battery_increase_threshold": "Próg to różnica wzrostu pomiędzy poprzednim a aktualnym poziomem baterii.\n0 będzie korzystać z globalnego progu domyślnego."
                 },
                 "sections": {
                     "advanced_settings": {
@@ -24,12 +24,14 @@
                         "data": {
                             "battery_percentage_template": "Szablon procentowy baterii",
                             "battery_low_template": "Szablon niskiego poziomu baterii",
+                            "retain_state": "Zachowaj stan",
                             "filter_outliers": "Filtr wartości odstających"
                         },
                         "data_description": {
-                            "battery_percentage_template": "Szablon do stworzenia procentu baterii\njest wymagany tylko dla urządzeń, które nie mają standardowego procentu baterii",
-                            "battery_low_template": "Szablon do określenia czy poziom naładowania baterii jest niski, powinien zwrócić wartość true, jeśli poziom jest niski.\nJest wymagany tylko dla niestandardowych raportów poziomu baterii",
-                            "filter_outliers": "Filtruj duże spadki poziomu baterii, zmniejszając fałszywe wyzwalanie zdarzeń na urządzeniach, które sporadycznie zgłaszają poziomy baterii"
+                            "battery_percentage_template": "Szablon do stworzenia procentu baterii.\njest wymagany tylko dla urządzeń, które nie mają standardowego procentu baterii.",
+                            "battery_low_template": "Szablon do określenia czy poziom naładowania baterii jest niski, powinien zwrócić wartość true, jeśli poziom jest niski.\nJest wymagany tylko dla niestandardowych raportów poziomu baterii.",
+                            "retain_state": "Zachowaj ostatni stan baterii, gdy jednostka źródłowa jest niedostępna.\nPrzydatne dla urządzeń, które przechodzą w tryb uśpienia i stają się niedostępne.",
+                            "filter_outliers": "Filtruj duże spadki poziomu baterii, zmniejszając fałszywe wyzwalanie zdarzeń na urządzeniach, które sporadycznie zgłaszają poziomy baterii."
                         }
                     }
                 }
@@ -90,8 +92,8 @@
                         "battery_increase_threshold": "Próg wzrostu poziomu baterii"
                     },
                     "data_description": {
-                        "battery_low_threshold": "0 użyje globalnego progu domyślnego",
-                        "battery_increase_threshold": "Próg to różnica wzrostu pomiędzy poprzednim a aktualnym poziomem baterii\n0 będzie korzystać z globalnego progu domyślnego"
+                        "battery_low_threshold": "0 użyje globalnego progu domyślnego.",
+                        "battery_increase_threshold": "Próg to różnica wzrostu pomiędzy poprzednim a aktualnym poziomem baterii.\n0 będzie korzystać z globalnego progu domyślnego."
                     },
                     "sections": {
                         "advanced_settings": {
@@ -99,12 +101,14 @@
                             "data": {
                                 "battery_percentage_template": "Szablon procentowy baterii",
                                 "battery_low_template": "Szablon niskiego poziomu baterii",
+                                "retain_state": "Zachowaj stan",
                                 "filter_outliers": "Filtr wartości odstających"
                             },
                             "data_description": {
-                                "battery_percentage_template": "Szablon do stworzenia procentu baterii\njest wymagany tylko dla urządzeń, które nie mają standardowego procentu baterii",
-                                "battery_low_template": "Szablon do określenia czy poziom naładowania baterii jest niski, powinien zwrócić wartość true, jeśli poziom jest niski.\nJest wymagany tylko dla niestandardowych raportów poziomu baterii",
-                                "filter_outliers": "Filtruj duże spadki poziomu baterii, zmniejszając fałszywe wyzwalanie zdarzeń na urządzeniach, które sporadycznie zgłaszają poziomy baterii"
+                                "battery_percentage_template": "Szablon do stworzenia procentu baterii.\njest wymagany tylko dla urządzeń, które nie mają standardowego procentu baterii.",
+                                "battery_low_template": "Szablon do określenia czy poziom naładowania baterii jest niski, powinien zwrócić wartość true, jeśli poziom jest niski.\nJest wymagany tylko dla niestandardowych raportów poziomu baterii.",
+                                "retain_state": "Zachowaj ostatni stan baterii, gdy jednostka źródłowa jest niedostępna.\nPrzydatne dla urządzeń, które przechodzą w tryb uśpienia i stają się niedostępne.",
+                                "filter_outliers": "Filtruj duże spadki poziomu baterii, zmniejszając fałszywe wyzwalanie zdarzeń na urządzeniach, które sporadycznie zgłaszają poziomy baterii."
                             }
                         }
                     }
@@ -124,9 +128,9 @@
                         "battery_increase_threshold": "Próg wzrostu poziomu baterii"
                     },
                     "data_description": {
-                        "name": "Pozostawienie pustego pola spowoduje pobranie nazwy z urządzenia źródłowego",
-                        "battery_low_threshold": "0 użyje globalnego progu domyślnego",
-                        "battery_increase_threshold": "Próg to różnica wzrostu pomiędzy poprzednim a aktualnym poziomem baterii\n0 będzie korzystać z globalnego progu domyślnego"
+                        "name": "Pozostawienie pustego pola spowoduje pobranie nazwy z urządzenia źródłowego.",
+                        "battery_low_threshold": "0 użyje globalnego progu domyślnego.",
+                        "battery_increase_threshold": "Próg to różnica wzrostu pomiędzy poprzednim a aktualnym poziomem baterii.\n0 będzie korzystać z globalnego progu domyślnego."
                     },
                     "sections": {
                         "advanced_settings": {
@@ -134,12 +138,14 @@
                             "data": {
                                 "battery_percentage_template": "Szablon procentowy baterii",
                                 "battery_low_template": "Szablon niskiego poziomu baterii",
+                                "retain_state": "Zachowaj stan",
                                 "filter_outliers": "Filtr wartości odstających"
                             },
                             "data_description": {
-                                "battery_percentage_template": "Szablon do stworzenia procentu baterii\njest wymagany tylko dla urządzeń, które nie mają standardowego procentu baterii",
-                                "battery_low_template": "Szablon do określenia czy poziom naładowania baterii jest niski, powinien zwrócić wartość true, jeśli poziom jest niski.\nJest wymagany tylko dla niestandardowych raportów poziomu baterii",
-                                "filter_outliers": "Filtruj duże spadki poziomu baterii, zmniejszając fałszywe wyzwalanie zdarzeń na urządzeniach, które sporadycznie zgłaszają poziomy baterii"
+                                "battery_percentage_template": "Szablon do stworzenia procentu baterii.\njest wymagany tylko dla urządzeń, które nie mają standardowego procentu baterii.",
+                                "battery_low_template": "Szablon do określenia czy poziom naładowania baterii jest niski, powinien zwrócić wartość true, jeśli poziom jest niski.\nJest wymagany tylko dla niestandardowych raportów poziomu baterii.",
+                                "retain_state": "Zachowaj ostatni stan baterii, gdy jednostka źródłowa jest niedostępna.\nPrzydatne dla urządzeń, które przechodzą w tryb uśpienia i stają się niedostępne.",
+                                "filter_outliers": "Filtruj duże spadki poziomu baterii, zmniejszając fałszywe wyzwalanie zdarzeń na urządzeniach, które sporadycznie zgłaszają poziomy baterii."
                             }
                         }
                     }

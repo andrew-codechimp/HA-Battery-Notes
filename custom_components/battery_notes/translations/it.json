@@ -24,11 +24,13 @@
                         "data": {
                             "battery_percentage_template": "Template percentuale batteria",
                             "battery_low_template": "Template batteria scarica",
+                            "retain_state": "Mantieni stato",
                             "filter_outliers": "Filtra valori anomali"
                         },
                         "data_description": {
                             "battery_percentage_template": "Template per calcolare la percentuale della batteria.\nNecessario solo per dispositivi che non forniscono una percentuale standard.",
                             "battery_low_template": "Template per determinare se la batteria è scarica; deve restituire vero quando la batteria è bassa.\nNecessario solo per livelli di batteria non standard.",
+                            "retain_state": "Mantieni l'ultimo stato della batteria quando l'entità di origine non è disponibile.\nUtile per i dispositivi che vanno in standby e diventano non disponibili.",
                             "filter_outliers": "Filtra cali improvvisi e anomali della batteria, riducendo falsi allarmi su dispositivi che riportano valori errati occasionalmente."
                         }
                     }
@@ -99,11 +101,13 @@
                             "data": {
                                 "battery_percentage_template": "Template percentuale batteria",
                                 "battery_low_template": "Template batteria scarica",
+                                "retain_state": "Mantieni stato",
                                 "filter_outliers": "Filtra valori anomali"
                             },
                             "data_description": {
                                 "battery_percentage_template": "Template per calcolare la percentuale della batteria.\nNecessario solo per dispositivi che non forniscono una percentuale standard.",
                                 "battery_low_template": "Template per determinare se la batteria è scarica; deve restituire vero quando la batteria è bassa.\nNecessario solo per livelli di batteria non standard.",
+                                "retain_state": "Mantieni l'ultimo stato della batteria quando l'entità di origine non è disponibile.\nUtile per i dispositivi che vanno in standby e diventano non disponibili.",
                                 "filter_outliers": "Filtra cali improvvisi e anomali della batteria, riducendo falsi allarmi su dispositivi che riportano valori errati occasionalmente."
                             }
                         }
@@ -134,11 +138,13 @@
                             "data": {
                                 "battery_percentage_template": "Template percentuale batteria",
                                 "battery_low_template": "Template batteria scarica",
+                                "retain_state": "Mantieni stato",
                                 "filter_outliers": "Filtra valori anomali"
                             },
                             "data_description": {
                                 "battery_percentage_template": "Template per calcolare la percentuale della batteria.\nNecessario solo per dispositivi che non forniscono una percentuale standard.",
                                 "battery_low_template": "Template per determinare se la batteria è scarica; deve restituire vero quando la batteria è bassa.\nNecessario solo per livelli di batteria non standard.",
+                                "retain_state": "Mantieni l'ultimo stato della batteria quando l'entità di origine non è disponibile.\nUtile per i dispositivi che vanno in standby e diventano non disponibili.",
                                 "filter_outliers": "Filtra cali improvvisi e anomali della batteria, riducendo falsi allarmi su dispositivi che riportano valori errati occasionalmente."
                             }
                         }

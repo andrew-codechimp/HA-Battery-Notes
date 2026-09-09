@@ -194,7 +194,9 @@ async def async_setup_entry(
             )
 
 
-class BatteryNotesBatteryLowBaseSensor(BatteryNotesEntity, BinarySensorEntity):
+class BatteryNotesBatteryLowBaseSensor(
+    BatteryNotesEntity, BinarySensorEntity, RestoreEntity
+):
     """Low battery binary sensor base."""
 
     entity_description: BatteryNotesBinarySensorEntityDescription
@@ -300,9 +302,7 @@ class BatteryNotesNonTemplateBatteryLowSensor(BatteryNotesBatteryLowBaseSensor):
             )
 
 
-class BatteryNotesBatteryLowBinaryTemplateSensor(
-    BatteryNotesBatteryLowBaseSensor, RestoreEntity
-):
+class BatteryNotesBatteryLowBinaryTemplateSensor(BatteryNotesBatteryLowBaseSensor):
     """Represents a low battery threshold binary sensor from a template."""
 
     _attr_should_poll = False
@@ -587,9 +587,10 @@ class BatteryNotesBatteryWrappedLowSensor(BatteryNotesNonTemplateBatteryLowSenso
             ]
             or not validate_is_float(wrapped_battery_state.state)
         ):
-            self._attr_is_on = None
-            self._attr_available = False
-            self.async_write_ha_state()
+            if not self.coordinator.retain_state:
+                self._attr_is_on = None
+                self._attr_available = False
+                self.async_write_ha_state()
             return
 
         self._attr_is_on = self.coordinator.battery_low
@@ -650,9 +651,10 @@ class BatteryNotesBatteryBinaryLowSensor(BatteryNotesNonTemplateBatteryLowSensor
             ]
             or wrapped_battery_low_state.state not in ["on", "off"]
         ):
-            self._attr_is_on = None
-            self._attr_available = False
-            self.async_write_ha_state()
+            if not self.coordinator.retain_state:
+                self._attr_is_on = None
+                self._attr_available = False
+                self.async_write_ha_state()
             return
 
         self.coordinator.last_reported = dt_util.utcnow()
@@ -818,9 +820,10 @@ class BatteryNotesBatteryBinaryLowSensor(BatteryNotesNonTemplateBatteryLowSensor
             ]
             or wrapped_battery_low_state.state not in ["on", "off"]
         ):
-            self._attr_is_on = None
-            self._attr_available = False
-            self.async_write_ha_state()
+            if not self.coordinator.retain_state:
+                self._attr_is_on = None
+                self._attr_available = False
+                self.async_write_ha_state()
             return
 
         self._attr_is_on = self.coordinator.battery_low_binary_state

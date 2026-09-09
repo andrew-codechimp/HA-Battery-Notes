@@ -24,12 +24,14 @@
                         "data": {
                             "battery_percentage_template": "Modèle du pourcentage de batterie",
                             "battery_low_template": "Modèle de batterie faible",
+                            "retain_state": "Conserver l'état",
                             "filter_outliers": "Filtrer les valeurs aberrantes"
                         },
                         "data_description": {
-                            "battery_percentage_template": "Modèle pour créer un pourcentage de batterie\nNécessaire uniquement pour les appareils qui n'ont pas de pourcentage de batterie standard",
-                            "battery_low_template": "Modèle pour déterminer si une batterie est faible, devrait retourner vrai si faible\nNécessaire uniquement pour les niveaux de batterie non standard",
-                            "filter_outliers": "Filtrer les baisses importantes du niveau de batterie, pour réduire les événements faussement déclenchés par les appareils qui signalent occasionnellement des niveaux erronés"
+                            "battery_percentage_template": "Modèle pour créer un pourcentage de batterie.\nNécessaire uniquement pour les appareils qui n'ont pas de pourcentage de batterie standard.",
+                            "battery_low_template": "Modèle pour déterminer si une batterie est faible, devrait retourner vrai si faible.\nNécessaire uniquement pour les niveaux de batterie non standard.",
+                            "retain_state": "Conservez le dernier état de la batterie lorsque l'entité source n'est pas disponible.\nUtile pour les appareils qui se mettent en veille et deviennent indisponibles.",
+                            "filter_outliers": "Filtrer les baisses importantes du niveau de batterie, pour réduire les événements faussement déclenchés par les appareils qui signalent occasionnellement des niveaux erronés."
                         }
                     }
                 }
@@ -90,8 +92,8 @@
                         "battery_increase_threshold": "Seuil d'augmentation de la batterie"
                     },
                     "data_description": {
-                        "battery_low_threshold": "0 gardera le seuil par defaut",
-                        "battery_increase_threshold": "Le seuil est la différence d'augmentation entre le niveau de batterie précédent et actuel\n0 utilisera le seuil global par défaut"
+                        "battery_low_threshold": "0 gardera le seuil par defaut.",
+                        "battery_increase_threshold": "Le seuil est la différence d'augmentation entre le niveau de batterie précédent et actuel.\n0 utilisera le seuil global par défaut."
                     },
                     "sections": {
                         "advanced_settings": {
@@ -99,12 +101,14 @@
                             "data": {
                                 "battery_percentage_template": "Modèle du pourcentage de batterie",
                                 "battery_low_template": "Modèle de batterie faible",
+                                "retain_state": "Conserver l'état",
                                 "filter_outliers": "Filtrer les valeurs aberrantes"
                             },
                             "data_description": {
-                                "battery_percentage_template": "Modèle pour créer un pourcentage de batterie\nNécessaire uniquement pour les appareils qui n'ont pas de pourcentage de batterie standard",
-                                "battery_low_template": "Modèle pour déterminer si une batterie est faible, devrait retourner vrai si faible\nNécessaire uniquement pour les niveaux de batterie non standard",
-                                "filter_outliers": "Filtrer les baisses importantes du niveau de batterie, pour réduire les événements faussement déclenchés par les appareils qui signalent occasionnellement des niveaux erronés"
+                                "battery_percentage_template": "Modèle pour créer un pourcentage de batterie.\nNécessaire uniquement pour les appareils qui n'ont pas de pourcentage de batterie standard.",
+                                "battery_low_template": "Modèle pour déterminer si une batterie est faible, devrait retourner vrai si faible.\nNécessaire uniquement pour les niveaux de batterie non standard.",
+                                "retain_state": "Conservez le dernier état de la batterie lorsque l'entité source n'est pas disponible.\nUtile pour les appareils qui se mettent en veille et deviennent indisponibles.",
+                                "filter_outliers": "Filtrer les baisses importantes du niveau de batterie, pour réduire les événements faussement déclenchés par les appareils qui signalent occasionnellement des niveaux erronés."
                             }
                         }
                     }
@@ -124,9 +128,9 @@
                         "battery_increase_threshold": "Seuil d'augmentation de la batterie"
                     },
                     "data_description": {
-                        "name": "Laisser vide gardera le seuil par defaut",
-                        "battery_low_threshold": "0 gardera le seuil par defaut",
-                        "battery_increase_threshold": "Le seuil est la différence d'augmentation entre le niveau de batterie précédent et actuel\n0 utilisera le seuil global par défaut"
+                        "name": "Laisser vide gardera le seuil par defaut.",
+                        "battery_low_threshold": "0 gardera le seuil par defaut.",
+                        "battery_increase_threshold": "Le seuil est la différence d'augmentation entre le niveau de batterie précédent et actuel.\n0 utilisera le seuil global par défaut."
                     },
                     "sections": {
                         "advanced_settings": {
@@ -134,12 +138,14 @@
                             "data": {
                                 "battery_percentage_template": "Modèle du pourcentage de batterie",
                                 "battery_low_template": "Modèle de batterie faible",
+                                "retain_state": "Conserver l'état",
                                 "filter_outliers": "Filtrer les valeurs aberrantes"
                             },
                             "data_description": {
-                                "battery_percentage_template": "Modèle pour créer un pourcentage de batterie\nNécessaire uniquement pour les appareils qui n'ont pas de pourcentage de batterie standard",
-                                "battery_low_template": "Modèle pour déterminer si une batterie est faible, devrait retourner vrai si faible\nNécessaire uniquement pour les niveaux de batterie non standard",
-                                "filter_outliers": "Filtrer les baisses importantes du niveau de batterie, pour réduire les événements faussement déclenchés par les appareils qui signalent occasionnellement des niveaux erronés"
+                                "battery_percentage_template": "Modèle pour créer un pourcentage de batterie.\nNécessaire uniquement pour les appareils qui n'ont pas de pourcentage de batterie standard.",
+                                "battery_low_template": "Modèle pour déterminer si une batterie est faible, devrait retourner vrai si faible.\nNécessaire uniquement pour les niveaux de batterie non standard.",
+                                "retain_state": "Conservez le dernier état de la batterie lorsque l'entité source n'est pas disponible.\nUtile pour les appareils qui se mettent en veille et deviennent indisponibles.",
+                                "filter_outliers": "Filtrer les baisses importantes du niveau de batterie, pour réduire les événements faussement déclenchés par les appareils qui signalent occasionnellement des niveaux erronés."
                             }
                         }
                     }
