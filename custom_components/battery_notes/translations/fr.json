@@ -16,7 +16,7 @@
                 },
                 "data_description": {
                     "battery_low_threshold": "0 gardera le seuil par defaut",
-                    "battery_increase_threshold": "Le seuil est la différence d'augmentation entre le niveau de batterie précédent et actuel\n0 utilisera le seuil global par défaut"
+                    "battery_increase_threshold": "Le seuil est la différence d'augmentation entre le niveau de batterie précédent et actuel.\n0 utilisera le seuil global par défaut."
                 },
                 "sections": {
                     "advanced_settings": {
