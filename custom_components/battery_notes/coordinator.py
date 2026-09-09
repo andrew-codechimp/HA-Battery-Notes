@@ -444,6 +444,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
         if self.wrapped_battery and self.wrapped_battery_low:
             return
 
+        store_entry = None
         if self.source_entity_id:
             store_entry = self.config_entry.runtime_data.store.async_get_entity(
                 self.source_entity_id
