@@ -38,6 +38,8 @@ class DeviceEntry:
     battery_last_replaced = attr.ib(type=datetime, default=None)
     battery_last_reported = attr.ib(type=datetime, default=None)
     battery_last_reported_level = attr.ib(type=float, default=None)
+    previous_entity_percentage = attr.ib(type=str, default=None)
+    previous_entity_low = attr.ib(type=str, default=None)
 
 
 @attr.s(slots=True, frozen=True)
@@ -49,6 +51,8 @@ class EntityEntry:
     battery_last_replaced = attr.ib(type=datetime, default=None)
     battery_last_reported = attr.ib(type=datetime, default=None)
     battery_last_reported_level = attr.ib(type=float, default=None)
+    previous_entity_percentage = attr.ib(type=str, default=None)
+    previous_entity_low = attr.ib(type=str, default=None)
 
 
 def _fix_datetime_string(datetime_str: str) -> str:

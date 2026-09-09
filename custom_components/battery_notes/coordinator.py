@@ -69,6 +69,8 @@ from .const import (
     LAST_REPLACED,
     LAST_REPORTED,
     LAST_REPORTED_LEVEL,
+    PREVIOUS_ENTITY_LOW,
+    PREVIOUS_ENTITY_PERCENTAGE,
 )
 from .filters import LowOutlierFilter
 from .store import BatteryNotesStorage
@@ -323,6 +325,8 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
             if device_class == BinarySensorDeviceClass.BATTERY:
                 self.wrapped_battery_low = entity
 
+            self._store_or_fallback_to_previous_entities()
+
             self.device_name = self.subentry.title
         else:
             if self.device_id is not None:
@@ -368,6 +372,8 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                         if self.wrapped_battery:
                             break
 
+                self._store_or_fallback_to_previous_entities()
+
             device_entry = None
             if self.device_id:
                 device_entry = device_registry.async_get(self.device_id)
@@ -407,6 +413,56 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                 return False
 
         return True
+
+    def _store_or_fallback_to_previous_entities(self) -> None:
+        """Store the current wrapped battery entities for future fallback, or fallback to previously stored."""
+        if self.wrapped_battery or self.wrapped_battery_low:
+            store_entry_update: dict = {}
+            if self.wrapped_battery:
+                previous_entity_percentage = self.wrapped_battery.entity_id
+                store_entry_update.update(
+                    {PREVIOUS_ENTITY_PERCENTAGE: previous_entity_percentage}
+                )
+
+            if self.wrapped_battery_low:
+                previous_entity_low = self.wrapped_battery_low.entity_id
+                store_entry_update.update({PREVIOUS_ENTITY_LOW: previous_entity_low})
+
+            if self.source_entity_id:
+                self.async_update_entity_config(
+                    entity_id=self.source_entity_id, data=store_entry_update
+                )
+            elif self.device_id:
+                self.async_update_device_config(
+                    device_id=self.device_id, data=store_entry_update
+                )
+
+        # Try and use the fallback entities
+        if not self.wrapped_battery or not self.wrapped_battery_low:
+            if self.source_entity_id:
+                store_entry = self.config_entry.runtime_data.store.async_get_entity(
+                    self.source_entity_id
+                )
+            elif self.device_id:
+                store_entry = self.config_entry.runtime_data.store.async_get_device(
+                    self.device_id
+                )
+
+            if not store_entry:
+                return
+
+            if not self.wrapped_battery:
+                self.wrapped_battery = store_entry.get(PREVIOUS_ENTITY_PERCENTAGE, None)
+                _LOGGER.debug(
+                    "Falling back to previous entity for battery percentage: %s",
+                    self.wrapped_battery,
+                )
+            if not self.wrapped_battery_low:
+                self.wrapped_battery_low = store_entry.get(PREVIOUS_ENTITY_LOW, None)
+                _LOGGER.debug(
+                    "Falling back to previous entity for battery low: %s",
+                    self.wrapped_battery_low,
+                )
 
     @property
     def unique_id(self) -> str:

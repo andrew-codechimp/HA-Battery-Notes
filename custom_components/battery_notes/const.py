@@ -18,6 +18,8 @@ MANUFACTURER = "@Andrew-CodeChimp"
 LAST_REPLACED = "battery_last_replaced"
 LAST_REPORTED = "battery_last_reported"
 LAST_REPORTED_LEVEL = "battery_last_reported_level"
+PREVIOUS_ENTITY_PERCENTAGE = "previous_entity_percentage"
+PREVIOUS_ENTITY_LOW = "previous_entity_low"
 
 DEFAULT_BATTERY_LOW_THRESHOLD = 10
 DEFAULT_BATTERY_INCREASE_THRESHOLD = 25
