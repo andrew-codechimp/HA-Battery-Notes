@@ -325,8 +325,8 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
             if device_class == BinarySensorDeviceClass.BATTERY:
                 self.wrapped_battery_low = entity
 
-            self._store_fallback_entities()
-            self._check_and_use_fallback_entities()
+            self._store_wrapped_entities()
+            self._check_wrapped_entities_and_fallback()
 
             self.device_name = self.subentry.title
         else:
@@ -373,8 +373,8 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                         if self.wrapped_battery:
                             break
 
-                self._store_fallback_entities()
-                self._check_and_use_fallback_entities()
+                self._store_wrapped_entities()
+                self._check_wrapped_entities_and_fallback()
 
             device_entry = None
             if self.device_id:
@@ -416,7 +416,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
 
         return True
 
-    def _store_fallback_entities(self) -> None:
+    def _store_wrapped_entities(self) -> None:
         """Store the current wrapped battery entities for future fallback."""
         if self.wrapped_battery or self.wrapped_battery_low:
             store_entry_update: dict = {}
@@ -439,7 +439,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                     device_id=self.device_id, data=store_entry_update
                 )
 
-    def _check_and_use_fallback_entities(self) -> None:
+    def _check_wrapped_entities_and_fallback(self) -> None:
         """Check current wrapped entities and use fallback entities if the current ones are not available."""
         if not self.wrapped_battery or not self.wrapped_battery_low:
             if self.source_entity_id:
