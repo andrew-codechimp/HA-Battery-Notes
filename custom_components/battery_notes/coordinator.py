@@ -420,9 +420,9 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
             store_entry_update: dict = {}
             if self.wrapped_battery:
                 previous_entity_percentage = self.wrapped_battery.entity_id
-                store_entry_update.update({
-                    PREVIOUS_ENTITY_PERCENTAGE: previous_entity_percentage
-                })
+                store_entry_update.update(
+                    {PREVIOUS_ENTITY_PERCENTAGE: previous_entity_percentage}
+                )
 
             if self.wrapped_battery_low:
                 previous_entity_low = self.wrapped_battery_low.entity_id
