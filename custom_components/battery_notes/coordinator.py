@@ -414,7 +414,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
 
         return True
 
-    def _store_or_fallback_to_previous_entities(self) -> None:
+    def _store_or_fallback_to_previous_entities(self) -> None:  # noqa: PLR0912
         """Store the current wrapped battery entities for future fallback, or fallback to previously stored."""
         if self.wrapped_battery or self.wrapped_battery_low:
             store_entry_update: dict = {}
@@ -451,18 +451,31 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
             if not store_entry:
                 return
 
+            entity_registry = er.async_get(self.hass)
             if not self.wrapped_battery:
-                self.wrapped_battery = store_entry.get(PREVIOUS_ENTITY_PERCENTAGE, None)
-                _LOGGER.debug(
-                    "Falling back to previous entity for battery percentage: %s",
-                    self.wrapped_battery,
+                previous_entity_id_percentage = store_entry.get(
+                    PREVIOUS_ENTITY_PERCENTAGE, None
                 )
+                if previous_entity_id_percentage:
+                    percentage_entity = entity_registry.async_get(
+                        previous_entity_id_percentage
+                    )
+                    self.wrapped_battery = percentage_entity
+
+                    _LOGGER.debug(
+                        "Falling back to previous entity for battery percentage: %s",
+                        previous_entity_id_percentage,
+                    )
             if not self.wrapped_battery_low:
-                self.wrapped_battery_low = store_entry.get(PREVIOUS_ENTITY_LOW, None)
-                _LOGGER.debug(
-                    "Falling back to previous entity for battery low: %s",
-                    self.wrapped_battery_low,
-                )
+                previous_entity_id_low = store_entry.get(PREVIOUS_ENTITY_LOW, None)
+                if previous_entity_id_low:
+                    low_entity = entity_registry.async_get(previous_entity_id_low)
+
+                    self.wrapped_battery_low = low_entity
+                    _LOGGER.debug(
+                        "Falling back to previous entity for battery low: %s",
+                        previous_entity_id_low,
+                    )
 
     @property
     def unique_id(self) -> str:
