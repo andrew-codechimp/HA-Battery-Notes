@@ -105,7 +105,7 @@
                                 "filter_outliers": "Filtrar atípicos"
                             },
                             "data_description": {
-                                "battery_percentage_template": "Template to create a battery percentage.\nOnly needed for devices that do not have a standard battery percentage.",
+                                "battery_percentage_template": "Modelo para criar uma porcentagem de bateria.\nnecessário apenas para dispositivos que não possuem uma porcentagem padrão de bateria.",
                                 "battery_low_template": "Modelo para determinar se a bateria está fraca, deve retornar verdadeiro se estiver fraca.\nNecessário apenas para níveis de bateria fora do padrão.",
                                 "retain_state": "Mantenha o último estado da bateria quando a entidade de origem não estiver disponível.\nÚtil para dispositivos que entram em modo de suspensão e ficam indisponíveis.",
                                 "filter_outliers": "Filtre grandes quedas no nível da bateria, reduzindo eventos de disparo falso em dispositivos que ocasionalmente relatam níveis incorretos."
