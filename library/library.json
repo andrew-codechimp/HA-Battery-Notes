@@ -4903,6 +4903,12 @@
         },
         {
             "manufacturer": "GS",
+            "model": "Siren",
+            "model_id": "SRHMP-I1",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "GS",
             "model": "Smoke detector (SSHM-I1)",
             "battery_type": "CR123A"
         },
@@ -13388,12 +13394,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "GS",
-            "model": "Siren",
-            "model_id": "SRHMP-I1",
             "battery_type": "Rechargeable"
         }
     ]

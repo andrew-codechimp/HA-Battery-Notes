@@ -1,4 +1,4 @@
-## 2306 Devices in library
+## 2307 Devices in library
 
 This file is auto generated, do not modify
 
@@ -853,6 +853,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Grohe                                           |Sense                                                                                         |3× AAA                    |                                                                        |
 |GS                                              |Motion sensor (SMHM-I1)                                                                       |CR123A                    |                                                                        |
 |GS                                              |Open and close sensor (SOHM-I1)                                                               |2× AAA                    |                                                                        |
+|GS                                              |Siren                                                                                         |Rechargeable              |SRHMP-I1                                                                |
 |GS                                              |Smoke detector (SSHM-I1)                                                                      |CR123A                    |                                                                        |
 |GS                                              |Temperature and humidity sensor (STHM-I1H)                                                    |CR2450                    |                                                                        |
 |GS                                              |Water leakage sensor                                                                          |2× AAA                    |SWHM-I1                                                                 |
