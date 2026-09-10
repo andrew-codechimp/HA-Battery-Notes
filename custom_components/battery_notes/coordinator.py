@@ -466,7 +466,10 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                 percentage_entity = entity_registry.async_get(
                     previous_entity_id_percentage
                 )
-                if percentage_entity:
+                if percentage_entity and (
+                    self.device_id is None
+                    or percentage_entity.device_id == self.device_id
+                ):
                     self.wrapped_battery = percentage_entity
 
                     _LOGGER.debug(
@@ -477,7 +480,9 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
             previous_entity_id_low = store_entry.get(PREVIOUS_ENTITY_LOW, None)
             if previous_entity_id_low:
                 low_entity = entity_registry.async_get(previous_entity_id_low)
-                if low_entity:
+                if low_entity and (
+                    self.device_id is None or low_entity.device_id == self.device_id
+                ):
                     self.wrapped_battery_low = low_entity
                     _LOGGER.debug(
                         "Falling back to previous entity for battery low: %s",
