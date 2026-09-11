@@ -1,4 +1,4 @@
-## 2307 Devices in library
+## 2308 Devices in library
 
 This file is auto generated, do not modify
 
@@ -887,6 +887,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Heiman                                          |Smart motion sensor                                                                           |CR123A                    |HS1MS-EF                                                                |
 |HEIMAN                                          |Smart motion sensor (HS3MS)                                                                   |CR123A                    |                                                                        |
 |Heiman                                          |Smart siren                                                                                   |Rechargeable              |HS2WD-E                                                                 |
+|Heiman                                          |Smart smoke alarm                                                                             |CR123A                    |HS1SA-E-PLUS                                                            |
 |HEIMAN                                          |Smoke detector                                                                                |CR123A                    |HS1SA                                                                   |
 |HEIMAN                                          |Smoke detector (HS1SA)                                                                        |CR123A                    |                                                                        |
 |HEIMAN                                          |Smoke detector (HS3SA/HS1SA)                                                                  |CR123A                    |                                                                        |

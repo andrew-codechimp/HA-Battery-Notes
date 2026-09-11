@@ -5097,6 +5097,12 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "Heiman",
+            "model": "Smart smoke alarm",
+            "model_id": "HS1SA-E-PLUS",
+            "battery_type": "CR123A"
+        },
+        {
             "manufacturer": "HEIMAN",
             "model": "Smoke detector",
             "model_id": "HS1SA",
@@ -13395,12 +13401,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Heiman",
-            "model": "Smart smoke alarm",
-            "model_id": "HS1SA-E-PLUS",
-            "battery_type": "CR123A"
         }
     ]
 }
