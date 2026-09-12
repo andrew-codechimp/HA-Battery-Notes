@@ -3133,6 +3133,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "EFEKTA",
+            "model": "Plant Wattering Sensor with e-ink display 1.02",
+            "model_id": "EFEKTA_eFlora",
+            "battery_type": "CR2577"
+        },
+        {
             "manufacturer": "Elexa Consumer Products Inc.",
             "model": "DMMS1",
             "battery_type": "CR123A"
@@ -13401,12 +13407,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "EFEKTA",
-            "model": "Plant Wattering Sensor with e-ink display 1.02",
-            "model_id": "EFEKTA_eFlora",
-            "battery_type": "CR2577"
         }
     ]
 }
