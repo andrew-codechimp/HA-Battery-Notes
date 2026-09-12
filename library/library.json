@@ -13407,6 +13407,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "SONOFF",
+            "model": "Temperature and humidity sensor",
+            "model_id": "SNZB-02B",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
