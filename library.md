@@ -1,4 +1,4 @@
-## 2310 Devices in library
+## 2311 Devices in library
 
 This file is auto generated, do not modify
 
@@ -303,6 +303,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Aqara                                           |Presence Multi-Sensor FP300                                                                   |2× CR2450                 |                                                                        |
 |Aqara                                           |Presence sensor FP300                                                                         |2× CR2450                 |PS-S04D                                                                 |
 |Aqara                                           |Presence sensor FP300 (PS-S04D)                                                               |2× CR2450                 |                                                                        |
+|Aqara                                           |PS-S04D                                                                                       |2× CR2450                 |                                                                        |
 |Aqara                                           |Radiator Thermostat E1                                                                        |2× AA                     |SRTS-A01                                                                |
 |Aqara                                           |Roller shade driver E1                                                                        |Rechargeable              |ZNJLBL01LM                                                              |
 |Aqara                                           |Roller shade driver E1 (ZNJLBL01LM)                                                           |Rechargeable              |                                                                        |
