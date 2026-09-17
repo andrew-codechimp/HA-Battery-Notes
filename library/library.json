@@ -5090,6 +5090,13 @@
             "battery_type": "CR123A"
         },
         {
+            "manufacturer": "HEIMAN",
+            "model": "Smart CO sensor",
+            "model_id": "4103",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Heiman",
             "model": "Smart motion sensor",
             "model_id": "HS1MS-EF",
@@ -13420,13 +13427,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "HEIMAN",
-            "model": "Smart CO sensor",
-            "model_id": "4103",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
