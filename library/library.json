@@ -10094,6 +10094,12 @@
         },
         {
             "manufacturer": "Third Reality",
+            "model": "Smart Soil Moisture Sensor",
+            "model_id": "3RSM0147Z",
+            "battery_type": "AA"
+        },
+        {
+            "manufacturer": "Third Reality",
             "model": "Smart switch Gen3",
             "model_id": "3RSS009Z",
             "hw_version": "1",
@@ -13427,12 +13433,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Third Reality",
-            "model": "Smart Soil Moisture Sensor",
-            "model_id": "3RSM0147Z",
-            "battery_type": "AA"
         }
     ]
 }
