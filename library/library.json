@@ -13465,6 +13465,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "ONENUO",
+            "model": "Smoke detector",
+            "model_id": "288WZ",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
