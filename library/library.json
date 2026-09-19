@@ -13439,6 +13439,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Nedis",
+            "model": "Temperature and humidity sensor",
+            "model_id": "ZBSC10WT",
+            "battery_type": "CR2450"
         }
     ]
 }
