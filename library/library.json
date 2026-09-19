@@ -13439,6 +13439,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "IKEA",
+            "model": "STYRBAR remote control",
+            "model_id": "E2001/E2002/E2313",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
