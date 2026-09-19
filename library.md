@@ -1,4 +1,4 @@
-## 2316 Devices in library
+## 2317 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1191,6 +1191,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Mi                                              |MS009                                                                                         |CR2540                    |                                                                        |
 |Mi light sensor                                 |GZCGQ01LM                                                                                     |CR2450                    |                                                                        |
 |MiaoMiaoCe                                      |MHO-C401N-z                                                                                   |CR2032                    |                                                                        |
+|MiBoxer                                         |RGB+CCT Remote                                                                                |2× AAA                    |FUT089Z                                                                 |
 |Minoston                                        |MR40Z                                                                                         |2× CR2032                 |                                                                        |
 |Minoston                                        |MSE30Z                                                                                        |CR2450                    |                                                                        |
 |Mobile Alerts                                   |Wireless Thermo-Hygrometer                                                                    |2× AAA                    |MA10200                                                                 |

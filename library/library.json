@@ -6853,6 +6853,13 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "MiBoxer",
+            "model": "RGB+CCT Remote",
+            "model_id": "FUT089Z",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Minoston",
             "model": "MR40Z",
             "battery_type": "CR2032",
@@ -13452,13 +13459,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "MiBoxer",
-            "model": "RGB+CCT Remote",
-            "model_id": "FUT089Z",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
