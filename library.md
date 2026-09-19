@@ -1,4 +1,4 @@
-## 2319 Devices in library
+## 2320 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1331,6 +1331,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Panasonic                                       |VR220                                                                                         |Rechargeable              |                                                                        |
 |Paulmann                                        |Gent2 RGB remote control                                                                      |2× CR2032                 |                                                                  501.40|
 |Paulmann                                        |Remote control Smart Home Zigbee 3.0 White                                                    |CR2032                    |                                                                  501.41|
+|Paulmann                                        |RGB remote control                                                                            |2× CR2032                 |                                                                  501.40|
 |Paulmann                                        |Smart switch 4 buttons white (501.34)                                                         |CR2450                    |                                                                        |
 |Perenio                                         |PECWS01                                                                                       |CR2032                    |                                                                        |
 |Petkit                                          |Pura Air Smart Spray                                                                          |4× AA                     |                                                                        |
