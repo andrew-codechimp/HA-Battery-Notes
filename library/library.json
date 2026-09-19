@@ -13439,6 +13439,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Innr",
+            "model": "Remote control",
+            "model_id": "RC 250",
+            "battery_type": "CR2450"
         }
     ]
 }
