@@ -13472,6 +13472,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Paulmann",
+            "model": "RGB remote control",
+            "model_id": "501.40",
+            "battery_type": "CR2032",
+            "battery_quantity": 2
         }
     ]
 }
