@@ -7124,6 +7124,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Nedis",
+            "model": "Temperature and humidity sensor",
+            "model_id": "ZBSC10WT",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "Neo",
             "model": "Alarm",
             "model_id": "NAS-AB02B2",
@@ -13459,12 +13465,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Nedis",
-            "model": "Temperature and humidity sensor",
-            "model_id": "ZBSC10WT",
-            "battery_type": "CR2450"
         }
     ]
 }

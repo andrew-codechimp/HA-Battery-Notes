@@ -1,4 +1,4 @@
-## 2317 Devices in library
+## 2318 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1235,6 +1235,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Namron                                          |Zigbee 8 channel switch white                                                                 |CR2450                    |                                                                 4512772|
 |Namron AS                                       |4512762                                                                                       |CR2350                    |                                                                        |
 |Nedis                                           |Nedis Smart Climate Sensor Zigbee 3.0 (ZBSC30WT)                                              |2× AAA                    |                                                                        |
+|Nedis                                           |Temperature and humidity sensor                                                               |CR2450                    |ZBSC10WT                                                                |
 |Neo                                             |Alarm                                                                                         |CR123A                    |NAS-AB02B2                                                              |
 |Neo                                             |Alarm (NAS-AB02B2)                                                                            |CR123A Lithium            |                                                                        |
 |NEO                                             |NAS-AB02B2                                                                                    |2× CR123A                 |_TZE200_t1blo2bj                                                        |
