@@ -7420,6 +7420,13 @@
             "battery_type": "CR2032"
         },
         {
+            "manufacturer": "Obi",
+            "model": "OBI meter",
+            "model_id": "506e83",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "Oculus",
             "model": "Quest",
             "battery_type": "Rechargeable"
@@ -13479,13 +13486,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Obi",
-            "model": "OBI meter",
-            "model_id": "506e83",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
