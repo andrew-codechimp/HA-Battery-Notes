@@ -133,7 +133,7 @@ class DiscoveryManager:
                 if not device_battery_details or device_battery_details.is_manual:
                     continue
 
-                # HACK: Change to device_entry.config_entry_id when HA 2026.8 is minimum
+                # HACK: Change to device_entry.config_entry_id when HA 2026.9+ is minimum
                 if AwesomeVersion(__version__) >= AwesomeVersion("2026.8.9"):
                     config_entry_id = device_entry.config_entry_id  # type: ignore[attr-defined]
                 else:
