@@ -1,4 +1,4 @@
-## 2323 Devices in library
+## 2324 Devices in library
 
 This file is auto generated, do not modify
 
@@ -252,6 +252,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Aqara                                           |Aqara Motion and Light Sensor P2                                                              |CR2450                    |                                                                                  8195|
 |Aqara                                           |Aqara Motion Sensor                                                                           |CR2450                    |                                                                                      |
 |Aqara                                           |Aqara Motion Sensor P1                                                                        |2× CR2450                 |                                                                                      |
+|Aqara                                           |Aqara Roller Shade Driver E1                                                                  |Rechargeable              |                                                                                      |
 |Aqara                                           |Aqara Smart Lock U100                                                                         |4× AA                     |                                                                                      |
 |Aqara                                           |Aqara Smart Lock U200                                                                         |Rechargeable              |                                                                                 10242|
 |Aqara                                           |Aqara Smart Lock U300                                                                         |4× AA                     |                                                                                      |
