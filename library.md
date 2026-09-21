@@ -1,4 +1,4 @@
-## 2324 Devices in library
+## 2325 Devices in library
 
 This file is auto generated, do not modify
 
@@ -714,6 +714,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |eQ-3                                            |Thermostat                                                                                    |2× AA                     |                                                                                      |
 |EQ-3 AG                                         |eQ-3 Bluetooth Smart Thermostats                                                              |2× AA                     |CC-RT-BLE-EQ                                                                          |
 |eQ3                                             |HmIP-STE2-PCB                                                                                 |2× AA                     |                                                                                      |
+|Eufy                                            |G30                                                                                           |Rechargeable              |                                                                                      |
 |Eufy                                            |RoboVac G10 Hybrid                                                                            |Rechargeable              |                                                                                      |
 |Eufy Security                                   |T8113                                                                                         |Rechargeable              |                                                                                      |
 |Eufy Security                                   |T8113-V                                                                                       |Rechargeable              |                                                                                      |
