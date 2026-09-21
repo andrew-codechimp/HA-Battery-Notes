@@ -4112,6 +4112,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Eufy",
+            "model": "RoboVac G10 Hybrid",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Eufy Security",
             "model": "T8113",
             "battery_type": "Rechargeable"
@@ -13492,11 +13497,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Eufy",
-            "model": "RoboVac G10 Hybrid",
             "battery_type": "Rechargeable"
         }
     ]
