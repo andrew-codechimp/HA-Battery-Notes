@@ -13503,6 +13503,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Eufy",
+            "model": "G30",
+            "battery_type": "Rechargeable"
         }
     ]
 }
