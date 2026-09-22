@@ -13508,6 +13508,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Wireless switch with 4 buttons",
+            "model_id": "TS0044_2",
+            "battery_type": "CR2430"
         }
     ]
 }
