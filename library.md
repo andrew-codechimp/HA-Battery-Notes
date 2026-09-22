@@ -1,4 +1,4 @@
-## 2327 Devices in library
+## 2328 Devices in library
 
 This file is auto generated, do not modify
 
@@ -2029,6 +2029,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |TuYa                                            |Wireless switch with 2 buttons (TS0042)                                                       |CR2032                    |                                                                                      |
 |Tuya                                            |Wireless switch with 3 buttons                                                                |CR2430                    |TS0043                                                                                |
 |Tuya                                            |Wireless switch with 4 buttons                                                                |CR2430                    |TS0044                                                                                |
+|Tuya                                            |Wireless switch with 4 buttons                                                                |CR2430                    |TS0044_2                                                                              |
 |TuYa                                            |Wireless switch with 4 buttons (TS0044)                                                       |CR2430                    |                                                                                      |
 |TuYa                                            |Wireless switch with 4 buttons (TS0044) by TuYa                                               |CR2032                    |                                                                                      |
 |TuYa                                            |Wireless switch with 4 buttons (TS004F)                                                       |CR2032                    |                                                                                      |
