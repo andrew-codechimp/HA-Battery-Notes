@@ -1,4 +1,4 @@
-## 2326 Devices in library
+## 2327 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1353,6 +1353,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Philips                                         |Hue Dimmer Switch                                                                             |CR2032                    |RWL022                                                                                |
 |Philips                                         |Hue dimmer switch (324131092621)                                                              |CR2450                    |                                                                                      |
 |Philips                                         |Hue dimmer switch (929002398602)                                                              |CR2032                    |                                                                                      |
+|Philips                                         |Hue dimmer switch gen 1                                                                       |CR2450                    |                                                                          324131092621|
 |Philips                                         |Hue dimmer switch gen 2                                                                       |CR2032                    |                                                                          929002398602|
 |Philips                                         |Hue motion huiskamer Batterij                                                                 |2× AA                     |                                                                                      |
 |Philips                                         |Hue motion outdoor sensor                                                                     |2× AA                     |                                                                            9290019758|
