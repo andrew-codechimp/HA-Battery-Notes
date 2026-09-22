@@ -7849,6 +7849,13 @@
         },
         {
             "manufacturer": "Philips",
+            "model": "Hue motion sensor",
+            "model_id": "9290030675",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Philips",
             "model": "Hue motion sensor (9290012607)",
             "battery_type": "AAA",
             "battery_quantity": 2
@@ -13508,13 +13515,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Philips",
-            "model": "Hue motion sensor",
-            "model_id": "9290030675",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }

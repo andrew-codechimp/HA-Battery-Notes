@@ -1,4 +1,4 @@
-## 2325 Devices in library
+## 2326 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1359,6 +1359,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Philips                                         |Hue motion outdoor sensor (9290019758)                                                        |2× AA                     |                                                                                      |
 |Philips                                         |Hue motion outdoor sensor (9290030674)                                                        |2× AA                     |                                                                                      |
 |Philips                                         |Hue motion sensor                                                                             |2× AAA                    |                                                                            9290012607|
+|Philips                                         |Hue motion sensor                                                                             |2× AAA                    |                                                                            9290030675|
 |Philips                                         |Hue motion sensor (9290012607)                                                                |2× AAA                    |                                                                                      |
 |Philips                                         |Hue motion sensor (9290030675)                                                                |2× AAA                    |                                                                                      |
 |Philips                                         |Hue Secure contact sensor                                                                     |CR2                       |                                                                            9290035639|
