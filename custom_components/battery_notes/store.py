@@ -18,6 +18,7 @@ from .const import (
     DOMAIN,
     LAST_REPLACED,
     LAST_REPORTED,
+    BATTERY_REPLACEMENT_COUNT,
 )
 
 _LOGGER = logging.getLogger(__name__)
@@ -25,7 +26,7 @@ _LOGGER = logging.getLogger(__name__)
 DATA_REGISTRY = f"{DOMAIN}_storage"
 STORAGE_KEY = f"{DOMAIN}.storage"
 STORAGE_VERSION_MAJOR = 1
-STORAGE_VERSION_MINOR = 2
+STORAGE_VERSION_MINOR = 3
 SAVE_DELAY = 10
 
 
@@ -38,6 +39,7 @@ class DeviceEntry:
     battery_last_replaced = attr.ib(type=datetime, default=None)
     battery_last_reported = attr.ib(type=datetime, default=None)
     battery_last_reported_level = attr.ib(type=float, default=None)
+    battery_replacement_count = attr.ib(type=int, default=0)
 
 
 @attr.s(slots=True, frozen=True)
@@ -49,6 +51,7 @@ class EntityEntry:
     battery_last_replaced = attr.ib(type=datetime, default=None)
     battery_last_reported = attr.ib(type=datetime, default=None)
     battery_last_reported_level = attr.ib(type=float, default=None)
+    battery_replacement_count = attr.ib(type=int, default=0)
 
 
 def _fix_datetime_string(datetime_str: str) -> str:
