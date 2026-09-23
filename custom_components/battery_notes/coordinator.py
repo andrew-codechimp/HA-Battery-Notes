@@ -69,6 +69,7 @@ from .const import (
     LAST_REPLACED,
     LAST_REPORTED,
     LAST_REPORTED_LEVEL,
+    BATTERY_REPLACEMENT_COUNT,
 )
 from .filters import LowOutlierFilter
 from .store import BatteryNotesStorage
@@ -751,6 +752,32 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
             dt_val = datetime.fromisoformat(str(entry[LAST_REPLACED]))
             return _ensure_utc(dt_val)
         return None
+
+    @property
+    def replacement_count(self) -> int:
+        """Return the number of battery replacements recorded by Battery Notes."""
+        if not hasattr(self.config_entry, "runtime_data"):
+            return 0
+
+        if self.source_entity_id:
+            entry = self.config_entry.runtime_data.store.async_get_entity(
+                self.source_entity_id
+            )
+        else:
+            entry = self.config_entry.runtime_data.store.async_get_device(self.device_id)
+
+        if entry:
+            return int(entry.get(BATTERY_REPLACEMENT_COUNT, 0))
+        return 0
+
+    def increment_replacement_count(self) -> None:
+        """Increment the battery replacement counter and store it."""
+        data = {BATTERY_REPLACEMENT_COUNT: self.replacement_count + 1}
+
+        if self.source_entity_id:
+            self.async_update_entity_config(entity_id=self.source_entity_id, data=data)
+        elif self.device_id:
+            self.async_update_device_config(device_id=self.device_id, data=data)
 
     @last_replaced.setter
     def last_replaced(self, value: datetime):
