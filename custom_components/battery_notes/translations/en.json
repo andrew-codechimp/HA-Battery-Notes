@@ -282,6 +282,9 @@
             },
             "battery_last_replaced": {
                 "name": "{device_name}Battery last replaced"
+            },
+            "battery_replacement_count": {
+                "name": "{device_name}Battery replacements"
             }
         }
     },
