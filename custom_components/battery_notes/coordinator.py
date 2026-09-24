@@ -64,14 +64,14 @@ from .const import (
     DEFAULT_BATTERY_INCREASE_THRESHOLD,
     DEFAULT_BATTERY_LOW_THRESHOLD,
     DOMAIN,
+    BATTERY_REPLACEMENT_AVERAGE_DAYS,
+    BATTERY_REPLACEMENT_COUNT,
+    BATTERY_REPLACEMENT_INTERVAL_DAYS,
     EVENT_BATTERY_INCREASED,
     EVENT_BATTERY_THRESHOLD,
     LAST_REPLACED,
     LAST_REPORTED,
     LAST_REPORTED_LEVEL,
-    BATTERY_REPLACEMENT_COUNT,
-    BATTERY_REPLACEMENT_INTERVAL_DAYS,
-    BATTERY_REPLACEMENT_AVERAGE_DAYS,
 )
 from .filters import LowOutlierFilter
 from .store import BatteryNotesStorage
@@ -239,7 +239,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
             )
 
             if last_replaced:
-                self.last_replaced = last_replaced
+                self._set_last_replaced(last_replaced)
 
         # If there is not a last_reported set to now
         if not self.last_reported:
@@ -779,7 +779,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
 
         previous_replaced = self.last_replaced
         count = self.replacement_count + 1
-        data = {BATTERY_REPLACEMENT_COUNT: count}
+        data: dict[str, Any] = {BATTERY_REPLACEMENT_COUNT: count}
 
         if previous_replaced is not None:
             interval_days = (
@@ -827,20 +827,19 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
         elif self.device_id:
             self.async_update_device_config(device_id=self.device_id, data=data)
 
-    @last_replaced.setter
-    def last_replaced(self, value: datetime):
-        """Set the last replaced datetime and store it."""
+    def _set_last_replaced(self, value: datetime) -> None:
+        """Store the last replaced datetime without changing the replacement count."""
         if not hasattr(self.config_entry, "runtime_data"):
             return
 
-        entry = {
-            LAST_REPLACED: _ensure_utc(value) if isinstance(value, datetime) else value
-        }
+        data = {LAST_REPLACED: _ensure_utc(value)}
 
         if self.source_entity_id:
-            self.async_update_entity_config(entity_id=self.source_entity_id, data=entry)
+            self.async_update_entity_config(
+                entity_id=self.source_entity_id, data=data
+            )
         elif self.device_id:
-            self.async_update_device_config(device_id=self.device_id, data=entry)
+            self.async_update_device_config(device_id=self.device_id, data=data)
 
     @property
     def last_reported(self) -> datetime | None:
