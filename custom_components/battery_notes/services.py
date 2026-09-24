@@ -190,7 +190,7 @@ async def _async_battery_replaced(call: ServiceCall) -> ServiceResponse:  # noqa
             ) in battery_notes_config_entry.runtime_data.subentry_coordinators.values():
                 if coordinator.device_id == device_id:
                     device_found = True
-                    coordinator.last_replaced = datetime_replaced
+                    coordinator.record_battery_replacement(datetime_replaced)
                     await coordinator.async_request_refresh()
 
                     _LOGGER.debug(
