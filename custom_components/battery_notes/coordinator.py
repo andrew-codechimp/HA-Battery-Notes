@@ -70,6 +70,8 @@ from .const import (
     LAST_REPORTED,
     LAST_REPORTED_LEVEL,
     BATTERY_REPLACEMENT_COUNT,
+    BATTERY_REPLACEMENT_INTERVAL_DAYS,
+    BATTERY_REPLACEMENT_AVERAGE_DAYS,
 )
 from .filters import LowOutlierFilter
 from .store import BatteryNotesStorage
@@ -770,12 +772,58 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
             return int(entry.get(BATTERY_REPLACEMENT_COUNT, 0))
         return 0
 
-    def increment_replacement_count(self) -> None:
-        """Increment the battery replacement counter and store it."""
-        data = {BATTERY_REPLACEMENT_COUNT: self.replacement_count + 1}
+    def record_battery_replacement(self, replaced_at: datetime) -> None:
+        """Record a battery replacement and update lifetime statistics."""
+        if not hasattr(self.config_entry, "runtime_data"):
+            return
+
+        previous_replaced = self.last_replaced
+        count = self.replacement_count + 1
+        data = {BATTERY_REPLACEMENT_COUNT: count}
+
+        if previous_replaced is not None:
+            interval_days = (
+                _ensure_utc(replaced_at) - previous_replaced
+            ).total_seconds() / 86400
+            if interval_days >= 0:
+                entry = (
+                    self.config_entry.runtime_data.store.async_get_entity(
+                        self.source_entity_id
+                    )
+                    if self.source_entity_id
+                    else self.config_entry.runtime_data.store.async_get_device(
+                        self.device_id
+                    )
+                )
+                total_days = (
+                    float(entry.get("battery_replacement_total_days", 0.0))
+                    if entry
+                    else 0.0
+                )
+                interval_count = (
+                    int(entry.get("battery_replacement_interval_count", 0))
+                    if entry
+                    else 0
+                )
+                total_days += interval_days
+                interval_count += 1
+                data.update(
+                    {
+                        BATTERY_REPLACEMENT_INTERVAL_DAYS: interval_days,
+                        "battery_replacement_total_days": total_days,
+                        "battery_replacement_interval_count": interval_count,
+                        BATTERY_REPLACEMENT_AVERAGE_DAYS: (
+                            total_days / interval_count
+                        ),
+                    }
+                )
+
+        data[LAST_REPLACED] = _ensure_utc(replaced_at)
 
         if self.source_entity_id:
-            self.async_update_entity_config(entity_id=self.source_entity_id, data=data)
+            self.async_update_entity_config(
+                entity_id=self.source_entity_id, data=data
+            )
         elif self.device_id:
             self.async_update_device_config(device_id=self.device_id, data=data)
 

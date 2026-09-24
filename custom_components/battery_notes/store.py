@@ -26,7 +26,7 @@ _LOGGER = logging.getLogger(__name__)
 DATA_REGISTRY = f"{DOMAIN}_storage"
 STORAGE_KEY = f"{DOMAIN}.storage"
 STORAGE_VERSION_MAJOR = 1
-STORAGE_VERSION_MINOR = 3
+STORAGE_VERSION_MINOR = 4
 SAVE_DELAY = 10
 
 
@@ -40,6 +40,14 @@ class DeviceEntry:
     battery_last_reported = attr.ib(type=datetime, default=None)
     battery_last_reported_level = attr.ib(type=float, default=None)
     battery_replacement_count = attr.ib(type=int, default=0)
+    battery_replacement_interval_days = attr.ib(type=float, default=None)
+    battery_replacement_average_days = attr.ib(type=float, default=None)
+    battery_replacement_total_days = attr.ib(type=float, default=0.0)
+    battery_replacement_interval_count = attr.ib(type=int, default=0)
+    battery_replacement_interval_days = attr.ib(type=float, default=None)
+    battery_replacement_average_days = attr.ib(type=float, default=None)
+    battery_replacement_total_days = attr.ib(type=float, default=0.0)
+    battery_replacement_interval_count = attr.ib(type=int, default=0)
 
 
 @attr.s(slots=True, frozen=True)

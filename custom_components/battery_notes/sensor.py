@@ -64,6 +64,8 @@ from .const import (
     ATTR_BATTERY_LOW,
     ATTR_BATTERY_LOW_THRESHOLD,
     ATTR_BATTERY_QUANTITY,
+    BATTERY_REPLACEMENT_INTERVAL_DAYS,
+    BATTERY_REPLACEMENT_AVERAGE_DAYS,
     ATTR_BATTERY_TYPE,
     ATTR_BATTERY_TYPE_AND_QUANTITY,
     ATTR_DEVICE_ID,
@@ -411,6 +413,32 @@ class BatteryNotesReplacementCountSensor(BatteryNotesEntity, SensorEntity):
         """Handle coordinator updates."""
         self._attr_native_value = self.coordinator.replacement_count
         self.async_write_ha_state()
+
+    @property
+    def extra_state_attributes(self) -> dict[str, Any]:
+        """Return battery replacement lifetime statistics."""
+        entry = (
+            self.coordinator.config_entry.runtime_data.store.async_get_entity(
+                self.coordinator.source_entity_id
+            )
+            if self.coordinator.source_entity_id
+            else self.coordinator.config_entry.runtime_data.store.async_get_device(
+                self.coordinator.device_id
+            )
+        )
+        if not entry:
+            return {}
+
+        attrs: dict[str, Any] = {}
+        interval_days = entry.get(BATTERY_REPLACEMENT_INTERVAL_DAYS)
+        average_days = entry.get(BATTERY_REPLACEMENT_AVERAGE_DAYS)
+
+        if interval_days is not None:
+            attrs[BATTERY_REPLACEMENT_INTERVAL_DAYS] = round(float(interval_days), 2)
+        if average_days is not None:
+            attrs[BATTERY_REPLACEMENT_AVERAGE_DAYS] = round(float(average_days), 2)
+
+        return attrs
 
     @property
     def native_value(self) -> int:
