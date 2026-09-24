@@ -14,12 +14,7 @@ import attr
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers.storage import Store
 
-from .const import (
-    DOMAIN,
-    LAST_REPLACED,
-    LAST_REPORTED,
-    BATTERY_REPLACEMENT_COUNT,
-)
+from .const import DOMAIN, LAST_REPLACED, LAST_REPORTED
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -44,10 +39,6 @@ class DeviceEntry:
     battery_replacement_average_days = attr.ib(type=float, default=None)
     battery_replacement_total_days = attr.ib(type=float, default=0.0)
     battery_replacement_interval_count = attr.ib(type=int, default=0)
-    battery_replacement_interval_days = attr.ib(type=float, default=None)
-    battery_replacement_average_days = attr.ib(type=float, default=None)
-    battery_replacement_total_days = attr.ib(type=float, default=0.0)
-    battery_replacement_interval_count = attr.ib(type=int, default=0)
 
 
 @attr.s(slots=True, frozen=True)
@@ -60,6 +51,10 @@ class EntityEntry:
     battery_last_reported = attr.ib(type=datetime, default=None)
     battery_last_reported_level = attr.ib(type=float, default=None)
     battery_replacement_count = attr.ib(type=int, default=0)
+    battery_replacement_interval_days = attr.ib(type=float, default=None)
+    battery_replacement_average_days = attr.ib(type=float, default=None)
+    battery_replacement_total_days = attr.ib(type=float, default=0.0)
+    battery_replacement_interval_count = attr.ib(type=int, default=0)
 
 
 def _fix_datetime_string(datetime_str: str) -> str:
