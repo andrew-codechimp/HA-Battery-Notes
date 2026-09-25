@@ -10,8 +10,6 @@ body:
     attributes:
       label: Checklist
       options:
-        - label: I am using the [latest version](https://github.com/andrew-codechimp/HA-Battery-Notes/releases/latest) of the integration.
-          required: true
         - label: I have restarted Home Assistant after the HACS or manual install.
           required: true
         - label: I have read the [FAQ's](https://andrew-codechimp.github.io/HA-Battery-Notes/faq).
@@ -27,7 +25,7 @@ body:
   - type: input
     attributes:
       label: "Battery Notes Version"
-      description: "Available from Settings/Devices & Services/Integrations/Battery Notes (you should be running the latest or pre-release)."
+      description: "Available from Settings/Devices & Services/Integrations/Battery Notes. You should be running the [latest](https://github.com/andrew-codechimp/HA-Battery-Notes/releases/latest) or pre-release."
     validations:
       required: true
   - type: textarea
