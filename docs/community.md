@@ -25,11 +25,9 @@ sort:
 
 ### Battery Notes Card
 
-A modern, responsive, and highly customizable dashboard card designed as a dedicated companion for Battery Notes.
+[Battery Notes Card](https://github.com/vitals5/battery-notes-card) is a modern, responsive, and highly customizable dashboard card designed as a dedicated companion for Battery Notes.
 
-[Battery Notes Card](https://github.com/vitals5/battery-notes-card)
-
-Default configuration, see vitals5 repo for more configuration options.
+Default configuration below, see vitals5 repo for more configuration options.
 
 ``` yaml
 type: custom:battery-notes-card
