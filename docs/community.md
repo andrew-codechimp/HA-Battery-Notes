@@ -6,6 +6,8 @@
 
 Using the excellent [Battery State Card](https://github.com/maxwroc/battery-state-card) by maxwroc you can easily display devices with their batteries required where the devices battery threshold indicates it's low and show be replaced.
 
+Example configuration, see maxwroc's repo for more details.
+
 ``` yaml
 type: custom:battery-state-card
 secondary_info: "{attributes.battery_type_and_quantity}"
@@ -25,9 +27,9 @@ sort:
 
 ### Battery Notes Card
 
-[Battery Notes Card](https://github.com/vitals5/battery-notes-card) is a modern, responsive, and highly customizable dashboard card designed as a dedicated companion for Battery Notes.
+[Battery Notes Card](https://github.com/vitals5/battery-notes-card) by vitals5 is a modern, responsive, and highly customizable dashboard card designed as a dedicated companion for Battery Notes.
 
-Default configuration below, see vitals5 repo for more configuration options.
+Default configuration below, see vitals5's repo for more configuration options.
 
 ``` yaml
 type: custom:battery-notes-card
