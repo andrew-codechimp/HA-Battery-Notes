@@ -23,6 +23,19 @@ sort:
   - state
 ```
 
+### Battery Notes Card
+
+A modern, responsive, and highly customizable dashboard card designed as a dedicated companion for Battery Notes.
+
+[Battery Notes Card](https://github.com/vitals5/battery-notes-card)
+
+Default configuration, see vitals5 repo for more configuration options.
+
+``` yaml
+type: custom:battery-notes-card
+title: Battery Levels
+```
+
 ### Get a markdown summary of your battery quantities
 
 This is from the excellent German blog [Smart Live](https://smart-live.net/battery-notes-batteriemanagement-mit-home-assistant/)  
