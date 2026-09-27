@@ -126,7 +126,7 @@ async def async_setup_entry(
 
         battery_low_entity_description = BatteryNotesBinarySensorEntityDescription(
             unique_id_suffix="_battery_low",
-            key="_battery_plus_low",
+            key="battery_plus_low",
             translation_key="battery_low",
             entity_category=EntityCategory.DIAGNOSTIC,
             device_class=BinarySensorDeviceClass.BATTERY,

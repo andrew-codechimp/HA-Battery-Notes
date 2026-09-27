@@ -223,7 +223,7 @@ def calc_config_attributes(
         if entity_entry.device_id:
             device_entry = device_registry.async_get(entity_entry.device_id)
             if device_entry:
-                title = f"{device_entry.name_by_user or device_entry.name} - {entity_entry.name or entity_entry.original_name}"
+                title = f"{device_entry.name_by_user or device_entry.name} {entity_entry.name or entity_entry.original_name}"
             else:
                 title = entity_entry.name or entity_entry.original_name
         else:

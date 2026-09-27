@@ -4,13 +4,13 @@ from __future__ import annotations
 
 from collections.abc import Mapping
 from dataclasses import dataclass
+from typing import override
 
-from homeassistant.core import HomeAssistant, split_entity_id
+from homeassistant.core import HomeAssistant
 from homeassistant.helpers import device_registry as dr
 from homeassistant.helpers.device import async_entity_id_to_device_id
 from homeassistant.helpers.entity import EntityDescription
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
-from homeassistant.util import slugify
 
 from .common import is_composite_device_id
 from .coordinator import BatteryNotesSubentryCoordinator
@@ -52,7 +52,6 @@ class BatteryNotesEntity(CoordinatorEntity[BatteryNotesSubentryCoordinator]):
 
         # Set up entity naming and translation placeholders
         self._attr_translation_placeholders = self._generate_translation_placeholders()
-        self.entity_id = self._generate_entity_id()
 
         # Set up device association
         self._associate_device(hass)
@@ -87,26 +86,21 @@ class BatteryNotesEntity(CoordinatorEntity[BatteryNotesSubentryCoordinator]):
         """Generate translation placeholders."""
         if self.coordinator.source_entity_id and not self.coordinator.device_id:
             return {"device_name": self.coordinator.device_name + " "}
-        elif self.coordinator.source_entity_id and self.coordinator.device_id:
-            return {"device_name": self.coordinator.source_entity_name + " "}
-        else:
-            return {"device_name": ""}
+        if self.coordinator.source_entity_id and self.coordinator.device_id:
+            return {
+                "device_name": (
+                    self.coordinator.device_name
+                    if self.coordinator.device_name.strip() != ""
+                    else self.coordinator.source_entity_name
+                )
+                + " "
+            }
+        return {"device_name": ""}
 
-    def _generate_entity_id(
-        self,
-    ) -> str:
-        """Generate a consistent entity ID."""
-        entity_type = self.entity_description.entity_type
-        entity_key = self.entity_description.key
-
-        if self.coordinator.source_entity_id and not self.coordinator.device_id:
-            return f"{entity_type}.{slugify(self.coordinator.device_name.lower())}_{entity_key}".replace(
-                "__", "_"
-            )
-        elif self.coordinator.source_entity_id and self.coordinator.device_id:
-            _, source_object_id = split_entity_id(self.coordinator.source_entity_id)
-            return f"{entity_type}.{source_object_id}_{entity_key}".replace("__", "_")
-        else:
-            return f"{entity_type}.{slugify(self.coordinator.device_name.lower())}_{entity_key}".replace(
-                "__", "_"
-            )
+    @property
+    @override
+    def suggested_object_id(self) -> str | None:
+        """Return the object ID used for new Battery Notes entities."""
+        if self.entity_description.key is not None:
+            return self.entity_description.key
+        return super().suggested_object_id
