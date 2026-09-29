@@ -1,4 +1,4 @@
-## 2328 Devices in library
+## 2329 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1707,6 +1707,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Sure Petcare                                    |Sure Petcare Pet Door                                                                         |4× C                      |                                                                                      |
 |Sure Petcare                                    |Feeder\*                                                                                      |4× C                      |                                                                                      |
 |SwitchBot                                       |Bot                                                                                           |CR2                       |                                                                                      |
+|switchbot                                       |Keypad Vision                                                                                 |Rechargeable              |                                                                                      |
 |switchbot                                       |Leak Detector                                                                                 |2× AAA                    |                                                                                      |
 |switchbot                                       |Lock Ultra                                                                                    |Rechargeable              |                                                                                      |
 |SwitchBot                                       |Meter                                                                                         |2× AAA                    |                                                                                      |
