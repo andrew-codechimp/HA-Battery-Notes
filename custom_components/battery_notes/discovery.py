@@ -94,7 +94,7 @@ class DiscoveryManager:
         self.ha_config = ha_config
         self.existing_devices: set[str] = set()
 
-    async def start_discovery(self) -> None:
+    async def start_discovery(self) -> None:  # noqa: PLR0912
         """Start the discovery procedure."""
         _LOGGER.debug("Start auto discovering devices")
         device_registry = dr.async_get(self.hass)
@@ -133,8 +133,11 @@ class DiscoveryManager:
                 if not device_battery_details or device_battery_details.is_manual:
                     continue
 
-                # HACK: Change to device_entry.config_entry_id when HA 2026.8 is minimum
-                config_entry_id = next(iter(device_entry.config_entries))
+                # HACK: Change to device_entry.config_entry_id when HA 2026.9+ is minimum
+                if AwesomeVersion(__version__) >= AwesomeVersion("2026.8.9"):
+                    config_entry_id = device_entry.config_entry_id  # type: ignore[attr-defined]
+                else:
+                    config_entry_id = next(iter(device_entry.config_entries))
                 config_entry = self.hass.config_entries.async_get_entry(config_entry_id)
 
                 if config_entry:

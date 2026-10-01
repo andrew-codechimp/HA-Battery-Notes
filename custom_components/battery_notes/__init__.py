@@ -116,8 +116,8 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     if AwesomeVersion(HA_VERSION) < AwesomeVersion(MIN_HA_VERSION):  # pragma: no cover
         msg = (
             "This integration requires at least Home Assistant version "
-            f" {MIN_HA_VERSION}, you are running version {HA_VERSION}."
-            " Please upgrade Home Assistant to continue using this integration."
+            f"{MIN_HA_VERSION}, you are running version {HA_VERSION}. "
+            "Please upgrade Home Assistant to continue using this integration."
         )
         _LOGGER.critical(msg)
         return False

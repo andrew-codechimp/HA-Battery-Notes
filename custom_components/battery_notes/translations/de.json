@@ -16,7 +16,7 @@
                 },
                 "data_description": {
                     "battery_low_threshold": "0 verwendet den globalen Standardschwellenwert für eine leere Batterie.",
-                    "battery_increase_threshold": "Der Schwellenwert ist die Differenz der Erhöhung zwischen dem vorherigen und dem aktuellen Batteriestand.\n0 verwendet den globalen Standardschwellenwert"
+                    "battery_increase_threshold": "Der Schwellenwert ist die Differenz der Erhöhung zwischen dem vorherigen und dem aktuellen Batteriestand.\n0 verwendet den globalen Standardschwellenwert."
                 },
                 "sections": {
                     "advanced_settings": {
