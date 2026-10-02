@@ -13532,6 +13532,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "HOBEIAN",
+            "model": "24Ghz human presence sensor",
+            "model_id": "ZG-204ZK",
+            "battery_type": "CR2450"
         }
     ]
 }
