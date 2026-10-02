@@ -45,10 +45,9 @@ Battery Notes is a Home Assistant custom integration that tracks battery informa
 ## Development Workflow
 
 ### Local Development
-```bash
-# Start HA development server on port 8123
-./scripts/develop
+Run Home Assistant from the HA Core checkout, with `custom_components/battery_notes` symlinked into the Home Assistant configuration directory's `custom_components` directory.
 
+```bash
 # Lint code
 ./scripts/lint
 
