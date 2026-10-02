@@ -5249,6 +5249,12 @@
         },
         {
             "manufacturer": "HOBEIAN",
+            "model": "24Ghz human presence sensor",
+            "model_id": "ZG-204ZK",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "HOBEIAN",
             "model": "Door/window sensor",
             "model_id": "(ZG-102ZA)",
             "hw_version": "1",
@@ -13532,12 +13538,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "HOBEIAN",
-            "model": "24Ghz human presence sensor",
-            "model_id": "ZG-204ZK",
-            "battery_type": "CR2450"
         }
     ]
 }

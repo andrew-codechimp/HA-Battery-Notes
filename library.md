@@ -1,4 +1,4 @@
-## 2329 Devices in library
+## 2330 Devices in library
 
 This file is auto generated, do not modify
 
@@ -912,6 +912,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Hive                                            |Radiator valve                                                                                |2× AA                     |UK7004240                                                                             |
 |Hive                                            |Radiator valve (UK7004240)                                                                    |2× AA                     |                                                                                      |
 |Hive                                            |TRV003                                                                                        |2× AA                     |                                                                                      |
+|HOBEIAN                                         |24Ghz human presence sensor                                                                   |CR2450                    |ZG-204ZK                                                                              |
 |HOBEIAN                                         |Door/window sensor                                                                            |CR2032                    |(ZG-102ZA)                                                                            |
 |HOBEIAN                                         |door/window sensor                                                                            |CR2032                    |ZG-102Z                                                                               |
 |HOBEIAN                                         |Door/window sensor                                                                            |2× AAA                    |ZG-102ZA                                                                              |
