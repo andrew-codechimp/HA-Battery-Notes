@@ -225,8 +225,15 @@ async def async_setup_entry(
 
     async def _async_delayed_discovery(now: datetime) -> None:  # noqa: ARG001
         """Update the library and do discovery."""
-        await library_updater.copy_schema()
-        await library_updater.get_library_updates(startup=True)
+        # The entry is reloaded on every subentry change, only download the library
+        # at startup or when the last download is as old as the daily update interval
+        if await library_updater.time_to_update_library(23):
+            await library_updater.copy_schema()
+            await library_updater.get_library_updates(startup=True)
+        else:
+            _LOGGER.debug("Library recently updated, skipping download")
+
+        # Always reload from disk, the user library option may have changed
         await hass.data[DATA_LIBRARY].load_libraries()
 
         if domain_config.enable_autodiscovery:
