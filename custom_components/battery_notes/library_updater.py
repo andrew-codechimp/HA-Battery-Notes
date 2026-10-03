@@ -15,7 +15,7 @@ import aiohttp
 import async_timeout
 
 from homeassistant.const import CONTENT_TYPE_JSON
-from homeassistant.core import HomeAssistant, callback
+from homeassistant.core import CALLBACK_TYPE, HomeAssistant, callback
 from homeassistant.exceptions import ConfigEntryNotReady
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.event import async_track_utc_time_change
@@ -26,7 +26,7 @@ from .const import (
     DEFAULT_LIBRARY_URL,
     FALLBACK_LIBRARY_URL,
 )
-from .coordinator import MY_KEY, BatteryNotesDomainConfig
+from .coordinator import MY_KEY
 from .discovery import DiscoveryManager
 from .library import DATA_LIBRARY
 
@@ -55,23 +55,20 @@ class LibraryUpdater:
         self.hass = hass
         self._update_lock = asyncio.Lock()
 
-        domain_config = self.hass.data.get(MY_KEY)
-        if not domain_config:
-            domain_config = BatteryNotesDomainConfig()
-
         self._client = LibraryUpdaterClient(session=async_get_clientsession(hass))
 
-        # Fire the library check every 24 hours from just before now
+    @callback
+    def async_start_daily_update(self) -> CALLBACK_TYPE:
+        """Fire the library check every 24 hours from just before now, return the unsubscribe callback."""
         refresh_time = dt_util.utcnow() - timedelta(hours=0, minutes=1)
-        async_track_utc_time_change(
-            hass,
+        return async_track_utc_time_change(
+            self.hass,
             self.timer_update,
             hour=refresh_time.hour,
             minute=refresh_time.minute,
             second=refresh_time.second,
         )
 
-    @callback
     async def timer_update(self, now: datetime) -> None:  # noqa: ARG002
         """Need to update the library."""
         if await self.time_to_update_library(23) is False:
@@ -89,7 +86,6 @@ class LibraryUpdater:
         else:
             _LOGGER.debug("Auto discovery disabled")
 
-    @callback
     async def get_library_updates(self, startup: bool = False) -> None:
         """Make a call to get the latest library.json."""
         async with self._update_lock:
@@ -140,13 +136,16 @@ class LibraryUpdater:
     async def copy_schema(self):
         """Copy schema file to storage to be relative to downloaded library."""
 
+        def _copy_schema(source: str, destination: str) -> None:
+            os.makedirs(os.path.dirname(destination), exist_ok=True)
+            shutil.copyfile(source, destination)
+
         install_schema_path = os.path.join(os.path.dirname(__file__), "schema.json")
         storage_schema_path = self.hass.config.path(
             STORAGE_DIR, "battery_notes", "schema.json"
         )
-        os.makedirs(os.path.dirname(storage_schema_path), exist_ok=True)
         await self.hass.async_add_executor_job(
-            shutil.copyfile,
+            _copy_schema,
             install_schema_path,
             storage_schema_path,
         )
