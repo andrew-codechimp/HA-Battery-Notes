@@ -20,7 +20,7 @@ from .common import composite_device_issue_id
 from .const import DOMAIN
 from .store import async_get_registry
 
-REQUIRED_KEYS = ("entry_id", "device_id", "source_entity_id")
+REQUIRED_KEYS = ("entry_id", "subentry_id", "device_id", "source_entity_id")
 
 _LOGGER = logging.getLogger(__name__)
 
