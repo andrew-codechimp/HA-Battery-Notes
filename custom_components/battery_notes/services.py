@@ -57,7 +57,7 @@ _LOGGER = logging.getLogger(__name__)
 
 @callback
 def async_setup_services(hass: HomeAssistant) -> None:
-    """Set up the services for the Mastodon integration."""
+    """Set up the services for the Battery Notes integration."""
 
     hass.services.async_register(
         DOMAIN,
@@ -110,11 +110,11 @@ async def _async_battery_replaced(call: ServiceCall) -> ServiceResponse:  # noqa
     if source_entity_id:
         source_entity_entry = entity_registry.async_get(source_entity_id)
         if not source_entity_entry:
-            _LOGGER.error(
-                "Entity %s not found",
-                source_entity_id,
+            raise HomeAssistantError(
+                translation_domain=DOMAIN,
+                translation_key="not_configured_in_battery_notes",
+                translation_placeholders={"source": source_entity_id},
             )
-            return None
 
         # Check if entity_id exists in any sub config entry
         entity_found = False
@@ -128,7 +128,8 @@ async def _async_battery_replaced(call: ServiceCall) -> ServiceResponse:  # noqa
                 coordinator
             ) in battery_notes_config_entry.runtime_data.subentry_coordinators.values():
                 if (
-                    coordinator.source_entity_id
+                    not coordinator.is_orphaned
+                    and coordinator.source_entity_id
                     and coordinator.source_entity_id == source_entity_id
                 ):
                     entity_found = True
@@ -188,7 +189,7 @@ async def _async_battery_replaced(call: ServiceCall) -> ServiceResponse:  # noqa
             for (
                 coordinator
             ) in battery_notes_config_entry.runtime_data.subentry_coordinators.values():
-                if coordinator.device_id == device_id:
+                if not coordinator.is_orphaned and coordinator.device_id == device_id:
                     device_found = True
                     coordinator.last_replaced = datetime_replaced
                     await coordinator.async_request_refresh()
@@ -220,12 +221,12 @@ async def _async_battery_replaced(call: ServiceCall) -> ServiceResponse:  # noqa
                     # Found and dealt with, exit
                     return None
 
-            if not device_found:
-                raise HomeAssistantError(
-                    translation_domain=DOMAIN,
-                    translation_key="not_configured_in_battery_notes",
-                    translation_placeholders={"source": device_id},
-                )
+        if not device_found:
+            raise HomeAssistantError(
+                translation_domain=DOMAIN,
+                translation_key="not_configured_in_battery_notes",
+                translation_placeholders={"source": device_id},
+            )
         return None
 
 
@@ -246,7 +247,7 @@ async def _async_battery_last_replaced(call: ServiceCall) -> ServiceResponse:
         for (
             coordinator
         ) in battery_notes_config_entry.runtime_data.subentry_coordinators.values():
-            if coordinator.last_replaced:
+            if not coordinator.is_orphaned and coordinator.last_replaced:
                 # Skip if last replaced sensor is disabled
                 last_replaced_entity_id = entity_registry.async_get_entity_id(
                     "sensor",
@@ -329,7 +330,9 @@ async def _async_battery_last_reported(call: ServiceCall) -> ServiceResponse:
         for (
             coordinator
         ) in battery_notes_config_entry.runtime_data.subentry_coordinators.values():
-            if coordinator.wrapped_battery or coordinator.wrapped_battery_low:
+            if not coordinator.is_orphaned and (
+                coordinator.wrapped_battery or coordinator.wrapped_battery_low
+            ):
                 time_since_last_reported = None
                 if coordinator.last_reported:
                     time_since_last_reported = (
@@ -410,7 +413,7 @@ async def _async_battery_low(call: ServiceCall) -> ServiceResponse:
         for (
             coordinator
         ) in battery_notes_config_entry.runtime_data.subentry_coordinators.values():
-            if coordinator.battery_low is True:
+            if not coordinator.is_orphaned and coordinator.battery_low is True:
                 if raise_events:
                     call.hass.bus.async_fire(
                         EVENT_BATTERY_THRESHOLD,
