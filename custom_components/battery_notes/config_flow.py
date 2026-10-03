@@ -268,10 +268,8 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
         existing_entries = self.hass.config_entries.async_entries(
             domain=DOMAIN, include_ignore=False, include_disabled=False
         )
-        for entry in existing_entries:
-            if entry.title == INTEGRATION_NAME:
-                return entry
-        return None
+        # Only a single integration entry is allowed, don't rely on the title as users can rename it
+        return existing_entries[0] if existing_entries else None
 
     async def async_step_integration_discovery(
         self,
@@ -283,27 +281,6 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
         unique_id = f"bn_{discovery_info[CONF_DEVICE_ID]}"
 
         config_entry = await self.async_get_integration_entry()
-
-        if not config_entry:
-            _LOGGER.debug("No existing single config entry found, creating new one")
-
-            # Init defaults
-            options = {
-                CONF_SHOW_ALL_DEVICES: False,
-                CONF_HIDE_BATTERY: False,
-                CONF_ROUND_BATTERY: False,
-                CONF_DEFAULT_BATTERY_LOW_THRESHOLD: DEFAULT_BATTERY_LOW_THRESHOLD,
-                CONF_DEFAULT_BATTERY_INCREASE_THRESHOLD: DEFAULT_BATTERY_INCREASE_THRESHOLD,
-                CONF_ADVANCED_SETTINGS: {
-                    CONF_ENABLE_AUTODISCOVERY: True,
-                    CONF_ENABLE_REPLACED: True,
-                    CONF_HIDE_BATTERY_LOW: False,
-                    CONF_USER_LIBRARY: "",
-                },
-            }
-
-            self.async_create_entry(title=INTEGRATION_NAME, data={}, options=options)
-            config_entry = await self.async_get_integration_entry()
 
         if not config_entry:
             return self.async_abort(reason="integration_not_added")
@@ -460,6 +437,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
 
             self.data[CONF_BATTERY_TYPE] = user_input[CONF_BATTERY_TYPE]
             self.data[CONF_BATTERY_QUANTITY] = int(user_input[CONF_BATTERY_QUANTITY])
+            self.data[CONF_NOTE] = user_input.get(CONF_NOTE, "")
             self.data[CONF_BATTERY_LOW_THRESHOLD] = int(
                 user_input[CONF_BATTERY_LOW_THRESHOLD]
             )
@@ -985,7 +963,8 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
                 CONF_ADVANCED_SETTINGS
             ].get(CONF_FILTER_OUTLIERS, False)
 
-            # Save the updated subentry
+            # Save the updated subentry, the name is held in the title not the data
+            self.data.pop(CONF_NAME, None)
             new_title = user_input.pop(
                 CONF_NAME, self._get_reconfigure_subentry().title
             )

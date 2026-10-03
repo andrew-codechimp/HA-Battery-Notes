@@ -162,6 +162,7 @@ class BatteryNotesStorage:
         _LOGGER.warning("Removing battery notes data!")
         await self._store.async_remove()
         self.devices = {}
+        self.entities = {}
 
     @callback
     def async_get_device(self, device_id) -> dict[str, Any] | None:

@@ -259,19 +259,9 @@ async def async_remove_entry(
 ) -> None:
     """Battery Notes integration removed."""
 
-    for subentry in config_entry.subentries.values():
-        if subentry.subentry_id not in config_entry.subentries:
-            await _async_remove_subentry(
-                hass, config_entry, subentry, remove_store_entries=False
-            )
-            ir.async_delete_issue(
-                hass, DOMAIN, missing_device_issue_id(subentry.subentry_id)
-            )
-            ir.async_delete_issue(
-                hass,
-                DOMAIN,
-                composite_device_issue_id(subentry.subentry_id),
-            )
+    for subentry_id in config_entry.subentries:
+        ir.async_delete_issue(hass, DOMAIN, missing_device_issue_id(subentry_id))
+        ir.async_delete_issue(hass, DOMAIN, composite_device_issue_id(subentry_id))
 
 
 async def async_migrate_integration(hass: HomeAssistant, config: ConfigType) -> None:  # noqa: PLR0912, PLR0915
@@ -498,7 +488,7 @@ async def async_migrate_entry(
             r"^(\d+)(?=x)(?:x\s)(\w+$)|([\s\S]+)", config_entry.data[CONF_BATTERY_TYPE]
         )
         if matches:
-            battery_qty = matches.group(1) if matches.group(1) is not None else "1"
+            battery_qty = int(matches.group(1)) if matches.group(1) is not None else 1
             battery_type = (
                 matches.group(2) if matches.group(2) is not None else matches.group(3)
             )
