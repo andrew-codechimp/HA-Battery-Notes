@@ -153,7 +153,7 @@ async def async_setup_entry(
     domain_config.default_battery_low_threshold = config_entry.options[
         CONF_DEFAULT_BATTERY_LOW_THRESHOLD
     ]
-    domain_config.battery_increased_threshod = config_entry.options[
+    domain_config.default_battery_increased_threshold = config_entry.options[
         CONF_DEFAULT_BATTERY_INCREASE_THRESHOLD
     ]
 
