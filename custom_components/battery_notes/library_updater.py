@@ -12,7 +12,6 @@ from datetime import datetime, timedelta
 from typing import Any
 
 import aiohttp
-import async_timeout
 
 from homeassistant.const import CONTENT_TYPE_JSON
 from homeassistant.core import CALLBACK_TYPE, HomeAssistant, callback
@@ -209,7 +208,7 @@ class LibraryUpdaterClient:
     ) -> Any:
         """Get information from the API."""
         try:
-            async with async_timeout.timeout(10):
+            async with asyncio.timeout(10):
                 response = await self._session.request(
                     method=method,
                     url=url,
