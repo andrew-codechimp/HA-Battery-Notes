@@ -19,7 +19,7 @@ from homeassistant.const import (
     CONF_DEVICE_ID,
     __version__ as HA_VERSION,  # noqa: N812
 )
-from homeassistant.core import HassJob, HomeAssistant, callback
+from homeassistant.core import HassJob, HomeAssistant
 from homeassistant.helpers import (
     config_validation as cv,
     device_registry as dr,
@@ -220,13 +220,20 @@ async def async_setup_entry(
         config_entry.add_update_listener(_async_update_listener)
     )
 
-    @callback
+    library_updater = LibraryUpdater(hass)
+    config_entry.async_on_unload(library_updater.async_start_daily_update())
+
     async def _async_delayed_discovery(now: datetime) -> None:  # noqa: ARG001
         """Update the library and do discovery."""
-        library_updater = LibraryUpdater(hass)
+        # The entry is reloaded on every subentry change, only download the library
+        # at startup or when the last download is as old as the daily update interval
+        if await library_updater.time_to_update_library(23):
+            await library_updater.copy_schema()
+            await library_updater.get_library_updates(startup=True)
+        else:
+            _LOGGER.debug("Library recently updated, skipping download")
 
-        await library_updater.copy_schema()
-        await library_updater.get_library_updates(startup=True)
+        # Always reload from disk, the user library option may have changed
         await hass.data[DATA_LIBRARY].load_libraries()
 
         if domain_config.enable_autodiscovery:
@@ -235,12 +242,16 @@ async def async_setup_entry(
             _LOGGER.debug("Auto discovery disabled")
 
     # Let the system settle a bit before starting discovery
-    async_call_later(
-        hass,
-        DISCOVERY_DELAY,
-        HassJob(
-            _async_delayed_discovery, "battery notes discovery", cancel_on_shutdown=True
-        ),
+    config_entry.async_on_unload(
+        async_call_later(
+            hass,
+            DISCOVERY_DELAY,
+            HassJob(
+                _async_delayed_discovery,
+                "battery notes discovery",
+                cancel_on_shutdown=True,
+            ),
+        )
     )
 
     return True

@@ -140,6 +140,7 @@ class DiscoveryManager:
                     config_entry_id = next(iter(device_entry.config_entries))
                 config_entry = self.hass.config_entries.async_get_entry(config_entry_id)
 
+                integration: Integration | None = None
                 if config_entry:
                     if library.is_domain_ignored(config_entry.domain):
                         continue
@@ -149,7 +150,7 @@ class DiscoveryManager:
                     )
 
                 self._init_entity_discovery(
-                    device_entry, device_battery_details, integration or None
+                    device_entry, device_battery_details, integration
                 )
         else:
             _LOGGER.error("Library not loaded")
