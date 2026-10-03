@@ -463,10 +463,7 @@ class BatteryNotesBatteryLowBinaryTemplateSensor(BatteryNotesBatteryLowBaseSenso
             else template.result_as_boolean(result)
         )
 
-        if state not in [
-            STATE_UNAVAILABLE,
-            STATE_UNKNOWN,
-        ]:
+        if state is not None:
             self.coordinator.last_reported = dt_util.utcnow()
             _LOGGER.debug(
                 "Entity id %s has been reported via template.",
@@ -530,6 +527,7 @@ class BatteryNotesBatteryPercentageTemplateLowSensor(
             self.async_write_ha_state()
             return
 
+        self._attr_available = True
         self._attr_is_on = self.coordinator.battery_low
 
         self.async_write_ha_state()
@@ -593,6 +591,7 @@ class BatteryNotesBatteryWrappedLowSensor(BatteryNotesNonTemplateBatteryLowSenso
                 self.async_write_ha_state()
             return
 
+        self._attr_available = True
         self._attr_is_on = self.coordinator.battery_low
 
         self.async_write_ha_state()
@@ -626,7 +625,6 @@ class BatteryNotesBatteryBinaryLowSensor(BatteryNotesNonTemplateBatteryLowSensor
         self._state: bool | None = None
         self._wrapped_attributes: dict[str, Any] | None = None
 
-    @callback
     async def async_state_changed_listener(
         self,
         event: Event[EventStateChangedData] | None = None,  # noqa: ARG002
@@ -677,7 +675,6 @@ class BatteryNotesBatteryBinaryLowSensor(BatteryNotesNonTemplateBatteryLowSensor
     ) -> None:
         """Listen for battery entity_id changes and update battery_plus."""
 
-        @callback
         async def _entity_rename_listener(
             event: Event[er.EventEntityRegistryUpdatedData],
         ) -> None:
@@ -702,8 +699,8 @@ class BatteryNotesBatteryBinaryLowSensor(BatteryNotesNonTemplateBatteryLowSensor
                     {"entity_id": new_entity_id},
                 )
 
-                new_wrapped_battery = entity_registry.async_get(new_entity_id)
-                self.coordinator.wrapped_battery = new_wrapped_battery
+                new_wrapped_battery_low = entity_registry.async_get(new_entity_id)
+                self.coordinator.wrapped_battery_low = new_wrapped_battery_low
 
                 # Create a listener for the newly named battery entity
                 if self.coordinator.wrapped_battery_low:
@@ -725,10 +722,12 @@ class BatteryNotesBatteryBinaryLowSensor(BatteryNotesNonTemplateBatteryLowSensor
                 and event_data["old_entity_id"] == source_entity_id
             )
 
-        self.hass.bus.async_listen(
-            EVENT_ENTITY_REGISTRY_UPDATED,
-            _entity_rename_listener,
-            event_filter=_filter_entity_id,
+        self.async_on_remove(
+            self.hass.bus.async_listen(
+                EVENT_ENTITY_REGISTRY_UPDATED,
+                _entity_rename_listener,
+                event_filter=_filter_entity_id,
+            )
         )
 
     async def async_added_to_hass(self) -> None:
@@ -736,7 +735,6 @@ class BatteryNotesBatteryBinaryLowSensor(BatteryNotesNonTemplateBatteryLowSensor
 
         await super().async_added_to_hass()
 
-        @callback
         async def _async_state_changed_listener(
             event: Event[EventStateChangedData] | None = None,
         ) -> None:
@@ -795,10 +793,6 @@ class BatteryNotesBatteryBinaryLowSensor(BatteryNotesNonTemplateBatteryLowSensor
                 self.coordinator.wrapped_battery_low.entity_id, hidden_by=None
             )
 
-        self.async_on_remove(
-            self.coordinator.async_add_listener(self._handle_coordinator_update)
-        )
-
         await self.coordinator.async_refresh()
 
     @callback
@@ -826,6 +820,7 @@ class BatteryNotesBatteryBinaryLowSensor(BatteryNotesNonTemplateBatteryLowSensor
                 self.async_write_ha_state()
             return
 
+        self._attr_available = True
         self._attr_is_on = self.coordinator.battery_low_binary_state
 
         self.async_write_ha_state()
