@@ -10193,6 +10193,13 @@
         },
         {
             "manufacturer": "Third Reality",
+            "model": "Smart Scale",
+            "model_id": "3RKS030Z",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Third Reality",
             "model": "Smart Soil Moisture Sensor",
             "model_id": "3RSM0147Z",
             "battery_type": "AA"
@@ -13538,13 +13545,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Third Reality",
-            "model": "Smart Scale",
-            "model_id": "3RKS030Z",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
