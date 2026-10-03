@@ -60,12 +60,11 @@ class LibraryDevice:
 class Library:  # pylint: disable=too-few-public-methods
     """Hold all known battery types."""
 
-    _manufacturer_devices: dict[str, list[LibraryDevice]] = {}
-    _ignored_domains: list[str] = []
-
     def __init__(self, hass: HomeAssistant) -> None:
         """Init."""
         self.hass = hass
+        self._manufacturer_devices: dict[str, list[LibraryDevice]] = {}
+        self._ignored_domains: set[str] = set()
         self._load_lock = asyncio.Lock()
         self._is_loading = False
 
@@ -90,7 +89,12 @@ class Library:  # pylint: disable=too-few-public-methods
             with open(library_file, encoding="utf-8") as file:
                 return cast(dict[str, Any], json.load(file))
 
+        def _move_legacy_user_library(legacy_path: str, new_path: str) -> None:
+            os.makedirs(os.path.dirname(new_path), exist_ok=True)
+            os.rename(legacy_path, new_path)
+
         new_manufacturer_devices: dict[str, list[LibraryDevice]] = {}
+        new_ignored_domains: set[str] = set()
 
         # User Library
         domain_config = self.hass.data.get(MY_KEY)
@@ -119,8 +123,9 @@ class Library:  # pylint: disable=too-few-public-methods
                 if "ignored_domains" in user_json_data:
                     ignored_domains = user_json_data["ignored_domains"]
                     if isinstance(ignored_domains, list):
-                        for domain in ignored_domains:
-                            self._ignored_domains.append(str(domain).casefold())
+                        new_ignored_domains.update(
+                            str(domain).casefold() for domain in ignored_domains
+                        )
                         _LOGGER.info(
                             "Loaded %s ignored domains from %s",
                             len(ignored_domains),
@@ -136,8 +141,11 @@ class Library:  # pylint: disable=too-few-public-methods
                     legacy_json_user_path = os.path.join(
                         legacy_data_directory, domain_config.user_library
                     )
-                    os.makedirs(os.path.dirname(json_user_path), exist_ok=True)
-                    os.rename(legacy_json_user_path, json_user_path)
+                    await self.hass.async_add_executor_job(
+                        _move_legacy_user_library,
+                        legacy_json_user_path,
+                        json_user_path,
+                    )
 
                     _LOGGER.debug(
                         "User library moved to %s",
@@ -176,13 +184,12 @@ class Library:  # pylint: disable=too-few-public-methods
                 json_default_path,
             )
 
-            self._manufacturer_devices = new_manufacturer_devices
-
             if "ignored_domains" in default_json_data:
                 ignored_domains = default_json_data["ignored_domains"]
                 if isinstance(ignored_domains, list):
-                    for domain in ignored_domains:
-                        self._ignored_domains.append(str(domain).casefold())
+                    new_ignored_domains.update(
+                        str(domain).casefold() for domain in ignored_domains
+                    )
                     _LOGGER.info(
                         "Loaded %s ignored domains from %s",
                         len(ignored_domains),
@@ -200,6 +207,11 @@ class Library:  # pylint: disable=too-few-public-methods
                 json_default_path,
                 err,
             )
+
+        # Keep the previously loaded library if nothing could be loaded this time
+        if new_manufacturer_devices:
+            self._manufacturer_devices = new_manufacturer_devices
+            self._ignored_domains = new_ignored_domains
 
     def is_domain_ignored(self, domain: str) -> bool:
         """Check if an integration domain is ignored."""
@@ -352,8 +364,8 @@ class Library:  # pylint: disable=too-few-public-methods
                 ):
                     return True
             if library_device.model_match_method == "contains":
-                if str(device_to_find.model or "").casefold() in (
-                    library_device.model.casefold()
+                if library_device.model.casefold() in (
+                    str(device_to_find.model or "").casefold()
                 ):
                     return True
         elif (
