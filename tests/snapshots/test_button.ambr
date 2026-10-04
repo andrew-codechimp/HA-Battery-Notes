@@ -1,0 +1,160 @@
+# serializer version: 1
+# name: test_entities[device][button.door_battery_note_battery_replaced-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': list([
+      None,
+    ]),
+    'area_id': None,
+    'capabilities': None,
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'button',
+    'entity_category': <EntityCategory.DIAGNOSTIC: 'diagnostic'>,
+    'entity_id': 'button.door_battery_note_battery_replaced',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'object_id_base': None,
+    'options': dict({
+      'battery_notes': dict({
+        'entity_id': 'bn_door_battery_battery_replaced_button',
+      }),
+    }),
+    'original_device_class': None,
+    'original_icon': None,
+    'original_name': 'Battery replaced',
+    'platform': 'battery_notes',
+    'previous_unique_id': None,
+    'suggested_object_id': 'door_battery_note_battery_replaced',
+    'supported_features': 0,
+    'translation_key': 'battery_replaced',
+    'unique_id': 'bn_door_battery_battery_replaced_button',
+    'unit_of_measurement': None,
+  })
+# ---
+# name: test_entities[device][button.door_battery_note_battery_replaced-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      'friendly_name': 'Door sensor Battery replaced',
+    }),
+    'context': <ANY>,
+    'entity_id': 'button.door_battery_note_battery_replaced',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': 'unknown',
+  })
+# ---
+# name: test_entities[entity][button.door_battery_battery_replaced-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': list([
+      None,
+    ]),
+    'area_id': None,
+    'capabilities': None,
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'button',
+    'entity_category': <EntityCategory.DIAGNOSTIC: 'diagnostic'>,
+    'entity_id': 'button.door_battery_battery_replaced',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'object_id_base': None,
+    'options': dict({
+      'battery_notes': dict({
+        'entity_id': 'bn_door_battery_battery_replaced_button',
+      }),
+    }),
+    'original_device_class': None,
+    'original_icon': None,
+    'original_name': 'Battery Battery replaced',
+    'platform': 'battery_notes',
+    'previous_unique_id': None,
+    'suggested_object_id': 'door_battery_battery_replaced',
+    'supported_features': 0,
+    'translation_key': 'battery_replaced',
+    'unique_id': 'bn_door_battery_battery_replaced_button',
+    'unit_of_measurement': None,
+  })
+# ---
+# name: test_entities[entity][button.door_battery_battery_replaced-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      'friendly_name': 'Door sensor Battery Battery replaced',
+    }),
+    'context': <ANY>,
+    'entity_id': 'button.door_battery_battery_replaced',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': 'unknown',
+  })
+# ---
+# name: test_entities[standalone-entity][button.door_battery_note_battery_replaced-entry]
+  EntityRegistryEntrySnapshot({
+    'aliases': list([
+      None,
+    ]),
+    'area_id': None,
+    'capabilities': None,
+    'config_entry_id': <ANY>,
+    'config_subentry_id': <ANY>,
+    'device_class': None,
+    'device_id': <ANY>,
+    'disabled_by': None,
+    'domain': 'button',
+    'entity_category': <EntityCategory.DIAGNOSTIC: 'diagnostic'>,
+    'entity_id': 'button.door_battery_note_battery_replaced',
+    'has_entity_name': True,
+    'hidden_by': None,
+    'icon': None,
+    'id': <ANY>,
+    'labels': set({
+    }),
+    'name': None,
+    'object_id_base': None,
+    'options': dict({
+      'battery_notes': dict({
+        'entity_id': 'bn_door_battery_battery_replaced_button',
+      }),
+    }),
+    'original_device_class': None,
+    'original_icon': None,
+    'original_name': 'Door battery note Battery replaced',
+    'platform': 'battery_notes',
+    'previous_unique_id': None,
+    'suggested_object_id': 'door_battery_note_battery_replaced',
+    'supported_features': 0,
+    'translation_key': 'battery_replaced',
+    'unique_id': 'bn_door_battery_battery_replaced_button',
+    'unit_of_measurement': None,
+  })
+# ---
+# name: test_entities[standalone-entity][button.door_battery_note_battery_replaced-state]
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      'friendly_name': 'Door battery note Battery replaced',
+    }),
+    'context': <ANY>,
+    'entity_id': 'button.door_battery_note_battery_replaced',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': 'unknown',
+  })
+# ---

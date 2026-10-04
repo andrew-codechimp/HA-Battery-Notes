@@ -117,8 +117,6 @@ async def _async_battery_replaced(call: ServiceCall) -> ServiceResponse:  # noqa
             )
 
         # Check if entity_id exists in any sub config entry
-        entity_found = False
-
         for config_entry in call.hass.config_entries.async_loaded_entries(DOMAIN):
             battery_notes_config_entry = cast(BatteryNotesConfigEntry, config_entry)
             if not battery_notes_config_entry.runtime_data.subentry_coordinators:
@@ -132,7 +130,6 @@ async def _async_battery_replaced(call: ServiceCall) -> ServiceResponse:  # noqa
                     and coordinator.source_entity_id
                     and coordinator.source_entity_id == source_entity_id
                 ):
-                    entity_found = True
                     coordinator.last_replaced = datetime_replaced
                     await coordinator.async_request_refresh()
 
@@ -162,72 +159,65 @@ async def _async_battery_replaced(call: ServiceCall) -> ServiceResponse:  # noqa
 
                     return None
 
-        if not entity_found:
-            raise HomeAssistantError(
-                translation_domain=DOMAIN,
-                translation_key="not_configured_in_battery_notes",
-                translation_placeholders={"source": source_entity_id},
-            )
-        return None
+        raise HomeAssistantError(
+            translation_domain=DOMAIN,
+            translation_key="not_configured_in_battery_notes",
+            translation_placeholders={"source": source_entity_id},
+        )
 
-    else:
-        device_entry = device_registry.async_get(device_id)
-        if not device_entry:
-            raise HomeAssistantError(
-                translation_domain=DOMAIN,
-                translation_key="not_configured_in_battery_notes",
-                translation_placeholders={"source": device_id},
-            )
+    device_entry = device_registry.async_get(device_id)
+    if not device_entry:
+        raise HomeAssistantError(
+            translation_domain=DOMAIN,
+            translation_key="not_configured_in_battery_notes",
+            translation_placeholders={"source": device_id},
+        )
 
-        # Check if device_id exists in any sub config entry
-        device_found = False
-        for config_entry in call.hass.config_entries.async_loaded_entries(DOMAIN):
-            battery_notes_config_entry = cast(BatteryNotesConfigEntry, config_entry)
-            if not battery_notes_config_entry.runtime_data.subentry_coordinators:
-                continue
+    # Check if device_id exists in any sub config entry
+    for config_entry in call.hass.config_entries.async_loaded_entries(DOMAIN):
+        battery_notes_config_entry = cast(BatteryNotesConfigEntry, config_entry)
+        if not battery_notes_config_entry.runtime_data.subentry_coordinators:
+            continue
 
-            for (
-                coordinator
-            ) in battery_notes_config_entry.runtime_data.subentry_coordinators.values():
-                if not coordinator.is_orphaned and coordinator.device_id == device_id:
-                    device_found = True
-                    coordinator.last_replaced = datetime_replaced
-                    await coordinator.async_request_refresh()
+        for (
+            coordinator
+        ) in battery_notes_config_entry.runtime_data.subentry_coordinators.values():
+            if not coordinator.is_orphaned and coordinator.device_id == device_id:
+                coordinator.last_replaced = datetime_replaced
+                await coordinator.async_request_refresh()
 
-                    _LOGGER.debug(
-                        "Device %s battery replaced on %s",
-                        device_id,
-                        str(datetime_replaced),
-                    )
+                _LOGGER.debug(
+                    "Device %s battery replaced on %s",
+                    device_id,
+                    str(datetime_replaced),
+                )
 
-                    call.hass.bus.async_fire(
-                        EVENT_BATTERY_REPLACED,
-                        {
-                            ATTR_DEVICE_ID: coordinator.device_id or "",
-                            ATTR_SOURCE_ENTITY_ID: coordinator.source_entity_id or "",
-                            ATTR_AREA_NAME: coordinator.area_name,
-                            ATTR_DEVICE_NAME: coordinator.device_name,
-                            ATTR_BATTERY_TYPE_AND_QUANTITY: coordinator.battery_type_and_quantity,
-                            ATTR_BATTERY_TYPE: coordinator.battery_type,
-                            ATTR_BATTERY_QUANTITY: coordinator.battery_quantity,
-                        },
-                    )
+                call.hass.bus.async_fire(
+                    EVENT_BATTERY_REPLACED,
+                    {
+                        ATTR_DEVICE_ID: coordinator.device_id or "",
+                        ATTR_SOURCE_ENTITY_ID: coordinator.source_entity_id or "",
+                        ATTR_AREA_NAME: coordinator.area_name,
+                        ATTR_DEVICE_NAME: coordinator.device_name,
+                        ATTR_BATTERY_TYPE_AND_QUANTITY: coordinator.battery_type_and_quantity,
+                        ATTR_BATTERY_TYPE: coordinator.battery_type,
+                        ATTR_BATTERY_QUANTITY: coordinator.battery_quantity,
+                    },
+                )
 
-                    _LOGGER.debug(
-                        "Raised event battery replaced %s",
-                        coordinator.device_id,
-                    )
+                _LOGGER.debug(
+                    "Raised event battery replaced %s",
+                    coordinator.device_id,
+                )
 
-                    # Found and dealt with, exit
-                    return None
+                # Found and dealt with, exit
+                return None
 
-        if not device_found:
-            raise HomeAssistantError(
-                translation_domain=DOMAIN,
-                translation_key="not_configured_in_battery_notes",
-                translation_placeholders={"source": device_id},
-            )
-        return None
+    raise HomeAssistantError(
+        translation_domain=DOMAIN,
+        translation_key="not_configured_in_battery_notes",
+        translation_placeholders={"source": device_id},
+    )
 
 
 async def _async_battery_last_replaced(call: ServiceCall) -> ServiceResponse:
