@@ -98,6 +98,7 @@ class BatteryNotesDomainConfig:
     default_battery_low_threshold: int = DEFAULT_BATTERY_LOW_THRESHOLD
     battery_increased_threshod: int = DEFAULT_BATTERY_INCREASE_THRESHOLD
     library_last_update: datetime | None = None
+    skip_library_download: bool = False
     user_library: str = ""
     store: BatteryNotesStorage | None = None
 

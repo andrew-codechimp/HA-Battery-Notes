@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import logging
 import re
+from copy import copy
 from datetime import datetime
 from types import MappingProxyType
 
@@ -146,6 +147,7 @@ async def async_setup_entry(
 
     domain_config = hass.data[MY_KEY]
     assert domain_config.store
+    download_library = not domain_config.skip_library_download
 
     domain_config.show_all_devices = config_entry.options[CONF_SHOW_ALL_DEVICES]
     domain_config.hide_battery = config_entry.options[CONF_HIDE_BATTERY]
@@ -173,7 +175,10 @@ async def async_setup_entry(
     config_entry.runtime_data = BatteryNotesData(
         domain_config=domain_config,
         store=domain_config.store,
-        loaded_subentries=config_entry.subentries.copy(),
+        loaded_subentries={
+            subentry_id: copy(subentry)
+            for subentry_id, subentry in config_entry.subentries.items()
+        },
     )
 
     discovery_manager = DiscoveryManager(hass, domain_config)
@@ -225,13 +230,11 @@ async def async_setup_entry(
 
     async def _async_delayed_discovery(now: datetime) -> None:  # noqa: ARG001
         """Update the library and do discovery."""
-        # The entry is reloaded on every subentry change, only download the library
-        # at startup or when the last download is as old as the daily update interval
-        if await library_updater.time_to_update_library(23):
+        if download_library:
             await library_updater.copy_schema()
             await library_updater.get_library_updates(startup=True)
         else:
-            _LOGGER.debug("Library recently updated, skipping download")
+            _LOGGER.debug("Subentries changed, skipping library download")
 
         # Always reload from disk, the user library option may have changed
         await hass.data[DATA_LIBRARY].load_libraries()
@@ -576,10 +579,14 @@ async def _async_update_listener(
                 hass, config_entry, subentry, remove_store_entries=False
             )
 
-    # Update the config entry with the new sub entries
-    config_entry.runtime_data.loaded_subentries = config_entry.subentries.copy()
-
-    await hass.config_entries.async_reload(config_entry.entry_id)
+    domain_config = config_entry.runtime_data.domain_config
+    domain_config.skip_library_download = (
+        config_entry.runtime_data.loaded_subentries != config_entry.subentries
+    )
+    try:
+        await hass.config_entries.async_reload(config_entry.entry_id)
+    finally:
+        domain_config.skip_library_download = False
 
 
 async def _async_remove_subentry(
