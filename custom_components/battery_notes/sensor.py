@@ -691,6 +691,8 @@ class BatteryNotesBatteryPlusSensor(BatteryNotesBatteryPlusBaseSensor):
     async def async_added_to_hass(self) -> None:
         """Handle added to Hass."""
 
+        await super().async_added_to_hass()
+
         async def _async_state_changed_listener(
             event: Event[EventStateChangedData] | None = None,
         ) -> None:
