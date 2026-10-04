@@ -2,7 +2,7 @@
 
 from collections.abc import Generator
 from types import MappingProxyType
-from unittest.mock import AsyncMock, patch
+from unittest.mock import AsyncMock, MagicMock, mock_open, patch
 
 import pytest
 from custom_components.battery_notes.const import (
@@ -61,14 +61,14 @@ def source_device(
     model_info = getattr(
         request, "param", ModelInfo("LUMI", "lumi.sensor_magnet.aq2", None, None)
     )
+    device_info: dr.DeviceInfo = (
+        model_info._asdict() if isinstance(model_info, ModelInfo) else model_info
+    )
     return device_registry.async_get_or_create(
         config_entry_id=source_config_entry.entry_id,
         identifiers={(source_config_entry.domain, "source-device")},
         name="Front door",
-        manufacturer=model_info.manufacturer,
-        model=model_info.model,
-        model_id=model_info.model_id,
-        hw_version=model_info.hw_version,
+        **device_info,
     )
 
 
@@ -84,6 +84,20 @@ def discovery_manager(
     config = BatteryNotesDomainConfig(library_last_update=dt_util.utcnow())
     hass.data[MY_KEY] = config
     return DiscoveryManager(hass, config)
+
+
+@pytest.fixture
+def unreadable_library_file(
+    _mock_library_file: MagicMock, request: pytest.FixtureRequest
+) -> None:
+    """Provide a missing, malformed, or empty library through the real loader."""
+    _mock_library_file.return_value = mock_open(
+        read_data=request.param or ""
+    ).return_value
+    _mock_library_file.side_effect = {
+        True: FileNotFoundError,
+        False: None,
+    }[request.param is None]
 
 
 @pytest.fixture
@@ -156,6 +170,16 @@ async def test_matching_device_discovered(
     "source_device",
     [
         pytest.param(
+            {"manufacturer": None, "model": "lumi.sensor_magnet.aq2"},
+            id="missing-manufacturer",
+        ),
+        pytest.param(
+            {"manufacturer": "", "model": "lumi.sensor_magnet.aq2"},
+            id="empty-manufacturer",
+        ),
+        pytest.param({"manufacturer": "LUMI", "model": None}, id="missing-model"),
+        pytest.param({"manufacturer": "LUMI", "model": ""}, id="empty-model"),
+        pytest.param(
             ModelInfo("Unknown", "Unknown sensor", None, None),
             id="unknown-manufacturer",
         ),
@@ -187,7 +211,7 @@ async def test_device_not_discovered(
     discovery_manager: DiscoveryManager,
     battery_library: Library,
 ) -> None:
-    """Test unmatched, ambiguous, and manual definitions create no automatic flow."""
+    """Test incomplete, unmatched, ambiguous, and manual devices create no flow."""
     await discovery_manager.start_discovery()
     await hass.async_block_till_done(wait_background_tasks=True)
 
@@ -322,3 +346,129 @@ async def test_parent_removed_before_confirmation(
 
     assert result["type"] is FlowResultType.ABORT
     assert result["reason"] == "integration_not_added"
+
+
+async def test_child_device_not_discovered(
+    hass: HomeAssistant,
+    discovery_manager: DiscoveryManager,
+    source_device: dr.DeviceEntry,
+    device_registry: dr.DeviceRegistry,
+) -> None:
+    """Test child entries are skipped even when their metadata matches the library."""
+    # HACK: The minimum supported HA version does not have child registry entries.
+    child = MagicMock(
+        spec=dr.DeviceEntry,
+        id="child-device",
+        parent_device_id=source_device.id,
+        manufacturer=source_device.manufacturer,
+        model=source_device.model,
+        model_id=source_device.model_id,
+        hw_version=source_device.hw_version,
+        name="Child device",
+        disabled=False,
+        config_entries=source_device.config_entries,
+    )
+    with patch.object(device_registry, "devices", {child.id: child}):
+        await discovery_manager.start_discovery()
+        await hass.async_block_till_done(wait_background_tasks=True)
+
+    assert hass.config_entries.flow.async_progress_by_handler(DOMAIN) == []
+
+
+async def test_composite_device_not_discovered(
+    hass: HomeAssistant,
+    discovery_manager: DiscoveryManager,
+    source_device: dr.DeviceEntry,
+    device_registry: dr.DeviceRegistry,
+) -> None:
+    """Test legacy composite devices are skipped despite matching library metadata."""
+    original_get = device_registry.async_get
+
+    def get_device(
+        device_id: str, *, include_composite_devices: bool = True
+    ) -> dr.DeviceEntry | None:
+        return {
+            True: original_get(device_id),
+            False: None,
+        }[include_composite_devices]
+
+    with patch.object(device_registry, "async_get", side_effect=get_device):
+        await discovery_manager.start_discovery()
+        await hass.async_block_till_done(wait_background_tasks=True)
+
+    assert source_device.id not in discovery_manager.existing_devices
+    assert hass.config_entries.flow.async_progress_by_handler(DOMAIN) == []
+
+
+@pytest.mark.parametrize(
+    "related_devices_method",
+    [
+        pytest.param("async_get_devices", id="shared-identifiers-or-connections"),
+        pytest.param(
+            "async_get_devices_for_composite_device_id", id="split-composite-devices"
+        ),
+    ],
+)
+async def test_configured_related_device_not_discovered(
+    hass: HomeAssistant,
+    discovery_manager: DiscoveryManager,
+    mock_config_entry: MockConfigEntry,
+    source_device: dr.DeviceEntry,
+    related_devices_method: str,
+) -> None:
+    """Test discovery excludes the registry's relatives of an already configured device."""
+    device_registry = dr.async_get(hass)
+    related_device = device_registry.async_get_or_create(
+        config_entry_id=next(iter(source_device.config_entries)),
+        identifiers={("mqtt", "related-device")},
+        name="Related device",
+        manufacturer=source_device.manufacturer,
+        model=source_device.model,
+    )
+    hass.config_entries.async_add_subentry(
+        mock_config_entry,
+        ConfigSubentry(
+            data=MappingProxyType({CONF_DEVICE_ID: source_device.id}),
+            title="Existing note",
+            subentry_type=SUBENTRY_BATTERY_NOTE,
+            unique_id=f"bn_{source_device.id}",
+        ),
+    )
+    with patch.object(
+        device_registry,
+        related_devices_method,
+        create=True,
+        return_value=[source_device, related_device],
+    ) as get_related_devices:
+        await discovery_manager.start_discovery()
+        await hass.async_block_till_done(wait_background_tasks=True)
+
+    assert get_related_devices.called
+    assert discovery_manager.existing_devices == {source_device.id, related_device.id}
+    assert hass.config_entries.flow.async_progress_by_handler(DOMAIN) == []
+
+
+@pytest.mark.parametrize(
+    "unreadable_library_file",
+    [
+        pytest.param(None, id="missing-file"),
+        pytest.param("invalid json", id="malformed-json"),
+        pytest.param("{}", id="missing-devices"),
+        pytest.param('{"devices": []}', id="empty-library"),
+    ],
+    indirect=True,
+)
+@pytest.mark.usefixtures("source_device", "unreadable_library_file")
+async def test_library_not_loaded(
+    hass: HomeAssistant,
+    discovery_manager: DiscoveryManager,
+    battery_library: Library,
+    caplog: pytest.LogCaptureFixture,
+) -> None:
+    """Test an unavailable library prevents discovery of an otherwise matching device."""
+    await discovery_manager.start_discovery()
+    await hass.async_block_till_done(wait_background_tasks=True)
+
+    assert not battery_library.is_loaded
+    assert "Library not loaded" in caplog.text
+    assert hass.config_entries.flow.async_progress_by_handler(DOMAIN) == []
