@@ -51,6 +51,9 @@ from .const import (
     ATTR_PREVIOUS_BATTERY_LEVEL,
     ATTR_REMOVE,
     ATTR_SOURCE_ENTITY_ID,
+    BATTERY_REPLACEMENT_COUNT,
+    BATTERY_REPLACEMENT_INTERVAL_DAYS,
+    BATTERY_REPLACEMENT_AVERAGE_DAYS,
     CONF_ADVANCED_SETTINGS,
     CONF_BATTERY_INCREASE_THRESHOLD,
     CONF_BATTERY_LOW_TEMPLATE,
@@ -236,7 +239,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
             )
 
             if last_replaced:
-                self.last_replaced = last_replaced
+                self._set_last_replaced(last_replaced)
 
         # If there is not a last_reported set to now
         if not self.last_reported:
@@ -746,17 +749,89 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
             return _ensure_utc(dt_val)
         return None
 
-    @last_replaced.setter
-    def last_replaced(self, value: datetime):
-        """Set the last replaced datetime and store it."""
-        entry = {
-            LAST_REPLACED: _ensure_utc(value) if isinstance(value, datetime) else value
-        }
+    @property
+    def replacement_count(self) -> int:
+        """Return the number of battery replacements recorded by Battery Notes."""
+        if not hasattr(self.config_entry, "runtime_data"):
+            return 0
 
         if self.source_entity_id:
-            self.async_update_entity_config(entity_id=self.source_entity_id, data=entry)
+            entry = self.config_entry.runtime_data.store.async_get_entity(
+                self.source_entity_id
+            )
+        else:
+            entry = self.config_entry.runtime_data.store.async_get_device(self.device_id)
+
+        if entry:
+            return int(entry.get(BATTERY_REPLACEMENT_COUNT, 0))
+        return 0
+
+    def record_battery_replacement(self, replaced_at: datetime) -> None:
+        """Record a battery replacement and update lifetime statistics."""
+        if not hasattr(self.config_entry, "runtime_data"):
+            return
+
+        previous_replaced = self.last_replaced
+        count = self.replacement_count + 1
+        data: dict[str, Any] = {BATTERY_REPLACEMENT_COUNT: count}
+
+        if previous_replaced is not None:
+            interval_days = (
+                _ensure_utc(replaced_at) - previous_replaced
+            ).total_seconds() / 86400
+            if interval_days >= 0:
+                entry = (
+                    self.config_entry.runtime_data.store.async_get_entity(
+                        self.source_entity_id
+                    )
+                    if self.source_entity_id
+                    else self.config_entry.runtime_data.store.async_get_device(
+                        self.device_id
+                    )
+                )
+                total_days = (
+                    float(entry.get("battery_replacement_total_days", 0.0))
+                    if entry
+                    else 0.0
+                )
+                interval_count = (
+                    int(entry.get("battery_replacement_interval_count", 0))
+                    if entry
+                    else 0
+                )
+                total_days += interval_days
+                interval_count += 1
+                data.update(
+                    {
+                        BATTERY_REPLACEMENT_INTERVAL_DAYS: interval_days,
+                        "battery_replacement_total_days": total_days,
+                        "battery_replacement_interval_count": interval_count,
+                        BATTERY_REPLACEMENT_AVERAGE_DAYS: total_days / interval_count,
+                    }
+                )
+
+        data[LAST_REPLACED] = _ensure_utc(replaced_at)
+
+        if self.source_entity_id:
+            self.async_update_entity_config(
+                entity_id=self.source_entity_id, data=data
+            )
         elif self.device_id:
-            self.async_update_device_config(device_id=self.device_id, data=entry)
+            self.async_update_device_config(device_id=self.device_id, data=data)
+
+    def _set_last_replaced(self, value: datetime) -> None:
+        """Store the last replaced datetime without changing the replacement count."""
+        if not hasattr(self.config_entry, "runtime_data"):
+            return
+
+        data = {LAST_REPLACED: _ensure_utc(value)}
+
+        if self.source_entity_id:
+            self.async_update_entity_config(
+                entity_id=self.source_entity_id, data=data
+            )
+        elif self.device_id:
+            self.async_update_device_config(device_id=self.device_id, data=data)
 
     @property
     def last_reported(self) -> datetime | None:

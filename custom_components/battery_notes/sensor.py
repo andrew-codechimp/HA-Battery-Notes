@@ -64,6 +64,8 @@ from .const import (
     ATTR_BATTERY_LOW,
     ATTR_BATTERY_LOW_THRESHOLD,
     ATTR_BATTERY_QUANTITY,
+    BATTERY_REPLACEMENT_INTERVAL_DAYS,
+    BATTERY_REPLACEMENT_AVERAGE_DAYS,
     ATTR_BATTERY_TYPE,
     ATTR_BATTERY_TYPE_AND_QUANTITY,
     ATTR_DEVICE_ID,
@@ -144,6 +146,15 @@ async def async_setup_entry(
             entity_type="sensor",
         )
 
+        replacement_count_sensor_entity_description = BatteryNotesSensorEntityDescription(
+            unique_id_suffix="_battery_replacement_count",
+            key="battery_replacement_count",
+            translation_key="battery_replacement_count",
+            entity_category=EntityCategory.DIAGNOSTIC,
+            state_class=SensorStateClass.TOTAL_INCREASING,
+            entity_type="sensor",
+        )
+
         last_replaced_sensor_entity_description = BatteryNotesSensorEntityDescription(
             unique_id_suffix="_battery_last_replaced",
             key="battery_last_replaced",
@@ -185,6 +196,14 @@ async def async_setup_entry(
                 coordinator,
                 last_replaced_sensor_entity_description,
                 f"{subentry.unique_id}{last_replaced_sensor_entity_description.unique_id_suffix}",
+            ),
+            BatteryNotesReplacementCountSensor(
+                hass,
+                config_entry,
+                subentry,
+                replacement_count_sensor_entity_description,
+                coordinator,
+                f"{subentry.unique_id}{replacement_count_sensor_entity_description.unique_id_suffix}",
             ),
         ]
 
@@ -352,6 +371,73 @@ class BatteryNotesLastReplacedSensor(BatteryNotesEntity, SensorEntity):
     def native_value(self) -> datetime | None:
         """Return the native value of the sensor."""
         return self._native_value
+
+
+class BatteryNotesReplacementCountSensor(BatteryNotesEntity, SensorEntity):
+    """Represents the number of battery replacements."""
+
+    _attr_should_poll = False
+    entity_description: BatteryNotesSensorEntityDescription
+
+    def __init__(
+        self,
+        hass: HomeAssistant,
+        config_entry: BatteryNotesConfigEntry,
+        subentry: ConfigSubentry,
+        entity_description: BatteryNotesSensorEntityDescription,
+        coordinator: BatteryNotesSubentryCoordinator,
+        unique_id: str,
+    ) -> None:
+        """Initialize the sensor."""
+        super().__init__(
+            hass=hass, entity_description=entity_description, coordinator=coordinator
+        )
+        self._attr_unique_id = unique_id
+        self._attr_native_unit_of_measurement = "Wechsel"
+        self._attr_state_class = SensorStateClass.TOTAL_INCREASING
+        self._attr_native_value = coordinator.replacement_count
+
+    async def async_added_to_hass(self) -> None:
+        """Handle added to Hass."""
+        await super().async_added_to_hass()
+        self._attr_native_value = self.coordinator.replacement_count
+
+    @callback
+    def _handle_coordinator_update(self) -> None:
+        """Handle coordinator updates."""
+        self._attr_native_value = self.coordinator.replacement_count
+        self.async_write_ha_state()
+
+    @property
+    def extra_state_attributes(self) -> dict[str, Any]:
+        """Return battery replacement lifetime statistics."""
+        entry = (
+            self.coordinator.config_entry.runtime_data.store.async_get_entity(
+                self.coordinator.source_entity_id
+            )
+            if self.coordinator.source_entity_id
+            else self.coordinator.config_entry.runtime_data.store.async_get_device(
+                self.coordinator.device_id
+            )
+        )
+        if not entry:
+            return {}
+
+        attrs: dict[str, Any] = {}
+        interval_days = entry.get(BATTERY_REPLACEMENT_INTERVAL_DAYS)
+        average_days = entry.get(BATTERY_REPLACEMENT_AVERAGE_DAYS)
+
+        if interval_days is not None:
+            attrs[BATTERY_REPLACEMENT_INTERVAL_DAYS] = round(float(interval_days), 2)
+        if average_days is not None:
+            attrs[BATTERY_REPLACEMENT_AVERAGE_DAYS] = round(float(average_days), 2)
+
+        return attrs
+
+    @property
+    def native_value(self) -> int:
+        """Return the replacement count."""
+        return self.coordinator.replacement_count
 
 
 class BatteryNotesBatteryPlusBaseSensor(BatteryNotesEntity, RestoreSensor):

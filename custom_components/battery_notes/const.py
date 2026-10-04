@@ -18,6 +18,9 @@ MANUFACTURER = "@Andrew-CodeChimp"
 LAST_REPLACED = "battery_last_replaced"
 LAST_REPORTED = "battery_last_reported"
 LAST_REPORTED_LEVEL = "battery_last_reported_level"
+BATTERY_REPLACEMENT_COUNT = "battery_replacement_count"
+BATTERY_REPLACEMENT_INTERVAL_DAYS = "battery_replacement_interval_days"
+BATTERY_REPLACEMENT_AVERAGE_DAYS = "battery_replacement_average_days"
 
 DEFAULT_BATTERY_LOW_THRESHOLD = 10
 DEFAULT_BATTERY_INCREASE_THRESHOLD = 25

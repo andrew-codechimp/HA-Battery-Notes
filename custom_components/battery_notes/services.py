@@ -130,7 +130,7 @@ async def _async_battery_replaced(call: ServiceCall) -> ServiceResponse:  # noqa
                     and coordinator.source_entity_id
                     and coordinator.source_entity_id == source_entity_id
                 ):
-                    coordinator.last_replaced = datetime_replaced
+                    coordinator.record_battery_replacement(datetime_replaced)
                     await coordinator.async_request_refresh()
 
                     _LOGGER.debug(
