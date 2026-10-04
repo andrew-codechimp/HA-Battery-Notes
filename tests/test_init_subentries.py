@@ -1,8 +1,11 @@
 """Tests for loading device and entity battery note subentries."""
 
+from datetime import timedelta
 from types import MappingProxyType
+from unittest.mock import patch
 
 import pytest
+from custom_components.battery_notes.common import missing_device_issue_id
 from custom_components.battery_notes.const import (
     CONF_ADVANCED_SETTINGS,
     CONF_BATTERY_INCREASE_THRESHOLD,
@@ -15,7 +18,10 @@ from custom_components.battery_notes.const import (
     SUBENTRY_BATTERY_NOTE,
 )
 from freezegun.api import FrozenDateTimeFactory
-from pytest_homeassistant_custom_component.common import MockConfigEntry
+from pytest_homeassistant_custom_component.common import (
+    MockConfigEntry,
+    async_fire_time_changed,
+)
 from syrupy.assertion import SnapshotAssertion
 from syrupy.filters import props
 
@@ -29,7 +35,12 @@ from homeassistant.const import (
     PERCENTAGE,
 )
 from homeassistant.core import HomeAssistant
-from homeassistant.helpers import device_registry as dr, entity_registry as er
+from homeassistant.helpers import (
+    device_registry as dr,
+    entity_registry as er,
+    issue_registry as ir,
+)
+from homeassistant.util import dt as dt_util
 
 from . import setup_integration
 
@@ -187,6 +198,43 @@ def mock_config_entry(
     )
 
 
+@pytest.fixture
+async def orphaned_config_entry(
+    hass: HomeAssistant,
+    mock_config_entry: MockConfigEntry,
+    note_source: str,
+    source_sensor: er.RegistryEntry,
+) -> MockConfigEntry:
+    """Load a saved note after its source has been removed from the registry."""
+    subentry = next(iter(mock_config_entry.subentries.values()))
+    remove_source, source_id = {
+        "device": (
+            dr.async_get(hass).async_remove_device,
+            subentry.data.get(CONF_DEVICE_ID),
+        ),
+        "entity": (er.async_get(hass).async_remove, source_sensor.entity_id),
+        "standalone-entity": (er.async_get(hass).async_remove, source_sensor.entity_id),
+    }[note_source]
+    remove_source(source_id)
+    await hass.async_block_till_done()
+    await setup_integration(hass, mock_config_entry)
+
+    assert mock_config_entry.state is ConfigEntryState.LOADED
+    assert mock_config_entry.runtime_data.subentry_coordinators[
+        subentry.subentry_id
+    ].is_orphaned
+    assert not er.async_entries_for_config_entry(
+        er.async_get(hass), mock_config_entry.entry_id
+    )
+    assert (
+        ir.async_get(hass).async_get_issue(
+            DOMAIN, missing_device_issue_id(subentry.subentry_id)
+        )
+        is None
+    )
+    return mock_config_entry
+
+
 async def test_setup_subentry(
     hass: HomeAssistant,
     mock_config_entry: MockConfigEntry,
@@ -274,3 +322,175 @@ async def test_subentry_follows_source(
     low_state = hass.states.get(low_entity_id)
     assert low_state is not None
     assert low_state.state == "on"
+
+
+async def test_link_retry_restores_source(
+    hass: HomeAssistant,
+    mock_config_entry: MockConfigEntry,
+    note_source: str,
+    source_sensor: er.RegistryEntry,
+    freezer: FrozenDateTimeFactory,
+) -> None:
+    """Test a source available at the retry causes a reload and creates entities."""
+    entry = mock_config_entry
+    subentry = next(iter(entry.subentries.values()))
+    source_registry = {
+        "device": dr.async_get(hass),
+        "entity": er.async_get(hass),
+        "standalone-entity": er.async_get(hass),
+    }[note_source]
+    with patch.object(source_registry, "async_get", return_value=None):
+        await setup_integration(hass, entry)
+
+    coordinator = entry.runtime_data.subentry_coordinators[subentry.subentry_id]
+    assert coordinator.is_orphaned
+    assert not er.async_entries_for_config_entry(er.async_get(hass), entry.entry_id)
+    issue_id = missing_device_issue_id(subentry.subentry_id)
+    assert ir.async_get(hass).async_get_issue(DOMAIN, issue_id) is None
+
+    with patch.object(
+        hass.config_entries, "async_reload", wraps=hass.config_entries.async_reload
+    ) as reload_entry:
+        freezer.tick(timedelta(seconds=119))
+        async_fire_time_changed(hass, dt_util.utcnow())
+        await hass.async_block_till_done(wait_background_tasks=True)
+
+        reload_entry.assert_not_awaited()
+        assert coordinator.is_orphaned
+        assert not er.async_entries_for_config_entry(er.async_get(hass), entry.entry_id)
+        assert ir.async_get(hass).async_get_issue(DOMAIN, issue_id) is None
+
+        freezer.tick(timedelta(seconds=1))
+        async_fire_time_changed(hass, dt_util.utcnow())
+        await hass.async_block_till_done(wait_background_tasks=True)
+
+        reload_entry.assert_awaited_once_with(entry.entry_id)
+        assert not coordinator.is_orphaned
+        assert entry.state is ConfigEntryState.LOADED
+        restored_coordinator = entry.runtime_data.subentry_coordinators[
+            subentry.subentry_id
+        ]
+        assert restored_coordinator is not coordinator
+        assert not restored_coordinator.is_orphaned
+        wrapped_source = {
+            "sensor": restored_coordinator.wrapped_battery,
+            "binary_sensor": restored_coordinator.wrapped_battery_low,
+        }[source_sensor.domain]
+        assert wrapped_source is not None
+        assert wrapped_source.entity_id == source_sensor.entity_id
+        entities = er.async_entries_for_config_entry(er.async_get(hass), entry.entry_id)
+        assert entities
+        assert all(
+            entity.config_subentry_id == subentry.subentry_id for entity in entities
+        )
+        suffix = {"sensor": "_battery_plus", "binary_sensor": "_battery_low"}[
+            source_sensor.domain
+        ]
+        entity_id = er.async_get(hass).async_get_entity_id(
+            source_sensor.domain, DOMAIN, f"{subentry.unique_id}{suffix}"
+        )
+        assert entity_id is not None
+        state = hass.states.get(entity_id)
+        assert state is not None
+        assert (
+            state.state
+            == {"sensor": "55.0", "binary_sensor": "off"}[source_sensor.domain]
+        )
+        assert ir.async_get(hass).async_get_issue(DOMAIN, issue_id) is None
+
+        freezer.tick(timedelta(minutes=2))
+        async_fire_time_changed(hass, dt_util.utcnow())
+        await hass.async_block_till_done(wait_background_tasks=True)
+        reload_entry.assert_awaited_once_with(entry.entry_id)
+
+
+async def test_link_retry_source_still_missing(
+    hass: HomeAssistant,
+    orphaned_config_entry: MockConfigEntry,
+    freezer: FrozenDateTimeFactory,
+) -> None:
+    """Test a source missing after two minutes creates one repair without reloading."""
+    entry = orphaned_config_entry
+    subentry = next(iter(entry.subentries.values()))
+    coordinator = entry.runtime_data.subentry_coordinators[subentry.subentry_id]
+    issue_id = missing_device_issue_id(subentry.subentry_id)
+    with (
+        patch.object(hass.config_entries, "async_reload") as reload_entry,
+        patch(
+            "custom_components.battery_notes.coordinator.ir.async_create_issue",
+            wraps=ir.async_create_issue,
+        ) as create_issue,
+    ):
+        freezer.tick(timedelta(seconds=119))
+        async_fire_time_changed(hass, dt_util.utcnow())
+        await hass.async_block_till_done(wait_background_tasks=True)
+        create_issue.assert_not_called()
+        reload_entry.assert_not_awaited()
+
+        freezer.tick(timedelta(seconds=1))
+        async_fire_time_changed(hass, dt_util.utcnow())
+        await hass.async_block_till_done(wait_background_tasks=True)
+
+        issue = ir.async_get(hass).async_get_issue(DOMAIN, issue_id)
+        assert issue is not None
+        assert issue.is_fixable
+        assert issue.severity is ir.IssueSeverity.WARNING
+        assert issue.translation_key == "missing_device"
+        assert issue.translation_placeholders == {"name": subentry.title}
+        assert issue.data == {
+            "entry_id": entry.entry_id,
+            "subentry_id": subentry.subentry_id,
+            "device_id": coordinator.device_id,
+            "source_entity_id": coordinator.source_entity_id,
+        }
+        assert coordinator.is_orphaned
+        assert not er.async_entries_for_config_entry(er.async_get(hass), entry.entry_id)
+        create_issue.assert_called_once()
+        reload_entry.assert_not_awaited()
+
+        freezer.tick(timedelta(minutes=2))
+        async_fire_time_changed(hass, dt_util.utcnow())
+        await hass.async_block_till_done(wait_background_tasks=True)
+        create_issue.assert_called_once()
+        reload_entry.assert_not_awaited()
+
+
+@pytest.mark.parametrize(
+    "operation",
+    [
+        pytest.param("async_unload", id="unload"),
+        pytest.param("async_remove", id="remove"),
+    ],
+)
+async def test_link_retry_cancelled_on_unload(
+    hass: HomeAssistant,
+    orphaned_config_entry: MockConfigEntry,
+    freezer: FrozenDateTimeFactory,
+    operation: str,
+) -> None:
+    """Test unloading or removing the entry cancels the pending source retry."""
+    entry = orphaned_config_entry
+    subentry = next(iter(entry.subentries.values()))
+    assert await getattr(hass.config_entries, operation)(entry.entry_id)
+    await hass.async_block_till_done()
+    assert entry.state is ConfigEntryState.NOT_LOADED
+
+    with (
+        patch.object(hass.config_entries, "async_reload") as reload_entry,
+        patch(
+            "custom_components.battery_notes.coordinator.ir.async_create_issue",
+            wraps=ir.async_create_issue,
+        ) as create_issue,
+    ):
+        freezer.tick(timedelta(minutes=2))
+        async_fire_time_changed(hass, dt_util.utcnow())
+        await hass.async_block_till_done(wait_background_tasks=True)
+
+    reload_entry.assert_not_awaited()
+    create_issue.assert_not_called()
+    assert (
+        ir.async_get(hass).async_get_issue(
+            DOMAIN, missing_device_issue_id(subentry.subentry_id)
+        )
+        is None
+    )
