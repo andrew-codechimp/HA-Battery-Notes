@@ -38,26 +38,43 @@ def mock_setup_entry() -> Generator[AsyncMock]:
 
 
 @pytest.fixture
-def mock_config_entry() -> MockConfigEntry:
+def mock_library_updater() -> Generator[MagicMock]:
+    """Mock library downloads, schema copying, and the daily update subscription."""
+    with patch(
+        "custom_components.battery_notes.LibraryUpdater", autospec=True
+    ) as updater:
+        yield updater.return_value
+
+
+@pytest.fixture
+def mock_config_entry(request: pytest.FixtureRequest) -> MockConfigEntry:
     """Create a Battery Notes entry with default options."""
+    options = {
+        CONF_SHOW_ALL_DEVICES: False,
+        CONF_HIDE_BATTERY: False,
+        CONF_ROUND_BATTERY: False,
+        CONF_DEFAULT_BATTERY_LOW_THRESHOLD: 10,
+        CONF_DEFAULT_BATTERY_INCREASE_THRESHOLD: 25,
+        CONF_ADVANCED_SETTINGS: {
+            CONF_ENABLE_AUTODISCOVERY: True,
+            CONF_ENABLE_REPLACED: True,
+            CONF_HIDE_BATTERY_LOW: False,
+            CONF_USER_LIBRARY: "",
+        },
+    }
+    overrides = getattr(request, "param", {})
+    advanced_options = {
+        **options[CONF_ADVANCED_SETTINGS],
+        **overrides.get(CONF_ADVANCED_SETTINGS, {}),
+    }
+    options.update(overrides)
+    options[CONF_ADVANCED_SETTINGS] = advanced_options
     return MockConfigEntry(
         domain=DOMAIN,
         title="Battery Notes",
         version=4,
         data={},
-        options={
-            CONF_SHOW_ALL_DEVICES: False,
-            CONF_HIDE_BATTERY: False,
-            CONF_ROUND_BATTERY: False,
-            CONF_DEFAULT_BATTERY_LOW_THRESHOLD: 10,
-            CONF_DEFAULT_BATTERY_INCREASE_THRESHOLD: 25,
-            CONF_ADVANCED_SETTINGS: {
-                CONF_ENABLE_AUTODISCOVERY: True,
-                CONF_ENABLE_REPLACED: True,
-                CONF_HIDE_BATTERY_LOW: False,
-                CONF_USER_LIBRARY: "",
-            },
-        },
+        options=options,
     )
 
 

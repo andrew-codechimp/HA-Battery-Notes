@@ -1,0 +1,62 @@
+# serializer version: 1
+# name: test_setup_entry[custom-options]
+  dict({
+    'config': dict({
+      'default_battery_increased_threshold': 30,
+      'default_battery_low_threshold': 15,
+      'enable_autodiscovery': False,
+      'enable_replaced': False,
+      'hide_battery': True,
+      'hide_battery_low': True,
+      'library_last_update': None,
+      'round_battery': True,
+      'show_all_devices': True,
+      'skip_library_download': False,
+      'user_library': 'custom_library.json',
+    }),
+    'services': list([
+      'check_battery_last_replaced',
+      'check_battery_last_reported',
+      'check_battery_low',
+      'set_battery_replaced',
+    ]),
+  })
+# ---
+# name: test_setup_entry[default-options]
+  dict({
+    'config': dict({
+      'default_battery_increased_threshold': 25,
+      'default_battery_low_threshold': 10,
+      'enable_autodiscovery': True,
+      'enable_replaced': True,
+      'hide_battery': False,
+      'hide_battery_low': False,
+      'library_last_update': None,
+      'round_battery': False,
+      'show_all_devices': False,
+      'skip_library_download': False,
+      'user_library': '',
+    }),
+    'services': list([
+      'check_battery_last_replaced',
+      'check_battery_last_reported',
+      'check_battery_low',
+      'set_battery_replaced',
+    ]),
+  })
+# ---
+# name: test_update_options
+  dict({
+    'default_battery_increased_threshold': 30.0,
+    'default_battery_low_threshold': 15.0,
+    'enable_autodiscovery': False,
+    'enable_replaced': False,
+    'hide_battery': True,
+    'hide_battery_low': True,
+    'library_last_update': None,
+    'round_battery': True,
+    'show_all_devices': True,
+    'skip_library_download': False,
+    'user_library': 'custom_library.json',
+  })
+# ---

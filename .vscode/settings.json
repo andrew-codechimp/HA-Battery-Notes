@@ -33,5 +33,10 @@
     ],
     "[python-markdown]": {
         "editor.defaultFormatter": "zensical.zensical-studio"
-    }
+    },
+    "python.testing.pytestArgs": [
+        "tests"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
 }

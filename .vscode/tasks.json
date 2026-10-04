@@ -2,9 +2,9 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Tests: All with Coverage",
+            "label": "Tests: All (Ignoring Legacy) with Coverage",
             "type": "shell",
-            "command": "uv run --no-sync pytest tests --cov=custom_components.battery_notes --cov-report=term-missing --cov-report=html",
+            "command": "uv run --no-sync pytest tests --ignore=tests/legacy --cov=custom_components.battery_notes --cov-report=term-missing --cov-report=html",
             "options": {
                 "cwd": "${workspaceFolder}"
             },
