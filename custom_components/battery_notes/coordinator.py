@@ -14,6 +14,7 @@ from homeassistant.components.binary_sensor import (
 from homeassistant.components.sensor import DOMAIN as SENSOR_DOMAIN, SensorDeviceClass
 from homeassistant.config_entries import ConfigEntry, ConfigSubentry
 from homeassistant.const import (
+    ATTR_UNIT_OF_MEASUREMENT,
     CONF_DEVICE_ID,
     PERCENTAGE,
     STATE_UNAVAILABLE,
@@ -308,9 +309,10 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                 return False
 
             device_class = entity.device_class or entity.original_device_class
+            unit_of_measurement = self._source_unit_of_measurement(entity)
             if (
                 device_class == SensorDeviceClass.BATTERY
-                and entity.unit_of_measurement == PERCENTAGE
+                and unit_of_measurement == PERCENTAGE
             ):
                 self.wrapped_battery = entity
             else:
@@ -318,7 +320,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                     "%s is not a battery entity device_class: %s unit_of_measurement: %s",
                     self.source_entity_id,
                     device_class,
-                    entity.unit_of_measurement,
+                    unit_of_measurement,
                 )
             if device_class == BinarySensorDeviceClass.BATTERY:
                 self.wrapped_battery_low = entity
@@ -352,7 +354,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                     if entity.domain == SENSOR_DOMAIN:
                         if device_class != SensorDeviceClass.BATTERY:
                             continue
-                        if entity.unit_of_measurement != PERCENTAGE:
+                        if self._source_unit_of_measurement(entity) != PERCENTAGE:
                             continue
                         self.wrapped_battery = entity_registry.async_get(
                             entity.entity_id
@@ -407,6 +409,14 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                 return False
 
         return True
+
+    def _source_unit_of_measurement(self, entity: RegistryEntry) -> str | None:
+        """Use live units when a sleeping device has not registered them yet."""
+        if entity.unit_of_measurement is not None:
+            return entity.unit_of_measurement
+        if state := self.hass.states.get(entity.entity_id):
+            return state.attributes.get(ATTR_UNIT_OF_MEASUREMENT)
+        return None
 
     @property
     def unique_id(self) -> str:

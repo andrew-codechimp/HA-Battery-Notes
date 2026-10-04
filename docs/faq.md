@@ -99,6 +99,8 @@ Once you have got your template correct you can copy/paste it into the battery n
 
 ## My Shelly device is not showing a Battery+
 
+Some sleeping Shelly devices register their battery sensor without a unit of measurement. Battery Notes also checks the sensor's current state for a percentage unit when the registry unit is missing. If the device has not reported yet, wake it and reload Battery Notes after the original battery sensor shows a percentage.
+
 There seems to have been an issue with the Shelly integration at some point where the battery entity was not created properly and therefore Battery Notes cannot find it. To fix this do the following:
 
 - Remove the battery note from the Shelly device
