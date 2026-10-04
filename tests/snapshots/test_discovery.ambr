@@ -1,0 +1,16 @@
+# serializer version: 1
+# name: test_discovery_creates_subentry
+  dict({
+    'advanced_settings': dict({
+      'battery_low_template': None,
+      'battery_percentage_template': None,
+      'filter_outliers': False,
+      'retain_state': False,
+    }),
+    'battery_increase_threshold': 0,
+    'battery_low_threshold': 0,
+    'battery_quantity': 1,
+    'battery_type': 'CR1632',
+    'note': '',
+  })
+# ---

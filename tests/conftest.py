@@ -1,7 +1,7 @@
 """Fixtures for Battery Notes tests."""
 
 from collections.abc import Generator
-from unittest.mock import AsyncMock, patch
+from unittest.mock import AsyncMock, MagicMock, mock_open, patch
 
 import pytest
 from custom_components.battery_notes.const import (
@@ -17,7 +17,10 @@ from custom_components.battery_notes.const import (
     CONF_USER_LIBRARY,
     DOMAIN,
 )
-from pytest_homeassistant_custom_component.common import MockConfigEntry
+from custom_components.battery_notes.library import DATA_LIBRARY, Library
+from pytest_homeassistant_custom_component.common import MockConfigEntry, load_fixture
+
+from homeassistant.core import HomeAssistant
 
 
 @pytest.fixture(autouse=True)
@@ -56,3 +59,29 @@ def mock_config_entry() -> MockConfigEntry:
             },
         },
     )
+
+
+@pytest.fixture
+def _mock_library_file() -> Generator[MagicMock]:
+    """Provide a fixed library JSON file through the normal file reader."""
+    with patch(
+        "custom_components.battery_notes.library.open",
+        mock_open(read_data=load_fixture("library.json")),
+    ) as library_file:
+        yield library_file
+
+
+@pytest.fixture
+def battery_library(hass: HomeAssistant, _mock_library_file: MagicMock) -> Library:
+    """Register a real library backed by fixture data."""
+    library = Library(hass)
+    hass.data[DATA_LIBRARY] = library
+    return library
+
+
+@pytest.fixture
+async def loaded_library(battery_library: Library) -> Library:
+    """Load fixture data through the public library API."""
+    await battery_library.load_libraries()
+    assert battery_library.is_loaded
+    return battery_library

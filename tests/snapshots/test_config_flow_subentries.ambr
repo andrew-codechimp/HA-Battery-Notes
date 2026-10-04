@@ -1,0 +1,45 @@
+# serializer version: 1
+# name: test_device_selector[all-devices]
+  dict({
+    'multiple': False,
+  })
+# ---
+# name: test_device_selector[battery-devices]
+  dict({
+    'entity': list([
+      dict({
+        'device_class': list([
+          <SensorDeviceClass.BATTERY: 'battery'>,
+        ]),
+        'domain': list([
+          <EntityPlatforms.SENSOR: 'sensor'>,
+        ]),
+      }),
+      dict({
+        'device_class': list([
+          <SensorDeviceClass.BATTERY: 'battery'>,
+        ]),
+        'domain': list([
+          <EntityPlatforms.BINARY_SENSOR: 'binary_sensor'>,
+        ]),
+      }),
+    ]),
+    'multiple': False,
+  })
+# ---
+# name: test_reconfigure_suggested_values
+  dict({
+    'advanced_settings': dict({
+      'battery_low_template': '{{ false }}',
+      'battery_percentage_template': '{{ 50 }}',
+      'filter_outliers': True,
+      'retain_state': True,
+    }),
+    'battery_increase_threshold': 30,
+    'battery_low_threshold': 15,
+    'battery_quantity': 2,
+    'battery_type': 'CR2032',
+    'name': 'Hall battery',
+    'note': 'Under the cover',
+  })
+# ---
