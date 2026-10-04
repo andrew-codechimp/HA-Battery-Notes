@@ -105,12 +105,15 @@ WINDOW_SIZE_UNIT_TIME = 2
 
 ISSUE_DEPRECATED_YAML = "deprecated_yaml"
 
-SERVICE_BATTERY_REPLACED_SCHEMA = vol.Schema(
-    {
-        vol.Optional(ATTR_DEVICE_ID): cv.string,
-        vol.Optional(ATTR_SOURCE_ENTITY_ID): cv.string,
-        vol.Optional(SERVICE_DATA_DATE_TIME_REPLACED): cv.datetime,
-    }
+SERVICE_BATTERY_REPLACED_SCHEMA = vol.All(
+    vol.Schema(
+        {
+            vol.Optional(ATTR_DEVICE_ID): cv.string,
+            vol.Optional(ATTR_SOURCE_ENTITY_ID): cv.string,
+            vol.Optional(SERVICE_DATA_DATE_TIME_REPLACED): cv.datetime,
+        }
+    ),
+    cv.has_at_least_one_key(ATTR_DEVICE_ID, ATTR_SOURCE_ENTITY_ID),
 )
 
 SERVICE_CHECK_BATTERY_LAST_REPLACED_SCHEMA = vol.Schema(
