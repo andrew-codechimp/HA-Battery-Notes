@@ -72,7 +72,7 @@ from .const import (
     LAST_REPORTED_LEVEL,
 )
 from .filters import LowOutlierFilter
-from .store import BatteryNotesStorage
+from .store import REPORTED_SAVE_DELAY, SAVE_DELAY, BatteryNotesStorage
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -799,10 +799,16 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
         }
 
         if self.source_entity_id:
-            self.async_update_entity_config(entity_id=self.source_entity_id, data=entry)
+            self.async_update_entity_config(
+                entity_id=self.source_entity_id,
+                data=entry,
+                save_delay=REPORTED_SAVE_DELAY,
+            )
         else:
             assert self.device_id
-            self.async_update_device_config(device_id=self.device_id, data=entry)
+            self.async_update_device_config(
+                device_id=self.device_id, data=entry, save_delay=REPORTED_SAVE_DELAY
+            )
 
     @property
     def last_reported_level(self) -> float | None:
@@ -830,10 +836,16 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
         entry = {LAST_REPORTED_LEVEL: value}
 
         if self.source_entity_id:
-            self.async_update_entity_config(entity_id=self.source_entity_id, data=entry)
+            self.async_update_entity_config(
+                entity_id=self.source_entity_id,
+                data=entry,
+                save_delay=REPORTED_SAVE_DELAY,
+            )
         else:
             assert self.device_id
-            self.async_update_device_config(device_id=self.device_id, data=entry)
+            self.async_update_device_config(
+                device_id=self.device_id, data=entry, save_delay=REPORTED_SAVE_DELAY
+            )
 
     @property
     def battery_low(self) -> bool:
@@ -880,28 +892,34 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
 
         _LOGGER.debug("Update coordinator")
 
-    def async_update_device_config(self, device_id: str, data: dict):
+    def async_update_device_config(
+        self, device_id: str, data: dict, save_delay: float = SAVE_DELAY
+    ):
         """Conditional create, update or remove device from store."""
 
         if not hasattr(self.config_entry, "runtime_data"):
             return
 
+        store = self.config_entry.runtime_data.store
         if ATTR_REMOVE in data:
-            self.config_entry.runtime_data.store.async_delete_device(device_id)
-        elif self.config_entry.runtime_data.store.async_get_device(device_id):
-            self.config_entry.runtime_data.store.async_update_device(device_id, data)
+            store.async_delete_device(device_id)
+        elif device_id in store.devices:
+            store.async_update_device(device_id, data, save_delay)
         else:
-            self.config_entry.runtime_data.store.async_create_device(device_id, data)
+            store.async_create_device(device_id, data, save_delay)
 
-    def async_update_entity_config(self, entity_id: str, data: dict):
+    def async_update_entity_config(
+        self, entity_id: str, data: dict, save_delay: float = SAVE_DELAY
+    ):
         """Conditional create, update or remove entity from store."""
 
         if not hasattr(self.config_entry, "runtime_data"):
             return
 
+        store = self.config_entry.runtime_data.store
         if ATTR_REMOVE in data:
-            self.config_entry.runtime_data.store.async_delete_entity(entity_id)
-        elif self.config_entry.runtime_data.store.async_get_entity(entity_id):
-            self.config_entry.runtime_data.store.async_update_entity(entity_id, data)
+            store.async_delete_entity(entity_id)
+        elif entity_id in store.entities:
+            store.async_update_entity(entity_id, data, save_delay)
         else:
-            self.config_entry.runtime_data.store.async_create_entity(entity_id, data)
+            store.async_create_entity(entity_id, data, save_delay)
