@@ -1,0 +1,124 @@
+{
+  "version": 1,
+  "ignored_domains": [
+    "unifi"
+  ],
+  "devices": [
+    {
+      "manufacturer": "Aqara",
+      "model": "Roller shade driver E1",
+      "model_id": "ZNJLBL01LM",
+      "battery_type": "Rechargeable"
+    },
+    {
+      "manufacturer": "eQ-3",
+      "model": "HmIP-SRH",
+      "battery_type": "AAA"
+    },
+    {
+      "manufacturer": "eQ-3",
+      "model": "HmIP-SRH",
+      "model_id": "Homematic IP Fenster-/ Drehgriffkontakt",
+      "battery_type": "AAA"
+    },
+    {
+      "manufacturer": "eQ-3",
+      "model": "HmIP-WGC",
+      "battery_type": "AA",
+      "battery_quantity": 2
+    },
+    {
+      "manufacturer": "Google",
+      "model": "Topaz-2.7",
+      "hw_version": "Battery",
+      "battery_type": "AA",
+      "battery_quantity": 6
+    },
+    {
+      "manufacturer": "Google",
+      "model": "Topaz-2.7",
+      "hw_version": "Wired",
+      "battery_type": "AA",
+      "battery_quantity": 3
+    },
+    {
+      "manufacturer": "LUMI",
+      "model": "lumi.sensor_magnet.aq2",
+      "battery_type": "CR1632"
+    },
+    {
+      "manufacturer": "Meross",
+      "model": "Smart Presence Sensor",
+      "model_id": "16898",
+      "battery_type": "CR123A"
+    },
+    {
+      "manufacturer": "Mi",
+      "model": "MS009",
+      "battery_type": "CR2540"
+    },
+    {
+      "manufacturer": "Test Manufacturer",
+      "model": "Specific sensor",
+      "battery_type": "AA"
+    },
+    {
+      "manufacturer": "Test Manufacturer",
+      "model": "Specific sensor",
+      "model_id": "S1",
+      "battery_type": "AAA",
+      "battery_quantity": 2
+    },
+    {
+      "manufacturer": "Test Manufacturer",
+      "model": "Specific sensor",
+      "model_id": "S1",
+      "hw_version": "Rev2",
+      "battery_type": "CR2032",
+      "battery_quantity": 4
+    },
+    {
+      "manufacturer": "Test Manufacturer",
+      "model": "Ambiguous sensor",
+      "battery_type": "AA"
+    },
+    {
+      "manufacturer": "Test Manufacturer",
+      "model": "Ambiguous sensor",
+      "battery_type": "AAA"
+    },
+    {
+      "manufacturer": "Test Manufacturer",
+      "model": "Duplicate sensor",
+      "battery_type": "CR2032"
+    },
+    {
+      "manufacturer": "Test Manufacturer",
+      "model": "Duplicate sensor",
+      "battery_type": "CR2032"
+    },
+    {
+      "manufacturer": "Test Manufacturer",
+      "model": "Manual sensor",
+      "battery_type": "Manual"
+    },
+    {
+      "manufacturer": "Test Manufacturer",
+      "model": "Prefix",
+      "model_match_method": "startswith",
+      "battery_type": "AA"
+    },
+    {
+      "manufacturer": "Test Manufacturer",
+      "model": "Suffix",
+      "model_match_method": "endswith",
+      "battery_type": "AAA"
+    },
+    {
+      "manufacturer": "Test Manufacturer",
+      "model": "Middle",
+      "model_match_method": "contains",
+      "battery_type": "CR2032"
+    }
+  ]
+}

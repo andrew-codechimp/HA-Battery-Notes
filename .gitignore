@@ -12,6 +12,7 @@ site
 # misc
 .coverage
 coverage.xml
+htmlcov/
 
 
 # Home Assistant configuration

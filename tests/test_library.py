@@ -1,196 +1,178 @@
-"""Tests for library matching logic."""
-
-from __future__ import annotations
-
-import json
-from pathlib import Path
-from unittest.mock import MagicMock
+"""Tests for library loading and matching rules."""
 
 import pytest
-from custom_components.battery_notes.library import (
-    Library,
-    LibraryDevice,
-    ModelInfo,
-)
+from custom_components.battery_notes.library import Library, ModelInfo
 
 
-@pytest.fixture
-def library_with_data() -> Library:
-    """Load library from the actual library.json file."""
-    # Create mock hass
-    hass_mock = MagicMock()
-    hass_mock.data = {}
-
-    library = Library(hass_mock)
-
-    # Load the actual library.json file
-    library_path = Path(__file__).parent.parent / "library" / "library.json"
-    with open(library_path, encoding="utf-8") as file:
-        library_data = json.load(file)
-
-    # Populate the library from the JSON data
-    for device_data in library_data["devices"]:
-        library_device = LibraryDevice.from_json(device_data)
-        manufacturer = library_device.manufacturer.casefold()
-        if manufacturer not in library._manufacturer_devices:  # noqa: SLF001
-            library._manufacturer_devices[manufacturer] = []  # noqa: SLF001
-        library._manufacturer_devices[manufacturer].append(library_device)  # noqa: SLF001
-
-    return library
-
-
-@pytest.mark.asyncio
 @pytest.mark.parametrize(
-    ("manufacturer", "model", "model_id", "hw_version", "expected_battery"),
+    ("model_info", "expected_battery"),
     [
-        # No match as lib does not have only manufacturer and model entry
+        pytest.param(ModelInfo("Mi", "MS009", None, None), "CR2540", id="model-only"),
         pytest.param(
-            "Aqara",
-            "Roller shade driver E1",
-            None,
-            None,
-            None,
-            id="aqara_with_model_libary_more_specific",
-        ),
-        # No match as lib does not have only manufacturer and model entry
-        pytest.param(
-            "Meross",
-            "Smart Presence Sensor",
-            "NONEXISTENT_MODEL_ID",
-            None,
-            None,
-            id="meross_with_nonexistent_model_id",
-        ),
-        # No match as lib does not have only manufacturer and model entry
-        pytest.param(
-            "Meross",
-            "Smart Presence Sensor",
-            None,
-            "NONEXISTENT_HW_VERSION",
-            None,
-            id="meross_with_nonexistent_hw_version",
-        ),
-        # No match as lib does not have only manufacturer and model entry
-        pytest.param(
-            "Meross",
-            "Smart Presence Sensor",
-            "NONEXISTENT_MODEL_ID",
-            "NONEXISTENT_HW_VERSION",
-            None,
-            id="meross_with_nonexistent_model_id_and_hw_version",
-        ),
-        # No match with just model
-        pytest.param(
-            "Mi",
-            "NONEXISTENT_MODEL",
-            None,
-            None,
-            None,
-            id="mi_no_match_with_just_model",
-        ),
-        # Match with just model
-        pytest.param(
-            "Mi",
-            "MS009",
-            None,
-            None,
-            "CR2540",
-            id="mi_match_with_just_model",
-        ),
-        # Match with no model_id or hw_version in lib, model_id on device
-        pytest.param(
-            "eQ-3",
-            "HmIP-SRH",
-            "Homematic IP Fenster-/ Drehgriffkontakt",
-            None,
+            ModelInfo(
+                "eQ-3", "HmIP-SRH", "Homematic IP Fenster-/ Drehgriffkontakt", None
+            ),
             "AAA",
-            id="eq3_hmip_srh_no_model",
+            id="model-id",
         ),
-        # Match with no model_id or hw_version in lib, hw_version on device
         pytest.param(
-            "eQ-3",
-            "HmIP-WGC",
-            None,
-            "HW Version",
+            ModelInfo("eQ-3", "HmIP-WGC", None, "HW Version"),
             "2× AA",
-            id="eq3_hmip_srh_no_hw_version",
+            id="generic-hardware-fallback",
         ),
-        # Match with model_id but no hw_version
         pytest.param(
-            "Aqara",
-            "Roller shade driver E1",
-            "ZNJLBL01LM",
-            None,
+            ModelInfo("Aqara", "Roller shade driver E1", "ZNJLBL01LM", None),
             "Rechargeable",
-            id="aqara_with_model_id",
+            id="specific-model-id",
         ),
-        # Match with hw_version but no model_id
         pytest.param(
-            "Google",
-            "Topaz-2.7",
-            None,
-            "Battery",
+            ModelInfo("Google", "Topaz-2.7", None, "Battery"),
             "6× AA",
-            id="google_battery_variant",
+            id="battery-variant",
         ),
-        # Match with hw_version but no model_id
         pytest.param(
-            "Google",
-            "Topaz-2.7",
-            None,
-            "Wired",
-            "3× AA",
-            id="google_wired_variant",
+            ModelInfo("Google", "Topaz-2.7", None, "Wired"), "3× AA", id="wired-variant"
         ),
-        # Match with no model_id or hw_version
         pytest.param(
-            "LUMI",
-            "lumi.sensor_magnet.aq2",
-            None,
-            None,
+            ModelInfo("LUMI", "lumi.sensor_magnet.aq2", None, None),
             "CR1632",
-            id="lumi_basic_match",
+            id="generic-model",
         ),
-        # No match with no model_id or hw_version
         pytest.param(
-            "SOMFY",
-            "RollerShutter",
-            None,
-            None,
-            None,
-            id="somfy_no_match",
+            ModelInfo("lumi", "LUMI.SENSOR_MAGNET.AQ2", None, None),
+            "CR1632",
+            id="case-insensitive",
         ),
-        # No match
         pytest.param(
-            "Unknown",
-            "Unknown Device",
-            None,
-            None,
-            None,
-            id="unknown_device",
+            ModelInfo("Test Manufacturer", "Specific sensor", None, None),
+            "AA",
+            id="generic-preferred-without-identifiers",
+        ),
+        pytest.param(
+            ModelInfo("Test Manufacturer", "Specific sensor", "unknown", None),
+            "AA",
+            id="generic-model-id-fallback",
+        ),
+        pytest.param(
+            ModelInfo("Test Manufacturer", "Specific sensor", "S1", None),
+            "2× AAA",
+            id="partial-match-preferred",
+        ),
+        pytest.param(
+            ModelInfo("Test Manufacturer", "Specific sensor", "s1", "rev2"),
+            "4× CR2032",
+            id="full-match-preferred",
+        ),
+        pytest.param(
+            ModelInfo("Test Manufacturer", "Duplicate sensor", None, None),
+            "CR2032",
+            id="identical-duplicates",
+        ),
+        pytest.param(
+            ModelInfo("Test Manufacturer", "Manual sensor", None, None),
+            "Manual",
+            id="manual-definition",
+        ),
+        pytest.param(
+            ModelInfo("Test Manufacturer", "Prefix sensor", None, None),
+            "AA",
+            id="startswith",
+        ),
+        pytest.param(
+            ModelInfo("Test Manufacturer", "Sensor Suffix", None, None),
+            "AAA",
+            id="endswith",
+        ),
+        pytest.param(
+            ModelInfo("Test Manufacturer", "Sensor Middle variant", None, None),
+            "CR2032",
+            id="contains",
         ),
     ],
 )
-async def test_get_device_battery_details(  # noqa: PLR0913
-    library_with_data: Library,
-    manufacturer: str,
-    model: str,
-    model_id: str | None,
-    hw_version: str | None,
-    expected_battery: str | None,
+async def test_get_device_battery_details(
+    loaded_library: Library, model_info: ModelInfo, expected_battery: str
 ) -> None:
-    """Test device battery details lookup with various scenarios."""
-    device_to_find = ModelInfo(
-        manufacturer=manufacturer,
-        model=model,
-        model_id=model_id,
-        hw_version=hw_version,
+    """Test exact, fallback, and partial model matches using a loaded library."""
+    result = await loaded_library.get_device_battery_details(model_info)
+
+    assert result is not None
+    assert result.battery_type_and_quantity == expected_battery
+
+
+@pytest.mark.parametrize(
+    "model_info",
+    [
+        pytest.param(
+            ModelInfo("Aqara", "Roller shade driver E1", None, None),
+            id="missing-required-model-id",
+        ),
+        pytest.param(
+            ModelInfo("Meross", "Smart Presence Sensor", "NONEXISTENT_MODEL_ID", None),
+            id="wrong-model-id",
+        ),
+        pytest.param(
+            ModelInfo(
+                "Meross", "Smart Presence Sensor", None, "NONEXISTENT_HW_VERSION"
+            ),
+            id="missing-model-id-with-hardware",
+        ),
+        pytest.param(
+            ModelInfo(
+                "Meross",
+                "Smart Presence Sensor",
+                "NONEXISTENT_MODEL_ID",
+                "NONEXISTENT_HW_VERSION",
+            ),
+            id="wrong-identifiers",
+        ),
+        pytest.param(
+            ModelInfo("Mi", "NONEXISTENT_MODEL", None, None), id="unknown-model"
+        ),
+        pytest.param(
+            ModelInfo("SOMFY", "RollerShutter", None, None),
+            id="unsupported-manufacturer",
+        ),
+        pytest.param(
+            ModelInfo("Unknown", "Unknown Device", None, None), id="unknown-device"
+        ),
+        pytest.param(
+            ModelInfo("Google", "Topaz-2.7", None, "Unknown"), id="wrong-hardware"
+        ),
+        pytest.param(
+            ModelInfo("Test Manufacturer", "Ambiguous sensor", None, None),
+            id="conflicting-matches",
+        ),
+    ],
+)
+async def test_no_matching_device(
+    loaded_library: Library, model_info: ModelInfo
+) -> None:
+    """Test absent, incompatible, and ambiguous matches return no battery details."""
+    assert await loaded_library.get_device_battery_details(model_info) is None
+
+
+async def test_unloaded_library(battery_library: Library) -> None:
+    """Test lookups return no match before the library is loaded."""
+    assert not battery_library.is_loaded
+    assert (
+        await battery_library.get_device_battery_details(
+            ModelInfo("LUMI", "lumi.sensor_magnet.aq2", None, None)
+        )
+        is None
     )
 
-    result = await library_with_data.get_device_battery_details(device_to_find)
 
-    if expected_battery is None:
-        assert result is None
-    else:
-        assert result is not None
-        assert result.battery_type_and_quantity == expected_battery
+@pytest.mark.parametrize(
+    ("domain", "expected"),
+    [
+        pytest.param("unifi", True, id="ignored"),
+        pytest.param("UNIFI", True, id="ignored-case-insensitive"),
+        pytest.param("mqtt", False, id="allowed"),
+    ],
+)
+async def test_ignored_domains(
+    loaded_library: Library, domain: str, expected: bool
+) -> None:
+    """Test the normal loader applies the fixture's ignored integration domains."""
+    assert loaded_library.is_domain_ignored(domain) is expected

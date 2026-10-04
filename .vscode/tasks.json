@@ -2,6 +2,23 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "Tests: All with Coverage",
+            "type": "shell",
+            "command": "uv run --no-sync pytest tests --cov=custom_components.battery_notes --cov-report=term-missing --cov-report=html",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            }
+        },
+        {
             "label": "Lint (Full)",
             "type": "shell",
             "command": "./scripts/lint",

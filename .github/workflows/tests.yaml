@@ -1,0 +1,49 @@
+name: Tests
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - custom_components/battery_notes/**
+      - tests/**
+      - pyproject.toml
+      - uv.lock
+      - .python-version
+      - .github/workflows/tests.yaml
+  pull_request:
+    branches:
+      - main
+    paths:
+      - custom_components/battery_notes/**
+      - tests/**
+      - pyproject.toml
+      - uv.lock
+      - .python-version
+      - .github/workflows/tests.yaml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v10.2.0
+        with:
+          enable-cache: true
+
+      - name: Set up Python
+        run: uv python install
+
+      - name: Install dependencies
+        run: uv sync --locked
+
+      - name: Run tests
+        run: uv run --no-sync pytest tests --ignore=tests/legacy -v
