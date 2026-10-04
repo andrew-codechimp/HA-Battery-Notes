@@ -16,6 +16,7 @@ from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
 from homeassistant.util import dt as dt_util
 
 from .const import (
+    ATTR_AREA_NAME,
     ATTR_BATTERY_QUANTITY,
     ATTR_BATTERY_TYPE,
     ATTR_BATTERY_TYPE_AND_QUANTITY,
@@ -112,6 +113,8 @@ class BatteryNotesButton(BatteryNotesEntity, ButtonEntity):
 
     async def async_added_to_hass(self) -> None:
         """Handle added to Hass."""
+        await super().async_added_to_hass()
+
         registry = er.async_get(self.hass)
         if registry.async_get(self.entity_id) is not None:
             registry.async_update_entity_options(
@@ -122,13 +125,14 @@ class BatteryNotesButton(BatteryNotesEntity, ButtonEntity):
 
     async def async_press(self) -> None:
         """Press the button."""
-        self.coordinator.last_replaced = dt_util.utcnow()
+        self.coordinator.record_battery_replacement(dt_util.utcnow())
 
         self.hass.bus.async_fire(
             EVENT_BATTERY_REPLACED,
             {
                 ATTR_DEVICE_ID: self.coordinator.device_id or "",
                 ATTR_SOURCE_ENTITY_ID: self.coordinator.source_entity_id or "",
+                ATTR_AREA_NAME: self.coordinator.area_name,
                 ATTR_DEVICE_NAME: self.coordinator.device_name,
                 ATTR_BATTERY_TYPE_AND_QUANTITY: self.coordinator.battery_type_and_quantity,
                 ATTR_BATTERY_TYPE: self.coordinator.battery_type,
