@@ -1,5 +1,7 @@
 """Tests for loading device and entity battery note subentries."""
 
+from collections.abc import Awaitable, Callable
+from dataclasses import replace
 from datetime import timedelta
 from types import MappingProxyType
 from unittest.mock import patch
@@ -9,7 +11,9 @@ from custom_components.battery_notes.common import missing_device_issue_id
 from custom_components.battery_notes.const import (
     CONF_ADVANCED_SETTINGS,
     CONF_BATTERY_INCREASE_THRESHOLD,
+    CONF_BATTERY_LOW_TEMPLATE,
     CONF_BATTERY_LOW_THRESHOLD,
+    CONF_BATTERY_PERCENTAGE_TEMPLATE,
     CONF_BATTERY_QUANTITY,
     CONF_BATTERY_TYPE,
     CONF_NOTE,
@@ -32,14 +36,16 @@ from homeassistant.const import (
     ATTR_FRIENDLY_NAME,
     ATTR_UNIT_OF_MEASUREMENT,
     CONF_DEVICE_ID,
+    EVENT_HOMEASSISTANT_START,
     PERCENTAGE,
 )
-from homeassistant.core import HomeAssistant
+from homeassistant.core import CoreState, HomeAssistant
 from homeassistant.helpers import (
     device_registry as dr,
     entity_registry as er,
     issue_registry as ir,
 )
+from homeassistant.helpers.event import async_track_template_result
 from homeassistant.util import dt as dt_util
 
 from . import setup_integration
@@ -233,6 +239,66 @@ async def orphaned_config_entry(
         is None
     )
     return mock_config_entry
+
+
+@pytest.fixture(
+    params=[
+        pytest.param("async_unload", id="unload"),
+        pytest.param("async_remove", id="remove"),
+        pytest.param("remove_subentry", id="remove-subentry"),
+        pytest.param("async_reload", id="reload"),
+    ]
+)
+def cleanup_operation(
+    hass: HomeAssistant,
+    mock_subentry: ConfigSubentry,
+    request: pytest.FixtureRequest,
+) -> Callable[[str], Awaitable[bool]]:
+    """Select a lifecycle operation that removes the current note entities."""
+
+    async def remove_subentry(entry_id: str) -> bool:
+        entry = hass.config_entries.async_get_entry(entry_id)
+        assert entry is not None
+        return hass.config_entries.async_remove_subentry(
+            entry, mock_subentry.subentry_id
+        )
+
+    return {
+        "async_unload": hass.config_entries.async_unload,
+        "async_remove": hass.config_entries.async_remove,
+        "remove_subentry": remove_subentry,
+        "async_reload": hass.config_entries.async_reload,
+    }[request.param]
+
+
+@pytest.fixture
+def template_config_entry(
+    hass: HomeAssistant,
+    mock_config_entry: MockConfigEntry,
+    mock_subentry: ConfigSubentry,
+) -> MockConfigEntry:
+    """Create a note with percentage and low templates sharing a source state."""
+    hass.states.async_set("sensor.template_battery", "50")
+    subentry = replace(
+        mock_subentry,
+        data=MappingProxyType(
+            {
+                **mock_subentry.data,
+                CONF_ADVANCED_SETTINGS: {
+                    CONF_BATTERY_PERCENTAGE_TEMPLATE: "{{ states('sensor.template_battery') | float(0) }}",
+                    CONF_BATTERY_LOW_TEMPLATE: "{{ states('sensor.template_battery') | float(0) < 10 }}",
+                },
+            }
+        ),
+    )
+    return MockConfigEntry(
+        domain=DOMAIN,
+        version=mock_config_entry.version,
+        title=mock_config_entry.title,
+        data=mock_config_entry.data,
+        options=mock_config_entry.options,
+        subentries_data=[subentry.as_dict()],
+    )
 
 
 async def test_setup_subentry(
@@ -494,3 +560,112 @@ async def test_link_retry_cancelled_on_unload(
         )
         is None
     )
+
+
+async def test_source_listeners_removed(
+    hass: HomeAssistant,
+    mock_config_entry: MockConfigEntry,
+    source_sensor: er.RegistryEntry,
+    cleanup_operation: Callable[[str], Awaitable[bool]],
+) -> None:
+    """Test removed entities stop handling source changes, reports, and renames."""
+    await setup_integration(hass, mock_config_entry)
+    subentry = next(iter(mock_config_entry.subentries.values()))
+    coordinator = mock_config_entry.runtime_data.subentry_coordinators[
+        subentry.subentry_id
+    ]
+    wrapped_source = {
+        "sensor": coordinator.wrapped_battery,
+        "binary_sensor": coordinator.wrapped_battery_low,
+    }[source_sensor.domain]
+    with patch.object(
+        coordinator, "async_request_refresh", wraps=coordinator.async_request_refresh
+    ) as refresh:
+        assert await cleanup_operation(mock_config_entry.entry_id)
+        await hass.async_block_till_done(wait_background_tasks=True)
+
+        state = hass.states.get(source_sensor.entity_id)
+        assert state is not None
+        value = {"sensor": "5", "binary_sensor": "on"}[source_sensor.domain]
+        hass.states.async_set(source_sensor.entity_id, value, state.attributes)
+        await hass.async_block_till_done(wait_background_tasks=True)
+        hass.states.async_set(source_sensor.entity_id, value, state.attributes)
+        await hass.async_block_till_done(wait_background_tasks=True)
+        er.async_get(hass).async_update_entity(
+            source_sensor.entity_id,
+            new_entity_id=f"{source_sensor.domain}.renamed_battery",
+        )
+        await hass.async_block_till_done(wait_background_tasks=True)
+
+    refresh.assert_not_awaited()
+    assert {
+        "sensor": coordinator.wrapped_battery,
+        "binary_sensor": coordinator.wrapped_battery_low,
+    }[source_sensor.domain] is wrapped_source
+
+
+async def test_template_listeners_removed(
+    hass: HomeAssistant,
+    template_config_entry: MockConfigEntry,
+    cleanup_operation: Callable[[str], Awaitable[bool]],
+) -> None:
+    """Test removed template entities stop updating their previous coordinator."""
+    await setup_integration(hass, template_config_entry)
+    subentry = next(iter(template_config_entry.subentries.values()))
+    coordinator = template_config_entry.runtime_data.subentry_coordinators[
+        subentry.subentry_id
+    ]
+    assert float(coordinator.current_battery_level) == 50
+    assert coordinator.battery_low_template_state is False
+
+    assert await cleanup_operation(template_config_entry.entry_id)
+    await hass.async_block_till_done(wait_background_tasks=True)
+    hass.states.async_set("sensor.template_battery", "5")
+    await hass.async_block_till_done(wait_background_tasks=True)
+
+    assert float(coordinator.current_battery_level) == 50
+    assert coordinator.battery_low_template_state is False
+
+
+@pytest.mark.parametrize(
+    ("cleanup_operation", "expected_startups"),
+    [
+        pytest.param("async_unload", 0, id="unload"),
+        pytest.param("async_remove", 0, id="remove"),
+        pytest.param("remove_subentry", 0, id="remove-subentry"),
+        pytest.param("async_reload", 1, id="reload"),
+    ],
+    indirect=["cleanup_operation"],
+)
+async def test_template_startup_cancelled_on_removal(
+    hass: HomeAssistant,
+    template_config_entry: MockConfigEntry,
+    cleanup_operation: Callable[[str], Awaitable[bool]],
+    expected_startups: int,
+) -> None:
+    """Test removed template entities cannot start tracking when HA starts."""
+    with (
+        patch.object(hass, "state", CoreState.not_running),
+        patch(
+            "custom_components.battery_notes.sensor.async_track_template_result",
+            wraps=async_track_template_result,
+        ) as percentage_tracker,
+        patch(
+            "custom_components.battery_notes.binary_sensor.async_track_template_result",
+            wraps=async_track_template_result,
+        ) as low_tracker,
+    ):
+        await setup_integration(hass, template_config_entry)
+        percentage_tracker.assert_not_called()
+        low_tracker.assert_not_called()
+
+        assert await cleanup_operation(template_config_entry.entry_id)
+        await hass.async_block_till_done(wait_background_tasks=True)
+        percentage_tracker.assert_not_called()
+        low_tracker.assert_not_called()
+
+        hass.bus.async_fire(EVENT_HOMEASSISTANT_START)
+        await hass.async_block_till_done(wait_background_tasks=True)
+
+        assert percentage_tracker.call_count == expected_startups
+        assert low_tracker.call_count == expected_startups

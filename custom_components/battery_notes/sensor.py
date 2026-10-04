@@ -839,7 +839,7 @@ class BatteryNotesBatteryPlusTemplateSensor(BatteryNotesBatteryPlusBaseSensor):
 
         self._async_setup_templates()
 
-        async_at_start(self.hass, self._async_template_startup)
+        self.async_on_remove(async_at_start(self.hass, self._async_template_startup))
 
     def add_template_attribute(
         self,
