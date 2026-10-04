@@ -34,6 +34,7 @@ from homeassistant.helpers.issue_registry import IssueSeverity, async_create_iss
 from homeassistant.helpers.typing import ConfigType
 
 from .common import (
+    async_unhide_source_batteries,
     composite_device_issue_id,
     is_composite_device_id,
     missing_device_issue_id,
@@ -273,9 +274,19 @@ async def async_remove_entry(
 ) -> None:
     """Battery Notes integration removed."""
 
-    for subentry_id in config_entry.subentries:
-        ir.async_delete_issue(hass, DOMAIN, missing_device_issue_id(subentry_id))
-        ir.async_delete_issue(hass, DOMAIN, composite_device_issue_id(subentry_id))
+    hide_battery = config_entry.options.get(CONF_HIDE_BATTERY, False)
+
+    for subentry in config_entry.subentries.values():
+        ir.async_delete_issue(
+            hass, DOMAIN, missing_device_issue_id(subentry.subentry_id)
+        )
+        ir.async_delete_issue(
+            hass, DOMAIN, composite_device_issue_id(subentry.subentry_id)
+        )
+
+        # The source batteries were hidden in favour of battery plus, show them again
+        if hide_battery and subentry.subentry_type == SUBENTRY_BATTERY_NOTE:
+            async_unhide_source_batteries(hass, subentry.data)
 
 
 async def async_migrate_integration(hass: HomeAssistant, config: ConfigType) -> None:  # noqa: PLR0912, PLR0915
