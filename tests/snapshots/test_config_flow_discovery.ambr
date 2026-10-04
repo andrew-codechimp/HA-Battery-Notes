@@ -1,0 +1,29 @@
+# serializer version: 1
+# name: test_device_form[all-devices]
+  dict({
+    'multiple': False,
+  })
+# ---
+# name: test_device_form[battery-devices]
+  dict({
+    'entity': list([
+      dict({
+        'device_class': list([
+          <SensorDeviceClass.BATTERY: 'battery'>,
+        ]),
+        'domain': list([
+          <EntityPlatforms.SENSOR: 'sensor'>,
+        ]),
+      }),
+      dict({
+        'device_class': list([
+          <SensorDeviceClass.BATTERY: 'battery'>,
+        ]),
+        'domain': list([
+          <EntityPlatforms.BINARY_SENSOR: 'binary_sensor'>,
+        ]),
+      }),
+    ]),
+    'multiple': False,
+  })
+# ---

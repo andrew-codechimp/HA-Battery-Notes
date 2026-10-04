@@ -6,6 +6,7 @@ from types import MappingProxyType
 from unittest.mock import MagicMock, create_autospec, patch
 
 import pytest
+from custom_components.battery_notes.config_flow import calc_config_attributes
 from custom_components.battery_notes.const import (
     CONF_ADVANCED_SETTINGS,
     CONF_BATTERY_INCREASE_THRESHOLD,
@@ -663,3 +664,69 @@ async def test_reconfigure_orphaned_device(
     assert result["type"] is FlowResultType.FORM
     assert result["step_id"] == "reconfigure"
     assert result["errors"] == {"base": "orphaned_battery_note"}
+
+
+async def test_create_subentry_with_other_note(
+    hass: HomeAssistant,
+    source_form: SubentryFlowResult,
+    selection_input: dict[str, str],
+    mock_config_entry: MockConfigEntry,
+) -> None:
+    """Test a note for a different source does not prevent adding a subentry."""
+    hass.config_entries.async_add_subentry(
+        mock_config_entry,
+        ConfigSubentry(
+            data=MappingProxyType({CONF_DEVICE_ID: "other-device"}),
+            title="Other battery note",
+            subentry_type=SUBENTRY_BATTERY_NOTE,
+            unique_id="bn_other-device",
+        ),
+    )
+    result = await hass.config_entries.subentries.async_configure(
+        source_form["flow_id"], selection_input
+    )
+    result = await hass.config_entries.subentries.async_configure(
+        result["flow_id"], deepcopy(BATTERY_INPUT)
+    )
+
+    assert result["type"] is FlowResultType.CREATE_ENTRY
+    assert len(mock_config_entry.subentries) == 2
+
+
+async def test_reconfigure_device_without_model(
+    hass: HomeAssistant,
+    mock_config_entry: MockConfigEntry,
+    mock_subentry: ConfigSubentry,
+) -> None:
+    """Test an existing device without model details can still be reconfigured."""
+    dr.async_get(hass).async_update_device(
+        mock_subentry.data[CONF_DEVICE_ID], manufacturer=None, model=None
+    )
+    result = await mock_config_entry.start_subentry_reconfigure_flow(
+        hass, mock_subentry.subentry_id
+    )
+
+    assert result["type"] is FlowResultType.FORM
+    assert result["errors"] == {}
+    assert result["description_placeholders"] == {
+        "manufacturer": "",
+        "model": "",
+        "model_id": "",
+        "hw_version": "",
+    }
+    result = await hass.config_entries.subentries.async_configure(
+        result["flow_id"], deepcopy(BATTERY_INPUT)
+    )
+    assert result["type"] is FlowResultType.ABORT
+    assert result["reason"] == "reconfigure_successful"
+
+
+def test_entity_title_without_device_details(
+    hass: HomeAssistant,
+    source_entity: er.RegistryEntry,
+) -> None:
+    """Test an entity keeps its own name when its device cannot be looked up."""
+    with patch.object(dr.async_get(hass), "async_get", return_value=None):
+        assert calc_config_attributes(
+            hass, {CONF_SOURCE_ENTITY_ID: source_entity.entity_id}
+        ) == ("bn_motion-battery", "Battery")

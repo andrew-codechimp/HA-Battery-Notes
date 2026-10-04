@@ -444,8 +444,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             self.data[CONF_BATTERY_INCREASE_THRESHOLD] = int(
                 user_input.get(CONF_BATTERY_INCREASE_THRESHOLD, 0)
             )
-            if CONF_ADVANCED_SETTINGS not in self.data:
-                self.data[CONF_ADVANCED_SETTINGS] = {}
+            self.data.setdefault(CONF_ADVANCED_SETTINGS, {})
             self.data[CONF_ADVANCED_SETTINGS][CONF_BATTERY_PERCENTAGE_TEMPLATE] = (
                 user_input[CONF_ADVANCED_SETTINGS].get(
                     CONF_BATTERY_PERCENTAGE_TEMPLATE, None
@@ -589,11 +588,6 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
 
     data: dict[str, Any]
     model_info: ModelInfo | None = None
-
-    @property
-    def _is_new(self) -> bool:
-        """Return if this is a new subentry."""
-        return self.source == "user"
 
     async def async_step_user(
         self,
@@ -812,8 +806,7 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
             self.data[CONF_BATTERY_INCREASE_THRESHOLD] = int(
                 user_input.get(CONF_BATTERY_INCREASE_THRESHOLD, 0)
             )
-            if CONF_ADVANCED_SETTINGS not in self.data:
-                self.data[CONF_ADVANCED_SETTINGS] = {}
+            self.data.setdefault(CONF_ADVANCED_SETTINGS, {})
             self.data[CONF_ADVANCED_SETTINGS][CONF_BATTERY_PERCENTAGE_TEMPLATE] = (
                 user_input[CONF_ADVANCED_SETTINGS].get(
                     CONF_BATTERY_PERCENTAGE_TEMPLATE, None
@@ -939,9 +932,6 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
             self.data[CONF_BATTERY_INCREASE_THRESHOLD] = int(
                 user_input.get(CONF_BATTERY_INCREASE_THRESHOLD, 0)
             )
-            if CONF_ADVANCED_SETTINGS not in self.data:
-                self.data[CONF_ADVANCED_SETTINGS] = {}
-
             self.data[CONF_ADVANCED_SETTINGS][CONF_BATTERY_PERCENTAGE_TEMPLATE] = (
                 none_if_empty(
                     user_input[CONF_ADVANCED_SETTINGS].get(

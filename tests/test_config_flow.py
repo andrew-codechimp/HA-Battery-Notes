@@ -1,6 +1,7 @@
 """Tests for the Battery Notes config and options flows."""
 
 import pytest
+from custom_components.battery_notes.config_flow import calc_config_attributes
 from custom_components.battery_notes.const import (
     CONF_ADVANCED_SETTINGS,
     CONF_DEFAULT_BATTERY_INCREASE_THRESHOLD,
@@ -11,12 +12,14 @@ from custom_components.battery_notes.const import (
     CONF_HIDE_BATTERY_LOW,
     CONF_ROUND_BATTERY,
     CONF_SHOW_ALL_DEVICES,
+    CONF_SOURCE_ENTITY_ID,
     CONF_USER_LIBRARY,
     DOMAIN,
 )
 from pytest_homeassistant_custom_component.common import MockConfigEntry
 
 from homeassistant.config_entries import SOURCE_USER
+from homeassistant.const import CONF_NAME
 from homeassistant.core import HomeAssistant
 from homeassistant.data_entry_flow import FlowResultType
 
@@ -171,3 +174,14 @@ async def test_user_already_configured_on_confirm(hass: HomeAssistant) -> None:
 
     assert result["type"] is FlowResultType.ABORT
     assert result["reason"] == "already_configured"
+
+
+def test_unregistered_entity_attributes(hass: HomeAssistant) -> None:
+    """Test the object ID identifies an unregistered entity with a supplied title."""
+    assert calc_config_attributes(
+        hass,
+        {
+            CONF_SOURCE_ENTITY_ID: "sensor.unregistered_battery",
+            CONF_NAME: "Unregistered battery",
+        },
+    ) == ("bn_unregistered_battery", "Unregistered battery")
