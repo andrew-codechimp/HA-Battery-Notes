@@ -1,8 +1,52 @@
 """Common functions for battery_notes."""
 
-from homeassistant.core import HomeAssistant
-from homeassistant.helpers import device_registry as dr
+from collections.abc import Mapping, Sequence
+from typing import Any
+
+from homeassistant.components.binary_sensor import BinarySensorDeviceClass
+from homeassistant.components.sensor import SensorDeviceClass
+from homeassistant.const import CONF_DEVICE_ID
+from homeassistant.core import HomeAssistant, callback
+from homeassistant.helpers import device_registry as dr, entity_registry as er
 from homeassistant.helpers.device_registry import DeviceEntry
+
+from .const import CONF_SOURCE_ENTITY_ID, DOMAIN
+
+BATTERY_DEVICE_CLASSES = (SensorDeviceClass.BATTERY, BinarySensorDeviceClass.BATTERY)
+
+
+@callback
+def async_unhide_source_batteries(
+    hass: HomeAssistant, subentry_data: Mapping[str, Any]
+) -> None:
+    """Show the battery entities of a battery note's source again.
+
+    Battery Notes hides the source battery (and battery low) entities when the hide
+    battery option is on, marking them as hidden by an integration.
+    """
+    entity_registry = er.async_get(hass)
+
+    candidates: Sequence[er.RegistryEntry | None]
+    if source_entity_id := subentry_data.get(CONF_SOURCE_ENTITY_ID):
+        candidates = [entity_registry.async_get(source_entity_id)]
+    elif device_id := subentry_data.get(CONF_DEVICE_ID):
+        candidates = er.async_entries_for_device(
+            entity_registry, device_id, include_disabled_entities=True
+        )
+    else:
+        return
+
+    for entity_entry in candidates:
+        if (
+            entity_entry is None
+            or entity_entry.platform == DOMAIN
+            or entity_entry.hidden_by != er.RegistryEntryHider.INTEGRATION
+            or (entity_entry.device_class or entity_entry.original_device_class)
+            not in BATTERY_DEVICE_CLASSES
+        ):
+            continue
+
+        entity_registry.async_update_entity(entity_entry.entity_id, hidden_by=None)
 
 
 def validate_is_float(num):
