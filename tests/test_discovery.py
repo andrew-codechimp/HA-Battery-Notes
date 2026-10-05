@@ -472,3 +472,34 @@ async def test_library_not_loaded(
     assert not battery_library.is_loaded
     assert "Library not loaded" in caplog.text
     assert hass.config_entries.flow.async_progress_by_handler(DOMAIN) == []
+
+
+@pytest.mark.parametrize(
+    ("source_config_entry", "secondary_domain", "expected_name"),
+    [
+        pytest.param("mqtt", "unifi", "Front door - MQTT", id="secondary-ignored"),
+        pytest.param("unifi", "mqtt", None, id="primary-ignored"),
+    ],
+    indirect=["source_config_entry"],
+)
+async def test_primary_config_entry_used(
+    hass: HomeAssistant,
+    discovery_manager: DiscoveryManager,
+    source_device: dr.DeviceEntry,
+    secondary_domain: str,
+    expected_name: str | None,
+) -> None:
+    """Test the device's primary integration decides ignoring and the flow name."""
+    secondary_entry = MockConfigEntry(domain=secondary_domain)
+    secondary_entry.add_to_hass(hass)
+    dr.async_get(hass).async_update_device(
+        source_device.id, add_config_entry_id=secondary_entry.entry_id
+    )
+
+    await discovery_manager.start_discovery()
+    await hass.async_block_till_done(wait_background_tasks=True)
+
+    flows = hass.config_entries.flow.async_progress_by_handler(DOMAIN)
+    assert [flow["context"]["title_placeholders"]["name"] for flow in flows] == (
+        [expected_name] if expected_name else []
+    )

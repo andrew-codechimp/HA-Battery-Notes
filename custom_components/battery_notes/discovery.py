@@ -130,8 +130,13 @@ class DiscoveryManager:
                 if AwesomeVersion(__version__) >= AwesomeVersion("2026.8.9"):
                     config_entry_id = device_entry.config_entry_id  # type: ignore[attr-defined]
                 else:
-                    config_entry_id = next(iter(device_entry.config_entries))
-                config_entry = self.hass.config_entries.async_get_entry(config_entry_id)
+                    # config_entries is a set, use the integration providing the device
+                    config_entry_id = device_entry.primary_config_entry
+                config_entry = (
+                    self.hass.config_entries.async_get_entry(config_entry_id)
+                    if config_entry_id
+                    else None
+                )
 
                 integration: Integration | None = None
                 if config_entry:
