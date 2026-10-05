@@ -503,7 +503,9 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
         ):
             self.hass.bus.async_fire(
                 EVENT_BATTERY_THRESHOLD,
-                self.battery_level_event_data(0, 100, reminder=False),
+                self.battery_level_event_data(
+                    *self._binary_event_levels(value), reminder=False
+                ),
             )
 
             _LOGGER.debug(
@@ -546,7 +548,9 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
         ):
             self.hass.bus.async_fire(
                 EVENT_BATTERY_THRESHOLD,
-                self.battery_level_event_data(0, 100, reminder=False),
+                self.battery_level_event_data(
+                    *self._binary_event_levels(value), reminder=False
+                ),
             )
 
             _LOGGER.debug(
@@ -651,6 +655,11 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
             ATTR_BATTERY_QUANTITY: self.battery_quantity,
             **(extra or {}),
         }
+
+    @staticmethod
+    def _binary_event_levels(battery_low: bool) -> tuple[int, int]:
+        """Return nominal (level, previous level) for a binary battery low change."""
+        return (0, 100) if battery_low else (100, 0)
 
     def battery_level_event_data(
         self,
