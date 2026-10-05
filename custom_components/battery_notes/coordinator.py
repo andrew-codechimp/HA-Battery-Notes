@@ -468,22 +468,22 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
     @property
     def area_name(self):
         """Get the area name of the source_entity_id or device_id."""
+        device_id = self.device_id
+        area_id = None
         if self.source_entity_id:
-            entity_registry = er.async_get(self.hass)
-            registry_entry = entity_registry.async_get(self.source_entity_id)
-            if registry_entry and registry_entry.area_id:
-                area_registry = ar.async_get(self.hass)
-                area_entry = area_registry.async_get_area(registry_entry.area_id)
-                if area_entry:
-                    return area_entry.name
-        elif self.device_id:
-            device_registry = dr.async_get(self.hass)
-            device_entry = device_registry.async_get(self.device_id)
-            if device_entry and device_entry.area_id:
-                area_registry = ar.async_get(self.hass)
-                area_entry = area_registry.async_get_area(device_entry.area_id)
-                if area_entry:
-                    return area_entry.name
+            registry_entry = er.async_get(self.hass).async_get(self.source_entity_id)
+            if registry_entry is None:
+                return None
+            # An entity only has its own area when it overrides its device's area
+            area_id = registry_entry.area_id
+            device_id = registry_entry.device_id
+
+        if area_id is None and device_id:
+            device_entry = dr.async_get(self.hass).async_get(device_id)
+            area_id = device_entry.area_id if device_entry else None
+
+        if area_id and (area_entry := ar.async_get(self.hass).async_get_area(area_id)):
+            return area_entry.name
         return None
 
     @property
