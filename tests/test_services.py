@@ -50,7 +50,11 @@ from homeassistant.const import (
 )
 from homeassistant.core import HomeAssistant
 from homeassistant.exceptions import HomeAssistantError
-from homeassistant.helpers import device_registry as dr, entity_registry as er
+from homeassistant.helpers import (
+    area_registry as ar,
+    device_registry as dr,
+    entity_registry as er,
+)
 
 from . import setup_integration
 
@@ -324,3 +328,49 @@ async def test_check_battery_last_reported(
         assert data[ATTR_BATTERY_LAST_REPORTED_LEVEL] == 55
     for item in items:
         assert item[ATTR_BATTERY_LAST_REPORTED] == "2026-01-01T12:00:00+00:00"
+
+
+@pytest.mark.parametrize(
+    "entity_area",
+    [
+        pytest.param(None, id="inherits-device-area"),
+        pytest.param("Garage", id="entity-area-override"),
+    ],
+)
+@pytest.mark.parametrize("battery_note_source", ["device", "entity"])
+async def test_battery_replaced_area(
+    hass: HomeAssistant,
+    battery_note_config_entry: MockConfigEntry,
+    battery_note_device: dr.DeviceEntry,
+    battery_note_sensor: er.RegistryEntry,
+    entity_area: str | None,
+) -> None:
+    """Test events use the source entity's own area or else its device's area."""
+    area_registry = ar.async_get(hass)
+    dr.async_get(hass).async_update_device(
+        battery_note_device.id, area_id=area_registry.async_create("Hall").id
+    )
+    if entity_area:
+        er.async_get(hass).async_update_entity(
+            battery_note_sensor.entity_id,
+            area_id=area_registry.async_create(entity_area).id,
+        )
+    await setup_integration(hass, battery_note_config_entry)
+    subentry = next(iter(battery_note_config_entry.subentries.values()))
+    events = async_capture_events(hass, EVENT_BATTERY_REPLACED)
+
+    await hass.services.async_call(
+        DOMAIN,
+        SERVICE_BATTERY_REPLACED,
+        {ATTR_DEVICE_ID: subentry.data[CONF_DEVICE_ID]}
+        if CONF_SOURCE_ENTITY_ID not in subentry.data
+        else {ATTR_SOURCE_ENTITY_ID: subentry.data[CONF_SOURCE_ENTITY_ID]},
+        blocking=True,
+    )
+
+    assert len(events) == 1
+    # Entity area overrides only apply to entity notes
+    is_entity_note = CONF_SOURCE_ENTITY_ID in subentry.data
+    assert events[0].data[ATTR_AREA_NAME] == (
+        (entity_area or "Hall") if is_entity_note else "Hall"
+    )
