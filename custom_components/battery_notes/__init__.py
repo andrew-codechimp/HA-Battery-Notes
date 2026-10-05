@@ -58,6 +58,7 @@ from .const import (
     CONF_MODEL_ID,
     CONF_ROUND_BATTERY,
     CONF_SHOW_ALL_DEVICES,
+    CONF_SOURCE_ENTITY_ID,
     CONF_USER_LIBRARY,
     DEFAULT_BATTERY_INCREASE_THRESHOLD,
     DEFAULT_BATTERY_LOW_THRESHOLD,
@@ -190,7 +191,12 @@ async def async_setup_entry(
         device_id = subentry.data.get(CONF_DEVICE_ID, None)
 
         # HACK: HA 2026.8 splits composite devices into multiple devices, so we need to check if the device_id is a composite device
-        if device_id is not None and is_composite_device_id(hass, device_id):
+        # Entity notes link through their entity and use its current device instead
+        if (
+            device_id is not None
+            and not subentry.data.get(CONF_SOURCE_ENTITY_ID)
+            and is_composite_device_id(hass, device_id)
+        ):
             # The device was split into one device per config entry; ask the user to
             # select a device again
             ir.async_create_issue(
