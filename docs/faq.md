@@ -112,6 +112,14 @@ There seems to have been an issue with the Shelly integration at some point wher
 
 Not directly, but there is a [Fake Devices](https://github.com/andrew-codechimp/HA-Fake-Devices) custom integration which allows you to create devices for things like TV remotes, wall clocks etc. Once you have created a fake device you can add a battery note to it to track the battery type and last replaced.
 
+## Why is there no prediction of when my battery will run out
+
+This has been asked many times, different battery brands, chemistry, usage patterns, and device power consumption means an accurate prediction is not possible and I would prefer not to provide potentially misleading information.
+
+## Why is there no count of how many times a battery has been replaced
+
+As new devices can be added at any time and may have different battery types and usage patterns, keeping an accurate count of battery replacements adds no value as there is nothing accurate to compare to.
+
 ## Battery Notes is not showing in the integrations list within a device page (new with version 3)
 
 The way Battery Notes associate with a device has had to change due to a change within Home Assistant.  
