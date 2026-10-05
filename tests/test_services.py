@@ -1,6 +1,7 @@
 """Tests for Battery Notes services."""
 
 from datetime import datetime, timedelta
+from types import MappingProxyType
 
 import pytest
 from custom_components.battery_notes.const import (
@@ -19,6 +20,9 @@ from custom_components.battery_notes.const import (
     ATTR_DEVICE_ID,
     ATTR_DEVICE_NAME,
     ATTR_SOURCE_ENTITY_ID,
+    CONF_ADVANCED_SETTINGS,
+    CONF_BATTERY_QUANTITY,
+    CONF_BATTERY_TYPE,
     CONF_SOURCE_ENTITY_ID,
     DOMAIN,
     EVENT_BATTERY_NOT_REPLACED,
@@ -34,6 +38,7 @@ from custom_components.battery_notes.const import (
     SERVICE_DATA_DAYS_LAST_REPLACED,
     SERVICE_DATA_DAYS_LAST_REPORTED,
     SERVICE_DATA_RAISE_EVENTS,
+    SUBENTRY_BATTERY_NOTE,
 )
 from freezegun.api import FrozenDateTimeFactory
 from pytest_homeassistant_custom_component.common import (
@@ -42,6 +47,7 @@ from pytest_homeassistant_custom_component.common import (
 )
 
 from homeassistant.components.sensor import SensorDeviceClass
+from homeassistant.config_entries import ConfigSubentry
 from homeassistant.const import (
     ATTR_DEVICE_CLASS,
     ATTR_UNIT_OF_MEASUREMENT,
@@ -200,6 +206,69 @@ async def test_set_battery_replaced_unconfigured_source(
     assert not events
     assert mock_config_entry.runtime_data.store.async_get_devices() == {}
     assert mock_config_entry.runtime_data.store.async_get_entities() == {}
+
+
+@pytest.mark.parametrize("battery_note_source", ["entity"])
+async def test_set_battery_replaced_prefers_device_note(
+    hass: HomeAssistant,
+    mock_config_entry: MockConfigEntry,
+    battery_note_device: dr.DeviceEntry,
+    battery_note_sensor: er.RegistryEntry,
+) -> None:
+    """Test replacing by device updates the device note, not an entity note on it."""
+    note_data = {
+        CONF_BATTERY_TYPE: "AA",
+        CONF_BATTERY_QUANTITY: 2,
+        CONF_ADVANCED_SETTINGS: {},
+    }
+    entity_note = ConfigSubentry(
+        data=MappingProxyType(
+            {
+                **note_data,
+                CONF_DEVICE_ID: battery_note_device.id,
+                CONF_SOURCE_ENTITY_ID: battery_note_sensor.entity_id,
+            }
+        ),
+        subentry_id="entity-note",
+        subentry_type=SUBENTRY_BATTERY_NOTE,
+        title="Door entity note",
+        unique_id="bn_door_entity",
+    )
+    device_note = ConfigSubentry(
+        data=MappingProxyType({**note_data, CONF_DEVICE_ID: battery_note_device.id}),
+        subentry_id="device-note",
+        subentry_type=SUBENTRY_BATTERY_NOTE,
+        title="Door device note",
+        unique_id="bn_door_device",
+    )
+    entry = MockConfigEntry(
+        domain=DOMAIN,
+        version=mock_config_entry.version,
+        title=mock_config_entry.title,
+        data=mock_config_entry.data,
+        options=mock_config_entry.options,
+        subentries_data=[entity_note.as_dict(), device_note.as_dict()],
+    )
+    await setup_integration(hass, entry)
+    events = async_capture_events(hass, EVENT_BATTERY_REPLACED)
+
+    await hass.services.async_call(
+        DOMAIN,
+        SERVICE_BATTERY_REPLACED,
+        {
+            ATTR_DEVICE_ID: battery_note_device.id,
+            SERVICE_DATA_DATE_TIME_REPLACED: "2025-12-20T14:30:00+00:00",
+        },
+        blocking=True,
+    )
+
+    replaced_at = datetime.fromisoformat("2025-12-20T14:30:00.000001+00:00")
+    coordinators = entry.runtime_data.subentry_coordinators
+    assert coordinators["device-note"].last_replaced == replaced_at
+    assert coordinators["entity-note"].last_replaced != replaced_at
+    assert len(events) == 1
+    assert events[0].data[ATTR_DEVICE_NAME] == "Door device note"
+    assert events[0].data[ATTR_SOURCE_ENTITY_ID] == ""
 
 
 @pytest.mark.parametrize(
