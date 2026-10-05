@@ -8,10 +8,7 @@ from dataclasses import dataclass
 from datetime import datetime
 from typing import Any
 
-import voluptuous as vol
-
 from homeassistant.components.sensor import (
-    PLATFORM_SCHEMA,
     RestoreSensor,
     SensorDeviceClass,
     SensorEntity,
@@ -20,8 +17,6 @@ from homeassistant.components.sensor import (
 )
 from homeassistant.config_entries import ConfigSubentry
 from homeassistant.const import (
-    CONF_DEVICE_ID,
-    CONF_NAME,
     PERCENTAGE,
     STATE_UNAVAILABLE,
     STATE_UNKNOWN,
@@ -29,7 +24,6 @@ from homeassistant.const import (
 from homeassistant.core import Event, HomeAssistant, callback
 from homeassistant.exceptions import TemplateError
 from homeassistant.helpers import (
-    config_validation as cv,
     entity_registry as er,
 )
 from homeassistant.helpers.entity import EntityCategory
@@ -71,11 +65,8 @@ from .const import (
     ATTR_NOTE,
     ATTR_SOURCE_ENTITY_ID,
     CONF_ADVANCED_SETTINGS,
-    CONF_BATTERY_QUANTITY,
-    CONF_BATTERY_TYPE,
     CONF_ENABLE_REPLACED,
     CONF_ROUND_BATTERY,
-    CONF_SOURCE_ENTITY_ID,
     DOMAIN,
     STATE_WRITE_INTERVAL_SECONDS,
     SUBENTRY_BATTERY_NOTE,
@@ -98,16 +89,6 @@ class BatteryNotesSensorEntityDescription(
 
     unique_id_suffix: str
 
-
-PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
-    {
-        vol.Optional(CONF_NAME): cv.string,
-        vol.Optional(CONF_DEVICE_ID): cv.string,
-        vol.Optional(CONF_SOURCE_ENTITY_ID): cv.string,
-        vol.Required(CONF_BATTERY_TYPE): cv.string,
-        vol.Required(CONF_BATTERY_QUANTITY): cv.positive_int,
-    }
-)
 
 _LOGGER = logging.getLogger(__name__)
 
