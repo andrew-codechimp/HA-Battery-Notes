@@ -5,9 +5,12 @@ from __future__ import annotations
 import json
 import re
 from pathlib import Path
-from typing import cast
+from typing import Any, cast
+
+import yaml
 
 TRANSLATIONS_DIR = Path("custom_components/battery_notes/translations")
+SERVICES_FILE = Path("custom_components/battery_notes/services.yaml")
 PLACEHOLDER_PATTERN = re.compile(r"\{([A-Za-z0-9_]+)\}")
 
 
@@ -53,3 +56,15 @@ def _flatten_strings(value: object, path: str = "") -> dict[str, str]:
 
 def _placeholders(value: str) -> set[str]:
     return set(PLACEHOLDER_PATTERN.findall(value))
+
+
+def test_service_translations_match_services_yaml() -> None:
+    """Test the English service translations cover exactly the services and fields."""
+    services = yaml.safe_load(SERVICES_FILE.read_text())
+    translations = cast(dict[str, Any], _load_translation("en.json"))["services"]
+
+    assert set(translations) == set(services)
+    for service, definition in services.items():
+        assert set(translations[service].get("fields", {})) == set(
+            definition.get("fields", {})
+        ), service
