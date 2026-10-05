@@ -293,7 +293,7 @@
                     "description": "Enhed, der har fået skiftet batteri.",
                     "name": "Enhed"
                 },
-                "entity_id": {
+                "source_entity_id": {
                     "description": "Entitet hvor batteriet er blevet udskiftet (bruges kun til batterinoter knyttet til entiteter).",
                     "name": "Entitet"
                 },
@@ -307,7 +307,7 @@
         "check_battery_last_replaced": {
             "description": "Få et svar eller udløs hændelser for enheder, der ikke har fået udskiftet batteri.",
             "fields": {
-                "days_last_reported": {
+                "days_last_replaced": {
                     "description": "Antal dage siden en enhed sidst fik sit batteri udskiftet.",
                     "name": "Dage"
                 },

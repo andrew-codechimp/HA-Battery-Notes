@@ -293,7 +293,7 @@
                     "description": "Pili değiştirilen cihaz.",
                     "name": "Cihaz"
                 },
-                "entity_id": {
+                "source_entity_id": {
                     "description": "Pili değiştirilen varlık (yalnızca Battery Notes ile ilişkili varlık için kullanılır).",
                     "name": "Varlık"
                 },
@@ -307,7 +307,7 @@
         "check_battery_last_replaced": {
             "description": "Get a response or raise events for devices that haven't had their battery replaced.",
             "fields": {
-                "days_last_reported": {
+                "days_last_replaced": {
                     "description": "Number of days since a device last had its battery replaced.",
                     "name": "Gün"
                 },

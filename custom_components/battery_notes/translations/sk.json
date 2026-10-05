@@ -293,7 +293,7 @@
                     "description": "Zariadenie, v ktorom bola vymenená batéria.",
                     "name": "Zariadenie"
                 },
-                "entity_id": {
+                "source_entity_id": {
                     "description": "Entita, ktorej bola vymenená batéria.",
                     "name": "Entita"
                 },
@@ -307,7 +307,7 @@
         "check_battery_last_replaced": {
             "description": "Get a response or raise events for devices that haven't had their battery replaced.",
             "fields": {
-                "days_last_reported": {
+                "days_last_replaced": {
                     "description": "Number of days since a device last had its battery replaced.",
                     "name": "Dni"
                 },

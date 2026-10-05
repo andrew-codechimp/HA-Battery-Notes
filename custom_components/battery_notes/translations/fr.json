@@ -293,7 +293,7 @@
                     "description": "Entitée non remplacée.",
                     "name": "Appareil"
                 },
-                "entity_id": {
+                "source_entity_id": {
                     "description": "Entité dont la batterie a été remplacée.",
                     "name": "Entité"
                 },
@@ -307,7 +307,7 @@
         "check_battery_last_replaced": {
             "description": "Obtenez une réponse ou levez des événements pour les appareils dont la batterie n'a pas été remplacée.",
             "fields": {
-                "days_last_reported": {
+                "days_last_replaced": {
                     "description": "Nombre de jours depuis qu'un appareil a signalé que sa batterie a été remplacée",
                     "name": "Jours"
                 },
