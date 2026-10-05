@@ -15,6 +15,7 @@ from custom_components.battery_notes.const import (
     CONF_BATTERY_TYPE,
     CONF_DEFAULT_BATTERY_INCREASE_THRESHOLD,
     CONF_DEFAULT_BATTERY_LOW_THRESHOLD,
+    CONF_RETAIN_STATE,
     CONF_SOURCE_ENTITY_ID,
     DOMAIN,
     EVENT_BATTERY_INCREASED,
@@ -72,6 +73,16 @@ def _battery_low_entity_id(hass: HomeAssistant, entry: MockConfigEntry) -> str:
     subentry = next(iter(entry.subentries.values()))
     entity_id = er.async_get(hass).async_get_entity_id(
         "binary_sensor", DOMAIN, f"{subentry.unique_id}_battery_low"
+    )
+    assert entity_id is not None
+    return entity_id
+
+
+def _battery_plus_entity_id(hass: HomeAssistant, entry: MockConfigEntry) -> str:
+    """Return the battery plus sensor of the entry's battery note."""
+    subentry = next(iter(entry.subentries.values()))
+    entity_id = er.async_get(hass).async_get_entity_id(
+        "sensor", DOMAIN, f"{subentry.unique_id}_battery_plus"
     )
     assert entity_id is not None
     return entity_id
@@ -156,20 +167,55 @@ async def test_percentage_unavailable_source(
     battery_events: list[Event],
     unavailable_state: str,
 ) -> None:
-    """Test an unavailable source fires no events and battery low follows it again."""
+    """Test an unavailable source fires no events and makes the entities unavailable."""
     await setup_integration(hass, battery_note_config_entry)
     battery_low_id = _battery_low_entity_id(hass, battery_note_config_entry)
+    battery_plus_id = _battery_plus_entity_id(hass, battery_note_config_entry)
 
     await _set_level(hass, battery_note_sensor.entity_id, "5")
     assert _summary(battery_events) == [(EVENT_BATTERY_THRESHOLD, True)]
 
     await _set_level(hass, battery_note_sensor.entity_id, unavailable_state)
     assert len(battery_events) == 1
+    assert hass.states.get(battery_low_id).state == STATE_UNAVAILABLE
+    assert hass.states.get(battery_plus_id).state == STATE_UNAVAILABLE
 
     # Reporting the same low level again is not a new threshold crossing
     await _set_level(hass, battery_note_sensor.entity_id, "5")
     assert len(battery_events) == 1
     assert hass.states.get(battery_low_id).state == STATE_ON
+    assert hass.states.get(battery_plus_id).state == "5.0"
+
+
+@pytest.mark.parametrize("battery_note_source", ["device"])
+async def test_percentage_unavailable_source_retain_state(
+    hass: HomeAssistant,
+    mock_config_entry: MockConfigEntry,
+    mock_battery_note_subentry: ConfigSubentry,
+    battery_note_sensor: er.RegistryEntry,
+) -> None:
+    """Test entities keep their last state for an unavailable source with retain state."""
+    entry = _note_entry(
+        mock_config_entry,
+        replace(
+            mock_battery_note_subentry,
+            data=MappingProxyType(
+                {
+                    **mock_battery_note_subentry.data,
+                    CONF_ADVANCED_SETTINGS: {CONF_RETAIN_STATE: True},
+                }
+            ),
+        ),
+    )
+    await setup_integration(hass, entry)
+    battery_low_id = _battery_low_entity_id(hass, entry)
+    battery_plus_id = _battery_plus_entity_id(hass, entry)
+
+    await _set_level(hass, battery_note_sensor.entity_id, "5")
+    await _set_level(hass, battery_note_sensor.entity_id, STATE_UNAVAILABLE)
+
+    assert hass.states.get(battery_low_id).state == STATE_ON
+    assert hass.states.get(battery_plus_id).state == "5.0"
 
 
 @pytest.mark.parametrize(
@@ -275,6 +321,7 @@ async def test_binary_source_events(
     hass.states.async_set(source_id, STATE_UNAVAILABLE, attributes)
     await hass.async_block_till_done()
     assert len(battery_events) == 1
+    assert hass.states.get(battery_low_id).state == STATE_UNAVAILABLE
 
     hass.states.async_set(source_id, STATE_OFF, attributes)
     await hass.async_block_till_done()

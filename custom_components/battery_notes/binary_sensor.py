@@ -564,7 +564,28 @@ class BatteryNotesBatteryWrappedLowSensor(BatteryNotesNonTemplateBatteryLowSenso
 
         await super().async_added_to_hass()
 
+        # The coordinator only updates for valid battery levels, follow the source
+        # directly so this sensor also reflects the source becoming unavailable
+        if self.coordinator.wrapped_battery:
+            self.async_on_remove(
+                async_track_state_change_event(
+                    self.hass,
+                    [self.coordinator.wrapped_battery.entity_id],
+                    self._async_source_state_changed,
+                )
+            )
+
         await self.coordinator.async_refresh()
+
+    @callback
+    def _async_source_state_changed(self, event: Event[EventStateChangedData]) -> None:
+        """Handle the wrapped battery becoming unavailable or invalid.
+
+        Valid levels arrive through the coordinator once it has processed them.
+        """
+        new_state = event.data["new_state"]
+        if new_state is None or not validate_is_float(new_state.state):
+            self._handle_coordinator_update()
 
     @callback
     def _handle_coordinator_update(self) -> None:

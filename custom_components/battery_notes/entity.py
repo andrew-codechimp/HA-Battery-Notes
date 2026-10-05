@@ -57,6 +57,15 @@ class BatteryNotesEntity(CoordinatorEntity[BatteryNotesSubentryCoordinator]):
         # Set up device association
         self._associate_device(hass)
 
+    @property
+    def available(self) -> bool:
+        """Return if entity is available.
+
+        CoordinatorEntity only reports the coordinator update status, also honour
+        _attr_available which entities clear while their source is unavailable.
+        """
+        return super().available and self._attr_available
+
     def _associate_device(self, hass: HomeAssistant) -> None:
         """Set up device association."""
 

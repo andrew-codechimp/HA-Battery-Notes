@@ -419,6 +419,7 @@ class BatteryNotesBatteryPlusBaseSensor(BatteryNotesEntity, RestoreSensor):
         self._last_ha_state_write: datetime | None = None
         self._last_written_battery_level: float | None = None
         self._last_written_last_replaced: datetime | None = None
+        self._last_written_available: bool | None = None
 
     @callback
     def _write_tracked_ha_state(self) -> None:
@@ -440,6 +441,7 @@ class BatteryNotesBatteryPlusBaseSensor(BatteryNotesEntity, RestoreSensor):
             if (
                 current_battery_level == self._last_written_battery_level
                 and current_last_replaced == self._last_written_last_replaced
+                and self.available == self._last_written_available
                 and (dt_util.utcnow() - self._last_ha_state_write).total_seconds()
                 < STATE_WRITE_INTERVAL_SECONDS
             ):
@@ -448,6 +450,7 @@ class BatteryNotesBatteryPlusBaseSensor(BatteryNotesEntity, RestoreSensor):
         self._last_ha_state_write = dt_util.utcnow()
         self._last_written_battery_level = current_battery_level
         self._last_written_last_replaced = current_last_replaced
+        self._last_written_available = self.available
         self.async_write_ha_state()
 
     @property
