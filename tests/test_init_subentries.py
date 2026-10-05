@@ -521,6 +521,23 @@ async def test_link_retry_source_still_missing(
         reload_entry.assert_not_awaited()
 
 
+async def test_orphaned_note_configuration(
+    orphaned_config_entry: MockConfigEntry,
+) -> None:
+    """Test an orphaned note still exposes its configuration."""
+    entry = orphaned_config_entry
+    subentry = next(iter(entry.subentries.values()))
+    coordinator = entry.runtime_data.subentry_coordinators[subentry.subentry_id]
+
+    assert coordinator.device_name == "Door battery note"
+    assert coordinator.battery_type_and_quantity == "2× AA"
+    assert coordinator.battery_note == "Under the cover"
+    assert coordinator.battery_low_threshold == 15
+    assert coordinator.battery_increased_threshold == 25
+    assert coordinator.battery_low_template is None
+    assert coordinator.battery_low is False
+
+
 @pytest.mark.parametrize(
     "operation",
     [
