@@ -627,26 +627,22 @@ async def _async_remove_subentry(
         elif coordinator.device_id:
             store.async_delete_device(coordinator.device_id)
 
-    # Unhide the battery
-    if coordinator.wrapped_battery:
-        entity_registry = er.async_get(hass)
-        if wrapped_battery_entity_entry := entity_registry.async_get(
-            coordinator.wrapped_battery.entity_id
+    # Unhide the source battery and battery low entities hidden by the hide battery option
+    entity_registry = er.async_get(hass)
+    for wrapped_entity in (
+        coordinator.wrapped_battery,
+        coordinator.wrapped_battery_low,
+    ):
+        if (
+            wrapped_entity
+            and (entity_entry := entity_registry.async_get(wrapped_entity.entity_id))
+            and entity_entry.hidden_by == er.RegistryEntryHider.INTEGRATION
         ):
-            if (
-                wrapped_battery_entity_entry.hidden_by
-                == er.RegistryEntryHider.INTEGRATION
-            ):
-                entity_registry.async_update_entity(
-                    coordinator.wrapped_battery.entity_id, hidden_by=None
-                )
-                _LOGGER.debug(
-                    "Unhidden Original Battery for device%s", coordinator.device_id
-                )
+            entity_registry.async_update_entity(entity_entry.entity_id, hidden_by=None)
+            _LOGGER.debug("Unhidden source battery %s", entity_entry.entity_id)
 
     config_entry.runtime_data.subentry_coordinators.pop(subentry.subentry_id)
 
-    entity_registry = er.async_get(hass)
     entities_to_remove = [
         entity_entry.entity_id
         for entity_entry in entity_registry.entities.values()
