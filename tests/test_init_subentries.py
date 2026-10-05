@@ -740,28 +740,22 @@ async def test_template_startup_cancelled_on_removal(
     with (
         patch.object(hass, "state", CoreState.not_running),
         patch(
-            "custom_components.battery_notes.sensor.async_track_template_result",
+            "custom_components.battery_notes.template_helpers.async_track_template_result",
             wraps=async_track_template_result,
-        ) as percentage_tracker,
-        patch(
-            "custom_components.battery_notes.binary_sensor.async_track_template_result",
-            wraps=async_track_template_result,
-        ) as low_tracker,
+        ) as template_tracker,
     ):
         await setup_integration(hass, template_config_entry)
-        percentage_tracker.assert_not_called()
-        low_tracker.assert_not_called()
+        template_tracker.assert_not_called()
 
         assert await cleanup_operation(template_config_entry.entry_id)
         await hass.async_block_till_done(wait_background_tasks=True)
-        percentage_tracker.assert_not_called()
-        low_tracker.assert_not_called()
+        template_tracker.assert_not_called()
 
         hass.bus.async_fire(EVENT_HOMEASSISTANT_START)
         await hass.async_block_till_done(wait_background_tasks=True)
 
-        assert percentage_tracker.call_count == expected_startups
-        assert low_tracker.call_count == expected_startups
+        # The percentage and low template entities each track their template
+        assert template_tracker.call_count == 2 * expected_startups
 
 
 async def test_remove_subentry_unhides_source(
