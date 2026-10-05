@@ -351,6 +351,81 @@ async def test_setup_subentry(
     } == snapshot(exclude=props("device_id"))
 
 
+@pytest.fixture
+def percentage_source_units(
+    hass: HomeAssistant,
+    entity_registry: er.EntityRegistry,
+    source_sensor: er.RegistryEntry,
+    request: pytest.FixtureRequest,
+) -> None:
+    """Configure registry and live units independently before loading the note."""
+    registry_unit, live_unit, state_present = request.param
+    entity_registry.async_update_entity(
+        source_sensor.entity_id, unit_of_measurement=registry_unit
+    )
+    if state_present:
+        hass.states.async_set(
+            source_sensor.entity_id,
+            "55",
+            {
+                ATTR_DEVICE_CLASS: SensorDeviceClass.BATTERY,
+                ATTR_UNIT_OF_MEASUREMENT: live_unit,
+            },
+        )
+    else:
+        hass.states.async_remove(source_sensor.entity_id)
+
+
+@pytest.mark.parametrize(
+    "source_sensor", [pytest.param("sensor", id="percentage")], indirect=True
+)
+@pytest.mark.parametrize(
+    ("percentage_source_units", "expected_match"),
+    [
+        pytest.param((None, PERCENTAGE, True), True, id="live-unit-fallback"),
+        pytest.param((PERCENTAGE, None, False), True, id="registry-unit-without-state"),
+        pytest.param(
+            (PERCENTAGE, PERCENTAGE, True), True, id="matching-percentage-units"
+        ),
+        pytest.param((None, None, False), False, id="no-unit-or-state"),
+        pytest.param((None, None, True), False, id="state-without-unit"),
+        pytest.param((None, "V", True), False, id="live-voltage-unit"),
+        pytest.param(
+            ("V", PERCENTAGE, True), False, id="registry-voltage-takes-precedence"
+        ),
+    ],
+    indirect=["percentage_source_units"],
+)
+@pytest.mark.usefixtures("percentage_source_units")
+async def test_link_battery_percentage_units(
+    hass: HomeAssistant,
+    mock_config_entry: MockConfigEntry,
+    source_sensor: er.RegistryEntry,
+    entity_registry: er.EntityRegistry,
+    expected_match: bool,
+) -> None:
+    """Test setup links percentage sources using registry units before live units."""
+    await setup_integration(hass, mock_config_entry)
+
+    assert mock_config_entry.state is ConfigEntryState.LOADED
+    mock_subentry = next(iter(mock_config_entry.subentries.values()))
+    coordinator = mock_config_entry.runtime_data.subentry_coordinators[
+        mock_subentry.subentry_id
+    ]
+    assert not coordinator.is_orphaned
+    assert (
+        coordinator.wrapped_battery
+        == {
+            True: entity_registry.async_get(source_sensor.entity_id),
+            False: None,
+        }[expected_match]
+    )
+    battery_plus_id = entity_registry.async_get_entity_id(
+        "sensor", DOMAIN, f"{mock_subentry.unique_id}_battery_plus"
+    )
+    assert (battery_plus_id is not None) is expected_match
+
+
 async def test_subentry_follows_source(
     hass: HomeAssistant,
     mock_config_entry: MockConfigEntry,
