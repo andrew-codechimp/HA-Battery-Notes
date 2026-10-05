@@ -1,51 +1,7 @@
 # serializer version: 1
 # name: test_entity_device_takes_precedence[entity]
   dict({
-    'entry': dict({
-      'data': dict({
-      }),
-      'disabled_by': None,
-      'discovery_keys': dict({
-      }),
-      'domain': 'battery_notes',
-      'minor_version': 1,
-      'options': dict({
-        'advanced_settings': dict({
-          'enable_autodiscovery': True,
-          'enable_replaced': True,
-          'hide_battery_low': False,
-          'user_library': '',
-        }),
-        'battery_increase_threshold': 25,
-        'default_battery_low_threshold': 10,
-        'hide_battery': False,
-        'round_battery': False,
-        'show_all_devices': False,
-      }),
-      'pref_disable_new_entities': False,
-      'pref_disable_polling': False,
-      'source': 'user',
-      'subentries': list([
-        dict({
-          'data': dict({
-            'advanced_settings': dict({
-            }),
-            'battery_quantity': 2,
-            'battery_type': 'AA',
-            'source_entity_id': 'sensor.door_battery',
-          }),
-          'subentry_id': 'battery-note-subentry',
-          'subentry_type': 'battery_note',
-          'title': 'Door battery note',
-          'unique_id': 'bn_door_battery',
-        }),
-      ]),
-      'title': 'Battery Notes',
-      'unique_id': None,
-      'version': 4,
-    }),
-    'library_loaded': False,
-    'sub_entries': dict({
+    'battery_notes': dict({
       'battery-note-subentry': dict({
         'battery_increased_threshold': 25,
         'battery_low': False,
@@ -69,10 +25,56 @@
         'wrapped_battery_low': 'sensor.door_battery',
       }),
     }),
+    'entry': dict({
+      'data': dict({
+      }),
+      'disabled_by': None,
+      'discovery_keys': dict({
+      }),
+      'domain': 'battery_notes',
+      'minor_version': 1,
+      'options': dict({
+        'advanced_settings': dict({
+          'enable_autodiscovery': True,
+          'enable_replaced': True,
+          'hide_battery_low': False,
+          'user_library': '',
+        }),
+        'battery_increase_threshold': 25,
+        'default_battery_low_threshold': 10,
+        'hide_battery': False,
+        'round_battery': False,
+        'show_all_devices': False,
+      }),
+      'pref_disable_new_entities': False,
+      'pref_disable_polling': False,
+      'source': 'user',
+      'subentries': list([
+        dict({
+          'data': dict({
+            'advanced_settings': dict({
+            }),
+            'battery_quantity': 2,
+            'battery_type': 'AA',
+            'source_entity_id': 'sensor.door_battery',
+          }),
+          'subentry_id': 'battery-note-subentry',
+          'subentry_type': 'battery_note',
+          'title': 'Door battery note',
+          'unique_id': 'bn_door_battery',
+        }),
+      ]),
+      'title': 'Battery Notes',
+      'unique_id': None,
+      'version': 4,
+    }),
+    'library_loaded': False,
   })
 # ---
 # name: test_entry_diagnostics
   dict({
+    'battery_notes': dict({
+    }),
     'entry': dict({
       'data': dict({
       }),
@@ -104,12 +106,18 @@
       'version': 4,
     }),
     'library_loaded': False,
-    'sub_entries': dict({
-    }),
   })
 # ---
 # name: test_missing_source_device[device]
   dict({
+    'battery_notes': dict({
+      'battery-note-subentry': dict({
+        'library_match': None,
+        'orphaned': True,
+        'wrapped_battery': None,
+        'wrapped_battery_low': None,
+      }),
+    }),
     'entry': dict({
       'data': dict({
       }),
@@ -153,18 +161,24 @@
       'version': 4,
     }),
     'library_loaded': False,
-    'sub_entries': dict({
-      'battery-note-subentry': dict({
-        'library_match': None,
-        'orphaned': True,
-        'wrapped_battery': None,
-        'wrapped_battery_low': None,
-      }),
-    }),
   })
 # ---
 # name: test_missing_source_entity[entity-with-device]
   dict({
+    'battery_notes': dict({
+      'battery-note-subentry': dict({
+        'device_info': dict({
+          'hw_version': '1.2.3',
+          'manufacturer': 'Test Manufacturer',
+          'model': 'Door sensor',
+          'model_id': 'DS-01',
+        }),
+        'library_match': None,
+        'orphaned': True,
+        'wrapped_battery': None,
+        'wrapped_battery_low': None,
+      }),
+    }),
     'entry': dict({
       'data': dict({
       }),
@@ -209,69 +223,11 @@
       'version': 4,
     }),
     'library_loaded': False,
-    'sub_entries': dict({
-      'battery-note-subentry': dict({
-        'device_info': dict({
-          'hw_version': '1.2.3',
-          'manufacturer': 'Test Manufacturer',
-          'model': 'Door sensor',
-          'model_id': 'DS-01',
-        }),
-        'library_match': None,
-        'orphaned': True,
-        'wrapped_battery': None,
-        'wrapped_battery_low': None,
-      }),
-    }),
   })
 # ---
 # name: test_missing_source_entity[standalone-entity]
   dict({
-    'entry': dict({
-      'data': dict({
-      }),
-      'disabled_by': None,
-      'discovery_keys': dict({
-      }),
-      'domain': 'battery_notes',
-      'minor_version': 1,
-      'options': dict({
-        'advanced_settings': dict({
-          'enable_autodiscovery': True,
-          'enable_replaced': True,
-          'hide_battery_low': False,
-          'user_library': '',
-        }),
-        'battery_increase_threshold': 25,
-        'default_battery_low_threshold': 10,
-        'hide_battery': False,
-        'round_battery': False,
-        'show_all_devices': False,
-      }),
-      'pref_disable_new_entities': False,
-      'pref_disable_polling': False,
-      'source': 'user',
-      'subentries': list([
-        dict({
-          'data': dict({
-            'advanced_settings': dict({
-            }),
-            'battery_quantity': 2,
-            'battery_type': 'AA',
-            'source_entity_id': 'sensor.door_battery',
-          }),
-          'subentry_id': 'battery-note-subentry',
-          'subentry_type': 'battery_note',
-          'title': 'Door battery note',
-          'unique_id': 'bn_door_battery',
-        }),
-      ]),
-      'title': 'Battery Notes',
-      'unique_id': None,
-      'version': 4,
-    }),
-    'library_loaded': False,
-    'sub_entries': dict({
+    'battery_notes': dict({
       'battery-note-subentry': dict({
         'library_match': None,
         'orphaned': True,
@@ -279,10 +235,6 @@
         'wrapped_battery_low': None,
       }),
     }),
-  })
-# ---
-# name: test_note_diagnostics[device]
-  dict({
     'entry': dict({
       'data': dict({
       }),
@@ -314,6 +266,7 @@
             }),
             'battery_quantity': 2,
             'battery_type': 'AA',
+            'source_entity_id': 'sensor.door_battery',
           }),
           'subentry_id': 'battery-note-subentry',
           'subentry_type': 'battery_note',
@@ -326,7 +279,11 @@
       'version': 4,
     }),
     'library_loaded': False,
-    'sub_entries': dict({
+  })
+# ---
+# name: test_note_diagnostics[device]
+  dict({
+    'battery_notes': dict({
       'battery-note-subentry': dict({
         'battery_increased_threshold': 25,
         'battery_low': False,
@@ -350,10 +307,6 @@
         'wrapped_battery_low': None,
       }),
     }),
-  })
-# ---
-# name: test_note_diagnostics[entity]
-  dict({
     'entry': dict({
       'data': dict({
       }),
@@ -385,7 +338,6 @@
             }),
             'battery_quantity': 2,
             'battery_type': 'AA',
-            'source_entity_id': 'sensor.door_battery',
           }),
           'subentry_id': 'battery-note-subentry',
           'subentry_type': 'battery_note',
@@ -398,7 +350,11 @@
       'version': 4,
     }),
     'library_loaded': False,
-    'sub_entries': dict({
+  })
+# ---
+# name: test_note_diagnostics[entity]
+  dict({
+    'battery_notes': dict({
       'battery-note-subentry': dict({
         'battery_increased_threshold': 25,
         'battery_low': False,
@@ -422,10 +378,6 @@
         'wrapped_battery_low': 'sensor.door_battery',
       }),
     }),
-  })
-# ---
-# name: test_note_diagnostics[standalone-entity]
-  dict({
     'entry': dict({
       'data': dict({
       }),
@@ -470,7 +422,11 @@
       'version': 4,
     }),
     'library_loaded': False,
-    'sub_entries': dict({
+  })
+# ---
+# name: test_note_diagnostics[standalone-entity]
+  dict({
+    'battery_notes': dict({
       'battery-note-subentry': dict({
         'battery_increased_threshold': 25,
         'battery_low': False,
@@ -488,5 +444,49 @@
         'wrapped_battery_low': 'sensor.door_battery',
       }),
     }),
+    'entry': dict({
+      'data': dict({
+      }),
+      'disabled_by': None,
+      'discovery_keys': dict({
+      }),
+      'domain': 'battery_notes',
+      'minor_version': 1,
+      'options': dict({
+        'advanced_settings': dict({
+          'enable_autodiscovery': True,
+          'enable_replaced': True,
+          'hide_battery_low': False,
+          'user_library': '',
+        }),
+        'battery_increase_threshold': 25,
+        'default_battery_low_threshold': 10,
+        'hide_battery': False,
+        'round_battery': False,
+        'show_all_devices': False,
+      }),
+      'pref_disable_new_entities': False,
+      'pref_disable_polling': False,
+      'source': 'user',
+      'subentries': list([
+        dict({
+          'data': dict({
+            'advanced_settings': dict({
+            }),
+            'battery_quantity': 2,
+            'battery_type': 'AA',
+            'source_entity_id': 'sensor.door_battery',
+          }),
+          'subentry_id': 'battery-note-subentry',
+          'subentry_type': 'battery_note',
+          'title': 'Door battery note',
+          'unique_id': 'bn_door_battery',
+        }),
+      ]),
+      'title': 'Battery Notes',
+      'unique_id': None,
+      'version': 4,
+    }),
+    'library_loaded': False,
   })
 # ---
