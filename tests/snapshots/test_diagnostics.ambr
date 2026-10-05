@@ -1,6 +1,24 @@
 # serializer version: 1
 # name: test_entity_device_takes_precedence[entity]
   dict({
+    'battery_notes': dict({
+      'battery-note-subentry': dict({
+        'battery_increased_threshold': 25,
+        'battery_low': False,
+        'battery_low_template': None,
+        'battery_low_threshold': 10,
+        'battery_percentage_template': None,
+        'current_battery_level': '55',
+        'last_replaced': '2026-01-01T12:00:00+00:00',
+        'last_reported': '2026-01-01T12:00:00+00:00',
+        'last_reported_level': 55.0,
+        'library_match': None,
+        'orphaned': False,
+        'retain_state': False,
+        'wrapped_battery': 'sensor.door_battery',
+        'wrapped_battery_low': 'sensor.door_battery',
+      }),
+    }),
     'entry': dict({
       'data': dict({
       }),
@@ -44,6 +62,7 @@
       'unique_id': None,
       'version': 4,
     }),
+    'library_loaded': False,
     'subentry battery-note-subentry': dict({
       'hw_version': '2.0',
       'manufacturer': 'Replacement Manufacturer',
@@ -54,6 +73,8 @@
 # ---
 # name: test_entry_diagnostics
   dict({
+    'battery_notes': dict({
+    }),
     'entry': dict({
       'data': dict({
       }),
@@ -84,10 +105,19 @@
       'unique_id': None,
       'version': 4,
     }),
+    'library_loaded': False,
   })
 # ---
 # name: test_missing_source_device[device]
   dict({
+    'battery_notes': dict({
+      'battery-note-subentry': dict({
+        'library_match': None,
+        'orphaned': True,
+        'wrapped_battery': None,
+        'wrapped_battery_low': None,
+      }),
+    }),
     'entry': dict({
       'data': dict({
       }),
@@ -130,10 +160,19 @@
       'unique_id': None,
       'version': 4,
     }),
+    'library_loaded': False,
   })
 # ---
 # name: test_missing_source_entity[entity-with-device]
   dict({
+    'battery_notes': dict({
+      'battery-note-subentry': dict({
+        'library_match': None,
+        'orphaned': True,
+        'wrapped_battery': None,
+        'wrapped_battery_low': None,
+      }),
+    }),
     'entry': dict({
       'data': dict({
       }),
@@ -177,6 +216,7 @@
       'unique_id': None,
       'version': 4,
     }),
+    'library_loaded': False,
     'subentry battery-note-subentry': dict({
       'hw_version': '1.2.3',
       'manufacturer': 'Test Manufacturer',
@@ -187,6 +227,14 @@
 # ---
 # name: test_missing_source_entity[standalone-entity]
   dict({
+    'battery_notes': dict({
+      'battery-note-subentry': dict({
+        'library_match': None,
+        'orphaned': True,
+        'wrapped_battery': None,
+        'wrapped_battery_low': None,
+      }),
+    }),
     'entry': dict({
       'data': dict({
       }),
@@ -230,10 +278,29 @@
       'unique_id': None,
       'version': 4,
     }),
+    'library_loaded': False,
   })
 # ---
 # name: test_note_diagnostics[device]
   dict({
+    'battery_notes': dict({
+      'battery-note-subentry': dict({
+        'battery_increased_threshold': 25,
+        'battery_low': False,
+        'battery_low_template': None,
+        'battery_low_threshold': 10,
+        'battery_percentage_template': None,
+        'current_battery_level': '55',
+        'last_replaced': '2026-01-01T12:00:00+00:00',
+        'last_reported': '2026-01-01T12:00:00+00:00',
+        'last_reported_level': 55.0,
+        'library_match': None,
+        'orphaned': False,
+        'retain_state': False,
+        'wrapped_battery': 'sensor.door_battery',
+        'wrapped_battery_low': None,
+      }),
+    }),
     'entry': dict({
       'data': dict({
       }),
@@ -276,6 +343,7 @@
       'unique_id': None,
       'version': 4,
     }),
+    'library_loaded': False,
     'subentry battery-note-subentry': dict({
       'hw_version': '1.2.3',
       'manufacturer': 'Test Manufacturer',
@@ -286,6 +354,24 @@
 # ---
 # name: test_note_diagnostics[entity]
   dict({
+    'battery_notes': dict({
+      'battery-note-subentry': dict({
+        'battery_increased_threshold': 25,
+        'battery_low': False,
+        'battery_low_template': None,
+        'battery_low_threshold': 10,
+        'battery_percentage_template': None,
+        'current_battery_level': '55',
+        'last_replaced': '2026-01-01T12:00:00+00:00',
+        'last_reported': '2026-01-01T12:00:00+00:00',
+        'last_reported_level': 55.0,
+        'library_match': None,
+        'orphaned': False,
+        'retain_state': False,
+        'wrapped_battery': 'sensor.door_battery',
+        'wrapped_battery_low': 'sensor.door_battery',
+      }),
+    }),
     'entry': dict({
       'data': dict({
       }),
@@ -329,6 +415,7 @@
       'unique_id': None,
       'version': 4,
     }),
+    'library_loaded': False,
     'subentry battery-note-subentry': dict({
       'hw_version': '1.2.3',
       'manufacturer': 'Test Manufacturer',
@@ -339,6 +426,24 @@
 # ---
 # name: test_note_diagnostics[standalone-entity]
   dict({
+    'battery_notes': dict({
+      'battery-note-subentry': dict({
+        'battery_increased_threshold': 25,
+        'battery_low': False,
+        'battery_low_template': None,
+        'battery_low_threshold': 10,
+        'battery_percentage_template': None,
+        'current_battery_level': '55',
+        'last_replaced': '2026-01-01T12:00:00+00:00',
+        'last_reported': '2026-01-01T12:00:00+00:00',
+        'last_reported_level': 55.0,
+        'library_match': None,
+        'orphaned': False,
+        'retain_state': False,
+        'wrapped_battery': 'sensor.door_battery',
+        'wrapped_battery_low': 'sensor.door_battery',
+      }),
+    }),
     'entry': dict({
       'data': dict({
       }),
@@ -382,5 +487,6 @@
       'unique_id': None,
       'version': 4,
     }),
+    'library_loaded': False,
   })
 # ---
