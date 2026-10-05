@@ -575,11 +575,16 @@ class BatteryNotesBatteryPlusSensor(BatteryNotesBatteryPlusBaseSensor):
             self._write_tracked_ha_state()
             return
 
-        # Don't update if battery level same and it's been < 1 hour
-        delta = dt_util.utcnow() - self.coordinator.last_wrapped_battery_state_write
+        # Don't update if battery level same and it's been < 1 hour, compare the raw
+        # level as last_reported_level is rounded
+        last_write = self.coordinator.last_wrapped_battery_state_write
+        current_level = self.coordinator.current_battery_level
         if (
-            self.coordinator.last_reported_level == float(wrapped_battery_state.state)
-            and delta.total_seconds() < STATE_WRITE_INTERVAL_SECONDS
+            last_write is not None
+            and validate_is_float(current_level)
+            and float(current_level) == float(wrapped_battery_state.state)
+            and (dt_util.utcnow() - last_write).total_seconds()
+            < STATE_WRITE_INTERVAL_SECONDS
         ):
             self._attr_available = True
             return
