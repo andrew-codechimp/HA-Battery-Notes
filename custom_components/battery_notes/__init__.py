@@ -186,40 +186,39 @@ async def async_setup_entry(
     discovery_manager = DiscoveryManager(hass, domain_config)
 
     config_entry.runtime_data.subentry_coordinators = {}
-    for subentry in config_entry.subentries.values():
-        if subentry.subentry_type == SUBENTRY_BATTERY_NOTE:
-            device_id = subentry.data.get(CONF_DEVICE_ID, None)
+    for subentry in config_entry.get_subentries_of_type(SUBENTRY_BATTERY_NOTE):
+        device_id = subentry.data.get(CONF_DEVICE_ID, None)
 
-            # HACK: HA 2026.8 splits composite devices into multiple devices, so we need to check if the device_id is a composite device
-            if device_id is not None and is_composite_device_id(hass, device_id):
-                # The device was split into one device per config entry; ask the user to
-                # select a device again
-                ir.async_create_issue(
-                    hass,
-                    DOMAIN,
-                    composite_device_issue_id(subentry.subentry_id),
-                    data={
-                        "entry_id": config_entry.entry_id,
-                        "subentry_id": subentry.subentry_id,
-                    },
-                    is_fixable=True,
-                    severity=ir.IssueSeverity.WARNING,
-                    translation_key="composite_device_id",
-                    translation_placeholders={"name": subentry.title},
-                )
-            else:
-                ir.async_delete_issue(
-                    hass,
-                    DOMAIN,
-                    composite_device_issue_id(subentry.subentry_id),
-                )
-
-            coordinator = BatteryNotesSubentryCoordinator(hass, config_entry, subentry)
-            config_entry.runtime_data.subentry_coordinators[subentry.subentry_id] = (
-                coordinator
+        # HACK: HA 2026.8 splits composite devices into multiple devices, so we need to check if the device_id is a composite device
+        if device_id is not None and is_composite_device_id(hass, device_id):
+            # The device was split into one device per config entry; ask the user to
+            # select a device again
+            ir.async_create_issue(
+                hass,
+                DOMAIN,
+                composite_device_issue_id(subentry.subentry_id),
+                data={
+                    "entry_id": config_entry.entry_id,
+                    "subentry_id": subentry.subentry_id,
+                },
+                is_fixable=True,
+                severity=ir.IssueSeverity.WARNING,
+                translation_key="composite_device_id",
+                translation_placeholders={"name": subentry.title},
+            )
+        else:
+            ir.async_delete_issue(
+                hass,
+                DOMAIN,
+                composite_device_issue_id(subentry.subentry_id),
             )
 
-            assert subentry.unique_id
+        coordinator = BatteryNotesSubentryCoordinator(hass, config_entry, subentry)
+        config_entry.runtime_data.subentry_coordinators[subentry.subentry_id] = (
+            coordinator
+        )
+
+        assert subentry.unique_id
 
     await hass.config_entries.async_forward_entry_setups(config_entry, PLATFORMS)
 
