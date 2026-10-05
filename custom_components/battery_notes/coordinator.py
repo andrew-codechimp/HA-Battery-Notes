@@ -164,11 +164,9 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
         self.device_id = self.subentry.data.get(CONF_DEVICE_ID, None)
         self.source_entity_id = self.subentry.data.get(CONF_SOURCE_ENTITY_ID, None)
 
-        if not self._link_to_source():
-            self.is_orphaned = True
-            self._schedule_link_retry()
-            return
-
+        # Read the note's configuration before linking to the source, so orphaned
+        # notes are fully initialised too
+        self.device_name = self.subentry.title
         self.battery_type = cast(str, self.subentry.data.get(CONF_BATTERY_TYPE, ""))
         self.battery_note = cast(str, self.subentry.data.get(CONF_NOTE, ""))
         try:
@@ -206,6 +204,11 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
         self.retain_state = self.subentry.data[CONF_ADVANCED_SETTINGS].get(
             CONF_RETAIN_STATE, False
         )
+
+        if not self._link_to_source():
+            self.is_orphaned = True
+            self._schedule_link_retry()
+            return
 
         if self.wrapped_battery:
             _LOGGER.debug(
