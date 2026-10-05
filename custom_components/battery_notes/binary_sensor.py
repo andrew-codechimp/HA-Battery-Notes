@@ -91,10 +91,7 @@ async def async_setup_entry(
 ) -> None:
     """Initialize Battery Type config entry."""
 
-    for subentry in config_entry.subentries.values():
-        if subentry.subentry_type != SUBENTRY_BATTERY_NOTE:
-            continue
-
+    for subentry in config_entry.get_subentries_of_type(SUBENTRY_BATTERY_NOTE):
         assert config_entry.runtime_data.subentry_coordinators
         coordinator = config_entry.runtime_data.subentry_coordinators.get(
             subentry.subentry_id
