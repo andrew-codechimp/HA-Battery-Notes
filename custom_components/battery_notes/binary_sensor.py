@@ -91,11 +91,13 @@ class BatteryNotesBinarySensorEntityDescription(
     unique_id_suffix: str
 
 
-PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
-    vol.Optional(CONF_NAME): cv.string,
-    vol.Optional(CONF_DEVICE_ID): cv.string,
-    vol.Optional(CONF_SOURCE_ENTITY_ID): cv.string,
-})
+PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
+    {
+        vol.Optional(CONF_NAME): cv.string,
+        vol.Optional(CONF_DEVICE_ID): cv.string,
+        vol.Optional(CONF_SOURCE_ENTITY_ID): cv.string,
+    }
+)
 
 
 async def async_setup_entry(
@@ -213,19 +215,21 @@ class BatteryNotesBatteryLowBaseSensor(
 
         self.enable_replaced = hass.data[MY_KEY].enable_replaced
 
-    _unrecorded_attributes = frozenset({
-        ATTR_BATTERY_INCREASE_THRESHOLD,
-        ATTR_BATTERY_LOW_THRESHOLD,
-        ATTR_BATTERY_QUANTITY,
-        ATTR_BATTERY_TYPE,
-        ATTR_BATTERY_TYPE_AND_QUANTITY,
-        ATTR_NOTE,
-        ATTR_BATTERY_LAST_REPLACED,
-        ATTR_BATTERY_LAST_REPORTED,
-        ATTR_DEVICE_ID,
-        ATTR_SOURCE_ENTITY_ID,
-        ATTR_DEVICE_NAME,
-    })
+    _unrecorded_attributes = frozenset(
+        {
+            ATTR_BATTERY_INCREASE_THRESHOLD,
+            ATTR_BATTERY_LOW_THRESHOLD,
+            ATTR_BATTERY_QUANTITY,
+            ATTR_BATTERY_TYPE,
+            ATTR_BATTERY_TYPE_AND_QUANTITY,
+            ATTR_NOTE,
+            ATTR_BATTERY_LAST_REPLACED,
+            ATTR_BATTERY_LAST_REPORTED,
+            ATTR_DEVICE_ID,
+            ATTR_SOURCE_ENTITY_ID,
+            ATTR_DEVICE_NAME,
+        }
+    )
 
     @property
     def extra_state_attributes(self) -> dict[str, Any] | None:
