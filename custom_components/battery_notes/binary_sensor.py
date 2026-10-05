@@ -7,17 +7,12 @@ from collections.abc import Callable, Mapping
 from dataclasses import dataclass
 from typing import Any
 
-import voluptuous as vol
-
 from homeassistant.components.binary_sensor import (
-    PLATFORM_SCHEMA,
     BinarySensorDeviceClass,
     BinarySensorEntity,
     BinarySensorEntityDescription,
 )
 from homeassistant.const import (
-    CONF_DEVICE_ID,
-    CONF_NAME,
     STATE_UNAVAILABLE,
     STATE_UNKNOWN,
 )
@@ -28,7 +23,6 @@ from homeassistant.core import (
 )
 from homeassistant.exceptions import TemplateError
 from homeassistant.helpers import (
-    config_validation as cv,
     entity_registry as er,
     template,
 )
@@ -66,7 +60,6 @@ from .const import (
     ATTR_DEVICE_NAME,
     ATTR_NOTE,
     ATTR_SOURCE_ENTITY_ID,
-    CONF_SOURCE_ENTITY_ID,
     DOMAIN,
     SUBENTRY_BATTERY_NOTE,
 )
@@ -89,15 +82,6 @@ class BatteryNotesBinarySensorEntityDescription(
     """Describes Battery Notes binary sensor entity."""
 
     unique_id_suffix: str
-
-
-PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
-    {
-        vol.Optional(CONF_NAME): cv.string,
-        vol.Optional(CONF_DEVICE_ID): cv.string,
-        vol.Optional(CONF_SOURCE_ENTITY_ID): cv.string,
-    }
-)
 
 
 async def async_setup_entry(
