@@ -93,6 +93,14 @@ def _summary(events: list[Event]) -> list[tuple[str, bool]]:
     return [(event.event_type, event.data[ATTR_BATTERY_LOW]) for event in events]
 
 
+def _levels(events: list[Event]) -> list[tuple[float, float]]:
+    """Return the (level, previous level) of each event in firing order."""
+    return [
+        (event.data[ATTR_BATTERY_LEVEL], event.data[ATTR_PREVIOUS_BATTERY_LEVEL])
+        for event in events
+    ]
+
+
 async def _set_level(hass: HomeAssistant, entity_id: str, state: str) -> None:
     """Report a new state for the source battery percentage sensor."""
     hass.states.async_set(
@@ -390,6 +398,8 @@ async def test_binary_source_events(
         (EVENT_BATTERY_THRESHOLD, False),
         (EVENT_BATTERY_INCREASED, False),
     ]
+    # Nominal levels follow the direction of the battery low change
+    assert _levels(battery_events) == [(0, 100), (100, 0), (100, 0)]
     assert hass.states.get(battery_low_id).state == STATE_OFF
 
 
@@ -519,4 +529,6 @@ async def test_low_template_events(
         (EVENT_BATTERY_THRESHOLD, False),
         (EVENT_BATTERY_INCREASED, False),
     ]
+    # Nominal levels follow the direction of the battery low change
+    assert _levels(battery_events) == [(0, 100), (100, 0), (100, 0)]
     assert hass.states.get(battery_low_id).state == STATE_OFF
