@@ -293,7 +293,7 @@
                     "description": "Urządzenie w którym wymieniono baterię/baterie.",
                     "name": "Urządzenie"
                 },
-                "entity_id": {
+                "source_entity_id": {
                     "description": "Encja, której bateria została wymieniona.",
                     "name": "Encja"
                 },
@@ -307,7 +307,7 @@
         "check_battery_last_replaced": {
             "description": "Uzyskaj odpowiedź lub wywoływaj zdarzenia dla urządzeń, których bateria nie została wymieniona.",
             "fields": {
-                "days_last_reported": {
+                "days_last_replaced": {
                     "description": "Liczba dni od ostatniej wymiany baterii w urządzeniu.",
                     "name": "Dni"
                 },

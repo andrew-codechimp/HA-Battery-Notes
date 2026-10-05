@@ -293,7 +293,7 @@
                     "description": "Ierīces baterija tika nomainīta.",
                     "name": "Ierīce"
                 },
-                "entity_id": {
+                "source_entity_id": {
                     "description": "Vienība, kurai tika nomainīta baterija (tiek izmantota tikai ar vienību saistītās baterijas piezīmēs).",
                     "name": "Vienība"
                 },
@@ -307,7 +307,7 @@
         "check_battery_last_replaced": {
             "description": "Get a response or raise events for devices that haven't had their battery replaced.",
             "fields": {
-                "days_last_reported": {
+                "days_last_replaced": {
                     "description": "Number of days since a device last had its battery replaced.",
                     "name": "Dienas"
                 },

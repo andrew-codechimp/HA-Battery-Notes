@@ -22,7 +22,7 @@ set_battery_replaced:
         datetime:
 check_battery_last_replaced:
   name: Check battery replaced
-  description: Get or raise events for devices that haven't had their battery replaced."
+  description: Get or raise events for devices that haven't had their battery replaced.
   fields:
     days_last_replaced:
       name: Days

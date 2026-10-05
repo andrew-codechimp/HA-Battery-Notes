@@ -293,7 +293,7 @@
                     "description": "Apparaat waarvan de batterij is vervangen.",
                     "name": "Apparaat"
                 },
-                "entity_id": {
+                "source_entity_id": {
                     "description": "Entiteit waarvan de batterij is vervangen.",
                     "name": "Entiteit"
                 },
@@ -307,7 +307,7 @@
         "check_battery_last_replaced": {
             "description": "Ontvang een antwoord of activeer events voor apparaten waarvan de batterij niet is vervangen.",
             "fields": {
-                "days_last_reported": {
+                "days_last_replaced": {
                     "description": "Aantal dagen sinds een apparaat voor het laatst de batterij is vervangen.",
                     "name": "Dagen"
                 },

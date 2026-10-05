@@ -293,7 +293,7 @@
                     "description": "Dispositivo a cui è stata sostituita la batteria.",
                     "name": "Dispositivo"
                 },
-                "entity_id": {
+                "source_entity_id": {
                     "description": "Entità a cui è stata sostituita la batteria (usato solo per entità associate a Battery Notes).",
                     "name": "Entità"
                 },
@@ -307,7 +307,7 @@
         "check_battery_last_replaced": {
             "description": "Ottieni una risposta o genera eventi per dispositivi che non hanno avuto una sostituzione della batteria da troppo tempo.",
             "fields": {
-                "days_last_reported": {
+                "days_last_replaced": {
                     "description": "Numero di giorni dall’ultima sostituzione della batteria.",
                     "name": "Giorni"
                 },

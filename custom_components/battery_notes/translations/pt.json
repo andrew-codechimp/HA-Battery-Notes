@@ -293,7 +293,7 @@
                     "description": "O dispositivo que teve a bateria substituida.",
                     "name": "Dispositivo"
                 },
-                "entity_id": {
+                "source_entity_id": {
                     "description": "Entidade teve a sua bateria substituida (somente usado se a entidade for associada ao battery notes).",
                     "name": "Entidade"
                 },
@@ -307,7 +307,7 @@
         "check_battery_last_replaced": {
             "description": "Get a response or raise events for devices that haven't had their battery replaced.",
             "fields": {
-                "days_last_reported": {
+                "days_last_replaced": {
                     "description": "Number of days since a device last had its battery replaced.",
                     "name": "Dias"
                 },

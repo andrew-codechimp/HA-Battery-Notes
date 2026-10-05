@@ -293,7 +293,7 @@
                     "description": "Dispositivo al que le ha sido reemplazada la batería.",
                     "name": "Dispositivo"
                 },
-                "entity_id": {
+                "source_entity_id": {
                     "description": "Entidad cuya batería ha sido reemplazada.",
                     "name": "Entidad"
                 },
@@ -307,7 +307,7 @@
         "check_battery_last_replaced": {
             "description": "Obtenga una respuesta o genere eventos para dispositivos cuya batería no ha sido reemplazada.",
             "fields": {
-                "days_last_reported": {
+                "days_last_replaced": {
                     "description": "Número de días desde que un dispositivo tuvo su última batería reemplazada.",
                     "name": "Días"
                 },

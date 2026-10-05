@@ -293,7 +293,7 @@
                     "description": "已更換電池的裝置。",
                     "name": "裝置"
                 },
-                "entity_id": {
+                "source_entity_id": {
                     "description": "已更換電池的實體（僅用於關聯至實體的 Battery Notes）。",
                     "name": "實體"
                 },
@@ -307,7 +307,7 @@
         "check_battery_last_replaced": {
             "description": "Get a response or raise events for devices that haven't had their battery replaced.",
             "fields": {
-                "days_last_reported": {
+                "days_last_replaced": {
                     "description": "Number of days since a device last had its battery replaced.",
                     "name": "天數"
                 },
