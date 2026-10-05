@@ -7,7 +7,8 @@ import json
 import logging
 import os
 from dataclasses import dataclass
-from typing import Any, Final, NamedTuple, cast
+from pathlib import Path
+from typing import Any, Final, NamedTuple
 
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.storage import STORAGE_DIR
@@ -45,7 +46,24 @@ class LibraryDevice:
 
     @classmethod
     def from_json(cls, data: dict[str, Any]) -> LibraryDevice:
-        """Create LibraryDevice instance from JSON data."""
+        """Create LibraryDevice instance from JSON data.
+
+        Raises ValueError for entries without the required fields or with wrong types.
+        """
+        if not isinstance(data, dict):
+            raise ValueError(f"Device entry is not an object: {data!r}")
+
+        for key in (LIBRARY_MANUFACTURER, LIBRARY_MODEL, LIBRARY_BATTERY_TYPE):
+            if not isinstance(data.get(key), str) or not data[key]:
+                raise ValueError(f"Device entry has no {key}: {data!r}")
+        for key in (LIBRARY_MODEL_MATCH_METHOD, LIBRARY_MODEL_ID, LIBRARY_HW_VERSION):
+            if data.get(key) is not None and not isinstance(data[key], str):
+                raise ValueError(f"Device entry has an invalid {key}: {data!r}")
+
+        battery_quantity = data.get(LIBRARY_BATTERY_QUANTITY, 1)
+        if isinstance(battery_quantity, bool) or not isinstance(battery_quantity, int):
+            raise ValueError(f"Device entry has an invalid battery quantity: {data!r}")
+
         return cls(
             manufacturer=data[LIBRARY_MANUFACTURER],
             model=data[LIBRARY_MODEL],
@@ -53,8 +71,40 @@ class LibraryDevice:
             model_id=data.get(LIBRARY_MODEL_ID),
             hw_version=data.get(LIBRARY_HW_VERSION),
             battery_type=data[LIBRARY_BATTERY_TYPE],
-            battery_quantity=data.get(LIBRARY_BATTERY_QUANTITY, 1),
+            battery_quantity=battery_quantity,
         )
+
+
+def _parse_library(
+    json_data: Any, library_file: str
+) -> tuple[list[LibraryDevice], set[str]]:
+    """Return the valid devices and the ignored domains of a library.
+
+    Invalid device entries are skipped so one bad entry doesn't discard the library.
+    """
+    if not isinstance(json_data, dict) or not isinstance(
+        json_data.get(LIBRARY_DEVICES), list
+    ):
+        raise ValueError("no devices list")
+
+    devices: list[LibraryDevice] = []
+    for json_device in json_data[LIBRARY_DEVICES]:
+        try:
+            devices.append(LibraryDevice.from_json(json_device))
+        except ValueError as err:
+            _LOGGER.warning("Skipping invalid device in %s: %s", library_file, err)
+    _LOGGER.info("Loaded %s devices from %s", len(devices), library_file)
+
+    ignored_domains: set[str] = set()
+    if isinstance(json_data.get("ignored_domains"), list):
+        ignored_domains = {
+            str(domain).casefold() for domain in json_data["ignored_domains"]
+        }
+        _LOGGER.info(
+            "Loaded %s ignored domains from %s", len(ignored_domains), library_file
+        )
+
+    return devices, ignored_domains
 
 
 class Library:  # pylint: disable=too-few-public-methods
@@ -66,147 +116,72 @@ class Library:  # pylint: disable=too-few-public-methods
         self._manufacturer_devices: dict[str, list[LibraryDevice]] = {}
         self._ignored_domains: set[str] = set()
         self._load_lock = asyncio.Lock()
-        self._is_loading = False
 
     async def load_libraries(self):
         """Load the user and default libraries."""
         async with self._load_lock:
-            if self._is_loading:
-                _LOGGER.debug("Library already loading, skipping duplicate load")
-                return
+            await self._do_load_libraries()
 
-            self._is_loading = True
-            try:
-                await self._do_load_libraries()
-            finally:
-                self._is_loading = False
-
-    async def _do_load_libraries(self):  # noqa: PLR0912, PLR0915
+    async def _do_load_libraries(self) -> None:
         """Load libraries internally (must be called with lock held)."""
 
-        def _load_library_json(library_file: str) -> dict[str, Any]:
-            """Load library json file."""
-            with open(library_file, encoding="utf-8") as file:
-                return cast(dict[str, Any], json.load(file))
+        def _load_library_json(
+            library_file: str, legacy_library_file: str | None = None
+        ) -> Any:
+            """Load a library json file, moving it from the legacy location if needed."""
+            if (
+                legacy_library_file
+                and not Path(library_file).exists()
+                and Path(legacy_library_file).exists()
+            ):
+                os.makedirs(os.path.dirname(library_file), exist_ok=True)
+                os.rename(legacy_library_file, library_file)
+                _LOGGER.debug("User library moved to %s", library_file)
 
-        def _move_legacy_user_library(legacy_path: str, new_path: str) -> None:
-            os.makedirs(os.path.dirname(new_path), exist_ok=True)
-            os.rename(legacy_path, new_path)
+            with open(library_file, encoding="utf-8") as file:
+                return json.load(file)
 
         new_manufacturer_devices: dict[str, list[LibraryDevice]] = {}
         new_ignored_domains: set[str] = set()
+        library_files: list[tuple[str, str | None]] = []
 
-        # User Library
+        # User Library, searched before the default library
         domain_config = self.hass.data.get(MY_KEY)
         if domain_config and domain_config.user_library != "":
-            json_user_path = self.hass.config.path(
-                STORAGE_DIR, "battery_notes", domain_config.user_library
+            library_files.append(
+                (
+                    self.hass.config.path(
+                        STORAGE_DIR, "battery_notes", domain_config.user_library
+                    ),
+                    os.path.join(
+                        os.path.dirname(__file__), "data", domain_config.user_library
+                    ),
+                )
             )
-
-            try:
-                user_json_data = await self.hass.async_add_executor_job(
-                    _load_library_json, json_user_path
-                )
-
-                for json_device in user_json_data["devices"]:
-                    library_device = LibraryDevice.from_json(json_device)
-                    manufacturer = library_device.manufacturer.casefold()
-                    if manufacturer not in new_manufacturer_devices:
-                        new_manufacturer_devices[manufacturer] = []
-                    new_manufacturer_devices[manufacturer].append(library_device)
-                _LOGGER.info(
-                    "Loaded %s user devices from %s",
-                    len(user_json_data["devices"]),
-                    json_user_path,
-                )
-
-                if "ignored_domains" in user_json_data:
-                    ignored_domains = user_json_data["ignored_domains"]
-                    if isinstance(ignored_domains, list):
-                        new_ignored_domains.update(
-                            str(domain).casefold() for domain in ignored_domains
-                        )
-                        _LOGGER.info(
-                            "Loaded %s ignored domains from %s",
-                            len(ignored_domains),
-                            json_user_path,
-                        )
-
-            except FileNotFoundError:
-                # Try to move the user library to new location
-                try:
-                    legacy_data_directory = os.path.join(
-                        os.path.dirname(__file__), "data"
-                    )
-                    legacy_json_user_path = os.path.join(
-                        legacy_data_directory, domain_config.user_library
-                    )
-                    await self.hass.async_add_executor_job(
-                        _move_legacy_user_library,
-                        legacy_json_user_path,
-                        json_user_path,
-                    )
-
-                    _LOGGER.debug(
-                        "User library moved to %s",
-                        json_user_path,
-                    )
-                except FileNotFoundError:
-                    _LOGGER.error(
-                        "User library file not found at %s",
-                        json_user_path,
-                    )
-            except (json.JSONDecodeError, KeyError, ValueError) as err:
-                _LOGGER.error(
-                    "Failed to parse user library file at %s: %s",
-                    json_user_path,
-                    err,
-                )
 
         # Default Library
-        json_default_path = self.hass.config.path(
-            STORAGE_DIR, "battery_notes", "library.json"
+        library_files.append(
+            (self.hass.config.path(STORAGE_DIR, "battery_notes", "library.json"), None)
         )
 
-        try:
-            default_json_data = await self.hass.async_add_executor_job(
-                _load_library_json, json_default_path
-            )
-            for json_device in default_json_data["devices"]:
-                library_device = LibraryDevice.from_json(json_device)
-                manufacturer = library_device.manufacturer.casefold()
-                if manufacturer not in new_manufacturer_devices:
-                    new_manufacturer_devices[manufacturer] = []
-                new_manufacturer_devices[manufacturer].append(library_device)
-            _LOGGER.info(
-                "Loaded %s default devices from %s",
-                len(default_json_data[LIBRARY_DEVICES]),
-                json_default_path,
-            )
+        for library_file, legacy_library_file in library_files:
+            try:
+                json_data = await self.hass.async_add_executor_job(
+                    _load_library_json, library_file, legacy_library_file
+                )
+                devices, ignored_domains = _parse_library(json_data, library_file)
+            except FileNotFoundError:
+                _LOGGER.error("Library file not found at %s", library_file)
+                continue
+            except (OSError, ValueError) as err:
+                _LOGGER.error("Failed to load library file %s: %s", library_file, err)
+                continue
 
-            if "ignored_domains" in default_json_data:
-                ignored_domains = default_json_data["ignored_domains"]
-                if isinstance(ignored_domains, list):
-                    new_ignored_domains.update(
-                        str(domain).casefold() for domain in ignored_domains
-                    )
-                    _LOGGER.info(
-                        "Loaded %s ignored domains from %s",
-                        len(ignored_domains),
-                        json_default_path,
-                    )
-
-        except FileNotFoundError:
-            _LOGGER.error(
-                "library.json file not found at %s",
-                json_default_path,
-            )
-        except (json.JSONDecodeError, KeyError, ValueError) as err:
-            _LOGGER.error(
-                "Failed to parse library file at %s: %s",
-                json_default_path,
-                err,
-            )
+            for library_device in devices:
+                new_manufacturer_devices.setdefault(
+                    library_device.manufacturer.casefold(), []
+                ).append(library_device)
+            new_ignored_domains.update(ignored_domains)
 
         # Keep the previously loaded library if nothing could be loaded this time
         if new_manufacturer_devices:
@@ -336,7 +311,7 @@ class Library:  # pylint: disable=too-few-public-methods
     def is_loaded(self) -> bool:
         """Library loaded successfully."""
 
-        return bool(self._manufacturer_devices) and not self._is_loading
+        return bool(self._manufacturer_devices)
 
     def device_basic_match(
         self, library_device: LibraryDevice, device_to_find: ModelInfo
