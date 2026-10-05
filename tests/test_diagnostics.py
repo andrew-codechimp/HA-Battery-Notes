@@ -1,6 +1,8 @@
 """Tests for Battery Notes diagnostics."""
 
 import pytest
+from custom_components.battery_notes.library import DATA_LIBRARY
+from freezegun.api import FrozenDateTimeFactory
 from pytest_homeassistant_custom_component.common import MockConfigEntry
 from pytest_homeassistant_custom_component.components.diagnostics import (
     get_diagnostics_for_config_entry,
@@ -19,6 +21,12 @@ pytestmark = pytest.mark.usefixtures("mock_library_updater", "_mock_library_file
 
 SOURCE_ENTITY_ID = "sensor.door_battery"
 SNAPSHOT_EXCLUDE = props("entry_id", "device_id", "created_at", "modified_at")
+
+
+@pytest.fixture(autouse=True)
+def freeze_setup_time(freezer: FrozenDateTimeFactory) -> None:
+    """Keep the reported and replaced timestamps stable in snapshots."""
+    freezer.move_to("2026-01-01T12:00:00+00:00")
 
 
 @pytest.fixture
@@ -132,3 +140,36 @@ async def test_entity_device_takes_precedence(
     assert await get_diagnostics_for_config_entry(
         hass, hass_client, battery_note_config_entry
     ) == snapshot(exclude=SNAPSHOT_EXCLUDE)
+
+
+@pytest.mark.parametrize("battery_note_source", [pytest.param("device", id="device")])
+async def test_library_match(
+    hass: HomeAssistant,
+    hass_client: ClientSessionGenerator,
+    battery_note_config_entry: MockConfigEntry,
+    battery_note_device: dr.DeviceEntry,
+) -> None:
+    """Test the library entry matching the source device is included."""
+    dr.async_get(hass).async_update_device(
+        battery_note_device.id,
+        model="Specific sensor",
+        model_id="S1",
+        hw_version="Rev2",
+    )
+    await setup_integration(hass, battery_note_config_entry)
+    await hass.data[DATA_LIBRARY].load_libraries()
+    subentry = next(iter(battery_note_config_entry.subentries.values()))
+
+    diagnostics = await get_diagnostics_for_config_entry(
+        hass, hass_client, battery_note_config_entry
+    )
+
+    assert diagnostics["library_loaded"] is True
+    assert diagnostics["battery_notes"][subentry.subentry_id]["library_match"] == {
+        "manufacturer": "Test Manufacturer",
+        "model": "Specific sensor",
+        "model_id": "S1",
+        "hw_version": "Rev2",
+        "battery_type": "CR2032",
+        "battery_quantity": 4,
+    }
