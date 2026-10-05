@@ -15,6 +15,7 @@ from custom_components.battery_notes.const import (
     CONF_BATTERY_TYPE,
     CONF_DEFAULT_BATTERY_INCREASE_THRESHOLD,
     CONF_DEFAULT_BATTERY_LOW_THRESHOLD,
+    CONF_FILTER_OUTLIERS,
     CONF_RETAIN_STATE,
     CONF_SOURCE_ENTITY_ID,
     DOMAIN,
@@ -520,3 +521,79 @@ async def test_low_template_events(
         (EVENT_BATTERY_INCREASED, False),
     ]
     assert hass.states.get(battery_low_id).state == STATE_OFF
+
+
+@pytest.fixture
+def outlier_note_entry(
+    mock_config_entry: MockConfigEntry, mock_battery_note_subentry: ConfigSubentry
+) -> MockConfigEntry:
+    """Create a note with the outlier filter enabled."""
+    return _note_entry(
+        mock_config_entry,
+        replace(
+            mock_battery_note_subentry,
+            data=MappingProxyType(
+                {
+                    **mock_battery_note_subentry.data,
+                    CONF_ADVANCED_SETTINGS: {CONF_FILTER_OUTLIERS: True},
+                }
+            ),
+        ),
+    )
+
+
+@pytest.mark.parametrize("battery_note_source", ["device"])
+async def test_outlier_filter_rejects_consecutive_outliers(
+    hass: HomeAssistant,
+    outlier_note_entry: MockConfigEntry,
+    battery_note_sensor: er.RegistryEntry,
+    battery_events: list[Event],
+) -> None:
+    """Test consecutive outliers are rejected until they make up the window."""
+    await setup_integration(hass, outlier_note_entry)
+    battery_plus_id = _battery_plus_entity_id(hass, outlier_note_entry)
+    for level in ("95", "90"):
+        await _set_level(hass, battery_note_sensor.entity_id, level)
+    battery_events.clear()
+
+    # A second outlier is not allowed through by comparing it with the first one
+    for level in ("5", "6"):
+        await _set_level(hass, battery_note_sensor.entity_id, level)
+        assert hass.states.get(battery_plus_id).state == "90.0"
+    assert battery_events == []
+
+    # Once low readings make up most of the window they are accepted
+    await _set_level(hass, battery_note_sensor.entity_id, "7")
+    assert hass.states.get(battery_plus_id).state == "7.0"
+    assert _summary(battery_events) == [(EVENT_BATTERY_THRESHOLD, True)]
+
+
+@pytest.mark.parametrize(
+    "case",
+    [
+        pytest.param(
+            (("40", "30"), "0.0", [(EVENT_BATTERY_THRESHOLD, True)]), id="draining"
+        ),
+        pytest.param((("95", "90"), "90.0", []), id="glitch"),
+    ],
+)
+@pytest.mark.parametrize("battery_note_source", ["device"])
+async def test_outlier_filter_zero_level(
+    hass: HomeAssistant,
+    outlier_note_entry: MockConfigEntry,
+    battery_note_sensor: er.RegistryEntry,
+    battery_events: list[Event],
+    case: tuple[tuple[str, str], str, list[tuple[str, bool]]],
+) -> None:
+    """Test a 0% reading is accepted when the battery drains, not as a glitch."""
+    history, expected_state, expected_events = case
+    await setup_integration(hass, outlier_note_entry)
+    battery_plus_id = _battery_plus_entity_id(hass, outlier_note_entry)
+    for level in history:
+        await _set_level(hass, battery_note_sensor.entity_id, level)
+    battery_events.clear()
+
+    await _set_level(hass, battery_note_sensor.entity_id, "0")
+
+    assert hass.states.get(battery_plus_id).state == expected_state
+    assert _summary(battery_events) == expected_events
