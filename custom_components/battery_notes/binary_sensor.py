@@ -91,13 +91,11 @@ class BatteryNotesBinarySensorEntityDescription(
     unique_id_suffix: str
 
 
-PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
-    {
-        vol.Optional(CONF_NAME): cv.string,
-        vol.Optional(CONF_DEVICE_ID): cv.string,
-        vol.Optional(CONF_SOURCE_ENTITY_ID): cv.string,
-    }
-)
+PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
+    vol.Optional(CONF_NAME): cv.string,
+    vol.Optional(CONF_DEVICE_ID): cv.string,
+    vol.Optional(CONF_SOURCE_ENTITY_ID): cv.string,
+})
 
 
 async def async_setup_entry(
@@ -215,21 +213,19 @@ class BatteryNotesBatteryLowBaseSensor(
 
         self.enable_replaced = hass.data[MY_KEY].enable_replaced
 
-    _unrecorded_attributes = frozenset(
-        {
-            ATTR_BATTERY_INCREASE_THRESHOLD,
-            ATTR_BATTERY_LOW_THRESHOLD,
-            ATTR_BATTERY_QUANTITY,
-            ATTR_BATTERY_TYPE,
-            ATTR_BATTERY_TYPE_AND_QUANTITY,
-            ATTR_NOTE,
-            ATTR_BATTERY_LAST_REPLACED,
-            ATTR_BATTERY_LAST_REPORTED,
-            ATTR_DEVICE_ID,
-            ATTR_SOURCE_ENTITY_ID,
-            ATTR_DEVICE_NAME,
-        }
-    )
+    _unrecorded_attributes = frozenset({
+        ATTR_BATTERY_INCREASE_THRESHOLD,
+        ATTR_BATTERY_LOW_THRESHOLD,
+        ATTR_BATTERY_QUANTITY,
+        ATTR_BATTERY_TYPE,
+        ATTR_BATTERY_TYPE_AND_QUANTITY,
+        ATTR_NOTE,
+        ATTR_BATTERY_LAST_REPLACED,
+        ATTR_BATTERY_LAST_REPORTED,
+        ATTR_DEVICE_ID,
+        ATTR_SOURCE_ENTITY_ID,
+        ATTR_DEVICE_NAME,
+    })
 
     @property
     def extra_state_attributes(self) -> dict[str, Any] | None:
@@ -567,11 +563,45 @@ class BatteryNotesBatteryWrappedLowSensor(BatteryNotesNonTemplateBatteryLowSenso
         # The coordinator only updates for valid battery levels, follow the source
         # directly so this sensor also reflects the source becoming unavailable
         if self.coordinator.wrapped_battery:
-            self.async_on_remove(
-                async_track_state_change_event(
+            source_entity_id = self.coordinator.wrapped_battery.entity_id
+            unsub_source = async_track_state_change_event(
+                self.hass,
+                [source_entity_id],
+                self._async_source_state_changed,
+            )
+
+            @callback
+            def _async_source_renamed(
+                event: Event[er.EventEntityRegistryUpdatedData],
+            ) -> None:
+                nonlocal source_entity_id, unsub_source
+                unsub_source()
+                source_entity_id = event.data["entity_id"]
+                unsub_source = async_track_state_change_event(
                     self.hass,
-                    [self.coordinator.wrapped_battery.entity_id],
+                    [source_entity_id],
                     self._async_source_state_changed,
+                )
+
+            @callback
+            def _filter_source_rename(
+                event_data: er.EventEntityRegistryUpdatedData,
+            ) -> bool:
+                return (
+                    event_data["action"] == "update"
+                    and event_data.get("old_entity_id") == source_entity_id
+                )
+
+            @callback
+            def _async_remove_source_listener() -> None:
+                unsub_source()
+
+            self.async_on_remove(_async_remove_source_listener)
+            self.async_on_remove(
+                self.hass.bus.async_listen(
+                    EVENT_ENTITY_REGISTRY_UPDATED,
+                    _async_source_renamed,
+                    event_filter=_filter_source_rename,
                 )
             )
 
@@ -581,10 +611,14 @@ class BatteryNotesBatteryWrappedLowSensor(BatteryNotesNonTemplateBatteryLowSenso
     def _async_source_state_changed(self, event: Event[EventStateChangedData]) -> None:
         """Handle the wrapped battery becoming unavailable or invalid.
 
-        Valid levels arrive through the coordinator once it has processed them.
+        Availability must recover even when Battery Plus is disabled.
         """
         new_state = event.data["new_state"]
-        if new_state is None or not validate_is_float(new_state.state):
+        if (
+            new_state is None
+            or not validate_is_float(new_state.state)
+            or not self._attr_available
+        ):
             self._handle_coordinator_update()
 
     @callback

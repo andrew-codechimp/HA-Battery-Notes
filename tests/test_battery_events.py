@@ -187,6 +187,36 @@ async def test_percentage_unavailable_source(
     assert hass.states.get(battery_plus_id).state == "5.0"
 
 
+@pytest.mark.parametrize("unavailable_state", [STATE_UNAVAILABLE, STATE_UNKNOWN])
+async def test_percentage_renamed_source_availability(
+    hass: HomeAssistant,
+    battery_note_config_entry: MockConfigEntry,
+    battery_note_sensor: er.RegistryEntry,
+    battery_events: list[Event],
+    unavailable_state: str,
+) -> None:
+    """Test battery low follows availability after its source is renamed."""
+    await setup_integration(hass, battery_note_config_entry)
+    battery_low_id = _battery_low_entity_id(hass, battery_note_config_entry)
+    source_id = "sensor.renamed_door_battery"
+    er.async_get(hass).async_update_entity(
+        battery_note_sensor.entity_id, new_entity_id=source_id
+    )
+    await hass.async_block_till_done()
+
+    await _set_level(hass, source_id, "5")
+    assert hass.states.get(battery_low_id).state == STATE_ON
+    assert _summary(battery_events) == [(EVENT_BATTERY_THRESHOLD, True)]
+
+    await _set_level(hass, source_id, unavailable_state)
+    assert hass.states.get(battery_low_id).state == STATE_UNAVAILABLE
+    assert len(battery_events) == 1
+
+    await _set_level(hass, source_id, "5")
+    assert hass.states.get(battery_low_id).state == STATE_ON
+    assert len(battery_events) == 1
+
+
 @pytest.mark.parametrize("battery_note_source", ["device"])
 async def test_percentage_unavailable_source_retain_state(
     hass: HomeAssistant,
@@ -216,6 +246,36 @@ async def test_percentage_unavailable_source_retain_state(
 
     assert hass.states.get(battery_low_id).state == STATE_ON
     assert hass.states.get(battery_plus_id).state == "5.0"
+
+
+@pytest.mark.parametrize("unavailable_state", [STATE_UNAVAILABLE, STATE_UNKNOWN])
+async def test_percentage_unavailable_source_disabled_battery_plus(
+    hass: HomeAssistant,
+    battery_note_config_entry: MockConfigEntry,
+    battery_note_sensor: er.RegistryEntry,
+    battery_events: list[Event],
+    unavailable_state: str,
+) -> None:
+    """Test battery low recovers without an enabled Battery Plus sensor."""
+    subentry = next(iter(battery_note_config_entry.subentries.values()))
+    er.async_get(hass).async_get_or_create(
+        "sensor",
+        DOMAIN,
+        f"{subentry.unique_id}_battery_plus",
+        disabled_by=er.RegistryEntryDisabler.USER,
+    )
+    await setup_integration(hass, battery_note_config_entry)
+    battery_low_id = _battery_low_entity_id(hass, battery_note_config_entry)
+    battery_plus_id = _battery_plus_entity_id(hass, battery_note_config_entry)
+    assert hass.states.get(battery_plus_id) is None
+    assert hass.states.get(battery_low_id).state == STATE_OFF
+
+    await _set_level(hass, battery_note_sensor.entity_id, unavailable_state)
+    assert hass.states.get(battery_low_id).state == STATE_UNAVAILABLE
+
+    await _set_level(hass, battery_note_sensor.entity_id, "55")
+    assert hass.states.get(battery_low_id).state == STATE_OFF
+    assert battery_events == []
 
 
 @pytest.mark.parametrize(
