@@ -165,7 +165,7 @@ async def test_library_match(
     )
 
     assert diagnostics["library_loaded"] is True
-    assert diagnostics["battery_notes"][subentry.subentry_id]["library_match"] == {
+    assert diagnostics["sub_entries"][subentry.subentry_id]["library_match"] == {
         "manufacturer": "Test Manufacturer",
         "model": "Specific sensor",
         "model_id": "S1",
