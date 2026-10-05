@@ -64,7 +64,6 @@ from .const import (
     SUBENTRY_BATTERY_NOTE,
 )
 from .coordinator import (
-    MY_KEY,
     BatteryNotesConfigEntry,
     BatteryNotesSubentryCoordinator,
 )
@@ -194,7 +193,7 @@ class BatteryNotesBatteryLowBaseSensor(
             hass, entity_description=entity_description, coordinator=coordinator
         )
 
-        self.enable_replaced = hass.data[MY_KEY].enable_replaced
+        self.enable_replaced = self.domain_config.enable_replaced
 
     _unrecorded_attributes = frozenset(
         {
@@ -277,7 +276,7 @@ class BatteryNotesNonTemplateBatteryLowSensor(BatteryNotesBatteryLowBaseSensor):
             entity_registry.async_update_entity(
                 self.entity_id,
                 hidden_by=er.RegistryEntryHider.INTEGRATION
-                if self.hass.data[MY_KEY].hide_battery_low
+                if self.domain_config.hide_battery_low
                 and self.coordinator.wrapped_battery is not None
                 else None,
             )
@@ -813,7 +812,7 @@ class BatteryNotesBatteryBinaryLowSensor(BatteryNotesNonTemplateBatteryLowSensor
         if not self.coordinator.wrapped_battery_low:
             return
 
-        domain_config = self.hass.data[MY_KEY]
+        domain_config = self.domain_config
 
         if domain_config.hide_battery:
             if (

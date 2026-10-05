@@ -13,7 +13,7 @@ from homeassistant.helpers.update_coordinator import CoordinatorEntity
 from homeassistant.util import slugify
 
 from .common import is_composite_device_id
-from .coordinator import BatteryNotesSubentryCoordinator
+from .coordinator import BatteryNotesDomainConfig, BatteryNotesSubentryCoordinator
 
 
 @dataclass(frozen=True, kw_only=True)
@@ -56,6 +56,11 @@ class BatteryNotesEntity(CoordinatorEntity[BatteryNotesSubentryCoordinator]):
 
         # Set up device association
         self._associate_device(hass)
+
+    @property
+    def domain_config(self) -> BatteryNotesDomainConfig:
+        """Return the integration options shared by all battery notes."""
+        return self.coordinator.config_entry.runtime_data.domain_config
 
     @property
     def available(self) -> bool:
