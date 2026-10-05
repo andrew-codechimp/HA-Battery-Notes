@@ -393,6 +393,78 @@ async def test_binary_source_events(
     assert hass.states.get(battery_low_id).state == STATE_OFF
 
 
+@pytest.mark.parametrize(
+    ("source_state", "expected_low"),
+    [
+        pytest.param(STATE_ON, True, id="on"),
+        pytest.param(STATE_OFF, False, id="off"),
+    ],
+)
+async def test_binary_source_coordinator_refresh(
+    hass: HomeAssistant,
+    binary_note_entry: tuple[MockConfigEntry, str],
+    battery_events: list[Event],
+    source_state: str,
+    expected_low: bool,
+) -> None:
+    """Test startup and independent refreshes preserve the source binary state."""
+    entry, source_id = binary_note_entry
+    hass.states.async_set(
+        source_id, source_state, {ATTR_DEVICE_CLASS: BinarySensorDeviceClass.BATTERY}
+    )
+    await setup_integration(hass, entry)
+    battery_low_id = _battery_low_entity_id(hass, entry)
+    assert hass.states.get(battery_low_id).state == source_state
+    subentry = next(iter(entry.subentries.values()))
+    coordinator = entry.runtime_data.subentry_coordinators[subentry.subentry_id]
+    assert coordinator.battery_low_binary_state is expected_low
+    events_before_refresh = list(battery_events)
+
+    await coordinator.async_refresh()
+    await hass.async_block_till_done()
+
+    assert hass.states.get(battery_low_id).state == source_state
+    assert coordinator.battery_low_binary_state is expected_low
+    assert battery_events == events_before_refresh
+
+
+@pytest.mark.parametrize(
+    "unavailable_state",
+    [
+        pytest.param(STATE_UNAVAILABLE, id="unavailable"),
+        pytest.param(STATE_UNKNOWN, id="unknown"),
+    ],
+)
+async def test_binary_source_unavailable_coordinator_refresh(
+    hass: HomeAssistant,
+    binary_note_entry: tuple[MockConfigEntry, str],
+    battery_events: list[Event],
+    unavailable_state: str,
+) -> None:
+    """Test refreshes keep an unavailable source unavailable despite a stored low state."""
+    entry, source_id = binary_note_entry
+    attributes = {ATTR_DEVICE_CLASS: BinarySensorDeviceClass.BATTERY}
+    hass.states.async_set(source_id, STATE_ON, attributes)
+    await setup_integration(hass, entry)
+    battery_low_id = _battery_low_entity_id(hass, entry)
+    assert hass.states.get(battery_low_id).state == STATE_ON
+    subentry = next(iter(entry.subentries.values()))
+    coordinator = entry.runtime_data.subentry_coordinators[subentry.subentry_id]
+
+    hass.states.async_set(source_id, unavailable_state, attributes)
+    await hass.async_block_till_done()
+    assert coordinator.battery_low_binary_state is True
+    assert hass.states.get(battery_low_id).state == STATE_UNAVAILABLE
+    events_before_refresh = list(battery_events)
+
+    await coordinator.async_refresh()
+    await hass.async_block_till_done()
+
+    assert hass.states.get(battery_low_id).state == STATE_UNAVAILABLE
+    assert coordinator.battery_low_binary_state is True
+    assert battery_events == events_before_refresh
+
+
 @pytest.fixture
 def template_note_entry(
     hass: HomeAssistant,
