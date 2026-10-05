@@ -9,6 +9,12 @@
         'battery_low_threshold': 10,
         'battery_percentage_template': None,
         'current_battery_level': '55',
+        'device_info': dict({
+          'hw_version': '2.0',
+          'manufacturer': 'Replacement Manufacturer',
+          'model': 'Replacement sensor',
+          'model_id': 'DS-02',
+        }),
         'last_replaced': '2026-01-01T12:00:00+00:00',
         'last_reported': '2026-01-01T12:00:00+00:00',
         'last_reported_level': 55.0,
@@ -63,12 +69,6 @@
       'version': 4,
     }),
     'library_loaded': False,
-    'subentry battery-note-subentry': dict({
-      'hw_version': '2.0',
-      'manufacturer': 'Replacement Manufacturer',
-      'model': 'Replacement sensor',
-      'model_id': 'DS-02',
-    }),
   })
 # ---
 # name: test_entry_diagnostics
@@ -167,6 +167,12 @@
   dict({
     'battery_notes': dict({
       'battery-note-subentry': dict({
+        'device_info': dict({
+          'hw_version': '1.2.3',
+          'manufacturer': 'Test Manufacturer',
+          'model': 'Door sensor',
+          'model_id': 'DS-01',
+        }),
         'library_match': None,
         'orphaned': True,
         'wrapped_battery': None,
@@ -217,12 +223,6 @@
       'version': 4,
     }),
     'library_loaded': False,
-    'subentry battery-note-subentry': dict({
-      'hw_version': '1.2.3',
-      'manufacturer': 'Test Manufacturer',
-      'model': 'Door sensor',
-      'model_id': 'DS-01',
-    }),
   })
 # ---
 # name: test_missing_source_entity[standalone-entity]
@@ -291,6 +291,12 @@
         'battery_low_threshold': 10,
         'battery_percentage_template': None,
         'current_battery_level': '55',
+        'device_info': dict({
+          'hw_version': '1.2.3',
+          'manufacturer': 'Test Manufacturer',
+          'model': 'Door sensor',
+          'model_id': 'DS-01',
+        }),
         'last_replaced': '2026-01-01T12:00:00+00:00',
         'last_reported': '2026-01-01T12:00:00+00:00',
         'last_reported_level': 55.0,
@@ -344,12 +350,6 @@
       'version': 4,
     }),
     'library_loaded': False,
-    'subentry battery-note-subentry': dict({
-      'hw_version': '1.2.3',
-      'manufacturer': 'Test Manufacturer',
-      'model': 'Door sensor',
-      'model_id': 'DS-01',
-    }),
   })
 # ---
 # name: test_note_diagnostics[entity]
@@ -362,6 +362,12 @@
         'battery_low_threshold': 10,
         'battery_percentage_template': None,
         'current_battery_level': '55',
+        'device_info': dict({
+          'hw_version': '1.2.3',
+          'manufacturer': 'Test Manufacturer',
+          'model': 'Door sensor',
+          'model_id': 'DS-01',
+        }),
         'last_replaced': '2026-01-01T12:00:00+00:00',
         'last_reported': '2026-01-01T12:00:00+00:00',
         'last_reported_level': 55.0,
@@ -416,12 +422,6 @@
       'version': 4,
     }),
     'library_loaded': False,
-    'subentry battery-note-subentry': dict({
-      'hw_version': '1.2.3',
-      'manufacturer': 'Test Manufacturer',
-      'model': 'Door sensor',
-      'model_id': 'DS-01',
-    }),
   })
 # ---
 # name: test_note_diagnostics[standalone-entity]

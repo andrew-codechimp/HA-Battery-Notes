@@ -29,9 +29,11 @@ async def async_get_config_entry_diagnostics(
     coordinators = config_entry.runtime_data.subentry_coordinators or {}
 
     diagnostics: dict[str, Any] = {"entry": config_entry.as_dict()}
-    battery_notes: dict[str, Any] = {}
+    notes: dict[str, Any] = {}
 
     for subentry in config_entry.subentries.values():
+        subentry_diagnostics: dict[str, Any] = {}
+        notes[subentry.subentry_id] = subentry_diagnostics
         device_id = subentry.data.get(CONF_DEVICE_ID, None)
         source_entity_id = subentry.data.get(CONF_SOURCE_ENTITY_ID, None)
 
@@ -42,22 +44,23 @@ async def async_get_config_entry_diagnostics(
 
         device_entry = device_registry.async_get(device_id) if device_id else None
         if device_entry:
-            device_info = {
+            subentry_diagnostics["device_info"] = {
                 "manufacturer": device_entry.manufacturer,
                 "model": device_entry.model,
                 "model_id": get_device_model_id(device_entry),
                 "hw_version": device_entry.hw_version,
             }
-            diagnostics.update({f"subentry {subentry.subentry_id}": device_info})
 
         if coordinator := coordinators.get(subentry.subentry_id):
-            battery_notes[subentry.subentry_id] = {
-                **_coordinator_diagnostics(coordinator),
-                "library_match": await _library_match(library, device_entry),
-            }
+            subentry_diagnostics.update(
+                {
+                    **_coordinator_diagnostics(coordinator),
+                    "library_match": await _library_match(library, device_entry),
+                }
+            )
 
     diagnostics["library_loaded"] = library is not None and library.is_loaded
-    diagnostics["battery_notes"] = battery_notes
+    diagnostics["battery_notes"] = notes
 
     return diagnostics
 
