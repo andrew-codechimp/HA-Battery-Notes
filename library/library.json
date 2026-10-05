@@ -13545,6 +13545,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Sunricher",
+            "model": "4IN1 Sensor",
+            "model_id": "HK-SENSOR-4IN1-A",
+            "battery_type": "AA",
+            "battery_quantity": 2
         }
     ]
 }
