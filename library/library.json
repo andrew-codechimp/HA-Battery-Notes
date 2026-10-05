@@ -13545,6 +13545,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Third Reality",
+            "model": "Smart button",
+            "model_id": "3RSB22BZ",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
