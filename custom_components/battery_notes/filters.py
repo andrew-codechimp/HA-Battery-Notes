@@ -112,40 +112,47 @@ class LowOutlierFilter(Filter):
         self._radius = radius
         self._stats_internal: Counter = Counter()
         self._store_raw = True
+        self._last_accepted: float | None = None
+
+    def reset(self) -> None:
+        """Reset filter."""
+        super().reset()
+        self._last_accepted = None
 
     def _filter_state(self, new_state: FilterState) -> FilterState:
         """Implement the outlier filter."""
 
         previous_state_values = [cast(float, s.state) for s in self.states]
         new_state_value = cast(float, new_state.state)
+        window_full = len(self.states) == self.states.maxlen
         self._skip_processing = False
 
-        if new_state_value <= 0:
+        # Negative levels are invalid, and a 0 without history is usually a glitch
+        if new_state_value < 0 or (new_state_value == 0 and not window_full):
             self._skip_processing = True
             return new_state
 
-        if previous_state_values and new_state_value >= previous_state_values[-1]:
+        # Compare with the last accepted level, the window also holds rejected outliers
+        if self._last_accepted is not None and new_state_value >= self._last_accepted:
             _LOGGER.debug(
-                "New value higher than last previous state, allowing. %s >= %s",
+                "New value higher than last accepted state, allowing. %s >= %s",
                 new_state,
-                previous_state_values[-1],
+                self._last_accepted,
             )
+            self._last_accepted = new_state_value
             return new_state
 
         median = statistics.median(previous_state_values) if self.states else 0
 
-        if (
-            len(self.states) == self.states.maxlen
-            and abs(new_state_value - median) > self._radius
-        ):
+        if window_full and abs(new_state_value - median) > self._radius:
             self._skip_processing = True
+            self._stats_internal["erasures"] += 1
+            _LOGGER.debug(
+                "Outlier nr. %s: %s",
+                self._stats_internal["erasures"],
+                new_state,
+            )
+            return new_state
 
-            if len(self.states) == self.states.maxlen:
-                self._stats_internal["erasures"] += 1
-                _LOGGER.debug(
-                    "Outlier nr. %s: %s",
-                    self._stats_internal["erasures"],
-                    new_state,
-                )
-
+        self._last_accepted = new_state_value
         return new_state
