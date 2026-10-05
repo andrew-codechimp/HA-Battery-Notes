@@ -29,11 +29,11 @@ async def async_get_config_entry_diagnostics(
     coordinators = config_entry.runtime_data.subentry_coordinators or {}
 
     diagnostics: dict[str, Any] = {"entry": config_entry.as_dict()}
-    sub_entries: dict[str, Any] = {}
+    notes: dict[str, Any] = {}
 
     for subentry in config_entry.subentries.values():
         subentry_diagnostics: dict[str, Any] = {}
-        sub_entries[subentry.subentry_id] = subentry_diagnostics
+        notes[subentry.subentry_id] = subentry_diagnostics
         device_id = subentry.data.get(CONF_DEVICE_ID, None)
         source_entity_id = subentry.data.get(CONF_SOURCE_ENTITY_ID, None)
 
@@ -60,7 +60,7 @@ async def async_get_config_entry_diagnostics(
             )
 
     diagnostics["library_loaded"] = library is not None and library.is_loaded
-    diagnostics["sub_entries"] = sub_entries
+    diagnostics["battery_notes"] = notes
 
     return diagnostics
 
