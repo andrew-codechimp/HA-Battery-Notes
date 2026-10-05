@@ -90,7 +90,7 @@ def async_setup_services(hass: HomeAssistant) -> None:
     )
 
 
-async def _async_battery_replaced(call: ServiceCall) -> ServiceResponse:  # noqa: PLR0912
+async def _async_battery_replaced(call: ServiceCall) -> ServiceResponse:
     """Handle the service call."""
     device_id = call.data.get(ATTR_DEVICE_ID, "")
     source_entity_id = call.data.get(ATTR_SOURCE_ENTITY_ID, "")
@@ -163,36 +163,38 @@ async def _async_battery_replaced(call: ServiceCall) -> ServiceResponse:  # noqa
             translation_placeholders={"source": device_id},
         )
 
-    # Check if device_id exists in any sub config entry
-    for config_entry in call.hass.config_entries.async_loaded_entries(DOMAIN):
-        battery_notes_config_entry = cast(BatteryNotesConfigEntry, config_entry)
-        if not battery_notes_config_entry.runtime_data.subentry_coordinators:
-            continue
+    # Entity notes also store their entity's device, prefer the note for the device
+    matches = [
+        coordinator
+        for config_entry in call.hass.config_entries.async_loaded_entries(DOMAIN)
+        for coordinator in (
+            cast(
+                BatteryNotesConfigEntry, config_entry
+            ).runtime_data.subentry_coordinators
+            or {}
+        ).values()
+        if not coordinator.is_orphaned and coordinator.device_id == device_id
+    ]
+    if matches:
+        coordinator = next(
+            (match for match in matches if not match.source_entity_id), matches[0]
+        )
+        coordinator.last_replaced = datetime_replaced
+        await coordinator.async_request_refresh()
 
-        for (
-            coordinator
-        ) in battery_notes_config_entry.runtime_data.subentry_coordinators.values():
-            if not coordinator.is_orphaned and coordinator.device_id == device_id:
-                coordinator.last_replaced = datetime_replaced
-                await coordinator.async_request_refresh()
+        _LOGGER.debug(
+            "Device %s battery replaced on %s",
+            device_id,
+            str(datetime_replaced),
+        )
 
-                _LOGGER.debug(
-                    "Device %s battery replaced on %s",
-                    device_id,
-                    str(datetime_replaced),
-                )
+        call.hass.bus.async_fire(EVENT_BATTERY_REPLACED, coordinator.event_data())
 
-                call.hass.bus.async_fire(
-                    EVENT_BATTERY_REPLACED, coordinator.event_data()
-                )
-
-                _LOGGER.debug(
-                    "Raised event battery replaced %s",
-                    coordinator.device_id,
-                )
-
-                # Found and dealt with, exit
-                return None
+        _LOGGER.debug(
+            "Raised event battery replaced %s",
+            coordinator.device_id,
+        )
+        return None
 
     raise HomeAssistantError(
         translation_domain=DOMAIN,
