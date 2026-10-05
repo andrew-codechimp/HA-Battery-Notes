@@ -22,7 +22,7 @@
         'orphaned': False,
         'retain_state': False,
         'wrapped_battery': 'sensor.door_battery',
-        'wrapped_battery_low': 'sensor.door_battery',
+        'wrapped_battery_low': None,
       }),
     }),
     'entry': dict({
@@ -375,7 +375,7 @@
         'orphaned': False,
         'retain_state': False,
         'wrapped_battery': 'sensor.door_battery',
-        'wrapped_battery_low': 'sensor.door_battery',
+        'wrapped_battery_low': None,
       }),
     }),
     'entry': dict({
@@ -441,7 +441,7 @@
         'orphaned': False,
         'retain_state': False,
         'wrapped_battery': 'sensor.door_battery',
-        'wrapped_battery_low': 'sensor.door_battery',
+        'wrapped_battery_low': None,
       }),
     }),
     'entry': dict({

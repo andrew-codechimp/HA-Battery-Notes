@@ -313,11 +313,18 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
 
             device_class = entity.device_class or entity.original_device_class
             unit_of_measurement = self._source_unit_of_measurement(entity)
+            # Sensor and binary sensor battery device classes share the same value
             if (
-                device_class == SensorDeviceClass.BATTERY
+                entity.domain == SENSOR_DOMAIN
+                and device_class == SensorDeviceClass.BATTERY
                 and unit_of_measurement == PERCENTAGE
             ):
                 self.wrapped_battery = entity
+            elif (
+                entity.domain == BINARY_SENSOR_DOMAIN
+                and device_class == BinarySensorDeviceClass.BATTERY
+            ):
+                self.wrapped_battery_low = entity
             else:
                 _LOGGER.debug(
                     "%s is not a battery entity device_class: %s unit_of_measurement: %s",
@@ -325,8 +332,6 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                     device_class,
                     unit_of_measurement,
                 )
-            if device_class == BinarySensorDeviceClass.BATTERY:
-                self.wrapped_battery_low = entity
 
             self.device_name = self.subentry.title
         else:
