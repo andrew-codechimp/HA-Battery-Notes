@@ -16,6 +16,7 @@ from custom_components.battery_notes.const import (
     CONF_BATTERY_PERCENTAGE_TEMPLATE,
     CONF_BATTERY_QUANTITY,
     CONF_BATTERY_TYPE,
+    CONF_HIDE_BATTERY,
     CONF_NOTE,
     CONF_SOURCE_ENTITY_ID,
     DOMAIN,
@@ -669,3 +670,35 @@ async def test_template_startup_cancelled_on_removal(
 
         assert percentage_tracker.call_count == expected_startups
         assert low_tracker.call_count == expected_startups
+
+
+async def test_remove_subentry_unhides_source(
+    hass: HomeAssistant,
+    mock_config_entry: MockConfigEntry,
+    source_sensor: er.RegistryEntry,
+) -> None:
+    """Test removing a note shows the source battery or battery low entity again."""
+    entry = MockConfigEntry(
+        domain=DOMAIN,
+        version=mock_config_entry.version,
+        title=mock_config_entry.title,
+        data=mock_config_entry.data,
+        options={**mock_config_entry.options, CONF_HIDE_BATTERY: True},
+        subentries_data=[
+            subentry.as_dict() for subentry in mock_config_entry.subentries.values()
+        ],
+    )
+    await setup_integration(hass, entry)
+    entity_registry = er.async_get(hass)
+    source = entity_registry.async_get(source_sensor.entity_id)
+    assert source is not None
+    assert source.hidden_by is er.RegistryEntryHider.INTEGRATION
+
+    assert hass.config_entries.async_remove_subentry(
+        entry, next(iter(entry.subentries))
+    )
+    await hass.async_block_till_done()
+
+    source = entity_registry.async_get(source_sensor.entity_id)
+    assert source is not None
+    assert source.hidden_by is None
