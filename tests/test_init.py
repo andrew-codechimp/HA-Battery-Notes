@@ -199,3 +199,22 @@ async def test_update_options(
     config = vars(mock_config_entry.runtime_data.domain_config).copy()
     assert config.pop("store") is old_runtime_data.store
     assert config == snapshot
+
+
+async def test_update_options_clear_user_library(
+    hass: HomeAssistant, mock_config_entry: MockConfigEntry
+) -> None:
+    """Test clearing the user library, which omits it from the options, reloads."""
+    await setup_integration(hass, mock_config_entry)
+    options = deepcopy(CUSTOM_OPTIONS)
+    del options[CONF_ADVANCED_SETTINGS][CONF_USER_LIBRARY]
+
+    result = await hass.config_entries.options.async_init(mock_config_entry.entry_id)
+    result = await hass.config_entries.options.async_configure(
+        result["flow_id"], user_input=options
+    )
+    await hass.async_block_till_done()
+
+    assert CONF_USER_LIBRARY not in mock_config_entry.options[CONF_ADVANCED_SETTINGS]
+    assert mock_config_entry.state is ConfigEntryState.LOADED
+    assert mock_config_entry.runtime_data.domain_config.user_library == ""

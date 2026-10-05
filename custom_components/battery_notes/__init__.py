@@ -169,9 +169,10 @@ async def async_setup_entry(
     domain_config.hide_battery_low = config_entry.options[CONF_ADVANCED_SETTINGS].get(
         CONF_HIDE_BATTERY_LOW, False
     )
-    domain_config.user_library = config_entry.options[CONF_ADVANCED_SETTINGS][
-        CONF_USER_LIBRARY
-    ]
+    # The options form omits the optional user library when it is cleared
+    domain_config.user_library = config_entry.options[CONF_ADVANCED_SETTINGS].get(
+        CONF_USER_LIBRARY, ""
+    )
 
     config_entry.runtime_data = BatteryNotesData(
         domain_config=domain_config,
