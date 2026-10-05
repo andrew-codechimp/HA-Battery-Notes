@@ -11,6 +11,7 @@ from custom_components.battery_notes.const import (
     ATTR_PREVIOUS_BATTERY_LEVEL,
     CONF_ADVANCED_SETTINGS,
     CONF_BATTERY_LOW_TEMPLATE,
+    CONF_BATTERY_PERCENTAGE_TEMPLATE,
     CONF_BATTERY_QUANTITY,
     CONF_BATTERY_TYPE,
     CONF_DEFAULT_BATTERY_INCREASE_THRESHOLD,
@@ -285,6 +286,55 @@ async def test_percentage_unavailable_source_disabled_battery_plus(
     await _set_level(hass, battery_note_sensor.entity_id, "55")
     assert hass.states.get(battery_low_id).state == STATE_OFF
     assert battery_events == []
+
+
+@pytest.fixture(params=[False, True], ids=["default", "retain-state"])
+def percentage_template_note_entry(
+    hass: HomeAssistant,
+    mock_config_entry: MockConfigEntry,
+    mock_battery_note_subentry: ConfigSubentry,
+    request: pytest.FixtureRequest,
+) -> MockConfigEntry:
+    """Create a note whose level comes from a percentage template."""
+    hass.states.async_set("sensor.template_battery", "40")
+    subentry = replace(
+        mock_battery_note_subentry,
+        data=MappingProxyType(
+            {
+                **mock_battery_note_subentry.data,
+                CONF_ADVANCED_SETTINGS: {
+                    CONF_BATTERY_PERCENTAGE_TEMPLATE: "{{ states('sensor.template_battery') }}",
+                    CONF_RETAIN_STATE: request.param,
+                },
+            }
+        ),
+    )
+    return _note_entry(mock_config_entry, subentry)
+
+
+@pytest.mark.parametrize("battery_note_source", ["device"])
+async def test_percentage_template_unavailable_source(
+    hass: HomeAssistant,
+    percentage_template_note_entry: MockConfigEntry,
+) -> None:
+    """Test an unavailable percentage template source follows retain state."""
+    entry = percentage_template_note_entry
+    await setup_integration(hass, entry)
+    battery_plus_id = _battery_plus_entity_id(hass, entry)
+    battery_low_id = _battery_low_entity_id(hass, entry)
+    coordinator = next(iter(entry.runtime_data.subentry_coordinators.values()))
+    assert hass.states.get(battery_plus_id).state == "40.0"
+    assert hass.states.get(battery_low_id).state == STATE_OFF
+
+    hass.states.async_set("sensor.template_battery", STATE_UNAVAILABLE)
+    await hass.async_block_till_done()
+
+    if coordinator.retain_state:
+        assert hass.states.get(battery_plus_id).state == "40.0"
+        assert hass.states.get(battery_low_id).state == STATE_OFF
+    else:
+        assert hass.states.get(battery_plus_id).state == STATE_UNAVAILABLE
+        assert hass.states.get(battery_low_id).state == STATE_UNAVAILABLE
 
 
 @pytest.mark.parametrize(
