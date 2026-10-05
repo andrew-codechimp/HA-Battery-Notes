@@ -346,6 +346,13 @@ async def async_migrate_integration(hass: HomeAssistant, config: ConfigType) -> 
         entry_data_dict.pop(CONF_MODEL_ID, None)
         entry_data_dict.pop(CONF_HW_VERSION, None)
 
+        if entry.version == 1 and CONF_BATTERY_TYPE in entry_data_dict:
+            # Version 1 had a single config for qty & type, split them
+            (
+                entry_data_dict[CONF_BATTERY_TYPE],
+                entry_data_dict[CONF_BATTERY_QUANTITY],
+            ) = _split_battery_type(entry_data_dict[CONF_BATTERY_TYPE])
+
         subentry = ConfigSubentry(
             data=MappingProxyType(entry_data_dict),
             subentry_type=SUBENTRY_BATTERY_NOTE,
@@ -487,6 +494,16 @@ async def async_migrate_integration(hass: HomeAssistant, config: ConfigType) -> 
         )
 
 
+def _split_battery_type(battery_type: str) -> tuple[str, int]:
+    """Split a version 1 battery type like "2x AA" into type and quantity."""
+    matches = re.search(r"^(\d+)(?=x)(?:x\s)(\w+$)|([\s\S]+)", battery_type)
+    if not matches:
+        return battery_type, 1
+    if matches.group(1) is not None:
+        return matches.group(2), int(matches.group(1))
+    return matches.group(3), 1
+
+
 async def async_migrate_entry(
     hass: HomeAssistant, config_entry: BatteryNotesConfigEntry
 ) -> bool:
@@ -506,34 +523,6 @@ async def async_migrate_entry(
             config_entry, version=4, title=config_entry.title
         )
         return True
-
-    if config_entry.version == 1:
-        # Version 1 had a single config for qty & type, split them
-        matches = re.search(
-            r"^(\d+)(?=x)(?:x\s)(\w+$)|([\s\S]+)", config_entry.data[CONF_BATTERY_TYPE]
-        )
-        if matches:
-            battery_qty = int(matches.group(1)) if matches.group(1) is not None else 1
-            battery_type = (
-                matches.group(2) if matches.group(2) is not None else matches.group(3)
-            )
-        else:
-            battery_qty = 1
-            battery_type = config_entry.data[CONF_BATTERY_TYPE]
-
-        new_data = {**config_entry.data}
-        new_data[CONF_BATTERY_TYPE] = battery_type
-        new_data[CONF_BATTERY_QUANTITY] = battery_qty
-
-        hass.config_entries.async_update_entry(
-            config_entry, version=2, title=config_entry.title, data=new_data
-        )
-
-        _LOGGER.info(
-            "Entry %s successfully migrated to version %s.",
-            config_entry.entry_id,
-            2,
-        )
 
     if config_entry.version == 3:
         for subentry in config_entry.subentries.values():
