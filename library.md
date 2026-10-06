@@ -1,4 +1,4 @@
-## 2331 Devices in library
+## 2332 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1702,6 +1702,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Springs Window Fashions                         |MCZ1                                                                                          |2× AAA                    |                                                                                      |
 |Springs Window Fashions                         |RSZ1                                                                                          |Rechargeable              |                                                                                      |
 |Springs Window Fashions                         |VCZ1                                                                                          |CR2430                    |                                                                                      |
+|Sunricher                                       |4IN1 Sensor                                                                                   |2× AA                     |HK-SENSOR-4IN1-A                                                                      |
 |Sure Petcare                                    |Cat flap                                                                                      |4× AA                     |                                                                                      |
 |Sure Petcare                                    |Felaqua                                                                                       |4× C                      |                                                                                      |
 |Sure Petcare                                    |Pet flap                                                                                      |4× C                      |                                                                                      |
