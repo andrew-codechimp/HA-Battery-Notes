@@ -19,6 +19,7 @@ from custom_components.battery_notes.const import (
     CONF_DEFAULT_BATTERY_LOW_THRESHOLD,
     CONF_FILTER_OUTLIERS,
     CONF_RETAIN_STATE,
+    CONF_ROUND_BATTERY,
     CONF_SOURCE_ENTITY_ID,
     DOMAIN,
     EVENT_BATTERY_INCREASED,
@@ -391,6 +392,39 @@ async def test_default_threshold_options(
     await _set_level(hass, battery_note_sensor.entity_id, level)
 
     assert _summary(battery_events) == expected
+
+
+@pytest.mark.parametrize(
+    "mock_config_entry", [{CONF_ROUND_BATTERY: True}], indirect=True
+)
+@pytest.mark.parametrize("battery_note_source", ["device"])
+async def test_repeated_reports_throttled(
+    hass: HomeAssistant,
+    battery_note_config_entry: MockConfigEntry,
+    battery_note_sensor: er.RegistryEntry,
+    freezer: FrozenDateTimeFactory,
+) -> None:
+    """Test reports of an unchanged fractional level are processed hourly."""
+    await setup_integration(hass, battery_note_config_entry)
+    coordinator = next(
+        iter(battery_note_config_entry.runtime_data.subentry_coordinators.values())
+    )
+    await _set_level(hass, battery_note_sensor.entity_id, "57.6")
+
+    # The first report of the level is processed
+    freezer.tick(timedelta(minutes=10))
+    await _set_level(hass, battery_note_sensor.entity_id, "57.6")
+    first_report = coordinator.last_reported
+    assert first_report == dt_util.utcnow()
+
+    # Further reports within the hour are skipped, even though the level is rounded
+    freezer.tick(timedelta(minutes=10))
+    await _set_level(hass, battery_note_sensor.entity_id, "57.6")
+    assert coordinator.last_reported == first_report
+
+    freezer.tick(timedelta(hours=1))
+    await _set_level(hass, battery_note_sensor.entity_id, "57.6")
+    assert coordinator.last_reported == dt_util.utcnow()
 
 
 @pytest.fixture(params=["device", "standalone-entity"])
