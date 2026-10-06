@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import copy
 import logging
+from collections.abc import Mapping
 from types import MappingProxyType
 from typing import Any
 
@@ -62,7 +63,7 @@ from .const import (
     SUBENTRY_BATTERY_NOTE,
 )
 from .coordinator import MY_KEY
-from .library import DATA_LIBRARY, ModelInfo
+from .library import DATA_LIBRARY, DeviceBatteryDetails, ModelInfo
 from .library_updater import LibraryUpdater
 
 _LOGGER = logging.getLogger(__name__)
@@ -237,6 +238,158 @@ def calc_config_attributes(
     return (unique_id, str(title))
 
 
+def _model_info(device_entry: dr.DeviceEntry | None) -> ModelInfo | None:
+    """Return the library lookup details of a device, if it has enough."""
+    if device_entry and device_entry.manufacturer and device_entry.model:
+        return ModelInfo(
+            device_entry.manufacturer,
+            device_entry.model,
+            get_device_model_id(device_entry),
+            device_entry.hw_version,
+        )
+    return None
+
+
+def _model_placeholders(model_info: ModelInfo | None) -> dict[str, str]:
+    """Return the device details shown on the battery forms."""
+    if model_info is None:
+        return {"manufacturer": "", "model": "", "model_id": "", "hw_version": ""}
+    return {
+        "manufacturer": model_info.manufacturer,
+        "model": model_info.model,
+        "model_id": str(model_info.model_id or ""),
+        "hw_version": str(model_info.hw_version or ""),
+    }
+
+
+async def _async_lookup_battery(
+    hass: HomeAssistant, device_entry: dr.DeviceEntry | None
+) -> tuple[ModelInfo | None, DeviceBatteryDetails | None]:
+    """Update the library if due and look up the battery of a device."""
+    library_updater = LibraryUpdater(hass)
+    if await library_updater.time_to_update_library(1):
+        await library_updater.get_library_updates()
+
+    if (model_info := _model_info(device_entry)) is None:
+        return None, None
+
+    _LOGGER.debug("Looking up device %s", model_info)
+    library = hass.data[DATA_LIBRARY]
+    if not library.is_loaded:
+        await library.load_libraries()
+
+    device_battery_details = await library.get_device_battery_details(model_info)
+    if device_battery_details and not device_battery_details.is_manual:
+        _LOGGER.debug("Found device %s", model_info)
+    return model_info, device_battery_details
+
+
+def _apply_battery_details(
+    data: dict[str, Any], device_battery_details: DeviceBatteryDetails | None
+) -> None:
+    """Suggest the library battery, defaulting to a single battery."""
+    data[CONF_BATTERY_QUANTITY] = 1
+    if device_battery_details and not device_battery_details.is_manual:
+        data[CONF_BATTERY_TYPE] = device_battery_details.battery_type
+        data[CONF_BATTERY_QUANTITY] = device_battery_details.battery_quantity
+
+
+def _battery_schema(
+    defaults: Mapping[str, Any] | None, include_name: bool = False
+) -> vol.Schema:
+    """Return the battery form, with defaults or for use with suggested values."""
+
+    def key(
+        marker: type[vol.Required | vol.Optional], name: str, *, default: Any
+    ) -> vol.Marker:
+        if defaults is None:
+            return marker(name)
+        return marker(name, default=default)
+
+    number_box = selector.NumberSelectorMode.BOX
+    text = selector.TextSelector(
+        selector.TextSelectorConfig(type=selector.TextSelectorType.TEXT)
+    )
+    fields: dict[vol.Marker, Any] = {}
+    if include_name:
+        fields[vol.Optional(CONF_NAME)] = selector.TextSelector(
+            selector.TextSelectorConfig(
+                type=selector.TextSelectorType.TEXT, autocomplete="off"
+            ),
+        )
+    data = defaults or {}
+    fields.update(
+        {
+            key(
+                vol.Required, CONF_BATTERY_TYPE, default=data.get(CONF_BATTERY_TYPE)
+            ): text,
+            key(
+                vol.Required,
+                CONF_BATTERY_QUANTITY,
+                default=int(data.get(CONF_BATTERY_QUANTITY, 1)),
+            ): selector.NumberSelector(
+                selector.NumberSelectorConfig(min=1, max=100, mode=number_box),
+            ),
+            key(vol.Optional, CONF_NOTE, default=data.get(CONF_NOTE, "")): text,
+            key(
+                vol.Required,
+                CONF_BATTERY_LOW_THRESHOLD,
+                default=int(data.get(CONF_BATTERY_LOW_THRESHOLD, 0)),
+            ): selector.NumberSelector(
+                selector.NumberSelectorConfig(min=0, max=99, mode=number_box),
+            ),
+            key(
+                vol.Required,
+                CONF_BATTERY_INCREASE_THRESHOLD,
+                default=int(data.get(CONF_BATTERY_INCREASE_THRESHOLD, 0)),
+            ): selector.NumberSelector(
+                selector.NumberSelectorConfig(min=0, max=99, mode=number_box),
+            ),
+            vol.Required(CONF_ADVANCED_SETTINGS): section(
+                vol.Schema(
+                    {
+                        vol.Optional(
+                            CONF_BATTERY_PERCENTAGE_TEMPLATE
+                        ): selector.TemplateSelector(),
+                        vol.Optional(
+                            CONF_BATTERY_LOW_TEMPLATE
+                        ): selector.TemplateSelector(),
+                        key(
+                            vol.Optional, CONF_RETAIN_STATE, default=False
+                        ): selector.BooleanSelector(),
+                        key(
+                            vol.Optional, CONF_FILTER_OUTLIERS, default=False
+                        ): selector.BooleanSelector(),
+                    }
+                ),
+                {"collapsed": True},
+            ),
+        }
+    )
+    return vol.Schema(fields)
+
+
+def _apply_battery_input(data: dict[str, Any], user_input: dict[str, Any]) -> None:
+    """Store the battery form input in the battery note data."""
+    data[CONF_BATTERY_TYPE] = user_input[CONF_BATTERY_TYPE]
+    data[CONF_BATTERY_QUANTITY] = int(user_input[CONF_BATTERY_QUANTITY])
+    data[CONF_NOTE] = user_input.get(CONF_NOTE, "")
+    data[CONF_BATTERY_LOW_THRESHOLD] = int(user_input[CONF_BATTERY_LOW_THRESHOLD])
+    data[CONF_BATTERY_INCREASE_THRESHOLD] = int(
+        user_input.get(CONF_BATTERY_INCREASE_THRESHOLD, 0)
+    )
+    advanced_input = user_input[CONF_ADVANCED_SETTINGS]
+    advanced = data.setdefault(CONF_ADVANCED_SETTINGS, {})
+    advanced[CONF_BATTERY_PERCENTAGE_TEMPLATE] = none_if_empty(
+        advanced_input.get(CONF_BATTERY_PERCENTAGE_TEMPLATE)
+    )
+    advanced[CONF_BATTERY_LOW_TEMPLATE] = none_if_empty(
+        advanced_input.get(CONF_BATTERY_LOW_TEMPLATE)
+    )
+    advanced[CONF_RETAIN_STATE] = advanced_input.get(CONF_RETAIN_STATE, False)
+    advanced[CONF_FILTER_OUTLIERS] = advanced_input.get(CONF_FILTER_OUTLIERS, False)
+
+
 class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
     """Config flow for BatteryNotes."""
 
@@ -347,7 +500,6 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
     ) -> ConfigFlowResult:
         """Handle a flow for a device or discovery."""
         errors: dict[str, str] = {}
-        device_battery_details = None
 
         if user_input is not None:
             self.data = user_input
@@ -357,55 +509,11 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             if not config_entry:
                 return self.async_abort(reason="integration_not_added")
 
-            device_id = user_input[CONF_DEVICE_ID]
-
-            library_updater = LibraryUpdater(self.hass)
-            if await library_updater.time_to_update_library(1):
-                await library_updater.get_library_updates()
-
-            device_registry = dr.async_get(self.hass)
-            device_entry = device_registry.async_get(device_id)
-
-            if device_entry and device_entry.manufacturer and device_entry.model:
-                _LOGGER.debug(
-                    "Looking up device %s %s %s %s",
-                    device_entry.manufacturer,
-                    device_entry.model,
-                    get_device_model_id(device_entry) or "",
-                    device_entry.hw_version,
-                )
-
-                self.model_info = ModelInfo(
-                    device_entry.manufacturer,
-                    device_entry.model,
-                    get_device_model_id(device_entry),
-                    device_entry.hw_version,
-                )
-
-                library = self.hass.data[DATA_LIBRARY]
-                if not library.is_loaded:
-                    await library.load_libraries()
-
-                # Set defaults if not found in library
-                self.data[CONF_BATTERY_QUANTITY] = 1
-
-                device_battery_details = await library.get_device_battery_details(
-                    self.model_info
-                )
-
-                if device_battery_details and not device_battery_details.is_manual:
-                    _LOGGER.debug(
-                        "Found device %s %s %s %s",
-                        device_entry.manufacturer,
-                        device_entry.model,
-                        get_device_model_id(device_entry) or "",
-                        device_entry.hw_version,
-                    )
-                    self.data[CONF_BATTERY_TYPE] = device_battery_details.battery_type
-
-                    self.data[CONF_BATTERY_QUANTITY] = (
-                        device_battery_details.battery_quantity
-                    )
+            device_entry = dr.async_get(self.hass).async_get(user_input[CONF_DEVICE_ID])
+            self.model_info, device_battery_details = await _async_lookup_battery(
+                self.hass, device_entry
+            )
+            _apply_battery_details(self.data, device_battery_details)
 
             return await self.async_step_battery()
 
@@ -435,30 +543,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             if not config_entry:
                 return self.async_abort(reason="integration_not_added")
 
-            self.data[CONF_BATTERY_TYPE] = user_input[CONF_BATTERY_TYPE]
-            self.data[CONF_BATTERY_QUANTITY] = int(user_input[CONF_BATTERY_QUANTITY])
-            self.data[CONF_NOTE] = user_input.get(CONF_NOTE, "")
-            self.data[CONF_BATTERY_LOW_THRESHOLD] = int(
-                user_input[CONF_BATTERY_LOW_THRESHOLD]
-            )
-            self.data[CONF_BATTERY_INCREASE_THRESHOLD] = int(
-                user_input.get(CONF_BATTERY_INCREASE_THRESHOLD, 0)
-            )
-            self.data.setdefault(CONF_ADVANCED_SETTINGS, {})
-            self.data[CONF_ADVANCED_SETTINGS][CONF_BATTERY_PERCENTAGE_TEMPLATE] = (
-                user_input[CONF_ADVANCED_SETTINGS].get(
-                    CONF_BATTERY_PERCENTAGE_TEMPLATE, None
-                )
-            )
-            self.data[CONF_ADVANCED_SETTINGS][CONF_BATTERY_LOW_TEMPLATE] = user_input[
-                CONF_ADVANCED_SETTINGS
-            ].get(CONF_BATTERY_LOW_TEMPLATE, None)
-            self.data[CONF_ADVANCED_SETTINGS][CONF_RETAIN_STATE] = user_input[
-                CONF_ADVANCED_SETTINGS
-            ].get(CONF_RETAIN_STATE, False)
-            self.data[CONF_ADVANCED_SETTINGS][CONF_FILTER_OUTLIERS] = user_input[
-                CONF_ADVANCED_SETTINGS
-            ].get(CONF_FILTER_OUTLIERS, False)
+            _apply_battery_input(self.data, user_input)
 
             await self.async_set_unique_id(unique_id)
             self._abort_if_unique_id_configured()
@@ -487,78 +572,9 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             step_id="battery",
             description_placeholders={
                 "name": title,
-                "manufacturer": self.model_info.manufacturer if self.model_info else "",
-                "model": self.model_info.model if self.model_info else "",
-                "model_id": (
-                    str(self.model_info.model_id or "") if self.model_info else ""
-                ),
-                "hw_version": (
-                    str(self.model_info.hw_version or "") if self.model_info else ""
-                ),
+                **_model_placeholders(self.model_info),
             },
-            data_schema=vol.Schema(
-                {
-                    vol.Required(
-                        CONF_BATTERY_TYPE,
-                        default=self.data.get(CONF_BATTERY_TYPE),
-                    ): selector.TextSelector(
-                        selector.TextSelectorConfig(
-                            type=selector.TextSelectorType.TEXT
-                        ),
-                    ),
-                    vol.Required(
-                        CONF_BATTERY_QUANTITY,
-                        default=int(self.data.get(CONF_BATTERY_QUANTITY, 1)),
-                    ): selector.NumberSelector(
-                        selector.NumberSelectorConfig(
-                            min=1, max=100, mode=selector.NumberSelectorMode.BOX
-                        ),
-                    ),
-                    vol.Optional(
-                        CONF_NOTE,
-                        default=self.data.get(CONF_NOTE, ""),
-                    ): selector.TextSelector(
-                        selector.TextSelectorConfig(
-                            type=selector.TextSelectorType.TEXT
-                        ),
-                    ),
-                    vol.Required(
-                        CONF_BATTERY_LOW_THRESHOLD,
-                        default=0,
-                    ): selector.NumberSelector(
-                        selector.NumberSelectorConfig(
-                            min=0, max=99, mode=selector.NumberSelectorMode.BOX
-                        ),
-                    ),
-                    vol.Required(
-                        CONF_BATTERY_INCREASE_THRESHOLD,
-                        default=0,
-                    ): selector.NumberSelector(
-                        selector.NumberSelectorConfig(
-                            min=0, max=99, mode=selector.NumberSelectorMode.BOX
-                        ),
-                    ),
-                    vol.Required(CONF_ADVANCED_SETTINGS): section(
-                        vol.Schema(
-                            {
-                                vol.Optional(
-                                    CONF_BATTERY_PERCENTAGE_TEMPLATE
-                                ): selector.TemplateSelector(),
-                                vol.Optional(
-                                    CONF_BATTERY_LOW_TEMPLATE
-                                ): selector.TemplateSelector(),
-                                vol.Optional(
-                                    CONF_RETAIN_STATE, default=False
-                                ): selector.BooleanSelector(),
-                                vol.Optional(
-                                    CONF_FILTER_OUTLIERS, default=False
-                                ): selector.BooleanSelector(),
-                            }
-                        ),
-                        {"collapsed": True},
-                    ),
-                }
-            ),
+            data_schema=_battery_schema(self.data),
             errors=errors,
         )
 
@@ -607,63 +623,18 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
     ) -> SubentryFlowResult:
         """Handle a flow for a device or discovery."""
         errors: dict[str, str] = {}
-        device_battery_details = None
 
         if user_input is not None:
             self.data = user_input
 
-            device_id = user_input[CONF_DEVICE_ID]
+            device_entry = dr.async_get(self.hass).async_get(user_input[CONF_DEVICE_ID])
+            self.model_info, device_battery_details = await _async_lookup_battery(
+                self.hass, device_entry
+            )
+            _apply_battery_details(self.data, device_battery_details)
 
-            library_updater = LibraryUpdater(self.hass)
-            if await library_updater.time_to_update_library(1):
-                await library_updater.get_library_updates()
-
-            device_registry = dr.async_get(self.hass)
-            device_entry = device_registry.async_get(device_id)
-
-            if device_entry and device_entry.manufacturer and device_entry.model:
-                _LOGGER.debug(
-                    "Looking up device %s %s %s %s",
-                    device_entry.manufacturer,
-                    device_entry.model,
-                    get_device_model_id(device_entry) or "",
-                    device_entry.hw_version,
-                )
-
-                self.model_info = ModelInfo(
-                    device_entry.manufacturer,
-                    device_entry.model,
-                    get_device_model_id(device_entry),
-                    device_entry.hw_version,
-                )
-
-                library = self.hass.data[DATA_LIBRARY]
-                if not library.is_loaded:
-                    await library.load_libraries()
-
-                # Set defaults if not found in library
-                self.data[CONF_BATTERY_QUANTITY] = 1
-
-                device_battery_details = await library.get_device_battery_details(
-                    self.model_info
-                )
-
-                if device_battery_details and not device_battery_details.is_manual:
-                    _LOGGER.debug(
-                        "Found device %s %s %s %s",
-                        device_entry.manufacturer,
-                        device_entry.model,
-                        get_device_model_id(device_entry) or "",
-                        device_entry.hw_version,
-                    )
-                    self.data[CONF_BATTERY_TYPE] = device_battery_details.battery_type
-
-                    self.data[CONF_BATTERY_QUANTITY] = (
-                        device_battery_details.battery_quantity
-                    )
-
-                if device_battery_details and device_battery_details.is_manual:
-                    return await self.async_step_manual()
+            if device_battery_details and device_battery_details.is_manual:
+                return await self.async_step_manual()
 
             return await self.async_step_battery()
 
@@ -686,83 +657,33 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
     ) -> SubentryFlowResult:
         """Handle a flow for a device or discovery."""
         errors: dict[str, str] = {}
-        device_battery_details = None
 
         if user_input is not None:
             self.data = user_input
 
             source_entity_id = user_input[CONF_SOURCE_ENTITY_ID]
             self.data[CONF_SOURCE_ENTITY_ID] = source_entity_id
-            entity_registry = er.async_get(self.hass)
-            entity_entry = entity_registry.async_get(source_entity_id)
-
-            # Default battery quantity if not found in library lookup
-            self.data[CONF_BATTERY_QUANTITY] = 1
+            entity_entry = er.async_get(self.hass).async_get(source_entity_id)
 
             if entity_entry:
+                device_battery_details = None
                 if entity_entry.device_id:
                     self.data[CONF_DEVICE_ID] = entity_entry.device_id
+                    device_entry = dr.async_get(self.hass).async_get(
+                        entity_entry.device_id
+                    )
+                    (
+                        self.model_info,
+                        device_battery_details,
+                    ) = await _async_lookup_battery(self.hass, device_entry)
+                _apply_battery_details(self.data, device_battery_details)
 
-                    library_updater = LibraryUpdater(self.hass)
-                    if await library_updater.time_to_update_library(1):
-                        await library_updater.get_library_updates()
-
-                    device_registry = dr.async_get(self.hass)
-                    device_entry = device_registry.async_get(entity_entry.device_id)
-
-                    if (
-                        device_entry
-                        and device_entry.manufacturer
-                        and device_entry.model
-                    ):
-                        _LOGGER.debug(
-                            "Looking up device %s %s %s %s",
-                            device_entry.manufacturer,
-                            device_entry.model,
-                            get_device_model_id(device_entry) or "",
-                            device_entry.hw_version,
-                        )
-
-                        self.model_info = ModelInfo(
-                            device_entry.manufacturer,
-                            device_entry.model,
-                            get_device_model_id(device_entry),
-                            device_entry.hw_version,
-                        )
-
-                        library = self.hass.data[DATA_LIBRARY]
-                        if not library.is_loaded:
-                            await library.load_libraries()
-
-                        device_battery_details = (
-                            await library.get_device_battery_details(self.model_info)
-                        )
-
-                        if (
-                            device_battery_details
-                            and not device_battery_details.is_manual
-                        ):
-                            _LOGGER.debug(
-                                "Found device %s %s %s %s",
-                                device_entry.manufacturer,
-                                device_entry.model,
-                                get_device_model_id(device_entry) or "",
-                                device_entry.hw_version,
-                            )
-                            self.data[CONF_BATTERY_TYPE] = (
-                                device_battery_details.battery_type
-                            )
-
-                            self.data[CONF_BATTERY_QUANTITY] = (
-                                device_battery_details.battery_quantity
-                            )
-
-                        if device_battery_details and device_battery_details.is_manual:
-                            return await self.async_step_manual()
+                if device_battery_details and device_battery_details.is_manual:
+                    return await self.async_step_manual()
                 return await self.async_step_battery()
-            else:
-                # No entity_registry entry, must be a config.yaml entity which we can't support
-                errors["base"] = "unconfigurable_entity"
+
+            # No entity_registry entry, must be a config.yaml entity which we can't support
+            errors["base"] = "unconfigurable_entity"
 
         schema = ENTITY_SCHEMA_ALL
 
@@ -797,30 +718,7 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
         unique_id, title = calc_config_attributes(self.hass, self.data)
 
         if user_input is not None:
-            self.data[CONF_BATTERY_TYPE] = user_input[CONF_BATTERY_TYPE]
-            self.data[CONF_BATTERY_QUANTITY] = int(user_input[CONF_BATTERY_QUANTITY])
-            self.data[CONF_NOTE] = user_input.get(CONF_NOTE, "")
-            self.data[CONF_BATTERY_LOW_THRESHOLD] = int(
-                user_input[CONF_BATTERY_LOW_THRESHOLD]
-            )
-            self.data[CONF_BATTERY_INCREASE_THRESHOLD] = int(
-                user_input.get(CONF_BATTERY_INCREASE_THRESHOLD, 0)
-            )
-            self.data.setdefault(CONF_ADVANCED_SETTINGS, {})
-            self.data[CONF_ADVANCED_SETTINGS][CONF_BATTERY_PERCENTAGE_TEMPLATE] = (
-                user_input[CONF_ADVANCED_SETTINGS].get(
-                    CONF_BATTERY_PERCENTAGE_TEMPLATE, None
-                )
-            )
-            self.data[CONF_ADVANCED_SETTINGS][CONF_BATTERY_LOW_TEMPLATE] = user_input[
-                CONF_ADVANCED_SETTINGS
-            ].get(CONF_BATTERY_LOW_TEMPLATE, None)
-            self.data[CONF_ADVANCED_SETTINGS][CONF_RETAIN_STATE] = user_input[
-                CONF_ADVANCED_SETTINGS
-            ].get(CONF_RETAIN_STATE, False)
-            self.data[CONF_ADVANCED_SETTINGS][CONF_FILTER_OUTLIERS] = user_input[
-                CONF_ADVANCED_SETTINGS
-            ].get(CONF_FILTER_OUTLIERS, False)
+            _apply_battery_input(self.data, user_input)
 
             # Check if unique_id already exists
             config_entry = self._get_entry()
@@ -841,78 +739,9 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
             step_id="battery",
             description_placeholders={
                 "name": title,
-                "manufacturer": self.model_info.manufacturer if self.model_info else "",
-                "model": self.model_info.model if self.model_info else "",
-                "model_id": (
-                    str(self.model_info.model_id or "") if self.model_info else ""
-                ),
-                "hw_version": (
-                    str(self.model_info.hw_version or "") if self.model_info else ""
-                ),
+                **_model_placeholders(self.model_info),
             },
-            data_schema=vol.Schema(
-                {
-                    vol.Required(
-                        CONF_BATTERY_TYPE,
-                        default=self.data.get(CONF_BATTERY_TYPE),
-                    ): selector.TextSelector(
-                        selector.TextSelectorConfig(
-                            type=selector.TextSelectorType.TEXT
-                        ),
-                    ),
-                    vol.Required(
-                        CONF_BATTERY_QUANTITY,
-                        default=int(self.data.get(CONF_BATTERY_QUANTITY, 1)),
-                    ): selector.NumberSelector(
-                        selector.NumberSelectorConfig(
-                            min=1, max=100, mode=selector.NumberSelectorMode.BOX
-                        ),
-                    ),
-                    vol.Optional(
-                        CONF_NOTE,
-                        default=self.data.get(CONF_NOTE, ""),
-                    ): selector.TextSelector(
-                        selector.TextSelectorConfig(
-                            type=selector.TextSelectorType.TEXT
-                        ),
-                    ),
-                    vol.Required(
-                        CONF_BATTERY_LOW_THRESHOLD,
-                        default=int(self.data.get(CONF_BATTERY_LOW_THRESHOLD, 0)),
-                    ): selector.NumberSelector(
-                        selector.NumberSelectorConfig(
-                            min=0, max=99, mode=selector.NumberSelectorMode.BOX
-                        ),
-                    ),
-                    vol.Required(
-                        CONF_BATTERY_INCREASE_THRESHOLD,
-                        default=int(self.data.get(CONF_BATTERY_INCREASE_THRESHOLD, 0)),
-                    ): selector.NumberSelector(
-                        selector.NumberSelectorConfig(
-                            min=0, max=99, mode=selector.NumberSelectorMode.BOX
-                        ),
-                    ),
-                    vol.Required(CONF_ADVANCED_SETTINGS): section(
-                        vol.Schema(
-                            {
-                                vol.Optional(
-                                    CONF_BATTERY_PERCENTAGE_TEMPLATE
-                                ): selector.TemplateSelector(),
-                                vol.Optional(
-                                    CONF_BATTERY_LOW_TEMPLATE
-                                ): selector.TemplateSelector(),
-                                vol.Optional(
-                                    CONF_RETAIN_STATE, default=False
-                                ): selector.BooleanSelector(),
-                                vol.Optional(
-                                    CONF_FILTER_OUTLIERS, default=False
-                                ): selector.BooleanSelector(),
-                            }
-                        ),
-                        {"collapsed": True},
-                    ),
-                }
-            ),
+            data_schema=_battery_schema(self.data),
             errors=errors,
         )
 
@@ -923,35 +752,7 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
         errors: dict[str, str] = {}
 
         if user_input is not None:
-            self.data[CONF_BATTERY_TYPE] = user_input[CONF_BATTERY_TYPE]
-            self.data[CONF_BATTERY_QUANTITY] = int(user_input[CONF_BATTERY_QUANTITY])
-            self.data[CONF_NOTE] = user_input.get(CONF_NOTE, "")
-            self.data[CONF_BATTERY_LOW_THRESHOLD] = int(
-                user_input[CONF_BATTERY_LOW_THRESHOLD]
-            )
-            self.data[CONF_BATTERY_INCREASE_THRESHOLD] = int(
-                user_input.get(CONF_BATTERY_INCREASE_THRESHOLD, 0)
-            )
-            self.data[CONF_ADVANCED_SETTINGS][CONF_BATTERY_PERCENTAGE_TEMPLATE] = (
-                none_if_empty(
-                    user_input[CONF_ADVANCED_SETTINGS].get(
-                        CONF_BATTERY_PERCENTAGE_TEMPLATE, ""
-                    )
-                )
-            )
-            self.data[CONF_ADVANCED_SETTINGS][CONF_BATTERY_LOW_TEMPLATE] = (
-                none_if_empty(
-                    user_input[CONF_ADVANCED_SETTINGS].get(
-                        CONF_BATTERY_LOW_TEMPLATE, ""
-                    )
-                )
-            )
-            self.data[CONF_ADVANCED_SETTINGS][CONF_RETAIN_STATE] = user_input[
-                CONF_ADVANCED_SETTINGS
-            ].get(CONF_RETAIN_STATE, False)
-            self.data[CONF_ADVANCED_SETTINGS][CONF_FILTER_OUTLIERS] = user_input[
-                CONF_ADVANCED_SETTINGS
-            ].get(CONF_FILTER_OUTLIERS, False)
+            _apply_battery_input(self.data, user_input)
 
             # Save the updated subentry, the name is held in the title not the data
             self.data.pop(CONF_NAME, None)
@@ -968,100 +769,20 @@ class BatteryNotesSubentryFlowHandler(ConfigSubentryFlow):
 
         config_subentry = self._get_reconfigure_subentry()
         self.data = copy.deepcopy(dict(config_subentry.data))
-        if CONF_ADVANCED_SETTINGS not in self.data:
-            self.data[CONF_ADVANCED_SETTINGS] = {}
+        self.data.setdefault(CONF_ADVANCED_SETTINGS, {})
 
-        source_device_id = self.data.get(CONF_DEVICE_ID)
-
-        if source_device_id:
-            device_registry = dr.async_get(self.hass)
-            device_entry = device_registry.async_get(source_device_id)
-
+        if source_device_id := self.data.get(CONF_DEVICE_ID):
+            device_entry = dr.async_get(self.hass).async_get(source_device_id)
             if not device_entry:
                 errors["base"] = "orphaned_battery_note"
-            elif device_entry and device_entry.manufacturer and device_entry.model:
-                _LOGGER.debug(
-                    "Looking up device %s %s %s %s",
-                    device_entry.manufacturer,
-                    device_entry.model,
-                    get_device_model_id(device_entry) or "",
-                    device_entry.hw_version,
-                )
-
-                self.model_info = ModelInfo(
-                    device_entry.manufacturer,
-                    device_entry.model,
-                    get_device_model_id(device_entry),
-                    device_entry.hw_version,
-                )
-
-        data_schema = vol.Schema(
-            {
-                vol.Optional(CONF_NAME): selector.TextSelector(
-                    selector.TextSelectorConfig(
-                        type=selector.TextSelectorType.TEXT, autocomplete="off"
-                    ),
-                ),
-                vol.Required(CONF_BATTERY_TYPE): selector.TextSelector(
-                    selector.TextSelectorConfig(type=selector.TextSelectorType.TEXT),
-                ),
-                vol.Required(CONF_BATTERY_QUANTITY): selector.NumberSelector(
-                    selector.NumberSelectorConfig(
-                        min=1, max=100, mode=selector.NumberSelectorMode.BOX
-                    ),
-                ),
-                vol.Optional(CONF_NOTE): selector.TextSelector(
-                    selector.TextSelectorConfig(type=selector.TextSelectorType.TEXT),
-                ),
-                vol.Required(
-                    CONF_BATTERY_LOW_THRESHOLD,
-                ): selector.NumberSelector(
-                    selector.NumberSelectorConfig(
-                        min=0, max=99, mode=selector.NumberSelectorMode.BOX
-                    ),
-                ),
-                vol.Required(
-                    CONF_BATTERY_INCREASE_THRESHOLD,
-                ): selector.NumberSelector(
-                    selector.NumberSelectorConfig(
-                        min=0, max=99, mode=selector.NumberSelectorMode.BOX
-                    ),
-                ),
-                vol.Required(CONF_ADVANCED_SETTINGS): section(
-                    vol.Schema(
-                        {
-                            vol.Optional(
-                                CONF_BATTERY_PERCENTAGE_TEMPLATE,
-                            ): selector.TemplateSelector(),
-                            vol.Optional(
-                                CONF_BATTERY_LOW_TEMPLATE,
-                            ): selector.TemplateSelector(),
-                            vol.Optional(
-                                CONF_RETAIN_STATE,
-                            ): selector.BooleanSelector(),
-                            vol.Optional(
-                                CONF_FILTER_OUTLIERS,
-                            ): selector.BooleanSelector(),
-                        }
-                    ),
-                    {"collapsed": True},
-                ),
-            }
-        )
+            self.model_info = _model_info(device_entry)
 
         self.data[CONF_NAME] = config_subentry.title
         return self.async_show_form(
             step_id="reconfigure",
-            description_placeholders={
-                "manufacturer": self.model_info.manufacturer if self.model_info else "",
-                "model": self.model_info.model if self.model_info else "",
-                "model_id": (
-                    str(self.model_info.model_id or "") if self.model_info else ""
-                ),
-                "hw_version": (
-                    str(self.model_info.hw_version or "") if self.model_info else ""
-                ),
-            },
-            data_schema=self.add_suggested_values_to_schema(data_schema, self.data),
+            description_placeholders=_model_placeholders(self.model_info),
+            data_schema=self.add_suggested_values_to_schema(
+                _battery_schema(None, include_name=True), self.data
+            ),
             errors=errors,
         )
