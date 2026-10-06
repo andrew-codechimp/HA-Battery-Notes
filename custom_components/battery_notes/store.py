@@ -53,6 +53,15 @@ class EntityEntry:
     battery_last_reported_level = attr.ib(type=float, default=None)
 
 
+def _known_fields(entry_class: type, data: dict[str, Any]) -> dict[str, Any]:
+    """Return the stored fields the entry class knows, ignoring unknown ones.
+
+    Storage written by a newer version may contain fields this version doesn't have.
+    """
+    fields = attr.fields_dict(entry_class)
+    return {key: value for key, value in data.items() if key in fields}
+
+
 def _fix_datetime_string(datetime_str: str) -> str:
     """Fix datetime string by replacing colon with period before microseconds."""
     # Prior to 3.3.2 there was an issue where microseconds were formatted with a colon and are held in storage.
@@ -86,20 +95,20 @@ class MigratableStore(Store):
     ):
         if old_major_version == 1:
             if old_minor_version < 2:
-                for device in data["devices"]:
-                    last_replaced = device[LAST_REPLACED]
+                for device in data.get("devices", []):
+                    last_replaced = device.get(LAST_REPLACED)
                     if last_replaced:
                         device[LAST_REPLACED] = _fix_datetime_string(last_replaced)
 
-                    last_reported = device[LAST_REPORTED]
+                    last_reported = device.get(LAST_REPORTED)
                     if last_reported:
                         device[LAST_REPORTED] = _fix_datetime_string(last_reported)
-                for entity in data["entities"]:
-                    last_replaced = entity[LAST_REPLACED]
+                for entity in data.get("entities", []):
+                    last_replaced = entity.get(LAST_REPLACED)
                     if last_replaced:
                         entity[LAST_REPLACED] = _fix_datetime_string(last_replaced)
 
-                    last_reported = entity[LAST_REPORTED]
+                    last_reported = entity.get(LAST_REPORTED)
                     if last_reported:
                         entity[LAST_REPORTED] = _fix_datetime_string(last_reported)
         return data
@@ -129,13 +138,17 @@ class BatteryNotesStorage:
 
         if data is not None and "devices" in data:
             for device in data["devices"]:
-                devices[device["device_id"]] = DeviceEntry(**device)
+                devices[device["device_id"]] = DeviceEntry(
+                    **_known_fields(DeviceEntry, device)
+                )
 
         self.devices = devices
 
         if data is not None and "entities" in data:
             for entity in data["entities"]:
-                entities[entity["entity_id"]] = EntityEntry(**entity)
+                entities[entity["entity_id"]] = EntityEntry(
+                    **_known_fields(EntityEntry, entity)
+                )
 
         self.entities = entities
 
