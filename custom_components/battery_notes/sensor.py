@@ -941,12 +941,16 @@ class BatteryNotesBatteryPlusTemplateSensor(BatteryNotesBatteryPlusBaseSensor):
     @callback
     def _update_state(self, result):
         try:
-            self._attr_available = not isinstance(result, TemplateError)
             state = None if isinstance(result, TemplateError) else float(result)
         except (ValueError, TypeError):
-            self._attr_available = False
             state = None
 
+        if state is None and self.coordinator.retain_state:
+            # Reprocess recovery even if the valid percentage is unchanged
+            self._state = None
+            return
+
+        self._attr_available = state is not None
         clamped_state = max(0, min(100, state)) if state is not None else state
 
         if clamped_state == self._state:

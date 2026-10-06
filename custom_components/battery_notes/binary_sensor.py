@@ -514,9 +514,10 @@ class BatteryNotesBatteryPercentageTemplateLowSensor(
         if self.coordinator.current_battery_level is None or not validate_is_float(
             self.coordinator.current_battery_level
         ):
-            self._attr_is_on = None
-            self._attr_available = False
-            self.async_write_ha_state()
+            if not self.coordinator.retain_state:
+                self._attr_is_on = None
+                self._attr_available = False
+                self.async_write_ha_state()
             return
 
         self._attr_available = True
