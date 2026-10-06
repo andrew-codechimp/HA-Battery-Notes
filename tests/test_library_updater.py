@@ -286,10 +286,18 @@ async def test_timer_skips_recent_update(
     download.assert_not_awaited()
 
 
+@pytest.mark.parametrize(
+    "updater_count",
+    [pytest.param(1, id="same-instance"), pytest.param(2, id="separate-instances")],
+)
 async def test_concurrent_downloads(
-    updater: LibraryUpdater, mock_library_client: MagicMock
+    hass: HomeAssistant,
+    updater: LibraryUpdater,
+    mock_library_client: MagicMock,
+    updater_count: int,
 ) -> None:
     """Test concurrent requests cannot download or write the library together."""
+    updaters = [updater] + [LibraryUpdater(hass) for _ in range(updater_count - 1)]
     started = asyncio.Event()
     release = asyncio.Event()
 
@@ -299,13 +307,16 @@ async def test_concurrent_downloads(
         return load_fixture("library.json")
 
     mock_library_client.async_get_data.side_effect = download
-    first = asyncio.create_task(updater.get_library_updates())
+    first = asyncio.create_task(updaters[0].get_library_updates())
     await started.wait()
-    second = asyncio.create_task(updater.get_library_updates())
-    await asyncio.sleep(0)
-    assert mock_library_client.async_get_data.await_count == 1
-    release.set()
-    await asyncio.gather(first, second)
+    second = asyncio.create_task(updaters[-1].get_library_updates())
+    try:
+        await asyncio.sleep(0)
+        assert mock_library_client.async_get_data.await_count == 1
+    finally:
+        release.set()
+        results = await asyncio.gather(first, second, return_exceptions=True)
+    assert results == [None, None]
     assert mock_library_client.async_get_data.await_count == 2
 
 

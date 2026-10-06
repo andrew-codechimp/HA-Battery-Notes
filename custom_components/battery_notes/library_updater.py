@@ -21,9 +21,11 @@ from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.event import async_track_utc_time_change
 from homeassistant.helpers.storage import STORAGE_DIR
 from homeassistant.util import dt as dt_util
+from homeassistant.util.hass_dict import HassKey
 
 from .const import (
     DEFAULT_LIBRARY_URL,
+    DOMAIN,
     FALLBACK_LIBRARY_URL,
 )
 from .coordinator import MY_KEY
@@ -31,6 +33,10 @@ from .discovery import DiscoveryManager
 from .library import DATA_LIBRARY
 
 _LOGGER = logging.getLogger(__name__)
+
+DATA_LIBRARY_UPDATE_LOCK: HassKey[asyncio.Lock] = HassKey(
+    f"{DOMAIN}_library_update_lock"
+)
 
 HEADERS = {
     "User-Agent": "BatteryNotes",
@@ -53,7 +59,9 @@ class LibraryUpdater:
     def __init__(self, hass: HomeAssistant):
         """Initialize the library updater."""
         self.hass = hass
-        self._update_lock = asyncio.Lock()
+        self._update_lock = hass.data.setdefault(
+            DATA_LIBRARY_UPDATE_LOCK, asyncio.Lock()
+        )
 
         self._client = LibraryUpdaterClient(session=async_get_clientsession(hass))
 
