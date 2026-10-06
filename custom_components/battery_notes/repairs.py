@@ -122,7 +122,7 @@ class CompositeDeviceIdRepairFlow(RepairsFlow):
                     DOMAIN,
                     composite_device_issue_id(self._subentry.subentry_id),
                 )
-                await self.hass.config_entries.async_reload(self._entry.entry_id)
+                # Updating the subentry reloads the entry through its update listener
                 return self.async_create_entry(data={})
 
         old_device_id = self._subentry.data[CONF_DEVICE_ID]

@@ -311,6 +311,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                 )
                 return False
 
+            self.device_id = entity.device_id
             device_class = entity.device_class or entity.original_device_class
             unit_of_measurement = self._source_unit_of_measurement(entity)
             # Sensor and binary sensor battery device classes share the same value
