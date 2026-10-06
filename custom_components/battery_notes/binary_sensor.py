@@ -438,11 +438,22 @@ class BatteryNotesBatteryLowBinaryTemplateSensor(BatteryNotesBatteryLowBaseSenso
 
     @callback
     def _update_state(self, result):
-        state = (
-            None
-            if isinstance(result, TemplateError)
-            else template.result_as_boolean(result)
-        )
+        # result_as_boolean treats an unavailable or unknown source as not low
+        if (
+            isinstance(result, TemplateError)
+            or result is None
+            or (
+                isinstance(result, str)
+                and result.strip().lower() in (STATE_UNAVAILABLE, STATE_UNKNOWN)
+            )
+        ):
+            if self.coordinator.retain_state:
+                return
+            self._attr_available = False
+            state = None
+        else:
+            self._attr_available = True
+            state = template.result_as_boolean(result)
 
         if state is not None:
             self.coordinator.last_reported = dt_util.utcnow()

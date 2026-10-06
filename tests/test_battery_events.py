@@ -1,6 +1,7 @@
 """Tests for battery threshold and increased events driven by source states."""
 
 from dataclasses import replace
+from datetime import timedelta
 from types import MappingProxyType
 
 import pytest
@@ -533,6 +534,65 @@ async def test_low_template_events(
     # Nominal levels follow the direction of the battery low change
     assert _levels(battery_events) == [(0, 100), (100, 0), (100, 0)]
     assert hass.states.get(battery_low_id).state == STATE_OFF
+
+
+@pytest.fixture(params=[False, True], ids=["default", "retain-state"])
+def state_template_note_entry(
+    hass: HomeAssistant,
+    mock_config_entry: MockConfigEntry,
+    mock_battery_note_subentry: ConfigSubentry,
+    request: pytest.FixtureRequest,
+) -> MockConfigEntry:
+    """Create a note whose low template passes through a source state."""
+    hass.states.async_set("binary_sensor.door_battery_low", STATE_OFF)
+    subentry = replace(
+        mock_battery_note_subentry,
+        data=MappingProxyType(
+            {
+                **mock_battery_note_subentry.data,
+                CONF_ADVANCED_SETTINGS: {
+                    CONF_BATTERY_LOW_TEMPLATE: "{{ states('binary_sensor.door_battery_low') }}",
+                    CONF_RETAIN_STATE: request.param,
+                },
+            }
+        ),
+    )
+    return _note_entry(mock_config_entry, subentry)
+
+
+@pytest.mark.parametrize("battery_note_source", ["device"])
+async def test_low_template_unavailable_source(
+    hass: HomeAssistant,
+    state_template_note_entry: MockConfigEntry,
+    battery_events: list[Event],
+    freezer: FrozenDateTimeFactory,
+) -> None:
+    """Test an unavailable template source is not reported as not low."""
+    entry = state_template_note_entry
+    await setup_integration(hass, entry)
+    battery_low_id = _battery_low_entity_id(hass, entry)
+    coordinator = next(iter(entry.runtime_data.subentry_coordinators.values()))
+    retain_state = coordinator.retain_state
+
+    hass.states.async_set("binary_sensor.door_battery_low", STATE_ON)
+    await hass.async_block_till_done()
+    assert _summary(battery_events) == [(EVENT_BATTERY_THRESHOLD, True)]
+    last_reported = coordinator.last_reported
+
+    freezer.tick(timedelta(hours=1))
+    hass.states.async_set("binary_sensor.door_battery_low", STATE_UNAVAILABLE)
+    await hass.async_block_till_done()
+    assert len(battery_events) == 1
+    assert coordinator.last_reported == last_reported
+    assert hass.states.get(battery_low_id).state == (
+        STATE_ON if retain_state else STATE_UNAVAILABLE
+    )
+
+    # Coming back still low is not a new threshold crossing
+    hass.states.async_set("binary_sensor.door_battery_low", STATE_ON)
+    await hass.async_block_till_done()
+    assert len(battery_events) == 1
+    assert hass.states.get(battery_low_id).state == STATE_ON
 
 
 @pytest.fixture
