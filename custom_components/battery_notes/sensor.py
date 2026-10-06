@@ -64,15 +64,11 @@ from .const import (
     ATTR_DEVICE_NAME,
     ATTR_NOTE,
     ATTR_SOURCE_ENTITY_ID,
-    CONF_ADVANCED_SETTINGS,
-    CONF_ENABLE_REPLACED,
-    CONF_ROUND_BATTERY,
     DOMAIN,
     STATE_WRITE_INTERVAL_SECONDS,
     SUBENTRY_BATTERY_NOTE,
 )
 from .coordinator import (
-    MY_KEY,
     BatteryNotesConfigEntry,
     BatteryNotesSubentryCoordinator,
 )
@@ -99,6 +95,8 @@ async def async_setup_entry(
     async_add_entities: AddConfigEntryEntitiesCallback,
 ) -> None:
     """Initialize Battery Type config entry."""
+
+    domain_config = config_entry.runtime_data.domain_config
 
     for subentry in config_entry.get_subentries_of_type(SUBENTRY_BATTERY_NOTE):
         assert config_entry.runtime_data.subentry_coordinators
@@ -128,9 +126,7 @@ async def async_setup_entry(
             translation_key="battery_last_replaced",
             entity_category=EntityCategory.DIAGNOSTIC,
             device_class=SensorDeviceClass.TIMESTAMP,
-            entity_registry_enabled_default=config_entry.options[
-                CONF_ADVANCED_SETTINGS
-            ].get(CONF_ENABLE_REPLACED, True),
+            entity_registry_enabled_default=domain_config.enable_replaced,
             entity_type="sensor",
         )
 
@@ -139,9 +135,7 @@ async def async_setup_entry(
             key="battery_plus",
             translation_key="battery_plus",
             device_class=SensorDeviceClass.BATTERY,
-            suggested_display_precision=0
-            if config_entry.options.get(CONF_ROUND_BATTERY, False)
-            else 1,
+            suggested_display_precision=0 if domain_config.round_battery else 1,
             entity_type="sensor",
             require_device=True,
         )
@@ -175,10 +169,8 @@ async def async_setup_entry(
                     battery_plus_sensor_entity_description,
                     coordinator,
                     f"{subentry.unique_id}{battery_plus_sensor_entity_description.unique_id_suffix}",
-                    config_entry.options[CONF_ADVANCED_SETTINGS].get(
-                        CONF_ENABLE_REPLACED, True
-                    ),
-                    config_entry.options.get(CONF_ROUND_BATTERY, False),
+                    domain_config.enable_replaced,
+                    domain_config.round_battery,
                     coordinator.battery_percentage_template,
                 )
             )
@@ -191,10 +183,8 @@ async def async_setup_entry(
                     battery_plus_sensor_entity_description,
                     coordinator,
                     f"{subentry.unique_id}{battery_plus_sensor_entity_description.unique_id_suffix}",
-                    config_entry.options[CONF_ADVANCED_SETTINGS].get(
-                        CONF_ENABLE_REPLACED, True
-                    ),
-                    config_entry.options.get(CONF_ROUND_BATTERY, False),
+                    domain_config.enable_replaced,
+                    domain_config.round_battery,
                 )
             )
 
@@ -731,7 +721,7 @@ class BatteryNotesBatteryPlusSensor(BatteryNotesBatteryPlusBaseSensor):
         if not self.coordinator.wrapped_battery:
             return
 
-        domain_config = self.hass.data[MY_KEY]
+        domain_config = self.domain_config
 
         if domain_config.hide_battery:
             if (
