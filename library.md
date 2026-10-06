@@ -1,4 +1,4 @@
-## 2333 Devices in library
+## 2332 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1975,8 +1975,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Tuya                                            |Temperature and humidity sensor                                                               |2× AAA                    |ZTH05_1                                                                               |
 |Tuya                                            |Temperature and humidity sensor                                                               |3× AAA                    |ZTH08                                                                                 |
 |TuYa                                            |Temperature and humidity sensor (TH02Z)                                                       |2× AAA                    |                                                                                      |
-|TuYa                                            |Temperature and humidity sensor (ZG-227Z)                                                     |CR2450                    |                                                                                      |
-|Tuya                                            |Temperature and humidity sensor (ZG-227Z)                                                     |2× AAA                    |                                                                                      |
+|Tuya                                            |Temperature and humidity sensor (ZG-227Z)                                                     |MANUAL                    |                                                                                      |
 |TuYa                                            |Temperature and humidity sensor (ZTH01)                                                       |2× AAA                    |                                                                                      |
 |TuYa                                            |Temperature and humidity sensor (ZTH02)                                                       |CR2032                    |                                                                                      |
 |TuYa                                            |Temperature and humidity sensor (ZTH05)                                                       |CR2032                    |                                                                                      |
