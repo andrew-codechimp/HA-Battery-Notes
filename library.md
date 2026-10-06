@@ -1,4 +1,4 @@
-## 2332 Devices in library
+## 2333 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1769,6 +1769,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Third Reality                                   |Door sensor (3RDS17BZ)                                                                        |2× AAA                    |                                                                                      |
 |Third Reality                                   |Garage door tilt sensor                                                                       |2× AAA                    |3RDTS01056Z                                                                           |
 |Third Reality                                   |Garage door tilt sensor (3RDTS01056Z)                                                         |2× AAA                    |                                                                                      |
+|Third Reality                                   |Smart button                                                                                  |2× AAA                    |3RSB22BZ                                                                              |
 |Third Reality                                   |Smart button (3RSB22BZ)                                                                       |2× AAA                    |                                                                                      |
 |Third Reality                                   |Smart motion sensor R1                                                                        |3× AA                     |3RSMR01067Z                                                                           |
 |Third Reality                                   |Smart Scale                                                                                   |2× AAA                    |3RKS030Z                                                                              |
