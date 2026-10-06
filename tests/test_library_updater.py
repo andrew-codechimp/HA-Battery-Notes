@@ -5,7 +5,7 @@ import socket
 from collections.abc import Generator
 from datetime import timedelta
 from pathlib import Path
-from unittest.mock import AsyncMock, MagicMock, PropertyMock, call, patch
+from unittest.mock import MagicMock, PropertyMock, call, patch
 
 import aiohttp
 import pytest
@@ -27,6 +27,7 @@ from pytest_homeassistant_custom_component.common import (
     async_fire_time_changed,
     load_fixture,
 )
+from pytest_homeassistant_custom_component.test_util.aiohttp import AiohttpClientMocker
 
 from homeassistant.core import HomeAssistant
 from homeassistant.exceptions import ConfigEntryNotReady
@@ -147,6 +148,10 @@ async def test_download_failure(
         pytest.param("invalid json", id="malformed"),
         pytest.param('{"devices": []}', id="missing-version"),
         pytest.param('{"version": 2}', id="unsupported-version"),
+        pytest.param('{"version": "1", "devices": [{}]}', id="string-version"),
+        pytest.param('{"version": 1}', id="missing-devices"),
+        pytest.param('{"version": 1, "devices": []}', id="empty-devices"),
+        pytest.param("[1]", id="not-an-object"),
     ],
 )
 async def test_invalid_download(
@@ -281,10 +286,18 @@ async def test_timer_skips_recent_update(
     download.assert_not_awaited()
 
 
+@pytest.mark.parametrize(
+    "updater_count",
+    [pytest.param(1, id="same-instance"), pytest.param(2, id="separate-instances")],
+)
 async def test_concurrent_downloads(
-    updater: LibraryUpdater, mock_library_client: MagicMock
+    hass: HomeAssistant,
+    updater: LibraryUpdater,
+    mock_library_client: MagicMock,
+    updater_count: int,
 ) -> None:
     """Test concurrent requests cannot download or write the library together."""
+    updaters = [updater] + [LibraryUpdater(hass) for _ in range(updater_count - 1)]
     started = asyncio.Event()
     release = asyncio.Event()
 
@@ -294,32 +307,33 @@ async def test_concurrent_downloads(
         return load_fixture("library.json")
 
     mock_library_client.async_get_data.side_effect = download
-    first = asyncio.create_task(updater.get_library_updates())
+    first = asyncio.create_task(updaters[0].get_library_updates())
     await started.wait()
-    second = asyncio.create_task(updater.get_library_updates())
-    await asyncio.sleep(0)
-    assert mock_library_client.async_get_data.await_count == 1
-    release.set()
-    await asyncio.gather(first, second)
+    second = asyncio.create_task(updaters[-1].get_library_updates())
+    try:
+        await asyncio.sleep(0)
+        assert mock_library_client.async_get_data.await_count == 1
+    finally:
+        release.set()
+        results = await asyncio.gather(first, second, return_exceptions=True)
+    assert results == [None, None]
     assert mock_library_client.async_get_data.await_count == 2
 
 
-async def test_client_download() -> None:
+async def test_client_download(
+    hass: HomeAssistant, aioclient_mock: AiohttpClientMocker
+) -> None:
     """Test the client passes download headers and returns response text."""
-    session = MagicMock(spec=aiohttp.ClientSession)
-    session.request = AsyncMock()
-    session.request.return_value.status = 200
-    session.request.return_value.text = AsyncMock(
-        return_value=load_fixture("library.json")
-    )
-    client = LibraryUpdaterClient(session)
+    aioclient_mock.get(DEFAULT_LIBRARY_URL, text=load_fixture("library.json"))
+    client = LibraryUpdaterClient(async_get_clientsession(hass))
 
     assert await client.async_get_data(DEFAULT_LIBRARY_URL) == load_fixture(
         "library.json"
     )
-    session.request.assert_awaited_once_with(
-        method="get", url=DEFAULT_LIBRARY_URL, allow_redirects=True, headers=HEADERS
-    )
+    assert aioclient_mock.call_count == 1
+    _, url, _, headers = aioclient_mock.mock_calls[0]
+    assert str(url) == DEFAULT_LIBRARY_URL
+    assert headers == HEADERS
 
 
 @pytest.mark.parametrize(
@@ -371,17 +385,13 @@ async def test_client_failure(
 @pytest.mark.parametrize(
     "status", [pytest.param(404, id="not-found"), pytest.param(500, id="server-error")]
 )
-async def test_client_http_failure(hass: HomeAssistant, status: int) -> None:
-    """Test unsuccessful HTTP responses are rejected before reading content."""
-    session = async_get_clientsession(hass)
-    response = MagicMock(spec=aiohttp.ClientResponse)
-    response.status = status
-    client = LibraryUpdaterClient(session)
-    with (
-        patch.object(session, "request", new=AsyncMock(return_value=response)),
-        pytest.raises(LibraryUpdaterClientError) as raised,
-    ):
+async def test_client_http_failure(
+    hass: HomeAssistant, aioclient_mock: AiohttpClientMocker, status: int
+) -> None:
+    """Test unsuccessful HTTP responses are rejected."""
+    aioclient_mock.get(DEFAULT_LIBRARY_URL, status=status, text="error")
+    client = LibraryUpdaterClient(async_get_clientsession(hass))
+    with pytest.raises(LibraryUpdaterClientError) as raised:
         await client.async_get_data(DEFAULT_LIBRARY_URL)
     assert isinstance(raised.value.__cause__, LibraryUpdaterClientCommunicationError)
     assert str(raised.value.__cause__) == f"HTTP {status} error fetching information"
-    response.text.assert_not_called()

@@ -1,5 +1,8 @@
 """Tests for library loading and matching rules."""
 
+import json
+from unittest.mock import MagicMock, mock_open
+
 import pytest
 from custom_components.battery_notes.library import Library, ModelInfo
 
@@ -176,3 +179,51 @@ async def test_ignored_domains(
 ) -> None:
     """Test the normal loader applies the fixture's ignored integration domains."""
     assert loaded_library.is_domain_ignored(domain) is expected
+
+
+@pytest.fixture
+def library_with_invalid_entries(_mock_library_file: MagicMock) -> None:
+    """Provide a library mixing valid and invalid device entries."""
+    _mock_library_file.return_value = mock_open(
+        read_data=json.dumps(
+            {
+                "version": 1,
+                "ignored_domains": ["unifi"],
+                "devices": [
+                    {"manufacturer": "Mi", "model": "MS009", "battery_type": "CR2540"},
+                    {"manufacturer": "Mi", "model": "No battery type"},
+                    {"manufacturer": None, "model": "X", "battery_type": "AA"},
+                    {
+                        "manufacturer": "Mi",
+                        "model": "X",
+                        "battery_type": "AA",
+                        "model_id": 1,
+                    },
+                    {
+                        "manufacturer": "Mi",
+                        "model": "Y",
+                        "battery_type": "AA",
+                        "battery_quantity": "2",
+                    },
+                    "not a device",
+                ],
+            }
+        )
+    ).return_value
+
+
+@pytest.mark.usefixtures("library_with_invalid_entries")
+async def test_invalid_entries_skipped(
+    battery_library: Library, caplog: pytest.LogCaptureFixture
+) -> None:
+    """Test invalid device entries are skipped without discarding the library."""
+    await battery_library.load_libraries()
+
+    assert battery_library.is_loaded
+    assert battery_library.is_domain_ignored("unifi")
+    details = await battery_library.get_device_battery_details(
+        ModelInfo("Mi", "MS009", None, None)
+    )
+    assert details is not None
+    assert details.battery_type == "CR2540"
+    assert caplog.text.count("Skipping invalid device") == 5

@@ -9,6 +9,7 @@ import os
 import shutil
 import socket
 from datetime import datetime, timedelta
+from pathlib import Path
 from typing import Any
 
 import aiohttp
@@ -20,9 +21,11 @@ from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.event import async_track_utc_time_change
 from homeassistant.helpers.storage import STORAGE_DIR
 from homeassistant.util import dt as dt_util
+from homeassistant.util.hass_dict import HassKey
 
 from .const import (
     DEFAULT_LIBRARY_URL,
+    DOMAIN,
     FALLBACK_LIBRARY_URL,
 )
 from .coordinator import MY_KEY
@@ -30,6 +33,10 @@ from .discovery import DiscoveryManager
 from .library import DATA_LIBRARY
 
 _LOGGER = logging.getLogger(__name__)
+
+DATA_LIBRARY_UPDATE_LOCK: HassKey[asyncio.Lock] = HassKey(
+    f"{DOMAIN}_library_update_lock"
+)
 
 HEADERS = {
     "User-Agent": "BatteryNotes",
@@ -52,7 +59,9 @@ class LibraryUpdater:
     def __init__(self, hass: HomeAssistant):
         """Initialize the library updater."""
         self.hass = hass
-        self._update_lock = asyncio.Lock()
+        self._update_lock = hass.data.setdefault(
+            DATA_LIBRARY_UPDATE_LOCK, asyncio.Lock()
+        )
 
         self._client = LibraryUpdaterClient(session=async_get_clientsession(hass))
 
@@ -95,9 +104,11 @@ class LibraryUpdater:
 
         def _update_library_json(library_file: str, content: str) -> None:
             os.makedirs(os.path.dirname(library_file), exist_ok=True)
-            with open(library_file, mode="w", encoding="utf-8") as file:
+            # Write to a temporary file first so an interrupted write keeps the library
+            temp_file = f"{library_file}.tmp"
+            with open(temp_file, mode="w", encoding="utf-8") as file:
                 file.write(content)
-                file.close()
+            Path(temp_file).replace(library_file)
 
         _LOGGER.debug("Getting library updates")
 
@@ -171,18 +182,19 @@ class LibraryUpdater:
             return True
 
     def validate_json(self, content: str) -> bool:
-        """Check if content is valid json."""
+        """Check if content is a library this version can use."""
         try:
             library = json.loads(content)
-
-            if "version" not in library:
-                return False
-
-            if library["version"] > 1:
-                return False
         except ValueError:
             return False
-        return True
+
+        return (
+            isinstance(library, dict)
+            and isinstance(library.get("version"), int)
+            and library["version"] <= 1
+            and isinstance(library.get("devices"), list)
+            and len(library["devices"]) > 0
+        )
 
 
 class LibraryUpdaterClient:
@@ -208,13 +220,15 @@ class LibraryUpdaterClient:
     ) -> Any:
         """Get information from the API."""
         try:
-            async with asyncio.timeout(10):
-                response = await self._session.request(
+            async with (
+                asyncio.timeout(10),
+                self._session.request(
                     method=method,
                     url=url,
                     allow_redirects=True,
                     headers=headers,
-                )
+                ) as response,
+            ):
                 if response.status != 200:
                     raise LibraryUpdaterClientCommunicationError(  # noqa: TRY301
                         f"HTTP {response.status} error fetching information",
