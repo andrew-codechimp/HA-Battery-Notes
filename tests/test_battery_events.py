@@ -1,6 +1,7 @@
 """Tests for battery threshold and increased events driven by source states."""
 
 from dataclasses import replace
+from datetime import timedelta
 from types import MappingProxyType
 
 import pytest
@@ -44,6 +45,7 @@ from homeassistant.const import (
 )
 from homeassistant.core import Event, HomeAssistant, callback
 from homeassistant.helpers import device_registry as dr, entity_registry as er
+from homeassistant.util import dt as dt_util
 
 from . import setup_integration
 
@@ -313,11 +315,15 @@ def percentage_template_note_entry(
 
 
 @pytest.mark.parametrize("battery_note_source", ["device"])
+@pytest.mark.parametrize("unavailable_state", [STATE_UNAVAILABLE, STATE_UNKNOWN])
 async def test_percentage_template_unavailable_source(
     hass: HomeAssistant,
     percentage_template_note_entry: MockConfigEntry,
+    battery_events: list[Event],
+    freezer: FrozenDateTimeFactory,
+    unavailable_state: str,
 ) -> None:
-    """Test an unavailable percentage template source follows retain state."""
+    """Test retention and reporting when a percentage template source recovers."""
     entry = percentage_template_note_entry
     await setup_integration(hass, entry)
     battery_plus_id = _battery_plus_entity_id(hass, entry)
@@ -326,15 +332,30 @@ async def test_percentage_template_unavailable_source(
     assert hass.states.get(battery_plus_id).state == "40.0"
     assert hass.states.get(battery_low_id).state == STATE_OFF
 
-    hass.states.async_set("sensor.template_battery", STATE_UNAVAILABLE)
+    hass.states.async_set("sensor.template_battery", "5")
     await hass.async_block_till_done()
+    assert _summary(battery_events) == [(EVENT_BATTERY_THRESHOLD, True)]
+    last_reported = coordinator.last_reported
 
-    if coordinator.retain_state:
-        assert hass.states.get(battery_plus_id).state == "40.0"
-        assert hass.states.get(battery_low_id).state == STATE_OFF
-    else:
-        assert hass.states.get(battery_plus_id).state == STATE_UNAVAILABLE
-        assert hass.states.get(battery_low_id).state == STATE_UNAVAILABLE
+    freezer.tick(timedelta(hours=1))
+    hass.states.async_set("sensor.template_battery", unavailable_state)
+    await hass.async_block_till_done()
+    expected_states = {
+        True: ("5.0", STATE_ON),
+        False: (STATE_UNAVAILABLE, STATE_UNAVAILABLE),
+    }[coordinator.retain_state]
+    assert hass.states.get(battery_plus_id).state == expected_states[0]
+    assert hass.states.get(battery_low_id).state == expected_states[1]
+    assert coordinator.last_reported == last_reported
+    assert _summary(battery_events) == [(EVENT_BATTERY_THRESHOLD, True)]
+
+    freezer.tick(timedelta(hours=1))
+    hass.states.async_set("sensor.template_battery", "5")
+    await hass.async_block_till_done()
+    assert hass.states.get(battery_plus_id).state == "5.0"
+    assert hass.states.get(battery_low_id).state == STATE_ON
+    assert coordinator.last_reported == dt_util.utcnow()
+    assert _summary(battery_events) == [(EVENT_BATTERY_THRESHOLD, True)]
 
 
 @pytest.mark.parametrize(

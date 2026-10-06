@@ -946,7 +946,8 @@ class BatteryNotesBatteryPlusTemplateSensor(BatteryNotesBatteryPlusBaseSensor):
             state = None
 
         if state is None and self.coordinator.retain_state:
-            # Keep the last level while the template has no valid result
+            # Reprocess recovery even if the valid percentage is unchanged
+            self._state = None
             return
 
         self._attr_available = state is not None
