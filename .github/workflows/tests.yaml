@@ -46,4 +46,4 @@ jobs:
         run: uv sync --locked
 
       - name: Run tests
-        run: uv run --no-sync pytest tests --ignore=tests/legacy -v
+        run: uv run --no-sync pytest tests -v
