@@ -24,6 +24,8 @@ from custom_components.battery_notes.const import (
 )
 from custom_components.battery_notes.library import DATA_LIBRARY, Library
 from pytest_homeassistant_custom_component.common import MockConfigEntry, load_fixture
+from pytest_homeassistant_custom_component.syrupy import HomeAssistantSnapshotExtension
+from syrupy.assertion import SnapshotAssertion
 
 from homeassistant.components.sensor import SensorDeviceClass
 from homeassistant.config_entries import ConfigSubentry
@@ -39,6 +41,12 @@ from homeassistant.helpers import (
     device_registry as dr,
     entity_registry as er,
 )
+
+
+@pytest.fixture
+def snapshot(snapshot: SnapshotAssertion) -> SnapshotAssertion:
+    """Select the Home Assistant serializer regardless of plugin load order."""
+    return snapshot.use_extension(HomeAssistantSnapshotExtension)
 
 
 @pytest.fixture(autouse=True)
