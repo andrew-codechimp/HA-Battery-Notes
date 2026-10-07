@@ -19,6 +19,7 @@ from custom_components.battery_notes.const import (
     ATTR_BATTERY_TYPE_AND_QUANTITY,
     ATTR_DEVICE_ID,
     ATTR_DEVICE_NAME,
+    ATTR_NOTE,
     ATTR_SOURCE_ENTITY_ID,
     CONF_ADVANCED_SETTINGS,
     CONF_BATTERY_QUANTITY,
@@ -157,6 +158,7 @@ async def test_set_battery_replaced(
         ATTR_BATTERY_TYPE_AND_QUANTITY: "2× AA",
         ATTR_BATTERY_TYPE: "AA",
         ATTR_BATTERY_QUANTITY: 2,
+        ATTR_NOTE: "",
     }
 
 
@@ -355,6 +357,7 @@ async def test_check_battery_last_replaced(
     assert len(events) == expected_items
     for data in (*items, *(event.data for event in events)):
         assert data[ATTR_DEVICE_NAME] == "Door battery note"
+        assert data[ATTR_NOTE] == ""
         assert data[ATTR_BATTERY_LAST_REPLACED_DAYS] == 40
     for item in items:
         assert item[ATTR_BATTERY_LAST_REPLACED] == "2026-01-01T12:00:00+00:00"
@@ -394,6 +397,7 @@ async def test_check_battery_last_reported(
     for data in (*items, *(event.data for event in events)):
         assert data[ATTR_DEVICE_NAME] == "Door battery note"
         assert data[ATTR_BATTERY_LAST_REPORTED_DAYS] == 3
+        assert data[ATTR_NOTE] == ""
         assert data[ATTR_BATTERY_LAST_REPORTED_LEVEL] == 55
     for item in items:
         assert item[ATTR_BATTERY_LAST_REPORTED] == "2026-01-01T12:00:00+00:00"
