@@ -659,6 +659,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
             ATTR_BATTERY_TYPE_AND_QUANTITY: self.battery_type_and_quantity,
             ATTR_BATTERY_TYPE: self.battery_type,
             ATTR_BATTERY_QUANTITY: self.battery_quantity,
+            ATTR_NOTE: self.battery_note,
             **(extra or {}),
         }
 
@@ -679,7 +680,6 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                 ATTR_BATTERY_LOW: self.battery_low,
                 ATTR_BATTERY_INCREASE_THRESHOLD: self.battery_increased_threshold,
                 ATTR_BATTERY_LOW_THRESHOLD: self.battery_low_threshold,
-                ATTR_NOTE: self.battery_note,
                 ATTR_BATTERY_LEVEL: battery_level,
                 ATTR_PREVIOUS_BATTERY_LEVEL: previous_battery_level,
                 ATTR_BATTERY_LAST_REPLACED: self.last_replaced,

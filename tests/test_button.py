@@ -12,6 +12,7 @@ from custom_components.battery_notes.const import (
     ATTR_BATTERY_TYPE_AND_QUANTITY,
     ATTR_DEVICE_ID,
     ATTR_DEVICE_NAME,
+    ATTR_NOTE,
     ATTR_SOURCE_ENTITY_ID,
     CONF_ADVANCED_SETTINGS,
     CONF_ENABLE_REPLACED,
@@ -201,4 +202,5 @@ async def test_press_battery_replaced_button(
         ATTR_BATTERY_TYPE_AND_QUANTITY: "2× AA",
         ATTR_BATTERY_TYPE: "AA",
         ATTR_BATTERY_QUANTITY: 2,
+        ATTR_NOTE: "",
     }
