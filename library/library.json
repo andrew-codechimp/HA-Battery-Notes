@@ -6823,6 +6823,12 @@
             "battery_type": "Rechargeable"
         },
         {
+            "manufacturer": "Manhot",
+            "model": "Smart blinds motor",
+            "model_id": "MB60L-ZG-ZT-TY",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Meian",
             "model": "Water leak sensor",
             "model_id": "SW02",
@@ -13558,12 +13564,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Manhot",
-            "model": "Smart blinds motor",
-            "model_id": "MB60L-ZG-ZT-TY",
             "battery_type": "Rechargeable"
         }
     ]

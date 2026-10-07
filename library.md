@@ -1,4 +1,4 @@
-## 2333 Devices in library
+## 2334 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1186,6 +1186,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Lutron Electronics Co., Inc                     |PJ2-3BRL-GXX-X01 (Pico3ButtonRaiseLower)                                                      |CR2032                    |                                                                                      |
 |Mammotion                                       |LubaVAWD5000                                                                                  |Rechargeable              |Luba2AWD10000H                                                                        |
 |Mammotion                                       |YUKA mini 2 1000                                                                              |Rechargeable              |YUKA mini 2 1000                                                                      |
+|Manhot                                          |Smart blinds motor                                                                            |Rechargeable              |MB60L-ZG-ZT-TY                                                                        |
 |Meian                                           |Water leak sensor                                                                             |CR2450                    |SW02                                                                                  |
 |Merkury                                         |SS003                                                                                         |CR2                       |                                                                                      |
 |Meross                                          |gs559                                                                                         |4× AA                     |                                                                                      |
