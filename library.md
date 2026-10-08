@@ -1,4 +1,4 @@
-## 2334 Devices in library
+## 2335 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1291,6 +1291,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |NYCE                                            |3043                                                                                          |2× AAA                    |                                                                                      |
 |Nyce                                            |Door/window sensor (NCZ-3011-HA)                                                              |CR2032                    |                                                                                      |
 |Obi                                             |OBI meter                                                                                     |2× AA                     |50600000000000000000000000000000000000000000000000000000000000000000000000000000000000|
+|Octopus                                         |Cosy 6                                                                                        |2× AAA                    |                                                                                      |
 |Oculus                                          |Quest                                                                                         |Rechargeable              |                                                                                      |
 |Olibra                                          |RMS35                                                                                         |Rechargeable              |                                                                                      |
 |Omlet                                           |Autodoor                                                                                      |4× AA                     |                                                                                      |
