@@ -13565,6 +13565,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Octopus",
+            "model": "Cosy 6",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
