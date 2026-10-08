@@ -1501,7 +1501,7 @@
             "manufacturer": "Aqara",
             "model": "Door and window sensor",
             "model_id": "MCCGQ11LM",
-            "battery_type": "CR2032"
+            "battery_type": "CR1632"
         },
         {
             "manufacturer": "Aqara",
