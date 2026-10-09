@@ -17,6 +17,8 @@
   },
   "ignoreDeps": [
     "homeassistant",
+    "pytest-homeassistant-custom-component",
+    "mypy",
     "python",
     "mkdocs-material",
     "pytablewriter"
