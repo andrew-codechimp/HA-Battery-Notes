@@ -53,7 +53,7 @@ dev = [
     "pyqrcode",
     "pyserial",
     "pyspeex-noise",
-    "pytest-homeassistant-custom-component==0.13.336",
+    "pytest-homeassistant-custom-component==0.13.336", # Keep aligned with HA 2026.6.0's dependency pins.
     "pyturbojpeg",
     "ruff",
     "zensical",

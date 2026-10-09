@@ -17,6 +17,8 @@ dependencies in `pyproject.toml` and `uv.lock`.
   Treat these as separate configuration values; do not change them incidentally.
 - Keep the HA/test-plugin pins compatible. The mypy pin has an explanatory
   dependency-compatibility comment in `pyproject.toml`.
+- Renovate ignores Home Assistant, the test plugin, and mypy. Update these pins
+  together when upgrading the Home Assistant development environment.
 
 | Task | Command |
 | --- | --- |
