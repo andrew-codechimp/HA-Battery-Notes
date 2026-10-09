@@ -45,7 +45,7 @@ dev = [
     "homeassistant==2026.6.0",
     "infrared-protocols",
     "mutagen",
-    "mypy==2.1.0", # The HA 2026.6.0 test plugin requires ast-serialize==0.3.0.
+    "mypy==2.4.0", # The HA 2026.6.0 test plugin requires ast-serialize==0.3.0.
     "pycares",
     "pygments",
     "pymicro-vad",
@@ -53,7 +53,7 @@ dev = [
     "pyqrcode",
     "pyserial",
     "pyspeex-noise",
-    "pytest-homeassistant-custom-component==0.13.336",
+    "pytest-homeassistant-custom-component==0.13.371",
     "pyturbojpeg",
     "ruff",
     "zensical",
