@@ -1,0 +1,118 @@
+"""Automation triggers for Battery Notes."""
+
+from collections.abc import Callable, Mapping
+from typing import Any, cast, override
+
+import voluptuous as vol
+
+from homeassistant.const import CONF_OPTIONS, CONF_TARGET
+from homeassistant.core import CALLBACK_TYPE, Event, HomeAssistant, callback
+from homeassistant.helpers import config_validation as cv, entity_registry as er
+from homeassistant.helpers.target import (
+    TargetSelection,
+    async_extract_referenced_entity_ids,
+)
+from homeassistant.helpers.trigger import (
+    Trigger,
+    TriggerActionRunner,
+    TriggerConfig,
+)
+from homeassistant.helpers.typing import ConfigType
+
+from .const import ATTR_DEVICE_ID, ATTR_SOURCE_ENTITY_ID, DOMAIN, EVENT_BATTERY_REPLACED
+from .coordinator import BatteryNotesConfigEntry
+
+BATTERY_REPLACED_TRIGGER_SCHEMA = vol.Schema(
+    {
+        vol.Optional(CONF_TARGET): cv.TARGET_FIELDS,
+        vol.Required(CONF_OPTIONS, default={}): {},
+    }
+)
+
+
+class BatteryReplacedTrigger(Trigger):
+    """Trigger when a targeted battery note raises a replacement event."""
+
+    @classmethod
+    @override
+    async def async_validate_config(
+        cls, hass: HomeAssistant, config: ConfigType
+    ) -> ConfigType:
+        """Validate the trigger configuration."""
+        return cast(ConfigType, BATTERY_REPLACED_TRIGGER_SCHEMA(config))
+
+    def __init__(self, hass: HomeAssistant, config: TriggerConfig) -> None:
+        """Initialize the replacement trigger."""
+        super().__init__(hass, config)
+        self._target = (
+            TargetSelection(config.target) if config.target is not None else None
+        )
+
+    @callback
+    def _matches_target(self, data: Mapping[str, Any]) -> bool:
+        """Match event sources and Battery Notes entities against current targets."""
+        if self._target is None:
+            return True
+
+        selected = async_extract_referenced_entity_ids(
+            self._hass, self._target, primary_entities_only=False
+        )
+        device_id = data.get(ATTR_DEVICE_ID)
+        source_entity_id = data.get(ATTR_SOURCE_ENTITY_ID)
+        if device_id and device_id in selected.referenced_devices:
+            return True
+
+        entity_ids = selected.referenced | selected.indirectly_referenced
+        if source_entity_id and source_entity_id in entity_ids:
+            return True
+
+        registry = er.async_get(self._hass)
+        for entity_id in entity_ids:
+            if (entity := registry.async_get(entity_id)) is None:
+                continue
+            if entity.platform != DOMAIN:
+                if not source_entity_id and device_id and entity.device_id == device_id:
+                    return True
+                continue
+            if not entity.config_entry_id or not entity.config_subentry_id:
+                continue
+            entry = self._hass.config_entries.async_get_entry(entity.config_entry_id)
+            if entry is None or not hasattr(entry, "runtime_data"):
+                continue
+            coordinators = cast(
+                BatteryNotesConfigEntry, entry
+            ).runtime_data.subentry_coordinators
+            coordinator = (coordinators or {}).get(entity.config_subentry_id)
+            if coordinator is not None and (
+                (coordinator.source_entity_id or "") == (source_entity_id or "")
+                and (coordinator.device_id or "") == (device_id or "")
+            ):
+                return True
+        return False
+
+    @override
+    async def async_attach_runner(
+        self,
+        run_action: TriggerActionRunner,
+        _did_not_trigger: Callable[..., None] | None = None,
+    ) -> CALLBACK_TYPE:
+        """Listen for replacement events and forward their data to the action."""
+
+        @callback
+        def async_battery_replaced(event: Event) -> None:
+            """Handle a battery replacement event."""
+            if self._matches_target(event.data):
+                run_action(
+                    dict(event.data),
+                    "battery replaced",
+                    event.context,
+                )
+
+        return self._hass.bus.async_listen(
+            EVENT_BATTERY_REPLACED, async_battery_replaced
+        )
+
+
+async def async_get_triggers(hass: HomeAssistant) -> dict[str, type[Trigger]]:  # noqa: ARG001
+    """Return the triggers provided by Battery Notes."""
+    return {"battery_replaced": BatteryReplacedTrigger}

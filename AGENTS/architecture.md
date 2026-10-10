@@ -18,6 +18,7 @@ Paths below are relative to `custom_components/battery_notes/` unless specified.
 | `binary_sensor.py` | Low-battery entities for percentage, binary, and template sources |
 | `button.py` | Battery-replaced button |
 | `services.py` / `services.yaml` | Action registration and handlers / UI action definitions |
+| `trigger.py` / `triggers.yaml` | Purpose-specific replacement event trigger / UI target definition |
 | `const.py` | Domain, platforms, configuration keys, attributes, event names, service schemas, defaults |
 | `store.py` | Persistent battery history, migrations, delayed writes, device/entity storage records |
 | `library.py` | JSON parsing, indexed library data, model matching, ignored integration domains |
@@ -62,6 +63,12 @@ data and the library, and registers services. `async_setup_entry` reads options,
 creates coordinators, forwards platforms, installs the update listener, and
 schedules library updates/discovery. Register new actions in
 `services.async_setup_services`, not separately for every subentry.
+
+`battery_notes.battery_replaced` listens to the existing replacement event from
+buttons and actions. Omitting the target includes all battery notes; an explicit
+empty target matches none. It resolves standard HA targets for each event, matches
+Battery Notes entities through their config subentry, and exposes the unchanged
+event fields as top-level members of `trigger`.
 
 Subentry/options changes reload the parent entry. The update listener cleans up
 removed notes and sets `skip_library_download` for subentry changes, resetting it

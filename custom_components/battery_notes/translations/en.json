@@ -383,6 +383,12 @@
             "description": "Configuring {integration_title} using YAML is being removed.\n\nYour existing YAML configuration has been imported into the UI automatically.\n\nRemove the `{domain}` configuration from your configuration.yaml file and restart Home Assistant to fix this issue."
         }
     },
+    "triggers": {
+        "battery_replaced": {
+            "name": "Battery replaced",
+            "description": "Triggers when a battery is marked as replaced.\nTarget is optional, the error showing no target specified is just a warning."
+        }
+    },
     "exceptions": {
         "not_configured_in_battery_notes": {
             "message": "{source} is not configured in Battery Notes."

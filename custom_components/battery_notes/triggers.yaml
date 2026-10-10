@@ -1,0 +1,4 @@
+battery_replaced:
+  target:
+    entity:
+      integration: battery_notes

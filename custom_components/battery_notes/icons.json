@@ -32,5 +32,10 @@
         "check_battery_low": {
             "service": "mdi:battery-alert"
         }
+    },
+    "triggers": {
+        "battery_replaced": {
+            "trigger": "mdi:battery-sync"
+        }
     }
 }
