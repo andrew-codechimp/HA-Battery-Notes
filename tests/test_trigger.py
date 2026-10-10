@@ -1,4 +1,4 @@
-"""Tests for Battery Notes replacement triggers."""
+"""Tests for Battery Notes event triggers."""
 
 from typing import Any
 from unittest.mock import AsyncMock, Mock
@@ -6,14 +6,18 @@ from unittest.mock import AsyncMock, Mock
 import pytest
 import voluptuous as vol
 from custom_components.battery_notes.const import (
+    ATTR_BATTERY_LOW,
+    ATTR_BATTERY_THRESHOLD_REMINDER,
     ATTR_DEVICE_ID,
     ATTR_SOURCE_ENTITY_ID,
     DOMAIN,
     EVENT_BATTERY_REPLACED,
+    EVENT_BATTERY_THRESHOLD,
     SERVICE_BATTERY_REPLACED,
+    SERVICE_CHECK_BATTERY_LOW,
     SERVICE_DATA_DATE_TIME_REPLACED,
 )
-from custom_components.battery_notes.trigger import BatteryReplacedTrigger
+from custom_components.battery_notes.trigger import BatteryWasReplacedTrigger
 from pytest_homeassistant_custom_component.common import (
     MockConfigEntry,
     async_capture_events,
@@ -38,16 +42,18 @@ from . import setup_integration
 
 pytestmark = pytest.mark.usefixtures("mock_library_updater", "_mock_library_file")
 
-TRIGGER_KEY = "battery_notes.battery_replaced"
+TRIGGER_KEY = "battery_notes.battery_was_replaced"
+LOW_TRIGGER_KEY = "battery_notes.battery_became_low"
+RECOVERY_TRIGGER_KEY = "battery_notes.battery_no_longer_low"
 BUTTON_UNIQUE_ID = "bn_door_battery_battery_replaced_button"
 
 
 async def _attach_trigger(
-    hass: HomeAssistant, config: dict[str, Any]
+    hass: HomeAssistant, config: dict[str, Any], trigger_key: str = TRIGGER_KEY
 ) -> tuple[AsyncMock, CALLBACK_TYPE]:
     """Attach a trigger through Home Assistant's public trigger helpers."""
     config = await async_validate_trigger_config(
-        hass, [{"platform": TRIGGER_KEY, "id": "replaced", **config}]
+        hass, [{"platform": trigger_key, "id": "replaced", **config}]
     )
     action = AsyncMock()
     remove = await async_initialize_triggers(
@@ -112,6 +118,16 @@ async def replacement_targets(
 
 
 @pytest.mark.parametrize(
+    ("trigger_key", "event_type", "initial_level", "final_level"),
+    [
+        pytest.param(TRIGGER_KEY, EVENT_BATTERY_REPLACED, "55", "5", id="replacement"),
+        pytest.param(LOW_TRIGGER_KEY, EVENT_BATTERY_THRESHOLD, "55", "5", id="low"),
+        pytest.param(
+            RECOVERY_TRIGGER_KEY, EVENT_BATTERY_THRESHOLD, "5", "10", id="recovery"
+        ),
+    ],
+)
+@pytest.mark.parametrize(
     ("target_kind", "expected_by_source"),
     [
         pytest.param(kind, {"device": 1, "entity": 1, "standalone-entity": 1}, id=kind)
@@ -143,19 +159,30 @@ async def replacement_targets(
         )
     ],
 )
-async def test_replacement_targets(  # noqa: PLR0913
+async def test_trigger_targets(  # noqa: PLR0913
     hass: HomeAssistant,
     battery_note_config_entry: MockConfigEntry,
+    battery_note_sensor: er.RegistryEntry,
     battery_note_source: str,
     replacement_targets: dict[str, dict[str, str | list[str]]],
     target_kind: str,
     expected_by_source: dict[str, int],
+    trigger_key: str,
+    event_type: str,
+    initial_level: str,
+    final_level: str,
 ) -> None:
-    """Test replacement actions match standard targets without duplicate runs."""
-    action, remove = await _attach_trigger(
-        hass, {"target": replacement_targets[target_kind]}
+    """Test events match standard targets without duplicate runs."""
+    source_state = hass.states.get(battery_note_sensor.entity_id)
+    assert source_state is not None
+    hass.states.async_set(
+        battery_note_sensor.entity_id, initial_level, source_state.attributes
     )
-    events = async_capture_events(hass, EVENT_BATTERY_REPLACED)
+    await hass.async_block_till_done()
+    action, remove = await _attach_trigger(
+        hass, {"target": replacement_targets[target_kind]}, trigger_key
+    )
+    events = async_capture_events(hass, event_type)
     subentry = next(iter(battery_note_config_entry.subentries.values()))
     service_data = {
         key: subentry.data[key]
@@ -168,6 +195,13 @@ async def test_replacement_targets(  # noqa: PLR0913
         SERVICE_BATTERY_REPLACED,
         {**service_data, SERVICE_DATA_DATE_TIME_REPLACED: "2025-01-01T12:00:00+00:00"},
         blocking=True,
+    )
+    await hass.async_block_till_done()
+
+    source_state = hass.states.get(battery_note_sensor.entity_id)
+    assert source_state is not None
+    hass.states.async_set(
+        battery_note_sensor.entity_id, final_level, source_state.attributes
     )
     await hass.async_block_till_done()
 
@@ -258,7 +292,7 @@ async def test_event_timing_and_repeated_events(
     replacement_targets: dict[str, dict[str, str | list[str]]],
 ) -> None:
     """Test each event triggers immediately, independently of state changes."""
-    trigger = BatteryReplacedTrigger(
+    trigger = BatteryWasReplacedTrigger(
         hass, TriggerConfig(key=TRIGGER_KEY, target=replacement_targets["note-entity"])
     )
     runner = Mock()
@@ -285,6 +319,16 @@ async def test_event_timing_and_repeated_events(
     "target_kind",
     [pytest.param("area", id="area"), pytest.param("entity-label", id="label")],
 )
+@pytest.mark.parametrize(
+    ("trigger_key", "event_type", "battery_low"),
+    [
+        pytest.param(TRIGGER_KEY, EVENT_BATTERY_REPLACED, True, id="replacement"),
+        pytest.param(LOW_TRIGGER_KEY, EVENT_BATTERY_THRESHOLD, True, id="low"),
+        pytest.param(
+            RECOVERY_TRIGGER_KEY, EVENT_BATTERY_THRESHOLD, False, id="recovery"
+        ),
+    ],
+)
 async def test_target_membership_changes(  # noqa: PLR0913
     hass: HomeAssistant,
     battery_note_config_entry: MockConfigEntry,
@@ -292,16 +336,21 @@ async def test_target_membership_changes(  # noqa: PLR0913
     battery_note_sensor: er.RegistryEntry,
     replacement_targets: dict[str, dict[str, str | list[str]]],
     target_kind: str,
+    trigger_key: str,
+    event_type: str,
+    battery_low: bool,
 ) -> None:
     """Test targets resolve current registry membership for every event."""
     action, remove = await _attach_trigger(
-        hass, {"target": replacement_targets[target_kind]}
+        hass, {"target": replacement_targets[target_kind]}, trigger_key
     )
     coordinator = next(
         iter(battery_note_config_entry.runtime_data.subentry_coordinators.values())
     )
-    data = coordinator.event_data()
-    hass.bus.async_fire(EVENT_BATTERY_REPLACED, data)
+    data = coordinator.event_data(
+        {ATTR_BATTERY_LOW: battery_low, ATTR_BATTERY_THRESHOLD_REMINDER: False}
+    )
+    hass.bus.async_fire(event_type, data)
     await hass.async_block_till_done()
     action.assert_awaited_once()
 
@@ -312,7 +361,7 @@ async def test_target_membership_changes(  # noqa: PLR0913
     registry.async_update_entity(battery_note_sensor.entity_id, area_id=None)
     dr.async_get(hass).async_update_device(battery_note_device.id, area_id=None)
     await hass.async_block_till_done()
-    hass.bus.async_fire(EVENT_BATTERY_REPLACED, data)
+    hass.bus.async_fire(event_type, data)
     await hass.async_block_till_done()
 
     action.assert_awaited_once()
@@ -320,27 +369,40 @@ async def test_target_membership_changes(  # noqa: PLR0913
 
 
 @pytest.mark.parametrize("battery_note_source", [pytest.param("entity", id="entity")])
-async def test_entity_note_does_not_match_other_note_on_device(
+@pytest.mark.parametrize(
+    ("trigger_key", "event_type", "battery_low"),
+    [
+        pytest.param(TRIGGER_KEY, EVENT_BATTERY_REPLACED, True, id="replacement"),
+        pytest.param(LOW_TRIGGER_KEY, EVENT_BATTERY_THRESHOLD, True, id="low"),
+        pytest.param(
+            RECOVERY_TRIGGER_KEY, EVENT_BATTERY_THRESHOLD, False, id="recovery"
+        ),
+    ],
+)
+async def test_entity_note_does_not_match_other_note_on_device(  # noqa: PLR0913
     hass: HomeAssistant,
     battery_note_config_entry: MockConfigEntry,
     replacement_targets: dict[str, dict[str, str | list[str]]],
+    trigger_key: str,
+    event_type: str,
+    battery_low: bool,
 ) -> None:
     """Test targeting an entity note does not also match its device's note."""
     action, remove = await _attach_trigger(
-        hass, {"target": replacement_targets["note-entity"]}
+        hass, {"target": replacement_targets["note-entity"]}, trigger_key
     )
     coordinator = next(
         iter(battery_note_config_entry.runtime_data.subentry_coordinators.values())
     )
-    hass.bus.async_fire(
-        EVENT_BATTERY_REPLACED,
-        {**coordinator.event_data(), ATTR_SOURCE_ENTITY_ID: ""},
+    data = coordinator.event_data(
+        {ATTR_BATTERY_LOW: battery_low, ATTR_BATTERY_THRESHOLD_REMINDER: False}
     )
+    hass.bus.async_fire(event_type, {**data, ATTR_SOURCE_ENTITY_ID: ""})
     await hass.async_block_till_done()
 
     action.assert_not_called()
 
-    hass.bus.async_fire(EVENT_BATTERY_REPLACED, coordinator.event_data())
+    hass.bus.async_fire(event_type, data)
     await hass.async_block_till_done()
 
     action.assert_awaited_once()
@@ -348,28 +410,249 @@ async def test_entity_note_does_not_match_other_note_on_device(
 
 
 @pytest.mark.parametrize(
+    ("options", "transition_count", "expected_event_indices"),
+    [
+        pytest.param({}, 1, [0, 1], id="default"),
+        pytest.param({"reminder": "exclude"}, 1, [0], id="exclude"),
+        pytest.param({"reminder": "only"}, 0, [1], id="only"),
+        pytest.param({"reminder": "all"}, 1, [0, 1], id="all"),
+    ],
+)
+async def test_low_transitions_reminders_and_cleanup(  # noqa: PLR0913
+    hass: HomeAssistant,
+    battery_note_config_entry: MockConfigEntry,
+    battery_note_sensor: er.RegistryEntry,
+    options: dict[str, str],
+    transition_count: int,
+    expected_event_indices: list[int],
+) -> None:
+    """Test source transitions and check-action reminders preserve the event data."""
+    await setup_integration(hass, battery_note_config_entry)
+    action, remove = await _attach_trigger(hass, {"options": options}, LOW_TRIGGER_KEY)
+    events = async_capture_events(hass, EVENT_BATTERY_THRESHOLD)
+    source_state = hass.states.get(battery_note_sensor.entity_id)
+    assert source_state is not None
+    attributes = source_state.attributes
+    action.assert_not_called()
+
+    hass.states.async_set(battery_note_sensor.entity_id, "5", attributes)
+    await hass.async_block_till_done()
+    assert action.await_count == transition_count
+
+    hass.states.async_set(battery_note_sensor.entity_id, "4", attributes)
+    await hass.async_block_till_done()
+    assert action.await_count == transition_count
+
+    await hass.services.async_call(DOMAIN, SERVICE_CHECK_BATTERY_LOW, blocking=True)
+    await hass.async_block_till_done()
+    assert len(events) == 2
+    assert events[0].data[ATTR_BATTERY_THRESHOLD_REMINDER] is False
+    assert events[1].data[ATTR_BATTERY_THRESHOLD_REMINDER] is True
+    assert action.await_count == len(expected_event_indices)
+    expected_events = [events[index] for index in expected_event_indices]
+    for call, event in zip(action.call_args_list, expected_events, strict=True):
+        assert call.args[0]["trigger"] == {
+            "id": "replaced",
+            "idx": "0",
+            "alias": None,
+            "platform": LOW_TRIGGER_KEY,
+            "description": "battery low",
+            **event.data,
+        }
+        assert call.args[1] is event.context
+
+    hass.states.async_set(battery_note_sensor.entity_id, "55", attributes)
+    await hass.async_block_till_done()
+    assert len(events) == 3
+    assert events[2].data[ATTR_BATTERY_LOW] is False
+    assert action.await_count == len(expected_event_indices)
+
+    remove()
+    hass.states.async_set(battery_note_sensor.entity_id, "5", attributes)
+    await hass.async_block_till_done()
+    await hass.services.async_call(DOMAIN, SERVICE_CHECK_BATTERY_LOW, blocking=True)
+    await hass.async_block_till_done()
+    assert len(events) == 5
+    assert action.await_count == len(expected_event_indices)
+
+
+async def test_recovery_transitions_payload_and_cleanup(
+    hass: HomeAssistant,
+    battery_note_config_entry: MockConfigEntry,
+    battery_note_sensor: er.RegistryEntry,
+) -> None:
+    """Test recovery fires at the threshold and forwards the event unchanged."""
+    await setup_integration(hass, battery_note_config_entry)
+    action, remove = await _attach_trigger(hass, {}, RECOVERY_TRIGGER_KEY)
+    events = async_capture_events(hass, EVENT_BATTERY_THRESHOLD)
+    source_state = hass.states.get(battery_note_sensor.entity_id)
+    assert source_state is not None
+    attributes = source_state.attributes
+    action.assert_not_called()
+
+    hass.states.async_set(battery_note_sensor.entity_id, "5", attributes)
+    await hass.async_block_till_done()
+    await hass.services.async_call(DOMAIN, SERVICE_CHECK_BATTERY_LOW, blocking=True)
+    await hass.async_block_till_done()
+    assert len(events) == 2
+    action.assert_not_called()
+
+    hass.states.async_set(battery_note_sensor.entity_id, "10", attributes)
+    await hass.async_block_till_done()
+    assert len(events) == 3
+    assert events[2].data[ATTR_BATTERY_LOW] is False
+    action.assert_awaited_once()
+    assert action.call_args.args[0]["trigger"] == {
+        "id": "replaced",
+        "idx": "0",
+        "alias": None,
+        "platform": RECOVERY_TRIGGER_KEY,
+        "description": "battery no longer low",
+        **events[2].data,
+    }
+    assert action.call_args.args[1] is events[2].context
+
+    hass.states.async_set(battery_note_sensor.entity_id, "20", attributes)
+    await hass.async_block_till_done()
+    assert len(events) == 3
+    action.assert_awaited_once()
+
+    remove()
+    hass.states.async_set(battery_note_sensor.entity_id, "5", attributes)
+    await hass.async_block_till_done()
+    hass.states.async_set(battery_note_sensor.entity_id, "10", attributes)
+    await hass.async_block_till_done()
+    assert len(events) == 5
+    action.assert_awaited_once()
+
+
+@pytest.mark.parametrize(
+    "reminder",
+    [pytest.param(False, id="transition"), pytest.param(True, id="reminder")],
+)
+async def test_recovery_ignores_low_events(hass: HomeAssistant, reminder: bool) -> None:
+    """Test low transitions and reminders never fire the recovery trigger."""
+    action, remove = await _attach_trigger(hass, {}, RECOVERY_TRIGGER_KEY)
+    hass.bus.async_fire(
+        EVENT_BATTERY_THRESHOLD,
+        {ATTR_BATTERY_LOW: True, ATTR_BATTERY_THRESHOLD_REMINDER: reminder},
+    )
+    await hass.async_block_till_done()
+    action.assert_not_called()
+    remove()
+
+
+@pytest.mark.parametrize(
+    "reminder",
+    [pytest.param(False, id="transition"), pytest.param(True, id="reminder")],
+)
+@pytest.mark.parametrize(
+    "option",
+    [
+        pytest.param("exclude", id="exclude"),
+        pytest.param("only", id="only"),
+        pytest.param("all", id="all"),
+    ],
+)
+async def test_low_ignores_recovery_events(
+    hass: HomeAssistant, reminder: bool, option: str
+) -> None:
+    """Test healthy battery events never trigger, regardless of reminder filtering."""
+    action, remove = await _attach_trigger(
+        hass, {"options": {"reminder": option}}, LOW_TRIGGER_KEY
+    )
+    hass.bus.async_fire(
+        EVENT_BATTERY_THRESHOLD,
+        {ATTR_BATTERY_LOW: False, ATTR_BATTERY_THRESHOLD_REMINDER: reminder},
+    )
+    await hass.async_block_till_done()
+    action.assert_not_called()
+    remove()
+
+
+@pytest.mark.parametrize(
+    "config",
+    [
+        pytest.param({"target": {"entity_id": "invalid"}}, id="invalid-entity"),
+        pytest.param({"options": {"reminder": "invalid"}}, id="invalid-reminder"),
+        pytest.param({"options": {"reminder": True}}, id="boolean-reminder"),
+        pytest.param({"options": {"for": 10}}, id="unsupported-option"),
+    ],
+)
+async def test_invalid_low_config(hass: HomeAssistant, config: dict[str, Any]) -> None:
+    """Test invalid low battery targets and reminder options are rejected."""
+    with pytest.raises(vol.Invalid):
+        await async_validate_trigger_config(
+            hass, [{"platform": LOW_TRIGGER_KEY, **config}]
+        )
+
+
+async def test_low_trigger_description(
+    hass: HomeAssistant, battery_note_config_entry: MockConfigEntry
+) -> None:
+    """Test Home Assistant loads the low trigger targets and reminder selector."""
+    await setup_integration(hass, battery_note_config_entry)
+    descriptions = await async_get_all_descriptions(hass)
+    assert descriptions[LOW_TRIGGER_KEY] == {
+        "target": {"entity": [{"integration": "battery_notes"}]},
+        "fields": {
+            "reminder": {
+                "default": "all",
+                "selector": {
+                    "select": {
+                        "translation_key": "battery_low_reminder",
+                        "options": ["exclude", "only", "all"],
+                        "custom_value": False,
+                        "multiple": False,
+                        "sort": False,
+                    }
+                },
+            }
+        },
+    }
+
+
+@pytest.mark.parametrize(
     "config",
     [
         pytest.param({"target": {"entity_id": "invalid"}}, id="invalid-entity"),
         pytest.param({"target": {}, "options": {"for": 10}}, id="unsupported-option"),
+        pytest.param({"options": {"reminder": "all"}}, id="unsupported-reminder"),
     ],
 )
-async def test_invalid_config(hass: HomeAssistant, config: dict[str, Any]) -> None:
+@pytest.mark.parametrize(
+    "trigger_key",
+    [
+        pytest.param(TRIGGER_KEY, id="replacement"),
+        pytest.param(RECOVERY_TRIGGER_KEY, id="recovery"),
+    ],
+)
+async def test_invalid_config(
+    hass: HomeAssistant, config: dict[str, Any], trigger_key: str
+) -> None:
     """Test invalid target and option configurations are rejected."""
     with pytest.raises(vol.Invalid):
-        await async_validate_trigger_config(hass, [{"platform": TRIGGER_KEY, **config}])
+        await async_validate_trigger_config(hass, [{"platform": trigger_key, **config}])
 
 
+@pytest.mark.parametrize(
+    "trigger_key",
+    [
+        pytest.param(TRIGGER_KEY, id="replacement"),
+        pytest.param(RECOVERY_TRIGGER_KEY, id="recovery"),
+    ],
+)
 async def test_trigger_description(
     hass: HomeAssistant,
     battery_note_config_entry: MockConfigEntry,
+    trigger_key: str,
 ) -> None:
     """Test Home Assistant loads the trigger's target selector definition."""
     await setup_integration(hass, battery_note_config_entry)
 
     descriptions = await async_get_all_descriptions(hass)
 
-    assert descriptions[TRIGGER_KEY] == {
+    assert descriptions[trigger_key] == {
         "fields": {},
         "target": {"entity": [{"integration": "battery_notes"}]},
     }

@@ -18,7 +18,7 @@ Paths below are relative to `custom_components/battery_notes/` unless specified.
 | `binary_sensor.py` | Low-battery entities for percentage, binary, and template sources |
 | `button.py` | Battery-replaced button |
 | `services.py` / `services.yaml` | Action registration and handlers / UI action definitions |
-| `trigger.py` / `triggers.yaml` | Purpose-specific replacement event trigger / UI target definition |
+| `trigger.py` / `triggers.yaml` | Purpose-specific replacement, low battery, and recovery event triggers / UI targets and options |
 | `const.py` | Domain, platforms, configuration keys, attributes, event names, service schemas, defaults |
 | `store.py` | Persistent battery history, migrations, delayed writes, device/entity storage records |
 | `library.py` | JSON parsing, indexed library data, model matching, ignored integration domains |
@@ -64,11 +64,20 @@ creates coordinators, forwards platforms, installs the update listener, and
 schedules library updates/discovery. Register new actions in
 `services.async_setup_services`, not separately for every subentry.
 
-`battery_notes.battery_replaced` listens to the existing replacement event from
+`battery_notes.battery_was_replaced` listens to the existing replacement event from
 buttons and actions. Omitting the target includes all battery notes; an explicit
 empty target matches none. It resolves standard HA targets for each event, matches
 Battery Notes entities through their config subentry, and exposes the unchanged
 event fields as top-level members of `trigger`.
+
+`battery_notes.battery_became_low` shares the same target matching and forwards threshold
+events only when `battery_low` is true. Its `options.reminder` filter accepts
+`exclude`, `only`, or `all` (default) to select transitions, reminders raised by
+`check_battery_low`, or both. It preserves the existing threshold event payload.
+
+`battery_notes.battery_no_longer_low` shares the same targets and forwards threshold
+events only when `battery_low` is false. It has no reminder option and preserves
+the threshold event payload.
 
 Subentry/options changes reload the parent entry. The update listener cleans up
 removed notes and sets `skip_library_download` for subentry changes, resetting it

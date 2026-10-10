@@ -1,4 +1,22 @@
-battery_replaced:
+battery_was_replaced:
+  target:
+    entity:
+      integration: battery_notes
+battery_became_low:
+  target:
+    entity:
+      integration: battery_notes
+  fields:
+    reminder:
+      default: all
+      selector:
+        select:
+          translation_key: battery_low_reminder
+          options:
+            - exclude
+            - only
+            - all
+battery_no_longer_low:
   target:
     entity:
       integration: battery_notes

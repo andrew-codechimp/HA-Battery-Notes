@@ -19,30 +19,43 @@ from homeassistant.helpers.trigger import (
 )
 from homeassistant.helpers.typing import ConfigType
 
-from .const import ATTR_DEVICE_ID, ATTR_SOURCE_ENTITY_ID, DOMAIN, EVENT_BATTERY_REPLACED
+from .const import (
+    ATTR_BATTERY_LOW,
+    ATTR_BATTERY_THRESHOLD_REMINDER,
+    ATTR_DEVICE_ID,
+    ATTR_SOURCE_ENTITY_ID,
+    DOMAIN,
+    EVENT_BATTERY_REPLACED,
+    EVENT_BATTERY_THRESHOLD,
+)
 from .coordinator import BatteryNotesConfigEntry
 
-BATTERY_REPLACED_TRIGGER_SCHEMA = vol.Schema(
+CONF_REMINDER = "reminder"
+
+BATTERY_NOTES_TRIGGER_SCHEMA = vol.Schema(
     {
         vol.Optional(CONF_TARGET): cv.TARGET_FIELDS,
         vol.Required(CONF_OPTIONS, default={}): {},
     }
 )
 
+BATTERY_BECAME_LOW_TRIGGER_SCHEMA = vol.Schema(
+    {
+        vol.Optional(CONF_TARGET): cv.TARGET_FIELDS,
+        vol.Required(CONF_OPTIONS, default={}): {
+            vol.Optional(CONF_REMINDER, default="all"): vol.In(
+                ["all", "exclude", "only"]
+            ),
+        },
+    }
+)
 
-class BatteryReplacedTrigger(Trigger):
-    """Trigger when a targeted battery note raises a replacement event."""
 
-    @classmethod
-    @override
-    async def async_validate_config(
-        cls, hass: HomeAssistant, config: ConfigType
-    ) -> ConfigType:
-        """Validate the trigger configuration."""
-        return cast(ConfigType, BATTERY_REPLACED_TRIGGER_SCHEMA(config))
+class BatteryNotesTrigger(Trigger):
+    """Base trigger matching Battery Notes event sources against targets."""
 
     def __init__(self, hass: HomeAssistant, config: TriggerConfig) -> None:
-        """Initialize the replacement trigger."""
+        """Initialize the event target selection."""
         super().__init__(hass, config)
         self._target = (
             TargetSelection(config.target) if config.target is not None else None
@@ -90,6 +103,18 @@ class BatteryReplacedTrigger(Trigger):
                 return True
         return False
 
+
+class BatteryWasReplacedTrigger(BatteryNotesTrigger):
+    """Trigger when a targeted battery note raises a replacement event."""
+
+    @classmethod
+    @override
+    async def async_validate_config(
+        cls, hass: HomeAssistant, config: ConfigType
+    ) -> ConfigType:
+        """Validate the trigger configuration."""
+        return cast(ConfigType, BATTERY_NOTES_TRIGGER_SCHEMA(config))
+
     @override
     async def async_attach_runner(
         self,
@@ -113,6 +138,80 @@ class BatteryReplacedTrigger(Trigger):
         )
 
 
+class BatteryBecameLowTrigger(BatteryNotesTrigger):
+    """Trigger on low battery threshold events with optional reminders."""
+
+    @classmethod
+    @override
+    async def async_validate_config(
+        cls, hass: HomeAssistant, config: ConfigType
+    ) -> ConfigType:
+        """Validate the trigger configuration."""
+        return cast(ConfigType, BATTERY_BECAME_LOW_TRIGGER_SCHEMA(config))
+
+    def __init__(self, hass: HomeAssistant, config: TriggerConfig) -> None:
+        """Initialize the low battery trigger."""
+        super().__init__(hass, config)
+        self._reminder = (config.options or {})[CONF_REMINDER]
+
+    @override
+    async def async_attach_runner(
+        self,
+        run_action: TriggerActionRunner,
+        _did_not_trigger: Callable[..., None] | None = None,
+    ) -> CALLBACK_TYPE:
+        """Listen for matching low battery events."""
+
+        @callback
+        def async_battery_low(event: Event) -> None:
+            """Handle a battery threshold event."""
+            if not event.data[ATTR_BATTERY_LOW]:
+                return
+            reminder = event.data[ATTR_BATTERY_THRESHOLD_REMINDER]
+            if (self._reminder == "exclude" and reminder) or (
+                self._reminder == "only" and not reminder
+            ):
+                return
+            if self._matches_target(event.data):
+                run_action(dict(event.data), "battery low", event.context)
+
+        return self._hass.bus.async_listen(EVENT_BATTERY_THRESHOLD, async_battery_low)
+
+
+class BatteryNoLongerLowTrigger(BatteryNotesTrigger):
+    """Trigger when a battery threshold event indicates the battery is healthy."""
+
+    @classmethod
+    @override
+    async def async_validate_config(
+        cls, hass: HomeAssistant, config: ConfigType
+    ) -> ConfigType:
+        """Validate the trigger configuration."""
+        return cast(ConfigType, BATTERY_NOTES_TRIGGER_SCHEMA(config))
+
+    @override
+    async def async_attach_runner(
+        self,
+        run_action: TriggerActionRunner,
+        _did_not_trigger: Callable[..., None] | None = None,
+    ) -> CALLBACK_TYPE:
+        """Listen for matching healthy battery threshold events."""
+
+        @callback
+        def async_battery_no_longer_low(event: Event) -> None:
+            """Handle a battery threshold event."""
+            if not event.data[ATTR_BATTERY_LOW] and self._matches_target(event.data):
+                run_action(dict(event.data), "battery no longer low", event.context)
+
+        return self._hass.bus.async_listen(
+            EVENT_BATTERY_THRESHOLD, async_battery_no_longer_low
+        )
+
+
 async def async_get_triggers(hass: HomeAssistant) -> dict[str, type[Trigger]]:  # noqa: ARG001
     """Return the triggers provided by Battery Notes."""
-    return {"battery_replaced": BatteryReplacedTrigger}
+    return {
+        "battery_was_replaced": BatteryWasReplacedTrigger,
+        "battery_became_low": BatteryBecameLowTrigger,
+        "battery_no_longer_low": BatteryNoLongerLowTrigger,
+    }

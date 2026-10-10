@@ -8,6 +8,11 @@ The following events are raised by the integration. These events can be used wit
 
 This is fired when a device within Battery Notes has a battery level changed to either below or above the device specific or global threshold.
 
+For low battery notifications, the [Battery Low trigger](./triggers.md#battery-low)
+provides target selection and a choice of excluding reminders, reminders only,
+or all low battery events. The [Battery No Longer Low trigger](./triggers.md#battery-no-longer-low)
+handles a battery returning to a healthy state.
+
 You can use this to send notifications in your preferred method.  An example automation below displays a persistent notification.  
 
 !!! note

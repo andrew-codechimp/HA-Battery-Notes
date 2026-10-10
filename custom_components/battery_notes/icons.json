@@ -34,7 +34,13 @@
         }
     },
     "triggers": {
-        "battery_replaced": {
+        "battery_no_longer_low": {
+            "trigger": "mdi:battery-check"
+        },
+        "battery_became_low": {
+            "trigger": "mdi:battery-alert"
+        },
+        "battery_was_replaced": {
             "trigger": "mdi:battery-sync"
         }
     }

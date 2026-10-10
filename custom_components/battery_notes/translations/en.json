@@ -383,9 +383,32 @@
             "description": "Configuring {integration_title} using YAML is being removed.\n\nYour existing YAML configuration has been imported into the UI automatically.\n\nRemove the `{domain}` configuration from your configuration.yaml file and restart Home Assistant to fix this issue."
         }
     },
+    "selector": {
+        "battery_low_reminder": {
+            "options": {
+                "all": "All",
+                "exclude": "Exclude reminders",
+                "only": "Reminders only"
+            }
+        }
+    },
     "triggers": {
-        "battery_replaced": {
-            "name": "Battery replaced",
+        "battery_no_longer_low": {
+            "name": "Battery no longer low",
+            "description": "Triggers when a battery is no longer low.\nTarget is optional, the error showing no target specified is just a warning."
+        },
+        "battery_became_low": {
+            "name": "Battery became low",
+            "description": "Triggers when a battery becomes low or a low battery reminder is raised, according to the reminder option.\nTarget is optional, the error showing no target specified is just a warning.",
+            "fields": {
+                "reminder": {
+                    "name": "Reminders",
+                    "description": "All (the default) triggers when a battery becomes low and on reminders raised by Check Battery Low. Select exclude reminders for low battery transitions only, or reminders only for action reminders."
+                }
+            }
+        },
+        "battery_was_replaced": {
+            "name": "Battery was replaced",
             "description": "Triggers when a battery is marked as replaced.\nTarget is optional, the error showing no target specified is just a warning."
         }
     },

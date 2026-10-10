@@ -11,6 +11,8 @@ import yaml
 
 TRANSLATIONS_DIR = Path("custom_components/battery_notes/translations")
 SERVICES_FILE = Path("custom_components/battery_notes/services.yaml")
+TRIGGERS_FILE = Path("custom_components/battery_notes/triggers.yaml")
+ICONS_FILE = Path("custom_components/battery_notes/icons.json")
 PLACEHOLDER_PATTERN = re.compile(r"\{([A-Za-z0-9_]+)\}")
 
 
@@ -68,3 +70,26 @@ def test_service_translations_match_services_yaml() -> None:
         assert set(translations[service].get("fields", {})) == set(
             definition.get("fields", {})
         ), service
+
+
+def test_trigger_translations_and_icons_match_triggers_yaml() -> None:
+    """Test English trigger names, fields, reminder choices, and icons are covered."""
+    triggers = yaml.safe_load(TRIGGERS_FILE.read_text())
+    english = cast(dict[str, Any], _load_translation("en.json"))
+    icons = json.loads(ICONS_FILE.read_text())["triggers"]
+    assert set(english["triggers"]) == set(triggers)
+    assert set(icons) == set(triggers)
+    for trigger, definition in triggers.items():
+        assert english["triggers"][trigger]["name"]
+        assert english["triggers"][trigger]["description"]
+        assert set(english["triggers"][trigger].get("fields", {})) == set(
+            definition.get("fields", {})
+        ), trigger
+        assert icons[trigger]["trigger"].startswith("mdi:")
+
+    selector = triggers["battery_became_low"]["fields"]["reminder"]["selector"][
+        "select"
+    ]
+    assert set(english["selector"][selector["translation_key"]]["options"]) == set(
+        selector["options"]
+    )
