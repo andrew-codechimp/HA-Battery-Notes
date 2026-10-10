@@ -2,21 +2,34 @@ battery_was_replaced:
   target:
     entity:
       integration: battery_notes
+battery_has_increased:
+  target:
+    entity:
+      integration: battery_notes
 battery_became_low:
   target:
     entity:
       integration: battery_notes
   fields:
-    reminder:
+    event_types:
       default: all
+      required: true
       selector:
         select:
-          translation_key: battery_low_reminder
+          translation_key: battery_low_event_types
           options:
-            - exclude
-            - only
             - all
+            - low_state_transitions
+            - reminders
 battery_no_longer_low:
+  target:
+    entity:
+      integration: battery_notes
+battery_was_not_reported:
+  target:
+    entity:
+      integration: battery_notes
+battery_was_not_replaced:
   target:
     entity:
       integration: battery_notes

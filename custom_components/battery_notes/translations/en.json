@@ -371,7 +371,7 @@
                         "data_description": {
                             "device_id": "The device this battery note should be linked to."
                         },
-                        "description": "The battery note {name} was linked to a device which has been split into multiple devices.\n\nSelect the device this battery note should be linked to, or leave empty to remove the battery note.",
+                        "description": "The battery note {name} was linked to a device which has been split into multiple devices.\nSelect the device this battery note should be linked to, or leave empty to remove the battery note.",
                         "title": "Select device for {name}"
                     }
                 }
@@ -380,30 +380,42 @@
         },
         "deprecated_yaml": {
             "title": "The {integration_title} YAML configuration is being removed",
-            "description": "Configuring {integration_title} using YAML is being removed.\n\nYour existing YAML configuration has been imported into the UI automatically.\n\nRemove the `{domain}` configuration from your configuration.yaml file and restart Home Assistant to fix this issue."
+            "description": "Configuring {integration_title} using YAML is being removed.\nYour existing YAML configuration has been imported into the UI automatically.\nRemove the `{domain}` configuration from your configuration.yaml file and restart Home Assistant to fix this issue."
         }
     },
     "selector": {
-        "battery_low_reminder": {
+        "battery_low_event_types": {
             "options": {
                 "all": "All",
-                "exclude": "Exclude reminders",
-                "only": "Reminders only"
+                "low_state_transitions": "Low-state transitions",
+                "reminders": "Reminders"
             }
         }
     },
     "triggers": {
+        "battery_has_increased": {
+            "name": "Battery has increased",
+            "description": "Triggers when a battery level increases by at least its configured increase threshold, or a binary or templated low battery state becomes healthy. The replacement date is not updated automatically.\nTarget is optional, the error showing no target specified is just a warning."
+        },
+        "battery_was_not_reported": {
+            "name": "Battery was not reported",
+            "description": "Triggers from events raised by the Check battery last reported action when a battery has not reported for longer than the specified number of days, or has never reported. Schedule or call that action with Raise events enabled to trigger this automation.\nAutomations using this trigger must use Queued mode (`mode: queued`) because one action call can raise events for multiple battery notes in quick succession.\nTarget is optional, the error showing no target specified is just a warning."
+        },
+        "battery_was_not_replaced": {
+            "name": "Battery was not replaced",
+            "description": "Triggers from events raised by the Check battery last replaced action when a battery has not been replaced for longer than the specified number of days. Schedule or call that action with Raise events enabled to trigger this automation.\nAutomations using this trigger must use Queued mode (`mode: queued`) because one action call can raise events for multiple battery notes in quick succession.\nTarget is optional, the error showing no target specified is just a warning."
+        },
         "battery_no_longer_low": {
             "name": "Battery no longer low",
             "description": "Triggers when a battery is no longer low.\nTarget is optional, the error showing no target specified is just a warning."
         },
         "battery_became_low": {
             "name": "Battery became low",
-            "description": "Triggers when a battery becomes low or a low battery reminder is raised, according to the reminder option.\nTarget is optional, the error showing no target specified is just a warning.",
+            "description": "Triggers when a battery becomes low or a low battery reminder is raised, according to the selected event types.\nTarget is optional, the error showing no target specified is just a warning.",
             "fields": {
-                "reminder": {
-                    "name": "Reminders",
-                    "description": "All (the default) triggers when a battery becomes low and on reminders raised by Check Battery Low. Select exclude reminders for low battery transitions only, or reminders only for action reminders."
+                "event_types": {
+                    "name": "Event types",
+                    "description": "All triggers when a battery becomes low and on reminders raised by Check Battery Low. Select Low-state transitions for low battery transitions only, or Reminders for action reminders."
                 }
             }
         },

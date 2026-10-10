@@ -87,7 +87,7 @@ def test_trigger_translations_and_icons_match_triggers_yaml() -> None:
         ), trigger
         assert icons[trigger]["trigger"].startswith("mdi:")
 
-    selector = triggers["battery_became_low"]["fields"]["reminder"]["selector"][
+    selector = triggers["battery_became_low"]["fields"]["event_types"]["selector"][
         "select"
     ]
     assert set(english["selector"][selector["translation_key"]]["options"]) == set(

@@ -25,12 +25,15 @@ from .const import (
     ATTR_DEVICE_ID,
     ATTR_SOURCE_ENTITY_ID,
     DOMAIN,
+    EVENT_BATTERY_INCREASED,
+    EVENT_BATTERY_NOT_REPLACED,
+    EVENT_BATTERY_NOT_REPORTED,
     EVENT_BATTERY_REPLACED,
     EVENT_BATTERY_THRESHOLD,
 )
 from .coordinator import BatteryNotesConfigEntry
 
-CONF_REMINDER = "reminder"
+CONF_EVENT_TYPES = "event_types"
 
 BATTERY_NOTES_TRIGGER_SCHEMA = vol.Schema(
     {
@@ -43,8 +46,8 @@ BATTERY_BECAME_LOW_TRIGGER_SCHEMA = vol.Schema(
     {
         vol.Optional(CONF_TARGET): cv.TARGET_FIELDS,
         vol.Required(CONF_OPTIONS, default={}): {
-            vol.Optional(CONF_REMINDER, default="all"): vol.In(
-                ["all", "exclude", "only"]
+            vol.Required(CONF_EVENT_TYPES, default="all"): vol.In(
+                ["all", "low_state_transitions", "reminders"]
             ),
         },
     }
@@ -104,8 +107,11 @@ class BatteryNotesTrigger(Trigger):
         return False
 
 
-class BatteryWasReplacedTrigger(BatteryNotesTrigger):
-    """Trigger when a targeted battery note raises a replacement event."""
+class BatteryNotesEventTrigger(BatteryNotesTrigger):
+    """Trigger on a targeted Battery Notes event without additional options."""
+
+    _event_type: str
+    _description: str
 
     @classmethod
     @override
@@ -121,21 +127,47 @@ class BatteryWasReplacedTrigger(BatteryNotesTrigger):
         run_action: TriggerActionRunner,
         _did_not_trigger: Callable[..., None] | None = None,
     ) -> CALLBACK_TYPE:
-        """Listen for replacement events and forward their data to the action."""
+        """Listen for matching events and forward their data to the action."""
 
         @callback
-        def async_battery_replaced(event: Event) -> None:
-            """Handle a battery replacement event."""
+        def async_battery_event(event: Event) -> None:
+            """Handle a Battery Notes event."""
             if self._matches_target(event.data):
                 run_action(
                     dict(event.data),
-                    "battery replaced",
+                    self._description,
                     event.context,
                 )
 
-        return self._hass.bus.async_listen(
-            EVENT_BATTERY_REPLACED, async_battery_replaced
-        )
+        return self._hass.bus.async_listen(self._event_type, async_battery_event)
+
+
+class BatteryWasReplacedTrigger(BatteryNotesEventTrigger):
+    """Trigger when a targeted battery note raises a replacement event."""
+
+    _event_type = EVENT_BATTERY_REPLACED
+    _description = "battery replaced"
+
+
+class BatteryHasIncreasedTrigger(BatteryNotesEventTrigger):
+    """Trigger when a targeted battery note raises an increased event."""
+
+    _event_type = EVENT_BATTERY_INCREASED
+    _description = "battery has increased"
+
+
+class BatteryWasNotReportedTrigger(BatteryNotesEventTrigger):
+    """Trigger on events raised by the check battery last reported action."""
+
+    _event_type = EVENT_BATTERY_NOT_REPORTED
+    _description = "battery was not reported"
+
+
+class BatteryWasNotReplacedTrigger(BatteryNotesEventTrigger):
+    """Trigger on events raised by the check battery last replaced action."""
+
+    _event_type = EVENT_BATTERY_NOT_REPLACED
+    _description = "battery was not replaced"
 
 
 class BatteryBecameLowTrigger(BatteryNotesTrigger):
@@ -152,7 +184,7 @@ class BatteryBecameLowTrigger(BatteryNotesTrigger):
     def __init__(self, hass: HomeAssistant, config: TriggerConfig) -> None:
         """Initialize the low battery trigger."""
         super().__init__(hass, config)
-        self._reminder = (config.options or {})[CONF_REMINDER]
+        self._event_types = (config.options or {})[CONF_EVENT_TYPES]
 
     @override
     async def async_attach_runner(
@@ -168,8 +200,8 @@ class BatteryBecameLowTrigger(BatteryNotesTrigger):
             if not event.data[ATTR_BATTERY_LOW]:
                 return
             reminder = event.data[ATTR_BATTERY_THRESHOLD_REMINDER]
-            if (self._reminder == "exclude" and reminder) or (
-                self._reminder == "only" and not reminder
+            if (self._event_types == "low_state_transitions" and reminder) or (
+                self._event_types == "reminders" and not reminder
             ):
                 return
             if self._matches_target(event.data):
@@ -212,6 +244,9 @@ async def async_get_triggers(hass: HomeAssistant) -> dict[str, type[Trigger]]:  
     """Return the triggers provided by Battery Notes."""
     return {
         "battery_was_replaced": BatteryWasReplacedTrigger,
+        "battery_has_increased": BatteryHasIncreasedTrigger,
         "battery_became_low": BatteryBecameLowTrigger,
         "battery_no_longer_low": BatteryNoLongerLowTrigger,
+        "battery_was_not_reported": BatteryWasNotReportedTrigger,
+        "battery_was_not_replaced": BatteryWasNotReplacedTrigger,
     }

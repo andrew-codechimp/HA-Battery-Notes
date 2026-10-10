@@ -24,6 +24,13 @@ For getting a response or raising events for devices that haven't replaced their
 
 The action will raise a seperate [battery_not_replaced](./events.md#battery-not-replaced) event for each device where its last replaced date is older than the number of days specified.  
 
+Use the [Battery Was Not Replaced trigger](./triggers.md#battery-was-not-replaced)
+to react to those events with target selection. The trigger fires when this
+action raises an event, so call or schedule the action with `raise_events: true`.
+
+Automations using this trigger must use `mode: queued` because one action call
+can raise events for multiple battery notes in quick succession.
+
 If you do not want to include certain devices such as rechargeable then disable the battery_last_replaced sensor entity for that device.  
 
 You can use this action to schedule checks on batteries that is convenient to you, e.g. once a week etc.  
@@ -42,6 +49,13 @@ See how to use this action in the [community contributions](./community.md)
 For getting a response or raising events for devices that haven't reported their battery level.  
 
 The action will raise a seperate [battery_not_reported](./events.md#battery-not-reported) event for each device where its last reported date is older than the number of days specified.  
+
+Use the [Battery Was Not Reported trigger](./triggers.md#battery-was-not-reported)
+to react to those events with target selection. The trigger fires when this
+action raises an event, so call or schedule the action with `raise_events: true`.
+
+Automations using this trigger must use `mode: queued` because one action call
+can raise events for multiple battery notes in quick succession.
 
 You can use this action to schedule checks on batteries that is convenient to you, e.g. when you wake up, once a week etc.  
 
