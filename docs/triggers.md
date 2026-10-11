@@ -16,16 +16,11 @@ the threshold. The trigger does not set a separate threshold.
 
 ### Battery Low Targets
 
-The target is optional. Omit it to trigger for all battery notes:
-
-``` yaml
-triggers:
-  - trigger: battery_notes.battery_became_low
-```
-
 The target supports entities, devices, areas, floors, and labels. Select a
 Battery Notes entity to target its battery note, or a device to target all
 battery notes associated with that device.
+
+The target is optional. Omit it to trigger for all battery notes.
 
 ### Event Types
 
@@ -107,7 +102,8 @@ trigger when their low state becomes false.
 The target supports entities, devices, areas, floors, and labels. Select a
 Battery Notes entity to target its battery note, or a device to target all
 battery notes associated with that device.
-The target is optional. Omit it to trigger for all battery notes:
+
+The target is optional. Omit it to trigger for all battery notes.
 
 ### Trigger Data
 
@@ -181,7 +177,8 @@ triggers:
 The target supports entities, devices, areas, floors, and labels. Select a
 Battery Notes entity to target its battery note, or a device to target all
 battery notes associated with that device.
-The target is optional. Omit it to trigger for all battery notes:
+
+The target is optional. Omit it to trigger for all battery notes.
 
 ### Trigger Data
 
@@ -234,7 +231,8 @@ triggers:
 The target supports entities, devices, areas, floors, and labels. Select a
 Battery Notes entity to target its battery note, or a device to target all
 battery notes associated with that device.
-The target is optional. Omit it to trigger for all battery notes:
+
+The target is optional. Omit it to trigger for all battery notes.
 
 ### Trigger Data
 
@@ -294,17 +292,12 @@ current and previous levels.
 
 ### Targets
 
-The target is optional. Omit it to trigger on battery increases for all battery
-notes:
-
-``` yaml
-triggers:
-  - trigger: battery_notes.battery_has_increased
-```
-
 The target supports entities, devices, areas, floors, and labels. Select a
 Battery Notes entity to target its battery note, or a device to target all
 battery notes associated with that device.
+
+The target is optional. Omit it to trigger on battery increases for all battery
+notes.
 
 ### Trigger Data
 
@@ -354,17 +347,12 @@ time as the [Battery Replaced event](./events.md#battery-replaced).
 
 ### Targets
 
-The target is optional. Omit it to trigger on replacements for all battery
-notes:
-
-``` yaml
-triggers:
-  - trigger: battery_notes.battery_was_replaced
-```
-
 The target supports entities, devices, areas, floors, and labels. Select a
 Battery Notes entity to target its battery note, or a device to target all
 battery notes associated with that device.
+
+The target is optional. Omit it to trigger on replacements for all battery
+notes.
 
 ### Trigger Data
 
