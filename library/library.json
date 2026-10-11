@@ -6136,6 +6136,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Inkbird",
+            "model": "IHT-2PB",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "Innr",
             "model": "Remote control",
             "model_id": "RC 250",
@@ -13570,11 +13575,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Inkbird",
-            "model": "IHT-2PB",
             "battery_type": "Rechargeable"
         }
     ]
