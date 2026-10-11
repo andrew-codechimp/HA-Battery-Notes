@@ -102,9 +102,12 @@ The **Battery no longer low** trigger listens to the
 returns to or above its effective low threshold. Binary and low-template sources
 trigger when their low state becomes false.
 
+### Targets
+
 The target supports entities, devices, areas, floors, and labels. Select a
 Battery Notes entity to target its battery note, or a device to target all
 battery notes associated with that device.
+The target is optional. Omit it to trigger for all battery notes:
 
 ### Trigger Data
 
@@ -173,11 +176,12 @@ triggers:
       area_id: kitchen
 ```
 
+### Targets
+
 The target supports entities, devices, areas, floors, and labels. Select a
 Battery Notes entity to target its battery note, or a device to target all
-battery notes associated with that device. An omitted target matches all battery
-notes, and `target: {}` matches none. It has no additional options. Targets are
-resolved for each event.
+battery notes associated with that device.
+The target is optional. Omit it to trigger for all battery notes:
 
 ### Trigger Data
 
@@ -206,8 +210,7 @@ The **Battery was not replaced** trigger listens to the
 [Battery Not Replaced event](./events.md#battery-not-replaced) raised by the
 [Check Battery Last Replaced action](./actions.md#check-battery-last-replaced).
 The action raises an event for each eligible battery note whose replacement
-date is older than `days_last_replaced`. Notes without a replacement date or
-with a disabled last-replaced sensor are skipped.
+date is older than `days_last_replaced`.
 
 Call or schedule `battery_notes.check_battery_last_replaced` with `raise_events`
 enabled (the default) to fire this trigger.
@@ -226,9 +229,12 @@ triggers:
       area_id: kitchen
 ```
 
+### Targets
+
 The target supports entities, devices, areas, floors, and labels. Select a
 Battery Notes entity to target its battery note, or a device to target all
 battery notes associated with that device.
+The target is optional. Omit it to trigger for all battery notes:
 
 ### Trigger Data
 
