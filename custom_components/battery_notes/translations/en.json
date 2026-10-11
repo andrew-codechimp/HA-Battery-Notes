@@ -395,7 +395,7 @@
     "triggers": {
         "battery_has_increased": {
             "name": "Battery has increased",
-            "description": "Triggers when a battery level increases by at least its configured increase threshold, or a binary or templated low battery state becomes healthy. The replacement date is not updated automatically.\nTarget is optional, the error showing no target specified is just a warning."
+            "description": "Triggers when a battery level increases by at least its configured increase threshold, or a binary or templated low battery state becomes healthy.\nTarget is optional, the error showing no target specified is just a warning."
         },
         "battery_was_not_reported": {
             "name": "Battery was not reported",
@@ -411,7 +411,7 @@
         },
         "battery_became_low": {
             "name": "Battery became low",
-            "description": "Triggers when a battery becomes low or a low battery reminder is raised, according to the selected event types.\nTarget is optional, the error showing no target specified is just a warning.",
+            "description": "Triggers when a battery becomes low or a low battery reminder is raised.\nAutomations using this trigger must use Queued mode (`mode: queued`) because one action call can raise events for multiple battery notes in quick succession.\nTarget is optional, the error showing no target specified is just a warning.",
             "fields": {
                 "event_types": {
                     "name": "Event types",
