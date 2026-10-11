@@ -7,12 +7,10 @@
 The **Battery became low** trigger is available under **Battery Notes** in the
 automation editor. It listens to the [Battery Threshold event](./events.md#battery-threshold)
 and fires when `battery_low` is true, according to the selected event types below.
-Events indicating that a battery is no longer low are ignored.
 
 The trigger uses the battery note's existing low-state detection, including
 its device-specific or global threshold, battery low template, or binary
-battery source. For percentage sources, a level is low when it is **below**
-the threshold. The trigger does not set a separate threshold.
+battery source.
 
 ### Battery Low Targets
 
@@ -27,8 +25,7 @@ The target is optional. Omit it to trigger for all battery notes.
 Use the **Event types** option in the automation editor, or `options.event_types`
 in YAML, to choose which low battery events trigger the automation:
 
-This field is required and defaults to **All**. If omitted in YAML, validation
-fills it with `all`.
+This field is required and defaults to **All** if not specified.
 
 | Option                | YAML value              | Behavior                                                                                 |
 | --------------------- | ----------------------- | ---------------------------------------------------------------------------------------- |
@@ -37,10 +34,10 @@ fills it with `all`.
 | Reminders             | `reminders`             | Trigger only on reminders raised by [Check Battery Low](./actions.md#check-battery-low). |
 
 The [Check Battery Low action](./actions.md#check-battery-low) raises a reminder
-for each low battery note when `raise_events` is true (the default). To send
+for each low battery note when `raise_events` is true (default). To send
 regular reminders, schedule that action in a separate automation.
 
-!!! note
+!!! warning
 
     Automations using this trigger must use `mode: queued`. One check action call
     can raise events for multiple battery notes in quick succession, and queued
@@ -155,10 +152,9 @@ The action raises an event for each eligible battery note whose last report is
 older than `days_last_reported`, or which has never reported.
 
 Call or schedule `battery_notes.check_battery_last_reported` with `raise_events`
-enabled (the default) to fire this trigger. Time passing alone does not fire it;
-the trigger does not run the check or set the day limit.
+enabled (default) to fire this trigger.
 
-!!! note
+!!! warning
 
     Automations using this trigger must use `mode: queued`. One check action call
     can raise events for multiple battery notes in quick succession, and queued
@@ -210,9 +206,9 @@ The action raises an event for each eligible battery note whose replacement
 date is older than `days_last_replaced`.
 
 Call or schedule `battery_notes.check_battery_last_replaced` with `raise_events`
-enabled (the default) to fire this trigger.
+enabled (default) to fire this trigger.
 
-!!! note
+!!! warning
 
     Automations using this trigger must use `mode: queued`. One check action call
     can raise events for multiple battery notes in quick succession, and queued
