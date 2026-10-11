@@ -23,10 +23,9 @@ triggers:
   - trigger: battery_notes.battery_became_low
 ```
 
-The trigger supports the same [targets as Battery Replaced](#targets):
-entities, devices, areas, floors, and labels. Targets are resolved for each
-event, so membership changes are applied automatically. An explicitly empty
-target (`target: {}`) matches no battery notes.
+The target supports entities, devices, areas, floors, and labels. Select a
+Battery Notes entity to target its battery note, or a device to target all
+battery notes associated with that device.
 
 ### Event Types
 
@@ -36,39 +35,43 @@ in YAML, to choose which low battery events trigger the automation:
 This field is required and defaults to **All**. If omitted in YAML, validation
 fills it with `all`.
 
-| Option                | YAML value              | Behavior                                                                              |
-| --------------------- | ----------------------- | ------------------------------------------------------------------------------------- |
-| All                   | `all`                   | Trigger on both low battery transitions and reminders.                                 |
-| Low-state transitions | `low_state_transitions` | Trigger when a battery becomes low. Ignore reminders.                                  |
+| Option                | YAML value              | Behavior                                                                                 |
+| --------------------- | ----------------------- | ---------------------------------------------------------------------------------------- |
+| All                   | `all`                   | Trigger on both low battery transitions and reminders.                                   |
+| Low-state transitions | `low_state_transitions` | Trigger when a battery becomes low. Ignore reminders.                                    |
 | Reminders             | `reminders`             | Trigger only on reminders raised by [Check Battery Low](./actions.md#check-battery-low). |
 
 The [Check Battery Low action](./actions.md#check-battery-low) raises a reminder
 for each low battery note when `raise_events` is true (the default). To send
-regular reminders, schedule that action in a separate automation. The trigger
-does not schedule reminders itself.
+regular reminders, schedule that action in a separate automation.
 
-Repeated readings while a battery remains low do not trigger a new transition.
-Initialization and unavailable readings do not generate low battery events.
+!!! note
 
-### Battery Low Trigger Data
+    Automations using this trigger must use `mode: queued`. One check action call
+    can raise events for multiple battery notes in quick succession, and queued
+    mode lets the automation process each event in order.
 
-The trigger exposes the same [identity and battery metadata as Battery Replaced](#trigger-data),
-plus these fields from the threshold event. Access fields directly, for example
-`trigger.battery_level` or `trigger.reminder`.
+### Trigger Data
 
-| Member                               | Type                 | Description                                                    |
-| ------------------------------------ | -------------------- | -------------------------------------------------------------- |
-| `trigger.battery_low`                | `bool`               | Always true for this trigger.                                  |
-| `trigger.battery_low_threshold`      | `int`                | The effective battery low threshold.                           |
-| `trigger.battery_increase_threshold` | `int`                | The effective battery increase threshold.                      |
-| `trigger.battery_level`              | `float` or `null`    | The current battery percentage.                                |
-| `trigger.previous_battery_level`     | `float` or `null`    | The previous battery percentage.                               |
-| `trigger.battery_last_replaced`      | `datetime` or `null` | The recorded replacement date.                                 |
-| `trigger.reminder`                   | `bool`               | True for an action reminder, false for a low-state transition. |
-
-Binary and low-template transitions use nominal levels of 0 for low and 100 for
-healthy. Reminder events preserve the current event data; battery levels can be
-null when no percentage is available.
+| Member                               | Type                      | Description                                                                                                                                               |
+| ------------------------------------ | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `trigger.platform`                   | `string`                  | Always `battery_notes.battery_became_low`.                                                                                                                |
+| `trigger.description`                | `string`                  | Always `battery low`.                                                                                                                                     |
+| `trigger.device_id`                  | `string`                  | The source device ID, or an empty string for a standalone entity note.                                                                                    |
+| `trigger.source_entity_id`           | `string`                  | The source entity ID, or an empty string for a device note.                                                                                               |
+| `trigger.area_name`                  | `string` or `null`        | The area name associated with the source device or entity, or null if no area is assigned.                                                                |
+| `trigger.device_name`                | `string`                  | The battery note's name.                                                                                                                                  |
+| `trigger.battery_type_and_quantity`  | `string`                  | The battery type and quantity, for example `2× AA`.                                                                                                       |
+| `trigger.battery_type`               | `string`                  | The battery type.                                                                                                                                         |
+| `trigger.battery_quantity`           | `int`                     | The battery quantity.                                                                                                                                     |
+| `trigger.note`                       | `string`                  | The note added in the battery note configuration.                                                                                                         |
+| `trigger.battery_low`                | `bool`                    | Always true for this trigger.                                                                                                                             |
+| `trigger.battery_low_threshold`      | `int`                     | The effective battery low threshold, including the global fallback.                                                                                       |
+| `trigger.battery_increase_threshold` | `int`                     | The effective battery increase threshold, including the global fallback.                                                                                  |
+| `trigger.battery_level`              | `int`, `float`, or `null` | The current battery percentage; nominally 0 for binary or low-template transitions. Reminders can contain null if no percentage is available.             |
+| `trigger.previous_battery_level`     | `int`, `float`, or `null` | The previous battery percentage; nominally 100 for binary or low-template transitions. Reminders can contain null if no previous percentage is available. |
+| `trigger.battery_last_replaced`      | `datetime` or `null`      | The recorded replacement date, or null if no replacement has been recorded.                                                                               |
+| `trigger.reminder`                   | `bool`                    | True for an action reminder, false for a low-state transition.                                                                                            |
 
 ### Battery Low Automation Example
 
@@ -99,20 +102,35 @@ The **Battery no longer low** trigger listens to the
 returns to or above its effective low threshold. Binary and low-template sources
 trigger when their low state becomes false.
 
-It supports the same [targets as Battery Replaced](#targets). Omit the target
-to include all battery notes; `target: {}` matches none. Target membership is
-resolved for each event.
+The target supports entities, devices, areas, floors, and labels. Select a
+Battery Notes entity to target its battery note, or a device to target all
+battery notes associated with that device.
 
-This trigger has no reminder option. Low battery transitions and reminders
-raised by Check Battery Low do not trigger it. Repeated healthy readings,
-initialization, and unavailable readings do not generate recovery events.
+### Trigger Data
 
-It exposes the same [threshold event fields as Battery Low](#battery-low-trigger-data),
-with `trigger.battery_low` set to false. Event fields and context are preserved.
+| Member                               | Type                 | Description                                                                                |
+| ------------------------------------ | -------------------- | ------------------------------------------------------------------------------------------ |
+| `trigger.platform`                   | `string`             | Always `battery_notes.battery_no_longer_low`.                                              |
+| `trigger.description`                | `string`             | Always `battery no longer low`.                                                            |
+| `trigger.device_id`                  | `string`             | The source device ID, or an empty string for a standalone entity note.                     |
+| `trigger.source_entity_id`           | `string`             | The source entity ID, or an empty string for a device note.                                |
+| `trigger.area_name`                  | `string` or `null`   | The area name associated with the source device or entity, or null if no area is assigned. |
+| `trigger.device_name`                | `string`             | The battery note's name.                                                                   |
+| `trigger.battery_type_and_quantity`  | `string`             | The battery type and quantity, for example `2× AA`.                                        |
+| `trigger.battery_type`               | `string`             | The battery type.                                                                          |
+| `trigger.battery_quantity`           | `int`                | The battery quantity.                                                                      |
+| `trigger.note`                       | `string`             | The note added in the battery note configuration.                                          |
+| `trigger.battery_low`                | `bool`               | Always false for this trigger.                                                             |
+| `trigger.battery_low_threshold`      | `int`                | The effective battery low threshold, including the global fallback.                        |
+| `trigger.battery_increase_threshold` | `int`                | The effective battery increase threshold, including the global fallback.                   |
+| `trigger.battery_level`              | `int` or `float`     | The current battery percentage; nominally 100 for binary or low-template transitions.      |
+| `trigger.previous_battery_level`     | `int` or `float`     | The previous battery percentage; nominally 0 for binary or low-template transitions.       |
+| `trigger.battery_last_replaced`      | `datetime` or `null` | The recorded replacement date, or null if no replacement has been recorded.                |
+| `trigger.reminder`                   | `bool`               | Always false for this recovery transition.                                                 |
 
 ### Recovery Automation Example
 
-This dismisses notifications using the same ID as the Battery Low example:
+This dismisses a notification identified by the source device and entity IDs:
 
 ``` yaml
 alias: Battery No Longer Low in Kitchen
@@ -141,9 +159,11 @@ Call or schedule `battery_notes.check_battery_last_reported` with `raise_events`
 enabled (the default) to fire this trigger. Time passing alone does not fire it;
 the trigger does not run the check or set the day limit.
 
-Automations using this trigger must use `mode: queued`. One check action call
-can raise events for multiple battery notes in quick succession, and queued
-mode lets the automation process each event in order.
+!!! note
+
+    Automations using this trigger must use `mode: queued`. One check action call
+    can raise events for multiple battery notes in quick succession, and queued
+    mode lets the automation process each event in order.
 
 ``` yaml
 mode: queued
@@ -153,15 +173,30 @@ triggers:
       area_id: kitchen
 ```
 
-It supports the same [targets as Battery Replaced](#targets), with an omitted
-target matching all battery notes and `target: {}` matching none. It has no
-additional options. Targets are resolved for each event.
+The target supports entities, devices, areas, floors, and labels. Select a
+Battery Notes entity to target its battery note, or a device to target all
+battery notes associated with that device. An omitted target matches all battery
+notes, and `target: {}` matches none. It has no additional options. Targets are
+resolved for each event.
 
-All [Battery Not Reported event fields](./events.md#battery-not-reported) are
-available directly on `trigger`, including `trigger.device_name`,
-`trigger.battery_last_reported`, `trigger.battery_last_reported_days`, and
-`trigger.battery_last_reported_level`. The last reported date, day count, and
-level can be null when the battery has never reported.
+### Trigger Data
+
+| Member                                | Type                      | Description                                                                                        |
+| ------------------------------------- | ------------------------- | -------------------------------------------------------------------------------------------------- |
+| `trigger.platform`                    | `string`                  | Always `battery_notes.battery_was_not_reported`.                                                   |
+| `trigger.description`                 | `string`                  | Always `battery was not reported`.                                                                 |
+| `trigger.device_id`                   | `string`                  | The source device ID, or an empty string for a standalone entity note.                             |
+| `trigger.source_entity_id`            | `string`                  | The source entity ID, or an empty string for a device note.                                        |
+| `trigger.area_name`                   | `string` or `null`        | The area name associated with the source device or entity, or null if no area is assigned.         |
+| `trigger.device_name`                 | `string`                  | The battery note's name.                                                                           |
+| `trigger.battery_type_and_quantity`   | `string`                  | The battery type and quantity, for example `2× AA`.                                                |
+| `trigger.battery_type`                | `string`                  | The battery type.                                                                                  |
+| `trigger.battery_quantity`            | `int`                     | The battery quantity.                                                                              |
+| `trigger.note`                        | `string`                  | The note added in the battery note configuration.                                                  |
+| `trigger.battery_last_reported`       | `datetime` or `null`      | The last battery report time, or null if the battery has never reported.                           |
+| `trigger.battery_last_reported_days`  | `int` or `null`           | The number of whole days since the last battery report, or null if the battery has never reported. |
+| `trigger.battery_last_reported_level` | `int`, `float`, or `null` | The battery percentage at the last report, or null if no percentage has been recorded.             |
+| `trigger.battery_last_replaced`       | `datetime` or `null`      | The recorded replacement date, or null if no replacement has been recorded.                        |
 
 ## Battery Was Not Replaced
 
@@ -175,12 +210,13 @@ date is older than `days_last_replaced`. Notes without a replacement date or
 with a disabled last-replaced sensor are skipped.
 
 Call or schedule `battery_notes.check_battery_last_replaced` with `raise_events`
-enabled (the default) to fire this trigger. Time passing alone does not fire it;
-the trigger does not run the check or set the day limit.
+enabled (the default) to fire this trigger.
 
-Automations using this trigger must use `mode: queued`. One check action call
-can raise events for multiple battery notes in quick succession, and queued
-mode lets the automation process each event in order.
+!!! note
+
+    Automations using this trigger must use `mode: queued`. One check action call
+    can raise events for multiple battery notes in quick succession, and queued
+    mode lets the automation process each event in order.
 
 ``` yaml
 mode: queued
@@ -190,21 +226,34 @@ triggers:
       area_id: kitchen
 ```
 
-It supports the same [targets as Battery Replaced](#targets), with an omitted
-target matching all battery notes and `target: {}` matching none. It has no
-additional options. Targets are resolved for each event.
+The target supports entities, devices, areas, floors, and labels. Select a
+Battery Notes entity to target its battery note, or a device to target all
+battery notes associated with that device.
 
-All [Battery Not Replaced event fields](./events.md#battery-not-replaced) are
-available directly on `trigger`, including `trigger.device_name`,
-`trigger.battery_last_replaced`, `trigger.battery_last_replaced_days`, and
-`trigger.battery_type_and_quantity`.
+### Trigger Data
+
+| Member                                | Type                      | Description                                                                                |
+| ------------------------------------- | ------------------------- | ------------------------------------------------------------------------------------------ |
+| `trigger.platform`                    | `string`                  | Always `battery_notes.battery_was_not_replaced`.                                           |
+| `trigger.description`                 | `string`                  | Always `battery was not replaced`.                                                         |
+| `trigger.device_id`                   | `string`                  | The source device ID, or an empty string for a standalone entity note.                     |
+| `trigger.source_entity_id`            | `string`                  | The source entity ID, or an empty string for a device note.                                |
+| `trigger.area_name`                   | `string` or `null`        | The area name associated with the source device or entity, or null if no area is assigned. |
+| `trigger.device_name`                 | `string`                  | The battery note's name.                                                                   |
+| `trigger.battery_type_and_quantity`   | `string`                  | The battery type and quantity, for example `2× AA`.                                        |
+| `trigger.battery_type`                | `string`                  | The battery type.                                                                          |
+| `trigger.battery_quantity`            | `int`                     | The battery quantity.                                                                      |
+| `trigger.note`                        | `string`                  | The note added in the battery note configuration.                                          |
+| `trigger.battery_last_reported`       | `datetime` or `null`      | The last battery report time, or null if the battery has never reported.                   |
+| `trigger.battery_last_reported_level` | `int`, `float`, or `null` | The battery percentage at the last report, or null if no percentage has been recorded.     |
+| `trigger.battery_last_replaced`       | `datetime`                | The recorded replacement date.                                                             |
+| `trigger.battery_last_replaced_days`  | `int`                     | The number of whole days since the battery was last replaced.                              |
 
 ### Scheduling the Check Actions
 
 This example runs both checks each morning. Their events fire matching
-automations using the triggers above. The checks can raise an event for each
-qualifying battery note on every run. Automations using these triggers must
-use `mode: queued` to handle multiple events.
+automations listening for overdue reports or replacements. The checks can raise an event for each
+qualifying battery note on every run.
 
 ``` yaml
 alias: Check Battery Reports and Replacements
@@ -237,15 +286,40 @@ Binary battery sources and low battery templates also raise an increased event
 when their low state becomes healthy, with nominal levels of 100 and 0 for the
 current and previous levels.
 
-It supports the same [targets as Battery Replaced](#targets). Omit the target
-to include all battery notes; `target: {}` matches none. Target membership is
-resolved for each event. There are no additional options.
+### Targets
 
-All [Battery Increased event fields](./events.md#battery-increased) are available
-directly on `trigger`, including `trigger.battery_level`,
-`trigger.previous_battery_level`, `trigger.battery_increase_threshold`, and
-`trigger.battery_last_replaced`. The increased event does not include a
-`reminder` field.
+The target is optional. Omit it to trigger on battery increases for all battery
+notes:
+
+``` yaml
+triggers:
+  - trigger: battery_notes.battery_has_increased
+```
+
+The target supports entities, devices, areas, floors, and labels. Select a
+Battery Notes entity to target its battery note, or a device to target all
+battery notes associated with that device.
+
+### Trigger Data
+
+| Member                               | Type                 | Description                                                                                                      |
+| ------------------------------------ | -------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `trigger.platform`                   | `string`             | Always `battery_notes.battery_has_increased`.                                                                    |
+| `trigger.description`                | `string`             | Always `battery has increased`.                                                                                  |
+| `trigger.device_id`                  | `string`             | The source device ID, or an empty string for a standalone entity note.                                           |
+| `trigger.source_entity_id`           | `string`             | The source entity ID, or an empty string for a device note.                                                      |
+| `trigger.area_name`                  | `string` or `null`   | The area name associated with the source device or entity, or null if no area is assigned.                       |
+| `trigger.device_name`                | `string`             | The battery note's name.                                                                                         |
+| `trigger.battery_type_and_quantity`  | `string`             | The battery type and quantity, for example `2× AA`.                                                              |
+| `trigger.battery_type`               | `string`             | The battery type.                                                                                                |
+| `trigger.battery_quantity`           | `int`                | The battery quantity.                                                                                            |
+| `trigger.note`                       | `string`             | The note added in the battery note configuration.                                                                |
+| `trigger.battery_low`                | `bool`               | Whether the battery is currently low. A percentage increase can still leave the battery below its low threshold. |
+| `trigger.battery_low_threshold`      | `int`                | The effective battery low threshold, including the global fallback.                                              |
+| `trigger.battery_increase_threshold` | `int`                | The effective battery increase threshold, including the global fallback.                                         |
+| `trigger.battery_level`              | `int` or `float`     | The current battery percentage; nominally 100 for binary or low-template recovery.                               |
+| `trigger.previous_battery_level`     | `int` or `float`     | The previous battery percentage; nominally 0 for binary or low-template recovery.                                |
+| `trigger.battery_last_replaced`      | `datetime` or `null` | The recorded replacement date, or null if no replacement has been recorded.                                      |
 
 The trigger does not automatically update the replacement date. To record an
 increase as a battery replacement, connect it to Set Battery Replaced:
@@ -284,36 +358,28 @@ triggers:
 
 The target supports entities, devices, areas, floors, and labels. Select a
 Battery Notes entity to target its battery note, or a device to target all
-battery notes associated with that device. Source entities can also be targeted
-in YAML.
-
-Targets are resolved when each event arrives, so changes to area, floor, and
-label membership are applied automatically.
-
-An explicitly empty target (`target: {}`) matches no battery notes.
-
-The trigger also fires when an action records a replacement date in the past.
-It does not fire just because a battery level increases or a replacement
-timestamp changes.
+battery notes associated with that device.
 
 ### Trigger Data
 
-| Member                              | Type               | Description                                                            |
-| ----------------------------------- | ------------------ | ---------------------------------------------------------------------- |
-| `trigger.device_id`                 | `string`           | The source device ID, or an empty string for a standalone entity note. |
-| `trigger.source_entity_id`          | `string`           | The source entity ID, or an empty string for a device note.            |
-| `trigger.area_name`                 | `string` or `null` | The area name associated with the source device or entity.             |
-| `trigger.device_name`               | `string`           | The battery note's name.                                               |
-| `trigger.battery_type_and_quantity` | `string`           | The battery type and quantity, for example `2× AA`.                    |
-| `trigger.battery_type`              | `string`           | The battery type.                                                      |
-| `trigger.battery_quantity`          | `int`              | The battery quantity.                                                  |
-| `trigger.note`                      | `string`           | The note added in the battery note configuration.                      |
+| Member                              | Type               | Description                                                                                |
+| ----------------------------------- | ------------------ | ------------------------------------------------------------------------------------------ |
+| `trigger.platform`                  | `string`           | Always `battery_notes.battery_was_replaced`.                                               |
+| `trigger.description`               | `string`           | Always `battery replaced`.                                                                 |
+| `trigger.device_id`                 | `string`           | The source device ID, or an empty string for a standalone entity note.                     |
+| `trigger.source_entity_id`          | `string`           | The source entity ID, or an empty string for a device note.                                |
+| `trigger.area_name`                 | `string` or `null` | The area name associated with the source device or entity, or null if no area is assigned. |
+| `trigger.device_name`               | `string`           | The battery note's name.                                                                   |
+| `trigger.battery_type_and_quantity` | `string`           | The battery type and quantity, for example `2× AA`.                                        |
+| `trigger.battery_type`              | `string`           | The battery type.                                                                          |
+| `trigger.battery_quantity`          | `int`              | The battery quantity.                                                                      |
+| `trigger.note`                      | `string`           | The note added in the battery note configuration.                                          |
 
 ### Automation Example
 
 ``` yaml
 alias: Battery Replaced in Kitchen
-mode: queued
+mode: single
 triggers:
   - trigger: battery_notes.battery_was_replaced
     target:
