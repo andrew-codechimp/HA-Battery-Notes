@@ -12,14 +12,6 @@ The trigger uses the battery note's existing low-state detection, including
 its device-specific or global threshold, battery low template, or binary
 battery source.
 
-### Battery Low Targets
-
-The target supports entities, devices, areas, floors, and labels. Select a
-Battery Notes entity to target its battery note, or a device to target all
-battery notes associated with that device.
-
-The target is optional. Omit it to trigger for all battery notes.
-
 ### Event Types
 
 Use the **Event types** option in the automation editor, or `options.event_types`
@@ -68,12 +60,10 @@ regular reminders, schedule that action in a separate automation.
 ### Battery Low Automation Example
 
 ``` yaml
-alias: Battery Low in Kitchen
+alias: Battery Low
 mode: queued
 triggers:
   - trigger: battery_notes.battery_became_low
-    target:
-      area_id: kitchen
     options:
       event_types: all
 actions:
@@ -93,14 +83,6 @@ The **Battery no longer low** trigger listens to the
 `battery_low` is false. For percentage sources, this happens when the battery
 returns to or above its effective low threshold. Binary and low-template sources
 trigger when their low state becomes false.
-
-### Targets
-
-The target supports entities, devices, areas, floors, and labels. Select a
-Battery Notes entity to target its battery note, or a device to target all
-battery notes associated with that device.
-
-The target is optional. Omit it to trigger for all battery notes.
 
 ### Trigger Data
 
@@ -129,12 +111,10 @@ The target is optional. Omit it to trigger for all battery notes.
 This dismisses a notification identified by the source device and entity IDs:
 
 ``` yaml
-alias: Battery No Longer Low in Kitchen
+alias: Battery No Longer Low
 mode: queued
 triggers:
   - trigger: battery_notes.battery_no_longer_low
-    target:
-      area_id: kitchen
 actions:
   - action: persistent_notification.dismiss
     data:
@@ -164,17 +144,7 @@ enabled (default) to fire this trigger.
 mode: queued
 triggers:
   - trigger: battery_notes.battery_was_not_reported
-    target:
-      area_id: kitchen
 ```
-
-### Targets
-
-The target supports entities, devices, areas, floors, and labels. Select a
-Battery Notes entity to target its battery note, or a device to target all
-battery notes associated with that device.
-
-The target is optional. Omit it to trigger for all battery notes.
 
 ### Trigger Data
 
@@ -218,17 +188,7 @@ enabled (default) to fire this trigger.
 mode: queued
 triggers:
   - trigger: battery_notes.battery_was_not_replaced
-    target:
-      area_id: kitchen
 ```
-
-### Targets
-
-The target supports entities, devices, areas, floors, and labels. Select a
-Battery Notes entity to target its battery note, or a device to target all
-battery notes associated with that device.
-
-The target is optional. Omit it to trigger for all battery notes.
 
 ### Trigger Data
 
@@ -286,15 +246,6 @@ Binary battery sources and low battery templates also raise an increased event
 when their low state becomes healthy, with nominal levels of 100 and 0 for the
 current and previous levels.
 
-### Targets
-
-The target supports entities, devices, areas, floors, and labels. Select a
-Battery Notes entity to target its battery note, or a device to target all
-battery notes associated with that device.
-
-The target is optional. Omit it to trigger on battery increases for all battery
-notes.
-
 ### Trigger Data
 
 | Member                               | Type                 | Description                                                                                                      |
@@ -341,15 +292,6 @@ automation editor. It fires when a battery is marked as replaced by the
 [Set Battery Replaced action](./actions.md#set-battery-replaced), at the same
 time as the [Battery Replaced event](./events.md#battery-replaced).
 
-### Targets
-
-The target supports entities, devices, areas, floors, and labels. Select a
-Battery Notes entity to target its battery note, or a device to target all
-battery notes associated with that device.
-
-The target is optional. Omit it to trigger on replacements for all battery
-notes.
-
 ### Trigger Data
 
 | Member                              | Type               | Description                                                                                |
@@ -368,12 +310,10 @@ notes.
 ### Automation Example
 
 ``` yaml
-alias: Battery Replaced in Kitchen
-mode: single
+alias: Battery Replaced
+mode: queued
 triggers:
   - trigger: battery_notes.battery_was_replaced
-    target:
-      area_id: kitchen
 actions:
   - action: persistent_notification.create
     data:

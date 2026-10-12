@@ -35,13 +35,7 @@ from pytest_homeassistant_custom_component.common import (
 )
 
 from homeassistant.core import CALLBACK_TYPE, HomeAssistant
-from homeassistant.helpers import (
-    area_registry as ar,
-    device_registry as dr,
-    entity_registry as er,
-    floor_registry as fr,
-    label_registry as lr,
-)
+from homeassistant.helpers import entity_registry as er
 from homeassistant.helpers.trigger import (
     async_get_all_descriptions,
     async_initialize_triggers,
@@ -76,121 +70,16 @@ async def _attach_trigger(
     return action, remove
 
 
-@pytest.fixture
-async def battery_targets(
-    hass: HomeAssistant,
-    battery_note_config_entry: MockConfigEntry,
-    battery_note_device: dr.DeviceEntry,
-    battery_note_sensor: er.RegistryEntry,
-) -> dict[str, dict[str, str | list[str]]]:
-    """Set up a note with standard target memberships."""
-    await setup_integration(hass, battery_note_config_entry)
-    registry = er.async_get(hass)
-    button_id = registry.async_get_entity_id("button", DOMAIN, BUTTON_UNIQUE_ID)
-    assert button_id is not None
-    type_id = registry.async_get_entity_id(
-        "sensor", DOMAIN, "bn_door_battery_battery_type"
-    )
-    assert type_id is not None
-    floor = fr.async_get(hass).async_create("Ground floor")
-    area = ar.async_get(hass).async_create("Hall", floor_id=floor.floor_id)
-    entity_label = lr.async_get(hass).async_create("Replacement buttons")
-    device_label = lr.async_get(hass).async_create("Battery devices")
-    area_label = lr.async_get(hass).async_create("Battery areas")
-    registry.async_update_entity(button_id, labels={entity_label.label_id})
-    registry.async_update_entity(battery_note_sensor.entity_id, area_id=area.id)
-    dr.async_get(hass).async_update_device(
-        battery_note_device.id, area_id=area.id, labels={device_label.label_id}
-    )
-    ar.async_get(hass).async_update(area.id, labels={area_label.label_id})
-    return {
-        "source-entity": {"entity_id": battery_note_sensor.entity_id},
-        "note-entity": {"entity_id": type_id},
-        "diagnostic-entity": {"entity_id": button_id},
-        "device": {"device_id": battery_note_device.id},
-        "area": {"area_id": area.id},
-        "floor": {"floor_id": floor.floor_id},
-        "entity-label": {"label_id": entity_label.label_id},
-        "device-label": {"label_id": device_label.label_id},
-        "area-label": {"label_id": area_label.label_id},
-        "combined": {
-            "entity_id": [type_id, button_id, battery_note_sensor.entity_id],
-            "device_id": [battery_note_device.id],
-            "area_id": [area.id],
-            "floor_id": [floor.floor_id],
-            "label_id": [entity_label.label_id, device_label.label_id],
-        },
-        "empty": {},
-        "none": {"device_id": "none"},
-        "missing-entity": {"entity_id": "sensor.missing"},
-        "missing-device": {"device_id": "missing"},
-        "missing-area": {"area_id": "missing"},
-        "missing-floor": {"floor_id": "missing"},
-        "missing-label": {"label_id": "missing"},
-    }
-
-
-@pytest.mark.parametrize(
-    ("target_kind", "expected_by_source"),
-    [
-        pytest.param(kind, {"device": 1, "entity": 1, "standalone-entity": 1}, id=kind)
-        for kind in (
-            "source-entity",
-            "note-entity",
-            "diagnostic-entity",
-            "area",
-            "floor",
-            "entity-label",
-            "area-label",
-            "combined",
-        )
-    ]
-    + [
-        pytest.param(kind, {"device": 1, "entity": 1, "standalone-entity": 0}, id=kind)
-        for kind in ("device", "device-label")
-    ]
-    + [
-        pytest.param(kind, {"device": 0, "entity": 0, "standalone-entity": 0}, id=kind)
-        for kind in (
-            "empty",
-            "none",
-            "missing-entity",
-            "missing-device",
-            "missing-area",
-            "missing-floor",
-            "missing-label",
-        )
-    ],
-)
-async def test_trigger_targets(
-    hass: HomeAssistant,
-    battery_note_source: str,
-    battery_targets: dict[str, dict[str, str | list[str]]],
-    target_kind: str,
-    expected_by_source: dict[str, int],
-) -> None:
-    """Test shared target resolution across source types without duplicate runs."""
-    action, remove = await _attach_trigger(
-        hass, {"target": battery_targets[target_kind]}
-    )
-    events = async_capture_events(hass, EVENT_BATTERY_REPLACED)
-
-    await hass.services.async_call(
-        "button", "press", battery_targets["diagnostic-entity"], blocking=True
-    )
-    await hass.async_block_till_done()
-
-    assert len(events) == 1
-    assert action.await_count == expected_by_source[battery_note_source]
-    remove()
-
-
 async def test_replacement_actions_payload_and_cleanup(
     hass: HomeAssistant,
     battery_note_config_entry: MockConfigEntry,
-    battery_targets: dict[str, dict[str, str | list[str]]],
 ) -> None:
-    """Test an omitted target forwards each action/button event until removed."""
+    """Test each action/button event is forwarded until the listener is removed."""
+    await setup_integration(hass, battery_note_config_entry)
+    button_id = er.async_get(hass).async_get_entity_id(
+        "button", DOMAIN, BUTTON_UNIQUE_ID
+    )
+    assert button_id is not None
     action, remove = await _attach_trigger(hass, {})
     events = async_capture_events(hass, EVENT_BATTERY_REPLACED)
     subentry = next(iter(battery_note_config_entry.subentries.values()))
@@ -207,7 +96,7 @@ async def test_replacement_actions_payload_and_cleanup(
         blocking=True,
     )
     await hass.services.async_call(
-        "button", "press", battery_targets["diagnostic-entity"], blocking=True
+        "button", "press", {"entity_id": button_id}, blocking=True
     )
     await hass.async_block_till_done()
 
@@ -226,64 +115,13 @@ async def test_replacement_actions_payload_and_cleanup(
     remove()
 
     await hass.services.async_call(
-        "button", "press", battery_targets["diagnostic-entity"], blocking=True
+        "button", "press", {"entity_id": button_id}, blocking=True
     )
     await hass.async_block_till_done()
     assert len(events) == 3
     assert action.await_count == 2
 
 
-@pytest.mark.parametrize(
-    "target_kind",
-    [pytest.param("area", id="area"), pytest.param("entity-label", id="label")],
-)
-async def test_target_membership_changes(  # noqa: PLR0913
-    hass: HomeAssistant,
-    battery_note_config_entry: MockConfigEntry,
-    battery_note_device: dr.DeviceEntry,
-    battery_note_sensor: er.RegistryEntry,
-    battery_targets: dict[str, dict[str, str | list[str]]],
-    target_kind: str,
-) -> None:
-    """Test targets resolve current registry membership for every event."""
-    action, remove = await _attach_trigger(
-        hass, {"target": battery_targets[target_kind]}
-    )
-    coordinator = next(
-        iter(battery_note_config_entry.runtime_data.subentry_coordinators.values())
-    )
-    data = coordinator.event_data()
-    hass.bus.async_fire(EVENT_BATTERY_REPLACED, data)
-    await hass.async_block_till_done()
-    action.assert_awaited_once()
-
-    registry = er.async_get(hass)
-    button_id = registry.async_get_entity_id("button", DOMAIN, BUTTON_UNIQUE_ID)
-    assert button_id is not None
-    registry.async_update_entity(button_id, labels=set())
-    registry.async_update_entity(battery_note_sensor.entity_id, area_id=None)
-    dr.async_get(hass).async_update_device(battery_note_device.id, area_id=None)
-    await hass.async_block_till_done()
-    hass.bus.async_fire(EVENT_BATTERY_REPLACED, data)
-    await hass.async_block_till_done()
-
-    action.assert_awaited_once()
-    remove()
-
-
-@pytest.mark.parametrize(
-    ("target_kind", "other_source"),
-    [
-        pytest.param("note-entity", "", id="note-target-device-event"),
-        pytest.param(
-            "note-entity", "sensor.other_battery", id="note-target-sibling-event"
-        ),
-        pytest.param(
-            "source-entity", "sensor.other_battery", id="source-target-sibling-event"
-        ),
-    ],
-)
-@pytest.mark.parametrize("battery_note_source", [pytest.param("entity", id="entity")])
 @pytest.mark.parametrize(
     ("trigger_key", "event_type", "battery_low"),
     [
@@ -309,35 +147,35 @@ async def test_target_membership_changes(  # noqa: PLR0913
         ),
     ],
 )
-async def test_entity_note_does_not_match_other_note_on_device(  # noqa: PLR0913
+async def test_trigger_matches_all_notes(
     hass: HomeAssistant,
     battery_note_config_entry: MockConfigEntry,
-    battery_targets: dict[str, dict[str, str | list[str]]],
     trigger_key: str,
     event_type: str,
     battery_low: bool,
-    other_source: str,
-    target_kind: str,
 ) -> None:
-    """Test every trigger isolates an entity note from other notes on its device."""
-    action, remove = await _attach_trigger(
-        hass, {"target": battery_targets[target_kind]}, trigger_key
-    )
+    """Test each trigger forwards events from different battery notes."""
+    await setup_integration(hass, battery_note_config_entry)
+    action, remove = await _attach_trigger(hass, {}, trigger_key)
     coordinator = next(
         iter(battery_note_config_entry.runtime_data.subentry_coordinators.values())
     )
     data = coordinator.event_data(
         {ATTR_BATTERY_LOW: battery_low, ATTR_BATTERY_THRESHOLD_REMINDER: False}
     )
-    hass.bus.async_fire(event_type, {**data, ATTR_SOURCE_ENTITY_ID: other_source})
-    await hass.async_block_till_done()
-
-    action.assert_not_called()
-
+    other_data = {
+        **data,
+        ATTR_DEVICE_ID: "other_device",
+        ATTR_SOURCE_ENTITY_ID: "sensor.other_battery",
+    }
     hass.bus.async_fire(event_type, data)
+    hass.bus.async_fire(event_type, other_data)
     await hass.async_block_till_done()
 
-    action.assert_awaited_once()
+    assert action.await_count == 2
+    assert [
+        call.args[0]["trigger"][ATTR_SOURCE_ENTITY_ID] for call in action.call_args_list
+    ] == [data[ATTR_SOURCE_ENTITY_ID], other_data[ATTR_SOURCE_ENTITY_ID]]
     remove()
 
 
@@ -638,14 +476,13 @@ async def test_recovery_transitions_payload_and_cleanup(
 @pytest.mark.parametrize(
     "config",
     [
-        pytest.param({"target": {"entity_id": "invalid"}}, id="invalid-entity"),
         pytest.param({"options": {"event_types": "invalid"}}, id="invalid-event-types"),
         pytest.param({"options": {"event_types": True}}, id="boolean-event-types"),
         pytest.param({"options": {"for": 10}}, id="unsupported-option"),
     ],
 )
 async def test_invalid_low_config(hass: HomeAssistant, config: dict[str, Any]) -> None:
-    """Test invalid low battery targets and reminder options are rejected."""
+    """Test invalid low battery reminder options are rejected."""
     with pytest.raises(vol.Invalid):
         await async_validate_trigger_config(
             hass, [{"platform": LOW_TRIGGER_KEY, **config}]
@@ -672,13 +509,11 @@ async def test_low_event_types_defaults_to_all(
 async def test_low_trigger_description(
     hass: HomeAssistant, mock_config_entry: MockConfigEntry
 ) -> None:
-    """Test Home Assistant loads the low trigger targets and event types selector."""
+    """Test Home Assistant loads only the low trigger's event types selector."""
     await setup_integration(hass, mock_config_entry)
     descriptions = await async_get_all_descriptions(hass)
     description = descriptions[LOW_TRIGGER_KEY]
-    assert description["target"] == {
-        "entity": [{"integration": "battery_notes"}],
-    }
+    assert "target" not in description
     assert set(description["fields"]) == {"event_types"}
     field = description["fields"]["event_types"]
     assert field["default"] == "all"
@@ -691,8 +526,7 @@ async def test_low_trigger_description(
 @pytest.mark.parametrize(
     "config",
     [
-        pytest.param({"target": {"entity_id": "invalid"}}, id="invalid-entity"),
-        pytest.param({"target": {}, "options": {"for": 10}}, id="unsupported-option"),
+        pytest.param({"options": {"for": 10}}, id="unsupported-option"),
         pytest.param({"options": {"event_types": "all"}}, id="unsupported-event-types"),
     ],
 )
@@ -709,7 +543,7 @@ async def test_low_trigger_description(
 async def test_invalid_config(
     hass: HomeAssistant, config: dict[str, Any], trigger_key: str
 ) -> None:
-    """Test invalid target and option configurations are rejected."""
+    """Test invalid option configurations are rejected."""
     with pytest.raises(vol.Invalid):
         await async_validate_trigger_config(hass, [{"platform": trigger_key, **config}])
 
@@ -729,12 +563,41 @@ async def test_trigger_description(
     mock_config_entry: MockConfigEntry,
     trigger_key: str,
 ) -> None:
-    """Test Home Assistant loads the trigger's target selector definition."""
+    """Test Home Assistant loads the trigger without a target selector."""
     await setup_integration(hass, mock_config_entry)
 
     descriptions = await async_get_all_descriptions(hass)
 
-    assert descriptions[trigger_key] == {
-        "fields": {},
-        "target": {"entity": [{"integration": "battery_notes"}]},
-    }
+    assert descriptions[trigger_key] == {"fields": {}}
+
+
+@pytest.mark.parametrize(
+    "target",
+    [
+        pytest.param({}, id="empty"),
+        pytest.param({"entity_id": "sensor.battery"}, id="entity"),
+        pytest.param({"device_id": "device"}, id="device"),
+        pytest.param({"area_id": "kitchen"}, id="area"),
+        pytest.param({"floor_id": "ground"}, id="floor"),
+        pytest.param({"label_id": "batteries"}, id="label"),
+    ],
+)
+@pytest.mark.parametrize(
+    "trigger_key",
+    [
+        pytest.param(TRIGGER_KEY, id="replacement"),
+        pytest.param(INCREASED_TRIGGER_KEY, id="increased"),
+        pytest.param(LOW_TRIGGER_KEY, id="low"),
+        pytest.param(RECOVERY_TRIGGER_KEY, id="recovery"),
+        pytest.param(NOT_REPORTED_TRIGGER_KEY, id="not-reported"),
+        pytest.param(NOT_REPLACED_TRIGGER_KEY, id="not-replaced"),
+    ],
+)
+async def test_targets_rejected(
+    hass: HomeAssistant, trigger_key: str, target: dict[str, str]
+) -> None:
+    """Test targets are rejected instead of silently triggering for all notes."""
+    with pytest.raises(vol.Invalid, match="extra keys not allowed"):
+        await async_validate_trigger_config(
+            hass, [{"platform": trigger_key, "target": target}]
+        )

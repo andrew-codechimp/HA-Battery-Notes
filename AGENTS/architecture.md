@@ -18,7 +18,7 @@ Paths below are relative to `custom_components/battery_notes/` unless specified.
 | `binary_sensor.py` | Low-battery entities for percentage, binary, and template sources |
 | `button.py` | Battery-replaced button |
 | `services.py` / `services.yaml` | Action registration and handlers / UI action definitions |
-| `trigger.py` / `triggers.yaml` | Purpose-specific battery event triggers / UI targets and options |
+| `trigger.py` / `triggers.yaml` | Purpose-specific battery event triggers / UI options |
 | `const.py` | Domain, platforms, configuration keys, attributes, event names, service schemas, defaults |
 | `store.py` | Persistent battery history, migrations, delayed writes, device/entity storage records |
 | `library.py` | JSON parsing, indexed library data, model matching, ignored integration domains |
@@ -65,29 +65,28 @@ schedules library updates/discovery. Register new actions in
 `services.async_setup_services`, not separately for every subentry.
 
 `battery_notes.battery_was_replaced` listens to the existing replacement event from
-buttons and actions. Omitting the target includes all battery notes; an explicit
-empty target matches none. It resolves standard HA targets for each event, matches
-Battery Notes entities through their config subentry, and exposes the unchanged
-event fields as top-level members of `trigger`.
+buttons and actions and exposes the unchanged event fields as top-level members
+of `trigger`. All battery event triggers apply to all notes and reject `target`
+configuration.
 
-`battery_notes.battery_has_increased` shares target matching and listens to the
+`battery_notes.battery_has_increased` listens to the
 existing increased event. The coordinator owns numeric increase thresholds and
 binary/template recovery detection. The trigger preserves the event payload,
 has no options, and does not update the replacement date.
 
-`battery_notes.battery_became_low` shares the same target matching and forwards threshold
+`battery_notes.battery_became_low` forwards threshold
 events only when `battery_low` is true. Its required `options.event_types` filter accepts
 `low_state_transitions`, `reminders`, or `all` (default) to select transitions,
 reminders raised by `check_battery_low`, or both. It preserves the existing
 threshold event payload.
 
-`battery_notes.battery_no_longer_low` shares the same targets and forwards threshold
+`battery_notes.battery_no_longer_low` forwards threshold
 events only when `battery_low` is false. It has no reminder option and preserves
 the threshold event payload.
 
 `battery_notes.battery_was_not_reported` and `battery_notes.battery_was_not_replaced`
 listen to events raised by `check_battery_last_reported` and
-`check_battery_last_replaced`, respectively. They share target matching and expose
+`check_battery_last_replaced`, respectively. They expose
 the unchanged event fields. The check actions own the day limits and scheduling;
 these triggers have no options and do not run checks themselves.
 
