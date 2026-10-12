@@ -35,12 +35,10 @@ regular reminders, schedule that action in a separate automation.
     can raise events for multiple battery notes in quick succession, and queued
     mode lets the automation process each event in order.
 
-### Trigger Data
+### Trigger Variables
 
 | Member                               | Type                      | Description                                                                                                                                               |
 | ------------------------------------ | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `trigger.platform`                   | `string`                  | Always `battery_notes.battery_became_low`.                                                                                                                |
-| `trigger.description`                | `string`                  | Always `battery low`.                                                                                                                                     |
 | `trigger.device_id`                  | `string`                  | The source device ID, or an empty string for a standalone entity note.                                                                                    |
 | `trigger.source_entity_id`           | `string`                  | The source entity ID, or an empty string for a device note.                                                                                               |
 | `trigger.area_name`                  | `string` or `null`        | The area name associated with the source device or entity, or null if no area is assigned.                                                                |
@@ -84,12 +82,10 @@ The **Battery no longer low** trigger listens to the
 returns to or above its effective low threshold. Binary and low-template sources
 trigger when their low state becomes false.
 
-### Trigger Data
+### Trigger Variables
 
 | Member                               | Type                 | Description                                                                                |
 | ------------------------------------ | -------------------- | ------------------------------------------------------------------------------------------ |
-| `trigger.platform`                   | `string`             | Always `battery_notes.battery_no_longer_low`.                                              |
-| `trigger.description`                | `string`             | Always `battery no longer low`.                                                            |
 | `trigger.device_id`                  | `string`             | The source device ID, or an empty string for a standalone entity note.                     |
 | `trigger.source_entity_id`           | `string`             | The source entity ID, or an empty string for a device note.                                |
 | `trigger.area_name`                  | `string` or `null`   | The area name associated with the source device or entity, or null if no area is assigned. |
@@ -146,12 +142,10 @@ triggers:
   - trigger: battery_notes.battery_was_not_reported
 ```
 
-### Trigger Data
+### Trigger Variables
 
 | Member                                | Type                      | Description                                                                                        |
 | ------------------------------------- | ------------------------- | -------------------------------------------------------------------------------------------------- |
-| `trigger.platform`                    | `string`                  | Always `battery_notes.battery_was_not_reported`.                                                   |
-| `trigger.description`                 | `string`                  | Always `battery was not reported`.                                                                 |
 | `trigger.device_id`                   | `string`                  | The source device ID, or an empty string for a standalone entity note.                             |
 | `trigger.source_entity_id`            | `string`                  | The source entity ID, or an empty string for a device note.                                        |
 | `trigger.area_name`                   | `string` or `null`        | The area name associated with the source device or entity, or null if no area is assigned.         |
@@ -190,12 +184,10 @@ triggers:
   - trigger: battery_notes.battery_was_not_replaced
 ```
 
-### Trigger Data
+### Trigger Variables
 
 | Member                                | Type                      | Description                                                                                |
 | ------------------------------------- | ------------------------- | ------------------------------------------------------------------------------------------ |
-| `trigger.platform`                    | `string`                  | Always `battery_notes.battery_was_not_replaced`.                                           |
-| `trigger.description`                 | `string`                  | Always `battery was not replaced`.                                                         |
 | `trigger.device_id`                   | `string`                  | The source device ID, or an empty string for a standalone entity note.                     |
 | `trigger.source_entity_id`            | `string`                  | The source entity ID, or an empty string for a device note.                                |
 | `trigger.area_name`                   | `string` or `null`        | The area name associated with the source device or entity, or null if no area is assigned. |
@@ -246,7 +238,7 @@ Binary battery sources and low battery templates also raise an increased event
 when their low state becomes healthy, with nominal levels of 100 and 0 for the
 current and previous levels.
 
-### Trigger Data
+### Trigger Variables
 
 | Member                               | Type                 | Description                                                                                                      |
 | ------------------------------------ | -------------------- | ---------------------------------------------------------------------------------------------------------------- |
@@ -292,12 +284,10 @@ automation editor. It fires when a battery is marked as replaced by the
 [Set Battery Replaced action](./actions.md#set-battery-replaced), at the same
 time as the [Battery Replaced event](./events.md#battery-replaced).
 
-### Trigger Data
+### Trigger Variables
 
 | Member                              | Type               | Description                                                                                |
 | ----------------------------------- | ------------------ | ------------------------------------------------------------------------------------------ |
-| `trigger.platform`                  | `string`           | Always `battery_notes.battery_was_replaced`.                                               |
-| `trigger.description`               | `string`           | Always `battery replaced`.                                                                 |
 | `trigger.device_id`                 | `string`           | The source device ID, or an empty string for a standalone entity note.                     |
 | `trigger.source_entity_id`          | `string`           | The source entity ID, or an empty string for a device note.                                |
 | `trigger.area_name`                 | `string` or `null` | The area name associated with the source device or entity, or null if no area is assigned. |
