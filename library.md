@@ -1,4 +1,4 @@
-## 2339 Devices in library
+## 2340 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1765,6 +1765,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |ThermoBeacon                                    |27                                                                                            |CR2477                    |                                                                                      |
 |ThermoPro                                       |TP357                                                                                         |AAA                       |                                                                                      |
 |ThermoPro                                       |TP357S                                                                                        |AAA                       |                                                                                      |
+|ThermoPro                                       |TP358S                                                                                        |2× AAA                    |                                                                                      |
 |Thermoworks                                     |rfx gateway                                                                                   |Rechargeable              |                                                                                      |
 |Thermoworks                                     |rfx meat                                                                                      |AAA                       |                                                                                      |
 |Thermoworks                                     |signals                                                                                       |Rechargeable              |                                                                                      |
