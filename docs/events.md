@@ -8,11 +8,6 @@ The following events are raised by the integration. These events can be used wit
 
 This is fired when a device within Battery Notes has a battery level changed to either below or above the device specific or global threshold.
 
-For low battery notifications, the [Battery Low trigger](./triggers.md#battery-low)
-provides a choice of excluding reminders, reminders only,
-or all low battery events. The [Battery No Longer Low trigger](./triggers.md#battery-no-longer-low)
-handles a battery returning to a healthy state.
-
 You can use this to send notifications in your preferred method.  An example automation below displays a persistent notification.  
 
 !!! note
@@ -90,22 +85,14 @@ actions:
 
 `battery_notes_battery_increased`
 
-The [Battery Has Increased trigger](./triggers.md#battery-has-increased) listens to this event.
-
-This is fired when a battery level increases by at least the effective
-`battery_increase_threshold` relative to the previous report (default 25
-percentage points). The threshold can be changed in the
-[configuration settings](./configuration.md) or overridden for a battery note.
+This is fired when a device within Battery Notes has a battery level increased above the battery_increase_threshold (default 25%) if not changed within [configuration setting](./configuration.md).
 
 It deliberately does not update the battery_replaced sensor allowing you to choose how you want to handle this.  The increase theshold allows for detecting/handling of partially charged batteries rather than just full batteries.  
 An example automation below shows how to update the battery_replaced.
 
 !!! note
 
-    Battery Increased events are raised for percentage battery sources, and when
-    a binary battery source or [Battery Low Template](./index.md#battery-low-template)
-    returns from low to healthy. Binary and low-template events use nominal
-    levels of 100 and 0 for the current and previous levels.
+    Battery Increased events are only raised when the device has a Battery+ entity or a [Battery Low Template](./index.md#battery-low-template) is added to the Battery Notes configuration.
 
 | <div style="width:200px">Attribute</div> | Type       | Description                                                                                                           |
 | ---------------------------------------- | ---------- | --------------------------------------------------------------------------------------------------------------------- |
@@ -147,8 +134,6 @@ actions:
 ## Battery Not Reported
 
 `battery_notes_battery_not_reported`
-
-The [Battery Was Not Reported trigger](./triggers.md#battery-was-not-reported) listens to this event.
 
 This is fired from the [check_battery_last_reported](./actions.md#check-battery-last-reported) action call for each device that has not reported its battery level for the number of days specified in the action call, but only when `raise_events` is true.
 
@@ -206,8 +191,6 @@ This is fired when the battery is replaced, either by a button press or the acti
 
 This can be useful for adding batteries to a shopping list or inventory system.
 
-The [Battery Was Replaced trigger](./triggers.md#battery-was-replaced) listens to this event.
-
 | <div style="width:200px">Attribute</div> | Type     | Description                                                                                                           |
 | ---------------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------- |
 | `device_id`                              | `string` | The device id of the device.                                                                                          |
@@ -244,8 +227,6 @@ actions:
 ## Battery Not Replaced
 
 `battery_notes_battery_not_replaced`
-
-The [Battery Was Not Replaced trigger](./triggers.md#battery-was-not-replaced) listens to this event.
 
 This is fired from the [check_battery_last_replaced](./actions.md#check-battery-last-replaced) action call for each device that has not had its battery replaced for the number of days specified in the action call, but only when `raise_events` is true.
 
