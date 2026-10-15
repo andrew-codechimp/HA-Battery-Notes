@@ -274,7 +274,7 @@ actions:
       source_entity_id: "{{ trigger.source_entity_id }}"
 ```
 
-## Battery Replaced
+## Battery Was Replaced
 
 `battery_notes.battery_was_replaced`
 

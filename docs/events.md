@@ -9,7 +9,7 @@ The following events are raised by the integration. These events can be used wit
 This is fired when a device within Battery Notes has a battery level changed to either below or above the device specific or global threshold.
 
 For low battery notifications, the [Battery Low trigger](./triggers.md#battery-low)
-provides target selection and a choice of excluding reminders, reminders only,
+provides a choice of excluding reminders, reminders only,
 or all low battery events. The [Battery No Longer Low trigger](./triggers.md#battery-no-longer-low)
 handles a battery returning to a healthy state.
 
@@ -90,8 +90,7 @@ actions:
 
 `battery_notes_battery_increased`
 
-The [Battery Has Increased trigger](./triggers.md#battery-has-increased)
-listens to this event and adds target selection in the automation editor.
+The [Battery Has Increased trigger](./triggers.md#battery-has-increased) listens to this event.
 
 This is fired when a battery level increases by at least the effective
 `battery_increase_threshold` relative to the previous report (default 25
@@ -149,8 +148,7 @@ actions:
 
 `battery_notes_battery_not_reported`
 
-The [Battery Was Not Reported trigger](./triggers.md#battery-was-not-reported)
-listens to this event and adds target selection in the automation editor.
+The [Battery Was Not Reported trigger](./triggers.md#battery-was-not-reported) listens to this event.
 
 This is fired from the [check_battery_last_reported](./actions.md#check-battery-last-reported) action call for each device that has not reported its battery level for the number of days specified in the action call, but only when `raise_events` is true.
 
@@ -208,6 +206,8 @@ This is fired when the battery is replaced, either by a button press or the acti
 
 This can be useful for adding batteries to a shopping list or inventory system.
 
+The [Battery Was Replaced trigger](./triggers.md#battery-was-replaced) listens to this event.
+
 | <div style="width:200px">Attribute</div> | Type     | Description                                                                                                           |
 | ---------------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------- |
 | `device_id`                              | `string` | The device id of the device.                                                                                          |
@@ -245,8 +245,7 @@ actions:
 
 `battery_notes_battery_not_replaced`
 
-The [Battery Was Not Replaced trigger](./triggers.md#battery-was-not-replaced)
-listens to this event and adds target selection in the automation editor.
+The [Battery Was Not Replaced trigger](./triggers.md#battery-was-not-replaced) listens to this event.
 
 This is fired from the [check_battery_last_replaced](./actions.md#check-battery-last-replaced) action call for each device that has not had its battery replaced for the number of days specified in the action call, but only when `raise_events` is true.
 
