@@ -383,6 +383,47 @@
             "description": "Konfigurowanie {integration_title} za pomocą YAML jest usuwane.\n\nTwoja obecna konfiguracja YAML została automatycznie zaimportowana do interfejsu użytkownika.\n\nUsuń wpis `{domain}` z pliku configuration.yaml i zrestartuj Home Assistanta, aby rozwiązać ten problem."
         }
     },
+    "selector": {
+        "battery_low_event_types": {
+            "options": {
+                "all": "Wszystkie",
+                "low_state_transitions": "Przejścia do niskiego poziomu baterii",
+                "reminders": "Przypomnienia"
+            }
+        }
+    },
+    "triggers": {
+        "battery_has_increased": {
+            "name": "Poziom baterii wzrósł",
+            "description": "Wyzwala się, gdy poziom baterii wzrośnie co najmniej o skonfigurowany próg wzrostu lub gdy stan niskiego poziomu baterii określany przez czujnik binarny albo szablon ponownie wskazuje prawidłowy poziom."
+        },
+        "battery_was_not_reported": {
+            "name": "Poziom baterii nie został zgłoszony",
+            "description": "Wyzwala się na podstawie zdarzeń generowanych przez akcję „Ostatni raport dotyczący sprawdzenia baterii”, gdy bateria nie zgłosiła swojego poziomu przez okres dłuższy niż podana liczba dni lub nigdy go nie zgłosiła. Zaplanuj lub wywołaj tę akcję z włączoną opcją „Wywoływaj zdarzenia”, aby uruchomić tę automatyzację.\nAutomatyzacje korzystające z tego wyzwalacza muszą używać trybu kolejki (`mode: queued`), ponieważ jedno wywołanie akcji może wygenerować zdarzenia dla wielu notatek o bateriach w krótkich odstępach czasu."
+        },
+        "battery_was_not_replaced": {
+            "name": "Bateria nie została wymieniona",
+            "description": "Wyzwala się na podstawie zdarzeń generowanych przez akcję „Sprawdzaj ostatnią wymianę baterii”, gdy bateria nie została wymieniona przez okres dłuższy niż podana liczba dni. Zaplanuj lub wywołaj tę akcję z włączoną opcją „Wywoływaj zdarzenia”, aby uruchomić tę automatyzację.\nAutomatyzacje korzystające z tego wyzwalacza muszą używać trybu kolejki (`mode: queued`), ponieważ jedno wywołanie akcji może wygenerować zdarzenia dla wielu notatek o bateriach w krótkich odstępach czasu."
+        },
+        "battery_no_longer_low": {
+            "name": "Poziom baterii nie jest już niski",
+            "description": "Wyzwala się, gdy poziom baterii nie jest już niski."
+        },
+        "battery_became_low": {
+            "name": "Poziom baterii stał się niski",
+            "description": "Wyzwala się, gdy poziom baterii staje się niski lub generowane jest przypomnienie o niskim poziomie baterii.\nAutomatyzacje korzystające z tego wyzwalacza muszą używać trybu kolejki (`mode: queued`), ponieważ jedno wywołanie akcji może wygenerować zdarzenia dla wielu notatek o bateriach w krótkich odstępach czasu.",
+            "fields": {
+                "event_types": {
+                    "name": "Typy zdarzeń",
+                    "description": "Opcja „Wszystkie” wyzwala automatyzację, gdy poziom baterii staje się niski oraz przy przypomnieniach generowanych przez akcję „Sprawdzaj niski poziom baterii”. Wybierz „Przejścia do niskiego poziomu baterii”, aby reagować tylko na przejścia do niskiego poziomu baterii, lub „Przypomnienia”, aby reagować na przypomnienia z akcji."
+                }
+            }
+        },
+        "battery_was_replaced": {
+            "name": "Bateria została wymieniona",
+            "description": "Wyzwala się, gdy bateria zostanie oznaczona jako wymieniona."
+        }
+    },
     "exceptions": {
         "not_configured_in_battery_notes": {
             "message": "{source} nie jest skonfigurowane w notatkach baterii."

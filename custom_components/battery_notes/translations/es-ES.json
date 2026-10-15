@@ -383,6 +383,47 @@
             "description": "La configuración de {integration_title} usando YAML se está eliminando.\n\nSu configuración YAML existente ha sido importada a la interfaz de usuario automáticamente.\n\nElimine la configuración `{domain}` de su archivo configuration.yaml e reinicie Home Assistant para resolver este problema."
         }
     },
+    "selector": {
+        "battery_low_event_types": {
+            "options": {
+                "all": "Todos",
+                "low_state_transitions": "Transiciones a batería baja",
+                "reminders": "Recordatorios"
+            }
+        }
+    },
+    "triggers": {
+        "battery_has_increased": {
+            "name": "El nivel de batería ha aumentado",
+            "description": "Se activa cuando el nivel de una batería aumenta al menos el umbral de aumento configurado, o cuando un estado de batería baja determinado por un sensor binario o una plantilla vuelve a indicar un nivel adecuado."
+        },
+        "battery_was_not_reported": {
+            "name": "No se ha informado del nivel de batería",
+            "description": "Se activa a partir de los eventos generados por la acción «Comprobar última batería reportada» cuando una batería no ha informado de su nivel durante más días de los especificados o nunca ha informado de él. Programa o llama a esta acción con la opción «Generar eventos» activada para activar esta automatización.\nLas automatizaciones que utilicen este disparador deben usar el modo en cola (`mode: queued`), ya que una sola llamada a una acción puede generar eventos para varias notas de batería en rápida sucesión."
+        },
+        "battery_was_not_replaced": {
+            "name": "La batería no se ha reemplazado",
+            "description": "Se activa a partir de los eventos generados por la acción «Comprobar última batería reemplazada» cuando una batería no se ha reemplazado durante más días de los especificados. Programa o llama a esta acción con la opción «Generar eventos» activada para activar esta automatización.\nLas automatizaciones que utilicen este disparador deben usar el modo en cola (`mode: queued`), ya que una sola llamada a una acción puede generar eventos para varias notas de batería en rápida sucesión."
+        },
+        "battery_no_longer_low": {
+            "name": "La batería ya no está baja",
+            "description": "Se activa cuando el nivel de una batería deja de estar bajo."
+        },
+        "battery_became_low": {
+            "name": "La batería ha pasado a estar baja",
+            "description": "Se activa cuando el nivel de una batería pasa a estar bajo o se genera un recordatorio de batería baja.\nLas automatizaciones que utilicen este disparador deben usar el modo en cola (`mode: queued`), ya que una sola llamada a una acción puede generar eventos para varias notas de batería en rápida sucesión.",
+            "fields": {
+                "event_types": {
+                    "name": "Tipos de eventos",
+                    "description": "«Todos» activa la automatización cuando una batería pasa a estar baja y con los recordatorios generados por «Comprobar batería baja». Selecciona «Transiciones a batería baja» para reaccionar solo a las transiciones a batería baja, o «Recordatorios» para los recordatorios de la acción."
+                }
+            }
+        },
+        "battery_was_replaced": {
+            "name": "La batería se ha reemplazado",
+            "description": "Se activa cuando una batería se marca como reemplazada."
+        }
+    },
     "exceptions": {
         "not_configured_in_battery_notes": {
             "message": "{source} no está configurado en Battery Notes."

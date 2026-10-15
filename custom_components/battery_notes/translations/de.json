@@ -383,6 +383,47 @@
             "description": "Das Konfigurieren von {integration_title} mit YAML wird entfernt.\n\nDeine bestehende YAML-Konfiguration wurde automatisch in die Benutzeroberfläche importiert.\n\nEntferne die `{domain}`-Konfiguration von deiner configuration.yaml-Datei und starte Home Assistant neu, um dieses Problem zu beheben."
         }
     },
+    "selector": {
+        "battery_low_event_types": {
+            "options": {
+                "all": "Alle",
+                "low_state_transitions": "Wechsel zu niedrigem Batteriestand",
+                "reminders": "Erinnerungen"
+            }
+        }
+    },
+    "triggers": {
+        "battery_has_increased": {
+            "name": "Batteriestand ist gestiegen",
+            "description": "Löst aus, wenn der Batteriestand um mindestens den konfigurierten Schwellenwert für den Anstieg steigt oder wenn ein binärer Sensor oder ein Template für einen niedrigen Batteriestand wieder einen ausreichenden Batteriestand meldet."
+        },
+        "battery_was_not_reported": {
+            "name": "Batteriestand wurde nicht gemeldet",
+            "description": "Löst bei Ereignissen der Aktion „Prüfe auf letzte Batteriestands-Meldungen“ aus, wenn eine Batterie ihren Stand länger als die angegebene Anzahl von Tagen nicht oder noch nie gemeldet hat. Plane diese Aktion oder rufe sie mit aktivierter Option „Ereignisse auslösen“ auf, um diese Automatisierung auszulösen.\nAutomatisierungen mit diesem Auslöser müssen den Warteschlangenmodus (`mode: queued`) verwenden, da ein einzelner Aktionsaufruf Ereignisse für mehrere Batterienotizen kurz hintereinander auslösen kann."
+        },
+        "battery_was_not_replaced": {
+            "name": "Batterie wurde nicht ausgetauscht",
+            "description": "Löst bei Ereignissen der Aktion „Überprüfe, wann die Batterie zuletzt ausgetauscht wurde.“ aus, wenn eine Batterie länger als die angegebene Anzahl von Tagen nicht ausgetauscht wurde. Plane diese Aktion oder rufe sie mit aktivierter Option „Ereignisse auslösen“ auf, um diese Automatisierung auszulösen.\nAutomatisierungen mit diesem Auslöser müssen den Warteschlangenmodus (`mode: queued`) verwenden, da ein einzelner Aktionsaufruf Ereignisse für mehrere Batterienotizen kurz hintereinander auslösen kann."
+        },
+        "battery_no_longer_low": {
+            "name": "Batteriestand ist nicht mehr niedrig",
+            "description": "Löst aus, wenn der Batteriestand nicht mehr niedrig ist."
+        },
+        "battery_became_low": {
+            "name": "Batteriestand ist niedrig geworden",
+            "description": "Löst aus, wenn der Batteriestand niedrig wird oder eine Erinnerung an einen niedrigen Batteriestand ausgelöst wird.\nAutomatisierungen mit diesem Auslöser müssen den Warteschlangenmodus (`mode: queued`) verwenden, da ein einzelner Aktionsaufruf Ereignisse für mehrere Batterienotizen kurz hintereinander auslösen kann.",
+            "fields": {
+                "event_types": {
+                    "name": "Ereignistypen",
+                    "description": "„Alle“ löst aus, wenn der Batteriestand niedrig wird und bei Erinnerungen der Aktion „Prüfe auf schwache Batterien“. Wähle „Wechsel zu niedrigem Batteriestand“, um nur auf Wechsel zu einem niedrigen Batteriestand zu reagieren, oder „Erinnerungen“ für Erinnerungen der Aktion."
+                }
+            }
+        },
+        "battery_was_replaced": {
+            "name": "Batterie wurde ausgetauscht",
+            "description": "Löst aus, wenn eine Batterie als ausgetauscht markiert wird."
+        }
+    },
     "exceptions": {
         "not_configured_in_battery_notes": {
             "message": "{source} ist in Battery Notes nicht konfiguriert."
