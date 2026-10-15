@@ -13,6 +13,7 @@ edit_uri = "edit/main/docs/"
 nav = [
   { "Get started" = "index.md" },
   { "Entities" = "entities.md" },
+  { "Triggers" = "triggers.md" },
   { "Events" = "events.md" },
   { "Actions" = "actions.md" },
   { "Library" = "library.md" },
