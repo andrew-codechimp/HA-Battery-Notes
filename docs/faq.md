@@ -103,7 +103,7 @@ This one is useful for a (fake device)[https://github.com/andrew-codechimp/HA-Fa
 
 You can use the battery last replaced date as a calculation point to create a percentage that decreases over time, resetting when you press the Battery Replaced button.
 
-Once you have added a battery note to the device, look up its Battery last replaced sensor entity id and replace it in the template.
+Once you have added a battery note to the device, look up its Battery last replaced sensor entity id and replace it in the template, then add the template to the battery percentage template in additional settings.
 
 The example uses 180 days, but change that to what you want.
 
