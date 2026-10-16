@@ -101,7 +101,7 @@ Once you have got your template correct you can copy/paste it into the battery n
 
 This one is useful for a (fake device)[https://github.com/andrew-codechimp/HA-Fake-Devices] that does not have a battery percentage.
 
-You can use the battery last replaced data as a calculation point to create a percentage that decreases over time, resetting when you press the Battery Replaced button.
+You can use the battery last replaced date as a calculation point to create a percentage that decreases over time, resetting when you press the Battery Replaced button.
 
 Once you have added a battery note to the device, look up its Battery last replaced sensor entity id and replace it in the template.
 
