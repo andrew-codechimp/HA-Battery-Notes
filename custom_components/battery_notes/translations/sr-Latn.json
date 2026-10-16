@@ -383,6 +383,47 @@
             "description": "Configuring {integration_title} using YAML is being removed.\n\nYour existing YAML configuration has been imported into the UI automatically.\n\nRemove the `{domain}` configuration from your configuration.yaml file and restart Home Assistant to fix this issue."
         }
     },
+    "selector": {
+        "battery_low_event_types": {
+            "options": {
+                "all": "All",
+                "low_state_transitions": "Low-state transitions",
+                "reminders": "Reminders"
+            }
+        }
+    },
+    "triggers": {
+        "battery_has_increased": {
+            "name": "Battery has increased",
+            "description": "Triggers when a battery level increases by at least its configured increase threshold, or a binary or templated low battery state becomes healthy."
+        },
+        "battery_was_not_reported": {
+            "name": "Battery was not reported",
+            "description": "Triggers from events raised by the Check battery last reported action when a battery has not reported for longer than the specified number of days, or has never reported. Schedule or call that action with Raise events enabled to trigger this automation.\nAutomations using this trigger must use Queued mode (`mode: queued`) because one action call can raise events for multiple battery notes in quick succession."
+        },
+        "battery_was_not_replaced": {
+            "name": "Battery was not replaced",
+            "description": "Triggers from events raised by the Check battery last replaced action when a battery has not been replaced for longer than the specified number of days. Schedule or call that action with Raise events enabled to trigger this automation.\nAutomations using this trigger must use Queued mode (`mode: queued`) because one action call can raise events for multiple battery notes in quick succession."
+        },
+        "battery_no_longer_low": {
+            "name": "Battery no longer low",
+            "description": "Triggers when a battery is no longer low."
+        },
+        "battery_became_low": {
+            "name": "Battery became low",
+            "description": "Triggers when a battery becomes low or a low battery reminder is raised.\nAutomations using this trigger must use Queued mode (`mode: queued`) because one action call can raise events for multiple battery notes in quick succession.",
+            "fields": {
+                "event_types": {
+                    "name": "Event types",
+                    "description": "All triggers when a battery becomes low and on reminders raised by Check Battery Low. Select Low-state transitions for low battery transitions only, or Reminders for action reminders."
+                }
+            }
+        },
+        "battery_was_replaced": {
+            "name": "Battery was replaced",
+            "description": "Triggers when a battery is marked as replaced."
+        }
+    },
     "exceptions": {
         "not_configured_in_battery_notes": {
             "message": "{source} is not configured in Battery Notes."
