@@ -3998,7 +3998,6 @@
         {
             "manufacturer": "EQ-3",
             "model": "HmIP-WKP",
-            "hw_version": "1.0.12",
             "battery_type": "AAA",
             "battery_quantity": 2
         },
