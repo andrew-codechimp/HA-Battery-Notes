@@ -383,6 +383,47 @@
             "description": "Configurar o {integration_title} usando o YAML está sendo removido.\n\nSua configuração existente do YAML foi importada automaticamente para a UI.\n\nRemova a configuração `{domain}` do seu arquivo configuration.yaml e reinicie o Assistente para corrigir este problema."
         }
     },
+    "selector": {
+        "battery_low_event_types": {
+            "options": {
+                "all": "Todos",
+                "low_state_transitions": "Transições para bateria fraca",
+                "reminders": "Lembretes"
+            }
+        }
+    },
+    "triggers": {
+        "battery_has_increased": {
+            "name": "O nível da bateria aumentou",
+            "description": "Dispara quando o nível de uma bateria aumenta em pelo menos o limite de aumento configurado ou quando um estado de bateria fraca definido por um sensor binário ou modelo volta a indicar um nível adequado."
+        },
+        "battery_was_not_reported": {
+            "name": "O nível da bateria não foi informado",
+            "description": "Dispara a partir de eventos gerados pela ação \"Verificar a última atualização da bateria\" quando uma bateria não informa seu nível há mais tempo que o número de dias especificado ou nunca o informou. Agende ou chame essa ação com a opção \"Gere eventos\" ativada para disparar esta automação.\nAs automações que usam este gatilho devem usar o modo de fila (`mode: queued`), pois uma única chamada de ação pode gerar eventos para várias notas de bateria em rápida sucessão."
+        },
+        "battery_was_not_replaced": {
+            "name": "A bateria não foi trocada",
+            "description": "Dispara a partir de eventos gerados pela ação \"Verificar a última troca de bateria\" quando uma bateria não é trocada há mais tempo que o número de dias especificado. Agende ou chame essa ação com a opção \"Gere eventos\" ativada para disparar esta automação.\nAs automações que usam este gatilho devem usar o modo de fila (`mode: queued`), pois uma única chamada de ação pode gerar eventos para várias notas de bateria em rápida sucessão."
+        },
+        "battery_no_longer_low": {
+            "name": "A bateria não está mais fraca",
+            "description": "Dispara quando uma bateria não está mais fraca."
+        },
+        "battery_became_low": {
+            "name": "A bateria ficou fraca",
+            "description": "Dispara quando uma bateria fica fraca ou um lembrete de bateria fraca é gerado.\nAs automações que usam este gatilho devem usar o modo de fila (`mode: queued`), pois uma única chamada de ação pode gerar eventos para várias notas de bateria em rápida sucessão.",
+            "fields": {
+                "event_types": {
+                    "name": "Tipos de eventos",
+                    "description": "\"Todos\" dispara quando uma bateria fica fraca e nos lembretes gerados por \"Verificar bateria fraca\". Selecione \"Transições para bateria fraca\" para reagir apenas às transições para bateria fraca ou \"Lembretes\" para os lembretes da ação."
+                }
+            }
+        },
+        "battery_was_replaced": {
+            "name": "A bateria foi trocada",
+            "description": "Dispara quando uma bateria é marcada como trocada."
+        }
+    },
     "exceptions": {
         "not_configured_in_battery_notes": {
             "message": "{source} não está configurado em Battery Notes."

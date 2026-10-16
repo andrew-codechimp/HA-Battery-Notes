@@ -383,6 +383,47 @@
             "description": "Konfiguration af  {integration_title}  via YAML bliver fjernet.\n\nDin eksisterende YAML-konfiguration er automatisk blevet importeret til brugerfladen.\n\nFjern `{domain}`-konfigurationen fra din configuration.yaml-fil og genstart Home Assistant for at løse problemet."
         }
     },
+    "selector": {
+        "battery_low_event_types": {
+            "options": {
+                "all": "Alle",
+                "low_state_transitions": "Overgange til lavt batteriniveau",
+                "reminders": "Påmindelser"
+            }
+        }
+    },
+    "triggers": {
+        "battery_has_increased": {
+            "name": "Batteriniveauet er steget",
+            "description": "Udløses, når et batteriniveau stiger med mindst den konfigurerede stigningstærskel, eller når en tilstand for lavt batteriniveau fra en binær sensor eller skabelon ikke længere angiver lavt batteriniveau."
+        },
+        "battery_was_not_reported": {
+            "name": "Batteriniveauet blev ikke rapporteret",
+            "description": "Udløses af hændelser fra handlingen \"Tjek sidste batterirapportering\", når et batteri ikke har rapporteret i længere tid end det angivne antal dage eller aldrig har rapporteret. Planlæg eller kald denne handling med \"Udløs hændelser\" aktiveret for at udløse denne automatisering.\nAutomatiseringer, der bruger denne udløser, skal bruge køtilstand (`mode: queued`), da ét kald til en handling kan udløse hændelser for flere batterinoter hurtigt efter hinanden."
+        },
+        "battery_was_not_replaced": {
+            "name": "Batteriet blev ikke udskiftet",
+            "description": "Udløses af hændelser fra handlingen \"Tjek hvornår batteriet sidst blev udskiftet\", når et batteri ikke er blevet udskiftet i længere tid end det angivne antal dage. Planlæg eller kald denne handling med \"Udløs hændelser\" aktiveret for at udløse denne automatisering.\nAutomatiseringer, der bruger denne udløser, skal bruge køtilstand (`mode: queued`), da ét kald til en handling kan udløse hændelser for flere batterinoter hurtigt efter hinanden."
+        },
+        "battery_no_longer_low": {
+            "name": "Batteriniveauet er ikke længere lavt",
+            "description": "Udløses, når et batteriniveau ikke længere er lavt."
+        },
+        "battery_became_low": {
+            "name": "Batteriniveauet blev lavt",
+            "description": "Udløses, når et batteriniveau bliver lavt, eller der udløses en påmindelse om lavt batteriniveau.\nAutomatiseringer, der bruger denne udløser, skal bruge køtilstand (`mode: queued`), da ét kald til en handling kan udløse hændelser for flere batterinoter hurtigt efter hinanden.",
+            "fields": {
+                "event_types": {
+                    "name": "Hændelsestyper",
+                    "description": "\"Alle\" udløser automatiseringen, når et batteriniveau bliver lavt, og ved påmindelser fra \"Kontrollér lavt batteriniveau\". Vælg \"Overgange til lavt batteriniveau\" for kun at reagere på overgange til lavt batteriniveau, eller \"Påmindelser\" for påmindelser fra handlingen."
+                }
+            }
+        },
+        "battery_was_replaced": {
+            "name": "Batteriet blev udskiftet",
+            "description": "Udløses, når et batteri markeres som udskiftet."
+        }
+    },
     "exceptions": {
         "not_configured_in_battery_notes": {
             "message": "{source} er ikke konfigureret i Battery Notes."

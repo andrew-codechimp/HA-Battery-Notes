@@ -383,6 +383,47 @@
             "description": "La configurazione di {integration_title} tramite YAML è stata rimossa.\n\nLa tua configurazione YAML esistente è stata importata automaticamente nell’interfaccia.\n\nRimuovi la configurazione `{domain}` dal file configuration.yaml e riavvia Home Assistant per risolvere il problema."
         }
     },
+    "selector": {
+        "battery_low_event_types": {
+            "options": {
+                "all": "Tutti",
+                "low_state_transitions": "Passaggi allo stato di batteria scarica",
+                "reminders": "Promemoria"
+            }
+        }
+    },
+    "triggers": {
+        "battery_has_increased": {
+            "name": "Il livello della batteria è aumentato",
+            "description": "Si attiva quando il livello di una batteria aumenta almeno della soglia di aumento configurata oppure quando uno stato di batteria scarica, determinato da un sensore binario o da un modello, torna a indicare un livello adeguato."
+        },
+        "battery_was_not_reported": {
+            "name": "Il livello della batteria non è stato segnalato",
+            "description": "Si attiva in risposta agli eventi generati dall’azione «Verifica ultima segnalazione livello batteria» quando una batteria non segnala il proprio livello da più giorni di quelli specificati oppure non lo ha mai segnalato. Pianifica o richiama questa azione con l’opzione «Genera eventi» abilitata per attivare questa automazione.\nLe automazioni che utilizzano questo attivatore devono usare la modalità in coda (`mode: queued`), poiché una singola chiamata all’azione può generare eventi per più note sulla batteria in rapida successione."
+        },
+        "battery_was_not_replaced": {
+            "name": "La batteria non è stata sostituita",
+            "description": "Si attiva in risposta agli eventi generati dall’azione «Verifica ultima sostituzione batteria» quando una batteria non viene sostituita da più giorni di quelli specificati. Pianifica o richiama questa azione con l’opzione «Genera eventi» abilitata per attivare questa automazione.\nLe automazioni che utilizzano questo attivatore devono usare la modalità in coda (`mode: queued`), poiché una singola chiamata all’azione può generare eventi per più note sulla batteria in rapida successione."
+        },
+        "battery_no_longer_low": {
+            "name": "La batteria non è più scarica",
+            "description": "Si attiva quando una batteria non è più scarica."
+        },
+        "battery_became_low": {
+            "name": "La batteria è diventata scarica",
+            "description": "Si attiva quando una batteria diventa scarica oppure viene generato un promemoria di batteria scarica.\nLe automazioni che utilizzano questo attivatore devono usare la modalità in coda (`mode: queued`), poiché una singola chiamata all’azione può generare eventi per più note sulla batteria in rapida successione.",
+            "fields": {
+                "event_types": {
+                    "name": "Tipi di evento",
+                    "description": "«Tutti» attiva l’automazione quando una batteria diventa scarica e in risposta ai promemoria generati da «Verifica batteria scarica». Seleziona «Passaggi allo stato di batteria scarica» per reagire solo ai passaggi allo stato di batteria scarica oppure «Promemoria» per i promemoria dell’azione."
+                }
+            }
+        },
+        "battery_was_replaced": {
+            "name": "La batteria è stata sostituita",
+            "description": "Si attiva quando una batteria viene contrassegnata come sostituita."
+        }
+    },
     "exceptions": {
         "not_configured_in_battery_notes": {
             "message": "{source} non è configurato in Battery Notes."

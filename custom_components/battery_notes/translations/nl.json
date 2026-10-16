@@ -383,6 +383,47 @@
             "description": "Configureren van {integration_title} via YAML wordt verwijderd.\n\nJe bestaande YAML-configuratie is automatisch naar de UI geimporteerd.\n\nVerwijder de `{domain}`-configuratie uit je configuration.yaml-bestand en herstart Home Assistant om dit probleem op te lossen."
         }
     },
+    "selector": {
+        "battery_low_event_types": {
+            "options": {
+                "all": "Alle",
+                "low_state_transitions": "Overgangen naar bijna leeg",
+                "reminders": "Herinneringen"
+            }
+        }
+    },
+    "triggers": {
+        "battery_has_increased": {
+            "name": "Batterijniveau is gestegen",
+            "description": "Wordt geactiveerd wanneer een batterijniveau met ten minste de ingestelde drempelwaarde voor stijging toeneemt, of wanneer een binaire sensor of sjabloon voor een bijna lege batterij aangeeft dat de batterij weer voldoende lading heeft."
+        },
+        "battery_was_not_reported": {
+            "name": "Batterijniveau is niet gerapporteerd",
+            "description": "Wordt geactiveerd door events van de actie \"Controleer batterij laatst gerapporteerd\" wanneer een batterij langer dan het opgegeven aantal dagen geen niveau heeft gerapporteerd, of nog nooit een niveau heeft gerapporteerd. Plan deze actie of roep deze aan met \"Events activeren\" ingeschakeld om deze automatisering te activeren.\nAutomatiseringen die deze trigger gebruiken, moeten de wachtrijmodus (`mode: queued`) gebruiken, omdat één actieaanroep snel achter elkaar events voor meerdere batterijnotities kan activeren."
+        },
+        "battery_was_not_replaced": {
+            "name": "Batterij is niet vervangen",
+            "description": "Wordt geactiveerd door events van de actie \"Controleer batterij laatst vervangen\" wanneer een batterij langer dan het opgegeven aantal dagen niet is vervangen. Plan deze actie of roep deze aan met \"Events activeren\" ingeschakeld om deze automatisering te activeren.\nAutomatiseringen die deze trigger gebruiken, moeten de wachtrijmodus (`mode: queued`) gebruiken, omdat één actieaanroep snel achter elkaar events voor meerdere batterijnotities kan activeren."
+        },
+        "battery_no_longer_low": {
+            "name": "Batterij is niet meer bijna leeg",
+            "description": "Wordt geactiveerd wanneer een batterij niet meer bijna leeg is."
+        },
+        "battery_became_low": {
+            "name": "Batterij is bijna leeg geraakt",
+            "description": "Wordt geactiveerd wanneer een batterij bijna leeg raakt of een herinnering voor een bijna lege batterij wordt geactiveerd.\nAutomatiseringen die deze trigger gebruiken, moeten de wachtrijmodus (`mode: queued`) gebruiken, omdat één actieaanroep snel achter elkaar events voor meerdere batterijnotities kan activeren.",
+            "fields": {
+                "event_types": {
+                    "name": "Eventtypen",
+                    "description": "\"Alle\" activeert de automatisering wanneer een batterij bijna leeg raakt en bij herinneringen van \"Controleer batterij bijna leeg\". Selecteer \"Overgangen naar bijna leeg\" om alleen op overgangen naar een bijna lege batterij te reageren, of \"Herinneringen\" voor herinneringen van de actie."
+                }
+            }
+        },
+        "battery_was_replaced": {
+            "name": "Batterij is vervangen",
+            "description": "Wordt geactiveerd wanneer een batterij als vervangen wordt gemarkeerd."
+        }
+    },
     "exceptions": {
         "not_configured_in_battery_notes": {
             "message": "{source} is niet geconfigureerd in Batterij Notities."

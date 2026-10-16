@@ -1,0 +1,17 @@
+battery_became_low:
+  fields:
+    event_types:
+      default: all
+      required: true
+      selector:
+        select:
+          translation_key: battery_low_event_types
+          options:
+            - all
+            - low_state_transitions
+            - reminders
+battery_no_longer_low: {}
+battery_has_increased: {}
+battery_was_replaced: {}
+battery_was_not_reported: {}
+battery_was_not_replaced: {}

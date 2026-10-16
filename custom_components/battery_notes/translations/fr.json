@@ -383,6 +383,47 @@
             "description": "La configuration de {integration_title} à l'aide de YAML est en cours de suppression.\n\nVotre configuration YAML existante a été importée automatiquement dans l'interface utilisateur.\n\nSupprimez la configuration `{domain}` de votre fichier configuration.yaml et redémarrez Home Assistant pour résoudre ce problème."
         }
     },
+    "selector": {
+        "battery_low_event_types": {
+            "options": {
+                "all": "Tous",
+                "low_state_transitions": "Passages à un niveau de batterie faible",
+                "reminders": "Rappels"
+            }
+        }
+    },
+    "triggers": {
+        "battery_has_increased": {
+            "name": "Le niveau de batterie a augmenté",
+            "description": "Se déclenche lorsque le niveau d’une batterie augmente d’au moins le seuil d’augmentation configuré, ou lorsqu’un état de batterie faible déterminé par un capteur binaire ou un modèle indique à nouveau un niveau suffisant."
+        },
+        "battery_was_not_reported": {
+            "name": "Le niveau de batterie n’a pas été signalé",
+            "description": "Se déclenche à partir des événements générés par l’action « Dernière batterie signalée » lorsqu’une batterie n’a pas signalé son niveau depuis plus longtemps que le nombre de jours indiqué, ou ne l’a jamais signalé. Planifiez ou appelez cette action avec l’option « Levez des événements » activée pour déclencher cette automatisation.\nLes automatisations utilisant ce déclencheur doivent utiliser le mode file d’attente (`mode: queued`), car un seul appel d’action peut générer des événements pour plusieurs notes de batterie en succession rapide."
+        },
+        "battery_was_not_replaced": {
+            "name": "La batterie n’a pas été remplacée",
+            "description": "Se déclenche à partir des événements générés par l’action « Vérifier le dernier remplacement de la batterie » lorsqu’une batterie n’a pas été remplacée depuis plus longtemps que le nombre de jours indiqué. Planifiez ou appelez cette action avec l’option « Levez des événements » activée pour déclencher cette automatisation.\nLes automatisations utilisant ce déclencheur doivent utiliser le mode file d’attente (`mode: queued`), car un seul appel d’action peut générer des événements pour plusieurs notes de batterie en succession rapide."
+        },
+        "battery_no_longer_low": {
+            "name": "Le niveau de batterie n’est plus faible",
+            "description": "Se déclenche lorsque le niveau d’une batterie n’est plus faible."
+        },
+        "battery_became_low": {
+            "name": "Le niveau de batterie est devenu faible",
+            "description": "Se déclenche lorsque le niveau d’une batterie devient faible ou qu’un rappel de batterie faible est généré.\nLes automatisations utilisant ce déclencheur doivent utiliser le mode file d’attente (`mode: queued`), car un seul appel d’action peut générer des événements pour plusieurs notes de batterie en succession rapide.",
+            "fields": {
+                "event_types": {
+                    "name": "Types d’événements",
+                    "description": "« Tous » déclenche l’automatisation lorsque le niveau d’une batterie devient faible et lors des rappels générés par « Vérifier si batterie faible ». Sélectionnez « Passages à un niveau de batterie faible » pour réagir uniquement aux passages à un niveau faible, ou « Rappels » pour les rappels de l’action."
+                }
+            }
+        },
+        "battery_was_replaced": {
+            "name": "La batterie a été remplacée",
+            "description": "Se déclenche lorsqu’une batterie est marquée comme remplacée."
+        }
+    },
     "exceptions": {
         "not_configured_in_battery_notes": {
             "message": "{source} n'est pas configuré dans Battery Notes."

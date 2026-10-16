@@ -32,5 +32,25 @@
         "check_battery_low": {
             "service": "mdi:battery-alert"
         }
+    },
+    "triggers": {
+        "battery_has_increased": {
+            "trigger": "mdi:battery-arrow-up"
+        },
+        "battery_was_not_reported": {
+            "trigger": "mdi:battery-unknown"
+        },
+        "battery_was_not_replaced": {
+            "trigger": "mdi:battery-clock"
+        },
+        "battery_no_longer_low": {
+            "trigger": "mdi:battery-check"
+        },
+        "battery_became_low": {
+            "trigger": "mdi:battery-alert"
+        },
+        "battery_was_replaced": {
+            "trigger": "mdi:battery-sync"
+        }
     }
 }
