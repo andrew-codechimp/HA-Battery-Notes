@@ -1,6 +1,9 @@
 """Tests for Battery Notes diagnostics."""
 
 import pytest
+from custom_components.battery_notes.diagnostics import (
+    async_get_config_entry_diagnostics,
+)
 from custom_components.battery_notes.library import DATA_LIBRARY
 from freezegun.api import FrozenDateTimeFactory
 from pytest_homeassistant_custom_component.common import MockConfigEntry
@@ -11,6 +14,7 @@ from pytest_homeassistant_custom_component.typing import ClientSessionGenerator
 from syrupy.assertion import SnapshotAssertion
 from syrupy.filters import props
 
+from homeassistant.config_entries import ConfigEntryState
 from homeassistant.const import CONF_DEVICE_ID
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers import device_registry as dr, entity_registry as er
@@ -52,6 +56,44 @@ async def test_entry_diagnostics(
         hass, hass_client, mock_config_entry
     )
     assert diagnostics["entry"]["entry_id"] == mock_config_entry.entry_id
+    assert diagnostics == snapshot(exclude=SNAPSHOT_EXCLUDE)
+
+
+@pytest.mark.parametrize(
+    "state",
+    [
+        pytest.param(ConfigEntryState.SETUP_ERROR, id="setup-error"),
+        pytest.param(ConfigEntryState.SETUP_RETRY, id="setup-retry"),
+    ],
+)
+async def test_diagnostics_before_setup(
+    hass: HomeAssistant, state: ConfigEntryState
+) -> None:
+    """Return saved diagnostics when runtime data has not been assigned."""
+    entry = MockConfigEntry(domain="battery_notes", state=state)
+
+    diagnostics = await async_get_config_entry_diagnostics(hass, entry)
+
+    assert diagnostics["entry"]["entry_id"] == entry.entry_id
+    assert diagnostics["battery_notes"] == {}
+
+
+async def test_diagnostics_after_unload(
+    hass: HomeAssistant,
+    hass_client: ClientSessionGenerator,
+    battery_note_config_entry: MockConfigEntry,
+    snapshot: SnapshotAssertion,
+) -> None:
+    """Download saved note metadata after Home Assistant deletes runtime data."""
+    await setup_integration(hass, battery_note_config_entry)
+    assert await hass.config_entries.async_unload(battery_note_config_entry.entry_id)
+    await hass.async_block_till_done()
+    assert not hasattr(battery_note_config_entry, "runtime_data")
+
+    diagnostics = await get_diagnostics_for_config_entry(
+        hass, hass_client, battery_note_config_entry
+    )
+
     assert diagnostics == snapshot(exclude=SNAPSHOT_EXCLUDE)
 
 
