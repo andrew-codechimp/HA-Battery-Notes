@@ -5307,6 +5307,13 @@
         },
         {
             "manufacturer": "HOBEIAN",
+            "model": "PIR 24Ghz human presence sensor",
+            "model_id": "ZG-204ZM",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "HOBEIAN",
             "model": "Rainwater detection sensor",
             "model_id": "ZG-223Z",
             "hw_version": "1",
@@ -13599,13 +13606,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "HOBEIAN",
-            "model": "PIR 24Ghz human presence sensor",
-            "model_id": "ZG-204ZM",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
