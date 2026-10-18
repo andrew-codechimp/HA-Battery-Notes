@@ -26,7 +26,11 @@ async def async_get_config_entry_diagnostics(
     device_registry = dr.async_get(hass)
     entity_registry = er.async_get(hass)
     library = hass.data.get(DATA_LIBRARY)
-    coordinators = config_entry.runtime_data.subentry_coordinators or {}
+    coordinators = (
+        config_entry.runtime_data.subentry_coordinators or {}
+        if hasattr(config_entry, "runtime_data")
+        else {}
+    )
 
     diagnostics: dict[str, Any] = {"entry": config_entry.as_dict()}
     notes: dict[str, Any] = {}
