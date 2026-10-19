@@ -70,7 +70,7 @@ _LOGGER = logging.getLogger(__name__)
 
 DOCUMENTATION_URL = "https://andrew-codechimp.github.io/HA-Battery-Notes/"
 
-CONFIG_VERSION = 4
+CONFIG_VERSION = 5
 
 OPTIONS_SCHEMA = vol.Schema(
     {

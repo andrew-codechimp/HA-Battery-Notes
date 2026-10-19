@@ -25,7 +25,7 @@ _LOGGER = logging.getLogger(__name__)
 DATA_REGISTRY = f"{DOMAIN}_storage"
 STORAGE_KEY = f"{DOMAIN}.storage"
 STORAGE_VERSION_MAJOR = 1
-STORAGE_VERSION_MINOR = 2
+STORAGE_VERSION_MINOR = 4
 SAVE_DELAY = 10
 # Last reported data changes with every battery report, batch it into fewer writes
 REPORTED_SAVE_DELAY = 15 * 60
@@ -122,6 +122,7 @@ class BatteryNotesStorage:
         self.hass = hass
         self.devices: MutableMapping[str, DeviceEntry] = {}
         self.entities: MutableMapping[str, EntityEntry] = {}
+        self.hidden_entities: dict[str, set[str]] = {}
         self._save_due: float | None = None
         self._store = MigratableStore(
             hass,
@@ -151,6 +152,25 @@ class BatteryNotesStorage:
                 )
 
         self.entities = entities
+        self.hidden_entities = {
+            subentry_id: set(registry_ids)
+            for subentry_id, registry_ids in (data or {})
+            .get("hidden_entities", {})
+            .items()
+        }
+
+    @callback
+    def async_set_hidden_entities(
+        self, subentry_id: str, registry_ids: set[str]
+    ) -> None:
+        """Persist source registry IDs hidden by a note, separately from history."""
+        if self.hidden_entities.get(subentry_id, set()) == registry_ids:
+            return
+        if registry_ids:
+            self.hidden_entities[subentry_id] = registry_ids
+        else:
+            self.hidden_entities.pop(subentry_id, None)
+        self.async_schedule_save()
 
     @callback
     def async_schedule_save(self, save_delay: float = SAVE_DELAY) -> None:
@@ -177,12 +197,17 @@ class BatteryNotesStorage:
         # Called when the data is written, any later change needs a new save
         self._save_due = None
 
-        store_data = {}
+        store_data: dict[str, Any] = {}
 
         store_data["devices"] = [attr.asdict(entry) for entry in self.devices.values()]
         store_data["entities"] = [
             attr.asdict(entry) for entry in self.entities.values()
         ]
+
+        store_data["hidden_entities"] = {
+            subentry_id: sorted(registry_ids)
+            for subentry_id, registry_ids in self.hidden_entities.items()
+        }
 
         return store_data
 
@@ -192,6 +217,7 @@ class BatteryNotesStorage:
         await self._store.async_remove()
         self.devices = {}
         self.entities = {}
+        self.hidden_entities = {}
 
     @callback
     def async_get_device(self, device_id) -> dict[str, Any] | None:

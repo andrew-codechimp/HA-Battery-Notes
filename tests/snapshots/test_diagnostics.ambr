@@ -51,7 +51,7 @@
       ]),
       'title': 'Battery Notes',
       'unique_id': None,
-      'version': 4,
+      'version': 5,
     }),
     'library_loaded': False,
   })
@@ -109,7 +109,7 @@
       ]),
       'title': 'Battery Notes',
       'unique_id': None,
-      'version': 4,
+      'version': 5,
     }),
     'library_loaded': False,
   })
@@ -161,7 +161,7 @@
       ]),
       'title': 'Battery Notes',
       'unique_id': None,
-      'version': 4,
+      'version': 5,
     }),
     'library_loaded': False,
   })
@@ -233,7 +233,7 @@
       ]),
       'title': 'Battery Notes',
       'unique_id': None,
-      'version': 4,
+      'version': 5,
     }),
     'library_loaded': False,
   })
@@ -270,7 +270,7 @@
       ]),
       'title': 'Battery Notes',
       'unique_id': None,
-      'version': 4,
+      'version': 5,
     }),
     'library_loaded': False,
   })
@@ -325,7 +325,7 @@
       ]),
       'title': 'Battery Notes',
       'unique_id': None,
-      'version': 4,
+      'version': 5,
     }),
     'library_loaded': False,
   })
@@ -387,7 +387,7 @@
       ]),
       'title': 'Battery Notes',
       'unique_id': None,
-      'version': 4,
+      'version': 5,
     }),
     'library_loaded': False,
   })
@@ -443,7 +443,7 @@
       ]),
       'title': 'Battery Notes',
       'unique_id': None,
-      'version': 4,
+      'version': 5,
     }),
     'library_loaded': False,
   })
@@ -514,7 +514,7 @@
       ]),
       'title': 'Battery Notes',
       'unique_id': None,
-      'version': 4,
+      'version': 5,
     }),
     'library_loaded': False,
   })
@@ -586,7 +586,7 @@
       ]),
       'title': 'Battery Notes',
       'unique_id': None,
-      'version': 4,
+      'version': 5,
     }),
     'library_loaded': False,
   })
@@ -652,7 +652,7 @@
       ]),
       'title': 'Battery Notes',
       'unique_id': None,
-      'version': 4,
+      'version': 5,
     }),
     'library_loaded': False,
   })

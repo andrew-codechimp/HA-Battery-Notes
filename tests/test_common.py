@@ -96,13 +96,13 @@ def hidden_batteries(
 
 
 @pytest.mark.parametrize(
-    ("selection", "unhidden"),
+    "selection",
     [
-        pytest.param("device", ("battery", "low", "disabled"), id="device"),
-        pytest.param("entity", ("low",), id="entity"),
-        pytest.param("missing-device", (), id="missing-device"),
-        pytest.param("missing-entity", (), id="missing-entity"),
-        pytest.param("no-source", (), id="no-source"),
+        pytest.param("device", id="device"),
+        pytest.param("entity", id="entity"),
+        pytest.param("missing-device", id="missing-device"),
+        pytest.param("missing-entity", id="missing-entity"),
+        pytest.param("no-source", id="no-source"),
     ],
 )
 async def test_remove_entry_unhides_source_batteries(
@@ -110,9 +110,8 @@ async def test_remove_entry_unhides_source_batteries(
     mock_config_entry: MockConfigEntry,
     hidden_batteries: dict[str, er.RegistryEntry],
     selection: str,
-    unhidden: tuple[str, ...],
 ) -> None:
-    """Test removing an entry only shows integration-hidden source batteries."""
+    """Test removal preserves entities hidden before Battery Notes was set up."""
     device_id = hidden_batteries["battery"].device_id
     source_data = {
         "device": {CONF_DEVICE_ID: device_id},
@@ -146,7 +145,6 @@ async def test_remove_entry_unhides_source_batteries(
     )
     expected = {
         **{name: entity.hidden_by for name, entity in hidden_batteries.items()},
-        **dict.fromkeys(unhidden),
     }
 
     await setup_integration(hass, entry)

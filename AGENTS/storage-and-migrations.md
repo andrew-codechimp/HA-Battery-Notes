@@ -12,6 +12,12 @@ directory under `.storage/battery_notes/`.
 
 - History is keyed by source entity ID for entity notes, and device ID for device
   notes. It holds last-replaced, last-reported, and last-reported-level data.
+- `hidden_entities` stores source registry IDs by subentry ID separately from
+  history. Removal clears that ownership while preserving history. Config-entry
+  migration from v4 to v5 adopts sources marked `INTEGRATION` hidden when
+  `hide_battery` is on, using the source links saved in wrapper registry options.
+  It saves ownership before advancing the config version. New v5 entries do not
+  adopt existing hiding; user-hidden sources are never claimed.
 - Use storage/coordinator methods to change history. Preserve timezone-aware
   datetimes and handling of naive legacy values.
 - Normal saves use `SAVE_DELAY`; high-frequency report data uses
@@ -22,9 +28,9 @@ directory under `.storage/battery_notes/`.
   their own explicit removal/reassociation behavior.
 - Store loading ignores unknown fields for compatibility with newer stored data.
   Its migration also repairs legacy datetime strings. Preserve those behaviors.
-- Config version is currently **4**. `async_migrate_integration` consolidates v1/v2
+- Config version is currently **5**. `async_migrate_integration` consolidates v1/v2
   entries into v3 subentries; `async_migrate_entry` moves v3 advanced settings into
-  their nested structure. Storage versioning is separate, currently **1.2**.
+  their nested structure. Storage versioning is separate, currently **1.4**.
 - Config migrations must preserve entity ownership, subentry associations, unique
   IDs, and supported user registry settings. Keep ignored entries and unsupported
   future config versions in mind.

@@ -53,7 +53,7 @@ async def test_migrate_legacy_entry(
 
     entries = hass.config_entries.async_entries(DOMAIN)
     assert len(entries) == 1
-    assert entries[0].version == 4
+    assert entries[0].version == 5
     subentries = list(entries[0].get_subentries_of_type(SUBENTRY_BATTERY_NOTE))
     assert len(subentries) == 1
     assert subentries[0].unique_id == f"bn_{battery_note_device.id}"
