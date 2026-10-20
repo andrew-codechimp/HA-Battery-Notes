@@ -42,7 +42,7 @@
 # name: test_entities[device][button.door_battery_note_battery_replaced-state]
   StateSnapshot({
     'attributes': ReadOnlyDict({
-      'friendly_name': 'Door sensor Battery replaced',
+      <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Door sensor Battery replaced',
     }),
     'context': <ANY>,
     'entity_id': 'button.door_battery_note_battery_replaced',
@@ -95,7 +95,7 @@
 # name: test_entities[entity][button.door_battery_battery_replaced-state]
   StateSnapshot({
     'attributes': ReadOnlyDict({
-      'friendly_name': 'Door sensor Battery Battery replaced',
+      <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Door sensor Battery Battery replaced',
     }),
     'context': <ANY>,
     'entity_id': 'button.door_battery_battery_replaced',
@@ -148,7 +148,7 @@
 # name: test_entities[standalone-entity][button.door_battery_note_battery_replaced-state]
   StateSnapshot({
     'attributes': ReadOnlyDict({
-      'friendly_name': 'Door battery note Battery replaced',
+      <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Door battery note Battery replaced',
     }),
     'context': <ANY>,
     'entity_id': 'button.door_battery_note_battery_replaced',

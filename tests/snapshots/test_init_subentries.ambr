@@ -48,9 +48,9 @@
           'battery_quantity': 2,
           'battery_type': 'AA',
           'battery_type_and_quantity': '2× AA',
-          'device_class': 'battery',
+          <EntityStateAttribute.DEVICE_CLASS: 'device_class'>: 'battery',
           'device_name': 'Door battery note',
-          'friendly_name': 'Door sensor Battery low',
+          <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Door sensor Battery low',
           'note': 'Under the cover',
           'source_entity_id': '',
         }),
@@ -102,7 +102,7 @@
       }),
       'state': StateSnapshot({
         'attributes': ReadOnlyDict({
-          'friendly_name': 'Door sensor Battery replaced',
+          <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Door sensor Battery replaced',
         }),
         'context': <ANY>,
         'entity_id': 'button.door_battery_note_battery_replaced',
@@ -149,8 +149,8 @@
       }),
       'state': StateSnapshot({
         'attributes': ReadOnlyDict({
-          'device_class': 'timestamp',
-          'friendly_name': 'Door sensor Battery last replaced',
+          <EntityStateAttribute.DEVICE_CLASS: 'device_class'>: 'timestamp',
+          <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Door sensor Battery last replaced',
         }),
         'context': <ANY>,
         'entity_id': 'sensor.door_battery_note_battery_last_replaced',
@@ -202,7 +202,7 @@
         'attributes': ReadOnlyDict({
           'battery_quantity': 2,
           'battery_type': 'AA',
-          'friendly_name': 'Door sensor Battery type',
+          <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Door sensor Battery type',
           'note': 'Under the cover',
         }),
         'context': <ANY>,
@@ -264,9 +264,9 @@
           'battery_quantity': 2,
           'battery_type': 'AA',
           'battery_type_and_quantity': '2× AA',
-          'device_class': 'battery',
+          <EntityStateAttribute.DEVICE_CLASS: 'device_class'>: 'battery',
           'device_name': 'Door battery note',
-          'friendly_name': 'Door sensor Battery Battery low',
+          <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Door sensor Battery Battery low',
           'note': 'Under the cover',
           'source_entity_id': 'binary_sensor.door_battery',
         }),
@@ -318,7 +318,7 @@
       }),
       'state': StateSnapshot({
         'attributes': ReadOnlyDict({
-          'friendly_name': 'Door sensor Battery Battery replaced',
+          <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Door sensor Battery Battery replaced',
         }),
         'context': <ANY>,
         'entity_id': 'button.door_battery_battery_replaced',
@@ -365,8 +365,8 @@
       }),
       'state': StateSnapshot({
         'attributes': ReadOnlyDict({
-          'device_class': 'timestamp',
-          'friendly_name': 'Door sensor Battery Battery last replaced',
+          <EntityStateAttribute.DEVICE_CLASS: 'device_class'>: 'timestamp',
+          <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Door sensor Battery Battery last replaced',
         }),
         'context': <ANY>,
         'entity_id': 'sensor.door_battery_battery_last_replaced',
@@ -418,7 +418,7 @@
         'attributes': ReadOnlyDict({
           'battery_quantity': 2,
           'battery_type': 'AA',
-          'friendly_name': 'Door sensor Battery Battery type',
+          <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Door sensor Battery Battery type',
           'note': 'Under the cover',
         }),
         'context': <ANY>,
@@ -480,9 +480,9 @@
           'battery_quantity': 2,
           'battery_type': 'AA',
           'battery_type_and_quantity': '2× AA',
-          'device_class': 'battery',
+          <EntityStateAttribute.DEVICE_CLASS: 'device_class'>: 'battery',
           'device_name': 'Door battery note',
-          'friendly_name': 'Door battery note Battery low',
+          <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Door battery note Battery low',
           'note': 'Under the cover',
           'source_entity_id': 'binary_sensor.door_battery',
         }),
@@ -534,7 +534,7 @@
       }),
       'state': StateSnapshot({
         'attributes': ReadOnlyDict({
-          'friendly_name': 'Door battery note Battery replaced',
+          <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Door battery note Battery replaced',
         }),
         'context': <ANY>,
         'entity_id': 'button.door_battery_note_battery_replaced',
@@ -581,8 +581,8 @@
       }),
       'state': StateSnapshot({
         'attributes': ReadOnlyDict({
-          'device_class': 'timestamp',
-          'friendly_name': 'Door battery note Battery last replaced',
+          <EntityStateAttribute.DEVICE_CLASS: 'device_class'>: 'timestamp',
+          <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Door battery note Battery last replaced',
         }),
         'context': <ANY>,
         'entity_id': 'sensor.door_battery_note_battery_last_replaced',
@@ -634,7 +634,7 @@
         'attributes': ReadOnlyDict({
           'battery_quantity': 2,
           'battery_type': 'AA',
-          'friendly_name': 'Door battery note Battery type',
+          <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Door battery note Battery type',
           'note': 'Under the cover',
         }),
         'context': <ANY>,
@@ -693,9 +693,9 @@
           'battery_quantity': 2,
           'battery_type': 'AA',
           'battery_type_and_quantity': '2× AA',
-          'device_class': 'battery',
+          <EntityStateAttribute.DEVICE_CLASS: 'device_class'>: 'battery',
           'device_name': 'Door battery note',
-          'friendly_name': 'Door sensor Battery low',
+          <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Door sensor Battery low',
           'note': 'Under the cover',
           'source_entity_id': '',
         }),
@@ -747,7 +747,7 @@
       }),
       'state': StateSnapshot({
         'attributes': ReadOnlyDict({
-          'friendly_name': 'Door sensor Battery replaced',
+          <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Door sensor Battery replaced',
         }),
         'context': <ANY>,
         'entity_id': 'button.door_battery_note_battery_replaced',
@@ -794,8 +794,8 @@
       }),
       'state': StateSnapshot({
         'attributes': ReadOnlyDict({
-          'device_class': 'timestamp',
-          'friendly_name': 'Door sensor Battery last replaced',
+          <EntityStateAttribute.DEVICE_CLASS: 'device_class'>: 'timestamp',
+          <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Door sensor Battery last replaced',
         }),
         'context': <ANY>,
         'entity_id': 'sensor.door_battery_note_battery_last_replaced',
@@ -812,7 +812,7 @@
         ]),
         'area_id': None,
         'capabilities': dict({
-          'state_class': <SensorStateClass.MEASUREMENT: 'measurement'>,
+          <SensorEntityCapabilityAttribute.STATE_CLASS: 'state_class'>: <SensorStateClass.MEASUREMENT: 'measurement'>,
         }),
         'config_entry_id': <ANY>,
         'config_subentry_id': <ANY>,
@@ -864,7 +864,7 @@
           'friendly_name': 'Door sensor Battery+',
           'note': 'Under the cover',
           'source_entity_id': '',
-          'state_class': <SensorStateClass.MEASUREMENT: 'measurement'>,
+          <SensorEntityCapabilityAttribute.STATE_CLASS: 'state_class'>: <SensorStateClass.MEASUREMENT: 'measurement'>,
           'unit_of_measurement': '%',
         }),
         'context': <ANY>,
@@ -917,7 +917,7 @@
         'attributes': ReadOnlyDict({
           'battery_quantity': 2,
           'battery_type': 'AA',
-          'friendly_name': 'Door sensor Battery type',
+          <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Door sensor Battery type',
           'note': 'Under the cover',
         }),
         'context': <ANY>,
@@ -976,9 +976,9 @@
           'battery_quantity': 2,
           'battery_type': 'AA',
           'battery_type_and_quantity': '2× AA',
-          'device_class': 'battery',
+          <EntityStateAttribute.DEVICE_CLASS: 'device_class'>: 'battery',
           'device_name': 'Door battery note',
-          'friendly_name': 'Door sensor Battery Battery low',
+          <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Door sensor Battery Battery low',
           'note': 'Under the cover',
           'source_entity_id': 'sensor.door_battery',
         }),
@@ -1030,7 +1030,7 @@
       }),
       'state': StateSnapshot({
         'attributes': ReadOnlyDict({
-          'friendly_name': 'Door sensor Battery Battery replaced',
+          <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Door sensor Battery Battery replaced',
         }),
         'context': <ANY>,
         'entity_id': 'button.door_battery_battery_replaced',
@@ -1077,8 +1077,8 @@
       }),
       'state': StateSnapshot({
         'attributes': ReadOnlyDict({
-          'device_class': 'timestamp',
-          'friendly_name': 'Door sensor Battery Battery last replaced',
+          <EntityStateAttribute.DEVICE_CLASS: 'device_class'>: 'timestamp',
+          <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Door sensor Battery Battery last replaced',
         }),
         'context': <ANY>,
         'entity_id': 'sensor.door_battery_battery_last_replaced',
@@ -1095,7 +1095,7 @@
         ]),
         'area_id': None,
         'capabilities': dict({
-          'state_class': <SensorStateClass.MEASUREMENT: 'measurement'>,
+          <SensorEntityCapabilityAttribute.STATE_CLASS: 'state_class'>: <SensorStateClass.MEASUREMENT: 'measurement'>,
         }),
         'config_entry_id': <ANY>,
         'config_subentry_id': <ANY>,
@@ -1147,7 +1147,7 @@
           'friendly_name': 'Door sensor Battery Battery+',
           'note': 'Under the cover',
           'source_entity_id': 'sensor.door_battery',
-          'state_class': <SensorStateClass.MEASUREMENT: 'measurement'>,
+          <SensorEntityCapabilityAttribute.STATE_CLASS: 'state_class'>: <SensorStateClass.MEASUREMENT: 'measurement'>,
           'unit_of_measurement': '%',
         }),
         'context': <ANY>,
@@ -1200,7 +1200,7 @@
         'attributes': ReadOnlyDict({
           'battery_quantity': 2,
           'battery_type': 'AA',
-          'friendly_name': 'Door sensor Battery Battery type',
+          <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Door sensor Battery Battery type',
           'note': 'Under the cover',
         }),
         'context': <ANY>,
@@ -1259,9 +1259,9 @@
           'battery_quantity': 2,
           'battery_type': 'AA',
           'battery_type_and_quantity': '2× AA',
-          'device_class': 'battery',
+          <EntityStateAttribute.DEVICE_CLASS: 'device_class'>: 'battery',
           'device_name': 'Door battery note',
-          'friendly_name': 'Door battery note Battery low',
+          <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Door battery note Battery low',
           'note': 'Under the cover',
           'source_entity_id': 'sensor.door_battery',
         }),
@@ -1313,7 +1313,7 @@
       }),
       'state': StateSnapshot({
         'attributes': ReadOnlyDict({
-          'friendly_name': 'Door battery note Battery replaced',
+          <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Door battery note Battery replaced',
         }),
         'context': <ANY>,
         'entity_id': 'button.door_battery_note_battery_replaced',
@@ -1360,8 +1360,8 @@
       }),
       'state': StateSnapshot({
         'attributes': ReadOnlyDict({
-          'device_class': 'timestamp',
-          'friendly_name': 'Door battery note Battery last replaced',
+          <EntityStateAttribute.DEVICE_CLASS: 'device_class'>: 'timestamp',
+          <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Door battery note Battery last replaced',
         }),
         'context': <ANY>,
         'entity_id': 'sensor.door_battery_note_battery_last_replaced',
@@ -1378,7 +1378,7 @@
         ]),
         'area_id': None,
         'capabilities': dict({
-          'state_class': <SensorStateClass.MEASUREMENT: 'measurement'>,
+          <SensorEntityCapabilityAttribute.STATE_CLASS: 'state_class'>: <SensorStateClass.MEASUREMENT: 'measurement'>,
         }),
         'config_entry_id': <ANY>,
         'config_subentry_id': <ANY>,
@@ -1430,7 +1430,7 @@
           'friendly_name': 'Door battery note Battery+',
           'note': 'Under the cover',
           'source_entity_id': 'sensor.door_battery',
-          'state_class': <SensorStateClass.MEASUREMENT: 'measurement'>,
+          <SensorEntityCapabilityAttribute.STATE_CLASS: 'state_class'>: <SensorStateClass.MEASUREMENT: 'measurement'>,
           'unit_of_measurement': '%',
         }),
         'context': <ANY>,
@@ -1483,7 +1483,7 @@
         'attributes': ReadOnlyDict({
           'battery_quantity': 2,
           'battery_type': 'AA',
-          'friendly_name': 'Door battery note Battery type',
+          <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Door battery note Battery type',
           'note': 'Under the cover',
         }),
         'context': <ANY>,

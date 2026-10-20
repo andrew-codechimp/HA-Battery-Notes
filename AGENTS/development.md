@@ -10,13 +10,13 @@ Run commands from the repository root. `uv` manages the local `.venv` and
 dependencies in `pyproject.toml` and `uv.lock`.
 
 - `.python-version` and `project.requires-python` currently pin Python **3.14.2**.
-- The development environment pins Home Assistant **2026.6.0** and
-  `pytest-homeassistant-custom-component==0.13.336`.
-- `MIN_HA_VERSION` in `const.py` and `hacs.json` currently require HA **2026.6.0**.
+- The development environment pins Home Assistant **2026.7.0** and
+  `pytest-homeassistant-custom-component==0.13.344`.
+- `MIN_HA_VERSION` in `const.py` and `hacs.json` currently require HA **2026.7.0**.
 - Mypy targets Python 3.14; Ruff currently has `target-version = "py313"`.
   Treat these as separate configuration values; do not change them incidentally.
-- Keep the HA/test-plugin pins compatible. The mypy pin has an explanatory
-  dependency-compatibility comment in `pyproject.toml`.
+- Keep the HA/test-plugin pins compatible. Mypy is pinned to **2.4.0**; the test
+  plugin no longer constrains its `ast-serialize` dependency.
 - Renovate ignores Home Assistant, the test plugin, and mypy. Update these pins
   together when upgrading the Home Assistant development environment.
 

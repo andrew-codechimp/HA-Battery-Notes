@@ -42,10 +42,10 @@ dev = [
     "ha-ffmpeg",
     "hassil",
     "home-assistant-intents",
-    "homeassistant==2026.6.0",
+    "homeassistant==2026.7.0",
     "infrared-protocols",
     "mutagen",
-    "mypy==2.1.0", # The HA 2026.6.0 test plugin requires ast-serialize==0.3.0.
+    "mypy==2.4.0",
     "pycares",
     "pygments",
     "pymicro-vad",
@@ -53,7 +53,7 @@ dev = [
     "pyqrcode",
     "pyserial",
     "pyspeex-noise",
-    "pytest-homeassistant-custom-component==0.13.336", # Keep aligned with HA 2026.6.0's dependency pins.
+    "pytest-homeassistant-custom-component==0.13.344", # Keep aligned with HA 2026.7.0's dependency pins.
     "pyturbojpeg",
     "ruff",
     "zensical",
