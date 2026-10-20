@@ -1,4 +1,4 @@
-## 2342 Devices in library
+## 2343 Devices in library
 
 This file is auto generated, do not modify
 
@@ -235,6 +235,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |AMV FritzBox                                    |FRITZ!DECT 302                                                                                |3× AA                     |                                                                                      |
 |AMV FritzBox                                    |FRITZ!DECT 350                                                                                |2× AAA                    |                                                                                      |
 |AMV FritzBox                                    |FRITZ!DECT 440                                                                                |2× AAA                    |                                                                                      |
+|APC                                             |Back-UPS RS 700G                                                                              |APCRBC17                  |                                                                                      |
 |APC                                             |Back-UPS RS 900G                                                                              |APCRBC123                 |                                                                                      |
 |APC                                             |Back-UPS XS 1500M                                                                             |Rechargeable              |                                                                                      |
 |APC                                             |Smart-UPS 1500                                                                                |APCRBC164-LI              |                                                                                      |
