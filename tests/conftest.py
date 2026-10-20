@@ -98,7 +98,7 @@ def mock_config_entry(request: pytest.FixtureRequest) -> MockConfigEntry:
     return MockConfigEntry(
         domain=DOMAIN,
         title="Battery Notes",
-        version=4,
+        version=5,
         data={},
         options=options,
     )

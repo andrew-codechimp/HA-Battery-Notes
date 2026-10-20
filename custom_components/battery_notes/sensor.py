@@ -40,7 +40,7 @@ from homeassistant.helpers.event import (
 from homeassistant.helpers.typing import StateType
 from homeassistant.util import dt as dt_util
 
-from .common import validate_is_float
+from .common import async_hide_source_battery, validate_is_float
 from .const import (
     ATTR_BATTERY_INCREASE_THRESHOLD,
     ATTR_BATTERY_LAST_REPLACED,
@@ -712,24 +712,12 @@ class BatteryNotesBatteryPlusSensor(BatteryNotesBatteryPlusBaseSensor):
         if not self.coordinator.wrapped_battery:
             return
 
-        domain_config = self.domain_config
-
-        if domain_config.hide_battery:
-            if (
-                self.coordinator.wrapped_battery
-                and not self.coordinator.wrapped_battery.hidden
-            ):
-                registry.async_update_entity(
-                    self.coordinator.wrapped_battery.entity_id,
-                    hidden_by=er.RegistryEntryHider.INTEGRATION,
-                )
-        elif (
-            self.coordinator.wrapped_battery
-            and self.coordinator.wrapped_battery.hidden_by
-            == er.RegistryEntryHider.INTEGRATION
-        ):
-            registry.async_update_entity(
-                self.coordinator.wrapped_battery.entity_id, hidden_by=None
+        if self.domain_config.hide_battery:
+            async_hide_source_battery(
+                self.hass,
+                self.coordinator.config_entry.runtime_data.store,
+                self.coordinator.subentry.subentry_id,
+                self.coordinator.wrapped_battery.entity_id,
             )
 
         await self.coordinator.async_refresh()

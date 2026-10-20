@@ -4,6 +4,7 @@ from collections.abc import Awaitable, Callable
 from dataclasses import replace
 from datetime import timedelta
 from types import MappingProxyType
+from typing import Any
 from unittest.mock import patch
 
 import pytest
@@ -21,6 +22,10 @@ from custom_components.battery_notes.const import (
     CONF_SOURCE_ENTITY_ID,
     DOMAIN,
     SUBENTRY_BATTERY_NOTE,
+)
+from custom_components.battery_notes.store import (
+    DATA_REGISTRY,
+    STORAGE_KEY,
 )
 from freezegun.api import FrozenDateTimeFactory
 from pytest_homeassistant_custom_component.common import (
@@ -758,12 +763,36 @@ async def test_template_startup_cancelled_on_removal(
         assert template_tracker.call_count == 2 * expected_startups
 
 
+@pytest.mark.parametrize(
+    "cleanup_operation",
+    [
+        pytest.param("async_remove", id="integration"),
+        pytest.param("remove_subentry", id="note"),
+    ],
+    indirect=True,
+)
+@pytest.mark.parametrize(
+    "visibility",
+    [
+        pytest.param((None, er.RegistryEntryHider.INTEGRATION), id="visible"),
+        pytest.param(
+            (er.RegistryEntryHider.INTEGRATION, er.RegistryEntryHider.INTEGRATION),
+            id="integration-hidden",
+        ),
+        pytest.param(
+            (er.RegistryEntryHider.USER, er.RegistryEntryHider.USER), id="user-hidden"
+        ),
+    ],
+)
 async def test_remove_subentry_unhides_source(
     hass: HomeAssistant,
     mock_config_entry: MockConfigEntry,
     source_sensor: er.RegistryEntry,
+    cleanup_operation: Callable[[str], Awaitable[bool]],
+    visibility: tuple[er.RegistryEntryHider | None, er.RegistryEntryHider],
 ) -> None:
-    """Test removing a note shows the source battery or battery low entity again."""
+    """Test removal restores only a source that this note hid."""
+    initial_hider, expected_hider = visibility
     entry = MockConfigEntry(
         domain=DOMAIN,
         version=mock_config_entry.version,
@@ -774,17 +803,235 @@ async def test_remove_subentry_unhides_source(
             subentry.as_dict() for subentry in mock_config_entry.subentries.values()
         ],
     )
-    await setup_integration(hass, entry)
     entity_registry = er.async_get(hass)
+    entity_registry.async_update_entity(
+        source_sensor.entity_id, hidden_by=initial_hider
+    )
+    await setup_integration(hass, entry)
     source = entity_registry.async_get(source_sensor.entity_id)
     assert source is not None
-    assert source.hidden_by is er.RegistryEntryHider.INTEGRATION
+    assert source.hidden_by is expected_hider
 
-    assert hass.config_entries.async_remove_subentry(
-        entry, next(iter(entry.subentries))
-    )
+    assert await cleanup_operation(entry.entry_id)
     await hass.async_block_till_done()
 
     source = entity_registry.async_get(source_sensor.entity_id)
     assert source is not None
-    assert source.hidden_by is None
+    assert source.hidden_by is initial_hider
+
+
+@pytest.mark.parametrize(
+    "initial_hider",
+    [None, er.RegistryEntryHider.INTEGRATION, er.RegistryEntryHider.USER],
+)
+async def test_source_hiding_disabled_preserves_visibility(
+    hass: HomeAssistant,
+    mock_config_entry: MockConfigEntry,
+    source_sensor: er.RegistryEntry,
+    entity_registry: er.EntityRegistry,
+    initial_hider: er.RegistryEntryHider | None,
+) -> None:
+    """Test setup with hiding disabled never claims another integration's hiding."""
+    entity_registry.async_update_entity(
+        source_sensor.entity_id, hidden_by=initial_hider
+    )
+    await setup_integration(hass, mock_config_entry)
+    assert entity_registry.async_get(source_sensor.entity_id).hidden_by is initial_hider
+
+
+@pytest.mark.parametrize(
+    ("current_hider", "expected_hider"),
+    [
+        pytest.param(er.RegistryEntryHider.INTEGRATION, None, id="restore-visible"),
+        pytest.param(
+            er.RegistryEntryHider.USER,
+            er.RegistryEntryHider.USER,
+            id="preserve-user-hidden",
+        ),
+    ],
+)
+async def test_disable_source_hiding(
+    hass: HomeAssistant,
+    mock_config_entry: MockConfigEntry,
+    source_sensor: er.RegistryEntry,
+    current_hider: er.RegistryEntryHider,
+    expected_hider: er.RegistryEntryHider | None,
+) -> None:
+    """Test saved ownership survives reload and clears when hiding is disabled."""
+    entity_registry = er.async_get(hass)
+    mock_config_entry.add_to_hass(hass)
+    hass.config_entries.async_update_entry(
+        mock_config_entry,
+        options={**mock_config_entry.options, CONF_HIDE_BATTERY: True},
+    )
+    await hass.config_entries.async_setup(mock_config_entry.entry_id)
+    await hass.async_block_till_done()
+    store = mock_config_entry.runtime_data.store
+    await store.async_save()
+    await store.async_load()
+    assert await hass.config_entries.async_reload(mock_config_entry.entry_id)
+    await hass.async_block_till_done()
+    assert (
+        entity_registry.async_get(source_sensor.entity_id).hidden_by
+        is er.RegistryEntryHider.INTEGRATION
+    )
+    assert store.hidden_entities == {
+        next(iter(mock_config_entry.subentries)): {source_sensor.id}
+    }
+
+    entity_registry.async_update_entity(
+        source_sensor.entity_id, hidden_by=current_hider
+    )
+    hass.config_entries.async_update_entry(
+        mock_config_entry,
+        options={**mock_config_entry.options, CONF_HIDE_BATTERY: False},
+    )
+    await hass.async_block_till_done()
+    assert (
+        entity_registry.async_get(source_sensor.entity_id).hidden_by is expected_hider
+    )
+    assert store.hidden_entities == {}
+
+    entity_registry.async_update_entity(
+        source_sensor.entity_id, hidden_by=current_hider
+    )
+    assert await hass.config_entries.async_reload(mock_config_entry.entry_id)
+    await hass.async_block_till_done()
+    assert entity_registry.async_get(source_sensor.entity_id).hidden_by is current_hider
+
+
+async def test_remove_unloaded_entry_restores_renamed_source(
+    hass: HomeAssistant,
+    mock_config_entry: MockConfigEntry,
+    source_sensor: er.RegistryEntry,
+    entity_registry: er.EntityRegistry,
+) -> None:
+    """Test removal uses saved registry IDs without loaded coordinators."""
+    mock_config_entry.add_to_hass(hass)
+    hass.config_entries.async_update_entry(
+        mock_config_entry,
+        options={**mock_config_entry.options, CONF_HIDE_BATTERY: True},
+    )
+    await hass.config_entries.async_setup(mock_config_entry.entry_id)
+    await hass.async_block_till_done()
+    await mock_config_entry.runtime_data.store.async_save()
+    assert await hass.config_entries.async_unload(mock_config_entry.entry_id)
+    await hass.async_block_till_done()
+    hass.data.pop(DATA_REGISTRY)
+    renamed = f"{source_sensor.domain}.renamed_battery"
+    entity_registry.async_update_entity(source_sensor.entity_id, new_entity_id=renamed)
+
+    assert await hass.config_entries.async_remove(mock_config_entry.entry_id)
+    await hass.async_block_till_done()
+    assert entity_registry.async_get(renamed).hidden_by is None
+
+
+@pytest.fixture
+def legacy_visibility_entry(
+    hass: HomeAssistant,
+    mock_config_entry: MockConfigEntry,
+    source_sensor: er.RegistryEntry,
+) -> None:
+    """Provide a v4 entry with the source link saved by its wrapper entity."""
+    mock_config_entry.add_to_hass(hass)
+    hass.config_entries.async_update_entry(mock_config_entry, version=4)
+    registry = er.async_get(hass)
+    wrapper = registry.async_get_or_create(
+        source_sensor.domain,
+        DOMAIN,
+        "legacy-wrapper",
+        config_entry=mock_config_entry,
+        config_subentry_id=next(iter(mock_config_entry.subentries)),
+    )
+    registry.async_update_entity_options(
+        wrapper.entity_id, DOMAIN, {"entity_id": source_sensor.entity_id}
+    )
+
+
+@pytest.mark.usefixtures("legacy_visibility_entry")
+async def test_migrate_hidden_source_once(
+    hass: HomeAssistant,
+    mock_config_entry: MockConfigEntry,
+    source_sensor: er.RegistryEntry,
+    hass_storage: dict[str, Any],
+) -> None:
+    """Test upgrade adopts a hidden source once and persists that decision."""
+    registry = er.async_get(hass)
+    registry.async_update_entity(
+        source_sensor.entity_id, hidden_by=er.RegistryEntryHider.INTEGRATION
+    )
+    hass.config_entries.async_update_entry(
+        mock_config_entry,
+        options={**mock_config_entry.options, CONF_HIDE_BATTERY: True},
+    )
+    assert await hass.config_entries.async_setup(mock_config_entry.entry_id)
+    await hass.async_block_till_done()
+    store = mock_config_entry.runtime_data.store
+    assert store.hidden_entities == {
+        next(iter(mock_config_entry.subentries)): {source_sensor.id}
+    }
+    assert mock_config_entry.version == 5
+    assert hass_storage[STORAGE_KEY]["data"]["hidden_entities"] == {
+        next(iter(mock_config_entry.subentries)): [source_sensor.id]
+    }
+    await store.async_load()
+    assert mock_config_entry.version == 5
+
+    hass.config_entries.async_update_entry(
+        mock_config_entry,
+        options={**mock_config_entry.options, CONF_HIDE_BATTERY: False},
+    )
+    await hass.async_block_till_done()
+    assert registry.async_get(source_sensor.entity_id).hidden_by is None
+    assert store.hidden_entities == {}
+    await store.async_save()
+    await store.async_load()
+
+    # Later integration hiding must not be adopted by another setup.
+    registry.async_update_entity(
+        source_sensor.entity_id, hidden_by=er.RegistryEntryHider.INTEGRATION
+    )
+    hass.config_entries.async_update_entry(
+        mock_config_entry,
+        options={**mock_config_entry.options, CONF_HIDE_BATTERY: True},
+    )
+    await hass.async_block_till_done()
+    assert store.hidden_entities == {}
+    assert await hass.config_entries.async_remove(mock_config_entry.entry_id)
+    await hass.async_block_till_done()
+    assert (
+        registry.async_get(source_sensor.entity_id).hidden_by
+        is er.RegistryEntryHider.INTEGRATION
+    )
+
+
+@pytest.mark.usefixtures("legacy_visibility_entry")
+@pytest.mark.parametrize(
+    "visibility",
+    [
+        pytest.param((er.RegistryEntryHider.USER, True), id="user-hidden"),
+        pytest.param((er.RegistryEntryHider.INTEGRATION, False), id="hiding-off"),
+    ],
+)
+async def test_migrate_hidden_source_preserves_visibility(
+    hass: HomeAssistant,
+    mock_config_entry: MockConfigEntry,
+    source_sensor: er.RegistryEntry,
+    visibility: tuple[er.RegistryEntryHider, bool],
+) -> None:
+    """Test migration skips user hiding and sources with hiding disabled."""
+    initial_hider, hide_battery = visibility
+    registry = er.async_get(hass)
+    registry.async_update_entity(source_sensor.entity_id, hidden_by=initial_hider)
+    hass.config_entries.async_update_entry(
+        mock_config_entry,
+        options={**mock_config_entry.options, CONF_HIDE_BATTERY: hide_battery},
+    )
+    assert await hass.config_entries.async_setup(mock_config_entry.entry_id)
+    await hass.async_block_till_done()
+    store = mock_config_entry.runtime_data.store
+    assert store.hidden_entities == {}
+    assert mock_config_entry.version == 5
+    assert await hass.config_entries.async_remove(mock_config_entry.entry_id)
+    await hass.async_block_till_done()
+    assert registry.async_get(source_sensor.entity_id).hidden_by is initial_hider

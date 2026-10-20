@@ -36,6 +36,11 @@ Read when adding entities or changing source selection, device association, uniq
   with `async_on_unload`. Check cleanup across reloads, source renames, and removal.
 - Respect `RegistryEntryHider.USER`. Cleanup should only undo integration-owned
   hiding. Preserve source-unhiding behavior when notes or the integration are removed.
+  Source hiding is recorded by subentry in `store.hidden_entities`, using stable
+  entity registry IDs. Normally only claim visible sources; the one-time v5
+  config migration also adopts linked `INTEGRATION`-hidden sources when hiding
+  is enabled. Setup restores tracked sources when the
+  hide option is disabled or the source changes, even if wrappers are disabled.
 - `enable_replaced` controls default registry enablement for replacement entities;
   it does not overwrite existing user enable/disable choices.
 
