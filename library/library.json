@@ -13613,6 +13613,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "APC",
+            "model": "Back-UPS RS 700G",
+            "battery_type": "APCRBC17"
         }
     ]
 }
