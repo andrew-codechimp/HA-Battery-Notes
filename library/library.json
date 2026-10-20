@@ -1808,6 +1808,12 @@
         },
         {
             "manufacturer": "Aqara",
+            "model": "SVD-C03/SVD-C04",
+            "battery_type": "AA",
+            "battery_quantity": 6
+        },
+        {
+            "manufacturer": "Aqara",
             "model": "Temperature and humidity sensor",
             "model_id": "WSDCGQ11LM",
             "hw_version": "30",
@@ -13612,12 +13618,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Aqara",
-            "model": "SVD-C03/SVD-C04",
-            "battery_type": "AA",
-            "battery_quantity": 6
         }
     ]
 }
