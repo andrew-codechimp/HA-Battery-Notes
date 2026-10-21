@@ -1,4 +1,4 @@
-## 2343 Devices in library
+## 2344 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1043,6 +1043,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |IKEA of Sweden                                  |FYRTUR block-out roller blind                                                                 |Rechargeable              |                                                                                      |
 |IKEA of Sweden                                  |KADRILJ roller blind                                                                          |Rechargeable              |                                                                                      |
 |IKEA of Sweden                                  |KLIPPBOK water leak sensor                                                                    |2× AAA                    |                                                                                 32774|
+|IKEA of Sweden                                  |LILJEBAGGE radiator thermostat                                                                |2× AA                     |                                                                                 20480|
 |IKEA of Sweden                                  |MYGGBETT door/window sensor                                                                   |AAA                       |                                                                                 32775|
 |IKEA of Sweden                                  |MYGGSPRAY wrlss mtn sensor                                                                    |2× AAA                    |                                                                                 12288|
 |IKEA of Sweden                                  |PARASOLL Door/Window Sensor                                                                   |AAA                       |                                                                                      |

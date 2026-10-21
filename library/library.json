@@ -6030,6 +6030,13 @@
         },
         {
             "manufacturer": "IKEA of Sweden",
+            "model": "LILJEBAGGE radiator thermostat",
+            "model_id": "20480",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "IKEA of Sweden",
             "model": "MYGGBETT door/window sensor",
             "model_id": "32775",
             "hw_version": "P2.0",
@@ -13618,13 +13625,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "IKEA of Sweden",
-            "model": "LILJEBAGGE radiator thermostat",
-            "model_id": "20480",
-            "battery_type": "AA",
-            "battery_quantity": 2
         }
     ]
 }
