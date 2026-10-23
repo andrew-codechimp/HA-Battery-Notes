@@ -5310,6 +5310,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Hobeian",
+            "model": "Luminance door sensor",
+            "model_id": "ZG-102ZL",
+            "battery_type": "CR2032"
+        },
+        {
             "manufacturer": "HOBEIAN",
             "model": "Millimeter wave motion detection",
             "model_id": "ZG-204ZV",
@@ -13631,12 +13637,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Hobeian",
-            "model": "Luminance door sensor",
-            "model_id": "ZG-102ZL",
-            "battery_type": "CR2032"
         }
     ]
 }

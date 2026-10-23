@@ -1,4 +1,4 @@
-## 2345 Devices in library
+## 2346 Devices in library
 
 This file is auto generated, do not modify
 
@@ -922,6 +922,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |HOBEIAN                                         |door/window sensor                                                                            |CR2032                    |ZG-102Z                                                                               |
 |HOBEIAN                                         |Door/window sensor                                                                            |2× AAA                    |ZG-102ZA                                                                              |
 |HOBEIAN                                         |Human Presence Sensor                                                                         |2× AAA                    |ZG-204ZH                                                                              |
+|Hobeian                                         |Luminance door sensor                                                                         |CR2032                    |ZG-102ZL                                                                              |
 |HOBEIAN                                         |Millimeter wave motion detection                                                              |2× AAA                    |ZG-204ZV                                                                              |
 |HOBEIAN                                         |Motion sensor                                                                                 |CR2450                    |ZG-204Z                                                                               |
 |HOBEIAN                                         |PIR 24Ghz human presence sensor                                                               |2× AAA                    |ZG-204ZM                                                                              |
