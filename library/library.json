@@ -13625,6 +13625,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Hobeiam",
+            "model": "Star Ring 4 Gang Switch",
+            "model_id": "ZG-101ZS",
+            "battery_type": "CR2032 / CR2016",
+            "battery_quantity": 2
         }
     ]
 }
