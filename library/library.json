@@ -5269,6 +5269,13 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Hobeiam",
+            "model": "Star Ring 4 Gang Switch",
+            "model_id": "ZG-101ZS",
+            "battery_type": "CR2032 / CR2016",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "HOBEIAN",
             "model": "24Ghz human presence sensor",
             "model_id": "ZG-204ZK",
@@ -13625,13 +13632,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Hobeiam",
-            "model": "Star Ring 4 Gang Switch",
-            "model_id": "ZG-101ZS",
-            "battery_type": "CR2032 / CR2016",
-            "battery_quantity": 2
         }
     ]
 }
