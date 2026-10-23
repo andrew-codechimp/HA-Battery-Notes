@@ -13625,6 +13625,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Hobeian",
+            "model": "Luminance door sensor",
+            "model_id": "ZG-102ZL",
+            "battery_type": "CR2032"
         }
     ]
 }
