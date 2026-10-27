@@ -3,9 +3,9 @@
 [![GitHub Release][releases-shield]][releases]
 [![GitHub Activity][commits-shield]][commits]
 [![Downloads][download-latest-shield]]()
-[![HACS Installs][hacs-installs-shield]]()
+[![Installs][hacs-installs-shield]]()
 [![License][license-shield]](LICENSE)
-[![hacs][hacsbadge]][hacs]
+[![marketplace][marketplacebadge]][marketplace]
 
 Integration to add battery notes to a device or entity, with automatic discovery via a growing [battery library](library.md) for devices.
 
@@ -32,13 +32,13 @@ _If you want to show your support please_
 
 ## Installation
 
-### HACS Installation
+### Marketplace/HACS Installation
 
-[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=andrew-codechimp&repository=HA-Battery-Notes&category=Integration)
+[![Open your Home Assistant instance and open a repository inside the Home Assistant Marketplace.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=andrew-codechimp&repository=HA-Battery-Notes&category=Integration)
 
-Or search for `Battery Notes` in HACS and download it.
+Or search for `Battery Notes` in Marketplace/HACS and download it.
 
-**Restart Home Assistant**
+**Restart Home Assistant if HACS**
 
 Add the Battery Notes integration
 
@@ -106,8 +106,8 @@ Thanks to everyone who has submitted devices to the library.
 [battery_notes]: https://github.com/andrew-codechimp/HA-Battery-Notes
 [commits-shield]: https://img.shields.io/github/commit-activity/y/andrew-codechimp/HA-Battery-Notes.svg?style=for-the-badge
 [commits]: https://github.com/andrew-codechimp/HA-Battery-Notes/commits/main
-[hacs]: https://github.com/hacs/integration
-[hacsbadge]: https://img.shields.io/badge/HACS-Default-41BDF5.svg?style=for-the-badge
+[marketplace]: https://home-assistant.io/integrations/marketplace
+[marketplacebadge]: https://img.shields.io/badge/Marketplace-Default-41BDF5.svg?style=for-the-badge
 [discord]: https://discord.gg/Qa5fW2R
 [discord-shield]: https://img.shields.io/discord/330944238910963714.svg?style=for-the-badge
 [exampleimg]: example.png
