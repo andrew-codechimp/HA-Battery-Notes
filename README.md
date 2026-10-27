@@ -38,7 +38,7 @@ _If you want to show your support please_
 
 Or search for `Battery Notes` in Marketplace/HACS and download it.
 
-**Restart Home Assistant if HACS**
+**Restart Home Assistant if using HACS**
 
 Add the Battery Notes integration
 
