@@ -3160,6 +3160,11 @@
         },
         {
             "manufacturer": "Ecowitt",
+            "model": "wh52",
+            "battery_type": "AA"
+        },
+        {
+            "manufacturer": "Ecowitt",
             "model": "wh69",
             "battery_type": "AA",
             "battery_quantity": 2
@@ -4455,6 +4460,11 @@
         },
         {
             "manufacturer": "Fakro",
+            "model": "ARF Z-Wave Solar",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Fakro",
             "model": "ARZ Z-Wave Solar",
             "battery_type": "Rechargeable"
         },
@@ -4489,13 +4499,28 @@
         },
         {
             "manufacturer": "Fibargroup",
+            "model": "FGCD-001",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Fibargroup",
             "model": "FGCD001",
             "battery_type": "CR123A"
         },
         {
             "manufacturer": "Fibargroup",
+            "model": "FGDW-002",
+            "battery_type": "LS14250"
+        },
+        {
+            "manufacturer": "Fibargroup",
             "model": "FGDW002",
             "battery_type": "LS14250"
+        },
+        {
+            "manufacturer": "Fibargroup",
+            "model": "FGFS-101",
+            "battery_type": "CR123A"
         },
         {
             "manufacturer": "Fibargroup",
@@ -4509,8 +4534,18 @@
         },
         {
             "manufacturer": "Fibargroup",
+            "model": "FGKF-601",
+            "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Fibargroup",
             "model": "FGKF601",
             "battery_type": "CR2450"
+        },
+        {
+            "manufacturer": "Fibargroup",
+            "model": "FGMS-001",
+            "battery_type": "CR123A"
         },
         {
             "manufacturer": "Fibargroup",
@@ -4521,6 +4556,11 @@
             "manufacturer": "Fibargroup",
             "model": "FGPB-101",
             "battery_type": "ER14250"
+        },
+        {
+            "manufacturer": "Fibargroup",
+            "model": "FGSD-002",
+            "battery_type": "CR123A"
         },
         {
             "manufacturer": "Fibargroup",
@@ -7844,6 +7884,12 @@
             "manufacturer": "Philio Technology Corp",
             "model": "PAT02-C",
             "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Philio Technology Corp",
+            "model": "PSE04",
+            "battery_type": "AA",
+            "battery_quantity": 4
         },
         {
             "manufacturer": "Philio Technology Corp",
