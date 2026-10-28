@@ -3,9 +3,9 @@
 [![GitHub Release][releases-shield]][releases]
 [![GitHub Activity][commits-shield]][commits]
 [![Downloads][download-latest-shield]]()
-[![Installs][hacs-installs-shield]]()
-[![License][license-shield]](LICENSE)
+[![Installs][marketplace-installs-shield]][hacs-install]
 [![marketplace][marketplacebadge]][marketplace]
+[![License][license-shield]](LICENSE)
 
 Integration to add battery notes to a device or entity, with automatic discovery via a growing [battery library](library.md) for devices.
 
@@ -117,4 +117,7 @@ Thanks to everyone who has submitted devices to the library.
 [releases-shield]: https://img.shields.io/github/release/andrew-codechimp/HA-Battery-Notes.svg?style=for-the-badge
 [releases]: https://github.com/andrew-codechimp/HA-Battery-Notes/releases
 [download-latest-shield]: https://img.shields.io/github/downloads/andrew-codechimp/ha-battery-notes/latest/total?style=for-the-badge
-[hacs-installs-shield]: https://img.shields.io/endpoint.svg?url=https%3A%2F%2Flauwbier.nl%2Fhacs%2Fbattery_notes&style=for-the-badge
+[marketplace-installs-shield]: https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fanalytics.home-assistant.io%2Fcustom_integrations.json&query=%24.battery_notes.total&style=for-the-badge&label=Marketplace%20installs
+[marketplace-install]: https://my.home-assistant.io/redirect/marketplace_repository/?owner=andrew-codechimp&repository=battery_notes&category=integration
+
+[hacs-install]: https://my.home-assistant.io/redirect/hacs_repository/?owner=andrew-codechimp&repository=HA-Battery-Notes&category=Integration
