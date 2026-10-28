@@ -1,6 +1,7 @@
 {
   "domain": "battery_notes",
   "name": "Battery Notes",
+  "categories": [ "helpers" ],
   "codeowners": [
     "@andrew-codechimp"
   ],
