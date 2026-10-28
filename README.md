@@ -22,6 +22,7 @@ A battery+ sensor provides useful attributes for easy use in dashboards, the sta
 Battery low, replaced and not reported are all exposed via triggers, events and actions, using these you can create your own automations to generate notifications or other actions, there are some predefined ones in [community](https://andrew-codechimp.github.io/HA-Battery-Notes/community).
 
 _Please ⭐ this repo on [GitHub][repository] if you find it useful_
+
 _If you want to show your support please_
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png)](https://www.buymeacoffee.com/codechimp)
