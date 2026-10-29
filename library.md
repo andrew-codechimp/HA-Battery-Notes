@@ -1,4 +1,4 @@
-## 2356 Devices in library
+## 2359 Devices in library
 
 This file is auto generated, do not modify
 
@@ -123,6 +123,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |_TZE200_hhrtiq0x                                |TS0601                                                                                        |2× AA                     |                                                                                      |
 |_TZE200_hue3yfsn                                |TS0601                                                                                        |2× AA                     |                                                                                      |
 |_TZE200_iba1ckek                                |TS0601                                                                                        |CR2450                    |                                                                                      |
+|_TZE200_jhhskent                                |TS0301                                                                                        |Rechargeable              |                                                                                      |
 |_TZE200_kb5noeto                                |TS0601                                                                                        |2× AAA                    |                                                                                      |
 |_TZE200_kds0pmmv                                |TS0601                                                                                        |3× AA                     |                                                                                      |
 |_TZE200_kf2hbko4                                |TS0601                                                                                        |CR2032                    |                                                                                      |
@@ -1508,6 +1509,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Schlage                                         |BE469NX                                                                                       |4× AA                     |                                                                                      |
 |Schlage                                         |BE469ZP                                                                                       |4× AA                     |                                                                                      |
 |Schlage                                         |BE489WB                                                                                       |4× AA                     |                                                                                      |
+|Schlage                                         |BE489WB2                                                                                      |4× AA                     |                                                                                      |
 |Schlage                                         |be499WB                                                                                       |4× AA                     |                                                                                      |
 |Schlage                                         |BE499WB                                                                                       |4× AA                     |                                                                                      |
 |Schlage                                         |be499WB2                                                                                      |4× AA                     |                                                                                      |
@@ -2114,6 +2116,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Vesternet                                       |VES-ZW-WAL-009                                                                                |CR2450                    |VES-ZW-WAL-009                                                                        |
 |VictorPest.com                                  |Rat Trap                                                                                      |4× C                      |                                                                                      |
 |Viking                                          |Viking 02035,02038                                                                            |2× AAA                    |                                                                                      |
+|Vision Security                                 |ZD2102                                                                                        |CR123A                    |                                                                                      |
 |Vision Security                                 |ZD2102-5                                                                                      |CR123A                    |                                                                                      |
 |Vision Security                                 |ZD2105                                                                                        |CR2                       |                                                                                      |
 |Vision Security                                 |ZD2201                                                                                        |2× AAA                    |                                                                                      |
