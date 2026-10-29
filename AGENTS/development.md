@@ -10,9 +10,12 @@ Run commands from the repository root. `uv` manages the local `.venv` and
 dependencies in `pyproject.toml` and `uv.lock`.
 
 - `.python-version` and `project.requires-python` currently pin Python **3.14.2**.
-- The development environment pins Home Assistant **2026.7.0** and
-  `pytest-homeassistant-custom-component==0.13.344`.
-- `MIN_HA_VERSION` in `const.py` and `hacs.json` currently require HA **2026.7.0**.
+- The development environment pins Home Assistant **2026.8.0** and
+  `pytest-homeassistant-custom-component==0.13.354`.
+- `MIN_HA_VERSION` in `const.py` and `hacs.json` currently require HA **2026.8.0**.
+- The `dev` group contains HA, its test plugin, mypy, Ruff, and Zensical for
+  documentation previews. Keep full HA runtime and device-integration packages
+  in the separate Core development environment.
 - Mypy targets Python 3.14; Ruff currently has `target-version = "py313"`.
   Treat these as separate configuration values; do not change them incidentally.
 - Keep the HA/test-plugin pins compatible. Mypy is pinned to **2.4.0**; the test

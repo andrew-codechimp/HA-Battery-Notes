@@ -35,7 +35,7 @@ directory under `.storage/battery_notes/`.
   IDs, and supported user registry settings. Keep ignored entries and unsupported
   future config versions in mind.
 - HA 2026.8/2026.9 device-registry compatibility paths are intentional while the
-  minimum supported version remains 2026.7. Reuse `common.py` helpers for composite
+  minimum supported version remains 2026.8. Reuse `common.py` helpers for composite
   devices and related IDs. Do not replace them with newer-only APIs without a
   deliberate compatibility change.
 - Composite-device repairs update the source ID and migrate device history while
