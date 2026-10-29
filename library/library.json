@@ -650,6 +650,11 @@
             "battery_type": "CR2450"
         },
         {
+            "manufacturer": "_TZE200_jhhskent",
+            "model": "TS0301",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "_TZE200_kb5noeto",
             "model": "TS0601",
             "battery_type": "AAA",
@@ -8690,6 +8695,12 @@
         },
         {
             "manufacturer": "Schlage",
+            "model": "BE489WB2",
+            "battery_type": "AA",
+            "battery_quantity": 4
+        },
+        {
+            "manufacturer": "Schlage",
             "model": "be499WB",
             "battery_type": "AA",
             "battery_quantity": 4
@@ -12305,6 +12316,11 @@
             "model": "Viking 02035,02038",
             "battery_type": "AAA",
             "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Vision Security",
+            "model": "ZD2102",
+            "battery_type": "CR123A"
         },
         {
             "manufacturer": "Vision Security",
