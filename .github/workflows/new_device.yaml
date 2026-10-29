@@ -8,6 +8,16 @@ jobs:
   create-device-pull-request:
     if: ${{ contains(github.event.issue.labels.*.name, 'new-device') }}
     runs-on: ubuntu-latest
+    # Declare variables populated by the Python step for workflow validation.
+    env:
+      BRANCH: ""
+      MANUFACTURER: ""
+      MODEL: ""
+      MODEL_ID: ""
+      BQT: ""
+      MODE: ""
+      TITLE_MODE: ""
+      MANUAL: ""
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
