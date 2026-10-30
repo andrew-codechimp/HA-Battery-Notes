@@ -33,7 +33,7 @@ jobs:
         run: sudo apt install jq
 
       - name: Set up Python
-        uses: astral-sh/setup-uv@v10.3.2
+        uses: astral-sh/setup-uv@v10.3.3
         with:
           activate-environment: true
 
