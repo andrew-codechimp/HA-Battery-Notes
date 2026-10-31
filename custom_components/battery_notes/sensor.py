@@ -108,7 +108,6 @@ async def async_setup_entry(
             key="battery_type",
             translation_key="battery_type",
             entity_category=EntityCategory.DIAGNOSTIC,
-            entity_type="sensor",
         )
 
         last_replaced_sensor_entity_description = BatteryNotesSensorEntityDescription(
@@ -118,7 +117,6 @@ async def async_setup_entry(
             entity_category=EntityCategory.DIAGNOSTIC,
             device_class=SensorDeviceClass.TIMESTAMP,
             entity_registry_enabled_default=domain_config.enable_replaced,
-            entity_type="sensor",
         )
 
         battery_plus_sensor_entity_description = BatteryNotesSensorEntityDescription(
@@ -127,7 +125,6 @@ async def async_setup_entry(
             translation_key="battery_plus",
             device_class=SensorDeviceClass.BATTERY,
             suggested_display_precision=0 if domain_config.round_battery else 1,
-            entity_type="sensor",
             require_device=True,
         )
 

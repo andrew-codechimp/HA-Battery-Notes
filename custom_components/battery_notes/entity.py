@@ -4,8 +4,9 @@ from __future__ import annotations
 
 from collections.abc import Mapping
 from dataclasses import dataclass
+from typing import override
 
-from homeassistant.core import HomeAssistant, split_entity_id
+from homeassistant.core import HomeAssistant
 from homeassistant.helpers import device_registry as dr
 from homeassistant.helpers.device import async_entity_id_to_device_id
 from homeassistant.helpers.entity import EntityDescription
@@ -21,7 +22,6 @@ class BatteryNotesRequiredKeysMixin:
     """Mixin for required keys."""
 
     unique_id_suffix: str
-    entity_type: str
     require_device: bool = False
 
 
@@ -50,12 +50,15 @@ class BatteryNotesEntity(CoordinatorEntity[BatteryNotesSubentryCoordinator]):
 
         self._attr_has_entity_name = True
 
-        # Set up entity naming and translation placeholders
-        self._attr_translation_placeholders = self._generate_translation_placeholders()
-        self.entity_id = self._generate_entity_id()
-
-        # Set up device association
         self._associate_device(hass)
+        self._attr_translation_placeholders = self._generate_translation_placeholders()
+
+    @property
+    @override
+    def suggested_object_id(self) -> str:
+        """Use English entity components while HA applies the entity ID format."""
+        name = self.entity_description.key.lstrip("_")
+        return slugify(f"{self._attr_translation_placeholders['device_name']}{name}")
 
     @property
     def domain_config(self) -> BatteryNotesDomainConfig:
@@ -99,28 +102,10 @@ class BatteryNotesEntity(CoordinatorEntity[BatteryNotesSubentryCoordinator]):
 
     def _generate_translation_placeholders(self) -> Mapping[str, str]:
         """Generate translation placeholders."""
-        if self.coordinator.source_entity_id and not self.coordinator.device_id:
+        if self.device_entry is None:
             return {"device_name": self.coordinator.device_name + " "}
-        elif self.coordinator.source_entity_id and self.coordinator.device_id:
-            return {"device_name": self.coordinator.source_entity_name + " "}
-        else:
-            return {"device_name": ""}
-
-    def _generate_entity_id(
-        self,
-    ) -> str:
-        """Generate a consistent entity ID."""
-        entity_type = self.entity_description.entity_type
-        entity_key = self.entity_description.key
-
-        if self.coordinator.source_entity_id and not self.coordinator.device_id:
-            return f"{entity_type}.{slugify(self.coordinator.device_name.lower())}_{entity_key}".replace(
-                "__", "_"
-            )
-        elif self.coordinator.source_entity_id and self.coordinator.device_id:
-            _, source_object_id = split_entity_id(self.coordinator.source_entity_id)
-            return f"{entity_type}.{source_object_id}_{entity_key}".replace("__", "_")
-        else:
-            return f"{entity_type}.{slugify(self.coordinator.device_name.lower())}_{entity_key}".replace(
-                "__", "_"
-            )
+        if self.coordinator.source_entity_id and (
+            source_name := self.coordinator.source_entity_name
+        ):
+            return {"device_name": source_name + " "}
+        return {"device_name": ""}

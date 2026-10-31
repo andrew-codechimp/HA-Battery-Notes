@@ -63,7 +63,6 @@ async def async_setup_entry(
             translation_key="battery_replaced",
             entity_category=EntityCategory.DIAGNOSTIC,
             entity_registry_enabled_default=config_entry.runtime_data.domain_config.enable_replaced,
-            entity_type="button",
         )
 
         async_add_entities(
