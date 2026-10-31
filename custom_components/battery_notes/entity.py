@@ -22,6 +22,7 @@ class BatteryNotesRequiredKeysMixin:
     """Mixin for required keys."""
 
     unique_id_suffix: str
+    object_id_base: str  # Used for entity id generation
     require_device: bool = False
 
 
@@ -57,7 +58,7 @@ class BatteryNotesEntity(CoordinatorEntity[BatteryNotesSubentryCoordinator]):
     @override
     def suggested_object_id(self) -> str:
         """Use English entity components while HA applies the entity ID format."""
-        name = self.entity_description.key.lstrip("_")
+        name = self.entity_description.object_id_base
         return slugify(f"{self._attr_translation_placeholders['device_name']}{name}")
 
     @property

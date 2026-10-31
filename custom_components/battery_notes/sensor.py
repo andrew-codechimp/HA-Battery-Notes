@@ -105,6 +105,7 @@ async def async_setup_entry(
 
         type_sensor_entity_description = BatteryNotesSensorEntityDescription(
             unique_id_suffix="_battery_type",
+            object_id_base="battery_type",
             key="battery_type",
             translation_key="battery_type",
             entity_category=EntityCategory.DIAGNOSTIC,
@@ -112,6 +113,7 @@ async def async_setup_entry(
 
         last_replaced_sensor_entity_description = BatteryNotesSensorEntityDescription(
             unique_id_suffix="_battery_last_replaced",
+            object_id_base="battery_last_replaced",
             key="battery_last_replaced",
             translation_key="battery_last_replaced",
             entity_category=EntityCategory.DIAGNOSTIC,
@@ -121,6 +123,7 @@ async def async_setup_entry(
 
         battery_plus_sensor_entity_description = BatteryNotesSensorEntityDescription(
             unique_id_suffix="_battery_plus",
+            object_id_base="battery_plus",
             key="battery_plus",
             translation_key="battery_plus",
             device_class=SensorDeviceClass.BATTERY,

@@ -24,9 +24,10 @@ Read when adding entities or changing source selection, device association, uniq
   It attaches entities to existing source devices and supports standalone
   entities. Its `available` property combines coordinator and entity availability.
 - Let HA generate entity IDs from the user's format; do not assign `entity_id`.
-  The base `suggested_object_id` uses the English description key without its
-  leading underscore for the Battery Notes component, such as `battery_plus` or
-  `battery_plus_low`, regardless of HA's language. Display names remain translated.
+  Set the required description field `object_id_base` to the English Battery Notes
+  component, such as `battery_plus` or `battery_plus_low`. The base
+  `suggested_object_id` uses this field independently of `key`, `translation_key`,
+  and `unique_id_suffix`. Display names remain translated.
   Attached entity notes use the source's own name, without its legacy device
   prefix; standalone notes use the note title. Keep existing registry IDs intact
   until the user explicitly regenerates them.

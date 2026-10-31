@@ -59,6 +59,7 @@ async def async_setup_entry(
 
         description = BatteryNotesButtonEntityDescription(
             unique_id_suffix="_battery_replaced_button",
+            object_id_base="battery_replaced",
             key="battery_replaced",
             translation_key="battery_replaced",
             entity_category=EntityCategory.DIAGNOSTIC,
