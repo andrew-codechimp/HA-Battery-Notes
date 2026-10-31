@@ -18,17 +18,24 @@ from .coordinator import BatteryNotesDomainConfig, BatteryNotesSubentryCoordinat
 
 
 @dataclass(frozen=True, kw_only=True)
-class BatteryNotesRequiredKeysMixin:
-    """Mixin for required keys."""
+class BatteryNotesEntityDescription(EntityDescription):
+    """Describe a Battery Notes entity.
+
+    Attributes
+    ----------
+    unique_id_suffix
+        Appended to the subentry unique ID for stable registry identity.
+        Changing it requires a registry migration.
+    object_id_base
+        English entity-name component used in HA's preferred entity ID format.
+    allow_source_device_fallback
+        Allow attachment through the source entity's device when True.
+
+    """
 
     unique_id_suffix: str
-    object_id_base: str  # Used for entity id generation
-    require_device: bool = False
-
-
-@dataclass(frozen=True, kw_only=True)
-class BatteryNotesEntityDescription(EntityDescription, BatteryNotesRequiredKeysMixin):
-    """Generic Battery Notes entity description."""
+    object_id_base: str
+    allow_source_device_fallback: bool = True
 
 
 class BatteryNotesEntity(CoordinatorEntity[BatteryNotesSubentryCoordinator]):
@@ -88,7 +95,7 @@ class BatteryNotesEntity(CoordinatorEntity[BatteryNotesSubentryCoordinator]):
             # Attach to the device_id
             self.device_entry = device_entry
         elif (
-            self.entity_description.require_device is False
+            self.entity_description.allow_source_device_fallback
             and self.coordinator.source_entity_id
         ):
             device_id = async_entity_id_to_device_id(

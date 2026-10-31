@@ -71,8 +71,6 @@ class BatteryNotesBinarySensorEntityDescription(
 ):
     """Describes Battery Notes binary sensor entity."""
 
-    unique_id_suffix: str
-
 
 async def async_setup_entry(
     hass: HomeAssistant,

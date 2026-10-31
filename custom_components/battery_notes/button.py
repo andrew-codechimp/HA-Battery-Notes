@@ -33,8 +33,6 @@ class BatteryNotesButtonEntityDescription(
 ):
     """Describes Battery Notes button entity."""
 
-    unique_id_suffix: str
-
 
 async def async_setup_entry(
     hass: HomeAssistant,

@@ -74,8 +74,6 @@ class BatteryNotesSensorEntityDescription(
 ):
     """Describes Battery Notes sensor entity."""
 
-    unique_id_suffix: str
-
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -128,7 +126,7 @@ async def async_setup_entry(
             translation_key="battery_plus",
             device_class=SensorDeviceClass.BATTERY,
             suggested_display_precision=0 if domain_config.round_battery else 1,
-            require_device=True,
+            allow_source_device_fallback=False,
         )
 
         entities = [
