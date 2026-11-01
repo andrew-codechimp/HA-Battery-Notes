@@ -1,4 +1,4 @@
-## 2360 Devices in library
+## 2362 Devices in library
 
 This file is auto generated, do not modify
 
@@ -143,6 +143,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |_TZE200_wqashyqo                                |TS0601                                                                                        |2× AAA                    |                                                                                      |
 |_TZE200_yjjdcqsq                                |TS0601                                                                                        |2× AAA                    |                                                                                      |
 |_TZE200_znbl8dj5                                |TS0601                                                                                        |CR2032                    |                                                                                      |
+|_TZE204_k6rdmisz                                |TS0601                                                                                        |3× AA                     |                                                                                      |
 |_TZE204_myd45weu                                |TS0601                                                                                        |2× AA                     |                                                                                      |
 |_TZE204_rtrmfadk                                |TS0601                                                                                        |3× AA                     |                                                                                      |
 |_TZE204_t1blo2bj                                |TS0601                                                                                        |2× CR123A                 |                                                                                      |
@@ -152,6 +153,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |_TZE284_aao3yzhs                                |TS0601                                                                                        |2× AAA                    |                                                                                      |
 |_TZE284_d7lpruvi                                |TS0601                                                                                        |3× AAA                    |                                                                                      |
 |_TZE284_debczeci                                |TS0601                                                                                        |2× AAA                    |                                                                                      |
+|_TZE284_k6rdmisz                                |TS0601                                                                                        |3× AA                     |                                                                                      |
 |_TZE284_nhgdf6qr                                |TS0601                                                                                        |2× AAA                    |                                                                                      |
 |_TZE284_nt4pquef                                |TS0601                                                                                        |2× AAA                    |                                                                                      |
 |_TZE284_rccxox8p                                |TS0601                                                                                        |2× AA                     |                                                                                      |
