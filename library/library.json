@@ -13712,6 +13712,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Signify Netherlands B.V.",
+            "model": "Hue dimmer switch",
+            "model_id": "RWL020",
+            "battery_type": "CR2023"
         }
     ]
 }
