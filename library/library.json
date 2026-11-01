@@ -13705,6 +13705,13 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Tuya",
+            "model": "Temperature and humidity sensor - with or without display",
+            "model_id": "ZY-ZTH02",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
