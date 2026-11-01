@@ -1,4 +1,4 @@
-## 2359 Devices in library
+## 2360 Devices in library
 
 This file is auto generated, do not modify
 
@@ -2005,6 +2005,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |TuYa                                            |Temperature and humidity sensor (ZTH02)                                                       |CR2032                    |                                                                                      |
 |TuYa                                            |Temperature and humidity sensor (ZTH05)                                                       |CR2032                    |                                                                                      |
 |Tuya                                            |Temperature and humidity sensor (ZTH08-E)                                                     |3× AAA                    |                                                                                      |
+|Tuya                                            |Temperature and humidity sensor - with or without display                                     |2× AAA                    |ZY-ZTH02                                                                              |
 |Tuya                                            |Temperature and humidity sensor with clock                                                    |3× AAA                    |TH01Z                                                                                 |
 |Tuya                                            |Temperature and humidity sensors                                                              |2× AAA                    |swirjhnver8jqyoa                                                                      |
 |Tuya                                            |Temperature Humidity Sensor                                                                   |2× AAA                    |bguser20                                                                              |

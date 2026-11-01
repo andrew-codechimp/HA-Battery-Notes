@@ -11646,6 +11646,13 @@
         },
         {
             "manufacturer": "Tuya",
+            "model": "Temperature and humidity sensor - with or without display",
+            "model_id": "ZY-ZTH02",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Tuya",
             "model": "Temperature and humidity sensor with clock",
             "model_id": "TH01Z",
             "hw_version": "1",
@@ -13705,13 +13712,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Tuya",
-            "model": "Temperature and humidity sensor - with or without display",
-            "model_id": "ZY-ZTH02",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }
