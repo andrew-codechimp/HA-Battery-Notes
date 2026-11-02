@@ -1,4 +1,4 @@
-## 2363 Devices in library
+## 2364 Devices in library
 
 This file is auto generated, do not modify
 
@@ -942,6 +942,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |HOBEIAN                                         |Soil moisture sensor                                                                          |2× AAA                    |ZG-303Z                                                                               |
 |HOBEIAN                                         |Temperature and humidity sensor                                                               |2× AAA                    |ZG-227Z                                                                               |
 |HOBEIAN                                         |Temperature and humidity sensor (ZG-227Z)                                                     |2× AA                     |                                                                                      |
+|HOBEIAN                                         |Temperature(NTC) & humidity sensor                                                            |CR2032                    |ZG-227ZP                                                                              |
 |HOBEIAN                                         |Vibration sensor                                                                              |CR2032                    |ZG-102ZM                                                                              |
 |HOBEIAN                                         |Water leak detector                                                                           |CR2032                    |ZG-222Z                                                                               |
 |HOBEIAN                                         |Water leak sensor                                                                             |CR2032                    |ZG-222ZA                                                                              |
