@@ -13730,6 +13730,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "HOBEIAN",
+            "model": "Temperature(NTC) & humidity sensor",
+            "model_id": "ZG-227ZP",
+            "battery_type": "CR2032"
         }
     ]
 }
