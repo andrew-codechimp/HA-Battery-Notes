@@ -30,6 +30,7 @@ from homeassistant.const import (
     STATE_ON,
     STATE_UNAVAILABLE,
     Platform,
+    UnitOfSpeed,
 )
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers import device_registry as dr, entity_registry as er
@@ -40,8 +41,8 @@ from . import setup_integration
 
 pytestmark = pytest.mark.usefixtures("mock_library_updater", "_mock_library_file")
 
-PERCENTAGE_TEMPLATE = "{{ states('[[source::sensor:battery:%]]') }}"
-VOLTAGE_TEMPLATE = "{{ states('[[source::sensor:voltage:V]]') | float / 3 * 100 }}"
+PERCENTAGE_TEMPLATE = "{{ states('[[source::sensor|battery|%]]') }}"
+VOLTAGE_TEMPLATE = "{{ states('[[source::sensor|voltage|V]]') | float / 3 * 100 }}"
 
 
 def _template_entity_id(
@@ -75,12 +76,12 @@ def battery_note_source() -> str:
         ),
         pytest.param(
             "entity",
-            '{{ states("[[SoUrCe::SeNsOr:BaTtErY:PeRcEnTaGe]]") }}',
+            '{{ states("[[SoUrCe::SeNsOr|BaTtErY|PeRcEnTaGe]]") }}',
             id="entity-mixed-case",
         ),
         pytest.param(
             "standalone-entity",
-            "{{ state_attr('[[source::sensor:battery]]', 'unit_of_measurement') == '%' and states('[[SOURCE::SENSOR:BATTERY:percentage]]') }}",
+            "{{ state_attr('[[source::sensor|battery]]', 'unit_of_measurement') == '%' and states('[[SOURCE::SENSOR|BATTERY|percentage]]') }}",
             id="standalone-multiple-placeholders",
         ),
     ],
@@ -204,44 +205,49 @@ async def test_source_template_ambiguity_recovers(  # noqa: PLR0913
     ("source_template_entry", "message"),
     [
         pytest.param(
-            "{{ states('[[source::sensor:battery:V]]') }}",
+            "{{ states('[[source::sensor|battery|V]]') }}",
             "No entity matches",
             id="wrong-unit",
         ),
         pytest.param(
-            "{{ states('[[source::binary_sensor:battery]]') }}",
+            "{{ states('[[source::binary_sensor|battery]]') }}",
             "No entity matches",
             id="wrong-domain",
         ),
         pytest.param(
-            "{{ states('[[source::switch:battery]]') }}",
+            "{{ states('[[source::switch|battery]]') }}",
             "Invalid source placeholder",
             id="invalid-domain",
         ),
         pytest.param(
-            "{{ states('[[source::sensor:battery:]]') }}",
+            "{{ states('[[source::sensor|battery|]]') }}",
             "Invalid source placeholder",
             id="empty-unit",
         ),
         pytest.param(
-            "{{ states('prefix_[[source::sensor:battery]]') }}",
+            "{{ states('[[source::sensor|voltage|V|extra]]') }}",
+            "Invalid source placeholder",
+            id="extra-fields",
+        ),
+        pytest.param(
+            "{{ states('prefix_[[source::sensor|battery]]') }}",
             "whole quoted entity ID",
             id="partial-string",
         ),
         pytest.param(
-            "{{ states('[[TARGET::Sensor:Battery]]') }}",
+            "{{ states('[[TARGET::Sensor|Battery]]') }}",
             "Unsupported placeholder scope",
             id="unsupported-scope",
         ),
         pytest.param(
-            "{{ states('[[SOURCE:Sensor:Battery:%]]') }}",
+            "{{ states('[[SOURCE:Sensor|Battery|%]]') }}",
             "[[namespace::selector]]",
             id="single-colon-namespace",
         ),
         pytest.param(
-            "{{ states('[[source::sensor::battery::%]]') }}",
+            "{{ states('[[source::sensor/battery/%]]') }}",
             "Invalid source placeholder",
-            id="double-colon-selector-fields",
+            id="slash-selector-fields",
         ),
     ],
     indirect=["source_template_entry"],
@@ -395,7 +401,7 @@ async def test_source_template_entity_rename(
 @pytest.mark.parametrize("battery_note_source", ["entity"])
 @pytest.mark.parametrize(
     "source_template_entry",
-    [{CONF_BATTERY_LOW_TEMPLATE: "{{ states('[[SoUrCe::BiNaRy_SeNsOr:BaTtErY]]') }}"}],
+    [{CONF_BATTERY_LOW_TEMPLATE: "{{ states('[[SoUrCe::BiNaRy_SeNsOr|BaTtErY]]') }}"}],
     indirect=True,
 )
 async def test_binary_source_template(
@@ -457,15 +463,15 @@ async def test_source_template_unload(
     "source_template_entry",
     [
         pytest.param(
-            "{# [[source::sensor:voltage:V]] #}{{ 55 }}",
+            "{# [[source::sensor|voltage|V]] #}{{ 55 }}",
             id="comment-only",
         ),
         pytest.param(
-            "{# {{ states('[[source::sensor:voltage:V]]') }} #}{% set example %}{% raw %}'[[source::sensor:voltage:V]]'{% endraw %} '[[source::sensor:voltage:V]]'{% endset %}{{ states('[[source::sensor:battery:%]]') }}",
+            "{# {{ states('[[source::sensor|voltage|V]]') }} #}{% set example %}{% raw %}'[[source::sensor|voltage|V]]'{% endraw %} '[[source::sensor|voltage|V]]'{% endset %}{{ states('[[source::sensor|battery|%]]') }}",
             id="comments-raw-and-text",
         ),
         pytest.param(
-            "{# '[[source::sensor:battery:%]]' #}\r\n  {%- set example = 1 -%}\r\n{{ states('[[source::sensor:battery:%]]') }}\r\n",
+            "{# '[[source::sensor|battery|%]]' #}\r\n  {%- set example = 1 -%}\r\n{{ states('[[source::sensor|battery|%]]') }}\r\n",
             id="whitespace-control",
         ),
     ],
@@ -488,12 +494,12 @@ async def test_source_template_ignores_inactive_content(
     ("source_template_entry", "source_template_voltage"),
     [
         pytest.param(
-            "{{ states('[[source::sensor:voltage:V]]') | float * 10 }}",
+            "{{ states('[[source::sensor|voltage|V]]') | float * 10 }}",
             "v",
             id="lowercase-source",
         ),
         pytest.param(
-            "{{ states('[[source::sensor:voltage:MV]]') | float * 10 }}",
+            "{{ states('[[source::sensor|voltage|MV]]') | float * 10 }}",
             "mV",
             id="uppercase-selector",
         ),
@@ -513,25 +519,43 @@ async def test_source_template_unit_case(
 
 
 @pytest.mark.parametrize(
-    "source_template_entry",
-    ["{{ states('[[SOURCE::SENSOR:PM25]]') }}"],
-    indirect=True,
+    ("source_template_entry", "device_class", "unit"),
+    [
+        pytest.param(
+            "{{ states('[[SOURCE::SENSOR|PM25]]') }}",
+            SensorDeviceClass.PM25,
+            None,
+            id="device-class-digits",
+        ),
+        pytest.param(
+            "{{ states('[[source::sensor|speed|m/s]]') }}",
+            SensorDeviceClass.SPEED,
+            UnitOfSpeed.METERS_PER_SECOND,
+            id="unit-containing-slash",
+        ),
+    ],
+    indirect=["source_template_entry"],
 )
-async def test_source_template_device_class_digits(
+async def test_source_template_additional_device_classes(  # noqa: PLR0913
     hass: HomeAssistant,
     source_template_entry: MockConfigEntry,
     battery_note_device: dr.DeviceEntry,
     entity_registry: er.EntityRegistry,
+    device_class: SensorDeviceClass,
+    unit: str | None,
 ) -> None:
-    """Accept device classes containing digits and mixed-case registry metadata."""
+    """Match other device classes, preserving units that contain a slash."""
     source = entity_registry.async_get_or_create(
         Platform.SENSOR,
         "test",
-        "particulate",
+        "additional_source",
         device_id=battery_note_device.id,
-        original_device_class=SensorDeviceClass.PM25,
+        original_device_class=device_class,
+        unit_of_measurement=unit,
     )
-    entity_registry.async_update_entity(source.entity_id, device_class="Pm25")
+    entity_registry.async_update_entity(
+        source.entity_id, device_class=device_class.value.title()
+    )
     hass.states.async_set(source.entity_id, "25")
     await setup_integration(hass, source_template_entry)
     entity_id = _template_entity_id(source_template_entry, entity_registry)
@@ -540,7 +564,7 @@ async def test_source_template_device_class_digits(
 
 @pytest.mark.parametrize(
     "source_template_entry",
-    ["{{ states('[[source::sensor:voltage:V]]') | float / 3 * 100 + now().minute }}"],
+    ["{{ states('[[source::sensor|voltage|V]]') | float / 3 * 100 + now().minute }}"],
     indirect=True,
 )
 async def test_source_template_rebind_timer_cleanup(  # noqa: PLR0913

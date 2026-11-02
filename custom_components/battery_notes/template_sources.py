@@ -41,7 +41,7 @@ class SourceSelector:
     @classmethod
     def parse(cls, selector: str) -> Self:
         """Parse the device-scoped selector fields."""
-        parts = selector.casefold().split(":")
+        parts = selector.casefold().split("|")
         if (
             len(parts) not in (2, 3)
             or parts[0] not in (Platform.SENSOR, Platform.BINARY_SENSOR)
@@ -56,8 +56,8 @@ class SourceSelector:
 
     def __str__(self) -> str:
         """Describe the selector in resolution errors."""
-        unit = f":{self.unit}" if self.unit is not None else ""
-        return f"[[source::{self.domain}:{self.device_class}{unit}]]"
+        unit = f"|{self.unit}" if self.unit is not None else ""
+        return f"[[source::{self.domain}|{self.device_class}{unit}]]"
 
 
 _SELECTOR_PARSERS = {"source": SourceSelector.parse}
