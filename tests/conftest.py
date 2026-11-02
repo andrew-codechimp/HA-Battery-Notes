@@ -1,12 +1,16 @@
 """Fixtures for Battery Notes tests."""
 
-from collections.abc import Generator
+from asyncio import Handle
+from collections.abc import Callable, Generator
+from contextvars import Context
+from dataclasses import replace
 from types import MappingProxyType
 from unittest.mock import AsyncMock, MagicMock, mock_open, patch
 
 import pytest
 from custom_components.battery_notes.const import (
     CONF_ADVANCED_SETTINGS,
+    CONF_BATTERY_PERCENTAGE_TEMPLATE,
     CONF_BATTERY_QUANTITY,
     CONF_BATTERY_TYPE,
     CONF_DEFAULT_BATTERY_INCREASE_THRESHOLD,
@@ -34,6 +38,7 @@ from homeassistant.const import (
     ATTR_UNIT_OF_MEASUREMENT,
     CONF_DEVICE_ID,
     PERCENTAGE,
+    Platform,
 )
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers import (
@@ -235,6 +240,85 @@ def battery_note_config_entry(
         options=mock_config_entry.options,
         subentries_data=[mock_battery_note_subentry.as_dict()],
     )
+
+
+@pytest.fixture
+def source_template_entry(
+    mock_config_entry: MockConfigEntry,
+    mock_battery_note_subentry: ConfigSubentry,
+    request: pytest.FixtureRequest,
+) -> MockConfigEntry:
+    """Create a note from a percentage template or advanced settings."""
+    advanced = getattr(
+        request,
+        "param",
+        {
+            CONF_BATTERY_PERCENTAGE_TEMPLATE: "{{ states('[[source::sensor:battery:%]]') }}",
+        },
+    )
+    if isinstance(advanced, str):
+        advanced = {CONF_BATTERY_PERCENTAGE_TEMPLATE: advanced}
+    subentry = replace(
+        mock_battery_note_subentry,
+        data=MappingProxyType(
+            {
+                **mock_battery_note_subentry.data,
+                CONF_ADVANCED_SETTINGS: advanced,
+            }
+        ),
+    )
+    return MockConfigEntry(
+        domain=DOMAIN,
+        version=mock_config_entry.version,
+        title=mock_config_entry.title,
+        data=mock_config_entry.data,
+        options=mock_config_entry.options,
+        subentries_data=[subentry.as_dict()],
+    )
+
+
+@pytest.fixture
+def source_template_voltage(
+    hass: HomeAssistant,
+    entity_registry: er.EntityRegistry,
+    battery_note_device: dr.DeviceEntry,
+    request: pytest.FixtureRequest,
+) -> er.RegistryEntry:
+    """Register a voltage source for template lifecycle tests."""
+    unit = getattr(request, "param", "V")
+    entity = entity_registry.async_get_or_create(
+        Platform.SENSOR,
+        "test",
+        "battery_voltage",
+        device_id=battery_note_device.id,
+        original_device_class=SensorDeviceClass.VOLTAGE,
+        unit_of_measurement=unit,
+    )
+    hass.states.async_set(
+        entity.entity_id,
+        "2.4",
+        {
+            ATTR_DEVICE_CLASS: SensorDeviceClass.VOLTAGE,
+            ATTR_UNIT_OF_MEASUREMENT: unit,
+        },
+    )
+    return entity
+
+
+@pytest.fixture
+def delayed_source_template_refresh(hass: HomeAssistant) -> Generator[None]:
+    """Hold queued source refreshes until after an unload can cancel them."""
+    call_soon = hass.loop.call_soon
+
+    def schedule(
+        action: Callable[..., object], *args: object, context: Context | None = None
+    ) -> Handle:
+        if getattr(action, "__name__", None) == "_async_refresh_source_template":
+            return hass.loop.call_later(60, action, *args, context=context)
+        return call_soon(action, *args, context=context)
+
+    with patch.object(hass.loop, "call_soon", side_effect=schedule):
+        yield
 
 
 @pytest.fixture

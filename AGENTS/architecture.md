@@ -27,6 +27,7 @@ Paths below are relative to `custom_components/battery_notes/` unless specified.
 | `common.py` | Registry helpers, unhiding sources, composite-device compatibility, repair issue IDs |
 | `repairs.py` | Missing-source removal and composite-device reassociation flows |
 | `template_helpers.py` | Shared template tracking, startup, cleanup, and self-reference protection |
+| `template_sources.py` | Jinja-aware placeholder parsing, typed source selectors, device-scoped resolution, and registry/metadata listeners |
 | `filters.py` | Low-outlier filtering of battery reports |
 | `diagnostics.py` | Config entry, per-note runtime, source metadata, and library-match diagnostics |
 | `translations/en.json` / `icons.json` | English UI strings / entity and action icons |

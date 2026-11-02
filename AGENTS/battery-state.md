@@ -38,6 +38,22 @@ Use `TemplateTrackingMixin` for template entities, including startup scheduling,
 error handling, listener cleanup, and loop detection. Avoid duplicating that
 machinery in each platform.
 
+Source placeholders use `[[source::domain:device_class[:unit]]]` as a whole quoted
+entity ID. `SourceTemplateResolver` searches the associated device (or the source
+entity itself for a standalone note), excludes disabled/Battery Notes entities,
+and requires exactly one match. Namespace, domain, device class, and unit are
+case-insensitive, with selector fields normalized using `casefold` and `percentage`
+aliasing `%` in any case. Live units take precedence over registry
+fallback units. Keep placeholders in saved configuration. `ParsedTemplate` parses
+Jinja string tokens once and dispatches
+placeholder scopes to typed selectors; comments, raw blocks, and ordinary text
+are preserved. Resolve selectors before creating the tracked `Template`.
+Registry and source-metadata changes retry resolution; source registry IDs preserve
+identity across renames. Rebinding is deferred until state-event dispatch finishes,
+with old results suppressed while a refresh is pending. Remove the old tracker
+before replacing it, and cancel queued refreshes and resolution listeners on
+unload. Resolution errors use the existing template error/retain-state path.
+
 ## Related guidance
 
 For public action payloads, read [Actions and responses](actions.md). For persisted report history, read [Storage, migrations, and repairs](storage-and-migrations.md).

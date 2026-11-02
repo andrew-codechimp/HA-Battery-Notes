@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import logging
+from asyncio import Handle
 from collections.abc import Callable
 from typing import Any
 
@@ -24,6 +25,9 @@ from homeassistant.helpers.event import (
 )
 from homeassistant.helpers.start import async_at_start
 from homeassistant.helpers.template import Template, TemplateStateFromEntityId
+
+from .coordinator import BatteryNotesSubentryCoordinator
+from .template_sources import ParsedTemplate, SourceTemplateResolver
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -131,18 +135,36 @@ class TemplateTrackingMixin(Entity):
     _template_attrs: dict[Template, list[_TemplateAttribute]]
     _template_result_info: TrackTemplateResultInfo | None
     _self_ref_update_count = 0
+    coordinator: BatteryNotesSubentryCoordinator
 
     def _init_template_tracking(self, template: str) -> None:
         """Set the template to track, call from the constructor."""
         self._template = template
         self._template_attrs = {}
         self._template_result_info = None
+        self._source_resolver: SourceTemplateResolver | None = None
+        self._source_result: tuple[bool, str] | None = None
+        self._parsed_template: ParsedTemplate | None = None
+        self._source_refresh_handle: Handle | None = None
 
     @callback
     def _async_start_template_tracking(self) -> None:
         """Start tracking the template once Home Assistant has started."""
-        self._async_setup_templates()
+        self._template_attrs.clear()
+        self._source_result = None
+        self._self_ref_update_count = 0
+        self.async_on_remove(self._async_stop_template_tracking)
         self.async_on_remove(async_at_start(self.hass, self._async_template_startup))
+
+    @callback
+    def _async_stop_template_tracking(self) -> None:
+        """Remove the current tracker before rebinding or unloading."""
+        if self._source_refresh_handle:
+            self._source_refresh_handle.cancel()
+            self._source_refresh_handle = None
+        if self._template_result_info:
+            self._template_result_info.async_remove()
+            self._template_result_info = None
 
     @callback
     def _update_state(self, result: Any) -> None:
@@ -190,10 +212,10 @@ class TemplateTrackingMixin(Entity):
         self._template_attrs[tmpl].append(template_attribute)
 
     @callback
-    def _async_setup_templates(self) -> None:
+    def _async_setup_templates(self, template: str) -> None:
         """Set up templates."""
         self.add_template_attribute(
-            "_state", Template(self._template, self.hass), None, self._update_state
+            "_state", Template(template, self.hass), None, self._update_state
         )
 
     @callback
@@ -202,6 +224,82 @@ class TemplateTrackingMixin(Entity):
         _hass: HomeAssistant | None,
         log_fn: Callable[[int, str], None] | None = None,
     ) -> None:
+        if self._parsed_template is None:
+            try:
+                self._parsed_template = ParsedTemplate.parse(self._template)
+            except TemplateError as ex:
+                self._async_source_template_error(ex)
+                return
+        if self._parsed_template.has_placeholders:
+            if self._source_resolver is None:
+                self._source_resolver = SourceTemplateResolver(
+                    self.hass,
+                    self._parsed_template,
+                    self.coordinator.device_id,
+                    self.coordinator.source_entity_id,
+                    self._async_source_template_changed,
+                )
+            self.async_on_remove(self._source_resolver.async_start())
+            self._async_refresh_source_template()
+            return
+
+        self._async_setup_templates(self._template)
+        self._async_track_templates(log_fn)
+
+    def _resolve_source_template(self) -> tuple[str, TemplateError | None]:
+        """Resolve the current sources without changing any listeners."""
+        assert self._source_resolver is not None
+        try:
+            return self._source_resolver.resolve(), None
+        except TemplateError as ex:
+            return str(ex), ex
+
+    @callback
+    def _async_source_template_changed(self) -> None:
+        """Invalidate old results immediately and rebind after event dispatch."""
+        resolved, error = self._resolve_source_template()
+        if (error is None, resolved) == self._source_result:
+            return
+        if self._source_refresh_handle is None:
+            self._source_refresh_handle = self.hass.loop.call_soon(
+                self._async_refresh_source_template
+            )
+
+    @callback
+    def _async_refresh_source_template(self) -> None:
+        """Rebind outside state dispatch, keeping the saved template intact."""
+        was_pending = self._source_refresh_handle is not None
+        self._source_refresh_handle = None
+        resolved, error = self._resolve_source_template()
+
+        result = (error is None, resolved)
+        if result == self._source_result and not was_pending:
+            return
+        self._source_result = result
+        self._async_stop_template_tracking()
+        self._template_attrs.clear()
+        self._self_ref_update_count = 0
+        if error is not None:
+            self._async_source_template_error(error)
+            return
+
+        self._async_setup_templates(resolved)
+        self._async_track_templates()
+
+    @callback
+    def _async_source_template_error(self, error: TemplateError) -> None:
+        """Apply parsing and resolution errors through the normal state path."""
+        _LOGGER.error(
+            "Unable to resolve source template for %s: %s", self.entity_id, error
+        )
+        self._update_state(error)
+        self._async_write_template_state()
+
+    @callback
+    def _async_track_templates(
+        self, log_fn: Callable[[int, str], None] | None = None
+    ) -> None:
+        """Start tracking the prepared templates."""
         template_var_tups: list[TrackTemplate] = []
         has_availability_template = False
 
@@ -229,7 +327,6 @@ class TemplateTrackingMixin(Entity):
             log_fn=log_fn,
             has_super_template=has_availability_template,
         )
-        self.async_on_remove(result_info.async_remove)
         self._template_result_info = result_info
         result_info.async_refresh()
 
@@ -240,6 +337,8 @@ class TemplateTrackingMixin(Entity):
         updates: list[TrackTemplateResult],
     ) -> None:
         """Call back the results to the attributes."""
+        if self._source_refresh_handle is not None:
+            return
         if event:
             self.async_set_context(event.context)
 

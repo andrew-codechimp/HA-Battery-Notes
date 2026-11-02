@@ -36,7 +36,7 @@ machinery, and Syrupy snapshots. Asyncio mode is automatic.
 | Parent/options flows | `test_config_flow.py` |
 | Manual notes and reconfiguration | `test_config_flow_subentries.py` |
 | Discovery and confirmation flows | `test_discovery.py`, `test_config_flow_discovery.py` |
-| Thresholds, templates, availability, throttling | `test_battery_events.py`, `test_init_subentries.py` |
+| Thresholds, templates, availability, throttling | `test_battery_events.py`, `test_init_subentries.py`, `test_template_sources.py` |
 | Replacement actions/buttons and responses | `test_services.py`, `test_button.py` |
 | Battery event triggers, target rejection, reminder filtering, check-action events, payloads, and cleanup | `test_trigger.py` |
 | History and config migrations | `test_store.py`, `test_migration.py` |
