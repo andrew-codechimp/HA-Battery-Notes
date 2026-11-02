@@ -79,16 +79,16 @@ placeholder as the whole quoted entity ID passed to `states()`, `is_state()`,
 `state_attr()`, or another template function:
 
 ``` text
-[[source::domain:device_class[:unit_of_measurement]]]
+[[source::domain|device_class[|unit_of_measurement]]]
 ```
 
 **Example placeholders**
 
 | Placeholder                         | Matches                          |
 | ----------------------------------- | -------------------------------- |
-| `[[source::sensor:battery:%]]`      | A battery percentage sensor      |
-| `[[source::sensor:voltage:V]]`      | A voltage sensor reporting volts |
-| `[[source::binary_sensor:battery]]` | A binary low-battery sensor      |
+| `[[source::sensor|battery|%]]`      | A battery percentage sensor      |
+| `[[source::sensor|voltage|V]]`      | A voltage sensor reporting volts |
+| `[[source::binary_sensor|battery]]` | A binary low-battery sensor      |
 
 The supported domains are `sensor` and `binary_sensor`. The unit_of_measurement is optional;
 omitting it matches any unit. Specifying `V` does not convert a reading from `mV` to volts.
@@ -109,7 +109,7 @@ Use these in the **Battery Percentage Template** option.
 **Linear voltage: 0 volts = 0%, 3 volts = 100%**
 
 ``` jinja
-{% set v = states('[[source::sensor:voltage:V]]') %}
+{% set v = states('[[source::sensor|voltage|V]]') %}
 {{ (v | float / 3 * 100) | round(0)
    if is_number(v) else 'unknown' }}
 ```
@@ -117,7 +117,7 @@ Use these in the **Battery Percentage Template** option.
 **Calibrated voltage: 2 volts = 10%, 3 volts = 100%**
 
 ``` jinja
-{% set v = states('[[source::sensor:voltage:V]]') %}
+{% set v = states('[[source::sensor|voltage|V]]') %}
 {{ (((v | float - 2) / (3 - 2)) * 90 + 10) | round(0)
    if is_number(v) else 'unknown' }}
 ```
@@ -125,7 +125,7 @@ Use these in the **Battery Percentage Template** option.
 **Binary low-battery state: low = 9%, normal = 100%**
 
 ``` jinja
-{% set low = states('[[source::binary_sensor:battery]]') %}
+{% set low = states('[[source::binary_sensor|battery]]') %}
 {{ 9 if low == 'on' else 100 if low == 'off' else 'unknown' }}
 ```
 
@@ -141,7 +141,7 @@ of a placeholder. Use the actual state value, rather than its translated display
 text.
 
 ``` jinja
-{% set level = states('[[source::sensor:battery]]') %}
+{% set level = states('[[source::sensor|battery]]') %}
 {{ level == 'Low'
    if level not in ['unknown', 'unavailable'] else 'unknown' }}
 ```
@@ -149,6 +149,6 @@ text.
 **Detect a voltage below 1 volt**
 
 ``` jinja
-{% set v = states('[[source::sensor:voltage:V]]') %}
+{% set v = states('[[source::sensor|voltage|V]]') %}
 {{ (v | float) < 1 if is_number(v) else 'unknown' }}
 ```
