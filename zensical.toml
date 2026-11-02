@@ -16,6 +16,7 @@ nav = [
   { "Triggers" = "triggers.md" },
   { "Events" = "events.md" },
   { "Actions" = "actions.md" },
+  { "Templates" = "templates.md" },
   { "Library" = "library.md" },
   { "Configuration" = "configuration.md" },
   { "Community" = "community.md" },

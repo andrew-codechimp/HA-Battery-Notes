@@ -50,46 +50,19 @@ This is for where a device does not have a typical battery percentage (or it is 
 Specifying a template for devices without a typical battery percentage will create a battery+ sensor.  
 You can specify a template that must return a percentage (0-100).
 
-Example of voltage sensor with a maximum capacity of 3 volts, with a linear percentage (3 volts = 100%, 0 volts = 0%)  
+Templates also support placeholders allowing you to create generic templates you can copy/paste between battery notes without having to edit entity IDs.
 
-``` yaml
-{% set v = states('sensor.my_sensor_voltage') %}
-{{ 
-  (v | float / 3 * 100) | round(0)
-  if v not in ['unknown','unavailable'] else 'unknown'
-}}
-```
-
-Example of voltage sensor with a maximum capacity of 3 volts, where 2 volts should be equivalent to 10%  
-
-``` yaml
-{% set v = states('sensor.my_sensor_voltage') %}
-{{ 
-  (((v | float - 2) / (3 - 2)) * 90 + 10) | round(0)
-  if v not in ['unknown','unavailable'] else 'unknown'
-}}
-```
-
-Example of binary low sensor, returning either 100% or 9%  
-```{{ 9 if states('binary_sensor.my_sensor_low') == true else 100 }}```  
+See [templates](./templates.md) for examples.
 
 ## Battery Low Template
 
 This is for where a device does not have a typical battery percentage or battery low boolean (or it is innacurate) but still provides an indication of the level, such as a string, boolean or voltage.  
 The battery percentage template above will also trigger low battery events/states so the battery low template is for legacy use.  
-You can specify a template that must return true when the battery is deemed low.  
+You can specify a template that must return true when the battery is deemed low.
 
-Example templates
+Templates also support placeholders allowing you to create generic templates you can copy/paste between battery notes without having to edit entity IDs.
 
-```
-{{ states('sensor.mysensor_battery_low') }}
-{{ states('sensor.mysensor_battery_level') == "Low" }}
-{{ states('sensor.mysensor_battery_voltage') | float(5) < 1 }}
-```
-
-!!! info
-
-    If a template is specified then the battery percentage will be ignored when evaluating threshold and increased events.
+See [templates](./templates.md) for examples.
 
 ## Retain State
 
