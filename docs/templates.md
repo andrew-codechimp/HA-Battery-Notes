@@ -94,11 +94,6 @@ The supported domains are `sensor` and `binary_sensor`. The unit_of_measurement 
 omitting it matches any unit. Specifying `V` does not convert a reading from `mV` to volts.
 Specify the unit when the calculation depends on it.
 
-All fields are case-insensitive. `percentage` is also accepted as an alias for `%`.
-
-For an entity based note, the search uses the source entity's current device. If that
-entity has no device, only the source entity itself is considered.
-
 Each placeholder must match exactly one entity. Missing or ambiguous matches are
 logged as template errors and use the normal unavailable/retain-state behaviour.
 Use an explicit entity ID when a device has multiple matching sources.
