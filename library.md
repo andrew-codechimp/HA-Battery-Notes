@@ -1,4 +1,4 @@
-## 2364 Devices in library
+## 2365 Devices in library
 
 This file is auto generated, do not modify
 
@@ -560,6 +560,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Ecowitt                                         |WH51                                                                                          |AA                        |                                                                                      |
 |Ecowitt                                         |wh52                                                                                          |AA                        |                                                                                      |
 |Ecowitt                                         |wh69                                                                                          |2× AA                     |                                                                                      |
+|Ecowitt                                         |WS90                                                                                          |2× AA                     |                                                                                      |
 |EFEKTA                                          |Plant Wattering Sensor with e-ink display 1.02                                                |CR2577                    |EFEKTA_eFlora                                                                         |
 |Elexa Consumer Products Inc.                    |DMMS1                                                                                         |CR123A                    |                                                                                      |
 |Elexa Consumer Products Inc.                    |DMS01                                                                                         |2× CR123A                 |                                                                                      |
