@@ -85,11 +85,12 @@ battery_notes_source('domain', 'device_class', 'unit_of_measurement')
 
 **Example source calls**
 
-| Source call                                        | Matches                          |
-| -------------------------------------------------- | -------------------------------- |
-| `battery_notes_source('sensor', 'battery', '%')`   | A battery percentage sensor      |
-| `battery_notes_source('sensor', 'voltage', 'V')`   | A voltage sensor reporting volts |
-| `battery_notes_source('binary_sensor', 'battery')` | A binary low-battery sensor      |
+| Source call                                        | Matches                               |
+| -------------------------------------------------- | ------------------------------------- |
+| `battery_notes_source('sensor', 'battery', '%')`   | A battery percentage sensor           |
+| `battery_notes_source('sensor', 'voltage', 'V')`   | A voltage sensor reporting volts      |
+| `battery_notes_source('sensor', 'voltage', 'mV')`  | A voltage sensor reporting millivolts |
+| `battery_notes_source('binary_sensor', 'battery')` | A binary low-battery sensor           |
 
 The supported domains are `sensor` and `binary_sensor`. The unit of measurement is
 optional; omitting it matches any unit. Specifying `V` does not convert a reading
