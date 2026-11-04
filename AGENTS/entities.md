@@ -23,6 +23,14 @@ Read when adding entities or changing source selection, device association, uniq
 - Reuse the base naming, translation placeholders, and device association logic.
   It attaches entities to existing source devices and supports standalone
   entities. Its `available` property combines coordinator and entity availability.
+- Let HA generate entity IDs from the user's format; do not assign `entity_id`.
+  Set the required description field `object_id_base` to the English Battery Notes
+  component, such as `battery_plus` or `battery_plus_low`. The base
+  `suggested_object_id` uses this field independently of `key`, `translation_key`,
+  and `unique_id_suffix`. Display names remain translated.
+  Attached entity notes use the source's own name, without its legacy device
+  prefix; standalone notes use the note title. Keep existing registry IDs intact
+  until the user explicitly regenerates them.
 - Automatic source wrapping selects battery-class percentage sensors with `%`
   units, or battery-class binary sensors. Device notes prefer percentage sources. Battery
   voltage sensors must not be mistaken for percentage sources. Units can fall

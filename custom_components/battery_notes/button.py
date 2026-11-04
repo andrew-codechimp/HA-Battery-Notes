@@ -33,8 +33,6 @@ class BatteryNotesButtonEntityDescription(
 ):
     """Describes Battery Notes button entity."""
 
-    unique_id_suffix: str
-
 
 async def async_setup_entry(
     hass: HomeAssistant,
@@ -59,11 +57,11 @@ async def async_setup_entry(
 
         description = BatteryNotesButtonEntityDescription(
             unique_id_suffix="_battery_replaced_button",
+            object_id_base="battery_replaced",
             key="battery_replaced",
             translation_key="battery_replaced",
             entity_category=EntityCategory.DIAGNOSTIC,
             entity_registry_enabled_default=config_entry.runtime_data.domain_config.enable_replaced,
-            entity_type="button",
         )
 
         async_add_entities(

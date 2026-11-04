@@ -1,5 +1,5 @@
 # serializer version: 1
-# name: test_entities[device][button.door_battery_note_battery_replaced-entry]
+# name: test_entities[device][button.door_sensor_battery_replaced-entry]
   EntityRegistryEntrySnapshot({
     'aliases': list([
       None,
@@ -13,7 +13,7 @@
     'disabled_by': None,
     'domain': 'button',
     'entity_category': <EntityCategory.DIAGNOSTIC: 'diagnostic'>,
-    'entity_id': 'button.door_battery_note_battery_replaced',
+    'entity_id': 'button.door_sensor_battery_replaced',
     'has_entity_name': True,
     'hidden_by': None,
     'icon': None,
@@ -21,7 +21,7 @@
     'labels': set({
     }),
     'name': None,
-    'object_id_base': None,
+    'object_id_base': 'battery_replaced',
     'options': dict({
       'battery_notes': dict({
         'entity_id': 'bn_door_battery_battery_replaced_button',
@@ -32,27 +32,27 @@
     'original_name': 'Battery replaced',
     'platform': 'battery_notes',
     'previous_unique_id': None,
-    'suggested_object_id': 'door_battery_note_battery_replaced',
+    'suggested_object_id': None,
     'supported_features': 0,
     'translation_key': 'battery_replaced',
     'unique_id': 'bn_door_battery_battery_replaced_button',
     'unit_of_measurement': None,
   })
 # ---
-# name: test_entities[device][button.door_battery_note_battery_replaced-state]
+# name: test_entities[device][button.door_sensor_battery_replaced-state]
   StateSnapshot({
     'attributes': ReadOnlyDict({
       <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Door sensor Battery replaced',
     }),
     'context': <ANY>,
-    'entity_id': 'button.door_battery_note_battery_replaced',
+    'entity_id': 'button.door_sensor_battery_replaced',
     'last_changed': <ANY>,
     'last_reported': <ANY>,
     'last_updated': <ANY>,
     'state': 'unknown',
   })
 # ---
-# name: test_entities[entity][button.door_battery_battery_replaced-entry]
+# name: test_entities[entity][button.door_sensor_battery_battery_replaced-entry]
   EntityRegistryEntrySnapshot({
     'aliases': list([
       None,
@@ -66,7 +66,7 @@
     'disabled_by': None,
     'domain': 'button',
     'entity_category': <EntityCategory.DIAGNOSTIC: 'diagnostic'>,
-    'entity_id': 'button.door_battery_battery_replaced',
+    'entity_id': 'button.door_sensor_battery_battery_replaced',
     'has_entity_name': True,
     'hidden_by': None,
     'icon': None,
@@ -74,7 +74,7 @@
     'labels': set({
     }),
     'name': None,
-    'object_id_base': None,
+    'object_id_base': 'battery_battery_replaced',
     'options': dict({
       'battery_notes': dict({
         'entity_id': 'bn_door_battery_battery_replaced_button',
@@ -85,20 +85,20 @@
     'original_name': 'Battery Battery replaced',
     'platform': 'battery_notes',
     'previous_unique_id': None,
-    'suggested_object_id': 'door_battery_battery_replaced',
+    'suggested_object_id': None,
     'supported_features': 0,
     'translation_key': 'battery_replaced',
     'unique_id': 'bn_door_battery_battery_replaced_button',
     'unit_of_measurement': None,
   })
 # ---
-# name: test_entities[entity][button.door_battery_battery_replaced-state]
+# name: test_entities[entity][button.door_sensor_battery_battery_replaced-state]
   StateSnapshot({
     'attributes': ReadOnlyDict({
       <EntityStateAttribute.FRIENDLY_NAME: 'friendly_name'>: 'Door sensor Battery Battery replaced',
     }),
     'context': <ANY>,
-    'entity_id': 'button.door_battery_battery_replaced',
+    'entity_id': 'button.door_sensor_battery_battery_replaced',
     'last_changed': <ANY>,
     'last_reported': <ANY>,
     'last_updated': <ANY>,
@@ -127,7 +127,7 @@
     'labels': set({
     }),
     'name': None,
-    'object_id_base': None,
+    'object_id_base': 'door_battery_note_battery_replaced',
     'options': dict({
       'battery_notes': dict({
         'entity_id': 'bn_door_battery_battery_replaced_button',
@@ -138,7 +138,7 @@
     'original_name': 'Door battery note Battery replaced',
     'platform': 'battery_notes',
     'previous_unique_id': None,
-    'suggested_object_id': 'door_battery_note_battery_replaced',
+    'suggested_object_id': None,
     'supported_features': 0,
     'translation_key': 'battery_replaced',
     'unique_id': 'bn_door_battery_battery_replaced_button',

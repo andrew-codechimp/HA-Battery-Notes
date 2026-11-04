@@ -144,7 +144,6 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
     _previous_battery_low_template_state: bool | None = None
     _battery_low_binary_state: bool = False
     _previous_battery_low_binary_state: bool | None = None
-    _source_entity_name: str | None = None
     _outlier_filter: LowOutlierFilter | None = None
     _link_retry_delay: timedelta = timedelta(minutes=2)
 
@@ -433,43 +432,17 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
         return f"{self.config_entry.entry_id}_{self.subentry.subentry_id}"
 
     @property
-    def source_entity_name(self):
-        """Get the current name of the source_entity_id."""
-        if not self._source_entity_name:
-            self._source_entity_name = ""
-
-            if self.source_entity_id:
-                entity_registry = er.async_get(self.hass)
-                device_registry = dr.async_get(self.hass)
-                registry_entry = entity_registry.async_get(self.source_entity_id)
-                device_entry = (
-                    device_registry.async_get(self.device_id)
-                    if self.device_id
-                    else None
-                )
-
-                if registry_entry:
-                    if (
-                        registry_entry
-                        and registry_entry.name is None
-                        and registry_entry.has_entity_name
-                        and device_entry
-                    ):
-                        self._source_entity_name = (
-                            registry_entry.name
-                            or registry_entry.original_name
-                            or device_entry.name_by_user
-                            or device_entry.name
-                            or self.source_entity_id
-                        )
-                    else:
-                        self._source_entity_name = (
-                            registry_entry.name
-                            or registry_entry.original_name
-                            or self.source_entity_id
-                        )
-
-        return self._source_entity_name
+    def source_entity_name(self) -> str:
+        """Return the source entity's own name without its device prefix."""
+        if not self.source_entity_id or not (
+            entry := er.async_get(self.hass).async_get(self.source_entity_id)
+        ):
+            return ""
+        if entry.name is not None:
+            return entry.name
+        if entry.original_name_unprefixed is not None:
+            return entry.original_name_unprefixed
+        return entry.original_name or ""
 
     @property
     def area_name(self):
