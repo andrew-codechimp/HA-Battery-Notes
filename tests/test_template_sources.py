@@ -1,4 +1,4 @@
-"""Test source placeholders through real Battery Notes template entities."""
+"""Test source calls through real Battery Notes template entities."""
 
 from datetime import timedelta
 from logging import ERROR
@@ -41,8 +41,10 @@ from . import setup_integration
 
 pytestmark = pytest.mark.usefixtures("mock_library_updater", "_mock_library_file")
 
-PERCENTAGE_TEMPLATE = "{{ states('[[source::sensor|battery|%]]') }}"
-VOLTAGE_TEMPLATE = "{{ states('[[source::sensor|voltage|V]]') | float / 3 * 100 }}"
+PERCENTAGE_TEMPLATE = '{{ states(batterynotes_source("sensor", "battery", "%")) }}'
+VOLTAGE_TEMPLATE = (
+    '{{ states(batterynotes_source("sensor", "voltage", "V")) | float / 3 * 100 }}'
+)
 
 
 def _template_entity_id(
@@ -75,14 +77,29 @@ def battery_note_source() -> str:
             id="device",
         ),
         pytest.param(
+            "device",
+            "{% set v = states(batterynotes_source('sensor', 'battery', '%')) %}{{ v | float if is_number(v) else 'unknown' }}",
+            id="set-variable",
+        ),
+        pytest.param(
+            "device",
+            "{{ states(batterynotes_source \n ('sensor', \n 'battery', '%',)) }}",
+            id="multiline-and-trailing-comma",
+        ),
+        pytest.param(
+            "device",
+            r"{{ states(batterynotes_source('sensor', 'bat\x74ery')) }}",
+            id="escaped-argument",
+        ),
+        pytest.param(
             "entity",
-            '{{ states("[[SoUrCe::SeNsOr|BaTtErY|PeRcEnTaGe]]") }}',
+            "{{ states(batterynotes_source('SeNsOr', 'BaTtErY', 'PeRcEnTaGe')) }}",
             id="entity-mixed-case",
         ),
         pytest.param(
             "standalone-entity",
-            "{{ state_attr('[[source::sensor|battery]]', 'unit_of_measurement') == '%' and states('[[SOURCE::SENSOR|BATTERY|percentage]]') }}",
-            id="standalone-multiple-placeholders",
+            '{{ state_attr(batterynotes_source("sensor", "battery"), \'unit_of_measurement\') == \'%\' and states(batterynotes_source("SENSOR", "BATTERY", "percentage")) }}',
+            id="standalone-multiple-calls",
         ),
     ],
     indirect=["source_template_entry"],
@@ -194,7 +211,7 @@ async def test_source_template_ambiguity_recovers(  # noqa: PLR0913
     )
     await hass.async_block_till_done()
     assert hass.states.get(entity_id).state == expected_state
-    assert "Ambiguous source placeholder" in caplog.text
+    assert "Ambiguous source selector" in caplog.text
 
     entity_registry.async_remove(extra.entity_id)
     await hass.async_block_till_done()
@@ -205,49 +222,74 @@ async def test_source_template_ambiguity_recovers(  # noqa: PLR0913
     ("source_template_entry", "message"),
     [
         pytest.param(
-            "{{ states('[[source::sensor|battery|V]]') }}",
+            "{{ states(batterynotes_source('sensor', 'battery', 'V')) }}",
             "No entity matches",
             id="wrong-unit",
         ),
         pytest.param(
-            "{{ states('[[source::binary_sensor|battery]]') }}",
+            "{{ states(batterynotes_source('binary_sensor', 'battery')) }}",
             "No entity matches",
             id="wrong-domain",
         ),
         pytest.param(
-            "{{ states('[[source::switch|battery]]') }}",
-            "Invalid source placeholder",
+            "{{ states(batterynotes_source('switch', 'battery')) }}",
+            "Invalid source selector",
             id="invalid-domain",
         ),
         pytest.param(
-            "{{ states('[[source::sensor|battery|]]') }}",
-            "Invalid source placeholder",
+            "{{ states(batterynotes_source('sensor', 'battery', '')) }}",
+            "Invalid source selector",
             id="empty-unit",
         ),
         pytest.param(
-            "{{ states('[[source::sensor|voltage|V|extra]]') }}",
-            "Invalid source placeholder",
-            id="extra-fields",
+            "{{ states(batterynotes_source('sensor', 'invalid/class')) }}",
+            "Invalid source selector",
+            id="invalid-device-class",
         ),
         pytest.param(
-            "{{ states('prefix_[[source::sensor|battery]]') }}",
-            "whole quoted entity ID",
-            id="partial-string",
+            "{{ states(batterynotes_source('sensor', 'voltage', 'V', 'extra')) }}",
+            "requires two or three literal string arguments",
+            id="extra-arguments",
         ),
         pytest.param(
-            "{{ states('[[TARGET::Sensor|Battery]]') }}",
-            "Unsupported placeholder scope",
-            id="unsupported-scope",
+            "{{ states(batterynotes_source('sensor')) }}",
+            "requires two or three literal string arguments",
+            id="missing-argument",
         ),
         pytest.param(
-            "{{ states('[[SOURCE:Sensor|Battery|%]]') }}",
-            "[[namespace::selector]]",
-            id="single-colon-namespace",
+            "{{ states(batterynotes_source()) }}",
+            "requires two or three literal string arguments",
+            id="no-arguments",
         ),
         pytest.param(
-            "{{ states('[[source::sensor/battery/%]]') }}",
-            "Invalid source placeholder",
-            id="slash-selector-fields",
+            "{{ states(batterynotes_source('sensor', 42)) }}",
+            "requires two or three literal string arguments",
+            id="non-string-argument",
+        ),
+        pytest.param(
+            "{% set domain = 'sensor' %}{{ states(batterynotes_source(domain, 'battery')) }}",
+            "requires two or three literal string arguments",
+            id="variable-argument",
+        ),
+        pytest.param(
+            "{{ states(batterynotes_source('sensor', 'bat' ~ 'tery')) }}",
+            "requires two or three literal string arguments",
+            id="expression-argument",
+        ),
+        pytest.param(
+            "{{ states(batterynotes_source('sensor', device_class='battery')) }}",
+            "requires two or three literal string arguments",
+            id="keyword-argument",
+        ),
+        pytest.param(
+            "{{ states(batterynotes_source(*['sensor', 'battery'])) }}",
+            "requires two or three literal string arguments",
+            id="unpacked-arguments",
+        ),
+        pytest.param(
+            "{{ states(batterynotes_source('sensor', 'battery', **{})) }}",
+            "requires two or three literal string arguments",
+            id="unpacked-keywords",
         ),
     ],
     indirect=["source_template_entry"],
@@ -401,7 +443,11 @@ async def test_source_template_entity_rename(
 @pytest.mark.parametrize("battery_note_source", ["entity"])
 @pytest.mark.parametrize(
     "source_template_entry",
-    [{CONF_BATTERY_LOW_TEMPLATE: "{{ states('[[SoUrCe::BiNaRy_SeNsOr|BaTtErY]]') }}"}],
+    [
+        {
+            CONF_BATTERY_LOW_TEMPLATE: '{{ states(batterynotes_source("BiNaRy_SeNsOr", "BaTtErY")) }}'
+        }
+    ],
     indirect=True,
 )
 async def test_binary_source_template(
@@ -463,15 +509,27 @@ async def test_source_template_unload(
     "source_template_entry",
     [
         pytest.param(
-            "{# [[source::sensor|voltage|V]] #}{{ 55 }}",
+            "{# batterynotes_source('sensor', 'voltage', 'V') #}{{ 55 }}",
             id="comment-only",
         ),
         pytest.param(
-            "{# {{ states('[[source::sensor|voltage|V]]') }} #}{% set example %}{% raw %}'[[source::sensor|voltage|V]]'{% endraw %} '[[source::sensor|voltage|V]]'{% endset %}{{ states('[[source::sensor|battery|%]]') }}",
+            "{% set example = \"batterynotes_source('sensor', 'voltage', 'V')\" %}{{ 55 }}",
+            id="quoted-call",
+        ),
+        pytest.param(
+            "{% set example = '[[source::sensor|voltage|V]]' %}{{ 55 }}",
+            id="old-placeholder-is-literal",
+        ),
+        pytest.param(
+            "{% macro batterynotes_source(domain, device_class) %}55{% endmacro %}{{ 55 }}",
+            id="macro-declaration",
+        ),
+        pytest.param(
+            '{# {{ states(batterynotes_source("sensor", "voltage", "V")) }} #}{% set example %}{% raw %}batterynotes_source("sensor", "voltage", "V"){% endraw %} batterynotes_source("sensor", "voltage", "V"){% endset %}{{ states(batterynotes_source("sensor", "battery", "%")) }}',
             id="comments-raw-and-text",
         ),
         pytest.param(
-            "{# '[[source::sensor|battery|%]]' #}\r\n  {%- set example = 1 -%}\r\n{{ states('[[source::sensor|battery|%]]') }}\r\n",
+            '{# batterynotes_source("sensor", "battery", "%") #}\r\n  {%- set example = 1 -%}\r\n{{ states(batterynotes_source("sensor", "battery", "%")) }}\r\n',
             id="whitespace-control",
         ),
     ],
@@ -483,7 +541,7 @@ async def test_source_template_ignores_inactive_content(
     entity_registry: er.EntityRegistry,
     caplog: pytest.LogCaptureFixture,
 ) -> None:
-    """Only actual Jinja string tokens participate in source resolution."""
+    """Only active Jinja source calls participate in source resolution."""
     await setup_integration(hass, source_template_entry)
     entity_id = _template_entity_id(source_template_entry, entity_registry)
     assert hass.states.get(entity_id).state == "55.0"
@@ -494,12 +552,12 @@ async def test_source_template_ignores_inactive_content(
     ("source_template_entry", "source_template_voltage"),
     [
         pytest.param(
-            "{{ states('[[source::sensor|voltage|V]]') | float * 10 }}",
+            '{{ states(batterynotes_source("sensor", "voltage", "V")) | float * 10 }}',
             "v",
             id="lowercase-source",
         ),
         pytest.param(
-            "{{ states('[[source::sensor|voltage|MV]]') | float * 10 }}",
+            '{{ states(batterynotes_source("sensor", "voltage", "MV")) | float * 10 }}',
             "mV",
             id="uppercase-selector",
         ),
@@ -522,13 +580,13 @@ async def test_source_template_unit_case(
     ("source_template_entry", "device_class", "unit"),
     [
         pytest.param(
-            "{{ states('[[SOURCE::SENSOR|PM25]]') }}",
+            '{{ states(batterynotes_source("SENSOR", "PM25")) }}',
             SensorDeviceClass.PM25,
             None,
             id="device-class-digits",
         ),
         pytest.param(
-            "{{ states('[[source::sensor|speed|m/s]]') }}",
+            '{{ states(batterynotes_source("sensor", "speed", "m/s")) }}',
             SensorDeviceClass.SPEED,
             UnitOfSpeed.METERS_PER_SECOND,
             id="unit-containing-slash",
@@ -564,7 +622,9 @@ async def test_source_template_additional_device_classes(  # noqa: PLR0913
 
 @pytest.mark.parametrize(
     "source_template_entry",
-    ["{{ states('[[source::sensor|voltage|V]]') | float / 3 * 100 + now().minute }}"],
+    [
+        '{{ states(batterynotes_source("sensor", "voltage", "V")) | float / 3 * 100 + now().minute }}'
+    ],
     indirect=True,
 )
 async def test_source_template_rebind_timer_cleanup(  # noqa: PLR0913

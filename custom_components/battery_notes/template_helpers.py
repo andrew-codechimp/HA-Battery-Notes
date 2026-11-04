@@ -230,7 +230,7 @@ class TemplateTrackingMixin(Entity):
             except TemplateError as ex:
                 self._async_source_template_error(ex)
                 return
-        if self._parsed_template.has_placeholders:
+        if self._parsed_template.has_sources:
             if self._source_resolver is None:
                 self._source_resolver = SourceTemplateResolver(
                     self.hass,

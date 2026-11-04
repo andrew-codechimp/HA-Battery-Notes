@@ -38,16 +38,21 @@ Use `TemplateTrackingMixin` for template entities, including startup scheduling,
 error handling, listener cleanup, and loop detection. Avoid duplicating that
 machinery in each platform.
 
-Source placeholders use `[[source::domain:device_class[:unit]]]` as a whole quoted
-entity ID. `SourceTemplateResolver` searches the associated device (or the source
-entity itself for a standalone note), excludes disabled/Battery Notes entities,
-and requires exactly one match. Namespace, domain, device class, and unit are
-case-insensitive, with selector fields normalized using `casefold` and `percentage`
-aliasing `%` in any case. Live units take precedence over registry
-fallback units. Keep placeholders in saved configuration. `ParsedTemplate` parses
-Jinja string tokens once and dispatches
-placeholder scopes to typed selectors; comments, raw blocks, and ordinary text
-are preserved. Resolve selectors before creating the tracked `Template`.
+Source selectors use `batterynotes_source('sensor', 'voltage', 'V')` inside Jinja
+expressions and resolve to an entity ID, for example
+`states(batterynotes_source('sensor', 'voltage', 'V'))`. Calls require two or three
+positional literal string arguments: domain (`sensor` or `binary_sensor`), device
+class, and optional unit. Variables, expressions, keyword arguments, and unpacked
+arguments are rejected. The function name is case-sensitive; selector fields are
+normalized using `casefold`, with `percentage` aliasing `%` in any case.
+`SourceTemplateResolver` searches the associated device (or the source entity
+itself for a standalone note), excludes disabled/Battery Notes entities, and
+requires exactly one match. Live units take precedence over registry fallback
+units. Keep source calls in saved configuration. `ParsedTemplate` lexes Jinja once
+to identify call spans and parses each call into a typed selector; quoted strings,
+comments, raw blocks, and ordinary text are preserved. The old `[[source::...]]`
+syntax is no longer resolved. Replace source calls with quoted entity IDs before
+creating the tracked `Template`; this is preprocessing, not a global Jinja function.
 Registry and source-metadata changes retry resolution; source registry IDs preserve
 identity across renames. Rebinding is deferred until state-event dispatch finishes,
 with old results suppressed while a refresh is pending. Remove the old tracker

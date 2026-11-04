@@ -1,11 +1,11 @@
-"""Resolve device-scoped entity placeholders in templates."""
+"""Resolve device-scoped source calls in templates."""
 
 import re
 from collections.abc import Callable
 from dataclasses import dataclass
-from typing import Self
+from typing import TYPE_CHECKING, Self
 
-from jinja2 import Environment, TemplateSyntaxError
+from jinja2 import Environment, TemplateSyntaxError, nodes
 
 from homeassistant.const import (
     ATTR_DEVICE_CLASS,
@@ -23,10 +23,7 @@ from homeassistant.helpers.event import (
 
 from .const import DOMAIN
 
-_PLACEHOLDER = re.compile(
-    r"\[\[(?P<scope>[a-z_]+)::(?P<selector>[^\]\n]*)\]\]", re.IGNORECASE
-)
-_PLACEHOLDER_START = re.compile(r"\[\[[a-z_]+:", re.IGNORECASE)
+_SOURCE_FUNCTION = "batterynotes_source"
 _LEXER = Environment(autoescape=True, keep_trailing_newline=True)
 
 
@@ -39,16 +36,35 @@ class SourceSelector:
     unit: str | None = None
 
     @classmethod
-    def parse(cls, selector: str) -> Self:
-        """Parse the device-scoped selector fields."""
-        parts = selector.casefold().split("|")
+    def parse(cls, expression: str) -> Self:
+        """Parse a source call with two or three literal string arguments."""
+        output = _LEXER.parse("{{ " + expression + " }}").body[0]
+        if TYPE_CHECKING:
+            assert isinstance(output, nodes.Output)
+        call = output.nodes[0]
+        if not isinstance(call, nodes.Call):
+            raise TemplateError("Invalid batterynotes_source() call")
+        parts = [
+            arg.value.casefold()
+            for arg in call.args
+            if isinstance(arg, nodes.Const) and isinstance(arg.value, str)
+        ]
         if (
-            len(parts) not in (2, 3)
-            or parts[0] not in (Platform.SENSOR, Platform.BINARY_SENSOR)
+            len(call.args) not in (2, 3)
+            or call.kwargs
+            or call.dyn_args is not None
+            or call.dyn_kwargs is not None
+            or len(parts) != len(call.args)
+        ):
+            raise TemplateError(
+                "batterynotes_source() requires two or three literal string arguments"
+            )
+        if (
+            parts[0] not in (Platform.SENSOR, Platform.BINARY_SENSOR)
             or not re.fullmatch(r"[a-z_][a-z0-9_]*", parts[1])
             or (len(parts) == 3 and not parts[2])
         ):
-            raise TemplateError(f"Invalid source placeholder: [[source::{selector}]]")
+            raise TemplateError(f"Invalid source selector: {expression}")
         unit = parts[2] if len(parts) == 3 else None
         if unit == "percentage":
             unit = PERCENTAGE
@@ -56,11 +72,10 @@ class SourceSelector:
 
     def __str__(self) -> str:
         """Describe the selector in resolution errors."""
-        unit = f"|{self.unit}" if self.unit is not None else ""
-        return f"[[source::{self.domain}|{self.device_class}{unit}]]"
-
-
-_SELECTOR_PARSERS = {"source": SourceSelector.parse}
+        args = [self.domain.value, self.device_class]
+        if self.unit is not None:
+            args.append(self.unit)
+        return f"{_SOURCE_FUNCTION}({', '.join(repr(arg) for arg in args)})"
 
 
 @dataclass(frozen=True)
@@ -70,35 +85,59 @@ class ParsedTemplate:
     parts: tuple[str | SourceSelector, ...]
 
     @property
-    def has_placeholders(self) -> bool:
+    def has_sources(self) -> bool:
         """Return whether this template needs source resolution."""
         return any(isinstance(part, SourceSelector) for part in self.parts)
 
     @classmethod
     def parse(cls, template: str) -> Self:
-        """Find whole placeholder string tokens, leaving comments and data intact."""
+        """Find source calls, leaving strings, comments, and data intact."""
         source = template.replace("\r\n", "\n").replace("\r", "\n")
         parts: list[str | SourceSelector] = []
         cursor = copied = 0
+        previous = before_previous = ""
         try:
             tokens = list(_LEXER.lex(source))
+            index = 0
+            while index < len(tokens):
+                _line, kind, value = tokens[index]
+                start = source.index(value, cursor)
+                cursor = start + len(value)
+                index += 1
+                if kind == "whitespace":
+                    continue
+                is_source = (
+                    kind == "name"
+                    and value == _SOURCE_FUNCTION
+                    and previous not in (".", "|", "is", "macro", "filter")
+                    and (before_previous, previous) != ("is", "not")
+                )
+                before_previous, previous = previous, value
+                if not is_source:
+                    continue
+                while index < len(tokens) and tokens[index][1] == "whitespace":
+                    index += 1
+                if index == len(tokens) or tokens[index][2] != "(":
+                    continue
+                depth = 0
+                for _line, call_kind, call_value in tokens[index:]:
+                    call_start = source.index(call_value, cursor)
+                    cursor = call_start + len(call_value)
+                    index += 1
+                    if call_kind == "operator":
+                        if call_value == "(":
+                            depth += 1
+                        elif call_value == ")":
+                            depth -= 1
+                            if depth == 0:
+                                break
+                parts.extend(
+                    (source[copied:start], SourceSelector.parse(source[start:cursor]))
+                )
+                copied = cursor
+                previous = ")"
         except TemplateSyntaxError as ex:
             raise TemplateError(ex) from ex
-        for _line, kind, value in tokens:
-            start = source.index(value, cursor)
-            cursor = start + len(value)
-            if kind != "string" or not _PLACEHOLDER_START.search(value):
-                continue
-            match = _PLACEHOLDER.fullmatch(value[1:-1])
-            if match is None:
-                raise TemplateError(
-                    "Placeholders must use [[namespace::selector]] as a whole quoted entity ID"
-                )
-            scope = match["scope"].casefold()
-            if (parser := _SELECTOR_PARSERS.get(scope)) is None:
-                raise TemplateError(f"Unsupported placeholder scope: {scope}")
-            parts.extend((source[copied:start], parser(match["selector"])))
-            copied = cursor
         if not parts:
             return cls((template,))
         parts.append(source[copied:])
@@ -106,7 +145,7 @@ class ParsedTemplate:
 
 
 class SourceTemplateResolver:
-    """Resolve placeholders and observe changes to their candidate entities."""
+    """Resolve source calls and observe changes to their candidate entities."""
 
     def __init__(
         self,
@@ -147,7 +186,7 @@ class SourceTemplateResolver:
         ]
 
     def resolve(self) -> str:
-        """Replace quoted placeholders with exactly one matching entity ID."""
+        """Replace source calls with exactly one matching entity ID."""
         candidates = self._candidates()
         resolved: dict[SourceSelector, str] = {}
         parts = []
@@ -191,10 +230,10 @@ class SourceTemplateResolver:
             ):
                 matches.append(entry.entity_id)
         if not matches:
-            raise TemplateError(f"No entity matches source placeholder {selector}")
+            raise TemplateError(f"No entity matches source selector {selector}")
         if len(matches) > 1:
             raise TemplateError(
-                f"Ambiguous source placeholder {selector}: {', '.join(sorted(matches))}"
+                f"Ambiguous source selector {selector}: {', '.join(sorted(matches))}"
             )
         return matches[0]
 
