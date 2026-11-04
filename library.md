@@ -1,4 +1,4 @@
-## 2365 Devices in library
+## 2366 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1127,6 +1127,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Kwikset                                         |SmartCode traditional electronic deadbolt (99140-031)                                         |4× AA                     |                                                                                      |
 |Kwikset                                         |SMARTCODE_CONVERT_GEN1                                                                        |4× AA                     |                                                                                      |
 |Kwikset                                         |SMARTCODE_CONVERT_GEN1_W3                                                                     |4× AA                     |                                                                                      |
+|Kwikset                                         |SMARTCODE_DEADBOLT_10                                                                         |4× AA                     |                                                                                      |
 |Kwikset                                         |SMARTCODE_DEADBOLT_10T                                                                        |4× AA                     |                                                                                      |
 |LDS                                             |ZBT-CCTSwitch-D0001                                                                           |CR2450                    |                                                                                      |
 |Leedarson                                       |4-Key Remote Controller (6ARCZABZH)                                                           |CR2450                    |                                                                                      |
