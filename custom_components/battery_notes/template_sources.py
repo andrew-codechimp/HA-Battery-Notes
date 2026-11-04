@@ -23,7 +23,7 @@ from homeassistant.helpers.event import (
 
 from .const import DOMAIN
 
-_SOURCE_FUNCTION = "batterynotes_source"
+_SOURCE_FUNCTION = "battery_notes_source"
 _LEXER = Environment(autoescape=True, keep_trailing_newline=True)
 
 
@@ -43,7 +43,7 @@ class SourceSelector:
             assert isinstance(output, nodes.Output)
         call = output.nodes[0]
         if not isinstance(call, nodes.Call):
-            raise TemplateError("Invalid batterynotes_source() call")
+            raise TemplateError("Invalid battery_notes_source() call")
         parts = [
             arg.value.casefold()
             for arg in call.args
@@ -57,7 +57,7 @@ class SourceSelector:
             or len(parts) != len(call.args)
         ):
             raise TemplateError(
-                "batterynotes_source() requires two or three literal string arguments"
+                "battery_notes_source() requires two or three literal string arguments"
             )
         if (
             parts[0] not in (Platform.SENSOR, Platform.BINARY_SENSOR)

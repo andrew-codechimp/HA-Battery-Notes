@@ -38,9 +38,9 @@ Use `TemplateTrackingMixin` for template entities, including startup scheduling,
 error handling, listener cleanup, and loop detection. Avoid duplicating that
 machinery in each platform.
 
-Source selectors use `batterynotes_source('sensor', 'voltage', 'V')` inside Jinja
+Source selectors use `battery_notes_source('sensor', 'voltage', 'V')` inside Jinja
 expressions and resolve to an entity ID, for example
-`states(batterynotes_source('sensor', 'voltage', 'V'))`. Calls require two or three
+`states(battery_notes_source('sensor', 'voltage', 'V'))`. Calls require two or three
 positional literal string arguments: domain (`sensor` or `binary_sensor`), device
 class, and optional unit. Variables, expressions, keyword arguments, and unpacked
 arguments are rejected. The function name is case-sensitive; selector fields are

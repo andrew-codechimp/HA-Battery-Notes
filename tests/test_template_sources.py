@@ -41,9 +41,9 @@ from . import setup_integration
 
 pytestmark = pytest.mark.usefixtures("mock_library_updater", "_mock_library_file")
 
-PERCENTAGE_TEMPLATE = '{{ states(batterynotes_source("sensor", "battery", "%")) }}'
+PERCENTAGE_TEMPLATE = '{{ states(battery_notes_source("sensor", "battery", "%")) }}'
 VOLTAGE_TEMPLATE = (
-    '{{ states(batterynotes_source("sensor", "voltage", "V")) | float / 3 * 100 }}'
+    '{{ states(battery_notes_source("sensor", "voltage", "V")) | float / 3 * 100 }}'
 )
 
 
@@ -78,27 +78,27 @@ def battery_note_source() -> str:
         ),
         pytest.param(
             "device",
-            "{% set v = states(batterynotes_source('sensor', 'battery', '%')) %}{{ v | float if is_number(v) else 'unknown' }}",
+            "{% set v = states(battery_notes_source('sensor', 'battery', '%')) %}{{ v | float if is_number(v) else 'unknown' }}",
             id="set-variable",
         ),
         pytest.param(
             "device",
-            "{{ states(batterynotes_source \n ('sensor', \n 'battery', '%',)) }}",
+            "{{ states(battery_notes_source \n ('sensor', \n 'battery', '%',)) }}",
             id="multiline-and-trailing-comma",
         ),
         pytest.param(
             "device",
-            r"{{ states(batterynotes_source('sensor', 'bat\x74ery')) }}",
+            r"{{ states(battery_notes_source('sensor', 'bat\x74ery')) }}",
             id="escaped-argument",
         ),
         pytest.param(
             "entity",
-            "{{ states(batterynotes_source('SeNsOr', 'BaTtErY', 'PeRcEnTaGe')) }}",
+            "{{ states(battery_notes_source('SeNsOr', 'BaTtErY', 'PeRcEnTaGe')) }}",
             id="entity-mixed-case",
         ),
         pytest.param(
             "standalone-entity",
-            '{{ state_attr(batterynotes_source("sensor", "battery"), \'unit_of_measurement\') == \'%\' and states(batterynotes_source("SENSOR", "BATTERY", "percentage")) }}',
+            '{{ state_attr(battery_notes_source("sensor", "battery"), \'unit_of_measurement\') == \'%\' and states(battery_notes_source("SENSOR", "BATTERY", "percentage")) }}',
             id="standalone-multiple-calls",
         ),
     ],
@@ -222,72 +222,72 @@ async def test_source_template_ambiguity_recovers(  # noqa: PLR0913
     ("source_template_entry", "message"),
     [
         pytest.param(
-            "{{ states(batterynotes_source('sensor', 'battery', 'V')) }}",
+            "{{ states(battery_notes_source('sensor', 'battery', 'V')) }}",
             "No entity matches",
             id="wrong-unit",
         ),
         pytest.param(
-            "{{ states(batterynotes_source('binary_sensor', 'battery')) }}",
+            "{{ states(battery_notes_source('binary_sensor', 'battery')) }}",
             "No entity matches",
             id="wrong-domain",
         ),
         pytest.param(
-            "{{ states(batterynotes_source('switch', 'battery')) }}",
+            "{{ states(battery_notes_source('switch', 'battery')) }}",
             "Invalid source selector",
             id="invalid-domain",
         ),
         pytest.param(
-            "{{ states(batterynotes_source('sensor', 'battery', '')) }}",
+            "{{ states(battery_notes_source('sensor', 'battery', '')) }}",
             "Invalid source selector",
             id="empty-unit",
         ),
         pytest.param(
-            "{{ states(batterynotes_source('sensor', 'invalid/class')) }}",
+            "{{ states(battery_notes_source('sensor', 'invalid/class')) }}",
             "Invalid source selector",
             id="invalid-device-class",
         ),
         pytest.param(
-            "{{ states(batterynotes_source('sensor', 'voltage', 'V', 'extra')) }}",
+            "{{ states(battery_notes_source('sensor', 'voltage', 'V', 'extra')) }}",
             "requires two or three literal string arguments",
             id="extra-arguments",
         ),
         pytest.param(
-            "{{ states(batterynotes_source('sensor')) }}",
+            "{{ states(battery_notes_source('sensor')) }}",
             "requires two or three literal string arguments",
             id="missing-argument",
         ),
         pytest.param(
-            "{{ states(batterynotes_source()) }}",
+            "{{ states(battery_notes_source()) }}",
             "requires two or three literal string arguments",
             id="no-arguments",
         ),
         pytest.param(
-            "{{ states(batterynotes_source('sensor', 42)) }}",
+            "{{ states(battery_notes_source('sensor', 42)) }}",
             "requires two or three literal string arguments",
             id="non-string-argument",
         ),
         pytest.param(
-            "{% set domain = 'sensor' %}{{ states(batterynotes_source(domain, 'battery')) }}",
+            "{% set domain = 'sensor' %}{{ states(battery_notes_source(domain, 'battery')) }}",
             "requires two or three literal string arguments",
             id="variable-argument",
         ),
         pytest.param(
-            "{{ states(batterynotes_source('sensor', 'bat' ~ 'tery')) }}",
+            "{{ states(battery_notes_source('sensor', 'bat' ~ 'tery')) }}",
             "requires two or three literal string arguments",
             id="expression-argument",
         ),
         pytest.param(
-            "{{ states(batterynotes_source('sensor', device_class='battery')) }}",
+            "{{ states(battery_notes_source('sensor', device_class='battery')) }}",
             "requires two or three literal string arguments",
             id="keyword-argument",
         ),
         pytest.param(
-            "{{ states(batterynotes_source(*['sensor', 'battery'])) }}",
+            "{{ states(battery_notes_source(*['sensor', 'battery'])) }}",
             "requires two or three literal string arguments",
             id="unpacked-arguments",
         ),
         pytest.param(
-            "{{ states(batterynotes_source('sensor', 'battery', **{})) }}",
+            "{{ states(battery_notes_source('sensor', 'battery', **{})) }}",
             "requires two or three literal string arguments",
             id="unpacked-keywords",
         ),
@@ -445,7 +445,7 @@ async def test_source_template_entity_rename(
     "source_template_entry",
     [
         {
-            CONF_BATTERY_LOW_TEMPLATE: '{{ states(batterynotes_source("BiNaRy_SeNsOr", "BaTtErY")) }}'
+            CONF_BATTERY_LOW_TEMPLATE: '{{ states(battery_notes_source("BiNaRy_SeNsOr", "BaTtErY")) }}'
         }
     ],
     indirect=True,
@@ -509,11 +509,11 @@ async def test_source_template_unload(
     "source_template_entry",
     [
         pytest.param(
-            "{# batterynotes_source('sensor', 'voltage', 'V') #}{{ 55 }}",
+            "{# battery_notes_source('sensor', 'voltage', 'V') #}{{ 55 }}",
             id="comment-only",
         ),
         pytest.param(
-            "{% set example = \"batterynotes_source('sensor', 'voltage', 'V')\" %}{{ 55 }}",
+            "{% set example = \"battery_notes_source('sensor', 'voltage', 'V')\" %}{{ 55 }}",
             id="quoted-call",
         ),
         pytest.param(
@@ -521,15 +521,15 @@ async def test_source_template_unload(
             id="old-placeholder-is-literal",
         ),
         pytest.param(
-            "{% macro batterynotes_source(domain, device_class) %}55{% endmacro %}{{ 55 }}",
+            "{% macro battery_notes_source(domain, device_class) %}55{% endmacro %}{{ 55 }}",
             id="macro-declaration",
         ),
         pytest.param(
-            '{# {{ states(batterynotes_source("sensor", "voltage", "V")) }} #}{% set example %}{% raw %}batterynotes_source("sensor", "voltage", "V"){% endraw %} batterynotes_source("sensor", "voltage", "V"){% endset %}{{ states(batterynotes_source("sensor", "battery", "%")) }}',
+            '{# {{ states(battery_notes_source("sensor", "voltage", "V")) }} #}{% set example %}{% raw %}battery_notes_source("sensor", "voltage", "V"){% endraw %} battery_notes_source("sensor", "voltage", "V"){% endset %}{{ states(battery_notes_source("sensor", "battery", "%")) }}',
             id="comments-raw-and-text",
         ),
         pytest.param(
-            '{# batterynotes_source("sensor", "battery", "%") #}\r\n  {%- set example = 1 -%}\r\n{{ states(batterynotes_source("sensor", "battery", "%")) }}\r\n',
+            '{# battery_notes_source("sensor", "battery", "%") #}\r\n  {%- set example = 1 -%}\r\n{{ states(battery_notes_source("sensor", "battery", "%")) }}\r\n',
             id="whitespace-control",
         ),
     ],
@@ -552,12 +552,12 @@ async def test_source_template_ignores_inactive_content(
     ("source_template_entry", "source_template_voltage"),
     [
         pytest.param(
-            '{{ states(batterynotes_source("sensor", "voltage", "V")) | float * 10 }}',
+            '{{ states(battery_notes_source("sensor", "voltage", "V")) | float * 10 }}',
             "v",
             id="lowercase-source",
         ),
         pytest.param(
-            '{{ states(batterynotes_source("sensor", "voltage", "MV")) | float * 10 }}',
+            '{{ states(battery_notes_source("sensor", "voltage", "MV")) | float * 10 }}',
             "mV",
             id="uppercase-selector",
         ),
@@ -580,13 +580,13 @@ async def test_source_template_unit_case(
     ("source_template_entry", "device_class", "unit"),
     [
         pytest.param(
-            '{{ states(batterynotes_source("SENSOR", "PM25")) }}',
+            '{{ states(battery_notes_source("SENSOR", "PM25")) }}',
             SensorDeviceClass.PM25,
             None,
             id="device-class-digits",
         ),
         pytest.param(
-            '{{ states(batterynotes_source("sensor", "speed", "m/s")) }}',
+            '{{ states(battery_notes_source("sensor", "speed", "m/s")) }}',
             SensorDeviceClass.SPEED,
             UnitOfSpeed.METERS_PER_SECOND,
             id="unit-containing-slash",
@@ -623,7 +623,7 @@ async def test_source_template_additional_device_classes(  # noqa: PLR0913
 @pytest.mark.parametrize(
     "source_template_entry",
     [
-        '{{ states(batterynotes_source("sensor", "voltage", "V")) | float / 3 * 100 + now().minute }}'
+        '{{ states(battery_notes_source("sensor", "voltage", "V")) | float / 3 * 100 + now().minute }}'
     ],
     indirect=True,
 )
