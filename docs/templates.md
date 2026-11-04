@@ -85,7 +85,7 @@ battery_notes_source_entity('domain', 'device_class', 'unit_of_measurement')
 
 **Example source calls**
 
-| Source call                                               | Matches                               |
+| Source entity call                                        | Matches                               |
 | --------------------------------------------------------- | ------------------------------------- |
 | `battery_notes_source_entity('sensor', 'battery', '%')`   | A battery percentage sensor           |
 | `battery_notes_source_entity('sensor', 'voltage', 'V')`   | A voltage sensor reporting volts      |
@@ -100,7 +100,7 @@ Arguments must be quoted strings, rather than variables or expressions, and must
 be passed in the order shown. The function name is case-sensitive. Domain, device
 class, and unit matching are case-insensitive; `percentage` is also accepted for `%`.
 
-Each source call must match exactly one entity. Missing or ambiguous matches are
+Each source entity call must match exactly one entity. Missing or ambiguous matches are
 logged as template errors and use the normal unavailable/retain-state behaviour.
 Use an explicit entity ID when a device has multiple matching sources.
 
@@ -108,8 +108,8 @@ For an entity based note, sources are selected from the entity's device. If the 
 has no device, only that entity is considered. Disabled entities and entities
 created by Battery Notes are excluded.
 
-These source calls work in Battery Notes' percentage and low templates. To test
-the calculation in Home Assistant's template tools, replace each
+These source entity calls work in Battery Notes' percentage and low templates only.
+To test the calculation in Home Assistant's template tools, replace each
 `battery_notes_source_entity(...)` call with a quoted entity ID first, for example
 `states('sensor.my_sensor_voltage')`.
 
