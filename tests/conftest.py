@@ -253,7 +253,7 @@ def source_template_entry(
         request,
         "param",
         {
-            CONF_BATTERY_PERCENTAGE_TEMPLATE: '{{ states(battery_notes_source("sensor", "battery", "%")) }}',
+            CONF_BATTERY_PERCENTAGE_TEMPLATE: '{{ states(battery_notes_source_entity("sensor", "battery", "%")) }}',
         },
     )
     if isinstance(advanced, str):
