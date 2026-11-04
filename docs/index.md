@@ -50,7 +50,7 @@ This is for where a device does not have a typical battery percentage (or it is 
 Specifying a template for devices without a typical battery percentage will create a battery+ sensor.  
 You can specify a template that must return a percentage (0-100).
 
-Use `battery_notes_source()` to create reusable templates you can copy/paste between battery notes without editing entity IDs.
+Use `battery_notes_source_entity()` to create reusable templates you can copy/paste between battery notes without editing entity IDs.
 
 See [templates](./templates.md) for examples.
 
@@ -60,7 +60,7 @@ This is for where a device does not have a typical battery percentage or battery
 The battery percentage template above will also trigger low battery events/states so the battery low template is for legacy use.  
 You can specify a template that must return true when the battery is deemed low.
 
-Use `battery_notes_source()` to create reusable templates you can copy/paste between battery notes without editing entity IDs.
+Use `battery_notes_source_entity()` to create reusable templates you can copy/paste between battery notes without editing entity IDs.
 
 See [templates](./templates.md) for examples.
 

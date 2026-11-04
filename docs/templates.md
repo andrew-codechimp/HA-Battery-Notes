@@ -75,22 +75,22 @@ accepted as true and false, while `unknown` and `unavailable` are preserved.
 
 Battery Notes can find a source entity on the note's device, allowing the same
 template to be copy/pasted for several devices without editing entity IDs. Use
-`battery_notes_source()` to select the source. It returns an entity ID to pass to
+`battery_notes_source_entity()` to select the source. It returns an entity ID to pass to
 `states()`, `is_state()`, `state_attr()`, or another template function:
 
 ``` text
-battery_notes_source('domain', 'device_class')
-battery_notes_source('domain', 'device_class', 'unit_of_measurement')
+battery_notes_source_entity('domain', 'device_class')
+battery_notes_source_entity('domain', 'device_class', 'unit_of_measurement')
 ```
 
 **Example source calls**
 
-| Source call                                        | Matches                               |
-| -------------------------------------------------- | ------------------------------------- |
-| `battery_notes_source('sensor', 'battery', '%')`   | A battery percentage sensor           |
-| `battery_notes_source('sensor', 'voltage', 'V')`   | A voltage sensor reporting volts      |
-| `battery_notes_source('sensor', 'voltage', 'mV')`  | A voltage sensor reporting millivolts |
-| `battery_notes_source('binary_sensor', 'battery')` | A binary low-battery sensor           |
+| Source call                                               | Matches                               |
+| --------------------------------------------------------- | ------------------------------------- |
+| `battery_notes_source_entity('sensor', 'battery', '%')`   | A battery percentage sensor           |
+| `battery_notes_source_entity('sensor', 'voltage', 'V')`   | A voltage sensor reporting volts      |
+| `battery_notes_source_entity('sensor', 'voltage', 'mV')`  | A voltage sensor reporting millivolts |
+| `battery_notes_source_entity('binary_sensor', 'battery')` | A binary low-battery sensor           |
 
 The supported domains are `sensor` and `binary_sensor`. The unit of measurement is
 optional; omitting it matches any unit. Specifying `V` does not convert a reading
@@ -110,7 +110,7 @@ created by Battery Notes are excluded.
 
 These source calls work in Battery Notes' percentage and low templates. To test
 the calculation in Home Assistant's template tools, replace each
-`battery_notes_source(...)` call with a quoted entity ID first, for example
+`battery_notes_source_entity(...)` call with a quoted entity ID first, for example
 `states('sensor.my_sensor_voltage')`.
 
 ### Battery percentage examples
@@ -120,7 +120,7 @@ Use these in the **Battery Percentage Template** option.
 **Linear voltage: 0 volts = 0%, 3 volts = 100%**
 
 ``` jinja
-{% set v = states(battery_notes_source('sensor', 'voltage', 'V')) %}
+{% set v = states(battery_notes_source_entity('sensor', 'voltage', 'V')) %}
 {{ (v | float / 3 * 100) | round(0)
    if is_number(v) else 'unknown' }}
 ```
@@ -128,7 +128,7 @@ Use these in the **Battery Percentage Template** option.
 **Calibrated voltage: 2 volts = 10%, 3 volts = 100%**
 
 ``` jinja
-{% set v = states(battery_notes_source('sensor', 'voltage', 'V')) %}
+{% set v = states(battery_notes_source_entity('sensor', 'voltage', 'V')) %}
 {{ (((v | float - 2) / (3 - 2)) * 90 + 10) | round(0)
    if is_number(v) else 'unknown' }}
 ```
@@ -136,7 +136,7 @@ Use these in the **Battery Percentage Template** option.
 **Binary low-battery state: low = 9%, normal = 100%**
 
 ``` jinja
-{% set low = states(battery_notes_source('binary_sensor', 'battery')) %}
+{% set low = states(battery_notes_source_entity('binary_sensor', 'battery')) %}
 {{ 9 if low == 'on' else 100 if low == 'off' else 'unknown' }}
 ```
 
@@ -148,11 +148,11 @@ Use these in the **Battery Low Template** option.
 
 This example requires a sensor with the `battery` device class that reports text
 states. If the text sensor has no device class, use its explicit entity ID instead
-of `battery_notes_source()`. Use the actual state value, rather than its translated
+of `battery_notes_source_entity()`. Use the actual state value, rather than its translated
 display text.
 
 ``` jinja
-{% set level = states(battery_notes_source('sensor', 'battery')) %}
+{% set level = states(battery_notes_source_entity('sensor', 'battery')) %}
 {{ level == 'Low'
    if level not in ['unknown', 'unavailable'] else 'unknown' }}
 ```
@@ -160,6 +160,6 @@ display text.
 **Detect a voltage below 1 volt**
 
 ``` jinja
-{% set v = states(battery_notes_source('sensor', 'voltage', 'V')) %}
+{% set v = states(battery_notes_source_entity('sensor', 'voltage', 'V')) %}
 {{ (v | float) < 1 if is_number(v) else 'unknown' }}
 ```
