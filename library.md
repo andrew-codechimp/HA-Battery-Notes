@@ -1,4 +1,4 @@
-## 2366 Devices in library
+## 2367 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1080,6 +1080,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |iMagic by GreatStar                             |1116-S                                                                                        |CR2                       |                                                                                      |
 |iMagic by GreatStar                             |1117-S                                                                                        |CR123A                    |                                                                                      |
 |Immax NEO                                       |TS0203                                                                                        |CR2032                    |                                                                                      |
+|IMOU                                            |Door & window sensor                                                                          |CR2032                    |ZD1-EN                                                                                |
 |Imou                                            |IPC-B46L-White                                                                                |Rechargeable              |                                                                                      |
 |INKBIRD                                         |IBS-TH                                                                                        |2× AAA                    |                                                                                      |
 |Inkbird                                         |IBS-TH1/TH2/P01B/ITH-12S                                                                      |2× AAA                    |                                                                                      |
