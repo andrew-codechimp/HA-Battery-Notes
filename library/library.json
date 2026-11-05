@@ -13748,6 +13748,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "IMOU",
+            "model": "Door & window sensor",
+            "model_id": "ZD1-EN",
+            "battery_type": "CR2032"
         }
     ]
 }
