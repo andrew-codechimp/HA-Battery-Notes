@@ -99,7 +99,7 @@ Once you have got your template correct you can copy/paste it into the battery n
 
 ## How do I create a battery percentage that decreases over time?
 
-This one is useful for a (fake device)[https://github.com/andrew-codechimp/HA-Fake-Devices] that does not have a battery percentage.
+This one is useful for a [fake device](https://github.com/andrew-codechimp/HA-Fake-Devices) that does not have a battery percentage.
 
 You can use the battery last replaced date as a calculation point to create a percentage that decreases over time, resetting when you press the Battery Replaced button.
 
