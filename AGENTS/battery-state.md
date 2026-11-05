@@ -38,6 +38,27 @@ Use `TemplateTrackingMixin` for template entities, including startup scheduling,
 error handling, listener cleanup, and loop detection. Avoid duplicating that
 machinery in each platform.
 
+Source selectors use `battery_notes_source_entity('sensor', 'voltage', 'V')` inside Jinja
+expressions and resolve to an entity ID, for example
+`states(battery_notes_source_entity('sensor', 'voltage', 'V'))`. Calls require two or three
+positional literal string arguments: domain (`sensor` or `binary_sensor`), device
+class, and optional unit. Variables, expressions, keyword arguments, and unpacked
+arguments are rejected. The function name is case-sensitive; selector fields are
+normalized using `casefold`, with `percentage` aliasing `%` in any case.
+`SourceTemplateResolver` searches the associated device (or the source entity
+itself for a standalone note), excludes disabled/Battery Notes entities, and
+requires exactly one match. Live units take precedence over registry fallback
+units. Keep source calls in saved configuration. `ParsedTemplate` lexes Jinja once
+to identify call spans and parses each call into a typed selector; quoted strings,
+comments, raw blocks, and ordinary text are preserved. The old `[[source::...]]`
+syntax is no longer resolved. Replace source calls with quoted entity IDs before
+creating the tracked `Template`; this is preprocessing, not a global Jinja function.
+Registry and source-metadata changes retry resolution; source registry IDs preserve
+identity across renames. Rebinding is deferred until state-event dispatch finishes,
+with old results suppressed while a refresh is pending. Remove the old tracker
+before replacing it, and cancel queued refreshes and resolution listeners on
+unload. Resolution errors use the existing template error/retain-state path.
+
 ## Related guidance
 
 For public action payloads, read [Actions and responses](actions.md). For persisted report history, read [Storage, migrations, and repairs](storage-and-migrations.md).
