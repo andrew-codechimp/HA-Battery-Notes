@@ -151,6 +151,13 @@ A Battery Note no longer has entities itself, but you can still see all the enti
 
 This was required prior to version 3, you can safely remove it and and any configuration details within it.  Once you have removed it and saved your configuration ensure you go into developer tools and check your configuration before restarting Home Assistant.
 
+## How do I install pre-release versions via Marketplace?
+
+Within Home Assistant go to Settings -> Marketplace
+Open Battery Notes integration details page
+Using the 3 dots menu, select Include pre-releases
+Marketplace will now prompt to install a newer version if a pre-release is available
+
 ## How do I install pre-release versions via HACS?
 
 Within Home Assistant go to Settings -> Devices & Services -> HACS  
