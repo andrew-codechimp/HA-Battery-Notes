@@ -5,9 +5,11 @@ from __future__ import annotations
 import logging
 from collections.abc import Mapping
 from dataclasses import dataclass
-from datetime import datetime
+from datetime import datetime, timedelta
 from typing import Any
 
+from homeassistant.components.recorder import get_instance
+from homeassistant.components.recorder.statistics import statistics_during_period
 from homeassistant.components.sensor import (
     RestoreSensor,
     SensorDeviceClass,
@@ -36,16 +38,21 @@ from homeassistant.helpers.event import (
     EventStateReportedData,
     async_track_state_change_event,
     async_track_state_report_event,
+    async_track_time_interval,
 )
+from homeassistant.helpers.start import async_at_started
 from homeassistant.helpers.typing import StateType
 from homeassistant.util import dt as dt_util
 
 from .common import async_hide_source_battery, validate_is_float
 from .const import (
+    ATTR_BATTERY_DRAIN_RATE,
+    ATTR_BATTERY_DRAIN_SPAN_DAYS,
     ATTR_BATTERY_INCREASE_THRESHOLD,
     ATTR_BATTERY_LAST_REPLACED,
     ATTR_BATTERY_LAST_REPORTED,
     ATTR_BATTERY_LAST_REPORTED_LEVEL,
+    ATTR_BATTERY_LEVEL_JUMPS,
     ATTR_BATTERY_LOW,
     ATTR_BATTERY_LOW_THRESHOLD,
     ATTR_BATTERY_QUANTITY,
@@ -63,6 +70,7 @@ from .coordinator import (
     BatteryNotesConfigEntry,
     BatteryNotesSubentryCoordinator,
 )
+from .drain import HISTORY_DAYS, DrainEstimate, estimate_drain
 from .entity import BatteryNotesEntity, BatteryNotesEntityDescription
 from .template_helpers import TemplateTrackingMixin
 
@@ -76,6 +84,8 @@ class BatteryNotesSensorEntityDescription(
 
 
 _LOGGER = logging.getLogger(__name__)
+
+LOW_FORECAST_REFRESH_INTERVAL = timedelta(hours=6)
 
 
 async def async_setup_entry(
@@ -117,6 +127,15 @@ async def async_setup_entry(
             entity_category=EntityCategory.DIAGNOSTIC,
             device_class=SensorDeviceClass.TIMESTAMP,
             entity_registry_enabled_default=domain_config.enable_replaced,
+        )
+
+        low_forecast_sensor_entity_description = BatteryNotesSensorEntityDescription(
+            unique_id_suffix="_battery_low_forecast",
+            object_id_base="battery_low_forecast",
+            key="battery_low_forecast",
+            translation_key="battery_low_forecast",
+            entity_category=EntityCategory.DIAGNOSTIC,
+            device_class=SensorDeviceClass.TIMESTAMP,
         )
 
         battery_plus_sensor_entity_description = BatteryNotesSensorEntityDescription(
@@ -174,6 +193,15 @@ async def async_setup_entry(
                     f"{subentry.unique_id}{battery_plus_sensor_entity_description.unique_id_suffix}",
                     domain_config.enable_replaced,
                     domain_config.round_battery,
+                )
+            )
+            entities.append(
+                BatteryNotesLowForecastSensor(
+                    hass,
+                    low_forecast_sensor_entity_description,
+                    coordinator,
+                    coordinator.wrapped_battery.entity_id,
+                    f"{subentry.unique_id}{low_forecast_sensor_entity_description.unique_id_suffix}",
                 )
             )
 
@@ -309,6 +337,114 @@ class BatteryNotesLastReplacedSensor(BatteryNotesEntity, SensorEntity):
     def native_value(self) -> datetime | None:
         """Return the native value of the sensor."""
         return self._native_value
+
+
+class BatteryNotesLowForecastSensor(BatteryNotesEntity, SensorEntity):
+    """Forecast when a percentage battery reaches its low threshold.
+
+    Fits the source's daily long-term statistics, so it works from existing
+    history and costs one small recorder query per refresh.
+    """
+
+    _attr_should_poll = False
+    entity_description: BatteryNotesSensorEntityDescription
+
+    def __init__(
+        self,
+        hass: HomeAssistant,
+        entity_description: BatteryNotesSensorEntityDescription,
+        coordinator: BatteryNotesSubentryCoordinator,
+        statistic_id: str,
+        unique_id: str,
+    ) -> None:
+        """Initialize the sensor."""
+        super().__init__(
+            hass=hass, entity_description=entity_description, coordinator=coordinator
+        )
+        self._attr_device_class = SensorDeviceClass.TIMESTAMP
+        self._attr_unique_id = unique_id
+        self._statistic_id = statistic_id
+        self._estimate: DrainEstimate | None = None
+        self._estimated_at: datetime | None = None
+        self._estimated_replaced = coordinator.last_replaced
+        self._attr_native_value = None
+
+    async def async_added_to_hass(self) -> None:
+        """Refresh once HA has started, then periodically."""
+        await super().async_added_to_hass()
+
+        async def _async_started(_hass: HomeAssistant) -> None:
+            await self._async_refresh()
+
+        self.async_on_remove(async_at_started(self.hass, _async_started))
+        self.async_on_remove(
+            async_track_time_interval(
+                self.hass, self._async_refresh, LOW_FORECAST_REFRESH_INTERVAL
+            )
+        )
+
+    async def _async_refresh(self, _now: datetime | None = None) -> None:
+        """Re-fit the drain rate from the recorder's daily statistics."""
+        if "recorder" not in self.hass.config.components:
+            return
+
+        now = dt_util.utcnow()
+        stats = await get_instance(self.hass).async_add_executor_job(
+            statistics_during_period,
+            self.hass,
+            now - timedelta(days=HISTORY_DAYS),
+            None,
+            {self._statistic_id},
+            "day",
+            None,
+            {"mean"},
+        )
+        points = [
+            (row["start"], row["mean"])
+            for row in stats.get(self._statistic_id, [])
+            if row.get("mean") is not None
+        ]
+        replaced = self.coordinator.last_replaced
+        self._estimate = estimate_drain(
+            points, now.timestamp(), replaced.timestamp() if replaced else None
+        )
+        self._estimated_at = now.replace(microsecond=0)
+        self._estimated_replaced = replaced
+        self._update_native_value()
+        self.async_write_ha_state()
+
+    @callback
+    def _update_native_value(self) -> bool:
+        """Project the current level forward; return True if the value changed."""
+        level = self.coordinator.current_battery_level
+        value = None
+        if self._estimate and self._estimated_at and validate_is_float(level):
+            value = self._estimate.low_at(
+                float(level), self.coordinator.battery_low_threshold, self._estimated_at
+            )
+        changed = value != self._attr_native_value
+        self._attr_native_value = value
+        return changed
+
+    @callback
+    def _handle_coordinator_update(self) -> None:
+        """Follow level changes; re-fit after a battery replacement."""
+        if self.coordinator.last_replaced != self._estimated_replaced:
+            self._estimated_replaced = self.coordinator.last_replaced
+            self.hass.async_create_task(self._async_refresh())
+        elif self._update_native_value():
+            self.async_write_ha_state()
+
+    @property
+    def extra_state_attributes(self) -> dict[str, Any] | None:
+        """Return the fitted drain rate and its evidence."""
+        if self._estimate is None:
+            return None
+        return {
+            ATTR_BATTERY_DRAIN_RATE: self._estimate.rate,
+            ATTR_BATTERY_DRAIN_SPAN_DAYS: self._estimate.span_days,
+            ATTR_BATTERY_LEVEL_JUMPS: self._estimate.level_jumps,
+        }
 
 
 class BatteryNotesBatteryPlusBaseSensor(BatteryNotesEntity, RestoreSensor):

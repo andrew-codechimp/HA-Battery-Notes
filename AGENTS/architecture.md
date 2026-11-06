@@ -14,7 +14,7 @@ Paths below are relative to `custom_components/battery_notes/` unless specified.
 | `config_flow.py` | Initial integration setup, global options, discovery confirmation, manual device/entity subentries, reconfiguration |
 | `coordinator.py` | Runtime dataclasses, source linking, per-note state, thresholds/events, access to persisted history |
 | `entity.py` | Shared coordinator entity, naming, availability, source-device association, entity descriptions |
-| `sensor.py` | Battery type, last-replaced timestamp, wrapped/template Battery+ sensors |
+| `sensor.py` | Battery type, last-replaced timestamp, wrapped/template Battery+ sensors, low forecast |
 | `binary_sensor.py` | Low-battery entities for percentage, binary, and template sources |
 | `button.py` | Battery-replaced button |
 | `services.py` / `services.yaml` | Action registration and handlers / UI action definitions |
@@ -29,6 +29,7 @@ Paths below are relative to `custom_components/battery_notes/` unless specified.
 | `template_helpers.py` | Shared template tracking, startup, cleanup, and self-reference protection |
 | `template_sources.py` | Jinja-aware `battery_notes_source_entity(...)` call parsing, typed source selectors, device-scoped resolution, and registry/metadata listeners |
 | `filters.py` | Low-outlier filtering of battery reports |
+| `drain.py` | Drain-rate fit over daily long-term statistics for the low forecast sensor |
 | `diagnostics.py` | Config entry, per-note runtime, source metadata, and library-match diagnostics |
 | `translations/en.json` / `icons.json` | English UI strings / entity and action icons |
 | Root `library/` | Community device data and its JSON schema |

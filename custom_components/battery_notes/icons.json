@@ -16,6 +16,9 @@
             },
             "battery_last_replaced": {
                 "default": "mdi:battery-clock"
+            },
+            "battery_low_forecast": {
+                "default": "mdi:battery-arrow-down"
             }
         }
     },

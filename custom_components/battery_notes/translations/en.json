@@ -282,6 +282,20 @@
             },
             "battery_last_replaced": {
                 "name": "{device_name}Battery last replaced"
+            },
+            "battery_low_forecast": {
+                "name": "{device_name}Battery low forecast",
+                "state_attributes": {
+                    "drain_rate": {
+                        "name": "Drain rate"
+                    },
+                    "drain_span_days": {
+                        "name": "Days of history"
+                    },
+                    "level_jumps": {
+                        "name": "Level jumps"
+                    }
+                }
             }
         }
     },

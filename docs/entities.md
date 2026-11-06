@@ -50,6 +50,23 @@ The battery quantity and type display in an easy to use single entity.  The quan
 
 The last time the battery of the device was replaced.
 
+## Battery Low Forecast
+
+`sensor.{{device_name}}_battery_low_forecast`
+
+When the battery is expected to reach its low threshold. Created alongside Battery+ for devices with a battery percentage sensor.
+It fits a straight line to the recorder's daily long-term statistics for the battery, so it works from history you already have and needs no extra configuration.
+The fit only uses the current battery: it starts at the last replacement, at a jump of 15% or more (a battery swap that wasn't recorded), or 60 days ago, whichever is newest.
+The fit refreshes every 6 hours and after a replacement; the forecast follows each new battery reading in between.
+
+The state is unknown until there are 30 days of data for the current battery, while the level isn't falling by at least 0.02% a day, or when the level jumped 3 or more times in 120 days (often bad battery contacts or a failing cell).
+
+| <div style="width:200px">Attribute</div> | Type    | Description                                                         |
+| ---------------------------------------- | ------- | ------------------------------------------------------------------- |
+| `drain_rate`                             | `float` | The fitted discharge in % per day, negative while the level rises   |
+| `drain_span_days`                        | `int`   | How many days of history the fit covers                             |
+| `level_jumps`                            | `int`   | Rises of 15% or more in the last 120 days, 3 or more marks unstable |
+
 ## Battery Replaced
 
 `button.{{device_name}}_battery_replaced`
