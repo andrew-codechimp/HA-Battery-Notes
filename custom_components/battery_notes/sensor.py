@@ -425,9 +425,9 @@ class BatteryNotesLowForecastSensor(BatteryNotesEntity, SensorEntity):
             _LOGGER.debug("Low forecast query for %s failed: %s", source.entity_id, err)
             return
         points = [
-            (row["start"], row["mean"])
+            (row["start"], mean)
             for row in stats.get(source.entity_id, [])
-            if row.get("mean") is not None
+            if (mean := row.get("mean")) is not None
         ]
         replaced = self.coordinator.last_replaced
         self._estimate = estimate_drain(

@@ -20,6 +20,7 @@ from pytest_homeassistant_custom_component.components.recorder.common import (
 )
 
 from homeassistant.components.button import DOMAIN as BUTTON_DOMAIN, SERVICE_PRESS
+from homeassistant.components.recorder import Recorder
 from homeassistant.components.recorder.models import StatisticMeanType
 from homeassistant.components.recorder.statistics import async_import_statistics
 from homeassistant.const import ATTR_ENTITY_ID, PERCENTAGE, STATE_UNKNOWN
@@ -33,6 +34,14 @@ pytestmark = pytest.mark.usefixtures("mock_library_updater", "_mock_library_file
 SOURCE_ENTITY_ID = "sensor.door_battery"
 PAIRED = datetime(2026, 1, 1, 12, tzinfo=UTC)
 NOW = PAIRED + timedelta(days=61)
+
+
+@pytest.fixture(autouse=True)
+def auto_enable_custom_integrations(
+    recorder_mock: Recorder,
+    enable_custom_integrations: None,
+) -> None:
+    """Start the recorder before hass, which conftest's version would set up first."""
 
 
 @pytest.fixture(autouse=True)
@@ -75,7 +84,6 @@ async def _import_history(hass: HomeAssistant) -> None:
     await async_wait_recording_done(hass)
 
 
-@pytest.mark.usefixtures("recorder_mock")
 @pytest.mark.parametrize("battery_note_source", [pytest.param("device", id="device")])
 async def test_low_forecast(
     hass: HomeAssistant,
@@ -119,7 +127,6 @@ async def test_low_forecast(
     assert state.state == STATE_UNKNOWN
 
 
-@pytest.mark.usefixtures("recorder_mock")
 @pytest.mark.parametrize("battery_note_source", [pytest.param("device", id="device")])
 async def test_low_forecast_follows_source_rename(
     hass: HomeAssistant,
