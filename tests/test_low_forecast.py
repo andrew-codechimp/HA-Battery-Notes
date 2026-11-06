@@ -136,6 +136,8 @@ async def test_low_forecast(
         {ATTR_ENTITY_ID: _entity_id(hass, "button", "_battery_replaced_button")},
         blocking=True,
     )
+    freezer.tick(timedelta(seconds=11))  # Past the coordinator's refresh debounce
+    async_fire_time_changed(hass)
     await hass.async_block_till_done()
     assert statistics.call_count == 2
     state = hass.states.get(entity_id)
