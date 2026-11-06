@@ -67,11 +67,6 @@ Using my companion integration [Fake Devices](https://github.com/andrew-codechim
 
 To add a new language translation to Battery Notes see [here](https://andrew-codechimp.github.io/HA-Battery-Notes/translations)
 
-## Contributions are welcome!
-
-If you want to contribute to this please read the [Contribution guidelines](CONTRIBUTING.md).
-
-
 ## Third party library usage
 
 The library relies on community contributions, it is open source under the MIT license and available for anyone to use in their project.
