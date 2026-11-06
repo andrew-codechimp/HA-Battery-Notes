@@ -113,6 +113,38 @@ def test_already_below_threshold() -> None:
 
 
 @pytest.mark.parametrize(
+    "level",
+    [
+        pytest.param(float("nan"), id="nan"),
+        pytest.param(float("inf"), id="inf"),
+    ],
+)
+def test_non_finite_level(level: float) -> None:
+    """A non-finite reading gives no forecast instead of raising."""
+    estimate = DrainEstimate(rate=0.5, span_days=60, level_jumps=0)
+
+    assert estimate.low_at(level, 10, NOW) is None
+
+
+def test_huge_level_is_clamped() -> None:
+    """A garbage reading can't overflow the forecast date."""
+    estimate = DrainEstimate(rate=0.02, span_days=60, level_jumps=0)
+
+    assert estimate.low_at(1e12, 10, NOW) == NOW + timedelta(days=5000)
+
+
+def test_non_finite_means_are_ignored() -> None:
+    """NaN daily means are dropped before fitting."""
+    points = _daily([100 - 0.5 * day for day in range(90)])
+    points[-10] = (points[-10][0], float("nan"))
+
+    estimate = estimate_drain(points, NOW_TS)
+
+    assert estimate is not None
+    assert estimate.rate == 0.5
+
+
+@pytest.mark.parametrize(
     "points", [pytest.param([], id="empty"), pytest.param(_daily([50]), id="one")]
 )
 def test_not_enough_points(points: list[tuple[float, float]]) -> None:

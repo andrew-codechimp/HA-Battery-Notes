@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import math
 from dataclasses import dataclass
 from datetime import datetime, timedelta
 from itertools import pairwise
@@ -42,9 +43,11 @@ class DrainEstimate:
         self, level: float, low_threshold: float, now: datetime
     ) -> datetime | None:
         """Return when the battery is expected to reach the low threshold."""
-        if not self.is_known:
+        if not self.is_known or not math.isfinite(level):
             return None
-        return now + timedelta(days=max(level - low_threshold, 0) / self.rate)
+        # Clamp so a garbage reading can't overflow timedelta
+        headroom = min(max(level - low_threshold, 0.0), 100.0)
+        return now + timedelta(days=headroom / self.rate)
 
 
 def _level_jumps(points: list[tuple[float, float]]) -> list[float]:
@@ -79,7 +82,7 @@ def estimate_drain(
     battery and a source that stopped reporting ages out. Returns None with
     fewer than two points.
     """
-    points = sorted(daily_means)
+    points = sorted(p for p in daily_means if math.isfinite(p[1]))
     if len(points) < 2:
         return None
 

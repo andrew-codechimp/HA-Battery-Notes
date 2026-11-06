@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import asyncio
 import logging
 from collections.abc import Mapping
 from dataclasses import dataclass
@@ -85,7 +86,8 @@ class BatteryNotesSensorEntityDescription(
 
 _LOGGER = logging.getLogger(__name__)
 
-LOW_FORECAST_REFRESH_INTERVAL = timedelta(hours=6)
+# Daily means move slowly; readings re-project the date in between
+LOW_FORECAST_REFRESH_INTERVAL = timedelta(hours=12)
 
 
 async def async_setup_entry(
@@ -368,22 +370,39 @@ class BatteryNotesLowForecastSensor(BatteryNotesEntity, SensorEntity):
         self._estimated_at: datetime | None = None
         self._estimated_replaced = coordinator.last_replaced
         self._attr_native_value = None
+        self._refresh_task: asyncio.Task[None] | None = None
 
     async def async_added_to_hass(self) -> None:
         """Refresh once HA has started, then periodically."""
         await super().async_added_to_hass()
 
-        async def _async_started(_hass: HomeAssistant) -> None:
-            await self._async_refresh()
+        @callback
+        def _started(_hass: HomeAssistant) -> None:
+            self._schedule_refresh()
 
-        self.async_on_remove(async_at_started(self.hass, _async_started))
+        self.async_on_remove(async_at_started(self.hass, _started))
         self.async_on_remove(
             async_track_time_interval(
-                self.hass, self._async_refresh, LOW_FORECAST_REFRESH_INTERVAL
+                self.hass, self._schedule_refresh, LOW_FORECAST_REFRESH_INTERVAL
             )
         )
 
-    async def _async_refresh(self, _now: datetime | None = None) -> None:
+    async def async_will_remove_from_hass(self) -> None:
+        """Drop an in-flight refresh so it can't write to a removed entity."""
+        if self._refresh_task:
+            self._refresh_task.cancel()
+        await super().async_will_remove_from_hass()
+
+    @callback
+    def _schedule_refresh(self, _now: datetime | None = None) -> None:
+        """Start a refresh, superseding one still in flight."""
+        if self._refresh_task:
+            self._refresh_task.cancel()
+        self._refresh_task = self.hass.async_create_task(
+            self._async_refresh(), f"{self.entity_id} low forecast refresh"
+        )
+
+    async def _async_refresh(self) -> None:
         """Re-fit the drain rate from the recorder's daily statistics."""
         if "recorder" not in self.hass.config.components:
             return
@@ -431,7 +450,7 @@ class BatteryNotesLowForecastSensor(BatteryNotesEntity, SensorEntity):
         """Follow level changes; re-fit after a battery replacement."""
         if self.coordinator.last_replaced != self._estimated_replaced:
             self._estimated_replaced = self.coordinator.last_replaced
-            self.hass.async_create_task(self._async_refresh())
+            self._schedule_refresh()
         elif self._update_native_value():
             self.async_write_ha_state()
 
