@@ -103,6 +103,8 @@ def estimate_drain(
     mean_day = sum(days) / n
     mean_level = sum(levels) / n
     variance = sum((d - mean_day) ** 2 for d in days)
+    if variance == 0:  # Duplicate timestamps; no slope to fit
+        return DrainEstimate(rate=0.0, span_days=0, level_jumps=len(jumps))
     slope = (
         sum(
             (d - mean_day) * (v - mean_level) for d, v in zip(days, levels, strict=True)

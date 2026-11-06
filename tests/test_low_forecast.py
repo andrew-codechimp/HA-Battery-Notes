@@ -9,8 +9,12 @@ from custom_components.battery_notes.const import (
     ATTR_BATTERY_LEVEL_JUMPS,
     DOMAIN,
 )
+from custom_components.battery_notes.sensor import LOW_FORECAST_REFRESH_INTERVAL
 from freezegun.api import FrozenDateTimeFactory
-from pytest_homeassistant_custom_component.common import MockConfigEntry
+from pytest_homeassistant_custom_component.common import (
+    MockConfigEntry,
+    async_fire_time_changed,
+)
 from pytest_homeassistant_custom_component.components.recorder.common import (
     async_wait_recording_done,
 )
@@ -45,14 +49,8 @@ def _entity_id(hass: HomeAssistant, platform: str, suffix: str) -> str:
     return entity_id
 
 
-@pytest.mark.usefixtures("recorder_mock")
-@pytest.mark.parametrize("battery_note_source", [pytest.param("device", id="device")])
-async def test_low_forecast(
-    hass: HomeAssistant,
-    battery_note_config_entry: MockConfigEntry,
-    freezer: FrozenDateTimeFactory,
-) -> None:
-    """Forecast from statistics, follow the level, and reset on replacement."""
+async def _import_history(hass: HomeAssistant) -> None:
+    """Record a battery losing 0.5% a day for the 60 days after pairing."""
     async_import_statistics(
         hass,
         {
@@ -75,6 +73,17 @@ async def test_low_forecast(
         ],
     )
     await async_wait_recording_done(hass)
+
+
+@pytest.mark.usefixtures("recorder_mock")
+@pytest.mark.parametrize("battery_note_source", [pytest.param("device", id="device")])
+async def test_low_forecast(
+    hass: HomeAssistant,
+    battery_note_config_entry: MockConfigEntry,
+    freezer: FrozenDateTimeFactory,
+) -> None:
+    """Forecast from statistics, follow the level, and reset on replacement."""
+    await _import_history(hass)
 
     freezer.move_to(NOW)
     await setup_integration(hass, battery_note_config_entry)
@@ -108,3 +117,36 @@ async def test_low_forecast(
     state = hass.states.get(entity_id)
     assert state is not None
     assert state.state == STATE_UNKNOWN
+
+
+@pytest.mark.usefixtures("recorder_mock")
+@pytest.mark.parametrize("battery_note_source", [pytest.param("device", id="device")])
+async def test_low_forecast_follows_source_rename(
+    hass: HomeAssistant,
+    battery_note_config_entry: MockConfigEntry,
+    freezer: FrozenDateTimeFactory,
+) -> None:
+    """After the source entity ID changes, refreshes query the new ID."""
+    await _import_history(hass)
+    freezer.move_to(NOW)
+    await setup_integration(hass, battery_note_config_entry)
+    entity_id = _entity_id(hass, "sensor", "_battery_low_forecast")
+    attributes = hass.states.get(SOURCE_ENTITY_ID).attributes
+
+    er.async_get(hass).async_update_entity(
+        SOURCE_ENTITY_ID, new_entity_id="sensor.door_battery_renamed"
+    )
+    hass.states.async_set("sensor.door_battery_renamed", "55", attributes)
+    await hass.async_block_till_done()
+    await async_wait_recording_done(hass)
+
+    freezer.tick(LOW_FORECAST_REFRESH_INTERVAL)
+    async_fire_time_changed(hass)
+    await hass.async_block_till_done()
+
+    state = hass.states.get(entity_id)
+    assert state is not None
+    assert (
+        state.state
+        == (NOW + LOW_FORECAST_REFRESH_INTERVAL + timedelta(days=90)).isoformat()
+    )

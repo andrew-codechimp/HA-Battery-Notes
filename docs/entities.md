@@ -56,6 +56,7 @@ The last time the battery of the device was replaced.
 
 When the battery is expected to reach its low threshold. Created alongside Battery+ for devices with a battery percentage sensor.
 It fits a straight line to the recorder's daily long-term statistics for the battery, so it works from history you already have and needs no extra configuration.
+The source battery sensor must keep long-term statistics (`state_class: measurement`), as battery sensors from most integrations do.
 The fit only uses the current battery: it starts at the last replacement, at a jump of 15% or more (a battery swap that wasn't recorded), or 60 days ago, whichever is newest.
 The fit refreshes every 12 hours and after a replacement; the forecast follows each new battery reading in between.
 

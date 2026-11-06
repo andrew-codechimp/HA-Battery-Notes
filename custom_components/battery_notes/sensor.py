@@ -9,6 +9,8 @@ from dataclasses import dataclass
 from datetime import datetime, timedelta
 from typing import Any
 
+from sqlalchemy.exc import SQLAlchemyError
+
 from homeassistant.components.recorder import get_instance
 from homeassistant.components.recorder.statistics import statistics_during_period
 from homeassistant.components.sensor import (
@@ -202,7 +204,6 @@ async def async_setup_entry(
                     hass,
                     low_forecast_sensor_entity_description,
                     coordinator,
-                    coordinator.wrapped_battery.entity_id,
                     f"{subentry.unique_id}{low_forecast_sensor_entity_description.unique_id_suffix}",
                 )
             )
@@ -356,7 +357,6 @@ class BatteryNotesLowForecastSensor(BatteryNotesEntity, SensorEntity):
         hass: HomeAssistant,
         entity_description: BatteryNotesSensorEntityDescription,
         coordinator: BatteryNotesSubentryCoordinator,
-        statistic_id: str,
         unique_id: str,
     ) -> None:
         """Initialize the sensor."""
@@ -365,7 +365,6 @@ class BatteryNotesLowForecastSensor(BatteryNotesEntity, SensorEntity):
         )
         self._attr_device_class = SensorDeviceClass.TIMESTAMP
         self._attr_unique_id = unique_id
-        self._statistic_id = statistic_id
         self._estimate: DrainEstimate | None = None
         self._estimated_at: datetime | None = None
         self._estimated_replaced = coordinator.last_replaced
@@ -404,23 +403,30 @@ class BatteryNotesLowForecastSensor(BatteryNotesEntity, SensorEntity):
 
     async def _async_refresh(self) -> None:
         """Re-fit the drain rate from the recorder's daily statistics."""
-        if "recorder" not in self.hass.config.components:
+        # Read at refresh time: a source rename updates wrapped_battery in place
+        source = self.coordinator.wrapped_battery
+        if source is None or "recorder" not in self.hass.config.components:
             return
 
         now = dt_util.utcnow()
-        stats = await get_instance(self.hass).async_add_executor_job(
-            statistics_during_period,
-            self.hass,
-            now - timedelta(days=HISTORY_DAYS),
-            None,
-            {self._statistic_id},
-            "day",
-            None,
-            {"mean"},
-        )
+        try:
+            stats = await get_instance(self.hass).async_add_executor_job(
+                statistics_during_period,
+                self.hass,
+                now - timedelta(days=HISTORY_DAYS),
+                None,
+                {source.entity_id},
+                "day",
+                None,
+                {"mean"},
+            )
+        except SQLAlchemyError as err:
+            # Keep the last forecast; the next refresh retries
+            _LOGGER.debug("Low forecast query for %s failed: %s", source.entity_id, err)
+            return
         points = [
             (row["start"], row["mean"])
-            for row in stats.get(self._statistic_id, [])
+            for row in stats.get(source.entity_id, [])
             if row.get("mean") is not None
         ]
         replaced = self.coordinator.last_replaced

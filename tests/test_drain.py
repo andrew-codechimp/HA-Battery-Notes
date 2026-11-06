@@ -144,6 +144,14 @@ def test_non_finite_means_are_ignored() -> None:
     assert estimate.rate == 0.5
 
 
+def test_duplicate_timestamps() -> None:
+    """Points sharing one timestamp have no slope and don't divide by zero."""
+    estimate = estimate_drain([(NOW_TS, 50.0), (NOW_TS, 40.0)], NOW_TS)
+
+    assert estimate is not None
+    assert not estimate.is_known
+
+
 @pytest.mark.parametrize(
     "points", [pytest.param([], id="empty"), pytest.param(_daily([50]), id="one")]
 )
