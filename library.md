@@ -1,4 +1,4 @@
-## 2367 Devices in library
+## 2368 Devices in library
 
 This file is auto generated, do not modify
 
@@ -526,6 +526,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Doogee                                          |S98 Pro                                                                                       |Rechargeable              |                                                                                      |
 |Drayton Wiser                                   |iTRV                                                                                          |2× AA                     |                                                                                      |
 |Drayton Wiser                                   |RoomStat                                                                                      |2× AA                     |                                                                                      |
+|Drayton Wiser                                   |TemperatureHumiditySensor                                                                     |CR2450                    |05FF07                                                                                |
 |Dreame                                          |L10 Pro                                                                                       |Rechargeable              |                                                                                      |
 |Dreametech                                      |X40 ULTRA COMPLETE                                                                            |Rechargeable              |dreame.vacuum.r2449a                                                                  |
 |Dreametech™                                     |dreame.vacuum.r2492j                                                                          |Rechargeable              |                                                                                      |

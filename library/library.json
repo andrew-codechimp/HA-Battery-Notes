@@ -3006,6 +3006,12 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Drayton Wiser",
+            "model": "TemperatureHumiditySensor",
+            "model_id": "05FF07",
+            "battery_type": "CR2450"
+        },
+        {
             "manufacturer": "Dreame",
             "model": "L10 Pro",
             "battery_type": "Rechargeable"
@@ -13753,12 +13759,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Drayton Wiser",
-            "model": "TemperatureHumiditySensor",
-            "model_id": "05FF07",
-            "battery_type": "CR2450"
         }
     ]
 }
