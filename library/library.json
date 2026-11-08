@@ -2856,8 +2856,7 @@
             "manufacturer": "Develco",
             "model": "Fire detector with siren",
             "model_id": "HESZB-120",
-            "hw_version": "5.0.2",
-            "battery_type": "CR123"
+            "battery_type": "CR123A"
         },
         {
             "manufacturer": "Develco",
