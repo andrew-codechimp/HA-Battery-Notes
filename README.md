@@ -1,3 +1,4 @@
+<!-- ha-marketplace:exclude-start -->
 # Battery Notes for Home Assistant
 
 [![GitHub Release][releases-shield]][releases]
@@ -7,6 +8,7 @@
 [![marketplace][marketplacebadge]][marketplace]
 [![License][license-shield]](LICENSE)
 
+<!-- ha-marketplace:exclude-end -->
 Integration to add battery notes to a device or entity, with automatic discovery via a growing [battery library](library.md) for devices.
 
 Track the battery type, when the battery was replaced, when a battery is low based on device or global thresholds and also when a battery hasn't been reported for a while.
@@ -31,6 +33,7 @@ _If you want to show your support please_
 
 ![Discovery](https://raw.githubusercontent.com/andrew-codechimp/ha-battery-notes/main/docs/assets/screenshot-discovery.png "Device Discovery")
 
+<!-- ha-marketplace:exclude-start -->
 ## Installation
 
 [![Open your Home Assistant instance and open a repository inside the Home Assistant Marketplace.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=andrew-codechimp&repository=HA-Battery-Notes&category=Integration)
@@ -46,6 +49,7 @@ Add the Battery Notes integration
 Or go to Settings -> Devices & Services click "+ Add integration" and search for "Battery Notes"
 
 This will create the main Battery Notes integration service and discovery will start shortly afterwards, or you can add battery notes manually within the settings/integrations/Battery Notes page by using the Add Battery Note button.
+<!-- ha-marketplace:exclude-end -->
 
 ## Docs
 
