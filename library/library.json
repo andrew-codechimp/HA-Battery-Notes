@@ -9661,6 +9661,13 @@
         },
         {
             "manufacturer": "SONOFF",
+            "model": "E-ink screen temperature and humidity sensor",
+            "model_id": "SNZB-02UL",
+            "battery_type": "AAA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "SONOFF",
             "model": "Motion sensor",
             "model_id": "SNZB-03",
             "hw_version": "1",
@@ -13764,13 +13771,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "SONOFF",
-            "model": "E-ink screen temperature and humidity sensor",
-            "model_id": "SNZB-02UL",
-            "battery_type": "AAA",
-            "battery_quantity": 2
         }
     ]
 }

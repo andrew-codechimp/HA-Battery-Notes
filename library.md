@@ -1,4 +1,4 @@
-## 2369 Devices in library
+## 2370 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1680,6 +1680,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |SONOFF                                          |Contact sensor (SNZB-04P)                                                                     |CR2477                    |                                                                                      |
 |SONOFF                                          |DW2-Wi-Fi                                                                                     |2× AAA                    |                                                                                      |
 |SONOFF                                          |DW2-WI-FI-L                                                                                   |2× AAA                    |                                                                                      |
+|SONOFF                                          |E-ink screen temperature and humidity sensor                                                  |2× AAA                    |SNZB-02UL                                                                             |
 |SONOFF                                          |Motion sensor                                                                                 |CR2450                    |SNZB-03                                                                               |
 |SONOFF                                          |Motion sensor (SNZB-03)                                                                       |CR2450                    |                                                                                      |
 |Sonoff                                          |Outdoor Temperatur & Humidity Sensor                                                          |MANUAL                    |SNZB-02WD                                                                             |
