@@ -8926,6 +8926,12 @@
         },
         {
             "manufacturer": "Shelly",
+            "model": "BLU Door/Window Mini ZB",
+            "model_id": "SBDW-203C",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Shelly",
             "model": "BLU H&T display Zigbee",
             "model_id": "SBHT-103C",
             "battery_type": "CR2032",
@@ -13778,12 +13784,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Shelly",
-            "model": "BLU Door/Window Mini ZB",
-            "model_id": "SBDW-203C",
-            "battery_type": "CR2032"
         }
     ]
 }
