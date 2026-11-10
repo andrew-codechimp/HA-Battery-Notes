@@ -13759,6 +13759,11 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "303Bryan",
+            "model": "RadiaCode",
+            "battery_type": "Rechargeable"
         }
     ]
 }
