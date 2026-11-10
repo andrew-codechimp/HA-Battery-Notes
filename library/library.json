@@ -8926,6 +8926,13 @@
         },
         {
             "manufacturer": "Shelly",
+            "model": "BLU H&T display Zigbee",
+            "model_id": "SBHT-103C",
+            "battery_type": "CR2032",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Shelly",
             "model": "Blu Motion",
             "battery_type": "CR2477"
         },
@@ -13771,13 +13778,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Shelly",
-            "model": "BLU H&T display Zigbee",
-            "model_id": "SBHT-103C",
-            "battery_type": "CR2032",
-            "battery_quantity": 2
         }
     ]
 }
