@@ -233,6 +233,101 @@ actions:
 mode: single
 ```
 
+### Battery Low shopping list
+
+Keep a [to-do list](https://www.home-assistant.io/integrations/todo/) such as the built-in [Shopping List](https://www.home-assistant.io/integrations/shopping_list/) up to date with the batteries you need to buy.  
+Devices with a low battery are grouped by battery type and quantities are added up, giving one item per battery type, e.g. `Batteries: 3× CR2032`. Items are updated when the quantity changes and removed once no device of that type is low anymore. Ticked off items are left alone, and other items on the list are never touched.
+
+Change `todo_list` to use another to-do list. Rechargeable and irreplaceable batteries are skipped.
+
+``` yaml
+alias: Battery Notes - Battery Low Shopping List
+description: Add the batteries needed for low devices to a to-do list, one item per battery type
+mode: queued
+triggers:
+  - trigger: time
+    at: "09:00:00"
+  - trigger: event
+    event_type: battery_notes_battery_threshold
+  - trigger: event
+    event_type: battery_notes_battery_replaced
+conditions: []
+actions:
+  - variables:
+      todo_list: todo.shopping_list
+      prefix: "Batteries: "
+  - action: battery_notes.check_battery_low
+    data:
+      raise_events: false
+    response_variable: battery_check_response
+  - action: todo.get_items
+    target:
+      entity_id: "{{ todo_list }}"
+    data:
+      status: needs_action
+    response_variable: todo_response
+  - variables:
+      existing: >-
+        {{ todo_response[todo_list]['items'] | map(attribute='summary')
+           | select('match', prefix) | list }}
+      needed: >-
+        {%- set ns = namespace(types={}) -%}
+        {%- for item in battery_check_response.check_battery_battery_low
+            if item.battery_type | lower not in ['rechargeable', 'irreplaceable'] -%}
+          {%- set ns.types = dict(ns.types, **{item.battery_type:
+                ns.types.get(item.battery_type, 0) + (item.battery_quantity | int(1))}) -%}
+        {%- endfor -%}
+        {%- set items = namespace(list=[]) -%}
+        {%- for battery_type, quantity in ns.types | dictsort -%}
+          {%- set items.list = items.list + [{'type': battery_type,
+                'summary': prefix ~ quantity ~ '× ' ~ battery_type}] -%}
+        {%- endfor -%}
+        {{ items.list }}
+  - repeat:
+      for_each: "{{ needed }}"
+      sequence:
+        - variables:
+            current: >-
+              {%- set ns = namespace(summary='') -%}
+              {%- for summary in existing if summary.endswith('× ' ~ repeat.item.type) -%}
+                {%- set ns.summary = summary -%}
+              {%- endfor -%}
+              {{ ns.summary }}
+        - choose:
+            - conditions: "{{ current == '' }}"
+              sequence:
+                - action: todo.add_item
+                  target:
+                    entity_id: "{{ todo_list }}"
+                  data:
+                    item: "{{ repeat.item.summary }}"
+            - conditions: "{{ current != repeat.item.summary }}"
+              sequence:
+                - action: todo.update_item
+                  target:
+                    entity_id: "{{ todo_list }}"
+                  data:
+                    item: "{{ current }}"
+                    rename: "{{ repeat.item.summary }}"
+  - variables:
+      needed_types: "{{ needed | map(attribute='type') | list }}"
+      obsolete: >-
+        {%- set ns = namespace(list=[]) -%}
+        {%- for summary in existing if summary.split('× ', 1) | last not in needed_types -%}
+          {%- set ns.list = ns.list + [summary] -%}
+        {%- endfor -%}
+        {{ ns.list }}
+  - if:
+      - condition: template
+        value_template: "{{ obsolete | count > 0 }}"
+    then:
+      - action: todo.remove_item
+        target:
+          entity_id: "{{ todo_list }}"
+        data:
+          item: "{{ obsolete }}"
+```
+
 ### Battery Replaced
 
 Mark a battery as replaced when there is an increase in battery level.
