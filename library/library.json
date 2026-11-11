@@ -3203,6 +3203,28 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "Ecowitt",
+            "model": "Soil moisture",
+            "battery_type": "AA"
+        },
+        {
+            "manufacturer": "Ecowitt",
+            "model": "Temp & Humidity",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Ecowitt",
+            "model": "Temp",
+            "battery_type": "AA"
+        },
+        {
+            "manufacturer": "Ecowitt",
+            "model": "Wind & Rain",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
             "manufacturer": "EFEKTA",
             "model": "Plant Wattering Sensor with e-ink display 1.02",
             "model_id": "EFEKTA_eFlora",
