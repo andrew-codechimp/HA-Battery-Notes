@@ -1,4 +1,4 @@
-## 2372 Devices in library
+## 2373 Devices in library
 
 This file is auto generated, do not modify
 
@@ -943,6 +943,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |HOBEIAN                                         |PIR 24Ghz human presence sensor                                                               |2× AAA                    |ZG-204ZM                                                                              |
 |HOBEIAN                                         |Rainwater detection sensor                                                                    |CR123A                    |ZG-223Z                                                                               |
 |HOBEIAN                                         |Soil moisture sensor                                                                          |2× AAA                    |ZG-303Z                                                                               |
+|HOBEIAN                                         |Temperature & humidity sensor                                                                 |MANUAL                    |ZG-227Z                                                                               |
 |HOBEIAN                                         |Temperature and humidity sensor                                                               |2× AAA                    |ZG-227Z                                                                               |
 |HOBEIAN                                         |Temperature and humidity sensor (ZG-227Z)                                                     |2× AA                     |                                                                                      |
 |HOBEIAN                                         |Temperature(NTC) & humidity sensor                                                            |CR2032                    |ZG-227ZP                                                                              |
