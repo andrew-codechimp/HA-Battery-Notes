@@ -5432,6 +5432,12 @@
         },
         {
             "manufacturer": "HOBEIAN",
+            "model": "Temperature & humidity sensor",
+            "model_id": "ZG-227Z",
+            "battery_type": "MANUAL"
+        },
+        {
+            "manufacturer": "HOBEIAN",
             "model": "Temperature and humidity sensor",
             "model_id": "ZG-227Z",
             "hw_version": "1",
