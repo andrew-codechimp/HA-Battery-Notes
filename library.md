@@ -1,4 +1,4 @@
-## 2373 Devices in library
+## 2377 Devices in library
 
 This file is auto generated, do not modify
 
@@ -555,13 +555,17 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Ecowitt                                         |GW2000A                                                                                       |MANUAL                    |                                                                                      |
 |Ecowitt                                         |GW2001                                                                                        |MANUAL                    |                                                                                      |
 |Ecowitt                                         |GW3000B                                                                                       |Manual                    |                                                                                      |
+|Ecowitt                                         |Soil moisture                                                                                 |AA                        |                                                                                      |
 |Ecowitt                                         |Soil moisture sensor                                                                          |AA                        |WH51                                                                                  |
+|Ecowitt                                         |Temp                                                                                          |AA                        |                                                                                      |
+|Ecowitt                                         |Temp & Humidity                                                                               |2× AA                     |                                                                                      |
 |Ecowitt                                         |Weather Station                                                                               |2× AA                     |WH85                                                                                  |
 |Ecowitt                                         |wh31                                                                                          |2× AA                     |                                                                                      |
 |Ecowitt                                         |wh34                                                                                          |AA                        |                                                                                      |
 |Ecowitt                                         |WH51                                                                                          |AA                        |                                                                                      |
 |Ecowitt                                         |wh52                                                                                          |AA                        |                                                                                      |
 |Ecowitt                                         |wh69                                                                                          |2× AA                     |                                                                                      |
+|Ecowitt                                         |Wind & Rain                                                                                   |2× AA                     |                                                                                      |
 |Ecowitt                                         |WS90                                                                                          |2× AA                     |                                                                                      |
 |EFEKTA                                          |Plant Wattering Sensor with e-ink display 1.02                                                |CR2577                    |EFEKTA_eFlora                                                                         |
 |Elexa Consumer Products Inc.                    |DMMS1                                                                                         |CR123A                    |                                                                                      |

@@ -3158,9 +3158,25 @@
         },
         {
             "manufacturer": "Ecowitt",
+            "model": "Soil moisture",
+            "battery_type": "AA"
+        },
+        {
+            "manufacturer": "Ecowitt",
             "model": "Soil moisture sensor",
             "model_id": "WH51",
             "battery_type": "AA"
+        },
+        {
+            "manufacturer": "Ecowitt",
+            "model": "Temp",
+            "battery_type": "AA"
+        },
+        {
+            "manufacturer": "Ecowitt",
+            "model": "Temp & Humidity",
+            "battery_type": "AA",
+            "battery_quantity": 2
         },
         {
             "manufacturer": "Ecowitt",
@@ -3198,29 +3214,13 @@
         },
         {
             "manufacturer": "Ecowitt",
-            "model": "WS90",
-            "battery_type": "AA",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Ecowitt",
-            "model": "Soil moisture",
-            "battery_type": "AA"
-        },
-        {
-            "manufacturer": "Ecowitt",
-            "model": "Temp & Humidity",
-            "battery_type": "AA",
-            "battery_quantity": 2
-        },
-        {
-            "manufacturer": "Ecowitt",
-            "model": "Temp",
-            "battery_type": "AA"
-        },
-        {
-            "manufacturer": "Ecowitt",
             "model": "Wind & Rain",
+            "battery_type": "AA",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "Ecowitt",
+            "model": "WS90",
             "battery_type": "AA",
             "battery_quantity": 2
         },
