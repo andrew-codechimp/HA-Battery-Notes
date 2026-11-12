@@ -1,4 +1,4 @@
-## 2379 Devices in library
+## 2380 Devices in library
 
 This file is auto generated, do not modify
 
@@ -2234,6 +2234,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Xiaomi                                          |ble SJWS01LM                                                                                  |CR2032                    |                                                                                      |
 |Xiaomi                                          |ble XMPIR02SXS                                                                                |CR2450                    |                                                                                      |
 |Xiaomi                                          |ble XMWSDJ04MMC                                                                               |CR2450                    |                                                                                      |
+|Xiaomi                                          |BLE: LYWSD03MMC, miaomiaoce.sensor_ht.t2                                                      |CR2032                    |                                                                                      |
 |Xiaomi                                          |BLE: MCCGQ02HL, isa.magnet.dw2hl                                                              |CR2032                    |                                                                                      |
 |Xiaomi                                          |BTHome sensor                                                                                 |MANUAL                    |                                                                                      |
 |Xiaomi                                          |CGD1                                                                                          |2× AA                     |                                                                                      |

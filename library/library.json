@@ -12969,6 +12969,11 @@
         },
         {
             "manufacturer": "Xiaomi",
+            "model": "BLE: LYWSD03MMC, miaomiaoce.sensor_ht.t2",
+            "battery_type": "CR2032"
+        },
+        {
+            "manufacturer": "Xiaomi",
             "model": "BLE: MCCGQ02HL, isa.magnet.dw2hl",
             "battery_type": "CR2032"
         },
@@ -13823,11 +13828,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Xiaomi",
-            "model": "BLE: LYWSD03MMC, miaomiaoce.sensor_ht.t2",
-            "battery_type": "CR2032"
         }
     ]
 }
