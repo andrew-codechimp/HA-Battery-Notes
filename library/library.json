@@ -613,6 +613,11 @@
             "battery_quantity": 2
         },
         {
+            "manufacturer": "_TZE200_cf1sl3tj",
+            "model": "TS0601",
+            "battery_type": "Rechargeable"
+        },
+        {
             "manufacturer": "_TZE200_ckud7u2l",
             "model": "TS0601",
             "battery_type": "AA",
@@ -13811,11 +13816,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "_TZE200_cf1sl3tj",
-            "model": "TS0601",
             "battery_type": "Rechargeable"
         }
     ]
