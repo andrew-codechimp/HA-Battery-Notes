@@ -238,9 +238,13 @@ def calc_config_attributes(
     return (unique_id, str(title))
 
 
-def _model_info(device_entry: dr.DeviceEntry | None) -> ModelInfo | None:
+def _model_info(device_entry: dr.AnyDeviceEntry | None) -> ModelInfo | None:
     """Return the library lookup details of a device, if it has enough."""
-    if device_entry and device_entry.manufacturer and device_entry.model:
+    if (
+        isinstance(device_entry, dr.DeviceEntry)
+        and device_entry.manufacturer
+        and device_entry.model
+    ):
         return ModelInfo(
             device_entry.manufacturer,
             device_entry.model,
@@ -263,7 +267,7 @@ def _model_placeholders(model_info: ModelInfo | None) -> dict[str, str]:
 
 
 async def _async_lookup_battery(
-    hass: HomeAssistant, device_entry: dr.DeviceEntry | None
+    hass: HomeAssistant, device_entry: dr.AnyDeviceEntry | None
 ) -> tuple[ModelInfo | None, DeviceBatteryDetails | None]:
     """Update the library if due and look up the battery of a device."""
     library_updater = LibraryUpdater(hass)

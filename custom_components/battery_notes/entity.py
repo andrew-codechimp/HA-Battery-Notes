@@ -13,7 +13,6 @@ from homeassistant.helpers.entity import EntityDescription
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 from homeassistant.util import slugify
 
-from .common import is_composite_device_id
 from .coordinator import BatteryNotesDomainConfig, BatteryNotesSubentryCoordinator
 
 
@@ -86,11 +85,10 @@ class BatteryNotesEntity(CoordinatorEntity[BatteryNotesSubentryCoordinator]):
         """Set up device association."""
 
         device_registry = dr.async_get(hass)
-        # HACK: HA 2026.8 splits composite devices into multiple devices, so we need to check if the device_id is a composite device
-        if (
-            self.coordinator.device_id
-            and (device_entry := device_registry.async_get(self.coordinator.device_id))
-            and not is_composite_device_id(hass, self.coordinator.device_id)
+        if self.coordinator.device_id and (
+            device_entry := device_registry.async_get(
+                self.coordinator.device_id, include_composite_devices=False
+            )
         ):
             # Attach to the device_id
             self.device_entry = device_entry
@@ -102,7 +100,11 @@ class BatteryNotesEntity(CoordinatorEntity[BatteryNotesSubentryCoordinator]):
                 hass, self.coordinator.source_entity_id
             )
             # source_entity_id is attached to a device, use that and add
-            if device_id and (device_entry := device_registry.async_get(device_id)):
+            if device_id and (
+                device_entry := device_registry.async_get(
+                    device_id, include_composite_devices=False
+                )
+            ):
                 self.device_entry = device_entry
         else:
             # No device, leave hanging

@@ -215,3 +215,40 @@ async def test_library_match(
         "battery_type": "CR2032",
         "battery_quantity": 4,
     }
+
+
+@pytest.mark.parametrize("battery_note_source", [pytest.param("entity", id="entity")])
+async def test_child_device_diagnostics(
+    hass: HomeAssistant,
+    battery_note_config_entry: MockConfigEntry,
+    battery_note_device: dr.DeviceEntry,
+    battery_note_sensor: er.RegistryEntry,
+) -> None:
+    """Test a note stays attached to a child without looking up parent metadata."""
+    child = dr.async_get(hass).async_get_or_create_child(
+        config_entry_id=battery_note_device.config_entry_id,
+        identifiers={("test", "child-device")},
+        parent_device_id=battery_note_device.id,
+        name="Child device",
+    )
+    entity_registry = er.async_get(hass)
+    entity_registry.async_update_entity(
+        battery_note_sensor.entity_id, device_id=child.id
+    )
+    await setup_integration(hass, battery_note_config_entry)
+    await hass.data[DATA_LIBRARY].load_libraries()
+    subentry = next(iter(battery_note_config_entry.subentries.values()))
+
+    diagnostics = await async_get_config_entry_diagnostics(
+        hass, battery_note_config_entry
+    )
+
+    note = diagnostics["battery_notes"][subentry.subentry_id]
+    assert "device_info" not in note
+    assert note["library_match"] is None
+    assert not note["orphaned"]
+    entities = er.async_entries_for_config_entry(
+        entity_registry, battery_note_config_entry.entry_id
+    )
+    assert entities
+    assert {entity.device_id for entity in entities} == {child.id}

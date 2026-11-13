@@ -27,9 +27,9 @@ Changelog = "https://github.com/andrew-codechimp/HA-Battery-Notes/releases"
 
 [dependency-groups]
 dev = [
-    "homeassistant==2026.8.0",
+    "homeassistant==2026.9.0",
     "mypy==2.4.0",
-    "pytest-homeassistant-custom-component==0.13.354", # Keep aligned with HA 2026.8.0's dependency pins.
+    "pytest-homeassistant-custom-component==0.13.363", # Keep aligned with HA 2026.9.0's dependency pins.
     "ruff",
     "zensical",
 ]
@@ -104,7 +104,7 @@ ignore = [
   "TD003",  # Missing issue link TODO
   "TRY400",  # Use `logging.exception` instead of `logging.error`
   "CPY001",  # Missing copyright notice at top of file
-  "FIX004",  # HACK, used for temporary HA version checks
+  "FIX004",  # HACK comments reserved for future compatibility workarounds
 
   # TODO: Temporary ignores, to review
   "ANN001",  # Missing type annotation for function argument

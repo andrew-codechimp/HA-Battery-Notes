@@ -3,13 +3,11 @@
 from __future__ import annotations
 
 import logging
-from typing import Any, cast
-
-from awesomeversion import AwesomeVersion
+from typing import Any
 
 import homeassistant.helpers.device_registry as dr
 from homeassistant.config_entries import SOURCE_IGNORE, SOURCE_INTEGRATION_DISCOVERY
-from homeassistant.const import CONF_DEVICE_ID, __version__
+from homeassistant.const import CONF_DEVICE_ID
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers import discovery_flow
 from homeassistant.loader import Integration, async_get_integration
@@ -91,7 +89,7 @@ class DiscoveryManager:
         self.ha_config = ha_config
         self.existing_devices: set[str] = set()
 
-    async def start_discovery(self) -> None:  # noqa: PLR0912
+    async def start_discovery(self) -> None:
         """Start the discovery procedure."""
         _LOGGER.debug("Start auto discovering devices")
         device_registry = dr.async_get(self.hass)
@@ -103,15 +101,7 @@ class DiscoveryManager:
         if library.is_loaded:
             await self.initialize_existing_devices()
 
-            # HACK: HA backward compatibility use .devices for HA 2026.9+ where typing is correct, otherwise values
-            if AwesomeVersion(__version__) >= AwesomeVersion("2026.8.9"):
-                device_entries = device_registry.devices
-            else:
-                device_entries: list[dr.DeviceEntry] = list(  # type: ignore[no-redef]
-                    device_registry.devices.values()
-                )
-
-            for device_entry in cast(list[dr.DeviceEntry], device_entries):
+            for device_entry in device_registry.devices:
                 if not self.should_process_device(device_entry):
                     continue
 
@@ -126,16 +116,8 @@ class DiscoveryManager:
                 if not device_battery_details or device_battery_details.is_manual:
                     continue
 
-                # HACK: Change to device_entry.config_entry_id when HA 2026.9+ is minimum
-                if AwesomeVersion(__version__) >= AwesomeVersion("2026.8.9"):
-                    config_entry_id = device_entry.config_entry_id  # type: ignore[attr-defined]
-                else:
-                    # config_entries is a set, use the integration providing the device
-                    config_entry_id = device_entry.primary_config_entry
-                config_entry = (
-                    self.hass.config_entries.async_get_entry(config_entry_id)
-                    if config_entry_id
-                    else None
+                config_entry = self.hass.config_entries.async_get_entry(
+                    device_entry.config_entry_id
                 )
 
                 integration: Integration | None = None
@@ -170,12 +152,10 @@ class DiscoveryManager:
                 ):
                     self.existing_devices.add(related_device_id)
 
-    def should_process_device(self, device_entry: dr.DeviceEntry) -> bool:
+    def should_process_device(self, device_entry: dr.AnyDeviceEntry) -> bool:
         """Do some validations on the registry entry to see if it qualifies for discovery."""
 
-        # If has a parent device, use that for library search, child devices do not have manufacturer/model info
-        # HACK: Change to use dr.AnyDeviceEntry type and look for isinstance ChildDeviceEntry with 2026.9+
-        if hasattr(device_entry, "parent_device_id"):
+        if isinstance(device_entry, dr.ChildDeviceEntry):
             _LOGGER.debug(
                 "%s: Is a child device, skipping new discovery",
                 device_entry.id,

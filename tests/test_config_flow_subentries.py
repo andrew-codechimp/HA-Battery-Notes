@@ -88,8 +88,10 @@ def mock_library_updater(request: pytest.FixtureRequest) -> Generator[MagicMock]
 
 @pytest.fixture
 def source_device(
-    hass: HomeAssistant, device_registry: dr.DeviceRegistry
-) -> dr.DeviceEntry:
+    hass: HomeAssistant,
+    device_registry: dr.DeviceRegistry,
+    request: pytest.FixtureRequest,
+) -> dr.AnyDeviceEntry:
     """Create a source device owned by another integration."""
     entry = MockConfigEntry(domain="test")
     entry.add_to_hass(hass)
@@ -102,12 +104,24 @@ def source_device(
         model_id="MS1",
         hw_version="1.0",
     )
+    source_type = getattr(request, "param", None)
+    if source_type == "main-without-model":
+        device = device_registry.async_update_device(
+            device.id, manufacturer=None, model=None
+        )
+    if source_type == "child":
+        return device_registry.async_get_or_create_child(
+            config_entry_id=entry.entry_id,
+            identifiers={("test", "child-device")},
+            parent_device_id=device.id,
+            name="Hall motion",
+        )
     return device_registry.async_update_device(device.id, name_by_user="Hall motion")
 
 
 @pytest.fixture
 def source_entity(
-    entity_registry: er.EntityRegistry, source_device: dr.DeviceEntry
+    entity_registry: er.EntityRegistry, source_device: dr.AnyDeviceEntry
 ) -> er.RegistryEntry:
     """Create a registered battery entity on the source device."""
     return entity_registry.async_get_or_create(
@@ -130,7 +144,7 @@ def source_step(request: pytest.FixtureRequest) -> str:
 
 @pytest.fixture
 def selection_input(
-    source_step: str, source_device: dr.DeviceEntry, source_entity: er.RegistryEntry
+    source_step: str, source_device: dr.AnyDeviceEntry, source_entity: er.RegistryEntry
 ) -> dict[str, str]:
     """Return the source selection for the current flow."""
     return {
@@ -343,18 +357,19 @@ async def test_unknown_model(
     )
 
 
+@pytest.mark.parametrize(
+    "source_device",
+    [pytest.param("main-without-model", id="main"), pytest.param("child", id="child")],
+    indirect=True,
+)
 async def test_device_without_model(
     hass: HomeAssistant,
     source_form: SubentryFlowResult,
     selection_input: dict[str, str],
-    source_device: dr.DeviceEntry,
+    source_device: dr.AnyDeviceEntry,
     mock_library: MagicMock,
 ) -> None:
     """Test a device without model information can be configured without a lookup."""
-    dr.async_get(hass).async_update_device(
-        source_device.id, manufacturer=None, model=None
-    )
-
     result = await hass.config_entries.subentries.async_configure(
         source_form["flow_id"], selection_input
     )

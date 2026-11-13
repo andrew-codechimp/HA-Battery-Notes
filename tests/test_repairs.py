@@ -31,18 +31,32 @@ pytestmark = pytest.mark.usefixtures("mock_library_updater", "_mock_library_file
 
 
 @pytest.fixture
-def composite_device_id(battery_note_device: dr.DeviceEntry) -> Generator[str]:
+def composite_device_id(
+    hass: HomeAssistant,
+    battery_note_device: dr.DeviceEntry,
+    battery_note_sensor: er.RegistryEntry,  # noqa: ARG001
+) -> Generator[str]:
     """Treat the source device as a legacy composite device."""
-    with (
-        patch(
-            "custom_components.battery_notes.is_composite_device_id",
-            side_effect=lambda _hass, device_id: device_id == battery_note_device.id,
-        ),
-        patch(
-            "custom_components.battery_notes.entity.is_composite_device_id",
-            side_effect=lambda _hass, device_id: device_id == battery_note_device.id,
-        ),
-    ):
+    registry = dr.async_get(hass)
+    original_get = registry.async_get
+
+    def get_device(
+        device_id: str,
+        *,
+        include_child_devices: bool = True,
+        include_main_devices: bool = True,
+        include_composite_devices: bool = True,
+    ) -> dr.AnyDeviceEntry | None:
+        if device_id == battery_note_device.id and not include_composite_devices:
+            return None
+        return original_get(
+            device_id,
+            include_child_devices=include_child_devices,
+            include_main_devices=include_main_devices,
+            include_composite_devices=include_composite_devices,
+        )
+
+    with patch.object(registry, "async_get", side_effect=get_device):
         yield battery_note_device.id
 
 
