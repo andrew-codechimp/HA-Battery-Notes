@@ -13828,6 +13828,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Zemismart",
+            "model": "Tubular motor",
+            "model_id": "ZM16B",
+            "battery_type": "Rechargeable"
         }
     ]
 }
