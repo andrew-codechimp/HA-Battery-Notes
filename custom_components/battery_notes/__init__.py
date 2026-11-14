@@ -190,7 +190,6 @@ async def async_setup_entry(
     for subentry in config_entry.get_subentries_of_type(SUBENTRY_BATTERY_NOTE):
         device_id = subentry.data.get(CONF_DEVICE_ID, None)
 
-        # HACK: HA 2026.8 splits composite devices into multiple devices, so we need to check if the device_id is a composite device
         # Entity notes link through their entity and use its current device instead
         if (
             device_id is not None
@@ -473,30 +472,12 @@ async def async_migrate_integration(hass: HomeAssistant, config: ConfigType) -> 
 
         if source_device_id:
             try:
-                # HACK: New method in 2026.8 - remove legacy when reach minimum version
-                remove_helper_devices = getattr(
-                    helper_integration, "async_remove_helper_devices", None
+                helper_integration.async_remove_helper_devices(
+                    hass,
+                    helper_config_entry_id=entry.entry_id,
+                    source_device_id=source_device_id,
+                    remove_all_devices=True,
                 )
-                remove_legacy_link = getattr(
-                    helper_integration,
-                    "async_remove_helper_config_entry_from_source_device",
-                    None,
-                )
-
-                if callable(remove_helper_devices):
-                    remove_helper_devices(
-                        hass,
-                        helper_config_entry_id=entry.entry_id,
-                        source_device_id=source_device_id,
-                        remove_all_devices=True,
-                    )
-                elif callable(remove_legacy_link):
-                    remove_legacy_link(
-                        hass,
-                        helper_config_entry_id=entry.entry_id,
-                        source_device_id=source_device_id,
-                    )
-
             except ValueError as ex:
                 _LOGGER.debug(
                     "Error removing helper config entry from device during migration: %s",

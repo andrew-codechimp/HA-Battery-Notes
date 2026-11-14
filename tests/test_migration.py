@@ -40,13 +40,19 @@ async def test_migrate_legacy_entry(
     data = {CONF_DEVICE_ID: battery_note_device.id, CONF_BATTERY_TYPE: battery_type}
     if version == 2:
         data[CONF_BATTERY_QUANTITY] = 3
-    MockConfigEntry(
+    entry = MockConfigEntry(
         domain=DOMAIN,
         version=version,
         title="Door sensor",
         unique_id=f"bn_{battery_note_device.id}",
         data=data,
-    ).add_to_hass(hass)
+    )
+    entry.add_to_hass(hass)
+    device_registry = dr.async_get(hass)
+    helper_device = device_registry.async_get_or_create(
+        config_entry_id=entry.entry_id,
+        identifiers=battery_note_device.identifiers,
+    )
 
     assert await async_setup_component(hass, DOMAIN, {})
     await hass.async_block_till_done()
@@ -62,3 +68,5 @@ async def test_migrate_legacy_entry(
         subentries[0].data[CONF_BATTERY_QUANTITY],
     ) == expected
     assert CONF_ADVANCED_SETTINGS in subentries[0].data
+    assert device_registry.async_get(helper_device.id) is None
+    assert device_registry.async_get(battery_note_device.id) is not None

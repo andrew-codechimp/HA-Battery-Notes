@@ -354,25 +354,22 @@ async def test_child_device_not_discovered(
     source_device: dr.DeviceEntry,
     device_registry: dr.DeviceRegistry,
 ) -> None:
-    """Test child entries are skipped even when their metadata matches the library."""
-    # HACK: The minimum supported HA version does not have child registry entries.
-    child = MagicMock(
-        spec=dr.DeviceEntry,
-        id="child-device",
+    """Test only the parent is discovered when it has a child device."""
+    child = device_registry.async_get_or_create_child(
+        config_entry_id=source_device.config_entry_id,
+        identifiers={("mqtt", "child-device")},
         parent_device_id=source_device.id,
-        manufacturer=source_device.manufacturer,
-        model=source_device.model,
-        model_id=source_device.model_id,
-        hw_version=source_device.hw_version,
         name="Child device",
-        disabled=False,
-        config_entries=source_device.config_entries,
     )
-    with patch.object(device_registry, "devices", {child.id: child}):
-        await discovery_manager.start_discovery()
-        await hass.async_block_till_done(wait_background_tasks=True)
+    assert not discovery_manager.should_process_device(child)
 
-    assert hass.config_entries.flow.async_progress_by_handler(DOMAIN) == []
+    await discovery_manager.start_discovery()
+    await hass.async_block_till_done(wait_background_tasks=True)
+
+    flows = hass.config_entries.flow.async_progress_by_handler(DOMAIN)
+    assert [flow["context"]["unique_id"] for flow in flows] == [
+        f"bn_{source_device.id}"
+    ]
 
 
 async def test_composite_device_not_discovered(
@@ -419,7 +416,7 @@ async def test_configured_related_device_not_discovered(
     """Test discovery excludes the registry's relatives of an already configured device."""
     device_registry = dr.async_get(hass)
     related_device = device_registry.async_get_or_create(
-        config_entry_id=next(iter(source_device.config_entries)),
+        config_entry_id=source_device.config_entry_id,
         identifiers={("mqtt", "related-device")},
         name="Related device",
         manufacturer=source_device.manufacturer,
@@ -437,7 +434,6 @@ async def test_configured_related_device_not_discovered(
     with patch.object(
         device_registry,
         related_devices_method,
-        create=True,
         return_value=[source_device, related_device],
     ) as get_related_devices:
         await discovery_manager.start_discovery()
@@ -477,23 +473,26 @@ async def test_library_not_loaded(
 @pytest.mark.parametrize(
     ("source_config_entry", "secondary_domain", "expected_name"),
     [
-        pytest.param("mqtt", "unifi", "Front door - MQTT", id="secondary-ignored"),
-        pytest.param("unifi", "mqtt", None, id="primary-ignored"),
+        pytest.param("mqtt", "unifi", "Front door - MQTT", id="other-owner-ignored"),
+        pytest.param("unifi", "mqtt", None, id="owner-ignored"),
     ],
     indirect=["source_config_entry"],
 )
-async def test_primary_config_entry_used(
+async def test_owning_config_entry_used(
     hass: HomeAssistant,
     discovery_manager: DiscoveryManager,
     source_device: dr.DeviceEntry,
     secondary_domain: str,
     expected_name: str | None,
 ) -> None:
-    """Test the device's primary integration decides ignoring and the flow name."""
+    """Test discovery uses the owner even when another device shares identifiers."""
     secondary_entry = MockConfigEntry(domain=secondary_domain)
     secondary_entry.add_to_hass(hass)
-    dr.async_get(hass).async_update_device(
-        source_device.id, add_config_entry_id=secondary_entry.entry_id
+    dr.async_get(hass).async_get_or_create(
+        config_entry_id=secondary_entry.entry_id,
+        identifiers=source_device.identifiers,
+        manufacturer="Unknown",
+        model="Unknown",
     )
 
     await discovery_manager.start_discovery()

@@ -34,10 +34,10 @@ directory under `.storage/battery_notes/`.
 - Config migrations must preserve entity ownership, subentry associations, unique
   IDs, and supported user registry settings. Keep ignored entries and unsupported
   future config versions in mind.
-- HA 2026.8/2026.9 device-registry compatibility paths are intentional while the
-  minimum supported version remains 2026.8. Reuse `common.py` helpers for composite
-  devices and related IDs. Do not replace them with newer-only APIs without a
-  deliberate compatibility change.
+- The minimum supported HA version is 2026.9. Use its typed device-registry APIs
+  directly and reuse `common.py` helpers for composite devices and related IDs.
+  Exclude composite devices when attaching entities; child devices remain valid
+  attachment targets but are skipped during library discovery.
 - Composite-device repairs update the source ID and migrate device history while
   retaining note/entity identity. Do not overwrite history already at the target ID.
 

@@ -35,6 +35,7 @@ from syrupy.assertion import SnapshotAssertion
 
 from homeassistant.config_entries import ConfigEntryState
 from homeassistant.core import HomeAssistant
+from homeassistant.setup import async_setup_component
 from homeassistant.util import dt as dt_util
 
 from . import setup_integration
@@ -54,6 +55,16 @@ CUSTOM_OPTIONS = {
         CONF_USER_LIBRARY: "custom_library.json",
     },
 }
+
+
+async def test_unsupported_ha_version(
+    hass: HomeAssistant, caplog: pytest.LogCaptureFixture
+) -> None:
+    """Test setup rejects Home Assistant versions below 2026.9."""
+    with patch("custom_components.battery_notes.HA_VERSION", "2026.8.9"):
+        assert not await async_setup_component(hass, DOMAIN, {})
+
+    assert "requires at least Home Assistant version 2026.9.0" in caplog.text
 
 
 @pytest.fixture

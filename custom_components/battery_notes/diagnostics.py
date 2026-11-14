@@ -47,7 +47,7 @@ async def async_get_config_entry_diagnostics(
                 device_id = entity.device_id
 
         device_entry = device_registry.async_get(device_id) if device_id else None
-        if device_entry:
+        if isinstance(device_entry, dr.DeviceEntry):
             subentry_diagnostics["device_info"] = {
                 "manufacturer": device_entry.manufacturer,
                 "model": device_entry.model,
@@ -97,13 +97,13 @@ def _coordinator_diagnostics(
 
 
 async def _library_match(
-    library: Library | None, device_entry: dr.DeviceEntry | None
+    library: Library | None, device_entry: dr.AnyDeviceEntry | None
 ) -> dict[str, Any] | None:
     """Return the library entry matching the source device, if any."""
     if (
         library is None
         or not library.is_loaded
-        or device_entry is None
+        or not isinstance(device_entry, dr.DeviceEntry)
         or not device_entry.manufacturer
         or not device_entry.model
     ):

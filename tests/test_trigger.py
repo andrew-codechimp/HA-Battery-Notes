@@ -597,7 +597,7 @@ async def test_targets_rejected(
     hass: HomeAssistant, trigger_key: str, target: dict[str, str]
 ) -> None:
     """Test targets are rejected instead of silently triggering for all notes."""
-    with pytest.raises(vol.Invalid, match="extra keys not allowed"):
+    with pytest.raises(vol.Invalid, match=r"not a valid option.*target"):
         await async_validate_trigger_config(
             hass, [{"platform": trigger_key, "target": target}]
         )

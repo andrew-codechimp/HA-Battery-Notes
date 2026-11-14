@@ -76,25 +76,21 @@ def get_related_device_ids(hass: HomeAssistant, device_id: str) -> set[str]:
         device.id for device in _get_composite_split_devices(device_registry, device_id)
     )
 
-    device = device_registry.async_get(device_id)
+    device = device_registry.async_get(device_id, include_child_devices=False)
     if device is None:
         return related
 
     sibling_devices = _get_composite_split_devices(
-        device_registry, getattr(device, "composite_device_id", None)
+        device_registry, device.composite_device_id
     )
     related.update(sibling_device.id for sibling_device in sibling_devices)
 
-    # HACK: Only available in HA >=2026.8. On older versions devices sharing an identifier or connection
-    # were merged into a single device, so there is nothing to relate.
-    get_devices = getattr(device_registry, "async_get_devices", None)
-    if callable(get_devices):
-        related.update(
-            linked_device.id
-            for linked_device in get_devices(
-                identifiers=device.identifiers, connections=device.connections
-            )
+    related.update(
+        linked_device.id
+        for linked_device in device_registry.async_get_devices(
+            identifiers=device.identifiers, connections=device.connections
         )
+    )
 
     return related
 
@@ -103,59 +99,37 @@ def _get_composite_split_devices(
     device_registry: dr.DeviceRegistry,
     device_id: str | None,
 ) -> list[DeviceEntry]:
-    """HACK: Return all devices split off from the same legacy composite device as the given device.
+    """Return all devices split off from the same legacy composite device as the given device.
 
     Accepts either the composite device ID itself, or the ID of one of the split devices.
-    Returns an empty list when the device is unrelated to a composite device, or when running on
-    HA <2026.8, which does not split composite devices at all.
+    Returns an empty list when the device is unrelated to a composite device.
     """
     if not device_id:
         return []
 
-    get_split_devices = getattr(
-        device_registry, "async_get_devices_for_composite_device_id", None
-    )
-    if not callable(get_split_devices):
-        return []
-
-    if split_devices := list(get_split_devices(device_id)):
+    if split_devices := device_registry.async_get_devices_for_composite_device_id(
+        device_id
+    ):
         return split_devices
 
     # Not a composite ID itself, so it may be one of the devices split off from a composite.
-    device = device_registry.async_get(device_id)
-    composite_device_id = (
-        getattr(device, "composite_device_id", None) if device else None
-    )
+    device = device_registry.async_get(device_id, include_child_devices=False)
+    composite_device_id = device.composite_device_id if device else None
     if not composite_device_id:
         return []
-    return list(get_split_devices(composite_device_id))
+    return device_registry.async_get_devices_for_composite_device_id(
+        composite_device_id
+    )
 
 
 def is_composite_device_id(hass: HomeAssistant, device_id: str) -> bool:
-    """HACK: Return whether a device ID identifies a legacy composite device.
-
-    A composite device ID resolves with async_get(device_id) but not with
-    async_get(device_id, include_composite_devices=False).
-    """
+    """Return whether a device ID identifies a legacy composite device."""
     device_registry = dr.async_get(hass)
 
-    # HACK: Try the modern API first (HA 2026.9+)
-    try:
-        # If device exists without composites, it's not composite
-        if device_registry.async_get(device_id, include_composite_devices=False):  # type: ignore[call-arg]
-            return False
-        # If it's None, check if device exists at all (composite if it does)
-        return device_registry.async_get(device_id) is not None
-    except TypeError:
-        # Fallback for older versions (HA <2026.9) - include_composite_devices not supported
-        pass
-
-    # Fall back to deprecated method for older versions
-    is_composite = getattr(device_registry, "async_is_composite_device_id", None)
-    if callable(is_composite):
-        return bool(is_composite(device_id))
-
-    return False
+    return (
+        device_registry.async_get(device_id, include_composite_devices=False) is None
+        and device_registry.async_get(device_id) is not None
+    )
 
 
 def composite_device_issue_id(config_subentry_id: str) -> str:
