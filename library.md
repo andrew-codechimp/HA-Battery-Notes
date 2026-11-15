@@ -1,4 +1,4 @@
-## 2381 Devices in library
+## 2382 Devices in library
 
 This file is auto generated, do not modify
 
@@ -751,6 +751,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Eve Systems                                     |Eve Door 20EBN9901                                                                            |LS14250                   |                                                                                      |
 |Eve Systems                                     |Eve Motion 20EBY9901                                                                          |2× AAA                    |                                                                                      |
 |Eve Systems                                     |Eve MotionBlinds 20CAA9901                                                                    |Rechargeable              |                                                                                    85|
+|Eve Systems                                     |Eve MotionBlinds 20CAH9901                                                                    |Rechargeable              |                                                                                   100|
 |Eve Systems                                     |Eve Room 20EBX9901                                                                            |Rechargeable              |                                                                                      |
 |Eve Systems                                     |Eve Thermo 20EBP1701                                                                          |2× AA                     |                                                                                    79|
 |Eve Systems                                     |Eve Thermo 20ECD1701                                                                          |2× AA                     |                                                                                   125|

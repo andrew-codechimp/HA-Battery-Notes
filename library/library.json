@@ -4318,6 +4318,12 @@
         },
         {
             "manufacturer": "Eve Systems",
+            "model": "Eve MotionBlinds 20CAH9901",
+            "model_id": "100",
+            "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Eve Systems",
             "model": "Eve Room 20EBX9901",
             "hw_version": "1.1",
             "battery_type": "Rechargeable"
@@ -13833,12 +13839,6 @@
         {
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
-            "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Eve Systems",
-            "model": "Eve MotionBlinds 20CAH9901",
-            "model_id": "100",
             "battery_type": "Rechargeable"
         }
     ]
