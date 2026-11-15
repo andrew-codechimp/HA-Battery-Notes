@@ -13834,6 +13834,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Eve Systems",
+            "model": "Eve MotionBlinds 20CAH9901",
+            "model_id": "100",
+            "battery_type": "Rechargeable"
         }
     ]
 }
