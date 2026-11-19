@@ -1,4 +1,4 @@
-## 2383 Devices in library
+## 2384 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1096,6 +1096,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Inkbird                                         |IBS-TH1/TH2/P01B/ITH-12S                                                                      |2× AAA                    |                                                                                      |
 |INKBIRD                                         |IBS-TH2/P01B                                                                                  |2× AAA                    |                                                                                      |
 |Inkbird                                         |IHT-2PB                                                                                       |Rechargeable              |                                                                                      |
+|innr                                            |RC 250                                                                                        |CR2450                    |                                                                                      |
 |Innr                                            |Remote control                                                                                |CR2450                    |RC 250                                                                                |
 |Innr                                            |Remote control (RC 210)                                                                       |CR2032                    |                                                                                      |
 |iNode                                           |iNode Energy Meter                                                                            |CR2032                    |                                                                                      |
