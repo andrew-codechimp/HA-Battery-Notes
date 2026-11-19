@@ -112,11 +112,8 @@ jobs:
             }'
 
       - name: Validate JSON
-        uses: docker://orrosenblatt/validate-json-action:latest
         if: "${{ env.MANUAL != 'True' }}"
-        env:
-          INPUT_SCHEMA: library/schema.json
-          INPUT_JSONS: library/library.json
+        run: python3 scripts/validate_library
 
       - name: Create pull request
         uses: peter-evans/create-pull-request@v8
