@@ -1,4 +1,4 @@
-## 2382 Devices in library
+## 2383 Devices in library
 
 This file is auto generated, do not modify
 
@@ -2324,6 +2324,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Yale                                            |YRL256                                                                                        |4× AA                     |                                                                                      |
 |Yale Home Inc.                                  |AK-R1                                                                                         |2× AAA                    |                                                                                      |
 |Yale Home Inc.                                  |ASL6_05/101110/MB                                                                             |4× AA                     |                                                                                      |
+|Yale/August                                     |ASL-3B                                                                                        |4× AA                     |                                                                                      |
 |Yale/August                                     |AUGUST_MODEL_NUMBER_HERE                                                                      |4× AA                     |                                                                                      |
 |Yale/August                                     |MD-04I                                                                                        |4× AA                     |                                                                                      |
 |Yandex                                          |Double gang wireless switch                                                                   |2× CR2450                 |YNDX_00535                                                                            |
