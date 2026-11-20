@@ -8,20 +8,20 @@ on:
     paths:
       - "library/**"
       - ".github/workflows/json*.yaml"
+      - "scripts/validate_library"
   pull_request:
     branches:
       - "main"
     paths:
       - "library/**"
       - ".github/workflows/json*.yaml"
+      - "scripts/validate_library"
 
 jobs:
   verify-json-validation:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10.3.3
       - name: Validate JSON
-        uses: dsanders11/json-schema-validate-action@v2.2.0
-        with:
-          schema: library/schema.json
-          files: library/library.json
+        run: python3 scripts/validate_library
