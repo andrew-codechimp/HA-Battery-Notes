@@ -1,7 +1,6 @@
 <!-- ha-marketplace:exclude-start -->
 # Battery Notes for Home Assistant
 
-[![GitHub Release][releases-shield]][releases]
 [![GitHub Activity][commits-shield]][commits]
 [![Downloads][download-latest-shield]]()
 [![Installs][marketplace-installs-shield]][hacs-install]
@@ -98,8 +97,6 @@ Thanks to everyone who has submitted devices to the library.
 [forum-shield]: https://img.shields.io/badge/community-forum-brightgreen.svg?style=for-the-badge
 [forum]: https://community.home-assistant.io/t/custom-component-battery-notes/613821
 [license-shield]: https://img.shields.io/github/license/andrew-codechimp/HA-Battery-Notes.svg?style=for-the-badge
-[releases-shield]: https://img.shields.io/github/release/andrew-codechimp/HA-Battery-Notes.svg?style=for-the-badge
-[releases]: https://github.com/andrew-codechimp/HA-Battery-Notes/releases
 [download-latest-shield]: https://img.shields.io/github/downloads/andrew-codechimp/ha-battery-notes/latest/total?style=for-the-badge
 [repository]: https://github.com/andrew-codechimp/HA-Battery-Notes
 [marketplace-installs-shield]: https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fanalytics.home-assistant.io%2Fcustom_integrations.json&query=%24.battery_notes.total&style=for-the-badge&label=Marketplace%20installs
