@@ -1,9 +1,9 @@
 # Battery Notes — coding agent instructions
 
 These instructions apply to this repository. Battery Notes is a Home Assistant
-custom integration, distributed through HACS, that associates battery metadata
-with existing devices or entities. It provides battery type/quantity, Battery+
-percentage sensors, battery-low sensors, replacement timestamps, replacement
+custom integration, distributed through the Home Assistant Marketplace, that associates 
+battery metadata with existing devices or entities. It provides battery type/quantity, 
+Battery+ percentage sensors, battery-low sensors, replacement timestamps, replacement
 buttons, events, and actions. A community JSON library supplies device defaults.
 
 Keep changes focused on the requested behavior. Read the relevant implementation
