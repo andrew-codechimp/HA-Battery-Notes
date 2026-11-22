@@ -13860,6 +13860,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Aroha",
+            "model": "SM1M",
+            "model_id": "22552",
+            "battery_type": "CR123A"
         }
     ]
 }
