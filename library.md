@@ -1,4 +1,4 @@
-## 2385 Devices in library
+## 2386 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1559,6 +1559,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Shelly                                          |BLU Door Window Sensor                                                                        |CR2032                    |                                                                                      |
 |Shelly                                          |BLU Door/Window                                                                               |CR2032                    |                                                                                      |
 |Shelly                                          |BLU Door/Window Mini ZB                                                                       |CR2032                    |SBDW-203C                                                                             |
+|Shelly                                          |BLU H&T Display ZB                                                                            |2× CR2032                 |                                                                                      |
 |Shelly                                          |BLU H&T display Zigbee                                                                        |2× CR2032                 |SBHT-103C                                                                             |
 |Shelly                                          |BLU H&T ZB                                                                                    |CR2032                    |                                                                                      |
 |Shelly                                          |Blu Motion                                                                                    |CR2477                    |                                                                                      |
