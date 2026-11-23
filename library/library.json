@@ -10226,6 +10226,12 @@
         },
         {
             "manufacturer": "switchbot",
+            "model": "WoKeypadTouch",
+            "battery_type": "CR123A",
+            "battery_quantity": 2
+        },
+        {
+            "manufacturer": "switchbot",
             "model": "WoLock",
             "battery_type": "CR123A",
             "battery_quantity": 2
