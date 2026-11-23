@@ -1,4 +1,4 @@
-## 2387 Devices in library
+## 2388 Devices in library
 
 This file is auto generated, do not modify
 
@@ -13,6 +13,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |_TYZB01_7qf81wty                                |TS1001                                                                                        |2× AAA                    |                                                                                      |
 |_TYZB01_hww2py6b                                |TS1001                                                                                        |CR2450                    |                                                                                      |
 |_TYZB01_iev4cs4x                                |TS0205                                                                                        |CR123A                    |                                                                                      |
+|_TYZB01_o63ssaah                                |TS0207                                                                                        |CR2032                    |                                                                                      |
 |_TYZB01_ohyttvf6                                |TS0205                                                                                        |CR123A                    |                                                                                      |
 |_TYZB01_sqmd19i1                                |TS0207                                                                                        |CR2032                    |                                                                                      |
 |_TYZB01_tob46aoq                                |TS0205                                                                                        |CR123A                    |                                                                                      |
