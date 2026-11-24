@@ -1,4 +1,4 @@
-## 2388 Devices in library
+## 2389 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1778,6 +1778,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |switchbot                                       |woHand                                                                                        |CR2                       |                                                                                      |
 |SwitchBot                                       |WoIOSensor                                                                                    |2× AAA                    |                                                                                      |
 |switchbot                                       |WoIOSensorTH                                                                                  |2× AAA                    |                                                                                      |
+|switchbot                                       |WoKeypadTouch                                                                                 |2× CR123A                 |                                                                                      |
 |switchbot                                       |WoLock                                                                                        |2× CR123A                 |                                                                                      |
 |switchbot                                       |WoLockPro                                                                                     |4× AA                     |                                                                                      |
 |switchbot                                       |WoPresence                                                                                    |2× AAA                    |                                                                                      |
