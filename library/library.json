@@ -13877,6 +13877,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "HOBEIAN",
+            "model": "Smart knob",
+            "model_id": "ZG-101ZD",
+            "battery_type": "CR2450"
         }
     ]
 }
