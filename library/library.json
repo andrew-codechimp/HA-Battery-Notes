@@ -13895,6 +13895,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Shelly",
+            "model": "Shelly BLU Motion ZB",
+            "model_id": "SBMO-103Z",
+            "battery_type": "CR2477"
         }
     ]
 }
