@@ -1,4 +1,4 @@
-## 2392 Devices in library
+## 2393 Devices in library
 
 This file is auto generated, do not modify
 
@@ -1575,6 +1575,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Shelly                                          |gen1 (SHHT-1)                                                                                 |CR123A                    |                                                                                      |
 |Shelly                                          |Shelly BLU  Door/Window                                                                       |CR2032                    |SBDW-002C                                                                             |
 |Shelly                                          |Shelly BLU Motion                                                                             |CR2477                    |SBMO-003Z                                                                             |
+|Shelly                                          |Shelly BLU Motion ZB                                                                          |CR2477                    |SBMO-103Z                                                                             |
 |Shelly                                          |Shelly BLU TRV                                                                                |2× AA                     |SBTR-001AEU                                                                           |
 |Shelly                                          |Shelly Button1                                                                                |Rechargeable              |                                                                                      |
 |Shelly                                          |Shelly Door/Window 2                                                                          |2× CR123A                 |                                                                                      |

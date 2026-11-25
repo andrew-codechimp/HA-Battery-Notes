@@ -9073,6 +9073,12 @@
         },
         {
             "manufacturer": "Shelly",
+            "model": "Shelly BLU Motion ZB",
+            "model_id": "SBMO-103Z",
+            "battery_type": "CR2477"
+        },
+        {
+            "manufacturer": "Shelly",
             "model": "Shelly BLU TRV",
             "model_id": "SBTR-001AEU",
             "battery_type": "AA",
@@ -13895,12 +13901,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Shelly",
-            "model": "Shelly BLU Motion ZB",
-            "model_id": "SBMO-103Z",
-            "battery_type": "CR2477"
         }
     ]
 }
