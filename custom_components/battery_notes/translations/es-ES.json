@@ -170,14 +170,16 @@
                     "hide_battery": "Ocultar batería",
                     "round_battery": "Redondear batería",
                     "default_battery_low_threshold": "Umbral bajo predeterminado de la batería",
-                    "battery_increase_threshold": "Umbral de aumento de batería"
+                    "battery_increase_threshold": "Umbral de aumento de batería",
+                    "auto_replace_battery": "Registrar automáticamente la sustitución de la batería"
                 },
                 "data_description": {
                     "show_all_devices": "Mostrar todos los dispositivos en la lista de dispositivos, de lo contrario solo se mostrarán los que tengan baterías.",
                     "hide_battery": "Ocultar la batería estándar al agregar Battery+.",
                     "round_battery": "Redondear Battery+ a porcentajes enteros.",
                     "default_battery_low_threshold": "El umbral predeterminado en el que la entidad battery_low del dispositivo se establece en verdadero y se dispara el evento battery_notes_battery_threshold si la batería está por debajo de este umbral. Puede ser anulado por dispositivo en la configuración del dispositivo.",
-                    "battery_increase_threshold": "El umbral en el que se dispara el evento battery_notes_battery_increased. Use este evento para automatizaciones de reemplazo de batería. El umbral es la diferencia de aumento entre el nivel anterior y el actual de la batería."
+                    "battery_increase_threshold": "El umbral en el que se dispara el evento battery_notes_battery_increased. Use este evento para automatizaciones de reemplazo de batería. El umbral es la diferencia de aumento entre el nivel anterior y el actual de la batería.",
+                    "auto_replace_battery": "La batería se marca automáticamente como sustituida cuando el aumento del nivel de carga supera el umbral. Si se ha configurado un umbral de aumento para el dispositivo, se usará ese valor en lugar del global. Se seguirán emitiendo los eventos battery_notes_battery_increased y battery_notes_battery_replaced para que pueda ejecutar otras acciones mediante automatizaciones."
                 },
                 "sections": {
                     "advanced_settings": {

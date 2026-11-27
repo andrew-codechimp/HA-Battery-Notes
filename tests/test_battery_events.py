@@ -6,11 +6,16 @@ from types import MappingProxyType
 
 import pytest
 from custom_components.battery_notes.const import (
+    ATTR_BATTERY_LAST_REPLACED,
+    ATTR_BATTERY_LAST_REPORTED,
     ATTR_BATTERY_LEVEL,
     ATTR_BATTERY_LOW,
     ATTR_BATTERY_THRESHOLD_REMINDER,
+    ATTR_DEVICE_ID,
     ATTR_PREVIOUS_BATTERY_LEVEL,
     CONF_ADVANCED_SETTINGS,
+    CONF_AUTO_REPLACE_BATTERY,
+    CONF_BATTERY_INCREASE_THRESHOLD,
     CONF_BATTERY_LOW_TEMPLATE,
     CONF_BATTERY_PERCENTAGE_TEMPLATE,
     CONF_BATTERY_QUANTITY,
@@ -23,12 +28,14 @@ from custom_components.battery_notes.const import (
     CONF_SOURCE_ENTITY_ID,
     DOMAIN,
     EVENT_BATTERY_INCREASED,
+    EVENT_BATTERY_REPLACED,
     EVENT_BATTERY_THRESHOLD,
     SUBENTRY_BATTERY_NOTE,
 )
 from freezegun.api import FrozenDateTimeFactory
 from pytest_homeassistant_custom_component.common import (
     MockConfigEntry,
+    async_capture_events,
 )
 
 from homeassistant.components.binary_sensor import BinarySensorDeviceClass
@@ -394,6 +401,143 @@ async def test_default_threshold_options(
     assert _summary(battery_events) == expected
 
 
+@pytest.fixture(
+    params=[
+        pytest.param((0, 80), id="global-threshold"),
+        pytest.param((10, 65), id="note-threshold"),
+    ],
+)
+def threshold_note_entry(
+    mock_config_entry: MockConfigEntry,
+    mock_battery_note_subentry: ConfigSubentry,
+    percentage_source_settings: dict[str, str],
+    request: pytest.FixtureRequest,
+) -> tuple[MockConfigEntry, int]:
+    """Return the note and the first qualifying rise from 55%."""
+    note_threshold, qualifying_level = request.param
+    subentry = replace(
+        mock_battery_note_subentry,
+        data=MappingProxyType(
+            {
+                **mock_battery_note_subentry.data,
+                CONF_BATTERY_INCREASE_THRESHOLD: note_threshold,
+                CONF_ADVANCED_SETTINGS: percentage_source_settings,
+            }
+        ),
+    )
+    return _note_entry(mock_config_entry, subentry), qualifying_level
+
+
+@pytest.mark.parametrize(
+    "mock_config_entry", [{CONF_AUTO_REPLACE_BATTERY: True}], indirect=True
+)
+@pytest.mark.parametrize("battery_note_source", ["device"])
+@pytest.mark.parametrize(
+    "percentage_source_settings",
+    [
+        pytest.param({}, id="wrapped-percentage"),
+        pytest.param(
+            {CONF_BATTERY_PERCENTAGE_TEMPLATE: "{{ states('sensor.door_battery') }}"},
+            id="percentage-template",
+        ),
+    ],
+)
+async def test_auto_replace_respects_effective_threshold(
+    hass: HomeAssistant,
+    threshold_note_entry: tuple[MockConfigEntry, int],
+    battery_note_sensor: er.RegistryEntry,
+    battery_events: list[Event],
+    freezer: FrozenDateTimeFactory,
+) -> None:
+    """Test automatic replacement starts at the effective increase threshold."""
+    entry, qualifying_level = threshold_note_entry
+    replacements = async_capture_events(hass, EVENT_BATTERY_REPLACED)
+    await setup_integration(hass, entry)
+    battery_plus_id = _battery_plus_entity_id(hass, entry)
+    last_replaced = hass.states.get(battery_plus_id).attributes[
+        ATTR_BATTERY_LAST_REPLACED
+    ]
+
+    freezer.tick(timedelta(minutes=1))
+    await _set_level(hass, battery_note_sensor.entity_id, str(qualifying_level - 1))
+    assert battery_events == []
+    assert replacements == []
+    assert (
+        hass.states.get(battery_plus_id).attributes[ATTR_BATTERY_LAST_REPLACED]
+        == last_replaced
+    )
+
+    await _set_level(hass, battery_note_sensor.entity_id, "55")
+    freezer.tick(timedelta(minutes=1))
+    await _set_level(hass, battery_note_sensor.entity_id, str(qualifying_level))
+    assert _summary(battery_events) == [(EVENT_BATTERY_INCREASED, False)]
+    assert _levels(battery_events) == [(qualifying_level, 55)]
+    assert len(replacements) == 1
+    assert (
+        hass.states.get(battery_plus_id).attributes[ATTR_BATTERY_LAST_REPLACED]
+        == dt_util.utcnow()
+    )
+
+
+@pytest.mark.parametrize(
+    "mock_config_entry",
+    [
+        pytest.param(
+            {
+                CONF_AUTO_REPLACE_BATTERY: True,
+                CONF_DEFAULT_BATTERY_INCREASE_THRESHOLD: 0,
+            },
+            id="zero-increase-threshold",
+        ),
+    ],
+    indirect=True,
+)
+@pytest.mark.parametrize("battery_note_source", ["device"])
+async def test_auto_replace_requires_percentage_increase(
+    hass: HomeAssistant,
+    battery_note_config_entry: MockConfigEntry,
+    battery_note_sensor: er.RegistryEntry,
+    battery_events: list[Event],
+    freezer: FrozenDateTimeFactory,
+) -> None:
+    """Test that even a zero threshold requires a rise to record a replacement."""
+    await setup_integration(hass, battery_note_config_entry)
+    battery_plus_id = _battery_plus_entity_id(hass, battery_note_config_entry)
+    replaced_before = hass.states.get(battery_plus_id).attributes[
+        ATTR_BATTERY_LAST_REPLACED
+    ]
+    replacements = async_capture_events(hass, EVENT_BATTERY_REPLACED)
+
+    freezer.tick(timedelta(hours=1))
+    await _set_level(hass, battery_note_sensor.entity_id, "55")
+    attributes = hass.states.get(battery_plus_id).attributes
+    assert attributes[ATTR_BATTERY_LAST_REPORTED] == dt_util.utcnow()
+    assert attributes[ATTR_BATTERY_LAST_REPLACED] == replaced_before
+    assert battery_events == []
+    assert replacements == []
+
+    freezer.tick(timedelta(minutes=1))
+    await _set_level(hass, battery_note_sensor.entity_id, "56")
+    assert _summary(battery_events) == [(EVENT_BATTERY_INCREASED, False)]
+    assert _levels(battery_events) == [(56, 55)]
+    assert len(replacements) == 1
+    assert replacements[0].data[ATTR_DEVICE_ID] == battery_note_sensor.device_id
+    replaced_at = dt_util.utcnow()
+    assert (
+        hass.states.get(battery_plus_id).attributes[ATTR_BATTERY_LAST_REPLACED]
+        == replaced_at
+    )
+
+    freezer.tick(timedelta(minutes=1))
+    assert await hass.config_entries.async_reload(battery_note_config_entry.entry_id)
+    await hass.async_block_till_done()
+    assert (
+        hass.states.get(battery_plus_id).attributes[ATTR_BATTERY_LAST_REPLACED]
+        == replaced_at
+    )
+    assert len(replacements) == 1
+
+
 @pytest.mark.parametrize(
     "mock_config_entry", [{CONF_ROUND_BATTERY: True}], indirect=True
 )
@@ -471,20 +615,35 @@ def binary_note_entry(
     return _note_entry(mock_config_entry, subentry), source.entity_id
 
 
+@pytest.mark.parametrize(
+    ("mock_config_entry", "replacement_count"),
+    [
+        pytest.param({}, 0, id="manual"),
+        pytest.param({CONF_AUTO_REPLACE_BATTERY: True}, 1, id="automatic"),
+    ],
+    indirect=["mock_config_entry"],
+)
 async def test_binary_source_events(
     hass: HomeAssistant,
     binary_note_entry: tuple[MockConfigEntry, str],
     battery_events: list[Event],
+    freezer: FrozenDateTimeFactory,
+    replacement_count: int,
 ) -> None:
     """Test a binary source fires events only when its low state changes."""
     entry, source_id = binary_note_entry
+    replacements = async_capture_events(hass, EVENT_BATTERY_REPLACED)
     await setup_integration(hass, entry)
     battery_low_id = _battery_low_entity_id(hass, entry)
     attributes = {ATTR_DEVICE_CLASS: BinarySensorDeviceClass.BATTERY}
+    last_replaced = hass.states.get(battery_low_id).attributes[
+        ATTR_BATTERY_LAST_REPLACED
+    ]
 
     hass.states.async_set(source_id, STATE_ON, attributes)
     await hass.async_block_till_done()
     assert _summary(battery_events) == [(EVENT_BATTERY_THRESHOLD, True)]
+    assert replacements == []
     assert hass.states.get(battery_low_id).state == STATE_ON
 
     # An attribute-only update is not a new threshold crossing
@@ -496,7 +655,9 @@ async def test_binary_source_events(
     await hass.async_block_till_done()
     assert len(battery_events) == 1
     assert hass.states.get(battery_low_id).state == STATE_UNAVAILABLE
+    assert replacements == []
 
+    freezer.tick(timedelta(minutes=1))
     hass.states.async_set(source_id, STATE_OFF, attributes)
     await hass.async_block_till_done()
     assert _summary(battery_events) == [
@@ -507,6 +668,14 @@ async def test_binary_source_events(
     # Nominal levels follow the direction of the battery low change
     assert _levels(battery_events) == [(0, 100), (100, 0), (100, 0)]
     assert hass.states.get(battery_low_id).state == STATE_OFF
+    assert len(replacements) == replacement_count
+    assert (
+        hass.states.get(battery_low_id).attributes[ATTR_BATTERY_LAST_REPLACED]
+        == {
+            0: last_replaced,
+            1: dt_util.utcnow(),
+        }[replacement_count]
+    )
 
 
 @pytest.mark.parametrize(
@@ -640,6 +809,54 @@ async def test_low_template_events(
     assert hass.states.get(battery_low_id).state == STATE_OFF
 
 
+@pytest.mark.parametrize(
+    ("mock_config_entry", "replacement_count"),
+    [
+        pytest.param({CONF_AUTO_REPLACE_BATTERY: False}, 0, id="manual"),
+        pytest.param({CONF_AUTO_REPLACE_BATTERY: True}, 1, id="automatic"),
+    ],
+    indirect=["mock_config_entry"],
+)
+@pytest.mark.parametrize("battery_note_source", ["device"])
+async def test_auto_replace_from_low_template_updates_sensor(
+    hass: HomeAssistant,
+    template_note_entry: MockConfigEntry,
+    battery_note_sensor: er.RegistryEntry,
+    freezer: FrozenDateTimeFactory,
+    replacement_count: int,
+) -> None:
+    """Test template recovery records a replacement only when enabled."""
+    await setup_integration(hass, template_note_entry)
+    subentry = next(iter(template_note_entry.subentries.values()))
+    last_replaced_id = er.async_get(hass).async_get_entity_id(
+        "sensor", DOMAIN, f"{subentry.unique_id}_battery_last_replaced"
+    )
+    assert last_replaced_id is not None
+    last_replaced = hass.states.get(last_replaced_id).state
+    replacements = async_capture_events(hass, EVENT_BATTERY_REPLACED)
+
+    hass.states.async_set("input_boolean.door_battery_low", STATE_ON)
+    await hass.async_block_till_done()
+    assert replacements == []
+
+    freezer.tick(timedelta(minutes=1))
+    await _set_level(hass, battery_note_sensor.entity_id, "90")
+    assert replacements == []
+    assert hass.states.get(last_replaced_id).state == last_replaced
+
+    hass.states.async_set("input_boolean.door_battery_low", STATE_OFF)
+    await hass.async_block_till_done()
+
+    assert (
+        hass.states.get(last_replaced_id).state
+        == {
+            0: last_replaced,
+            1: dt_util.utcnow().isoformat(timespec="seconds"),
+        }[replacement_count]
+    )
+    assert len(replacements) == replacement_count
+
+
 @pytest.fixture(params=[False, True], ids=["default", "retain-state"])
 def state_template_note_entry(
     hass: HomeAssistant,
@@ -664,6 +881,9 @@ def state_template_note_entry(
     return _note_entry(mock_config_entry, subentry)
 
 
+@pytest.mark.parametrize(
+    "mock_config_entry", [{CONF_AUTO_REPLACE_BATTERY: True}], indirect=True
+)
 @pytest.mark.parametrize("battery_note_source", ["device"])
 async def test_low_template_unavailable_source(
     hass: HomeAssistant,
@@ -673,6 +893,7 @@ async def test_low_template_unavailable_source(
 ) -> None:
     """Test an unavailable template source is not reported as not low."""
     entry = state_template_note_entry
+    replacements = async_capture_events(hass, EVENT_BATTERY_REPLACED)
     await setup_integration(hass, entry)
     battery_low_id = _battery_low_entity_id(hass, entry)
     coordinator = next(iter(entry.runtime_data.subentry_coordinators.values()))
@@ -697,6 +918,7 @@ async def test_low_template_unavailable_source(
     await hass.async_block_till_done()
     assert len(battery_events) == 1
     assert hass.states.get(battery_low_id).state == STATE_ON
+    assert replacements == []
 
 
 @pytest.fixture

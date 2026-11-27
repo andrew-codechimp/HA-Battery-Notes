@@ -170,14 +170,16 @@
                     "hide_battery": "Ocultar bateria",
                     "round_battery": "Bateria arredondada",
                     "default_battery_low_threshold": "Limite padrão de bateria baixa",
-                    "battery_increase_threshold": "Limite padrão de aumento de bateria"
+                    "battery_increase_threshold": "Limite padrão de aumento de bateria",
+                    "auto_replace_battery": "Registrar automaticamente a substituição da bateria"
                 },
                 "data_description": {
                     "show_all_devices": "Mostrar todos os dispositivos no menu suspenso do dispositivo, caso contrário, apenas aqueles com bateria serão mostrados.",
                     "hide_battery": "Ocultar a bateria padrão ao adicionar bateria+",
                     "round_battery": "Arredondar Bateria+ para porcentagens inteiras",
                     "default_battery_low_threshold": "Este é o limite padrão para o disparo do evento `battery_notes_battery_increased`; utilize-o para automações relacionadas à substituição da bateria. O limite refere-se à diferença de aumento entre o nível anterior e o atual da bateria e pode ser personalizado individualmente nas configurações de cada dispositivo.",
-                    "battery_increase_threshold": "Este é o limite padrão para o disparo do evento `battery_notes_battery_increased`; utilize-o para automações relacionadas à substituição da bateria. O limite refere-se à diferença de aumento entre o nível anterior e o atual da bateria e pode ser personalizado individualmente nas configurações de cada dispositivo."
+                    "battery_increase_threshold": "Este é o limite padrão para o disparo do evento `battery_notes_battery_increased`; utilize-o para automações relacionadas à substituição da bateria. O limite refere-se à diferença de aumento entre o nível anterior e o atual da bateria e pode ser personalizado individualmente nas configurações de cada dispositivo.",
+                    "auto_replace_battery": "A bateria é marcada automaticamente como substituída quando o aumento no nível de carga ultrapassa o limite. Se houver um limite de aumento configurado para o dispositivo, ele será usado no lugar do valor global. Os eventos battery_notes_battery_increased e battery_notes_battery_replaced continuarão sendo disparados para que você possa executar outras ações por meio de automações."
                 },
                 "sections": {
                     "advanced_settings": {

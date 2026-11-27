@@ -170,14 +170,16 @@
                     "hide_battery": "Masquer la batterie",
                     "round_battery": "Batterie ronde",
                     "default_battery_low_threshold": "Seuil bas batterie par défaut",
-                    "battery_increase_threshold": "Seuil d'augmentation de la batterie"
+                    "battery_increase_threshold": "Seuil d'augmentation de la batterie",
+                    "auto_replace_battery": "Enregistrer automatiquement le remplacement de la batterie"
                 },
                 "data_description": {
                     "show_all_devices": "Afficher tous les appareils dans la liste déroulante de l'appareil, sinon seuls ceux avec des piles seront affichés.",
                     "hide_battery": "Masquer la batterie standard lors de l'ajout de Battery+.",
                     "round_battery": "Arrondir Battery+ à des pourcentages entiers.",
                     "default_battery_low_threshold": "Le seuil par défaut où l'entité battery_low d'un appareil est définie sur vrai et l'événement battery_notes_battery_threshold est déclenché si la batterie est inférieure à ce seuil, peut être remplacé par appareil dans la configuration de l'appareil.",
-                    "battery_increase_threshold": "Le seuil par défaut où l'événement battery_notes_battery_increased est déclenché, utilisez cet événement pour les automatisations de remplacement de batterie. Le seuil est la différence d'augmentation entre le niveau de batterie précédent et actuel."
+                    "battery_increase_threshold": "Le seuil par défaut où l'événement battery_notes_battery_increased est déclenché, utilisez cet événement pour les automatisations de remplacement de batterie. Le seuil est la différence d'augmentation entre le niveau de batterie précédent et actuel.",
+                    "auto_replace_battery": "La batterie est automatiquement marquée comme remplacée lorsque la hausse du niveau de charge dépasse le seuil d’augmentation. Si un seuil d’augmentation est défini pour l’appareil, il est utilisé à la place de la valeur globale. Les événements battery_notes_battery_increased et battery_notes_battery_replaced continueront d’être déclenchés pour permettre d’exécuter d’autres actions via des automatisations."
                 },
                 "sections": {
                     "advanced_settings": {

@@ -41,6 +41,7 @@ from .common import (
 )
 from .const import (
     CONF_ADVANCED_SETTINGS,
+    CONF_AUTO_REPLACE_BATTERY,
     CONF_BATTERY_LOW_TEMPLATE,
     CONF_BATTERY_QUANTITY,
     CONF_BATTERY_TYPE,
@@ -160,6 +161,9 @@ async def async_setup_entry(
     domain_config.default_battery_increased_threshold = config_entry.options[
         CONF_DEFAULT_BATTERY_INCREASE_THRESHOLD
     ]
+    domain_config.auto_replace_battery = config_entry.options.get(
+        CONF_AUTO_REPLACE_BATTERY, False
+    )
 
     domain_config.enable_autodiscovery = config_entry.options[CONF_ADVANCED_SETTINGS][
         CONF_ENABLE_AUTODISCOVERY

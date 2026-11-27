@@ -170,14 +170,16 @@
                     "hide_battery": "Ukryj baterię",
                     "round_battery": "Zaokrąglaj baterię",
                     "default_battery_low_threshold": "Domyślny próg niskiego poziomu baterii",
-                    "battery_increase_threshold": "Próg wzrostu poziomu baterii"
+                    "battery_increase_threshold": "Próg wzrostu poziomu baterii",
+                    "auto_replace_battery": "Automatycznie rejestruj wymianę baterii"
                 },
                 "data_description": {
                     "show_all_devices": "Pokaż wszystkie urządzenia na liście wyboru, w przeciwnym razie wyświetlane będą tylko te z bateriami.",
                     "hide_battery": "Ukryj standardową baterię podczas dodawania Bateria+.",
                     "round_battery": "Zaokrąglaj Bateria+ do pełnych procentów",
                     "default_battery_low_threshold": "Domyślny próg, przy którym encja battery_low urządzenia zostaje ustawiona na true, a zdarzenie battery_notes_battery_threshold jest wywoływane, jeśli poziom baterii spadnie poniżej tego progu.\nPróg ten może zostać nadpisany indywidualnie w konfiguracji konkretnego urządzenia.",
-                    "battery_increase_threshold": "Domyślny próg, przy którym wywoływane jest zdarzenie battery_notes_battery_increased.\nUżywaj go w automatyzacjach dotyczących wymiany baterii.\nPróg określa różnicę wzrostu pomiędzy poprzednim a aktualnym poziomem baterii."
+                    "battery_increase_threshold": "Domyślny próg, przy którym wywoływane jest zdarzenie battery_notes_battery_increased.\nUżywaj go w automatyzacjach dotyczących wymiany baterii.\nPróg określa różnicę wzrostu pomiędzy poprzednim a aktualnym poziomem baterii.",
+                    "auto_replace_battery": "Bateria jest automatycznie oznaczana jako wymieniona, gdy wzrost poziomu naładowania przekroczy próg. Jeśli dla urządzenia ustawiono własny próg wzrostu, jest on używany zamiast wartości globalnej. Zdarzenia battery_notes_battery_increased i battery_notes_battery_replaced nadal będą wywoływane, co umożliwia wykonywanie innych działań w automatyzacjach."
                 },
                 "sections": {
                     "advanced_settings": {

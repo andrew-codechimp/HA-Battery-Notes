@@ -67,6 +67,7 @@ from .const import (
     DEFAULT_BATTERY_LOW_THRESHOLD,
     DOMAIN,
     EVENT_BATTERY_INCREASED,
+    EVENT_BATTERY_REPLACED,
     EVENT_BATTERY_THRESHOLD,
     LAST_REPLACED,
     LAST_REPORTED,
@@ -97,6 +98,7 @@ class BatteryNotesDomainConfig:
     round_battery: bool = False
     default_battery_increased_threshold: int = DEFAULT_BATTERY_INCREASE_THRESHOLD
     default_battery_low_threshold: int = DEFAULT_BATTERY_LOW_THRESHOLD
+    auto_replace_battery: bool = False
     library_last_update: datetime | None = None
     skip_library_download: bool = False
     user_library: str = ""
@@ -426,6 +428,23 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
             return state.attributes.get(ATTR_UNIT_OF_MEASUREMENT)
         return None
 
+    def _auto_replace_battery(self, *, notify_listeners: bool = False) -> None:
+        """Record and raise events for an automatic battery replacement when enabled."""
+        if not self.config_entry.runtime_data.domain_config.auto_replace_battery:
+            return
+
+        self.last_replaced = dt_util.utcnow()
+        if notify_listeners:
+            self.async_set_updated_data(None)
+
+        self.hass.bus.async_fire(EVENT_BATTERY_REPLACED, self.event_data())
+
+        _LOGGER.debug(
+            "Entity/Device %s battery replaced on %s",
+            self.source_entity_id or self.device_id,
+            str(self.last_replaced),
+        )
+
     @property
     def unique_id(self) -> str:
         """Return a unique ID for the coordinator."""
@@ -501,6 +520,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                     STATE_UNKNOWN,
                 ]
             ):
+                self._auto_replace_battery(notify_listeners=True)
                 self.hass.bus.async_fire(
                     EVENT_BATTERY_INCREASED,
                     self.battery_level_event_data(100, 0),
@@ -546,6 +566,7 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                     STATE_UNKNOWN,
                 ]
             ):
+                self._auto_replace_battery()
                 self.hass.bus.async_fire(
                     EVENT_BATTERY_INCREASED,
                     self.battery_level_event_data(100, 0),
@@ -602,9 +623,13 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                 )
 
             # Battery increased event
-            if float(value) >= (
-                float(self._previous_battery_level) + self.battery_increased_threshold
+            level = float(value)
+            previous_level = float(self._previous_battery_level)
+            if (
+                level > previous_level
+                and level >= previous_level + self.battery_increased_threshold
             ):
+                self._auto_replace_battery()
                 self.hass.bus.async_fire(
                     EVENT_BATTERY_INCREASED,
                     self.battery_level_event_data(

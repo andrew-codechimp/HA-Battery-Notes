@@ -4,6 +4,7 @@ import pytest
 from custom_components.battery_notes.config_flow import calc_config_attributes
 from custom_components.battery_notes.const import (
     CONF_ADVANCED_SETTINGS,
+    CONF_AUTO_REPLACE_BATTERY,
     CONF_DEFAULT_BATTERY_INCREASE_THRESHOLD,
     CONF_DEFAULT_BATTERY_LOW_THRESHOLD,
     CONF_ENABLE_AUTODISCOVERY,
@@ -51,6 +52,7 @@ async def test_user_flow(hass: HomeAssistant) -> None:
         CONF_ROUND_BATTERY: False,
         CONF_DEFAULT_BATTERY_LOW_THRESHOLD: 10,
         CONF_DEFAULT_BATTERY_INCREASE_THRESHOLD: 25,
+        CONF_AUTO_REPLACE_BATTERY: False,
         CONF_ADVANCED_SETTINGS: {
             CONF_ENABLE_AUTODISCOVERY: True,
             CONF_ENABLE_REPLACED: True,
@@ -74,6 +76,9 @@ async def test_user_already_configured(hass: HomeAssistant) -> None:
     assert result["reason"] == "already_configured"
 
 
+@pytest.mark.parametrize(
+    "mock_config_entry", [{CONF_AUTO_REPLACE_BATTERY: True}], indirect=True
+)
 async def test_options_suggested_values(
     hass: HomeAssistant, mock_config_entry: MockConfigEntry
 ) -> None:
@@ -99,6 +104,30 @@ async def test_options_suggested_values(
     } == expected_advanced_options
 
 
+async def test_options_auto_replace_default(
+    hass: HomeAssistant, mock_config_entry: MockConfigEntry
+) -> None:
+    """Test the default for an existing entry without an auto-replace option."""
+    mock_config_entry.add_to_hass(hass)
+    options = dict(mock_config_entry.options)
+    assert CONF_AUTO_REPLACE_BATTERY not in options
+
+    result = await hass.config_entries.options.async_init(mock_config_entry.entry_id)
+    assert result["type"] is FlowResultType.FORM
+    assert result["step_id"] == "init"
+    assert CONF_AUTO_REPLACE_BATTERY in result["data_schema"].schema
+
+    result = await hass.config_entries.options.async_configure(
+        result["flow_id"], user_input=options
+    )
+    await hass.async_block_till_done()
+
+    expected_options = {**options, CONF_AUTO_REPLACE_BATTERY: False}
+    assert result["type"] is FlowResultType.CREATE_ENTRY
+    assert result["data"] == expected_options
+    assert mock_config_entry.options == expected_options
+
+
 @pytest.mark.parametrize(
     ("enabled", "thresholds", "user_library"),
     [
@@ -122,6 +151,7 @@ async def test_options(
         CONF_ROUND_BATTERY: not enabled,
         CONF_DEFAULT_BATTERY_LOW_THRESHOLD: 10,
         CONF_DEFAULT_BATTERY_INCREASE_THRESHOLD: 25,
+        CONF_AUTO_REPLACE_BATTERY: not enabled,
         CONF_ADVANCED_SETTINGS: {
             CONF_ENABLE_AUTODISCOVERY: not enabled,
             CONF_ENABLE_REPLACED: not enabled,
@@ -141,6 +171,7 @@ async def test_options(
         CONF_ROUND_BATTERY: enabled,
         CONF_DEFAULT_BATTERY_LOW_THRESHOLD: low_threshold,
         CONF_DEFAULT_BATTERY_INCREASE_THRESHOLD: increase_threshold,
+        CONF_AUTO_REPLACE_BATTERY: enabled,
         CONF_ADVANCED_SETTINGS: {
             CONF_ENABLE_AUTODISCOVERY: enabled,
             CONF_ENABLE_REPLACED: enabled,

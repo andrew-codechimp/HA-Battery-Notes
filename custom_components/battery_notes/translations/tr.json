@@ -170,14 +170,16 @@
                     "hide_battery": "Hide battery",
                     "round_battery": "Round battery",
                     "default_battery_low_threshold": "Default battery low threshold",
-                    "battery_increase_threshold": "Default battery increase threshold"
+                    "battery_increase_threshold": "Default battery increase threshold",
+                    "auto_replace_battery": "Automatically replace battery"
                 },
                 "data_description": {
                     "show_all_devices": "Show all devices in the device dropdown, otherwise only those with batteries will be shown.",
                     "hide_battery": "Hide the standard battery when adding Battery+.",
                     "round_battery": "Round Battery+ to whole percentages.",
                     "default_battery_low_threshold": "The default threshold where a devices battery_low entity is set to true and the battery_notes_battery_threshold event is fired if the battery is below this threshold, can be overriden per device in device configuration.",
-                    "battery_increase_threshold": "The default threshold where the battery_notes_battery_increased event is fired, use this event for battery replaced automations. The threshold is the difference in increase between previous and current battery level, can be overriden per device in device configuration."
+                    "battery_increase_threshold": "The default threshold where the battery_notes_battery_increased event is fired, use this event for battery replaced automations. The threshold is the difference in increase between previous and current battery level, can be overriden per device in device configuration.",
+                    "auto_replace_battery": "Automatically mark the battery as replaced when the battery goes above the increase threshold. If a device has an increase threshold set this will be used instead of the global value. The battery_notes_battery_increased and battery_notes_battery_replaced events will still be raised to allow you to perform other actions via automations."
                 },
                 "sections": {
                     "advanced_settings": {

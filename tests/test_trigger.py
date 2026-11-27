@@ -13,6 +13,7 @@ from custom_components.battery_notes.const import (
     ATTR_DEVICE_ID,
     ATTR_PREVIOUS_BATTERY_LEVEL,
     ATTR_SOURCE_ENTITY_ID,
+    CONF_AUTO_REPLACE_BATTERY,
     DOMAIN,
     EVENT_BATTERY_INCREASED,
     EVENT_BATTERY_NOT_REPLACED,
@@ -70,11 +71,15 @@ async def _attach_trigger(
     return action, remove
 
 
-async def test_replacement_actions_payload_and_cleanup(
+@pytest.mark.parametrize(
+    "mock_config_entry", [{CONF_AUTO_REPLACE_BATTERY: True}], indirect=True
+)
+async def test_replacement_trigger_payload_and_cleanup(
     hass: HomeAssistant,
     battery_note_config_entry: MockConfigEntry,
+    battery_note_sensor: er.RegistryEntry,
 ) -> None:
-    """Test each action/button event is forwarded until the listener is removed."""
+    """Test the trigger forwards manual and automatic replacements."""
     await setup_integration(hass, battery_note_config_entry)
     button_id = er.async_get(hass).async_get_entity_id(
         "button", DOMAIN, BUTTON_UNIQUE_ID
@@ -100,8 +105,14 @@ async def test_replacement_actions_payload_and_cleanup(
     )
     await hass.async_block_till_done()
 
-    assert len(events) == 2
-    assert action.await_count == 2
+    source = hass.states.get(battery_note_sensor.entity_id)
+    assert source is not None
+    hass.states.async_set(source.entity_id, "80", source.attributes)
+    await hass.async_block_till_done()
+
+    assert len(events) == 3
+    assert events[2].data == events[0].data
+    assert action.await_count == 3
     for call, event in zip(action.call_args_list, events, strict=True):
         assert call.args[0]["trigger"] == {
             "id": "replaced",
@@ -118,8 +129,8 @@ async def test_replacement_actions_payload_and_cleanup(
         "button", "press", {"entity_id": button_id}, blocking=True
     )
     await hass.async_block_till_done()
-    assert len(events) == 3
-    assert action.await_count == 2
+    assert len(events) == 4
+    assert action.await_count == 3
 
 
 @pytest.mark.parametrize(
@@ -375,6 +386,7 @@ async def test_increased_levels_payload_and_cleanup(
     await setup_integration(hass, battery_note_config_entry)
     action, remove = await _attach_trigger(hass, {}, INCREASED_TRIGGER_KEY)
     events = async_capture_events(hass, EVENT_BATTERY_INCREASED)
+    replacements = async_capture_events(hass, EVENT_BATTERY_REPLACED)
     coordinator = next(
         iter(battery_note_config_entry.runtime_data.subentry_coordinators.values())
     )
@@ -421,6 +433,7 @@ async def test_increased_levels_payload_and_cleanup(
     await hass.async_block_till_done()
     assert len(events) == 2
     action.assert_awaited_once()
+    assert replacements == []
 
 
 async def test_recovery_transitions_payload_and_cleanup(

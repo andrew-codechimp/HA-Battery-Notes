@@ -31,6 +31,7 @@ from homeassistant.helpers.typing import DiscoveryInfoType
 from .common import get_device_model_id
 from .const import (
     CONF_ADVANCED_SETTINGS,
+    CONF_AUTO_REPLACE_BATTERY,
     CONF_BATTERY_INCREASE_THRESHOLD,
     CONF_BATTERY_LOW_TEMPLATE,
     CONF_BATTERY_LOW_THRESHOLD,
@@ -87,6 +88,9 @@ OPTIONS_SCHEMA = vol.Schema(
                 min=0, max=99, mode=selector.NumberSelectorMode.BOX
             ),
         ),
+        vol.Required(
+            CONF_AUTO_REPLACE_BATTERY, default=False
+        ): selector.BooleanSelector(),
         vol.Required(CONF_ADVANCED_SETTINGS): section(
             vol.Schema(
                 {
@@ -480,6 +484,7 @@ class BatteryNotesFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
                 CONF_ROUND_BATTERY: False,
                 CONF_DEFAULT_BATTERY_LOW_THRESHOLD: DEFAULT_BATTERY_LOW_THRESHOLD,
                 CONF_DEFAULT_BATTERY_INCREASE_THRESHOLD: DEFAULT_BATTERY_INCREASE_THRESHOLD,
+                CONF_AUTO_REPLACE_BATTERY: False,
                 CONF_ADVANCED_SETTINGS: {
                     CONF_ENABLE_AUTODISCOVERY: True,
                     CONF_ENABLE_REPLACED: True,

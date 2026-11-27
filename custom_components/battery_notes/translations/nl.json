@@ -170,14 +170,16 @@
                     "hide_battery": "Batterij verbergen",
                     "round_battery": "Batterijniveau afronden",
                     "default_battery_low_threshold": "Standaard drempelwaarde laag batterijniveau",
-                    "battery_increase_threshold": "Drempel batterijtoename"
+                    "battery_increase_threshold": "Drempel batterijtoename",
+                    "auto_replace_battery": "Batterijvervanging automatisch registreren"
                 },
                 "data_description": {
                     "show_all_devices": "Alle apparaten in de apparaatkeuzelijst weergeven, anders alleen die met batterijen.",
                     "hide_battery": "Standaard batterij verbergen bij toevoegen van Batterij+.",
                     "round_battery": "Batterij+ afronden op hele percentages.",
                     "default_battery_low_threshold": "De standaard drempel waarbij de battery_low entiteit van een apparaat op waar wordt ingesteld en het battery_notes_battery_threshold event wordt geactiveerd als de batterij onder deze drempel ligt. Kan per apparaat in de apparaatconfiguratie worden overschreven.",
-                    "battery_increase_threshold": "De standaard drempel waarop het battery_notes_battery_increased event wordt geactiveerd. Gebruik dit event voor automatiseringen bij batterijvervanging. De drempel is het verschil in stijging tussen vorig en huidig batterijniveau."
+                    "battery_increase_threshold": "De standaard drempel waarop het battery_notes_battery_increased event wordt geactiveerd. Gebruik dit event voor automatiseringen bij batterijvervanging. De drempel is het verschil in stijging tussen vorig en huidig batterijniveau.",
+                    "auto_replace_battery": "De batterij wordt automatisch als vervangen gemarkeerd wanneer het batterijniveau met meer dan de ingestelde drempel stijgt. Als er voor het apparaat een eigen drempel is ingesteld, wordt die gebruikt in plaats van de algemene waarde. De gebeurtenissen battery_notes_battery_increased en battery_notes_battery_replaced worden nog steeds geactiveerd, zodat je andere acties via automatiseringen kunt uitvoeren."
                 },
                 "sections": {
                     "advanced_settings": {

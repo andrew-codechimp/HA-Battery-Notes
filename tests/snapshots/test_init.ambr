@@ -2,6 +2,7 @@
 # name: test_setup_entry[custom-options]
   dict({
     'config': dict({
+      'auto_replace_battery': True,
       'default_battery_increased_threshold': 30,
       'default_battery_low_threshold': 15,
       'enable_autodiscovery': False,
@@ -25,6 +26,7 @@
 # name: test_setup_entry[default-options]
   dict({
     'config': dict({
+      'auto_replace_battery': False,
       'default_battery_increased_threshold': 25,
       'default_battery_low_threshold': 10,
       'enable_autodiscovery': True,
@@ -47,6 +49,7 @@
 # ---
 # name: test_update_options
   dict({
+    'auto_replace_battery': True,
     'default_battery_increased_threshold': 30.0,
     'default_battery_low_threshold': 15.0,
     'enable_autodiscovery': False,

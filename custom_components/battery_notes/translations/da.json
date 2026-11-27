@@ -170,14 +170,16 @@
                     "hide_battery": "Skjul batteriet",
                     "round_battery": "Afrund batteri",
                     "default_battery_low_threshold": "Standardgrænse for lavt batteriniveau",
-                    "battery_increase_threshold": "Standard-tærskel for batteriladestigning"
+                    "battery_increase_threshold": "Standard-tærskel for batteriladestigning",
+                    "auto_replace_battery": "Registrér batteriskift automatisk"
                 },
                 "data_description": {
                     "show_all_devices": "Vis alle enheder i enhedens dropdown, ellers vises kun dem med batterier.",
                     "hide_battery": "Skjul standardbatteriet ved tilføjelse af Battery+.",
                     "round_battery": "Rund Battery+ til hele procenter.",
                     "default_battery_low_threshold": "Standardtærsklen hvor en enheds battery_low entitet sættes til sand, og battery_notes_battery_threshold hændelsen udløses, hvis batteriniveauet er under denne tærskel. Kan tilsidesættes pr. enhed i enhedskonfigurationen.",
-                    "battery_increase_threshold": "Tærsklen hvor battery_notes_battery_increased-hændelsen udløses. Brug denne hændelse til automatiseringer for batteriskift. Tærsklen er forskellen mellem tidligere og nuværende batteriniveau."
+                    "battery_increase_threshold": "Tærsklen hvor battery_notes_battery_increased-hændelsen udløses. Brug denne hændelse til automatiseringer for batteriskift. Tærsklen er forskellen mellem tidligere og nuværende batteriniveau.",
+                    "auto_replace_battery": "Batteriet markeres automatisk som udskiftet, når stigningen i batteriniveauet overstiger tærsklen. Hvis der er angivet en enhedsspecifik tærskel for stigning i batteriniveauet, bruges den i stedet for den globale værdi. Hændelserne battery_notes_battery_increased og battery_notes_battery_replaced udløses stadig, så du kan udføre andre handlinger via automatiseringer."
                 },
                 "sections": {
                     "advanced_settings": {
