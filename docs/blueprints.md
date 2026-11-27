@@ -16,6 +16,8 @@ It is extended from the [community Battery Low Notification automation yaml](com
 This blueprint will automatically update the battery replaced sensor and custom actions to be performed when the battery increases.  
 It is extended from the [community Battery Replaced automation yaml](community.md#battery-replaced) for those who'd prefer an easy way to get started.
 
+The blueprint offers more advanced control like adding other actions than the built in automatic replacement.
+
 ### Battery Not Reported
 
 [Install blueprint](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fraw.githubusercontent.com%2Fandrew-codechimp%2FHA-Battery-Notes%2Fmain%2Fdocs%2Fblueprints%2Fbattery_notes_battery_not_reported.yaml) | [Source](https://raw.githubusercontent.com/andrew-codechimp/HA-Battery-Notes/main/docs/blueprints/battery_notes_battery_not_reported.yaml)

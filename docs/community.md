@@ -332,6 +332,8 @@ actions:
 
 Mark a battery as replaced when there is an increase in battery level.
 
+This gives the option of adding other actions that the built in automatic replacement would not provide.
+
 !!! note
 
     Battery Increased events are only raised when the device has a Battery+ entity or a [Battery Low Template](./index.md#battery-low-template) is added to the Battery Notes configuration.
