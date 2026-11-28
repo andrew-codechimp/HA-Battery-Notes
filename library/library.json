@@ -7583,6 +7583,12 @@
         },
         {
             "manufacturer": "Nous",
+            "model": "Carbon monoxide alarm",
+            "model_id": "E12",
+            "battery_type": "CR123A"
+        },
+        {
+            "manufacturer": "Nous",
             "model": "Smoke sensor (E8)",
             "model_id": "E8",
             "battery_type": "CR123A"
@@ -13907,12 +13913,6 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
-        },
-        {
-            "manufacturer": "Nous",
-            "model": "Carbon monoxide alarm",
-            "model_id": "E12",
-            "battery_type": "CR123A"
         }
     ]
 }
