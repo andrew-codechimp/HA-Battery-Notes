@@ -471,6 +471,38 @@ async def test_subentry_follows_source(
     assert low_state.state == "on"
 
 
+async def test_setup_clears_missing_device_issue_when_source_is_present(
+    hass: HomeAssistant,
+    mock_config_entry: MockConfigEntry,
+    mock_subentry: ConfigSubentry,
+) -> None:
+    """Test setup clears a missing-source issue left by an earlier run."""
+    issue_id = missing_device_issue_id(mock_subentry.subentry_id)
+    ir.async_create_issue(
+        hass,
+        DOMAIN,
+        issue_id,
+        data={
+            "entry_id": mock_config_entry.entry_id,
+            "subentry_id": mock_subentry.subentry_id,
+            "device_id": mock_subentry.data.get(CONF_DEVICE_ID),
+            "source_entity_id": mock_subentry.data.get(CONF_SOURCE_ENTITY_ID),
+        },
+        is_fixable=True,
+        severity=ir.IssueSeverity.WARNING,
+        translation_key="missing_device",
+        translation_placeholders={"name": mock_subentry.title},
+    )
+    issue_registry = ir.async_get(hass)
+    assert issue_registry.async_get_issue(DOMAIN, issue_id) is not None
+
+    await setup_integration(hass, mock_config_entry)
+
+    assert mock_config_entry.state is ConfigEntryState.LOADED
+    assert mock_subentry.subentry_id in mock_config_entry.subentries
+    assert issue_registry.async_get_issue(DOMAIN, issue_id) is None
+
+
 async def test_link_retry_restores_source(
     hass: HomeAssistant,
     mock_config_entry: MockConfigEntry,

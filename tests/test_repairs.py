@@ -5,8 +5,12 @@ from datetime import UTC, datetime
 from unittest.mock import patch
 
 import pytest
-from custom_components.battery_notes.common import composite_device_issue_id
+from custom_components.battery_notes.common import (
+    composite_device_issue_id,
+    missing_device_issue_id,
+)
 from custom_components.battery_notes.const import (
+    CONF_SOURCE_ENTITY_ID,
     DOMAIN,
     LAST_REPLACED,
     LAST_REPORTED,
@@ -16,6 +20,7 @@ from custom_components.battery_notes.repairs import CompositeDeviceIdRepairFlow
 from custom_components.battery_notes.store import async_get_registry
 from pytest_homeassistant_custom_component.common import MockConfigEntry
 
+from homeassistant.components.repairs import DOMAIN as REPAIRS_DOMAIN
 from homeassistant.const import ATTR_DEVICE_ID, CONF_DEVICE_ID, STATE_UNAVAILABLE
 from homeassistant.core import HomeAssistant
 from homeassistant.data_entry_flow import FlowResultType
@@ -24,10 +29,95 @@ from homeassistant.helpers import (
     entity_registry as er,
     issue_registry as ir,
 )
+from homeassistant.setup import async_setup_component
 
 from . import setup_integration
 
 pytestmark = pytest.mark.usefixtures("mock_library_updater", "_mock_library_file")
+
+
+@pytest.fixture
+async def missing_device_repair_issue(
+    hass: HomeAssistant,
+    battery_note_config_entry: MockConfigEntry,
+) -> str:
+    """Create a missing-source issue for the saved note."""
+    assert await async_setup_component(hass, REPAIRS_DOMAIN, {})
+    await setup_integration(hass, battery_note_config_entry)
+    entry = battery_note_config_entry
+    subentry = next(iter(entry.subentries.values()))
+    issue_id = missing_device_issue_id(subentry.subentry_id)
+    ir.async_create_issue(
+        hass,
+        DOMAIN,
+        issue_id,
+        data={
+            "entry_id": entry.entry_id,
+            "subentry_id": subentry.subentry_id,
+            "device_id": subentry.data.get(CONF_DEVICE_ID),
+            "source_entity_id": subentry.data.get(CONF_SOURCE_ENTITY_ID),
+        },
+        is_fixable=True,
+        severity=ir.IssueSeverity.WARNING,
+        translation_key="missing_device",
+        translation_placeholders={"name": subentry.title},
+    )
+    return issue_id
+
+
+async def test_missing_device_repair_completes_when_source_is_present(
+    hass: HomeAssistant,
+    battery_note_config_entry: MockConfigEntry,
+    missing_device_repair_issue: str,
+) -> None:
+    """Test a recovered source clears the issue as soon as the repair opens."""
+    subentry = next(iter(battery_note_config_entry.subentries.values()))
+    repairs = hass.data[REPAIRS_DOMAIN]["flow_manager"]
+
+    result = await repairs.async_init(
+        DOMAIN, data={"issue_id": missing_device_repair_issue}
+    )
+
+    assert result["type"] is FlowResultType.CREATE_ENTRY
+    assert battery_note_config_entry.subentries[subentry.subentry_id] is subentry
+    assert (
+        ir.async_get(hass).async_get_issue(DOMAIN, missing_device_repair_issue) is None
+    )
+
+
+@pytest.mark.parametrize("battery_note_source", ["entity"])
+async def test_missing_device_repair_preserves_note_when_source_returns(
+    hass: HomeAssistant,
+    battery_note_config_entry: MockConfigEntry,
+    battery_note_sensor: er.RegistryEntry,
+    entity_registry: er.EntityRegistry,
+    missing_device_repair_issue: str,
+) -> None:
+    """Test confirmation keeps a note whose source returns after the repair opens."""
+    subentry = next(iter(battery_note_config_entry.subentries.values()))
+    entity_registry.async_remove(battery_note_sensor.entity_id)
+    hass.states.async_remove(battery_note_sensor.entity_id)
+    repairs = hass.data[REPAIRS_DOMAIN]["flow_manager"]
+    result = await repairs.async_init(
+        DOMAIN, data={"issue_id": missing_device_repair_issue}
+    )
+    assert result["type"] is FlowResultType.FORM
+    assert result["step_id"] == "confirm"
+
+    restored_entity = entity_registry.async_get_or_create(
+        battery_note_sensor.domain,
+        battery_note_sensor.platform,
+        battery_note_sensor.unique_id,
+        device_id=battery_note_sensor.device_id,
+    )
+    assert restored_entity.entity_id == battery_note_sensor.entity_id
+    result = await repairs.async_configure(result["flow_id"], {})
+
+    assert result["type"] is FlowResultType.CREATE_ENTRY
+    assert battery_note_config_entry.subentries[subentry.subentry_id] is subentry
+    assert (
+        ir.async_get(hass).async_get_issue(DOMAIN, missing_device_repair_issue) is None
+    )
 
 
 @pytest.fixture

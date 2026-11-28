@@ -310,6 +310,10 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                 )
                 return False
 
+            ir.async_delete_issue(
+                self.hass, DOMAIN, missing_device_issue_id(self.subentry.subentry_id)
+            )
+
             self.device_id = entity.device_id
             device_class = entity.device_class or entity.original_device_class
             unit_of_measurement = self._source_unit_of_measurement(entity)
@@ -386,6 +390,11 @@ class BatteryNotesSubentryCoordinator(DataUpdateCoordinator[None]):
                     self.subentry.title
                     if self.subentry
                     else device_entry.name_by_user or device_entry.name or ""
+                )
+                ir.async_delete_issue(
+                    self.hass,
+                    DOMAIN,
+                    missing_device_issue_id(self.subentry.subentry_id),
                 )
             else:
                 self.device_name = self.subentry.title

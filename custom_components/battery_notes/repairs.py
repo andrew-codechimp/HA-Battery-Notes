@@ -13,14 +13,18 @@ from homeassistant.config_entries import ConfigEntry, ConfigSubentry
 from homeassistant.const import CONF_DEVICE_ID
 from homeassistant.core import HomeAssistant
 from homeassistant.exceptions import HomeAssistantError
-from homeassistant.helpers import device_registry as dr, issue_registry as ir
+from homeassistant.helpers import (
+    device_registry as dr,
+    entity_registry as er,
+    issue_registry as ir,
+)
 from homeassistant.helpers.selector import DeviceSelector
 
 from .common import composite_device_issue_id
-from .const import DOMAIN
+from .const import CONF_SOURCE_ENTITY_ID, DOMAIN
 from .store import async_get_registry
 
-REQUIRED_KEYS = ("entry_id", "subentry_id", "device_id", "source_entity_id")
+REQUIRED_KEYS = ("entry_id", "subentry_id")
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -34,8 +38,6 @@ class MissingDeviceRepairFlow(RepairsFlow):
             raise ValueError("Missing data")
         self.entry_id = cast(str, data["entry_id"])
         self.subentry_id = cast(str, data["subentry_id"])
-        self.device_id = cast(str, data["device_id"])
-        self.source_entity_id = cast(str, data["source_entity_id"])
 
     async def async_step_init(
         self,
@@ -48,11 +50,30 @@ class MissingDeviceRepairFlow(RepairsFlow):
     async def async_step_confirm(
         self, user_input: dict[str, str] | None = None
     ) -> data_entry_flow.FlowResult:
-        """Handle the confirm step of a fix flow."""
-        if user_input is not None:
-            if entry := self.hass.config_entries.async_get_entry(self.entry_id):
-                self.hass.config_entries.async_remove_subentry(entry, self.subentry_id)
+        """Check the source before showing the form or removing the note."""
+        entry = self.hass.config_entries.async_get_entry(self.entry_id)
+        if (
+            entry is None
+            or (subentry := entry.subentries.get(self.subentry_id)) is None
+        ):
+            return self.async_create_entry(data={})
 
+        if source_entity_id := subentry.data.get(CONF_SOURCE_ENTITY_ID):
+            source_exists = (
+                er.async_get(self.hass).async_get(source_entity_id) is not None
+            )
+        else:
+            device_id = subentry.data.get(CONF_DEVICE_ID)
+            source_exists = (
+                device_id is not None
+                and dr.async_get(self.hass).async_get(device_id) is not None
+            )
+
+        if source_exists:
+            return self.async_create_entry(data={})
+
+        if user_input is not None:
+            self.hass.config_entries.async_remove_subentry(entry, self.subentry_id)
             return self.async_create_entry(data={})
 
         issue_registry = ir.async_get(self.hass)
