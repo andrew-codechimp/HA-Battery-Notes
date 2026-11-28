@@ -1,4 +1,4 @@
-## 2393 Devices in library
+## 2394 Devices in library
 
 This file is auto generated, do not modify
 
@@ -497,6 +497,7 @@ Request new devices to be added to the library [here](https://github.com/andrew-
 |Danfoss                                         |010101                                                                                        |2× AA                     |                                                                                      |
 |Danfoss                                         |Ally thermostat                                                                               |2× AA                     |014G2461                                                                              |
 |Danfoss                                         |Ally thermostat (014G2461)                                                                    |2× AA                     |                                                                                      |
+|Danfoss                                         |Danfoss Icon2 RT                                                                              |2× AAA                    |                                                                                      |
 |Danfoss                                         |eTRV0100                                                                                      |2× AA                     |                                                                                      |
 |Danfoss                                         |eTRV0103                                                                                      |2× AA                     |                                                                                      |
 |Danfoss                                         |LC-13                                                                                         |2× AA                     |                                                                                      |
