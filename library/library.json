@@ -13901,6 +13901,12 @@
             "manufacturer": "ZVIDAR",
             "model": "Z-CM-V01",
             "battery_type": "Rechargeable"
+        },
+        {
+            "manufacturer": "Danfoss",
+            "model": "Danfoss Icon2 RT",
+            "battery_type": "AAA",
+            "battery_quantity": 2
         }
     ]
 }
